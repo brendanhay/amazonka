@@ -31,11 +31,11 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RequestEnvironmentInfo
     -- * Request
       RequestEnvironmentInfo
     -- ** Request constructor
-    , mkRequestEnvironmentInfoMessage
+    , mkRequestEnvironmentInfo
     -- ** Request lenses
-    , reimEnvironmentId
-    , reimEnvironmentName
-    , reimInfoType
+    , reiEnvironmentId
+    , reiEnvironmentName
+    , reiInfoType
 
     -- * Response
     , RequestEnvironmentInfoResponse
@@ -45,57 +45,48 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | This documentation target is not reported in the API reference.
+data RequestEnvironmentInfo = RequestEnvironmentInfo
+    { _reiEnvironmentId :: Maybe Text
+    , _reiEnvironmentName :: Maybe Text
+    , _reiInfoType :: EnvironmentInfoType
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestEnvironmentInfo' request.
-mkRequestEnvironmentInfoMessage :: EnvironmentInfoType -- ^ 'reimInfoType'
-                                -> RequestEnvironmentInfo
-mkRequestEnvironmentInfoMessage p1 = RequestEnvironmentInfo
-    { _reimEnvironmentId = Nothing
-    , _reimEnvironmentName = Nothing
-    , _reimInfoType = p3
+mkRequestEnvironmentInfo :: EnvironmentInfoType -- ^ 'reiInfoType'
+                         -> RequestEnvironmentInfo
+mkRequestEnvironmentInfo p3 = RequestEnvironmentInfo
+    { _reiEnvironmentId = Nothing
+    , _reiEnvironmentName = Nothing
+    , _reiInfoType = p3
     }
-{-# INLINE mkRequestEnvironmentInfoMessage #-}
-
-data RequestEnvironmentInfo = RequestEnvironmentInfo
-    { _reimEnvironmentId :: Maybe Text
-      -- ^ The ID of the environment of the requested data. If no such
-      -- environment is found, RequestEnvironmentInfo returns an
-      -- InvalidParameterValue error. Condition: You must specify either
-      -- this or an EnvironmentName, or both. If you do not specify
-      -- either, AWS Elastic Beanstalk returns MissingRequiredParameter
-      -- error.
-    , _reimEnvironmentName :: Maybe Text
-      -- ^ The name of the environment of the requested data. If no such
-      -- environment is found, RequestEnvironmentInfo returns an
-      -- InvalidParameterValue error. Condition: You must specify either
-      -- this or an EnvironmentId, or both. If you do not specify either,
-      -- AWS Elastic Beanstalk returns MissingRequiredParameter error.
-    , _reimInfoType :: EnvironmentInfoType
-      -- ^ The type of information to request.
-    } deriving (Show, Generic)
+{-# INLINE mkRequestEnvironmentInfo #-}
 
 -- | The ID of the environment of the requested data. If no such environment is
 -- found, RequestEnvironmentInfo returns an InvalidParameterValue error.
 -- Condition: You must specify either this or an EnvironmentName, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-reimEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
-reimEnvironmentId = lens _reimEnvironmentId (\s a -> s { _reimEnvironmentId = a })
-{-# INLINE reimEnvironmentId #-}
+reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
+reiEnvironmentId =
+    lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
+{-# INLINE reiEnvironmentId #-}
 
 -- | The name of the environment of the requested data. If no such environment
 -- is found, RequestEnvironmentInfo returns an InvalidParameterValue error.
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-reimEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
-reimEnvironmentName = lens _reimEnvironmentName (\s a -> s { _reimEnvironmentName = a })
-{-# INLINE reimEnvironmentName #-}
+reiEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
+reiEnvironmentName =
+    lens _reiEnvironmentName (\s a -> s { _reiEnvironmentName = a })
+{-# INLINE reiEnvironmentName #-}
 
 -- | The type of information to request.
-reimInfoType :: Lens' RequestEnvironmentInfo (EnvironmentInfoType)
-reimInfoType = lens _reimInfoType (\s a -> s { _reimInfoType = a })
-{-# INLINE reimInfoType #-}
+reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
+reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
+{-# INLINE reiInfoType #-}
 
 instance ToQuery RequestEnvironmentInfo where
     toQuery = genericQuery def

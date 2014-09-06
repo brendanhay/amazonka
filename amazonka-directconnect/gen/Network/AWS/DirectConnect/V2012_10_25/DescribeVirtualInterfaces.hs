@@ -32,15 +32,15 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
     -- * Request
       DescribeVirtualInterfaces
     -- ** Request constructor
-    , mkDescribeVirtualInterfacesRequest
+    , mkDescribeVirtualInterfaces
     -- ** Request lenses
-    , dvitConnectionId
-    , dvitVirtualInterfaceId
+    , dvi1ConnectionId
+    , dvi1VirtualInterfaceId
 
     -- * Response
     , DescribeVirtualInterfacesResponse
     -- ** Response lenses
-    , vmVirtualInterfaces
+    , dvirsrsVirtualInterfaces
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -48,32 +48,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVirtualInterfaces' request.
-mkDescribeVirtualInterfacesRequest :: DescribeVirtualInterfaces
-mkDescribeVirtualInterfacesRequest = DescribeVirtualInterfaces
-    { _dvitConnectionId = Nothing
-    , _dvitVirtualInterfaceId = Nothing
-    }
-{-# INLINE mkDescribeVirtualInterfacesRequest #-}
-
+-- | Container for the parameters to the DescribeVirtualInterfaces operation.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
-    { _dvitConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _dvitVirtualInterfaceId :: Maybe Text
-      -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
-      -- None.
+    { _dvi1ConnectionId :: Maybe Text
+    , _dvi1VirtualInterfaceId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVirtualInterfaces' request.
+mkDescribeVirtualInterfaces :: DescribeVirtualInterfaces
+mkDescribeVirtualInterfaces = DescribeVirtualInterfaces
+    { _dvi1ConnectionId = Nothing
+    , _dvi1VirtualInterfaceId = Nothing
+    }
+{-# INLINE mkDescribeVirtualInterfaces #-}
+
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dvitConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvitConnectionId = lens _dvitConnectionId (\s a -> s { _dvitConnectionId = a })
-{-# INLINE dvitConnectionId #-}
+dvi1ConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dvi1ConnectionId =
+    lens _dvi1ConnectionId (\s a -> s { _dvi1ConnectionId = a })
+{-# INLINE dvi1ConnectionId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-dvitVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvitVirtualInterfaceId = lens _dvitVirtualInterfaceId (\s a -> s { _dvitVirtualInterfaceId = a })
-{-# INLINE dvitVirtualInterfaceId #-}
+dvi1VirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dvi1VirtualInterfaceId =
+    lens _dvi1VirtualInterfaceId (\s a -> s { _dvi1VirtualInterfaceId = a })
+{-# INLINE dvi1VirtualInterfaceId #-}
 
 instance ToPath DescribeVirtualInterfaces
 
@@ -83,15 +83,17 @@ instance ToHeaders DescribeVirtualInterfaces
 
 instance ToJSON DescribeVirtualInterfaces
 
+-- | A structure containing a list of virtual interfaces.
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
-    { _vmVirtualInterfaces :: [VirtualInterface]
-      -- ^ A list of virtual interfaces.
+    { _dvirsrsVirtualInterfaces :: [VirtualInterface]
     } deriving (Show, Generic)
 
 -- | A list of virtual interfaces.
-vmVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse ([VirtualInterface])
-vmVirtualInterfaces = lens _vmVirtualInterfaces (\s a -> s { _vmVirtualInterfaces = a })
-{-# INLINE vmVirtualInterfaces #-}
+dvirsrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvirsrsVirtualInterfaces =
+    lens _dvirsrsVirtualInterfaces
+         (\s a -> s { _dvirsrsVirtualInterfaces = a })
+{-# INLINE dvirsrsVirtualInterfaces #-}
 
 instance FromJSON DescribeVirtualInterfacesResponse
 

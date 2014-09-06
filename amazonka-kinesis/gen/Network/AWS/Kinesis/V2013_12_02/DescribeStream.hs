@@ -65,16 +65,16 @@ module Network.AWS.Kinesis.V2013_12_02.DescribeStream
     -- * Request
       DescribeStream
     -- ** Request constructor
-    , mkDescribeStreamInput
+    , mkDescribeStream
     -- ** Request lenses
-    , dsjStreamName
-    , dsjLimit
-    , dsjExclusiveStartShardId
+    , ds1StreamName
+    , ds1Limit
+    , ds1ExclusiveStartShardId
 
     -- * Response
     , DescribeStreamResponse
     -- ** Response lenses
-    , dsoStreamDescription
+    , dsrsStreamDescription
     ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
@@ -82,41 +82,40 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStream' request.
-mkDescribeStreamInput :: Text -- ^ 'dsjStreamName'
-                      -> DescribeStream
-mkDescribeStreamInput p1 = DescribeStream
-    { _dsjStreamName = p1
-    , _dsjLimit = Nothing
-    , _dsjExclusiveStartShardId = Nothing
-    }
-{-# INLINE mkDescribeStreamInput #-}
-
+-- | Represents the input of a DescribeStream operation.
 data DescribeStream = DescribeStream
-    { _dsjStreamName :: Text
-      -- ^ The name of the stream to describe.
-    , _dsjLimit :: Maybe Integer
-      -- ^ The maximum number of shards to return.
-    , _dsjExclusiveStartShardId :: Maybe Text
-      -- ^ The shard ID of the shard to start with for the stream
-      -- description.
+    { _ds1StreamName :: Text
+    , _ds1Limit :: Maybe Integer
+    , _ds1ExclusiveStartShardId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStream' request.
+mkDescribeStream :: Text -- ^ 'ds1StreamName'
+                 -> DescribeStream
+mkDescribeStream p1 = DescribeStream
+    { _ds1StreamName = p1
+    , _ds1Limit = Nothing
+    , _ds1ExclusiveStartShardId = Nothing
+    }
+{-# INLINE mkDescribeStream #-}
+
 -- | The name of the stream to describe.
-dsjStreamName :: Lens' DescribeStream (Text)
-dsjStreamName = lens _dsjStreamName (\s a -> s { _dsjStreamName = a })
-{-# INLINE dsjStreamName #-}
+ds1StreamName :: Lens' DescribeStream Text
+ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
+{-# INLINE ds1StreamName #-}
 
 -- | The maximum number of shards to return.
-dsjLimit :: Lens' DescribeStream (Maybe Integer)
-dsjLimit = lens _dsjLimit (\s a -> s { _dsjLimit = a })
-{-# INLINE dsjLimit #-}
+ds1Limit :: Lens' DescribeStream (Maybe Integer)
+ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a })
+{-# INLINE ds1Limit #-}
 
 -- | The shard ID of the shard to start with for the stream description.
-dsjExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-dsjExclusiveStartShardId = lens _dsjExclusiveStartShardId (\s a -> s { _dsjExclusiveStartShardId = a })
-{-# INLINE dsjExclusiveStartShardId #-}
+ds1ExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
+ds1ExclusiveStartShardId =
+    lens _ds1ExclusiveStartShardId
+         (\s a -> s { _ds1ExclusiveStartShardId = a })
+{-# INLINE ds1ExclusiveStartShardId #-}
 
 instance ToPath DescribeStream
 
@@ -126,19 +125,18 @@ instance ToHeaders DescribeStream
 
 instance ToJSON DescribeStream
 
+-- | Represents the output of a DescribeStream operation.
 newtype DescribeStreamResponse = DescribeStreamResponse
-    { _dsoStreamDescription :: StreamDescription
-      -- ^ Contains the current status of the stream, the stream ARN, an
-      -- array of shard objects that comprise the stream, and states
-      -- whether there are more shards available.
+    { _dsrsStreamDescription :: StreamDescription
     } deriving (Show, Generic)
 
 -- | Contains the current status of the stream, the stream ARN, an array of
 -- shard objects that comprise the stream, and states whether there are more
 -- shards available.
-dsoStreamDescription :: Lens' DescribeStreamResponse (StreamDescription)
-dsoStreamDescription = lens _dsoStreamDescription (\s a -> s { _dsoStreamDescription = a })
-{-# INLINE dsoStreamDescription #-}
+dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
+dsrsStreamDescription =
+    lens _dsrsStreamDescription (\s a -> s { _dsrsStreamDescription = a })
+{-# INLINE dsrsStreamDescription #-}
 
 instance FromJSON DescribeStreamResponse
 
@@ -151,7 +149,7 @@ instance AWSRequest DescribeStream where
 
 instance AWSPager DescribeStream where
     next rq rs
-        | not (_sdHasMoreShards $ _dsoStreamDescription rs) = Nothing
+        | not (_sdHasMoreShards $ _dsrsStreamDescription rs) = Nothing
         | otherwise = Just $ rq
-            { _dsjExclusiveStartShardId = keyed _sShardId _sdShards $ _dsoStreamDescription rs
+            { _ds1ExclusiveStartShardId = keyed _sShardId _sdShards $ _dsrsStreamDescription rs
             }

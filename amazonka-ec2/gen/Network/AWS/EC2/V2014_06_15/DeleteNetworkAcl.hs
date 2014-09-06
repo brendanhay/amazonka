@@ -30,9 +30,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl
     -- * Request
       DeleteNetworkAcl
     -- ** Request constructor
-    , mkDeleteNetworkAclRequest
+    , mkDeleteNetworkAcl
     -- ** Request lenses
-    , dnarNetworkAclId
+    , dnaNetworkAclId
 
     -- * Response
     , DeleteNetworkAclResponse
@@ -42,24 +42,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteNetworkAcl' request.
-mkDeleteNetworkAclRequest :: Text -- ^ 'dnarNetworkAclId'
-                          -> DeleteNetworkAcl
-mkDeleteNetworkAclRequest p1 = DeleteNetworkAcl
-    { _dnarNetworkAclId = p1
-    }
-{-# INLINE mkDeleteNetworkAclRequest #-}
-
+-- | 
 newtype DeleteNetworkAcl = DeleteNetworkAcl
-    { _dnarNetworkAclId :: Text
-      -- ^ The ID of the network ACL.
+    { _dnaNetworkAclId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteNetworkAcl' request.
+mkDeleteNetworkAcl :: Text -- ^ 'dnaNetworkAclId'
+                   -> DeleteNetworkAcl
+mkDeleteNetworkAcl p1 = DeleteNetworkAcl
+    { _dnaNetworkAclId = p1
+    }
+{-# INLINE mkDeleteNetworkAcl #-}
+
 -- | The ID of the network ACL.
-dnarNetworkAclId :: Lens' DeleteNetworkAcl (Text)
-dnarNetworkAclId = lens _dnarNetworkAclId (\s a -> s { _dnarNetworkAclId = a })
-{-# INLINE dnarNetworkAclId #-}
+dnaNetworkAclId :: Lens' DeleteNetworkAcl Text
+dnaNetworkAclId = lens _dnaNetworkAclId (\s a -> s { _dnaNetworkAclId = a })
+{-# INLINE dnaNetworkAclId #-}
 
 instance ToQuery DeleteNetworkAcl where
     toQuery = genericQuery def

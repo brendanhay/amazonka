@@ -32,45 +32,45 @@ module Network.AWS.Route53.V2013_04_01.DeleteHostedZone
     -- * Request
       DeleteHostedZone
     -- ** Request constructor
-    , mkDeleteHostedZoneRequest
+    , mkDeleteHostedZone
     -- ** Request lenses
-    , dhzrId
+    , dhzId
 
     -- * Response
     , DeleteHostedZoneResponse
     -- ** Response lenses
-    , dhzsChangeInfo
+    , dhzrsChangeInfo
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | A complex type containing the response information for the delete request.
+newtype DeleteHostedZone = DeleteHostedZone
+    { _dhzId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHostedZone' request.
-mkDeleteHostedZoneRequest :: Text -- ^ 'dhzrId'
-                          -> DeleteHostedZone
-mkDeleteHostedZoneRequest p1 = DeleteHostedZone
-    { _dhzrId = p1
+mkDeleteHostedZone :: Text -- ^ 'dhzId'
+                   -> DeleteHostedZone
+mkDeleteHostedZone p1 = DeleteHostedZone
+    { _dhzId = p1
     }
-{-# INLINE mkDeleteHostedZoneRequest #-}
-
-newtype DeleteHostedZone = DeleteHostedZone
-    { _dhzrId :: Text
-      -- ^ The ID of the request. Include this ID in a call to GetChange to
-      -- track when the change has propagated to all Route 53 DNS servers.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteHostedZone #-}
 
 -- | The ID of the request. Include this ID in a call to GetChange to track when
 -- the change has propagated to all Route 53 DNS servers.
-dhzrId :: Lens' DeleteHostedZone (Text)
-dhzrId = lens _dhzrId (\s a -> s { _dhzrId = a })
-{-# INLINE dhzrId #-}
+dhzId :: Lens' DeleteHostedZone Text
+dhzId = lens _dhzId (\s a -> s { _dhzId = a })
+{-# INLINE dhzId #-}
 
 instance ToPath DeleteHostedZone where
     toPath DeleteHostedZone{..} = mconcat
         [ "/2013-04-01/hostedzone/"
-        , toBS _dhzrId
+        , toBS _dhzId
         ]
 
 instance ToQuery DeleteHostedZone
@@ -81,17 +81,16 @@ instance ToXML DeleteHostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHostedZoneRequest"
 
+-- | A complex type containing the response information for the request.
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
-    { _dhzsChangeInfo :: ChangeInfo
-      -- ^ A complex type that contains the ID, the status, and the date and
-      -- time of your delete request.
+    { _dhzrsChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your delete request.
-dhzsChangeInfo :: Lens' DeleteHostedZoneResponse (ChangeInfo)
-dhzsChangeInfo = lens _dhzsChangeInfo (\s a -> s { _dhzsChangeInfo = a })
-{-# INLINE dhzsChangeInfo #-}
+dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
+dhzrsChangeInfo = lens _dhzrsChangeInfo (\s a -> s { _dhzrsChangeInfo = a })
+{-# INLINE dhzrsChangeInfo #-}
 
 instance FromXML DeleteHostedZoneResponse where
     fromXMLOptions = xmlOptions

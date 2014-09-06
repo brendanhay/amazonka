@@ -43,17 +43,17 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage
     -- * Request
       DescribeWorkingStorage
     -- ** Request constructor
-    , mkDescribeWorkingStorageInput
+    , mkDescribeWorkingStorage
     -- ** Request lenses
-    , dwsiGatewayARN
+    , dwsGatewayARN
 
     -- * Response
     , DescribeWorkingStorageResponse
     -- ** Response lenses
-    , dwsoGatewayARN
-    , dwsoDiskIds
-    , dwsoWorkingStorageUsedInBytes
-    , dwsoWorkingStorageAllocatedInBytes
+    , dwsrsGatewayARN
+    , dwsrsDiskIds
+    , dwsrsWorkingStorageUsedInBytes
+    , dwsrsWorkingStorageAllocatedInBytes
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -61,27 +61,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the of the gateway.
+newtype DescribeWorkingStorage = DescribeWorkingStorage
+    { _dwsGatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeWorkingStorage' request.
-mkDescribeWorkingStorageInput :: Text -- ^ 'dwsiGatewayARN'
-                              -> DescribeWorkingStorage
-mkDescribeWorkingStorageInput p1 = DescribeWorkingStorage
-    { _dwsiGatewayARN = p1
+mkDescribeWorkingStorage :: Text -- ^ 'dwsGatewayARN'
+                         -> DescribeWorkingStorage
+mkDescribeWorkingStorage p1 = DescribeWorkingStorage
+    { _dwsGatewayARN = p1
     }
-{-# INLINE mkDescribeWorkingStorageInput #-}
-
-newtype DescribeWorkingStorage = DescribeWorkingStorage
-    { _dwsiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeWorkingStorage #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dwsiGatewayARN :: Lens' DescribeWorkingStorage (Text)
-dwsiGatewayARN = lens _dwsiGatewayARN (\s a -> s { _dwsiGatewayARN = a })
-{-# INLINE dwsiGatewayARN #-}
+dwsGatewayARN :: Lens' DescribeWorkingStorage Text
+dwsGatewayARN = lens _dwsGatewayARN (\s a -> s { _dwsGatewayARN = a })
+{-# INLINE dwsGatewayARN #-}
 
 instance ToPath DescribeWorkingStorage
 
@@ -91,52 +89,43 @@ instance ToHeaders DescribeWorkingStorage
 
 instance ToJSON DescribeWorkingStorage
 
+-- | A JSON object containing the following fields:.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
-    { _dwsoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dwsoDiskIds :: [Text]
-      -- ^ An array of the gateway's local disk IDs that are configured as
-      -- working storage. Each local disk ID is specified as a string
-      -- (minimum length of 1 and maximum length of 300). If no local
-      -- disks are configured as working storage, then the DiskIds array
-      -- is empty.
-    , _dwsoWorkingStorageUsedInBytes :: Maybe Integer
-      -- ^ The total working storage in bytes in use by the gateway. If no
-      -- working storage is configured for the gateway, this field returns
-      -- 0.
-    , _dwsoWorkingStorageAllocatedInBytes :: Maybe Integer
-      -- ^ The total working storage in bytes allocated for the gateway. If
-      -- no working storage is configured for the gateway, this field
-      -- returns 0.
+    { _dwsrsGatewayARN :: Maybe Text
+    , _dwsrsDiskIds :: [Text]
+    , _dwsrsWorkingStorageUsedInBytes :: Maybe Integer
+    , _dwsrsWorkingStorageAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dwsoGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
-dwsoGatewayARN = lens _dwsoGatewayARN (\s a -> s { _dwsoGatewayARN = a })
-{-# INLINE dwsoGatewayARN #-}
+dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
+dwsrsGatewayARN = lens _dwsrsGatewayARN (\s a -> s { _dwsrsGatewayARN = a })
+{-# INLINE dwsrsGatewayARN #-}
 
 -- | An array of the gateway's local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of 1
 -- and maximum length of 300). If no local disks are configured as working
 -- storage, then the DiskIds array is empty.
-dwsoDiskIds :: Lens' DescribeWorkingStorageResponse ([Text])
-dwsoDiskIds = lens _dwsoDiskIds (\s a -> s { _dwsoDiskIds = a })
-{-# INLINE dwsoDiskIds #-}
+dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
+dwsrsDiskIds = lens _dwsrsDiskIds (\s a -> s { _dwsrsDiskIds = a })
+{-# INLINE dwsrsDiskIds #-}
 
 -- | The total working storage in bytes in use by the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
-dwsoWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsoWorkingStorageUsedInBytes = lens _dwsoWorkingStorageUsedInBytes (\s a -> s { _dwsoWorkingStorageUsedInBytes = a })
-{-# INLINE dwsoWorkingStorageUsedInBytes #-}
+dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
+dwsrsWorkingStorageUsedInBytes =
+    lens _dwsrsWorkingStorageUsedInBytes
+         (\s a -> s { _dwsrsWorkingStorageUsedInBytes = a })
+{-# INLINE dwsrsWorkingStorageUsedInBytes #-}
 
 -- | The total working storage in bytes allocated for the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
-dwsoWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsoWorkingStorageAllocatedInBytes = lens _dwsoWorkingStorageAllocatedInBytes (\s a -> s { _dwsoWorkingStorageAllocatedInBytes = a })
-{-# INLINE dwsoWorkingStorageAllocatedInBytes #-}
+dwsrsWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
+dwsrsWorkingStorageAllocatedInBytes =
+    lens _dwsrsWorkingStorageAllocatedInBytes
+         (\s a -> s { _dwsrsWorkingStorageAllocatedInBytes = a })
+{-# INLINE dwsrsWorkingStorageAllocatedInBytes #-}
 
 instance FromJSON DescribeWorkingStorageResponse
 

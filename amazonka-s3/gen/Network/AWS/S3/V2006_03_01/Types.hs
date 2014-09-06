@@ -49,9 +49,6 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * BucketCannedACL
     , BucketCannedACL (..)
 
-    -- * BucketLocationConstraint
-    , BucketLocationConstraint (..)
-
     -- * BucketLogsPermission
     , BucketLogsPermission (..)
 
@@ -106,12 +103,13 @@ module Network.AWS.S3.V2006_03_01.Types
 
     -- * CommonPrefix
     , CommonPrefix
-    , ccxPrefix
+    , mkCommonPrefix
+    , cprsPrefix
 
     -- * CompletedMultipartUpload
     , CompletedMultipartUpload
     , mkCompletedMultipartUpload
-    , cmuParts
+    , cmu1Parts
 
     -- * CreateBucketConfiguration
     , CreateBucketConfiguration
@@ -126,7 +124,7 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * IndexDocument
     , IndexDocument
     , mkIndexDocument
-    , ihSuffix
+    , idSuffix
 
     -- * LifecycleConfiguration
     , LifecycleConfiguration
@@ -151,12 +149,12 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * RestoreRequest
     , RestoreRequest
     , mkRestoreRequest
-    , rzDays
+    , rr1Days
 
     -- * Tagging
     , Tagging
     , mkTagging
-    , twTagSet
+    , t1TagSet
 
     -- * AccessControlPolicy
     , AccessControlPolicy
@@ -166,17 +164,18 @@ module Network.AWS.S3.V2006_03_01.Types
 
     -- * Bucket
     , Bucket
-    , bbxName
-    , bbxCreationDate
+    , mkBucket
+    , bName
+    , bCreationDate
 
     -- * CORSRule
     , CORSRule
     , mkCORSRule
-    , corssAllowedHeaders
-    , corssAllowedMethods
-    , corssAllowedOrigins
-    , corssExposeHeaders
-    , corssMaxAgeSeconds
+    , corsrAllowedHeaders
+    , corsrAllowedMethods
+    , corsrAllowedOrigins
+    , corsrExposeHeaders
+    , corsrMaxAgeSeconds
 
     -- * CompletedPart
     , CompletedPart
@@ -187,27 +186,30 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * Condition
     , Condition
     , mkCondition
-    , cnHttpErrorCodeReturnedEquals
-    , cnKeyPrefixEquals
+    , cHttpErrorCodeReturnedEquals
+    , cKeyPrefixEquals
 
     -- * CopyObjectResult
     , CopyObjectResult
-    , cosETag
-    , cosLastModified
+    , mkCopyObjectResult
+    , corETag
+    , corLastModified
 
     -- * CopyPartResult
     , CopyPartResult
+    , mkCopyPartResult
     , cprETag
     , cprLastModified
 
     -- * Delete
     , Delete
     , mkDelete
-    , kObjects
-    , kQuiet
+    , dObjects
+    , dQuiet
 
     -- * DeleteMarkerEntry
     , DeleteMarkerEntry
+    , mkDeleteMarkerEntry
     , dmeOwner
     , dmeKey
     , dmeVersionId
@@ -216,38 +218,40 @@ module Network.AWS.S3.V2006_03_01.Types
 
     -- * DeletedObject
     , DeletedObject
-    , dpKey
-    , dpVersionId
-    , dpDeleteMarker
-    , dpDeleteMarkerVersionId
+    , mkDeletedObject
+    , do1rsKey
+    , do1rsVersionId
+    , do1rsDeleteMarker
+    , do1rsDeleteMarkerVersionId
 
     -- * Error
     , Error
-    , oKey
-    , oVersionId
-    , oCode
-    , oMessage
+    , mkError
+    , eKey
+    , eVersionId
+    , eCode
+    , eMessage
 
     -- * Grant
     , Grant
     , mkGrant
-    , guGrantee
-    , guPermission
+    , gGrantee
+    , gPermission
 
     -- * Grantee
     , Grantee
     , mkGrantee
-    , geDisplayName
-    , geEmailAddress
-    , geID
-    , geType
-    , geURI
+    , g1DisplayName
+    , g1EmailAddress
+    , g1ID
+    , g1Type
+    , g1URI
 
     -- * Initiator
     , Initiator
     , mkInitiator
-    , irID
-    , irDisplayName
+    , iID
+    , iDisplayName
 
     -- * LifecycleExpiration
     , LifecycleExpiration
@@ -258,18 +262,19 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * LoggingEnabled
     , LoggingEnabled
     , mkLoggingEnabled
-    , lfTargetBucket
-    , lfTargetGrants
-    , lfTargetPrefix
+    , lersTargetBucket
+    , lersTargetGrants
+    , lersTargetPrefix
 
     -- * MultipartUpload
     , MultipartUpload
-    , mwUploadId
-    , mwKey
-    , mwInitiated
-    , mwStorageClass
-    , mwOwner
-    , mwInitiator
+    , mkMultipartUpload
+    , muUploadId
+    , muKey
+    , muInitiated
+    , muStorageClass
+    , muOwner
+    , muInitiator
 
     -- * NoncurrentVersionTransition
     , NoncurrentVersionTransition
@@ -279,12 +284,13 @@ module Network.AWS.S3.V2006_03_01.Types
 
     -- * Object
     , Object
-    , oowKey
-    , oowLastModified
-    , oowETag
-    , oowSize
-    , oowStorageClass
-    , oowOwner
+    , mkObject
+    , orsKey
+    , orsLastModified
+    , orsETag
+    , orsSize
+    , orsStorageClass
+    , orsOwner
 
     -- * ObjectIdentifier
     , ObjectIdentifier
@@ -294,36 +300,38 @@ module Network.AWS.S3.V2006_03_01.Types
 
     -- * ObjectVersion
     , ObjectVersion
-    , oonETag
-    , oonSize
-    , oonStorageClass
-    , oonKey
-    , oonVersionId
-    , oonIsLatest
-    , oonLastModified
-    , oonOwner
+    , mkObjectVersion
+    , ovETag
+    , ovSize
+    , ovStorageClass
+    , ovKey
+    , ovVersionId
+    , ovIsLatest
+    , ovLastModified
+    , ovOwner
 
     -- * Owner
     , Owner
     , mkOwner
-    , sDisplayName
-    , sID
+    , oDisplayName
+    , oID
 
     -- * Part
     , Part
-    , ptPartNumber
-    , ptLastModified
-    , ptETag
-    , ptSize
+    , mkPart
+    , pPartNumber
+    , pLastModified
+    , pETag
+    , pSize
 
     -- * Redirect
     , Redirect
     , mkRedirect
-    , ruHostName
-    , ruHttpRedirectCode
-    , ruProtocol
-    , ruReplaceKeyPrefixWith
-    , ruReplaceKeyWith
+    , r1HostName
+    , r1HttpRedirectCode
+    , r1Protocol
+    , r1ReplaceKeyPrefixWith
+    , r1ReplaceKeyWith
 
     -- * RedirectAllRequestsTo
     , RedirectAllRequestsTo
@@ -334,31 +342,31 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * RoutingRule
     , RoutingRule
     , mkRoutingRule
-    , rtCondition
-    , rtRedirect
+    , rrCondition
+    , rrRedirect
 
     -- * Rule
     , Rule
     , mkRule
-    , reExpiration
-    , reID
-    , rePrefix
-    , reStatus
-    , reTransition
-    , reNoncurrentVersionTransition
-    , reNoncurrentVersionExpiration
+    , rExpiration
+    , rID
+    , rPrefix
+    , rStatus
+    , rTransition
+    , rNoncurrentVersionTransition
+    , rNoncurrentVersionExpiration
 
     -- * Tag
     , Tag
     , mkTag
-    , tiKey
-    , tiValue
+    , trsKey
+    , trsValue
 
     -- * TargetGrant
     , TargetGrant
     , mkTargetGrant
-    , thGrantee
-    , thPermission
+    , tgGrantee
+    , tgPermission
 
     -- * TopicConfiguration
     , TopicConfiguration
@@ -369,9 +377,9 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * Transition
     , Transition
     , mkTransition
-    , tnDate
-    , tnDays
-    , tnStorageClass
+    , tDate
+    , tDays
+    , tStorageClass
 
     -- * VersioningConfiguration
     , VersioningConfiguration
@@ -439,7 +447,6 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "http://s3.amazonaws.com/doc/2006-03-01/"
     }
 
--- | The versioning state of the bucket.
 data BucketVersioningStatus
 
 instance FromText (Switch BucketVersioningStatus) where
@@ -460,8 +467,6 @@ instance ToXML (Switch BucketVersioningStatus) where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "BucketVersioningStatus"
 
--- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
--- is not currently being applied.
 data ExpirationStatus
 
 instance FromText (Switch ExpirationStatus) where
@@ -482,10 +487,6 @@ instance ToXML (Switch ExpirationStatus) where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ExpirationStatus"
 
--- | Specifies whether MFA delete is enabled in the bucket versioning
--- configuration. This element is only returned if the bucket has been
--- configured with MFA delete. If the bucket has never been so configured,
--- this element is not returned.
 data MFADelete
 
 instance FromText (Switch MFADelete) where
@@ -502,10 +503,6 @@ instance ToXML (Switch MFADelete) where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "MfaDelete"
 
--- | Specifies whether MFA delete is enabled in the bucket versioning
--- configuration. This element is only returned if the bucket has been
--- configured with MFA delete. If the bucket has never been so configured,
--- this element is not returned.
 data MFADeleteStatus
 
 instance FromText (Switch MFADeleteStatus) where
@@ -522,7 +519,6 @@ instance FromXML (Switch MFADeleteStatus) where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "MfaDelete"
 
--- | The canned ACL to apply to the bucket.
 data BucketCannedACL
     = BucketCannedACLAuthenticatedRead -- ^ authenticated-read
     | BucketCannedACLPrivate -- ^ private
@@ -553,29 +549,6 @@ instance ToXML BucketCannedACL where
 instance ToQuery BucketCannedACL where
       toQuery = toQuery . toBS
 
--- | Specifies the region where the bucket will be created.
-newtype BucketLocationConstraint = BucketLocationConstraint Region
-    deriving (Eq, Show, Generic)
-
-instance FromText BucketLocationConstraint where
-    parser = BucketLocationConstraint <$> parser
-
-instance ToText BucketLocationConstraint where
-    toText (BucketLocationConstraint r) = toText r
-
-instance ToByteString BucketLocationConstraint
-
-instance FromXML BucketLocationConstraint where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BucketLocationConstraint"
-    fromXML        = const fromNodeContent
-
-instance ToXML BucketLocationConstraint where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "BucketLocationConstraint"
-    toXML o      = toXML (retag o) . toText
-
--- | Logging permissions assigned to the Grantee for the bucket.
 data BucketLogsPermission
     = BucketLogsPermissionFullControl -- ^ FULL_CONTROL
     | BucketLogsPermissionRead -- ^ READ
@@ -607,12 +580,6 @@ instance ToXML BucketLogsPermission where
 instance ToQuery BucketLogsPermission where
       toQuery = toQuery . toBS
 
--- | Requests Amazon S3 to encode the object keys in the response and specifies
--- the encoding method to use. An object key may contain any Unicode
--- character; however, XML 1.0 parser cannot parse some characters, such as
--- characters with an ASCII value from 0 to 10. For characters that are not
--- supported in XML 1.0, you can add this parameter to request that Amazon S3
--- encode the keys in the response.
 data EncodingType
     = EncodingTypeUrl -- ^ url
       deriving (Eq, Show, Generic)
@@ -638,7 +605,6 @@ instance ToXML EncodingType where
 instance ToQuery EncodingType where
       toQuery = toQuery . toBS
 
--- | Bucket event for which to send notifications.
 data Event
     = EventS3ReducedRedundancyLostObject -- ^ s3:ReducedRedundancyLostObject
       deriving (Eq, Show, Generic)
@@ -664,8 +630,6 @@ instance ToXML Event where
 instance ToQuery Event where
       toQuery = toQuery . toBS
 
--- | Specifies whether the metadata is copied from the source object or replaced
--- with metadata provided in the request.
 data MetadataDirective
     = MetadataDirectiveCopy -- ^ COPY
     | MetadataDirectiveReplace -- ^ REPLACE
@@ -690,7 +654,6 @@ instance ToXML MetadataDirective where
 instance ToQuery MetadataDirective where
       toQuery = toQuery . toBS
 
--- | The canned ACL to apply to the object.
 data ObjectCannedACL
     = ObjectCannedACLAuthenticatedRead -- ^ authenticated-read
     | ObjectCannedACLBucketOwnerFullControl -- ^ bucket-owner-full-control
@@ -727,7 +690,6 @@ instance ToXML ObjectCannedACL where
 instance ToQuery ObjectCannedACL where
       toQuery = toQuery . toBS
 
--- | The class of storage used to store the object.
 data ObjectStorageClass
     = ObjectStorageClassGlacier -- ^ GLACIER
     | ObjectStorageClassReducedRedundancy -- ^ REDUCED_REDUNDANCY
@@ -759,7 +721,6 @@ instance ToXML ObjectStorageClass where
 instance ToQuery ObjectStorageClass where
       toQuery = toQuery . toBS
 
--- | The class of storage used to store the object.
 data ObjectVersionStorageClass
     = ObjectVersionStorageClassStandard -- ^ STANDARD
       deriving (Eq, Show, Generic)
@@ -785,7 +746,6 @@ instance ToXML ObjectVersionStorageClass where
 instance ToQuery ObjectVersionStorageClass where
       toQuery = toQuery . toBS
 
--- | Specifies who pays for the download and request fees.
 data Payer
     = PayerBucketOwner -- ^ BucketOwner
     | PayerRequester -- ^ Requester
@@ -814,7 +774,6 @@ instance ToXML Payer where
 instance ToQuery Payer where
       toQuery = toQuery . toBS
 
--- | Specifies the permission given to the grantee.
 data Permission
     = PermissionFullControl -- ^ FULL_CONTROL
     | PermissionRead -- ^ READ
@@ -852,8 +811,6 @@ instance ToXML Permission where
 instance ToQuery Permission where
       toQuery = toQuery . toBS
 
--- | Protocol to use (http, https) when redirecting requests. The default is the
--- protocol that is used in the original request.
 data Protocol
     = ProtocolHttp -- ^ http
     | ProtocolHttps -- ^ https
@@ -882,7 +839,6 @@ instance ToXML Protocol where
 instance ToQuery Protocol where
       toQuery = toQuery . toBS
 
--- | The Server-side encryption algorithm used when storing this object in S3.
 data ServerSideEncryption
     = ServerSideEncryptionAES256 -- ^ AES256
       deriving (Eq, Show, Generic)
@@ -908,7 +864,6 @@ instance ToXML ServerSideEncryption where
 instance ToQuery ServerSideEncryption where
       toQuery = toQuery . toBS
 
--- | The type of storage to use for the object. Defaults to 'STANDARD'.
 data StorageClass
     = StorageClassReducedRedundancy -- ^ REDUCED_REDUNDANCY
     | StorageClassStandard -- ^ STANDARD
@@ -937,7 +892,6 @@ instance ToXML StorageClass where
 instance ToQuery StorageClass where
       toQuery = toQuery . toBS
 
--- | The class of storage used to store the object.
 data TransitionStorageClass
     = TransitionStorageClassGlacier -- ^ GLACIER
       deriving (Eq, Show, Generic)
@@ -963,7 +917,6 @@ instance ToXML TransitionStorageClass where
 instance ToQuery TransitionStorageClass where
       toQuery = toQuery . toBS
 
--- | Type of grantee.
 data Type
     = TypeAmazonCustomerByEmail -- ^ AmazonCustomerByEmail
     | TypeCanonicalUser -- ^ CanonicalUser
@@ -999,10 +952,6 @@ newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
-blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
-blsLoggingEnabled = lens _blsLoggingEnabled (\s a -> s { _blsLoggingEnabled = a })
-{-# INLINE blsLoggingEnabled #-}
-
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BucketLoggingStatus' data type to populate a request.
 mkBucketLoggingStatus :: BucketLoggingStatus
@@ -1010,6 +959,11 @@ mkBucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled = Nothing
     }
 {-# INLINE mkBucketLoggingStatus #-}
+
+blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
+blsLoggingEnabled =
+    lens _blsLoggingEnabled (\s a -> s { _blsLoggingEnabled = a })
+{-# INLINE blsLoggingEnabled #-}
 
 instance ToXML BucketLoggingStatus where
     toXMLOptions = xmlOptions
@@ -1019,10 +973,6 @@ newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
-corscCORSRules :: Lens' CORSConfiguration ([CORSRule])
-corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
-{-# INLINE corscCORSRules #-}
-
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CORSConfiguration' data type to populate a request.
 mkCORSConfiguration :: CORSConfiguration
@@ -1031,51 +981,57 @@ mkCORSConfiguration = CORSConfiguration
     }
 {-# INLINE mkCORSConfiguration #-}
 
+corscCORSRules :: Lens' CORSConfiguration [CORSRule]
+corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
+{-# INLINE corscCORSRules #-}
+
 instance ToXML CORSConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CORSConfiguration"
 
 newtype CommonPrefix = CommonPrefix
-    { _ccxPrefix :: Maybe Text
+    { _cprsPrefix :: Maybe Text
     } deriving (Show, Generic)
 
-ccxPrefix :: Lens' CommonPrefix (Maybe Text)
-ccxPrefix = lens _ccxPrefix (\s a -> s { _ccxPrefix = a })
-{-# INLINE ccxPrefix #-}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CommonPrefix' data type to populate a request.
+mkCommonPrefix :: CommonPrefix
+mkCommonPrefix = CommonPrefix
+    { _cprsPrefix = Nothing
+    }
+{-# INLINE mkCommonPrefix #-}
+
+cprsPrefix :: Lens' CommonPrefix (Maybe Text)
+cprsPrefix = lens _cprsPrefix (\s a -> s { _cprsPrefix = a })
+{-# INLINE cprsPrefix #-}
 
 instance FromXML CommonPrefix where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CommonPrefix"
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
-    { _cmuParts :: [CompletedPart]
+    { _cmu1Parts :: [CompletedPart]
     } deriving (Show, Generic)
-
-cmuParts :: Lens' CompletedMultipartUpload ([CompletedPart])
-cmuParts = lens _cmuParts (\s a -> s { _cmuParts = a })
-{-# INLINE cmuParts #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompletedMultipartUpload' data type to populate a request.
 mkCompletedMultipartUpload :: CompletedMultipartUpload
 mkCompletedMultipartUpload = CompletedMultipartUpload
-    { _cmuParts = mempty
+    { _cmu1Parts = mempty
     }
 {-# INLINE mkCompletedMultipartUpload #-}
+
+cmu1Parts :: Lens' CompletedMultipartUpload [CompletedPart]
+cmu1Parts = lens _cmu1Parts (\s a -> s { _cmu1Parts = a })
+{-# INLINE cmu1Parts #-}
 
 instance ToXML CompletedMultipartUpload where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CompleteMultipartUpload"
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
-    { _cbcLocationConstraint :: Maybe BucketLocationConstraint
-      -- ^ Specifies the region where the bucket will be created.
+    { _cbcLocationConstraint :: Maybe Region
     } deriving (Show, Generic)
-
--- | Specifies the region where the bucket will be created.
-cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe BucketLocationConstraint)
-cbcLocationConstraint = lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
-{-# INLINE cbcLocationConstraint #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateBucketConfiguration' data type to populate a request.
@@ -1085,19 +1041,19 @@ mkCreateBucketConfiguration = CreateBucketConfiguration
     }
 {-# INLINE mkCreateBucketConfiguration #-}
 
+-- | Specifies the region where the bucket will be created.
+cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Region)
+cbcLocationConstraint =
+    lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
+{-# INLINE cbcLocationConstraint #-}
+
 instance ToXML CreateBucketConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateBucketConfiguration"
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: ObjectKey
-      -- ^ The object key name to use when a 4XX class error occurs.
     } deriving (Show, Generic)
-
--- | The object key name to use when a 4XX class error occurs.
-edKey :: Lens' ErrorDocument (ObjectKey)
-edKey = lens _edKey (\s a -> s { _edKey = a })
-{-# INLINE edKey #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ErrorDocument' data type to populate a request.
@@ -1108,6 +1064,11 @@ mkErrorDocument p1 = ErrorDocument
     }
 {-# INLINE mkErrorDocument #-}
 
+-- | The object key name to use when a 4XX class error occurs.
+edKey :: Lens' ErrorDocument ObjectKey
+edKey = lens _edKey (\s a -> s { _edKey = a })
+{-# INLINE edKey #-}
+
 instance FromXML ErrorDocument where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ErrorDocument"
@@ -1117,31 +1078,26 @@ instance ToXML ErrorDocument where
     toXMLRoot    = toRoot "ErrorDocument"
 
 newtype IndexDocument = IndexDocument
-    { _ihSuffix :: Text
-      -- ^ A suffix that is appended to a request that is for a directory on
-      -- the website endpoint (e.g. if the suffix is index.html and you
-      -- make a request to samplebucket/images/ the data that is returned
-      -- will be for the object with the key name images/index.html) The
-      -- suffix must not be empty and must not include a slash character.
+    { _idSuffix :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IndexDocument' data type to populate a request.
+mkIndexDocument :: Text -- ^ 'idSuffix'
+                -> IndexDocument
+mkIndexDocument p1 = IndexDocument
+    { _idSuffix = p1
+    }
+{-# INLINE mkIndexDocument #-}
 
 -- | A suffix that is appended to a request that is for a directory on the
 -- website endpoint (e.g. if the suffix is index.html and you make a request
 -- to samplebucket/images/ the data that is returned will be for the object
 -- with the key name images/index.html) The suffix must not be empty and must
 -- not include a slash character.
-ihSuffix :: Lens' IndexDocument (Text)
-ihSuffix = lens _ihSuffix (\s a -> s { _ihSuffix = a })
-{-# INLINE ihSuffix #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'IndexDocument' data type to populate a request.
-mkIndexDocument :: Text -- ^ 'ihSuffix'
-                -> IndexDocument
-mkIndexDocument p1 = IndexDocument
-    { _ihSuffix = p1
-    }
-{-# INLINE mkIndexDocument #-}
+idSuffix :: Lens' IndexDocument Text
+idSuffix = lens _idSuffix (\s a -> s { _idSuffix = a })
+{-# INLINE idSuffix #-}
 
 instance FromXML IndexDocument where
     fromXMLOptions = xmlOptions
@@ -1155,10 +1111,6 @@ newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
     } deriving (Show, Generic)
 
-lcRules :: Lens' LifecycleConfiguration ([Rule])
-lcRules = lens _lcRules (\s a -> s { _lcRules = a })
-{-# INLINE lcRules #-}
-
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LifecycleConfiguration' data type to populate a request.
 mkLifecycleConfiguration :: [Rule] -- ^ 'lcRules'
@@ -1167,6 +1119,10 @@ mkLifecycleConfiguration p1 = LifecycleConfiguration
     { _lcRules = p1
     }
 {-# INLINE mkLifecycleConfiguration #-}
+
+lcRules :: Lens' LifecycleConfiguration [Rule]
+lcRules = lens _lcRules (\s a -> s { _lcRules = a })
+{-# INLINE lcRules #-}
 
 instance ToXML LifecycleConfiguration where
     toXMLOptions = xmlOptions
@@ -1179,20 +1135,7 @@ instance ToXML LifecycleConfiguration where
 -- specific period in the object's lifetime.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays :: Maybe Integer
-      -- ^ Specifies the number of days an object is noncurrent before
-      -- Amazon S3 can perform the associated action. For information
-      -- about the noncurrent days calculations, see How Amazon S3
-      -- Calculates When an Object Became Noncurrent in the Amazon Simple
-      -- Storage Service Developer Guide.
     } deriving (Show, Generic)
-
--- | Specifies the number of days an object is noncurrent before Amazon S3 can
--- perform the associated action. For information about the noncurrent days
--- calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
--- in the Amazon Simple Storage Service Developer Guide.
-nveNoncurrentDays :: Lens' NoncurrentVersionExpiration (Maybe Integer)
-nveNoncurrentDays = lens _nveNoncurrentDays (\s a -> s { _nveNoncurrentDays = a })
-{-# INLINE nveNoncurrentDays #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NoncurrentVersionExpiration' data type to populate a request.
@@ -1201,6 +1144,15 @@ mkNoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays = Nothing
     }
 {-# INLINE mkNoncurrentVersionExpiration #-}
+
+-- | Specifies the number of days an object is noncurrent before Amazon S3 can
+-- perform the associated action. For information about the noncurrent days
+-- calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
+-- in the Amazon Simple Storage Service Developer Guide.
+nveNoncurrentDays :: Lens' NoncurrentVersionExpiration (Maybe Integer)
+nveNoncurrentDays =
+    lens _nveNoncurrentDays (\s a -> s { _nveNoncurrentDays = a })
+{-# INLINE nveNoncurrentDays #-}
 
 instance FromXML NoncurrentVersionExpiration where
     fromXMLOptions = xmlOptions
@@ -1214,10 +1166,6 @@ newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
     } deriving (Show, Generic)
 
-ncTopicConfiguration :: Lens' NotificationConfiguration (TopicConfiguration)
-ncTopicConfiguration = lens _ncTopicConfiguration (\s a -> s { _ncTopicConfiguration = a })
-{-# INLINE ncTopicConfiguration #-}
-
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NotificationConfiguration' data type to populate a request.
 mkNotificationConfiguration :: TopicConfiguration -- ^ 'ncTopicConfiguration'
@@ -1227,19 +1175,18 @@ mkNotificationConfiguration p1 = NotificationConfiguration
     }
 {-# INLINE mkNotificationConfiguration #-}
 
+ncTopicConfiguration :: Lens' NotificationConfiguration TopicConfiguration
+ncTopicConfiguration =
+    lens _ncTopicConfiguration (\s a -> s { _ncTopicConfiguration = a })
+{-# INLINE ncTopicConfiguration #-}
+
 instance ToXML NotificationConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "NotificationConfiguration"
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Payer
-      -- ^ Specifies who pays for the download and request fees.
     } deriving (Show, Generic)
-
--- | Specifies who pays for the download and request fees.
-rpcPayer :: Lens' RequestPaymentConfiguration (Payer)
-rpcPayer = lens _rpcPayer (\s a -> s { _rpcPayer = a })
-{-# INLINE rpcPayer #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestPaymentConfiguration' data type to populate a request.
@@ -1250,49 +1197,53 @@ mkRequestPaymentConfiguration p1 = RequestPaymentConfiguration
     }
 {-# INLINE mkRequestPaymentConfiguration #-}
 
+-- | Specifies who pays for the download and request fees.
+rpcPayer :: Lens' RequestPaymentConfiguration Payer
+rpcPayer = lens _rpcPayer (\s a -> s { _rpcPayer = a })
+{-# INLINE rpcPayer #-}
+
 instance ToXML RequestPaymentConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RequestPaymentConfiguration"
 
 newtype RestoreRequest = RestoreRequest
-    { _rzDays :: Integer
-      -- ^ Lifetime of the active copy in days.
+    { _rr1Days :: Integer
     } deriving (Show, Generic)
-
--- | Lifetime of the active copy in days.
-rzDays :: Lens' RestoreRequest (Integer)
-rzDays = lens _rzDays (\s a -> s { _rzDays = a })
-{-# INLINE rzDays #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RestoreRequest' data type to populate a request.
-mkRestoreRequest :: Integer -- ^ 'rzDays'
+mkRestoreRequest :: Integer -- ^ 'rr1Days'
                  -> RestoreRequest
 mkRestoreRequest p1 = RestoreRequest
-    { _rzDays = p1
+    { _rr1Days = p1
     }
 {-# INLINE mkRestoreRequest #-}
+
+-- | Lifetime of the active copy in days.
+rr1Days :: Lens' RestoreRequest Integer
+rr1Days = lens _rr1Days (\s a -> s { _rr1Days = a })
+{-# INLINE rr1Days #-}
 
 instance ToXML RestoreRequest where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RestoreRequest"
 
 newtype Tagging = Tagging
-    { _twTagSet :: [Tag]
+    { _t1TagSet :: [Tag]
     } deriving (Show, Generic)
-
-twTagSet :: Lens' Tagging ([Tag])
-twTagSet = lens _twTagSet (\s a -> s { _twTagSet = a })
-{-# INLINE twTagSet #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tagging' data type to populate a request.
-mkTagging :: [Tag] -- ^ 'twTagSet'
+mkTagging :: [Tag] -- ^ 't1TagSet'
           -> Tagging
 mkTagging p1 = Tagging
-    { _twTagSet = p1
+    { _t1TagSet = p1
     }
 {-# INLINE mkTagging #-}
+
+t1TagSet :: Lens' Tagging [Tag]
+t1TagSet = lens _t1TagSet (\s a -> s { _t1TagSet = a })
+{-# INLINE t1TagSet #-}
 
 instance ToXML Tagging where
     toXMLOptions = xmlOptions
@@ -1300,18 +1251,8 @@ instance ToXML Tagging where
 
 data AccessControlPolicy = AccessControlPolicy
     { _acpGrants :: [Grant]
-      -- ^ A list of grants.
     , _acpOwner :: Maybe Owner
     } deriving (Show, Generic)
-
--- | A list of grants.
-acpGrants :: Lens' AccessControlPolicy ([Grant])
-acpGrants = lens _acpGrants (\s a -> s { _acpGrants = a })
-{-# INLINE acpGrants #-}
-
-acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
-acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
-{-# INLINE acpOwner #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessControlPolicy' data type to populate a request.
@@ -1322,91 +1263,101 @@ mkAccessControlPolicy = AccessControlPolicy
     }
 {-# INLINE mkAccessControlPolicy #-}
 
+-- | A list of grants.
+acpGrants :: Lens' AccessControlPolicy [Grant]
+acpGrants = lens _acpGrants (\s a -> s { _acpGrants = a })
+{-# INLINE acpGrants #-}
+
+acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
+acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
+{-# INLINE acpOwner #-}
+
 instance ToXML AccessControlPolicy where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "AccessControlPolicy"
 
 data Bucket = Bucket
-    { _bbxName :: Maybe BucketName
-      -- ^ The name of the bucket.
-    , _bbxCreationDate :: Maybe RFC822
-      -- ^ Date the bucket was created.
+    { _bName :: Maybe BucketName
+    , _bCreationDate :: Maybe RFC822
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Bucket' data type to populate a request.
+mkBucket :: Bucket
+mkBucket = Bucket
+    { _bName = Nothing
+    , _bCreationDate = Nothing
+    }
+{-# INLINE mkBucket #-}
+
 -- | The name of the bucket.
-bbxName :: Lens' Bucket (Maybe BucketName)
-bbxName = lens _bbxName (\s a -> s { _bbxName = a })
-{-# INLINE bbxName #-}
+bName :: Lens' Bucket (Maybe BucketName)
+bName = lens _bName (\s a -> s { _bName = a })
+{-# INLINE bName #-}
 
 -- | Date the bucket was created.
-bbxCreationDate :: Lens' Bucket (Maybe RFC822)
-bbxCreationDate = lens _bbxCreationDate (\s a -> s { _bbxCreationDate = a })
-{-# INLINE bbxCreationDate #-}
+bCreationDate :: Lens' Bucket (Maybe RFC822)
+bCreationDate = lens _bCreationDate (\s a -> s { _bCreationDate = a })
+{-# INLINE bCreationDate #-}
 
 instance FromXML Bucket where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Bucket"
 
 data CORSRule = CORSRule
-    { _corssAllowedHeaders :: [Text]
-      -- ^ Specifies which headers are allowed in a pre-flight OPTIONS
-      -- request.
-    , _corssAllowedMethods :: [Text]
-      -- ^ Identifies HTTP methods that the domain/origin specified in the
-      -- rule is allowed to execute.
-    , _corssAllowedOrigins :: [Text]
-      -- ^ One or more origins you want customers to be able to access the
-      -- bucket from.
-    , _corssExposeHeaders :: [Text]
-      -- ^ One or more headers in the response that you want customers to be
-      -- able to access from their applications (for example, from a
-      -- JavaScript XMLHttpRequest object).
-    , _corssMaxAgeSeconds :: Maybe Integer
-      -- ^ The time in seconds that your browser is to cache the preflight
-      -- response for the specified resource.
+    { _corsrAllowedHeaders :: [Text]
+    , _corsrAllowedMethods :: [Text]
+    , _corsrAllowedOrigins :: [Text]
+    , _corsrExposeHeaders :: [Text]
+    , _corsrMaxAgeSeconds :: Maybe Integer
     } deriving (Show, Generic)
-
--- | Specifies which headers are allowed in a pre-flight OPTIONS request.
-corssAllowedHeaders :: Lens' CORSRule ([Text])
-corssAllowedHeaders = lens _corssAllowedHeaders (\s a -> s { _corssAllowedHeaders = a })
-{-# INLINE corssAllowedHeaders #-}
-
--- | Identifies HTTP methods that the domain/origin specified in the rule is
--- allowed to execute.
-corssAllowedMethods :: Lens' CORSRule ([Text])
-corssAllowedMethods = lens _corssAllowedMethods (\s a -> s { _corssAllowedMethods = a })
-{-# INLINE corssAllowedMethods #-}
-
--- | One or more origins you want customers to be able to access the bucket
--- from.
-corssAllowedOrigins :: Lens' CORSRule ([Text])
-corssAllowedOrigins = lens _corssAllowedOrigins (\s a -> s { _corssAllowedOrigins = a })
-{-# INLINE corssAllowedOrigins #-}
-
--- | One or more headers in the response that you want customers to be able to
--- access from their applications (for example, from a JavaScript
--- XMLHttpRequest object).
-corssExposeHeaders :: Lens' CORSRule ([Text])
-corssExposeHeaders = lens _corssExposeHeaders (\s a -> s { _corssExposeHeaders = a })
-{-# INLINE corssExposeHeaders #-}
-
--- | The time in seconds that your browser is to cache the preflight response
--- for the specified resource.
-corssMaxAgeSeconds :: Lens' CORSRule (Maybe Integer)
-corssMaxAgeSeconds = lens _corssMaxAgeSeconds (\s a -> s { _corssMaxAgeSeconds = a })
-{-# INLINE corssMaxAgeSeconds #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CORSRule' data type to populate a request.
 mkCORSRule :: CORSRule
 mkCORSRule = CORSRule
-    { _corssAllowedHeaders = mempty
-    , _corssAllowedMethods = mempty
-    , _corssAllowedOrigins = mempty
-    , _corssExposeHeaders = mempty
-    , _corssMaxAgeSeconds = Nothing
+    { _corsrAllowedHeaders = mempty
+    , _corsrAllowedMethods = mempty
+    , _corsrAllowedOrigins = mempty
+    , _corsrExposeHeaders = mempty
+    , _corsrMaxAgeSeconds = Nothing
     }
 {-# INLINE mkCORSRule #-}
+
+-- | Specifies which headers are allowed in a pre-flight OPTIONS request.
+corsrAllowedHeaders :: Lens' CORSRule [Text]
+corsrAllowedHeaders =
+    lens _corsrAllowedHeaders (\s a -> s { _corsrAllowedHeaders = a })
+{-# INLINE corsrAllowedHeaders #-}
+
+-- | Identifies HTTP methods that the domain/origin specified in the rule is
+-- allowed to execute.
+corsrAllowedMethods :: Lens' CORSRule [Text]
+corsrAllowedMethods =
+    lens _corsrAllowedMethods (\s a -> s { _corsrAllowedMethods = a })
+{-# INLINE corsrAllowedMethods #-}
+
+-- | One or more origins you want customers to be able to access the bucket
+-- from.
+corsrAllowedOrigins :: Lens' CORSRule [Text]
+corsrAllowedOrigins =
+    lens _corsrAllowedOrigins (\s a -> s { _corsrAllowedOrigins = a })
+{-# INLINE corsrAllowedOrigins #-}
+
+-- | One or more headers in the response that you want customers to be able to
+-- access from their applications (for example, from a JavaScript
+-- XMLHttpRequest object).
+corsrExposeHeaders :: Lens' CORSRule [Text]
+corsrExposeHeaders =
+    lens _corsrExposeHeaders (\s a -> s { _corsrExposeHeaders = a })
+{-# INLINE corsrExposeHeaders #-}
+
+-- | The time in seconds that your browser is to cache the preflight response
+-- for the specified resource.
+corsrMaxAgeSeconds :: Lens' CORSRule (Maybe Integer)
+corsrMaxAgeSeconds =
+    lens _corsrMaxAgeSeconds (\s a -> s { _corsrMaxAgeSeconds = a })
+{-# INLINE corsrMaxAgeSeconds #-}
 
 instance FromXML CORSRule where
     fromXMLOptions = xmlOptions
@@ -1418,10 +1369,17 @@ instance ToXML CORSRule where
 
 data CompletedPart = CompletedPart
     { _cpETag :: Maybe ETag
-      -- ^ Entity tag returned when the part was uploaded.
     , _cpPartNumber :: Maybe Integer
-      -- ^ Part number that identifies the part.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CompletedPart' data type to populate a request.
+mkCompletedPart :: CompletedPart
+mkCompletedPart = CompletedPart
+    { _cpETag = Nothing
+    , _cpPartNumber = Nothing
+    }
+{-# INLINE mkCompletedPart #-}
 
 -- | Entity tag returned when the part was uploaded.
 cpETag :: Lens' CompletedPart (Maybe ETag)
@@ -1433,15 +1391,6 @@ cpPartNumber :: Lens' CompletedPart (Maybe Integer)
 cpPartNumber = lens _cpPartNumber (\s a -> s { _cpPartNumber = a })
 {-# INLINE cpPartNumber #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'CompletedPart' data type to populate a request.
-mkCompletedPart :: CompletedPart
-mkCompletedPart = CompletedPart
-    { _cpETag = Nothing
-    , _cpPartNumber = Nothing
-    }
-{-# INLINE mkCompletedPart #-}
-
 instance ToXML CompletedPart where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CompletedPart"
@@ -1452,32 +1401,29 @@ instance ToXML CompletedPart where
 -- error 4xx, redirect request to another host where you might process the
 -- error.
 data Condition = Condition
-    { _cnHttpErrorCodeReturnedEquals :: Maybe Text
-      -- ^ The HTTP error code when the redirect is applied. In the event of
-      -- an error, if the error code equals this value, then the specified
-      -- redirect is applied. Required when parent element Condition is
-      -- specified and sibling KeyPrefixEquals is not specified. If both
-      -- are specified, then both must be true for the redirect to be
-      -- applied.
-    , _cnKeyPrefixEquals :: Maybe Text
-      -- ^ The object key name prefix when the redirect is applied. For
-      -- example, to redirect requests for ExamplePage.html, the key
-      -- prefix will be ExamplePage.html. To redirect request for all
-      -- pages with the prefix docs/, the key prefix will be /docs, which
-      -- identifies all objects in the docs/ folder. Required when the
-      -- parent element Condition is specified and sibling
-      -- HttpErrorCodeReturnedEquals is not specified. If both conditions
-      -- are specified, both must be true for the redirect to be applied.
+    { _cHttpErrorCodeReturnedEquals :: Maybe Text
+    , _cKeyPrefixEquals :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Condition' data type to populate a request.
+mkCondition :: Condition
+mkCondition = Condition
+    { _cHttpErrorCodeReturnedEquals = Nothing
+    , _cKeyPrefixEquals = Nothing
+    }
+{-# INLINE mkCondition #-}
 
 -- | The HTTP error code when the redirect is applied. In the event of an error,
 -- if the error code equals this value, then the specified redirect is
 -- applied. Required when parent element Condition is specified and sibling
 -- KeyPrefixEquals is not specified. If both are specified, then both must be
 -- true for the redirect to be applied.
-cnHttpErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
-cnHttpErrorCodeReturnedEquals = lens _cnHttpErrorCodeReturnedEquals (\s a -> s { _cnHttpErrorCodeReturnedEquals = a })
-{-# INLINE cnHttpErrorCodeReturnedEquals #-}
+cHttpErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
+cHttpErrorCodeReturnedEquals =
+    lens _cHttpErrorCodeReturnedEquals
+         (\s a -> s { _cHttpErrorCodeReturnedEquals = a })
+{-# INLINE cHttpErrorCodeReturnedEquals #-}
 
 -- | The object key name prefix when the redirect is applied. For example, to
 -- redirect requests for ExamplePage.html, the key prefix will be
@@ -1486,18 +1432,10 @@ cnHttpErrorCodeReturnedEquals = lens _cnHttpErrorCodeReturnedEquals (\s a -> s {
 -- folder. Required when the parent element Condition is specified and sibling
 -- HttpErrorCodeReturnedEquals is not specified. If both conditions are
 -- specified, both must be true for the redirect to be applied.
-cnKeyPrefixEquals :: Lens' Condition (Maybe Text)
-cnKeyPrefixEquals = lens _cnKeyPrefixEquals (\s a -> s { _cnKeyPrefixEquals = a })
-{-# INLINE cnKeyPrefixEquals #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Condition' data type to populate a request.
-mkCondition :: Condition
-mkCondition = Condition
-    { _cnHttpErrorCodeReturnedEquals = Nothing
-    , _cnKeyPrefixEquals = Nothing
-    }
-{-# INLINE mkCondition #-}
+cKeyPrefixEquals :: Lens' Condition (Maybe Text)
+cKeyPrefixEquals =
+    lens _cKeyPrefixEquals (\s a -> s { _cKeyPrefixEquals = a })
+{-# INLINE cKeyPrefixEquals #-}
 
 instance FromXML Condition where
     fromXMLOptions = xmlOptions
@@ -1508,17 +1446,26 @@ instance ToXML Condition where
     toXMLRoot    = toRoot "Condition"
 
 data CopyObjectResult = CopyObjectResult
-    { _cosETag :: Maybe ETag
-    , _cosLastModified :: Maybe RFC822
+    { _corETag :: Maybe ETag
+    , _corLastModified :: Maybe RFC822
     } deriving (Show, Generic)
 
-cosETag :: Lens' CopyObjectResult (Maybe ETag)
-cosETag = lens _cosETag (\s a -> s { _cosETag = a })
-{-# INLINE cosETag #-}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CopyObjectResult' data type to populate a request.
+mkCopyObjectResult :: CopyObjectResult
+mkCopyObjectResult = CopyObjectResult
+    { _corETag = Nothing
+    , _corLastModified = Nothing
+    }
+{-# INLINE mkCopyObjectResult #-}
 
-cosLastModified :: Lens' CopyObjectResult (Maybe RFC822)
-cosLastModified = lens _cosLastModified (\s a -> s { _cosLastModified = a })
-{-# INLINE cosLastModified #-}
+corETag :: Lens' CopyObjectResult (Maybe ETag)
+corETag = lens _corETag (\s a -> s { _corETag = a })
+{-# INLINE corETag #-}
+
+corLastModified :: Lens' CopyObjectResult (Maybe RFC822)
+corLastModified = lens _corLastModified (\s a -> s { _corLastModified = a })
+{-# INLINE corLastModified #-}
 
 instance FromXML CopyObjectResult where
     fromXMLOptions = xmlOptions
@@ -1526,10 +1473,17 @@ instance FromXML CopyObjectResult where
 
 data CopyPartResult = CopyPartResult
     { _cprETag :: Maybe ETag
-      -- ^ Entity tag of the object.
     , _cprLastModified :: Maybe RFC822
-      -- ^ Date and time at which the object was uploaded.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CopyPartResult' data type to populate a request.
+mkCopyPartResult :: CopyPartResult
+mkCopyPartResult = CopyPartResult
+    { _cprETag = Nothing
+    , _cprLastModified = Nothing
+    }
+{-# INLINE mkCopyPartResult #-}
 
 -- | Entity tag of the object.
 cprETag :: Lens' CopyPartResult (Maybe ETag)
@@ -1546,31 +1500,29 @@ instance FromXML CopyPartResult where
     fromXMLRoot    = fromRoot "CopyPartResult"
 
 data Delete = Delete
-    { _kObjects :: [ObjectIdentifier]
-    , _kQuiet :: Maybe Bool
-      -- ^ Element to enable quiet mode for the request. When you add this
-      -- element, you must set its value to true.
+    { _dObjects :: [ObjectIdentifier]
+    , _dQuiet :: Maybe Bool
     } deriving (Show, Generic)
-
-kObjects :: Lens' Delete ([ObjectIdentifier])
-kObjects = lens _kObjects (\s a -> s { _kObjects = a })
-{-# INLINE kObjects #-}
-
--- | Element to enable quiet mode for the request. When you add this element,
--- you must set its value to true.
-kQuiet :: Lens' Delete (Maybe Bool)
-kQuiet = lens _kQuiet (\s a -> s { _kQuiet = a })
-{-# INLINE kQuiet #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Delete' data type to populate a request.
-mkDelete :: [ObjectIdentifier] -- ^ 'kObjects'
+mkDelete :: [ObjectIdentifier] -- ^ 'dObjects'
          -> Delete
 mkDelete p1 = Delete
-    { _kObjects = p1
-    , _kQuiet = Nothing
+    { _dObjects = p1
+    , _dQuiet = Nothing
     }
 {-# INLINE mkDelete #-}
+
+dObjects :: Lens' Delete [ObjectIdentifier]
+dObjects = lens _dObjects (\s a -> s { _dObjects = a })
+{-# INLINE dObjects #-}
+
+-- | Element to enable quiet mode for the request. When you add this element,
+-- you must set its value to true.
+dQuiet :: Lens' Delete (Maybe Bool)
+dQuiet = lens _dQuiet (\s a -> s { _dQuiet = a })
+{-# INLINE dQuiet #-}
 
 instance ToXML Delete where
     toXMLOptions = xmlOptions
@@ -1579,15 +1531,22 @@ instance ToXML Delete where
 data DeleteMarkerEntry = DeleteMarkerEntry
     { _dmeOwner :: Maybe Owner
     , _dmeKey :: Maybe ObjectKey
-      -- ^ The object key.
     , _dmeVersionId :: Maybe ObjectVersionId
-      -- ^ Version ID of an object.
     , _dmeIsLatest :: Maybe Bool
-      -- ^ Specifies whether the object is (true) or is not (false) the
-      -- latest version of an object.
     , _dmeLastModified :: Maybe RFC822
-      -- ^ Date and time the object was last modified.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DeleteMarkerEntry' data type to populate a request.
+mkDeleteMarkerEntry :: DeleteMarkerEntry
+mkDeleteMarkerEntry = DeleteMarkerEntry
+    { _dmeOwner = Nothing
+    , _dmeKey = Nothing
+    , _dmeVersionId = Nothing
+    , _dmeIsLatest = Nothing
+    , _dmeLastModified = Nothing
+    }
+{-# INLINE mkDeleteMarkerEntry #-}
 
 dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner = lens _dmeOwner (\s a -> s { _dmeOwner = a })
@@ -1619,82 +1578,106 @@ instance FromXML DeleteMarkerEntry where
     fromXMLRoot    = fromRoot "DeleteMarkerEntry"
 
 data DeletedObject = DeletedObject
-    { _dpKey :: Maybe ObjectKey
-    , _dpVersionId :: Maybe ObjectVersionId
-    , _dpDeleteMarker :: Maybe Bool
-    , _dpDeleteMarkerVersionId :: Maybe Text
+    { _do1rsKey :: Maybe ObjectKey
+    , _do1rsVersionId :: Maybe ObjectVersionId
+    , _do1rsDeleteMarker :: Maybe Bool
+    , _do1rsDeleteMarkerVersionId :: Maybe Text
     } deriving (Show, Generic)
 
-dpKey :: Lens' DeletedObject (Maybe ObjectKey)
-dpKey = lens _dpKey (\s a -> s { _dpKey = a })
-{-# INLINE dpKey #-}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DeletedObject' data type to populate a request.
+mkDeletedObject :: DeletedObject
+mkDeletedObject = DeletedObject
+    { _do1rsKey = Nothing
+    , _do1rsVersionId = Nothing
+    , _do1rsDeleteMarker = Nothing
+    , _do1rsDeleteMarkerVersionId = Nothing
+    }
+{-# INLINE mkDeletedObject #-}
 
-dpVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
-dpVersionId = lens _dpVersionId (\s a -> s { _dpVersionId = a })
-{-# INLINE dpVersionId #-}
+do1rsKey :: Lens' DeletedObject (Maybe ObjectKey)
+do1rsKey = lens _do1rsKey (\s a -> s { _do1rsKey = a })
+{-# INLINE do1rsKey #-}
 
-dpDeleteMarker :: Lens' DeletedObject (Maybe Bool)
-dpDeleteMarker = lens _dpDeleteMarker (\s a -> s { _dpDeleteMarker = a })
-{-# INLINE dpDeleteMarker #-}
+do1rsVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
+do1rsVersionId = lens _do1rsVersionId (\s a -> s { _do1rsVersionId = a })
+{-# INLINE do1rsVersionId #-}
 
-dpDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
-dpDeleteMarkerVersionId = lens _dpDeleteMarkerVersionId (\s a -> s { _dpDeleteMarkerVersionId = a })
-{-# INLINE dpDeleteMarkerVersionId #-}
+do1rsDeleteMarker :: Lens' DeletedObject (Maybe Bool)
+do1rsDeleteMarker =
+    lens _do1rsDeleteMarker (\s a -> s { _do1rsDeleteMarker = a })
+{-# INLINE do1rsDeleteMarker #-}
+
+do1rsDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
+do1rsDeleteMarkerVersionId =
+    lens _do1rsDeleteMarkerVersionId
+         (\s a -> s { _do1rsDeleteMarkerVersionId = a })
+{-# INLINE do1rsDeleteMarkerVersionId #-}
 
 instance FromXML DeletedObject where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeletedObject"
 
 data Error = Error
-    { _oKey :: Maybe ObjectKey
-    , _oVersionId :: Maybe ObjectVersionId
-    , _oCode :: Maybe Text
-    , _oMessage :: Maybe Text
+    { _eKey :: Maybe ObjectKey
+    , _eVersionId :: Maybe ObjectVersionId
+    , _eCode :: Maybe Text
+    , _eMessage :: Maybe Text
     } deriving (Show, Generic)
 
-oKey :: Lens' Error (Maybe ObjectKey)
-oKey = lens _oKey (\s a -> s { _oKey = a })
-{-# INLINE oKey #-}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Error' data type to populate a request.
+mkError :: Error
+mkError = Error
+    { _eKey = Nothing
+    , _eVersionId = Nothing
+    , _eCode = Nothing
+    , _eMessage = Nothing
+    }
+{-# INLINE mkError #-}
 
-oVersionId :: Lens' Error (Maybe ObjectVersionId)
-oVersionId = lens _oVersionId (\s a -> s { _oVersionId = a })
-{-# INLINE oVersionId #-}
+eKey :: Lens' Error (Maybe ObjectKey)
+eKey = lens _eKey (\s a -> s { _eKey = a })
+{-# INLINE eKey #-}
 
-oCode :: Lens' Error (Maybe Text)
-oCode = lens _oCode (\s a -> s { _oCode = a })
-{-# INLINE oCode #-}
+eVersionId :: Lens' Error (Maybe ObjectVersionId)
+eVersionId = lens _eVersionId (\s a -> s { _eVersionId = a })
+{-# INLINE eVersionId #-}
 
-oMessage :: Lens' Error (Maybe Text)
-oMessage = lens _oMessage (\s a -> s { _oMessage = a })
-{-# INLINE oMessage #-}
+eCode :: Lens' Error (Maybe Text)
+eCode = lens _eCode (\s a -> s { _eCode = a })
+{-# INLINE eCode #-}
+
+eMessage :: Lens' Error (Maybe Text)
+eMessage = lens _eMessage (\s a -> s { _eMessage = a })
+{-# INLINE eMessage #-}
 
 instance FromXML Error where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Error"
 
 data Grant = Grant
-    { _guGrantee :: Maybe Grantee
-    , _guPermission :: Maybe Permission
-      -- ^ Specifies the permission given to the grantee.
+    { _gGrantee :: Maybe Grantee
+    , _gPermission :: Maybe Permission
     } deriving (Show, Generic)
-
-guGrantee :: Lens' Grant (Maybe Grantee)
-guGrantee = lens _guGrantee (\s a -> s { _guGrantee = a })
-{-# INLINE guGrantee #-}
-
--- | Specifies the permission given to the grantee.
-guPermission :: Lens' Grant (Maybe Permission)
-guPermission = lens _guPermission (\s a -> s { _guPermission = a })
-{-# INLINE guPermission #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Grant' data type to populate a request.
 mkGrant :: Grant
 mkGrant = Grant
-    { _guGrantee = Nothing
-    , _guPermission = Nothing
+    { _gGrantee = Nothing
+    , _gPermission = Nothing
     }
 {-# INLINE mkGrant #-}
+
+gGrantee :: Lens' Grant (Maybe Grantee)
+gGrantee = lens _gGrantee (\s a -> s { _gGrantee = a })
+{-# INLINE gGrantee #-}
+
+-- | Specifies the permission given to the grantee.
+gPermission :: Lens' Grant (Maybe Permission)
+gPermission = lens _gPermission (\s a -> s { _gPermission = a })
+{-# INLINE gPermission #-}
 
 instance FromXML Grant where
     fromXMLOptions = xmlOptions
@@ -1705,55 +1688,50 @@ instance ToXML Grant where
     toXMLRoot    = toRoot "Grant"
 
 data Grantee = Grantee
-    { _geDisplayName :: Maybe Text
-      -- ^ Screen name of the grantee.
-    , _geEmailAddress :: Maybe Text
-      -- ^ Email address of the grantee.
-    , _geID :: Maybe Text
-      -- ^ The canonical user ID of the grantee.
-    , _geType :: Type
-      -- ^ Type of grantee.
-    , _geURI :: Maybe Text
-      -- ^ URI of the grantee group.
+    { _g1DisplayName :: Maybe Text
+    , _g1EmailAddress :: Maybe Text
+    , _g1ID :: Maybe Text
+    , _g1Type :: Type
+    , _g1URI :: Maybe Text
     } deriving (Show, Generic)
-
--- | Screen name of the grantee.
-geDisplayName :: Lens' Grantee (Maybe Text)
-geDisplayName = lens _geDisplayName (\s a -> s { _geDisplayName = a })
-{-# INLINE geDisplayName #-}
-
--- | Email address of the grantee.
-geEmailAddress :: Lens' Grantee (Maybe Text)
-geEmailAddress = lens _geEmailAddress (\s a -> s { _geEmailAddress = a })
-{-# INLINE geEmailAddress #-}
-
--- | The canonical user ID of the grantee.
-geID :: Lens' Grantee (Maybe Text)
-geID = lens _geID (\s a -> s { _geID = a })
-{-# INLINE geID #-}
-
--- | Type of grantee.
-geType :: Lens' Grantee (Type)
-geType = lens _geType (\s a -> s { _geType = a })
-{-# INLINE geType #-}
-
--- | URI of the grantee group.
-geURI :: Lens' Grantee (Maybe Text)
-geURI = lens _geURI (\s a -> s { _geURI = a })
-{-# INLINE geURI #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Grantee' data type to populate a request.
-mkGrantee :: Type -- ^ 'geType'
+mkGrantee :: Type -- ^ 'g1Type'
           -> Grantee
-mkGrantee p1 = Grantee
-    { _geDisplayName = Nothing
-    , _geEmailAddress = Nothing
-    , _geID = Nothing
-    , _geType = p4
-    , _geURI = Nothing
+mkGrantee p4 = Grantee
+    { _g1DisplayName = Nothing
+    , _g1EmailAddress = Nothing
+    , _g1ID = Nothing
+    , _g1Type = p4
+    , _g1URI = Nothing
     }
 {-# INLINE mkGrantee #-}
+
+-- | Screen name of the grantee.
+g1DisplayName :: Lens' Grantee (Maybe Text)
+g1DisplayName = lens _g1DisplayName (\s a -> s { _g1DisplayName = a })
+{-# INLINE g1DisplayName #-}
+
+-- | Email address of the grantee.
+g1EmailAddress :: Lens' Grantee (Maybe Text)
+g1EmailAddress = lens _g1EmailAddress (\s a -> s { _g1EmailAddress = a })
+{-# INLINE g1EmailAddress #-}
+
+-- | The canonical user ID of the grantee.
+g1ID :: Lens' Grantee (Maybe Text)
+g1ID = lens _g1ID (\s a -> s { _g1ID = a })
+{-# INLINE g1ID #-}
+
+-- | Type of grantee.
+g1Type :: Lens' Grantee Type
+g1Type = lens _g1Type (\s a -> s { _g1Type = a })
+{-# INLINE g1Type #-}
+
+-- | URI of the grantee group.
+g1URI :: Lens' Grantee (Maybe Text)
+g1URI = lens _g1URI (\s a -> s { _g1URI = a })
+{-# INLINE g1URI #-}
 
 instance FromXML Grantee where
     fromXMLOptions = xmlOptions
@@ -1765,33 +1743,29 @@ instance ToXML Grantee where
 
 -- | Identifies who initiated the multipart upload.
 data Initiator = Initiator
-    { _irID :: Maybe Text
-      -- ^ If the principal is an AWS account, it provides the Canonical
-      -- User ID. If the principal is an IAM User, it provides a user ARN
-      -- value.
-    , _irDisplayName :: Maybe Text
-      -- ^ Name of the Principal.
+    { _iID :: Maybe Text
+    , _iDisplayName :: Maybe Text
     } deriving (Show, Generic)
-
--- | If the principal is an AWS account, it provides the Canonical User ID. If
--- the principal is an IAM User, it provides a user ARN value.
-irID :: Lens' Initiator (Maybe Text)
-irID = lens _irID (\s a -> s { _irID = a })
-{-# INLINE irID #-}
-
--- | Name of the Principal.
-irDisplayName :: Lens' Initiator (Maybe Text)
-irDisplayName = lens _irDisplayName (\s a -> s { _irDisplayName = a })
-{-# INLINE irDisplayName #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Initiator' data type to populate a request.
 mkInitiator :: Initiator
 mkInitiator = Initiator
-    { _irID = Nothing
-    , _irDisplayName = Nothing
+    { _iID = Nothing
+    , _iDisplayName = Nothing
     }
 {-# INLINE mkInitiator #-}
+
+-- | If the principal is an AWS account, it provides the Canonical User ID. If
+-- the principal is an IAM User, it provides a user ARN value.
+iID :: Lens' Initiator (Maybe Text)
+iID = lens _iID (\s a -> s { _iID = a })
+{-# INLINE iID #-}
+
+-- | Name of the Principal.
+iDisplayName :: Lens' Initiator (Maybe Text)
+iDisplayName = lens _iDisplayName (\s a -> s { _iDisplayName = a })
+{-# INLINE iDisplayName #-}
 
 instance FromXML Initiator where
     fromXMLOptions = xmlOptions
@@ -1803,12 +1777,17 @@ instance ToXML Initiator where
 
 data LifecycleExpiration = LifecycleExpiration
     { _leDate :: Maybe RFC822
-      -- ^ Indicates at what date the object is to be moved or deleted.
-      -- Should be in GMT ISO 8601 Format.
     , _leDays :: Maybe Integer
-      -- ^ Indicates the lifetime, in days, of the objects that are subject
-      -- to the rule. The value must be a non-zero positive integer.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LifecycleExpiration' data type to populate a request.
+mkLifecycleExpiration :: LifecycleExpiration
+mkLifecycleExpiration = LifecycleExpiration
+    { _leDate = Nothing
+    , _leDays = Nothing
+    }
+{-# INLINE mkLifecycleExpiration #-}
 
 -- | Indicates at what date the object is to be moved or deleted. Should be in
 -- GMT ISO 8601 Format.
@@ -1822,15 +1801,6 @@ leDays :: Lens' LifecycleExpiration (Maybe Integer)
 leDays = lens _leDays (\s a -> s { _leDays = a })
 {-# INLINE leDays #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LifecycleExpiration' data type to populate a request.
-mkLifecycleExpiration :: LifecycleExpiration
-mkLifecycleExpiration = LifecycleExpiration
-    { _leDate = Nothing
-    , _leDays = Nothing
-    }
-{-# INLINE mkLifecycleExpiration #-}
-
 instance FromXML LifecycleExpiration where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "LifecycleExpiration"
@@ -1840,19 +1810,20 @@ instance ToXML LifecycleExpiration where
     toXMLRoot    = toRoot "LifecycleExpiration"
 
 data LoggingEnabled = LoggingEnabled
-    { _lfTargetBucket :: Maybe Text
-      -- ^ Specifies the bucket where you want Amazon S3 to store server
-      -- access logs. You can have your logs delivered to any bucket that
-      -- you own, including the same bucket that is being logged. You can
-      -- also configure multiple buckets to deliver their logs to the same
-      -- target bucket. In this case you should choose a different
-      -- TargetPrefix for each source bucket so that the delivered log
-      -- files can be distinguished by key.
-    , _lfTargetGrants :: [TargetGrant]
-    , _lfTargetPrefix :: Maybe Text
-      -- ^ This element lets you specify a prefix for the keys that the log
-      -- files will be stored under.
+    { _lersTargetBucket :: Maybe Text
+    , _lersTargetGrants :: [TargetGrant]
+    , _lersTargetPrefix :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LoggingEnabled' data type to populate a request.
+mkLoggingEnabled :: LoggingEnabled
+mkLoggingEnabled = LoggingEnabled
+    { _lersTargetBucket = Nothing
+    , _lersTargetGrants = mempty
+    , _lersTargetPrefix = Nothing
+    }
+{-# INLINE mkLoggingEnabled #-}
 
 -- | Specifies the bucket where you want Amazon S3 to store server access logs.
 -- You can have your logs delivered to any bucket that you own, including the
@@ -1860,29 +1831,22 @@ data LoggingEnabled = LoggingEnabled
 -- to deliver their logs to the same target bucket. In this case you should
 -- choose a different TargetPrefix for each source bucket so that the
 -- delivered log files can be distinguished by key.
-lfTargetBucket :: Lens' LoggingEnabled (Maybe Text)
-lfTargetBucket = lens _lfTargetBucket (\s a -> s { _lfTargetBucket = a })
-{-# INLINE lfTargetBucket #-}
+lersTargetBucket :: Lens' LoggingEnabled (Maybe Text)
+lersTargetBucket =
+    lens _lersTargetBucket (\s a -> s { _lersTargetBucket = a })
+{-# INLINE lersTargetBucket #-}
 
-lfTargetGrants :: Lens' LoggingEnabled ([TargetGrant])
-lfTargetGrants = lens _lfTargetGrants (\s a -> s { _lfTargetGrants = a })
-{-# INLINE lfTargetGrants #-}
+lersTargetGrants :: Lens' LoggingEnabled [TargetGrant]
+lersTargetGrants =
+    lens _lersTargetGrants (\s a -> s { _lersTargetGrants = a })
+{-# INLINE lersTargetGrants #-}
 
 -- | This element lets you specify a prefix for the keys that the log files will
 -- be stored under.
-lfTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
-lfTargetPrefix = lens _lfTargetPrefix (\s a -> s { _lfTargetPrefix = a })
-{-# INLINE lfTargetPrefix #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LoggingEnabled' data type to populate a request.
-mkLoggingEnabled :: LoggingEnabled
-mkLoggingEnabled = LoggingEnabled
-    { _lfTargetBucket = Nothing
-    , _lfTargetGrants = mempty
-    , _lfTargetPrefix = Nothing
-    }
-{-# INLINE mkLoggingEnabled #-}
+lersTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
+lersTargetPrefix =
+    lens _lersTargetPrefix (\s a -> s { _lersTargetPrefix = a })
+{-# INLINE lersTargetPrefix #-}
 
 instance FromXML LoggingEnabled where
     fromXMLOptions = xmlOptions
@@ -1893,47 +1857,55 @@ instance ToXML LoggingEnabled where
     toXMLRoot    = toRoot "LoggingEnabled"
 
 data MultipartUpload = MultipartUpload
-    { _mwUploadId :: Maybe Text
-      -- ^ Upload ID that identifies the multipart upload.
-    , _mwKey :: Maybe ObjectKey
-      -- ^ Key of the object for which the multipart upload was initiated.
-    , _mwInitiated :: Maybe RFC822
-      -- ^ Date and time at which the multipart upload was initiated.
-    , _mwStorageClass :: Maybe StorageClass
-      -- ^ The class of storage used to store the object.
-    , _mwOwner :: Maybe Owner
-    , _mwInitiator :: Maybe Initiator
-      -- ^ Identifies who initiated the multipart upload.
+    { _muUploadId :: Maybe Text
+    , _muKey :: Maybe ObjectKey
+    , _muInitiated :: Maybe RFC822
+    , _muStorageClass :: Maybe StorageClass
+    , _muOwner :: Maybe Owner
+    , _muInitiator :: Maybe Initiator
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'MultipartUpload' data type to populate a request.
+mkMultipartUpload :: MultipartUpload
+mkMultipartUpload = MultipartUpload
+    { _muUploadId = Nothing
+    , _muKey = Nothing
+    , _muInitiated = Nothing
+    , _muStorageClass = Nothing
+    , _muOwner = Nothing
+    , _muInitiator = Nothing
+    }
+{-# INLINE mkMultipartUpload #-}
+
 -- | Upload ID that identifies the multipart upload.
-mwUploadId :: Lens' MultipartUpload (Maybe Text)
-mwUploadId = lens _mwUploadId (\s a -> s { _mwUploadId = a })
-{-# INLINE mwUploadId #-}
+muUploadId :: Lens' MultipartUpload (Maybe Text)
+muUploadId = lens _muUploadId (\s a -> s { _muUploadId = a })
+{-# INLINE muUploadId #-}
 
 -- | Key of the object for which the multipart upload was initiated.
-mwKey :: Lens' MultipartUpload (Maybe ObjectKey)
-mwKey = lens _mwKey (\s a -> s { _mwKey = a })
-{-# INLINE mwKey #-}
+muKey :: Lens' MultipartUpload (Maybe ObjectKey)
+muKey = lens _muKey (\s a -> s { _muKey = a })
+{-# INLINE muKey #-}
 
 -- | Date and time at which the multipart upload was initiated.
-mwInitiated :: Lens' MultipartUpload (Maybe RFC822)
-mwInitiated = lens _mwInitiated (\s a -> s { _mwInitiated = a })
-{-# INLINE mwInitiated #-}
+muInitiated :: Lens' MultipartUpload (Maybe RFC822)
+muInitiated = lens _muInitiated (\s a -> s { _muInitiated = a })
+{-# INLINE muInitiated #-}
 
 -- | The class of storage used to store the object.
-mwStorageClass :: Lens' MultipartUpload (Maybe StorageClass)
-mwStorageClass = lens _mwStorageClass (\s a -> s { _mwStorageClass = a })
-{-# INLINE mwStorageClass #-}
+muStorageClass :: Lens' MultipartUpload (Maybe StorageClass)
+muStorageClass = lens _muStorageClass (\s a -> s { _muStorageClass = a })
+{-# INLINE muStorageClass #-}
 
-mwOwner :: Lens' MultipartUpload (Maybe Owner)
-mwOwner = lens _mwOwner (\s a -> s { _mwOwner = a })
-{-# INLINE mwOwner #-}
+muOwner :: Lens' MultipartUpload (Maybe Owner)
+muOwner = lens _muOwner (\s a -> s { _muOwner = a })
+{-# INLINE muOwner #-}
 
 -- | Identifies who initiated the multipart upload.
-mwInitiator :: Lens' MultipartUpload (Maybe Initiator)
-mwInitiator = lens _mwInitiator (\s a -> s { _mwInitiator = a })
-{-# INLINE mwInitiator #-}
+muInitiator :: Lens' MultipartUpload (Maybe Initiator)
+muInitiator = lens _muInitiator (\s a -> s { _muInitiator = a })
+{-# INLINE muInitiator #-}
 
 instance FromXML MultipartUpload where
     fromXMLOptions = xmlOptions
@@ -1946,27 +1918,8 @@ instance FromXML MultipartUpload where
 -- storage class at a specific period in the object's lifetime.
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Maybe Integer
-      -- ^ Specifies the number of days an object is noncurrent before
-      -- Amazon S3 can perform the associated action. For information
-      -- about the noncurrent days calculations, see How Amazon S3
-      -- Calculates When an Object Became Noncurrent in the Amazon Simple
-      -- Storage Service Developer Guide.
     , _nvtStorageClass :: Maybe TransitionStorageClass
-      -- ^ The class of storage used to store the object.
     } deriving (Show, Generic)
-
--- | Specifies the number of days an object is noncurrent before Amazon S3 can
--- perform the associated action. For information about the noncurrent days
--- calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
--- in the Amazon Simple Storage Service Developer Guide.
-nvtNoncurrentDays :: Lens' NoncurrentVersionTransition (Maybe Integer)
-nvtNoncurrentDays = lens _nvtNoncurrentDays (\s a -> s { _nvtNoncurrentDays = a })
-{-# INLINE nvtNoncurrentDays #-}
-
--- | The class of storage used to store the object.
-nvtStorageClass :: Lens' NoncurrentVersionTransition (Maybe TransitionStorageClass)
-nvtStorageClass = lens _nvtStorageClass (\s a -> s { _nvtStorageClass = a })
-{-# INLINE nvtStorageClass #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NoncurrentVersionTransition' data type to populate a request.
@@ -1977,6 +1930,20 @@ mkNoncurrentVersionTransition = NoncurrentVersionTransition
     }
 {-# INLINE mkNoncurrentVersionTransition #-}
 
+-- | Specifies the number of days an object is noncurrent before Amazon S3 can
+-- perform the associated action. For information about the noncurrent days
+-- calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
+-- in the Amazon Simple Storage Service Developer Guide.
+nvtNoncurrentDays :: Lens' NoncurrentVersionTransition (Maybe Integer)
+nvtNoncurrentDays =
+    lens _nvtNoncurrentDays (\s a -> s { _nvtNoncurrentDays = a })
+{-# INLINE nvtNoncurrentDays #-}
+
+-- | The class of storage used to store the object.
+nvtStorageClass :: Lens' NoncurrentVersionTransition (Maybe TransitionStorageClass)
+nvtStorageClass = lens _nvtStorageClass (\s a -> s { _nvtStorageClass = a })
+{-# INLINE nvtStorageClass #-}
+
 instance FromXML NoncurrentVersionTransition where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "NoncurrentVersionTransition"
@@ -1986,39 +1953,57 @@ instance ToXML NoncurrentVersionTransition where
     toXMLRoot    = toRoot "NoncurrentVersionTransition"
 
 data Object = Object
-    { _oowKey :: ObjectKey
-    , _oowLastModified :: RFC822
-    , _oowETag :: ETag
-    , _oowSize :: Integer
-    , _oowStorageClass :: ObjectStorageClass
-      -- ^ The class of storage used to store the object.
-    , _oowOwner :: Owner
+    { _orsKey :: Maybe ObjectKey
+    , _orsLastModified :: Maybe RFC822
+    , _orsETag :: Maybe ETag
+    , _orsSize :: Maybe Integer
+    , _orsStorageClass :: Maybe ObjectStorageClass
+    , _orsOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-oowKey :: Lens' Object (ObjectKey)
-oowKey = lens _oowKey (\s a -> s { _oowKey = a })
-{-# INLINE oowKey #-}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Object' data type to populate a request.
+mkObject :: Maybe ObjectKey -- ^ 'orsKey'
+         -> Maybe RFC822 -- ^ 'orsLastModified'
+         -> Maybe ETag -- ^ 'orsETag'
+         -> Maybe Integer -- ^ 'orsSize'
+         -> Maybe ObjectStorageClass -- ^ 'orsStorageClass'
+         -> Maybe Owner -- ^ 'orsOwner'
+         -> Object
+mkObject p1 p2 p3 p4 p5 p6 = Object
+    { _orsKey = p1
+    , _orsLastModified = p2
+    , _orsETag = p3
+    , _orsSize = p4
+    , _orsStorageClass = p5
+    , _orsOwner = p6
+    }
+{-# INLINE mkObject #-}
 
-oowLastModified :: Lens' Object (RFC822)
-oowLastModified = lens _oowLastModified (\s a -> s { _oowLastModified = a })
-{-# INLINE oowLastModified #-}
+orsKey :: Lens' Object (Maybe ObjectKey)
+orsKey = lens _orsKey (\s a -> s { _orsKey = a })
+{-# INLINE orsKey #-}
 
-oowETag :: Lens' Object (ETag)
-oowETag = lens _oowETag (\s a -> s { _oowETag = a })
-{-# INLINE oowETag #-}
+orsLastModified :: Lens' Object (Maybe RFC822)
+orsLastModified = lens _orsLastModified (\s a -> s { _orsLastModified = a })
+{-# INLINE orsLastModified #-}
 
-oowSize :: Lens' Object (Integer)
-oowSize = lens _oowSize (\s a -> s { _oowSize = a })
-{-# INLINE oowSize #-}
+orsETag :: Lens' Object (Maybe ETag)
+orsETag = lens _orsETag (\s a -> s { _orsETag = a })
+{-# INLINE orsETag #-}
+
+orsSize :: Lens' Object (Maybe Integer)
+orsSize = lens _orsSize (\s a -> s { _orsSize = a })
+{-# INLINE orsSize #-}
 
 -- | The class of storage used to store the object.
-oowStorageClass :: Lens' Object (ObjectStorageClass)
-oowStorageClass = lens _oowStorageClass (\s a -> s { _oowStorageClass = a })
-{-# INLINE oowStorageClass #-}
+orsStorageClass :: Lens' Object (Maybe ObjectStorageClass)
+orsStorageClass = lens _orsStorageClass (\s a -> s { _orsStorageClass = a })
+{-# INLINE orsStorageClass #-}
 
-oowOwner :: Lens' Object (Owner)
-oowOwner = lens _oowOwner (\s a -> s { _oowOwner = a })
-{-# INLINE oowOwner #-}
+orsOwner :: Lens' Object (Maybe Owner)
+orsOwner = lens _orsOwner (\s a -> s { _orsOwner = a })
+{-# INLINE orsOwner #-}
 
 instance FromXML Object where
     fromXMLOptions = xmlOptions
@@ -2026,20 +2011,8 @@ instance FromXML Object where
 
 data ObjectIdentifier = ObjectIdentifier
     { _oiKey :: ObjectKey
-      -- ^ Key name of the object to delete.
     , _oiVersionId :: Maybe ObjectVersionId
-      -- ^ VersionId for the specific version of the object to delete.
     } deriving (Show, Generic)
-
--- | Key name of the object to delete.
-oiKey :: Lens' ObjectIdentifier (ObjectKey)
-oiKey = lens _oiKey (\s a -> s { _oiKey = a })
-{-# INLINE oiKey #-}
-
--- | VersionId for the specific version of the object to delete.
-oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
-oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
-{-# INLINE oiVersionId #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ObjectIdentifier' data type to populate a request.
@@ -2051,92 +2024,110 @@ mkObjectIdentifier p1 = ObjectIdentifier
     }
 {-# INLINE mkObjectIdentifier #-}
 
+-- | Key name of the object to delete.
+oiKey :: Lens' ObjectIdentifier ObjectKey
+oiKey = lens _oiKey (\s a -> s { _oiKey = a })
+{-# INLINE oiKey #-}
+
+-- | VersionId for the specific version of the object to delete.
+oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
+oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
+{-# INLINE oiVersionId #-}
+
 instance ToXML ObjectIdentifier where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ObjectIdentifier"
 
 data ObjectVersion = ObjectVersion
-    { _oonETag :: Maybe ETag
-    , _oonSize :: Maybe Integer
-      -- ^ Size in bytes of the object.
-    , _oonStorageClass :: Maybe ObjectVersionStorageClass
-      -- ^ The class of storage used to store the object.
-    , _oonKey :: Maybe ObjectKey
-      -- ^ The object key.
-    , _oonVersionId :: Maybe ObjectVersionId
-      -- ^ Version ID of an object.
-    , _oonIsLatest :: Maybe Bool
-      -- ^ Specifies whether the object is (true) or is not (false) the
-      -- latest version of an object.
-    , _oonLastModified :: Maybe RFC822
-      -- ^ Date and time the object was last modified.
-    , _oonOwner :: Maybe Owner
+    { _ovETag :: Maybe ETag
+    , _ovSize :: Maybe Integer
+    , _ovStorageClass :: Maybe ObjectVersionStorageClass
+    , _ovKey :: Maybe ObjectKey
+    , _ovVersionId :: Maybe ObjectVersionId
+    , _ovIsLatest :: Maybe Bool
+    , _ovLastModified :: Maybe RFC822
+    , _ovOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-oonETag :: Lens' ObjectVersion (Maybe ETag)
-oonETag = lens _oonETag (\s a -> s { _oonETag = a })
-{-# INLINE oonETag #-}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ObjectVersion' data type to populate a request.
+mkObjectVersion :: ObjectVersion
+mkObjectVersion = ObjectVersion
+    { _ovETag = Nothing
+    , _ovSize = Nothing
+    , _ovStorageClass = Nothing
+    , _ovKey = Nothing
+    , _ovVersionId = Nothing
+    , _ovIsLatest = Nothing
+    , _ovLastModified = Nothing
+    , _ovOwner = Nothing
+    }
+{-# INLINE mkObjectVersion #-}
+
+ovETag :: Lens' ObjectVersion (Maybe ETag)
+ovETag = lens _ovETag (\s a -> s { _ovETag = a })
+{-# INLINE ovETag #-}
 
 -- | Size in bytes of the object.
-oonSize :: Lens' ObjectVersion (Maybe Integer)
-oonSize = lens _oonSize (\s a -> s { _oonSize = a })
-{-# INLINE oonSize #-}
+ovSize :: Lens' ObjectVersion (Maybe Integer)
+ovSize = lens _ovSize (\s a -> s { _ovSize = a })
+{-# INLINE ovSize #-}
 
 -- | The class of storage used to store the object.
-oonStorageClass :: Lens' ObjectVersion (Maybe ObjectVersionStorageClass)
-oonStorageClass = lens _oonStorageClass (\s a -> s { _oonStorageClass = a })
-{-# INLINE oonStorageClass #-}
+ovStorageClass :: Lens' ObjectVersion (Maybe ObjectVersionStorageClass)
+ovStorageClass = lens _ovStorageClass (\s a -> s { _ovStorageClass = a })
+{-# INLINE ovStorageClass #-}
 
 -- | The object key.
-oonKey :: Lens' ObjectVersion (Maybe ObjectKey)
-oonKey = lens _oonKey (\s a -> s { _oonKey = a })
-{-# INLINE oonKey #-}
+ovKey :: Lens' ObjectVersion (Maybe ObjectKey)
+ovKey = lens _ovKey (\s a -> s { _ovKey = a })
+{-# INLINE ovKey #-}
 
 -- | Version ID of an object.
-oonVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
-oonVersionId = lens _oonVersionId (\s a -> s { _oonVersionId = a })
-{-# INLINE oonVersionId #-}
+ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
+ovVersionId = lens _ovVersionId (\s a -> s { _ovVersionId = a })
+{-# INLINE ovVersionId #-}
 
 -- | Specifies whether the object is (true) or is not (false) the latest version
 -- of an object.
-oonIsLatest :: Lens' ObjectVersion (Maybe Bool)
-oonIsLatest = lens _oonIsLatest (\s a -> s { _oonIsLatest = a })
-{-# INLINE oonIsLatest #-}
+ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
+ovIsLatest = lens _ovIsLatest (\s a -> s { _ovIsLatest = a })
+{-# INLINE ovIsLatest #-}
 
 -- | Date and time the object was last modified.
-oonLastModified :: Lens' ObjectVersion (Maybe RFC822)
-oonLastModified = lens _oonLastModified (\s a -> s { _oonLastModified = a })
-{-# INLINE oonLastModified #-}
+ovLastModified :: Lens' ObjectVersion (Maybe RFC822)
+ovLastModified = lens _ovLastModified (\s a -> s { _ovLastModified = a })
+{-# INLINE ovLastModified #-}
 
-oonOwner :: Lens' ObjectVersion (Maybe Owner)
-oonOwner = lens _oonOwner (\s a -> s { _oonOwner = a })
-{-# INLINE oonOwner #-}
+ovOwner :: Lens' ObjectVersion (Maybe Owner)
+ovOwner = lens _ovOwner (\s a -> s { _ovOwner = a })
+{-# INLINE ovOwner #-}
 
 instance FromXML ObjectVersion where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ObjectVersion"
 
 data Owner = Owner
-    { _sDisplayName :: Maybe Text
-    , _sID :: Maybe Text
+    { _oDisplayName :: Maybe Text
+    , _oID :: Maybe Text
     } deriving (Show, Generic)
-
-sDisplayName :: Lens' Owner (Maybe Text)
-sDisplayName = lens _sDisplayName (\s a -> s { _sDisplayName = a })
-{-# INLINE sDisplayName #-}
-
-sID :: Lens' Owner (Maybe Text)
-sID = lens _sID (\s a -> s { _sID = a })
-{-# INLINE sID #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Owner' data type to populate a request.
 mkOwner :: Owner
 mkOwner = Owner
-    { _sDisplayName = Nothing
-    , _sID = Nothing
+    { _oDisplayName = Nothing
+    , _oID = Nothing
     }
 {-# INLINE mkOwner #-}
+
+oDisplayName :: Lens' Owner (Maybe Text)
+oDisplayName = lens _oDisplayName (\s a -> s { _oDisplayName = a })
+{-# INLINE oDisplayName #-}
+
+oID :: Lens' Owner (Maybe Text)
+oID = lens _oID (\s a -> s { _oID = a })
+{-# INLINE oID #-}
 
 instance FromXML Owner where
     fromXMLOptions = xmlOptions
@@ -2147,35 +2138,42 @@ instance ToXML Owner where
     toXMLRoot    = toRoot "Owner"
 
 data Part = Part
-    { _ptPartNumber :: Maybe Integer
-      -- ^ Part number identifying the part.
-    , _ptLastModified :: Maybe RFC822
-      -- ^ Date and time at which the part was uploaded.
-    , _ptETag :: Maybe ETag
-      -- ^ Entity tag returned when the part was uploaded.
-    , _ptSize :: Maybe Integer
-      -- ^ Size of the uploaded part data.
+    { _pPartNumber :: Maybe Integer
+    , _pLastModified :: Maybe RFC822
+    , _pETag :: Maybe ETag
+    , _pSize :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Part' data type to populate a request.
+mkPart :: Part
+mkPart = Part
+    { _pPartNumber = Nothing
+    , _pLastModified = Nothing
+    , _pETag = Nothing
+    , _pSize = Nothing
+    }
+{-# INLINE mkPart #-}
+
 -- | Part number identifying the part.
-ptPartNumber :: Lens' Part (Maybe Integer)
-ptPartNumber = lens _ptPartNumber (\s a -> s { _ptPartNumber = a })
-{-# INLINE ptPartNumber #-}
+pPartNumber :: Lens' Part (Maybe Integer)
+pPartNumber = lens _pPartNumber (\s a -> s { _pPartNumber = a })
+{-# INLINE pPartNumber #-}
 
 -- | Date and time at which the part was uploaded.
-ptLastModified :: Lens' Part (Maybe RFC822)
-ptLastModified = lens _ptLastModified (\s a -> s { _ptLastModified = a })
-{-# INLINE ptLastModified #-}
+pLastModified :: Lens' Part (Maybe RFC822)
+pLastModified = lens _pLastModified (\s a -> s { _pLastModified = a })
+{-# INLINE pLastModified #-}
 
 -- | Entity tag returned when the part was uploaded.
-ptETag :: Lens' Part (Maybe ETag)
-ptETag = lens _ptETag (\s a -> s { _ptETag = a })
-{-# INLINE ptETag #-}
+pETag :: Lens' Part (Maybe ETag)
+pETag = lens _pETag (\s a -> s { _pETag = a })
+{-# INLINE pETag #-}
 
 -- | Size of the uploaded part data.
-ptSize :: Lens' Part (Maybe Integer)
-ptSize = lens _ptSize (\s a -> s { _ptSize = a })
-{-# INLINE ptSize #-}
+pSize :: Lens' Part (Maybe Integer)
+pSize = lens _pSize (\s a -> s { _pSize = a })
+{-# INLINE pSize #-}
 
 instance FromXML Part where
     fromXMLOptions = xmlOptions
@@ -2185,45 +2183,42 @@ instance FromXML Part where
 -- host, to another page, or with another protocol. In the event of an error,
 -- you can can specify a different error code to return.
 data Redirect = Redirect
-    { _ruHostName :: Maybe Text
-      -- ^ The host name to use in the redirect request.
-    , _ruHttpRedirectCode :: Maybe Text
-      -- ^ The HTTP redirect code to use on the response. Not required if
-      -- one of the siblings is present.
-    , _ruProtocol :: Maybe Protocol
-      -- ^ Protocol to use (http, https) when redirecting requests. The
-      -- default is the protocol that is used in the original request.
-    , _ruReplaceKeyPrefixWith :: Maybe Text
-      -- ^ The object key prefix to use in the redirect request. For
-      -- example, to redirect requests for all pages with prefix docs/
-      -- (objects in the docs/ folder) to documents/, you can set a
-      -- condition block with KeyPrefixEquals set to docs/ and in the
-      -- Redirect set ReplaceKeyPrefixWith to /documents. Not required if
-      -- one of the siblings is present. Can be present only if
-      -- ReplaceKeyWith is not provided.
-    , _ruReplaceKeyWith :: Maybe Text
-      -- ^ The specific object key to use in the redirect request. For
-      -- example, redirect request to error.html. Not required if one of
-      -- the sibling is present. Can be present only if
-      -- ReplaceKeyPrefixWith is not provided.
+    { _r1HostName :: Maybe Text
+    , _r1HttpRedirectCode :: Maybe Text
+    , _r1Protocol :: Maybe Protocol
+    , _r1ReplaceKeyPrefixWith :: Maybe Text
+    , _r1ReplaceKeyWith :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Redirect' data type to populate a request.
+mkRedirect :: Redirect
+mkRedirect = Redirect
+    { _r1HostName = Nothing
+    , _r1HttpRedirectCode = Nothing
+    , _r1Protocol = Nothing
+    , _r1ReplaceKeyPrefixWith = Nothing
+    , _r1ReplaceKeyWith = Nothing
+    }
+{-# INLINE mkRedirect #-}
+
 -- | The host name to use in the redirect request.
-ruHostName :: Lens' Redirect (Maybe Text)
-ruHostName = lens _ruHostName (\s a -> s { _ruHostName = a })
-{-# INLINE ruHostName #-}
+r1HostName :: Lens' Redirect (Maybe Text)
+r1HostName = lens _r1HostName (\s a -> s { _r1HostName = a })
+{-# INLINE r1HostName #-}
 
 -- | The HTTP redirect code to use on the response. Not required if one of the
 -- siblings is present.
-ruHttpRedirectCode :: Lens' Redirect (Maybe Text)
-ruHttpRedirectCode = lens _ruHttpRedirectCode (\s a -> s { _ruHttpRedirectCode = a })
-{-# INLINE ruHttpRedirectCode #-}
+r1HttpRedirectCode :: Lens' Redirect (Maybe Text)
+r1HttpRedirectCode =
+    lens _r1HttpRedirectCode (\s a -> s { _r1HttpRedirectCode = a })
+{-# INLINE r1HttpRedirectCode #-}
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
-ruProtocol :: Lens' Redirect (Maybe Protocol)
-ruProtocol = lens _ruProtocol (\s a -> s { _ruProtocol = a })
-{-# INLINE ruProtocol #-}
+r1Protocol :: Lens' Redirect (Maybe Protocol)
+r1Protocol = lens _r1Protocol (\s a -> s { _r1Protocol = a })
+{-# INLINE r1Protocol #-}
 
 -- | The object key prefix to use in the redirect request. For example, to
 -- redirect requests for all pages with prefix docs/ (objects in the docs/
@@ -2231,28 +2226,18 @@ ruProtocol = lens _ruProtocol (\s a -> s { _ruProtocol = a })
 -- set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents.
 -- Not required if one of the siblings is present. Can be present only if
 -- ReplaceKeyWith is not provided.
-ruReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
-ruReplaceKeyPrefixWith = lens _ruReplaceKeyPrefixWith (\s a -> s { _ruReplaceKeyPrefixWith = a })
-{-# INLINE ruReplaceKeyPrefixWith #-}
+r1ReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
+r1ReplaceKeyPrefixWith =
+    lens _r1ReplaceKeyPrefixWith (\s a -> s { _r1ReplaceKeyPrefixWith = a })
+{-# INLINE r1ReplaceKeyPrefixWith #-}
 
 -- | The specific object key to use in the redirect request. For example,
 -- redirect request to error.html. Not required if one of the sibling is
 -- present. Can be present only if ReplaceKeyPrefixWith is not provided.
-ruReplaceKeyWith :: Lens' Redirect (Maybe Text)
-ruReplaceKeyWith = lens _ruReplaceKeyWith (\s a -> s { _ruReplaceKeyWith = a })
-{-# INLINE ruReplaceKeyWith #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Redirect' data type to populate a request.
-mkRedirect :: Redirect
-mkRedirect = Redirect
-    { _ruHostName = Nothing
-    , _ruHttpRedirectCode = Nothing
-    , _ruProtocol = Nothing
-    , _ruReplaceKeyPrefixWith = Nothing
-    , _ruReplaceKeyWith = Nothing
-    }
-{-# INLINE mkRedirect #-}
+r1ReplaceKeyWith :: Lens' Redirect (Maybe Text)
+r1ReplaceKeyWith =
+    lens _r1ReplaceKeyWith (\s a -> s { _r1ReplaceKeyWith = a })
+{-# INLINE r1ReplaceKeyWith #-}
 
 instance FromXML Redirect where
     fromXMLOptions = xmlOptions
@@ -2264,22 +2249,8 @@ instance ToXML Redirect where
 
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
-      -- ^ Name of the host where requests will be redirected.
     , _rartProtocol :: Maybe Protocol
-      -- ^ Protocol to use (http, https) when redirecting requests. The
-      -- default is the protocol that is used in the original request.
     } deriving (Show, Generic)
-
--- | Name of the host where requests will be redirected.
-rartHostName :: Lens' RedirectAllRequestsTo (Text)
-rartHostName = lens _rartHostName (\s a -> s { _rartHostName = a })
-{-# INLINE rartHostName #-}
-
--- | Protocol to use (http, https) when redirecting requests. The default is the
--- protocol that is used in the original request.
-rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
-rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
-{-# INLINE rartProtocol #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RedirectAllRequestsTo' data type to populate a request.
@@ -2291,6 +2262,17 @@ mkRedirectAllRequestsTo p1 = RedirectAllRequestsTo
     }
 {-# INLINE mkRedirectAllRequestsTo #-}
 
+-- | Name of the host where requests will be redirected.
+rartHostName :: Lens' RedirectAllRequestsTo Text
+rartHostName = lens _rartHostName (\s a -> s { _rartHostName = a })
+{-# INLINE rartHostName #-}
+
+-- | Protocol to use (http, https) when redirecting requests. The default is the
+-- protocol that is used in the original request.
+rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
+rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
+{-# INLINE rartProtocol #-}
+
 instance FromXML RedirectAllRequestsTo where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RedirectAllRequestsTo"
@@ -2300,44 +2282,35 @@ instance ToXML RedirectAllRequestsTo where
     toXMLRoot    = toRoot "RedirectAllRequestsTo"
 
 data RoutingRule = RoutingRule
-    { _rtCondition :: Maybe Condition
-      -- ^ A container for describing a condition that must be met for the
-      -- specified redirect to apply. For example, 1. If request is for
-      -- pages in the /docs folder, redirect to the /documents folder. 2.
-      -- If request results in HTTP error 4xx, redirect request to another
-      -- host where you might process the error.
-    , _rtRedirect :: Redirect
-      -- ^ Container for redirect information. You can redirect requests to
-      -- another host, to another page, or with another protocol. In the
-      -- event of an error, you can can specify a different error code to
-      -- return.
+    { _rrCondition :: Maybe Condition
+    , _rrRedirect :: Redirect
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'RoutingRule' data type to populate a request.
+mkRoutingRule :: Redirect -- ^ 'rrRedirect'
+              -> RoutingRule
+mkRoutingRule p2 = RoutingRule
+    { _rrCondition = Nothing
+    , _rrRedirect = p2
+    }
+{-# INLINE mkRoutingRule #-}
 
 -- | A container for describing a condition that must be met for the specified
 -- redirect to apply. For example, 1. If request is for pages in the /docs
 -- folder, redirect to the /documents folder. 2. If request results in HTTP
 -- error 4xx, redirect request to another host where you might process the
 -- error.
-rtCondition :: Lens' RoutingRule (Maybe Condition)
-rtCondition = lens _rtCondition (\s a -> s { _rtCondition = a })
-{-# INLINE rtCondition #-}
+rrCondition :: Lens' RoutingRule (Maybe Condition)
+rrCondition = lens _rrCondition (\s a -> s { _rrCondition = a })
+{-# INLINE rrCondition #-}
 
 -- | Container for redirect information. You can redirect requests to another
 -- host, to another page, or with another protocol. In the event of an error,
 -- you can can specify a different error code to return.
-rtRedirect :: Lens' RoutingRule (Redirect)
-rtRedirect = lens _rtRedirect (\s a -> s { _rtRedirect = a })
-{-# INLINE rtRedirect #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'RoutingRule' data type to populate a request.
-mkRoutingRule :: Redirect -- ^ 'rtRedirect'
-              -> RoutingRule
-mkRoutingRule p1 = RoutingRule
-    { _rtCondition = Nothing
-    , _rtRedirect = p2
-    }
-{-# INLINE mkRoutingRule #-}
+rrRedirect :: Lens' RoutingRule Redirect
+rrRedirect = lens _rrRedirect (\s a -> s { _rrRedirect = a })
+{-# INLINE rrRedirect #-}
 
 instance FromXML RoutingRule where
     fromXMLOptions = xmlOptions
@@ -2348,90 +2321,77 @@ instance ToXML RoutingRule where
     toXMLRoot    = toRoot "RoutingRule"
 
 data Rule = Rule
-    { _reExpiration :: Maybe LifecycleExpiration
-    , _reID :: Maybe Text
-      -- ^ Unique identifier for the rule. The value cannot be longer than
-      -- 255 characters.
-    , _rePrefix :: Text
-      -- ^ Prefix identifying one or more objects to which the rule applies.
-    , _reStatus :: Switch ExpirationStatus
-      -- ^ If 'Enabled', the rule is currently being applied. If 'Disabled',
-      -- the rule is not currently being applied.
-    , _reTransition :: Maybe Transition
-    , _reNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
-      -- ^ Container for the transition rule that describes when noncurrent
-      -- objects transition to the GLACIER storage class. If your bucket
-      -- is versioning-enabled (or versioning is suspended), you can set
-      -- this action to request that Amazon S3 transition noncurrent
-      -- object versions to the GLACIER storage class at a specific period
-      -- in the object's lifetime.
-    , _reNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
-      -- ^ Specifies when noncurrent object versions expire. Upon
-      -- expiration, Amazon S3 permanently deletes the noncurrent object
-      -- versions. You set this lifecycle configuration action on a bucket
-      -- that has versioning enabled (or suspended) to request that Amazon
-      -- S3 delete noncurrent object versions at a specific period in the
-      -- object's lifetime.
+    { _rExpiration :: Maybe LifecycleExpiration
+    , _rID :: Maybe Text
+    , _rPrefix :: Text
+    , _rStatus :: Switch ExpirationStatus
+    , _rTransition :: Maybe Transition
+    , _rNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
+    , _rNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
     } deriving (Show, Generic)
 
-reExpiration :: Lens' Rule (Maybe LifecycleExpiration)
-reExpiration = lens _reExpiration (\s a -> s { _reExpiration = a })
-{-# INLINE reExpiration #-}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Rule' data type to populate a request.
+mkRule :: Text -- ^ 'rPrefix'
+       -> Switch ExpirationStatus -- ^ 'rStatus'
+       -> Rule
+mkRule p3 p4 = Rule
+    { _rExpiration = Nothing
+    , _rID = Nothing
+    , _rPrefix = p3
+    , _rStatus = p4
+    , _rTransition = Nothing
+    , _rNoncurrentVersionTransition = Nothing
+    , _rNoncurrentVersionExpiration = Nothing
+    }
+{-# INLINE mkRule #-}
+
+rExpiration :: Lens' Rule (Maybe LifecycleExpiration)
+rExpiration = lens _rExpiration (\s a -> s { _rExpiration = a })
+{-# INLINE rExpiration #-}
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
-reID :: Lens' Rule (Maybe Text)
-reID = lens _reID (\s a -> s { _reID = a })
-{-# INLINE reID #-}
+rID :: Lens' Rule (Maybe Text)
+rID = lens _rID (\s a -> s { _rID = a })
+{-# INLINE rID #-}
 
 -- | Prefix identifying one or more objects to which the rule applies.
-rePrefix :: Lens' Rule (Text)
-rePrefix = lens _rePrefix (\s a -> s { _rePrefix = a })
-{-# INLINE rePrefix #-}
+rPrefix :: Lens' Rule Text
+rPrefix = lens _rPrefix (\s a -> s { _rPrefix = a })
+{-# INLINE rPrefix #-}
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
 -- is not currently being applied.
-reStatus :: Lens' Rule (Switch ExpirationStatus)
-reStatus = lens _reStatus (\s a -> s { _reStatus = a })
-{-# INLINE reStatus #-}
+rStatus :: Lens' Rule (Switch ExpirationStatus)
+rStatus = lens _rStatus (\s a -> s { _rStatus = a })
+{-# INLINE rStatus #-}
 
-reTransition :: Lens' Rule (Maybe Transition)
-reTransition = lens _reTransition (\s a -> s { _reTransition = a })
-{-# INLINE reTransition #-}
+rTransition :: Lens' Rule (Maybe Transition)
+rTransition = lens _rTransition (\s a -> s { _rTransition = a })
+{-# INLINE rTransition #-}
 
 -- | Container for the transition rule that describes when noncurrent objects
 -- transition to the GLACIER storage class. If your bucket is
 -- versioning-enabled (or versioning is suspended), you can set this action to
 -- request that Amazon S3 transition noncurrent object versions to the GLACIER
 -- storage class at a specific period in the object's lifetime.
-reNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
-reNoncurrentVersionTransition = lens _reNoncurrentVersionTransition (\s a -> s { _reNoncurrentVersionTransition = a })
-{-# INLINE reNoncurrentVersionTransition #-}
+rNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
+rNoncurrentVersionTransition =
+    lens _rNoncurrentVersionTransition
+         (\s a -> s { _rNoncurrentVersionTransition = a })
+{-# INLINE rNoncurrentVersionTransition #-}
 
 -- | Specifies when noncurrent object versions expire. Upon expiration, Amazon
 -- S3 permanently deletes the noncurrent object versions. You set this
 -- lifecycle configuration action on a bucket that has versioning enabled (or
 -- suspended) to request that Amazon S3 delete noncurrent object versions at a
 -- specific period in the object's lifetime.
-reNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
-reNoncurrentVersionExpiration = lens _reNoncurrentVersionExpiration (\s a -> s { _reNoncurrentVersionExpiration = a })
-{-# INLINE reNoncurrentVersionExpiration #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Rule' data type to populate a request.
-mkRule :: Text -- ^ 'rePrefix'
-       -> Switch ExpirationStatus -- ^ 'reStatus'
-       -> Rule
-mkRule p1 p2 = Rule
-    { _reExpiration = Nothing
-    , _reID = Nothing
-    , _rePrefix = p3
-    , _reStatus = p4
-    , _reTransition = Nothing
-    , _reNoncurrentVersionTransition = Nothing
-    , _reNoncurrentVersionExpiration = Nothing
-    }
-{-# INLINE mkRule #-}
+rNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
+rNoncurrentVersionExpiration =
+    lens _rNoncurrentVersionExpiration
+         (\s a -> s { _rNoncurrentVersionExpiration = a })
+{-# INLINE rNoncurrentVersionExpiration #-}
 
 instance FromXML Rule where
     fromXMLOptions = xmlOptions
@@ -2442,32 +2402,30 @@ instance ToXML Rule where
     toXMLRoot    = toRoot "Rule"
 
 data Tag = Tag
-    { _tiKey :: ObjectKey
-      -- ^ Name of the tag.
-    , _tiValue :: Text
-      -- ^ Value of the tag.
+    { _trsKey :: ObjectKey
+    , _trsValue :: Text
     } deriving (Show, Generic)
-
--- | Name of the tag.
-tiKey :: Lens' Tag (ObjectKey)
-tiKey = lens _tiKey (\s a -> s { _tiKey = a })
-{-# INLINE tiKey #-}
-
--- | Value of the tag.
-tiValue :: Lens' Tag (Text)
-tiValue = lens _tiValue (\s a -> s { _tiValue = a })
-{-# INLINE tiValue #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
-mkTag :: ObjectKey -- ^ 'tiKey'
-      -> Text -- ^ 'tiValue'
+mkTag :: ObjectKey -- ^ 'trsKey'
+      -> Text -- ^ 'trsValue'
       -> Tag
 mkTag p1 p2 = Tag
-    { _tiKey = p1
-    , _tiValue = p2
+    { _trsKey = p1
+    , _trsValue = p2
     }
 {-# INLINE mkTag #-}
+
+-- | Name of the tag.
+trsKey :: Lens' Tag ObjectKey
+trsKey = lens _trsKey (\s a -> s { _trsKey = a })
+{-# INLINE trsKey #-}
+
+-- | Value of the tag.
+trsValue :: Lens' Tag Text
+trsValue = lens _trsValue (\s a -> s { _trsValue = a })
+{-# INLINE trsValue #-}
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
@@ -2478,28 +2436,27 @@ instance ToXML Tag where
     toXMLRoot    = toRoot "Tag"
 
 data TargetGrant = TargetGrant
-    { _thGrantee :: Maybe Grantee
-    , _thPermission :: Maybe BucketLogsPermission
-      -- ^ Logging permissions assigned to the Grantee for the bucket.
+    { _tgGrantee :: Maybe Grantee
+    , _tgPermission :: Maybe BucketLogsPermission
     } deriving (Show, Generic)
-
-thGrantee :: Lens' TargetGrant (Maybe Grantee)
-thGrantee = lens _thGrantee (\s a -> s { _thGrantee = a })
-{-# INLINE thGrantee #-}
-
--- | Logging permissions assigned to the Grantee for the bucket.
-thPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
-thPermission = lens _thPermission (\s a -> s { _thPermission = a })
-{-# INLINE thPermission #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TargetGrant' data type to populate a request.
 mkTargetGrant :: TargetGrant
 mkTargetGrant = TargetGrant
-    { _thGrantee = Nothing
-    , _thPermission = Nothing
+    { _tgGrantee = Nothing
+    , _tgPermission = Nothing
     }
 {-# INLINE mkTargetGrant #-}
+
+tgGrantee :: Lens' TargetGrant (Maybe Grantee)
+tgGrantee = lens _tgGrantee (\s a -> s { _tgGrantee = a })
+{-# INLINE tgGrantee #-}
+
+-- | Logging permissions assigned to the Grantee for the bucket.
+tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
+tgPermission = lens _tgPermission (\s a -> s { _tgPermission = a })
+{-# INLINE tgPermission #-}
 
 instance FromXML TargetGrant where
     fromXMLOptions = xmlOptions
@@ -2511,11 +2468,17 @@ instance ToXML TargetGrant where
 
 data TopicConfiguration = TopicConfiguration
     { _tcEvent :: Maybe Event
-      -- ^ Bucket event for which to send notifications.
     , _tcTopic :: Maybe Text
-      -- ^ Amazon SNS topic to which Amazon S3 will publish a message to
-      -- report the specified events for the bucket.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TopicConfiguration' data type to populate a request.
+mkTopicConfiguration :: TopicConfiguration
+mkTopicConfiguration = TopicConfiguration
+    { _tcEvent = Nothing
+    , _tcTopic = Nothing
+    }
+{-# INLINE mkTopicConfiguration #-}
 
 -- | Bucket event for which to send notifications.
 tcEvent :: Lens' TopicConfiguration (Maybe Event)
@@ -2528,15 +2491,6 @@ tcTopic :: Lens' TopicConfiguration (Maybe Text)
 tcTopic = lens _tcTopic (\s a -> s { _tcTopic = a })
 {-# INLINE tcTopic #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'TopicConfiguration' data type to populate a request.
-mkTopicConfiguration :: TopicConfiguration
-mkTopicConfiguration = TopicConfiguration
-    { _tcEvent = Nothing
-    , _tcTopic = Nothing
-    }
-{-# INLINE mkTopicConfiguration #-}
-
 instance FromXML TopicConfiguration where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TopicConfiguration"
@@ -2546,42 +2500,37 @@ instance ToXML TopicConfiguration where
     toXMLRoot    = toRoot "TopicConfiguration"
 
 data Transition = Transition
-    { _tnDate :: Maybe RFC822
-      -- ^ Indicates at what date the object is to be moved or deleted.
-      -- Should be in GMT ISO 8601 Format.
-    , _tnDays :: Maybe Integer
-      -- ^ Indicates the lifetime, in days, of the objects that are subject
-      -- to the rule. The value must be a non-zero positive integer.
-    , _tnStorageClass :: Maybe TransitionStorageClass
-      -- ^ The class of storage used to store the object.
+    { _tDate :: Maybe RFC822
+    , _tDays :: Maybe Integer
+    , _tStorageClass :: Maybe TransitionStorageClass
     } deriving (Show, Generic)
-
--- | Indicates at what date the object is to be moved or deleted. Should be in
--- GMT ISO 8601 Format.
-tnDate :: Lens' Transition (Maybe RFC822)
-tnDate = lens _tnDate (\s a -> s { _tnDate = a })
-{-# INLINE tnDate #-}
-
--- | Indicates the lifetime, in days, of the objects that are subject to the
--- rule. The value must be a non-zero positive integer.
-tnDays :: Lens' Transition (Maybe Integer)
-tnDays = lens _tnDays (\s a -> s { _tnDays = a })
-{-# INLINE tnDays #-}
-
--- | The class of storage used to store the object.
-tnStorageClass :: Lens' Transition (Maybe TransitionStorageClass)
-tnStorageClass = lens _tnStorageClass (\s a -> s { _tnStorageClass = a })
-{-# INLINE tnStorageClass #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Transition' data type to populate a request.
 mkTransition :: Transition
 mkTransition = Transition
-    { _tnDate = Nothing
-    , _tnDays = Nothing
-    , _tnStorageClass = Nothing
+    { _tDate = Nothing
+    , _tDays = Nothing
+    , _tStorageClass = Nothing
     }
 {-# INLINE mkTransition #-}
+
+-- | Indicates at what date the object is to be moved or deleted. Should be in
+-- GMT ISO 8601 Format.
+tDate :: Lens' Transition (Maybe RFC822)
+tDate = lens _tDate (\s a -> s { _tDate = a })
+{-# INLINE tDate #-}
+
+-- | Indicates the lifetime, in days, of the objects that are subject to the
+-- rule. The value must be a non-zero positive integer.
+tDays :: Lens' Transition (Maybe Integer)
+tDays = lens _tDays (\s a -> s { _tDays = a })
+{-# INLINE tDays #-}
+
+-- | The class of storage used to store the object.
+tStorageClass :: Lens' Transition (Maybe TransitionStorageClass)
+tStorageClass = lens _tStorageClass (\s a -> s { _tStorageClass = a })
+{-# INLINE tStorageClass #-}
 
 instance FromXML Transition where
     fromXMLOptions = xmlOptions
@@ -2593,13 +2542,17 @@ instance ToXML Transition where
 
 data VersioningConfiguration = VersioningConfiguration
     { _vcStatus :: Maybe (Switch BucketVersioningStatus)
-      -- ^ The versioning state of the bucket.
     , _vcMfaDelete :: Maybe (Switch MFADelete)
-      -- ^ Specifies whether MFA delete is enabled in the bucket versioning
-      -- configuration. This element is only returned if the bucket has
-      -- been configured with MFA delete. If the bucket has never been so
-      -- configured, this element is not returned.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'VersioningConfiguration' data type to populate a request.
+mkVersioningConfiguration :: VersioningConfiguration
+mkVersioningConfiguration = VersioningConfiguration
+    { _vcStatus = Nothing
+    , _vcMfaDelete = Nothing
+    }
+{-# INLINE mkVersioningConfiguration #-}
 
 -- | The versioning state of the bucket.
 vcStatus :: Lens' VersioningConfiguration (Maybe (Switch BucketVersioningStatus))
@@ -2614,15 +2567,6 @@ vcMfaDelete :: Lens' VersioningConfiguration (Maybe (Switch MFADelete))
 vcMfaDelete = lens _vcMfaDelete (\s a -> s { _vcMfaDelete = a })
 {-# INLINE vcMfaDelete #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'VersioningConfiguration' data type to populate a request.
-mkVersioningConfiguration :: VersioningConfiguration
-mkVersioningConfiguration = VersioningConfiguration
-    { _vcStatus = Nothing
-    , _vcMfaDelete = Nothing
-    }
-{-# INLINE mkVersioningConfiguration #-}
-
 instance ToXML VersioningConfiguration where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "VersioningConfiguration"
@@ -2634,22 +2578,6 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
 
-wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
-wcErrorDocument = lens _wcErrorDocument (\s a -> s { _wcErrorDocument = a })
-{-# INLINE wcErrorDocument #-}
-
-wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
-wcIndexDocument = lens _wcIndexDocument (\s a -> s { _wcIndexDocument = a })
-{-# INLINE wcIndexDocument #-}
-
-wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
-wcRedirectAllRequestsTo = lens _wcRedirectAllRequestsTo (\s a -> s { _wcRedirectAllRequestsTo = a })
-{-# INLINE wcRedirectAllRequestsTo #-}
-
-wcRoutingRules :: Lens' WebsiteConfiguration ([RoutingRule])
-wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
-{-# INLINE wcRoutingRules #-}
-
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WebsiteConfiguration' data type to populate a request.
 mkWebsiteConfiguration :: WebsiteConfiguration
@@ -2660,6 +2588,24 @@ mkWebsiteConfiguration = WebsiteConfiguration
     , _wcRoutingRules = mempty
     }
 {-# INLINE mkWebsiteConfiguration #-}
+
+wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
+wcErrorDocument = lens _wcErrorDocument (\s a -> s { _wcErrorDocument = a })
+{-# INLINE wcErrorDocument #-}
+
+wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
+wcIndexDocument = lens _wcIndexDocument (\s a -> s { _wcIndexDocument = a })
+{-# INLINE wcIndexDocument #-}
+
+wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
+wcRedirectAllRequestsTo =
+    lens _wcRedirectAllRequestsTo
+         (\s a -> s { _wcRedirectAllRequestsTo = a })
+{-# INLINE wcRedirectAllRequestsTo #-}
+
+wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
+wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
+{-# INLINE wcRoutingRules #-}
 
 instance ToXML WebsiteConfiguration where
     toXMLOptions = xmlOptions

@@ -39,16 +39,16 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteChapCredentials
     -- * Request
       DeleteChapCredentials
     -- ** Request constructor
-    , mkDeleteChapCredentialsInput
+    , mkDeleteChapCredentials
     -- ** Request lenses
-    , dcciTargetARN
-    , dcciInitiatorName
+    , dccTargetARN
+    , dccInitiatorName
 
     -- * Response
     , DeleteChapCredentialsResponse
     -- ** Response lenses
-    , dccoTargetARN
-    , dccoInitiatorName
+    , dccrsTargetARN
+    , dccrsInitiatorName
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -56,37 +56,37 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing one or more of the following fields:
+-- DeleteChapCredentialsInput$InitiatorName
+-- DeleteChapCredentialsInput$TargetARN.
+data DeleteChapCredentials = DeleteChapCredentials
+    { _dccTargetARN :: Text
+    , _dccInitiatorName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteChapCredentials' request.
-mkDeleteChapCredentialsInput :: Text -- ^ 'dcciTargetARN'
-                             -> Text -- ^ 'dcciInitiatorName'
-                             -> DeleteChapCredentials
-mkDeleteChapCredentialsInput p1 p2 = DeleteChapCredentials
-    { _dcciTargetARN = p1
-    , _dcciInitiatorName = p2
+mkDeleteChapCredentials :: Text -- ^ 'dccTargetARN'
+                        -> Text -- ^ 'dccInitiatorName'
+                        -> DeleteChapCredentials
+mkDeleteChapCredentials p1 p2 = DeleteChapCredentials
+    { _dccTargetARN = p1
+    , _dccInitiatorName = p2
     }
-{-# INLINE mkDeleteChapCredentialsInput #-}
-
-data DeleteChapCredentials = DeleteChapCredentials
-    { _dcciTargetARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the iSCSI volume target. Use
-      -- the DescribeStorediSCSIVolumes operation to return to retrieve
-      -- the TargetARN for specified VolumeARN.
-    , _dcciInitiatorName :: Text
-      -- ^ The iSCSI initiator that connects to the target.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteChapCredentials #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-dcciTargetARN :: Lens' DeleteChapCredentials (Text)
-dcciTargetARN = lens _dcciTargetARN (\s a -> s { _dcciTargetARN = a })
-{-# INLINE dcciTargetARN #-}
+dccTargetARN :: Lens' DeleteChapCredentials Text
+dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
+{-# INLINE dccTargetARN #-}
 
 -- | The iSCSI initiator that connects to the target.
-dcciInitiatorName :: Lens' DeleteChapCredentials (Text)
-dcciInitiatorName = lens _dcciInitiatorName (\s a -> s { _dcciInitiatorName = a })
-{-# INLINE dcciInitiatorName #-}
+dccInitiatorName :: Lens' DeleteChapCredentials Text
+dccInitiatorName =
+    lens _dccInitiatorName (\s a -> s { _dccInitiatorName = a })
+{-# INLINE dccInitiatorName #-}
 
 instance ToPath DeleteChapCredentials
 
@@ -96,22 +96,22 @@ instance ToHeaders DeleteChapCredentials
 
 instance ToJSON DeleteChapCredentials
 
+-- | A JSON object containing the following fields:.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
-    { _dccoTargetARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the target.
-    , _dccoInitiatorName :: Maybe Text
-      -- ^ The iSCSI initiator that connects to the target.
+    { _dccrsTargetARN :: Maybe Text
+    , _dccrsInitiatorName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the target.
-dccoTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-dccoTargetARN = lens _dccoTargetARN (\s a -> s { _dccoTargetARN = a })
-{-# INLINE dccoTargetARN #-}
+dccrsTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+dccrsTargetARN = lens _dccrsTargetARN (\s a -> s { _dccrsTargetARN = a })
+{-# INLINE dccrsTargetARN #-}
 
 -- | The iSCSI initiator that connects to the target.
-dccoInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-dccoInitiatorName = lens _dccoInitiatorName (\s a -> s { _dccoInitiatorName = a })
-{-# INLINE dccoInitiatorName #-}
+dccrsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+dccrsInitiatorName =
+    lens _dccrsInitiatorName (\s a -> s { _dccrsInitiatorName = a })
+{-# INLINE dccrsInitiatorName #-}
 
 instance FromJSON DeleteChapCredentialsResponse
 

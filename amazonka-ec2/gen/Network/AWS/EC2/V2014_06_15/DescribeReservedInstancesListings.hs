@@ -33,75 +33,75 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings
     -- * Request
       DescribeReservedInstancesListings
     -- ** Request constructor
-    , mkDescribeReservedInstancesListingsRequest
+    , mkDescribeReservedInstancesListings
     -- ** Request lenses
-    , drilrReservedInstancesId
-    , drilrReservedInstancesListingId
-    , drilrFilters
+    , drilReservedInstancesId
+    , drilReservedInstancesListingId
+    , drilFilters
 
     -- * Response
     , DescribeReservedInstancesListingsResponse
     -- ** Response lenses
-    , drilsReservedInstancesListings
+    , drilrsReservedInstancesListings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedInstancesListings' request.
-mkDescribeReservedInstancesListingsRequest :: DescribeReservedInstancesListings
-mkDescribeReservedInstancesListingsRequest = DescribeReservedInstancesListings
-    { _drilrReservedInstancesId = Nothing
-    , _drilrReservedInstancesListingId = Nothing
-    , _drilrFilters = mempty
-    }
-{-# INLINE mkDescribeReservedInstancesListingsRequest #-}
-
+-- | 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
-    { _drilrReservedInstancesId :: Maybe Text
-      -- ^ One or more Reserved Instance IDs.
-    , _drilrReservedInstancesListingId :: Maybe Text
-      -- ^ One or more Reserved Instance Listing IDs.
-    , _drilrFilters :: [Filter]
-      -- ^ One or more filters. reserved-instances-id - The ID of the
-      -- Reserved Instances. reserved-instances-listing-id - The ID of the
-      -- Reserved Instances listing. status - The status of the Reserved
-      -- Instance listing (pending | active | cancelled | closed).
-      -- status-message - The reason for the status.
+    { _drilReservedInstancesId :: Maybe Text
+    , _drilReservedInstancesListingId :: Maybe Text
+    , _drilFilters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedInstancesListings' request.
+mkDescribeReservedInstancesListings :: DescribeReservedInstancesListings
+mkDescribeReservedInstancesListings = DescribeReservedInstancesListings
+    { _drilReservedInstancesId = Nothing
+    , _drilReservedInstancesListingId = Nothing
+    , _drilFilters = mempty
+    }
+{-# INLINE mkDescribeReservedInstancesListings #-}
+
 -- | One or more Reserved Instance IDs.
-drilrReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilrReservedInstancesId = lens _drilrReservedInstancesId (\s a -> s { _drilrReservedInstancesId = a })
-{-# INLINE drilrReservedInstancesId #-}
+drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+drilReservedInstancesId =
+    lens _drilReservedInstancesId
+         (\s a -> s { _drilReservedInstancesId = a })
+{-# INLINE drilReservedInstancesId #-}
 
 -- | One or more Reserved Instance Listing IDs.
-drilrReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilrReservedInstancesListingId = lens _drilrReservedInstancesListingId (\s a -> s { _drilrReservedInstancesListingId = a })
-{-# INLINE drilrReservedInstancesListingId #-}
+drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+drilReservedInstancesListingId =
+    lens _drilReservedInstancesListingId
+         (\s a -> s { _drilReservedInstancesListingId = a })
+{-# INLINE drilReservedInstancesListingId #-}
 
 -- | One or more filters. reserved-instances-id - The ID of the Reserved
 -- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
 -- listing. status - The status of the Reserved Instance listing (pending |
 -- active | cancelled | closed). status-message - The reason for the status.
-drilrFilters :: Lens' DescribeReservedInstancesListings ([Filter])
-drilrFilters = lens _drilrFilters (\s a -> s { _drilrFilters = a })
-{-# INLINE drilrFilters #-}
+drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
+drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a })
+{-# INLINE drilFilters #-}
 
 instance ToQuery DescribeReservedInstancesListings where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
-    { _drilsReservedInstancesListings :: [ReservedInstancesListing]
-      -- ^ Information about the Reserved Instance listing.
+    { _drilrsReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
 
 -- | Information about the Reserved Instance listing.
-drilsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse ([ReservedInstancesListing])
-drilsReservedInstancesListings = lens _drilsReservedInstancesListings (\s a -> s { _drilsReservedInstancesListings = a })
-{-# INLINE drilsReservedInstancesListings #-}
+drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
+drilrsReservedInstancesListings =
+    lens _drilrsReservedInstancesListings
+         (\s a -> s { _drilrsReservedInstancesListings = a })
+{-# INLINE drilrsReservedInstancesListings #-}
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions

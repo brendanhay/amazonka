@@ -32,51 +32,51 @@ module Network.AWS.EC2.V2014_06_15.CreateRouteTable
     -- * Request
       CreateRouteTable
     -- ** Request constructor
-    , mkCreateRouteTableRequest
+    , mkCreateRouteTable
     -- ** Request lenses
-    , crtrVpcId
+    , crtVpcId
 
     -- * Response
     , CreateRouteTableResponse
     -- ** Response lenses
-    , crtsRouteTable
+    , crtrsRouteTable
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateRouteTable' request.
-mkCreateRouteTableRequest :: Text -- ^ 'crtrVpcId'
-                          -> CreateRouteTable
-mkCreateRouteTableRequest p1 = CreateRouteTable
-    { _crtrVpcId = p1
-    }
-{-# INLINE mkCreateRouteTableRequest #-}
-
+-- | 
 newtype CreateRouteTable = CreateRouteTable
-    { _crtrVpcId :: Text
-      -- ^ The ID of the VPC.
+    { _crtVpcId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateRouteTable' request.
+mkCreateRouteTable :: Text -- ^ 'crtVpcId'
+                   -> CreateRouteTable
+mkCreateRouteTable p1 = CreateRouteTable
+    { _crtVpcId = p1
+    }
+{-# INLINE mkCreateRouteTable #-}
+
 -- | The ID of the VPC.
-crtrVpcId :: Lens' CreateRouteTable (Text)
-crtrVpcId = lens _crtrVpcId (\s a -> s { _crtrVpcId = a })
-{-# INLINE crtrVpcId #-}
+crtVpcId :: Lens' CreateRouteTable Text
+crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
+{-# INLINE crtVpcId #-}
 
 instance ToQuery CreateRouteTable where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateRouteTableResponse = CreateRouteTableResponse
-    { _crtsRouteTable :: Maybe RouteTable
-      -- ^ Information about the route table.
+    { _crtrsRouteTable :: Maybe RouteTable
     } deriving (Show, Generic)
 
 -- | Information about the route table.
-crtsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
-crtsRouteTable = lens _crtsRouteTable (\s a -> s { _crtsRouteTable = a })
-{-# INLINE crtsRouteTable #-}
+crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
+crtrsRouteTable = lens _crtrsRouteTable (\s a -> s { _crtrsRouteTable = a })
+{-# INLINE crtrsRouteTable #-}
 
 instance FromXML CreateRouteTableResponse where
     fromXMLOptions = xmlOptions

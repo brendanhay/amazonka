@@ -44,16 +44,16 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets
     -- * Request
       ListPresets
     -- ** Request constructor
-    , mkListPresetsRequest
+    , mkListPresets
     -- ** Request lenses
-    , lptAscending
-    , lptPageToken
+    , lp1Ascending
+    , lp1PageToken
 
     -- * Response
     , ListPresetsResponse
     -- ** Response lenses
-    , lpuPresets
-    , lpuNextPageToken
+    , lprsrsPresets
+    , lprsrsNextPageToken
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -61,74 +61,66 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The ListPresetsRequest structure.
+data ListPresets = ListPresets
+    { _lp1Ascending :: Maybe Text
+    , _lp1PageToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPresets' request.
-mkListPresetsRequest :: ListPresets
-mkListPresetsRequest = ListPresets
-    { _lptAscending = Nothing
-    , _lptPageToken = Nothing
+mkListPresets :: ListPresets
+mkListPresets = ListPresets
+    { _lp1Ascending = Nothing
+    , _lp1PageToken = Nothing
     }
-{-# INLINE mkListPresetsRequest #-}
-
-data ListPresets = ListPresets
-    { _lptAscending :: Maybe Text
-      -- ^ To list presets in chronological order by the date and time that
-      -- they were created, enter true. To list presets in reverse
-      -- chronological order, enter false.
-    , _lptPageToken :: Maybe Text
-      -- ^ When Elastic Transcoder returns more than one page of results,
-      -- use pageToken in subsequent GET requests to get each successive
-      -- page of results.
-    } deriving (Show, Generic)
+{-# INLINE mkListPresets #-}
 
 -- | To list presets in chronological order by the date and time that they were
 -- created, enter true. To list presets in reverse chronological order, enter
 -- false.
-lptAscending :: Lens' ListPresets (Maybe Text)
-lptAscending = lens _lptAscending (\s a -> s { _lptAscending = a })
-{-# INLINE lptAscending #-}
+lp1Ascending :: Lens' ListPresets (Maybe Text)
+lp1Ascending = lens _lp1Ascending (\s a -> s { _lp1Ascending = a })
+{-# INLINE lp1Ascending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
-lptPageToken :: Lens' ListPresets (Maybe Text)
-lptPageToken = lens _lptPageToken (\s a -> s { _lptPageToken = a })
-{-# INLINE lptPageToken #-}
+lp1PageToken :: Lens' ListPresets (Maybe Text)
+lp1PageToken = lens _lp1PageToken (\s a -> s { _lp1PageToken = a })
+{-# INLINE lp1PageToken #-}
 
 instance ToPath ListPresets where
     toPath = const "/2012-09-25/presets"
 
 instance ToQuery ListPresets where
     toQuery ListPresets{..} = mconcat
-        [ "Ascending" =? _lptAscending
-        , "PageToken" =? _lptPageToken
+        [ "Ascending" =? _lp1Ascending
+        , "PageToken" =? _lp1PageToken
         ]
 
 instance ToHeaders ListPresets
 
 instance ToJSON ListPresets
 
+-- | The ListPresetsResponse structure.
 data ListPresetsResponse = ListPresetsResponse
-    { _lpuPresets :: [Preset]
-      -- ^ An array of Preset objects.
-    , _lpuNextPageToken :: Maybe Text
-      -- ^ A value that you use to access the second and subsequent pages of
-      -- results, if any. When the presets fit on one page or when you've
-      -- reached the last page of results, the value of NextPageToken is
-      -- null.
+    { _lprsrsPresets :: [Preset]
+    , _lprsrsNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An array of Preset objects.
-lpuPresets :: Lens' ListPresetsResponse ([Preset])
-lpuPresets = lens _lpuPresets (\s a -> s { _lpuPresets = a })
-{-# INLINE lpuPresets #-}
+lprsrsPresets :: Lens' ListPresetsResponse [Preset]
+lprsrsPresets = lens _lprsrsPresets (\s a -> s { _lprsrsPresets = a })
+{-# INLINE lprsrsPresets #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the presets fit on one page or when you've reached the last
 -- page of results, the value of NextPageToken is null.
-lpuNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
-lpuNextPageToken = lens _lpuNextPageToken (\s a -> s { _lpuNextPageToken = a })
-{-# INLINE lpuNextPageToken #-}
+lprsrsNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
+lprsrsNextPageToken =
+    lens _lprsrsNextPageToken (\s a -> s { _lprsrsNextPageToken = a })
+{-# INLINE lprsrsNextPageToken #-}
 
 instance FromJSON ListPresetsResponse
 
@@ -140,5 +132,5 @@ instance AWSRequest ListPresets where
     response _ = jsonResponse
 
 instance AWSPager ListPresets where
-    next rq rs = (\x -> rq { _lptPageToken = Just x })
-        <$> (_lpuNextPageToken rs)
+    next rq rs = (\x -> rq { _lp1PageToken = Just x })
+        <$> (_lprsrsNextPageToken rs)

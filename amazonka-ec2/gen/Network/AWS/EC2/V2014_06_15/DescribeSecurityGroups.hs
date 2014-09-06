@@ -43,70 +43,50 @@ module Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups
     -- * Request
       DescribeSecurityGroups
     -- ** Request constructor
-    , mkDescribeSecurityGroupsRequest
+    , mkDescribeSecurityGroups
     -- ** Request lenses
-    , dsgsGroupNames
-    , dsgsGroupIds
-    , dsgsFilters
+    , dsg1GroupNames
+    , dsg1GroupIds
+    , dsg1Filters
 
     -- * Response
     , DescribeSecurityGroupsResponse
     -- ** Response lenses
-    , dsgtSecurityGroups
+    , dsgrsSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeSecurityGroups = DescribeSecurityGroups
+    { _dsg1GroupNames :: [Text]
+    , _dsg1GroupIds :: [Text]
+    , _dsg1Filters :: [Filter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSecurityGroups' request.
-mkDescribeSecurityGroupsRequest :: DescribeSecurityGroups
-mkDescribeSecurityGroupsRequest = DescribeSecurityGroups
-    { _dsgsGroupNames = mempty
-    , _dsgsGroupIds = mempty
-    , _dsgsFilters = mempty
+mkDescribeSecurityGroups :: DescribeSecurityGroups
+mkDescribeSecurityGroups = DescribeSecurityGroups
+    { _dsg1GroupNames = mempty
+    , _dsg1GroupIds = mempty
+    , _dsg1Filters = mempty
     }
-{-# INLINE mkDescribeSecurityGroupsRequest #-}
-
-data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsgsGroupNames :: [Text]
-      -- ^ [EC2-Classic, default VPC] One or more security group names.
-      -- Default: Describes all your security groups.
-    , _dsgsGroupIds :: [Text]
-      -- ^ One or more security group IDs. Default: Describes all your
-      -- security groups.
-    , _dsgsFilters :: [Filter]
-      -- ^ One or more filters. description - The description of the
-      -- security group. group-id - The ID of the security group.
-      -- group-name - The name of the security group. ip-permission.cidr -
-      -- A CIDR range that has been granted permission.
-      -- ip-permission.from-port - The start of port range for the TCP and
-      -- UDP protocols, or an ICMP type number. ip-permission.group-id -
-      -- The ID of a security group that has been granted permission.
-      -- ip-permission.group-name - The name of a security group that has
-      -- been granted permission. ip-permission.protocol - The IP protocol
-      -- for the permission (tcp | udp | icmp or a protocol number).
-      -- ip-permission.to-port - The end of port range for the TCP and UDP
-      -- protocols, or an ICMP code. ip-permission.user-id - The ID of an
-      -- AWS account that has been granted permission. owner-id - The AWS
-      -- account ID of the owner of the security group. tag-key - The key
-      -- of a tag assigned to the security group. tag-value - The value of
-      -- a tag assigned to the security group. vpc-id - The ID of the VPC
-      -- specified when the security group was created.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeSecurityGroups #-}
 
 -- | [EC2-Classic, default VPC] One or more security group names. Default:
 -- Describes all your security groups.
-dsgsGroupNames :: Lens' DescribeSecurityGroups ([Text])
-dsgsGroupNames = lens _dsgsGroupNames (\s a -> s { _dsgsGroupNames = a })
-{-# INLINE dsgsGroupNames #-}
+dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
+{-# INLINE dsg1GroupNames #-}
 
 -- | One or more security group IDs. Default: Describes all your security
 -- groups.
-dsgsGroupIds :: Lens' DescribeSecurityGroups ([Text])
-dsgsGroupIds = lens _dsgsGroupIds (\s a -> s { _dsgsGroupIds = a })
-{-# INLINE dsgsGroupIds #-}
+dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
+{-# INLINE dsg1GroupIds #-}
 
 -- | One or more filters. description - The description of the security group.
 -- group-id - The ID of the security group. group-name - The name of the
@@ -123,22 +103,23 @@ dsgsGroupIds = lens _dsgsGroupIds (\s a -> s { _dsgsGroupIds = a })
 -- group. tag-key - The key of a tag assigned to the security group. tag-value
 -- - The value of a tag assigned to the security group. vpc-id - The ID of the
 -- VPC specified when the security group was created.
-dsgsFilters :: Lens' DescribeSecurityGroups ([Filter])
-dsgsFilters = lens _dsgsFilters (\s a -> s { _dsgsFilters = a })
-{-# INLINE dsgsFilters #-}
+dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
+dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a })
+{-# INLINE dsg1Filters #-}
 
 instance ToQuery DescribeSecurityGroups where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
-    { _dsgtSecurityGroups :: [SecurityGroup]
-      -- ^ Information about one or more security groups.
+    { _dsgrsSecurityGroups :: [SecurityGroup]
     } deriving (Show, Generic)
 
 -- | Information about one or more security groups.
-dsgtSecurityGroups :: Lens' DescribeSecurityGroupsResponse ([SecurityGroup])
-dsgtSecurityGroups = lens _dsgtSecurityGroups (\s a -> s { _dsgtSecurityGroups = a })
-{-# INLINE dsgtSecurityGroups #-}
+dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
+dsgrsSecurityGroups =
+    lens _dsgrsSecurityGroups (\s a -> s { _dsgrsSecurityGroups = a })
+{-# INLINE dsgrsSecurityGroups #-}
 
 instance FromXML DescribeSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

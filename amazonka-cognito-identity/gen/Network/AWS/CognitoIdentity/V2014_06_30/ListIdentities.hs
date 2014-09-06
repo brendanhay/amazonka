@@ -30,18 +30,18 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
     -- * Request
       ListIdentities
     -- ** Request constructor
-    , mkListIdentitiesInput
+    , mkListIdentities
     -- ** Request lenses
-    , liiIdentityPoolId
-    , liiMaxResults
-    , liiNextToken
+    , liIdentityPoolId
+    , liMaxResults
+    , liNextToken
 
     -- * Response
     , ListIdentitiesResponse
     -- ** Response lenses
-    , lirIdentityPoolId
-    , lirIdentities
-    , lirNextToken
+    , lirsIdentityPoolId
+    , lirsIdentities
+    , lirsNextToken
     ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -49,41 +49,40 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListIdentities' request.
-mkListIdentitiesInput :: Text -- ^ 'liiIdentityPoolId'
-                      -> Integer -- ^ 'liiMaxResults'
-                      -> ListIdentities
-mkListIdentitiesInput p1 p2 = ListIdentities
-    { _liiIdentityPoolId = p1
-    , _liiMaxResults = p2
-    , _liiNextToken = Nothing
-    }
-{-# INLINE mkListIdentitiesInput #-}
-
+-- | Input to the ListIdentities action.
 data ListIdentities = ListIdentities
-    { _liiIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _liiMaxResults :: Integer
-      -- ^ The maximum number of identities to return.
-    , _liiNextToken :: Maybe Text
-      -- ^ A pagination token.
+    { _liIdentityPoolId :: Text
+    , _liMaxResults :: Integer
+    , _liNextToken :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentities' request.
+mkListIdentities :: Text -- ^ 'liIdentityPoolId'
+                 -> Integer -- ^ 'liMaxResults'
+                 -> ListIdentities
+mkListIdentities p1 p2 = ListIdentities
+    { _liIdentityPoolId = p1
+    , _liMaxResults = p2
+    , _liNextToken = Nothing
+    }
+{-# INLINE mkListIdentities #-}
+
 -- | An identity pool ID in the format REGION:GUID.
-liiIdentityPoolId :: Lens' ListIdentities (Text)
-liiIdentityPoolId = lens _liiIdentityPoolId (\s a -> s { _liiIdentityPoolId = a })
-{-# INLINE liiIdentityPoolId #-}
+liIdentityPoolId :: Lens' ListIdentities Text
+liIdentityPoolId =
+    lens _liIdentityPoolId (\s a -> s { _liIdentityPoolId = a })
+{-# INLINE liIdentityPoolId #-}
 
 -- | The maximum number of identities to return.
-liiMaxResults :: Lens' ListIdentities (Integer)
-liiMaxResults = lens _liiMaxResults (\s a -> s { _liiMaxResults = a })
-{-# INLINE liiMaxResults #-}
+liMaxResults :: Lens' ListIdentities Integer
+liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a })
+{-# INLINE liMaxResults #-}
 
 -- | A pagination token.
-liiNextToken :: Lens' ListIdentities (Maybe Text)
-liiNextToken = lens _liiNextToken (\s a -> s { _liiNextToken = a })
-{-# INLINE liiNextToken #-}
+liNextToken :: Lens' ListIdentities (Maybe Text)
+liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
+{-# INLINE liNextToken #-}
 
 instance ToPath ListIdentities
 
@@ -93,29 +92,28 @@ instance ToHeaders ListIdentities
 
 instance ToJSON ListIdentities
 
+-- | The response to a ListIdentities request.
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentityPoolId :: Maybe Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _lirIdentities :: [IdentityDescription]
-      -- ^ An object containing a set of identities and associated mappings.
-    , _lirNextToken :: Maybe Text
-      -- ^ A pagination token.
+    { _lirsIdentityPoolId :: Maybe Text
+    , _lirsIdentities :: [IdentityDescription]
+    , _lirsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirIdentityPoolId = lens _lirIdentityPoolId (\s a -> s { _lirIdentityPoolId = a })
-{-# INLINE lirIdentityPoolId #-}
+lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsIdentityPoolId =
+    lens _lirsIdentityPoolId (\s a -> s { _lirsIdentityPoolId = a })
+{-# INLINE lirsIdentityPoolId #-}
 
 -- | An object containing a set of identities and associated mappings.
-lirIdentities :: Lens' ListIdentitiesResponse ([IdentityDescription])
-lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
-{-# INLINE lirIdentities #-}
+lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
+lirsIdentities = lens _lirsIdentities (\s a -> s { _lirsIdentities = a })
+{-# INLINE lirsIdentities #-}
 
 -- | A pagination token.
-lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
-{-# INLINE lirNextToken #-}
+lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsNextToken = lens _lirsNextToken (\s a -> s { _lirsNextToken = a })
+{-# INLINE lirsNextToken #-}
 
 instance FromJSON ListIdentitiesResponse
 

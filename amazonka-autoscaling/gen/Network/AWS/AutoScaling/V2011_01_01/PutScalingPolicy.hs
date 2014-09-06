@@ -33,127 +33,112 @@ module Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy
     -- * Request
       PutScalingPolicy
     -- ** Request constructor
-    , mkPutScalingPolicyType
+    , mkPutScalingPolicy
     -- ** Request lenses
-    , psptAutoScalingGroupName
-    , psptPolicyName
-    , psptScalingAdjustment
-    , psptAdjustmentType
-    , psptCooldown
-    , psptMinAdjustmentStep
+    , pspAutoScalingGroupName
+    , pspPolicyName
+    , pspScalingAdjustment
+    , pspAdjustmentType
+    , pspCooldown
+    , pspMinAdjustmentStep
 
     -- * Response
     , PutScalingPolicyResponse
     -- ** Response lenses
-    , parntPolicyARN
+    , psprsPolicyARN
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutScalingPolicy' request.
-mkPutScalingPolicyType :: Text -- ^ 'psptAutoScalingGroupName'
-                       -> Text -- ^ 'psptPolicyName'
-                       -> Integer -- ^ 'psptScalingAdjustment'
-                       -> Text -- ^ 'psptAdjustmentType'
-                       -> PutScalingPolicy
-mkPutScalingPolicyType p1 p2 p3 p4 = PutScalingPolicy
-    { _psptAutoScalingGroupName = p1
-    , _psptPolicyName = p2
-    , _psptScalingAdjustment = p3
-    , _psptAdjustmentType = p4
-    , _psptCooldown = Nothing
-    , _psptMinAdjustmentStep = Nothing
-    }
-{-# INLINE mkPutScalingPolicyType #-}
-
+-- | 
 data PutScalingPolicy = PutScalingPolicy
-    { _psptAutoScalingGroupName :: Text
-      -- ^ The name or ARN of the Auto Scaling group.
-    , _psptPolicyName :: Text
-      -- ^ The name of the policy you want to create or update.
-    , _psptScalingAdjustment :: Integer
-      -- ^ The number of instances by which to scale. AdjustmentType
-      -- determines the interpretation of this number (e.g., as an
-      -- absolute number or as a percentage of the existing Auto Scaling
-      -- group size). A positive increment adds to the current capacity
-      -- and a negative value removes from the current capacity.
-    , _psptAdjustmentType :: Text
-      -- ^ Specifies whether the ScalingAdjustment is an absolute number or
-      -- a percentage of the current capacity. Valid values are
-      -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity. For
-      -- more information about the adjustment types supported by Auto
-      -- Scaling, see Scale Based on Demand.
-    , _psptCooldown :: Maybe Integer
-      -- ^ The amount of time, in seconds, after a scaling activity
-      -- completes and before the next scaling activity can start. For
-      -- more information, see Cooldown Period.
-    , _psptMinAdjustmentStep :: Maybe Integer
-      -- ^ Used with AdjustmentType with the value PercentChangeInCapacity,
-      -- the scaling policy changes the DesiredCapacity of the Auto
-      -- Scaling group by at least the number of instances specified in
-      -- the value. You will get a ValidationError if you use
-      -- MinAdjustmentStep on a policy with an AdjustmentType other than
-      -- PercentChangeInCapacity.
+    { _pspAutoScalingGroupName :: Text
+    , _pspPolicyName :: Text
+    , _pspScalingAdjustment :: Integer
+    , _pspAdjustmentType :: Text
+    , _pspCooldown :: Maybe Integer
+    , _pspMinAdjustmentStep :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutScalingPolicy' request.
+mkPutScalingPolicy :: Text -- ^ 'pspAutoScalingGroupName'
+                   -> Text -- ^ 'pspPolicyName'
+                   -> Integer -- ^ 'pspScalingAdjustment'
+                   -> Text -- ^ 'pspAdjustmentType'
+                   -> PutScalingPolicy
+mkPutScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
+    { _pspAutoScalingGroupName = p1
+    , _pspPolicyName = p2
+    , _pspScalingAdjustment = p3
+    , _pspAdjustmentType = p4
+    , _pspCooldown = Nothing
+    , _pspMinAdjustmentStep = Nothing
+    }
+{-# INLINE mkPutScalingPolicy #-}
+
 -- | The name or ARN of the Auto Scaling group.
-psptAutoScalingGroupName :: Lens' PutScalingPolicy (Text)
-psptAutoScalingGroupName = lens _psptAutoScalingGroupName (\s a -> s { _psptAutoScalingGroupName = a })
-{-# INLINE psptAutoScalingGroupName #-}
+pspAutoScalingGroupName :: Lens' PutScalingPolicy Text
+pspAutoScalingGroupName =
+    lens _pspAutoScalingGroupName
+         (\s a -> s { _pspAutoScalingGroupName = a })
+{-# INLINE pspAutoScalingGroupName #-}
 
 -- | The name of the policy you want to create or update.
-psptPolicyName :: Lens' PutScalingPolicy (Text)
-psptPolicyName = lens _psptPolicyName (\s a -> s { _psptPolicyName = a })
-{-# INLINE psptPolicyName #-}
+pspPolicyName :: Lens' PutScalingPolicy Text
+pspPolicyName = lens _pspPolicyName (\s a -> s { _pspPolicyName = a })
+{-# INLINE pspPolicyName #-}
 
 -- | The number of instances by which to scale. AdjustmentType determines the
 -- interpretation of this number (e.g., as an absolute number or as a
 -- percentage of the existing Auto Scaling group size). A positive increment
 -- adds to the current capacity and a negative value removes from the current
 -- capacity.
-psptScalingAdjustment :: Lens' PutScalingPolicy (Integer)
-psptScalingAdjustment = lens _psptScalingAdjustment (\s a -> s { _psptScalingAdjustment = a })
-{-# INLINE psptScalingAdjustment #-}
+pspScalingAdjustment :: Lens' PutScalingPolicy Integer
+pspScalingAdjustment =
+    lens _pspScalingAdjustment (\s a -> s { _pspScalingAdjustment = a })
+{-# INLINE pspScalingAdjustment #-}
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity. For more information about the
 -- adjustment types supported by Auto Scaling, see Scale Based on Demand.
-psptAdjustmentType :: Lens' PutScalingPolicy (Text)
-psptAdjustmentType = lens _psptAdjustmentType (\s a -> s { _psptAdjustmentType = a })
-{-# INLINE psptAdjustmentType #-}
+pspAdjustmentType :: Lens' PutScalingPolicy Text
+pspAdjustmentType =
+    lens _pspAdjustmentType (\s a -> s { _pspAdjustmentType = a })
+{-# INLINE pspAdjustmentType #-}
 
 -- | The amount of time, in seconds, after a scaling activity completes and
 -- before the next scaling activity can start. For more information, see
 -- Cooldown Period.
-psptCooldown :: Lens' PutScalingPolicy (Maybe Integer)
-psptCooldown = lens _psptCooldown (\s a -> s { _psptCooldown = a })
-{-# INLINE psptCooldown #-}
+pspCooldown :: Lens' PutScalingPolicy (Maybe Integer)
+pspCooldown = lens _pspCooldown (\s a -> s { _pspCooldown = a })
+{-# INLINE pspCooldown #-}
 
 -- | Used with AdjustmentType with the value PercentChangeInCapacity, the
 -- scaling policy changes the DesiredCapacity of the Auto Scaling group by at
 -- least the number of instances specified in the value. You will get a
 -- ValidationError if you use MinAdjustmentStep on a policy with an
 -- AdjustmentType other than PercentChangeInCapacity.
-psptMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Integer)
-psptMinAdjustmentStep = lens _psptMinAdjustmentStep (\s a -> s { _psptMinAdjustmentStep = a })
-{-# INLINE psptMinAdjustmentStep #-}
+pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Integer)
+pspMinAdjustmentStep =
+    lens _pspMinAdjustmentStep (\s a -> s { _pspMinAdjustmentStep = a })
+{-# INLINE pspMinAdjustmentStep #-}
 
 instance ToQuery PutScalingPolicy where
     toQuery = genericQuery def
 
+-- | The PolicyARNType data type.
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
-    { _parntPolicyARN :: Maybe Text
-      -- ^ A policy's Amazon Resource Name (ARN).
+    { _psprsPolicyARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A policy's Amazon Resource Name (ARN).
-parntPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
-parntPolicyARN = lens _parntPolicyARN (\s a -> s { _parntPolicyARN = a })
-{-# INLINE parntPolicyARN #-}
+psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
+psprsPolicyARN = lens _psprsPolicyARN (\s a -> s { _psprsPolicyARN = a })
+{-# INLINE psprsPolicyARN #-}
 
 instance FromXML PutScalingPolicyResponse where
     fromXMLOptions = xmlOptions

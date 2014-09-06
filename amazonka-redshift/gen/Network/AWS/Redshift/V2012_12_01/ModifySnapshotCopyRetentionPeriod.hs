@@ -24,55 +24,46 @@ module Network.AWS.Redshift.V2012_12_01.ModifySnapshotCopyRetentionPeriod
     -- * Request
       ModifySnapshotCopyRetentionPeriod
     -- ** Request constructor
-    , mkModifySnapshotCopyRetentionPeriodMessage
+    , mkModifySnapshotCopyRetentionPeriod
     -- ** Request lenses
-    , mscrpmClusterIdentifier
-    , mscrpmRetentionPeriod
+    , mscrpClusterIdentifier
+    , mscrpRetentionPeriod
 
     -- * Response
     , ModifySnapshotCopyRetentionPeriodResponse
     -- ** Response lenses
-    , ccuCluster
+    , mscrprsCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
+    { _mscrpClusterIdentifier :: Text
+    , _mscrpRetentionPeriod :: Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotCopyRetentionPeriod' request.
-mkModifySnapshotCopyRetentionPeriodMessage :: Text -- ^ 'mscrpmClusterIdentifier'
-                                           -> Integer -- ^ 'mscrpmRetentionPeriod'
-                                           -> ModifySnapshotCopyRetentionPeriod
-mkModifySnapshotCopyRetentionPeriodMessage p1 p2 = ModifySnapshotCopyRetentionPeriod
-    { _mscrpmClusterIdentifier = p1
-    , _mscrpmRetentionPeriod = p2
+mkModifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpClusterIdentifier'
+                                    -> Integer -- ^ 'mscrpRetentionPeriod'
+                                    -> ModifySnapshotCopyRetentionPeriod
+mkModifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
+    { _mscrpClusterIdentifier = p1
+    , _mscrpRetentionPeriod = p2
     }
-{-# INLINE mkModifySnapshotCopyRetentionPeriodMessage #-}
-
-data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
-    { _mscrpmClusterIdentifier :: Text
-      -- ^ The unique identifier of the cluster for which you want to change
-      -- the retention period for automated snapshots that are copied to a
-      -- destination region. Constraints: Must be the valid name of an
-      -- existing cluster that has cross-region snapshot copy enabled.
-    , _mscrpmRetentionPeriod :: Integer
-      -- ^ The number of days to retain automated snapshots in the
-      -- destination region after they are copied from the source region.
-      -- If you decrease the retention period for automated snapshots that
-      -- are copied to a destination region, Amazon Redshift will delete
-      -- any existing automated snapshots that were copied to the
-      -- destination region and that fall outside of the new retention
-      -- period. Constraints: Must be at least 1 and no more than 35.
-    } deriving (Show, Generic)
+{-# INLINE mkModifySnapshotCopyRetentionPeriod #-}
 
 -- | The unique identifier of the cluster for which you want to change the
 -- retention period for automated snapshots that are copied to a destination
 -- region. Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
-mscrpmClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod (Text)
-mscrpmClusterIdentifier = lens _mscrpmClusterIdentifier (\s a -> s { _mscrpmClusterIdentifier = a })
-{-# INLINE mscrpmClusterIdentifier #-}
+mscrpClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod Text
+mscrpClusterIdentifier =
+    lens _mscrpClusterIdentifier (\s a -> s { _mscrpClusterIdentifier = a })
+{-# INLINE mscrpClusterIdentifier #-}
 
 -- | The number of days to retain automated snapshots in the destination region
 -- after they are copied from the source region. If you decrease the retention
@@ -80,22 +71,22 @@ mscrpmClusterIdentifier = lens _mscrpmClusterIdentifier (\s a -> s { _mscrpmClus
 -- Amazon Redshift will delete any existing automated snapshots that were
 -- copied to the destination region and that fall outside of the new retention
 -- period. Constraints: Must be at least 1 and no more than 35.
-mscrpmRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod (Integer)
-mscrpmRetentionPeriod = lens _mscrpmRetentionPeriod (\s a -> s { _mscrpmRetentionPeriod = a })
-{-# INLINE mscrpmRetentionPeriod #-}
+mscrpRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Integer
+mscrpRetentionPeriod =
+    lens _mscrpRetentionPeriod (\s a -> s { _mscrpRetentionPeriod = a })
+{-# INLINE mscrpRetentionPeriod #-}
 
 instance ToQuery ModifySnapshotCopyRetentionPeriod where
     toQuery = genericQuery def
 
 newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
-    { _ccuCluster :: Maybe Cluster
-      -- ^ Describes a cluster.
+    { _mscrprsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccuCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
-ccuCluster = lens _ccuCluster (\s a -> s { _ccuCluster = a })
-{-# INLINE ccuCluster #-}
+mscrprsCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
+mscrprsCluster = lens _mscrprsCluster (\s a -> s { _mscrprsCluster = a })
+{-# INLINE mscrprsCluster #-}
 
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
     fromXMLOptions = xmlOptions

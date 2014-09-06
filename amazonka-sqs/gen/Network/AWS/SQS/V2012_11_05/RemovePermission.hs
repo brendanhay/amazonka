@@ -32,10 +32,10 @@ module Network.AWS.SQS.V2012_11_05.RemovePermission
     -- * Request
       RemovePermission
     -- ** Request constructor
-    , mkRemovePermissionRequest
+    , mkRemovePermission
     -- ** Request lenses
-    , rprQueueUrl
-    , rprLabel
+    , rpQueueUrl
+    , rpLabel
 
     -- * Response
     , RemovePermissionResponse
@@ -45,35 +45,33 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemovePermission' request.
-mkRemovePermissionRequest :: Text -- ^ 'rprQueueUrl'
-                          -> Text -- ^ 'rprLabel'
-                          -> RemovePermission
-mkRemovePermissionRequest p1 p2 = RemovePermission
-    { _rprQueueUrl = p1
-    , _rprLabel = p2
-    }
-{-# INLINE mkRemovePermissionRequest #-}
-
+-- | 
 data RemovePermission = RemovePermission
-    { _rprQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
-    , _rprLabel :: Text
-      -- ^ The identification of the permission to remove. This is the label
-      -- added with the AddPermission action.
+    { _rpQueueUrl :: Text
+    , _rpLabel :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemovePermission' request.
+mkRemovePermission :: Text -- ^ 'rpQueueUrl'
+                   -> Text -- ^ 'rpLabel'
+                   -> RemovePermission
+mkRemovePermission p1 p2 = RemovePermission
+    { _rpQueueUrl = p1
+    , _rpLabel = p2
+    }
+{-# INLINE mkRemovePermission #-}
+
 -- | The URL of the Amazon SQS queue to take action on.
-rprQueueUrl :: Lens' RemovePermission (Text)
-rprQueueUrl = lens _rprQueueUrl (\s a -> s { _rprQueueUrl = a })
-{-# INLINE rprQueueUrl #-}
+rpQueueUrl :: Lens' RemovePermission Text
+rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
+{-# INLINE rpQueueUrl #-}
 
 -- | The identification of the permission to remove. This is the label added
 -- with the AddPermission action.
-rprLabel :: Lens' RemovePermission (Text)
-rprLabel = lens _rprLabel (\s a -> s { _rprLabel = a })
-{-# INLINE rprLabel #-}
+rpLabel :: Lens' RemovePermission Text
+rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
+{-# INLINE rpLabel #-}
 
 instance ToQuery RemovePermission where
     toQuery = genericQuery def

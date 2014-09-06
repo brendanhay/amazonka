@@ -50,18 +50,18 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.TestRole
     -- * Request
       TestRole
     -- ** Request constructor
-    , mkTestRoleRequest
+    , mkTestRole
     -- ** Request lenses
-    , trrRole
-    , trrInputBucket
-    , trrOutputBucket
-    , trrTopics
+    , trRole
+    , trInputBucket
+    , trOutputBucket
+    , trTopics
 
     -- * Response
     , TestRoleResponse
     -- ** Response lenses
-    , trsSuccess
-    , trsMessages
+    , trrsSuccess
+    , trrsMessages
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -69,61 +69,52 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The TestRoleRequest structure.
+data TestRole = TestRole
+    { _trRole :: Text
+    , _trInputBucket :: Text
+    , _trOutputBucket :: Text
+    , _trTopics :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestRole' request.
-mkTestRoleRequest :: Text -- ^ 'trrRole'
-                  -> Text -- ^ 'trrInputBucket'
-                  -> Text -- ^ 'trrOutputBucket'
-                  -> [Text] -- ^ 'trrTopics'
-                  -> TestRole
-mkTestRoleRequest p1 p2 p3 p4 = TestRole
-    { _trrRole = p1
-    , _trrInputBucket = p2
-    , _trrOutputBucket = p3
-    , _trrTopics = p4
+mkTestRole :: Text -- ^ 'trRole'
+           -> Text -- ^ 'trInputBucket'
+           -> Text -- ^ 'trOutputBucket'
+           -> [Text] -- ^ 'trTopics'
+           -> TestRole
+mkTestRole p1 p2 p3 p4 = TestRole
+    { _trRole = p1
+    , _trInputBucket = p2
+    , _trOutputBucket = p3
+    , _trTopics = p4
     }
-{-# INLINE mkTestRoleRequest #-}
-
-data TestRole = TestRole
-    { _trrRole :: Text
-      -- ^ The IAM Amazon Resource Name (ARN) for the role that you want
-      -- Elastic Transcoder to test.
-    , _trrInputBucket :: Text
-      -- ^ The Amazon S3 bucket that contains media files to be transcoded.
-      -- The action attempts to read from this bucket.
-    , _trrOutputBucket :: Text
-      -- ^ The Amazon S3 bucket that Elastic Transcoder will write
-      -- transcoded media files to. The action attempts to read from this
-      -- bucket.
-    , _trrTopics :: [Text]
-      -- ^ The ARNs of one or more Amazon Simple Notification Service
-      -- (Amazon SNS) topics that you want the action to send a test
-      -- notification to.
-    } deriving (Show, Generic)
+{-# INLINE mkTestRole #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to test.
-trrRole :: Lens' TestRole (Text)
-trrRole = lens _trrRole (\s a -> s { _trrRole = a })
-{-# INLINE trrRole #-}
+trRole :: Lens' TestRole Text
+trRole = lens _trRole (\s a -> s { _trRole = a })
+{-# INLINE trRole #-}
 
 -- | The Amazon S3 bucket that contains media files to be transcoded. The action
 -- attempts to read from this bucket.
-trrInputBucket :: Lens' TestRole (Text)
-trrInputBucket = lens _trrInputBucket (\s a -> s { _trrInputBucket = a })
-{-# INLINE trrInputBucket #-}
+trInputBucket :: Lens' TestRole Text
+trInputBucket = lens _trInputBucket (\s a -> s { _trInputBucket = a })
+{-# INLINE trInputBucket #-}
 
 -- | The Amazon S3 bucket that Elastic Transcoder will write transcoded media
 -- files to. The action attempts to read from this bucket.
-trrOutputBucket :: Lens' TestRole (Text)
-trrOutputBucket = lens _trrOutputBucket (\s a -> s { _trrOutputBucket = a })
-{-# INLINE trrOutputBucket #-}
+trOutputBucket :: Lens' TestRole Text
+trOutputBucket = lens _trOutputBucket (\s a -> s { _trOutputBucket = a })
+{-# INLINE trOutputBucket #-}
 
 -- | The ARNs of one or more Amazon Simple Notification Service (Amazon SNS)
 -- topics that you want the action to send a test notification to.
-trrTopics :: Lens' TestRole ([Text])
-trrTopics = lens _trrTopics (\s a -> s { _trrTopics = a })
-{-# INLINE trrTopics #-}
+trTopics :: Lens' TestRole [Text]
+trTopics = lens _trTopics (\s a -> s { _trTopics = a })
+{-# INLINE trTopics #-}
 
 instance ToPath TestRole where
     toPath = const "/2012-09-25/roleTests"
@@ -134,27 +125,23 @@ instance ToHeaders TestRole
 
 instance ToJSON TestRole
 
+-- | The TestRoleResponse structure.
 data TestRoleResponse = TestRoleResponse
-    { _trsSuccess :: Maybe Text
-      -- ^ If the operation is successful, this value is true; otherwise,
-      -- the value is false.
-    , _trsMessages :: [Text]
-      -- ^ If the Success element contains false, this value is an array of
-      -- one or more error messages that were generated during the test
-      -- process.
+    { _trrsSuccess :: Maybe Text
+    , _trrsMessages :: [Text]
     } deriving (Show, Generic)
 
 -- | If the operation is successful, this value is true; otherwise, the value is
 -- false.
-trsSuccess :: Lens' TestRoleResponse (Maybe Text)
-trsSuccess = lens _trsSuccess (\s a -> s { _trsSuccess = a })
-{-# INLINE trsSuccess #-}
+trrsSuccess :: Lens' TestRoleResponse (Maybe Text)
+trrsSuccess = lens _trrsSuccess (\s a -> s { _trrsSuccess = a })
+{-# INLINE trrsSuccess #-}
 
 -- | If the Success element contains false, this value is an array of one or
 -- more error messages that were generated during the test process.
-trsMessages :: Lens' TestRoleResponse ([Text])
-trsMessages = lens _trsMessages (\s a -> s { _trsMessages = a })
-{-# INLINE trsMessages #-}
+trrsMessages :: Lens' TestRoleResponse [Text]
+trrsMessages = lens _trrsMessages (\s a -> s { _trrsMessages = a })
+{-# INLINE trrsMessages #-}
 
 instance FromJSON TestRoleResponse
 

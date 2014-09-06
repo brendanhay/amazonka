@@ -26,59 +26,57 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters
     -- * Request
       DescribeScalingParameters
     -- ** Request constructor
-    , mkDescribeScalingParametersRequest
+    , mkDescribeScalingParameters
     -- ** Request lenses
-    , dsprDomainName
+    , dspDomainName
 
     -- * Response
     , DescribeScalingParametersResponse
     -- ** Response lenses
-    , dspsScalingParameters
+    , dsprsScalingParameters
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the DescribeScalingParameters operation.
+-- Specifies the name of the domain you want to describe.
+newtype DescribeScalingParameters = DescribeScalingParameters
+    { _dspDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingParameters' request.
-mkDescribeScalingParametersRequest :: Text -- ^ 'dsprDomainName'
-                                   -> DescribeScalingParameters
-mkDescribeScalingParametersRequest p1 = DescribeScalingParameters
-    { _dsprDomainName = p1
+mkDescribeScalingParameters :: Text -- ^ 'dspDomainName'
+                            -> DescribeScalingParameters
+mkDescribeScalingParameters p1 = DescribeScalingParameters
+    { _dspDomainName = p1
     }
-{-# INLINE mkDescribeScalingParametersRequest #-}
-
-newtype DescribeScalingParameters = DescribeScalingParameters
-    { _dsprDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeScalingParameters #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dsprDomainName :: Lens' DescribeScalingParameters (Text)
-dsprDomainName = lens _dsprDomainName (\s a -> s { _dsprDomainName = a })
-{-# INLINE dsprDomainName #-}
+dspDomainName :: Lens' DescribeScalingParameters Text
+dspDomainName = lens _dspDomainName (\s a -> s { _dspDomainName = a })
+{-# INLINE dspDomainName #-}
 
 instance ToQuery DescribeScalingParameters where
     toQuery = genericQuery def
 
+-- | The result of a DescribeScalingParameters request. Contains the scaling
+-- parameters configured for the domain specified in the request.
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
-    { _dspsScalingParameters :: ScalingParametersStatus
-      -- ^ The status and configuration of a search domain's scaling
-      -- parameters.
+    { _dsprsScalingParameters :: ScalingParametersStatus
     } deriving (Show, Generic)
 
 -- | The status and configuration of a search domain's scaling parameters.
-dspsScalingParameters :: Lens' DescribeScalingParametersResponse (ScalingParametersStatus)
-dspsScalingParameters = lens _dspsScalingParameters (\s a -> s { _dspsScalingParameters = a })
-{-# INLINE dspsScalingParameters #-}
+dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
+dsprsScalingParameters =
+    lens _dsprsScalingParameters (\s a -> s { _dsprsScalingParameters = a })
+{-# INLINE dsprsScalingParameters #-}
 
 instance FromXML DescribeScalingParametersResponse where
     fromXMLOptions = xmlOptions

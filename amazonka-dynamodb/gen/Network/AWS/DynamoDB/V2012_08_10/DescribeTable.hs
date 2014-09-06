@@ -38,14 +38,14 @@ module Network.AWS.DynamoDB.V2012_08_10.DescribeTable
     -- * Request
       DescribeTable
     -- ** Request constructor
-    , mkDescribeTableInput
+    , mkDescribeTable
     -- ** Request lenses
-    , dtjTableName
+    , dt1TableName
 
     -- * Response
     , DescribeTableResponse
     -- ** Response lenses
-    , dtpTable
+    , dtrsrsTable
     ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTable' request.
-mkDescribeTableInput :: Text -- ^ 'dtjTableName'
-                     -> DescribeTable
-mkDescribeTableInput p1 = DescribeTable
-    { _dtjTableName = p1
-    }
-{-# INLINE mkDescribeTableInput #-}
-
+-- | Represents the input of a DescribeTable operation.
 newtype DescribeTable = DescribeTable
-    { _dtjTableName :: Text
-      -- ^ The name of the table to describe.
+    { _dt1TableName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTable' request.
+mkDescribeTable :: Text -- ^ 'dt1TableName'
+                -> DescribeTable
+mkDescribeTable p1 = DescribeTable
+    { _dt1TableName = p1
+    }
+{-# INLINE mkDescribeTable #-}
+
 -- | The name of the table to describe.
-dtjTableName :: Lens' DescribeTable (Text)
-dtjTableName = lens _dtjTableName (\s a -> s { _dtjTableName = a })
-{-# INLINE dtjTableName #-}
+dt1TableName :: Lens' DescribeTable Text
+dt1TableName = lens _dt1TableName (\s a -> s { _dt1TableName = a })
+{-# INLINE dt1TableName #-}
 
 instance ToPath DescribeTable
 
@@ -80,15 +80,15 @@ instance ToHeaders DescribeTable
 
 instance ToJSON DescribeTable
 
+-- | Represents the output of a DescribeTable operation.
 newtype DescribeTableResponse = DescribeTableResponse
-    { _dtpTable :: Maybe TableDescription
-      -- ^ Represents the properties of a table.
+    { _dtrsrsTable :: Maybe TableDescription
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-dtpTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-dtpTable = lens _dtpTable (\s a -> s { _dtpTable = a })
-{-# INLINE dtpTable #-}
+dtrsrsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
+dtrsrsTable = lens _dtrsrsTable (\s a -> s { _dtrsrsTable = a })
+{-# INLINE dtrsrsTable #-}
 
 instance FromJSON DescribeTableResponse
 

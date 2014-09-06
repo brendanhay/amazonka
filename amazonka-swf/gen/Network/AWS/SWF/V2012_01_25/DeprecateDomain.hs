@@ -52,9 +52,9 @@ module Network.AWS.SWF.V2012_01_25.DeprecateDomain
     -- * Request
       DeprecateDomain
     -- ** Request constructor
-    , mkDeprecateDomainInput
+    , mkDeprecateDomain
     -- ** Request lenses
-    , ddiName
+    , ddName
 
     -- * Response
     , DeprecateDomainResponse
@@ -65,24 +65,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeprecateDomain' request.
-mkDeprecateDomainInput :: Text -- ^ 'ddiName'
-                       -> DeprecateDomain
-mkDeprecateDomainInput p1 = DeprecateDomain
-    { _ddiName = p1
-    }
-{-# INLINE mkDeprecateDomainInput #-}
-
 newtype DeprecateDomain = DeprecateDomain
-    { _ddiName :: Text
-      -- ^ The name of the domain to deprecate.
+    { _ddName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeprecateDomain' request.
+mkDeprecateDomain :: Text -- ^ 'ddName'
+                  -> DeprecateDomain
+mkDeprecateDomain p1 = DeprecateDomain
+    { _ddName = p1
+    }
+{-# INLINE mkDeprecateDomain #-}
+
 -- | The name of the domain to deprecate.
-ddiName :: Lens' DeprecateDomain (Text)
-ddiName = lens _ddiName (\s a -> s { _ddiName = a })
-{-# INLINE ddiName #-}
+ddName :: Lens' DeprecateDomain Text
+ddName = lens _ddName (\s a -> s { _ddName = a })
+{-# INLINE ddName #-}
 
 instance ToPath DeprecateDomain
 

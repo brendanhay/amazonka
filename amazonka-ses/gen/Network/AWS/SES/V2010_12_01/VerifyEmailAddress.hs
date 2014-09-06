@@ -35,9 +35,9 @@ module Network.AWS.SES.V2010_12_01.VerifyEmailAddress
     -- * Request
       VerifyEmailAddress
     -- ** Request constructor
-    , mkVerifyEmailAddressRequest
+    , mkVerifyEmailAddress
     -- ** Request lenses
-    , vearEmailAddress
+    , veaEmailAddress
 
     -- * Response
     , VerifyEmailAddressResponse
@@ -47,24 +47,25 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'VerifyEmailAddress' request.
-mkVerifyEmailAddressRequest :: Text -- ^ 'vearEmailAddress'
-                            -> VerifyEmailAddress
-mkVerifyEmailAddressRequest p1 = VerifyEmailAddress
-    { _vearEmailAddress = p1
-    }
-{-# INLINE mkVerifyEmailAddressRequest #-}
-
+-- | Represents a request instructing the service to begin email address
+-- verification.
 newtype VerifyEmailAddress = VerifyEmailAddress
-    { _vearEmailAddress :: Text
-      -- ^ The email address to be verified.
+    { _veaEmailAddress :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyEmailAddress' request.
+mkVerifyEmailAddress :: Text -- ^ 'veaEmailAddress'
+                     -> VerifyEmailAddress
+mkVerifyEmailAddress p1 = VerifyEmailAddress
+    { _veaEmailAddress = p1
+    }
+{-# INLINE mkVerifyEmailAddress #-}
+
 -- | The email address to be verified.
-vearEmailAddress :: Lens' VerifyEmailAddress (Text)
-vearEmailAddress = lens _vearEmailAddress (\s a -> s { _vearEmailAddress = a })
-{-# INLINE vearEmailAddress #-}
+veaEmailAddress :: Lens' VerifyEmailAddress Text
+veaEmailAddress = lens _veaEmailAddress (\s a -> s { _veaEmailAddress = a })
+{-# INLINE veaEmailAddress #-}
 
 instance ToQuery VerifyEmailAddress where
     toQuery = genericQuery def

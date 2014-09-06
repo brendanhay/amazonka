@@ -45,17 +45,17 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy
     -- * Request
       UpdateDomainContactPrivacy
     -- ** Request constructor
-    , mkUpdateDomainContactPrivacyRequest
+    , mkUpdateDomainContactPrivacy
     -- ** Request lenses
-    , udcprDomainName
-    , udcprAdminPrivacy
-    , udcprRegistrantPrivacy
-    , udcprTechPrivacy
+    , udcpDomainName
+    , udcpAdminPrivacy
+    , udcpRegistrantPrivacy
+    , udcpTechPrivacy
 
     -- * Response
     , UpdateDomainContactPrivacyResponse
     -- ** Response lenses
-    , udcpsOperationId
+    , udcprsOperationId
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -63,75 +63,59 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The UpdateDomainContactPrivacy request includes the following elements.
+data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
+    { _udcpDomainName :: Text
+    , _udcpAdminPrivacy :: Maybe Bool
+    , _udcpRegistrantPrivacy :: Maybe Bool
+    , _udcpTechPrivacy :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContactPrivacy' request.
-mkUpdateDomainContactPrivacyRequest :: Text -- ^ 'udcprDomainName'
-                                    -> UpdateDomainContactPrivacy
-mkUpdateDomainContactPrivacyRequest p1 = UpdateDomainContactPrivacy
-    { _udcprDomainName = p1
-    , _udcprAdminPrivacy = Nothing
-    , _udcprRegistrantPrivacy = Nothing
-    , _udcprTechPrivacy = Nothing
+mkUpdateDomainContactPrivacy :: Text -- ^ 'udcpDomainName'
+                             -> UpdateDomainContactPrivacy
+mkUpdateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
+    { _udcpDomainName = p1
+    , _udcpAdminPrivacy = Nothing
+    , _udcpRegistrantPrivacy = Nothing
+    , _udcpTechPrivacy = Nothing
     }
-{-# INLINE mkUpdateDomainContactPrivacyRequest #-}
-
-data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
-    { _udcprDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    , _udcprAdminPrivacy :: Maybe Bool
-      -- ^ Whether you want to conceal contact information from WHOIS
-      -- queries. If you specify true, WHOIS ("who is") queries will
-      -- return contact information for our registrar partner, Gandi,
-      -- instead of the contact information that you enter. Type: Boolean
-      -- Default: None Valid values: true | false Required: No.
-    , _udcprRegistrantPrivacy :: Maybe Bool
-      -- ^ Whether you want to conceal contact information from WHOIS
-      -- queries. If you specify true, WHOIS ("who is") queries will
-      -- return contact information for our registrar partner, Gandi,
-      -- instead of the contact information that you enter. Type: Boolean
-      -- Default: None Valid values: true | false Required: No.
-    , _udcprTechPrivacy :: Maybe Bool
-      -- ^ Whether you want to conceal contact information from WHOIS
-      -- queries. If you specify true, WHOIS ("who is") queries will
-      -- return contact information for our registrar partner, Gandi,
-      -- instead of the contact information that you enter. Type: Boolean
-      -- Default: None Valid values: true | false Required: No.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateDomainContactPrivacy #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-udcprDomainName :: Lens' UpdateDomainContactPrivacy (Text)
-udcprDomainName = lens _udcprDomainName (\s a -> s { _udcprDomainName = a })
-{-# INLINE udcprDomainName #-}
+udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
+udcpDomainName = lens _udcpDomainName (\s a -> s { _udcpDomainName = a })
+{-# INLINE udcpDomainName #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
-udcprAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprAdminPrivacy = lens _udcprAdminPrivacy (\s a -> s { _udcprAdminPrivacy = a })
-{-# INLINE udcprAdminPrivacy #-}
+udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcpAdminPrivacy =
+    lens _udcpAdminPrivacy (\s a -> s { _udcpAdminPrivacy = a })
+{-# INLINE udcpAdminPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
-udcprRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprRegistrantPrivacy = lens _udcprRegistrantPrivacy (\s a -> s { _udcprRegistrantPrivacy = a })
-{-# INLINE udcprRegistrantPrivacy #-}
+udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcpRegistrantPrivacy =
+    lens _udcpRegistrantPrivacy (\s a -> s { _udcpRegistrantPrivacy = a })
+{-# INLINE udcpRegistrantPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
-udcprTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprTechPrivacy = lens _udcprTechPrivacy (\s a -> s { _udcprTechPrivacy = a })
-{-# INLINE udcprTechPrivacy #-}
+udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
+{-# INLINE udcpTechPrivacy #-}
 
 instance ToPath UpdateDomainContactPrivacy
 
@@ -141,19 +125,18 @@ instance ToHeaders UpdateDomainContactPrivacy
 
 instance ToJSON UpdateDomainContactPrivacy
 
+-- | The UpdateDomainContactPrivacy response includes the following element.
 newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
-    { _udcpsOperationId :: Text
-      -- ^ Identifier for tracking the progress of the request. To use this
-      -- ID to query the operation status, use GetOperationDetail. Type:
-      -- String Default: None Constraints: Maximum 255 characters.
+    { _udcprsOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udcpsOperationId :: Lens' UpdateDomainContactPrivacyResponse (Text)
-udcpsOperationId = lens _udcpsOperationId (\s a -> s { _udcpsOperationId = a })
-{-# INLINE udcpsOperationId #-}
+udcprsOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
+udcprsOperationId =
+    lens _udcprsOperationId (\s a -> s { _udcprsOperationId = a })
+{-# INLINE udcprsOperationId #-}
 
 instance FromJSON UpdateDomainContactPrivacyResponse
 

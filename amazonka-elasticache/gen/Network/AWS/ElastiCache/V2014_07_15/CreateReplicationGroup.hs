@@ -37,82 +37,78 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup
     -- * Request
       CreateReplicationGroup
     -- ** Request constructor
-    , mkCreateReplicationGroupMessage
+    , mkCreateReplicationGroup
     -- ** Request lenses
-    , crgmReplicationGroupId
-    , crgmPrimaryClusterId
-    , crgmReplicationGroupDescription
+    , crgReplicationGroupId
+    , crgPrimaryClusterId
+    , crgReplicationGroupDescription
 
     -- * Response
     , CreateReplicationGroupResponse
     -- ** Response lenses
-    , rgwReplicationGroup
+    , crgrsReplicationGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a CreateReplicationGroup operation.
+data CreateReplicationGroup = CreateReplicationGroup
+    { _crgReplicationGroupId :: Text
+    , _crgPrimaryClusterId :: Text
+    , _crgReplicationGroupDescription :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateReplicationGroup' request.
-mkCreateReplicationGroupMessage :: Text -- ^ 'crgmReplicationGroupId'
-                                -> Text -- ^ 'crgmPrimaryClusterId'
-                                -> Text -- ^ 'crgmReplicationGroupDescription'
-                                -> CreateReplicationGroup
-mkCreateReplicationGroupMessage p1 p2 p3 = CreateReplicationGroup
-    { _crgmReplicationGroupId = p1
-    , _crgmPrimaryClusterId = p2
-    , _crgmReplicationGroupDescription = p3
+mkCreateReplicationGroup :: Text -- ^ 'crgReplicationGroupId'
+                         -> Text -- ^ 'crgPrimaryClusterId'
+                         -> Text -- ^ 'crgReplicationGroupDescription'
+                         -> CreateReplicationGroup
+mkCreateReplicationGroup p1 p2 p3 = CreateReplicationGroup
+    { _crgReplicationGroupId = p1
+    , _crgPrimaryClusterId = p2
+    , _crgReplicationGroupDescription = p3
     }
-{-# INLINE mkCreateReplicationGroupMessage #-}
-
-data CreateReplicationGroup = CreateReplicationGroup
-    { _crgmReplicationGroupId :: Text
-      -- ^ The replication group identifier. This parameter is stored as a
-      -- lowercase string. Constraints: Must contain from 1 to 20
-      -- alphanumeric characters or hyphens. First character must be a
-      -- letter. Cannot end with a hyphen or contain two consecutive
-      -- hyphens.
-    , _crgmPrimaryClusterId :: Text
-      -- ^ The identifier of the cache cluster that will serve as the
-      -- primary for this replication group. This cache cluster must
-      -- already exist and have a status of available.
-    , _crgmReplicationGroupDescription :: Text
-      -- ^ A user-specified description for the replication group.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateReplicationGroup #-}
 
 -- | The replication group identifier. This parameter is stored as a lowercase
 -- string. Constraints: Must contain from 1 to 20 alphanumeric characters or
 -- hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-crgmReplicationGroupId :: Lens' CreateReplicationGroup (Text)
-crgmReplicationGroupId = lens _crgmReplicationGroupId (\s a -> s { _crgmReplicationGroupId = a })
-{-# INLINE crgmReplicationGroupId #-}
+crgReplicationGroupId :: Lens' CreateReplicationGroup Text
+crgReplicationGroupId =
+    lens _crgReplicationGroupId (\s a -> s { _crgReplicationGroupId = a })
+{-# INLINE crgReplicationGroupId #-}
 
 -- | The identifier of the cache cluster that will serve as the primary for this
 -- replication group. This cache cluster must already exist and have a status
 -- of available.
-crgmPrimaryClusterId :: Lens' CreateReplicationGroup (Text)
-crgmPrimaryClusterId = lens _crgmPrimaryClusterId (\s a -> s { _crgmPrimaryClusterId = a })
-{-# INLINE crgmPrimaryClusterId #-}
+crgPrimaryClusterId :: Lens' CreateReplicationGroup Text
+crgPrimaryClusterId =
+    lens _crgPrimaryClusterId (\s a -> s { _crgPrimaryClusterId = a })
+{-# INLINE crgPrimaryClusterId #-}
 
 -- | A user-specified description for the replication group.
-crgmReplicationGroupDescription :: Lens' CreateReplicationGroup (Text)
-crgmReplicationGroupDescription = lens _crgmReplicationGroupDescription (\s a -> s { _crgmReplicationGroupDescription = a })
-{-# INLINE crgmReplicationGroupDescription #-}
+crgReplicationGroupDescription :: Lens' CreateReplicationGroup Text
+crgReplicationGroupDescription =
+    lens _crgReplicationGroupDescription
+         (\s a -> s { _crgReplicationGroupDescription = a })
+{-# INLINE crgReplicationGroupDescription #-}
 
 instance ToQuery CreateReplicationGroup where
     toQuery = genericQuery def
 
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
-    { _rgwReplicationGroup :: Maybe ReplicationGroup
-      -- ^ Contains all of the attributes of a specific replication group.
+    { _crgrsReplicationGroup :: Maybe ReplicationGroup
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-rgwReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
-rgwReplicationGroup = lens _rgwReplicationGroup (\s a -> s { _rgwReplicationGroup = a })
-{-# INLINE rgwReplicationGroup #-}
+crgrsReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
+crgrsReplicationGroup =
+    lens _crgrsReplicationGroup (\s a -> s { _crgrsReplicationGroup = a })
+{-# INLINE crgrsReplicationGroup #-}
 
 instance FromXML CreateReplicationGroupResponse where
     fromXMLOptions = xmlOptions

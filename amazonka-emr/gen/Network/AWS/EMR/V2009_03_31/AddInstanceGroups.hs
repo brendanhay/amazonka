@@ -41,16 +41,16 @@ module Network.AWS.EMR.V2009_03_31.AddInstanceGroups
     -- * Request
       AddInstanceGroups
     -- ** Request constructor
-    , mkAddInstanceGroupsInput
+    , mkAddInstanceGroups
     -- ** Request lenses
-    , aigiInstanceGroups
-    , aigiJobFlowId
+    , aigInstanceGroups
+    , aigJobFlowId
 
     -- * Response
     , AddInstanceGroupsResponse
     -- ** Response lenses
-    , aigoJobFlowId
-    , aigoInstanceGroupIds
+    , aigrsJobFlowId
+    , aigrsInstanceGroupIds
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -58,33 +58,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddInstanceGroups' request.
-mkAddInstanceGroupsInput :: [InstanceGroupConfig] -- ^ 'aigiInstanceGroups'
-                         -> Text -- ^ 'aigiJobFlowId'
-                         -> AddInstanceGroups
-mkAddInstanceGroupsInput p1 p2 = AddInstanceGroups
-    { _aigiInstanceGroups = p1
-    , _aigiJobFlowId = p2
-    }
-{-# INLINE mkAddInstanceGroupsInput #-}
-
+-- | Input to an AddInstanceGroups call.
 data AddInstanceGroups = AddInstanceGroups
-    { _aigiInstanceGroups :: [InstanceGroupConfig]
-      -- ^ Instance Groups to add.
-    , _aigiJobFlowId :: Text
-      -- ^ Job flow in which to add the instance groups.
+    { _aigInstanceGroups :: [InstanceGroupConfig]
+    , _aigJobFlowId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddInstanceGroups' request.
+mkAddInstanceGroups :: [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
+                    -> Text -- ^ 'aigJobFlowId'
+                    -> AddInstanceGroups
+mkAddInstanceGroups p1 p2 = AddInstanceGroups
+    { _aigInstanceGroups = p1
+    , _aigJobFlowId = p2
+    }
+{-# INLINE mkAddInstanceGroups #-}
+
 -- | Instance Groups to add.
-aigiInstanceGroups :: Lens' AddInstanceGroups ([InstanceGroupConfig])
-aigiInstanceGroups = lens _aigiInstanceGroups (\s a -> s { _aigiInstanceGroups = a })
-{-# INLINE aigiInstanceGroups #-}
+aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
+aigInstanceGroups =
+    lens _aigInstanceGroups (\s a -> s { _aigInstanceGroups = a })
+{-# INLINE aigInstanceGroups #-}
 
 -- | Job flow in which to add the instance groups.
-aigiJobFlowId :: Lens' AddInstanceGroups (Text)
-aigiJobFlowId = lens _aigiJobFlowId (\s a -> s { _aigiJobFlowId = a })
-{-# INLINE aigiJobFlowId #-}
+aigJobFlowId :: Lens' AddInstanceGroups Text
+aigJobFlowId = lens _aigJobFlowId (\s a -> s { _aigJobFlowId = a })
+{-# INLINE aigJobFlowId #-}
 
 instance ToPath AddInstanceGroups
 
@@ -94,22 +94,22 @@ instance ToHeaders AddInstanceGroups
 
 instance ToJSON AddInstanceGroups
 
+-- | Output from an AddInstanceGroups call.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse
-    { _aigoJobFlowId :: Maybe Text
-      -- ^ The job flow ID in which the instance groups are added.
-    , _aigoInstanceGroupIds :: [Text]
-      -- ^ Instance group IDs of the newly created instance groups.
+    { _aigrsJobFlowId :: Maybe Text
+    , _aigrsInstanceGroupIds :: [Text]
     } deriving (Show, Generic)
 
 -- | The job flow ID in which the instance groups are added.
-aigoJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
-aigoJobFlowId = lens _aigoJobFlowId (\s a -> s { _aigoJobFlowId = a })
-{-# INLINE aigoJobFlowId #-}
+aigrsJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
+aigrsJobFlowId = lens _aigrsJobFlowId (\s a -> s { _aigrsJobFlowId = a })
+{-# INLINE aigrsJobFlowId #-}
 
 -- | Instance group IDs of the newly created instance groups.
-aigoInstanceGroupIds :: Lens' AddInstanceGroupsResponse ([Text])
-aigoInstanceGroupIds = lens _aigoInstanceGroupIds (\s a -> s { _aigoInstanceGroupIds = a })
-{-# INLINE aigoInstanceGroupIds #-}
+aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
+aigrsInstanceGroupIds =
+    lens _aigrsInstanceGroupIds (\s a -> s { _aigrsInstanceGroupIds = a })
+{-# INLINE aigrsInstanceGroupIds #-}
 
 instance FromJSON AddInstanceGroupsResponse
 

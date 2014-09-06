@@ -32,119 +32,107 @@ module Network.AWS.RDS.V2013_09_09.RevokeDBSecurityGroupIngress
     -- * Request
       RevokeDBSecurityGroupIngress
     -- ** Request constructor
-    , mkRevokeDBSecurityGroupIngressMessage
+    , mkRevokeDBSecurityGroupIngress
     -- ** Request lenses
-    , rdbsgimDBSecurityGroupName
-    , rdbsgimCIDRIP
-    , rdbsgimEC2SecurityGroupName
-    , rdbsgimEC2SecurityGroupId
-    , rdbsgimEC2SecurityGroupOwnerId
+    , rdbsgiDBSecurityGroupName
+    , rdbsgiCIDRIP
+    , rdbsgiEC2SecurityGroupName
+    , rdbsgiEC2SecurityGroupId
+    , rdbsgiEC2SecurityGroupOwnerId
 
     -- * Response
     , RevokeDBSecurityGroupIngressResponse
     -- ** Response lenses
-    , dbsgdtDBSecurityGroup
+    , rdbsgirsDBSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RevokeDBSecurityGroupIngress' request.
-mkRevokeDBSecurityGroupIngressMessage :: Text -- ^ 'rdbsgimDBSecurityGroupName'
-                                      -> RevokeDBSecurityGroupIngress
-mkRevokeDBSecurityGroupIngressMessage p1 = RevokeDBSecurityGroupIngress
-    { _rdbsgimDBSecurityGroupName = p1
-    , _rdbsgimCIDRIP = Nothing
-    , _rdbsgimEC2SecurityGroupName = Nothing
-    , _rdbsgimEC2SecurityGroupId = Nothing
-    , _rdbsgimEC2SecurityGroupOwnerId = Nothing
-    }
-{-# INLINE mkRevokeDBSecurityGroupIngressMessage #-}
-
+-- | 
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
-    { _rdbsgimDBSecurityGroupName :: Text
-      -- ^ The name of the DB security group to revoke ingress from.
-    , _rdbsgimCIDRIP :: Maybe Text
-      -- ^ The IP range to revoke access from. Must be a valid CIDR range.
-      -- If CIDRIP is specified, EC2SecurityGroupName, EC2SecurityGroupId
-      -- and EC2SecurityGroupOwnerId cannot be provided.
-    , _rdbsgimEC2SecurityGroupName :: Maybe Text
-      -- ^ The name of the EC2 security group to revoke access from. For VPC
-      -- DB security groups, EC2SecurityGroupId must be provided.
-      -- Otherwise, EC2SecurityGroupOwnerId and either
-      -- EC2SecurityGroupName or EC2SecurityGroupId must be provided.
-    , _rdbsgimEC2SecurityGroupId :: Maybe Text
-      -- ^ The id of the EC2 security group to revoke access from. For VPC
-      -- DB security groups, EC2SecurityGroupId must be provided.
-      -- Otherwise, EC2SecurityGroupOwnerId and either
-      -- EC2SecurityGroupName or EC2SecurityGroupId must be provided.
-    , _rdbsgimEC2SecurityGroupOwnerId :: Maybe Text
-      -- ^ The AWS Account Number of the owner of the EC2 security group
-      -- specified in the EC2SecurityGroupName parameter. The AWS Access
-      -- Key ID is not an acceptable value. For VPC DB security groups,
-      -- EC2SecurityGroupId must be provided. Otherwise,
-      -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
-      -- EC2SecurityGroupId must be provided.
+    { _rdbsgiDBSecurityGroupName :: Text
+    , _rdbsgiCIDRIP :: Maybe Text
+    , _rdbsgiEC2SecurityGroupName :: Maybe Text
+    , _rdbsgiEC2SecurityGroupId :: Maybe Text
+    , _rdbsgiEC2SecurityGroupOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeDBSecurityGroupIngress' request.
+mkRevokeDBSecurityGroupIngress :: Text -- ^ 'rdbsgiDBSecurityGroupName'
+                               -> RevokeDBSecurityGroupIngress
+mkRevokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
+    { _rdbsgiDBSecurityGroupName = p1
+    , _rdbsgiCIDRIP = Nothing
+    , _rdbsgiEC2SecurityGroupName = Nothing
+    , _rdbsgiEC2SecurityGroupId = Nothing
+    , _rdbsgiEC2SecurityGroupOwnerId = Nothing
+    }
+{-# INLINE mkRevokeDBSecurityGroupIngress #-}
+
 -- | The name of the DB security group to revoke ingress from.
-rdbsgimDBSecurityGroupName :: Lens' RevokeDBSecurityGroupIngress (Text)
-rdbsgimDBSecurityGroupName = lens _rdbsgimDBSecurityGroupName (\s a -> s { _rdbsgimDBSecurityGroupName = a })
-{-# INLINE rdbsgimDBSecurityGroupName #-}
+rdbsgiDBSecurityGroupName :: Lens' RevokeDBSecurityGroupIngress Text
+rdbsgiDBSecurityGroupName =
+    lens _rdbsgiDBSecurityGroupName
+         (\s a -> s { _rdbsgiDBSecurityGroupName = a })
+{-# INLINE rdbsgiDBSecurityGroupName #-}
 
 -- | The IP range to revoke access from. Must be a valid CIDR range. If CIDRIP
 -- is specified, EC2SecurityGroupName, EC2SecurityGroupId and
 -- EC2SecurityGroupOwnerId cannot be provided.
-rdbsgimCIDRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdbsgimCIDRIP = lens _rdbsgimCIDRIP (\s a -> s { _rdbsgimCIDRIP = a })
-{-# INLINE rdbsgimCIDRIP #-}
+rdbsgiCIDRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdbsgiCIDRIP = lens _rdbsgiCIDRIP (\s a -> s { _rdbsgiCIDRIP = a })
+{-# INLINE rdbsgiCIDRIP #-}
 
 -- | The name of the EC2 security group to revoke access from. For VPC DB
 -- security groups, EC2SecurityGroupId must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId must be provided.
-rdbsgimEC2SecurityGroupName :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdbsgimEC2SecurityGroupName = lens _rdbsgimEC2SecurityGroupName (\s a -> s { _rdbsgimEC2SecurityGroupName = a })
-{-# INLINE rdbsgimEC2SecurityGroupName #-}
+rdbsgiEC2SecurityGroupName :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdbsgiEC2SecurityGroupName =
+    lens _rdbsgiEC2SecurityGroupName
+         (\s a -> s { _rdbsgiEC2SecurityGroupName = a })
+{-# INLINE rdbsgiEC2SecurityGroupName #-}
 
 -- | The id of the EC2 security group to revoke access from. For VPC DB security
 -- groups, EC2SecurityGroupId must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId must be provided.
-rdbsgimEC2SecurityGroupId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdbsgimEC2SecurityGroupId = lens _rdbsgimEC2SecurityGroupId (\s a -> s { _rdbsgimEC2SecurityGroupId = a })
-{-# INLINE rdbsgimEC2SecurityGroupId #-}
+rdbsgiEC2SecurityGroupId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdbsgiEC2SecurityGroupId =
+    lens _rdbsgiEC2SecurityGroupId
+         (\s a -> s { _rdbsgiEC2SecurityGroupId = a })
+{-# INLINE rdbsgiEC2SecurityGroupId #-}
 
 -- | The AWS Account Number of the owner of the EC2 security group specified in
 -- the EC2SecurityGroupName parameter. The AWS Access Key ID is not an
 -- acceptable value. For VPC DB security groups, EC2SecurityGroupId must be
 -- provided. Otherwise, EC2SecurityGroupOwnerId and either
 -- EC2SecurityGroupName or EC2SecurityGroupId must be provided.
-rdbsgimEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdbsgimEC2SecurityGroupOwnerId = lens _rdbsgimEC2SecurityGroupOwnerId (\s a -> s { _rdbsgimEC2SecurityGroupOwnerId = a })
-{-# INLINE rdbsgimEC2SecurityGroupOwnerId #-}
+rdbsgiEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdbsgiEC2SecurityGroupOwnerId =
+    lens _rdbsgiEC2SecurityGroupOwnerId
+         (\s a -> s { _rdbsgiEC2SecurityGroupOwnerId = a })
+{-# INLINE rdbsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery RevokeDBSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
-    { _dbsgdtDBSecurityGroup :: Maybe DBSecurityGroup
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
-      -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type
-      -- is used as a response element in the DescribeDBSecurityGroups
-      -- action.
+    { _rdbsgirsDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
-dbsgdtDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
-dbsgdtDBSecurityGroup = lens _dbsgdtDBSecurityGroup (\s a -> s { _dbsgdtDBSecurityGroup = a })
-{-# INLINE dbsgdtDBSecurityGroup #-}
+rdbsgirsDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
+rdbsgirsDBSecurityGroup =
+    lens _rdbsgirsDBSecurityGroup
+         (\s a -> s { _rdbsgirsDBSecurityGroup = a })
+{-# INLINE rdbsgirsDBSecurityGroup #-}
 
 instance FromXML RevokeDBSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

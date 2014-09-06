@@ -32,9 +32,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteVolume
     -- * Request
       DeleteVolume
     -- ** Request constructor
-    , mkDeleteVolumeRequest
+    , mkDeleteVolume
     -- ** Request lenses
-    , dvrVolumeId
+    , dvVolumeId
 
     -- * Response
     , DeleteVolumeResponse
@@ -44,24 +44,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVolume' request.
-mkDeleteVolumeRequest :: Text -- ^ 'dvrVolumeId'
-                      -> DeleteVolume
-mkDeleteVolumeRequest p1 = DeleteVolume
-    { _dvrVolumeId = p1
-    }
-{-# INLINE mkDeleteVolumeRequest #-}
-
+-- | 
 newtype DeleteVolume = DeleteVolume
-    { _dvrVolumeId :: Text
-      -- ^ The ID of the volume.
+    { _dvVolumeId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVolume' request.
+mkDeleteVolume :: Text -- ^ 'dvVolumeId'
+               -> DeleteVolume
+mkDeleteVolume p1 = DeleteVolume
+    { _dvVolumeId = p1
+    }
+{-# INLINE mkDeleteVolume #-}
+
 -- | The ID of the volume.
-dvrVolumeId :: Lens' DeleteVolume (Text)
-dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
-{-# INLINE dvrVolumeId #-}
+dvVolumeId :: Lens' DeleteVolume Text
+dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
+{-# INLINE dvVolumeId #-}
 
 instance ToQuery DeleteVolume where
     toQuery = genericQuery def

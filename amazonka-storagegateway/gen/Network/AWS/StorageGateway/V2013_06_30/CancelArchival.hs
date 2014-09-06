@@ -22,15 +22,15 @@ module Network.AWS.StorageGateway.V2013_06_30.CancelArchival
     -- * Request
       CancelArchival
     -- ** Request constructor
-    , mkCancelArchivalInput
+    , mkCancelArchival
     -- ** Request lenses
-    , caiGatewayARN
-    , caiTapeARN
+    , caGatewayARN
+    , caTapeARN
 
     -- * Response
     , CancelArchivalResponse
     -- ** Response lenses
-    , caoTapeARN
+    , carsTapeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -38,34 +38,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data CancelArchival = CancelArchival
+    { _caGatewayARN :: Text
+    , _caTapeARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelArchival' request.
-mkCancelArchivalInput :: Text -- ^ 'caiGatewayARN'
-                      -> Text -- ^ 'caiTapeARN'
-                      -> CancelArchival
-mkCancelArchivalInput p1 p2 = CancelArchival
-    { _caiGatewayARN = p1
-    , _caiTapeARN = p2
+mkCancelArchival :: Text -- ^ 'caGatewayARN'
+                 -> Text -- ^ 'caTapeARN'
+                 -> CancelArchival
+mkCancelArchival p1 p2 = CancelArchival
+    { _caGatewayARN = p1
+    , _caTapeARN = p2
     }
-{-# INLINE mkCancelArchivalInput #-}
-
-data CancelArchival = CancelArchival
-    { _caiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _caiTapeARN :: Text
-    } deriving (Show, Generic)
+{-# INLINE mkCancelArchival #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-caiGatewayARN :: Lens' CancelArchival (Text)
-caiGatewayARN = lens _caiGatewayARN (\s a -> s { _caiGatewayARN = a })
-{-# INLINE caiGatewayARN #-}
+caGatewayARN :: Lens' CancelArchival Text
+caGatewayARN = lens _caGatewayARN (\s a -> s { _caGatewayARN = a })
+{-# INLINE caGatewayARN #-}
 
-caiTapeARN :: Lens' CancelArchival (Text)
-caiTapeARN = lens _caiTapeARN (\s a -> s { _caiTapeARN = a })
-{-# INLINE caiTapeARN #-}
+caTapeARN :: Lens' CancelArchival Text
+caTapeARN = lens _caTapeARN (\s a -> s { _caTapeARN = a })
+{-# INLINE caTapeARN #-}
 
 instance ToPath CancelArchival
 
@@ -76,12 +73,12 @@ instance ToHeaders CancelArchival
 instance ToJSON CancelArchival
 
 newtype CancelArchivalResponse = CancelArchivalResponse
-    { _caoTapeARN :: Maybe Text
+    { _carsTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-caoTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
-caoTapeARN = lens _caoTapeARN (\s a -> s { _caoTapeARN = a })
-{-# INLINE caoTapeARN #-}
+carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
+carsTapeARN = lens _carsTapeARN (\s a -> s { _carsTapeARN = a })
+{-# INLINE carsTapeARN #-}
 
 instance FromJSON CancelArchivalResponse
 

@@ -35,92 +35,51 @@ module Network.AWS.Redshift.V2012_12_01.DescribeEvents
     -- * Request
       DescribeEvents
     -- ** Request constructor
-    , mkDescribeEventsMessage
+    , mkDescribeEvents
     -- ** Request lenses
-    , demSourceIdentifier
-    , demSourceType
-    , demStartTime
-    , demEndTime
-    , demDuration
-    , demMaxRecords
-    , demMarker
+    , deSourceIdentifier
+    , deSourceType
+    , deStartTime
+    , deEndTime
+    , deDuration
+    , deMaxRecords
+    , deMarker
 
     -- * Response
     , DescribeEventsResponse
     -- ** Response lenses
-    , emMarker
-    , emEvents
+    , dersMarker
+    , dersEvents
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeEvents = DescribeEvents
+    { _deSourceIdentifier :: Maybe Text
+    , _deSourceType :: Maybe SourceType
+    , _deStartTime :: Maybe ISO8601
+    , _deEndTime :: Maybe ISO8601
+    , _deDuration :: Maybe Integer
+    , _deMaxRecords :: Maybe Integer
+    , _deMarker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEvents' request.
-mkDescribeEventsMessage :: DescribeEvents
-mkDescribeEventsMessage = DescribeEvents
-    { _demSourceIdentifier = Nothing
-    , _demSourceType = Nothing
-    , _demStartTime = Nothing
-    , _demEndTime = Nothing
-    , _demDuration = Nothing
-    , _demMaxRecords = Nothing
-    , _demMarker = Nothing
+mkDescribeEvents :: DescribeEvents
+mkDescribeEvents = DescribeEvents
+    { _deSourceIdentifier = Nothing
+    , _deSourceType = Nothing
+    , _deStartTime = Nothing
+    , _deEndTime = Nothing
+    , _deDuration = Nothing
+    , _deMaxRecords = Nothing
+    , _deMarker = Nothing
     }
-{-# INLINE mkDescribeEventsMessage #-}
-
-data DescribeEvents = DescribeEvents
-    { _demSourceIdentifier :: Maybe Text
-      -- ^ The identifier of the event source for which events will be
-      -- returned. If this parameter is not specified, then all sources
-      -- are included in the response. Constraints: If SourceIdentifier is
-      -- supplied, SourceType must also be provided. Specify a cluster
-      -- identifier when SourceType is cluster. Specify a cluster security
-      -- group name when SourceType is cluster-security-group. Specify a
-      -- cluster parameter group name when SourceType is
-      -- cluster-parameter-group. Specify a cluster snapshot identifier
-      -- when SourceType is cluster-snapshot.
-    , _demSourceType :: Maybe SourceType
-      -- ^ The event source to retrieve events for. If no value is
-      -- specified, all events are returned. Constraints: If SourceType is
-      -- supplied, SourceIdentifier must also be provided. Specify cluster
-      -- when SourceIdentifier is a cluster identifier. Specify
-      -- cluster-security-group when SourceIdentifier is a cluster
-      -- security group name. Specify cluster-parameter-group when
-      -- SourceIdentifier is a cluster parameter group name. Specify
-      -- cluster-snapshot when SourceIdentifier is a cluster snapshot
-      -- identifier.
-    , _demStartTime :: Maybe ISO8601
-      -- ^ The beginning of the time interval to retrieve events for,
-      -- specified in ISO 8601 format. For more information about ISO
-      -- 8601, go to the ISO8601 Wikipedia page. Example:
-      -- 2009-07-08T18:00Z.
-    , _demEndTime :: Maybe ISO8601
-      -- ^ The end of the time interval for which to retrieve events,
-      -- specified in ISO 8601 format. For more information about ISO
-      -- 8601, go to the ISO8601 Wikipedia page. Example:
-      -- 2009-07-08T18:00Z.
-    , _demDuration :: Maybe Integer
-      -- ^ The number of minutes prior to the time of the request for which
-      -- to retrieve events. For example, if the request is sent at 18:00
-      -- and you specify a duration of 60, then only events which have
-      -- occurred after 17:00 will be returned. Default: 60.
-    , _demMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _demMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a DescribeEvents
-      -- request exceed the value specified in MaxRecords, AWS returns a
-      -- value in the Marker field of the response. You can retrieve the
-      -- next set of response records by providing the returned marker
-      -- value in the Marker parameter and retrying the request.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeEvents #-}
 
 -- | The identifier of the event source for which events will be returned. If
 -- this parameter is not specified, then all sources are included in the
@@ -130,9 +89,10 @@ data DescribeEvents = DescribeEvents
 -- cluster-security-group. Specify a cluster parameter group name when
 -- SourceType is cluster-parameter-group. Specify a cluster snapshot
 -- identifier when SourceType is cluster-snapshot.
-demSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-demSourceIdentifier = lens _demSourceIdentifier (\s a -> s { _demSourceIdentifier = a })
-{-# INLINE demSourceIdentifier #-}
+deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
+deSourceIdentifier =
+    lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
+{-# INLINE deSourceIdentifier #-}
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned. Constraints: If SourceType is supplied,
@@ -142,40 +102,40 @@ demSourceIdentifier = lens _demSourceIdentifier (\s a -> s { _demSourceIdentifie
 -- cluster-parameter-group when SourceIdentifier is a cluster parameter group
 -- name. Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
 -- identifier.
-demSourceType :: Lens' DescribeEvents (Maybe SourceType)
-demSourceType = lens _demSourceType (\s a -> s { _demSourceType = a })
-{-# INLINE demSourceType #-}
+deSourceType :: Lens' DescribeEvents (Maybe SourceType)
+deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
+{-# INLINE deSourceType #-}
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demStartTime :: Lens' DescribeEvents (Maybe ISO8601)
-demStartTime = lens _demStartTime (\s a -> s { _demStartTime = a })
-{-# INLINE demStartTime #-}
+deStartTime :: Lens' DescribeEvents (Maybe ISO8601)
+deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
+{-# INLINE deStartTime #-}
 
 -- | The end of the time interval for which to retrieve events, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demEndTime :: Lens' DescribeEvents (Maybe ISO8601)
-demEndTime = lens _demEndTime (\s a -> s { _demEndTime = a })
-{-# INLINE demEndTime #-}
+deEndTime :: Lens' DescribeEvents (Maybe ISO8601)
+deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
+{-# INLINE deEndTime #-}
 
 -- | The number of minutes prior to the time of the request for which to
 -- retrieve events. For example, if the request is sent at 18:00 and you
 -- specify a duration of 60, then only events which have occurred after 17:00
 -- will be returned. Default: 60.
-demDuration :: Lens' DescribeEvents (Maybe Integer)
-demDuration = lens _demDuration (\s a -> s { _demDuration = a })
-{-# INLINE demDuration #-}
+deDuration :: Lens' DescribeEvents (Maybe Integer)
+deDuration = lens _deDuration (\s a -> s { _deDuration = a })
+{-# INLINE deDuration #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-demMaxRecords :: Lens' DescribeEvents (Maybe Integer)
-demMaxRecords = lens _demMaxRecords (\s a -> s { _demMaxRecords = a })
-{-# INLINE demMaxRecords #-}
+deMaxRecords :: Lens' DescribeEvents (Maybe Integer)
+deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
+{-# INLINE deMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeEvents request exceed the
@@ -183,23 +143,17 @@ demMaxRecords = lens _demMaxRecords (\s a -> s { _demMaxRecords = a })
 -- the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-demMarker :: Lens' DescribeEvents (Maybe Text)
-demMarker = lens _demMarker (\s a -> s { _demMarker = a })
-{-# INLINE demMarker #-}
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\s a -> s { _deMarker = a })
+{-# INLINE deMarker #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
 
+-- | Contains the output from the DescribeEvents action.
 data DescribeEventsResponse = DescribeEventsResponse
-    { _emMarker :: Maybe Text
-      -- ^ A value that indicates the starting point for the next set of
-      -- response records in a subsequent request. If a value is returned
-      -- in a response, you can retrieve the next set of records by
-      -- providing this returned marker value in the Marker parameter and
-      -- retrying the command. If the Marker field is empty, all response
-      -- records have been retrieved for the request.
-    , _emEvents :: [Event]
-      -- ^ A list of Event instances.
+    { _dersMarker :: Maybe Text
+    , _dersEvents :: [Event]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -207,14 +161,14 @@ data DescribeEventsResponse = DescribeEventsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-emMarker :: Lens' DescribeEventsResponse (Maybe Text)
-emMarker = lens _emMarker (\s a -> s { _emMarker = a })
-{-# INLINE emMarker #-}
+dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
+dersMarker = lens _dersMarker (\s a -> s { _dersMarker = a })
+{-# INLINE dersMarker #-}
 
 -- | A list of Event instances.
-emEvents :: Lens' DescribeEventsResponse ([Event])
-emEvents = lens _emEvents (\s a -> s { _emEvents = a })
-{-# INLINE emEvents #-}
+dersEvents :: Lens' DescribeEventsResponse [Event]
+dersEvents = lens _dersEvents (\s a -> s { _dersEvents = a })
+{-# INLINE dersEvents #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -227,5 +181,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq { _demMarker = Just x })
-        <$> (_emMarker rs)
+    next rq rs = (\x -> rq { _deMarker = Just x })
+        <$> (_dersMarker rs)

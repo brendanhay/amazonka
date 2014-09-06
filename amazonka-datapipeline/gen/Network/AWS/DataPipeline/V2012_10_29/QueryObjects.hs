@@ -37,20 +37,20 @@ module Network.AWS.DataPipeline.V2012_10_29.QueryObjects
     -- * Request
       QueryObjects
     -- ** Request constructor
-    , mkQueryObjectsInput
+    , mkQueryObjects
     -- ** Request lenses
-    , qoiPipelineId
-    , qoiQuery
-    , qoiSphere
-    , qoiMarker
-    , qoiLimit
+    , qoPipelineId
+    , qoQuery
+    , qoSphere
+    , qoMarker
+    , qoLimit
 
     -- * Response
     , QueryObjectsResponse
     -- ** Response lenses
-    , qooIds
-    , qooMarker
-    , qooHasMoreResults
+    , qorsIds
+    , qorsMarker
+    , qorsHasMoreResults
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -58,74 +58,61 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'QueryObjects' request.
-mkQueryObjectsInput :: Text -- ^ 'qoiPipelineId'
-                    -> Text -- ^ 'qoiSphere'
-                    -> QueryObjects
-mkQueryObjectsInput p1 p2 = QueryObjects
-    { _qoiPipelineId = p1
-    , _qoiQuery = Nothing
-    , _qoiSphere = p3
-    , _qoiMarker = Nothing
-    , _qoiLimit = Nothing
-    }
-{-# INLINE mkQueryObjectsInput #-}
-
+-- | The input for the QueryObjects action.
 data QueryObjects = QueryObjects
-    { _qoiPipelineId :: Text
-      -- ^ Identifier of the pipeline to be queried for object names.
-    , _qoiQuery :: Maybe Query
-      -- ^ Query that defines the objects to be returned. The Query object
-      -- can contain a maximum of ten selectors. The conditions in the
-      -- query are limited to top-level String fields in the object. These
-      -- filters can be applied to components, instances, and attempts.
-    , _qoiSphere :: Text
-      -- ^ Specifies whether the query applies to components or instances.
-      -- Allowable values: COMPONENT, INSTANCE, ATTEMPT.
-    , _qoiMarker :: Maybe Text
-      -- ^ The starting point for the results to be returned. The first time
-      -- you call QueryObjects, this value should be empty. As long as the
-      -- action returns HasMoreResults as True, you can call QueryObjects
-      -- again and pass the marker value from the response to retrieve the
-      -- next set of results.
-    , _qoiLimit :: Maybe Integer
-      -- ^ Specifies the maximum number of object names that QueryObjects
-      -- will return in a single call. The default value is 100.
+    { _qoPipelineId :: Text
+    , _qoQuery :: Maybe Query
+    , _qoSphere :: Text
+    , _qoMarker :: Maybe Text
+    , _qoLimit :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'QueryObjects' request.
+mkQueryObjects :: Text -- ^ 'qoPipelineId'
+               -> Text -- ^ 'qoSphere'
+               -> QueryObjects
+mkQueryObjects p1 p3 = QueryObjects
+    { _qoPipelineId = p1
+    , _qoQuery = Nothing
+    , _qoSphere = p3
+    , _qoMarker = Nothing
+    , _qoLimit = Nothing
+    }
+{-# INLINE mkQueryObjects #-}
+
 -- | Identifier of the pipeline to be queried for object names.
-qoiPipelineId :: Lens' QueryObjects (Text)
-qoiPipelineId = lens _qoiPipelineId (\s a -> s { _qoiPipelineId = a })
-{-# INLINE qoiPipelineId #-}
+qoPipelineId :: Lens' QueryObjects Text
+qoPipelineId = lens _qoPipelineId (\s a -> s { _qoPipelineId = a })
+{-# INLINE qoPipelineId #-}
 
 -- | Query that defines the objects to be returned. The Query object can contain
 -- a maximum of ten selectors. The conditions in the query are limited to
 -- top-level String fields in the object. These filters can be applied to
 -- components, instances, and attempts.
-qoiQuery :: Lens' QueryObjects (Maybe Query)
-qoiQuery = lens _qoiQuery (\s a -> s { _qoiQuery = a })
-{-# INLINE qoiQuery #-}
+qoQuery :: Lens' QueryObjects (Maybe Query)
+qoQuery = lens _qoQuery (\s a -> s { _qoQuery = a })
+{-# INLINE qoQuery #-}
 
 -- | Specifies whether the query applies to components or instances. Allowable
 -- values: COMPONENT, INSTANCE, ATTEMPT.
-qoiSphere :: Lens' QueryObjects (Text)
-qoiSphere = lens _qoiSphere (\s a -> s { _qoiSphere = a })
-{-# INLINE qoiSphere #-}
+qoSphere :: Lens' QueryObjects Text
+qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
+{-# INLINE qoSphere #-}
 
 -- | The starting point for the results to be returned. The first time you call
 -- QueryObjects, this value should be empty. As long as the action returns
 -- HasMoreResults as True, you can call QueryObjects again and pass the marker
 -- value from the response to retrieve the next set of results.
-qoiMarker :: Lens' QueryObjects (Maybe Text)
-qoiMarker = lens _qoiMarker (\s a -> s { _qoiMarker = a })
-{-# INLINE qoiMarker #-}
+qoMarker :: Lens' QueryObjects (Maybe Text)
+qoMarker = lens _qoMarker (\s a -> s { _qoMarker = a })
+{-# INLINE qoMarker #-}
 
 -- | Specifies the maximum number of object names that QueryObjects will return
 -- in a single call. The default value is 100.
-qoiLimit :: Lens' QueryObjects (Maybe Integer)
-qoiLimit = lens _qoiLimit (\s a -> s { _qoiLimit = a })
-{-# INLINE qoiLimit #-}
+qoLimit :: Lens' QueryObjects (Maybe Integer)
+qoLimit = lens _qoLimit (\s a -> s { _qoLimit = a })
+{-# INLINE qoLimit #-}
 
 instance ToPath QueryObjects
 
@@ -135,36 +122,31 @@ instance ToHeaders QueryObjects
 
 instance ToJSON QueryObjects
 
+-- | Contains the output from the QueryObjects action.
 data QueryObjectsResponse = QueryObjectsResponse
-    { _qooIds :: [Text]
-      -- ^ A list of identifiers that match the query selectors.
-    , _qooMarker :: Maybe Text
-      -- ^ The starting point for the results to be returned. As long as the
-      -- action returns HasMoreResults as True, you can call QueryObjects
-      -- again and pass the marker value from the response to retrieve the
-      -- next set of results.
-    , _qooHasMoreResults :: Maybe Bool
-      -- ^ If True, there are more results that can be obtained by a
-      -- subsequent call to QueryObjects.
+    { _qorsIds :: [Text]
+    , _qorsMarker :: Maybe Text
+    , _qorsHasMoreResults :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | A list of identifiers that match the query selectors.
-qooIds :: Lens' QueryObjectsResponse ([Text])
-qooIds = lens _qooIds (\s a -> s { _qooIds = a })
-{-# INLINE qooIds #-}
+qorsIds :: Lens' QueryObjectsResponse [Text]
+qorsIds = lens _qorsIds (\s a -> s { _qorsIds = a })
+{-# INLINE qorsIds #-}
 
 -- | The starting point for the results to be returned. As long as the action
 -- returns HasMoreResults as True, you can call QueryObjects again and pass
 -- the marker value from the response to retrieve the next set of results.
-qooMarker :: Lens' QueryObjectsResponse (Maybe Text)
-qooMarker = lens _qooMarker (\s a -> s { _qooMarker = a })
-{-# INLINE qooMarker #-}
+qorsMarker :: Lens' QueryObjectsResponse (Maybe Text)
+qorsMarker = lens _qorsMarker (\s a -> s { _qorsMarker = a })
+{-# INLINE qorsMarker #-}
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to QueryObjects.
-qooHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
-qooHasMoreResults = lens _qooHasMoreResults (\s a -> s { _qooHasMoreResults = a })
-{-# INLINE qooHasMoreResults #-}
+qorsHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
+qorsHasMoreResults =
+    lens _qorsHasMoreResults (\s a -> s { _qorsHasMoreResults = a })
+{-# INLINE qorsHasMoreResults #-}
 
 instance FromJSON QueryObjectsResponse
 
@@ -177,7 +159,7 @@ instance AWSRequest QueryObjects where
 
 instance AWSPager QueryObjects where
     next rq rs
-        | not (_qooHasMoreResults rs) = Nothing
+        | not (_qorsHasMoreResults rs) = Nothing
         | otherwise = Just $ rq
-            { _qoiMarker = _qooMarker rs
+            { _qoMarker = _qorsMarker rs
             }

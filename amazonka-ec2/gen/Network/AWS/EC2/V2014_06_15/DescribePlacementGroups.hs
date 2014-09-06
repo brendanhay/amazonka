@@ -34,66 +34,62 @@ module Network.AWS.EC2.V2014_06_15.DescribePlacementGroups
     -- * Request
       DescribePlacementGroups
     -- ** Request constructor
-    , mkDescribePlacementGroupsRequest
+    , mkDescribePlacementGroups
     -- ** Request lenses
-    , dpgsGroupNames
-    , dpgsFilters
+    , dpg1GroupNames
+    , dpg1Filters
 
     -- * Response
     , DescribePlacementGroupsResponse
     -- ** Response lenses
-    , dpgtPlacementGroups
+    , dpgrsPlacementGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribePlacementGroups = DescribePlacementGroups
+    { _dpg1GroupNames :: [Text]
+    , _dpg1Filters :: [Filter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePlacementGroups' request.
-mkDescribePlacementGroupsRequest :: DescribePlacementGroups
-mkDescribePlacementGroupsRequest = DescribePlacementGroups
-    { _dpgsGroupNames = mempty
-    , _dpgsFilters = mempty
+mkDescribePlacementGroups :: DescribePlacementGroups
+mkDescribePlacementGroups = DescribePlacementGroups
+    { _dpg1GroupNames = mempty
+    , _dpg1Filters = mempty
     }
-{-# INLINE mkDescribePlacementGroupsRequest #-}
-
-data DescribePlacementGroups = DescribePlacementGroups
-    { _dpgsGroupNames :: [Text]
-      -- ^ One or more placement group names. Default: Describes all your
-      -- placement groups, or only those otherwise specified.
-    , _dpgsFilters :: [Filter]
-      -- ^ One or more filters. group-name - The name of the placement
-      -- group. state - The state of the placement group (pending |
-      -- available | deleting | deleted). strategy - The strategy of the
-      -- placement group (cluster).
-    } deriving (Show, Generic)
+{-# INLINE mkDescribePlacementGroups #-}
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
-dpgsGroupNames :: Lens' DescribePlacementGroups ([Text])
-dpgsGroupNames = lens _dpgsGroupNames (\s a -> s { _dpgsGroupNames = a })
-{-# INLINE dpgsGroupNames #-}
+dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
+dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
+{-# INLINE dpg1GroupNames #-}
 
 -- | One or more filters. group-name - The name of the placement group. state -
 -- The state of the placement group (pending | available | deleting |
 -- deleted). strategy - The strategy of the placement group (cluster).
-dpgsFilters :: Lens' DescribePlacementGroups ([Filter])
-dpgsFilters = lens _dpgsFilters (\s a -> s { _dpgsFilters = a })
-{-# INLINE dpgsFilters #-}
+dpg1Filters :: Lens' DescribePlacementGroups [Filter]
+dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
+{-# INLINE dpg1Filters #-}
 
 instance ToQuery DescribePlacementGroups where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { _dpgtPlacementGroups :: [PlacementGroup]
-      -- ^ One or more placement groups.
+    { _dpgrsPlacementGroups :: [PlacementGroup]
     } deriving (Show, Generic)
 
 -- | One or more placement groups.
-dpgtPlacementGroups :: Lens' DescribePlacementGroupsResponse ([PlacementGroup])
-dpgtPlacementGroups = lens _dpgtPlacementGroups (\s a -> s { _dpgtPlacementGroups = a })
-{-# INLINE dpgtPlacementGroups #-}
+dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgrsPlacementGroups =
+    lens _dpgrsPlacementGroups (\s a -> s { _dpgrsPlacementGroups = a })
+{-# INLINE dpgrsPlacementGroups #-}
 
 instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions

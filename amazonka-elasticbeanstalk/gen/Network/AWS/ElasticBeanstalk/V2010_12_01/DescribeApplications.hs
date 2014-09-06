@@ -27,52 +27,53 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications
     -- * Request
       DescribeApplications
     -- ** Request constructor
-    , mkDescribeApplicationsMessage
+    , mkDescribeApplications
     -- ** Request lenses
-    , danApplicationNames
+    , da1ApplicationNames
 
     -- * Response
     , DescribeApplicationsResponse
     -- ** Response lenses
-    , adnApplications
+    , darsApplications
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | This documentation target is not reported in the API reference.
+newtype DescribeApplications = DescribeApplications
+    { _da1ApplicationNames :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApplications' request.
-mkDescribeApplicationsMessage :: DescribeApplications
-mkDescribeApplicationsMessage = DescribeApplications
-    { _danApplicationNames = mempty
+mkDescribeApplications :: DescribeApplications
+mkDescribeApplications = DescribeApplications
+    { _da1ApplicationNames = mempty
     }
-{-# INLINE mkDescribeApplicationsMessage #-}
-
-newtype DescribeApplications = DescribeApplications
-    { _danApplicationNames :: [Text]
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to only include those with the specified names.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeApplications #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- only include those with the specified names.
-danApplicationNames :: Lens' DescribeApplications ([Text])
-danApplicationNames = lens _danApplicationNames (\s a -> s { _danApplicationNames = a })
-{-# INLINE danApplicationNames #-}
+da1ApplicationNames :: Lens' DescribeApplications [Text]
+da1ApplicationNames =
+    lens _da1ApplicationNames (\s a -> s { _da1ApplicationNames = a })
+{-# INLINE da1ApplicationNames #-}
 
 instance ToQuery DescribeApplications where
     toQuery = genericQuery def
 
+-- | Result message containing a list of application descriptions.
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
-    { _adnApplications :: [ApplicationDescription]
-      -- ^ This parameter contains a list of ApplicationDescription.
+    { _darsApplications :: [ApplicationDescription]
     } deriving (Show, Generic)
 
 -- | This parameter contains a list of ApplicationDescription.
-adnApplications :: Lens' DescribeApplicationsResponse ([ApplicationDescription])
-adnApplications = lens _adnApplications (\s a -> s { _adnApplications = a })
-{-# INLINE adnApplications #-}
+darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
+darsApplications =
+    lens _darsApplications (\s a -> s { _darsApplications = a })
+{-# INLINE darsApplications #-}
 
 instance FromXML DescribeApplicationsResponse where
     fromXMLOptions = xmlOptions

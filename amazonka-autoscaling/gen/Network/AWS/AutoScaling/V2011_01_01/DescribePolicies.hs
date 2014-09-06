@@ -36,98 +36,89 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribePolicies
     -- * Request
       DescribePolicies
     -- ** Request constructor
-    , mkDescribePoliciesType
+    , mkDescribePolicies
     -- ** Request lenses
-    , dpuAutoScalingGroupName
-    , dpuPolicyNames
-    , dpuNextToken
-    , dpuMaxRecords
+    , dp1AutoScalingGroupName
+    , dp1PolicyNames
+    , dp1NextToken
+    , dp1MaxRecords
 
     -- * Response
     , DescribePoliciesResponse
     -- ** Response lenses
-    , ptScalingPolicies
-    , ptNextToken
+    , dprsScalingPolicies
+    , dprsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribePolicies' request.
-mkDescribePoliciesType :: DescribePolicies
-mkDescribePoliciesType = DescribePolicies
-    { _dpuAutoScalingGroupName = Nothing
-    , _dpuPolicyNames = mempty
-    , _dpuNextToken = Nothing
-    , _dpuMaxRecords = Nothing
-    }
-{-# INLINE mkDescribePoliciesType #-}
-
+-- | 
 data DescribePolicies = DescribePolicies
-    { _dpuAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group.
-    , _dpuPolicyNames :: [Text]
-      -- ^ A list of policy names or policy ARNs to be described. If this
-      -- list is omitted, all policy names are described. If an auto
-      -- scaling group name is provided, the results are limited to that
-      -- group. The list of requested policy names cannot contain more
-      -- than 50 items. If unknown policy names are requested, they are
-      -- ignored with no error.
-    , _dpuNextToken :: Maybe Text
-      -- ^ A string that is used to mark the start of the next batch of
-      -- returned results for pagination.
-    , _dpuMaxRecords :: Maybe Integer
-      -- ^ The maximum number of policies that will be described with each
-      -- call.
+    { _dp1AutoScalingGroupName :: Maybe Text
+    , _dp1PolicyNames :: [Text]
+    , _dp1NextToken :: Maybe Text
+    , _dp1MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribePolicies' request.
+mkDescribePolicies :: DescribePolicies
+mkDescribePolicies = DescribePolicies
+    { _dp1AutoScalingGroupName = Nothing
+    , _dp1PolicyNames = mempty
+    , _dp1NextToken = Nothing
+    , _dp1MaxRecords = Nothing
+    }
+{-# INLINE mkDescribePolicies #-}
+
 -- | The name of the Auto Scaling group.
-dpuAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
-dpuAutoScalingGroupName = lens _dpuAutoScalingGroupName (\s a -> s { _dpuAutoScalingGroupName = a })
-{-# INLINE dpuAutoScalingGroupName #-}
+dp1AutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
+dp1AutoScalingGroupName =
+    lens _dp1AutoScalingGroupName
+         (\s a -> s { _dp1AutoScalingGroupName = a })
+{-# INLINE dp1AutoScalingGroupName #-}
 
 -- | A list of policy names or policy ARNs to be described. If this list is
 -- omitted, all policy names are described. If an auto scaling group name is
 -- provided, the results are limited to that group. The list of requested
 -- policy names cannot contain more than 50 items. If unknown policy names are
 -- requested, they are ignored with no error.
-dpuPolicyNames :: Lens' DescribePolicies ([Text])
-dpuPolicyNames = lens _dpuPolicyNames (\s a -> s { _dpuPolicyNames = a })
-{-# INLINE dpuPolicyNames #-}
+dp1PolicyNames :: Lens' DescribePolicies [Text]
+dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a })
+{-# INLINE dp1PolicyNames #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dpuNextToken :: Lens' DescribePolicies (Maybe Text)
-dpuNextToken = lens _dpuNextToken (\s a -> s { _dpuNextToken = a })
-{-# INLINE dpuNextToken #-}
+dp1NextToken :: Lens' DescribePolicies (Maybe Text)
+dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
+{-# INLINE dp1NextToken #-}
 
 -- | The maximum number of policies that will be described with each call.
-dpuMaxRecords :: Lens' DescribePolicies (Maybe Integer)
-dpuMaxRecords = lens _dpuMaxRecords (\s a -> s { _dpuMaxRecords = a })
-{-# INLINE dpuMaxRecords #-}
+dp1MaxRecords :: Lens' DescribePolicies (Maybe Integer)
+dp1MaxRecords = lens _dp1MaxRecords (\s a -> s { _dp1MaxRecords = a })
+{-# INLINE dp1MaxRecords #-}
 
 instance ToQuery DescribePolicies where
     toQuery = genericQuery def
 
+-- | The PoliciesType data type.
 data DescribePoliciesResponse = DescribePoliciesResponse
-    { _ptScalingPolicies :: [ScalingPolicy]
-      -- ^ A list of scaling policies.
-    , _ptNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+    { _dprsScalingPolicies :: [ScalingPolicy]
+    , _dprsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of scaling policies.
-ptScalingPolicies :: Lens' DescribePoliciesResponse ([ScalingPolicy])
-ptScalingPolicies = lens _ptScalingPolicies (\s a -> s { _ptScalingPolicies = a })
-{-# INLINE ptScalingPolicies #-}
+dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
+dprsScalingPolicies =
+    lens _dprsScalingPolicies (\s a -> s { _dprsScalingPolicies = a })
+{-# INLINE dprsScalingPolicies #-}
 
 -- | A string that marks the start of the next batch of returned results.
-ptNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
-ptNextToken = lens _ptNextToken (\s a -> s { _ptNextToken = a })
-{-# INLINE ptNextToken #-}
+dprsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
+dprsNextToken = lens _dprsNextToken (\s a -> s { _dprsNextToken = a })
+{-# INLINE dprsNextToken #-}
 
 instance FromXML DescribePoliciesResponse where
     fromXMLOptions = xmlOptions
@@ -140,5 +131,5 @@ instance AWSRequest DescribePolicies where
     response _ = xmlResponse
 
 instance AWSPager DescribePolicies where
-    next rq rs = (\x -> rq { _dpuNextToken = Just x })
-        <$> (_ptNextToken rs)
+    next rq rs = (\x -> rq { _dp1NextToken = Just x })
+        <$> (_dprsNextToken rs)

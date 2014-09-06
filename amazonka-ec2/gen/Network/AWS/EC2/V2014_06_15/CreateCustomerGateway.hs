@@ -49,75 +49,72 @@ module Network.AWS.EC2.V2014_06_15.CreateCustomerGateway
     -- * Request
       CreateCustomerGateway
     -- ** Request constructor
-    , mkCreateCustomerGatewayRequest
+    , mkCreateCustomerGateway
     -- ** Request lenses
-    , ccgrType
-    , ccgrPublicIp
-    , ccgrBgpAsn
+    , ccgType
+    , ccgPublicIp
+    , ccgBgpAsn
 
     -- * Response
     , CreateCustomerGatewayResponse
     -- ** Response lenses
-    , ccgsCustomerGateway
+    , ccgrsCustomerGateway
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateCustomerGateway' request.
-mkCreateCustomerGatewayRequest :: GatewayType -- ^ 'ccgrType'
-                               -> Text -- ^ 'ccgrPublicIp'
-                               -> Integer -- ^ 'ccgrBgpAsn'
-                               -> CreateCustomerGateway
-mkCreateCustomerGatewayRequest p1 p2 p3 = CreateCustomerGateway
-    { _ccgrType = p1
-    , _ccgrPublicIp = p2
-    , _ccgrBgpAsn = p3
-    }
-{-# INLINE mkCreateCustomerGatewayRequest #-}
-
+-- | 
 data CreateCustomerGateway = CreateCustomerGateway
-    { _ccgrType :: GatewayType
-      -- ^ The type of VPN connection that this customer gateway supports.
-    , _ccgrPublicIp :: Text
-      -- ^ The Internet-routable IP address for the customer gateway's
-      -- outside interface. The address must be static.
-    , _ccgrBgpAsn :: Integer
-      -- ^ For devices that support BGP, the customer gateway's BGP ASN.
-      -- Default: 65000.
+    { _ccgType :: GatewayType
+    , _ccgPublicIp :: Text
+    , _ccgBgpAsn :: Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCustomerGateway' request.
+mkCreateCustomerGateway :: GatewayType -- ^ 'ccgType'
+                        -> Text -- ^ 'ccgPublicIp'
+                        -> Integer -- ^ 'ccgBgpAsn'
+                        -> CreateCustomerGateway
+mkCreateCustomerGateway p1 p2 p3 = CreateCustomerGateway
+    { _ccgType = p1
+    , _ccgPublicIp = p2
+    , _ccgBgpAsn = p3
+    }
+{-# INLINE mkCreateCustomerGateway #-}
+
 -- | The type of VPN connection that this customer gateway supports.
-ccgrType :: Lens' CreateCustomerGateway (GatewayType)
-ccgrType = lens _ccgrType (\s a -> s { _ccgrType = a })
-{-# INLINE ccgrType #-}
+ccgType :: Lens' CreateCustomerGateway GatewayType
+ccgType = lens _ccgType (\s a -> s { _ccgType = a })
+{-# INLINE ccgType #-}
 
 -- | The Internet-routable IP address for the customer gateway's outside
 -- interface. The address must be static.
-ccgrPublicIp :: Lens' CreateCustomerGateway (Text)
-ccgrPublicIp = lens _ccgrPublicIp (\s a -> s { _ccgrPublicIp = a })
-{-# INLINE ccgrPublicIp #-}
+ccgPublicIp :: Lens' CreateCustomerGateway Text
+ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
+{-# INLINE ccgPublicIp #-}
 
 -- | For devices that support BGP, the customer gateway's BGP ASN. Default:
 -- 65000.
-ccgrBgpAsn :: Lens' CreateCustomerGateway (Integer)
-ccgrBgpAsn = lens _ccgrBgpAsn (\s a -> s { _ccgrBgpAsn = a })
-{-# INLINE ccgrBgpAsn #-}
+ccgBgpAsn :: Lens' CreateCustomerGateway Integer
+ccgBgpAsn = lens _ccgBgpAsn (\s a -> s { _ccgBgpAsn = a })
+{-# INLINE ccgBgpAsn #-}
 
 instance ToQuery CreateCustomerGateway where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
-    { _ccgsCustomerGateway :: Maybe CustomerGateway
-      -- ^ Information about the customer gateway.
+    { _ccgrsCustomerGateway :: Maybe CustomerGateway
     } deriving (Show, Generic)
 
 -- | Information about the customer gateway.
-ccgsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
-ccgsCustomerGateway = lens _ccgsCustomerGateway (\s a -> s { _ccgsCustomerGateway = a })
-{-# INLINE ccgsCustomerGateway #-}
+ccgrsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
+ccgrsCustomerGateway =
+    lens _ccgrsCustomerGateway (\s a -> s { _ccgrsCustomerGateway = a })
+{-# INLINE ccgrsCustomerGateway #-}
 
 instance FromXML CreateCustomerGatewayResponse where
     fromXMLOptions = xmlOptions

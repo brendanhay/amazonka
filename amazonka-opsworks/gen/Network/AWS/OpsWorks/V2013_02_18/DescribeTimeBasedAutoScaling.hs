@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling
     -- * Request
       DescribeTimeBasedAutoScaling
     -- ** Request constructor
-    , mkDescribeTimeBasedAutoScalingRequest
+    , mkDescribeTimeBasedAutoScaling
     -- ** Request lenses
-    , dtbasrInstanceIds
+    , dtbasInstanceIds
 
     -- * Response
     , DescribeTimeBasedAutoScalingResponse
     -- ** Response lenses
-    , dtbassTimeBasedAutoScalingConfigurations
+    , dtbasrsTimeBasedAutoScalingConfigurations
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,24 +43,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTimeBasedAutoScaling' request.
-mkDescribeTimeBasedAutoScalingRequest :: [Text] -- ^ 'dtbasrInstanceIds'
-                                      -> DescribeTimeBasedAutoScaling
-mkDescribeTimeBasedAutoScalingRequest p1 = DescribeTimeBasedAutoScaling
-    { _dtbasrInstanceIds = p1
-    }
-{-# INLINE mkDescribeTimeBasedAutoScalingRequest #-}
-
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
-    { _dtbasrInstanceIds :: [Text]
-      -- ^ An array of instance IDs.
+    { _dtbasInstanceIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTimeBasedAutoScaling' request.
+mkDescribeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasInstanceIds'
+                               -> DescribeTimeBasedAutoScaling
+mkDescribeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
+    { _dtbasInstanceIds = p1
+    }
+{-# INLINE mkDescribeTimeBasedAutoScaling #-}
+
 -- | An array of instance IDs.
-dtbasrInstanceIds :: Lens' DescribeTimeBasedAutoScaling ([Text])
-dtbasrInstanceIds = lens _dtbasrInstanceIds (\s a -> s { _dtbasrInstanceIds = a })
-{-# INLINE dtbasrInstanceIds #-}
+dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
+dtbasInstanceIds =
+    lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a })
+{-# INLINE dtbasInstanceIds #-}
 
 instance ToPath DescribeTimeBasedAutoScaling
 
@@ -70,17 +70,18 @@ instance ToHeaders DescribeTimeBasedAutoScaling
 
 instance ToJSON DescribeTimeBasedAutoScaling
 
+-- | Contains the response to a DescribeTimeBasedAutoScaling request.
 newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
-    { _dtbassTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
-      -- ^ An array of TimeBasedAutoScalingConfiguration objects that
-      -- describe the configuration for the specified instances.
+    { _dtbasrsTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
     } deriving (Show, Generic)
 
 -- | An array of TimeBasedAutoScalingConfiguration objects that describe the
 -- configuration for the specified instances.
-dtbassTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse ([TimeBasedAutoScalingConfiguration])
-dtbassTimeBasedAutoScalingConfigurations = lens _dtbassTimeBasedAutoScalingConfigurations (\s a -> s { _dtbassTimeBasedAutoScalingConfigurations = a })
-{-# INLINE dtbassTimeBasedAutoScalingConfigurations #-}
+dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
+dtbasrsTimeBasedAutoScalingConfigurations =
+    lens _dtbasrsTimeBasedAutoScalingConfigurations
+         (\s a -> s { _dtbasrsTimeBasedAutoScalingConfigurations = a })
+{-# INLINE dtbasrsTimeBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse
 

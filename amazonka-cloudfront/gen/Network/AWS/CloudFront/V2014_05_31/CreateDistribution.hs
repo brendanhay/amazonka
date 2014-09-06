@@ -23,40 +23,42 @@ module Network.AWS.CloudFront.V2014_05_31.CreateDistribution
     -- * Request
       CreateDistribution
     -- ** Request constructor
-    , mkCreateDistributionRequest
+    , mkCreateDistribution
     -- ** Request lenses
-    , cdrDistributionConfig
+    , cdDistributionConfig
 
     -- * Response
     , CreateDistributionResponse
     -- ** Response lenses
-    , cdsDistribution
-    , cdsLocation
-    , cdsETag
+    , cdrsDistribution
+    , cdrsLocation
+    , cdrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to create a new distribution.
+newtype CreateDistribution = CreateDistribution
+    { _cdDistributionConfig :: DistributionConfig
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDistribution' request.
-mkCreateDistributionRequest :: DistributionConfig -- ^ 'cdrDistributionConfig'
-                            -> CreateDistribution
-mkCreateDistributionRequest p1 = CreateDistribution
-    { _cdrDistributionConfig = p1
+mkCreateDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
+                     -> CreateDistribution
+mkCreateDistribution p1 = CreateDistribution
+    { _cdDistributionConfig = p1
     }
-{-# INLINE mkCreateDistributionRequest #-}
-
-newtype CreateDistribution = CreateDistribution
-    { _cdrDistributionConfig :: DistributionConfig
-      -- ^ The distribution's configuration information.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateDistribution #-}
 
 -- | The distribution's configuration information.
-cdrDistributionConfig :: Lens' CreateDistribution (DistributionConfig)
-cdrDistributionConfig = lens _cdrDistributionConfig (\s a -> s { _cdrDistributionConfig = a })
-{-# INLINE cdrDistributionConfig #-}
+cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
+cdDistributionConfig =
+    lens _cdDistributionConfig (\s a -> s { _cdDistributionConfig = a })
+{-# INLINE cdDistributionConfig #-}
 
 instance ToPath CreateDistribution where
     toPath = const "/2014-05-31/distribution"
@@ -69,34 +71,30 @@ instance ToXML CreateDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateDistributionRequest"
 
+-- | The returned result of the corresponding request.
 data CreateDistributionResponse = CreateDistributionResponse
-    { _cdsDistribution :: Maybe Distribution
-      -- ^ The distribution's information.
-    , _cdsLocation :: Maybe Text
-      -- ^ The fully qualified URI of the new distribution resource just
-      -- created. For example:
-      -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
-      -- 
-    , _cdsETag :: Maybe Text
-      -- ^ The current version of the distribution created.
+    { _cdrsDistribution :: Maybe Distribution
+    , _cdrsLocation :: Maybe Text
+    , _cdrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-cdsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
-cdsDistribution = lens _cdsDistribution (\s a -> s { _cdsDistribution = a })
-{-# INLINE cdsDistribution #-}
+cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
+cdrsDistribution =
+    lens _cdrsDistribution (\s a -> s { _cdrsDistribution = a })
+{-# INLINE cdrsDistribution #-}
 
 -- | The fully qualified URI of the new distribution resource just created. For
 -- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
-cdsLocation :: Lens' CreateDistributionResponse (Maybe Text)
-cdsLocation = lens _cdsLocation (\s a -> s { _cdsLocation = a })
-{-# INLINE cdsLocation #-}
+cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
+cdrsLocation = lens _cdrsLocation (\s a -> s { _cdrsLocation = a })
+{-# INLINE cdrsLocation #-}
 
 -- | The current version of the distribution created.
-cdsETag :: Lens' CreateDistributionResponse (Maybe Text)
-cdsETag = lens _cdsETag (\s a -> s { _cdsETag = a })
-{-# INLINE cdsETag #-}
+cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
+cdrsETag = lens _cdrsETag (\s a -> s { _cdrsETag = a })
+{-# INLINE cdrsETag #-}
 
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront

@@ -47,17 +47,17 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutLogEvents
     -- * Request
       PutLogEvents
     -- ** Request constructor
-    , mkPutLogEventsRequest
+    , mkPutLogEvents
     -- ** Request lenses
-    , plerLogGroupName
-    , plerLogStreamName
-    , plerLogEvents
-    , plerSequenceToken
+    , pleLogGroupName
+    , pleLogStreamName
+    , pleLogEvents
+    , pleSequenceToken
 
     -- * Response
     , PutLogEventsResponse
     -- ** Response lenses
-    , plesNextSequenceToken
+    , plersNextSequenceToken
     ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -65,48 +65,47 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutLogEvents' request.
-mkPutLogEventsRequest :: Text -- ^ 'plerLogGroupName'
-                      -> Text -- ^ 'plerLogStreamName'
-                      -> [InputLogEvent] -- ^ 'plerLogEvents'
-                      -> PutLogEvents
-mkPutLogEventsRequest p1 p2 p3 = PutLogEvents
-    { _plerLogGroupName = p1
-    , _plerLogStreamName = p2
-    , _plerLogEvents = p3
-    , _plerSequenceToken = Nothing
-    }
-{-# INLINE mkPutLogEventsRequest #-}
-
 data PutLogEvents = PutLogEvents
-    { _plerLogGroupName :: Text
-    , _plerLogStreamName :: Text
-    , _plerLogEvents :: [InputLogEvent]
-      -- ^ A list of events belonging to a log stream.
-    , _plerSequenceToken :: Maybe Text
-      -- ^ A string token that must be obtained from the response of the
-      -- previous PutLogEvents request.
+    { _pleLogGroupName :: Text
+    , _pleLogStreamName :: Text
+    , _pleLogEvents :: [InputLogEvent]
+    , _pleSequenceToken :: Maybe Text
     } deriving (Show, Generic)
 
-plerLogGroupName :: Lens' PutLogEvents (Text)
-plerLogGroupName = lens _plerLogGroupName (\s a -> s { _plerLogGroupName = a })
-{-# INLINE plerLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutLogEvents' request.
+mkPutLogEvents :: Text -- ^ 'pleLogGroupName'
+               -> Text -- ^ 'pleLogStreamName'
+               -> [InputLogEvent] -- ^ 'pleLogEvents'
+               -> PutLogEvents
+mkPutLogEvents p1 p2 p3 = PutLogEvents
+    { _pleLogGroupName = p1
+    , _pleLogStreamName = p2
+    , _pleLogEvents = p3
+    , _pleSequenceToken = Nothing
+    }
+{-# INLINE mkPutLogEvents #-}
 
-plerLogStreamName :: Lens' PutLogEvents (Text)
-plerLogStreamName = lens _plerLogStreamName (\s a -> s { _plerLogStreamName = a })
-{-# INLINE plerLogStreamName #-}
+pleLogGroupName :: Lens' PutLogEvents Text
+pleLogGroupName = lens _pleLogGroupName (\s a -> s { _pleLogGroupName = a })
+{-# INLINE pleLogGroupName #-}
+
+pleLogStreamName :: Lens' PutLogEvents Text
+pleLogStreamName =
+    lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
+{-# INLINE pleLogStreamName #-}
 
 -- | A list of events belonging to a log stream.
-plerLogEvents :: Lens' PutLogEvents ([InputLogEvent])
-plerLogEvents = lens _plerLogEvents (\s a -> s { _plerLogEvents = a })
-{-# INLINE plerLogEvents #-}
+pleLogEvents :: Lens' PutLogEvents [InputLogEvent]
+pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a })
+{-# INLINE pleLogEvents #-}
 
 -- | A string token that must be obtained from the response of the previous
 -- PutLogEvents request.
-plerSequenceToken :: Lens' PutLogEvents (Maybe Text)
-plerSequenceToken = lens _plerSequenceToken (\s a -> s { _plerSequenceToken = a })
-{-# INLINE plerSequenceToken #-}
+pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
+pleSequenceToken =
+    lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
+{-# INLINE pleSequenceToken #-}
 
 instance ToPath PutLogEvents
 
@@ -117,19 +116,16 @@ instance ToHeaders PutLogEvents
 instance ToJSON PutLogEvents
 
 newtype PutLogEventsResponse = PutLogEventsResponse
-    { _plesNextSequenceToken :: Maybe Text
-      -- ^ A string token used for making PutLogEvents requests. A
-      -- sequenceToken can only be used once, and PutLogEvents requests
-      -- must include the sequenceToken obtained from the response of the
-      -- previous request.
+    { _plersNextSequenceToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A string token used for making PutLogEvents requests. A sequenceToken can
 -- only be used once, and PutLogEvents requests must include the sequenceToken
 -- obtained from the response of the previous request.
-plesNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
-plesNextSequenceToken = lens _plesNextSequenceToken (\s a -> s { _plesNextSequenceToken = a })
-{-# INLINE plesNextSequenceToken #-}
+plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
+plersNextSequenceToken =
+    lens _plersNextSequenceToken (\s a -> s { _plersNextSequenceToken = a })
+{-# INLINE plersNextSequenceToken #-}
 
 instance FromJSON PutLogEventsResponse
 

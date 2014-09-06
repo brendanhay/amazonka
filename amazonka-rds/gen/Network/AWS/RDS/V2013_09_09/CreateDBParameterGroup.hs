@@ -37,99 +37,92 @@ module Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup
     -- * Request
       CreateDBParameterGroup
     -- ** Request constructor
-    , mkCreateDBParameterGroupMessage
+    , mkCreateDBParameterGroup
     -- ** Request lenses
-    , cdbpgmDBParameterGroupName
-    , cdbpgmDBParameterGroupFamily
-    , cdbpgmDescription
-    , cdbpgmTags
+    , cdbpgDBParameterGroupName
+    , cdbpgDBParameterGroupFamily
+    , cdbpgDescription
+    , cdbpgTags
 
     -- * Response
     , CreateDBParameterGroupResponse
     -- ** Response lenses
-    , dbpgwDBParameterGroup
+    , cdbpgrsDBParameterGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateDBParameterGroup = CreateDBParameterGroup
+    { _cdbpgDBParameterGroupName :: Text
+    , _cdbpgDBParameterGroupFamily :: Text
+    , _cdbpgDescription :: Text
+    , _cdbpgTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBParameterGroup' request.
-mkCreateDBParameterGroupMessage :: Text -- ^ 'cdbpgmDBParameterGroupName'
-                                -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
-                                -> Text -- ^ 'cdbpgmDescription'
-                                -> CreateDBParameterGroup
-mkCreateDBParameterGroupMessage p1 p2 p3 = CreateDBParameterGroup
-    { _cdbpgmDBParameterGroupName = p1
-    , _cdbpgmDBParameterGroupFamily = p2
-    , _cdbpgmDescription = p3
-    , _cdbpgmTags = mempty
+mkCreateDBParameterGroup :: Text -- ^ 'cdbpgDBParameterGroupName'
+                         -> Text -- ^ 'cdbpgDBParameterGroupFamily'
+                         -> Text -- ^ 'cdbpgDescription'
+                         -> CreateDBParameterGroup
+mkCreateDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
+    { _cdbpgDBParameterGroupName = p1
+    , _cdbpgDBParameterGroupFamily = p2
+    , _cdbpgDescription = p3
+    , _cdbpgTags = mempty
     }
-{-# INLINE mkCreateDBParameterGroupMessage #-}
-
-data CreateDBParameterGroup = CreateDBParameterGroup
-    { _cdbpgmDBParameterGroupName :: Text
-      -- ^ The name of the DB parameter group. Constraints: Must be 1 to 255
-      -- alphanumeric characters First character must be a letter Cannot
-      -- end with a hyphen or contain two consecutive hyphens This value
-      -- is stored as a lower-case string.
-    , _cdbpgmDBParameterGroupFamily :: Text
-      -- ^ The DB parameter group family name. A DB parameter group can be
-      -- associated with one and only one DB parameter group family, and
-      -- can be applied only to a DB instance running a database engine
-      -- and engine version compatible with that DB parameter group
-      -- family.
-    , _cdbpgmDescription :: Text
-      -- ^ The description for the DB parameter group.
-    , _cdbpgmTags :: [Tag]
-      -- ^ A list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens This value is stored as a
 -- lower-case string.
-cdbpgmDBParameterGroupName :: Lens' CreateDBParameterGroup (Text)
-cdbpgmDBParameterGroupName = lens _cdbpgmDBParameterGroupName (\s a -> s { _cdbpgmDBParameterGroupName = a })
-{-# INLINE cdbpgmDBParameterGroupName #-}
+cdbpgDBParameterGroupName :: Lens' CreateDBParameterGroup Text
+cdbpgDBParameterGroupName =
+    lens _cdbpgDBParameterGroupName
+         (\s a -> s { _cdbpgDBParameterGroupName = a })
+{-# INLINE cdbpgDBParameterGroupName #-}
 
 -- | The DB parameter group family name. A DB parameter group can be associated
 -- with one and only one DB parameter group family, and can be applied only to
 -- a DB instance running a database engine and engine version compatible with
 -- that DB parameter group family.
-cdbpgmDBParameterGroupFamily :: Lens' CreateDBParameterGroup (Text)
-cdbpgmDBParameterGroupFamily = lens _cdbpgmDBParameterGroupFamily (\s a -> s { _cdbpgmDBParameterGroupFamily = a })
-{-# INLINE cdbpgmDBParameterGroupFamily #-}
+cdbpgDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
+cdbpgDBParameterGroupFamily =
+    lens _cdbpgDBParameterGroupFamily
+         (\s a -> s { _cdbpgDBParameterGroupFamily = a })
+{-# INLINE cdbpgDBParameterGroupFamily #-}
 
 -- | The description for the DB parameter group.
-cdbpgmDescription :: Lens' CreateDBParameterGroup (Text)
-cdbpgmDescription = lens _cdbpgmDescription (\s a -> s { _cdbpgmDescription = a })
-{-# INLINE cdbpgmDescription #-}
+cdbpgDescription :: Lens' CreateDBParameterGroup Text
+cdbpgDescription =
+    lens _cdbpgDescription (\s a -> s { _cdbpgDescription = a })
+{-# INLINE cdbpgDescription #-}
 
 -- | A list of tags.
-cdbpgmTags :: Lens' CreateDBParameterGroup ([Tag])
-cdbpgmTags = lens _cdbpgmTags (\s a -> s { _cdbpgmTags = a })
-{-# INLINE cdbpgmTags #-}
+cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
+cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a })
+{-# INLINE cdbpgTags #-}
 
 instance ToQuery CreateDBParameterGroup where
     toQuery = genericQuery def
 
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
-    { _dbpgwDBParameterGroup :: Maybe DBParameterGroup
-      -- ^ Contains the result of a successful invocation of the
-      -- CreateDBParameterGroup action. This data type is used as a
-      -- request parameter in the DeleteDBParameterGroup action, and as a
-      -- response element in the DescribeDBParameterGroups action.
+    { _cdbpgrsDBParameterGroup :: Maybe DBParameterGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the
 -- CreateDBParameterGroup action. This data type is used as a request
 -- parameter in the DeleteDBParameterGroup action, and as a response element
 -- in the DescribeDBParameterGroups action.
-dbpgwDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
-dbpgwDBParameterGroup = lens _dbpgwDBParameterGroup (\s a -> s { _dbpgwDBParameterGroup = a })
-{-# INLINE dbpgwDBParameterGroup #-}
+cdbpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
+cdbpgrsDBParameterGroup =
+    lens _cdbpgrsDBParameterGroup
+         (\s a -> s { _cdbpgrsDBParameterGroup = a })
+{-# INLINE cdbpgrsDBParameterGroup #-}
 
 instance FromXML CreateDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

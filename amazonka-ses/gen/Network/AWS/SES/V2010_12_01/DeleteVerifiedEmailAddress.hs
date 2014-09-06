@@ -34,9 +34,9 @@ module Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress
     -- * Request
       DeleteVerifiedEmailAddress
     -- ** Request constructor
-    , mkDeleteVerifiedEmailAddressRequest
+    , mkDeleteVerifiedEmailAddress
     -- ** Request lenses
-    , dvearEmailAddress
+    , dveaEmailAddress
 
     -- * Response
     , DeleteVerifiedEmailAddressResponse
@@ -46,25 +46,26 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVerifiedEmailAddress' request.
-mkDeleteVerifiedEmailAddressRequest :: Text -- ^ 'dvearEmailAddress'
-                                    -> DeleteVerifiedEmailAddress
-mkDeleteVerifiedEmailAddressRequest p1 = DeleteVerifiedEmailAddress
-    { _dvearEmailAddress = p1
-    }
-{-# INLINE mkDeleteVerifiedEmailAddressRequest #-}
-
+-- | Represents a request instructing the service to delete an address from the
+-- list of verified email addresses.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
-    { _dvearEmailAddress :: Text
-      -- ^ An email address to be removed from the list of verified
-      -- addresses.
+    { _dveaEmailAddress :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVerifiedEmailAddress' request.
+mkDeleteVerifiedEmailAddress :: Text -- ^ 'dveaEmailAddress'
+                             -> DeleteVerifiedEmailAddress
+mkDeleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
+    { _dveaEmailAddress = p1
+    }
+{-# INLINE mkDeleteVerifiedEmailAddress #-}
+
 -- | An email address to be removed from the list of verified addresses.
-dvearEmailAddress :: Lens' DeleteVerifiedEmailAddress (Text)
-dvearEmailAddress = lens _dvearEmailAddress (\s a -> s { _dvearEmailAddress = a })
-{-# INLINE dvearEmailAddress #-}
+dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
+dveaEmailAddress =
+    lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
+{-# INLINE dveaEmailAddress #-}
 
 instance ToQuery DeleteVerifiedEmailAddress where
     toQuery = genericQuery def

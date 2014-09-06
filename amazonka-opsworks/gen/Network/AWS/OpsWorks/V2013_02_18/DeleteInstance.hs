@@ -28,11 +28,11 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteInstance
     -- * Request
       DeleteInstance
     -- ** Request constructor
-    , mkDeleteInstanceRequest
+    , mkDeleteInstance
     -- ** Request lenses
-    , dirInstanceId
-    , dirDeleteElasticIp
-    , dirDeleteVolumes
+    , diInstanceId
+    , diDeleteElasticIp
+    , diDeleteVolumes
 
     -- * Response
     , DeleteInstanceResponse
@@ -43,40 +43,38 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteInstance' request.
-mkDeleteInstanceRequest :: Text -- ^ 'dirInstanceId'
-                        -> DeleteInstance
-mkDeleteInstanceRequest p1 = DeleteInstance
-    { _dirInstanceId = p1
-    , _dirDeleteElasticIp = Nothing
-    , _dirDeleteVolumes = Nothing
-    }
-{-# INLINE mkDeleteInstanceRequest #-}
-
 data DeleteInstance = DeleteInstance
-    { _dirInstanceId :: Text
-      -- ^ The instance ID.
-    , _dirDeleteElasticIp :: Maybe Bool
-      -- ^ Whether to delete the instance Elastic IP address.
-    , _dirDeleteVolumes :: Maybe Bool
-      -- ^ Whether to delete the instance's Amazon EBS volumes.
+    { _diInstanceId :: Text
+    , _diDeleteElasticIp :: Maybe Bool
+    , _diDeleteVolumes :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInstance' request.
+mkDeleteInstance :: Text -- ^ 'diInstanceId'
+                 -> DeleteInstance
+mkDeleteInstance p1 = DeleteInstance
+    { _diInstanceId = p1
+    , _diDeleteElasticIp = Nothing
+    , _diDeleteVolumes = Nothing
+    }
+{-# INLINE mkDeleteInstance #-}
+
 -- | The instance ID.
-dirInstanceId :: Lens' DeleteInstance (Text)
-dirInstanceId = lens _dirInstanceId (\s a -> s { _dirInstanceId = a })
-{-# INLINE dirInstanceId #-}
+diInstanceId :: Lens' DeleteInstance Text
+diInstanceId = lens _diInstanceId (\s a -> s { _diInstanceId = a })
+{-# INLINE diInstanceId #-}
 
 -- | Whether to delete the instance Elastic IP address.
-dirDeleteElasticIp :: Lens' DeleteInstance (Maybe Bool)
-dirDeleteElasticIp = lens _dirDeleteElasticIp (\s a -> s { _dirDeleteElasticIp = a })
-{-# INLINE dirDeleteElasticIp #-}
+diDeleteElasticIp :: Lens' DeleteInstance (Maybe Bool)
+diDeleteElasticIp =
+    lens _diDeleteElasticIp (\s a -> s { _diDeleteElasticIp = a })
+{-# INLINE diDeleteElasticIp #-}
 
 -- | Whether to delete the instance's Amazon EBS volumes.
-dirDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
-dirDeleteVolumes = lens _dirDeleteVolumes (\s a -> s { _dirDeleteVolumes = a })
-{-# INLINE dirDeleteVolumes #-}
+diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
+diDeleteVolumes = lens _diDeleteVolumes (\s a -> s { _diDeleteVolumes = a })
+{-# INLINE diDeleteVolumes #-}
 
 instance ToPath DeleteInstance
 

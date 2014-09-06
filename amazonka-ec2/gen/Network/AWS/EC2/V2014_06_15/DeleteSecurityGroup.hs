@@ -38,10 +38,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup
     -- * Request
       DeleteSecurityGroup
     -- ** Request constructor
-    , mkDeleteSecurityGroupRequest
+    , mkDeleteSecurityGroup
     -- ** Request lenses
-    , dsgrGroupName
-    , dsgrGroupId
+    , dsgGroupName
+    , dsgGroupId
 
     -- * Response
     , DeleteSecurityGroupResponse
@@ -51,31 +51,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSecurityGroup' request.
-mkDeleteSecurityGroupRequest :: DeleteSecurityGroup
-mkDeleteSecurityGroupRequest = DeleteSecurityGroup
-    { _dsgrGroupName = Nothing
-    , _dsgrGroupId = Nothing
-    }
-{-# INLINE mkDeleteSecurityGroupRequest #-}
-
+-- | 
 data DeleteSecurityGroup = DeleteSecurityGroup
-    { _dsgrGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the security group.
-    , _dsgrGroupId :: Maybe Text
-      -- ^ The ID of the security group.
+    { _dsgGroupName :: Maybe Text
+    , _dsgGroupId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSecurityGroup' request.
+mkDeleteSecurityGroup :: DeleteSecurityGroup
+mkDeleteSecurityGroup = DeleteSecurityGroup
+    { _dsgGroupName = Nothing
+    , _dsgGroupId = Nothing
+    }
+{-# INLINE mkDeleteSecurityGroup #-}
+
 -- | [EC2-Classic, default VPC] The name of the security group.
-dsgrGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgrGroupName = lens _dsgrGroupName (\s a -> s { _dsgrGroupName = a })
-{-# INLINE dsgrGroupName #-}
+dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
+dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
+{-# INLINE dsgGroupName #-}
 
 -- | The ID of the security group.
-dsgrGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgrGroupId = lens _dsgrGroupId (\s a -> s { _dsgrGroupId = a })
-{-# INLINE dsgrGroupId #-}
+dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
+dsgGroupId = lens _dsgGroupId (\s a -> s { _dsgGroupId = a })
+{-# INLINE dsgGroupId #-}
 
 instance ToQuery DeleteSecurityGroup where
     toQuery = genericQuery def

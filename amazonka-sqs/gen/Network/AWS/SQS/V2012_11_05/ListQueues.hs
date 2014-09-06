@@ -33,52 +33,52 @@ module Network.AWS.SQS.V2012_11_05.ListQueues
     -- * Request
       ListQueues
     -- ** Request constructor
-    , mkListQueuesRequest
+    , mkListQueues
     -- ** Request lenses
-    , lqrQueueNamePrefix
+    , lqQueueNamePrefix
 
     -- * Response
     , ListQueuesResponse
     -- ** Response lenses
-    , lqsQueueUrls
+    , lqrsQueueUrls
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype ListQueues = ListQueues
+    { _lqQueueNamePrefix :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListQueues' request.
-mkListQueuesRequest :: ListQueues
-mkListQueuesRequest = ListQueues
-    { _lqrQueueNamePrefix = Nothing
+mkListQueues :: ListQueues
+mkListQueues = ListQueues
+    { _lqQueueNamePrefix = Nothing
     }
-{-# INLINE mkListQueuesRequest #-}
-
-newtype ListQueues = ListQueues
-    { _lqrQueueNamePrefix :: Maybe Text
-      -- ^ A string to use for filtering the list results. Only those queues
-      -- whose name begins with the specified string are returned.
-    } deriving (Show, Generic)
+{-# INLINE mkListQueues #-}
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
-lqrQueueNamePrefix :: Lens' ListQueues (Maybe Text)
-lqrQueueNamePrefix = lens _lqrQueueNamePrefix (\s a -> s { _lqrQueueNamePrefix = a })
-{-# INLINE lqrQueueNamePrefix #-}
+lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
+lqQueueNamePrefix =
+    lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
+{-# INLINE lqQueueNamePrefix #-}
 
 instance ToQuery ListQueues where
     toQuery = genericQuery def
 
+-- | A list of your queues.
 newtype ListQueuesResponse = ListQueuesResponse
-    { _lqsQueueUrls :: [Text]
-      -- ^ A list of queue URLs, up to 1000 entries.
+    { _lqrsQueueUrls :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of queue URLs, up to 1000 entries.
-lqsQueueUrls :: Lens' ListQueuesResponse ([Text])
-lqsQueueUrls = lens _lqsQueueUrls (\s a -> s { _lqsQueueUrls = a })
-{-# INLINE lqsQueueUrls #-}
+lqrsQueueUrls :: Lens' ListQueuesResponse [Text]
+lqrsQueueUrls = lens _lqrsQueueUrls (\s a -> s { _lqrsQueueUrls = a })
+{-# INLINE lqrsQueueUrls #-}
 
 instance FromXML ListQueuesResponse where
     fromXMLOptions = xmlOptions

@@ -35,105 +35,92 @@ module Network.AWS.IAM.V2010_05_08.ListAccessKeys
     -- * Request
       ListAccessKeys
     -- ** Request constructor
-    , mkListAccessKeysRequest
+    , mkListAccessKeys
     -- ** Request lenses
-    , lakrUserName
-    , lakrMarker
-    , lakrMaxItems
+    , lakUserName
+    , lakMarker
+    , lakMaxItems
 
     -- * Response
     , ListAccessKeysResponse
     -- ** Response lenses
-    , laksAccessKeyMetadata
-    , laksIsTruncated
-    , laksMarker
+    , lakrsAccessKeyMetadata
+    , lakrsIsTruncated
+    , lakrsMarker
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListAccessKeys' request.
-mkListAccessKeysRequest :: ListAccessKeys
-mkListAccessKeysRequest = ListAccessKeys
-    { _lakrUserName = Nothing
-    , _lakrMarker = Nothing
-    , _lakrMaxItems = Nothing
-    }
-{-# INLINE mkListAccessKeysRequest #-}
-
+-- | 
 data ListAccessKeys = ListAccessKeys
-    { _lakrUserName :: Maybe Text
-      -- ^ Name of the user.
-    , _lakrMarker :: Maybe Text
-      -- ^ Use this parameter only when paginating results, and only in a
-      -- subsequent request after you've received a response where the
-      -- results are truncated. Set it to the value of the Marker element
-      -- in the response you just received.
-    , _lakrMaxItems :: Maybe Integer
-      -- ^ Use this parameter only when paginating results to indicate the
-      -- maximum number of keys you want in the response. If there are
-      -- additional keys beyond the maximum you specify, the IsTruncated
-      -- response element is true. This parameter is optional. If you do
-      -- not include it, it defaults to 100.
+    { _lakUserName :: Maybe Text
+    , _lakMarker :: Maybe Text
+    , _lakMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListAccessKeys' request.
+mkListAccessKeys :: ListAccessKeys
+mkListAccessKeys = ListAccessKeys
+    { _lakUserName = Nothing
+    , _lakMarker = Nothing
+    , _lakMaxItems = Nothing
+    }
+{-# INLINE mkListAccessKeys #-}
+
 -- | Name of the user.
-lakrUserName :: Lens' ListAccessKeys (Maybe Text)
-lakrUserName = lens _lakrUserName (\s a -> s { _lakrUserName = a })
-{-# INLINE lakrUserName #-}
+lakUserName :: Lens' ListAccessKeys (Maybe Text)
+lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
+{-# INLINE lakUserName #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
-lakrMarker :: Lens' ListAccessKeys (Maybe Text)
-lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
-{-# INLINE lakrMarker #-}
+lakMarker :: Lens' ListAccessKeys (Maybe Text)
+lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
+{-# INLINE lakMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of keys you want in the response. If there are additional keys
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-lakrMaxItems :: Lens' ListAccessKeys (Maybe Integer)
-lakrMaxItems = lens _lakrMaxItems (\s a -> s { _lakrMaxItems = a })
-{-# INLINE lakrMaxItems #-}
+lakMaxItems :: Lens' ListAccessKeys (Maybe Integer)
+lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
+{-# INLINE lakMaxItems #-}
 
 instance ToQuery ListAccessKeys where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the ListAccessKeys
+-- action.
 data ListAccessKeysResponse = ListAccessKeysResponse
-    { _laksAccessKeyMetadata :: [AccessKeyMetadata]
-      -- ^ A list of access key metadata.
-    , _laksIsTruncated :: Bool
-      -- ^ A flag that indicates whether there are more keys to list. If
-      -- your results were truncated, you can make a subsequent pagination
-      -- request using the Marker request parameter to retrieve more keys
-      -- in the list.
-    , _laksMarker :: Maybe Text
-      -- ^ If IsTruncated is true, this element is present and contains the
-      -- value to use for the Marker parameter in a subsequent pagination
-      -- request.
+    { _lakrsAccessKeyMetadata :: [AccessKeyMetadata]
+    , _lakrsIsTruncated :: Maybe Bool
+    , _lakrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of access key metadata.
-laksAccessKeyMetadata :: Lens' ListAccessKeysResponse ([AccessKeyMetadata])
-laksAccessKeyMetadata = lens _laksAccessKeyMetadata (\s a -> s { _laksAccessKeyMetadata = a })
-{-# INLINE laksAccessKeyMetadata #-}
+lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
+lakrsAccessKeyMetadata =
+    lens _lakrsAccessKeyMetadata (\s a -> s { _lakrsAccessKeyMetadata = a })
+{-# INLINE lakrsAccessKeyMetadata #-}
 
 -- | A flag that indicates whether there are more keys to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more keys in the list.
-laksIsTruncated :: Lens' ListAccessKeysResponse (Bool)
-laksIsTruncated = lens _laksIsTruncated (\s a -> s { _laksIsTruncated = a })
-{-# INLINE laksIsTruncated #-}
+lakrsIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
+lakrsIsTruncated =
+    lens _lakrsIsTruncated (\s a -> s { _lakrsIsTruncated = a })
+{-# INLINE lakrsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-laksMarker :: Lens' ListAccessKeysResponse (Maybe Text)
-laksMarker = lens _laksMarker (\s a -> s { _laksMarker = a })
-{-# INLINE laksMarker #-}
+lakrsMarker :: Lens' ListAccessKeysResponse (Maybe Text)
+lakrsMarker = lens _lakrsMarker (\s a -> s { _lakrsMarker = a })
+{-# INLINE lakrsMarker #-}
 
 instance FromXML ListAccessKeysResponse where
     fromXMLOptions = xmlOptions
@@ -147,7 +134,7 @@ instance AWSRequest ListAccessKeys where
 
 instance AWSPager ListAccessKeys where
     next rq rs
-        | not (_laksIsTruncated rs) = Nothing
+        | not (_lakrsIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lakrMarker = _laksMarker rs
+            { _lakMarker = _lakrsMarker rs
             }

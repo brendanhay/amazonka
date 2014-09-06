@@ -37,127 +37,99 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSnapshots
     -- * Request
       DescribeClusterSnapshots
     -- ** Request constructor
-    , mkDescribeClusterSnapshotsMessage
+    , mkDescribeClusterSnapshots
     -- ** Request lenses
-    , dcsnClusterIdentifier
-    , dcsnSnapshotIdentifier
-    , dcsnSnapshotType
-    , dcsnStartTime
-    , dcsnEndTime
-    , dcsnMaxRecords
-    , dcsnMarker
-    , dcsnOwnerAccount
+    , dcs1ClusterIdentifier
+    , dcs1SnapshotIdentifier
+    , dcs1SnapshotType
+    , dcs1StartTime
+    , dcs1EndTime
+    , dcs1MaxRecords
+    , dcs1Marker
+    , dcs1OwnerAccount
 
     -- * Response
     , DescribeClusterSnapshotsResponse
     -- ** Response lenses
-    , sseMarker
-    , sseSnapshots
+    , dcsrsrsMarker
+    , dcsrsrsSnapshots
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeClusterSnapshots = DescribeClusterSnapshots
+    { _dcs1ClusterIdentifier :: Maybe Text
+    , _dcs1SnapshotIdentifier :: Maybe Text
+    , _dcs1SnapshotType :: Maybe Text
+    , _dcs1StartTime :: Maybe ISO8601
+    , _dcs1EndTime :: Maybe ISO8601
+    , _dcs1MaxRecords :: Maybe Integer
+    , _dcs1Marker :: Maybe Text
+    , _dcs1OwnerAccount :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSnapshots' request.
-mkDescribeClusterSnapshotsMessage :: DescribeClusterSnapshots
-mkDescribeClusterSnapshotsMessage = DescribeClusterSnapshots
-    { _dcsnClusterIdentifier = Nothing
-    , _dcsnSnapshotIdentifier = Nothing
-    , _dcsnSnapshotType = Nothing
-    , _dcsnStartTime = Nothing
-    , _dcsnEndTime = Nothing
-    , _dcsnMaxRecords = Nothing
-    , _dcsnMarker = Nothing
-    , _dcsnOwnerAccount = Nothing
+mkDescribeClusterSnapshots :: DescribeClusterSnapshots
+mkDescribeClusterSnapshots = DescribeClusterSnapshots
+    { _dcs1ClusterIdentifier = Nothing
+    , _dcs1SnapshotIdentifier = Nothing
+    , _dcs1SnapshotType = Nothing
+    , _dcs1StartTime = Nothing
+    , _dcs1EndTime = Nothing
+    , _dcs1MaxRecords = Nothing
+    , _dcs1Marker = Nothing
+    , _dcs1OwnerAccount = Nothing
     }
-{-# INLINE mkDescribeClusterSnapshotsMessage #-}
-
-data DescribeClusterSnapshots = DescribeClusterSnapshots
-    { _dcsnClusterIdentifier :: Maybe Text
-      -- ^ The identifier of the cluster for which information about
-      -- snapshots is requested.
-    , _dcsnSnapshotIdentifier :: Maybe Text
-      -- ^ The snapshot identifier of the snapshot about which to return
-      -- information.
-    , _dcsnSnapshotType :: Maybe Text
-      -- ^ The type of snapshots for which you are requesting information.
-      -- By default, snapshots of all types are returned. Valid Values:
-      -- automated | manual.
-    , _dcsnStartTime :: Maybe ISO8601
-      -- ^ A value that requests only snapshots created at or after the
-      -- specified time. The time value is specified in ISO 8601 format.
-      -- For more information about ISO 8601, go to the ISO8601 Wikipedia
-      -- page. Example: 2012-07-16T18:00:00Z.
-    , _dcsnEndTime :: Maybe ISO8601
-      -- ^ A time value that requests only snapshots created at or before
-      -- the specified time. The time value is specified in ISO 8601
-      -- format. For more information about ISO 8601, go to the ISO8601
-      -- Wikipedia page. Example: 2012-07-16T18:00:00Z.
-    , _dcsnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _dcsnMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a
-      -- DescribeClusterSnapshots request exceed the value specified in
-      -- MaxRecords, AWS returns a value in the Marker field of the
-      -- response. You can retrieve the next set of response records by
-      -- providing the returned marker value in the Marker parameter and
-      -- retrying the request.
-    , _dcsnOwnerAccount :: Maybe Text
-      -- ^ The AWS customer account used to create or copy the snapshot. Use
-      -- this field to filter the results to snapshots owned by a
-      -- particular account. To describe snapshots you own, either specify
-      -- your AWS customer account, or do not specify the parameter.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeClusterSnapshots #-}
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
-dcsnClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcsnClusterIdentifier = lens _dcsnClusterIdentifier (\s a -> s { _dcsnClusterIdentifier = a })
-{-# INLINE dcsnClusterIdentifier #-}
+dcs1ClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1ClusterIdentifier =
+    lens _dcs1ClusterIdentifier (\s a -> s { _dcs1ClusterIdentifier = a })
+{-# INLINE dcs1ClusterIdentifier #-}
 
 -- | The snapshot identifier of the snapshot about which to return information.
-dcsnSnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcsnSnapshotIdentifier = lens _dcsnSnapshotIdentifier (\s a -> s { _dcsnSnapshotIdentifier = a })
-{-# INLINE dcsnSnapshotIdentifier #-}
+dcs1SnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1SnapshotIdentifier =
+    lens _dcs1SnapshotIdentifier (\s a -> s { _dcs1SnapshotIdentifier = a })
+{-# INLINE dcs1SnapshotIdentifier #-}
 
 -- | The type of snapshots for which you are requesting information. By default,
 -- snapshots of all types are returned. Valid Values: automated | manual.
-dcsnSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcsnSnapshotType = lens _dcsnSnapshotType (\s a -> s { _dcsnSnapshotType = a })
-{-# INLINE dcsnSnapshotType #-}
+dcs1SnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1SnapshotType =
+    lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
+{-# INLINE dcs1SnapshotType #-}
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more information
 -- about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
-dcsnStartTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
-dcsnStartTime = lens _dcsnStartTime (\s a -> s { _dcsnStartTime = a })
-{-# INLINE dcsnStartTime #-}
+dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
+dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a })
+{-# INLINE dcs1StartTime #-}
 
 -- | A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
 -- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
-dcsnEndTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
-dcsnEndTime = lens _dcsnEndTime (\s a -> s { _dcsnEndTime = a })
-{-# INLINE dcsnEndTime #-}
+dcs1EndTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
+dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a })
+{-# INLINE dcs1EndTime #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsnMaxRecords :: Lens' DescribeClusterSnapshots (Maybe Integer)
-dcsnMaxRecords = lens _dcsnMaxRecords (\s a -> s { _dcsnMaxRecords = a })
-{-# INLINE dcsnMaxRecords #-}
+dcs1MaxRecords :: Lens' DescribeClusterSnapshots (Maybe Integer)
+dcs1MaxRecords = lens _dcs1MaxRecords (\s a -> s { _dcs1MaxRecords = a })
+{-# INLINE dcs1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterSnapshots request
@@ -165,31 +137,26 @@ dcsnMaxRecords = lens _dcsnMaxRecords (\s a -> s { _dcsnMaxRecords = a })
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-dcsnMarker :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcsnMarker = lens _dcsnMarker (\s a -> s { _dcsnMarker = a })
-{-# INLINE dcsnMarker #-}
+dcs1Marker :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1Marker = lens _dcs1Marker (\s a -> s { _dcs1Marker = a })
+{-# INLINE dcs1Marker #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Use this
 -- field to filter the results to snapshots owned by a particular account. To
 -- describe snapshots you own, either specify your AWS customer account, or do
 -- not specify the parameter.
-dcsnOwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcsnOwnerAccount = lens _dcsnOwnerAccount (\s a -> s { _dcsnOwnerAccount = a })
-{-# INLINE dcsnOwnerAccount #-}
+dcs1OwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1OwnerAccount =
+    lens _dcs1OwnerAccount (\s a -> s { _dcs1OwnerAccount = a })
+{-# INLINE dcs1OwnerAccount #-}
 
 instance ToQuery DescribeClusterSnapshots where
     toQuery = genericQuery def
 
+-- | Contains the output from the DescribeClusterSnapshots action.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
-    { _sseMarker :: Maybe Text
-      -- ^ A value that indicates the starting point for the next set of
-      -- response records in a subsequent request. If a value is returned
-      -- in a response, you can retrieve the next set of records by
-      -- providing this returned marker value in the Marker parameter and
-      -- retrying the command. If the Marker field is empty, all response
-      -- records have been retrieved for the request.
-    , _sseSnapshots :: [Snapshot]
-      -- ^ A list of Snapshot instances.
+    { _dcsrsrsMarker :: Maybe Text
+    , _dcsrsrsSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -197,14 +164,15 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-sseMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
-sseMarker = lens _sseMarker (\s a -> s { _sseMarker = a })
-{-# INLINE sseMarker #-}
+dcsrsrsMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
+dcsrsrsMarker = lens _dcsrsrsMarker (\s a -> s { _dcsrsrsMarker = a })
+{-# INLINE dcsrsrsMarker #-}
 
 -- | A list of Snapshot instances.
-sseSnapshots :: Lens' DescribeClusterSnapshotsResponse ([Snapshot])
-sseSnapshots = lens _sseSnapshots (\s a -> s { _sseSnapshots = a })
-{-# INLINE sseSnapshots #-}
+dcsrsrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
+dcsrsrsSnapshots =
+    lens _dcsrsrsSnapshots (\s a -> s { _dcsrsrsSnapshots = a })
+{-# INLINE dcsrsrsSnapshots #-}
 
 instance FromXML DescribeClusterSnapshotsResponse where
     fromXMLOptions = xmlOptions
@@ -217,5 +185,5 @@ instance AWSRequest DescribeClusterSnapshots where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSnapshots where
-    next rq rs = (\x -> rq { _dcsnMarker = Just x })
-        <$> (_sseMarker rs)
+    next rq rs = (\x -> rq { _dcs1Marker = Just x })
+        <$> (_dcsrsrsMarker rs)

@@ -34,9 +34,9 @@ module Network.AWS.EC2.V2014_06_15.DisassociateRouteTable
     -- * Request
       DisassociateRouteTable
     -- ** Request constructor
-    , mkDisassociateRouteTableRequest
+    , mkDisassociateRouteTable
     -- ** Request lenses
-    , drtuAssociationId
+    , drt2AssociationId
 
     -- * Response
     , DisassociateRouteTableResponse
@@ -46,26 +46,26 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DisassociateRouteTable = DisassociateRouteTable
+    { _drt2AssociationId :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateRouteTable' request.
-mkDisassociateRouteTableRequest :: Text -- ^ 'drtuAssociationId'
-                                -> DisassociateRouteTable
-mkDisassociateRouteTableRequest p1 = DisassociateRouteTable
-    { _drtuAssociationId = p1
+mkDisassociateRouteTable :: Text -- ^ 'drt2AssociationId'
+                         -> DisassociateRouteTable
+mkDisassociateRouteTable p1 = DisassociateRouteTable
+    { _drt2AssociationId = p1
     }
-{-# INLINE mkDisassociateRouteTableRequest #-}
-
-newtype DisassociateRouteTable = DisassociateRouteTable
-    { _drtuAssociationId :: Text
-      -- ^ The association ID representing the current association between
-      -- the route table and subnet.
-    } deriving (Show, Generic)
+{-# INLINE mkDisassociateRouteTable #-}
 
 -- | The association ID representing the current association between the route
 -- table and subnet.
-drtuAssociationId :: Lens' DisassociateRouteTable (Text)
-drtuAssociationId = lens _drtuAssociationId (\s a -> s { _drtuAssociationId = a })
-{-# INLINE drtuAssociationId #-}
+drt2AssociationId :: Lens' DisassociateRouteTable Text
+drt2AssociationId =
+    lens _drt2AssociationId (\s a -> s { _drt2AssociationId = a })
+{-# INLINE drt2AssociationId #-}
 
 instance ToQuery DisassociateRouteTable where
     toQuery = genericQuery def

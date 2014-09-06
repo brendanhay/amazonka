@@ -25,14 +25,14 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
     -- * Request
       DescribeInterconnects
     -- ** Request constructor
-    , mkDescribeInterconnectsRequest
+    , mkDescribeInterconnects
     -- ** Request lenses
-    , ditInterconnectId
+    , di1InterconnectId
 
     -- * Response
     , DescribeInterconnectsResponse
     -- ** Response lenses
-    , yInterconnects
+    , dirsrsInterconnects
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -40,23 +40,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInterconnects' request.
-mkDescribeInterconnectsRequest :: DescribeInterconnects
-mkDescribeInterconnectsRequest = DescribeInterconnects
-    { _ditInterconnectId = Nothing
-    }
-{-# INLINE mkDescribeInterconnectsRequest #-}
-
+-- | Container for the parameters to the DescribeInterconnects operation.
 newtype DescribeInterconnects = DescribeInterconnects
-    { _ditInterconnectId :: Maybe Text
-      -- ^ The ID of the interconnect. Example: dxcon-abc123.
+    { _di1InterconnectId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInterconnects' request.
+mkDescribeInterconnects :: DescribeInterconnects
+mkDescribeInterconnects = DescribeInterconnects
+    { _di1InterconnectId = Nothing
+    }
+{-# INLINE mkDescribeInterconnects #-}
+
 -- | The ID of the interconnect. Example: dxcon-abc123.
-ditInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
-ditInterconnectId = lens _ditInterconnectId (\s a -> s { _ditInterconnectId = a })
-{-# INLINE ditInterconnectId #-}
+di1InterconnectId :: Lens' DescribeInterconnects (Maybe Text)
+di1InterconnectId =
+    lens _di1InterconnectId (\s a -> s { _di1InterconnectId = a })
+{-# INLINE di1InterconnectId #-}
 
 instance ToPath DescribeInterconnects
 
@@ -66,15 +67,16 @@ instance ToHeaders DescribeInterconnects
 
 instance ToJSON DescribeInterconnects
 
+-- | A structure containing a list of interconnects.
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
-    { _yInterconnects :: [Interconnect]
-      -- ^ A list of interconnects.
+    { _dirsrsInterconnects :: [Interconnect]
     } deriving (Show, Generic)
 
 -- | A list of interconnects.
-yInterconnects :: Lens' DescribeInterconnectsResponse ([Interconnect])
-yInterconnects = lens _yInterconnects (\s a -> s { _yInterconnects = a })
-{-# INLINE yInterconnects #-}
+dirsrsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirsrsInterconnects =
+    lens _dirsrsInterconnects (\s a -> s { _dirsrsInterconnects = a })
+{-# INLINE dirsrsInterconnects #-}
 
 instance FromJSON DescribeInterconnectsResponse
 

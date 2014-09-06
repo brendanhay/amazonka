@@ -28,9 +28,9 @@ module Network.AWS.OpsWorks.V2013_02_18.UnassignVolume
     -- * Request
       UnassignVolume
     -- ** Request constructor
-    , mkUnassignVolumeRequest
+    , mkUnassignVolume
     -- ** Request lenses
-    , uvrVolumeId
+    , uvVolumeId
 
     -- * Response
     , UnassignVolumeResponse
@@ -41,24 +41,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnassignVolume' request.
-mkUnassignVolumeRequest :: Text -- ^ 'uvrVolumeId'
-                        -> UnassignVolume
-mkUnassignVolumeRequest p1 = UnassignVolume
-    { _uvrVolumeId = p1
-    }
-{-# INLINE mkUnassignVolumeRequest #-}
-
 newtype UnassignVolume = UnassignVolume
-    { _uvrVolumeId :: Text
-      -- ^ The volume ID.
+    { _uvVolumeId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnassignVolume' request.
+mkUnassignVolume :: Text -- ^ 'uvVolumeId'
+                 -> UnassignVolume
+mkUnassignVolume p1 = UnassignVolume
+    { _uvVolumeId = p1
+    }
+{-# INLINE mkUnassignVolume #-}
+
 -- | The volume ID.
-uvrVolumeId :: Lens' UnassignVolume (Text)
-uvrVolumeId = lens _uvrVolumeId (\s a -> s { _uvrVolumeId = a })
-{-# INLINE uvrVolumeId #-}
+uvVolumeId :: Lens' UnassignVolume Text
+uvVolumeId = lens _uvVolumeId (\s a -> s { _uvVolumeId = a })
+{-# INLINE uvVolumeId #-}
 
 instance ToPath UnassignVolume
 

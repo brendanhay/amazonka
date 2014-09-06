@@ -47,53 +47,58 @@ module Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes
     -- * Request
       GetIdentityDkimAttributes
     -- ** Request constructor
-    , mkGetIdentityDkimAttributesRequest
+    , mkGetIdentityDkimAttributes
     -- ** Request lenses
-    , gidarIdentities
+    , gidaIdentities
 
     -- * Response
     , GetIdentityDkimAttributesResponse
     -- ** Response lenses
-    , gidasDkimAttributes
+    , gidarsDkimAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Given a list of verified identities, describes their DKIM attributes. The
+-- DKIM attributes of an email address identity includes whether DKIM signing
+-- is individually enabled or disabled for that address. The DKIM attributes
+-- of a domain name identity includes whether DKIM signing is enabled, as well
+-- as the DNS records (tokens) that must remain published in the domain name's
+-- DNS.
+newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
+    { _gidaIdentities :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityDkimAttributes' request.
-mkGetIdentityDkimAttributesRequest :: [Text] -- ^ 'gidarIdentities'
-                                   -> GetIdentityDkimAttributes
-mkGetIdentityDkimAttributesRequest p1 = GetIdentityDkimAttributes
-    { _gidarIdentities = p1
+mkGetIdentityDkimAttributes :: [Text] -- ^ 'gidaIdentities'
+                            -> GetIdentityDkimAttributes
+mkGetIdentityDkimAttributes p1 = GetIdentityDkimAttributes
+    { _gidaIdentities = p1
     }
-{-# INLINE mkGetIdentityDkimAttributesRequest #-}
-
-newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
-    { _gidarIdentities :: [Text]
-      -- ^ A list of one or more verified identities - email addresses,
-      -- domains, or both.
-    } deriving (Show, Generic)
+{-# INLINE mkGetIdentityDkimAttributes #-}
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
-gidarIdentities :: Lens' GetIdentityDkimAttributes ([Text])
-gidarIdentities = lens _gidarIdentities (\s a -> s { _gidarIdentities = a })
-{-# INLINE gidarIdentities #-}
+gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
+gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a })
+{-# INLINE gidaIdentities #-}
 
 instance ToQuery GetIdentityDkimAttributes where
     toQuery = genericQuery def
 
+-- | Represents a list of all the DKIM attributes for the specified identity.
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
-    { _gidasDkimAttributes :: Map Text IdentityDkimAttributes
-      -- ^ The DKIM attributes for an email address or a domain.
+    { _gidarsDkimAttributes :: Map Text IdentityDkimAttributes
     } deriving (Show, Generic)
 
 -- | The DKIM attributes for an email address or a domain.
-gidasDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
-gidasDkimAttributes = lens _gidasDkimAttributes (\s a -> s { _gidasDkimAttributes = a })
-{-# INLINE gidasDkimAttributes #-}
+gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
+gidarsDkimAttributes =
+    lens _gidarsDkimAttributes (\s a -> s { _gidarsDkimAttributes = a })
+{-# INLINE gidarsDkimAttributes #-}
 
 instance FromXML GetIdentityDkimAttributesResponse where
     fromXMLOptions = xmlOptions

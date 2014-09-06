@@ -27,10 +27,10 @@ module Network.AWS.ELB.V2012_06_01.RemoveTags
     -- * Request
       RemoveTags
     -- ** Request constructor
-    , mkRemoveTagsInput
+    , mkRemoveTags
     -- ** Request lenses
-    , rtiLoadBalancerNames
-    , rtiTags
+    , rtLoadBalancerNames
+    , rtTags
 
     -- * Response
     , RemoveTagsResponse
@@ -40,39 +40,39 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | The input for the RemoveTags action.
+data RemoveTags = RemoveTags
+    { _rtLoadBalancerNames :: [Text]
+    , _rtTags :: [TagKeyOnly]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.
-mkRemoveTagsInput :: [Text] -- ^ 'rtiLoadBalancerNames'
-                  -> [TagKeyOnly] -- ^ 'rtiTags'
-                  -> RemoveTags
-mkRemoveTagsInput p1 p2 = RemoveTags
-    { _rtiLoadBalancerNames = p1
-    , _rtiTags = p2
+mkRemoveTags :: [Text] -- ^ 'rtLoadBalancerNames'
+             -> [TagKeyOnly] -- ^ 'rtTags'
+             -> RemoveTags
+mkRemoveTags p1 p2 = RemoveTags
+    { _rtLoadBalancerNames = p1
+    , _rtTags = p2
     }
-{-# INLINE mkRemoveTagsInput #-}
-
-data RemoveTags = RemoveTags
-    { _rtiLoadBalancerNames :: [Text]
-      -- ^ The name of the load balancer. You can specify a maximum of one
-      -- load balancer name.
-    , _rtiTags :: [TagKeyOnly]
-      -- ^ A list of tag keys to remove.
-    } deriving (Show, Generic)
+{-# INLINE mkRemoveTags #-}
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
-rtiLoadBalancerNames :: Lens' RemoveTags ([Text])
-rtiLoadBalancerNames = lens _rtiLoadBalancerNames (\s a -> s { _rtiLoadBalancerNames = a })
-{-# INLINE rtiLoadBalancerNames #-}
+rtLoadBalancerNames :: Lens' RemoveTags [Text]
+rtLoadBalancerNames =
+    lens _rtLoadBalancerNames (\s a -> s { _rtLoadBalancerNames = a })
+{-# INLINE rtLoadBalancerNames #-}
 
 -- | A list of tag keys to remove.
-rtiTags :: Lens' RemoveTags ([TagKeyOnly])
-rtiTags = lens _rtiTags (\s a -> s { _rtiTags = a })
-{-# INLINE rtiTags #-}
+rtTags :: Lens' RemoveTags [TagKeyOnly]
+rtTags = lens _rtTags (\s a -> s { _rtTags = a })
+{-# INLINE rtTags #-}
 
 instance ToQuery RemoveTags where
     toQuery = genericQuery def
 
+-- | The output for the RemoveTags action.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest RemoveTags where

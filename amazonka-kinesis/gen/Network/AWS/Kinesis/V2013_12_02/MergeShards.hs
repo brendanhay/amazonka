@@ -60,11 +60,11 @@ module Network.AWS.Kinesis.V2013_12_02.MergeShards
     -- * Request
       MergeShards
     -- ** Request constructor
-    , mkMergeShardsInput
+    , mkMergeShards
     -- ** Request lenses
-    , msiStreamName
-    , msiShardToMerge
-    , msiAdjacentShardToMerge
+    , msStreamName
+    , msShardToMerge
+    , msAdjacentShardToMerge
 
     -- * Response
     , MergeShardsResponse
@@ -75,43 +75,41 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'MergeShards' request.
-mkMergeShardsInput :: Text -- ^ 'msiStreamName'
-                   -> Text -- ^ 'msiShardToMerge'
-                   -> Text -- ^ 'msiAdjacentShardToMerge'
-                   -> MergeShards
-mkMergeShardsInput p1 p2 p3 = MergeShards
-    { _msiStreamName = p1
-    , _msiShardToMerge = p2
-    , _msiAdjacentShardToMerge = p3
-    }
-{-# INLINE mkMergeShardsInput #-}
-
+-- | Represents the input of a MergeShards operation.
 data MergeShards = MergeShards
-    { _msiStreamName :: Text
-      -- ^ The name of the stream for the merge.
-    , _msiShardToMerge :: Text
-      -- ^ The shard ID of the shard to combine with the adjacent shard for
-      -- the merge.
-    , _msiAdjacentShardToMerge :: Text
-      -- ^ The shard ID of the adjacent shard for the merge.
+    { _msStreamName :: Text
+    , _msShardToMerge :: Text
+    , _msAdjacentShardToMerge :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'MergeShards' request.
+mkMergeShards :: Text -- ^ 'msStreamName'
+              -> Text -- ^ 'msShardToMerge'
+              -> Text -- ^ 'msAdjacentShardToMerge'
+              -> MergeShards
+mkMergeShards p1 p2 p3 = MergeShards
+    { _msStreamName = p1
+    , _msShardToMerge = p2
+    , _msAdjacentShardToMerge = p3
+    }
+{-# INLINE mkMergeShards #-}
+
 -- | The name of the stream for the merge.
-msiStreamName :: Lens' MergeShards (Text)
-msiStreamName = lens _msiStreamName (\s a -> s { _msiStreamName = a })
-{-# INLINE msiStreamName #-}
+msStreamName :: Lens' MergeShards Text
+msStreamName = lens _msStreamName (\s a -> s { _msStreamName = a })
+{-# INLINE msStreamName #-}
 
 -- | The shard ID of the shard to combine with the adjacent shard for the merge.
-msiShardToMerge :: Lens' MergeShards (Text)
-msiShardToMerge = lens _msiShardToMerge (\s a -> s { _msiShardToMerge = a })
-{-# INLINE msiShardToMerge #-}
+msShardToMerge :: Lens' MergeShards Text
+msShardToMerge = lens _msShardToMerge (\s a -> s { _msShardToMerge = a })
+{-# INLINE msShardToMerge #-}
 
 -- | The shard ID of the adjacent shard for the merge.
-msiAdjacentShardToMerge :: Lens' MergeShards (Text)
-msiAdjacentShardToMerge = lens _msiAdjacentShardToMerge (\s a -> s { _msiAdjacentShardToMerge = a })
-{-# INLINE msiAdjacentShardToMerge #-}
+msAdjacentShardToMerge :: Lens' MergeShards Text
+msAdjacentShardToMerge =
+    lens _msAdjacentShardToMerge (\s a -> s { _msAdjacentShardToMerge = a })
+{-# INLINE msAdjacentShardToMerge #-}
 
 instance ToPath MergeShards
 

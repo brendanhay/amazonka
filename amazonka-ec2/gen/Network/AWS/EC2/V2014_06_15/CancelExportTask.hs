@@ -30,9 +30,9 @@ module Network.AWS.EC2.V2014_06_15.CancelExportTask
     -- * Request
       CancelExportTask
     -- ** Request constructor
-    , mkCancelExportTaskRequest
+    , mkCancelExportTask
     -- ** Request lenses
-    , cetrExportTaskId
+    , cetExportTaskId
 
     -- * Response
     , CancelExportTaskResponse
@@ -42,26 +42,25 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype CancelExportTask = CancelExportTask
+    { _cetExportTaskId :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelExportTask' request.
-mkCancelExportTaskRequest :: Text -- ^ 'cetrExportTaskId'
-                          -> CancelExportTask
-mkCancelExportTaskRequest p1 = CancelExportTask
-    { _cetrExportTaskId = p1
+mkCancelExportTask :: Text -- ^ 'cetExportTaskId'
+                   -> CancelExportTask
+mkCancelExportTask p1 = CancelExportTask
+    { _cetExportTaskId = p1
     }
-{-# INLINE mkCancelExportTaskRequest #-}
-
-newtype CancelExportTask = CancelExportTask
-    { _cetrExportTaskId :: Text
-      -- ^ The ID of the export task. This is the ID returned by
-      -- CreateInstanceExportTask.
-    } deriving (Show, Generic)
+{-# INLINE mkCancelExportTask #-}
 
 -- | The ID of the export task. This is the ID returned by
 -- CreateInstanceExportTask.
-cetrExportTaskId :: Lens' CancelExportTask (Text)
-cetrExportTaskId = lens _cetrExportTaskId (\s a -> s { _cetrExportTaskId = a })
-{-# INLINE cetrExportTaskId #-}
+cetExportTaskId :: Lens' CancelExportTask Text
+cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
+{-# INLINE cetExportTaskId #-}
 
 instance ToQuery CancelExportTask where
     toQuery = genericQuery def

@@ -49,14 +49,14 @@ module Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
     -- * Request
       ShutdownGateway
     -- ** Request constructor
-    , mkShutdownGatewayInput
+    , mkShutdownGateway
     -- ** Request lenses
-    , sgiGatewayARN
+    , sgGatewayARN
 
     -- * Response
     , ShutdownGatewayResponse
     -- ** Response lenses
-    , sgoGatewayARN
+    , sgrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -64,27 +64,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the of the gateway to shut down.
+newtype ShutdownGateway = ShutdownGateway
+    { _sgGatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ShutdownGateway' request.
-mkShutdownGatewayInput :: Text -- ^ 'sgiGatewayARN'
-                       -> ShutdownGateway
-mkShutdownGatewayInput p1 = ShutdownGateway
-    { _sgiGatewayARN = p1
+mkShutdownGateway :: Text -- ^ 'sgGatewayARN'
+                  -> ShutdownGateway
+mkShutdownGateway p1 = ShutdownGateway
+    { _sgGatewayARN = p1
     }
-{-# INLINE mkShutdownGatewayInput #-}
-
-newtype ShutdownGateway = ShutdownGateway
-    { _sgiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkShutdownGateway #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgiGatewayARN :: Lens' ShutdownGateway (Text)
-sgiGatewayARN = lens _sgiGatewayARN (\s a -> s { _sgiGatewayARN = a })
-{-# INLINE sgiGatewayARN #-}
+sgGatewayARN :: Lens' ShutdownGateway Text
+sgGatewayARN = lens _sgGatewayARN (\s a -> s { _sgGatewayARN = a })
+{-# INLINE sgGatewayARN #-}
 
 instance ToPath ShutdownGateway
 
@@ -94,18 +92,16 @@ instance ToHeaders ShutdownGateway
 
 instance ToJSON ShutdownGateway
 
+-- | A JSON object containing the of the gateway that was shut down.
 newtype ShutdownGatewayResponse = ShutdownGatewayResponse
-    { _sgoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _sgrsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgoGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-sgoGatewayARN = lens _sgoGatewayARN (\s a -> s { _sgoGatewayARN = a })
-{-# INLINE sgoGatewayARN #-}
+sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
+sgrsGatewayARN = lens _sgrsGatewayARN (\s a -> s { _sgrsGatewayARN = a })
+{-# INLINE sgrsGatewayARN #-}
 
 instance FromJSON ShutdownGatewayResponse
 

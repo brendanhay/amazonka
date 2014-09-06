@@ -36,10 +36,10 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners
     -- * Request
       CreateLoadBalancerListeners
     -- ** Request constructor
-    , mkCreateLoadBalancerListenerInput
+    , mkCreateLoadBalancerListeners
     -- ** Request lenses
-    , clbliLoadBalancerName
-    , clbliListeners
+    , clblLoadBalancerName
+    , clblListeners
 
     -- * Response
     , CreateLoadBalancerListenersResponse
@@ -49,39 +49,39 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLoadBalancerListeners' request.
-mkCreateLoadBalancerListenerInput :: Text -- ^ 'clbliLoadBalancerName'
-                                  -> [Listener] -- ^ 'clbliListeners'
-                                  -> CreateLoadBalancerListeners
-mkCreateLoadBalancerListenerInput p1 p2 = CreateLoadBalancerListeners
-    { _clbliLoadBalancerName = p1
-    , _clbliListeners = p2
-    }
-{-# INLINE mkCreateLoadBalancerListenerInput #-}
-
+-- | The input for the CreateLoadBalancerListeners action.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
-    { _clbliLoadBalancerName :: Text
-      -- ^ The name of the load balancer.
-    , _clbliListeners :: [Listener]
-      -- ^ A list of LoadBalancerPort, InstancePort, Protocol,
-      -- InstanceProtocol, and SSLCertificateId items.
+    { _clblLoadBalancerName :: Text
+    , _clblListeners :: [Listener]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoadBalancerListeners' request.
+mkCreateLoadBalancerListeners :: Text -- ^ 'clblLoadBalancerName'
+                              -> [Listener] -- ^ 'clblListeners'
+                              -> CreateLoadBalancerListeners
+mkCreateLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
+    { _clblLoadBalancerName = p1
+    , _clblListeners = p2
+    }
+{-# INLINE mkCreateLoadBalancerListeners #-}
+
 -- | The name of the load balancer.
-clbliLoadBalancerName :: Lens' CreateLoadBalancerListeners (Text)
-clbliLoadBalancerName = lens _clbliLoadBalancerName (\s a -> s { _clbliLoadBalancerName = a })
-{-# INLINE clbliLoadBalancerName #-}
+clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
+clblLoadBalancerName =
+    lens _clblLoadBalancerName (\s a -> s { _clblLoadBalancerName = a })
+{-# INLINE clblLoadBalancerName #-}
 
 -- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
 -- SSLCertificateId items.
-clbliListeners :: Lens' CreateLoadBalancerListeners ([Listener])
-clbliListeners = lens _clbliListeners (\s a -> s { _clbliListeners = a })
-{-# INLINE clbliListeners #-}
+clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
+clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a })
+{-# INLINE clblListeners #-}
 
 instance ToQuery CreateLoadBalancerListeners where
     toQuery = genericQuery def
 
+-- | The output for the CreateLoadBalancerListeners action.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CreateLoadBalancerListeners where

@@ -44,74 +44,75 @@ module Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering
     -- * Request
       PurchaseReservedInstancesOffering
     -- ** Request constructor
-    , mkPurchaseReservedInstancesOfferingRequest
+    , mkPurchaseReservedInstancesOffering
     -- ** Request lenses
-    , priorReservedInstancesOfferingId
-    , priorInstanceCount
-    , priorLimitPrice
+    , prioReservedInstancesOfferingId
+    , prioInstanceCount
+    , prioLimitPrice
 
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
     -- ** Response lenses
-    , priosReservedInstancesId
+    , priorsReservedInstancesId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PurchaseReservedInstancesOffering' request.
-mkPurchaseReservedInstancesOfferingRequest :: Text -- ^ 'priorReservedInstancesOfferingId'
-                                           -> Integer -- ^ 'priorInstanceCount'
-                                           -> PurchaseReservedInstancesOffering
-mkPurchaseReservedInstancesOfferingRequest p1 p2 = PurchaseReservedInstancesOffering
-    { _priorReservedInstancesOfferingId = p1
-    , _priorInstanceCount = p2
-    , _priorLimitPrice = Nothing
-    }
-{-# INLINE mkPurchaseReservedInstancesOfferingRequest #-}
-
+-- | 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
-    { _priorReservedInstancesOfferingId :: Text
-      -- ^ The ID of the Reserved Instance offering to purchase.
-    , _priorInstanceCount :: Integer
-      -- ^ The number of Reserved Instances to purchase.
-    , _priorLimitPrice :: Maybe ReservedInstanceLimitPrice
-      -- ^ Specified for Reserved Instance Marketplace offerings to limit
-      -- the total order and ensure that the Reserved Instances are not
-      -- purchased at unexpected prices.
+    { _prioReservedInstancesOfferingId :: Text
+    , _prioInstanceCount :: Integer
+    , _prioLimitPrice :: Maybe ReservedInstanceLimitPrice
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedInstancesOffering' request.
+mkPurchaseReservedInstancesOffering :: Text -- ^ 'prioReservedInstancesOfferingId'
+                                    -> Integer -- ^ 'prioInstanceCount'
+                                    -> PurchaseReservedInstancesOffering
+mkPurchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
+    { _prioReservedInstancesOfferingId = p1
+    , _prioInstanceCount = p2
+    , _prioLimitPrice = Nothing
+    }
+{-# INLINE mkPurchaseReservedInstancesOffering #-}
+
 -- | The ID of the Reserved Instance offering to purchase.
-priorReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering (Text)
-priorReservedInstancesOfferingId = lens _priorReservedInstancesOfferingId (\s a -> s { _priorReservedInstancesOfferingId = a })
-{-# INLINE priorReservedInstancesOfferingId #-}
+prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
+prioReservedInstancesOfferingId =
+    lens _prioReservedInstancesOfferingId
+         (\s a -> s { _prioReservedInstancesOfferingId = a })
+{-# INLINE prioReservedInstancesOfferingId #-}
 
 -- | The number of Reserved Instances to purchase.
-priorInstanceCount :: Lens' PurchaseReservedInstancesOffering (Integer)
-priorInstanceCount = lens _priorInstanceCount (\s a -> s { _priorInstanceCount = a })
-{-# INLINE priorInstanceCount #-}
+prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Integer
+prioInstanceCount =
+    lens _prioInstanceCount (\s a -> s { _prioInstanceCount = a })
+{-# INLINE prioInstanceCount #-}
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
-priorLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
-priorLimitPrice = lens _priorLimitPrice (\s a -> s { _priorLimitPrice = a })
-{-# INLINE priorLimitPrice #-}
+prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
+prioLimitPrice = lens _prioLimitPrice (\s a -> s { _prioLimitPrice = a })
+{-# INLINE prioLimitPrice #-}
 
 instance ToQuery PurchaseReservedInstancesOffering where
     toQuery = genericQuery def
 
+-- | 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
-    { _priosReservedInstancesId :: Maybe Text
-      -- ^ The IDs of the purchased Reserved Instances.
+    { _priorsReservedInstancesId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The IDs of the purchased Reserved Instances.
-priosReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
-priosReservedInstancesId = lens _priosReservedInstancesId (\s a -> s { _priosReservedInstancesId = a })
-{-# INLINE priosReservedInstancesId #-}
+priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
+priorsReservedInstancesId =
+    lens _priorsReservedInstancesId
+         (\s a -> s { _priorsReservedInstancesId = a })
+{-# INLINE priorsReservedInstancesId #-}
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where
     fromXMLOptions = xmlOptions

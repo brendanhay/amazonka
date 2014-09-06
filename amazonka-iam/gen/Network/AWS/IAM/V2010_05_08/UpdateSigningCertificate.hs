@@ -34,11 +34,11 @@ module Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate
     -- * Request
       UpdateSigningCertificate
     -- ** Request constructor
-    , mkUpdateSigningCertificateRequest
+    , mkUpdateSigningCertificate
     -- ** Request lenses
-    , uscsUserName
-    , uscsCertificateId
-    , uscsStatus
+    , usc1UserName
+    , usc1CertificateId
+    , usc1Status
 
     -- * Response
     , UpdateSigningCertificateResponse
@@ -48,45 +48,42 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateSigningCertificate' request.
-mkUpdateSigningCertificateRequest :: Text -- ^ 'uscsCertificateId'
-                                  -> StatusType -- ^ 'uscsStatus'
-                                  -> UpdateSigningCertificate
-mkUpdateSigningCertificateRequest p1 p2 = UpdateSigningCertificate
-    { _uscsUserName = Nothing
-    , _uscsCertificateId = p2
-    , _uscsStatus = p3
-    }
-{-# INLINE mkUpdateSigningCertificateRequest #-}
-
+-- | 
 data UpdateSigningCertificate = UpdateSigningCertificate
-    { _uscsUserName :: Maybe Text
-      -- ^ Name of the user the signing certificate belongs to.
-    , _uscsCertificateId :: Text
-      -- ^ The ID of the signing certificate you want to update.
-    , _uscsStatus :: StatusType
-      -- ^ The status you want to assign to the certificate. Active means
-      -- the certificate can be used for API calls to AWS, while Inactive
-      -- means the certificate cannot be used.
+    { _usc1UserName :: Maybe Text
+    , _usc1CertificateId :: Text
+    , _usc1Status :: StatusType
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateSigningCertificate' request.
+mkUpdateSigningCertificate :: Text -- ^ 'usc1CertificateId'
+                           -> StatusType -- ^ 'usc1Status'
+                           -> UpdateSigningCertificate
+mkUpdateSigningCertificate p2 p3 = UpdateSigningCertificate
+    { _usc1UserName = Nothing
+    , _usc1CertificateId = p2
+    , _usc1Status = p3
+    }
+{-# INLINE mkUpdateSigningCertificate #-}
+
 -- | Name of the user the signing certificate belongs to.
-uscsUserName :: Lens' UpdateSigningCertificate (Maybe Text)
-uscsUserName = lens _uscsUserName (\s a -> s { _uscsUserName = a })
-{-# INLINE uscsUserName #-}
+usc1UserName :: Lens' UpdateSigningCertificate (Maybe Text)
+usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
+{-# INLINE usc1UserName #-}
 
 -- | The ID of the signing certificate you want to update.
-uscsCertificateId :: Lens' UpdateSigningCertificate (Text)
-uscsCertificateId = lens _uscsCertificateId (\s a -> s { _uscsCertificateId = a })
-{-# INLINE uscsCertificateId #-}
+usc1CertificateId :: Lens' UpdateSigningCertificate Text
+usc1CertificateId =
+    lens _usc1CertificateId (\s a -> s { _usc1CertificateId = a })
+{-# INLINE usc1CertificateId #-}
 
 -- | The status you want to assign to the certificate. Active means the
 -- certificate can be used for API calls to AWS, while Inactive means the
 -- certificate cannot be used.
-uscsStatus :: Lens' UpdateSigningCertificate (StatusType)
-uscsStatus = lens _uscsStatus (\s a -> s { _uscsStatus = a })
-{-# INLINE uscsStatus #-}
+usc1Status :: Lens' UpdateSigningCertificate StatusType
+usc1Status = lens _usc1Status (\s a -> s { _usc1Status = a })
+{-# INLINE usc1Status #-}
 
 instance ToQuery UpdateSigningCertificate where
     toQuery = genericQuery def

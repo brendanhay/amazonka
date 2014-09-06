@@ -41,17 +41,17 @@ module Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupIngress
     -- * Request
       RevokeSecurityGroupIngress
     -- ** Request constructor
-    , mkRevokeSecurityGroupIngressRequest
+    , mkRevokeSecurityGroupIngress
     -- ** Request lenses
-    , rsgirGroupName
-    , rsgirGroupId
-    , rsgirSourceSecurityGroupName
-    , rsgirSourceSecurityGroupOwnerId
-    , rsgirIpProtocol
-    , rsgirFromPort
-    , rsgirToPort
-    , rsgirCidrIp
-    , rsgirIpPermissions
+    , rsgiGroupName
+    , rsgiGroupId
+    , rsgiSourceSecurityGroupName
+    , rsgiSourceSecurityGroupOwnerId
+    , rsgiIpProtocol
+    , rsgiFromPort
+    , rsgiToPort
+    , rsgiCidrIp
+    , rsgiIpPermissions
 
     -- * Response
     , RevokeSecurityGroupIngressResponse
@@ -61,103 +61,91 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RevokeSecurityGroupIngress' request.
-mkRevokeSecurityGroupIngressRequest :: RevokeSecurityGroupIngress
-mkRevokeSecurityGroupIngressRequest = RevokeSecurityGroupIngress
-    { _rsgirGroupName = Nothing
-    , _rsgirGroupId = Nothing
-    , _rsgirSourceSecurityGroupName = Nothing
-    , _rsgirSourceSecurityGroupOwnerId = Nothing
-    , _rsgirIpProtocol = Nothing
-    , _rsgirFromPort = Nothing
-    , _rsgirToPort = Nothing
-    , _rsgirCidrIp = Nothing
-    , _rsgirIpPermissions = mempty
-    }
-{-# INLINE mkRevokeSecurityGroupIngressRequest #-}
-
+-- | 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgirGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the security group.
-    , _rsgirGroupId :: Maybe Text
-      -- ^ The ID of the security group.
-    , _rsgirSourceSecurityGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the source security group.
-      -- You can't specify a source security group and a CIDR IP address
-      -- range.
-    , _rsgirSourceSecurityGroupOwnerId :: Maybe Text
-      -- ^ The ID of the source security group. You can't specify a source
-      -- security group and a CIDR IP address range.
-    , _rsgirIpProtocol :: Maybe Text
-      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
-      -- Numbers). Use -1 to specify all.
-    , _rsgirFromPort :: Maybe Integer
-      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
-      -- type number. For the ICMP type number, use -1 to specify all ICMP
-      -- types.
-    , _rsgirToPort :: Maybe Integer
-      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
-      -- code number. For the ICMP code number, use -1 to specify all ICMP
-      -- codes for the ICMP type.
-    , _rsgirCidrIp :: Maybe Text
-      -- ^ The CIDR IP address range. You can't specify this parameter when
-      -- specifying a source security group.
-    , _rsgirIpPermissions :: [IpPermission]
-      -- ^ 
+    { _rsgiGroupName :: Maybe Text
+    , _rsgiGroupId :: Maybe Text
+    , _rsgiSourceSecurityGroupName :: Maybe Text
+    , _rsgiSourceSecurityGroupOwnerId :: Maybe Text
+    , _rsgiIpProtocol :: Maybe Text
+    , _rsgiFromPort :: Maybe Integer
+    , _rsgiToPort :: Maybe Integer
+    , _rsgiCidrIp :: Maybe Text
+    , _rsgiIpPermissions :: [IpPermission]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeSecurityGroupIngress' request.
+mkRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress
+mkRevokeSecurityGroupIngress = RevokeSecurityGroupIngress
+    { _rsgiGroupName = Nothing
+    , _rsgiGroupId = Nothing
+    , _rsgiSourceSecurityGroupName = Nothing
+    , _rsgiSourceSecurityGroupOwnerId = Nothing
+    , _rsgiIpProtocol = Nothing
+    , _rsgiFromPort = Nothing
+    , _rsgiToPort = Nothing
+    , _rsgiCidrIp = Nothing
+    , _rsgiIpPermissions = mempty
+    }
+{-# INLINE mkRevokeSecurityGroupIngress #-}
+
 -- | [EC2-Classic, default VPC] The name of the security group.
-rsgirGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirGroupName = lens _rsgirGroupName (\s a -> s { _rsgirGroupName = a })
-{-# INLINE rsgirGroupName #-}
+rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiGroupName = lens _rsgiGroupName (\s a -> s { _rsgiGroupName = a })
+{-# INLINE rsgiGroupName #-}
 
 -- | The ID of the security group.
-rsgirGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirGroupId = lens _rsgirGroupId (\s a -> s { _rsgirGroupId = a })
-{-# INLINE rsgirGroupId #-}
+rsgiGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiGroupId = lens _rsgiGroupId (\s a -> s { _rsgiGroupId = a })
+{-# INLINE rsgiGroupId #-}
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
-rsgirSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirSourceSecurityGroupName = lens _rsgirSourceSecurityGroupName (\s a -> s { _rsgirSourceSecurityGroupName = a })
-{-# INLINE rsgirSourceSecurityGroupName #-}
+rsgiSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiSourceSecurityGroupName =
+    lens _rsgiSourceSecurityGroupName
+         (\s a -> s { _rsgiSourceSecurityGroupName = a })
+{-# INLINE rsgiSourceSecurityGroupName #-}
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
-rsgirSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirSourceSecurityGroupOwnerId = lens _rsgirSourceSecurityGroupOwnerId (\s a -> s { _rsgirSourceSecurityGroupOwnerId = a })
-{-# INLINE rsgirSourceSecurityGroupOwnerId #-}
+rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiSourceSecurityGroupOwnerId =
+    lens _rsgiSourceSecurityGroupOwnerId
+         (\s a -> s { _rsgiSourceSecurityGroupOwnerId = a })
+{-# INLINE rsgiSourceSecurityGroupOwnerId #-}
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
 -- -1 to specify all.
-rsgirIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirIpProtocol = lens _rsgirIpProtocol (\s a -> s { _rsgirIpProtocol = a })
-{-# INLINE rsgirIpProtocol #-}
+rsgiIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiIpProtocol = lens _rsgiIpProtocol (\s a -> s { _rsgiIpProtocol = a })
+{-# INLINE rsgiIpProtocol #-}
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
-rsgirFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
-rsgirFromPort = lens _rsgirFromPort (\s a -> s { _rsgirFromPort = a })
-{-# INLINE rsgirFromPort #-}
+rsgiFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
+rsgiFromPort = lens _rsgiFromPort (\s a -> s { _rsgiFromPort = a })
+{-# INLINE rsgiFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use -1 to specify all ICMP codes for the
 -- ICMP type.
-rsgirToPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
-rsgirToPort = lens _rsgirToPort (\s a -> s { _rsgirToPort = a })
-{-# INLINE rsgirToPort #-}
+rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
+rsgiToPort = lens _rsgiToPort (\s a -> s { _rsgiToPort = a })
+{-# INLINE rsgiToPort #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
-rsgirCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgirCidrIp = lens _rsgirCidrIp (\s a -> s { _rsgirCidrIp = a })
-{-# INLINE rsgirCidrIp #-}
+rsgiCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiCidrIp = lens _rsgiCidrIp (\s a -> s { _rsgiCidrIp = a })
+{-# INLINE rsgiCidrIp #-}
 
 -- | 
-rsgirIpPermissions :: Lens' RevokeSecurityGroupIngress ([IpPermission])
-rsgirIpPermissions = lens _rsgirIpPermissions (\s a -> s { _rsgirIpPermissions = a })
-{-# INLINE rsgirIpPermissions #-}
+rsgiIpPermissions :: Lens' RevokeSecurityGroupIngress [IpPermission]
+rsgiIpPermissions =
+    lens _rsgiIpPermissions (\s a -> s { _rsgiIpPermissions = a })
+{-# INLINE rsgiIpPermissions #-}
 
 instance ToQuery RevokeSecurityGroupIngress where
     toQuery = genericQuery def

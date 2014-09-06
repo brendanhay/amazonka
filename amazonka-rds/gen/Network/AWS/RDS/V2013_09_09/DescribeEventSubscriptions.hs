@@ -34,96 +34,85 @@ module Network.AWS.RDS.V2013_09_09.DescribeEventSubscriptions
     -- * Request
       DescribeEventSubscriptions
     -- ** Request constructor
-    , mkDescribeEventSubscriptionsMessage
+    , mkDescribeEventSubscriptions
     -- ** Request lenses
-    , desnSubscriptionName
-    , desnMaxRecords
-    , desnMarker
+    , des1SubscriptionName
+    , des1MaxRecords
+    , des1Marker
 
     -- * Response
     , DescribeEventSubscriptionsResponse
     -- ** Response lenses
-    , esmMarker
-    , esmEventSubscriptionsList
+    , desrsrsMarker
+    , desrsrsEventSubscriptionsList
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEventSubscriptions' request.
-mkDescribeEventSubscriptionsMessage :: DescribeEventSubscriptions
-mkDescribeEventSubscriptionsMessage = DescribeEventSubscriptions
-    { _desnSubscriptionName = Nothing
-    , _desnMaxRecords = Nothing
-    , _desnMarker = Nothing
-    }
-{-# INLINE mkDescribeEventSubscriptionsMessage #-}
-
+-- | 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
-    { _desnSubscriptionName :: Maybe Text
-      -- ^ The name of the RDS event notification subscription you want to
-      -- describe.
-    , _desnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a pagination
-      -- token called a marker is included in the response so that the
-      -- remaining results can be retrieved. Default: 100 Constraints:
-      -- minimum 20, maximum 100.
-    , _desnMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeOrderableDBInstanceOptions request. If this parameter is
-      -- specified, the response includes only records beyond the marker,
-      -- up to the value specified by MaxRecords .
+    { _des1SubscriptionName :: Maybe Text
+    , _des1MaxRecords :: Maybe Integer
+    , _des1Marker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventSubscriptions' request.
+mkDescribeEventSubscriptions :: DescribeEventSubscriptions
+mkDescribeEventSubscriptions = DescribeEventSubscriptions
+    { _des1SubscriptionName = Nothing
+    , _des1MaxRecords = Nothing
+    , _des1Marker = Nothing
+    }
+{-# INLINE mkDescribeEventSubscriptions #-}
+
 -- | The name of the RDS event notification subscription you want to describe.
-desnSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-desnSubscriptionName = lens _desnSubscriptionName (\s a -> s { _desnSubscriptionName = a })
-{-# INLINE desnSubscriptionName #-}
+des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+des1SubscriptionName =
+    lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
+{-# INLINE des1SubscriptionName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-desnMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Integer)
-desnMaxRecords = lens _desnMaxRecords (\s a -> s { _desnMaxRecords = a })
-{-# INLINE desnMaxRecords #-}
+des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Integer)
+des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
+{-# INLINE des1MaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords .
-desnMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-desnMarker = lens _desnMarker (\s a -> s { _desnMarker = a })
-{-# INLINE desnMarker #-}
+des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
+des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
+{-# INLINE des1Marker #-}
 
 instance ToQuery DescribeEventSubscriptions where
     toQuery = genericQuery def
 
+-- | Data returned by the DescribeEventSubscriptions action.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _esmMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeOrderableDBInstanceOptions request. If this parameter is
-      -- specified, the response includes only records beyond the marker,
-      -- up to the value specified by MaxRecords.
-    , _esmEventSubscriptionsList :: [EventSubscription]
-      -- ^ A list of EventSubscriptions data types.
+    { _desrsrsMarker :: Maybe Text
+    , _desrsrsEventSubscriptionsList :: [EventSubscription]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-esmMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-esmMarker = lens _esmMarker (\s a -> s { _esmMarker = a })
-{-# INLINE esmMarker #-}
+desrsrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+desrsrsMarker = lens _desrsrsMarker (\s a -> s { _desrsrsMarker = a })
+{-# INLINE desrsrsMarker #-}
 
 -- | A list of EventSubscriptions data types.
-esmEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse ([EventSubscription])
-esmEventSubscriptionsList = lens _esmEventSubscriptionsList (\s a -> s { _esmEventSubscriptionsList = a })
-{-# INLINE esmEventSubscriptionsList #-}
+desrsrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrsrsEventSubscriptionsList =
+    lens _desrsrsEventSubscriptionsList
+         (\s a -> s { _desrsrsEventSubscriptionsList = a })
+{-# INLINE desrsrsEventSubscriptionsList #-}
 
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions
@@ -136,5 +125,5 @@ instance AWSRequest DescribeEventSubscriptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeEventSubscriptions where
-    next rq rs = (\x -> rq { _desnMarker = Just x })
-        <$> (_esmMarker rs)
+    next rq rs = (\x -> rq { _des1Marker = Just x })
+        <$> (_desrsrsMarker rs)

@@ -34,70 +34,67 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup
     -- * Request
       CreateCacheSecurityGroup
     -- ** Request constructor
-    , mkCreateCacheSecurityGroupMessage
+    , mkCreateCacheSecurityGroup
     -- ** Request lenses
-    , ccsgmCacheSecurityGroupName
-    , ccsgmDescription
+    , ccsgCacheSecurityGroupName
+    , ccsgDescription
 
     -- * Response
     , CreateCacheSecurityGroupResponse
     -- ** Response lenses
-    , csgxCacheSecurityGroup
+    , ccsgrsCacheSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a CreateCacheSecurityGroup operation.
+data CreateCacheSecurityGroup = CreateCacheSecurityGroup
+    { _ccsgCacheSecurityGroupName :: Text
+    , _ccsgDescription :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSecurityGroup' request.
-mkCreateCacheSecurityGroupMessage :: Text -- ^ 'ccsgmCacheSecurityGroupName'
-                                  -> Text -- ^ 'ccsgmDescription'
-                                  -> CreateCacheSecurityGroup
-mkCreateCacheSecurityGroupMessage p1 p2 = CreateCacheSecurityGroup
-    { _ccsgmCacheSecurityGroupName = p1
-    , _ccsgmDescription = p2
+mkCreateCacheSecurityGroup :: Text -- ^ 'ccsgCacheSecurityGroupName'
+                           -> Text -- ^ 'ccsgDescription'
+                           -> CreateCacheSecurityGroup
+mkCreateCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
+    { _ccsgCacheSecurityGroupName = p1
+    , _ccsgDescription = p2
     }
-{-# INLINE mkCreateCacheSecurityGroupMessage #-}
-
-data CreateCacheSecurityGroup = CreateCacheSecurityGroup
-    { _ccsgmCacheSecurityGroupName :: Text
-      -- ^ A name for the cache security group. This value is stored as a
-      -- lowercase string. Constraints: Must contain no more than 255
-      -- alphanumeric characters. Must not be the word "Default". Example:
-      -- mysecuritygroup.
-    , _ccsgmDescription :: Text
-      -- ^ A description for the cache security group.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateCacheSecurityGroup #-}
 
 -- | A name for the cache security group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters.
 -- Must not be the word "Default". Example: mysecuritygroup.
-ccsgmCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup (Text)
-ccsgmCacheSecurityGroupName = lens _ccsgmCacheSecurityGroupName (\s a -> s { _ccsgmCacheSecurityGroupName = a })
-{-# INLINE ccsgmCacheSecurityGroupName #-}
+ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
+ccsgCacheSecurityGroupName =
+    lens _ccsgCacheSecurityGroupName
+         (\s a -> s { _ccsgCacheSecurityGroupName = a })
+{-# INLINE ccsgCacheSecurityGroupName #-}
 
 -- | A description for the cache security group.
-ccsgmDescription :: Lens' CreateCacheSecurityGroup (Text)
-ccsgmDescription = lens _ccsgmDescription (\s a -> s { _ccsgmDescription = a })
-{-# INLINE ccsgmDescription #-}
+ccsgDescription :: Lens' CreateCacheSecurityGroup Text
+ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
+{-# INLINE ccsgDescription #-}
 
 instance ToQuery CreateCacheSecurityGroup where
     toQuery = genericQuery def
 
 newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
-    { _csgxCacheSecurityGroup :: Maybe CacheSecurityGroup
-      -- ^ Represents the output of one of the following operations:
-      -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
-      -- RevokeCacheSecurityGroupIngress.
+    { _ccsgrsCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Show, Generic)
 
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
-csgxCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
-csgxCacheSecurityGroup = lens _csgxCacheSecurityGroup (\s a -> s { _csgxCacheSecurityGroup = a })
-{-# INLINE csgxCacheSecurityGroup #-}
+ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
+ccsgrsCacheSecurityGroup =
+    lens _ccsgrsCacheSecurityGroup
+         (\s a -> s { _ccsgrsCacheSecurityGroup = a })
+{-# INLINE ccsgrsCacheSecurityGroup #-}
 
 instance FromXML CreateCacheSecurityGroupResponse where
     fromXMLOptions = xmlOptions

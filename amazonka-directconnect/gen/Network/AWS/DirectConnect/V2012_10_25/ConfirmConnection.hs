@@ -26,14 +26,14 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
     -- * Request
       ConfirmConnection
     -- ** Request constructor
-    , mkConfirmConnectionRequest
+    , mkConfirmConnection
     -- ** Request lenses
-    , ccrConnectionId
+    , ccConnectionId
 
     -- * Response
     , ConfirmConnectionResponse
     -- ** Response lenses
-    , ccsConnectionState
+    , ccrsConnectionState
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -41,24 +41,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmConnection' request.
-mkConfirmConnectionRequest :: Text -- ^ 'ccrConnectionId'
-                           -> ConfirmConnection
-mkConfirmConnectionRequest p1 = ConfirmConnection
-    { _ccrConnectionId = p1
-    }
-{-# INLINE mkConfirmConnectionRequest #-}
-
+-- | Container for the parameters to the ConfirmConnection operation.
 newtype ConfirmConnection = ConfirmConnection
-    { _ccrConnectionId :: Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
+    { _ccConnectionId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmConnection' request.
+mkConfirmConnection :: Text -- ^ 'ccConnectionId'
+                    -> ConfirmConnection
+mkConfirmConnection p1 = ConfirmConnection
+    { _ccConnectionId = p1
+    }
+{-# INLINE mkConfirmConnection #-}
+
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-ccrConnectionId :: Lens' ConfirmConnection (Text)
-ccrConnectionId = lens _ccrConnectionId (\s a -> s { _ccrConnectionId = a })
-{-# INLINE ccrConnectionId #-}
+ccConnectionId :: Lens' ConfirmConnection Text
+ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
+{-# INLINE ccConnectionId #-}
 
 instance ToPath ConfirmConnection
 
@@ -68,20 +68,9 @@ instance ToHeaders ConfirmConnection
 
 instance ToJSON ConfirmConnection
 
+-- | The response received when ConfirmConnection is called.
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
-    { _ccsConnectionState :: Maybe ConnectionState
-      -- ^ State of the connection. Ordering: The initial state of a hosted
-      -- connection provisioned on an interconnect. The connection stays
-      -- in the ordering state until the owner of the hosted connection
-      -- confirms or declines the connection order. Requested: The initial
-      -- state of a standard connection. The connection stays in the
-      -- requested state until the Letter of Authorization (LOA) is sent
-      -- to the customer. Pending: The connection has been approved, and
-      -- is being initialized. Available: The network link is up, and the
-      -- connection is ready for use. Down: The network link is down.
-      -- Deleted: The connection has been deleted. Rejected: A hosted
-      -- connection in the 'Ordering' state will enter the 'Rejected'
-      -- state if it is deleted by the end customer.
+    { _ccrsConnectionState :: Maybe ConnectionState
     } deriving (Show, Generic)
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
@@ -95,9 +84,10 @@ newtype ConfirmConnectionResponse = ConfirmConnectionResponse
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-ccsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
-ccsConnectionState = lens _ccsConnectionState (\s a -> s { _ccsConnectionState = a })
-{-# INLINE ccsConnectionState #-}
+ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
+ccrsConnectionState =
+    lens _ccrsConnectionState (\s a -> s { _ccrsConnectionState = a })
+{-# INLINE ccrsConnectionState #-}
 
 instance FromJSON ConfirmConnectionResponse
 

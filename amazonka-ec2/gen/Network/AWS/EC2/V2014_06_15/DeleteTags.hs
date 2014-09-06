@@ -45,10 +45,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteTags
     -- * Request
       DeleteTags
     -- ** Request constructor
-    , mkDeleteTagsRequest
+    , mkDeleteTags
     -- ** Request lenses
-    , dtrResources
-    , dtrTags
+    , dtResources
+    , dtTags
 
     -- * Response
     , DeleteTagsResponse
@@ -58,40 +58,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DeleteTags = DeleteTags
+    { _dtResources :: [Text]
+    , _dtTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTags' request.
-mkDeleteTagsRequest :: [Text] -- ^ 'dtrResources'
-                    -> DeleteTags
-mkDeleteTagsRequest p1 = DeleteTags
-    { _dtrResources = p1
-    , _dtrTags = mempty
+mkDeleteTags :: [Text] -- ^ 'dtResources'
+             -> DeleteTags
+mkDeleteTags p1 = DeleteTags
+    { _dtResources = p1
+    , _dtTags = mempty
     }
-{-# INLINE mkDeleteTagsRequest #-}
-
-data DeleteTags = DeleteTags
-    { _dtrResources :: [Text]
-      -- ^ The ID of the resource. For example, ami-1a2b3c4d. You can
-      -- specify more than one resource ID.
-    , _dtrTags :: [Tag]
-      -- ^ One or more tags to delete. If you omit the value parameter, we
-      -- delete the tag regardless of its value. If you specify this
-      -- parameter with an empty string as the value, we delete the key
-      -- only if its value is an empty string.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteTags #-}
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
-dtrResources :: Lens' DeleteTags ([Text])
-dtrResources = lens _dtrResources (\s a -> s { _dtrResources = a })
-{-# INLINE dtrResources #-}
+dtResources :: Lens' DeleteTags [Text]
+dtResources = lens _dtResources (\s a -> s { _dtResources = a })
+{-# INLINE dtResources #-}
 
 -- | One or more tags to delete. If you omit the value parameter, we delete the
 -- tag regardless of its value. If you specify this parameter with an empty
 -- string as the value, we delete the key only if its value is an empty
 -- string.
-dtrTags :: Lens' DeleteTags ([Tag])
-dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
-{-# INLINE dtrTags #-}
+dtTags :: Lens' DeleteTags [Tag]
+dtTags = lens _dtTags (\s a -> s { _dtTags = a })
+{-# INLINE dtTags #-}
 
 instance ToQuery DeleteTags where
     toQuery = genericQuery def

@@ -44,9 +44,9 @@ module Network.AWS.EMR.V2009_03_31.TerminateJobFlows
     -- * Request
       TerminateJobFlows
     -- ** Request constructor
-    , mkTerminateJobFlowsInput
+    , mkTerminateJobFlows
     -- ** Request lenses
-    , tjfiJobFlowIds
+    , tjfJobFlowIds
 
     -- * Response
     , TerminateJobFlowsResponse
@@ -57,24 +57,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TerminateJobFlows' request.
-mkTerminateJobFlowsInput :: [Text] -- ^ 'tjfiJobFlowIds'
-                         -> TerminateJobFlows
-mkTerminateJobFlowsInput p1 = TerminateJobFlows
-    { _tjfiJobFlowIds = p1
-    }
-{-# INLINE mkTerminateJobFlowsInput #-}
-
+-- | Input to the TerminateJobFlows operation.
 newtype TerminateJobFlows = TerminateJobFlows
-    { _tjfiJobFlowIds :: [Text]
-      -- ^ A list of job flows to be shutdown.
+    { _tjfJobFlowIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateJobFlows' request.
+mkTerminateJobFlows :: [Text] -- ^ 'tjfJobFlowIds'
+                    -> TerminateJobFlows
+mkTerminateJobFlows p1 = TerminateJobFlows
+    { _tjfJobFlowIds = p1
+    }
+{-# INLINE mkTerminateJobFlows #-}
+
 -- | A list of job flows to be shutdown.
-tjfiJobFlowIds :: Lens' TerminateJobFlows ([Text])
-tjfiJobFlowIds = lens _tjfiJobFlowIds (\s a -> s { _tjfiJobFlowIds = a })
-{-# INLINE tjfiJobFlowIds #-}
+tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
+tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a })
+{-# INLINE tjfJobFlowIds #-}
 
 instance ToPath TerminateJobFlows
 

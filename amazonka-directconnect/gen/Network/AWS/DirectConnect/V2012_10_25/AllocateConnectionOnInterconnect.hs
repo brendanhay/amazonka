@@ -25,26 +25,26 @@ module Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
     -- * Request
       AllocateConnectionOnInterconnect
     -- ** Request constructor
-    , mkAllocateConnectionOnInterconnectRequest
+    , mkAllocateConnectionOnInterconnect
     -- ** Request lenses
-    , acoirBandwidth
-    , acoirConnectionName
-    , acoirOwnerAccount
-    , acoirInterconnectId
-    , acoirVlan
+    , acoiBandwidth
+    , acoiConnectionName
+    , acoiOwnerAccount
+    , acoiInterconnectId
+    , acoiVlan
 
     -- * Response
     , AllocateConnectionOnInterconnectResponse
     -- ** Response lenses
-    , cOwnerAccount
-    , cConnectionId
-    , cConnectionName
-    , cConnectionState
-    , cRegion
-    , cLocation
-    , cBandwidth
-    , cVlan
-    , cPartnerName
+    , acoirsOwnerAccount
+    , acoirsConnectionId
+    , acoirsConnectionName
+    , acoirsConnectionState
+    , acoirsRegion
+    , acoirsLocation
+    , acoirsBandwidth
+    , acoirsVlan
+    , acoirsPartnerName
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -52,68 +52,64 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AllocateConnectionOnInterconnect' request.
-mkAllocateConnectionOnInterconnectRequest :: Text -- ^ 'acoirBandwidth'
-                                          -> Text -- ^ 'acoirConnectionName'
-                                          -> Text -- ^ 'acoirOwnerAccount'
-                                          -> Text -- ^ 'acoirInterconnectId'
-                                          -> Integer -- ^ 'acoirVlan'
-                                          -> AllocateConnectionOnInterconnect
-mkAllocateConnectionOnInterconnectRequest p1 p2 p3 p4 p5 = AllocateConnectionOnInterconnect
-    { _acoirBandwidth = p1
-    , _acoirConnectionName = p2
-    , _acoirOwnerAccount = p3
-    , _acoirInterconnectId = p4
-    , _acoirVlan = p5
-    }
-{-# INLINE mkAllocateConnectionOnInterconnectRequest #-}
-
+-- | Container for the parameters to the AllocateConnectionOnInterconnect
+-- operation.
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
-    { _acoirBandwidth :: Text
-      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
-    , _acoirConnectionName :: Text
-      -- ^ Name of the provisioned connection. Example: "500M Connection to
-      -- AWS" Default: None.
-    , _acoirOwnerAccount :: Text
-      -- ^ Numeric account Id of the customer for whom the connection will
-      -- be provisioned. Example: 123443215678 Default: None.
-    , _acoirInterconnectId :: Text
-      -- ^ ID of the interconnect on which the connection will be
-      -- provisioned. Example: dxcon-456abc78 Default: None.
-    , _acoirVlan :: Integer
-      -- ^ The dedicated VLAN provisioned to the connection. Example: 101
-      -- Default: None.
+    { _acoiBandwidth :: Text
+    , _acoiConnectionName :: Text
+    , _acoiOwnerAccount :: Text
+    , _acoiInterconnectId :: Text
+    , _acoiVlan :: Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AllocateConnectionOnInterconnect' request.
+mkAllocateConnectionOnInterconnect :: Text -- ^ 'acoiBandwidth'
+                                   -> Text -- ^ 'acoiConnectionName'
+                                   -> Text -- ^ 'acoiOwnerAccount'
+                                   -> Text -- ^ 'acoiInterconnectId'
+                                   -> Integer -- ^ 'acoiVlan'
+                                   -> AllocateConnectionOnInterconnect
+mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconnect
+    { _acoiBandwidth = p1
+    , _acoiConnectionName = p2
+    , _acoiOwnerAccount = p3
+    , _acoiInterconnectId = p4
+    , _acoiVlan = p5
+    }
+{-# INLINE mkAllocateConnectionOnInterconnect #-}
+
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-acoirBandwidth :: Lens' AllocateConnectionOnInterconnect (Text)
-acoirBandwidth = lens _acoirBandwidth (\s a -> s { _acoirBandwidth = a })
-{-# INLINE acoirBandwidth #-}
+acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
+acoiBandwidth = lens _acoiBandwidth (\s a -> s { _acoiBandwidth = a })
+{-# INLINE acoiBandwidth #-}
 
 -- | Name of the provisioned connection. Example: "500M Connection to AWS"
 -- Default: None.
-acoirConnectionName :: Lens' AllocateConnectionOnInterconnect (Text)
-acoirConnectionName = lens _acoirConnectionName (\s a -> s { _acoirConnectionName = a })
-{-# INLINE acoirConnectionName #-}
+acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
+acoiConnectionName =
+    lens _acoiConnectionName (\s a -> s { _acoiConnectionName = a })
+{-# INLINE acoiConnectionName #-}
 
 -- | Numeric account Id of the customer for whom the connection will be
 -- provisioned. Example: 123443215678 Default: None.
-acoirOwnerAccount :: Lens' AllocateConnectionOnInterconnect (Text)
-acoirOwnerAccount = lens _acoirOwnerAccount (\s a -> s { _acoirOwnerAccount = a })
-{-# INLINE acoirOwnerAccount #-}
+acoiOwnerAccount :: Lens' AllocateConnectionOnInterconnect Text
+acoiOwnerAccount =
+    lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
+{-# INLINE acoiOwnerAccount #-}
 
 -- | ID of the interconnect on which the connection will be provisioned.
 -- Example: dxcon-456abc78 Default: None.
-acoirInterconnectId :: Lens' AllocateConnectionOnInterconnect (Text)
-acoirInterconnectId = lens _acoirInterconnectId (\s a -> s { _acoirInterconnectId = a })
-{-# INLINE acoirInterconnectId #-}
+acoiInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
+acoiInterconnectId =
+    lens _acoiInterconnectId (\s a -> s { _acoiInterconnectId = a })
+{-# INLINE acoiInterconnectId #-}
 
 -- | The dedicated VLAN provisioned to the connection. Example: 101 Default:
 -- None.
-acoirVlan :: Lens' AllocateConnectionOnInterconnect (Integer)
-acoirVlan = lens _acoirVlan (\s a -> s { _acoirVlan = a })
-{-# INLINE acoirVlan #-}
+acoiVlan :: Lens' AllocateConnectionOnInterconnect Integer
+acoiVlan = lens _acoiVlan (\s a -> s { _acoiVlan = a })
+{-# INLINE acoiVlan #-}
 
 instance ToPath AllocateConnectionOnInterconnect
 
@@ -123,51 +119,36 @@ instance ToHeaders AllocateConnectionOnInterconnect
 
 instance ToJSON AllocateConnectionOnInterconnect
 
+-- | A connection represents the physical network connection between the AWS
+-- Direct Connect location and the customer.
 data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
-    { _cOwnerAccount :: Maybe Text
-    , _cConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _cConnectionName :: Maybe Text
-      -- ^ The name of the connection. Example: "1G Connection to AWS"
-      -- Default: None.
-    , _cConnectionState :: Maybe ConnectionState
-      -- ^ State of the connection. Ordering: The initial state of a hosted
-      -- connection provisioned on an interconnect. The connection stays
-      -- in the ordering state until the owner of the hosted connection
-      -- confirms or declines the connection order. Requested: The initial
-      -- state of a standard connection. The connection stays in the
-      -- requested state until the Letter of Authorization (LOA) is sent
-      -- to the customer. Pending: The connection has been approved, and
-      -- is being initialized. Available: The network link is up, and the
-      -- connection is ready for use. Down: The network link is down.
-      -- Deleted: The connection has been deleted. Rejected: A hosted
-      -- connection in the 'Ordering' state will enter the 'Rejected'
-      -- state if it is deleted by the end customer.
-    , _cRegion :: Maybe Text
-      -- ^ The AWS region where the connection is located. Example:
-      -- us-east-1 Default: None.
-    , _cLocation :: Maybe Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _cBandwidth :: Maybe Text
-      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
-    , _cVlan :: Maybe Integer
-      -- ^ The VLAN ID. Example: 101.
-    , _cPartnerName :: Maybe Text
+    { _acoirsOwnerAccount :: Maybe Text
+    , _acoirsConnectionId :: Maybe Text
+    , _acoirsConnectionName :: Maybe Text
+    , _acoirsConnectionState :: Maybe ConnectionState
+    , _acoirsRegion :: Maybe Text
+    , _acoirsLocation :: Maybe Text
+    , _acoirsBandwidth :: Maybe Text
+    , _acoirsVlan :: Maybe Integer
+    , _acoirsPartnerName :: Maybe Text
     } deriving (Show, Generic)
 
-cOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-cOwnerAccount = lens _cOwnerAccount (\s a -> s { _cOwnerAccount = a })
-{-# INLINE cOwnerAccount #-}
+acoirsOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirsOwnerAccount =
+    lens _acoirsOwnerAccount (\s a -> s { _acoirsOwnerAccount = a })
+{-# INLINE acoirsOwnerAccount #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-cConnectionId :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-cConnectionId = lens _cConnectionId (\s a -> s { _cConnectionId = a })
-{-# INLINE cConnectionId #-}
+acoirsConnectionId :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirsConnectionId =
+    lens _acoirsConnectionId (\s a -> s { _acoirsConnectionId = a })
+{-# INLINE acoirsConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-cConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-cConnectionName = lens _cConnectionName (\s a -> s { _cConnectionName = a })
-{-# INLINE cConnectionName #-}
+acoirsConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirsConnectionName =
+    lens _acoirsConnectionName (\s a -> s { _acoirsConnectionName = a })
+{-# INLINE acoirsConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state
@@ -180,34 +161,36 @@ cConnectionName = lens _cConnectionName (\s a -> s { _cConnectionName = a })
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-cConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
-cConnectionState = lens _cConnectionState (\s a -> s { _cConnectionState = a })
-{-# INLINE cConnectionState #-}
+acoirsConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
+acoirsConnectionState =
+    lens _acoirsConnectionState (\s a -> s { _acoirsConnectionState = a })
+{-# INLINE acoirsConnectionState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-cRegion :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-cRegion = lens _cRegion (\s a -> s { _cRegion = a })
-{-# INLINE cRegion #-}
+acoirsRegion :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirsRegion = lens _acoirsRegion (\s a -> s { _acoirsRegion = a })
+{-# INLINE acoirsRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-cLocation :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-cLocation = lens _cLocation (\s a -> s { _cLocation = a })
-{-# INLINE cLocation #-}
+acoirsLocation :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirsLocation = lens _acoirsLocation (\s a -> s { _acoirsLocation = a })
+{-# INLINE acoirsLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-cBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-cBandwidth = lens _cBandwidth (\s a -> s { _cBandwidth = a })
-{-# INLINE cBandwidth #-}
+acoirsBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirsBandwidth = lens _acoirsBandwidth (\s a -> s { _acoirsBandwidth = a })
+{-# INLINE acoirsBandwidth #-}
 
 -- | The VLAN ID. Example: 101.
-cVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Integer)
-cVlan = lens _cVlan (\s a -> s { _cVlan = a })
-{-# INLINE cVlan #-}
+acoirsVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Integer)
+acoirsVlan = lens _acoirsVlan (\s a -> s { _acoirsVlan = a })
+{-# INLINE acoirsVlan #-}
 
-cPartnerName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-cPartnerName = lens _cPartnerName (\s a -> s { _cPartnerName = a })
-{-# INLINE cPartnerName #-}
+acoirsPartnerName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirsPartnerName =
+    lens _acoirsPartnerName (\s a -> s { _acoirsPartnerName = a })
+{-# INLINE acoirsPartnerName #-}
 
 instance FromJSON AllocateConnectionOnInterconnectResponse
 

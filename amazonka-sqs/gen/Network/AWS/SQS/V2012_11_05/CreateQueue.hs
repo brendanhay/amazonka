@@ -47,66 +47,41 @@ module Network.AWS.SQS.V2012_11_05.CreateQueue
     -- * Request
       CreateQueue
     -- ** Request constructor
-    , mkCreateQueueRequest
+    , mkCreateQueue
     -- ** Request lenses
-    , cqrQueueName
-    , cqrAttributes
+    , cqQueueName
+    , cqAttributes
 
     -- * Response
     , CreateQueueResponse
     -- ** Response lenses
-    , cqsQueueUrl
+    , cqrsQueueUrl
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateQueue' request.
-mkCreateQueueRequest :: Text -- ^ 'cqrQueueName'
-                     -> CreateQueue
-mkCreateQueueRequest p1 = CreateQueue
-    { _cqrQueueName = p1
-    , _cqrAttributes = mempty
-    }
-{-# INLINE mkCreateQueueRequest #-}
-
+-- | 
 data CreateQueue = CreateQueue
-    { _cqrQueueName :: Text
-      -- ^ The name for the queue to be created.
-    , _cqrAttributes :: Map QueueAttributeName Text
-      -- ^ A map of attributes with their corresponding values. The
-      -- following lists the names, descriptions, and values of the
-      -- special request parameters the CreateQueue action uses:
-      -- DelaySeconds - The time in seconds that the delivery of all
-      -- messages in the queue will be delayed. An integer from 0 to 900
-      -- (15 minutes). The default for this attribute is 0 (zero).
-      -- MaximumMessageSize - The limit of how many bytes a message can
-      -- contain before Amazon SQS rejects it. An integer from 1024 bytes
-      -- (1 KiB) up to 262144 bytes (256 KiB). The default for this
-      -- attribute is 262144 (256 KiB). MessageRetentionPeriod - The
-      -- number of seconds Amazon SQS retains a message. Integer
-      -- representing seconds, from 60 (1 minute) to 1209600 (14 days).
-      -- The default for this attribute is 345600 (4 days). Policy - The
-      -- queue's policy. A valid form-url-encoded policy. For more
-      -- information about policy structure, see Basic Policy Structure in
-      -- the Amazon SQS Developer Guide. For more information about
-      -- form-url-encoding, see
-      -- http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1.
-      -- ReceiveMessageWaitTimeSeconds - The time for which a
-      -- ReceiveMessage call will wait for a message to arrive. An integer
-      -- from 0 to 20 (seconds). The default for this attribute is 0.
-      -- VisibilityTimeout - The visibility timeout for the queue. An
-      -- integer from 0 to 43200 (12 hours). The default for this
-      -- attribute is 30. For more information about visibility timeout,
-      -- see Visibility Timeout in the Amazon SQS Developer Guide.
+    { _cqQueueName :: Text
+    , _cqAttributes :: Map QueueAttributeName Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateQueue' request.
+mkCreateQueue :: Text -- ^ 'cqQueueName'
+              -> CreateQueue
+mkCreateQueue p1 = CreateQueue
+    { _cqQueueName = p1
+    , _cqAttributes = mempty
+    }
+{-# INLINE mkCreateQueue #-}
+
 -- | The name for the queue to be created.
-cqrQueueName :: Lens' CreateQueue (Text)
-cqrQueueName = lens _cqrQueueName (\s a -> s { _cqrQueueName = a })
-{-# INLINE cqrQueueName #-}
+cqQueueName :: Lens' CreateQueue Text
+cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
+{-# INLINE cqQueueName #-}
 
 -- | A map of attributes with their corresponding values. The following lists
 -- the names, descriptions, and values of the special request parameters the
@@ -129,22 +104,22 @@ cqrQueueName = lens _cqrQueueName (\s a -> s { _cqrQueueName = a })
 -- for the queue. An integer from 0 to 43200 (12 hours). The default for this
 -- attribute is 30. For more information about visibility timeout, see
 -- Visibility Timeout in the Amazon SQS Developer Guide.
-cqrAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
-cqrAttributes = lens _cqrAttributes (\s a -> s { _cqrAttributes = a })
-{-# INLINE cqrAttributes #-}
+cqAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
+cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
+{-# INLINE cqAttributes #-}
 
 instance ToQuery CreateQueue where
     toQuery = genericQuery def
 
+-- | Returns the QueueUrl element of the created queue.
 newtype CreateQueueResponse = CreateQueueResponse
-    { _cqsQueueUrl :: Maybe Text
-      -- ^ The URL for the created Amazon SQS queue.
+    { _cqrsQueueUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The URL for the created Amazon SQS queue.
-cqsQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
-cqsQueueUrl = lens _cqsQueueUrl (\s a -> s { _cqsQueueUrl = a })
-{-# INLINE cqsQueueUrl #-}
+cqrsQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
+cqrsQueueUrl = lens _cqrsQueueUrl (\s a -> s { _cqrsQueueUrl = a })
+{-# INLINE cqrsQueueUrl #-}
 
 instance FromXML CreateQueueResponse where
     fromXMLOptions = xmlOptions

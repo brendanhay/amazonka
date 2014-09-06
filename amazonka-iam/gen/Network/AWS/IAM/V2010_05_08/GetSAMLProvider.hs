@@ -28,71 +28,73 @@ module Network.AWS.IAM.V2010_05_08.GetSAMLProvider
     -- * Request
       GetSAMLProvider
     -- ** Request constructor
-    , mkGetSAMLProviderRequest
+    , mkGetSAMLProvider
     -- ** Request lenses
-    , gsamlprSAMLProviderArn
+    , gsamlpSAMLProviderArn
 
     -- * Response
     , GetSAMLProviderResponse
     -- ** Response lenses
-    , gsamlpsSAMLMetadataDocument
-    , gsamlpsCreateDate
-    , gsamlpsValidUntil
+    , gsamlprsSAMLMetadataDocument
+    , gsamlprsCreateDate
+    , gsamlprsValidUntil
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype GetSAMLProvider = GetSAMLProvider
+    { _gsamlpSAMLProviderArn :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSAMLProvider' request.
-mkGetSAMLProviderRequest :: Text -- ^ 'gsamlprSAMLProviderArn'
-                         -> GetSAMLProvider
-mkGetSAMLProviderRequest p1 = GetSAMLProvider
-    { _gsamlprSAMLProviderArn = p1
+mkGetSAMLProvider :: Text -- ^ 'gsamlpSAMLProviderArn'
+                  -> GetSAMLProvider
+mkGetSAMLProvider p1 = GetSAMLProvider
+    { _gsamlpSAMLProviderArn = p1
     }
-{-# INLINE mkGetSAMLProviderRequest #-}
-
-newtype GetSAMLProvider = GetSAMLProvider
-    { _gsamlprSAMLProviderArn :: Text
-      -- ^ The Amazon Resource Name (ARN) of the SAML provider to get
-      -- information about.
-    } deriving (Show, Generic)
+{-# INLINE mkGetSAMLProvider #-}
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to get information
 -- about.
-gsamlprSAMLProviderArn :: Lens' GetSAMLProvider (Text)
-gsamlprSAMLProviderArn = lens _gsamlprSAMLProviderArn (\s a -> s { _gsamlprSAMLProviderArn = a })
-{-# INLINE gsamlprSAMLProviderArn #-}
+gsamlpSAMLProviderArn :: Lens' GetSAMLProvider Text
+gsamlpSAMLProviderArn =
+    lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
+{-# INLINE gsamlpSAMLProviderArn #-}
 
 instance ToQuery GetSAMLProvider where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetSAMLProvider
+-- action.
 data GetSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlpsSAMLMetadataDocument :: Maybe Text
-      -- ^ The XML metadata document that includes information about an
-      -- identity provider.
-    , _gsamlpsCreateDate :: Maybe ISO8601
-      -- ^ The date and time when the SAML provider was created.
-    , _gsamlpsValidUntil :: Maybe ISO8601
-      -- ^ The expiration date and time for the SAML provider.
+    { _gsamlprsSAMLMetadataDocument :: Maybe Text
+    , _gsamlprsCreateDate :: Maybe ISO8601
+    , _gsamlprsValidUntil :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
-gsamlpsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
-gsamlpsSAMLMetadataDocument = lens _gsamlpsSAMLMetadataDocument (\s a -> s { _gsamlpsSAMLMetadataDocument = a })
-{-# INLINE gsamlpsSAMLMetadataDocument #-}
+gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
+gsamlprsSAMLMetadataDocument =
+    lens _gsamlprsSAMLMetadataDocument
+         (\s a -> s { _gsamlprsSAMLMetadataDocument = a })
+{-# INLINE gsamlprsSAMLMetadataDocument #-}
 
 -- | The date and time when the SAML provider was created.
-gsamlpsCreateDate :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
-gsamlpsCreateDate = lens _gsamlpsCreateDate (\s a -> s { _gsamlpsCreateDate = a })
-{-# INLINE gsamlpsCreateDate #-}
+gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
+gsamlprsCreateDate =
+    lens _gsamlprsCreateDate (\s a -> s { _gsamlprsCreateDate = a })
+{-# INLINE gsamlprsCreateDate #-}
 
 -- | The expiration date and time for the SAML provider.
-gsamlpsValidUntil :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
-gsamlpsValidUntil = lens _gsamlpsValidUntil (\s a -> s { _gsamlpsValidUntil = a })
-{-# INLINE gsamlpsValidUntil #-}
+gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
+gsamlprsValidUntil =
+    lens _gsamlprsValidUntil (\s a -> s { _gsamlprsValidUntil = a })
+{-# INLINE gsamlprsValidUntil #-}
 
 instance FromXML GetSAMLProviderResponse where
     fromXMLOptions = xmlOptions

@@ -53,67 +53,63 @@ module Network.AWS.SNS.V2010_03_31.ListPlatformApplications
     -- * Request
       ListPlatformApplications
     -- ** Request constructor
-    , mkListPlatformApplicationsInput
+    , mkListPlatformApplications
     -- ** Request lenses
-    , lpaiNextToken
+    , lpaNextToken
 
     -- * Response
     , ListPlatformApplicationsResponse
     -- ** Response lenses
-    , lparPlatformApplications
-    , lparNextToken
+    , lparsPlatformApplications
+    , lparsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
+-- | Input for ListPlatformApplications action.
+newtype ListPlatformApplications = ListPlatformApplications
+    { _lpaNextToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPlatformApplications' request.
-mkListPlatformApplicationsInput :: ListPlatformApplications
-mkListPlatformApplicationsInput = ListPlatformApplications
-    { _lpaiNextToken = Nothing
+mkListPlatformApplications :: ListPlatformApplications
+mkListPlatformApplications = ListPlatformApplications
+    { _lpaNextToken = Nothing
     }
-{-# INLINE mkListPlatformApplicationsInput #-}
-
-newtype ListPlatformApplications = ListPlatformApplications
-    { _lpaiNextToken :: Maybe Text
-      -- ^ NextToken string is used when calling ListPlatformApplications
-      -- action to retrieve additional records that are available after
-      -- the first page results.
-    } deriving (Show, Generic)
+{-# INLINE mkListPlatformApplications #-}
 
 -- | NextToken string is used when calling ListPlatformApplications action to
 -- retrieve additional records that are available after the first page
 -- results.
-lpaiNextToken :: Lens' ListPlatformApplications (Maybe Text)
-lpaiNextToken = lens _lpaiNextToken (\s a -> s { _lpaiNextToken = a })
-{-# INLINE lpaiNextToken #-}
+lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
+lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
+{-# INLINE lpaNextToken #-}
 
 instance ToQuery ListPlatformApplications where
     toQuery = genericQuery def
 
+-- | Response for ListPlatformApplications action.
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
-    { _lparPlatformApplications :: [PlatformApplication]
-      -- ^ Platform applications returned when calling
-      -- ListPlatformApplications action.
-    , _lparNextToken :: Maybe Text
-      -- ^ NextToken string is returned when calling
-      -- ListPlatformApplications action if additional records are
-      -- available after the first page results.
+    { _lparsPlatformApplications :: [PlatformApplication]
+    , _lparsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
-lparPlatformApplications :: Lens' ListPlatformApplicationsResponse ([PlatformApplication])
-lparPlatformApplications = lens _lparPlatformApplications (\s a -> s { _lparPlatformApplications = a })
-{-# INLINE lparPlatformApplications #-}
+lparsPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
+lparsPlatformApplications =
+    lens _lparsPlatformApplications
+         (\s a -> s { _lparsPlatformApplications = a })
+{-# INLINE lparsPlatformApplications #-}
 
 -- | NextToken string is returned when calling ListPlatformApplications action
 -- if additional records are available after the first page results.
-lparNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
-lparNextToken = lens _lparNextToken (\s a -> s { _lparNextToken = a })
-{-# INLINE lparNextToken #-}
+lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
+lparsNextToken = lens _lparsNextToken (\s a -> s { _lparsNextToken = a })
+{-# INLINE lparsNextToken #-}
 
 instance FromXML ListPlatformApplicationsResponse where
     fromXMLOptions = xmlOptions
@@ -126,5 +122,5 @@ instance AWSRequest ListPlatformApplications where
     response _ = xmlResponse
 
 instance AWSPager ListPlatformApplications where
-    next rq rs = (\x -> rq { _lpaiNextToken = Just x })
-        <$> (_lparNextToken rs)
+    next rq rs = (\x -> rq { _lpaNextToken = Just x })
+        <$> (_lparsNextToken rs)

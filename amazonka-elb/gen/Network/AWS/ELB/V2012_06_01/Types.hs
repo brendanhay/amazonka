@@ -45,7 +45,7 @@ module Network.AWS.ELB.V2012_06_01.Types
     -- * Instance
     , Instance
     , mkInstance
-    , jInstanceId
+    , iInstanceId
 
     -- * TagKeyOnly
     , TagKeyOnly
@@ -63,14 +63,14 @@ module Network.AWS.ELB.V2012_06_01.Types
     -- * AppCookieStickinessPolicy
     , AppCookieStickinessPolicy
     , mkAppCookieStickinessPolicy
-    , acsqPolicyName
-    , acsqCookieName
+    , acspPolicyName
+    , acspCookieName
 
     -- * BackendServerDescription
     , BackendServerDescription
     , mkBackendServerDescription
-    , bseInstancePort
-    , bsePolicyNames
+    , bsdInstancePort
+    , bsdPolicyNames
 
     -- * ConnectionDraining
     , ConnectionDraining
@@ -89,31 +89,32 @@ module Network.AWS.ELB.V2012_06_01.Types
 
     -- * InstanceState
     , InstanceState
-    , iuInstanceId
-    , iuState
-    , iuReasonCode
-    , iuDescription
+    , mkInstanceState
+    , isInstanceId
+    , isState
+    , isReasonCode
+    , isDescription
 
     -- * LBCookieStickinessPolicy
     , LBCookieStickinessPolicy
     , mkLBCookieStickinessPolicy
-    , lbcsqPolicyName
-    , lbcsqCookieExpirationPeriod
+    , lbcspPolicyName
+    , lbcspCookieExpirationPeriod
 
     -- * Listener
     , Listener
     , mkListener
-    , mProtocol
-    , mLoadBalancerPort
-    , mInstanceProtocol
-    , mInstancePort
-    , mSSLCertificateId
+    , lProtocol
+    , lLoadBalancerPort
+    , lInstanceProtocol
+    , lInstancePort
+    , lSSLCertificateId
 
     -- * ListenerDescription
     , ListenerDescription
     , mkListenerDescription
-    , leListener
-    , lePolicyNames
+    , ldListener
+    , ldPolicyNames
 
     -- * LoadBalancerAttributes
     , LoadBalancerAttributes
@@ -125,62 +126,65 @@ module Network.AWS.ELB.V2012_06_01.Types
 
     -- * LoadBalancerDescription
     , LoadBalancerDescription
-    , lbeLoadBalancerName
-    , lbeDNSName
-    , lbeCanonicalHostedZoneName
-    , lbeCanonicalHostedZoneNameID
-    , lbeListenerDescriptions
-    , lbePolicies
-    , lbeBackendServerDescriptions
-    , lbeAvailabilityZones
-    , lbeSubnets
-    , lbeVPCId
-    , lbeInstances
-    , lbeHealthCheck
-    , lbeSourceSecurityGroup
-    , lbeSecurityGroups
-    , lbeCreatedTime
-    , lbeScheme
+    , mkLoadBalancerDescription
+    , lbdLoadBalancerName
+    , lbdDNSName
+    , lbdCanonicalHostedZoneName
+    , lbdCanonicalHostedZoneNameID
+    , lbdListenerDescriptions
+    , lbdPolicies
+    , lbdBackendServerDescriptions
+    , lbdAvailabilityZones
+    , lbdSubnets
+    , lbdVPCId
+    , lbdInstances
+    , lbdHealthCheck
+    , lbdSourceSecurityGroup
+    , lbdSecurityGroups
+    , lbdCreatedTime
+    , lbdScheme
 
     -- * Policies
     , Policies
     , mkPolicies
-    , pxAppCookieStickinessPolicies
-    , pxLBCookieStickinessPolicies
-    , pxOtherPolicies
+    , pAppCookieStickinessPolicies
+    , pLBCookieStickinessPolicies
+    , pOtherPolicies
 
     -- * PolicyAttribute
     , PolicyAttribute
     , mkPolicyAttribute
-    , pbAttributeName
-    , pbAttributeValue
+    , paAttributeName
+    , paAttributeValue
 
     -- * PolicyAttributeDescription
     , PolicyAttributeDescription
     , mkPolicyAttributeDescription
-    , paeAttributeName
-    , paeAttributeValue
+    , padAttributeName
+    , padAttributeValue
 
     -- * PolicyAttributeTypeDescription
     , PolicyAttributeTypeDescription
     , mkPolicyAttributeTypeDescription
-    , pateAttributeName
-    , pateAttributeType
-    , pateDescription
-    , pateDefaultValue
-    , pateCardinality
+    , patdAttributeName
+    , patdAttributeType
+    , patdDescription
+    , patdDefaultValue
+    , patdCardinality
 
     -- * PolicyDescription
     , PolicyDescription
-    , pePolicyName
-    , pePolicyTypeName
-    , pePolicyAttributeDescriptions
+    , mkPolicyDescription
+    , pdPolicyName
+    , pdPolicyTypeName
+    , pdPolicyAttributeDescriptions
 
     -- * PolicyTypeDescription
     , PolicyTypeDescription
-    , ptePolicyTypeName
-    , pteDescription
-    , ptePolicyAttributeTypeDescriptions
+    , mkPolicyTypeDescription
+    , ptdPolicyTypeName
+    , ptdDescription
+    , ptdPolicyAttributeTypeDescriptions
 
     -- * SourceSecurityGroup
     , SourceSecurityGroup
@@ -196,8 +200,9 @@ module Network.AWS.ELB.V2012_06_01.Types
 
     -- * TagDescription
     , TagDescription
-    , teLoadBalancerName
-    , teTags
+    , mkTagDescription
+    , tdLoadBalancerName
+    , tdTags
     ) where
 
 import Network.AWS.Prelude
@@ -266,17 +271,7 @@ xmlOptions = Tagged def
 -- duration. For more information, see Configure Idle Connection Timeout.
 newtype ConnectionSettings = ConnectionSettings
     { _csIdleTimeout :: Integer
-      -- ^ Specifies the time (in seconds) the connection is allowed to be
-      -- idle (no data has been sent over the connection) before it is
-      -- closed by the load balancer.
     } deriving (Show, Generic)
-
--- | Specifies the time (in seconds) the connection is allowed to be idle (no
--- data has been sent over the connection) before it is closed by the load
--- balancer.
-csIdleTimeout :: Lens' ConnectionSettings (Integer)
-csIdleTimeout = lens _csIdleTimeout (\s a -> s { _csIdleTimeout = a })
-{-# INLINE csIdleTimeout #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConnectionSettings' data type to populate a request.
@@ -286,6 +281,13 @@ mkConnectionSettings p1 = ConnectionSettings
     { _csIdleTimeout = p1
     }
 {-# INLINE mkConnectionSettings #-}
+
+-- | Specifies the time (in seconds) the connection is allowed to be idle (no
+-- data has been sent over the connection) before it is closed by the load
+-- balancer.
+csIdleTimeout :: Lens' ConnectionSettings Integer
+csIdleTimeout = lens _csIdleTimeout (\s a -> s { _csIdleTimeout = a })
+{-# INLINE csIdleTimeout #-}
 
 instance FromXML ConnectionSettings where
     fromXMLOptions = xmlOptions
@@ -300,15 +302,7 @@ instance ToQuery ConnectionSettings where
 -- Balancing.
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
     { _czlbEnabled :: Bool
-      -- ^ Specifies whether cross-zone load balancing is enabled for the
-      -- load balancer.
     } deriving (Show, Generic)
-
--- | Specifies whether cross-zone load balancing is enabled for the load
--- balancer.
-czlbEnabled :: Lens' CrossZoneLoadBalancing (Bool)
-czlbEnabled = lens _czlbEnabled (\s a -> s { _czlbEnabled = a })
-{-# INLINE czlbEnabled #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CrossZoneLoadBalancing' data type to populate a request.
@@ -319,6 +313,12 @@ mkCrossZoneLoadBalancing p1 = CrossZoneLoadBalancing
     }
 {-# INLINE mkCrossZoneLoadBalancing #-}
 
+-- | Specifies whether cross-zone load balancing is enabled for the load
+-- balancer.
+czlbEnabled :: Lens' CrossZoneLoadBalancing Bool
+czlbEnabled = lens _czlbEnabled (\s a -> s { _czlbEnabled = a })
+{-# INLINE czlbEnabled #-}
+
 instance FromXML CrossZoneLoadBalancing where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CrossZoneLoadBalancing"
@@ -328,22 +328,21 @@ instance ToQuery CrossZoneLoadBalancing where
 
 -- | The Instance data type.
 newtype Instance = Instance
-    { _jInstanceId :: Maybe Text
-      -- ^ Provides an EC2 instance ID.
+    { _iInstanceId :: Maybe Text
     } deriving (Show, Generic)
-
--- | Provides an EC2 instance ID.
-jInstanceId :: Lens' Instance (Maybe Text)
-jInstanceId = lens _jInstanceId (\s a -> s { _jInstanceId = a })
-{-# INLINE jInstanceId #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
 mkInstance :: Instance
 mkInstance = Instance
-    { _jInstanceId = Nothing
+    { _iInstanceId = Nothing
     }
 {-# INLINE mkInstance #-}
+
+-- | Provides an EC2 instance ID.
+iInstanceId :: Lens' Instance (Maybe Text)
+iInstanceId = lens _iInstanceId (\s a -> s { _iInstanceId = a })
+{-# INLINE iInstanceId #-}
 
 instance FromXML Instance where
     fromXMLOptions = xmlOptions
@@ -355,13 +354,7 @@ instance ToQuery Instance where
 -- | The key of a tag to be removed.
 newtype TagKeyOnly = TagKeyOnly
     { _tkoKey :: Maybe Text
-      -- ^ The name of the key.
     } deriving (Show, Generic)
-
--- | The name of the key.
-tkoKey :: Lens' TagKeyOnly (Maybe Text)
-tkoKey = lens _tkoKey (\s a -> s { _tkoKey = a })
-{-# INLINE tkoKey #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagKeyOnly' data type to populate a request.
@@ -370,6 +363,11 @@ mkTagKeyOnly = TagKeyOnly
     { _tkoKey = Nothing
     }
 {-# INLINE mkTagKeyOnly #-}
+
+-- | The name of the key.
+tkoKey :: Lens' TagKeyOnly (Maybe Text)
+tkoKey = lens _tkoKey (\s a -> s { _tkoKey = a })
+{-# INLINE tkoKey #-}
 
 instance ToQuery TagKeyOnly where
     toQuery = genericQuery def
@@ -380,21 +378,25 @@ instance ToQuery TagKeyOnly where
 -- see Enable Access Logs.
 data AccessLog = AccessLog
     { _alEnabled :: Bool
-      -- ^ Specifies whether access log is enabled for the load balancer.
     , _alS3BucketName :: Maybe Text
-      -- ^ The name of the Amazon S3 bucket where the access logs are
-      -- stored.
     , _alEmitInterval :: Maybe Integer
-      -- ^ The interval for publishing the access logs. You can specify an
-      -- interval of either 5 minutes or 60 minutes. Default: 60 minutes.
     , _alS3BucketPrefix :: Maybe Text
-      -- ^ The logical hierarchy you created for your Amazon S3 bucket, for
-      -- example my-bucket-prefix/prod. If the prefix is not provided, the
-      -- log is placed at the root level of the bucket.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AccessLog' data type to populate a request.
+mkAccessLog :: Bool -- ^ 'alEnabled'
+            -> AccessLog
+mkAccessLog p1 = AccessLog
+    { _alEnabled = p1
+    , _alS3BucketName = Nothing
+    , _alEmitInterval = Nothing
+    , _alS3BucketPrefix = Nothing
+    }
+{-# INLINE mkAccessLog #-}
+
 -- | Specifies whether access log is enabled for the load balancer.
-alEnabled :: Lens' AccessLog (Bool)
+alEnabled :: Lens' AccessLog Bool
 alEnabled = lens _alEnabled (\s a -> s { _alEnabled = a })
 {-# INLINE alEnabled #-}
 
@@ -413,20 +415,9 @@ alEmitInterval = lens _alEmitInterval (\s a -> s { _alEmitInterval = a })
 -- my-bucket-prefix/prod. If the prefix is not provided, the log is placed at
 -- the root level of the bucket.
 alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
-alS3BucketPrefix = lens _alS3BucketPrefix (\s a -> s { _alS3BucketPrefix = a })
+alS3BucketPrefix =
+    lens _alS3BucketPrefix (\s a -> s { _alS3BucketPrefix = a })
 {-# INLINE alS3BucketPrefix #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'AccessLog' data type to populate a request.
-mkAccessLog :: Bool -- ^ 'alEnabled'
-            -> AccessLog
-mkAccessLog p1 = AccessLog
-    { _alEnabled = p1
-    , _alS3BucketName = Nothing
-    , _alEmitInterval = Nothing
-    , _alS3BucketPrefix = Nothing
-    }
-{-# INLINE mkAccessLog #-}
 
 instance FromXML AccessLog where
     fromXMLOptions = xmlOptions
@@ -437,32 +428,29 @@ instance ToQuery AccessLog where
 
 -- | The AppCookieStickinessPolicy data type.
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy
-    { _acsqPolicyName :: Maybe Text
-      -- ^ The mnemonic name for the policy being created. The name must be
-      -- unique within a set of policies for this load balancer.
-    , _acsqCookieName :: Maybe Text
-      -- ^ The name of the application cookie used for stickiness.
+    { _acspPolicyName :: Maybe Text
+    , _acspCookieName :: Maybe Text
     } deriving (Show, Generic)
-
--- | The mnemonic name for the policy being created. The name must be unique
--- within a set of policies for this load balancer.
-acsqPolicyName :: Lens' AppCookieStickinessPolicy (Maybe Text)
-acsqPolicyName = lens _acsqPolicyName (\s a -> s { _acsqPolicyName = a })
-{-# INLINE acsqPolicyName #-}
-
--- | The name of the application cookie used for stickiness.
-acsqCookieName :: Lens' AppCookieStickinessPolicy (Maybe Text)
-acsqCookieName = lens _acsqCookieName (\s a -> s { _acsqCookieName = a })
-{-# INLINE acsqCookieName #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AppCookieStickinessPolicy' data type to populate a request.
 mkAppCookieStickinessPolicy :: AppCookieStickinessPolicy
 mkAppCookieStickinessPolicy = AppCookieStickinessPolicy
-    { _acsqPolicyName = Nothing
-    , _acsqCookieName = Nothing
+    { _acspPolicyName = Nothing
+    , _acspCookieName = Nothing
     }
 {-# INLINE mkAppCookieStickinessPolicy #-}
+
+-- | The mnemonic name for the policy being created. The name must be unique
+-- within a set of policies for this load balancer.
+acspPolicyName :: Lens' AppCookieStickinessPolicy (Maybe Text)
+acspPolicyName = lens _acspPolicyName (\s a -> s { _acspPolicyName = a })
+{-# INLINE acspPolicyName #-}
+
+-- | The name of the application cookie used for stickiness.
+acspCookieName :: Lens' AppCookieStickinessPolicy (Maybe Text)
+acspCookieName = lens _acspCookieName (\s a -> s { _acspCookieName = a })
+{-# INLINE acspCookieName #-}
 
 instance FromXML AppCookieStickinessPolicy where
     fromXMLOptions = xmlOptions
@@ -474,30 +462,28 @@ instance ToQuery AppCookieStickinessPolicy where
 -- | This data type is used as a response element in the DescribeLoadBalancers
 -- action to describe the configuration of the back-end server.
 data BackendServerDescription = BackendServerDescription
-    { _bseInstancePort :: Maybe Integer
-      -- ^ Provides the port on which the back-end server is listening.
-    , _bsePolicyNames :: [Text]
-      -- ^ Provides a list of policy names enabled for the back-end server.
+    { _bsdInstancePort :: Maybe Integer
+    , _bsdPolicyNames :: [Text]
     } deriving (Show, Generic)
-
--- | Provides the port on which the back-end server is listening.
-bseInstancePort :: Lens' BackendServerDescription (Maybe Integer)
-bseInstancePort = lens _bseInstancePort (\s a -> s { _bseInstancePort = a })
-{-# INLINE bseInstancePort #-}
-
--- | Provides a list of policy names enabled for the back-end server.
-bsePolicyNames :: Lens' BackendServerDescription ([Text])
-bsePolicyNames = lens _bsePolicyNames (\s a -> s { _bsePolicyNames = a })
-{-# INLINE bsePolicyNames #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BackendServerDescription' data type to populate a request.
 mkBackendServerDescription :: BackendServerDescription
 mkBackendServerDescription = BackendServerDescription
-    { _bseInstancePort = Nothing
-    , _bsePolicyNames = mempty
+    { _bsdInstancePort = Nothing
+    , _bsdPolicyNames = mempty
     }
 {-# INLINE mkBackendServerDescription #-}
+
+-- | Provides the port on which the back-end server is listening.
+bsdInstancePort :: Lens' BackendServerDescription (Maybe Integer)
+bsdInstancePort = lens _bsdInstancePort (\s a -> s { _bsdInstancePort = a })
+{-# INLINE bsdInstancePort #-}
+
+-- | Provides a list of policy names enabled for the back-end server.
+bsdPolicyNames :: Lens' BackendServerDescription [Text]
+bsdPolicyNames = lens _bsdPolicyNames (\s a -> s { _bsdPolicyNames = a })
+{-# INLINE bsdPolicyNames #-}
 
 instance FromXML BackendServerDescription where
     fromXMLOptions = xmlOptions
@@ -512,23 +498,8 @@ instance ToQuery BackendServerDescription where
 -- information, see Enable Connection Draining.
 data ConnectionDraining = ConnectionDraining
     { _cdEnabled :: Bool
-      -- ^ Specifies whether connection draining is enabled for the load
-      -- balancer.
     , _cdTimeout :: Maybe Integer
-      -- ^ Specifies the maximum time (in seconds) to keep the existing
-      -- connections open before deregistering the instances.
     } deriving (Show, Generic)
-
--- | Specifies whether connection draining is enabled for the load balancer.
-cdEnabled :: Lens' ConnectionDraining (Bool)
-cdEnabled = lens _cdEnabled (\s a -> s { _cdEnabled = a })
-{-# INLINE cdEnabled #-}
-
--- | Specifies the maximum time (in seconds) to keep the existing connections
--- open before deregistering the instances.
-cdTimeout :: Lens' ConnectionDraining (Maybe Integer)
-cdTimeout = lens _cdTimeout (\s a -> s { _cdTimeout = a })
-{-# INLINE cdTimeout #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConnectionDraining' data type to populate a request.
@@ -539,6 +510,17 @@ mkConnectionDraining p1 = ConnectionDraining
     , _cdTimeout = Nothing
     }
 {-# INLINE mkConnectionDraining #-}
+
+-- | Specifies whether connection draining is enabled for the load balancer.
+cdEnabled :: Lens' ConnectionDraining Bool
+cdEnabled = lens _cdEnabled (\s a -> s { _cdEnabled = a })
+{-# INLINE cdEnabled #-}
+
+-- | Specifies the maximum time (in seconds) to keep the existing connections
+-- open before deregistering the instances.
+cdTimeout :: Lens' ConnectionDraining (Maybe Integer)
+cdTimeout = lens _cdTimeout (\s a -> s { _cdTimeout = a })
+{-# INLINE cdTimeout #-}
 
 instance FromXML ConnectionDraining where
     fromXMLOptions = xmlOptions
@@ -551,76 +533,11 @@ instance ToQuery ConnectionDraining where
 -- healthcheck.
 data HealthCheck = HealthCheck
     { _hcTarget :: Text
-      -- ^ Specifies the instance being checked. The protocol is either TCP,
-      -- HTTP, HTTPS, or SSL. The range of valid ports is one (1) through
-      -- 65535. TCP is the default, specified as a TCP: port pair, for
-      -- example "TCP:5000". In this case a healthcheck simply attempts to
-      -- open a TCP connection to the instance on the specified port.
-      -- Failure to connect within the configured timeout is considered
-      -- unhealthy. SSL is also specified as SSL: port pair, for example,
-      -- SSL:5000. For HTTP or HTTPS protocol, the situation is different.
-      -- You have to include a ping path in the string. HTTP is specified
-      -- as a HTTP:port;/;PathToPing; grouping, for example
-      -- "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request
-      -- is issued to the instance on the given port and path. Any answer
-      -- other than "200 OK" within the timeout period is considered
-      -- unhealthy. The total length of the HTTP ping target needs to be
-      -- 1024 16-bit Unicode characters or less.
     , _hcInterval :: Integer
-      -- ^ Specifies the approximate interval, in seconds, between health
-      -- checks of an individual instance.
     , _hcTimeout :: Integer
-      -- ^ Specifies the amount of time, in seconds, during which no
-      -- response means a failed health probe. This value must be less
-      -- than the Interval value.
     , _hcUnhealthyThreshold :: Integer
-      -- ^ Specifies the number of consecutive health probe failures
-      -- required before moving the instance to the Unhealthy state.
     , _hcHealthyThreshold :: Integer
-      -- ^ Specifies the number of consecutive health probe successes
-      -- required before moving the instance to the Healthy state.
     } deriving (Show, Generic)
-
--- | Specifies the instance being checked. The protocol is either TCP, HTTP,
--- HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is
--- the default, specified as a TCP: port pair, for example "TCP:5000". In this
--- case a healthcheck simply attempts to open a TCP connection to the instance
--- on the specified port. Failure to connect within the configured timeout is
--- considered unhealthy. SSL is also specified as SSL: port pair, for example,
--- SSL:5000. For HTTP or HTTPS protocol, the situation is different. You have
--- to include a ping path in the string. HTTP is specified as a
--- HTTP:port;/;PathToPing; grouping, for example
--- "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued
--- to the instance on the given port and path. Any answer other than "200 OK"
--- within the timeout period is considered unhealthy. The total length of the
--- HTTP ping target needs to be 1024 16-bit Unicode characters or less.
-hcTarget :: Lens' HealthCheck (Text)
-hcTarget = lens _hcTarget (\s a -> s { _hcTarget = a })
-{-# INLINE hcTarget #-}
-
--- | Specifies the approximate interval, in seconds, between health checks of an
--- individual instance.
-hcInterval :: Lens' HealthCheck (Integer)
-hcInterval = lens _hcInterval (\s a -> s { _hcInterval = a })
-{-# INLINE hcInterval #-}
-
--- | Specifies the amount of time, in seconds, during which no response means a
--- failed health probe. This value must be less than the Interval value.
-hcTimeout :: Lens' HealthCheck (Integer)
-hcTimeout = lens _hcTimeout (\s a -> s { _hcTimeout = a })
-{-# INLINE hcTimeout #-}
-
--- | Specifies the number of consecutive health probe failures required before
--- moving the instance to the Unhealthy state.
-hcUnhealthyThreshold :: Lens' HealthCheck (Integer)
-hcUnhealthyThreshold = lens _hcUnhealthyThreshold (\s a -> s { _hcUnhealthyThreshold = a })
-{-# INLINE hcUnhealthyThreshold #-}
-
--- | Specifies the number of consecutive health probe successes required before
--- moving the instance to the Healthy state.
-hcHealthyThreshold :: Lens' HealthCheck (Integer)
-hcHealthyThreshold = lens _hcHealthyThreshold (\s a -> s { _hcHealthyThreshold = a })
-{-# INLINE hcHealthyThreshold #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheck' data type to populate a request.
@@ -639,6 +556,49 @@ mkHealthCheck p1 p2 p3 p4 p5 = HealthCheck
     }
 {-# INLINE mkHealthCheck #-}
 
+-- | Specifies the instance being checked. The protocol is either TCP, HTTP,
+-- HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is
+-- the default, specified as a TCP: port pair, for example "TCP:5000". In this
+-- case a healthcheck simply attempts to open a TCP connection to the instance
+-- on the specified port. Failure to connect within the configured timeout is
+-- considered unhealthy. SSL is also specified as SSL: port pair, for example,
+-- SSL:5000. For HTTP or HTTPS protocol, the situation is different. You have
+-- to include a ping path in the string. HTTP is specified as a
+-- HTTP:port;/;PathToPing; grouping, for example
+-- "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued
+-- to the instance on the given port and path. Any answer other than "200 OK"
+-- within the timeout period is considered unhealthy. The total length of the
+-- HTTP ping target needs to be 1024 16-bit Unicode characters or less.
+hcTarget :: Lens' HealthCheck Text
+hcTarget = lens _hcTarget (\s a -> s { _hcTarget = a })
+{-# INLINE hcTarget #-}
+
+-- | Specifies the approximate interval, in seconds, between health checks of an
+-- individual instance.
+hcInterval :: Lens' HealthCheck Integer
+hcInterval = lens _hcInterval (\s a -> s { _hcInterval = a })
+{-# INLINE hcInterval #-}
+
+-- | Specifies the amount of time, in seconds, during which no response means a
+-- failed health probe. This value must be less than the Interval value.
+hcTimeout :: Lens' HealthCheck Integer
+hcTimeout = lens _hcTimeout (\s a -> s { _hcTimeout = a })
+{-# INLINE hcTimeout #-}
+
+-- | Specifies the number of consecutive health probe failures required before
+-- moving the instance to the Unhealthy state.
+hcUnhealthyThreshold :: Lens' HealthCheck Integer
+hcUnhealthyThreshold =
+    lens _hcUnhealthyThreshold (\s a -> s { _hcUnhealthyThreshold = a })
+{-# INLINE hcUnhealthyThreshold #-}
+
+-- | Specifies the number of consecutive health probe successes required before
+-- moving the instance to the Healthy state.
+hcHealthyThreshold :: Lens' HealthCheck Integer
+hcHealthyThreshold =
+    lens _hcHealthyThreshold (\s a -> s { _hcHealthyThreshold = a })
+{-# INLINE hcHealthyThreshold #-}
+
 instance FromXML HealthCheck where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HealthCheck"
@@ -648,42 +608,45 @@ instance ToQuery HealthCheck where
 
 -- | The InstanceState data type.
 data InstanceState = InstanceState
-    { _iuInstanceId :: Maybe Text
-      -- ^ Provides an EC2 instance ID.
-    , _iuState :: Maybe Text
-      -- ^ Specifies the current state of the instance. Valid value:
-      -- InService|OutOfService|Unknown.
-    , _iuReasonCode :: Maybe Text
-      -- ^ Provides information about the cause of OutOfService instances.
-      -- Specifically, it indicates whether the cause is Elastic Load
-      -- Balancing or the instance behind the load balancer. Valid value:
-      -- ELB|Instance|N/A.
-    , _iuDescription :: Maybe Text
-      -- ^ Provides a description of the instance state.
+    { _isInstanceId :: Maybe Text
+    , _isState :: Maybe Text
+    , _isReasonCode :: Maybe Text
+    , _isDescription :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'InstanceState' data type to populate a request.
+mkInstanceState :: InstanceState
+mkInstanceState = InstanceState
+    { _isInstanceId = Nothing
+    , _isState = Nothing
+    , _isReasonCode = Nothing
+    , _isDescription = Nothing
+    }
+{-# INLINE mkInstanceState #-}
+
 -- | Provides an EC2 instance ID.
-iuInstanceId :: Lens' InstanceState (Maybe Text)
-iuInstanceId = lens _iuInstanceId (\s a -> s { _iuInstanceId = a })
-{-# INLINE iuInstanceId #-}
+isInstanceId :: Lens' InstanceState (Maybe Text)
+isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
+{-# INLINE isInstanceId #-}
 
 -- | Specifies the current state of the instance. Valid value:
 -- InService|OutOfService|Unknown.
-iuState :: Lens' InstanceState (Maybe Text)
-iuState = lens _iuState (\s a -> s { _iuState = a })
-{-# INLINE iuState #-}
+isState :: Lens' InstanceState (Maybe Text)
+isState = lens _isState (\s a -> s { _isState = a })
+{-# INLINE isState #-}
 
 -- | Provides information about the cause of OutOfService instances.
 -- Specifically, it indicates whether the cause is Elastic Load Balancing or
 -- the instance behind the load balancer. Valid value: ELB|Instance|N/A.
-iuReasonCode :: Lens' InstanceState (Maybe Text)
-iuReasonCode = lens _iuReasonCode (\s a -> s { _iuReasonCode = a })
-{-# INLINE iuReasonCode #-}
+isReasonCode :: Lens' InstanceState (Maybe Text)
+isReasonCode = lens _isReasonCode (\s a -> s { _isReasonCode = a })
+{-# INLINE isReasonCode #-}
 
 -- | Provides a description of the instance state.
-iuDescription :: Lens' InstanceState (Maybe Text)
-iuDescription = lens _iuDescription (\s a -> s { _iuDescription = a })
-{-# INLINE iuDescription #-}
+isDescription :: Lens' InstanceState (Maybe Text)
+isDescription = lens _isDescription (\s a -> s { _isDescription = a })
+{-# INLINE isDescription #-}
 
 instance FromXML InstanceState where
     fromXMLOptions = xmlOptions
@@ -691,37 +654,33 @@ instance FromXML InstanceState where
 
 -- | The LBCookieStickinessPolicy data type.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy
-    { _lbcsqPolicyName :: Maybe Text
-      -- ^ The name for the policy being created. The name must be unique
-      -- within the set of policies for this load balancer.
-    , _lbcsqCookieExpirationPeriod :: Maybe Integer
-      -- ^ The time period in seconds after which the cookie should be
-      -- considered stale. Not specifying this parameter indicates that
-      -- the stickiness session will last for the duration of the browser
-      -- session.
+    { _lbcspPolicyName :: Maybe Text
+    , _lbcspCookieExpirationPeriod :: Maybe Integer
     } deriving (Show, Generic)
-
--- | The name for the policy being created. The name must be unique within the
--- set of policies for this load balancer.
-lbcsqPolicyName :: Lens' LBCookieStickinessPolicy (Maybe Text)
-lbcsqPolicyName = lens _lbcsqPolicyName (\s a -> s { _lbcsqPolicyName = a })
-{-# INLINE lbcsqPolicyName #-}
-
--- | The time period in seconds after which the cookie should be considered
--- stale. Not specifying this parameter indicates that the stickiness session
--- will last for the duration of the browser session.
-lbcsqCookieExpirationPeriod :: Lens' LBCookieStickinessPolicy (Maybe Integer)
-lbcsqCookieExpirationPeriod = lens _lbcsqCookieExpirationPeriod (\s a -> s { _lbcsqCookieExpirationPeriod = a })
-{-# INLINE lbcsqCookieExpirationPeriod #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LBCookieStickinessPolicy' data type to populate a request.
 mkLBCookieStickinessPolicy :: LBCookieStickinessPolicy
 mkLBCookieStickinessPolicy = LBCookieStickinessPolicy
-    { _lbcsqPolicyName = Nothing
-    , _lbcsqCookieExpirationPeriod = Nothing
+    { _lbcspPolicyName = Nothing
+    , _lbcspCookieExpirationPeriod = Nothing
     }
 {-# INLINE mkLBCookieStickinessPolicy #-}
+
+-- | The name for the policy being created. The name must be unique within the
+-- set of policies for this load balancer.
+lbcspPolicyName :: Lens' LBCookieStickinessPolicy (Maybe Text)
+lbcspPolicyName = lens _lbcspPolicyName (\s a -> s { _lbcspPolicyName = a })
+{-# INLINE lbcspPolicyName #-}
+
+-- | The time period in seconds after which the cookie should be considered
+-- stale. Not specifying this parameter indicates that the stickiness session
+-- will last for the duration of the browser session.
+lbcspCookieExpirationPeriod :: Lens' LBCookieStickinessPolicy (Maybe Integer)
+lbcspCookieExpirationPeriod =
+    lens _lbcspCookieExpirationPeriod
+         (\s a -> s { _lbcspCookieExpirationPeriod = a })
+{-# INLINE lbcspCookieExpirationPeriod #-}
 
 instance FromXML LBCookieStickinessPolicy where
     fromXMLOptions = xmlOptions
@@ -732,48 +691,41 @@ instance ToQuery LBCookieStickinessPolicy where
 
 -- | The Listener data type.
 data Listener = Listener
-    { _mProtocol :: Text
-      -- ^ Specifies the load balancer transport protocol to use for routing
-      -- - HTTP, HTTPS, TCP or SSL. This property cannot be modified for
-      -- the life of the load balancer.
-    , _mLoadBalancerPort :: Integer
-      -- ^ Specifies the external load balancer port number. This property
-      -- cannot be modified for the life of the load balancer.
-    , _mInstanceProtocol :: Maybe Text
-      -- ^ Specifies the protocol to use for routing traffic to back-end
-      -- instances - HTTP, HTTPS, TCP, or SSL. This property cannot be
-      -- modified for the life of the load balancer. If the front-end
-      -- protocol is HTTP or HTTPS, InstanceProtocol has to be at the same
-      -- protocol layer, i.e., HTTP or HTTPS. Likewise, if the front-end
-      -- protocol is TCP or SSL, InstanceProtocol has to be TCP or SSL. If
-      -- there is another listener with the same InstancePort whose
-      -- InstanceProtocol is secure, i.e., HTTPS or SSL, the listener's
-      -- InstanceProtocol has to be secure, i.e., HTTPS or SSL. If there
-      -- is another listener with the same InstancePort whose
-      -- InstanceProtocol is HTTP or TCP, the listener's InstanceProtocol
-      -- must be either HTTP or TCP.
-    , _mInstancePort :: Integer
-      -- ^ Specifies the TCP port on which the instance server is listening.
-      -- This property cannot be modified for the life of the load
-      -- balancer.
-    , _mSSLCertificateId :: Maybe Text
-      -- ^ The ARN string of the server certificate. To get the ARN of the
-      -- server certificate, call the AWS Identity and Access Management
-      -- UploadServerCertificate API.
+    { _lProtocol :: Text
+    , _lLoadBalancerPort :: Integer
+    , _lInstanceProtocol :: Maybe Text
+    , _lInstancePort :: Integer
+    , _lSSLCertificateId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Listener' data type to populate a request.
+mkListener :: Text -- ^ 'lProtocol'
+           -> Integer -- ^ 'lLoadBalancerPort'
+           -> Integer -- ^ 'lInstancePort'
+           -> Listener
+mkListener p1 p2 p4 = Listener
+    { _lProtocol = p1
+    , _lLoadBalancerPort = p2
+    , _lInstanceProtocol = Nothing
+    , _lInstancePort = p4
+    , _lSSLCertificateId = Nothing
+    }
+{-# INLINE mkListener #-}
 
 -- | Specifies the load balancer transport protocol to use for routing - HTTP,
 -- HTTPS, TCP or SSL. This property cannot be modified for the life of the
 -- load balancer.
-mProtocol :: Lens' Listener (Text)
-mProtocol = lens _mProtocol (\s a -> s { _mProtocol = a })
-{-# INLINE mProtocol #-}
+lProtocol :: Lens' Listener Text
+lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
+{-# INLINE lProtocol #-}
 
 -- | Specifies the external load balancer port number. This property cannot be
 -- modified for the life of the load balancer.
-mLoadBalancerPort :: Lens' Listener (Integer)
-mLoadBalancerPort = lens _mLoadBalancerPort (\s a -> s { _mLoadBalancerPort = a })
-{-# INLINE mLoadBalancerPort #-}
+lLoadBalancerPort :: Lens' Listener Integer
+lLoadBalancerPort =
+    lens _lLoadBalancerPort (\s a -> s { _lLoadBalancerPort = a })
+{-# INLINE lLoadBalancerPort #-}
 
 -- | Specifies the protocol to use for routing traffic to back-end instances -
 -- HTTP, HTTPS, TCP, or SSL. This property cannot be modified for the life of
@@ -785,37 +737,24 @@ mLoadBalancerPort = lens _mLoadBalancerPort (\s a -> s { _mLoadBalancerPort = a 
 -- InstanceProtocol has to be secure, i.e., HTTPS or SSL. If there is another
 -- listener with the same InstancePort whose InstanceProtocol is HTTP or TCP,
 -- the listener's InstanceProtocol must be either HTTP or TCP.
-mInstanceProtocol :: Lens' Listener (Maybe Text)
-mInstanceProtocol = lens _mInstanceProtocol (\s a -> s { _mInstanceProtocol = a })
-{-# INLINE mInstanceProtocol #-}
+lInstanceProtocol :: Lens' Listener (Maybe Text)
+lInstanceProtocol =
+    lens _lInstanceProtocol (\s a -> s { _lInstanceProtocol = a })
+{-# INLINE lInstanceProtocol #-}
 
 -- | Specifies the TCP port on which the instance server is listening. This
 -- property cannot be modified for the life of the load balancer.
-mInstancePort :: Lens' Listener (Integer)
-mInstancePort = lens _mInstancePort (\s a -> s { _mInstancePort = a })
-{-# INLINE mInstancePort #-}
+lInstancePort :: Lens' Listener Integer
+lInstancePort = lens _lInstancePort (\s a -> s { _lInstancePort = a })
+{-# INLINE lInstancePort #-}
 
 -- | The ARN string of the server certificate. To get the ARN of the server
 -- certificate, call the AWS Identity and Access Management
 -- UploadServerCertificate API.
-mSSLCertificateId :: Lens' Listener (Maybe Text)
-mSSLCertificateId = lens _mSSLCertificateId (\s a -> s { _mSSLCertificateId = a })
-{-# INLINE mSSLCertificateId #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Listener' data type to populate a request.
-mkListener :: Text -- ^ 'mProtocol'
-           -> Integer -- ^ 'mLoadBalancerPort'
-           -> Integer -- ^ 'mInstancePort'
-           -> Listener
-mkListener p1 p2 p3 = Listener
-    { _mProtocol = p1
-    , _mLoadBalancerPort = p2
-    , _mInstanceProtocol = Nothing
-    , _mInstancePort = p4
-    , _mSSLCertificateId = Nothing
-    }
-{-# INLINE mkListener #-}
+lSSLCertificateId :: Lens' Listener (Maybe Text)
+lSSLCertificateId =
+    lens _lSSLCertificateId (\s a -> s { _lSSLCertificateId = a })
+{-# INLINE lSSLCertificateId #-}
 
 instance FromXML Listener where
     fromXMLOptions = xmlOptions
@@ -826,32 +765,29 @@ instance ToQuery Listener where
 
 -- | The ListenerDescription data type.
 data ListenerDescription = ListenerDescription
-    { _leListener :: Maybe Listener
-      -- ^ The Listener data type.
-    , _lePolicyNames :: [Text]
-      -- ^ A list of policies enabled for this listener. An empty list
-      -- indicates that no policies are enabled.
+    { _ldListener :: Maybe Listener
+    , _ldPolicyNames :: [Text]
     } deriving (Show, Generic)
-
--- | The Listener data type.
-leListener :: Lens' ListenerDescription (Maybe Listener)
-leListener = lens _leListener (\s a -> s { _leListener = a })
-{-# INLINE leListener #-}
-
--- | A list of policies enabled for this listener. An empty list indicates that
--- no policies are enabled.
-lePolicyNames :: Lens' ListenerDescription ([Text])
-lePolicyNames = lens _lePolicyNames (\s a -> s { _lePolicyNames = a })
-{-# INLINE lePolicyNames #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ListenerDescription' data type to populate a request.
 mkListenerDescription :: ListenerDescription
 mkListenerDescription = ListenerDescription
-    { _leListener = Nothing
-    , _lePolicyNames = mempty
+    { _ldListener = Nothing
+    , _ldPolicyNames = mempty
     }
 {-# INLINE mkListenerDescription #-}
+
+-- | The Listener data type.
+ldListener :: Lens' ListenerDescription (Maybe Listener)
+ldListener = lens _ldListener (\s a -> s { _ldListener = a })
+{-# INLINE ldListener #-}
+
+-- | A list of policies enabled for this listener. An empty list indicates that
+-- no policies are enabled.
+ldPolicyNames :: Lens' ListenerDescription [Text]
+ldPolicyNames = lens _ldPolicyNames (\s a -> s { _ldPolicyNames = a })
+{-# INLINE ldPolicyNames #-}
 
 instance FromXML ListenerDescription where
     fromXMLOptions = xmlOptions
@@ -863,37 +799,30 @@ instance ToQuery ListenerDescription where
 -- | The load balancer attributes structure.
 data LoadBalancerAttributes = LoadBalancerAttributes
     { _lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing
-      -- ^ The name of the load balancer attribute. If enabled, the load
-      -- balancer routes the request traffic evenly across all back-end
-      -- instances regardless of the Availability Zones. For more
-      -- information, see Enable Cross-Zone Load Balancing.
     , _lbaAccessLog :: Maybe AccessLog
-      -- ^ The name of the load balancer attribute. If enabled, the load
-      -- balancer captures detailed information of all the requests and
-      -- delivers the information to the Amazon S3 bucket that you
-      -- specify. For more information, see Enable Access Logs.
     , _lbaConnectionDraining :: Maybe ConnectionDraining
-      -- ^ The name of the load balancer attribute. If enabled, the load
-      -- balancer allows existing requests to complete before the load
-      -- balancer shifts traffic away from a deregistered or unhealthy
-      -- back-end instance. For more information, see Enable Connection
-      -- Draining.
     , _lbaConnectionSettings :: Maybe ConnectionSettings
-      -- ^ The name of the load balancer attribute. By default, Elastic Load
-      -- Balancing maintains a 60-second idle connection timeout for both
-      -- front-end and back-end connections of your load balancer. If the
-      -- ConnectionSettings attribute is set, Elastic Load Balancing will
-      -- allow the connections to remain idle (no data is sent over the
-      -- connection) for the specified duration. For more information, see
-      -- Configure Idle Connection Timeout.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LoadBalancerAttributes' data type to populate a request.
+mkLoadBalancerAttributes :: LoadBalancerAttributes
+mkLoadBalancerAttributes = LoadBalancerAttributes
+    { _lbaCrossZoneLoadBalancing = Nothing
+    , _lbaAccessLog = Nothing
+    , _lbaConnectionDraining = Nothing
+    , _lbaConnectionSettings = Nothing
+    }
+{-# INLINE mkLoadBalancerAttributes #-}
 
 -- | The name of the load balancer attribute. If enabled, the load balancer
 -- routes the request traffic evenly across all back-end instances regardless
 -- of the Availability Zones. For more information, see Enable Cross-Zone Load
 -- Balancing.
 lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
-lbaCrossZoneLoadBalancing = lens _lbaCrossZoneLoadBalancing (\s a -> s { _lbaCrossZoneLoadBalancing = a })
+lbaCrossZoneLoadBalancing =
+    lens _lbaCrossZoneLoadBalancing
+         (\s a -> s { _lbaCrossZoneLoadBalancing = a })
 {-# INLINE lbaCrossZoneLoadBalancing #-}
 
 -- | The name of the load balancer attribute. If enabled, the load balancer
@@ -909,7 +838,8 @@ lbaAccessLog = lens _lbaAccessLog (\s a -> s { _lbaAccessLog = a })
 -- traffic away from a deregistered or unhealthy back-end instance. For more
 -- information, see Enable Connection Draining.
 lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
-lbaConnectionDraining = lens _lbaConnectionDraining (\s a -> s { _lbaConnectionDraining = a })
+lbaConnectionDraining =
+    lens _lbaConnectionDraining (\s a -> s { _lbaConnectionDraining = a })
 {-# INLINE lbaConnectionDraining #-}
 
 -- | The name of the load balancer attribute. By default, Elastic Load Balancing
@@ -919,19 +849,9 @@ lbaConnectionDraining = lens _lbaConnectionDraining (\s a -> s { _lbaConnectionD
 -- remain idle (no data is sent over the connection) for the specified
 -- duration. For more information, see Configure Idle Connection Timeout.
 lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
-lbaConnectionSettings = lens _lbaConnectionSettings (\s a -> s { _lbaConnectionSettings = a })
+lbaConnectionSettings =
+    lens _lbaConnectionSettings (\s a -> s { _lbaConnectionSettings = a })
 {-# INLINE lbaConnectionSettings #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LoadBalancerAttributes' data type to populate a request.
-mkLoadBalancerAttributes :: LoadBalancerAttributes
-mkLoadBalancerAttributes = LoadBalancerAttributes
-    { _lbaCrossZoneLoadBalancing = Nothing
-    , _lbaAccessLog = Nothing
-    , _lbaConnectionDraining = Nothing
-    , _lbaConnectionSettings = Nothing
-    }
-{-# INLINE mkLoadBalancerAttributes #-}
 
 instance FromXML LoadBalancerAttributes where
     fromXMLOptions = xmlOptions
@@ -942,155 +862,153 @@ instance ToQuery LoadBalancerAttributes where
 
 -- | Contains the result of a successful invocation of DescribeLoadBalancers.
 data LoadBalancerDescription = LoadBalancerDescription
-    { _lbeLoadBalancerName :: Maybe Text
-      -- ^ Specifies the name associated with the load balancer.
-    , _lbeDNSName :: Maybe Text
-      -- ^ Specifies the external DNS name associated with the load
-      -- balancer.
-    , _lbeCanonicalHostedZoneName :: Maybe Text
-      -- ^ Provides the name of the Amazon Route 53 hosted zone that is
-      -- associated with the load balancer. For information on how to
-      -- associate your load balancer with a hosted zone, go to Using
-      -- Domain Names With Elastic Load Balancing in the Elastic Load
-      -- Balancing Developer Guide.
-    , _lbeCanonicalHostedZoneNameID :: Maybe Text
-      -- ^ Provides the ID of the Amazon Route 53 hosted zone name that is
-      -- associated with the load balancer. For information on how to
-      -- associate or disassociate your load balancer with a hosted zone,
-      -- go to Using Domain Names With Elastic Load Balancing in the
-      -- Elastic Load Balancing Developer Guide.
-    , _lbeListenerDescriptions :: [ListenerDescription]
-      -- ^ LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
-      -- PolicyNames are returned in a list of tuples in the
-      -- ListenerDescriptions element.
-    , _lbePolicies :: Maybe Policies
-      -- ^ Provides a list of policies defined for the load balancer.
-    , _lbeBackendServerDescriptions :: [BackendServerDescription]
-      -- ^ Contains a list of back-end server descriptions.
-    , _lbeAvailabilityZones :: [Text]
-      -- ^ Specifies a list of Availability Zones.
-    , _lbeSubnets :: [Text]
-      -- ^ Provides a list of VPC subnet IDs for the load balancer.
-    , _lbeVPCId :: Maybe Text
-      -- ^ Provides the ID of the VPC attached to the load balancer.
-    , _lbeInstances :: [Instance]
-      -- ^ Provides a list of EC2 instance IDs for the load balancer.
-    , _lbeHealthCheck :: Maybe HealthCheck
-      -- ^ Specifies information regarding the various health probes
-      -- conducted on the load balancer.
-    , _lbeSourceSecurityGroup :: Maybe SourceSecurityGroup
-      -- ^ The security group that you can use as part of your inbound rules
-      -- for your load balancer's back-end Amazon EC2 application
-      -- instances. To only allow traffic from load balancers, add a
-      -- security group rule to your back end instance that specifies this
-      -- source security group as the inbound source.
-    , _lbeSecurityGroups :: [Text]
-      -- ^ The security groups the load balancer is a member of (VPC only).
-    , _lbeCreatedTime :: Maybe ISO8601
-      -- ^ Provides the date and time the load balancer was created.
-    , _lbeScheme :: Maybe Text
-      -- ^ Specifies the type of load balancer. If the Scheme is
-      -- internet-facing, the load balancer has a publicly resolvable DNS
-      -- name that resolves to public IP addresses. If the Scheme is
-      -- internal, the load balancer has a publicly resolvable DNS name
-      -- that resolves to private IP addresses. This option is only
-      -- available for load balancers attached to an Amazon VPC.
+    { _lbdLoadBalancerName :: Maybe Text
+    , _lbdDNSName :: Maybe Text
+    , _lbdCanonicalHostedZoneName :: Maybe Text
+    , _lbdCanonicalHostedZoneNameID :: Maybe Text
+    , _lbdListenerDescriptions :: [ListenerDescription]
+    , _lbdPolicies :: Maybe Policies
+    , _lbdBackendServerDescriptions :: [BackendServerDescription]
+    , _lbdAvailabilityZones :: [Text]
+    , _lbdSubnets :: [Text]
+    , _lbdVPCId :: Maybe Text
+    , _lbdInstances :: [Instance]
+    , _lbdHealthCheck :: Maybe HealthCheck
+    , _lbdSourceSecurityGroup :: Maybe SourceSecurityGroup
+    , _lbdSecurityGroups :: [Text]
+    , _lbdCreatedTime :: Maybe ISO8601
+    , _lbdScheme :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LoadBalancerDescription' data type to populate a request.
+mkLoadBalancerDescription :: LoadBalancerDescription
+mkLoadBalancerDescription = LoadBalancerDescription
+    { _lbdLoadBalancerName = Nothing
+    , _lbdDNSName = Nothing
+    , _lbdCanonicalHostedZoneName = Nothing
+    , _lbdCanonicalHostedZoneNameID = Nothing
+    , _lbdListenerDescriptions = mempty
+    , _lbdPolicies = Nothing
+    , _lbdBackendServerDescriptions = mempty
+    , _lbdAvailabilityZones = mempty
+    , _lbdSubnets = mempty
+    , _lbdVPCId = Nothing
+    , _lbdInstances = mempty
+    , _lbdHealthCheck = Nothing
+    , _lbdSourceSecurityGroup = Nothing
+    , _lbdSecurityGroups = mempty
+    , _lbdCreatedTime = Nothing
+    , _lbdScheme = Nothing
+    }
+{-# INLINE mkLoadBalancerDescription #-}
+
 -- | Specifies the name associated with the load balancer.
-lbeLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
-lbeLoadBalancerName = lens _lbeLoadBalancerName (\s a -> s { _lbeLoadBalancerName = a })
-{-# INLINE lbeLoadBalancerName #-}
+lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
+lbdLoadBalancerName =
+    lens _lbdLoadBalancerName (\s a -> s { _lbdLoadBalancerName = a })
+{-# INLINE lbdLoadBalancerName #-}
 
 -- | Specifies the external DNS name associated with the load balancer.
-lbeDNSName :: Lens' LoadBalancerDescription (Maybe Text)
-lbeDNSName = lens _lbeDNSName (\s a -> s { _lbeDNSName = a })
-{-# INLINE lbeDNSName #-}
+lbdDNSName :: Lens' LoadBalancerDescription (Maybe Text)
+lbdDNSName = lens _lbdDNSName (\s a -> s { _lbdDNSName = a })
+{-# INLINE lbdDNSName #-}
 
 -- | Provides the name of the Amazon Route 53 hosted zone that is associated
 -- with the load balancer. For information on how to associate your load
 -- balancer with a hosted zone, go to Using Domain Names With Elastic Load
 -- Balancing in the Elastic Load Balancing Developer Guide.
-lbeCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
-lbeCanonicalHostedZoneName = lens _lbeCanonicalHostedZoneName (\s a -> s { _lbeCanonicalHostedZoneName = a })
-{-# INLINE lbeCanonicalHostedZoneName #-}
+lbdCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
+lbdCanonicalHostedZoneName =
+    lens _lbdCanonicalHostedZoneName
+         (\s a -> s { _lbdCanonicalHostedZoneName = a })
+{-# INLINE lbdCanonicalHostedZoneName #-}
 
 -- | Provides the ID of the Amazon Route 53 hosted zone name that is associated
 -- with the load balancer. For information on how to associate or disassociate
 -- your load balancer with a hosted zone, go to Using Domain Names With
 -- Elastic Load Balancing in the Elastic Load Balancing Developer Guide.
-lbeCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
-lbeCanonicalHostedZoneNameID = lens _lbeCanonicalHostedZoneNameID (\s a -> s { _lbeCanonicalHostedZoneNameID = a })
-{-# INLINE lbeCanonicalHostedZoneNameID #-}
+lbdCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
+lbdCanonicalHostedZoneNameID =
+    lens _lbdCanonicalHostedZoneNameID
+         (\s a -> s { _lbdCanonicalHostedZoneNameID = a })
+{-# INLINE lbdCanonicalHostedZoneNameID #-}
 
 -- | LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and PolicyNames
 -- are returned in a list of tuples in the ListenerDescriptions element.
-lbeListenerDescriptions :: Lens' LoadBalancerDescription ([ListenerDescription])
-lbeListenerDescriptions = lens _lbeListenerDescriptions (\s a -> s { _lbeListenerDescriptions = a })
-{-# INLINE lbeListenerDescriptions #-}
+lbdListenerDescriptions :: Lens' LoadBalancerDescription [ListenerDescription]
+lbdListenerDescriptions =
+    lens _lbdListenerDescriptions
+         (\s a -> s { _lbdListenerDescriptions = a })
+{-# INLINE lbdListenerDescriptions #-}
 
 -- | Provides a list of policies defined for the load balancer.
-lbePolicies :: Lens' LoadBalancerDescription (Maybe Policies)
-lbePolicies = lens _lbePolicies (\s a -> s { _lbePolicies = a })
-{-# INLINE lbePolicies #-}
+lbdPolicies :: Lens' LoadBalancerDescription (Maybe Policies)
+lbdPolicies = lens _lbdPolicies (\s a -> s { _lbdPolicies = a })
+{-# INLINE lbdPolicies #-}
 
 -- | Contains a list of back-end server descriptions.
-lbeBackendServerDescriptions :: Lens' LoadBalancerDescription ([BackendServerDescription])
-lbeBackendServerDescriptions = lens _lbeBackendServerDescriptions (\s a -> s { _lbeBackendServerDescriptions = a })
-{-# INLINE lbeBackendServerDescriptions #-}
+lbdBackendServerDescriptions :: Lens' LoadBalancerDescription [BackendServerDescription]
+lbdBackendServerDescriptions =
+    lens _lbdBackendServerDescriptions
+         (\s a -> s { _lbdBackendServerDescriptions = a })
+{-# INLINE lbdBackendServerDescriptions #-}
 
 -- | Specifies a list of Availability Zones.
-lbeAvailabilityZones :: Lens' LoadBalancerDescription ([Text])
-lbeAvailabilityZones = lens _lbeAvailabilityZones (\s a -> s { _lbeAvailabilityZones = a })
-{-# INLINE lbeAvailabilityZones #-}
+lbdAvailabilityZones :: Lens' LoadBalancerDescription [Text]
+lbdAvailabilityZones =
+    lens _lbdAvailabilityZones (\s a -> s { _lbdAvailabilityZones = a })
+{-# INLINE lbdAvailabilityZones #-}
 
 -- | Provides a list of VPC subnet IDs for the load balancer.
-lbeSubnets :: Lens' LoadBalancerDescription ([Text])
-lbeSubnets = lens _lbeSubnets (\s a -> s { _lbeSubnets = a })
-{-# INLINE lbeSubnets #-}
+lbdSubnets :: Lens' LoadBalancerDescription [Text]
+lbdSubnets = lens _lbdSubnets (\s a -> s { _lbdSubnets = a })
+{-# INLINE lbdSubnets #-}
 
 -- | Provides the ID of the VPC attached to the load balancer.
-lbeVPCId :: Lens' LoadBalancerDescription (Maybe Text)
-lbeVPCId = lens _lbeVPCId (\s a -> s { _lbeVPCId = a })
-{-# INLINE lbeVPCId #-}
+lbdVPCId :: Lens' LoadBalancerDescription (Maybe Text)
+lbdVPCId = lens _lbdVPCId (\s a -> s { _lbdVPCId = a })
+{-# INLINE lbdVPCId #-}
 
 -- | Provides a list of EC2 instance IDs for the load balancer.
-lbeInstances :: Lens' LoadBalancerDescription ([Instance])
-lbeInstances = lens _lbeInstances (\s a -> s { _lbeInstances = a })
-{-# INLINE lbeInstances #-}
+lbdInstances :: Lens' LoadBalancerDescription [Instance]
+lbdInstances = lens _lbdInstances (\s a -> s { _lbdInstances = a })
+{-# INLINE lbdInstances #-}
 
 -- | Specifies information regarding the various health probes conducted on the
 -- load balancer.
-lbeHealthCheck :: Lens' LoadBalancerDescription (Maybe HealthCheck)
-lbeHealthCheck = lens _lbeHealthCheck (\s a -> s { _lbeHealthCheck = a })
-{-# INLINE lbeHealthCheck #-}
+lbdHealthCheck :: Lens' LoadBalancerDescription (Maybe HealthCheck)
+lbdHealthCheck = lens _lbdHealthCheck (\s a -> s { _lbdHealthCheck = a })
+{-# INLINE lbdHealthCheck #-}
 
 -- | The security group that you can use as part of your inbound rules for your
 -- load balancer's back-end Amazon EC2 application instances. To only allow
 -- traffic from load balancers, add a security group rule to your back end
 -- instance that specifies this source security group as the inbound source.
-lbeSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
-lbeSourceSecurityGroup = lens _lbeSourceSecurityGroup (\s a -> s { _lbeSourceSecurityGroup = a })
-{-# INLINE lbeSourceSecurityGroup #-}
+lbdSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
+lbdSourceSecurityGroup =
+    lens _lbdSourceSecurityGroup (\s a -> s { _lbdSourceSecurityGroup = a })
+{-# INLINE lbdSourceSecurityGroup #-}
 
 -- | The security groups the load balancer is a member of (VPC only).
-lbeSecurityGroups :: Lens' LoadBalancerDescription ([Text])
-lbeSecurityGroups = lens _lbeSecurityGroups (\s a -> s { _lbeSecurityGroups = a })
-{-# INLINE lbeSecurityGroups #-}
+lbdSecurityGroups :: Lens' LoadBalancerDescription [Text]
+lbdSecurityGroups =
+    lens _lbdSecurityGroups (\s a -> s { _lbdSecurityGroups = a })
+{-# INLINE lbdSecurityGroups #-}
 
 -- | Provides the date and time the load balancer was created.
-lbeCreatedTime :: Lens' LoadBalancerDescription (Maybe ISO8601)
-lbeCreatedTime = lens _lbeCreatedTime (\s a -> s { _lbeCreatedTime = a })
-{-# INLINE lbeCreatedTime #-}
+lbdCreatedTime :: Lens' LoadBalancerDescription (Maybe ISO8601)
+lbdCreatedTime = lens _lbdCreatedTime (\s a -> s { _lbdCreatedTime = a })
+{-# INLINE lbdCreatedTime #-}
 
 -- | Specifies the type of load balancer. If the Scheme is internet-facing, the
 -- load balancer has a publicly resolvable DNS name that resolves to public IP
 -- addresses. If the Scheme is internal, the load balancer has a publicly
 -- resolvable DNS name that resolves to private IP addresses. This option is
 -- only available for load balancers attached to an Amazon VPC.
-lbeScheme :: Lens' LoadBalancerDescription (Maybe Text)
-lbeScheme = lens _lbeScheme (\s a -> s { _lbeScheme = a })
-{-# INLINE lbeScheme #-}
+lbdScheme :: Lens' LoadBalancerDescription (Maybe Text)
+lbdScheme = lens _lbdScheme (\s a -> s { _lbdScheme = a })
+{-# INLINE lbdScheme #-}
 
 instance FromXML LoadBalancerDescription where
     fromXMLOptions = xmlOptions
@@ -1098,42 +1016,41 @@ instance FromXML LoadBalancerDescription where
 
 -- | Provides a list of policies defined for the load balancer.
 data Policies = Policies
-    { _pxAppCookieStickinessPolicies :: [AppCookieStickinessPolicy]
-      -- ^ A list of the AppCookieStickinessPolicy objects created with
-      -- CreateAppCookieStickinessPolicy.
-    , _pxLBCookieStickinessPolicies :: [LBCookieStickinessPolicy]
-      -- ^ A list of LBCookieStickinessPolicy objects created with
-      -- CreateAppCookieStickinessPolicy.
-    , _pxOtherPolicies :: [Text]
-      -- ^ A list of policy names other than the stickiness policies.
+    { _pAppCookieStickinessPolicies :: [AppCookieStickinessPolicy]
+    , _pLBCookieStickinessPolicies :: [LBCookieStickinessPolicy]
+    , _pOtherPolicies :: [Text]
     } deriving (Show, Generic)
-
--- | A list of the AppCookieStickinessPolicy objects created with
--- CreateAppCookieStickinessPolicy.
-pxAppCookieStickinessPolicies :: Lens' Policies ([AppCookieStickinessPolicy])
-pxAppCookieStickinessPolicies = lens _pxAppCookieStickinessPolicies (\s a -> s { _pxAppCookieStickinessPolicies = a })
-{-# INLINE pxAppCookieStickinessPolicies #-}
-
--- | A list of LBCookieStickinessPolicy objects created with
--- CreateAppCookieStickinessPolicy.
-pxLBCookieStickinessPolicies :: Lens' Policies ([LBCookieStickinessPolicy])
-pxLBCookieStickinessPolicies = lens _pxLBCookieStickinessPolicies (\s a -> s { _pxLBCookieStickinessPolicies = a })
-{-# INLINE pxLBCookieStickinessPolicies #-}
-
--- | A list of policy names other than the stickiness policies.
-pxOtherPolicies :: Lens' Policies ([Text])
-pxOtherPolicies = lens _pxOtherPolicies (\s a -> s { _pxOtherPolicies = a })
-{-# INLINE pxOtherPolicies #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Policies' data type to populate a request.
 mkPolicies :: Policies
 mkPolicies = Policies
-    { _pxAppCookieStickinessPolicies = mempty
-    , _pxLBCookieStickinessPolicies = mempty
-    , _pxOtherPolicies = mempty
+    { _pAppCookieStickinessPolicies = mempty
+    , _pLBCookieStickinessPolicies = mempty
+    , _pOtherPolicies = mempty
     }
 {-# INLINE mkPolicies #-}
+
+-- | A list of the AppCookieStickinessPolicy objects created with
+-- CreateAppCookieStickinessPolicy.
+pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
+pAppCookieStickinessPolicies =
+    lens _pAppCookieStickinessPolicies
+         (\s a -> s { _pAppCookieStickinessPolicies = a })
+{-# INLINE pAppCookieStickinessPolicies #-}
+
+-- | A list of LBCookieStickinessPolicy objects created with
+-- CreateAppCookieStickinessPolicy.
+pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
+pLBCookieStickinessPolicies =
+    lens _pLBCookieStickinessPolicies
+         (\s a -> s { _pLBCookieStickinessPolicies = a })
+{-# INLINE pLBCookieStickinessPolicies #-}
+
+-- | A list of policy names other than the stickiness policies.
+pOtherPolicies :: Lens' Policies [Text]
+pOtherPolicies = lens _pOtherPolicies (\s a -> s { _pOtherPolicies = a })
+{-# INLINE pOtherPolicies #-}
 
 instance FromXML Policies where
     fromXMLOptions = xmlOptions
@@ -1145,30 +1062,29 @@ instance ToQuery Policies where
 -- | The PolicyAttribute data type. This data type contains a key/value pair
 -- that defines properties of a specific policy.
 data PolicyAttribute = PolicyAttribute
-    { _pbAttributeName :: Maybe Text
-      -- ^ The name of the attribute associated with the policy.
-    , _pbAttributeValue :: Maybe Text
-      -- ^ The value of the attribute associated with the policy.
+    { _paAttributeName :: Maybe Text
+    , _paAttributeValue :: Maybe Text
     } deriving (Show, Generic)
-
--- | The name of the attribute associated with the policy.
-pbAttributeName :: Lens' PolicyAttribute (Maybe Text)
-pbAttributeName = lens _pbAttributeName (\s a -> s { _pbAttributeName = a })
-{-# INLINE pbAttributeName #-}
-
--- | The value of the attribute associated with the policy.
-pbAttributeValue :: Lens' PolicyAttribute (Maybe Text)
-pbAttributeValue = lens _pbAttributeValue (\s a -> s { _pbAttributeValue = a })
-{-# INLINE pbAttributeValue #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttribute' data type to populate a request.
 mkPolicyAttribute :: PolicyAttribute
 mkPolicyAttribute = PolicyAttribute
-    { _pbAttributeName = Nothing
-    , _pbAttributeValue = Nothing
+    { _paAttributeName = Nothing
+    , _paAttributeValue = Nothing
     }
 {-# INLINE mkPolicyAttribute #-}
+
+-- | The name of the attribute associated with the policy.
+paAttributeName :: Lens' PolicyAttribute (Maybe Text)
+paAttributeName = lens _paAttributeName (\s a -> s { _paAttributeName = a })
+{-# INLINE paAttributeName #-}
+
+-- | The value of the attribute associated with the policy.
+paAttributeValue :: Lens' PolicyAttribute (Maybe Text)
+paAttributeValue =
+    lens _paAttributeValue (\s a -> s { _paAttributeValue = a })
+{-# INLINE paAttributeValue #-}
 
 instance ToQuery PolicyAttribute where
     toQuery = genericQuery def
@@ -1176,30 +1092,30 @@ instance ToQuery PolicyAttribute where
 -- | The PolicyAttributeDescription data type. This data type is used to
 -- describe the attributes and values associated with a policy.
 data PolicyAttributeDescription = PolicyAttributeDescription
-    { _paeAttributeName :: Maybe Text
-      -- ^ The name of the attribute associated with the policy.
-    , _paeAttributeValue :: Maybe Text
-      -- ^ The value of the attribute associated with the policy.
+    { _padAttributeName :: Maybe Text
+    , _padAttributeValue :: Maybe Text
     } deriving (Show, Generic)
-
--- | The name of the attribute associated with the policy.
-paeAttributeName :: Lens' PolicyAttributeDescription (Maybe Text)
-paeAttributeName = lens _paeAttributeName (\s a -> s { _paeAttributeName = a })
-{-# INLINE paeAttributeName #-}
-
--- | The value of the attribute associated with the policy.
-paeAttributeValue :: Lens' PolicyAttributeDescription (Maybe Text)
-paeAttributeValue = lens _paeAttributeValue (\s a -> s { _paeAttributeValue = a })
-{-# INLINE paeAttributeValue #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttributeDescription' data type to populate a request.
 mkPolicyAttributeDescription :: PolicyAttributeDescription
 mkPolicyAttributeDescription = PolicyAttributeDescription
-    { _paeAttributeName = Nothing
-    , _paeAttributeValue = Nothing
+    { _padAttributeName = Nothing
+    , _padAttributeValue = Nothing
     }
 {-# INLINE mkPolicyAttributeDescription #-}
+
+-- | The name of the attribute associated with the policy.
+padAttributeName :: Lens' PolicyAttributeDescription (Maybe Text)
+padAttributeName =
+    lens _padAttributeName (\s a -> s { _padAttributeName = a })
+{-# INLINE padAttributeName #-}
+
+-- | The value of the attribute associated with the policy.
+padAttributeValue :: Lens' PolicyAttributeDescription (Maybe Text)
+padAttributeValue =
+    lens _padAttributeValue (\s a -> s { _padAttributeValue = a })
+{-# INLINE padAttributeValue #-}
 
 instance FromXML PolicyAttributeDescription where
     fromXMLOptions = xmlOptions
@@ -1211,61 +1127,55 @@ instance ToQuery PolicyAttributeDescription where
 -- | The PolicyAttributeTypeDescription data type. This data type is used to
 -- describe values that are acceptable for the policy attribute.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
-    { _pateAttributeName :: Maybe Text
-      -- ^ The name of the attribute associated with the policy type.
-    , _pateAttributeType :: Maybe Text
-      -- ^ The type of attribute. For example, Boolean, Integer, etc.
-    , _pateDescription :: Maybe Text
-      -- ^ A human-readable description of the attribute.
-    , _pateDefaultValue :: Maybe Text
-      -- ^ The default value of the attribute, if applicable.
-    , _pateCardinality :: Maybe Text
-      -- ^ The cardinality of the attribute. Valid Values: ONE(1) : Single
-      -- value required ZERO_OR_ONE(0..1) : Up to one value can be
-      -- supplied ZERO_OR_MORE(0..*) : Optional. Multiple values are
-      -- allowed ONE_OR_MORE(1..*0) : Required. Multiple values are
-      -- allowed.
+    { _patdAttributeName :: Maybe Text
+    , _patdAttributeType :: Maybe Text
+    , _patdDescription :: Maybe Text
+    , _patdDefaultValue :: Maybe Text
+    , _patdCardinality :: Maybe Text
     } deriving (Show, Generic)
-
--- | The name of the attribute associated with the policy type.
-pateAttributeName :: Lens' PolicyAttributeTypeDescription (Maybe Text)
-pateAttributeName = lens _pateAttributeName (\s a -> s { _pateAttributeName = a })
-{-# INLINE pateAttributeName #-}
-
--- | The type of attribute. For example, Boolean, Integer, etc.
-pateAttributeType :: Lens' PolicyAttributeTypeDescription (Maybe Text)
-pateAttributeType = lens _pateAttributeType (\s a -> s { _pateAttributeType = a })
-{-# INLINE pateAttributeType #-}
-
--- | A human-readable description of the attribute.
-pateDescription :: Lens' PolicyAttributeTypeDescription (Maybe Text)
-pateDescription = lens _pateDescription (\s a -> s { _pateDescription = a })
-{-# INLINE pateDescription #-}
-
--- | The default value of the attribute, if applicable.
-pateDefaultValue :: Lens' PolicyAttributeTypeDescription (Maybe Text)
-pateDefaultValue = lens _pateDefaultValue (\s a -> s { _pateDefaultValue = a })
-{-# INLINE pateDefaultValue #-}
-
--- | The cardinality of the attribute. Valid Values: ONE(1) : Single value
--- required ZERO_OR_ONE(0..1) : Up to one value can be supplied
--- ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
--- ONE_OR_MORE(1..*0) : Required. Multiple values are allowed.
-pateCardinality :: Lens' PolicyAttributeTypeDescription (Maybe Text)
-pateCardinality = lens _pateCardinality (\s a -> s { _pateCardinality = a })
-{-# INLINE pateCardinality #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttributeTypeDescription' data type to populate a request.
 mkPolicyAttributeTypeDescription :: PolicyAttributeTypeDescription
 mkPolicyAttributeTypeDescription = PolicyAttributeTypeDescription
-    { _pateAttributeName = Nothing
-    , _pateAttributeType = Nothing
-    , _pateDescription = Nothing
-    , _pateDefaultValue = Nothing
-    , _pateCardinality = Nothing
+    { _patdAttributeName = Nothing
+    , _patdAttributeType = Nothing
+    , _patdDescription = Nothing
+    , _patdDefaultValue = Nothing
+    , _patdCardinality = Nothing
     }
 {-# INLINE mkPolicyAttributeTypeDescription #-}
+
+-- | The name of the attribute associated with the policy type.
+patdAttributeName :: Lens' PolicyAttributeTypeDescription (Maybe Text)
+patdAttributeName =
+    lens _patdAttributeName (\s a -> s { _patdAttributeName = a })
+{-# INLINE patdAttributeName #-}
+
+-- | The type of attribute. For example, Boolean, Integer, etc.
+patdAttributeType :: Lens' PolicyAttributeTypeDescription (Maybe Text)
+patdAttributeType =
+    lens _patdAttributeType (\s a -> s { _patdAttributeType = a })
+{-# INLINE patdAttributeType #-}
+
+-- | A human-readable description of the attribute.
+patdDescription :: Lens' PolicyAttributeTypeDescription (Maybe Text)
+patdDescription = lens _patdDescription (\s a -> s { _patdDescription = a })
+{-# INLINE patdDescription #-}
+
+-- | The default value of the attribute, if applicable.
+patdDefaultValue :: Lens' PolicyAttributeTypeDescription (Maybe Text)
+patdDefaultValue =
+    lens _patdDefaultValue (\s a -> s { _patdDefaultValue = a })
+{-# INLINE patdDefaultValue #-}
+
+-- | The cardinality of the attribute. Valid Values: ONE(1) : Single value
+-- required ZERO_OR_ONE(0..1) : Up to one value can be supplied
+-- ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+-- ONE_OR_MORE(1..*0) : Required. Multiple values are allowed.
+patdCardinality :: Lens' PolicyAttributeTypeDescription (Maybe Text)
+patdCardinality = lens _patdCardinality (\s a -> s { _patdCardinality = a })
+{-# INLINE patdCardinality #-}
 
 instance FromXML PolicyAttributeTypeDescription where
     fromXMLOptions = xmlOptions
@@ -1276,28 +1186,38 @@ instance ToQuery PolicyAttributeTypeDescription where
 
 -- | The PolicyDescription data type.
 data PolicyDescription = PolicyDescription
-    { _pePolicyName :: Maybe Text
-      -- ^ The name of the policy associated with the load balancer.
-    , _pePolicyTypeName :: Maybe Text
-      -- ^ The name of the policy type associated with the load balancer.
-    , _pePolicyAttributeDescriptions :: [PolicyAttributeDescription]
-      -- ^ A list of policy attribute description structures.
+    { _pdPolicyName :: Maybe Text
+    , _pdPolicyTypeName :: Maybe Text
+    , _pdPolicyAttributeDescriptions :: [PolicyAttributeDescription]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PolicyDescription' data type to populate a request.
+mkPolicyDescription :: PolicyDescription
+mkPolicyDescription = PolicyDescription
+    { _pdPolicyName = Nothing
+    , _pdPolicyTypeName = Nothing
+    , _pdPolicyAttributeDescriptions = mempty
+    }
+{-# INLINE mkPolicyDescription #-}
+
 -- | The name of the policy associated with the load balancer.
-pePolicyName :: Lens' PolicyDescription (Maybe Text)
-pePolicyName = lens _pePolicyName (\s a -> s { _pePolicyName = a })
-{-# INLINE pePolicyName #-}
+pdPolicyName :: Lens' PolicyDescription (Maybe Text)
+pdPolicyName = lens _pdPolicyName (\s a -> s { _pdPolicyName = a })
+{-# INLINE pdPolicyName #-}
 
 -- | The name of the policy type associated with the load balancer.
-pePolicyTypeName :: Lens' PolicyDescription (Maybe Text)
-pePolicyTypeName = lens _pePolicyTypeName (\s a -> s { _pePolicyTypeName = a })
-{-# INLINE pePolicyTypeName #-}
+pdPolicyTypeName :: Lens' PolicyDescription (Maybe Text)
+pdPolicyTypeName =
+    lens _pdPolicyTypeName (\s a -> s { _pdPolicyTypeName = a })
+{-# INLINE pdPolicyTypeName #-}
 
 -- | A list of policy attribute description structures.
-pePolicyAttributeDescriptions :: Lens' PolicyDescription ([PolicyAttributeDescription])
-pePolicyAttributeDescriptions = lens _pePolicyAttributeDescriptions (\s a -> s { _pePolicyAttributeDescriptions = a })
-{-# INLINE pePolicyAttributeDescriptions #-}
+pdPolicyAttributeDescriptions :: Lens' PolicyDescription [PolicyAttributeDescription]
+pdPolicyAttributeDescriptions =
+    lens _pdPolicyAttributeDescriptions
+         (\s a -> s { _pdPolicyAttributeDescriptions = a })
+{-# INLINE pdPolicyAttributeDescriptions #-}
 
 instance FromXML PolicyDescription where
     fromXMLOptions = xmlOptions
@@ -1305,30 +1225,39 @@ instance FromXML PolicyDescription where
 
 -- | The PolicyTypeDescription data type.
 data PolicyTypeDescription = PolicyTypeDescription
-    { _ptePolicyTypeName :: Maybe Text
-      -- ^ The name of the policy type.
-    , _pteDescription :: Maybe Text
-      -- ^ A human-readable description of the policy type.
-    , _ptePolicyAttributeTypeDescriptions :: [PolicyAttributeTypeDescription]
-      -- ^ The description of the policy attributes associated with the load
-      -- balancer policies defined by the Elastic Load Balancing service.
+    { _ptdPolicyTypeName :: Maybe Text
+    , _ptdDescription :: Maybe Text
+    , _ptdPolicyAttributeTypeDescriptions :: [PolicyAttributeTypeDescription]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PolicyTypeDescription' data type to populate a request.
+mkPolicyTypeDescription :: PolicyTypeDescription
+mkPolicyTypeDescription = PolicyTypeDescription
+    { _ptdPolicyTypeName = Nothing
+    , _ptdDescription = Nothing
+    , _ptdPolicyAttributeTypeDescriptions = mempty
+    }
+{-# INLINE mkPolicyTypeDescription #-}
+
 -- | The name of the policy type.
-ptePolicyTypeName :: Lens' PolicyTypeDescription (Maybe Text)
-ptePolicyTypeName = lens _ptePolicyTypeName (\s a -> s { _ptePolicyTypeName = a })
-{-# INLINE ptePolicyTypeName #-}
+ptdPolicyTypeName :: Lens' PolicyTypeDescription (Maybe Text)
+ptdPolicyTypeName =
+    lens _ptdPolicyTypeName (\s a -> s { _ptdPolicyTypeName = a })
+{-# INLINE ptdPolicyTypeName #-}
 
 -- | A human-readable description of the policy type.
-pteDescription :: Lens' PolicyTypeDescription (Maybe Text)
-pteDescription = lens _pteDescription (\s a -> s { _pteDescription = a })
-{-# INLINE pteDescription #-}
+ptdDescription :: Lens' PolicyTypeDescription (Maybe Text)
+ptdDescription = lens _ptdDescription (\s a -> s { _ptdDescription = a })
+{-# INLINE ptdDescription #-}
 
 -- | The description of the policy attributes associated with the load balancer
 -- policies defined by the Elastic Load Balancing service.
-ptePolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription ([PolicyAttributeTypeDescription])
-ptePolicyAttributeTypeDescriptions = lens _ptePolicyAttributeTypeDescriptions (\s a -> s { _ptePolicyAttributeTypeDescriptions = a })
-{-# INLINE ptePolicyAttributeTypeDescriptions #-}
+ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription [PolicyAttributeTypeDescription]
+ptdPolicyAttributeTypeDescriptions =
+    lens _ptdPolicyAttributeTypeDescriptions
+         (\s a -> s { _ptdPolicyAttributeTypeDescriptions = a })
+{-# INLINE ptdPolicyAttributeTypeDescriptions #-}
 
 instance FromXML PolicyTypeDescription where
     fromXMLOptions = xmlOptions
@@ -1340,14 +1269,17 @@ instance FromXML PolicyTypeDescription where
 -- instance that specifies this source security group as the inbound source.
 data SourceSecurityGroup = SourceSecurityGroup
     { _ssgOwnerAlias :: Maybe Text
-      -- ^ Owner of the source security group. Use this value for the
-      -- --source-group-user parameter of the ec2-authorize command in the
-      -- Amazon EC2 command line tool.
     , _ssgGroupName :: Maybe Text
-      -- ^ Name of the source security group. Use this value for the
-      -- --source-group parameter of the ec2-authorize command in the
-      -- Amazon EC2 command line tool.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'SourceSecurityGroup' data type to populate a request.
+mkSourceSecurityGroup :: SourceSecurityGroup
+mkSourceSecurityGroup = SourceSecurityGroup
+    { _ssgOwnerAlias = Nothing
+    , _ssgGroupName = Nothing
+    }
+{-# INLINE mkSourceSecurityGroup #-}
 
 -- | Owner of the source security group. Use this value for the
 -- --source-group-user parameter of the ec2-authorize command in the Amazon
@@ -1362,15 +1294,6 @@ ssgGroupName :: Lens' SourceSecurityGroup (Maybe Text)
 ssgGroupName = lens _ssgGroupName (\s a -> s { _ssgGroupName = a })
 {-# INLINE ssgGroupName #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'SourceSecurityGroup' data type to populate a request.
-mkSourceSecurityGroup :: SourceSecurityGroup
-mkSourceSecurityGroup = SourceSecurityGroup
-    { _ssgOwnerAlias = Nothing
-    , _ssgGroupName = Nothing
-    }
-{-# INLINE mkSourceSecurityGroup #-}
-
 instance FromXML SourceSecurityGroup where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SourceSecurityGroup"
@@ -1382,20 +1305,8 @@ instance ToQuery SourceSecurityGroup where
 -- information, see Tagging in the Elastic Load Balancing Developer Guide.
 data Tag = Tag
     { _tKey :: Text
-      -- ^ The key of the tag.
     , _tValue :: Maybe Text
-      -- ^ The value of the tag.
     } deriving (Show, Generic)
-
--- | The key of the tag.
-tKey :: Lens' Tag (Text)
-tKey = lens _tKey (\s a -> s { _tKey = a })
-{-# INLINE tKey #-}
-
--- | The value of the tag.
-tValue :: Lens' Tag (Maybe Text)
-tValue = lens _tValue (\s a -> s { _tValue = a })
-{-# INLINE tValue #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -1407,6 +1318,16 @@ mkTag p1 = Tag
     }
 {-# INLINE mkTag #-}
 
+-- | The key of the tag.
+tKey :: Lens' Tag Text
+tKey = lens _tKey (\s a -> s { _tKey = a })
+{-# INLINE tKey #-}
+
+-- | The value of the tag.
+tValue :: Lens' Tag (Maybe Text)
+tValue = lens _tValue (\s a -> s { _tValue = a })
+{-# INLINE tValue #-}
+
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Tag"
@@ -1416,21 +1337,29 @@ instance ToQuery Tag where
 
 -- | The descriptions of all the tags associated with load balancer.
 data TagDescription = TagDescription
-    { _teLoadBalancerName :: Maybe Text
-      -- ^ The name of the load balancer.
-    , _teTags :: Maybe [Tag]
-      -- ^ List of tags associated with the load balancer.
+    { _tdLoadBalancerName :: Maybe Text
+    , _tdTags :: Maybe [Tag]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TagDescription' data type to populate a request.
+mkTagDescription :: TagDescription
+mkTagDescription = TagDescription
+    { _tdLoadBalancerName = Nothing
+    , _tdTags = Nothing
+    }
+{-# INLINE mkTagDescription #-}
+
 -- | The name of the load balancer.
-teLoadBalancerName :: Lens' TagDescription (Maybe Text)
-teLoadBalancerName = lens _teLoadBalancerName (\s a -> s { _teLoadBalancerName = a })
-{-# INLINE teLoadBalancerName #-}
+tdLoadBalancerName :: Lens' TagDescription (Maybe Text)
+tdLoadBalancerName =
+    lens _tdLoadBalancerName (\s a -> s { _tdLoadBalancerName = a })
+{-# INLINE tdLoadBalancerName #-}
 
 -- | List of tags associated with the load balancer.
-teTags :: Lens' TagDescription (Maybe [Tag])
-teTags = lens _teTags (\s a -> s { _teTags = a })
-{-# INLINE teTags #-}
+tdTags :: Lens' TagDescription (Maybe [Tag])
+tdTags = lens _tdTags (\s a -> s { _tdTags = a })
+{-# INLINE tdTags #-}
 
 instance FromXML TagDescription where
     fromXMLOptions = xmlOptions

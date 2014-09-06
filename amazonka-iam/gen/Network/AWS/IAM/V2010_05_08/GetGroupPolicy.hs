@@ -29,77 +29,76 @@ module Network.AWS.IAM.V2010_05_08.GetGroupPolicy
     -- * Request
       GetGroupPolicy
     -- ** Request constructor
-    , mkGetGroupPolicyRequest
+    , mkGetGroupPolicy
     -- ** Request lenses
-    , ggprGroupName
-    , ggprPolicyName
+    , ggpGroupName
+    , ggpPolicyName
 
     -- * Response
     , GetGroupPolicyResponse
     -- ** Response lenses
-    , ggpsGroupName
-    , ggpsPolicyName
-    , ggpsPolicyDocument
+    , ggprsGroupName
+    , ggprsPolicyName
+    , ggprsPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetGroupPolicy' request.
-mkGetGroupPolicyRequest :: Text -- ^ 'ggprGroupName'
-                        -> Text -- ^ 'ggprPolicyName'
-                        -> GetGroupPolicy
-mkGetGroupPolicyRequest p1 p2 = GetGroupPolicy
-    { _ggprGroupName = p1
-    , _ggprPolicyName = p2
-    }
-{-# INLINE mkGetGroupPolicyRequest #-}
-
+-- | 
 data GetGroupPolicy = GetGroupPolicy
-    { _ggprGroupName :: Text
-      -- ^ Name of the group the policy is associated with.
-    , _ggprPolicyName :: Text
-      -- ^ Name of the policy document to get.
+    { _ggpGroupName :: Text
+    , _ggpPolicyName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetGroupPolicy' request.
+mkGetGroupPolicy :: Text -- ^ 'ggpGroupName'
+                 -> Text -- ^ 'ggpPolicyName'
+                 -> GetGroupPolicy
+mkGetGroupPolicy p1 p2 = GetGroupPolicy
+    { _ggpGroupName = p1
+    , _ggpPolicyName = p2
+    }
+{-# INLINE mkGetGroupPolicy #-}
+
 -- | Name of the group the policy is associated with.
-ggprGroupName :: Lens' GetGroupPolicy (Text)
-ggprGroupName = lens _ggprGroupName (\s a -> s { _ggprGroupName = a })
-{-# INLINE ggprGroupName #-}
+ggpGroupName :: Lens' GetGroupPolicy Text
+ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
+{-# INLINE ggpGroupName #-}
 
 -- | Name of the policy document to get.
-ggprPolicyName :: Lens' GetGroupPolicy (Text)
-ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
-{-# INLINE ggprPolicyName #-}
+ggpPolicyName :: Lens' GetGroupPolicy Text
+ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
+{-# INLINE ggpPolicyName #-}
 
 instance ToQuery GetGroupPolicy where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetGroupPolicy
+-- action.
 data GetGroupPolicyResponse = GetGroupPolicyResponse
-    { _ggpsGroupName :: Text
-      -- ^ The group the policy is associated with.
-    , _ggpsPolicyName :: Text
-      -- ^ The name of the policy.
-    , _ggpsPolicyDocument :: Text
-      -- ^ The policy document.
+    { _ggprsGroupName :: Text
+    , _ggprsPolicyName :: Text
+    , _ggprsPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | The group the policy is associated with.
-ggpsGroupName :: Lens' GetGroupPolicyResponse (Text)
-ggpsGroupName = lens _ggpsGroupName (\s a -> s { _ggpsGroupName = a })
-{-# INLINE ggpsGroupName #-}
+ggprsGroupName :: Lens' GetGroupPolicyResponse Text
+ggprsGroupName = lens _ggprsGroupName (\s a -> s { _ggprsGroupName = a })
+{-# INLINE ggprsGroupName #-}
 
 -- | The name of the policy.
-ggpsPolicyName :: Lens' GetGroupPolicyResponse (Text)
-ggpsPolicyName = lens _ggpsPolicyName (\s a -> s { _ggpsPolicyName = a })
-{-# INLINE ggpsPolicyName #-}
+ggprsPolicyName :: Lens' GetGroupPolicyResponse Text
+ggprsPolicyName = lens _ggprsPolicyName (\s a -> s { _ggprsPolicyName = a })
+{-# INLINE ggprsPolicyName #-}
 
 -- | The policy document.
-ggpsPolicyDocument :: Lens' GetGroupPolicyResponse (Text)
-ggpsPolicyDocument = lens _ggpsPolicyDocument (\s a -> s { _ggpsPolicyDocument = a })
-{-# INLINE ggpsPolicyDocument #-}
+ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
+ggprsPolicyDocument =
+    lens _ggprsPolicyDocument (\s a -> s { _ggprsPolicyDocument = a })
+{-# INLINE ggprsPolicyDocument #-}
 
 instance FromXML GetGroupPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -33,10 +33,10 @@ module Network.AWS.EC2.V2014_06_15.DisableVgwRoutePropagation
     -- * Request
       DisableVgwRoutePropagation
     -- ** Request constructor
-    , mkDisableVgwRoutePropagationRequest
+    , mkDisableVgwRoutePropagation
     -- ** Request lenses
-    , dvrprRouteTableId
-    , dvrprGatewayId
+    , dvrpRouteTableId
+    , dvrpGatewayId
 
     -- * Response
     , DisableVgwRoutePropagationResponse
@@ -46,33 +46,33 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableVgwRoutePropagation' request.
-mkDisableVgwRoutePropagationRequest :: Text -- ^ 'dvrprRouteTableId'
-                                    -> Text -- ^ 'dvrprGatewayId'
-                                    -> DisableVgwRoutePropagation
-mkDisableVgwRoutePropagationRequest p1 p2 = DisableVgwRoutePropagation
-    { _dvrprRouteTableId = p1
-    , _dvrprGatewayId = p2
-    }
-{-# INLINE mkDisableVgwRoutePropagationRequest #-}
-
+-- | 
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
-    { _dvrprRouteTableId :: Text
-      -- ^ The ID of the routing table.
-    , _dvrprGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
+    { _dvrpRouteTableId :: Text
+    , _dvrpGatewayId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableVgwRoutePropagation' request.
+mkDisableVgwRoutePropagation :: Text -- ^ 'dvrpRouteTableId'
+                             -> Text -- ^ 'dvrpGatewayId'
+                             -> DisableVgwRoutePropagation
+mkDisableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
+    { _dvrpRouteTableId = p1
+    , _dvrpGatewayId = p2
+    }
+{-# INLINE mkDisableVgwRoutePropagation #-}
+
 -- | The ID of the routing table.
-dvrprRouteTableId :: Lens' DisableVgwRoutePropagation (Text)
-dvrprRouteTableId = lens _dvrprRouteTableId (\s a -> s { _dvrprRouteTableId = a })
-{-# INLINE dvrprRouteTableId #-}
+dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
+dvrpRouteTableId =
+    lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
+{-# INLINE dvrpRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
-dvrprGatewayId :: Lens' DisableVgwRoutePropagation (Text)
-dvrprGatewayId = lens _dvrprGatewayId (\s a -> s { _dvrprGatewayId = a })
-{-# INLINE dvrprGatewayId #-}
+dvrpGatewayId :: Lens' DisableVgwRoutePropagation Text
+dvrpGatewayId = lens _dvrpGatewayId (\s a -> s { _dvrpGatewayId = a })
+{-# INLINE dvrpGatewayId #-}
 
 instance ToQuery DisableVgwRoutePropagation where
     toQuery = genericQuery def

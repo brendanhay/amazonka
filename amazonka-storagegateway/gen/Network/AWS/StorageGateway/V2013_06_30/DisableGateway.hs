@@ -22,14 +22,14 @@ module Network.AWS.StorageGateway.V2013_06_30.DisableGateway
     -- * Request
       DisableGateway
     -- ** Request constructor
-    , mkDisableGatewayInput
+    , mkDisableGateway
     -- ** Request lenses
-    , dgjGatewayARN
+    , dg1GatewayARN
 
     -- * Response
     , DisableGatewayResponse
     -- ** Response lenses
-    , dgpGatewayARN
+    , dgrsrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -37,27 +37,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+newtype DisableGateway = DisableGateway
+    { _dg1GatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableGateway' request.
-mkDisableGatewayInput :: Text -- ^ 'dgjGatewayARN'
-                      -> DisableGateway
-mkDisableGatewayInput p1 = DisableGateway
-    { _dgjGatewayARN = p1
+mkDisableGateway :: Text -- ^ 'dg1GatewayARN'
+                 -> DisableGateway
+mkDisableGateway p1 = DisableGateway
+    { _dg1GatewayARN = p1
     }
-{-# INLINE mkDisableGatewayInput #-}
-
-newtype DisableGateway = DisableGateway
-    { _dgjGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkDisableGateway #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgjGatewayARN :: Lens' DisableGateway (Text)
-dgjGatewayARN = lens _dgjGatewayARN (\s a -> s { _dgjGatewayARN = a })
-{-# INLINE dgjGatewayARN #-}
+dg1GatewayARN :: Lens' DisableGateway Text
+dg1GatewayARN = lens _dg1GatewayARN (\s a -> s { _dg1GatewayARN = a })
+{-# INLINE dg1GatewayARN #-}
 
 instance ToPath DisableGateway
 
@@ -68,17 +65,15 @@ instance ToHeaders DisableGateway
 instance ToJSON DisableGateway
 
 newtype DisableGatewayResponse = DisableGatewayResponse
-    { _dgpGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _dgrsrsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgpGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-dgpGatewayARN = lens _dgpGatewayARN (\s a -> s { _dgpGatewayARN = a })
-{-# INLINE dgpGatewayARN #-}
+dgrsrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
+dgrsrsGatewayARN =
+    lens _dgrsrsGatewayARN (\s a -> s { _dgrsrsGatewayARN = a })
+{-# INLINE dgrsrsGatewayARN #-}
 
 instance FromJSON DisableGatewayResponse
 

@@ -65,17 +65,17 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline
     -- * Request
       ListJobsByPipeline
     -- ** Request constructor
-    , mkListJobsByPipelineRequest
+    , mkListJobsByPipeline
     -- ** Request lenses
-    , ljbprPipelineId
-    , ljbprAscending
-    , ljbprPageToken
+    , ljbpPipelineId
+    , ljbpAscending
+    , ljbpPageToken
 
     -- * Response
     , ListJobsByPipelineResponse
     -- ** Response lenses
-    , ljbpsJobs
-    , ljbpsNextPageToken
+    , ljbprsJobs
+    , ljbprsNextPageToken
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -83,87 +83,78 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListJobsByPipeline' request.
-mkListJobsByPipelineRequest :: Text -- ^ 'ljbprPipelineId'
-                            -> ListJobsByPipeline
-mkListJobsByPipelineRequest p1 = ListJobsByPipeline
-    { _ljbprPipelineId = p1
-    , _ljbprAscending = Nothing
-    , _ljbprPageToken = Nothing
-    }
-{-# INLINE mkListJobsByPipelineRequest #-}
-
+-- | The ListJobsByPipelineRequest structure.
 data ListJobsByPipeline = ListJobsByPipeline
-    { _ljbprPipelineId :: Text
-      -- ^ The ID of the pipeline for which you want to get job information.
-    , _ljbprAscending :: Maybe Text
-      -- ^ To list jobs in chronological order by the date and time that
-      -- they were submitted, enter true. To list jobs in reverse
-      -- chronological order, enter false.
-    , _ljbprPageToken :: Maybe Text
-      -- ^ When Elastic Transcoder returns more than one page of results,
-      -- use pageToken in subsequent GET requests to get each successive
-      -- page of results.
+    { _ljbpPipelineId :: Text
+    , _ljbpAscending :: Maybe Text
+    , _ljbpPageToken :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListJobsByPipeline' request.
+mkListJobsByPipeline :: Text -- ^ 'ljbpPipelineId'
+                     -> ListJobsByPipeline
+mkListJobsByPipeline p1 = ListJobsByPipeline
+    { _ljbpPipelineId = p1
+    , _ljbpAscending = Nothing
+    , _ljbpPageToken = Nothing
+    }
+{-# INLINE mkListJobsByPipeline #-}
+
 -- | The ID of the pipeline for which you want to get job information.
-ljbprPipelineId :: Lens' ListJobsByPipeline (Text)
-ljbprPipelineId = lens _ljbprPipelineId (\s a -> s { _ljbprPipelineId = a })
-{-# INLINE ljbprPipelineId #-}
+ljbpPipelineId :: Lens' ListJobsByPipeline Text
+ljbpPipelineId = lens _ljbpPipelineId (\s a -> s { _ljbpPipelineId = a })
+{-# INLINE ljbpPipelineId #-}
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter true. To list jobs in reverse chronological order, enter
 -- false.
-ljbprAscending :: Lens' ListJobsByPipeline (Maybe Text)
-ljbprAscending = lens _ljbprAscending (\s a -> s { _ljbprAscending = a })
-{-# INLINE ljbprAscending #-}
+ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
+ljbpAscending = lens _ljbpAscending (\s a -> s { _ljbpAscending = a })
+{-# INLINE ljbpAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
-ljbprPageToken :: Lens' ListJobsByPipeline (Maybe Text)
-ljbprPageToken = lens _ljbprPageToken (\s a -> s { _ljbprPageToken = a })
-{-# INLINE ljbprPageToken #-}
+ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
+ljbpPageToken = lens _ljbpPageToken (\s a -> s { _ljbpPageToken = a })
+{-# INLINE ljbpPageToken #-}
 
 instance ToPath ListJobsByPipeline where
     toPath ListJobsByPipeline{..} = mconcat
         [ "/2012-09-25/jobsByPipeline/"
-        , toBS _ljbprPipelineId
+        , toBS _ljbpPipelineId
         ]
 
 instance ToQuery ListJobsByPipeline where
     toQuery ListJobsByPipeline{..} = mconcat
-        [ "Ascending" =? _ljbprAscending
-        , "PageToken" =? _ljbprPageToken
+        [ "Ascending" =? _ljbpAscending
+        , "PageToken" =? _ljbpPageToken
         ]
 
 instance ToHeaders ListJobsByPipeline
 
 instance ToJSON ListJobsByPipeline
 
+-- | The ListJobsByPipelineResponse structure.
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
-    { _ljbpsJobs :: [Job]
-      -- ^ An array of Job objects that are in the specified pipeline.
-    , _ljbpsNextPageToken :: Maybe Text
-      -- ^ A value that you use to access the second and subsequent pages of
-      -- results, if any. When the jobs in the specified pipeline fit on
-      -- one page or when you've reached the last page of results, the
-      -- value of NextPageToken is null.
+    { _ljbprsJobs :: [Job]
+    , _ljbprsNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An array of Job objects that are in the specified pipeline.
-ljbpsJobs :: Lens' ListJobsByPipelineResponse ([Job])
-ljbpsJobs = lens _ljbpsJobs (\s a -> s { _ljbpsJobs = a })
-{-# INLINE ljbpsJobs #-}
+ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job]
+ljbprsJobs = lens _ljbprsJobs (\s a -> s { _ljbprsJobs = a })
+{-# INLINE ljbprsJobs #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the jobs in the specified pipeline fit on one page or when
 -- you've reached the last page of results, the value of NextPageToken is
 -- null.
-ljbpsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
-ljbpsNextPageToken = lens _ljbpsNextPageToken (\s a -> s { _ljbpsNextPageToken = a })
-{-# INLINE ljbpsNextPageToken #-}
+ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
+ljbprsNextPageToken =
+    lens _ljbprsNextPageToken (\s a -> s { _ljbprsNextPageToken = a })
+{-# INLINE ljbprsNextPageToken #-}
 
 instance FromJSON ListJobsByPipelineResponse
 
@@ -175,5 +166,5 @@ instance AWSRequest ListJobsByPipeline where
     response _ = jsonResponse
 
 instance AWSPager ListJobsByPipeline where
-    next rq rs = (\x -> rq { _ljbprPageToken = Just x })
-        <$> (_ljbpsNextPageToken rs)
+    next rq rs = (\x -> rq { _ljbpPageToken = Just x })
+        <$> (_ljbprsNextPageToken rs)

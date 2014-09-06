@@ -48,58 +48,45 @@ module Network.AWS.SNS.V2010_03_31.GetTopicAttributes
     -- * Request
       GetTopicAttributes
     -- ** Request constructor
-    , mkGetTopicAttributesInput
+    , mkGetTopicAttributes
     -- ** Request lenses
-    , gtaiTopicArn
+    , gtaTopicArn
 
     -- * Response
     , GetTopicAttributesResponse
     -- ** Response lenses
-    , gtarAttributes
+    , gtarsAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetTopicAttributes' request.
-mkGetTopicAttributesInput :: Text -- ^ 'gtaiTopicArn'
-                          -> GetTopicAttributes
-mkGetTopicAttributesInput p1 = GetTopicAttributes
-    { _gtaiTopicArn = p1
-    }
-{-# INLINE mkGetTopicAttributesInput #-}
-
+-- | Input for GetTopicAttributes action.
 newtype GetTopicAttributes = GetTopicAttributes
-    { _gtaiTopicArn :: Text
-      -- ^ The ARN of the topic whose properties you want to get.
+    { _gtaTopicArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetTopicAttributes' request.
+mkGetTopicAttributes :: Text -- ^ 'gtaTopicArn'
+                     -> GetTopicAttributes
+mkGetTopicAttributes p1 = GetTopicAttributes
+    { _gtaTopicArn = p1
+    }
+{-# INLINE mkGetTopicAttributes #-}
+
 -- | The ARN of the topic whose properties you want to get.
-gtaiTopicArn :: Lens' GetTopicAttributes (Text)
-gtaiTopicArn = lens _gtaiTopicArn (\s a -> s { _gtaiTopicArn = a })
-{-# INLINE gtaiTopicArn #-}
+gtaTopicArn :: Lens' GetTopicAttributes Text
+gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
+{-# INLINE gtaTopicArn #-}
 
 instance ToQuery GetTopicAttributes where
     toQuery = genericQuery def
 
+-- | Response for GetTopicAttributes action.
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
-    { _gtarAttributes :: Map Text Text
-      -- ^ A map of the topic's attributes. Attributes in this map include
-      -- the following: TopicArn -- the topic's ARN Owner -- the AWS
-      -- account ID of the topic's owner Policy -- the JSON serialization
-      -- of the topic's access control policy DisplayName -- the
-      -- human-readable name used in the "From" field for notifications to
-      -- email and email-json endpoints SubscriptionsPending -- the number
-      -- of subscriptions pending confirmation on this topic
-      -- SubscriptionsConfirmed -- the number of confirmed subscriptions
-      -- on this topic SubscriptionsDeleted -- the number of deleted
-      -- subscriptions on this topic DeliveryPolicy -- the JSON
-      -- serialization of the topic's delivery policy
-      -- EffectiveDeliveryPolicy -- the JSON serialization of the
-      -- effective delivery policy that takes into account system
-      -- defaults.
+    { _gtarsAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | A map of the topic's attributes. Attributes in this map include the
@@ -113,9 +100,9 @@ newtype GetTopicAttributesResponse = GetTopicAttributesResponse
 -- on this topic DeliveryPolicy -- the JSON serialization of the topic's
 -- delivery policy EffectiveDeliveryPolicy -- the JSON serialization of the
 -- effective delivery policy that takes into account system defaults.
-gtarAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
-gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
-{-# INLINE gtarAttributes #-}
+gtarsAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
+gtarsAttributes = lens _gtarsAttributes (\s a -> s { _gtarsAttributes = a })
+{-# INLINE gtarsAttributes #-}
 
 instance FromXML GetTopicAttributesResponse where
     fromXMLOptions = xmlOptions

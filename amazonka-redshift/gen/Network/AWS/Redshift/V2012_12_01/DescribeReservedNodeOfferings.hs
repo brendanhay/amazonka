@@ -40,66 +40,55 @@ module Network.AWS.Redshift.V2012_12_01.DescribeReservedNodeOfferings
     -- * Request
       DescribeReservedNodeOfferings
     -- ** Request constructor
-    , mkDescribeReservedNodeOfferingsMessage
+    , mkDescribeReservedNodeOfferings
     -- ** Request lenses
-    , drnomReservedNodeOfferingId
-    , drnomMaxRecords
-    , drnomMarker
+    , drnoReservedNodeOfferingId
+    , drnoMaxRecords
+    , drnoMarker
 
     -- * Response
     , DescribeReservedNodeOfferingsResponse
     -- ** Response lenses
-    , rnomMarker
-    , rnomReservedNodeOfferings
+    , drnorsMarker
+    , drnorsReservedNodeOfferings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeReservedNodeOfferings' request.
-mkDescribeReservedNodeOfferingsMessage :: DescribeReservedNodeOfferings
-mkDescribeReservedNodeOfferingsMessage = DescribeReservedNodeOfferings
-    { _drnomReservedNodeOfferingId = Nothing
-    , _drnomMaxRecords = Nothing
-    , _drnomMarker = Nothing
-    }
-{-# INLINE mkDescribeReservedNodeOfferingsMessage #-}
-
+-- | to be provided.
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
-    { _drnomReservedNodeOfferingId :: Maybe Text
-      -- ^ The unique identifier for the offering.
-    , _drnomMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _drnomMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a
-      -- DescribeReservedNodeOfferings request exceed the value specified
-      -- in MaxRecords, AWS returns a value in the Marker field of the
-      -- response. You can retrieve the next set of response records by
-      -- providing the returned marker value in the Marker parameter and
-      -- retrying the request.
+    { _drnoReservedNodeOfferingId :: Maybe Text
+    , _drnoMaxRecords :: Maybe Integer
+    , _drnoMarker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedNodeOfferings' request.
+mkDescribeReservedNodeOfferings :: DescribeReservedNodeOfferings
+mkDescribeReservedNodeOfferings = DescribeReservedNodeOfferings
+    { _drnoReservedNodeOfferingId = Nothing
+    , _drnoMaxRecords = Nothing
+    , _drnoMarker = Nothing
+    }
+{-# INLINE mkDescribeReservedNodeOfferings #-}
+
 -- | The unique identifier for the offering.
-drnomReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
-drnomReservedNodeOfferingId = lens _drnomReservedNodeOfferingId (\s a -> s { _drnomReservedNodeOfferingId = a })
-{-# INLINE drnomReservedNodeOfferingId #-}
+drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
+drnoReservedNodeOfferingId =
+    lens _drnoReservedNodeOfferingId
+         (\s a -> s { _drnoReservedNodeOfferingId = a })
+{-# INLINE drnoReservedNodeOfferingId #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-drnomMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Integer)
-drnomMaxRecords = lens _drnomMaxRecords (\s a -> s { _drnomMaxRecords = a })
-{-# INLINE drnomMaxRecords #-}
+drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Integer)
+drnoMaxRecords = lens _drnoMaxRecords (\s a -> s { _drnoMaxRecords = a })
+{-# INLINE drnoMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeReservedNodeOfferings
@@ -107,23 +96,17 @@ drnomMaxRecords = lens _drnomMaxRecords (\s a -> s { _drnomMaxRecords = a })
 -- the Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
-drnomMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
-drnomMarker = lens _drnomMarker (\s a -> s { _drnomMarker = a })
-{-# INLINE drnomMarker #-}
+drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
+drnoMarker = lens _drnoMarker (\s a -> s { _drnoMarker = a })
+{-# INLINE drnoMarker #-}
 
 instance ToQuery DescribeReservedNodeOfferings where
     toQuery = genericQuery def
 
+-- | Contains the output from the DescribeReservedNodeOfferings action.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
-    { _rnomMarker :: Maybe Text
-      -- ^ A value that indicates the starting point for the next set of
-      -- response records in a subsequent request. If a value is returned
-      -- in a response, you can retrieve the next set of records by
-      -- providing this returned marker value in the Marker parameter and
-      -- retrying the command. If the Marker field is empty, all response
-      -- records have been retrieved for the request.
-    , _rnomReservedNodeOfferings :: [ReservedNodeOffering]
-      -- ^ A list of reserved node offerings.
+    { _drnorsMarker :: Maybe Text
+    , _drnorsReservedNodeOfferings :: [ReservedNodeOffering]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -131,14 +114,16 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-rnomMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
-rnomMarker = lens _rnomMarker (\s a -> s { _rnomMarker = a })
-{-# INLINE rnomMarker #-}
+drnorsMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
+drnorsMarker = lens _drnorsMarker (\s a -> s { _drnorsMarker = a })
+{-# INLINE drnorsMarker #-}
 
 -- | A list of reserved node offerings.
-rnomReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse ([ReservedNodeOffering])
-rnomReservedNodeOfferings = lens _rnomReservedNodeOfferings (\s a -> s { _rnomReservedNodeOfferings = a })
-{-# INLINE rnomReservedNodeOfferings #-}
+drnorsReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
+drnorsReservedNodeOfferings =
+    lens _drnorsReservedNodeOfferings
+         (\s a -> s { _drnorsReservedNodeOfferings = a })
+{-# INLINE drnorsReservedNodeOfferings #-}
 
 instance FromXML DescribeReservedNodeOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -151,5 +136,5 @@ instance AWSRequest DescribeReservedNodeOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedNodeOfferings where
-    next rq rs = (\x -> rq { _drnomMarker = Just x })
-        <$> (_rnomMarker rs)
+    next rq rs = (\x -> rq { _drnoMarker = Just x })
+        <$> (_drnorsMarker rs)

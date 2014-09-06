@@ -27,47 +27,46 @@ module Network.AWS.Route53.V2013_04_01.GetChange
     -- * Request
       GetChange
     -- ** Request constructor
-    , mkGetChangeRequest
+    , mkGetChange
     -- ** Request lenses
-    , gcrId
+    , gcId
 
     -- * Response
     , GetChangeResponse
     -- ** Response lenses
-    , gcsChangeInfo
+    , gcrsChangeInfo
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The input for a GetChange request.
+newtype GetChange = GetChange
+    { _gcId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetChange' request.
-mkGetChangeRequest :: Text -- ^ 'gcrId'
-                   -> GetChange
-mkGetChangeRequest p1 = GetChange
-    { _gcrId = p1
+mkGetChange :: Text -- ^ 'gcId'
+            -> GetChange
+mkGetChange p1 = GetChange
+    { _gcId = p1
     }
-{-# INLINE mkGetChangeRequest #-}
-
-newtype GetChange = GetChange
-    { _gcrId :: Text
-      -- ^ The ID of the change batch request. The value that you specify
-      -- here is the value that ChangeResourceRecordSets returned in the
-      -- Id element when you submitted the request.
-    } deriving (Show, Generic)
+{-# INLINE mkGetChange #-}
 
 -- | The ID of the change batch request. The value that you specify here is the
 -- value that ChangeResourceRecordSets returned in the Id element when you
 -- submitted the request.
-gcrId :: Lens' GetChange (Text)
-gcrId = lens _gcrId (\s a -> s { _gcrId = a })
-{-# INLINE gcrId #-}
+gcId :: Lens' GetChange Text
+gcId = lens _gcId (\s a -> s { _gcId = a })
+{-# INLINE gcId #-}
 
 instance ToPath GetChange where
     toPath GetChange{..} = mconcat
         [ "/2013-04-01/change/"
-        , toBS _gcrId
+        , toBS _gcId
         ]
 
 instance ToQuery GetChange
@@ -78,19 +77,17 @@ instance ToXML GetChange where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetChangeRequest"
 
+-- | A complex type that contains the ChangeInfo element.
 newtype GetChangeResponse = GetChangeResponse
-    { _gcsChangeInfo :: ChangeInfo
-      -- ^ A complex type that contains information about the specified
-      -- change batch, including the change batch ID, the status of the
-      -- change, and the date and time of the request.
+    { _gcrsChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
 
 -- | A complex type that contains information about the specified change batch,
 -- including the change batch ID, the status of the change, and the date and
 -- time of the request.
-gcsChangeInfo :: Lens' GetChangeResponse (ChangeInfo)
-gcsChangeInfo = lens _gcsChangeInfo (\s a -> s { _gcsChangeInfo = a })
-{-# INLINE gcsChangeInfo #-}
+gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
+gcrsChangeInfo = lens _gcrsChangeInfo (\s a -> s { _gcrsChangeInfo = a })
+{-# INLINE gcrsChangeInfo #-}
 
 instance FromXML GetChangeResponse where
     fromXMLOptions = xmlOptions

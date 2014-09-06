@@ -30,66 +30,64 @@ module Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck
     -- * Request
       ConfigureHealthCheck
     -- ** Request constructor
-    , mkConfigureHealthCheckInput
+    , mkConfigureHealthCheck
     -- ** Request lenses
-    , chciLoadBalancerName
-    , chciHealthCheck
+    , chcLoadBalancerName
+    , chcHealthCheck
 
     -- * Response
     , ConfigureHealthCheckResponse
     -- ** Response lenses
-    , chcoHealthCheck
+    , chcrsHealthCheck
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | Input for the ConfigureHealthCheck action.
+data ConfigureHealthCheck = ConfigureHealthCheck
+    { _chcLoadBalancerName :: Text
+    , _chcHealthCheck :: HealthCheck
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfigureHealthCheck' request.
-mkConfigureHealthCheckInput :: Text -- ^ 'chciLoadBalancerName'
-                            -> HealthCheck -- ^ 'chciHealthCheck'
-                            -> ConfigureHealthCheck
-mkConfigureHealthCheckInput p1 p2 = ConfigureHealthCheck
-    { _chciLoadBalancerName = p1
-    , _chciHealthCheck = p2
+mkConfigureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
+                       -> HealthCheck -- ^ 'chcHealthCheck'
+                       -> ConfigureHealthCheck
+mkConfigureHealthCheck p1 p2 = ConfigureHealthCheck
+    { _chcLoadBalancerName = p1
+    , _chcHealthCheck = p2
     }
-{-# INLINE mkConfigureHealthCheckInput #-}
-
-data ConfigureHealthCheck = ConfigureHealthCheck
-    { _chciLoadBalancerName :: Text
-      -- ^ The mnemonic name associated with the load balancer. The name
-      -- must be unique within the set of load balancers associated with
-      -- your AWS account.
-    , _chciHealthCheck :: HealthCheck
-      -- ^ A structure containing the configuration information for the new
-      -- healthcheck.
-    } deriving (Show, Generic)
+{-# INLINE mkConfigureHealthCheck #-}
 
 -- | The mnemonic name associated with the load balancer. The name must be
 -- unique within the set of load balancers associated with your AWS account.
-chciLoadBalancerName :: Lens' ConfigureHealthCheck (Text)
-chciLoadBalancerName = lens _chciLoadBalancerName (\s a -> s { _chciLoadBalancerName = a })
-{-# INLINE chciLoadBalancerName #-}
+chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
+chcLoadBalancerName =
+    lens _chcLoadBalancerName (\s a -> s { _chcLoadBalancerName = a })
+{-# INLINE chcLoadBalancerName #-}
 
 -- | A structure containing the configuration information for the new
 -- healthcheck.
-chciHealthCheck :: Lens' ConfigureHealthCheck (HealthCheck)
-chciHealthCheck = lens _chciHealthCheck (\s a -> s { _chciHealthCheck = a })
-{-# INLINE chciHealthCheck #-}
+chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
+chcHealthCheck = lens _chcHealthCheck (\s a -> s { _chcHealthCheck = a })
+{-# INLINE chcHealthCheck #-}
 
 instance ToQuery ConfigureHealthCheck where
     toQuery = genericQuery def
 
+-- | The output for the ConfigureHealthCheck action.
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
-    { _chcoHealthCheck :: Maybe HealthCheck
-      -- ^ The updated healthcheck for the instances.
+    { _chcrsHealthCheck :: Maybe HealthCheck
     } deriving (Show, Generic)
 
 -- | The updated healthcheck for the instances.
-chcoHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcoHealthCheck = lens _chcoHealthCheck (\s a -> s { _chcoHealthCheck = a })
-{-# INLINE chcoHealthCheck #-}
+chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
+chcrsHealthCheck =
+    lens _chcrsHealthCheck (\s a -> s { _chcrsHealthCheck = a })
+{-# INLINE chcrsHealthCheck #-}
 
 instance FromXML ConfigureHealthCheckResponse where
     fromXMLOptions = xmlOptions

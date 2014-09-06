@@ -30,54 +30,53 @@ module Network.AWS.RDS.V2013_09_09.DeleteEventSubscription
     -- * Request
       DeleteEventSubscription
     -- ** Request constructor
-    , mkDeleteEventSubscriptionMessage
+    , mkDeleteEventSubscription
     -- ** Request lenses
-    , desmSubscriptionName
+    , desSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
     -- ** Response lenses
-    , esyEventSubscription
+    , desrsEventSubscription
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEventSubscription' request.
-mkDeleteEventSubscriptionMessage :: Text -- ^ 'desmSubscriptionName'
-                                 -> DeleteEventSubscription
-mkDeleteEventSubscriptionMessage p1 = DeleteEventSubscription
-    { _desmSubscriptionName = p1
-    }
-{-# INLINE mkDeleteEventSubscriptionMessage #-}
-
+-- | 
 newtype DeleteEventSubscription = DeleteEventSubscription
-    { _desmSubscriptionName :: Text
-      -- ^ The name of the RDS event notification subscription you want to
-      -- delete.
+    { _desSubscriptionName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEventSubscription' request.
+mkDeleteEventSubscription :: Text -- ^ 'desSubscriptionName'
+                          -> DeleteEventSubscription
+mkDeleteEventSubscription p1 = DeleteEventSubscription
+    { _desSubscriptionName = p1
+    }
+{-# INLINE mkDeleteEventSubscription #-}
+
 -- | The name of the RDS event notification subscription you want to delete.
-desmSubscriptionName :: Lens' DeleteEventSubscription (Text)
-desmSubscriptionName = lens _desmSubscriptionName (\s a -> s { _desmSubscriptionName = a })
-{-# INLINE desmSubscriptionName #-}
+desSubscriptionName :: Lens' DeleteEventSubscription Text
+desSubscriptionName =
+    lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
+{-# INLINE desSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where
     toQuery = genericQuery def
 
 newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-    { _esyEventSubscription :: Maybe EventSubscription
-      -- ^ Contains the results of a successful invocation of the
-      -- DescribeEventSubscriptions action.
+    { _desrsEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-esyEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-esyEventSubscription = lens _esyEventSubscription (\s a -> s { _esyEventSubscription = a })
-{-# INLINE esyEventSubscription #-}
+desrsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
+desrsEventSubscription =
+    lens _desrsEventSubscription (\s a -> s { _desrsEventSubscription = a })
+{-# INLINE desrsEventSubscription #-}
 
 instance FromXML DeleteEventSubscriptionResponse where
     fromXMLOptions = xmlOptions

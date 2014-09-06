@@ -23,438 +23,406 @@ module Network.AWS.S3.V2006_03_01.GetObject
     -- * Request
       GetObject
     -- ** Request constructor
-    , mkGetObjectRequest
+    , mkGetObject
     -- ** Request lenses
-    , gorBucket
-    , gorIfMatch
-    , gorIfModifiedSince
-    , gorIfNoneMatch
-    , gorIfUnmodifiedSince
-    , gorKey
-    , gorRange
-    , gorResponseCacheControl
-    , gorResponseContentDisposition
-    , gorResponseContentEncoding
-    , gorResponseContentLanguage
-    , gorResponseContentType
-    , gorResponseExpires
-    , gorVersionId
-    , gorSSECustomerAlgorithm
-    , gorSSECustomerKey
-    , gorSSECustomerKeyMD5
+    , goBucket
+    , goIfMatch
+    , goIfModifiedSince
+    , goIfNoneMatch
+    , goIfUnmodifiedSince
+    , goKey
+    , goRange
+    , goResponseCacheControl
+    , goResponseContentDisposition
+    , goResponseContentEncoding
+    , goResponseContentLanguage
+    , goResponseContentType
+    , goResponseExpires
+    , goVersionId
+    , goSSECustomerAlgorithm
+    , goSSECustomerKey
+    , goSSECustomerKeyMD5
 
     -- * Response
     , GetObjectResponse
     -- ** Response lenses
-    , gooBody
-    , gooDeleteMarker
-    , gooAcceptRanges
-    , gooExpiration
-    , gooRestore
-    , gooLastModified
-    , gooContentLength
-    , gooETag
-    , gooMissingMeta
-    , gooVersionId
-    , gooCacheControl
-    , gooContentDisposition
-    , gooContentEncoding
-    , gooContentLanguage
-    , gooContentType
-    , gooExpires
-    , gooWebsiteRedirectLocation
-    , gooServerSideEncryption
-    , gooMetadata
-    , gooSSECustomerAlgorithm
-    , gooSSECustomerKeyMD5
+    , gorsBody
+    , gorsDeleteMarker
+    , gorsAcceptRanges
+    , gorsExpiration
+    , gorsRestore
+    , gorsLastModified
+    , gorsContentLength
+    , gorsETag
+    , gorsMissingMeta
+    , gorsVersionId
+    , gorsCacheControl
+    , gorsContentDisposition
+    , gorsContentEncoding
+    , gorsContentLanguage
+    , gorsContentType
+    , gorsExpires
+    , gorsWebsiteRedirectLocation
+    , gorsServerSideEncryption
+    , gorsMetadata
+    , gorsSSECustomerAlgorithm
+    , gorsSSECustomerKeyMD5
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data GetObject = GetObject
+    { _goBucket :: BucketName
+    , _goIfMatch :: Maybe Text
+    , _goIfModifiedSince :: Maybe RFC822
+    , _goIfNoneMatch :: Maybe Text
+    , _goIfUnmodifiedSince :: Maybe RFC822
+    , _goKey :: ObjectKey
+    , _goRange :: Maybe Text
+    , _goResponseCacheControl :: Maybe Text
+    , _goResponseContentDisposition :: Maybe Text
+    , _goResponseContentEncoding :: Maybe Text
+    , _goResponseContentLanguage :: Maybe Text
+    , _goResponseContentType :: Maybe Text
+    , _goResponseExpires :: Maybe RFC822
+    , _goVersionId :: Maybe ObjectVersionId
+    , _goSSECustomerAlgorithm :: Maybe Text
+    , _goSSECustomerKey :: Maybe Text
+    , _goSSECustomerKeyMD5 :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObject' request.
-mkGetObjectRequest :: BucketName -- ^ 'gorBucket'
-                   -> ObjectKey -- ^ 'gorKey'
-                   -> GetObject
-mkGetObjectRequest p1 p2 = GetObject
-    { _gorBucket = p1
-    , _gorIfMatch = Nothing
-    , _gorIfModifiedSince = Nothing
-    , _gorIfNoneMatch = Nothing
-    , _gorIfUnmodifiedSince = Nothing
-    , _gorKey = p6
-    , _gorRange = Nothing
-    , _gorResponseCacheControl = Nothing
-    , _gorResponseContentDisposition = Nothing
-    , _gorResponseContentEncoding = Nothing
-    , _gorResponseContentLanguage = Nothing
-    , _gorResponseContentType = Nothing
-    , _gorResponseExpires = Nothing
-    , _gorVersionId = Nothing
-    , _gorSSECustomerAlgorithm = Nothing
-    , _gorSSECustomerKey = Nothing
-    , _gorSSECustomerKeyMD5 = Nothing
+mkGetObject :: BucketName -- ^ 'goBucket'
+            -> ObjectKey -- ^ 'goKey'
+            -> GetObject
+mkGetObject p1 p6 = GetObject
+    { _goBucket = p1
+    , _goIfMatch = Nothing
+    , _goIfModifiedSince = Nothing
+    , _goIfNoneMatch = Nothing
+    , _goIfUnmodifiedSince = Nothing
+    , _goKey = p6
+    , _goRange = Nothing
+    , _goResponseCacheControl = Nothing
+    , _goResponseContentDisposition = Nothing
+    , _goResponseContentEncoding = Nothing
+    , _goResponseContentLanguage = Nothing
+    , _goResponseContentType = Nothing
+    , _goResponseExpires = Nothing
+    , _goVersionId = Nothing
+    , _goSSECustomerAlgorithm = Nothing
+    , _goSSECustomerKey = Nothing
+    , _goSSECustomerKeyMD5 = Nothing
     }
-{-# INLINE mkGetObjectRequest #-}
+{-# INLINE mkGetObject #-}
 
-data GetObject = GetObject
-    { _gorBucket :: BucketName
-    , _gorIfMatch :: Maybe Text
-      -- ^ Return the object only if its entity tag (ETag) is the same as
-      -- the one specified, otherwise return a 412 (precondition failed).
-    , _gorIfModifiedSince :: Maybe RFC822
-      -- ^ Return the object only if it has been modified since the
-      -- specified time, otherwise return a 304 (not modified).
-    , _gorIfNoneMatch :: Maybe Text
-      -- ^ Return the object only if its entity tag (ETag) is different from
-      -- the one specified, otherwise return a 304 (not modified).
-    , _gorIfUnmodifiedSince :: Maybe RFC822
-      -- ^ Return the object only if it has not been modified since the
-      -- specified time, otherwise return a 412 (precondition failed).
-    , _gorKey :: ObjectKey
-    , _gorRange :: Maybe Text
-      -- ^ Downloads the specified range bytes of an object. For more
-      -- information about the HTTP Range header, go to
-      -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-    , _gorResponseCacheControl :: Maybe Text
-      -- ^ Sets the Cache-Control header of the response.
-    , _gorResponseContentDisposition :: Maybe Text
-      -- ^ Sets the Content-Disposition header of the response.
-    , _gorResponseContentEncoding :: Maybe Text
-      -- ^ Sets the Content-Encoding header of the response.
-    , _gorResponseContentLanguage :: Maybe Text
-      -- ^ Sets the Content-Language header of the response.
-    , _gorResponseContentType :: Maybe Text
-      -- ^ Sets the Content-Type header of the response.
-    , _gorResponseExpires :: Maybe RFC822
-      -- ^ Sets the Expires header of the response.
-    , _gorVersionId :: Maybe ObjectVersionId
-      -- ^ VersionId used to reference a specific version of the object.
-    , _gorSSECustomerAlgorithm :: Maybe Text
-      -- ^ Specifies the algorithm to use to when encrypting the object
-      -- (e.g., AES256).
-    , _gorSSECustomerKey :: Maybe Text
-      -- ^ Specifies the customer-provided encryption key for Amazon S3 to
-      -- use in encrypting data. This value is used to store the object
-      -- and then it is discarded; Amazon does not store the encryption
-      -- key. The key must be appropriate for use with the algorithm
-      -- specified in the
-      -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm
-      -- header.
-    , _gorSSECustomerKeyMD5 :: Maybe Text
-      -- ^ Specifies the 128-bit MD5 digest of the encryption key according
-      -- to RFC 1321. Amazon S3 uses this header for a message integrity
-      -- check to ensure the encryption key was transmitted without error.
-    } deriving (Show, Generic)
-
-gorBucket :: Lens' GetObject (BucketName)
-gorBucket = lens _gorBucket (\s a -> s { _gorBucket = a })
-{-# INLINE gorBucket #-}
+goBucket :: Lens' GetObject BucketName
+goBucket = lens _goBucket (\s a -> s { _goBucket = a })
+{-# INLINE goBucket #-}
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-gorIfMatch :: Lens' GetObject (Maybe Text)
-gorIfMatch = lens _gorIfMatch (\s a -> s { _gorIfMatch = a })
-{-# INLINE gorIfMatch #-}
+goIfMatch :: Lens' GetObject (Maybe Text)
+goIfMatch = lens _goIfMatch (\s a -> s { _goIfMatch = a })
+{-# INLINE goIfMatch #-}
 
 -- | Return the object only if it has been modified since the specified time,
 -- otherwise return a 304 (not modified).
-gorIfModifiedSince :: Lens' GetObject (Maybe RFC822)
-gorIfModifiedSince = lens _gorIfModifiedSince (\s a -> s { _gorIfModifiedSince = a })
-{-# INLINE gorIfModifiedSince #-}
+goIfModifiedSince :: Lens' GetObject (Maybe RFC822)
+goIfModifiedSince =
+    lens _goIfModifiedSince (\s a -> s { _goIfModifiedSince = a })
+{-# INLINE goIfModifiedSince #-}
 
 -- | Return the object only if its entity tag (ETag) is different from the one
 -- specified, otherwise return a 304 (not modified).
-gorIfNoneMatch :: Lens' GetObject (Maybe Text)
-gorIfNoneMatch = lens _gorIfNoneMatch (\s a -> s { _gorIfNoneMatch = a })
-{-# INLINE gorIfNoneMatch #-}
+goIfNoneMatch :: Lens' GetObject (Maybe Text)
+goIfNoneMatch = lens _goIfNoneMatch (\s a -> s { _goIfNoneMatch = a })
+{-# INLINE goIfNoneMatch #-}
 
 -- | Return the object only if it has not been modified since the specified
 -- time, otherwise return a 412 (precondition failed).
-gorIfUnmodifiedSince :: Lens' GetObject (Maybe RFC822)
-gorIfUnmodifiedSince = lens _gorIfUnmodifiedSince (\s a -> s { _gorIfUnmodifiedSince = a })
-{-# INLINE gorIfUnmodifiedSince #-}
+goIfUnmodifiedSince :: Lens' GetObject (Maybe RFC822)
+goIfUnmodifiedSince =
+    lens _goIfUnmodifiedSince (\s a -> s { _goIfUnmodifiedSince = a })
+{-# INLINE goIfUnmodifiedSince #-}
 
-gorKey :: Lens' GetObject (ObjectKey)
-gorKey = lens _gorKey (\s a -> s { _gorKey = a })
-{-# INLINE gorKey #-}
+goKey :: Lens' GetObject ObjectKey
+goKey = lens _goKey (\s a -> s { _goKey = a })
+{-# INLINE goKey #-}
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, go to
 -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-gorRange :: Lens' GetObject (Maybe Text)
-gorRange = lens _gorRange (\s a -> s { _gorRange = a })
-{-# INLINE gorRange #-}
+goRange :: Lens' GetObject (Maybe Text)
+goRange = lens _goRange (\s a -> s { _goRange = a })
+{-# INLINE goRange #-}
 
 -- | Sets the Cache-Control header of the response.
-gorResponseCacheControl :: Lens' GetObject (Maybe Text)
-gorResponseCacheControl = lens _gorResponseCacheControl (\s a -> s { _gorResponseCacheControl = a })
-{-# INLINE gorResponseCacheControl #-}
+goResponseCacheControl :: Lens' GetObject (Maybe Text)
+goResponseCacheControl =
+    lens _goResponseCacheControl (\s a -> s { _goResponseCacheControl = a })
+{-# INLINE goResponseCacheControl #-}
 
 -- | Sets the Content-Disposition header of the response.
-gorResponseContentDisposition :: Lens' GetObject (Maybe Text)
-gorResponseContentDisposition = lens _gorResponseContentDisposition (\s a -> s { _gorResponseContentDisposition = a })
-{-# INLINE gorResponseContentDisposition #-}
+goResponseContentDisposition :: Lens' GetObject (Maybe Text)
+goResponseContentDisposition =
+    lens _goResponseContentDisposition
+         (\s a -> s { _goResponseContentDisposition = a })
+{-# INLINE goResponseContentDisposition #-}
 
 -- | Sets the Content-Encoding header of the response.
-gorResponseContentEncoding :: Lens' GetObject (Maybe Text)
-gorResponseContentEncoding = lens _gorResponseContentEncoding (\s a -> s { _gorResponseContentEncoding = a })
-{-# INLINE gorResponseContentEncoding #-}
+goResponseContentEncoding :: Lens' GetObject (Maybe Text)
+goResponseContentEncoding =
+    lens _goResponseContentEncoding
+         (\s a -> s { _goResponseContentEncoding = a })
+{-# INLINE goResponseContentEncoding #-}
 
 -- | Sets the Content-Language header of the response.
-gorResponseContentLanguage :: Lens' GetObject (Maybe Text)
-gorResponseContentLanguage = lens _gorResponseContentLanguage (\s a -> s { _gorResponseContentLanguage = a })
-{-# INLINE gorResponseContentLanguage #-}
+goResponseContentLanguage :: Lens' GetObject (Maybe Text)
+goResponseContentLanguage =
+    lens _goResponseContentLanguage
+         (\s a -> s { _goResponseContentLanguage = a })
+{-# INLINE goResponseContentLanguage #-}
 
 -- | Sets the Content-Type header of the response.
-gorResponseContentType :: Lens' GetObject (Maybe Text)
-gorResponseContentType = lens _gorResponseContentType (\s a -> s { _gorResponseContentType = a })
-{-# INLINE gorResponseContentType #-}
+goResponseContentType :: Lens' GetObject (Maybe Text)
+goResponseContentType =
+    lens _goResponseContentType (\s a -> s { _goResponseContentType = a })
+{-# INLINE goResponseContentType #-}
 
 -- | Sets the Expires header of the response.
-gorResponseExpires :: Lens' GetObject (Maybe RFC822)
-gorResponseExpires = lens _gorResponseExpires (\s a -> s { _gorResponseExpires = a })
-{-# INLINE gorResponseExpires #-}
+goResponseExpires :: Lens' GetObject (Maybe RFC822)
+goResponseExpires =
+    lens _goResponseExpires (\s a -> s { _goResponseExpires = a })
+{-# INLINE goResponseExpires #-}
 
 -- | VersionId used to reference a specific version of the object.
-gorVersionId :: Lens' GetObject (Maybe ObjectVersionId)
-gorVersionId = lens _gorVersionId (\s a -> s { _gorVersionId = a })
-{-# INLINE gorVersionId #-}
+goVersionId :: Lens' GetObject (Maybe ObjectVersionId)
+goVersionId = lens _goVersionId (\s a -> s { _goVersionId = a })
+{-# INLINE goVersionId #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-gorSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
-gorSSECustomerAlgorithm = lens _gorSSECustomerAlgorithm (\s a -> s { _gorSSECustomerAlgorithm = a })
-{-# INLINE gorSSECustomerAlgorithm #-}
+goSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
+goSSECustomerAlgorithm =
+    lens _goSSECustomerAlgorithm (\s a -> s { _goSSECustomerAlgorithm = a })
+{-# INLINE goSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-gorSSECustomerKey :: Lens' GetObject (Maybe Text)
-gorSSECustomerKey = lens _gorSSECustomerKey (\s a -> s { _gorSSECustomerKey = a })
-{-# INLINE gorSSECustomerKey #-}
+goSSECustomerKey :: Lens' GetObject (Maybe Text)
+goSSECustomerKey =
+    lens _goSSECustomerKey (\s a -> s { _goSSECustomerKey = a })
+{-# INLINE goSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-gorSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
-gorSSECustomerKeyMD5 = lens _gorSSECustomerKeyMD5 (\s a -> s { _gorSSECustomerKeyMD5 = a })
-{-# INLINE gorSSECustomerKeyMD5 #-}
+goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
+goSSECustomerKeyMD5 =
+    lens _goSSECustomerKeyMD5 (\s a -> s { _goSSECustomerKeyMD5 = a })
+{-# INLINE goSSECustomerKeyMD5 #-}
 
 instance ToPath GetObject where
     toPath GetObject{..} = mconcat
         [ "/"
-        , toBS _gorBucket
+        , toBS _goBucket
         , "/"
-        , toBS _gorKey
+        , toBS _goKey
         ]
 
 instance ToQuery GetObject where
     toQuery GetObject{..} = mconcat
-        [ "response-cache-control" =? _gorResponseCacheControl
-        , "response-content-disposition" =? _gorResponseContentDisposition
-        , "response-content-encoding" =? _gorResponseContentEncoding
-        , "response-content-language" =? _gorResponseContentLanguage
-        , "response-content-type" =? _gorResponseContentType
-        , "response-expires" =? _gorResponseExpires
-        , "versionId" =? _gorVersionId
+        [ "response-cache-control" =? _goResponseCacheControl
+        , "response-content-disposition" =? _goResponseContentDisposition
+        , "response-content-encoding" =? _goResponseContentEncoding
+        , "response-content-language" =? _goResponseContentLanguage
+        , "response-content-type" =? _goResponseContentType
+        , "response-expires" =? _goResponseExpires
+        , "versionId" =? _goVersionId
         ]
 
-instance ToHeaders GetObject
+instance ToHeaders GetObject where
+    toHeaders GetObject{..} = concat
+        [ "If-Match" =: _goIfMatch
+        , "If-Modified-Since" =: _goIfModifiedSince
+        , "If-None-Match" =: _goIfNoneMatch
+        , "If-Unmodified-Since" =: _goIfUnmodifiedSince
+        , "Range" =: _goRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key" =: _goSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5" =: _goSSECustomerKeyMD5
+        ]
 
 instance ToBody GetObject
 
 data GetObjectResponse = GetObjectResponse
-    { _gooBody :: RsBody
-      -- ^ Object data.
-    , _gooDeleteMarker :: Maybe Bool
-      -- ^ Specifies whether the object retrieved was (true) or was not
-      -- (false) a Delete Marker. If false, this response header does not
-      -- appear in the response.
-    , _gooAcceptRanges :: Maybe Text
-    , _gooExpiration :: Maybe RFC822
-      -- ^ If the object expiration is configured (see PUT Bucket
-      -- lifecycle), the response includes this header. It includes the
-      -- expiry-date and rule-id key value pairs providing object
-      -- expiration information. The value of the rule-id is URL encoded.
-    , _gooRestore :: Maybe Text
-      -- ^ Provides information about object restoration operation and
-      -- expiration time of the restored object copy.
-    , _gooLastModified :: Maybe RFC822
-      -- ^ Last modified date of the object.
-    , _gooContentLength :: Maybe Integer
-      -- ^ Size of the body in bytes.
-    , _gooETag :: Maybe ETag
-      -- ^ An ETag is an opaque identifier assigned by a web server to a
-      -- specific version of a resource found at a URL.
-    , _gooMissingMeta :: Maybe Integer
-      -- ^ This is set to the number of metadata entries not returned in
-      -- x-amz-meta headers. This can happen if you create metadata using
-      -- an API like SOAP that supports more flexible metadata than the
-      -- REST API. For example, using SOAP, you can create metadata whose
-      -- values are not legal HTTP headers.
-    , _gooVersionId :: Maybe ObjectVersionId
-      -- ^ Version of the object.
-    , _gooCacheControl :: Maybe Text
-      -- ^ Specifies caching behavior along the request/reply chain.
-    , _gooContentDisposition :: Maybe Text
-      -- ^ Specifies presentational information for the object.
-    , _gooContentEncoding :: Maybe Text
-      -- ^ Specifies what content encodings have been applied to the object
-      -- and thus what decoding mechanisms must be applied to obtain the
-      -- media-type referenced by the Content-Type header field.
-    , _gooContentLanguage :: Maybe Text
-      -- ^ The language the content is in.
-    , _gooContentType :: Maybe Text
-      -- ^ A standard MIME type describing the format of the object data.
-    , _gooExpires :: Maybe RFC822
-      -- ^ The date and time at which the object is no longer cacheable.
-    , _gooWebsiteRedirectLocation :: Maybe Text
-      -- ^ If the bucket is configured as a website, redirects requests for
-      -- this object to another object in the same bucket or to an
-      -- external URL. Amazon S3 stores the value of this header in the
-      -- object metadata.
-    , _gooServerSideEncryption :: Maybe ServerSideEncryption
-      -- ^ The Server-side encryption algorithm used when storing this
-      -- object in S3.
-    , _gooMetadata :: Map Text Text
-      -- ^ A map of metadata to store with the object in S3.
-    , _gooSSECustomerAlgorithm :: Maybe Text
-      -- ^ If server-side encryption with a customer-provided encryption key
-      -- was requested, the response will include this header confirming
-      -- the encryption algorithm used.
-    , _gooSSECustomerKeyMD5 :: Maybe Text
-      -- ^ If server-side encryption with a customer-provided encryption key
-      -- was requested, the response will include this header to provide
-      -- round trip message integrity verification of the
-      -- customer-provided encryption key.
+    { _gorsBody :: RsBody
+    , _gorsDeleteMarker :: Maybe Bool
+    , _gorsAcceptRanges :: Maybe Text
+    , _gorsExpiration :: Maybe RFC822
+    , _gorsRestore :: Maybe Text
+    , _gorsLastModified :: Maybe RFC822
+    , _gorsContentLength :: Maybe Integer
+    , _gorsETag :: Maybe ETag
+    , _gorsMissingMeta :: Maybe Integer
+    , _gorsVersionId :: Maybe ObjectVersionId
+    , _gorsCacheControl :: Maybe Text
+    , _gorsContentDisposition :: Maybe Text
+    , _gorsContentEncoding :: Maybe Text
+    , _gorsContentLanguage :: Maybe Text
+    , _gorsContentType :: Maybe Text
+    , _gorsExpires :: Maybe RFC822
+    , _gorsWebsiteRedirectLocation :: Maybe Text
+    , _gorsServerSideEncryption :: Maybe ServerSideEncryption
+    , _gorsMetadata :: Map Text Text
+    , _gorsSSECustomerAlgorithm :: Maybe Text
+    , _gorsSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Object data.
-gooBody :: Lens' GetObjectResponse (RsBody)
-gooBody = lens _gooBody (\s a -> s { _gooBody = a })
-{-# INLINE gooBody #-}
+gorsBody :: Lens' GetObjectResponse RsBody
+gorsBody = lens _gorsBody (\s a -> s { _gorsBody = a })
+{-# INLINE gorsBody #-}
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
 -- response.
-gooDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
-gooDeleteMarker = lens _gooDeleteMarker (\s a -> s { _gooDeleteMarker = a })
-{-# INLINE gooDeleteMarker #-}
+gorsDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
+gorsDeleteMarker =
+    lens _gorsDeleteMarker (\s a -> s { _gorsDeleteMarker = a })
+{-# INLINE gorsDeleteMarker #-}
 
-gooAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
-gooAcceptRanges = lens _gooAcceptRanges (\s a -> s { _gooAcceptRanges = a })
-{-# INLINE gooAcceptRanges #-}
+gorsAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
+gorsAcceptRanges =
+    lens _gorsAcceptRanges (\s a -> s { _gorsAcceptRanges = a })
+{-# INLINE gorsAcceptRanges #-}
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id key
 -- value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
-gooExpiration :: Lens' GetObjectResponse (Maybe RFC822)
-gooExpiration = lens _gooExpiration (\s a -> s { _gooExpiration = a })
-{-# INLINE gooExpiration #-}
+gorsExpiration :: Lens' GetObjectResponse (Maybe RFC822)
+gorsExpiration = lens _gorsExpiration (\s a -> s { _gorsExpiration = a })
+{-# INLINE gorsExpiration #-}
 
 -- | Provides information about object restoration operation and expiration time
 -- of the restored object copy.
-gooRestore :: Lens' GetObjectResponse (Maybe Text)
-gooRestore = lens _gooRestore (\s a -> s { _gooRestore = a })
-{-# INLINE gooRestore #-}
+gorsRestore :: Lens' GetObjectResponse (Maybe Text)
+gorsRestore = lens _gorsRestore (\s a -> s { _gorsRestore = a })
+{-# INLINE gorsRestore #-}
 
 -- | Last modified date of the object.
-gooLastModified :: Lens' GetObjectResponse (Maybe RFC822)
-gooLastModified = lens _gooLastModified (\s a -> s { _gooLastModified = a })
-{-# INLINE gooLastModified #-}
+gorsLastModified :: Lens' GetObjectResponse (Maybe RFC822)
+gorsLastModified =
+    lens _gorsLastModified (\s a -> s { _gorsLastModified = a })
+{-# INLINE gorsLastModified #-}
 
 -- | Size of the body in bytes.
-gooContentLength :: Lens' GetObjectResponse (Maybe Integer)
-gooContentLength = lens _gooContentLength (\s a -> s { _gooContentLength = a })
-{-# INLINE gooContentLength #-}
+gorsContentLength :: Lens' GetObjectResponse (Maybe Integer)
+gorsContentLength =
+    lens _gorsContentLength (\s a -> s { _gorsContentLength = a })
+{-# INLINE gorsContentLength #-}
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-gooETag :: Lens' GetObjectResponse (Maybe ETag)
-gooETag = lens _gooETag (\s a -> s { _gooETag = a })
-{-# INLINE gooETag #-}
+gorsETag :: Lens' GetObjectResponse (Maybe ETag)
+gorsETag = lens _gorsETag (\s a -> s { _gorsETag = a })
+{-# INLINE gorsETag #-}
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP that
 -- supports more flexible metadata than the REST API. For example, using SOAP,
 -- you can create metadata whose values are not legal HTTP headers.
-gooMissingMeta :: Lens' GetObjectResponse (Maybe Integer)
-gooMissingMeta = lens _gooMissingMeta (\s a -> s { _gooMissingMeta = a })
-{-# INLINE gooMissingMeta #-}
+gorsMissingMeta :: Lens' GetObjectResponse (Maybe Integer)
+gorsMissingMeta = lens _gorsMissingMeta (\s a -> s { _gorsMissingMeta = a })
+{-# INLINE gorsMissingMeta #-}
 
 -- | Version of the object.
-gooVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
-gooVersionId = lens _gooVersionId (\s a -> s { _gooVersionId = a })
-{-# INLINE gooVersionId #-}
+gorsVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
+gorsVersionId = lens _gorsVersionId (\s a -> s { _gorsVersionId = a })
+{-# INLINE gorsVersionId #-}
 
 -- | Specifies caching behavior along the request/reply chain.
-gooCacheControl :: Lens' GetObjectResponse (Maybe Text)
-gooCacheControl = lens _gooCacheControl (\s a -> s { _gooCacheControl = a })
-{-# INLINE gooCacheControl #-}
+gorsCacheControl :: Lens' GetObjectResponse (Maybe Text)
+gorsCacheControl =
+    lens _gorsCacheControl (\s a -> s { _gorsCacheControl = a })
+{-# INLINE gorsCacheControl #-}
 
 -- | Specifies presentational information for the object.
-gooContentDisposition :: Lens' GetObjectResponse (Maybe Text)
-gooContentDisposition = lens _gooContentDisposition (\s a -> s { _gooContentDisposition = a })
-{-# INLINE gooContentDisposition #-}
+gorsContentDisposition :: Lens' GetObjectResponse (Maybe Text)
+gorsContentDisposition =
+    lens _gorsContentDisposition (\s a -> s { _gorsContentDisposition = a })
+{-# INLINE gorsContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-gooContentEncoding :: Lens' GetObjectResponse (Maybe Text)
-gooContentEncoding = lens _gooContentEncoding (\s a -> s { _gooContentEncoding = a })
-{-# INLINE gooContentEncoding #-}
+gorsContentEncoding :: Lens' GetObjectResponse (Maybe Text)
+gorsContentEncoding =
+    lens _gorsContentEncoding (\s a -> s { _gorsContentEncoding = a })
+{-# INLINE gorsContentEncoding #-}
 
 -- | The language the content is in.
-gooContentLanguage :: Lens' GetObjectResponse (Maybe Text)
-gooContentLanguage = lens _gooContentLanguage (\s a -> s { _gooContentLanguage = a })
-{-# INLINE gooContentLanguage #-}
+gorsContentLanguage :: Lens' GetObjectResponse (Maybe Text)
+gorsContentLanguage =
+    lens _gorsContentLanguage (\s a -> s { _gorsContentLanguage = a })
+{-# INLINE gorsContentLanguage #-}
 
 -- | A standard MIME type describing the format of the object data.
-gooContentType :: Lens' GetObjectResponse (Maybe Text)
-gooContentType = lens _gooContentType (\s a -> s { _gooContentType = a })
-{-# INLINE gooContentType #-}
+gorsContentType :: Lens' GetObjectResponse (Maybe Text)
+gorsContentType = lens _gorsContentType (\s a -> s { _gorsContentType = a })
+{-# INLINE gorsContentType #-}
 
 -- | The date and time at which the object is no longer cacheable.
-gooExpires :: Lens' GetObjectResponse (Maybe RFC822)
-gooExpires = lens _gooExpires (\s a -> s { _gooExpires = a })
-{-# INLINE gooExpires #-}
+gorsExpires :: Lens' GetObjectResponse (Maybe RFC822)
+gorsExpires = lens _gorsExpires (\s a -> s { _gorsExpires = a })
+{-# INLINE gorsExpires #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-gooWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
-gooWebsiteRedirectLocation = lens _gooWebsiteRedirectLocation (\s a -> s { _gooWebsiteRedirectLocation = a })
-{-# INLINE gooWebsiteRedirectLocation #-}
+gorsWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
+gorsWebsiteRedirectLocation =
+    lens _gorsWebsiteRedirectLocation
+         (\s a -> s { _gorsWebsiteRedirectLocation = a })
+{-# INLINE gorsWebsiteRedirectLocation #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-gooServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
-gooServerSideEncryption = lens _gooServerSideEncryption (\s a -> s { _gooServerSideEncryption = a })
-{-# INLINE gooServerSideEncryption #-}
+gorsServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
+gorsServerSideEncryption =
+    lens _gorsServerSideEncryption
+         (\s a -> s { _gorsServerSideEncryption = a })
+{-# INLINE gorsServerSideEncryption #-}
 
 -- | A map of metadata to store with the object in S3.
-gooMetadata :: Lens' GetObjectResponse (Map Text Text)
-gooMetadata = lens _gooMetadata (\s a -> s { _gooMetadata = a })
-{-# INLINE gooMetadata #-}
+gorsMetadata :: Lens' GetObjectResponse (Map Text Text)
+gorsMetadata = lens _gorsMetadata (\s a -> s { _gorsMetadata = a })
+{-# INLINE gorsMetadata #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-gooSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
-gooSSECustomerAlgorithm = lens _gooSSECustomerAlgorithm (\s a -> s { _gooSSECustomerAlgorithm = a })
-{-# INLINE gooSSECustomerAlgorithm #-}
+gorsSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
+gorsSSECustomerAlgorithm =
+    lens _gorsSSECustomerAlgorithm
+         (\s a -> s { _gorsSSECustomerAlgorithm = a })
+{-# INLINE gorsSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-gooSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
-gooSSECustomerKeyMD5 = lens _gooSSECustomerKeyMD5 (\s a -> s { _gooSSECustomerKeyMD5 = a })
-{-# INLINE gooSSECustomerKeyMD5 #-}
+gorsSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
+gorsSSECustomerKeyMD5 =
+    lens _gorsSSECustomerKeyMD5 (\s a -> s { _gorsSSECustomerKeyMD5 = a })
+{-# INLINE gorsSSECustomerKeyMD5 #-}
 
 instance AWSRequest GetObject where
     type Sv GetObject = S3

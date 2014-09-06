@@ -47,64 +47,63 @@ module Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer
     -- * Request
       RegisterInstancesWithLoadBalancer
     -- ** Request constructor
-    , mkRegisterEndPointsInput
+    , mkRegisterInstancesWithLoadBalancer
     -- ** Request lenses
-    , repiLoadBalancerName
-    , repiInstances
+    , riwlbLoadBalancerName
+    , riwlbInstances
 
     -- * Response
     , RegisterInstancesWithLoadBalancerResponse
     -- ** Response lenses
-    , repoInstances
+    , riwlbrsInstances
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | The input for the RegisterInstancesWithLoadBalancer action.
+data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
+    { _riwlbLoadBalancerName :: Text
+    , _riwlbInstances :: [Instance]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterInstancesWithLoadBalancer' request.
-mkRegisterEndPointsInput :: Text -- ^ 'repiLoadBalancerName'
-                         -> [Instance] -- ^ 'repiInstances'
-                         -> RegisterInstancesWithLoadBalancer
-mkRegisterEndPointsInput p1 p2 = RegisterInstancesWithLoadBalancer
-    { _repiLoadBalancerName = p1
-    , _repiInstances = p2
+mkRegisterInstancesWithLoadBalancer :: Text -- ^ 'riwlbLoadBalancerName'
+                                    -> [Instance] -- ^ 'riwlbInstances'
+                                    -> RegisterInstancesWithLoadBalancer
+mkRegisterInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
+    { _riwlbLoadBalancerName = p1
+    , _riwlbInstances = p2
     }
-{-# INLINE mkRegisterEndPointsInput #-}
-
-data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
-    { _repiLoadBalancerName :: Text
-      -- ^ The name associated with the load balancer. The name must be
-      -- unique within your set of load balancers.
-    , _repiInstances :: [Instance]
-      -- ^ A list of instance IDs that should be registered with the load
-      -- balancer.
-    } deriving (Show, Generic)
+{-# INLINE mkRegisterInstancesWithLoadBalancer #-}
 
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers.
-repiLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer (Text)
-repiLoadBalancerName = lens _repiLoadBalancerName (\s a -> s { _repiLoadBalancerName = a })
-{-# INLINE repiLoadBalancerName #-}
+riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
+riwlbLoadBalancerName =
+    lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
+{-# INLINE riwlbLoadBalancerName #-}
 
 -- | A list of instance IDs that should be registered with the load balancer.
-repiInstances :: Lens' RegisterInstancesWithLoadBalancer ([Instance])
-repiInstances = lens _repiInstances (\s a -> s { _repiInstances = a })
-{-# INLINE repiInstances #-}
+riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
+riwlbInstances = lens _riwlbInstances (\s a -> s { _riwlbInstances = a })
+{-# INLINE riwlbInstances #-}
 
 instance ToQuery RegisterInstancesWithLoadBalancer where
     toQuery = genericQuery def
 
+-- | The output for the RegisterInstancesWithLoadBalancer action.
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
-    { _repoInstances :: [Instance]
-      -- ^ An updated list of instances for the load balancer.
+    { _riwlbrsInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | An updated list of instances for the load balancer.
-repoInstances :: Lens' RegisterInstancesWithLoadBalancerResponse ([Instance])
-repoInstances = lens _repoInstances (\s a -> s { _repoInstances = a })
-{-# INLINE repoInstances #-}
+riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
+riwlbrsInstances =
+    lens _riwlbrsInstances (\s a -> s { _riwlbrsInstances = a })
+{-# INLINE riwlbrsInstances #-}
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
     fromXMLOptions = xmlOptions

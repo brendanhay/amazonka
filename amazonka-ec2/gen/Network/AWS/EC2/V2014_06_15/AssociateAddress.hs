@@ -53,113 +53,102 @@ module Network.AWS.EC2.V2014_06_15.AssociateAddress
     -- * Request
       AssociateAddress
     -- ** Request constructor
-    , mkAssociateAddressRequest
+    , mkAssociateAddress
     -- ** Request lenses
-    , aatInstanceId
-    , aatPublicIp
-    , aatAllocationId
-    , aatNetworkInterfaceId
-    , aatPrivateIpAddress
-    , aatAllowReassociation
+    , aa1InstanceId
+    , aa1PublicIp
+    , aa1AllocationId
+    , aa1NetworkInterfaceId
+    , aa1PrivateIpAddress
+    , aa1AllowReassociation
 
     -- * Response
     , AssociateAddressResponse
     -- ** Response lenses
-    , aauAssociationId
+    , aarsrsAssociationId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data AssociateAddress = AssociateAddress
+    { _aa1InstanceId :: Maybe Text
+    , _aa1PublicIp :: Maybe Text
+    , _aa1AllocationId :: Maybe Text
+    , _aa1NetworkInterfaceId :: Maybe Text
+    , _aa1PrivateIpAddress :: Maybe Text
+    , _aa1AllowReassociation :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateAddress' request.
-mkAssociateAddressRequest :: AssociateAddress
-mkAssociateAddressRequest = AssociateAddress
-    { _aatInstanceId = Nothing
-    , _aatPublicIp = Nothing
-    , _aatAllocationId = Nothing
-    , _aatNetworkInterfaceId = Nothing
-    , _aatPrivateIpAddress = Nothing
-    , _aatAllowReassociation = Nothing
+mkAssociateAddress :: AssociateAddress
+mkAssociateAddress = AssociateAddress
+    { _aa1InstanceId = Nothing
+    , _aa1PublicIp = Nothing
+    , _aa1AllocationId = Nothing
+    , _aa1NetworkInterfaceId = Nothing
+    , _aa1PrivateIpAddress = Nothing
+    , _aa1AllowReassociation = Nothing
     }
-{-# INLINE mkAssociateAddressRequest #-}
-
-data AssociateAddress = AssociateAddress
-    { _aatInstanceId :: Maybe Text
-      -- ^ The ID of the instance. The operation fails if you specify an
-      -- instance ID unless exactly one network interface is attached.
-    , _aatPublicIp :: Maybe Text
-      -- ^ The Elastic IP address.
-    , _aatAllocationId :: Maybe Text
-      -- ^ [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-    , _aatNetworkInterfaceId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the network interface. If the instance has
-      -- more than one network interface, you must specify a network
-      -- interface ID.
-    , _aatPrivateIpAddress :: Maybe Text
-      -- ^ [EC2-VPC] The primary or secondary private IP address to
-      -- associate with the Elastic IP address. If no private IP address
-      -- is specified, the Elastic IP address is associated with the
-      -- primary private IP address.
-    , _aatAllowReassociation :: Maybe Bool
-      -- ^ [EC2-VPC] Allows an Elastic IP address that is already associated
-      -- with an instance or network interface to be re-associated with
-      -- the specified instance or network interface. Otherwise, the
-      -- operation fails. Default: false.
-    } deriving (Show, Generic)
+{-# INLINE mkAssociateAddress #-}
 
 -- | The ID of the instance. The operation fails if you specify an instance ID
 -- unless exactly one network interface is attached.
-aatInstanceId :: Lens' AssociateAddress (Maybe Text)
-aatInstanceId = lens _aatInstanceId (\s a -> s { _aatInstanceId = a })
-{-# INLINE aatInstanceId #-}
+aa1InstanceId :: Lens' AssociateAddress (Maybe Text)
+aa1InstanceId = lens _aa1InstanceId (\s a -> s { _aa1InstanceId = a })
+{-# INLINE aa1InstanceId #-}
 
 -- | The Elastic IP address.
-aatPublicIp :: Lens' AssociateAddress (Maybe Text)
-aatPublicIp = lens _aatPublicIp (\s a -> s { _aatPublicIp = a })
-{-# INLINE aatPublicIp #-}
+aa1PublicIp :: Lens' AssociateAddress (Maybe Text)
+aa1PublicIp = lens _aa1PublicIp (\s a -> s { _aa1PublicIp = a })
+{-# INLINE aa1PublicIp #-}
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-aatAllocationId :: Lens' AssociateAddress (Maybe Text)
-aatAllocationId = lens _aatAllocationId (\s a -> s { _aatAllocationId = a })
-{-# INLINE aatAllocationId #-}
+aa1AllocationId :: Lens' AssociateAddress (Maybe Text)
+aa1AllocationId = lens _aa1AllocationId (\s a -> s { _aa1AllocationId = a })
+{-# INLINE aa1AllocationId #-}
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than
 -- one network interface, you must specify a network interface ID.
-aatNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
-aatNetworkInterfaceId = lens _aatNetworkInterfaceId (\s a -> s { _aatNetworkInterfaceId = a })
-{-# INLINE aatNetworkInterfaceId #-}
+aa1NetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
+aa1NetworkInterfaceId =
+    lens _aa1NetworkInterfaceId (\s a -> s { _aa1NetworkInterfaceId = a })
+{-# INLINE aa1NetworkInterfaceId #-}
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with the
 -- Elastic IP address. If no private IP address is specified, the Elastic IP
 -- address is associated with the primary private IP address.
-aatPrivateIpAddress :: Lens' AssociateAddress (Maybe Text)
-aatPrivateIpAddress = lens _aatPrivateIpAddress (\s a -> s { _aatPrivateIpAddress = a })
-{-# INLINE aatPrivateIpAddress #-}
+aa1PrivateIpAddress :: Lens' AssociateAddress (Maybe Text)
+aa1PrivateIpAddress =
+    lens _aa1PrivateIpAddress (\s a -> s { _aa1PrivateIpAddress = a })
+{-# INLINE aa1PrivateIpAddress #-}
 
 -- | [EC2-VPC] Allows an Elastic IP address that is already associated with an
 -- instance or network interface to be re-associated with the specified
 -- instance or network interface. Otherwise, the operation fails. Default:
 -- false.
-aatAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
-aatAllowReassociation = lens _aatAllowReassociation (\s a -> s { _aatAllowReassociation = a })
-{-# INLINE aatAllowReassociation #-}
+aa1AllowReassociation :: Lens' AssociateAddress (Maybe Bool)
+aa1AllowReassociation =
+    lens _aa1AllowReassociation (\s a -> s { _aa1AllowReassociation = a })
+{-# INLINE aa1AllowReassociation #-}
 
 instance ToQuery AssociateAddress where
     toQuery = genericQuery def
 
+-- | 
 newtype AssociateAddressResponse = AssociateAddressResponse
-    { _aauAssociationId :: Maybe Text
-      -- ^ [EC2-VPC] The ID that represents the association of the Elastic
-      -- IP address with an instance.
+    { _aarsrsAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address
 -- with an instance.
-aauAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
-aauAssociationId = lens _aauAssociationId (\s a -> s { _aauAssociationId = a })
-{-# INLINE aauAssociationId #-}
+aarsrsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
+aarsrsAssociationId =
+    lens _aarsrsAssociationId (\s a -> s { _aarsrsAssociationId = a })
+{-# INLINE aarsrsAssociationId #-}
 
 instance FromXML AssociateAddressResponse where
     fromXMLOptions = xmlOptions

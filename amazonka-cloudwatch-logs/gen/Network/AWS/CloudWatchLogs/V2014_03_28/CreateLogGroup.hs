@@ -36,9 +36,9 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup
     -- * Request
       CreateLogGroup
     -- ** Request constructor
-    , mkCreateLogGroupRequest
+    , mkCreateLogGroup
     -- ** Request lenses
-    , clgrLogGroupName
+    , clgLogGroupName
 
     -- * Response
     , CreateLogGroupResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLogGroup' request.
-mkCreateLogGroupRequest :: Text -- ^ 'clgrLogGroupName'
-                        -> CreateLogGroup
-mkCreateLogGroupRequest p1 = CreateLogGroup
-    { _clgrLogGroupName = p1
-    }
-{-# INLINE mkCreateLogGroupRequest #-}
-
 newtype CreateLogGroup = CreateLogGroup
-    { _clgrLogGroupName :: Text
+    { _clgLogGroupName :: Text
     } deriving (Show, Generic)
 
-clgrLogGroupName :: Lens' CreateLogGroup (Text)
-clgrLogGroupName = lens _clgrLogGroupName (\s a -> s { _clgrLogGroupName = a })
-{-# INLINE clgrLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLogGroup' request.
+mkCreateLogGroup :: Text -- ^ 'clgLogGroupName'
+                 -> CreateLogGroup
+mkCreateLogGroup p1 = CreateLogGroup
+    { _clgLogGroupName = p1
+    }
+{-# INLINE mkCreateLogGroup #-}
+
+clgLogGroupName :: Lens' CreateLogGroup Text
+clgLogGroupName = lens _clgLogGroupName (\s a -> s { _clgLogGroupName = a })
+{-# INLINE clgLogGroupName #-}
 
 instance ToPath CreateLogGroup
 

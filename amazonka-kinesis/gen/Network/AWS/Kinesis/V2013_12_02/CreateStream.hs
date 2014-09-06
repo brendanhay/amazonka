@@ -60,10 +60,10 @@ module Network.AWS.Kinesis.V2013_12_02.CreateStream
     -- * Request
       CreateStream
     -- ** Request constructor
-    , mkCreateStreamInput
+    , mkCreateStream
     -- ** Request lenses
-    , csiStreamName
-    , csiShardCount
+    , csStreamName
+    , csShardCount
 
     -- * Response
     , CreateStreamResponse
@@ -74,51 +74,40 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Represents the input of a CreateStream operation.
+data CreateStream = CreateStream
+    { _csStreamName :: Text
+    , _csShardCount :: Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStream' request.
-mkCreateStreamInput :: Text -- ^ 'csiStreamName'
-                    -> Integer -- ^ 'csiShardCount'
-                    -> CreateStream
-mkCreateStreamInput p1 p2 = CreateStream
-    { _csiStreamName = p1
-    , _csiShardCount = p2
+mkCreateStream :: Text -- ^ 'csStreamName'
+               -> Integer -- ^ 'csShardCount'
+               -> CreateStream
+mkCreateStream p1 p2 = CreateStream
+    { _csStreamName = p1
+    , _csShardCount = p2
     }
-{-# INLINE mkCreateStreamInput #-}
-
-data CreateStream = CreateStream
-    { _csiStreamName :: Text
-      -- ^ A name to identify the stream. The stream name is scoped to the
-      -- AWS account used by the application that creates the stream. It
-      -- is also scoped by region. That is, two streams in two different
-      -- AWS accounts can have the same name, and two streams in the same
-      -- AWS account, but in two different regions, can have the same
-      -- name.
-    , _csiShardCount :: Integer
-      -- ^ The number of shards that the stream will use. The throughput of
-      -- the stream is a function of the number of shards; more shards are
-      -- required for greater provisioned throughput. Note: The default
-      -- limit for an AWS account is 10 shards per stream. If you need to
-      -- create a stream with more than 10 shards, contact AWS Support to
-      -- increase the limit on your account.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateStream #-}
 
 -- | A name to identify the stream. The stream name is scoped to the AWS account
 -- used by the application that creates the stream. It is also scoped by
 -- region. That is, two streams in two different AWS accounts can have the
 -- same name, and two streams in the same AWS account, but in two different
 -- regions, can have the same name.
-csiStreamName :: Lens' CreateStream (Text)
-csiStreamName = lens _csiStreamName (\s a -> s { _csiStreamName = a })
-{-# INLINE csiStreamName #-}
+csStreamName :: Lens' CreateStream Text
+csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
+{-# INLINE csStreamName #-}
 
 -- | The number of shards that the stream will use. The throughput of the stream
 -- is a function of the number of shards; more shards are required for greater
 -- provisioned throughput. Note: The default limit for an AWS account is 10
 -- shards per stream. If you need to create a stream with more than 10 shards,
 -- contact AWS Support to increase the limit on your account.
-csiShardCount :: Lens' CreateStream (Integer)
-csiShardCount = lens _csiShardCount (\s a -> s { _csiShardCount = a })
-{-# INLINE csiShardCount #-}
+csShardCount :: Lens' CreateStream Integer
+csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a })
+{-# INLINE csShardCount #-}
 
 instance ToPath CreateStream
 

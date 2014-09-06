@@ -38,10 +38,10 @@ module Network.AWS.EMR.V2009_03_31.RemoveTags
     -- * Request
       RemoveTags
     -- ** Request constructor
-    , mkRemoveTagsInput
+    , mkRemoveTags
     -- ** Request lenses
-    , rtiResourceId
-    , rtiTagKeys
+    , rtResourceId
+    , rtTagKeys
 
     -- * Response
     , RemoveTagsResponse
@@ -52,35 +52,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | This input identifies a cluster and a list of tags to remove.
+data RemoveTags = RemoveTags
+    { _rtResourceId :: Text
+    , _rtTagKeys :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.
-mkRemoveTagsInput :: Text -- ^ 'rtiResourceId'
-                  -> [Text] -- ^ 'rtiTagKeys'
-                  -> RemoveTags
-mkRemoveTagsInput p1 p2 = RemoveTags
-    { _rtiResourceId = p1
-    , _rtiTagKeys = p2
+mkRemoveTags :: Text -- ^ 'rtResourceId'
+             -> [Text] -- ^ 'rtTagKeys'
+             -> RemoveTags
+mkRemoveTags p1 p2 = RemoveTags
+    { _rtResourceId = p1
+    , _rtTagKeys = p2
     }
-{-# INLINE mkRemoveTagsInput #-}
-
-data RemoveTags = RemoveTags
-    { _rtiResourceId :: Text
-      -- ^ The Amazon EMR resource identifier from which tags will be
-      -- removed. This value must be a cluster identifier.
-    , _rtiTagKeys :: [Text]
-      -- ^ A list of tag keys to remove from a resource.
-    } deriving (Show, Generic)
+{-# INLINE mkRemoveTags #-}
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
-rtiResourceId :: Lens' RemoveTags (Text)
-rtiResourceId = lens _rtiResourceId (\s a -> s { _rtiResourceId = a })
-{-# INLINE rtiResourceId #-}
+rtResourceId :: Lens' RemoveTags Text
+rtResourceId = lens _rtResourceId (\s a -> s { _rtResourceId = a })
+{-# INLINE rtResourceId #-}
 
 -- | A list of tag keys to remove from a resource.
-rtiTagKeys :: Lens' RemoveTags ([Text])
-rtiTagKeys = lens _rtiTagKeys (\s a -> s { _rtiTagKeys = a })
-{-# INLINE rtiTagKeys #-}
+rtTagKeys :: Lens' RemoveTags [Text]
+rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a })
+{-# INLINE rtTagKeys #-}
 
 instance ToPath RemoveTags
 
@@ -90,6 +88,7 @@ instance ToHeaders RemoveTags
 
 instance ToJSON RemoveTags
 
+-- | This output indicates the result of removing tags from a resource.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest RemoveTags where

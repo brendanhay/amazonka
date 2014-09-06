@@ -34,81 +34,81 @@ module Network.AWS.ElastiCache.V2014_07_15.AuthorizeCacheSecurityGroupIngress
     -- * Request
       AuthorizeCacheSecurityGroupIngress
     -- ** Request constructor
-    , mkAuthorizeCacheSecurityGroupIngressMessage
+    , mkAuthorizeCacheSecurityGroupIngress
     -- ** Request lenses
-    , acsgimCacheSecurityGroupName
-    , acsgimEC2SecurityGroupName
-    , acsgimEC2SecurityGroupOwnerId
+    , acsgiCacheSecurityGroupName
+    , acsgiEC2SecurityGroupName
+    , acsgiEC2SecurityGroupOwnerId
 
     -- * Response
     , AuthorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
-    , csgwCacheSecurityGroup
+    , acsgirsCacheSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeCacheSecurityGroupIngress' request.
-mkAuthorizeCacheSecurityGroupIngressMessage :: Text -- ^ 'acsgimCacheSecurityGroupName'
-                                            -> Text -- ^ 'acsgimEC2SecurityGroupName'
-                                            -> Text -- ^ 'acsgimEC2SecurityGroupOwnerId'
-                                            -> AuthorizeCacheSecurityGroupIngress
-mkAuthorizeCacheSecurityGroupIngressMessage p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
-    { _acsgimCacheSecurityGroupName = p1
-    , _acsgimEC2SecurityGroupName = p2
-    , _acsgimEC2SecurityGroupOwnerId = p3
-    }
-{-# INLINE mkAuthorizeCacheSecurityGroupIngressMessage #-}
-
+-- | Represents the input of an AuthorizeCacheSecurityGroupIngress operation.
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
-    { _acsgimCacheSecurityGroupName :: Text
-      -- ^ The cache security group which will allow network ingress.
-    , _acsgimEC2SecurityGroupName :: Text
-      -- ^ The Amazon EC2 security group to be authorized for ingress to the
-      -- cache security group.
-    , _acsgimEC2SecurityGroupOwnerId :: Text
-      -- ^ The AWS account number of the Amazon EC2 security group owner.
-      -- Note that this is not the same thing as an AWS access key ID -
-      -- you must provide a valid AWS account number for this parameter.
+    { _acsgiCacheSecurityGroupName :: Text
+    , _acsgiEC2SecurityGroupName :: Text
+    , _acsgiEC2SecurityGroupOwnerId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AuthorizeCacheSecurityGroupIngress' request.
+mkAuthorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgiCacheSecurityGroupName'
+                                     -> Text -- ^ 'acsgiEC2SecurityGroupName'
+                                     -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
+                                     -> AuthorizeCacheSecurityGroupIngress
+mkAuthorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
+    { _acsgiCacheSecurityGroupName = p1
+    , _acsgiEC2SecurityGroupName = p2
+    , _acsgiEC2SecurityGroupOwnerId = p3
+    }
+{-# INLINE mkAuthorizeCacheSecurityGroupIngress #-}
+
 -- | The cache security group which will allow network ingress.
-acsgimCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress (Text)
-acsgimCacheSecurityGroupName = lens _acsgimCacheSecurityGroupName (\s a -> s { _acsgimCacheSecurityGroupName = a })
-{-# INLINE acsgimCacheSecurityGroupName #-}
+acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiCacheSecurityGroupName =
+    lens _acsgiCacheSecurityGroupName
+         (\s a -> s { _acsgiCacheSecurityGroupName = a })
+{-# INLINE acsgiCacheSecurityGroupName #-}
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
-acsgimEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress (Text)
-acsgimEC2SecurityGroupName = lens _acsgimEC2SecurityGroupName (\s a -> s { _acsgimEC2SecurityGroupName = a })
-{-# INLINE acsgimEC2SecurityGroupName #-}
+acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiEC2SecurityGroupName =
+    lens _acsgiEC2SecurityGroupName
+         (\s a -> s { _acsgiEC2SecurityGroupName = a })
+{-# INLINE acsgiEC2SecurityGroupName #-}
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress (Text)
-acsgimEC2SecurityGroupOwnerId = lens _acsgimEC2SecurityGroupOwnerId (\s a -> s { _acsgimEC2SecurityGroupOwnerId = a })
-{-# INLINE acsgimEC2SecurityGroupOwnerId #-}
+acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiEC2SecurityGroupOwnerId =
+    lens _acsgiEC2SecurityGroupOwnerId
+         (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
+{-# INLINE acsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeCacheSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
-    { _csgwCacheSecurityGroup :: Maybe CacheSecurityGroup
-      -- ^ Represents the output of one of the following operations:
-      -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
-      -- RevokeCacheSecurityGroupIngress.
+    { _acsgirsCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Show, Generic)
 
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
-csgwCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
-csgwCacheSecurityGroup = lens _csgwCacheSecurityGroup (\s a -> s { _csgwCacheSecurityGroup = a })
-{-# INLINE csgwCacheSecurityGroup #-}
+acsgirsCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
+acsgirsCacheSecurityGroup =
+    lens _acsgirsCacheSecurityGroup
+         (\s a -> s { _acsgirsCacheSecurityGroup = a })
+{-# INLINE acsgirsCacheSecurityGroup #-}
 
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

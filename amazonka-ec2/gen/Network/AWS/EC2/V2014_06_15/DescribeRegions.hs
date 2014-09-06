@@ -31,63 +31,60 @@ module Network.AWS.EC2.V2014_06_15.DescribeRegions
     -- * Request
       DescribeRegions
     -- ** Request constructor
-    , mkDescribeRegionsRequest
+    , mkDescribeRegions
     -- ** Request lenses
-    , drsRegionNames
-    , drsFilters
+    , dr1RegionNames
+    , dr1Filters
 
     -- * Response
     , DescribeRegionsResponse
     -- ** Response lenses
-    , drtRegions
+    , drrsRegions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRegions' request.
-mkDescribeRegionsRequest :: DescribeRegions
-mkDescribeRegionsRequest = DescribeRegions
-    { _drsRegionNames = mempty
-    , _drsFilters = mempty
-    }
-{-# INLINE mkDescribeRegionsRequest #-}
-
+-- | 
 data DescribeRegions = DescribeRegions
-    { _drsRegionNames :: [Text]
-      -- ^ The names of one or more regions.
-    , _drsFilters :: [Filter]
-      -- ^ One or more filters. endpoint - The endpoint of the region (for
-      -- example, ec2.us-east-1.amazonaws.com). region-name - The name of
-      -- the region (for example, us-east-1).
+    { _dr1RegionNames :: [Text]
+    , _dr1Filters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRegions' request.
+mkDescribeRegions :: DescribeRegions
+mkDescribeRegions = DescribeRegions
+    { _dr1RegionNames = mempty
+    , _dr1Filters = mempty
+    }
+{-# INLINE mkDescribeRegions #-}
+
 -- | The names of one or more regions.
-drsRegionNames :: Lens' DescribeRegions ([Text])
-drsRegionNames = lens _drsRegionNames (\s a -> s { _drsRegionNames = a })
-{-# INLINE drsRegionNames #-}
+dr1RegionNames :: Lens' DescribeRegions [Text]
+dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
+{-# INLINE dr1RegionNames #-}
 
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
-drsFilters :: Lens' DescribeRegions ([Filter])
-drsFilters = lens _drsFilters (\s a -> s { _drsFilters = a })
-{-# INLINE drsFilters #-}
+dr1Filters :: Lens' DescribeRegions [Filter]
+dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
+{-# INLINE dr1Filters #-}
 
 instance ToQuery DescribeRegions where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
-    { _drtRegions :: [Region]
-      -- ^ Information about one or more regions.
+    { _drrsRegions :: [Region]
     } deriving (Show, Generic)
 
 -- | Information about one or more regions.
-drtRegions :: Lens' DescribeRegionsResponse ([Region])
-drtRegions = lens _drtRegions (\s a -> s { _drtRegions = a })
-{-# INLINE drtRegions #-}
+drrsRegions :: Lens' DescribeRegionsResponse [Region]
+drrsRegions = lens _drrsRegions (\s a -> s { _drrsRegions = a })
+{-# INLINE drrsRegions #-}
 
 instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions

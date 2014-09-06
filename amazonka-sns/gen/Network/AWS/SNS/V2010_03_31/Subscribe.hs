@@ -38,63 +38,45 @@ module Network.AWS.SNS.V2010_03_31.Subscribe
     -- * Request
       Subscribe
     -- ** Request constructor
-    , mkSubscribeInput
+    , mkSubscribe
     -- ** Request lenses
-    , ssyTopicArn
-    , ssyProtocol
-    , ssyEndpoint
+    , s1TopicArn
+    , s1Protocol
+    , s1Endpoint
 
     -- * Response
     , SubscribeResponse
     -- ** Response lenses
-    , sseSubscriptionArn
+    , srsSubscriptionArn
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'Subscribe' request.
-mkSubscribeInput :: Text -- ^ 'ssyTopicArn'
-                 -> Text -- ^ 'ssyProtocol'
-                 -> Subscribe
-mkSubscribeInput p1 p2 = Subscribe
-    { _ssyTopicArn = p1
-    , _ssyProtocol = p2
-    , _ssyEndpoint = Nothing
-    }
-{-# INLINE mkSubscribeInput #-}
-
+-- | Input for Subscribe action.
 data Subscribe = Subscribe
-    { _ssyTopicArn :: Text
-      -- ^ The ARN of the topic you want to subscribe to.
-    , _ssyProtocol :: Text
-      -- ^ The protocol you want to use. Supported protocols include: http
-      -- -- delivery of JSON-encoded message via HTTP POST https --
-      -- delivery of JSON-encoded message via HTTPS POST email -- delivery
-      -- of message via SMTP email-json -- delivery of JSON-encoded
-      -- message via SMTP sms -- delivery of message via SMS sqs --
-      -- delivery of JSON-encoded message to an Amazon SQS queue
-      -- application -- delivery of JSON-encoded message to an EndpointArn
-      -- for a mobile app and device.
-    , _ssyEndpoint :: Maybe Text
-      -- ^ The endpoint that you want to receive notifications. Endpoints
-      -- vary by protocol: For the http protocol, the endpoint is an URL
-      -- beginning with "http://" For the https protocol, the endpoint is
-      -- a URL beginning with "https://" For the email protocol, the
-      -- endpoint is an email address For the email-json protocol, the
-      -- endpoint is an email address For the sms protocol, the endpoint
-      -- is a phone number of an SMS-enabled device For the sqs protocol,
-      -- the endpoint is the ARN of an Amazon SQS queue For the
-      -- application protocol, the endpoint is the EndpointArn of a mobile
-      -- app and device.
+    { _s1TopicArn :: Text
+    , _s1Protocol :: Text
+    , _s1Endpoint :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'Subscribe' request.
+mkSubscribe :: Text -- ^ 's1TopicArn'
+            -> Text -- ^ 's1Protocol'
+            -> Subscribe
+mkSubscribe p1 p2 = Subscribe
+    { _s1TopicArn = p1
+    , _s1Protocol = p2
+    , _s1Endpoint = Nothing
+    }
+{-# INLINE mkSubscribe #-}
+
 -- | The ARN of the topic you want to subscribe to.
-ssyTopicArn :: Lens' Subscribe (Text)
-ssyTopicArn = lens _ssyTopicArn (\s a -> s { _ssyTopicArn = a })
-{-# INLINE ssyTopicArn #-}
+s1TopicArn :: Lens' Subscribe Text
+s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
+{-# INLINE s1TopicArn #-}
 
 -- | The protocol you want to use. Supported protocols include: http -- delivery
 -- of JSON-encoded message via HTTP POST https -- delivery of JSON-encoded
@@ -103,9 +85,9 @@ ssyTopicArn = lens _ssyTopicArn (\s a -> s { _ssyTopicArn = a })
 -- SMS sqs -- delivery of JSON-encoded message to an Amazon SQS queue
 -- application -- delivery of JSON-encoded message to an EndpointArn for a
 -- mobile app and device.
-ssyProtocol :: Lens' Subscribe (Text)
-ssyProtocol = lens _ssyProtocol (\s a -> s { _ssyProtocol = a })
-{-# INLINE ssyProtocol #-}
+s1Protocol :: Lens' Subscribe Text
+s1Protocol = lens _s1Protocol (\s a -> s { _s1Protocol = a })
+{-# INLINE s1Protocol #-}
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
 -- protocol: For the http protocol, the endpoint is an URL beginning with
@@ -116,25 +98,24 @@ ssyProtocol = lens _ssyProtocol (\s a -> s { _ssyProtocol = a })
 -- protocol, the endpoint is the ARN of an Amazon SQS queue For the
 -- application protocol, the endpoint is the EndpointArn of a mobile app and
 -- device.
-ssyEndpoint :: Lens' Subscribe (Maybe Text)
-ssyEndpoint = lens _ssyEndpoint (\s a -> s { _ssyEndpoint = a })
-{-# INLINE ssyEndpoint #-}
+s1Endpoint :: Lens' Subscribe (Maybe Text)
+s1Endpoint = lens _s1Endpoint (\s a -> s { _s1Endpoint = a })
+{-# INLINE s1Endpoint #-}
 
 instance ToQuery Subscribe where
     toQuery = genericQuery def
 
+-- | Response for Subscribe action.
 newtype SubscribeResponse = SubscribeResponse
-    { _sseSubscriptionArn :: Maybe Text
-      -- ^ The ARN of the subscription, if the service was able to create a
-      -- subscription immediately (without requiring endpoint owner
-      -- confirmation).
+    { _srsSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner confirmation).
-sseSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
-sseSubscriptionArn = lens _sseSubscriptionArn (\s a -> s { _sseSubscriptionArn = a })
-{-# INLINE sseSubscriptionArn #-}
+srsSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
+srsSubscriptionArn =
+    lens _srsSubscriptionArn (\s a -> s { _srsSubscriptionArn = a })
+{-# INLINE srsSubscriptionArn #-}
 
 instance FromXML SubscribeResponse where
     fromXMLOptions = xmlOptions

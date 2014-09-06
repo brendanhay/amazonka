@@ -43,14 +43,14 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
     -- * Request
       ReportTaskProgress
     -- ** Request constructor
-    , mkReportTaskProgressInput
+    , mkReportTaskProgress
     -- ** Request lenses
-    , rtpiTaskId
+    , rtpTaskId
 
     -- * Response
     , ReportTaskProgressResponse
     -- ** Response lenses
-    , rtpoCanceled
+    , rtprsCanceled
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -58,28 +58,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The input for the ReportTaskProgress action.
+newtype ReportTaskProgress = ReportTaskProgress
+    { _rtpTaskId :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskProgress' request.
-mkReportTaskProgressInput :: Text -- ^ 'rtpiTaskId'
-                          -> ReportTaskProgress
-mkReportTaskProgressInput p1 = ReportTaskProgress
-    { _rtpiTaskId = p1
+mkReportTaskProgress :: Text -- ^ 'rtpTaskId'
+                     -> ReportTaskProgress
+mkReportTaskProgress p1 = ReportTaskProgress
+    { _rtpTaskId = p1
     }
-{-# INLINE mkReportTaskProgressInput #-}
-
-newtype ReportTaskProgress = ReportTaskProgress
-    { _rtpiTaskId :: Text
-      -- ^ Identifier of the task assigned to the task runner. This value is
-      -- provided in the TaskObject that the service returns with the
-      -- response for the PollForTask action.
-    } deriving (Show, Generic)
+{-# INLINE mkReportTaskProgress #-}
 
 -- | Identifier of the task assigned to the task runner. This value is provided
 -- in the TaskObject that the service returns with the response for the
 -- PollForTask action.
-rtpiTaskId :: Lens' ReportTaskProgress (Text)
-rtpiTaskId = lens _rtpiTaskId (\s a -> s { _rtpiTaskId = a })
-{-# INLINE rtpiTaskId #-}
+rtpTaskId :: Lens' ReportTaskProgress Text
+rtpTaskId = lens _rtpTaskId (\s a -> s { _rtpTaskId = a })
+{-# INLINE rtpTaskId #-}
 
 instance ToPath ReportTaskProgress
 
@@ -89,18 +87,16 @@ instance ToHeaders ReportTaskProgress
 
 instance ToJSON ReportTaskProgress
 
+-- | Contains the output from the ReportTaskProgress action.
 newtype ReportTaskProgressResponse = ReportTaskProgressResponse
-    { _rtpoCanceled :: Bool
-      -- ^ If True, the calling task runner should cancel processing of the
-      -- task. The task runner does not need to call SetTaskStatus for
-      -- canceled tasks.
+    { _rtprsCanceled :: Bool
     } deriving (Show, Generic)
 
 -- | If True, the calling task runner should cancel processing of the task. The
 -- task runner does not need to call SetTaskStatus for canceled tasks.
-rtpoCanceled :: Lens' ReportTaskProgressResponse (Bool)
-rtpoCanceled = lens _rtpoCanceled (\s a -> s { _rtpoCanceled = a })
-{-# INLINE rtpoCanceled #-}
+rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
+rtprsCanceled = lens _rtprsCanceled (\s a -> s { _rtprsCanceled = a })
+{-# INLINE rtprsCanceled #-}
 
 instance FromJSON ReportTaskProgressResponse
 

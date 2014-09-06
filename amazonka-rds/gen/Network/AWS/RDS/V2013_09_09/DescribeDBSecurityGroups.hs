@@ -32,93 +32,87 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSecurityGroups
     -- * Request
       DescribeDBSecurityGroups
     -- ** Request constructor
-    , mkDescribeDBSecurityGroupsMessage
+    , mkDescribeDBSecurityGroups
     -- ** Request lenses
-    , ddbsgoDBSecurityGroupName
-    , ddbsgoMaxRecords
-    , ddbsgoMarker
+    , ddbsg2DBSecurityGroupName
+    , ddbsg2MaxRecords
+    , ddbsg2Marker
 
     -- * Response
     , DescribeDBSecurityGroupsResponse
     -- ** Response lenses
-    , dbsgrMarker
-    , dbsgrDBSecurityGroups
+    , ddbsgrsMarker
+    , ddbsgrsDBSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeDBSecurityGroups' request.
-mkDescribeDBSecurityGroupsMessage :: DescribeDBSecurityGroups
-mkDescribeDBSecurityGroupsMessage = DescribeDBSecurityGroups
-    { _ddbsgoDBSecurityGroupName = Nothing
-    , _ddbsgoMaxRecords = Nothing
-    , _ddbsgoMarker = Nothing
-    }
-{-# INLINE mkDescribeDBSecurityGroupsMessage #-}
-
+-- | 
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups
-    { _ddbsgoDBSecurityGroupName :: Maybe Text
-      -- ^ The name of the DB security group to return details for.
-    , _ddbsgoMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a pagination
-      -- token called a marker is included in the response so that the
-      -- remaining results may be retrieved. Default: 100 Constraints:
-      -- minimum 20, maximum 100.
-    , _ddbsgoMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeDBSecurityGroups request. If this parameter is specified,
-      -- the response includes only records beyond the marker, up to the
-      -- value specified by MaxRecords.
+    { _ddbsg2DBSecurityGroupName :: Maybe Text
+    , _ddbsg2MaxRecords :: Maybe Integer
+    , _ddbsg2Marker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBSecurityGroups' request.
+mkDescribeDBSecurityGroups :: DescribeDBSecurityGroups
+mkDescribeDBSecurityGroups = DescribeDBSecurityGroups
+    { _ddbsg2DBSecurityGroupName = Nothing
+    , _ddbsg2MaxRecords = Nothing
+    , _ddbsg2Marker = Nothing
+    }
+{-# INLINE mkDescribeDBSecurityGroups #-}
+
 -- | The name of the DB security group to return details for.
-ddbsgoDBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
-ddbsgoDBSecurityGroupName = lens _ddbsgoDBSecurityGroupName (\s a -> s { _ddbsgoDBSecurityGroupName = a })
-{-# INLINE ddbsgoDBSecurityGroupName #-}
+ddbsg2DBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
+ddbsg2DBSecurityGroupName =
+    lens _ddbsg2DBSecurityGroupName
+         (\s a -> s { _ddbsg2DBSecurityGroupName = a })
+{-# INLINE ddbsg2DBSecurityGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbsgoMaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Integer)
-ddbsgoMaxRecords = lens _ddbsgoMaxRecords (\s a -> s { _ddbsgoMaxRecords = a })
-{-# INLINE ddbsgoMaxRecords #-}
+ddbsg2MaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Integer)
+ddbsg2MaxRecords =
+    lens _ddbsg2MaxRecords (\s a -> s { _ddbsg2MaxRecords = a })
+{-# INLINE ddbsg2MaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSecurityGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value specified
 -- by MaxRecords.
-ddbsgoMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
-ddbsgoMarker = lens _ddbsgoMarker (\s a -> s { _ddbsgoMarker = a })
-{-# INLINE ddbsgoMarker #-}
+ddbsg2Marker :: Lens' DescribeDBSecurityGroups (Maybe Text)
+ddbsg2Marker = lens _ddbsg2Marker (\s a -> s { _ddbsg2Marker = a })
+{-# INLINE ddbsg2Marker #-}
 
 instance ToQuery DescribeDBSecurityGroups where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the
+-- DescribeDBSecurityGroups action.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
-    { _dbsgrMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous request. If
-      -- this parameter is specified, the response includes only records
-      -- beyond the marker, up to the value specified by MaxRecords.
-    , _dbsgrDBSecurityGroups :: [DBSecurityGroup]
-      -- ^ A list of DBSecurityGroup instances.
+    { _ddbsgrsMarker :: Maybe Text
+    , _ddbsgrsDBSecurityGroups :: [DBSecurityGroup]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbsgrMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
-dbsgrMarker = lens _dbsgrMarker (\s a -> s { _dbsgrMarker = a })
-{-# INLINE dbsgrMarker #-}
+ddbsgrsMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
+ddbsgrsMarker = lens _ddbsgrsMarker (\s a -> s { _ddbsgrsMarker = a })
+{-# INLINE ddbsgrsMarker #-}
 
 -- | A list of DBSecurityGroup instances.
-dbsgrDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse ([DBSecurityGroup])
-dbsgrDBSecurityGroups = lens _dbsgrDBSecurityGroups (\s a -> s { _dbsgrDBSecurityGroups = a })
-{-# INLINE dbsgrDBSecurityGroups #-}
+ddbsgrsDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
+ddbsgrsDBSecurityGroups =
+    lens _ddbsgrsDBSecurityGroups
+         (\s a -> s { _ddbsgrsDBSecurityGroups = a })
+{-# INLINE ddbsgrsDBSecurityGroups #-}
 
 instance FromXML DescribeDBSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -131,5 +125,5 @@ instance AWSRequest DescribeDBSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSecurityGroups where
-    next rq rs = (\x -> rq { _ddbsgoMarker = Just x })
-        <$> (_dbsgrMarker rs)
+    next rq rs = (\x -> rq { _ddbsg2Marker = Just x })
+        <$> (_ddbsgrsMarker rs)

@@ -25,14 +25,14 @@ module Network.AWS.EMR.V2009_03_31.DescribeCluster
     -- * Request
       DescribeCluster
     -- ** Request constructor
-    , mkDescribeClusterInput
+    , mkDescribeCluster
     -- ** Request lenses
-    , dciClusterId
+    , dcClusterId
 
     -- * Response
     , DescribeClusterResponse
     -- ** Response lenses
-    , dcoCluster
+    , dcrsCluster
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -40,24 +40,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCluster' request.
-mkDescribeClusterInput :: Text -- ^ 'dciClusterId'
-                       -> DescribeCluster
-mkDescribeClusterInput p1 = DescribeCluster
-    { _dciClusterId = p1
-    }
-{-# INLINE mkDescribeClusterInput #-}
-
+-- | This input determines which cluster to describe.
 newtype DescribeCluster = DescribeCluster
-    { _dciClusterId :: Text
-      -- ^ The identifier of the cluster to describe.
+    { _dcClusterId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCluster' request.
+mkDescribeCluster :: Text -- ^ 'dcClusterId'
+                  -> DescribeCluster
+mkDescribeCluster p1 = DescribeCluster
+    { _dcClusterId = p1
+    }
+{-# INLINE mkDescribeCluster #-}
+
 -- | The identifier of the cluster to describe.
-dciClusterId :: Lens' DescribeCluster (Text)
-dciClusterId = lens _dciClusterId (\s a -> s { _dciClusterId = a })
-{-# INLINE dciClusterId #-}
+dcClusterId :: Lens' DescribeCluster Text
+dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
+{-# INLINE dcClusterId #-}
 
 instance ToPath DescribeCluster
 
@@ -67,15 +67,15 @@ instance ToHeaders DescribeCluster
 
 instance ToJSON DescribeCluster
 
+-- | This output contains the description of the cluster.
 newtype DescribeClusterResponse = DescribeClusterResponse
-    { _dcoCluster :: Maybe Cluster
-      -- ^ This output contains the details for the requested cluster.
+    { _dcrsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | This output contains the details for the requested cluster.
-dcoCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
-dcoCluster = lens _dcoCluster (\s a -> s { _dcoCluster = a })
-{-# INLINE dcoCluster #-}
+dcrsCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
+dcrsCluster = lens _dcrsCluster (\s a -> s { _dcrsCluster = a })
+{-# INLINE dcrsCluster #-}
 
 instance FromJSON DescribeClusterResponse
 

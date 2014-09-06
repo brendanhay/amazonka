@@ -27,46 +27,40 @@ module Network.AWS.Route53.V2013_04_01.CreateHealthCheck
     -- * Request
       CreateHealthCheck
     -- ** Request constructor
-    , mkCreateHealthCheckRequest
+    , mkCreateHealthCheck
     -- ** Request lenses
-    , chcrCallerReference
-    , chcrHealthCheckConfig
+    , chcCallerReference
+    , chcHealthCheckConfig
 
     -- * Response
     , CreateHealthCheckResponse
     -- ** Response lenses
-    , chcsHealthCheck
-    , chcsLocation
+    , chcrsHealthCheck
+    , chcrsLocation
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | &gt;A complex type that contains information about the request to create a
+-- health check.
+data CreateHealthCheck = CreateHealthCheck
+    { _chcCallerReference :: Text
+    , _chcHealthCheckConfig :: HealthCheckConfig
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHealthCheck' request.
-mkCreateHealthCheckRequest :: Text -- ^ 'chcrCallerReference'
-                           -> HealthCheckConfig -- ^ 'chcrHealthCheckConfig'
-                           -> CreateHealthCheck
-mkCreateHealthCheckRequest p1 p2 = CreateHealthCheck
-    { _chcrCallerReference = p1
-    , _chcrHealthCheckConfig = p2
+mkCreateHealthCheck :: Text -- ^ 'chcCallerReference'
+                    -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
+                    -> CreateHealthCheck
+mkCreateHealthCheck p1 p2 = CreateHealthCheck
+    { _chcCallerReference = p1
+    , _chcHealthCheckConfig = p2
     }
-{-# INLINE mkCreateHealthCheckRequest #-}
-
-data CreateHealthCheck = CreateHealthCheck
-    { _chcrCallerReference :: Text
-      -- ^ A unique string that identifies the request and that allows
-      -- failed CreateHealthCheck requests to be retried without the risk
-      -- of executing the operation twice. You must use a unique
-      -- CallerReference string every time you create a health check.
-      -- CallerReference can be any unique string; you might choose to use
-      -- a string that identifies your project. Valid characters are any
-      -- Unicode code points that are legal in an XML 1.0 document. The
-      -- UTF-8 encoding of the value must be less than 128 bytes.
-    , _chcrHealthCheckConfig :: HealthCheckConfig
-      -- ^ A complex type that contains health check configuration.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateHealthCheck #-}
 
 -- | A unique string that identifies the request and that allows failed
 -- CreateHealthCheck requests to be retried without the risk of executing the
@@ -75,14 +69,16 @@ data CreateHealthCheck = CreateHealthCheck
 -- might choose to use a string that identifies your project. Valid characters
 -- are any Unicode code points that are legal in an XML 1.0 document. The
 -- UTF-8 encoding of the value must be less than 128 bytes.
-chcrCallerReference :: Lens' CreateHealthCheck (Text)
-chcrCallerReference = lens _chcrCallerReference (\s a -> s { _chcrCallerReference = a })
-{-# INLINE chcrCallerReference #-}
+chcCallerReference :: Lens' CreateHealthCheck Text
+chcCallerReference =
+    lens _chcCallerReference (\s a -> s { _chcCallerReference = a })
+{-# INLINE chcCallerReference #-}
 
 -- | A complex type that contains health check configuration.
-chcrHealthCheckConfig :: Lens' CreateHealthCheck (HealthCheckConfig)
-chcrHealthCheckConfig = lens _chcrHealthCheckConfig (\s a -> s { _chcrHealthCheckConfig = a })
-{-# INLINE chcrHealthCheckConfig #-}
+chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
+chcHealthCheckConfig =
+    lens _chcHealthCheckConfig (\s a -> s { _chcHealthCheckConfig = a })
+{-# INLINE chcHealthCheckConfig #-}
 
 instance ToPath CreateHealthCheck where
     toPath = const "/2013-04-01/healthcheck"
@@ -95,24 +91,24 @@ instance ToXML CreateHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateHealthCheckRequest"
 
+-- | A complex type containing the response information for the new health
+-- check.
 data CreateHealthCheckResponse = CreateHealthCheckResponse
-    { _chcsHealthCheck :: HealthCheck
-      -- ^ A complex type that contains identifying information about the
-      -- health check.
-    , _chcsLocation :: Text
-      -- ^ The unique URL representing the new health check.
+    { _chcrsHealthCheck :: HealthCheck
+    , _chcrsLocation :: Text
     } deriving (Show, Generic)
 
 -- | A complex type that contains identifying information about the health
 -- check.
-chcsHealthCheck :: Lens' CreateHealthCheckResponse (HealthCheck)
-chcsHealthCheck = lens _chcsHealthCheck (\s a -> s { _chcsHealthCheck = a })
-{-# INLINE chcsHealthCheck #-}
+chcrsHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
+chcrsHealthCheck =
+    lens _chcrsHealthCheck (\s a -> s { _chcrsHealthCheck = a })
+{-# INLINE chcrsHealthCheck #-}
 
 -- | The unique URL representing the new health check.
-chcsLocation :: Lens' CreateHealthCheckResponse (Text)
-chcsLocation = lens _chcsLocation (\s a -> s { _chcsLocation = a })
-{-# INLINE chcsLocation #-}
+chcrsLocation :: Lens' CreateHealthCheckResponse Text
+chcrsLocation = lens _chcrsLocation (\s a -> s { _chcrsLocation = a })
+{-# INLINE chcrsLocation #-}
 
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53

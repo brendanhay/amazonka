@@ -23,12 +23,12 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance
     -- * Request
       RegisterRdsDbInstance
     -- ** Request constructor
-    , mkRegisterRdsDbInstanceRequest
+    , mkRegisterRdsDbInstance
     -- ** Request lenses
-    , rrdirStackId
-    , rrdirRdsDbInstanceArn
-    , rrdirDbUser
-    , rrdirDbPassword
+    , rrdiStackId
+    , rrdiRdsDbInstanceArn
+    , rrdiDbUser
+    , rrdiDbPassword
 
     -- * Response
     , RegisterRdsDbInstanceResponse
@@ -39,51 +39,48 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterRdsDbInstance' request.
-mkRegisterRdsDbInstanceRequest :: Text -- ^ 'rrdirStackId'
-                               -> Text -- ^ 'rrdirRdsDbInstanceArn'
-                               -> Text -- ^ 'rrdirDbUser'
-                               -> Text -- ^ 'rrdirDbPassword'
-                               -> RegisterRdsDbInstance
-mkRegisterRdsDbInstanceRequest p1 p2 p3 p4 = RegisterRdsDbInstance
-    { _rrdirStackId = p1
-    , _rrdirRdsDbInstanceArn = p2
-    , _rrdirDbUser = p3
-    , _rrdirDbPassword = p4
-    }
-{-# INLINE mkRegisterRdsDbInstanceRequest #-}
-
 data RegisterRdsDbInstance = RegisterRdsDbInstance
-    { _rrdirStackId :: Text
-      -- ^ The stack ID.
-    , _rrdirRdsDbInstanceArn :: Text
-      -- ^ The Amazon RDS instance's ARN.
-    , _rrdirDbUser :: Text
-      -- ^ The database's master user name.
-    , _rrdirDbPassword :: Text
-      -- ^ The database password.
+    { _rrdiStackId :: Text
+    , _rrdiRdsDbInstanceArn :: Text
+    , _rrdiDbUser :: Text
+    , _rrdiDbPassword :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterRdsDbInstance' request.
+mkRegisterRdsDbInstance :: Text -- ^ 'rrdiStackId'
+                        -> Text -- ^ 'rrdiRdsDbInstanceArn'
+                        -> Text -- ^ 'rrdiDbUser'
+                        -> Text -- ^ 'rrdiDbPassword'
+                        -> RegisterRdsDbInstance
+mkRegisterRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
+    { _rrdiStackId = p1
+    , _rrdiRdsDbInstanceArn = p2
+    , _rrdiDbUser = p3
+    , _rrdiDbPassword = p4
+    }
+{-# INLINE mkRegisterRdsDbInstance #-}
+
 -- | The stack ID.
-rrdirStackId :: Lens' RegisterRdsDbInstance (Text)
-rrdirStackId = lens _rrdirStackId (\s a -> s { _rrdirStackId = a })
-{-# INLINE rrdirStackId #-}
+rrdiStackId :: Lens' RegisterRdsDbInstance Text
+rrdiStackId = lens _rrdiStackId (\s a -> s { _rrdiStackId = a })
+{-# INLINE rrdiStackId #-}
 
 -- | The Amazon RDS instance's ARN.
-rrdirRdsDbInstanceArn :: Lens' RegisterRdsDbInstance (Text)
-rrdirRdsDbInstanceArn = lens _rrdirRdsDbInstanceArn (\s a -> s { _rrdirRdsDbInstanceArn = a })
-{-# INLINE rrdirRdsDbInstanceArn #-}
+rrdiRdsDbInstanceArn :: Lens' RegisterRdsDbInstance Text
+rrdiRdsDbInstanceArn =
+    lens _rrdiRdsDbInstanceArn (\s a -> s { _rrdiRdsDbInstanceArn = a })
+{-# INLINE rrdiRdsDbInstanceArn #-}
 
 -- | The database's master user name.
-rrdirDbUser :: Lens' RegisterRdsDbInstance (Text)
-rrdirDbUser = lens _rrdirDbUser (\s a -> s { _rrdirDbUser = a })
-{-# INLINE rrdirDbUser #-}
+rrdiDbUser :: Lens' RegisterRdsDbInstance Text
+rrdiDbUser = lens _rrdiDbUser (\s a -> s { _rrdiDbUser = a })
+{-# INLINE rrdiDbUser #-}
 
 -- | The database password.
-rrdirDbPassword :: Lens' RegisterRdsDbInstance (Text)
-rrdirDbPassword = lens _rrdirDbPassword (\s a -> s { _rrdirDbPassword = a })
-{-# INLINE rrdirDbPassword #-}
+rrdiDbPassword :: Lens' RegisterRdsDbInstance Text
+rrdiDbPassword = lens _rrdiDbPassword (\s a -> s { _rrdiDbPassword = a })
+{-# INLINE rrdiDbPassword #-}
 
 instance ToPath RegisterRdsDbInstance
 

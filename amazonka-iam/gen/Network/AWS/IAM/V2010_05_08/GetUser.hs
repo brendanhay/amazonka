@@ -30,53 +30,51 @@ module Network.AWS.IAM.V2010_05_08.GetUser
     -- * Request
       GetUser
     -- ** Request constructor
-    , mkGetUserRequest
+    , mkGetUser
     -- ** Request lenses
-    , gurUserName
+    , guUserName
 
     -- * Response
     , GetUserResponse
     -- ** Response lenses
-    , gusUser
+    , gursUser
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype GetUser = GetUser
+    { _guUserName :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetUser' request.
-mkGetUserRequest :: GetUser
-mkGetUserRequest = GetUser
-    { _gurUserName = Nothing
+mkGetUser :: GetUser
+mkGetUser = GetUser
+    { _guUserName = Nothing
     }
-{-# INLINE mkGetUserRequest #-}
-
-newtype GetUser = GetUser
-    { _gurUserName :: Maybe Text
-      -- ^ Name of the user to get information about. This parameter is
-      -- optional. If it is not included, it defaults to the user making
-      -- the request.
-    } deriving (Show, Generic)
+{-# INLINE mkGetUser #-}
 
 -- | Name of the user to get information about. This parameter is optional. If
 -- it is not included, it defaults to the user making the request.
-gurUserName :: Lens' GetUser (Maybe Text)
-gurUserName = lens _gurUserName (\s a -> s { _gurUserName = a })
-{-# INLINE gurUserName #-}
+guUserName :: Lens' GetUser (Maybe Text)
+guUserName = lens _guUserName (\s a -> s { _guUserName = a })
+{-# INLINE guUserName #-}
 
 instance ToQuery GetUser where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetUser action.
 newtype GetUserResponse = GetUserResponse
-    { _gusUser :: User
-      -- ^ Information about the user.
+    { _gursUser :: User
     } deriving (Show, Generic)
 
 -- | Information about the user.
-gusUser :: Lens' GetUserResponse (User)
-gusUser = lens _gusUser (\s a -> s { _gusUser = a })
-{-# INLINE gusUser #-}
+gursUser :: Lens' GetUserResponse User
+gursUser = lens _gursUser (\s a -> s { _gursUser = a })
+{-# INLINE gursUser #-}
 
 instance FromXML GetUserResponse where
     fromXMLOptions = xmlOptions

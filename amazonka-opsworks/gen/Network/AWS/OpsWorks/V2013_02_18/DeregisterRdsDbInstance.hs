@@ -23,9 +23,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance
     -- * Request
       DeregisterRdsDbInstance
     -- ** Request constructor
-    , mkDeregisterRdsDbInstanceRequest
+    , mkDeregisterRdsDbInstance
     -- ** Request lenses
-    , drdirRdsDbInstanceArn
+    , drdiRdsDbInstanceArn
 
     -- * Response
     , DeregisterRdsDbInstanceResponse
@@ -36,24 +36,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterRdsDbInstance' request.
-mkDeregisterRdsDbInstanceRequest :: Text -- ^ 'drdirRdsDbInstanceArn'
-                                 -> DeregisterRdsDbInstance
-mkDeregisterRdsDbInstanceRequest p1 = DeregisterRdsDbInstance
-    { _drdirRdsDbInstanceArn = p1
-    }
-{-# INLINE mkDeregisterRdsDbInstanceRequest #-}
-
 newtype DeregisterRdsDbInstance = DeregisterRdsDbInstance
-    { _drdirRdsDbInstanceArn :: Text
-      -- ^ The Amazon RDS instance's ARN.
+    { _drdiRdsDbInstanceArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterRdsDbInstance' request.
+mkDeregisterRdsDbInstance :: Text -- ^ 'drdiRdsDbInstanceArn'
+                          -> DeregisterRdsDbInstance
+mkDeregisterRdsDbInstance p1 = DeregisterRdsDbInstance
+    { _drdiRdsDbInstanceArn = p1
+    }
+{-# INLINE mkDeregisterRdsDbInstance #-}
+
 -- | The Amazon RDS instance's ARN.
-drdirRdsDbInstanceArn :: Lens' DeregisterRdsDbInstance (Text)
-drdirRdsDbInstanceArn = lens _drdirRdsDbInstanceArn (\s a -> s { _drdirRdsDbInstanceArn = a })
-{-# INLINE drdirRdsDbInstanceArn #-}
+drdiRdsDbInstanceArn :: Lens' DeregisterRdsDbInstance Text
+drdiRdsDbInstanceArn =
+    lens _drdiRdsDbInstanceArn (\s a -> s { _drdiRdsDbInstanceArn = a })
+{-# INLINE drdiRdsDbInstanceArn #-}
 
 instance ToPath DeregisterRdsDbInstance
 

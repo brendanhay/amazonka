@@ -51,20 +51,20 @@ module Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
     -- * Request
       ListWorkflowTypes
     -- ** Request constructor
-    , mkListWorkflowTypesInput
+    , mkListWorkflowTypes
     -- ** Request lenses
-    , lwtiDomain
-    , lwtiName
-    , lwtiRegistrationStatus
-    , lwtiNextPageToken
-    , lwtiMaximumPageSize
-    , lwtiReverseOrder
+    , lwtDomain
+    , lwtName
+    , lwtRegistrationStatus
+    , lwtNextPageToken
+    , lwtMaximumPageSize
+    , lwtReverseOrder
 
     -- * Response
     , ListWorkflowTypesResponse
     -- ** Response lenses
-    , wtkTypeInfos
-    , wtkNextPageToken
+    , lwtrsTypeInfos
+    , lwtrsNextPageToken
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -72,84 +72,70 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListWorkflowTypes' request.
-mkListWorkflowTypesInput :: Text -- ^ 'lwtiDomain'
-                         -> RegistrationStatus -- ^ 'lwtiRegistrationStatus'
-                         -> ListWorkflowTypes
-mkListWorkflowTypesInput p1 p2 = ListWorkflowTypes
-    { _lwtiDomain = p1
-    , _lwtiName = Nothing
-    , _lwtiRegistrationStatus = p3
-    , _lwtiNextPageToken = Nothing
-    , _lwtiMaximumPageSize = Nothing
-    , _lwtiReverseOrder = Nothing
-    }
-{-# INLINE mkListWorkflowTypesInput #-}
-
 data ListWorkflowTypes = ListWorkflowTypes
-    { _lwtiDomain :: Text
-      -- ^ The name of the domain in which the workflow types have been
-      -- registered.
-    , _lwtiName :: Maybe Text
-      -- ^ If specified, lists the workflow type with this name.
-    , _lwtiRegistrationStatus :: RegistrationStatus
-      -- ^ Specifies the registration status of the workflow types to list.
-    , _lwtiNextPageToken :: Maybe Text
-      -- ^ If on a previous call to this method a NextPageToken was
-      -- returned, the results are being paginated. To get the next page
-      -- of results, repeat the call with the returned token and all other
-      -- arguments unchanged.
-    , _lwtiMaximumPageSize :: Maybe Integer
-      -- ^ The maximum number of results returned in each page. The default
-      -- is 100, but the caller can override this value to a page size
-      -- smaller than the default. You cannot specify a page size greater
-      -- than 100. Note that the number of types may be less than the
-      -- maxiumum page size, in which case, the returned page will have
-      -- fewer results than the maximumPageSize specified.
-    , _lwtiReverseOrder :: Maybe Bool
-      -- ^ When set to true, returns the results in reverse order. By
-      -- default the results are returned in ascending alphabetical order
-      -- of the name of the workflow types.
+    { _lwtDomain :: Text
+    , _lwtName :: Maybe Text
+    , _lwtRegistrationStatus :: RegistrationStatus
+    , _lwtNextPageToken :: Maybe Text
+    , _lwtMaximumPageSize :: Maybe Integer
+    , _lwtReverseOrder :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListWorkflowTypes' request.
+mkListWorkflowTypes :: Text -- ^ 'lwtDomain'
+                    -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
+                    -> ListWorkflowTypes
+mkListWorkflowTypes p1 p3 = ListWorkflowTypes
+    { _lwtDomain = p1
+    , _lwtName = Nothing
+    , _lwtRegistrationStatus = p3
+    , _lwtNextPageToken = Nothing
+    , _lwtMaximumPageSize = Nothing
+    , _lwtReverseOrder = Nothing
+    }
+{-# INLINE mkListWorkflowTypes #-}
+
 -- | The name of the domain in which the workflow types have been registered.
-lwtiDomain :: Lens' ListWorkflowTypes (Text)
-lwtiDomain = lens _lwtiDomain (\s a -> s { _lwtiDomain = a })
-{-# INLINE lwtiDomain #-}
+lwtDomain :: Lens' ListWorkflowTypes Text
+lwtDomain = lens _lwtDomain (\s a -> s { _lwtDomain = a })
+{-# INLINE lwtDomain #-}
 
 -- | If specified, lists the workflow type with this name.
-lwtiName :: Lens' ListWorkflowTypes (Maybe Text)
-lwtiName = lens _lwtiName (\s a -> s { _lwtiName = a })
-{-# INLINE lwtiName #-}
+lwtName :: Lens' ListWorkflowTypes (Maybe Text)
+lwtName = lens _lwtName (\s a -> s { _lwtName = a })
+{-# INLINE lwtName #-}
 
 -- | Specifies the registration status of the workflow types to list.
-lwtiRegistrationStatus :: Lens' ListWorkflowTypes (RegistrationStatus)
-lwtiRegistrationStatus = lens _lwtiRegistrationStatus (\s a -> s { _lwtiRegistrationStatus = a })
-{-# INLINE lwtiRegistrationStatus #-}
+lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
+lwtRegistrationStatus =
+    lens _lwtRegistrationStatus (\s a -> s { _lwtRegistrationStatus = a })
+{-# INLINE lwtRegistrationStatus #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
-lwtiNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
-lwtiNextPageToken = lens _lwtiNextPageToken (\s a -> s { _lwtiNextPageToken = a })
-{-# INLINE lwtiNextPageToken #-}
+lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
+lwtNextPageToken =
+    lens _lwtNextPageToken (\s a -> s { _lwtNextPageToken = a })
+{-# INLINE lwtNextPageToken #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
 -- default. You cannot specify a page size greater than 100. Note that the
 -- number of types may be less than the maxiumum page size, in which case, the
 -- returned page will have fewer results than the maximumPageSize specified.
-lwtiMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Integer)
-lwtiMaximumPageSize = lens _lwtiMaximumPageSize (\s a -> s { _lwtiMaximumPageSize = a })
-{-# INLINE lwtiMaximumPageSize #-}
+lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Integer)
+lwtMaximumPageSize =
+    lens _lwtMaximumPageSize (\s a -> s { _lwtMaximumPageSize = a })
+{-# INLINE lwtMaximumPageSize #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- workflow types.
-lwtiReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
-lwtiReverseOrder = lens _lwtiReverseOrder (\s a -> s { _lwtiReverseOrder = a })
-{-# INLINE lwtiReverseOrder #-}
+lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
+lwtReverseOrder = lens _lwtReverseOrder (\s a -> s { _lwtReverseOrder = a })
+{-# INLINE lwtReverseOrder #-}
 
 instance ToPath ListWorkflowTypes
 
@@ -159,28 +145,25 @@ instance ToHeaders ListWorkflowTypes
 
 instance ToJSON ListWorkflowTypes
 
+-- | Contains a paginated list of information structures about workflow types.
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
-    { _wtkTypeInfos :: [WorkflowTypeInfo]
-      -- ^ The list of workflow type information.
-    , _wtkNextPageToken :: Maybe Text
-      -- ^ The token for the next page of type information. If set then the
-      -- list consists of more than one page. You can retrieve the next
-      -- page by repeating the request (that returned the structure) with
-      -- the this token and all other arguments unchanged.
+    { _lwtrsTypeInfos :: [WorkflowTypeInfo]
+    , _lwtrsNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of workflow type information.
-wtkTypeInfos :: Lens' ListWorkflowTypesResponse ([WorkflowTypeInfo])
-wtkTypeInfos = lens _wtkTypeInfos (\s a -> s { _wtkTypeInfos = a })
-{-# INLINE wtkTypeInfos #-}
+lwtrsTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
+lwtrsTypeInfos = lens _lwtrsTypeInfos (\s a -> s { _lwtrsTypeInfos = a })
+{-# INLINE lwtrsTypeInfos #-}
 
 -- | The token for the next page of type information. If set then the list
 -- consists of more than one page. You can retrieve the next page by repeating
 -- the request (that returned the structure) with the this token and all other
 -- arguments unchanged.
-wtkNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
-wtkNextPageToken = lens _wtkNextPageToken (\s a -> s { _wtkNextPageToken = a })
-{-# INLINE wtkNextPageToken #-}
+lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
+lwtrsNextPageToken =
+    lens _lwtrsNextPageToken (\s a -> s { _lwtrsNextPageToken = a })
+{-# INLINE lwtrsNextPageToken #-}
 
 instance FromJSON ListWorkflowTypesResponse
 
@@ -192,5 +175,5 @@ instance AWSRequest ListWorkflowTypes where
     response _ = jsonResponse
 
 instance AWSPager ListWorkflowTypes where
-    next rq rs = (\x -> rq { _lwtiNextPageToken = Just x })
-        <$> (_wtkNextPageToken rs)
+    next rq rs = (\x -> rq { _lwtNextPageToken = Just x })
+        <$> (_lwtrsNextPageToken rs)

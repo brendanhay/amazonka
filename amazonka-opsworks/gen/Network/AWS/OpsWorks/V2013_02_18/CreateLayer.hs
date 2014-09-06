@@ -32,28 +32,28 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateLayer
     -- * Request
       CreateLayer
     -- ** Request constructor
-    , mkCreateLayerRequest
+    , mkCreateLayer
     -- ** Request lenses
-    , clrStackId
-    , clrType
-    , clrName
-    , clrShortname
-    , clrAttributes
-    , clrCustomInstanceProfileArn
-    , clrCustomSecurityGroupIds
-    , clrPackages
-    , clrVolumeConfigurations
-    , clrEnableAutoHealing
-    , clrAutoAssignElasticIps
-    , clrAutoAssignPublicIps
-    , clrCustomRecipes
-    , clrInstallUpdatesOnBoot
-    , clrUseEbsOptimizedInstances
+    , clStackId
+    , clType
+    , clName
+    , clShortname
+    , clAttributes
+    , clCustomInstanceProfileArn
+    , clCustomSecurityGroupIds
+    , clPackages
+    , clVolumeConfigurations
+    , clEnableAutoHealing
+    , clAutoAssignElasticIps
+    , clAutoAssignPublicIps
+    , clCustomRecipes
+    , clInstallUpdatesOnBoot
+    , clUseEbsOptimizedInstances
 
     -- * Response
     , CreateLayerResponse
     -- ** Response lenses
-    , clsLayerId
+    , clrsLayerId
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -61,95 +61,54 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLayer' request.
-mkCreateLayerRequest :: Text -- ^ 'clrStackId'
-                     -> LayerType -- ^ 'clrType'
-                     -> Text -- ^ 'clrName'
-                     -> Text -- ^ 'clrShortname'
-                     -> CreateLayer
-mkCreateLayerRequest p1 p2 p3 p4 = CreateLayer
-    { _clrStackId = p1
-    , _clrType = p2
-    , _clrName = p3
-    , _clrShortname = p4
-    , _clrAttributes = mempty
-    , _clrCustomInstanceProfileArn = Nothing
-    , _clrCustomSecurityGroupIds = mempty
-    , _clrPackages = mempty
-    , _clrVolumeConfigurations = mempty
-    , _clrEnableAutoHealing = Nothing
-    , _clrAutoAssignElasticIps = Nothing
-    , _clrAutoAssignPublicIps = Nothing
-    , _clrCustomRecipes = Nothing
-    , _clrInstallUpdatesOnBoot = Nothing
-    , _clrUseEbsOptimizedInstances = Nothing
-    }
-{-# INLINE mkCreateLayerRequest #-}
-
 data CreateLayer = CreateLayer
-    { _clrStackId :: Text
-      -- ^ The layer stack ID.
-    , _clrType :: LayerType
-      -- ^ The layer type. A stack cannot have more than one built-in layer
-      -- of the same type. It can have any number of custom layers. This
-      -- parameter must be set to one of the following: custom: A custom
-      -- layer db-master: A MySQL layer java-app: A Java App Server layer
-      -- rails-app: A Rails App Server layer lb: An HAProxy layer
-      -- memcached: A Memcached layer monitoring-master: A Ganglia layer
-      -- nodejs-app: A Node.js App Server layer php-app: A PHP App Server
-      -- layer web: A Static Web Server layer.
-    , _clrName :: Text
-      -- ^ The layer name, which is used by the console.
-    , _clrShortname :: Text
-      -- ^ The layer short name, which is used internally by AWS OpsWorks
-      -- and by Chef recipes. The short name is also used as the name for
-      -- the directory where your app files are installed. It can have a
-      -- maximum of 200 characters, which are limited to the alphanumeric
-      -- characters, '-', '_', and '.'.
-    , _clrAttributes :: Map LayerAttributesKeys Text
-      -- ^ One or more user-defined key/value pairs to be added to the stack
-      -- attributes.
-    , _clrCustomInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of an IAM profile that to be used for the layer's EC2
-      -- instances. For more information about IAM ARNs, see Using
-      -- Identifiers.
-    , _clrCustomSecurityGroupIds :: [Text]
-      -- ^ An array containing the layer custom security group IDs.
-    , _clrPackages :: [Text]
-      -- ^ An array of Package objects that describe the layer packages.
-    , _clrVolumeConfigurations :: [VolumeConfiguration]
-      -- ^ A VolumeConfigurations object that describes the layer's Amazon
-      -- EBS volumes.
-    , _clrEnableAutoHealing :: Maybe Bool
-      -- ^ Whether to disable auto healing for the layer.
-    , _clrAutoAssignElasticIps :: Maybe Bool
-      -- ^ Whether to automatically assign an Elastic IP address to the
-      -- layer's instances. For more information, see How to Edit a Layer.
-    , _clrAutoAssignPublicIps :: Maybe Bool
-      -- ^ For stacks that are running in a VPC, whether to automatically
-      -- assign a public IP address to the layer's instances. For more
-      -- information, see How to Edit a Layer.
-    , _clrCustomRecipes :: Maybe Recipes
-      -- ^ A LayerCustomRecipes object that specifies the layer custom
-      -- recipes.
-    , _clrInstallUpdatesOnBoot :: Maybe Bool
-      -- ^ Whether to install operating system and package updates when the
-      -- instance boots. The default value is true. To control when
-      -- updates are installed, set this value to false. You must then
-      -- update your instances manually by using CreateDeployment to run
-      -- the update_dependencies stack command or manually running yum
-      -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
-      -- recommend using the default value of true, to ensure that your
-      -- instances have the latest security updates.
-    , _clrUseEbsOptimizedInstances :: Maybe Bool
-      -- ^ Whether to use Amazon EBS-optimized instances.
+    { _clStackId :: Text
+    , _clType :: LayerType
+    , _clName :: Text
+    , _clShortname :: Text
+    , _clAttributes :: Map LayerAttributesKeys Text
+    , _clCustomInstanceProfileArn :: Maybe Text
+    , _clCustomSecurityGroupIds :: [Text]
+    , _clPackages :: [Text]
+    , _clVolumeConfigurations :: [VolumeConfiguration]
+    , _clEnableAutoHealing :: Maybe Bool
+    , _clAutoAssignElasticIps :: Maybe Bool
+    , _clAutoAssignPublicIps :: Maybe Bool
+    , _clCustomRecipes :: Maybe Recipes
+    , _clInstallUpdatesOnBoot :: Maybe Bool
+    , _clUseEbsOptimizedInstances :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLayer' request.
+mkCreateLayer :: Text -- ^ 'clStackId'
+              -> LayerType -- ^ 'clType'
+              -> Text -- ^ 'clName'
+              -> Text -- ^ 'clShortname'
+              -> CreateLayer
+mkCreateLayer p1 p2 p3 p4 = CreateLayer
+    { _clStackId = p1
+    , _clType = p2
+    , _clName = p3
+    , _clShortname = p4
+    , _clAttributes = mempty
+    , _clCustomInstanceProfileArn = Nothing
+    , _clCustomSecurityGroupIds = mempty
+    , _clPackages = mempty
+    , _clVolumeConfigurations = mempty
+    , _clEnableAutoHealing = Nothing
+    , _clAutoAssignElasticIps = Nothing
+    , _clAutoAssignPublicIps = Nothing
+    , _clCustomRecipes = Nothing
+    , _clInstallUpdatesOnBoot = Nothing
+    , _clUseEbsOptimizedInstances = Nothing
+    }
+{-# INLINE mkCreateLayer #-}
+
 -- | The layer stack ID.
-clrStackId :: Lens' CreateLayer (Text)
-clrStackId = lens _clrStackId (\s a -> s { _clrStackId = a })
-{-# INLINE clrStackId #-}
+clStackId :: Lens' CreateLayer Text
+clStackId = lens _clStackId (\s a -> s { _clStackId = a })
+{-# INLINE clStackId #-}
 
 -- | The layer type. A stack cannot have more than one built-in layer of the
 -- same type. It can have any number of custom layers. This parameter must be
@@ -158,73 +117,81 @@ clrStackId = lens _clrStackId (\s a -> s { _clrStackId = a })
 -- lb: An HAProxy layer memcached: A Memcached layer monitoring-master: A
 -- Ganglia layer nodejs-app: A Node.js App Server layer php-app: A PHP App
 -- Server layer web: A Static Web Server layer.
-clrType :: Lens' CreateLayer (LayerType)
-clrType = lens _clrType (\s a -> s { _clrType = a })
-{-# INLINE clrType #-}
+clType :: Lens' CreateLayer LayerType
+clType = lens _clType (\s a -> s { _clType = a })
+{-# INLINE clType #-}
 
 -- | The layer name, which is used by the console.
-clrName :: Lens' CreateLayer (Text)
-clrName = lens _clrName (\s a -> s { _clrName = a })
-{-# INLINE clrName #-}
+clName :: Lens' CreateLayer Text
+clName = lens _clName (\s a -> s { _clName = a })
+{-# INLINE clName #-}
 
 -- | The layer short name, which is used internally by AWS OpsWorks and by Chef
 -- recipes. The short name is also used as the name for the directory where
 -- your app files are installed. It can have a maximum of 200 characters,
 -- which are limited to the alphanumeric characters, '-', '_', and '.'.
-clrShortname :: Lens' CreateLayer (Text)
-clrShortname = lens _clrShortname (\s a -> s { _clrShortname = a })
-{-# INLINE clrShortname #-}
+clShortname :: Lens' CreateLayer Text
+clShortname = lens _clShortname (\s a -> s { _clShortname = a })
+{-# INLINE clShortname #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-clrAttributes :: Lens' CreateLayer (Map LayerAttributesKeys Text)
-clrAttributes = lens _clrAttributes (\s a -> s { _clrAttributes = a })
-{-# INLINE clrAttributes #-}
+clAttributes :: Lens' CreateLayer (Map LayerAttributesKeys Text)
+clAttributes = lens _clAttributes (\s a -> s { _clAttributes = a })
+{-# INLINE clAttributes #-}
 
 -- | The ARN of an IAM profile that to be used for the layer's EC2 instances.
 -- For more information about IAM ARNs, see Using Identifiers.
-clrCustomInstanceProfileArn :: Lens' CreateLayer (Maybe Text)
-clrCustomInstanceProfileArn = lens _clrCustomInstanceProfileArn (\s a -> s { _clrCustomInstanceProfileArn = a })
-{-# INLINE clrCustomInstanceProfileArn #-}
+clCustomInstanceProfileArn :: Lens' CreateLayer (Maybe Text)
+clCustomInstanceProfileArn =
+    lens _clCustomInstanceProfileArn
+         (\s a -> s { _clCustomInstanceProfileArn = a })
+{-# INLINE clCustomInstanceProfileArn #-}
 
 -- | An array containing the layer custom security group IDs.
-clrCustomSecurityGroupIds :: Lens' CreateLayer ([Text])
-clrCustomSecurityGroupIds = lens _clrCustomSecurityGroupIds (\s a -> s { _clrCustomSecurityGroupIds = a })
-{-# INLINE clrCustomSecurityGroupIds #-}
+clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
+clCustomSecurityGroupIds =
+    lens _clCustomSecurityGroupIds
+         (\s a -> s { _clCustomSecurityGroupIds = a })
+{-# INLINE clCustomSecurityGroupIds #-}
 
 -- | An array of Package objects that describe the layer packages.
-clrPackages :: Lens' CreateLayer ([Text])
-clrPackages = lens _clrPackages (\s a -> s { _clrPackages = a })
-{-# INLINE clrPackages #-}
+clPackages :: Lens' CreateLayer [Text]
+clPackages = lens _clPackages (\s a -> s { _clPackages = a })
+{-# INLINE clPackages #-}
 
 -- | A VolumeConfigurations object that describes the layer's Amazon EBS
 -- volumes.
-clrVolumeConfigurations :: Lens' CreateLayer ([VolumeConfiguration])
-clrVolumeConfigurations = lens _clrVolumeConfigurations (\s a -> s { _clrVolumeConfigurations = a })
-{-# INLINE clrVolumeConfigurations #-}
+clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
+clVolumeConfigurations =
+    lens _clVolumeConfigurations (\s a -> s { _clVolumeConfigurations = a })
+{-# INLINE clVolumeConfigurations #-}
 
 -- | Whether to disable auto healing for the layer.
-clrEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
-clrEnableAutoHealing = lens _clrEnableAutoHealing (\s a -> s { _clrEnableAutoHealing = a })
-{-# INLINE clrEnableAutoHealing #-}
+clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
+clEnableAutoHealing =
+    lens _clEnableAutoHealing (\s a -> s { _clEnableAutoHealing = a })
+{-# INLINE clEnableAutoHealing #-}
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
-clrAutoAssignElasticIps :: Lens' CreateLayer (Maybe Bool)
-clrAutoAssignElasticIps = lens _clrAutoAssignElasticIps (\s a -> s { _clrAutoAssignElasticIps = a })
-{-# INLINE clrAutoAssignElasticIps #-}
+clAutoAssignElasticIps :: Lens' CreateLayer (Maybe Bool)
+clAutoAssignElasticIps =
+    lens _clAutoAssignElasticIps (\s a -> s { _clAutoAssignElasticIps = a })
+{-# INLINE clAutoAssignElasticIps #-}
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer's instances. For more information, see How
 -- to Edit a Layer.
-clrAutoAssignPublicIps :: Lens' CreateLayer (Maybe Bool)
-clrAutoAssignPublicIps = lens _clrAutoAssignPublicIps (\s a -> s { _clrAutoAssignPublicIps = a })
-{-# INLINE clrAutoAssignPublicIps #-}
+clAutoAssignPublicIps :: Lens' CreateLayer (Maybe Bool)
+clAutoAssignPublicIps =
+    lens _clAutoAssignPublicIps (\s a -> s { _clAutoAssignPublicIps = a })
+{-# INLINE clAutoAssignPublicIps #-}
 
 -- | A LayerCustomRecipes object that specifies the layer custom recipes.
-clrCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
-clrCustomRecipes = lens _clrCustomRecipes (\s a -> s { _clrCustomRecipes = a })
-{-# INLINE clrCustomRecipes #-}
+clCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
+clCustomRecipes = lens _clCustomRecipes (\s a -> s { _clCustomRecipes = a })
+{-# INLINE clCustomRecipes #-}
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. To control when updates are installed,
@@ -233,14 +200,17 @@ clrCustomRecipes = lens _clrCustomRecipes (\s a -> s { _clrCustomRecipes = a })
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 -- We strongly recommend using the default value of true, to ensure that your
 -- instances have the latest security updates.
-clrInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
-clrInstallUpdatesOnBoot = lens _clrInstallUpdatesOnBoot (\s a -> s { _clrInstallUpdatesOnBoot = a })
-{-# INLINE clrInstallUpdatesOnBoot #-}
+clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
+clInstallUpdatesOnBoot =
+    lens _clInstallUpdatesOnBoot (\s a -> s { _clInstallUpdatesOnBoot = a })
+{-# INLINE clInstallUpdatesOnBoot #-}
 
 -- | Whether to use Amazon EBS-optimized instances.
-clrUseEbsOptimizedInstances :: Lens' CreateLayer (Maybe Bool)
-clrUseEbsOptimizedInstances = lens _clrUseEbsOptimizedInstances (\s a -> s { _clrUseEbsOptimizedInstances = a })
-{-# INLINE clrUseEbsOptimizedInstances #-}
+clUseEbsOptimizedInstances :: Lens' CreateLayer (Maybe Bool)
+clUseEbsOptimizedInstances =
+    lens _clUseEbsOptimizedInstances
+         (\s a -> s { _clUseEbsOptimizedInstances = a })
+{-# INLINE clUseEbsOptimizedInstances #-}
 
 instance ToPath CreateLayer
 
@@ -250,15 +220,15 @@ instance ToHeaders CreateLayer
 
 instance ToJSON CreateLayer
 
+-- | Contains the response to a CreateLayer request.
 newtype CreateLayerResponse = CreateLayerResponse
-    { _clsLayerId :: Maybe Text
-      -- ^ The layer ID.
+    { _clrsLayerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The layer ID.
-clsLayerId :: Lens' CreateLayerResponse (Maybe Text)
-clsLayerId = lens _clsLayerId (\s a -> s { _clsLayerId = a })
-{-# INLINE clsLayerId #-}
+clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
+clrsLayerId = lens _clrsLayerId (\s a -> s { _clrsLayerId = a })
+{-# INLINE clrsLayerId #-}
 
 instance FromJSON CreateLayerResponse
 

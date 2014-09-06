@@ -28,11 +28,11 @@ module Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy
     -- * Request
       SetStackPolicy
     -- ** Request constructor
-    , mkSetStackPolicyInput
+    , mkSetStackPolicy
     -- ** Request lenses
-    , sspiStackName
-    , sspiStackPolicyBody
-    , sspiStackPolicyURL
+    , sspStackName
+    , sspStackPolicyBody
+    , sspStackPolicyURL
 
     -- * Response
     , SetStackPolicyResponse
@@ -42,52 +42,46 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetStackPolicy' request.
-mkSetStackPolicyInput :: Text -- ^ 'sspiStackName'
-                      -> SetStackPolicy
-mkSetStackPolicyInput p1 = SetStackPolicy
-    { _sspiStackName = p1
-    , _sspiStackPolicyBody = Nothing
-    , _sspiStackPolicyURL = Nothing
-    }
-{-# INLINE mkSetStackPolicyInput #-}
-
+-- | The input for the SetStackPolicy action.
 data SetStackPolicy = SetStackPolicy
-    { _sspiStackName :: Text
-      -- ^ The name or stack ID that you want to associate a policy with.
-    , _sspiStackPolicyBody :: Maybe Text
-      -- ^ Structure containing the stack policy body. For more information,
-      -- go to Prevent Updates to Stack Resources in the AWS
-      -- CloudFormation User Guide. You can specify either the
-      -- StackPolicyBody or the StackPolicyURL parameter, but not both.
-    , _sspiStackPolicyURL :: Maybe Text
-      -- ^ Location of a file containing the stack policy. The URL must
-      -- point to a policy (max size: 16KB) located in an S3 bucket in the
-      -- same region as the stack. You can specify either the
-      -- StackPolicyBody or the StackPolicyURL parameter, but not both.
+    { _sspStackName :: Text
+    , _sspStackPolicyBody :: Maybe Text
+    , _sspStackPolicyURL :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetStackPolicy' request.
+mkSetStackPolicy :: Text -- ^ 'sspStackName'
+                 -> SetStackPolicy
+mkSetStackPolicy p1 = SetStackPolicy
+    { _sspStackName = p1
+    , _sspStackPolicyBody = Nothing
+    , _sspStackPolicyURL = Nothing
+    }
+{-# INLINE mkSetStackPolicy #-}
+
 -- | The name or stack ID that you want to associate a policy with.
-sspiStackName :: Lens' SetStackPolicy (Text)
-sspiStackName = lens _sspiStackName (\s a -> s { _sspiStackName = a })
-{-# INLINE sspiStackName #-}
+sspStackName :: Lens' SetStackPolicy Text
+sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
+{-# INLINE sspStackName #-}
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
 -- You can specify either the StackPolicyBody or the StackPolicyURL parameter,
 -- but not both.
-sspiStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
-sspiStackPolicyBody = lens _sspiStackPolicyBody (\s a -> s { _sspiStackPolicyBody = a })
-{-# INLINE sspiStackPolicyBody #-}
+sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
+sspStackPolicyBody =
+    lens _sspStackPolicyBody (\s a -> s { _sspStackPolicyBody = a })
+{-# INLINE sspStackPolicyBody #-}
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
 -- stack. You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
-sspiStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
-sspiStackPolicyURL = lens _sspiStackPolicyURL (\s a -> s { _sspiStackPolicyURL = a })
-{-# INLINE sspiStackPolicyURL #-}
+sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
+sspStackPolicyURL =
+    lens _sspStackPolicyURL (\s a -> s { _sspStackPolicyURL = a })
+{-# INLINE sspStackPolicyURL #-}
 
 instance ToQuery SetStackPolicy where
     toQuery = genericQuery def

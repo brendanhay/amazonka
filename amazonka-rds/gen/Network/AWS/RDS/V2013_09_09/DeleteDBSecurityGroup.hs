@@ -28,9 +28,9 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBSecurityGroup
     -- * Request
       DeleteDBSecurityGroup
     -- ** Request constructor
-    , mkDeleteDBSecurityGroupMessage
+    , mkDeleteDBSecurityGroup
     -- ** Request lenses
-    , ddbsgmDBSecurityGroupName
+    , ddbsgDBSecurityGroupName
 
     -- * Response
     , DeleteDBSecurityGroupResponse
@@ -40,31 +40,29 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
+    { _ddbsgDBSecurityGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBSecurityGroup' request.
-mkDeleteDBSecurityGroupMessage :: Text -- ^ 'ddbsgmDBSecurityGroupName'
-                               -> DeleteDBSecurityGroup
-mkDeleteDBSecurityGroupMessage p1 = DeleteDBSecurityGroup
-    { _ddbsgmDBSecurityGroupName = p1
+mkDeleteDBSecurityGroup :: Text -- ^ 'ddbsgDBSecurityGroupName'
+                        -> DeleteDBSecurityGroup
+mkDeleteDBSecurityGroup p1 = DeleteDBSecurityGroup
+    { _ddbsgDBSecurityGroupName = p1
     }
-{-# INLINE mkDeleteDBSecurityGroupMessage #-}
-
-newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
-    { _ddbsgmDBSecurityGroupName :: Text
-      -- ^ The name of the DB security group to delete. You cannot delete
-      -- the default DB security group. Constraints: Must be 1 to 255
-      -- alphanumeric characters First character must be a letter Cannot
-      -- end with a hyphen or contain two consecutive hyphens Must not be
-      -- "Default" May not contain spaces.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteDBSecurityGroup #-}
 
 -- | The name of the DB security group to delete. You cannot delete the default
 -- DB security group. Constraints: Must be 1 to 255 alphanumeric characters
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Must not be "Default" May not contain spaces.
-ddbsgmDBSecurityGroupName :: Lens' DeleteDBSecurityGroup (Text)
-ddbsgmDBSecurityGroupName = lens _ddbsgmDBSecurityGroupName (\s a -> s { _ddbsgmDBSecurityGroupName = a })
-{-# INLINE ddbsgmDBSecurityGroupName #-}
+ddbsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
+ddbsgDBSecurityGroupName =
+    lens _ddbsgDBSecurityGroupName
+         (\s a -> s { _ddbsgDBSecurityGroupName = a })
+{-# INLINE ddbsgDBSecurityGroupName #-}
 
 instance ToQuery DeleteDBSecurityGroup where
     toQuery = genericQuery def

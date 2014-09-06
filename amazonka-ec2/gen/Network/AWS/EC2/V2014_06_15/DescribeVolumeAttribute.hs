@@ -46,76 +46,75 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute
     -- * Request
       DescribeVolumeAttribute
     -- ** Request constructor
-    , mkDescribeVolumeAttributeRequest
+    , mkDescribeVolumeAttribute
     -- ** Request lenses
-    , dvarVolumeId
-    , dvarAttribute
+    , dvaVolumeId
+    , dvaAttribute
 
     -- * Response
     , DescribeVolumeAttributeResponse
     -- ** Response lenses
-    , dvasVolumeId
-    , dvasAutoEnableIO
-    , dvasProductCodes
+    , dvarsVolumeId
+    , dvarsAutoEnableIO
+    , dvarsProductCodes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumeAttribute' request.
-mkDescribeVolumeAttributeRequest :: Text -- ^ 'dvarVolumeId'
-                                 -> DescribeVolumeAttribute
-mkDescribeVolumeAttributeRequest p1 = DescribeVolumeAttribute
-    { _dvarVolumeId = p1
-    , _dvarAttribute = Nothing
-    }
-{-# INLINE mkDescribeVolumeAttributeRequest #-}
-
+-- | 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
-    { _dvarVolumeId :: Text
-      -- ^ The ID of the volume.
-    , _dvarAttribute :: Maybe VolumeAttributeName
-      -- ^ The instance attribute.
+    { _dvaVolumeId :: Text
+    , _dvaAttribute :: Maybe VolumeAttributeName
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumeAttribute' request.
+mkDescribeVolumeAttribute :: Text -- ^ 'dvaVolumeId'
+                          -> DescribeVolumeAttribute
+mkDescribeVolumeAttribute p1 = DescribeVolumeAttribute
+    { _dvaVolumeId = p1
+    , _dvaAttribute = Nothing
+    }
+{-# INLINE mkDescribeVolumeAttribute #-}
+
 -- | The ID of the volume.
-dvarVolumeId :: Lens' DescribeVolumeAttribute (Text)
-dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
-{-# INLINE dvarVolumeId #-}
+dvaVolumeId :: Lens' DescribeVolumeAttribute Text
+dvaVolumeId = lens _dvaVolumeId (\s a -> s { _dvaVolumeId = a })
+{-# INLINE dvaVolumeId #-}
 
 -- | The instance attribute.
-dvarAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
-dvarAttribute = lens _dvarAttribute (\s a -> s { _dvarAttribute = a })
-{-# INLINE dvarAttribute #-}
+dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
+dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
+{-# INLINE dvaAttribute #-}
 
 instance ToQuery DescribeVolumeAttribute where
     toQuery = genericQuery def
 
+-- | 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
-    { _dvasVolumeId :: Maybe Text
-      -- ^ The ID of the volume.
-    , _dvasAutoEnableIO :: Maybe AttributeBooleanValue
-      -- ^ The state of autoEnableIO attribute.
-    , _dvasProductCodes :: [ProductCode]
-      -- ^ A list of product codes.
+    { _dvarsVolumeId :: Maybe Text
+    , _dvarsAutoEnableIO :: Maybe AttributeBooleanValue
+    , _dvarsProductCodes :: [ProductCode]
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvasVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
-dvasVolumeId = lens _dvasVolumeId (\s a -> s { _dvasVolumeId = a })
-{-# INLINE dvasVolumeId #-}
+dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
+dvarsVolumeId = lens _dvarsVolumeId (\s a -> s { _dvarsVolumeId = a })
+{-# INLINE dvarsVolumeId #-}
 
 -- | The state of autoEnableIO attribute.
-dvasAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
-dvasAutoEnableIO = lens _dvasAutoEnableIO (\s a -> s { _dvasAutoEnableIO = a })
-{-# INLINE dvasAutoEnableIO #-}
+dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
+dvarsAutoEnableIO =
+    lens _dvarsAutoEnableIO (\s a -> s { _dvarsAutoEnableIO = a })
+{-# INLINE dvarsAutoEnableIO #-}
 
 -- | A list of product codes.
-dvasProductCodes :: Lens' DescribeVolumeAttributeResponse ([ProductCode])
-dvasProductCodes = lens _dvasProductCodes (\s a -> s { _dvasProductCodes = a })
-{-# INLINE dvasProductCodes #-}
+dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarsProductCodes =
+    lens _dvarsProductCodes (\s a -> s { _dvarsProductCodes = a })
+{-# INLINE dvarsProductCodes #-}
 
 instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions

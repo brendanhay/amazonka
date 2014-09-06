@@ -35,16 +35,16 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
     -- * Request
       ReportTaskRunnerHeartbeat
     -- ** Request constructor
-    , mkReportTaskRunnerHeartbeatInput
+    , mkReportTaskRunnerHeartbeat
     -- ** Request lenses
-    , rtrhiTaskrunnerId
-    , rtrhiWorkerGroup
-    , rtrhiHostname
+    , rtrhTaskrunnerId
+    , rtrhWorkerGroup
+    , rtrhHostname
 
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
     -- ** Response lenses
-    , rtrhoTerminate
+    , rtrhrsTerminate
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -52,45 +52,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The input for the ReportTaskRunnerHeartbeat action.
+data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
+    { _rtrhTaskrunnerId :: Text
+    , _rtrhWorkerGroup :: Maybe Text
+    , _rtrhHostname :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskRunnerHeartbeat' request.
-mkReportTaskRunnerHeartbeatInput :: Text -- ^ 'rtrhiTaskrunnerId'
-                                 -> ReportTaskRunnerHeartbeat
-mkReportTaskRunnerHeartbeatInput p1 = ReportTaskRunnerHeartbeat
-    { _rtrhiTaskrunnerId = p1
-    , _rtrhiWorkerGroup = Nothing
-    , _rtrhiHostname = Nothing
+mkReportTaskRunnerHeartbeat :: Text -- ^ 'rtrhTaskrunnerId'
+                            -> ReportTaskRunnerHeartbeat
+mkReportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
+    { _rtrhTaskrunnerId = p1
+    , _rtrhWorkerGroup = Nothing
+    , _rtrhHostname = Nothing
     }
-{-# INLINE mkReportTaskRunnerHeartbeatInput #-}
-
-data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
-    { _rtrhiTaskrunnerId :: Text
-      -- ^ The identifier of the task runner. This value should be unique
-      -- across your AWS account. In the case of AWS Data Pipeline Task
-      -- Runner launched on a resource managed by AWS Data Pipeline, the
-      -- web service provides a unique identifier when it launches the
-      -- application. If you have written a custom task runner, you should
-      -- assign a unique identifier for the task runner.
-    , _rtrhiWorkerGroup :: Maybe Text
-      -- ^ Indicates the type of task the task runner is configured to
-      -- accept and process. The worker group is set as a field on objects
-      -- in the pipeline when they are created. You can only specify a
-      -- single value for workerGroup in the call to
-      -- ReportTaskRunnerHeartbeat. There are no wildcard values permitted
-      -- in workerGroup, the string must be an exact, case-sensitive,
-      -- match.
-    , _rtrhiHostname :: Maybe Text
-      -- ^ The public DNS name of the calling task runner.
-    } deriving (Show, Generic)
+{-# INLINE mkReportTaskRunnerHeartbeat #-}
 
 -- | The identifier of the task runner. This value should be unique across your
 -- AWS account. In the case of AWS Data Pipeline Task Runner launched on a
 -- resource managed by AWS Data Pipeline, the web service provides a unique
 -- identifier when it launches the application. If you have written a custom
 -- task runner, you should assign a unique identifier for the task runner.
-rtrhiTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat (Text)
-rtrhiTaskrunnerId = lens _rtrhiTaskrunnerId (\s a -> s { _rtrhiTaskrunnerId = a })
-{-# INLINE rtrhiTaskrunnerId #-}
+rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
+rtrhTaskrunnerId =
+    lens _rtrhTaskrunnerId (\s a -> s { _rtrhTaskrunnerId = a })
+{-# INLINE rtrhTaskrunnerId #-}
 
 -- | Indicates the type of task the task runner is configured to accept and
 -- process. The worker group is set as a field on objects in the pipeline when
@@ -98,14 +86,14 @@ rtrhiTaskrunnerId = lens _rtrhiTaskrunnerId (\s a -> s { _rtrhiTaskrunnerId = a 
 -- the call to ReportTaskRunnerHeartbeat. There are no wildcard values
 -- permitted in workerGroup, the string must be an exact, case-sensitive,
 -- match.
-rtrhiWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhiWorkerGroup = lens _rtrhiWorkerGroup (\s a -> s { _rtrhiWorkerGroup = a })
-{-# INLINE rtrhiWorkerGroup #-}
+rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhWorkerGroup = lens _rtrhWorkerGroup (\s a -> s { _rtrhWorkerGroup = a })
+{-# INLINE rtrhWorkerGroup #-}
 
 -- | The public DNS name of the calling task runner.
-rtrhiHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhiHostname = lens _rtrhiHostname (\s a -> s { _rtrhiHostname = a })
-{-# INLINE rtrhiHostname #-}
+rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhHostname = lens _rtrhHostname (\s a -> s { _rtrhHostname = a })
+{-# INLINE rtrhHostname #-}
 
 instance ToPath ReportTaskRunnerHeartbeat
 
@@ -115,18 +103,16 @@ instance ToHeaders ReportTaskRunnerHeartbeat
 
 instance ToJSON ReportTaskRunnerHeartbeat
 
+-- | Contains the output from the ReportTaskRunnerHeartbeat action.
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
-    { _rtrhoTerminate :: Bool
-      -- ^ Indicates whether the calling task runner should terminate. If
-      -- True, the task runner that called ReportTaskRunnerHeartbeat
-      -- should terminate.
+    { _rtrhrsTerminate :: Bool
     } deriving (Show, Generic)
 
 -- | Indicates whether the calling task runner should terminate. If True, the
 -- task runner that called ReportTaskRunnerHeartbeat should terminate.
-rtrhoTerminate :: Lens' ReportTaskRunnerHeartbeatResponse (Bool)
-rtrhoTerminate = lens _rtrhoTerminate (\s a -> s { _rtrhoTerminate = a })
-{-# INLINE rtrhoTerminate #-}
+rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
+rtrhrsTerminate = lens _rtrhrsTerminate (\s a -> s { _rtrhrsTerminate = a })
+{-# INLINE rtrhrsTerminate #-}
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse
 

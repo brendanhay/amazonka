@@ -34,92 +34,93 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute
     -- * Request
       DescribeNetworkInterfaceAttribute
     -- ** Request constructor
-    , mkDescribeNetworkInterfaceAttributeRequest
+    , mkDescribeNetworkInterfaceAttribute
     -- ** Request lenses
-    , dniarNetworkInterfaceId
-    , dniarAttribute
+    , dniaNetworkInterfaceId
+    , dniaAttribute
 
     -- * Response
     , DescribeNetworkInterfaceAttributeResponse
     -- ** Response lenses
-    , dniasNetworkInterfaceId
-    , dniasDescription
-    , dniasSourceDestCheck
-    , dniasGroups
-    , dniasAttachment
+    , dniarsNetworkInterfaceId
+    , dniarsDescription
+    , dniarsSourceDestCheck
+    , dniarsGroups
+    , dniarsAttachment
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeNetworkInterfaceAttribute' request.
-mkDescribeNetworkInterfaceAttributeRequest :: Text -- ^ 'dniarNetworkInterfaceId'
-                                           -> DescribeNetworkInterfaceAttribute
-mkDescribeNetworkInterfaceAttributeRequest p1 = DescribeNetworkInterfaceAttribute
-    { _dniarNetworkInterfaceId = p1
-    , _dniarAttribute = Nothing
-    }
-{-# INLINE mkDescribeNetworkInterfaceAttributeRequest #-}
-
+-- | 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
-    { _dniarNetworkInterfaceId :: Text
-      -- ^ The ID of the network interface.
-    , _dniarAttribute :: Maybe NetworkInterfaceAttribute
-      -- ^ The attribute of the network interface.
+    { _dniaNetworkInterfaceId :: Text
+    , _dniaAttribute :: Maybe NetworkInterfaceAttribute
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNetworkInterfaceAttribute' request.
+mkDescribeNetworkInterfaceAttribute :: Text -- ^ 'dniaNetworkInterfaceId'
+                                    -> DescribeNetworkInterfaceAttribute
+mkDescribeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
+    { _dniaNetworkInterfaceId = p1
+    , _dniaAttribute = Nothing
+    }
+{-# INLINE mkDescribeNetworkInterfaceAttribute #-}
+
 -- | The ID of the network interface.
-dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute (Text)
-dniarNetworkInterfaceId = lens _dniarNetworkInterfaceId (\s a -> s { _dniarNetworkInterfaceId = a })
-{-# INLINE dniarNetworkInterfaceId #-}
+dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
+dniaNetworkInterfaceId =
+    lens _dniaNetworkInterfaceId (\s a -> s { _dniaNetworkInterfaceId = a })
+{-# INLINE dniaNetworkInterfaceId #-}
 
 -- | The attribute of the network interface.
-dniarAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
-dniarAttribute = lens _dniarAttribute (\s a -> s { _dniarAttribute = a })
-{-# INLINE dniarAttribute #-}
+dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
+dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
+{-# INLINE dniaAttribute #-}
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery = genericQuery def
 
+-- | 
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
-    { _dniasNetworkInterfaceId :: Maybe Text
-      -- ^ The ID of the network interface.
-    , _dniasDescription :: Maybe AttributeValue
-      -- ^ The description of the network interface.
-    , _dniasSourceDestCheck :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether source/destination checking is enabled.
-    , _dniasGroups :: [GroupIdentifier]
-      -- ^ The security groups associated with the network interface.
-    , _dniasAttachment :: Maybe NetworkInterfaceAttachment
-      -- ^ The attachment (if any) of the network interface.
+    { _dniarsNetworkInterfaceId :: Maybe Text
+    , _dniarsDescription :: Maybe AttributeValue
+    , _dniarsSourceDestCheck :: Maybe AttributeBooleanValue
+    , _dniarsGroups :: [GroupIdentifier]
+    , _dniarsAttachment :: Maybe NetworkInterfaceAttachment
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-dniasNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
-dniasNetworkInterfaceId = lens _dniasNetworkInterfaceId (\s a -> s { _dniasNetworkInterfaceId = a })
-{-# INLINE dniasNetworkInterfaceId #-}
+dniarsNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
+dniarsNetworkInterfaceId =
+    lens _dniarsNetworkInterfaceId
+         (\s a -> s { _dniarsNetworkInterfaceId = a })
+{-# INLINE dniarsNetworkInterfaceId #-}
 
 -- | The description of the network interface.
-dniasDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
-dniasDescription = lens _dniasDescription (\s a -> s { _dniasDescription = a })
-{-# INLINE dniasDescription #-}
+dniarsDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
+dniarsDescription =
+    lens _dniarsDescription (\s a -> s { _dniarsDescription = a })
+{-# INLINE dniarsDescription #-}
 
 -- | Indicates whether source/destination checking is enabled.
-dniasSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
-dniasSourceDestCheck = lens _dniasSourceDestCheck (\s a -> s { _dniasSourceDestCheck = a })
-{-# INLINE dniasSourceDestCheck #-}
+dniarsSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
+dniarsSourceDestCheck =
+    lens _dniarsSourceDestCheck (\s a -> s { _dniarsSourceDestCheck = a })
+{-# INLINE dniarsSourceDestCheck #-}
 
 -- | The security groups associated with the network interface.
-dniasGroups :: Lens' DescribeNetworkInterfaceAttributeResponse ([GroupIdentifier])
-dniasGroups = lens _dniasGroups (\s a -> s { _dniasGroups = a })
-{-# INLINE dniasGroups #-}
+dniarsGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
+dniarsGroups = lens _dniarsGroups (\s a -> s { _dniarsGroups = a })
+{-# INLINE dniarsGroups #-}
 
 -- | The attachment (if any) of the network interface.
-dniasAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
-dniasAttachment = lens _dniasAttachment (\s a -> s { _dniasAttachment = a })
-{-# INLINE dniasAttachment #-}
+dniarsAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
+dniarsAttachment =
+    lens _dniarsAttachment (\s a -> s { _dniarsAttachment = a })
+{-# INLINE dniarsAttachment #-}
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions

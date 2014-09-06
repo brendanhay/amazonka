@@ -41,79 +41,74 @@ module Network.AWS.SNS.V2010_03_31.ConfirmSubscription
     -- * Request
       ConfirmSubscription
     -- ** Request constructor
-    , mkConfirmSubscriptionInput
+    , mkConfirmSubscription
     -- ** Request lenses
-    , csiTopicArn
-    , csiToken
-    , csiAuthenticateOnUnsubscribe
+    , csTopicArn
+    , csToken
+    , csAuthenticateOnUnsubscribe
 
     -- * Response
     , ConfirmSubscriptionResponse
     -- ** Response lenses
-    , csrSubscriptionArn
+    , csrsSubscriptionArn
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmSubscription' request.
-mkConfirmSubscriptionInput :: Text -- ^ 'csiTopicArn'
-                           -> Text -- ^ 'csiToken'
-                           -> ConfirmSubscription
-mkConfirmSubscriptionInput p1 p2 = ConfirmSubscription
-    { _csiTopicArn = p1
-    , _csiToken = p2
-    , _csiAuthenticateOnUnsubscribe = Nothing
-    }
-{-# INLINE mkConfirmSubscriptionInput #-}
-
+-- | Input for ConfirmSubscription action.
 data ConfirmSubscription = ConfirmSubscription
-    { _csiTopicArn :: Text
-      -- ^ The ARN of the topic for which you wish to confirm a
-      -- subscription.
-    , _csiToken :: Text
-      -- ^ Short-lived token sent to an endpoint during the Subscribe
-      -- action.
-    , _csiAuthenticateOnUnsubscribe :: Maybe Text
-      -- ^ Disallows unauthenticated unsubscribes of the subscription. If
-      -- the value of this parameter is true and the request has an AWS
-      -- signature, then only the topic owner and the subscription owner
-      -- can unsubscribe the endpoint. The unsubscribe action requires AWS
-      -- authentication.
+    { _csTopicArn :: Text
+    , _csToken :: Text
+    , _csAuthenticateOnUnsubscribe :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmSubscription' request.
+mkConfirmSubscription :: Text -- ^ 'csTopicArn'
+                      -> Text -- ^ 'csToken'
+                      -> ConfirmSubscription
+mkConfirmSubscription p1 p2 = ConfirmSubscription
+    { _csTopicArn = p1
+    , _csToken = p2
+    , _csAuthenticateOnUnsubscribe = Nothing
+    }
+{-# INLINE mkConfirmSubscription #-}
+
 -- | The ARN of the topic for which you wish to confirm a subscription.
-csiTopicArn :: Lens' ConfirmSubscription (Text)
-csiTopicArn = lens _csiTopicArn (\s a -> s { _csiTopicArn = a })
-{-# INLINE csiTopicArn #-}
+csTopicArn :: Lens' ConfirmSubscription Text
+csTopicArn = lens _csTopicArn (\s a -> s { _csTopicArn = a })
+{-# INLINE csTopicArn #-}
 
 -- | Short-lived token sent to an endpoint during the Subscribe action.
-csiToken :: Lens' ConfirmSubscription (Text)
-csiToken = lens _csiToken (\s a -> s { _csiToken = a })
-{-# INLINE csiToken #-}
+csToken :: Lens' ConfirmSubscription Text
+csToken = lens _csToken (\s a -> s { _csToken = a })
+{-# INLINE csToken #-}
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value of
 -- this parameter is true and the request has an AWS signature, then only the
 -- topic owner and the subscription owner can unsubscribe the endpoint. The
 -- unsubscribe action requires AWS authentication.
-csiAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
-csiAuthenticateOnUnsubscribe = lens _csiAuthenticateOnUnsubscribe (\s a -> s { _csiAuthenticateOnUnsubscribe = a })
-{-# INLINE csiAuthenticateOnUnsubscribe #-}
+csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
+csAuthenticateOnUnsubscribe =
+    lens _csAuthenticateOnUnsubscribe
+         (\s a -> s { _csAuthenticateOnUnsubscribe = a })
+{-# INLINE csAuthenticateOnUnsubscribe #-}
 
 instance ToQuery ConfirmSubscription where
     toQuery = genericQuery def
 
+-- | Response for ConfirmSubscriptions action.
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
-    { _csrSubscriptionArn :: Maybe Text
-      -- ^ The ARN of the created subscription.
+    { _csrsSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ARN of the created subscription.
-csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
-csrSubscriptionArn = lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })
-{-# INLINE csrSubscriptionArn #-}
+csrsSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
+csrsSubscriptionArn =
+    lens _csrsSubscriptionArn (\s a -> s { _csrsSubscriptionArn = a })
+{-# INLINE csrsSubscriptionArn #-}
 
 instance FromXML ConfirmSubscriptionResponse where
     fromXMLOptions = xmlOptions

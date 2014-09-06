@@ -27,51 +27,53 @@ module Network.AWS.ELB.V2012_06_01.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , mkDescribeTagsInput
+    , mkDescribeTags
     -- ** Request lenses
-    , dtiLoadBalancerNames
+    , dtLoadBalancerNames
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response lenses
-    , dtoTagDescriptions
+    , dtrsTagDescriptions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTags' request.
-mkDescribeTagsInput :: [Text] -- ^ 'dtiLoadBalancerNames'
-                    -> DescribeTags
-mkDescribeTagsInput p1 = DescribeTags
-    { _dtiLoadBalancerNames = p1
-    }
-{-# INLINE mkDescribeTagsInput #-}
-
+-- | The input for the DescribeTags action.
 newtype DescribeTags = DescribeTags
-    { _dtiLoadBalancerNames :: [Text]
-      -- ^ The names of the load balancers.
+    { _dtLoadBalancerNames :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTags' request.
+mkDescribeTags :: [Text] -- ^ 'dtLoadBalancerNames'
+               -> DescribeTags
+mkDescribeTags p1 = DescribeTags
+    { _dtLoadBalancerNames = p1
+    }
+{-# INLINE mkDescribeTags #-}
+
 -- | The names of the load balancers.
-dtiLoadBalancerNames :: Lens' DescribeTags ([Text])
-dtiLoadBalancerNames = lens _dtiLoadBalancerNames (\s a -> s { _dtiLoadBalancerNames = a })
-{-# INLINE dtiLoadBalancerNames #-}
+dtLoadBalancerNames :: Lens' DescribeTags [Text]
+dtLoadBalancerNames =
+    lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
+{-# INLINE dtLoadBalancerNames #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
+-- | The output for the DescribeTags action.
 newtype DescribeTagsResponse = DescribeTagsResponse
-    { _dtoTagDescriptions :: [TagDescription]
-      -- ^ A list of tag description structures.
+    { _dtrsTagDescriptions :: [TagDescription]
     } deriving (Show, Generic)
 
 -- | A list of tag description structures.
-dtoTagDescriptions :: Lens' DescribeTagsResponse ([TagDescription])
-dtoTagDescriptions = lens _dtoTagDescriptions (\s a -> s { _dtoTagDescriptions = a })
-{-# INLINE dtoTagDescriptions #-}
+dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTagDescriptions =
+    lens _dtrsTagDescriptions (\s a -> s { _dtrsTagDescriptions = a })
+{-# INLINE dtrsTagDescriptions #-}
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions

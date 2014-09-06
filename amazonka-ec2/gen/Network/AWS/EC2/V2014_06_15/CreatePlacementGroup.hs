@@ -33,10 +33,10 @@ module Network.AWS.EC2.V2014_06_15.CreatePlacementGroup
     -- * Request
       CreatePlacementGroup
     -- ** Request constructor
-    , mkCreatePlacementGroupRequest
+    , mkCreatePlacementGroup
     -- ** Request lenses
-    , cpgrGroupName
-    , cpgrStrategy
+    , cpgGroupName
+    , cpgStrategy
 
     -- * Response
     , CreatePlacementGroupResponse
@@ -46,34 +46,32 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreatePlacementGroup' request.
-mkCreatePlacementGroupRequest :: Text -- ^ 'cpgrGroupName'
-                              -> PlacementStrategy -- ^ 'cpgrStrategy'
-                              -> CreatePlacementGroup
-mkCreatePlacementGroupRequest p1 p2 = CreatePlacementGroup
-    { _cpgrGroupName = p1
-    , _cpgrStrategy = p2
-    }
-{-# INLINE mkCreatePlacementGroupRequest #-}
-
+-- | 
 data CreatePlacementGroup = CreatePlacementGroup
-    { _cpgrGroupName :: Text
-      -- ^ A name for the placement group. Constraints: Up to 255 ASCII
-      -- characters.
-    , _cpgrStrategy :: PlacementStrategy
-      -- ^ The placement strategy.
+    { _cpgGroupName :: Text
+    , _cpgStrategy :: PlacementStrategy
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePlacementGroup' request.
+mkCreatePlacementGroup :: Text -- ^ 'cpgGroupName'
+                       -> PlacementStrategy -- ^ 'cpgStrategy'
+                       -> CreatePlacementGroup
+mkCreatePlacementGroup p1 p2 = CreatePlacementGroup
+    { _cpgGroupName = p1
+    , _cpgStrategy = p2
+    }
+{-# INLINE mkCreatePlacementGroup #-}
+
 -- | A name for the placement group. Constraints: Up to 255 ASCII characters.
-cpgrGroupName :: Lens' CreatePlacementGroup (Text)
-cpgrGroupName = lens _cpgrGroupName (\s a -> s { _cpgrGroupName = a })
-{-# INLINE cpgrGroupName #-}
+cpgGroupName :: Lens' CreatePlacementGroup Text
+cpgGroupName = lens _cpgGroupName (\s a -> s { _cpgGroupName = a })
+{-# INLINE cpgGroupName #-}
 
 -- | The placement strategy.
-cpgrStrategy :: Lens' CreatePlacementGroup (PlacementStrategy)
-cpgrStrategy = lens _cpgrStrategy (\s a -> s { _cpgrStrategy = a })
-{-# INLINE cpgrStrategy #-}
+cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
+cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
+{-# INLINE cpgStrategy #-}
 
 instance ToQuery CreatePlacementGroup where
     toQuery = genericQuery def

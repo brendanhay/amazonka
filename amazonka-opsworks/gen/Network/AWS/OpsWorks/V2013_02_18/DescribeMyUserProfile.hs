@@ -26,11 +26,11 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
     -- * Request
       DescribeMyUserProfile
     -- ** Request constructor
-    , mkUnknown
+    , mkDescribeMyUserProfile
     -- * Response
     , DescribeMyUserProfileResponse
     -- ** Response lenses
-    , dmuprUserProfile
+    , dmuprsUserProfile
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -38,14 +38,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeMyUserProfile' request.
-mkUnknown :: DescribeMyUserProfile
-mkUnknown = DescribeMyUserProfile
-{-# INLINE mkUnknown #-}
-
 data DescribeMyUserProfile = DescribeMyUserProfile
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMyUserProfile' request.
+mkDescribeMyUserProfile :: DescribeMyUserProfile
+mkDescribeMyUserProfile = DescribeMyUserProfile
+{-# INLINE mkDescribeMyUserProfile #-}
 
 instance ToPath DescribeMyUserProfile
 
@@ -55,15 +55,16 @@ instance ToHeaders DescribeMyUserProfile
 
 instance ToJSON DescribeMyUserProfile
 
+-- | Contains the response to a DescribeMyUserProfile request.
 newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
-    { _dmuprUserProfile :: Maybe SelfUserProfile
-      -- ^ A UserProfile object that describes the user's SSH information.
+    { _dmuprsUserProfile :: Maybe SelfUserProfile
     } deriving (Show, Generic)
 
 -- | A UserProfile object that describes the user's SSH information.
-dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprUserProfile = lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
-{-# INLINE dmuprUserProfile #-}
+dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
+dmuprsUserProfile =
+    lens _dmuprsUserProfile (\s a -> s { _dmuprsUserProfile = a })
+{-# INLINE dmuprsUserProfile #-}
 
 instance FromJSON DescribeMyUserProfileResponse
 

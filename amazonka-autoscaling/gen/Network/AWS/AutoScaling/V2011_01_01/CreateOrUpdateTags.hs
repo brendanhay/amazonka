@@ -33,9 +33,9 @@ module Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags
     -- * Request
       CreateOrUpdateTags
     -- ** Request constructor
-    , mkCreateOrUpdateTagsType
+    , mkCreateOrUpdateTags
     -- ** Request lenses
-    , couttTags
+    , coutTags
 
     -- * Response
     , CreateOrUpdateTagsResponse
@@ -45,34 +45,19 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype CreateOrUpdateTags = CreateOrUpdateTags
+    { _coutTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOrUpdateTags' request.
-mkCreateOrUpdateTagsType :: [Tag] -- ^ 'couttTags'
-                         -> CreateOrUpdateTags
-mkCreateOrUpdateTagsType p1 = CreateOrUpdateTags
-    { _couttTags = p1
+mkCreateOrUpdateTags :: [Tag] -- ^ 'coutTags'
+                     -> CreateOrUpdateTags
+mkCreateOrUpdateTags p1 = CreateOrUpdateTags
+    { _coutTags = p1
     }
-{-# INLINE mkCreateOrUpdateTagsType #-}
-
-newtype CreateOrUpdateTags = CreateOrUpdateTags
-    { _couttTags :: [Tag]
-      -- ^ The tag to be created or updated. Each tag should be defined by
-      -- its resource type, resource ID, key, value, and a propagate flag.
-      -- The resource type and resource ID identify the type and name of
-      -- resource for which the tag is created. Currently,
-      -- auto-scaling-group is the only supported resource type. The valid
-      -- value for the resource ID is groupname. The PropagateAtLaunch
-      -- flag defines whether the new tag will be applied to instances
-      -- launched by the Auto Scaling group. Valid values are true or
-      -- false. However, instances that are already running will not get
-      -- the new or updated tag. Likewise, when you modify a tag, the
-      -- updated version will be applied only to new instances launched by
-      -- the Auto Scaling group after the change. Running instances that
-      -- had the previous version of the tag will continue to have the
-      -- older tag. When you create a tag and a tag of the same name
-      -- already exists, the operation overwrites the previous tag
-      -- definition, but you will not get an error message.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateOrUpdateTags #-}
 
 -- | The tag to be created or updated. Each tag should be defined by its
 -- resource type, resource ID, key, value, and a propagate flag. The resource
@@ -88,9 +73,9 @@ newtype CreateOrUpdateTags = CreateOrUpdateTags
 -- continue to have the older tag. When you create a tag and a tag of the same
 -- name already exists, the operation overwrites the previous tag definition,
 -- but you will not get an error message.
-couttTags :: Lens' CreateOrUpdateTags ([Tag])
-couttTags = lens _couttTags (\s a -> s { _couttTags = a })
-{-# INLINE couttTags #-}
+coutTags :: Lens' CreateOrUpdateTags [Tag]
+coutTags = lens _coutTags (\s a -> s { _coutTags = a })
+{-# INLINE coutTags #-}
 
 instance ToQuery CreateOrUpdateTags where
     toQuery = genericQuery def

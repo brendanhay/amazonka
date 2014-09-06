@@ -190,15 +190,15 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter
     -- * Request
       TestMetricFilter
     -- ** Request constructor
-    , mkTestMetricFilterRequest
+    , mkTestMetricFilter
     -- ** Request lenses
-    , tmfrFilterPattern
-    , tmfrLogEventMessages
+    , tmfFilterPattern
+    , tmfLogEventMessages
 
     -- * Response
     , TestMetricFilterResponse
     -- ** Response lenses
-    , tmfsMatches
+    , tmfrsMatches
     ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -206,29 +206,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TestMetricFilter' request.
-mkTestMetricFilterRequest :: Text -- ^ 'tmfrFilterPattern'
-                          -> [Text] -- ^ 'tmfrLogEventMessages'
-                          -> TestMetricFilter
-mkTestMetricFilterRequest p1 p2 = TestMetricFilter
-    { _tmfrFilterPattern = p1
-    , _tmfrLogEventMessages = p2
-    }
-{-# INLINE mkTestMetricFilterRequest #-}
-
 data TestMetricFilter = TestMetricFilter
-    { _tmfrFilterPattern :: Text
-    , _tmfrLogEventMessages :: [Text]
+    { _tmfFilterPattern :: Text
+    , _tmfLogEventMessages :: [Text]
     } deriving (Show, Generic)
 
-tmfrFilterPattern :: Lens' TestMetricFilter (Text)
-tmfrFilterPattern = lens _tmfrFilterPattern (\s a -> s { _tmfrFilterPattern = a })
-{-# INLINE tmfrFilterPattern #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TestMetricFilter' request.
+mkTestMetricFilter :: Text -- ^ 'tmfFilterPattern'
+                   -> [Text] -- ^ 'tmfLogEventMessages'
+                   -> TestMetricFilter
+mkTestMetricFilter p1 p2 = TestMetricFilter
+    { _tmfFilterPattern = p1
+    , _tmfLogEventMessages = p2
+    }
+{-# INLINE mkTestMetricFilter #-}
 
-tmfrLogEventMessages :: Lens' TestMetricFilter ([Text])
-tmfrLogEventMessages = lens _tmfrLogEventMessages (\s a -> s { _tmfrLogEventMessages = a })
-{-# INLINE tmfrLogEventMessages #-}
+tmfFilterPattern :: Lens' TestMetricFilter Text
+tmfFilterPattern =
+    lens _tmfFilterPattern (\s a -> s { _tmfFilterPattern = a })
+{-# INLINE tmfFilterPattern #-}
+
+tmfLogEventMessages :: Lens' TestMetricFilter [Text]
+tmfLogEventMessages =
+    lens _tmfLogEventMessages (\s a -> s { _tmfLogEventMessages = a })
+{-# INLINE tmfLogEventMessages #-}
 
 instance ToPath TestMetricFilter
 
@@ -239,12 +241,12 @@ instance ToHeaders TestMetricFilter
 instance ToJSON TestMetricFilter
 
 newtype TestMetricFilterResponse = TestMetricFilterResponse
-    { _tmfsMatches :: [MetricFilterMatchRecord]
+    { _tmfrsMatches :: [MetricFilterMatchRecord]
     } deriving (Show, Generic)
 
-tmfsMatches :: Lens' TestMetricFilterResponse ([MetricFilterMatchRecord])
-tmfsMatches = lens _tmfsMatches (\s a -> s { _tmfsMatches = a })
-{-# INLINE tmfsMatches #-}
+tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
+tmfrsMatches = lens _tmfrsMatches (\s a -> s { _tmfrsMatches = a })
+{-# INLINE tmfrsMatches #-}
 
 instance FromJSON TestMetricFilterResponse
 

@@ -23,41 +23,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketLifecycle
     -- * Request
       GetBucketLifecycle
     -- ** Request constructor
-    , mkGetBucketLifecycleRequest
+    , mkGetBucketLifecycle
     -- ** Request lenses
-    , gblrBucket
+    , gblBucket
 
     -- * Response
     , GetBucketLifecycleResponse
     -- ** Response lenses
-    , gbloRules
+    , gblrsRules
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketLifecycle = GetBucketLifecycle
+    { _gblBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLifecycle' request.
-mkGetBucketLifecycleRequest :: BucketName -- ^ 'gblrBucket'
-                            -> GetBucketLifecycle
-mkGetBucketLifecycleRequest p1 = GetBucketLifecycle
-    { _gblrBucket = p1
+mkGetBucketLifecycle :: BucketName -- ^ 'gblBucket'
+                     -> GetBucketLifecycle
+mkGetBucketLifecycle p1 = GetBucketLifecycle
+    { _gblBucket = p1
     }
-{-# INLINE mkGetBucketLifecycleRequest #-}
+{-# INLINE mkGetBucketLifecycle #-}
 
-newtype GetBucketLifecycle = GetBucketLifecycle
-    { _gblrBucket :: BucketName
-    } deriving (Show, Generic)
-
-gblrBucket :: Lens' GetBucketLifecycle (BucketName)
-gblrBucket = lens _gblrBucket (\s a -> s { _gblrBucket = a })
-{-# INLINE gblrBucket #-}
+gblBucket :: Lens' GetBucketLifecycle BucketName
+gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
+{-# INLINE gblBucket #-}
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
         [ "/"
-        , toBS _gblrBucket
+        , toBS _gblBucket
         ]
 
 instance ToQuery GetBucketLifecycle where
@@ -70,12 +71,12 @@ instance ToHeaders GetBucketLifecycle
 instance ToBody GetBucketLifecycle
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gbloRules :: [Rule]
+    { _gblrsRules :: [Rule]
     } deriving (Show, Generic)
 
-gbloRules :: Lens' GetBucketLifecycleResponse ([Rule])
-gbloRules = lens _gbloRules (\s a -> s { _gbloRules = a })
-{-# INLINE gbloRules #-}
+gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
+gblrsRules = lens _gblrsRules (\s a -> s { _gblrsRules = a })
+{-# INLINE gblrsRules #-}
 
 instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions

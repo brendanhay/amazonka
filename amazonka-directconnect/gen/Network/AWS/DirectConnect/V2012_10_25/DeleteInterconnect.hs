@@ -23,14 +23,14 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
     -- * Request
       DeleteInterconnect
     -- ** Request constructor
-    , mkDeleteInterconnectRequest
+    , mkDeleteInterconnect
     -- ** Request lenses
-    , dirInterconnectId
+    , diInterconnectId
 
     -- * Response
     , DeleteInterconnectResponse
     -- ** Response lenses
-    , disInterconnectState
+    , dirsInterconnectState
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -38,24 +38,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteInterconnect' request.
-mkDeleteInterconnectRequest :: Text -- ^ 'dirInterconnectId'
-                            -> DeleteInterconnect
-mkDeleteInterconnectRequest p1 = DeleteInterconnect
-    { _dirInterconnectId = p1
-    }
-{-# INLINE mkDeleteInterconnectRequest #-}
-
+-- | Container for the parameters to the DeleteInterconnect operation.
 newtype DeleteInterconnect = DeleteInterconnect
-    { _dirInterconnectId :: Text
-      -- ^ The ID of the interconnect. Example: dxcon-abc123.
+    { _diInterconnectId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInterconnect' request.
+mkDeleteInterconnect :: Text -- ^ 'diInterconnectId'
+                     -> DeleteInterconnect
+mkDeleteInterconnect p1 = DeleteInterconnect
+    { _diInterconnectId = p1
+    }
+{-# INLINE mkDeleteInterconnect #-}
+
 -- | The ID of the interconnect. Example: dxcon-abc123.
-dirInterconnectId :: Lens' DeleteInterconnect (Text)
-dirInterconnectId = lens _dirInterconnectId (\s a -> s { _dirInterconnectId = a })
-{-# INLINE dirInterconnectId #-}
+diInterconnectId :: Lens' DeleteInterconnect Text
+diInterconnectId =
+    lens _diInterconnectId (\s a -> s { _diInterconnectId = a })
+{-# INLINE diInterconnectId #-}
 
 instance ToPath DeleteInterconnect
 
@@ -65,15 +66,9 @@ instance ToHeaders DeleteInterconnect
 
 instance ToJSON DeleteInterconnect
 
+-- | The response received when DeleteInterconnect is called.
 newtype DeleteInterconnectResponse = DeleteInterconnectResponse
-    { _disInterconnectState :: Maybe InterconnectState
-      -- ^ State of the interconnect. Requested: The initial state of an
-      -- interconnect. The interconnect stays in the requested state until
-      -- the Letter of Authorization (LOA) is sent to the customer.
-      -- Pending: The interconnect has been approved, and is being
-      -- initialized. Available: The network link is up, and the
-      -- interconnect is ready for use. Down: The network link is down.
-      -- Deleted: The interconnect has been deleted.
+    { _dirsInterconnectState :: Maybe InterconnectState
     } deriving (Show, Generic)
 
 -- | State of the interconnect. Requested: The initial state of an interconnect.
@@ -82,9 +77,10 @@ newtype DeleteInterconnectResponse = DeleteInterconnectResponse
 -- been approved, and is being initialized. Available: The network link is up,
 -- and the interconnect is ready for use. Down: The network link is down.
 -- Deleted: The interconnect has been deleted.
-disInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-disInterconnectState = lens _disInterconnectState (\s a -> s { _disInterconnectState = a })
-{-# INLINE disInterconnectState #-}
+dirsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
+dirsInterconnectState =
+    lens _dirsInterconnectState (\s a -> s { _dirsInterconnectState = a })
+{-# INLINE dirsInterconnectState #-}
 
 instance FromJSON DeleteInterconnectResponse
 

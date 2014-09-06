@@ -32,10 +32,10 @@ module Network.AWS.EMR.V2009_03_31.AddTags
     -- * Request
       AddTags
     -- ** Request constructor
-    , mkAddTagsInput
+    , mkAddTags
     -- ** Request lenses
-    , atiResourceId
-    , atiTags
+    , atResourceId
+    , atTags
 
     -- * Response
     , AddTagsResponse
@@ -46,42 +46,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | This input identifies a cluster and a list of tags to attach.
+data AddTags = AddTags
+    { _atResourceId :: Text
+    , _atTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.
-mkAddTagsInput :: Text -- ^ 'atiResourceId'
-               -> [Tag] -- ^ 'atiTags'
-               -> AddTags
-mkAddTagsInput p1 p2 = AddTags
-    { _atiResourceId = p1
-    , _atiTags = p2
+mkAddTags :: Text -- ^ 'atResourceId'
+          -> [Tag] -- ^ 'atTags'
+          -> AddTags
+mkAddTags p1 p2 = AddTags
+    { _atResourceId = p1
+    , _atTags = p2
     }
-{-# INLINE mkAddTagsInput #-}
-
-data AddTags = AddTags
-    { _atiResourceId :: Text
-      -- ^ The Amazon EMR resource identifier to which tags will be added.
-      -- This value must be a cluster identifier.
-    , _atiTags :: [Tag]
-      -- ^ A list of tags to associate with a cluster and propagate to
-      -- Amazon EC2 instances. Tags are user-defined key/value pairs that
-      -- consist of a required key string with a maximum of 128
-      -- characters, and an optional value string with a maximum of 256
-      -- characters.
-    } deriving (Show, Generic)
+{-# INLINE mkAddTags #-}
 
 -- | The Amazon EMR resource identifier to which tags will be added. This value
 -- must be a cluster identifier.
-atiResourceId :: Lens' AddTags (Text)
-atiResourceId = lens _atiResourceId (\s a -> s { _atiResourceId = a })
-{-# INLINE atiResourceId #-}
+atResourceId :: Lens' AddTags Text
+atResourceId = lens _atResourceId (\s a -> s { _atResourceId = a })
+{-# INLINE atResourceId #-}
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances. Tags are user-defined key/value pairs that consist of a required
 -- key string with a maximum of 128 characters, and an optional value string
 -- with a maximum of 256 characters.
-atiTags :: Lens' AddTags ([Tag])
-atiTags = lens _atiTags (\s a -> s { _atiTags = a })
-{-# INLINE atiTags #-}
+atTags :: Lens' AddTags [Tag]
+atTags = lens _atTags (\s a -> s { _atTags = a })
+{-# INLINE atTags #-}
 
 instance ToPath AddTags
 
@@ -91,6 +85,7 @@ instance ToHeaders AddTags
 
 instance ToJSON AddTags
 
+-- | This output indicates the result of adding tags to a resource.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest AddTags where

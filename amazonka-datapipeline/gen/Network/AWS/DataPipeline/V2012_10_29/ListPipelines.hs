@@ -33,16 +33,16 @@ module Network.AWS.DataPipeline.V2012_10_29.ListPipelines
     -- * Request
       ListPipelines
     -- ** Request constructor
-    , mkListPipelinesInput
+    , mkListPipelines
     -- ** Request lenses
-    , lpiMarker
+    , lpMarker
 
     -- * Response
     , ListPipelinesResponse
     -- ** Response lenses
-    , lpoPipelineIdList
-    , lpoMarker
-    , lpoHasMoreResults
+    , lprsPipelineIdList
+    , lprsMarker
+    , lprsHasMoreResults
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -50,30 +50,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The input to the ListPipelines action.
+newtype ListPipelines = ListPipelines
+    { _lpMarker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPipelines' request.
-mkListPipelinesInput :: ListPipelines
-mkListPipelinesInput = ListPipelines
-    { _lpiMarker = Nothing
+mkListPipelines :: ListPipelines
+mkListPipelines = ListPipelines
+    { _lpMarker = Nothing
     }
-{-# INLINE mkListPipelinesInput #-}
-
-newtype ListPipelines = ListPipelines
-    { _lpiMarker :: Maybe Text
-      -- ^ The starting point for the results to be returned. The first time
-      -- you call ListPipelines, this value should be empty. As long as
-      -- the action returns HasMoreResults as True, you can call
-      -- ListPipelines again and pass the marker value from the response
-      -- to retrieve the next set of results.
-    } deriving (Show, Generic)
+{-# INLINE mkListPipelines #-}
 
 -- | The starting point for the results to be returned. The first time you call
 -- ListPipelines, this value should be empty. As long as the action returns
 -- HasMoreResults as True, you can call ListPipelines again and pass the
 -- marker value from the response to retrieve the next set of results.
-lpiMarker :: Lens' ListPipelines (Maybe Text)
-lpiMarker = lens _lpiMarker (\s a -> s { _lpiMarker = a })
-{-# INLINE lpiMarker #-}
+lpMarker :: Lens' ListPipelines (Maybe Text)
+lpMarker = lens _lpMarker (\s a -> s { _lpMarker = a })
+{-# INLINE lpMarker #-}
 
 instance ToPath ListPipelines
 
@@ -83,40 +79,34 @@ instance ToHeaders ListPipelines
 
 instance ToJSON ListPipelines
 
+-- | Contains the output from the ListPipelines action.
 data ListPipelinesResponse = ListPipelinesResponse
-    { _lpoPipelineIdList :: [PipelineIdName]
-      -- ^ A list of all the pipeline identifiers that your account has
-      -- permission to access. If you require additional information about
-      -- the pipelines, you can use these identifiers to call
-      -- DescribePipelines and GetPipelineDefinition.
-    , _lpoMarker :: Maybe Text
-      -- ^ If not null, indicates the starting point for the set of pipeline
-      -- identifiers that the next call to ListPipelines will retrieve. If
-      -- null, there are no more pipeline identifiers.
-    , _lpoHasMoreResults :: Maybe Bool
-      -- ^ If True, there are more results that can be obtained by a
-      -- subsequent call to ListPipelines.
+    { _lprsPipelineIdList :: [PipelineIdName]
+    , _lprsMarker :: Maybe Text
+    , _lprsHasMoreResults :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | A list of all the pipeline identifiers that your account has permission to
 -- access. If you require additional information about the pipelines, you can
 -- use these identifiers to call DescribePipelines and GetPipelineDefinition.
-lpoPipelineIdList :: Lens' ListPipelinesResponse ([PipelineIdName])
-lpoPipelineIdList = lens _lpoPipelineIdList (\s a -> s { _lpoPipelineIdList = a })
-{-# INLINE lpoPipelineIdList #-}
+lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
+lprsPipelineIdList =
+    lens _lprsPipelineIdList (\s a -> s { _lprsPipelineIdList = a })
+{-# INLINE lprsPipelineIdList #-}
 
 -- | If not null, indicates the starting point for the set of pipeline
 -- identifiers that the next call to ListPipelines will retrieve. If null,
 -- there are no more pipeline identifiers.
-lpoMarker :: Lens' ListPipelinesResponse (Maybe Text)
-lpoMarker = lens _lpoMarker (\s a -> s { _lpoMarker = a })
-{-# INLINE lpoMarker #-}
+lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
+lprsMarker = lens _lprsMarker (\s a -> s { _lprsMarker = a })
+{-# INLINE lprsMarker #-}
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to ListPipelines.
-lpoHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
-lpoHasMoreResults = lens _lpoHasMoreResults (\s a -> s { _lpoHasMoreResults = a })
-{-# INLINE lpoHasMoreResults #-}
+lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
+lprsHasMoreResults =
+    lens _lprsHasMoreResults (\s a -> s { _lprsHasMoreResults = a })
+{-# INLINE lprsHasMoreResults #-}
 
 instance FromJSON ListPipelinesResponse
 
@@ -129,7 +119,7 @@ instance AWSRequest ListPipelines where
 
 instance AWSPager ListPipelines where
     next rq rs
-        | not (_lpoHasMoreResults rs) = Nothing
+        | not (_lprsHasMoreResults rs) = Nothing
         | otherwise = Just $ rq
-            { _lpiMarker = _lpoMarker rs
+            { _lpMarker = _lprsMarker rs
             }

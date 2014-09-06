@@ -61,82 +61,59 @@ module Network.AWS.EC2.V2014_06_15.DescribeSnapshots
     -- * Request
       DescribeSnapshots
     -- ** Request constructor
-    , mkDescribeSnapshotsRequest
+    , mkDescribeSnapshots
     -- ** Request lenses
-    , dsuSnapshotIds
-    , dsuOwnerIds
-    , dsuRestorableByUserIds
-    , dsuFilters
+    , ds2SnapshotIds
+    , ds2OwnerIds
+    , ds2RestorableByUserIds
+    , ds2Filters
 
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response lenses
-    , dsvSnapshots
+    , dsrsSnapshots
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeSnapshots = DescribeSnapshots
+    { _ds2SnapshotIds :: [Text]
+    , _ds2OwnerIds :: [Text]
+    , _ds2RestorableByUserIds :: [Text]
+    , _ds2Filters :: [Filter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshots' request.
-mkDescribeSnapshotsRequest :: DescribeSnapshots
-mkDescribeSnapshotsRequest = DescribeSnapshots
-    { _dsuSnapshotIds = mempty
-    , _dsuOwnerIds = mempty
-    , _dsuRestorableByUserIds = mempty
-    , _dsuFilters = mempty
+mkDescribeSnapshots :: DescribeSnapshots
+mkDescribeSnapshots = DescribeSnapshots
+    { _ds2SnapshotIds = mempty
+    , _ds2OwnerIds = mempty
+    , _ds2RestorableByUserIds = mempty
+    , _ds2Filters = mempty
     }
-{-# INLINE mkDescribeSnapshotsRequest #-}
-
-data DescribeSnapshots = DescribeSnapshots
-    { _dsuSnapshotIds :: [Text]
-      -- ^ One or more snapshot IDs. Default: Describes snapshots for which
-      -- you have launch permissions.
-    , _dsuOwnerIds :: [Text]
-      -- ^ Returns the snapshots owned by the specified owner. Multiple
-      -- owners can be specified.
-    , _dsuRestorableByUserIds :: [Text]
-      -- ^ One or more AWS accounts IDs that can create volumes from the
-      -- snapshot.
-    , _dsuFilters :: [Filter]
-      -- ^ One or more filters. description - A description of the snapshot.
-      -- owner-alias - The AWS account alias (for example, amazon) that
-      -- owns the snapshot. owner-id - The ID of the AWS account that owns
-      -- the snapshot. progress - The progress of the snapshot, as a
-      -- percentage (for example, 80%). snapshot-id - The snapshot ID.
-      -- start-time - The time stamp when the snapshot was initiated.
-      -- status - The status of the snapshot (pending | completed |
-      -- error). tag:key=value - The key/value combination of a tag
-      -- assigned to the resource. tag-key - The key of a tag assigned to
-      -- the resource. This filter is independent of the tag-value filter.
-      -- For example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter. volume-id - The
-      -- ID of the volume the snapshot is for. volume-size - The size of
-      -- the volume, in GiB.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeSnapshots #-}
 
 -- | One or more snapshot IDs. Default: Describes snapshots for which you have
 -- launch permissions.
-dsuSnapshotIds :: Lens' DescribeSnapshots ([Text])
-dsuSnapshotIds = lens _dsuSnapshotIds (\s a -> s { _dsuSnapshotIds = a })
-{-# INLINE dsuSnapshotIds #-}
+ds2SnapshotIds :: Lens' DescribeSnapshots [Text]
+ds2SnapshotIds = lens _ds2SnapshotIds (\s a -> s { _ds2SnapshotIds = a })
+{-# INLINE ds2SnapshotIds #-}
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
-dsuOwnerIds :: Lens' DescribeSnapshots ([Text])
-dsuOwnerIds = lens _dsuOwnerIds (\s a -> s { _dsuOwnerIds = a })
-{-# INLINE dsuOwnerIds #-}
+ds2OwnerIds :: Lens' DescribeSnapshots [Text]
+ds2OwnerIds = lens _ds2OwnerIds (\s a -> s { _ds2OwnerIds = a })
+{-# INLINE ds2OwnerIds #-}
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-dsuRestorableByUserIds :: Lens' DescribeSnapshots ([Text])
-dsuRestorableByUserIds = lens _dsuRestorableByUserIds (\s a -> s { _dsuRestorableByUserIds = a })
-{-# INLINE dsuRestorableByUserIds #-}
+ds2RestorableByUserIds :: Lens' DescribeSnapshots [Text]
+ds2RestorableByUserIds =
+    lens _ds2RestorableByUserIds (\s a -> s { _ds2RestorableByUserIds = a })
+{-# INLINE ds2RestorableByUserIds #-}
 
 -- | One or more filters. description - A description of the snapshot.
 -- owner-alias - The AWS account alias (for example, amazon) that owns the
@@ -155,22 +132,22 @@ dsuRestorableByUserIds = lens _dsuRestorableByUserIds (\s a -> s { _dsuRestorabl
 -- resource. This filter is independent of the tag-key filter. volume-id - The
 -- ID of the volume the snapshot is for. volume-size - The size of the volume,
 -- in GiB.
-dsuFilters :: Lens' DescribeSnapshots ([Filter])
-dsuFilters = lens _dsuFilters (\s a -> s { _dsuFilters = a })
-{-# INLINE dsuFilters #-}
+ds2Filters :: Lens' DescribeSnapshots [Filter]
+ds2Filters = lens _ds2Filters (\s a -> s { _ds2Filters = a })
+{-# INLINE ds2Filters #-}
 
 instance ToQuery DescribeSnapshots where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsvSnapshots :: [Snapshot]
-      -- ^ 
+    { _dsrsSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 
 -- | 
-dsvSnapshots :: Lens' DescribeSnapshotsResponse ([Snapshot])
-dsvSnapshots = lens _dsvSnapshots (\s a -> s { _dsvSnapshots = a })
-{-# INLINE dsvSnapshots #-}
+dsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrsSnapshots = lens _dsrsSnapshots (\s a -> s { _dsrsSnapshots = a })
+{-# INLINE dsrsSnapshots #-}
 
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions

@@ -23,9 +23,9 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle
     -- * Request
       DeleteBucketLifecycle
     -- ** Request constructor
-    , mkDeleteBucketLifecycleRequest
+    , mkDeleteBucketLifecycle
     -- ** Request lenses
-    , dblrBucket
+    , dblBucket
 
     -- * Response
     , DeleteBucketLifecycleResponse
@@ -34,28 +34,29 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype DeleteBucketLifecycle = DeleteBucketLifecycle
+    { _dblBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketLifecycle' request.
-mkDeleteBucketLifecycleRequest :: BucketName -- ^ 'dblrBucket'
-                               -> DeleteBucketLifecycle
-mkDeleteBucketLifecycleRequest p1 = DeleteBucketLifecycle
-    { _dblrBucket = p1
+mkDeleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
+                        -> DeleteBucketLifecycle
+mkDeleteBucketLifecycle p1 = DeleteBucketLifecycle
+    { _dblBucket = p1
     }
-{-# INLINE mkDeleteBucketLifecycleRequest #-}
+{-# INLINE mkDeleteBucketLifecycle #-}
 
-newtype DeleteBucketLifecycle = DeleteBucketLifecycle
-    { _dblrBucket :: BucketName
-    } deriving (Show, Generic)
-
-dblrBucket :: Lens' DeleteBucketLifecycle (BucketName)
-dblrBucket = lens _dblrBucket (\s a -> s { _dblrBucket = a })
-{-# INLINE dblrBucket #-}
+dblBucket :: Lens' DeleteBucketLifecycle BucketName
+dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
+{-# INLINE dblBucket #-}
 
 instance ToPath DeleteBucketLifecycle where
     toPath DeleteBucketLifecycle{..} = mconcat
         [ "/"
-        , toBS _dblrBucket
+        , toBS _dblBucket
         ]
 
 instance ToQuery DeleteBucketLifecycle where

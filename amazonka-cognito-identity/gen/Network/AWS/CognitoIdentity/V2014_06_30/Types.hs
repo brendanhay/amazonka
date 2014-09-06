@@ -36,11 +36,13 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Types
     , Er (..)
     -- * IdentityDescription
     , IdentityDescription
+    , mkIdentityDescription
     , idIdentityId
     , idLogins
 
     -- * IdentityPoolShortDescription
     , IdentityPoolShortDescription
+    , mkIdentityPoolShortDescription
     , ipsdIdentityPoolId
     , ipsdIdentityPoolName
     ) where
@@ -103,11 +105,17 @@ instance Exception (Er CognitoIdentity)
 -- | A description of the identity.
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text
-      -- ^ A unique identifier in the format REGION:GUID.
     , _idLogins :: [Text]
-      -- ^ A set of optional name/value pairs that map provider names to
-      -- provider tokens.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IdentityDescription' data type to populate a request.
+mkIdentityDescription :: IdentityDescription
+mkIdentityDescription = IdentityDescription
+    { _idIdentityId = Nothing
+    , _idLogins = mempty
+    }
+{-# INLINE mkIdentityDescription #-}
 
 -- | A unique identifier in the format REGION:GUID.
 idIdentityId :: Lens' IdentityDescription (Maybe Text)
@@ -116,7 +124,7 @@ idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-idLogins :: Lens' IdentityDescription ([Text])
+idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\s a -> s { _idLogins = a })
 {-# INLINE idLogins #-}
 
@@ -125,19 +133,28 @@ instance FromJSON IdentityDescription
 -- | A description of the identity pool.
 data IdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId :: Maybe Text
-      -- ^ An identity pool ID in the format REGION:GUID.
     , _ipsdIdentityPoolName :: Maybe Text
-      -- ^ A string that you provide.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IdentityPoolShortDescription' data type to populate a request.
+mkIdentityPoolShortDescription :: IdentityPoolShortDescription
+mkIdentityPoolShortDescription = IdentityPoolShortDescription
+    { _ipsdIdentityPoolId = Nothing
+    , _ipsdIdentityPoolName = Nothing
+    }
+{-# INLINE mkIdentityPoolShortDescription #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
-ipsdIdentityPoolId = lens _ipsdIdentityPoolId (\s a -> s { _ipsdIdentityPoolId = a })
+ipsdIdentityPoolId =
+    lens _ipsdIdentityPoolId (\s a -> s { _ipsdIdentityPoolId = a })
 {-# INLINE ipsdIdentityPoolId #-}
 
 -- | A string that you provide.
 ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
-ipsdIdentityPoolName = lens _ipsdIdentityPoolName (\s a -> s { _ipsdIdentityPoolName = a })
+ipsdIdentityPoolName =
+    lens _ipsdIdentityPoolName (\s a -> s { _ipsdIdentityPoolName = a })
 {-# INLINE ipsdIdentityPoolName #-}
 
 instance FromJSON IdentityPoolShortDescription

@@ -27,15 +27,15 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays
     -- * Request
       DescribeRaidArrays
     -- ** Request constructor
-    , mkDescribeRaidArraysRequest
+    , mkDescribeRaidArrays
     -- ** Request lenses
-    , drarInstanceId
-    , drarRaidArrayIds
+    , draInstanceId
+    , draRaidArrayIds
 
     -- * Response
     , DescribeRaidArraysResponse
     -- ** Response lenses
-    , drasRaidArrays
+    , drarsRaidArrays
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,38 +43,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DescribeRaidArrays = DescribeRaidArrays
+    { _draInstanceId :: Maybe Text
+    , _draRaidArrayIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRaidArrays' request.
-mkDescribeRaidArraysRequest :: DescribeRaidArrays
-mkDescribeRaidArraysRequest = DescribeRaidArrays
-    { _drarInstanceId = Nothing
-    , _drarRaidArrayIds = mempty
+mkDescribeRaidArrays :: DescribeRaidArrays
+mkDescribeRaidArrays = DescribeRaidArrays
+    { _draInstanceId = Nothing
+    , _draRaidArrayIds = mempty
     }
-{-# INLINE mkDescribeRaidArraysRequest #-}
-
-data DescribeRaidArrays = DescribeRaidArrays
-    { _drarInstanceId :: Maybe Text
-      -- ^ The instance ID. If you use this parameter, DescribeRaidArrays
-      -- returns descriptions of the RAID arrays associated with the
-      -- specified instance.
-    , _drarRaidArrayIds :: [Text]
-      -- ^ An array of RAID array IDs. If you use this parameter,
-      -- DescribeRaidArrays returns descriptions of the specified arrays.
-      -- Otherwise, it returns a description of every array.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeRaidArrays #-}
 
 -- | The instance ID. If you use this parameter, DescribeRaidArrays returns
 -- descriptions of the RAID arrays associated with the specified instance.
-drarInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
-drarInstanceId = lens _drarInstanceId (\s a -> s { _drarInstanceId = a })
-{-# INLINE drarInstanceId #-}
+draInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
+draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
+{-# INLINE draInstanceId #-}
 
 -- | An array of RAID array IDs. If you use this parameter, DescribeRaidArrays
 -- returns descriptions of the specified arrays. Otherwise, it returns a
 -- description of every array.
-drarRaidArrayIds :: Lens' DescribeRaidArrays ([Text])
-drarRaidArrayIds = lens _drarRaidArrayIds (\s a -> s { _drarRaidArrayIds = a })
-{-# INLINE drarRaidArrayIds #-}
+draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
+draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a })
+{-# INLINE draRaidArrayIds #-}
 
 instance ToPath DescribeRaidArrays
 
@@ -84,15 +78,15 @@ instance ToHeaders DescribeRaidArrays
 
 instance ToJSON DescribeRaidArrays
 
+-- | Contains the response to a DescribeRaidArrays request.
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
-    { _drasRaidArrays :: [RaidArray]
-      -- ^ A RaidArrays object that describes the specified RAID arrays.
+    { _drarsRaidArrays :: [RaidArray]
     } deriving (Show, Generic)
 
 -- | A RaidArrays object that describes the specified RAID arrays.
-drasRaidArrays :: Lens' DescribeRaidArraysResponse ([RaidArray])
-drasRaidArrays = lens _drasRaidArrays (\s a -> s { _drasRaidArrays = a })
-{-# INLINE drasRaidArrays #-}
+drarsRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
+drarsRaidArrays = lens _drarsRaidArrays (\s a -> s { _drarsRaidArrays = a })
+{-# INLINE drarsRaidArrays #-}
 
 instance FromJSON DescribeRaidArraysResponse
 

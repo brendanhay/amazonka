@@ -35,10 +35,10 @@ module Network.AWS.EC2.V2014_06_15.CreateTags
     -- * Request
       CreateTags
     -- ** Request constructor
-    , mkCreateTagsRequest
+    , mkCreateTags
     -- ** Request lenses
-    , ctrResources
-    , ctrTags
+    , ctResources
+    , ctTags
 
     -- * Response
     , CreateTagsResponse
@@ -48,38 +48,34 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTags' request.
-mkCreateTagsRequest :: [Text] -- ^ 'ctrResources'
-                    -> [Tag] -- ^ 'ctrTags'
-                    -> CreateTags
-mkCreateTagsRequest p1 p2 = CreateTags
-    { _ctrResources = p1
-    , _ctrTags = p2
-    }
-{-# INLINE mkCreateTagsRequest #-}
-
+-- | 
 data CreateTags = CreateTags
-    { _ctrResources :: [Text]
-      -- ^ The IDs of one or more resources to tag. For example,
-      -- ami-1a2b3c4d.
-    , _ctrTags :: [Tag]
-      -- ^ One or more tags. The value parameter is required, but if you
-      -- don't want the tag to have a value, specify the parameter with no
-      -- value, and we set the value to an empty string.
+    { _ctResources :: [Text]
+    , _ctTags :: [Tag]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTags' request.
+mkCreateTags :: [Text] -- ^ 'ctResources'
+             -> [Tag] -- ^ 'ctTags'
+             -> CreateTags
+mkCreateTags p1 p2 = CreateTags
+    { _ctResources = p1
+    , _ctTags = p2
+    }
+{-# INLINE mkCreateTags #-}
+
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-ctrResources :: Lens' CreateTags ([Text])
-ctrResources = lens _ctrResources (\s a -> s { _ctrResources = a })
-{-# INLINE ctrResources #-}
+ctResources :: Lens' CreateTags [Text]
+ctResources = lens _ctResources (\s a -> s { _ctResources = a })
+{-# INLINE ctResources #-}
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
-ctrTags :: Lens' CreateTags ([Tag])
-ctrTags = lens _ctrTags (\s a -> s { _ctrTags = a })
-{-# INLINE ctrTags #-}
+ctTags :: Lens' CreateTags [Tag]
+ctTags = lens _ctTags (\s a -> s { _ctTags = a })
+{-# INLINE ctTags #-}
 
 instance ToQuery CreateTags where
     toQuery = genericQuery def

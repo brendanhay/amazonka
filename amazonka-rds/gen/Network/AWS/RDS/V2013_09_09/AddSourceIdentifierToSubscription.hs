@@ -32,53 +32,44 @@ module Network.AWS.RDS.V2013_09_09.AddSourceIdentifierToSubscription
     -- * Request
       AddSourceIdentifierToSubscription
     -- ** Request constructor
-    , mkAddSourceIdentifierToSubscriptionMessage
+    , mkAddSourceIdentifierToSubscription
     -- ** Request lenses
-    , asitsmSubscriptionName
-    , asitsmSourceIdentifier
+    , asitsSubscriptionName
+    , asitsSourceIdentifier
 
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
-    , eswEventSubscription
+    , asitsrsEventSubscription
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
+    { _asitsSubscriptionName :: Text
+    , _asitsSourceIdentifier :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddSourceIdentifierToSubscription' request.
-mkAddSourceIdentifierToSubscriptionMessage :: Text -- ^ 'asitsmSubscriptionName'
-                                           -> Text -- ^ 'asitsmSourceIdentifier'
-                                           -> AddSourceIdentifierToSubscription
-mkAddSourceIdentifierToSubscriptionMessage p1 p2 = AddSourceIdentifierToSubscription
-    { _asitsmSubscriptionName = p1
-    , _asitsmSourceIdentifier = p2
+mkAddSourceIdentifierToSubscription :: Text -- ^ 'asitsSubscriptionName'
+                                    -> Text -- ^ 'asitsSourceIdentifier'
+                                    -> AddSourceIdentifierToSubscription
+mkAddSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
+    { _asitsSubscriptionName = p1
+    , _asitsSourceIdentifier = p2
     }
-{-# INLINE mkAddSourceIdentifierToSubscriptionMessage #-}
-
-data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
-    { _asitsmSubscriptionName :: Text
-      -- ^ The name of the RDS event notification subscription you want to
-      -- add a source identifier to.
-    , _asitsmSourceIdentifier :: Text
-      -- ^ The identifier of the event source to be added. An identifier
-      -- must begin with a letter and must contain only ASCII letters,
-      -- digits, and hyphens; it cannot end with a hyphen or contain two
-      -- consecutive hyphens. Constraints: If the source type is a DB
-      -- instance, then a DBInstanceIdentifier must be supplied. If the
-      -- source type is a DB security group, a DBSecurityGroupName must be
-      -- supplied. If the source type is a DB parameter group, a
-      -- DBParameterGroupName must be supplied. If the source type is a DB
-      -- snapshot, a DBSnapshotIdentifier must be supplied.
-    } deriving (Show, Generic)
+{-# INLINE mkAddSourceIdentifierToSubscription #-}
 
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
-asitsmSubscriptionName :: Lens' AddSourceIdentifierToSubscription (Text)
-asitsmSubscriptionName = lens _asitsmSubscriptionName (\s a -> s { _asitsmSubscriptionName = a })
-{-# INLINE asitsmSubscriptionName #-}
+asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
+asitsSubscriptionName =
+    lens _asitsSubscriptionName (\s a -> s { _asitsSubscriptionName = a })
+{-# INLINE asitsSubscriptionName #-}
 
 -- | The identifier of the event source to be added. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens; it
@@ -88,24 +79,25 @@ asitsmSubscriptionName = lens _asitsmSubscriptionName (\s a -> s { _asitsmSubscr
 -- must be supplied. If the source type is a DB parameter group, a
 -- DBParameterGroupName must be supplied. If the source type is a DB snapshot,
 -- a DBSnapshotIdentifier must be supplied.
-asitsmSourceIdentifier :: Lens' AddSourceIdentifierToSubscription (Text)
-asitsmSourceIdentifier = lens _asitsmSourceIdentifier (\s a -> s { _asitsmSourceIdentifier = a })
-{-# INLINE asitsmSourceIdentifier #-}
+asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
+asitsSourceIdentifier =
+    lens _asitsSourceIdentifier (\s a -> s { _asitsSourceIdentifier = a })
+{-# INLINE asitsSourceIdentifier #-}
 
 instance ToQuery AddSourceIdentifierToSubscription where
     toQuery = genericQuery def
 
 newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
-    { _eswEventSubscription :: Maybe EventSubscription
-      -- ^ Contains the results of a successful invocation of the
-      -- DescribeEventSubscriptions action.
+    { _asitsrsEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-eswEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
-eswEventSubscription = lens _eswEventSubscription (\s a -> s { _eswEventSubscription = a })
-{-# INLINE eswEventSubscription #-}
+asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
+asitsrsEventSubscription =
+    lens _asitsrsEventSubscription
+         (\s a -> s { _asitsrsEventSubscription = a })
+{-# INLINE asitsrsEventSubscription #-}
 
 instance FromXML AddSourceIdentifierToSubscriptionResponse where
     fromXMLOptions = xmlOptions

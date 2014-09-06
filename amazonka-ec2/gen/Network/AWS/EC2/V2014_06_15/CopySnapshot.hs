@@ -38,85 +38,69 @@ module Network.AWS.EC2.V2014_06_15.CopySnapshot
     -- * Request
       CopySnapshot
     -- ** Request constructor
-    , mkCopySnapshotRequest
+    , mkCopySnapshot
     -- ** Request lenses
-    , csrSourceRegion
-    , csrSourceSnapshotId
-    , csrDescription
-    , csrDestinationRegion
-    , csrPresignedUrl
+    , csSourceRegion
+    , csSourceSnapshotId
+    , csDescription
+    , csDestinationRegion
+    , csPresignedUrl
 
     -- * Response
     , CopySnapshotResponse
     -- ** Response lenses
-    , cssSnapshotId
+    , csrsSnapshotId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CopySnapshot' request.
-mkCopySnapshotRequest :: Text -- ^ 'csrSourceRegion'
-                      -> Text -- ^ 'csrSourceSnapshotId'
-                      -> CopySnapshot
-mkCopySnapshotRequest p1 p2 = CopySnapshot
-    { _csrSourceRegion = p1
-    , _csrSourceSnapshotId = p2
-    , _csrDescription = Nothing
-    , _csrDestinationRegion = Nothing
-    , _csrPresignedUrl = Nothing
-    }
-{-# INLINE mkCopySnapshotRequest #-}
-
+-- | 
 data CopySnapshot = CopySnapshot
-    { _csrSourceRegion :: Text
-      -- ^ The ID of the region that contains the snapshot to be copied.
-    , _csrSourceSnapshotId :: Text
-      -- ^ The ID of the Amazon EBS snapshot to copy.
-    , _csrDescription :: Maybe Text
-      -- ^ A description for the new Amazon EBS snapshot.
-    , _csrDestinationRegion :: Maybe Text
-      -- ^ The destination region of the snapshot copy operation. This
-      -- parameter is required in the PresignedUrl.
-    , _csrPresignedUrl :: Maybe Text
-      -- ^ The pre-signed URL that facilitates copying an encrypted
-      -- snapshot. This parameter is only required when copying an
-      -- encrypted snapshot with the Amazon EC2 Query API; it is available
-      -- as an optional parameter in all other cases. The PresignedUrl
-      -- should use the snapshot source endpoint, the CopySnapshot action,
-      -- and include the SourceRegion, SourceSnapshotId, and
-      -- DestinationRegion parameters. The PresignedUrl must be signed
-      -- using AWS Signature Version 4. Because Amazon EBS snapshots are
-      -- stored in Amazon S3, the signing algorithm for this parameter
-      -- uses the same logic that is described in Authenticating Requests
-      -- by Using Query Parameters (AWS Signature Version 4) in the Amazon
-      -- Simple Storage Service API Reference. An invalid or improperly
-      -- signed PresignedUrl will cause the copy operation to fail
-      -- asynchronously, and the snapshot will move to an error state.
+    { _csSourceRegion :: Text
+    , _csSourceSnapshotId :: Text
+    , _csDescription :: Maybe Text
+    , _csDestinationRegion :: Maybe Text
+    , _csPresignedUrl :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopySnapshot' request.
+mkCopySnapshot :: Text -- ^ 'csSourceRegion'
+               -> Text -- ^ 'csSourceSnapshotId'
+               -> CopySnapshot
+mkCopySnapshot p1 p2 = CopySnapshot
+    { _csSourceRegion = p1
+    , _csSourceSnapshotId = p2
+    , _csDescription = Nothing
+    , _csDestinationRegion = Nothing
+    , _csPresignedUrl = Nothing
+    }
+{-# INLINE mkCopySnapshot #-}
+
 -- | The ID of the region that contains the snapshot to be copied.
-csrSourceRegion :: Lens' CopySnapshot (Text)
-csrSourceRegion = lens _csrSourceRegion (\s a -> s { _csrSourceRegion = a })
-{-# INLINE csrSourceRegion #-}
+csSourceRegion :: Lens' CopySnapshot Text
+csSourceRegion = lens _csSourceRegion (\s a -> s { _csSourceRegion = a })
+{-# INLINE csSourceRegion #-}
 
 -- | The ID of the Amazon EBS snapshot to copy.
-csrSourceSnapshotId :: Lens' CopySnapshot (Text)
-csrSourceSnapshotId = lens _csrSourceSnapshotId (\s a -> s { _csrSourceSnapshotId = a })
-{-# INLINE csrSourceSnapshotId #-}
+csSourceSnapshotId :: Lens' CopySnapshot Text
+csSourceSnapshotId =
+    lens _csSourceSnapshotId (\s a -> s { _csSourceSnapshotId = a })
+{-# INLINE csSourceSnapshotId #-}
 
 -- | A description for the new Amazon EBS snapshot.
-csrDescription :: Lens' CopySnapshot (Maybe Text)
-csrDescription = lens _csrDescription (\s a -> s { _csrDescription = a })
-{-# INLINE csrDescription #-}
+csDescription :: Lens' CopySnapshot (Maybe Text)
+csDescription = lens _csDescription (\s a -> s { _csDescription = a })
+{-# INLINE csDescription #-}
 
 -- | The destination region of the snapshot copy operation. This parameter is
 -- required in the PresignedUrl.
-csrDestinationRegion :: Lens' CopySnapshot (Maybe Text)
-csrDestinationRegion = lens _csrDestinationRegion (\s a -> s { _csrDestinationRegion = a })
-{-# INLINE csrDestinationRegion #-}
+csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
+csDestinationRegion =
+    lens _csDestinationRegion (\s a -> s { _csDestinationRegion = a })
+{-# INLINE csDestinationRegion #-}
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
 -- parameter is only required when copying an encrypted snapshot with the
@@ -130,22 +114,22 @@ csrDestinationRegion = lens _csrDestinationRegion (\s a -> s { _csrDestinationRe
 -- Signature Version 4) in the Amazon Simple Storage Service API Reference. An
 -- invalid or improperly signed PresignedUrl will cause the copy operation to
 -- fail asynchronously, and the snapshot will move to an error state.
-csrPresignedUrl :: Lens' CopySnapshot (Maybe Text)
-csrPresignedUrl = lens _csrPresignedUrl (\s a -> s { _csrPresignedUrl = a })
-{-# INLINE csrPresignedUrl #-}
+csPresignedUrl :: Lens' CopySnapshot (Maybe Text)
+csPresignedUrl = lens _csPresignedUrl (\s a -> s { _csPresignedUrl = a })
+{-# INLINE csPresignedUrl #-}
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
 
+-- | 
 newtype CopySnapshotResponse = CopySnapshotResponse
-    { _cssSnapshotId :: Maybe Text
-      -- ^ The ID of the new snapshot.
+    { _csrsSnapshotId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new snapshot.
-cssSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
-cssSnapshotId = lens _cssSnapshotId (\s a -> s { _cssSnapshotId = a })
-{-# INLINE cssSnapshotId #-}
+csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
+csrsSnapshotId = lens _csrsSnapshotId (\s a -> s { _csrsSnapshotId = a })
+{-# INLINE csrsSnapshotId #-}
 
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions

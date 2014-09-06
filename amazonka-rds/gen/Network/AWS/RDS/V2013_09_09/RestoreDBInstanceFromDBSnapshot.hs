@@ -33,187 +33,136 @@ module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceFromDBSnapshot
     -- * Request
       RestoreDBInstanceFromDBSnapshot
     -- ** Request constructor
-    , mkRestoreDBInstanceFromDBSnapshotMessage
+    , mkRestoreDBInstanceFromDBSnapshot
     -- ** Request lenses
-    , rdbifdbsmDBInstanceIdentifier
-    , rdbifdbsmDBSnapshotIdentifier
-    , rdbifdbsmDBInstanceClass
-    , rdbifdbsmPort
-    , rdbifdbsmAvailabilityZone
-    , rdbifdbsmDBSubnetGroupName
-    , rdbifdbsmMultiAZ
-    , rdbifdbsmPubliclyAccessible
-    , rdbifdbsmAutoMinorVersionUpgrade
-    , rdbifdbsmLicenseModel
-    , rdbifdbsmDBName
-    , rdbifdbsmEngine
-    , rdbifdbsmIops
-    , rdbifdbsmOptionGroupName
-    , rdbifdbsmTags
+    , rdbifdbsDBInstanceIdentifier
+    , rdbifdbsDBSnapshotIdentifier
+    , rdbifdbsDBInstanceClass
+    , rdbifdbsPort
+    , rdbifdbsAvailabilityZone
+    , rdbifdbsDBSubnetGroupName
+    , rdbifdbsMultiAZ
+    , rdbifdbsPubliclyAccessible
+    , rdbifdbsAutoMinorVersionUpgrade
+    , rdbifdbsLicenseModel
+    , rdbifdbsDBName
+    , rdbifdbsEngine
+    , rdbifdbsIops
+    , rdbifdbsOptionGroupName
+    , rdbifdbsTags
 
     -- * Response
     , RestoreDBInstanceFromDBSnapshotResponse
     -- ** Response lenses
-    , dbidtDBInstance
+    , rdbifdbsrsDBInstance
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
+    { _rdbifdbsDBInstanceIdentifier :: Text
+    , _rdbifdbsDBSnapshotIdentifier :: Text
+    , _rdbifdbsDBInstanceClass :: Maybe Text
+    , _rdbifdbsPort :: Maybe Integer
+    , _rdbifdbsAvailabilityZone :: Maybe Text
+    , _rdbifdbsDBSubnetGroupName :: Maybe Text
+    , _rdbifdbsMultiAZ :: Maybe Bool
+    , _rdbifdbsPubliclyAccessible :: Maybe Bool
+    , _rdbifdbsAutoMinorVersionUpgrade :: Maybe Bool
+    , _rdbifdbsLicenseModel :: Maybe Text
+    , _rdbifdbsDBName :: Maybe Text
+    , _rdbifdbsEngine :: Maybe Text
+    , _rdbifdbsIops :: Maybe Integer
+    , _rdbifdbsOptionGroupName :: Maybe Text
+    , _rdbifdbsTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceFromDBSnapshot' request.
-mkRestoreDBInstanceFromDBSnapshotMessage :: Text -- ^ 'rdbifdbsmDBInstanceIdentifier'
-                                         -> Text -- ^ 'rdbifdbsmDBSnapshotIdentifier'
-                                         -> RestoreDBInstanceFromDBSnapshot
-mkRestoreDBInstanceFromDBSnapshotMessage p1 p2 = RestoreDBInstanceFromDBSnapshot
-    { _rdbifdbsmDBInstanceIdentifier = p1
-    , _rdbifdbsmDBSnapshotIdentifier = p2
-    , _rdbifdbsmDBInstanceClass = Nothing
-    , _rdbifdbsmPort = Nothing
-    , _rdbifdbsmAvailabilityZone = Nothing
-    , _rdbifdbsmDBSubnetGroupName = Nothing
-    , _rdbifdbsmMultiAZ = Nothing
-    , _rdbifdbsmPubliclyAccessible = Nothing
-    , _rdbifdbsmAutoMinorVersionUpgrade = Nothing
-    , _rdbifdbsmLicenseModel = Nothing
-    , _rdbifdbsmDBName = Nothing
-    , _rdbifdbsmEngine = Nothing
-    , _rdbifdbsmIops = Nothing
-    , _rdbifdbsmOptionGroupName = Nothing
-    , _rdbifdbsmTags = mempty
+mkRestoreDBInstanceFromDBSnapshot :: Text -- ^ 'rdbifdbsDBInstanceIdentifier'
+                                  -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
+                                  -> RestoreDBInstanceFromDBSnapshot
+mkRestoreDBInstanceFromDBSnapshot p1 p2 = RestoreDBInstanceFromDBSnapshot
+    { _rdbifdbsDBInstanceIdentifier = p1
+    , _rdbifdbsDBSnapshotIdentifier = p2
+    , _rdbifdbsDBInstanceClass = Nothing
+    , _rdbifdbsPort = Nothing
+    , _rdbifdbsAvailabilityZone = Nothing
+    , _rdbifdbsDBSubnetGroupName = Nothing
+    , _rdbifdbsMultiAZ = Nothing
+    , _rdbifdbsPubliclyAccessible = Nothing
+    , _rdbifdbsAutoMinorVersionUpgrade = Nothing
+    , _rdbifdbsLicenseModel = Nothing
+    , _rdbifdbsDBName = Nothing
+    , _rdbifdbsEngine = Nothing
+    , _rdbifdbsIops = Nothing
+    , _rdbifdbsOptionGroupName = Nothing
+    , _rdbifdbsTags = mempty
     }
-{-# INLINE mkRestoreDBInstanceFromDBSnapshotMessage #-}
-
-data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
-    { _rdbifdbsmDBInstanceIdentifier :: Text
-      -- ^ The identifier for the DB snapshot to restore from. Constraints:
-      -- Must contain from 1 to 63 alphanumeric characters or hyphens
-      -- First character must be a letter Cannot end with a hyphen or
-      -- contain two consecutive hyphens.
-    , _rdbifdbsmDBSnapshotIdentifier :: Text
-      -- ^ Name of the DB instance to create from the DB snapshot. This
-      -- parameter isn't case sensitive. Constraints: Must contain from 1
-      -- to 255 alphanumeric characters or hyphens First character must be
-      -- a letter Cannot end with a hyphen or contain two consecutive
-      -- hyphens Example: my-snapshot-id.
-    , _rdbifdbsmDBInstanceClass :: Maybe Text
-      -- ^ The compute and memory capacity of the Amazon RDS DB instance.
-      -- Valid Values: db.t1.micro | db.m1.small | db.m1.medium |
-      -- db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge.
-    , _rdbifdbsmPort :: Maybe Integer
-      -- ^ The port number on which the database accepts connections.
-      -- Default: The same port as the original DB instance Constraints:
-      -- Value must be 1150-65535.
-    , _rdbifdbsmAvailabilityZone :: Maybe Text
-      -- ^ The EC2 Availability Zone that the database instance will be
-      -- created in. Default: A random, system-chosen Availability Zone.
-      -- Constraint: You cannot specify the AvailabilityZone parameter if
-      -- the MultiAZ parameter is set to true. Example: us-east-1a.
-    , _rdbifdbsmDBSubnetGroupName :: Maybe Text
-      -- ^ The DB subnet group name to use for the new instance.
-    , _rdbifdbsmMultiAZ :: Maybe Bool
-      -- ^ Specifies if the DB instance is a Multi-AZ deployment.
-      -- Constraint: You cannot specify the AvailabilityZone parameter if
-      -- the MultiAZ parameter is set to true.
-    , _rdbifdbsmPubliclyAccessible :: Maybe Bool
-      -- ^ Specifies the accessibility options for the DB instance. A value
-      -- of true specifies an Internet-facing instance with a publicly
-      -- resolvable DNS name, which resolves to a public IP address. A
-      -- value of false specifies an internal instance with a DNS name
-      -- that resolves to a private IP address. Default: The default
-      -- behavior varies depending on whether a VPC has been requested or
-      -- not. The following list shows the default behavior in each case.
-      -- Default VPC:true VPC:false If no DB subnet group has been
-      -- specified as part of the request and the PubliclyAccessible value
-      -- has not been set, the DB instance will be publicly accessible. If
-      -- a specific DB subnet group has been specified as part of the
-      -- request and the PubliclyAccessible value has not been set, the DB
-      -- instance will be private.
-    , _rdbifdbsmAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ Indicates that minor version upgrades will be applied
-      -- automatically to the DB instance during the maintenance window.
-    , _rdbifdbsmLicenseModel :: Maybe Text
-      -- ^ License model information for the restored DB instance. Default:
-      -- Same as source. Valid values: license-included |
-      -- bring-your-own-license | general-public-license.
-    , _rdbifdbsmDBName :: Maybe Text
-      -- ^ The database name for the restored DB instance. This parameter
-      -- doesn't apply to the MySQL engine.
-    , _rdbifdbsmEngine :: Maybe Text
-      -- ^ The database engine to use for the new instance. Default: The
-      -- same as source Constraint: Must be compatible with the engine of
-      -- the source Example: oracle-ee.
-    , _rdbifdbsmIops :: Maybe Integer
-      -- ^ Specifies the amount of provisioned IOPS for the DB instance,
-      -- expressed in I/O operations per second. If this parameter is not
-      -- specified, the IOPS value will be taken from the backup. If this
-      -- parameter is set to 0, the new instance will be converted to a
-      -- non-PIOPS instance, which will take additional time, though your
-      -- DB instance will be available for connections before the
-      -- conversion starts. Constraints: Must be an integer greater than
-      -- 1000.
-    , _rdbifdbsmOptionGroupName :: Maybe Text
-      -- ^ The name of the option group to be used for the restored DB
-      -- instance. cannot be removed from an option group while DB
-      -- instances are associated with the option group. --> Permanent
-      -- options, such as the TDE option for Oracle Advanced Security TDE,
-      -- cannot be removed from an option group, and that option group
-      -- cannot be removed from a DB instance once it is associated with a
-      -- DB instance.
-    , _rdbifdbsmTags :: [Tag]
-      -- ^ A list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkRestoreDBInstanceFromDBSnapshot #-}
 
 -- | The identifier for the DB snapshot to restore from. Constraints: Must
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-rdbifdbsmDBInstanceIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot (Text)
-rdbifdbsmDBInstanceIdentifier = lens _rdbifdbsmDBInstanceIdentifier (\s a -> s { _rdbifdbsmDBInstanceIdentifier = a })
-{-# INLINE rdbifdbsmDBInstanceIdentifier #-}
+rdbifdbsDBInstanceIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot Text
+rdbifdbsDBInstanceIdentifier =
+    lens _rdbifdbsDBInstanceIdentifier
+         (\s a -> s { _rdbifdbsDBInstanceIdentifier = a })
+{-# INLINE rdbifdbsDBInstanceIdentifier #-}
 
 -- | Name of the DB instance to create from the DB snapshot. This parameter
 -- isn't case sensitive. Constraints: Must contain from 1 to 255 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens Example: my-snapshot-id.
-rdbifdbsmDBSnapshotIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot (Text)
-rdbifdbsmDBSnapshotIdentifier = lens _rdbifdbsmDBSnapshotIdentifier (\s a -> s { _rdbifdbsmDBSnapshotIdentifier = a })
-{-# INLINE rdbifdbsmDBSnapshotIdentifier #-}
+rdbifdbsDBSnapshotIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot Text
+rdbifdbsDBSnapshotIdentifier =
+    lens _rdbifdbsDBSnapshotIdentifier
+         (\s a -> s { _rdbifdbsDBSnapshotIdentifier = a })
+{-# INLINE rdbifdbsDBSnapshotIdentifier #-}
 
 -- | The compute and memory capacity of the Amazon RDS DB instance. Valid
 -- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 -- db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge.
-rdbifdbsmDBInstanceClass :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdbifdbsmDBInstanceClass = lens _rdbifdbsmDBInstanceClass (\s a -> s { _rdbifdbsmDBInstanceClass = a })
-{-# INLINE rdbifdbsmDBInstanceClass #-}
+rdbifdbsDBInstanceClass :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdbifdbsDBInstanceClass =
+    lens _rdbifdbsDBInstanceClass
+         (\s a -> s { _rdbifdbsDBInstanceClass = a })
+{-# INLINE rdbifdbsDBInstanceClass #-}
 
 -- | The port number on which the database accepts connections. Default: The
 -- same port as the original DB instance Constraints: Value must be
 -- 1150-65535.
-rdbifdbsmPort :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Integer)
-rdbifdbsmPort = lens _rdbifdbsmPort (\s a -> s { _rdbifdbsmPort = a })
-{-# INLINE rdbifdbsmPort #-}
+rdbifdbsPort :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Integer)
+rdbifdbsPort = lens _rdbifdbsPort (\s a -> s { _rdbifdbsPort = a })
+{-# INLINE rdbifdbsPort #-}
 
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone. Constraint: You cannot
 -- specify the AvailabilityZone parameter if the MultiAZ parameter is set to
 -- true. Example: us-east-1a.
-rdbifdbsmAvailabilityZone :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdbifdbsmAvailabilityZone = lens _rdbifdbsmAvailabilityZone (\s a -> s { _rdbifdbsmAvailabilityZone = a })
-{-# INLINE rdbifdbsmAvailabilityZone #-}
+rdbifdbsAvailabilityZone :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdbifdbsAvailabilityZone =
+    lens _rdbifdbsAvailabilityZone
+         (\s a -> s { _rdbifdbsAvailabilityZone = a })
+{-# INLINE rdbifdbsAvailabilityZone #-}
 
 -- | The DB subnet group name to use for the new instance.
-rdbifdbsmDBSubnetGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdbifdbsmDBSubnetGroupName = lens _rdbifdbsmDBSubnetGroupName (\s a -> s { _rdbifdbsmDBSubnetGroupName = a })
-{-# INLINE rdbifdbsmDBSubnetGroupName #-}
+rdbifdbsDBSubnetGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdbifdbsDBSubnetGroupName =
+    lens _rdbifdbsDBSubnetGroupName
+         (\s a -> s { _rdbifdbsDBSubnetGroupName = a })
+{-# INLINE rdbifdbsDBSubnetGroupName #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Constraint: You
 -- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
 -- set to true.
-rdbifdbsmMultiAZ :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
-rdbifdbsmMultiAZ = lens _rdbifdbsmMultiAZ (\s a -> s { _rdbifdbsmMultiAZ = a })
-{-# INLINE rdbifdbsmMultiAZ #-}
+rdbifdbsMultiAZ :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
+rdbifdbsMultiAZ = lens _rdbifdbsMultiAZ (\s a -> s { _rdbifdbsMultiAZ = a })
+{-# INLINE rdbifdbsMultiAZ #-}
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS name,
@@ -226,35 +175,40 @@ rdbifdbsmMultiAZ = lens _rdbifdbsmMultiAZ (\s a -> s { _rdbifdbsmMultiAZ = a })
 -- the DB instance will be publicly accessible. If a specific DB subnet group
 -- has been specified as part of the request and the PubliclyAccessible value
 -- has not been set, the DB instance will be private.
-rdbifdbsmPubliclyAccessible :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
-rdbifdbsmPubliclyAccessible = lens _rdbifdbsmPubliclyAccessible (\s a -> s { _rdbifdbsmPubliclyAccessible = a })
-{-# INLINE rdbifdbsmPubliclyAccessible #-}
+rdbifdbsPubliclyAccessible :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
+rdbifdbsPubliclyAccessible =
+    lens _rdbifdbsPubliclyAccessible
+         (\s a -> s { _rdbifdbsPubliclyAccessible = a })
+{-# INLINE rdbifdbsPubliclyAccessible #-}
 
 -- | Indicates that minor version upgrades will be applied automatically to the
 -- DB instance during the maintenance window.
-rdbifdbsmAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
-rdbifdbsmAutoMinorVersionUpgrade = lens _rdbifdbsmAutoMinorVersionUpgrade (\s a -> s { _rdbifdbsmAutoMinorVersionUpgrade = a })
-{-# INLINE rdbifdbsmAutoMinorVersionUpgrade #-}
+rdbifdbsAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
+rdbifdbsAutoMinorVersionUpgrade =
+    lens _rdbifdbsAutoMinorVersionUpgrade
+         (\s a -> s { _rdbifdbsAutoMinorVersionUpgrade = a })
+{-# INLINE rdbifdbsAutoMinorVersionUpgrade #-}
 
 -- | License model information for the restored DB instance. Default: Same as
 -- source. Valid values: license-included | bring-your-own-license |
 -- general-public-license.
-rdbifdbsmLicenseModel :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdbifdbsmLicenseModel = lens _rdbifdbsmLicenseModel (\s a -> s { _rdbifdbsmLicenseModel = a })
-{-# INLINE rdbifdbsmLicenseModel #-}
+rdbifdbsLicenseModel :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdbifdbsLicenseModel =
+    lens _rdbifdbsLicenseModel (\s a -> s { _rdbifdbsLicenseModel = a })
+{-# INLINE rdbifdbsLicenseModel #-}
 
 -- | The database name for the restored DB instance. This parameter doesn't
 -- apply to the MySQL engine.
-rdbifdbsmDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdbifdbsmDBName = lens _rdbifdbsmDBName (\s a -> s { _rdbifdbsmDBName = a })
-{-# INLINE rdbifdbsmDBName #-}
+rdbifdbsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdbifdbsDBName = lens _rdbifdbsDBName (\s a -> s { _rdbifdbsDBName = a })
+{-# INLINE rdbifdbsDBName #-}
 
 -- | The database engine to use for the new instance. Default: The same as
 -- source Constraint: Must be compatible with the engine of the source
 -- Example: oracle-ee.
-rdbifdbsmEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdbifdbsmEngine = lens _rdbifdbsmEngine (\s a -> s { _rdbifdbsmEngine = a })
-{-# INLINE rdbifdbsmEngine #-}
+rdbifdbsEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdbifdbsEngine = lens _rdbifdbsEngine (\s a -> s { _rdbifdbsEngine = a })
+{-# INLINE rdbifdbsEngine #-}
 
 -- | Specifies the amount of provisioned IOPS for the DB instance, expressed in
 -- I/O operations per second. If this parameter is not specified, the IOPS
@@ -263,9 +217,9 @@ rdbifdbsmEngine = lens _rdbifdbsmEngine (\s a -> s { _rdbifdbsmEngine = a })
 -- additional time, though your DB instance will be available for connections
 -- before the conversion starts. Constraints: Must be an integer greater than
 -- 1000.
-rdbifdbsmIops :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Integer)
-rdbifdbsmIops = lens _rdbifdbsmIops (\s a -> s { _rdbifdbsmIops = a })
-{-# INLINE rdbifdbsmIops #-}
+rdbifdbsIops :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Integer)
+rdbifdbsIops = lens _rdbifdbsIops (\s a -> s { _rdbifdbsIops = a })
+{-# INLINE rdbifdbsIops #-}
 
 -- | The name of the option group to be used for the restored DB instance.
 -- cannot be removed from an option group while DB instances are associated
@@ -273,32 +227,31 @@ rdbifdbsmIops = lens _rdbifdbsmIops (\s a -> s { _rdbifdbsmIops = a })
 -- Oracle Advanced Security TDE, cannot be removed from an option group, and
 -- that option group cannot be removed from a DB instance once it is
 -- associated with a DB instance.
-rdbifdbsmOptionGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdbifdbsmOptionGroupName = lens _rdbifdbsmOptionGroupName (\s a -> s { _rdbifdbsmOptionGroupName = a })
-{-# INLINE rdbifdbsmOptionGroupName #-}
+rdbifdbsOptionGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdbifdbsOptionGroupName =
+    lens _rdbifdbsOptionGroupName
+         (\s a -> s { _rdbifdbsOptionGroupName = a })
+{-# INLINE rdbifdbsOptionGroupName #-}
 
 -- | A list of tags.
-rdbifdbsmTags :: Lens' RestoreDBInstanceFromDBSnapshot ([Tag])
-rdbifdbsmTags = lens _rdbifdbsmTags (\s a -> s { _rdbifdbsmTags = a })
-{-# INLINE rdbifdbsmTags #-}
+rdbifdbsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
+rdbifdbsTags = lens _rdbifdbsTags (\s a -> s { _rdbifdbsTags = a })
+{-# INLINE rdbifdbsTags #-}
 
 instance ToQuery RestoreDBInstanceFromDBSnapshot where
     toQuery = genericQuery def
 
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
-    { _dbidtDBInstance :: Maybe DBInstance
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
-      -- data type is used as a response element in the
-      -- DescribeDBInstances action.
+    { _rdbifdbsrsDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbidtDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
-dbidtDBInstance = lens _dbidtDBInstance (\s a -> s { _dbidtDBInstance = a })
-{-# INLINE dbidtDBInstance #-}
+rdbifdbsrsDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
+rdbifdbsrsDBInstance =
+    lens _rdbifdbsrsDBInstance (\s a -> s { _rdbifdbsrsDBInstance = a })
+{-# INLINE rdbifdbsrsDBInstance #-}
 
 instance FromXML RestoreDBInstanceFromDBSnapshotResponse where
     fromXMLOptions = xmlOptions

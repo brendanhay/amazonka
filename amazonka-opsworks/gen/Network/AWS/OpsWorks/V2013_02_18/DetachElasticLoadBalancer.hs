@@ -27,10 +27,10 @@ module Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer
     -- * Request
       DetachElasticLoadBalancer
     -- ** Request constructor
-    , mkDetachElasticLoadBalancerRequest
+    , mkDetachElasticLoadBalancer
     -- ** Request lenses
-    , delbtElasticLoadBalancerName
-    , delbtLayerId
+    , delb1ElasticLoadBalancerName
+    , delb1LayerId
 
     -- * Response
     , DetachElasticLoadBalancerResponse
@@ -41,35 +41,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachElasticLoadBalancer' request.
-mkDetachElasticLoadBalancerRequest :: Text -- ^ 'delbtElasticLoadBalancerName'
-                                   -> Text -- ^ 'delbtLayerId'
-                                   -> DetachElasticLoadBalancer
-mkDetachElasticLoadBalancerRequest p1 p2 = DetachElasticLoadBalancer
-    { _delbtElasticLoadBalancerName = p1
-    , _delbtLayerId = p2
-    }
-{-# INLINE mkDetachElasticLoadBalancerRequest #-}
-
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
-    { _delbtElasticLoadBalancerName :: Text
-      -- ^ The Elastic Load Balancing instance's name.
-    , _delbtLayerId :: Text
-      -- ^ The ID of the layer that the Elastic Load Balancing instance is
-      -- attached to.
+    { _delb1ElasticLoadBalancerName :: Text
+    , _delb1LayerId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachElasticLoadBalancer' request.
+mkDetachElasticLoadBalancer :: Text -- ^ 'delb1ElasticLoadBalancerName'
+                            -> Text -- ^ 'delb1LayerId'
+                            -> DetachElasticLoadBalancer
+mkDetachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
+    { _delb1ElasticLoadBalancerName = p1
+    , _delb1LayerId = p2
+    }
+{-# INLINE mkDetachElasticLoadBalancer #-}
+
 -- | The Elastic Load Balancing instance's name.
-delbtElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer (Text)
-delbtElasticLoadBalancerName = lens _delbtElasticLoadBalancerName (\s a -> s { _delbtElasticLoadBalancerName = a })
-{-# INLINE delbtElasticLoadBalancerName #-}
+delb1ElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
+delb1ElasticLoadBalancerName =
+    lens _delb1ElasticLoadBalancerName
+         (\s a -> s { _delb1ElasticLoadBalancerName = a })
+{-# INLINE delb1ElasticLoadBalancerName #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached
 -- to.
-delbtLayerId :: Lens' DetachElasticLoadBalancer (Text)
-delbtLayerId = lens _delbtLayerId (\s a -> s { _delbtLayerId = a })
-{-# INLINE delbtLayerId #-}
+delb1LayerId :: Lens' DetachElasticLoadBalancer Text
+delb1LayerId = lens _delb1LayerId (\s a -> s { _delb1LayerId = a })
+{-# INLINE delb1LayerId #-}
 
 instance ToPath DetachElasticLoadBalancer
 

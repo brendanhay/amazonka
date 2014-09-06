@@ -40,10 +40,10 @@ module Network.AWS.EC2.V2014_06_15.ReleaseAddress
     -- * Request
       ReleaseAddress
     -- ** Request constructor
-    , mkReleaseAddressRequest
+    , mkReleaseAddress
     -- ** Request lenses
-    , rarPublicIp
-    , rarAllocationId
+    , raPublicIp
+    , raAllocationId
 
     -- * Response
     , ReleaseAddressResponse
@@ -53,31 +53,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReleaseAddress' request.
-mkReleaseAddressRequest :: ReleaseAddress
-mkReleaseAddressRequest = ReleaseAddress
-    { _rarPublicIp = Nothing
-    , _rarAllocationId = Nothing
-    }
-{-# INLINE mkReleaseAddressRequest #-}
-
+-- | 
 data ReleaseAddress = ReleaseAddress
-    { _rarPublicIp :: Maybe Text
-      -- ^ [EC2-Classic] The Elastic IP address.
-    , _rarAllocationId :: Maybe Text
-      -- ^ [EC2-VPC] The allocation ID.
+    { _raPublicIp :: Maybe Text
+    , _raAllocationId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReleaseAddress' request.
+mkReleaseAddress :: ReleaseAddress
+mkReleaseAddress = ReleaseAddress
+    { _raPublicIp = Nothing
+    , _raAllocationId = Nothing
+    }
+{-# INLINE mkReleaseAddress #-}
+
 -- | [EC2-Classic] The Elastic IP address.
-rarPublicIp :: Lens' ReleaseAddress (Maybe Text)
-rarPublicIp = lens _rarPublicIp (\s a -> s { _rarPublicIp = a })
-{-# INLINE rarPublicIp #-}
+raPublicIp :: Lens' ReleaseAddress (Maybe Text)
+raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
+{-# INLINE raPublicIp #-}
 
 -- | [EC2-VPC] The allocation ID.
-rarAllocationId :: Lens' ReleaseAddress (Maybe Text)
-rarAllocationId = lens _rarAllocationId (\s a -> s { _rarAllocationId = a })
-{-# INLINE rarAllocationId #-}
+raAllocationId :: Lens' ReleaseAddress (Maybe Text)
+raAllocationId = lens _raAllocationId (\s a -> s { _raAllocationId = a })
+{-# INLINE raAllocationId #-}
 
 instance ToQuery ReleaseAddress where
     toQuery = genericQuery def

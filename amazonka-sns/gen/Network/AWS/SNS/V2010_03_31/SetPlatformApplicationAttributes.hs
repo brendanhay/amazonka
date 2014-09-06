@@ -40,10 +40,10 @@ module Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
     -- * Request
       SetPlatformApplicationAttributes
     -- ** Request constructor
-    , mkSetPlatformApplicationAttributesInput
+    , mkSetPlatformApplicationAttributes
     -- ** Request lenses
-    , spaaiPlatformApplicationArn
-    , spaaiAttributes
+    , spaaPlatformApplicationArn
+    , spaaAttributes
 
     -- * Response
     , SetPlatformApplicationAttributesResponse
@@ -53,44 +53,29 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetPlatformApplicationAttributes' request.
-mkSetPlatformApplicationAttributesInput :: Text -- ^ 'spaaiPlatformApplicationArn'
-                                        -> Map Text Text -- ^ 'spaaiAttributes'
-                                        -> SetPlatformApplicationAttributes
-mkSetPlatformApplicationAttributesInput p1 p2 = SetPlatformApplicationAttributes
-    { _spaaiPlatformApplicationArn = p1
-    , _spaaiAttributes = p2
-    }
-{-# INLINE mkSetPlatformApplicationAttributesInput #-}
-
+-- | Input for SetPlatformApplicationAttributes action.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
-    { _spaaiPlatformApplicationArn :: Text
-      -- ^ PlatformApplicationArn for SetPlatformApplicationAttributes
-      -- action.
-    , _spaaiAttributes :: Map Text Text
-      -- ^ A map of the platform application attributes. Attributes in this
-      -- map include the following: PlatformCredential -- The credential
-      -- received from the notification service. For APNS/APNS_SANDBOX,
-      -- PlatformCredential is "private key". For GCM, PlatformCredential
-      -- is "API key". For ADM, PlatformCredential is "client secret".
-      -- PlatformPrincipal -- The principal received from the notification
-      -- service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL
-      -- certificate". For GCM, PlatformPrincipal is not applicable. For
-      -- ADM, PlatformPrincipal is "client id". EventEndpointCreated --
-      -- Topic ARN to which EndpointCreated event notifications should be
-      -- sent. EventEndpointDeleted -- Topic ARN to which EndpointDeleted
-      -- event notifications should be sent. EventEndpointUpdated -- Topic
-      -- ARN to which EndpointUpdate event notifications should be sent.
-      -- EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
-      -- notifications should be sent upon Direct Publish delivery failure
-      -- (permanent) to one of the application's endpoints.
+    { _spaaPlatformApplicationArn :: Text
+    , _spaaAttributes :: Map Text Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetPlatformApplicationAttributes' request.
+mkSetPlatformApplicationAttributes :: Text -- ^ 'spaaPlatformApplicationArn'
+                                   -> Map Text Text -- ^ 'spaaAttributes'
+                                   -> SetPlatformApplicationAttributes
+mkSetPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
+    { _spaaPlatformApplicationArn = p1
+    , _spaaAttributes = p2
+    }
+{-# INLINE mkSetPlatformApplicationAttributes #-}
+
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-spaaiPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes (Text)
-spaaiPlatformApplicationArn = lens _spaaiPlatformApplicationArn (\s a -> s { _spaaiPlatformApplicationArn = a })
-{-# INLINE spaaiPlatformApplicationArn #-}
+spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text
+spaaPlatformApplicationArn =
+    lens _spaaPlatformApplicationArn
+         (\s a -> s { _spaaPlatformApplicationArn = a })
+{-# INLINE spaaPlatformApplicationArn #-}
 
 -- | A map of the platform application attributes. Attributes in this map
 -- include the following: PlatformCredential -- The credential received from
@@ -107,9 +92,9 @@ spaaiPlatformApplicationArn = lens _spaaiPlatformApplicationArn (\s a -> s { _sp
 -- Topic ARN to which DeliveryFailure event notifications should be sent upon
 -- Direct Publish delivery failure (permanent) to one of the application's
 -- endpoints.
-spaaiAttributes :: Lens' SetPlatformApplicationAttributes (Map Text Text)
-spaaiAttributes = lens _spaaiAttributes (\s a -> s { _spaaiAttributes = a })
-{-# INLINE spaaiAttributes #-}
+spaaAttributes :: Lens' SetPlatformApplicationAttributes (Map Text Text)
+spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a })
+{-# INLINE spaaAttributes #-}
 
 instance ToQuery SetPlatformApplicationAttributes where
     toQuery = genericQuery def

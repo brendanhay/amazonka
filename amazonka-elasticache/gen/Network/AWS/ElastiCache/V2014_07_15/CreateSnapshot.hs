@@ -31,65 +31,62 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , mkCreateSnapshotMessage
+    , mkCreateSnapshot
     -- ** Request lenses
-    , csnCacheClusterId
-    , csnSnapshotName
+    , cs1CacheClusterId
+    , cs1SnapshotName
 
     -- * Response
     , CreateSnapshotResponse
     -- ** Response lenses
-    , ssssssrSnapshot
+    , csrsrsSnapshot
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a CreateSnapshotMessage operation.
+data CreateSnapshot = CreateSnapshot
+    { _cs1CacheClusterId :: Text
+    , _cs1SnapshotName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshot' request.
-mkCreateSnapshotMessage :: Text -- ^ 'csnCacheClusterId'
-                        -> Text -- ^ 'csnSnapshotName'
-                        -> CreateSnapshot
-mkCreateSnapshotMessage p1 p2 = CreateSnapshot
-    { _csnCacheClusterId = p1
-    , _csnSnapshotName = p2
+mkCreateSnapshot :: Text -- ^ 'cs1CacheClusterId'
+                 -> Text -- ^ 'cs1SnapshotName'
+                 -> CreateSnapshot
+mkCreateSnapshot p1 p2 = CreateSnapshot
+    { _cs1CacheClusterId = p1
+    , _cs1SnapshotName = p2
     }
-{-# INLINE mkCreateSnapshotMessage #-}
-
-data CreateSnapshot = CreateSnapshot
-    { _csnCacheClusterId :: Text
-      -- ^ The identifier of an existing cache cluster. The snapshot will be
-      -- created from this cache cluster.
-    , _csnSnapshotName :: Text
-      -- ^ A name for the snapshot being created.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateSnapshot #-}
 
 -- | The identifier of an existing cache cluster. The snapshot will be created
 -- from this cache cluster.
-csnCacheClusterId :: Lens' CreateSnapshot (Text)
-csnCacheClusterId = lens _csnCacheClusterId (\s a -> s { _csnCacheClusterId = a })
-{-# INLINE csnCacheClusterId #-}
+cs1CacheClusterId :: Lens' CreateSnapshot Text
+cs1CacheClusterId =
+    lens _cs1CacheClusterId (\s a -> s { _cs1CacheClusterId = a })
+{-# INLINE cs1CacheClusterId #-}
 
 -- | A name for the snapshot being created.
-csnSnapshotName :: Lens' CreateSnapshot (Text)
-csnSnapshotName = lens _csnSnapshotName (\s a -> s { _csnSnapshotName = a })
-{-# INLINE csnSnapshotName #-}
+cs1SnapshotName :: Lens' CreateSnapshot Text
+cs1SnapshotName = lens _cs1SnapshotName (\s a -> s { _cs1SnapshotName = a })
+{-# INLINE cs1SnapshotName #-}
 
 instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
 newtype CreateSnapshotResponse = CreateSnapshotResponse
-    { _ssssssrSnapshot :: Maybe Snapshot
-      -- ^ Represents a copy of an entire cache cluster as of the time when
-      -- the snapshot was taken.
+    { _csrsrsSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-ssssssrSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
-ssssssrSnapshot = lens _ssssssrSnapshot (\s a -> s { _ssssssrSnapshot = a })
-{-# INLINE ssssssrSnapshot #-}
+csrsrsSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
+csrsrsSnapshot = lens _csrsrsSnapshot (\s a -> s { _csrsrsSnapshot = a })
+{-# INLINE csrsrsSnapshot #-}
 
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions

@@ -25,10 +25,10 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteLifecycleHook
     -- * Request
       DeleteLifecycleHook
     -- ** Request constructor
-    , mkDeleteLifecycleHookType
+    , mkDeleteLifecycleHook
     -- ** Request lenses
-    , dlhtLifecycleHookName
-    , dlhtAutoScalingGroupName
+    , dlhLifecycleHookName
+    , dlhAutoScalingGroupName
 
     -- * Response
     , DeleteLifecycleHookResponse
@@ -38,38 +38,40 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLifecycleHook' request.
-mkDeleteLifecycleHookType :: Text -- ^ 'dlhtLifecycleHookName'
-                          -> Text -- ^ 'dlhtAutoScalingGroupName'
-                          -> DeleteLifecycleHook
-mkDeleteLifecycleHookType p1 p2 = DeleteLifecycleHook
-    { _dlhtLifecycleHookName = p1
-    , _dlhtAutoScalingGroupName = p2
-    }
-{-# INLINE mkDeleteLifecycleHookType #-}
-
+-- | 
 data DeleteLifecycleHook = DeleteLifecycleHook
-    { _dlhtLifecycleHookName :: Text
-      -- ^ The name of the lifecycle hook.
-    , _dlhtAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group to which the lifecycle hook
-      -- belongs.
+    { _dlhLifecycleHookName :: Text
+    , _dlhAutoScalingGroupName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLifecycleHook' request.
+mkDeleteLifecycleHook :: Text -- ^ 'dlhLifecycleHookName'
+                      -> Text -- ^ 'dlhAutoScalingGroupName'
+                      -> DeleteLifecycleHook
+mkDeleteLifecycleHook p1 p2 = DeleteLifecycleHook
+    { _dlhLifecycleHookName = p1
+    , _dlhAutoScalingGroupName = p2
+    }
+{-# INLINE mkDeleteLifecycleHook #-}
+
 -- | The name of the lifecycle hook.
-dlhtLifecycleHookName :: Lens' DeleteLifecycleHook (Text)
-dlhtLifecycleHookName = lens _dlhtLifecycleHookName (\s a -> s { _dlhtLifecycleHookName = a })
-{-# INLINE dlhtLifecycleHookName #-}
+dlhLifecycleHookName :: Lens' DeleteLifecycleHook Text
+dlhLifecycleHookName =
+    lens _dlhLifecycleHookName (\s a -> s { _dlhLifecycleHookName = a })
+{-# INLINE dlhLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle hook belongs.
-dlhtAutoScalingGroupName :: Lens' DeleteLifecycleHook (Text)
-dlhtAutoScalingGroupName = lens _dlhtAutoScalingGroupName (\s a -> s { _dlhtAutoScalingGroupName = a })
-{-# INLINE dlhtAutoScalingGroupName #-}
+dlhAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
+dlhAutoScalingGroupName =
+    lens _dlhAutoScalingGroupName
+         (\s a -> s { _dlhAutoScalingGroupName = a })
+{-# INLINE dlhAutoScalingGroupName #-}
 
 instance ToQuery DeleteLifecycleHook where
     toQuery = genericQuery def
 
+-- | The output of the DeleteLifecycleHook action.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLifecycleHook where

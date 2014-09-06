@@ -49,15 +49,15 @@ module Network.AWS.SWF.V2012_01_25.DescribeDomain
     -- * Request
       DescribeDomain
     -- ** Request constructor
-    , mkDescribeDomainInput
+    , mkDescribeDomain
     -- ** Request lenses
-    , ddjName
+    , dd1Name
 
     -- * Response
     , DescribeDomainResponse
     -- ** Response lenses
-    , ddDomainInfo
-    , ddConfiguration
+    , ddrsDomainInfo
+    , ddrsConfiguration
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -65,24 +65,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeDomain' request.
-mkDescribeDomainInput :: Text -- ^ 'ddjName'
-                      -> DescribeDomain
-mkDescribeDomainInput p1 = DescribeDomain
-    { _ddjName = p1
-    }
-{-# INLINE mkDescribeDomainInput #-}
-
 newtype DescribeDomain = DescribeDomain
-    { _ddjName :: Text
-      -- ^ The name of the domain to describe.
+    { _dd1Name :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDomain' request.
+mkDescribeDomain :: Text -- ^ 'dd1Name'
+                 -> DescribeDomain
+mkDescribeDomain p1 = DescribeDomain
+    { _dd1Name = p1
+    }
+{-# INLINE mkDescribeDomain #-}
+
 -- | The name of the domain to describe.
-ddjName :: Lens' DescribeDomain (Text)
-ddjName = lens _ddjName (\s a -> s { _ddjName = a })
-{-# INLINE ddjName #-}
+dd1Name :: Lens' DescribeDomain Text
+dd1Name = lens _dd1Name (\s a -> s { _dd1Name = a })
+{-# INLINE dd1Name #-}
 
 instance ToPath DescribeDomain
 
@@ -92,22 +91,22 @@ instance ToHeaders DescribeDomain
 
 instance ToJSON DescribeDomain
 
+-- | Contains details of a domain.
 data DescribeDomainResponse = DescribeDomainResponse
-    { _ddDomainInfo :: DomainInfo
-      -- ^ Contains general information about a domain.
-    , _ddConfiguration :: DomainConfiguration
-      -- ^ Contains the configuration settings of a domain.
+    { _ddrsDomainInfo :: DomainInfo
+    , _ddrsConfiguration :: DomainConfiguration
     } deriving (Show, Generic)
 
 -- | Contains general information about a domain.
-ddDomainInfo :: Lens' DescribeDomainResponse (DomainInfo)
-ddDomainInfo = lens _ddDomainInfo (\s a -> s { _ddDomainInfo = a })
-{-# INLINE ddDomainInfo #-}
+ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
+ddrsDomainInfo = lens _ddrsDomainInfo (\s a -> s { _ddrsDomainInfo = a })
+{-# INLINE ddrsDomainInfo #-}
 
 -- | Contains the configuration settings of a domain.
-ddConfiguration :: Lens' DescribeDomainResponse (DomainConfiguration)
-ddConfiguration = lens _ddConfiguration (\s a -> s { _ddConfiguration = a })
-{-# INLINE ddConfiguration #-}
+ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
+ddrsConfiguration =
+    lens _ddrsConfiguration (\s a -> s { _ddrsConfiguration = a })
+{-# INLINE ddrsConfiguration #-}
 
 instance FromJSON DescribeDomainResponse
 

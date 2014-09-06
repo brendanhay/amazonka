@@ -36,9 +36,9 @@ module Network.AWS.SNS.V2010_03_31.DeleteTopic
     -- * Request
       DeleteTopic
     -- ** Request constructor
-    , mkDeleteTopicInput
+    , mkDeleteTopic
     -- ** Request lenses
-    , dtiTopicArn
+    , dtTopicArn
 
     -- * Response
     , DeleteTopicResponse
@@ -48,31 +48,18 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
+newtype DeleteTopic = DeleteTopic
+    { _dtTopicArn :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTopic' request.
-mkDeleteTopicInput :: Text -- ^ 'dtiTopicArn'
-                   -> DeleteTopic
-mkDeleteTopicInput p1 = DeleteTopic
-    { _dtiTopicArn = p1
+mkDeleteTopic :: Text -- ^ 'dtTopicArn'
+              -> DeleteTopic
+mkDeleteTopic p1 = DeleteTopic
+    { _dtTopicArn = p1
     }
-{-# INLINE mkDeleteTopicInput #-}
-
-newtype DeleteTopic = DeleteTopic
-    { _dtiTopicArn :: Text
-      -- ^ The ARN of the topic you want to delete.
-      -- http://sns.us-east-1.amazonaws.com/
-      -- ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic
-      -- &amp;Action=DeleteTopic &amp;SignatureVersion=2
-      -- &amp;SignatureMethod=HmacSHA256
-      -- &amp;Timestamp=2010-03-31T12%3A00%3A00.000Z
-      -- &amp;AWSAccessKeyId=(AWS Access Key ID)
-      -- &amp;Signature=DjHBa%2BbYCKQAzctOPnLP7MbHnrHT3%2FK3kFEZjwcf9%2FU%3D
-      -- &lt;DeleteTopicResponse
-      -- xmlns="http://sns.amazonaws.com/doc/2010-03-31/"&gt;
-      -- &lt;ResponseMetadata&gt;
-      -- &lt;RequestId&gt;fba800b9-3765-11df-8cf3-c58c53254dfb&lt;/RequestId&gt;
-      -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteTopic #-}
 
 -- | The ARN of the topic you want to delete.
 -- http://sns.us-east-1.amazonaws.com/
@@ -86,9 +73,9 @@ newtype DeleteTopic = DeleteTopic
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;fba800b9-3765-11df-8cf3-c58c53254dfb&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
-dtiTopicArn :: Lens' DeleteTopic (Text)
-dtiTopicArn = lens _dtiTopicArn (\s a -> s { _dtiTopicArn = a })
-{-# INLINE dtiTopicArn #-}
+dtTopicArn :: Lens' DeleteTopic Text
+dtTopicArn = lens _dtTopicArn (\s a -> s { _dtTopicArn = a })
+{-# INLINE dtTopicArn #-}
 
 instance ToQuery DeleteTopic where
     toQuery = genericQuery def

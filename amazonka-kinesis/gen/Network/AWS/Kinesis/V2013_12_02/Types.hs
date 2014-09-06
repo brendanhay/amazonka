@@ -42,6 +42,7 @@ module Network.AWS.Kinesis.V2013_12_02.Types
 
     -- * Record
     , Record
+    , mkRecord
     , rSequenceNumber
     , rData
     , rPartitionKey
@@ -54,6 +55,7 @@ module Network.AWS.Kinesis.V2013_12_02.Types
 
     -- * Shard
     , Shard
+    , mkShard
     , sShardId
     , sParentShardId
     , sAdjacentParentShardId
@@ -62,6 +64,7 @@ module Network.AWS.Kinesis.V2013_12_02.Types
 
     -- * StreamDescription
     , StreamDescription
+    , mkStreamDescription
     , sdStreamName
     , sdStreamARN
     , sdStreamStatus
@@ -121,15 +124,6 @@ instance AWSServiceError (Er Kinesis) where
 
 instance Exception (Er Kinesis)
 
--- | Determines how the shard iterator is used to start reading data records
--- from the shard. The following are the valid shard iterator types:
--- AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a
--- specific sequence number. AFTER_SEQUENCE_NUMBER - Start reading right after
--- the position denoted by a specific sequence number. TRIM_HORIZON - Start
--- reading at the last untrimmed record in the shard in the system, which is
--- the oldest data record in the shard. LATEST - Start reading just after the
--- most recent record in the shard, so that you always read the most recent
--- data in the shard.
 data ShardIteratorType
     = ShardIteratorTypeAfterSequenceNumber -- ^ AFTER_SEQUENCE_NUMBER
     | ShardIteratorTypeAtSequenceNumber -- ^ AT_SEQUENCE_NUMBER
@@ -165,16 +159,6 @@ instance ToQuery ShardIteratorType where
 
 instance ToJSON ShardIteratorType
 
--- | The current status of the stream being described. The stream status is one
--- of the following states: CREATING - The stream is being created. Upon
--- receiving a CreateStream request, Amazon Kinesis immediately returns and
--- sets StreamStatus to CREATING. DELETING - The stream is being deleted.
--- After a DeleteStream request, the specified stream is in the DELETING state
--- until Amazon Kinesis completes the deletion. ACTIVE - The stream exists and
--- is ready for read and write operations or deletion. You should perform read
--- and write operations only on an ACTIVE stream. UPDATING - Shards in the
--- stream are being merged or split. Read and write operations continue to
--- work while the stream is in the UPDATING state.
 data StreamStatus
     = StreamStatusActive -- ^ ACTIVE
     | StreamStatusCreating -- ^ CREATING
@@ -214,20 +198,8 @@ instance FromJSON StreamStatus
 -- ordered contiguous positive integers.
 data HashKeyRange = HashKeyRange
     { _hkrStartingHashKey :: Text
-      -- ^ The starting hash key of the hash key range.
     , _hkrEndingHashKey :: Text
-      -- ^ The ending hash key of the hash key range.
     } deriving (Show, Generic)
-
--- | The starting hash key of the hash key range.
-hkrStartingHashKey :: Lens' HashKeyRange (Text)
-hkrStartingHashKey = lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
-{-# INLINE hkrStartingHashKey #-}
-
--- | The ending hash key of the hash key range.
-hkrEndingHashKey :: Lens' HashKeyRange (Text)
-hkrEndingHashKey = lens _hkrEndingHashKey (\s a -> s { _hkrEndingHashKey = a })
-{-# INLINE hkrEndingHashKey #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HashKeyRange' data type to populate a request.
@@ -240,6 +212,18 @@ mkHashKeyRange p1 p2 = HashKeyRange
     }
 {-# INLINE mkHashKeyRange #-}
 
+-- | The starting hash key of the hash key range.
+hkrStartingHashKey :: Lens' HashKeyRange Text
+hkrStartingHashKey =
+    lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
+{-# INLINE hkrStartingHashKey #-}
+
+-- | The ending hash key of the hash key range.
+hkrEndingHashKey :: Lens' HashKeyRange Text
+hkrEndingHashKey =
+    lens _hkrEndingHashKey (\s a -> s { _hkrEndingHashKey = a })
+{-# INLINE hkrEndingHashKey #-}
+
 instance FromJSON HashKeyRange
 
 instance ToJSON HashKeyRange
@@ -248,21 +232,25 @@ instance ToJSON HashKeyRange
 -- sequence number, a partition key, and a data blob.
 data Record = Record
     { _rSequenceNumber :: Text
-      -- ^ The unique identifier for the record in the Amazon Kinesis
-      -- stream.
     , _rData :: Base64
-      -- ^ The data blob. The data in the blob is both opaque and immutable
-      -- to the Amazon Kinesis service, which does not inspect, interpret,
-      -- or change the data in the blob in any way. The maximum size of
-      -- the data blob (the payload after Base64-decoding) is 50 kilobytes
-      -- (KB).
     , _rPartitionKey :: Text
-      -- ^ Identifies which shard in the stream the data record is assigned
-      -- to.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Record' data type to populate a request.
+mkRecord :: Text -- ^ 'rSequenceNumber'
+         -> Base64 -- ^ 'rData'
+         -> Text -- ^ 'rPartitionKey'
+         -> Record
+mkRecord p1 p2 p3 = Record
+    { _rSequenceNumber = p1
+    , _rData = p2
+    , _rPartitionKey = p3
+    }
+{-# INLINE mkRecord #-}
+
 -- | The unique identifier for the record in the Amazon Kinesis stream.
-rSequenceNumber :: Lens' Record (Text)
+rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 {-# INLINE rSequenceNumber #-}
 
@@ -270,12 +258,12 @@ rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 -- Amazon Kinesis service, which does not inspect, interpret, or change the
 -- data in the blob in any way. The maximum size of the data blob (the payload
 -- after Base64-decoding) is 50 kilobytes (KB).
-rData :: Lens' Record (Base64)
+rData :: Lens' Record Base64
 rData = lens _rData (\s a -> s { _rData = a })
 {-# INLINE rData #-}
 
 -- | Identifies which shard in the stream the data record is assigned to.
-rPartitionKey :: Lens' Record (Text)
+rPartitionKey :: Lens' Record Text
 rPartitionKey = lens _rPartitionKey (\s a -> s { _rPartitionKey = a })
 {-# INLINE rPartitionKey #-}
 
@@ -284,22 +272,8 @@ instance FromJSON Record
 -- | The range of possible sequence numbers for the shard.
 data SequenceNumberRange = SequenceNumberRange
     { _snrStartingSequenceNumber :: Text
-      -- ^ The starting sequence number for the range.
     , _snrEndingSequenceNumber :: Maybe Text
-      -- ^ The ending sequence number for the range. Shards that are in the
-      -- OPEN state have an ending sequence number of null.
     } deriving (Show, Generic)
-
--- | The starting sequence number for the range.
-snrStartingSequenceNumber :: Lens' SequenceNumberRange (Text)
-snrStartingSequenceNumber = lens _snrStartingSequenceNumber (\s a -> s { _snrStartingSequenceNumber = a })
-{-# INLINE snrStartingSequenceNumber #-}
-
--- | The ending sequence number for the range. Shards that are in the OPEN state
--- have an ending sequence number of null.
-snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
-snrEndingSequenceNumber = lens _snrEndingSequenceNumber (\s a -> s { _snrEndingSequenceNumber = a })
-{-# INLINE snrEndingSequenceNumber #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SequenceNumberRange' data type to populate a request.
@@ -311,6 +285,21 @@ mkSequenceNumberRange p1 = SequenceNumberRange
     }
 {-# INLINE mkSequenceNumberRange #-}
 
+-- | The starting sequence number for the range.
+snrStartingSequenceNumber :: Lens' SequenceNumberRange Text
+snrStartingSequenceNumber =
+    lens _snrStartingSequenceNumber
+         (\s a -> s { _snrStartingSequenceNumber = a })
+{-# INLINE snrStartingSequenceNumber #-}
+
+-- | The ending sequence number for the range. Shards that are in the OPEN state
+-- have an ending sequence number of null.
+snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
+snrEndingSequenceNumber =
+    lens _snrEndingSequenceNumber
+         (\s a -> s { _snrEndingSequenceNumber = a })
+{-# INLINE snrEndingSequenceNumber #-}
+
 instance FromJSON SequenceNumberRange
 
 instance ToJSON SequenceNumberRange
@@ -318,21 +307,29 @@ instance ToJSON SequenceNumberRange
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 data Shard = Shard
     { _sShardId :: Text
-      -- ^ The unique identifier of the shard within the Amazon Kinesis
-      -- stream.
     , _sParentShardId :: Maybe Text
-      -- ^ The shard Id of the shard's parent.
     , _sAdjacentParentShardId :: Maybe Text
-      -- ^ The shard Id of the shard adjacent to the shard's parent.
     , _sHashKeyRange :: HashKeyRange
-      -- ^ The range of possible hash key values for the shard, which is a
-      -- set of ordered contiguous positive integers.
     , _sSequenceNumberRange :: SequenceNumberRange
-      -- ^ The range of possible sequence numbers for the shard.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Shard' data type to populate a request.
+mkShard :: Text -- ^ 'sShardId'
+        -> HashKeyRange -- ^ 'sHashKeyRange'
+        -> SequenceNumberRange -- ^ 'sSequenceNumberRange'
+        -> Shard
+mkShard p1 p4 p5 = Shard
+    { _sShardId = p1
+    , _sParentShardId = Nothing
+    , _sAdjacentParentShardId = Nothing
+    , _sHashKeyRange = p4
+    , _sSequenceNumberRange = p5
+    }
+{-# INLINE mkShard #-}
+
 -- | The unique identifier of the shard within the Amazon Kinesis stream.
-sShardId :: Lens' Shard (Text)
+sShardId :: Lens' Shard Text
 sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 {-# INLINE sShardId #-}
 
@@ -343,18 +340,20 @@ sParentShardId = lens _sParentShardId (\s a -> s { _sParentShardId = a })
 
 -- | The shard Id of the shard adjacent to the shard's parent.
 sAdjacentParentShardId :: Lens' Shard (Maybe Text)
-sAdjacentParentShardId = lens _sAdjacentParentShardId (\s a -> s { _sAdjacentParentShardId = a })
+sAdjacentParentShardId =
+    lens _sAdjacentParentShardId (\s a -> s { _sAdjacentParentShardId = a })
 {-# INLINE sAdjacentParentShardId #-}
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
-sHashKeyRange :: Lens' Shard (HashKeyRange)
+sHashKeyRange :: Lens' Shard HashKeyRange
 sHashKeyRange = lens _sHashKeyRange (\s a -> s { _sHashKeyRange = a })
 {-# INLINE sHashKeyRange #-}
 
 -- | The range of possible sequence numbers for the shard.
-sSequenceNumberRange :: Lens' Shard (SequenceNumberRange)
-sSequenceNumberRange = lens _sSequenceNumberRange (\s a -> s { _sSequenceNumberRange = a })
+sSequenceNumberRange :: Lens' Shard SequenceNumberRange
+sSequenceNumberRange =
+    lens _sSequenceNumberRange (\s a -> s { _sSequenceNumberRange = a })
 {-# INLINE sSequenceNumberRange #-}
 
 instance FromJSON Shard
@@ -364,36 +363,36 @@ instance FromJSON Shard
 -- shards available.
 data StreamDescription = StreamDescription
     { _sdStreamName :: Text
-      -- ^ The name of the stream being described.
     , _sdStreamARN :: Text
-      -- ^ The Amazon Resource Name (ARN) for the stream being described.
     , _sdStreamStatus :: StreamStatus
-      -- ^ The current status of the stream being described. The stream
-      -- status is one of the following states: CREATING - The stream is
-      -- being created. Upon receiving a CreateStream request, Amazon
-      -- Kinesis immediately returns and sets StreamStatus to CREATING.
-      -- DELETING - The stream is being deleted. After a DeleteStream
-      -- request, the specified stream is in the DELETING state until
-      -- Amazon Kinesis completes the deletion. ACTIVE - The stream exists
-      -- and is ready for read and write operations or deletion. You
-      -- should perform read and write operations only on an ACTIVE
-      -- stream. UPDATING - Shards in the stream are being merged or
-      -- split. Read and write operations continue to work while the
-      -- stream is in the UPDATING state.
     , _sdShards :: [Shard]
-      -- ^ The shards that comprise the stream.
     , _sdHasMoreShards :: Bool
-      -- ^ If set to true there are more shards in the stream available to
-      -- describe.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'StreamDescription' data type to populate a request.
+mkStreamDescription :: Text -- ^ 'sdStreamName'
+                    -> Text -- ^ 'sdStreamARN'
+                    -> StreamStatus -- ^ 'sdStreamStatus'
+                    -> [Shard] -- ^ 'sdShards'
+                    -> Bool -- ^ 'sdHasMoreShards'
+                    -> StreamDescription
+mkStreamDescription p1 p2 p3 p4 p5 = StreamDescription
+    { _sdStreamName = p1
+    , _sdStreamARN = p2
+    , _sdStreamStatus = p3
+    , _sdShards = p4
+    , _sdHasMoreShards = p5
+    }
+{-# INLINE mkStreamDescription #-}
+
 -- | The name of the stream being described.
-sdStreamName :: Lens' StreamDescription (Text)
+sdStreamName :: Lens' StreamDescription Text
 sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
 {-# INLINE sdStreamName #-}
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
-sdStreamARN :: Lens' StreamDescription (Text)
+sdStreamARN :: Lens' StreamDescription Text
 sdStreamARN = lens _sdStreamARN (\s a -> s { _sdStreamARN = a })
 {-# INLINE sdStreamARN #-}
 
@@ -407,17 +406,17 @@ sdStreamARN = lens _sdStreamARN (\s a -> s { _sdStreamARN = a })
 -- and write operations only on an ACTIVE stream. UPDATING - Shards in the
 -- stream are being merged or split. Read and write operations continue to
 -- work while the stream is in the UPDATING state.
-sdStreamStatus :: Lens' StreamDescription (StreamStatus)
+sdStreamStatus :: Lens' StreamDescription StreamStatus
 sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 {-# INLINE sdStreamStatus #-}
 
 -- | The shards that comprise the stream.
-sdShards :: Lens' StreamDescription ([Shard])
+sdShards :: Lens' StreamDescription [Shard]
 sdShards = lens _sdShards (\s a -> s { _sdShards = a })
 {-# INLINE sdShards #-}
 
 -- | If set to true there are more shards in the stream available to describe.
-sdHasMoreShards :: Lens' StreamDescription (Bool)
+sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\s a -> s { _sdHasMoreShards = a })
 {-# INLINE sdHasMoreShards #-}
 

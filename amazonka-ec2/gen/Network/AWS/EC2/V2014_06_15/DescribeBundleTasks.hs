@@ -38,52 +38,40 @@ module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks
     -- * Request
       DescribeBundleTasks
     -- ** Request constructor
-    , mkDescribeBundleTasksRequest
+    , mkDescribeBundleTasks
     -- ** Request lenses
-    , dbtrBundleIds
-    , dbtrFilters
+    , dbtBundleIds
+    , dbtFilters
 
     -- * Response
     , DescribeBundleTasksResponse
     -- ** Response lenses
-    , dbtsBundleTasks
+    , dbtrsBundleTasks
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeBundleTasks' request.
-mkDescribeBundleTasksRequest :: DescribeBundleTasks
-mkDescribeBundleTasksRequest = DescribeBundleTasks
-    { _dbtrBundleIds = mempty
-    , _dbtrFilters = mempty
-    }
-{-# INLINE mkDescribeBundleTasksRequest #-}
-
+-- | 
 data DescribeBundleTasks = DescribeBundleTasks
-    { _dbtrBundleIds :: [Text]
-      -- ^ One or more bundle task IDs. Default: Describes all your bundle
-      -- tasks.
-    , _dbtrFilters :: [Filter]
-      -- ^ One or more filters. bundle-id - The ID of the bundle task.
-      -- error-code - If the task failed, the error code returned.
-      -- error-message - If the task failed, the error message returned.
-      -- instance-id - The ID of the instance. progress - The level of
-      -- task completion, as a percentage (for example, 20%). s3-bucket -
-      -- The Amazon S3 bucket to store the AMI. s3-prefix - The beginning
-      -- of the AMI name. start-time - The time the task started (for
-      -- example, 2013-09-15T17:15:20.000Z). state - The state of the task
-      -- (pending | waiting-for-shutdown | bundling | storing | cancelling
-      -- | complete | failed). update-time - The time of the most recent
-      -- update for the task.
+    { _dbtBundleIds :: [Text]
+    , _dbtFilters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeBundleTasks' request.
+mkDescribeBundleTasks :: DescribeBundleTasks
+mkDescribeBundleTasks = DescribeBundleTasks
+    { _dbtBundleIds = mempty
+    , _dbtFilters = mempty
+    }
+{-# INLINE mkDescribeBundleTasks #-}
+
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
-dbtrBundleIds :: Lens' DescribeBundleTasks ([Text])
-dbtrBundleIds = lens _dbtrBundleIds (\s a -> s { _dbtrBundleIds = a })
-{-# INLINE dbtrBundleIds #-}
+dbtBundleIds :: Lens' DescribeBundleTasks [Text]
+dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
+{-# INLINE dbtBundleIds #-}
 
 -- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
 -- the task failed, the error code returned. error-message - If the task
@@ -94,22 +82,23 @@ dbtrBundleIds = lens _dbtrBundleIds (\s a -> s { _dbtrBundleIds = a })
 -- example, 2013-09-15T17:15:20.000Z). state - The state of the task (pending
 -- | waiting-for-shutdown | bundling | storing | cancelling | complete |
 -- failed). update-time - The time of the most recent update for the task.
-dbtrFilters :: Lens' DescribeBundleTasks ([Filter])
-dbtrFilters = lens _dbtrFilters (\s a -> s { _dbtrFilters = a })
-{-# INLINE dbtrFilters #-}
+dbtFilters :: Lens' DescribeBundleTasks [Filter]
+dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
+{-# INLINE dbtFilters #-}
 
 instance ToQuery DescribeBundleTasks where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
-    { _dbtsBundleTasks :: [BundleTask]
-      -- ^ Information about one or more bundle tasks.
+    { _dbtrsBundleTasks :: [BundleTask]
     } deriving (Show, Generic)
 
 -- | Information about one or more bundle tasks.
-dbtsBundleTasks :: Lens' DescribeBundleTasksResponse ([BundleTask])
-dbtsBundleTasks = lens _dbtsBundleTasks (\s a -> s { _dbtsBundleTasks = a })
-{-# INLINE dbtsBundleTasks #-}
+dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
+dbtrsBundleTasks =
+    lens _dbtrsBundleTasks (\s a -> s { _dbtrsBundleTasks = a })
+{-# INLINE dbtrsBundleTasks #-}
 
 instance FromXML DescribeBundleTasksResponse where
     fromXMLOptions = xmlOptions

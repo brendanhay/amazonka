@@ -30,111 +30,104 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironments
     -- * Request
       DescribeEnvironments
     -- ** Request constructor
-    , mkDescribeEnvironmentsMessage
+    , mkDescribeEnvironments
     -- ** Request lenses
-    , demApplicationName
-    , demVersionLabel
-    , demEnvironmentIds
-    , demEnvironmentNames
-    , demIncludeDeleted
-    , demIncludedDeletedBackTo
+    , deApplicationName
+    , deVersionLabel
+    , deEnvironmentIds
+    , deEnvironmentNames
+    , deIncludeDeleted
+    , deIncludedDeletedBackTo
 
     -- * Response
     , DescribeEnvironmentsResponse
     -- ** Response lenses
-    , edmEnvironments
+    , dersEnvironments
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | This documentation target is not reported in the API reference.
+data DescribeEnvironments = DescribeEnvironments
+    { _deApplicationName :: Maybe Text
+    , _deVersionLabel :: Maybe Text
+    , _deEnvironmentIds :: [Text]
+    , _deEnvironmentNames :: [Text]
+    , _deIncludeDeleted :: Maybe Bool
+    , _deIncludedDeletedBackTo :: Maybe ISO8601
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironments' request.
-mkDescribeEnvironmentsMessage :: DescribeEnvironments
-mkDescribeEnvironmentsMessage = DescribeEnvironments
-    { _demApplicationName = Nothing
-    , _demVersionLabel = Nothing
-    , _demEnvironmentIds = mempty
-    , _demEnvironmentNames = mempty
-    , _demIncludeDeleted = Nothing
-    , _demIncludedDeletedBackTo = Nothing
+mkDescribeEnvironments :: DescribeEnvironments
+mkDescribeEnvironments = DescribeEnvironments
+    { _deApplicationName = Nothing
+    , _deVersionLabel = Nothing
+    , _deEnvironmentIds = mempty
+    , _deEnvironmentNames = mempty
+    , _deIncludeDeleted = Nothing
+    , _deIncludedDeletedBackTo = Nothing
     }
-{-# INLINE mkDescribeEnvironmentsMessage #-}
-
-data DescribeEnvironments = DescribeEnvironments
-    { _demApplicationName :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to include only those that are associated with this
-      -- application.
-    , _demVersionLabel :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to include only those that are associated with this
-      -- application version.
-    , _demEnvironmentIds :: [Text]
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to include only those that have the specified IDs.
-    , _demEnvironmentNames :: [Text]
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to include only those that have the specified names.
-    , _demIncludeDeleted :: Maybe Bool
-      -- ^ Indicates whether to include deleted environments: true:
-      -- Environments that have been deleted after IncludedDeletedBackTo
-      -- are displayed. false: Do not include deleted environments.
-    , _demIncludedDeletedBackTo :: Maybe ISO8601
-      -- ^ If specified when IncludeDeleted is set to true, then
-      -- environments deleted after this date are displayed.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeEnvironments #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that are associated with this application.
-demApplicationName :: Lens' DescribeEnvironments (Maybe Text)
-demApplicationName = lens _demApplicationName (\s a -> s { _demApplicationName = a })
-{-# INLINE demApplicationName #-}
+deApplicationName :: Lens' DescribeEnvironments (Maybe Text)
+deApplicationName =
+    lens _deApplicationName (\s a -> s { _deApplicationName = a })
+{-# INLINE deApplicationName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that are associated with this application version.
-demVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
-demVersionLabel = lens _demVersionLabel (\s a -> s { _demVersionLabel = a })
-{-# INLINE demVersionLabel #-}
+deVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
+deVersionLabel = lens _deVersionLabel (\s a -> s { _deVersionLabel = a })
+{-# INLINE deVersionLabel #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that have the specified IDs.
-demEnvironmentIds :: Lens' DescribeEnvironments ([Text])
-demEnvironmentIds = lens _demEnvironmentIds (\s a -> s { _demEnvironmentIds = a })
-{-# INLINE demEnvironmentIds #-}
+deEnvironmentIds :: Lens' DescribeEnvironments [Text]
+deEnvironmentIds =
+    lens _deEnvironmentIds (\s a -> s { _deEnvironmentIds = a })
+{-# INLINE deEnvironmentIds #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those that have the specified names.
-demEnvironmentNames :: Lens' DescribeEnvironments ([Text])
-demEnvironmentNames = lens _demEnvironmentNames (\s a -> s { _demEnvironmentNames = a })
-{-# INLINE demEnvironmentNames #-}
+deEnvironmentNames :: Lens' DescribeEnvironments [Text]
+deEnvironmentNames =
+    lens _deEnvironmentNames (\s a -> s { _deEnvironmentNames = a })
+{-# INLINE deEnvironmentNames #-}
 
 -- | Indicates whether to include deleted environments: true: Environments that
 -- have been deleted after IncludedDeletedBackTo are displayed. false: Do not
 -- include deleted environments.
-demIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
-demIncludeDeleted = lens _demIncludeDeleted (\s a -> s { _demIncludeDeleted = a })
-{-# INLINE demIncludeDeleted #-}
+deIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
+deIncludeDeleted =
+    lens _deIncludeDeleted (\s a -> s { _deIncludeDeleted = a })
+{-# INLINE deIncludeDeleted #-}
 
 -- | If specified when IncludeDeleted is set to true, then environments deleted
 -- after this date are displayed.
-demIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe ISO8601)
-demIncludedDeletedBackTo = lens _demIncludedDeletedBackTo (\s a -> s { _demIncludedDeletedBackTo = a })
-{-# INLINE demIncludedDeletedBackTo #-}
+deIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe ISO8601)
+deIncludedDeletedBackTo =
+    lens _deIncludedDeletedBackTo
+         (\s a -> s { _deIncludedDeletedBackTo = a })
+{-# INLINE deIncludedDeletedBackTo #-}
 
 instance ToQuery DescribeEnvironments where
     toQuery = genericQuery def
 
+-- | Result message containing a list of environment descriptions.
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
-    { _edmEnvironments :: [EnvironmentDescription]
-      -- ^ Returns an EnvironmentDescription list.
+    { _dersEnvironments :: [EnvironmentDescription]
     } deriving (Show, Generic)
 
 -- | Returns an EnvironmentDescription list.
-edmEnvironments :: Lens' DescribeEnvironmentsResponse ([EnvironmentDescription])
-edmEnvironments = lens _edmEnvironments (\s a -> s { _edmEnvironments = a })
-{-# INLINE edmEnvironments #-}
+dersEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
+dersEnvironments =
+    lens _dersEnvironments (\s a -> s { _dersEnvironments = a })
+{-# INLINE dersEnvironments #-}
 
 instance FromXML DescribeEnvironmentsResponse where
     fromXMLOptions = xmlOptions

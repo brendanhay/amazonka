@@ -40,51 +40,55 @@ module Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests
     -- * Request
       CancelSpotInstanceRequests
     -- ** Request constructor
-    , mkCancelSpotInstanceRequestsRequest
+    , mkCancelSpotInstanceRequests
     -- ** Request lenses
-    , csirrSpotInstanceRequestIds
+    , csirSpotInstanceRequestIds
 
     -- * Response
     , CancelSpotInstanceRequestsResponse
     -- ** Response lenses
-    , csirsCancelledSpotInstanceRequests
+    , csirrsCancelledSpotInstanceRequests
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelSpotInstanceRequests' request.
-mkCancelSpotInstanceRequestsRequest :: [Text] -- ^ 'csirrSpotInstanceRequestIds'
-                                    -> CancelSpotInstanceRequests
-mkCancelSpotInstanceRequestsRequest p1 = CancelSpotInstanceRequests
-    { _csirrSpotInstanceRequestIds = p1
-    }
-{-# INLINE mkCancelSpotInstanceRequestsRequest #-}
-
+-- | 
 newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
-    { _csirrSpotInstanceRequestIds :: [Text]
-      -- ^ One or more Spot Instance request IDs.
+    { _csirSpotInstanceRequestIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelSpotInstanceRequests' request.
+mkCancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
+                             -> CancelSpotInstanceRequests
+mkCancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
+    { _csirSpotInstanceRequestIds = p1
+    }
+{-# INLINE mkCancelSpotInstanceRequests #-}
+
 -- | One or more Spot Instance request IDs.
-csirrSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests ([Text])
-csirrSpotInstanceRequestIds = lens _csirrSpotInstanceRequestIds (\s a -> s { _csirrSpotInstanceRequestIds = a })
-{-# INLINE csirrSpotInstanceRequestIds #-}
+csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
+csirSpotInstanceRequestIds =
+    lens _csirSpotInstanceRequestIds
+         (\s a -> s { _csirSpotInstanceRequestIds = a })
+{-# INLINE csirSpotInstanceRequestIds #-}
 
 instance ToQuery CancelSpotInstanceRequests where
     toQuery = genericQuery def
 
+-- | 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
-    { _csirsCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
-      -- ^ One or more Spot Instance requests.
+    { _csirrsCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
-csirsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse ([CancelledSpotInstanceRequest])
-csirsCancelledSpotInstanceRequests = lens _csirsCancelledSpotInstanceRequests (\s a -> s { _csirsCancelledSpotInstanceRequests = a })
-{-# INLINE csirsCancelledSpotInstanceRequests #-}
+csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
+csirrsCancelledSpotInstanceRequests =
+    lens _csirrsCancelledSpotInstanceRequests
+         (\s a -> s { _csirrsCancelledSpotInstanceRequests = a })
+{-# INLINE csirrsCancelledSpotInstanceRequests #-}
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions

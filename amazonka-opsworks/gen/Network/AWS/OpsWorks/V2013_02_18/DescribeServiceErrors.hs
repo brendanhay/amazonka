@@ -26,16 +26,16 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors
     -- * Request
       DescribeServiceErrors
     -- ** Request constructor
-    , mkDescribeServiceErrorsRequest
+    , mkDescribeServiceErrors
     -- ** Request lenses
-    , dserStackId
-    , dserInstanceId
-    , dserServiceErrorIds
+    , dseStackId
+    , dseInstanceId
+    , dseServiceErrorIds
 
     -- * Response
     , DescribeServiceErrorsResponse
     -- ** Response lenses
-    , dsesServiceErrors
+    , dsersServiceErrors
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,49 +43,41 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DescribeServiceErrors = DescribeServiceErrors
+    { _dseStackId :: Maybe Text
+    , _dseInstanceId :: Maybe Text
+    , _dseServiceErrorIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceErrors' request.
-mkDescribeServiceErrorsRequest :: DescribeServiceErrors
-mkDescribeServiceErrorsRequest = DescribeServiceErrors
-    { _dserStackId = Nothing
-    , _dserInstanceId = Nothing
-    , _dserServiceErrorIds = mempty
+mkDescribeServiceErrors :: DescribeServiceErrors
+mkDescribeServiceErrors = DescribeServiceErrors
+    { _dseStackId = Nothing
+    , _dseInstanceId = Nothing
+    , _dseServiceErrorIds = mempty
     }
-{-# INLINE mkDescribeServiceErrorsRequest #-}
-
-data DescribeServiceErrors = DescribeServiceErrors
-    { _dserStackId :: Maybe Text
-      -- ^ The stack ID. If you use this parameter, DescribeServiceErrors
-      -- returns descriptions of the errors associated with the specified
-      -- stack.
-    , _dserInstanceId :: Maybe Text
-      -- ^ The instance ID. If you use this parameter, DescribeServiceErrors
-      -- returns descriptions of the errors associated with the specified
-      -- instance.
-    , _dserServiceErrorIds :: [Text]
-      -- ^ An array of service error IDs. If you use this parameter,
-      -- DescribeServiceErrors returns descriptions of the specified
-      -- errors. Otherwise, it returns a description of every error.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeServiceErrors #-}
 
 -- | The stack ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified stack.
-dserStackId :: Lens' DescribeServiceErrors (Maybe Text)
-dserStackId = lens _dserStackId (\s a -> s { _dserStackId = a })
-{-# INLINE dserStackId #-}
+dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
+dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
+{-# INLINE dseStackId #-}
 
 -- | The instance ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified instance.
-dserInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
-dserInstanceId = lens _dserInstanceId (\s a -> s { _dserInstanceId = a })
-{-# INLINE dserInstanceId #-}
+dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
+dseInstanceId = lens _dseInstanceId (\s a -> s { _dseInstanceId = a })
+{-# INLINE dseInstanceId #-}
 
 -- | An array of service error IDs. If you use this parameter,
 -- DescribeServiceErrors returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
-dserServiceErrorIds :: Lens' DescribeServiceErrors ([Text])
-dserServiceErrorIds = lens _dserServiceErrorIds (\s a -> s { _dserServiceErrorIds = a })
-{-# INLINE dserServiceErrorIds #-}
+dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
+dseServiceErrorIds =
+    lens _dseServiceErrorIds (\s a -> s { _dseServiceErrorIds = a })
+{-# INLINE dseServiceErrorIds #-}
 
 instance ToPath DescribeServiceErrors
 
@@ -95,17 +87,17 @@ instance ToHeaders DescribeServiceErrors
 
 instance ToJSON DescribeServiceErrors
 
+-- | Contains the response to a DescribeServiceErrors request.
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
-    { _dsesServiceErrors :: [ServiceError]
-      -- ^ An array of ServiceError objects that describe the specified
-      -- service errors.
+    { _dsersServiceErrors :: [ServiceError]
     } deriving (Show, Generic)
 
 -- | An array of ServiceError objects that describe the specified service
 -- errors.
-dsesServiceErrors :: Lens' DescribeServiceErrorsResponse ([ServiceError])
-dsesServiceErrors = lens _dsesServiceErrors (\s a -> s { _dsesServiceErrors = a })
-{-# INLINE dsesServiceErrors #-}
+dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError]
+dsersServiceErrors =
+    lens _dsersServiceErrors (\s a -> s { _dsersServiceErrors = a })
+{-# INLINE dsersServiceErrors #-}
 
 instance FromJSON DescribeServiceErrorsResponse
 

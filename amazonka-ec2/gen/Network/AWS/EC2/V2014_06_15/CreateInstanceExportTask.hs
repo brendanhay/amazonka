@@ -51,80 +51,79 @@ module Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask
     -- * Request
       CreateInstanceExportTask
     -- ** Request constructor
-    , mkCreateInstanceExportTaskRequest
+    , mkCreateInstanceExportTask
     -- ** Request lenses
-    , cietrDescription
-    , cietrInstanceId
-    , cietrTargetEnvironment
-    , cietrExportToS3Task
+    , cietDescription
+    , cietInstanceId
+    , cietTargetEnvironment
+    , cietExportToS3Task
 
     -- * Response
     , CreateInstanceExportTaskResponse
     -- ** Response lenses
-    , cietsExportTask
+    , cietrsExportTask
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateInstanceExportTask = CreateInstanceExportTask
+    { _cietDescription :: Maybe Text
+    , _cietInstanceId :: Text
+    , _cietTargetEnvironment :: Maybe ExportEnvironment
+    , _cietExportToS3Task :: Maybe ExportToS3TaskSpecification
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstanceExportTask' request.
-mkCreateInstanceExportTaskRequest :: Text -- ^ 'cietrInstanceId'
-                                  -> CreateInstanceExportTask
-mkCreateInstanceExportTaskRequest p1 = CreateInstanceExportTask
-    { _cietrDescription = Nothing
-    , _cietrInstanceId = p2
-    , _cietrTargetEnvironment = Nothing
-    , _cietrExportToS3Task = Nothing
+mkCreateInstanceExportTask :: Text -- ^ 'cietInstanceId'
+                           -> CreateInstanceExportTask
+mkCreateInstanceExportTask p2 = CreateInstanceExportTask
+    { _cietDescription = Nothing
+    , _cietInstanceId = p2
+    , _cietTargetEnvironment = Nothing
+    , _cietExportToS3Task = Nothing
     }
-{-# INLINE mkCreateInstanceExportTaskRequest #-}
-
-data CreateInstanceExportTask = CreateInstanceExportTask
-    { _cietrDescription :: Maybe Text
-      -- ^ A description for the conversion task or the resource being
-      -- exported. The maximum length is 255 bytes.
-    , _cietrInstanceId :: Text
-      -- ^ The ID of the instance.
-    , _cietrTargetEnvironment :: Maybe ExportEnvironment
-      -- ^ The target virtualization environment.
-    , _cietrExportToS3Task :: Maybe ExportToS3TaskSpecification
-      -- ^ 
-    } deriving (Show, Generic)
+{-# INLINE mkCreateInstanceExportTask #-}
 
 -- | A description for the conversion task or the resource being exported. The
 -- maximum length is 255 bytes.
-cietrDescription :: Lens' CreateInstanceExportTask (Maybe Text)
-cietrDescription = lens _cietrDescription (\s a -> s { _cietrDescription = a })
-{-# INLINE cietrDescription #-}
+cietDescription :: Lens' CreateInstanceExportTask (Maybe Text)
+cietDescription = lens _cietDescription (\s a -> s { _cietDescription = a })
+{-# INLINE cietDescription #-}
 
 -- | The ID of the instance.
-cietrInstanceId :: Lens' CreateInstanceExportTask (Text)
-cietrInstanceId = lens _cietrInstanceId (\s a -> s { _cietrInstanceId = a })
-{-# INLINE cietrInstanceId #-}
+cietInstanceId :: Lens' CreateInstanceExportTask Text
+cietInstanceId = lens _cietInstanceId (\s a -> s { _cietInstanceId = a })
+{-# INLINE cietInstanceId #-}
 
 -- | The target virtualization environment.
-cietrTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
-cietrTargetEnvironment = lens _cietrTargetEnvironment (\s a -> s { _cietrTargetEnvironment = a })
-{-# INLINE cietrTargetEnvironment #-}
+cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
+cietTargetEnvironment =
+    lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })
+{-# INLINE cietTargetEnvironment #-}
 
 -- | 
-cietrExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
-cietrExportToS3Task = lens _cietrExportToS3Task (\s a -> s { _cietrExportToS3Task = a })
-{-# INLINE cietrExportToS3Task #-}
+cietExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
+cietExportToS3Task =
+    lens _cietExportToS3Task (\s a -> s { _cietExportToS3Task = a })
+{-# INLINE cietExportToS3Task #-}
 
 instance ToQuery CreateInstanceExportTask where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
-    { _cietsExportTask :: Maybe ExportTask
-      -- ^ 
+    { _cietrsExportTask :: Maybe ExportTask
     } deriving (Show, Generic)
 
 -- | 
-cietsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
-cietsExportTask = lens _cietsExportTask (\s a -> s { _cietsExportTask = a })
-{-# INLINE cietsExportTask #-}
+cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
+cietrsExportTask =
+    lens _cietrsExportTask (\s a -> s { _cietrsExportTask = a })
+{-# INLINE cietrsExportTask #-}
 
 instance FromXML CreateInstanceExportTaskResponse where
     fromXMLOptions = xmlOptions

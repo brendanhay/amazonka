@@ -32,10 +32,10 @@ module Network.AWS.ELB.V2012_06_01.AddTags
     -- * Request
       AddTags
     -- ** Request constructor
-    , mkAddTagsInput
+    , mkAddTags
     -- ** Request lenses
-    , atiLoadBalancerNames
-    , atiTags
+    , atLoadBalancerNames
+    , atTags
 
     -- * Response
     , AddTagsResponse
@@ -45,39 +45,39 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | The input for the AddTags action.
+data AddTags = AddTags
+    { _atLoadBalancerNames :: [Text]
+    , _atTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.
-mkAddTagsInput :: [Text] -- ^ 'atiLoadBalancerNames'
-               -> [Tag] -- ^ 'atiTags'
-               -> AddTags
-mkAddTagsInput p1 p2 = AddTags
-    { _atiLoadBalancerNames = p1
-    , _atiTags = p2
+mkAddTags :: [Text] -- ^ 'atLoadBalancerNames'
+          -> [Tag] -- ^ 'atTags'
+          -> AddTags
+mkAddTags p1 p2 = AddTags
+    { _atLoadBalancerNames = p1
+    , _atTags = p2
     }
-{-# INLINE mkAddTagsInput #-}
-
-data AddTags = AddTags
-    { _atiLoadBalancerNames :: [Text]
-      -- ^ The name of the load balancer to tag. You can specify a maximum
-      -- of one load balancer name.
-    , _atiTags :: [Tag]
-      -- ^ A list of tags for each load balancer.
-    } deriving (Show, Generic)
+{-# INLINE mkAddTags #-}
 
 -- | The name of the load balancer to tag. You can specify a maximum of one load
 -- balancer name.
-atiLoadBalancerNames :: Lens' AddTags ([Text])
-atiLoadBalancerNames = lens _atiLoadBalancerNames (\s a -> s { _atiLoadBalancerNames = a })
-{-# INLINE atiLoadBalancerNames #-}
+atLoadBalancerNames :: Lens' AddTags [Text]
+atLoadBalancerNames =
+    lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
+{-# INLINE atLoadBalancerNames #-}
 
 -- | A list of tags for each load balancer.
-atiTags :: Lens' AddTags ([Tag])
-atiTags = lens _atiTags (\s a -> s { _atiTags = a })
-{-# INLINE atiTags #-}
+atTags :: Lens' AddTags [Tag]
+atTags = lens _atTags (\s a -> s { _atTags = a })
+{-# INLINE atTags #-}
 
 instance ToQuery AddTags where
     toQuery = genericQuery def
 
+-- | The output for the AddTags action.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest AddTags where

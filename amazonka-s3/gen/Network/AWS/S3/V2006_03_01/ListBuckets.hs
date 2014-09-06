@@ -26,28 +26,29 @@ module Network.AWS.S3.V2006_03_01.ListBuckets
     -- ** Request alias
     , GetService
     -- ** Request constructor
-    , mkUnknown
+    , mkListBuckets
     -- * Response
     , ListBucketsResponse
     -- ** Response lenses
-    , lboBuckets
-    , lboOwner
+    , lbrsBuckets
+    , lbrsOwner
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
 
 type GetService = ListBuckets
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListBuckets' request.
-mkUnknown :: ListBuckets
-mkUnknown = ListBuckets
-{-# INLINE mkUnknown #-}
-
 data ListBuckets = ListBuckets
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListBuckets' request.
+mkListBuckets :: ListBuckets
+mkListBuckets = ListBuckets
+{-# INLINE mkListBuckets #-}
 
 instance ToPath ListBuckets where
     toPath = const "/"
@@ -59,17 +60,17 @@ instance ToHeaders ListBuckets
 instance ToBody ListBuckets
 
 data ListBucketsResponse = ListBucketsResponse
-    { _lboBuckets :: [Bucket]
-    , _lboOwner :: Maybe Owner
+    { _lbrsBuckets :: [Bucket]
+    , _lbrsOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-lboBuckets :: Lens' ListBucketsResponse ([Bucket])
-lboBuckets = lens _lboBuckets (\s a -> s { _lboBuckets = a })
-{-# INLINE lboBuckets #-}
+lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
+lbrsBuckets = lens _lbrsBuckets (\s a -> s { _lbrsBuckets = a })
+{-# INLINE lbrsBuckets #-}
 
-lboOwner :: Lens' ListBucketsResponse (Maybe Owner)
-lboOwner = lens _lboOwner (\s a -> s { _lboOwner = a })
-{-# INLINE lboOwner #-}
+lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
+lbrsOwner = lens _lbrsOwner (\s a -> s { _lbrsOwner = a })
+{-# INLINE lbrsOwner #-}
 
 instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions

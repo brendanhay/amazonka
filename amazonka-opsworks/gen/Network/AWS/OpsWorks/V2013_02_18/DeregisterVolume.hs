@@ -28,9 +28,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume
     -- * Request
       DeregisterVolume
     -- ** Request constructor
-    , mkDeregisterVolumeRequest
+    , mkDeregisterVolume
     -- ** Request lenses
-    , dvrVolumeId
+    , dvVolumeId
 
     -- * Response
     , DeregisterVolumeResponse
@@ -41,24 +41,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterVolume' request.
-mkDeregisterVolumeRequest :: Text -- ^ 'dvrVolumeId'
-                          -> DeregisterVolume
-mkDeregisterVolumeRequest p1 = DeregisterVolume
-    { _dvrVolumeId = p1
-    }
-{-# INLINE mkDeregisterVolumeRequest #-}
-
 newtype DeregisterVolume = DeregisterVolume
-    { _dvrVolumeId :: Text
-      -- ^ The volume ID.
+    { _dvVolumeId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterVolume' request.
+mkDeregisterVolume :: Text -- ^ 'dvVolumeId'
+                   -> DeregisterVolume
+mkDeregisterVolume p1 = DeregisterVolume
+    { _dvVolumeId = p1
+    }
+{-# INLINE mkDeregisterVolume #-}
+
 -- | The volume ID.
-dvrVolumeId :: Lens' DeregisterVolume (Text)
-dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
-{-# INLINE dvrVolumeId #-}
+dvVolumeId :: Lens' DeregisterVolume Text
+dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
+{-# INLINE dvVolumeId #-}
 
 instance ToPath DeregisterVolume
 

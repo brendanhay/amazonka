@@ -25,70 +25,69 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies
     -- * Request
       UpdateServiceAccessPolicies
     -- ** Request constructor
-    , mkUpdateServiceAccessPoliciesRequest
+    , mkUpdateServiceAccessPolicies
     -- ** Request lenses
-    , usaprDomainName
-    , usaprAccessPolicies
+    , usapDomainName
+    , usapAccessPolicies
 
     -- * Response
     , UpdateServiceAccessPoliciesResponse
     -- ** Response lenses
-    , usapsAccessPolicies
+    , usaprsAccessPolicies
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the UpdateServiceAccessPolicies operation.
+-- Specifies the name of the domain you want to update and the access rules
+-- you want to configure.
+data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
+    { _usapDomainName :: Text
+    , _usapAccessPolicies :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServiceAccessPolicies' request.
-mkUpdateServiceAccessPoliciesRequest :: Text -- ^ 'usaprDomainName'
-                                     -> Text -- ^ 'usaprAccessPolicies'
-                                     -> UpdateServiceAccessPolicies
-mkUpdateServiceAccessPoliciesRequest p1 p2 = UpdateServiceAccessPolicies
-    { _usaprDomainName = p1
-    , _usaprAccessPolicies = p2
+mkUpdateServiceAccessPolicies :: Text -- ^ 'usapDomainName'
+                              -> Text -- ^ 'usapAccessPolicies'
+                              -> UpdateServiceAccessPolicies
+mkUpdateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
+    { _usapDomainName = p1
+    , _usapAccessPolicies = p2
     }
-{-# INLINE mkUpdateServiceAccessPoliciesRequest #-}
-
-data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
-    { _usaprDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    , _usaprAccessPolicies :: Text
-      -- ^ The access rules you want to configure. These rules replace any
-      -- existing rules.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateServiceAccessPolicies #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-usaprDomainName :: Lens' UpdateServiceAccessPolicies (Text)
-usaprDomainName = lens _usaprDomainName (\s a -> s { _usaprDomainName = a })
-{-# INLINE usaprDomainName #-}
+usapDomainName :: Lens' UpdateServiceAccessPolicies Text
+usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
+{-# INLINE usapDomainName #-}
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
-usaprAccessPolicies :: Lens' UpdateServiceAccessPolicies (Text)
-usaprAccessPolicies = lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
-{-# INLINE usaprAccessPolicies #-}
+usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
+usapAccessPolicies =
+    lens _usapAccessPolicies (\s a -> s { _usapAccessPolicies = a })
+{-# INLINE usapAccessPolicies #-}
 
 instance ToQuery UpdateServiceAccessPolicies where
     toQuery = genericQuery def
 
+-- | The result of an UpdateServiceAccessPolicies request. Contains the new
+-- access policies.
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
-    { _usapsAccessPolicies :: AccessPoliciesStatus
-      -- ^ The access rules configured for the domain.
+    { _usaprsAccessPolicies :: AccessPoliciesStatus
     } deriving (Show, Generic)
 
 -- | The access rules configured for the domain.
-usapsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse (AccessPoliciesStatus)
-usapsAccessPolicies = lens _usapsAccessPolicies (\s a -> s { _usapsAccessPolicies = a })
-{-# INLINE usapsAccessPolicies #-}
+usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
+usaprsAccessPolicies =
+    lens _usaprsAccessPolicies (\s a -> s { _usaprsAccessPolicies = a })
+{-# INLINE usaprsAccessPolicies #-}
 
 instance FromXML UpdateServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions

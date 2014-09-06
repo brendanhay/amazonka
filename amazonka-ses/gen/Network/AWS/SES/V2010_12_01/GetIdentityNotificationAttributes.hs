@@ -40,51 +40,57 @@ module Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes
     -- * Request
       GetIdentityNotificationAttributes
     -- ** Request constructor
-    , mkGetIdentityNotificationAttributesRequest
+    , mkGetIdentityNotificationAttributes
     -- ** Request lenses
-    , ginarIdentities
+    , ginaIdentities
 
     -- * Response
     , GetIdentityNotificationAttributesResponse
     -- ** Response lenses
-    , ginasNotificationAttributes
+    , ginarsNotificationAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetIdentityNotificationAttributes' request.
-mkGetIdentityNotificationAttributesRequest :: [Text] -- ^ 'ginarIdentities'
-                                           -> GetIdentityNotificationAttributes
-mkGetIdentityNotificationAttributesRequest p1 = GetIdentityNotificationAttributes
-    { _ginarIdentities = p1
-    }
-{-# INLINE mkGetIdentityNotificationAttributesRequest #-}
-
+-- | Returns the notification attributes for a given list of identities (email
+-- address or domain names).
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
-    { _ginarIdentities :: [Text]
-      -- ^ A list of one or more identities.
+    { _ginaIdentities :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdentityNotificationAttributes' request.
+mkGetIdentityNotificationAttributes :: [Text] -- ^ 'ginaIdentities'
+                                    -> GetIdentityNotificationAttributes
+mkGetIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
+    { _ginaIdentities = p1
+    }
+{-# INLINE mkGetIdentityNotificationAttributes #-}
+
 -- | A list of one or more identities.
-ginarIdentities :: Lens' GetIdentityNotificationAttributes ([Text])
-ginarIdentities = lens _ginarIdentities (\s a -> s { _ginarIdentities = a })
-{-# INLINE ginarIdentities #-}
+ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
+ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a })
+{-# INLINE ginaIdentities #-}
 
 instance ToQuery GetIdentityNotificationAttributes where
     toQuery = genericQuery def
 
+-- | Describes whether an identity has Amazon Simple Notification Service
+-- (Amazon SNS) topics set for bounce, complaint, and/or delivery
+-- notifications, and specifies whether feedback forwarding is enabled for
+-- bounce and complaint notifications.
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
-    { _ginasNotificationAttributes :: Map Text IdentityNotificationAttributes
-      -- ^ A map of Identity to IdentityNotificationAttributes.
+    { _ginarsNotificationAttributes :: Map Text IdentityNotificationAttributes
     } deriving (Show, Generic)
 
 -- | A map of Identity to IdentityNotificationAttributes.
-ginasNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
-ginasNotificationAttributes = lens _ginasNotificationAttributes (\s a -> s { _ginasNotificationAttributes = a })
-{-# INLINE ginasNotificationAttributes #-}
+ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
+ginarsNotificationAttributes =
+    lens _ginarsNotificationAttributes
+         (\s a -> s { _ginarsNotificationAttributes = a })
+{-# INLINE ginarsNotificationAttributes #-}
 
 instance FromXML GetIdentityNotificationAttributesResponse where
     fromXMLOptions = xmlOptions

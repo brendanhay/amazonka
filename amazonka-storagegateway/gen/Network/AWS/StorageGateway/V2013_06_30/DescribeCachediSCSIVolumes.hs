@@ -48,14 +48,14 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes
     -- * Request
       DescribeCachediSCSIVolumes
     -- ** Request constructor
-    , mkDescribeCachediSCSIVolumesInput
+    , mkDescribeCachediSCSIVolumes
     -- ** Request lenses
-    , dcscsiviVolumeARNs
+    , dcscsivVolumeARNs
 
     -- * Response
     , DescribeCachediSCSIVolumesResponse
     -- ** Response lenses
-    , dcscsivoCachediSCSIVolumes
+    , dcscsivrsCachediSCSIVolumes
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -63,22 +63,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCachediSCSIVolumes' request.
-mkDescribeCachediSCSIVolumesInput :: [Text] -- ^ 'dcscsiviVolumeARNs'
-                                  -> DescribeCachediSCSIVolumes
-mkDescribeCachediSCSIVolumesInput p1 = DescribeCachediSCSIVolumes
-    { _dcscsiviVolumeARNs = p1
-    }
-{-# INLINE mkDescribeCachediSCSIVolumesInput #-}
-
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes
-    { _dcscsiviVolumeARNs :: [Text]
+    { _dcscsivVolumeARNs :: [Text]
     } deriving (Show, Generic)
 
-dcscsiviVolumeARNs :: Lens' DescribeCachediSCSIVolumes ([Text])
-dcscsiviVolumeARNs = lens _dcscsiviVolumeARNs (\s a -> s { _dcscsiviVolumeARNs = a })
-{-# INLINE dcscsiviVolumeARNs #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCachediSCSIVolumes' request.
+mkDescribeCachediSCSIVolumes :: [Text] -- ^ 'dcscsivVolumeARNs'
+                             -> DescribeCachediSCSIVolumes
+mkDescribeCachediSCSIVolumes p1 = DescribeCachediSCSIVolumes
+    { _dcscsivVolumeARNs = p1
+    }
+{-# INLINE mkDescribeCachediSCSIVolumes #-}
+
+dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
+dcscsivVolumeARNs =
+    lens _dcscsivVolumeARNs (\s a -> s { _dcscsivVolumeARNs = a })
+{-# INLINE dcscsivVolumeARNs #-}
 
 instance ToPath DescribeCachediSCSIVolumes
 
@@ -88,17 +89,18 @@ instance ToHeaders DescribeCachediSCSIVolumes
 
 instance ToJSON DescribeCachediSCSIVolumes
 
+-- | A JSON object containing the following fields:.
 newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
-    { _dcscsivoCachediSCSIVolumes :: [CachediSCSIVolumeInformation]
-      -- ^ An array of objects where each object contains metadata about one
-      -- cached volume.
+    { _dcscsivrsCachediSCSIVolumes :: [CachediSCSIVolumeInformation]
     } deriving (Show, Generic)
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
-dcscsivoCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse ([CachediSCSIVolumeInformation])
-dcscsivoCachediSCSIVolumes = lens _dcscsivoCachediSCSIVolumes (\s a -> s { _dcscsivoCachediSCSIVolumes = a })
-{-# INLINE dcscsivoCachediSCSIVolumes #-}
+dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolumeInformation]
+dcscsivrsCachediSCSIVolumes =
+    lens _dcscsivrsCachediSCSIVolumes
+         (\s a -> s { _dcscsivrsCachediSCSIVolumes = a })
+{-# INLINE dcscsivrsCachediSCSIVolumes #-}
 
 instance FromJSON DescribeCachediSCSIVolumesResponse
 

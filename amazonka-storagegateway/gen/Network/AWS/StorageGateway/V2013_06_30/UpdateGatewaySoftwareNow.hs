@@ -47,14 +47,14 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow
     -- * Request
       UpdateGatewaySoftwareNow
     -- ** Request constructor
-    , mkUpdateGatewaySoftwareNowInput
+    , mkUpdateGatewaySoftwareNow
     -- ** Request lenses
-    , ugsniGatewayARN
+    , ugsnGatewayARN
 
     -- * Response
     , UpdateGatewaySoftwareNowResponse
     -- ** Response lenses
-    , ugsnoGatewayARN
+    , ugsnrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -62,27 +62,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the of the gateway to update.
+newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
+    { _ugsnGatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGatewaySoftwareNow' request.
-mkUpdateGatewaySoftwareNowInput :: Text -- ^ 'ugsniGatewayARN'
-                                -> UpdateGatewaySoftwareNow
-mkUpdateGatewaySoftwareNowInput p1 = UpdateGatewaySoftwareNow
-    { _ugsniGatewayARN = p1
+mkUpdateGatewaySoftwareNow :: Text -- ^ 'ugsnGatewayARN'
+                           -> UpdateGatewaySoftwareNow
+mkUpdateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
+    { _ugsnGatewayARN = p1
     }
-{-# INLINE mkUpdateGatewaySoftwareNowInput #-}
-
-newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
-    { _ugsniGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateGatewaySoftwareNow #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugsniGatewayARN :: Lens' UpdateGatewaySoftwareNow (Text)
-ugsniGatewayARN = lens _ugsniGatewayARN (\s a -> s { _ugsniGatewayARN = a })
-{-# INLINE ugsniGatewayARN #-}
+ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
+ugsnGatewayARN = lens _ugsnGatewayARN (\s a -> s { _ugsnGatewayARN = a })
+{-# INLINE ugsnGatewayARN #-}
 
 instance ToPath UpdateGatewaySoftwareNow
 
@@ -92,18 +90,17 @@ instance ToHeaders UpdateGatewaySoftwareNow
 
 instance ToJSON UpdateGatewaySoftwareNow
 
+-- | A JSON object containing the of the gateway that was updated.
 newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
-    { _ugsnoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _ugsnrsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugsnoGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
-ugsnoGatewayARN = lens _ugsnoGatewayARN (\s a -> s { _ugsnoGatewayARN = a })
-{-# INLINE ugsnoGatewayARN #-}
+ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
+ugsnrsGatewayARN =
+    lens _ugsnrsGatewayARN (\s a -> s { _ugsnrsGatewayARN = a })
+{-# INLINE ugsnrsGatewayARN #-}
 
 instance FromJSON UpdateGatewaySoftwareNowResponse
 

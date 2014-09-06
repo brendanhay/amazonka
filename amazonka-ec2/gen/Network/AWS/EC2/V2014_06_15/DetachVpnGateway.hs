@@ -36,10 +36,10 @@ module Network.AWS.EC2.V2014_06_15.DetachVpnGateway
     -- * Request
       DetachVpnGateway
     -- ** Request constructor
-    , mkDetachVpnGatewayRequest
+    , mkDetachVpnGateway
     -- ** Request lenses
-    , dvguVpnGatewayId
-    , dvguVpcId
+    , dvg2VpnGatewayId
+    , dvg2VpcId
 
     -- * Response
     , DetachVpnGatewayResponse
@@ -49,33 +49,33 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachVpnGateway' request.
-mkDetachVpnGatewayRequest :: Text -- ^ 'dvguVpnGatewayId'
-                          -> Text -- ^ 'dvguVpcId'
-                          -> DetachVpnGateway
-mkDetachVpnGatewayRequest p1 p2 = DetachVpnGateway
-    { _dvguVpnGatewayId = p1
-    , _dvguVpcId = p2
-    }
-{-# INLINE mkDetachVpnGatewayRequest #-}
-
+-- | 
 data DetachVpnGateway = DetachVpnGateway
-    { _dvguVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _dvguVpcId :: Text
-      -- ^ The ID of the VPC.
+    { _dvg2VpnGatewayId :: Text
+    , _dvg2VpcId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachVpnGateway' request.
+mkDetachVpnGateway :: Text -- ^ 'dvg2VpnGatewayId'
+                   -> Text -- ^ 'dvg2VpcId'
+                   -> DetachVpnGateway
+mkDetachVpnGateway p1 p2 = DetachVpnGateway
+    { _dvg2VpnGatewayId = p1
+    , _dvg2VpcId = p2
+    }
+{-# INLINE mkDetachVpnGateway #-}
+
 -- | The ID of the virtual private gateway.
-dvguVpnGatewayId :: Lens' DetachVpnGateway (Text)
-dvguVpnGatewayId = lens _dvguVpnGatewayId (\s a -> s { _dvguVpnGatewayId = a })
-{-# INLINE dvguVpnGatewayId #-}
+dvg2VpnGatewayId :: Lens' DetachVpnGateway Text
+dvg2VpnGatewayId =
+    lens _dvg2VpnGatewayId (\s a -> s { _dvg2VpnGatewayId = a })
+{-# INLINE dvg2VpnGatewayId #-}
 
 -- | The ID of the VPC.
-dvguVpcId :: Lens' DetachVpnGateway (Text)
-dvguVpcId = lens _dvguVpcId (\s a -> s { _dvguVpcId = a })
-{-# INLINE dvguVpcId #-}
+dvg2VpcId :: Lens' DetachVpnGateway Text
+dvg2VpcId = lens _dvg2VpcId (\s a -> s { _dvg2VpcId = a })
+{-# INLINE dvg2VpcId #-}
 
 instance ToQuery DetachVpnGateway where
     toQuery = genericQuery def

@@ -30,9 +30,9 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup
     -- * Request
       DeleteClusterSubnetGroup
     -- ** Request constructor
-    , mkDeleteClusterSubnetGroupMessage
+    , mkDeleteClusterSubnetGroup
     -- ** Request lenses
-    , dcsgnClusterSubnetGroupName
+    , dcsg1ClusterSubnetGroupName
 
     -- * Response
     , DeleteClusterSubnetGroupResponse
@@ -42,24 +42,26 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteClusterSubnetGroup' request.
-mkDeleteClusterSubnetGroupMessage :: Text -- ^ 'dcsgnClusterSubnetGroupName'
-                                  -> DeleteClusterSubnetGroup
-mkDeleteClusterSubnetGroupMessage p1 = DeleteClusterSubnetGroup
-    { _dcsgnClusterSubnetGroupName = p1
-    }
-{-# INLINE mkDeleteClusterSubnetGroupMessage #-}
-
+-- | 
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
-    { _dcsgnClusterSubnetGroupName :: Text
-      -- ^ The name of the cluster subnet group name to be deleted.
+    { _dcsg1ClusterSubnetGroupName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterSubnetGroup' request.
+mkDeleteClusterSubnetGroup :: Text -- ^ 'dcsg1ClusterSubnetGroupName'
+                           -> DeleteClusterSubnetGroup
+mkDeleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
+    { _dcsg1ClusterSubnetGroupName = p1
+    }
+{-# INLINE mkDeleteClusterSubnetGroup #-}
+
 -- | The name of the cluster subnet group name to be deleted.
-dcsgnClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup (Text)
-dcsgnClusterSubnetGroupName = lens _dcsgnClusterSubnetGroupName (\s a -> s { _dcsgnClusterSubnetGroupName = a })
-{-# INLINE dcsgnClusterSubnetGroupName #-}
+dcsg1ClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
+dcsg1ClusterSubnetGroupName =
+    lens _dcsg1ClusterSubnetGroupName
+         (\s a -> s { _dcsg1ClusterSubnetGroupName = a })
+{-# INLINE dcsg1ClusterSubnetGroupName #-}
 
 instance ToQuery DeleteClusterSubnetGroup where
     toQuery = genericQuery def

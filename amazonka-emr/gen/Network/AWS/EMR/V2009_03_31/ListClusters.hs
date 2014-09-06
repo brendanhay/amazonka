@@ -27,18 +27,18 @@ module Network.AWS.EMR.V2009_03_31.ListClusters
     -- * Request
       ListClusters
     -- ** Request constructor
-    , mkListClustersInput
+    , mkListClusters
     -- ** Request lenses
-    , lciCreatedAfter
-    , lciCreatedBefore
-    , lciClusterStates
-    , lciMarker
+    , lcCreatedAfter
+    , lcCreatedBefore
+    , lcClusterStates
+    , lcMarker
 
     -- * Response
     , ListClustersResponse
     -- ** Response lenses
-    , lcoClusters
-    , lcoMarker
+    , lcrsClusters
+    , lcrsMarker
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -46,50 +46,45 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListClusters' request.
-mkListClustersInput :: ListClusters
-mkListClustersInput = ListClusters
-    { _lciCreatedAfter = Nothing
-    , _lciCreatedBefore = Nothing
-    , _lciClusterStates = mempty
-    , _lciMarker = Nothing
-    }
-{-# INLINE mkListClustersInput #-}
-
+-- | This input determines how the ListClusters action filters the list of
+-- clusters that it returns.
 data ListClusters = ListClusters
-    { _lciCreatedAfter :: Maybe POSIX
-      -- ^ The creation date and time beginning value filter for listing
-      -- clusters .
-    , _lciCreatedBefore :: Maybe POSIX
-      -- ^ The creation date and time end value filter for listing clusters
-      -- .
-    , _lciClusterStates :: [ClusterState]
-      -- ^ The cluster state filters to apply when listing clusters.
-    , _lciMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _lcCreatedAfter :: Maybe POSIX
+    , _lcCreatedBefore :: Maybe POSIX
+    , _lcClusterStates :: [ClusterState]
+    , _lcMarker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListClusters' request.
+mkListClusters :: ListClusters
+mkListClusters = ListClusters
+    { _lcCreatedAfter = Nothing
+    , _lcCreatedBefore = Nothing
+    , _lcClusterStates = mempty
+    , _lcMarker = Nothing
+    }
+{-# INLINE mkListClusters #-}
+
 -- | The creation date and time beginning value filter for listing clusters .
-lciCreatedAfter :: Lens' ListClusters (Maybe POSIX)
-lciCreatedAfter = lens _lciCreatedAfter (\s a -> s { _lciCreatedAfter = a })
-{-# INLINE lciCreatedAfter #-}
+lcCreatedAfter :: Lens' ListClusters (Maybe POSIX)
+lcCreatedAfter = lens _lcCreatedAfter (\s a -> s { _lcCreatedAfter = a })
+{-# INLINE lcCreatedAfter #-}
 
 -- | The creation date and time end value filter for listing clusters .
-lciCreatedBefore :: Lens' ListClusters (Maybe POSIX)
-lciCreatedBefore = lens _lciCreatedBefore (\s a -> s { _lciCreatedBefore = a })
-{-# INLINE lciCreatedBefore #-}
+lcCreatedBefore :: Lens' ListClusters (Maybe POSIX)
+lcCreatedBefore = lens _lcCreatedBefore (\s a -> s { _lcCreatedBefore = a })
+{-# INLINE lcCreatedBefore #-}
 
 -- | The cluster state filters to apply when listing clusters.
-lciClusterStates :: Lens' ListClusters ([ClusterState])
-lciClusterStates = lens _lciClusterStates (\s a -> s { _lciClusterStates = a })
-{-# INLINE lciClusterStates #-}
+lcClusterStates :: Lens' ListClusters [ClusterState]
+lcClusterStates = lens _lcClusterStates (\s a -> s { _lcClusterStates = a })
+{-# INLINE lcClusterStates #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lciMarker :: Lens' ListClusters (Maybe Text)
-lciMarker = lens _lciMarker (\s a -> s { _lciMarker = a })
-{-# INLINE lciMarker #-}
+lcMarker :: Lens' ListClusters (Maybe Text)
+lcMarker = lens _lcMarker (\s a -> s { _lcMarker = a })
+{-# INLINE lcMarker #-}
 
 instance ToPath ListClusters
 
@@ -99,23 +94,22 @@ instance ToHeaders ListClusters
 
 instance ToJSON ListClusters
 
+-- | This contains a ClusterSummaryList with the cluster details; for example,
+-- the cluster IDs, names, and status.
 data ListClustersResponse = ListClustersResponse
-    { _lcoClusters :: [ClusterSummary]
-      -- ^ The list of clusters for the account based on the given filters.
-    , _lcoMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _lcrsClusters :: [ClusterSummary]
+    , _lcrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of clusters for the account based on the given filters.
-lcoClusters :: Lens' ListClustersResponse ([ClusterSummary])
-lcoClusters = lens _lcoClusters (\s a -> s { _lcoClusters = a })
-{-# INLINE lcoClusters #-}
+lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
+lcrsClusters = lens _lcrsClusters (\s a -> s { _lcrsClusters = a })
+{-# INLINE lcrsClusters #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lcoMarker :: Lens' ListClustersResponse (Maybe Text)
-lcoMarker = lens _lcoMarker (\s a -> s { _lcoMarker = a })
-{-# INLINE lcoMarker #-}
+lcrsMarker :: Lens' ListClustersResponse (Maybe Text)
+lcrsMarker = lens _lcrsMarker (\s a -> s { _lcrsMarker = a })
+{-# INLINE lcrsMarker #-}
 
 instance FromJSON ListClustersResponse
 
@@ -127,5 +121,5 @@ instance AWSRequest ListClusters where
     response _ = jsonResponse
 
 instance AWSPager ListClusters where
-    next rq rs = (\x -> rq { _lciMarker = Just x })
-        <$> (_lcoMarker rs)
+    next rq rs = (\x -> rq { _lcMarker = Just x })
+        <$> (_lcrsMarker rs)

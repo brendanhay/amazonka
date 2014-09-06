@@ -27,9 +27,9 @@ module Network.AWS.OpsWorks.V2013_02_18.StartInstance
     -- * Request
       StartInstance
     -- ** Request constructor
-    , mkStartInstanceRequest
+    , mkStartInstance
     -- ** Request lenses
-    , sirInstanceId
+    , siInstanceId
 
     -- * Response
     , StartInstanceResponse
@@ -40,24 +40,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartInstance' request.
-mkStartInstanceRequest :: Text -- ^ 'sirInstanceId'
-                       -> StartInstance
-mkStartInstanceRequest p1 = StartInstance
-    { _sirInstanceId = p1
-    }
-{-# INLINE mkStartInstanceRequest #-}
-
 newtype StartInstance = StartInstance
-    { _sirInstanceId :: Text
-      -- ^ The instance ID.
+    { _siInstanceId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartInstance' request.
+mkStartInstance :: Text -- ^ 'siInstanceId'
+                -> StartInstance
+mkStartInstance p1 = StartInstance
+    { _siInstanceId = p1
+    }
+{-# INLINE mkStartInstance #-}
+
 -- | The instance ID.
-sirInstanceId :: Lens' StartInstance (Text)
-sirInstanceId = lens _sirInstanceId (\s a -> s { _sirInstanceId = a })
-{-# INLINE sirInstanceId #-}
+siInstanceId :: Lens' StartInstance Text
+siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
+{-# INLINE siInstanceId #-}
 
 instance ToPath StartInstance
 

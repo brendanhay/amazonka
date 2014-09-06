@@ -23,15 +23,15 @@ module Network.AWS.EMR.V2009_03_31.DescribeStep
     -- * Request
       DescribeStep
     -- ** Request constructor
-    , mkDescribeStepInput
+    , mkDescribeStep
     -- ** Request lenses
-    , dsiClusterId
-    , dsiStepId
+    , dsClusterId
+    , dsStepId
 
     -- * Response
     , DescribeStepResponse
     -- ** Response lenses
-    , dsoStep
+    , dsrsStep
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -39,33 +39,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStep' request.
-mkDescribeStepInput :: Text -- ^ 'dsiClusterId'
-                    -> Text -- ^ 'dsiStepId'
-                    -> DescribeStep
-mkDescribeStepInput p1 p2 = DescribeStep
-    { _dsiClusterId = p1
-    , _dsiStepId = p2
-    }
-{-# INLINE mkDescribeStepInput #-}
-
+-- | This input determines which step to describe.
 data DescribeStep = DescribeStep
-    { _dsiClusterId :: Text
-      -- ^ The identifier of the cluster with steps to describe.
-    , _dsiStepId :: Text
-      -- ^ The identifier of the step to describe.
+    { _dsClusterId :: Text
+    , _dsStepId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStep' request.
+mkDescribeStep :: Text -- ^ 'dsClusterId'
+               -> Text -- ^ 'dsStepId'
+               -> DescribeStep
+mkDescribeStep p1 p2 = DescribeStep
+    { _dsClusterId = p1
+    , _dsStepId = p2
+    }
+{-# INLINE mkDescribeStep #-}
+
 -- | The identifier of the cluster with steps to describe.
-dsiClusterId :: Lens' DescribeStep (Text)
-dsiClusterId = lens _dsiClusterId (\s a -> s { _dsiClusterId = a })
-{-# INLINE dsiClusterId #-}
+dsClusterId :: Lens' DescribeStep Text
+dsClusterId = lens _dsClusterId (\s a -> s { _dsClusterId = a })
+{-# INLINE dsClusterId #-}
 
 -- | The identifier of the step to describe.
-dsiStepId :: Lens' DescribeStep (Text)
-dsiStepId = lens _dsiStepId (\s a -> s { _dsiStepId = a })
-{-# INLINE dsiStepId #-}
+dsStepId :: Lens' DescribeStep Text
+dsStepId = lens _dsStepId (\s a -> s { _dsStepId = a })
+{-# INLINE dsStepId #-}
 
 instance ToPath DescribeStep
 
@@ -75,15 +74,15 @@ instance ToHeaders DescribeStep
 
 instance ToJSON DescribeStep
 
+-- | This output contains the description of the cluster step.
 newtype DescribeStepResponse = DescribeStepResponse
-    { _dsoStep :: Maybe Step
-      -- ^ The step details for the requested step identifier.
+    { _dsrsStep :: Maybe Step
     } deriving (Show, Generic)
 
 -- | The step details for the requested step identifier.
-dsoStep :: Lens' DescribeStepResponse (Maybe Step)
-dsoStep = lens _dsoStep (\s a -> s { _dsoStep = a })
-{-# INLINE dsoStep #-}
+dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
+dsrsStep = lens _dsrsStep (\s a -> s { _dsrsStep = a })
+{-# INLINE dsrsStep #-}
 
 instance FromJSON DescribeStepResponse
 

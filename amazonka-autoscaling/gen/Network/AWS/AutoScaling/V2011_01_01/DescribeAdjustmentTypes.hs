@@ -26,38 +26,39 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes
     -- * Request
       DescribeAdjustmentTypes
     -- ** Request constructor
-    , mkUnknown
+    , mkDescribeAdjustmentTypes
     -- * Response
     , DescribeAdjustmentTypesResponse
     -- ** Response lenses
-    , dataAdjustmentTypes
+    , datrsAdjustmentTypes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAdjustmentTypes' request.
-mkUnknown :: DescribeAdjustmentTypes
-mkUnknown = DescribeAdjustmentTypes
-{-# INLINE mkUnknown #-}
-
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAdjustmentTypes' request.
+mkDescribeAdjustmentTypes :: DescribeAdjustmentTypes
+mkDescribeAdjustmentTypes = DescribeAdjustmentTypes
+{-# INLINE mkDescribeAdjustmentTypes #-}
 
 instance ToQuery DescribeAdjustmentTypes where
     toQuery = genericQuery def
 
+-- | The output of the DescribeAdjustmentTypes action.
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
-    { _dataAdjustmentTypes :: [AdjustmentType]
-      -- ^ A list of specific policy adjustment types.
+    { _datrsAdjustmentTypes :: [AdjustmentType]
     } deriving (Show, Generic)
 
 -- | A list of specific policy adjustment types.
-dataAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse ([AdjustmentType])
-dataAdjustmentTypes = lens _dataAdjustmentTypes (\s a -> s { _dataAdjustmentTypes = a })
-{-# INLINE dataAdjustmentTypes #-}
+datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
+datrsAdjustmentTypes =
+    lens _datrsAdjustmentTypes (\s a -> s { _datrsAdjustmentTypes = a })
+{-# INLINE datrsAdjustmentTypes #-}
 
 instance FromXML DescribeAdjustmentTypesResponse where
     fromXMLOptions = xmlOptions

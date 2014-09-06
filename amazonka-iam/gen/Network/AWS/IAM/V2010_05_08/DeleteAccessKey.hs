@@ -29,10 +29,10 @@ module Network.AWS.IAM.V2010_05_08.DeleteAccessKey
     -- * Request
       DeleteAccessKey
     -- ** Request constructor
-    , mkDeleteAccessKeyRequest
+    , mkDeleteAccessKey
     -- ** Request lenses
-    , dakrUserName
-    , dakrAccessKeyId
+    , dakUserName
+    , dakAccessKeyId
 
     -- * Response
     , DeleteAccessKeyResponse
@@ -42,34 +42,32 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAccessKey' request.
-mkDeleteAccessKeyRequest :: Text -- ^ 'dakrAccessKeyId'
-                         -> DeleteAccessKey
-mkDeleteAccessKeyRequest p1 = DeleteAccessKey
-    { _dakrUserName = Nothing
-    , _dakrAccessKeyId = p2
-    }
-{-# INLINE mkDeleteAccessKeyRequest #-}
-
+-- | 
 data DeleteAccessKey = DeleteAccessKey
-    { _dakrUserName :: Maybe Text
-      -- ^ Name of the user whose key you want to delete.
-    , _dakrAccessKeyId :: Text
-      -- ^ The access key ID for the access key ID and secret access key you
-      -- want to delete.
+    { _dakUserName :: Maybe Text
+    , _dakAccessKeyId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAccessKey' request.
+mkDeleteAccessKey :: Text -- ^ 'dakAccessKeyId'
+                  -> DeleteAccessKey
+mkDeleteAccessKey p2 = DeleteAccessKey
+    { _dakUserName = Nothing
+    , _dakAccessKeyId = p2
+    }
+{-# INLINE mkDeleteAccessKey #-}
+
 -- | Name of the user whose key you want to delete.
-dakrUserName :: Lens' DeleteAccessKey (Maybe Text)
-dakrUserName = lens _dakrUserName (\s a -> s { _dakrUserName = a })
-{-# INLINE dakrUserName #-}
+dakUserName :: Lens' DeleteAccessKey (Maybe Text)
+dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
+{-# INLINE dakUserName #-}
 
 -- | The access key ID for the access key ID and secret access key you want to
 -- delete.
-dakrAccessKeyId :: Lens' DeleteAccessKey (Text)
-dakrAccessKeyId = lens _dakrAccessKeyId (\s a -> s { _dakrAccessKeyId = a })
-{-# INLINE dakrAccessKeyId #-}
+dakAccessKeyId :: Lens' DeleteAccessKey Text
+dakAccessKeyId = lens _dakAccessKeyId (\s a -> s { _dakAccessKeyId = a })
+{-# INLINE dakAccessKeyId #-}
 
 instance ToQuery DeleteAccessKey where
     toQuery = genericQuery def

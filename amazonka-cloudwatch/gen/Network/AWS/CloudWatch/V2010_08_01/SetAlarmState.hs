@@ -26,12 +26,12 @@ module Network.AWS.CloudWatch.V2010_08_01.SetAlarmState
     -- * Request
       SetAlarmState
     -- ** Request constructor
-    , mkSetAlarmStateInput
+    , mkSetAlarmState
     -- ** Request lenses
-    , sasiAlarmName
-    , sasiStateValue
-    , sasiStateReason
-    , sasiStateReasonData
+    , sasAlarmName
+    , sasStateValue
+    , sasStateReason
+    , sasStateReasonData
 
     -- * Response
     , SetAlarmStateResponse
@@ -41,57 +41,51 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data SetAlarmState = SetAlarmState
+    { _sasAlarmName :: Text
+    , _sasStateValue :: StateValue
+    , _sasStateReason :: Text
+    , _sasStateReasonData :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetAlarmState' request.
-mkSetAlarmStateInput :: Text -- ^ 'sasiAlarmName'
-                     -> StateValue -- ^ 'sasiStateValue'
-                     -> Text -- ^ 'sasiStateReason'
-                     -> SetAlarmState
-mkSetAlarmStateInput p1 p2 p3 = SetAlarmState
-    { _sasiAlarmName = p1
-    , _sasiStateValue = p2
-    , _sasiStateReason = p3
-    , _sasiStateReasonData = Nothing
+mkSetAlarmState :: Text -- ^ 'sasAlarmName'
+                -> StateValue -- ^ 'sasStateValue'
+                -> Text -- ^ 'sasStateReason'
+                -> SetAlarmState
+mkSetAlarmState p1 p2 p3 = SetAlarmState
+    { _sasAlarmName = p1
+    , _sasStateValue = p2
+    , _sasStateReason = p3
+    , _sasStateReasonData = Nothing
     }
-{-# INLINE mkSetAlarmStateInput #-}
-
-data SetAlarmState = SetAlarmState
-    { _sasiAlarmName :: Text
-      -- ^ The descriptive name for the alarm. This name must be unique
-      -- within the user's AWS account. The maximum length is 255
-      -- characters.
-    , _sasiStateValue :: StateValue
-      -- ^ The value of the state.
-    , _sasiStateReason :: Text
-      -- ^ The reason that this alarm is set to this specific state (in
-      -- human-readable text format).
-    , _sasiStateReasonData :: Maybe Text
-      -- ^ The reason that this alarm is set to this specific state (in
-      -- machine-readable JSON format).
-    } deriving (Show, Generic)
+{-# INLINE mkSetAlarmState #-}
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account. The maximum length is 255 characters.
-sasiAlarmName :: Lens' SetAlarmState (Text)
-sasiAlarmName = lens _sasiAlarmName (\s a -> s { _sasiAlarmName = a })
-{-# INLINE sasiAlarmName #-}
+sasAlarmName :: Lens' SetAlarmState Text
+sasAlarmName = lens _sasAlarmName (\s a -> s { _sasAlarmName = a })
+{-# INLINE sasAlarmName #-}
 
 -- | The value of the state.
-sasiStateValue :: Lens' SetAlarmState (StateValue)
-sasiStateValue = lens _sasiStateValue (\s a -> s { _sasiStateValue = a })
-{-# INLINE sasiStateValue #-}
+sasStateValue :: Lens' SetAlarmState StateValue
+sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
+{-# INLINE sasStateValue #-}
 
 -- | The reason that this alarm is set to this specific state (in human-readable
 -- text format).
-sasiStateReason :: Lens' SetAlarmState (Text)
-sasiStateReason = lens _sasiStateReason (\s a -> s { _sasiStateReason = a })
-{-# INLINE sasiStateReason #-}
+sasStateReason :: Lens' SetAlarmState Text
+sasStateReason = lens _sasStateReason (\s a -> s { _sasStateReason = a })
+{-# INLINE sasStateReason #-}
 
 -- | The reason that this alarm is set to this specific state (in
 -- machine-readable JSON format).
-sasiStateReasonData :: Lens' SetAlarmState (Maybe Text)
-sasiStateReasonData = lens _sasiStateReasonData (\s a -> s { _sasiStateReasonData = a })
-{-# INLINE sasiStateReasonData #-}
+sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
+sasStateReasonData =
+    lens _sasStateReasonData (\s a -> s { _sasStateReasonData = a })
+{-# INLINE sasStateReasonData #-}
 
 instance ToQuery SetAlarmState where
     toQuery = genericQuery def

@@ -31,93 +31,85 @@ module Network.AWS.RDS.V2013_09_09.ModifyOptionGroup
     -- * Request
       ModifyOptionGroup
     -- ** Request constructor
-    , mkModifyOptionGroupMessage
+    , mkModifyOptionGroup
     -- ** Request lenses
-    , mogmOptionGroupName
-    , mogmOptionsToInclude
-    , mogmOptionsToRemove
-    , mogmApplyImmediately
+    , mogOptionGroupName
+    , mogOptionsToInclude
+    , mogOptionsToRemove
+    , mogApplyImmediately
 
     -- * Response
     , ModifyOptionGroupResponse
     -- ** Response lenses
-    , ogxOptionGroup
+    , mogrsOptionGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data ModifyOptionGroup = ModifyOptionGroup
+    { _mogOptionGroupName :: Text
+    , _mogOptionsToInclude :: [OptionConfiguration]
+    , _mogOptionsToRemove :: [Text]
+    , _mogApplyImmediately :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyOptionGroup' request.
-mkModifyOptionGroupMessage :: Text -- ^ 'mogmOptionGroupName'
-                           -> ModifyOptionGroup
-mkModifyOptionGroupMessage p1 = ModifyOptionGroup
-    { _mogmOptionGroupName = p1
-    , _mogmOptionsToInclude = mempty
-    , _mogmOptionsToRemove = mempty
-    , _mogmApplyImmediately = Nothing
+mkModifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
+                    -> ModifyOptionGroup
+mkModifyOptionGroup p1 = ModifyOptionGroup
+    { _mogOptionGroupName = p1
+    , _mogOptionsToInclude = mempty
+    , _mogOptionsToRemove = mempty
+    , _mogApplyImmediately = Nothing
     }
-{-# INLINE mkModifyOptionGroupMessage #-}
-
-data ModifyOptionGroup = ModifyOptionGroup
-    { _mogmOptionGroupName :: Text
-      -- ^ The name of the option group to be modified. cannot be removed
-      -- from an option group while DB instances are associated with the
-      -- option group. --> Permanent options, such as the TDE option for
-      -- Oracle Advanced Security TDE, cannot be removed from an option
-      -- group, and that option group cannot be removed from a DB instance
-      -- once it is associated with a DB instance.
-    , _mogmOptionsToInclude :: [OptionConfiguration]
-      -- ^ Options in this list are added to the option group or, if already
-      -- present, the specified configuration is used to update the
-      -- existing configuration.
-    , _mogmOptionsToRemove :: [Text]
-      -- ^ Options in this list are removed from the option group.
-    , _mogmApplyImmediately :: Maybe Bool
-      -- ^ Indicates whether the changes should be applied immediately, or
-      -- during the next maintenance window for each instance associated
-      -- with the option group.
-    } deriving (Show, Generic)
+{-# INLINE mkModifyOptionGroup #-}
 
 -- | The name of the option group to be modified. cannot be removed from an
 -- option group while DB instances are associated with the option group. -->
 -- Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 -- cannot be removed from an option group, and that option group cannot be
 -- removed from a DB instance once it is associated with a DB instance.
-mogmOptionGroupName :: Lens' ModifyOptionGroup (Text)
-mogmOptionGroupName = lens _mogmOptionGroupName (\s a -> s { _mogmOptionGroupName = a })
-{-# INLINE mogmOptionGroupName #-}
+mogOptionGroupName :: Lens' ModifyOptionGroup Text
+mogOptionGroupName =
+    lens _mogOptionGroupName (\s a -> s { _mogOptionGroupName = a })
+{-# INLINE mogOptionGroupName #-}
 
 -- | Options in this list are added to the option group or, if already present,
 -- the specified configuration is used to update the existing configuration.
-mogmOptionsToInclude :: Lens' ModifyOptionGroup ([OptionConfiguration])
-mogmOptionsToInclude = lens _mogmOptionsToInclude (\s a -> s { _mogmOptionsToInclude = a })
-{-# INLINE mogmOptionsToInclude #-}
+mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
+mogOptionsToInclude =
+    lens _mogOptionsToInclude (\s a -> s { _mogOptionsToInclude = a })
+{-# INLINE mogOptionsToInclude #-}
 
 -- | Options in this list are removed from the option group.
-mogmOptionsToRemove :: Lens' ModifyOptionGroup ([Text])
-mogmOptionsToRemove = lens _mogmOptionsToRemove (\s a -> s { _mogmOptionsToRemove = a })
-{-# INLINE mogmOptionsToRemove #-}
+mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
+mogOptionsToRemove =
+    lens _mogOptionsToRemove (\s a -> s { _mogOptionsToRemove = a })
+{-# INLINE mogOptionsToRemove #-}
 
 -- | Indicates whether the changes should be applied immediately, or during the
 -- next maintenance window for each instance associated with the option group.
-mogmApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogmApplyImmediately = lens _mogmApplyImmediately (\s a -> s { _mogmApplyImmediately = a })
-{-# INLINE mogmApplyImmediately #-}
+mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
+mogApplyImmediately =
+    lens _mogApplyImmediately (\s a -> s { _mogApplyImmediately = a })
+{-# INLINE mogApplyImmediately #-}
 
 instance ToQuery ModifyOptionGroup where
     toQuery = genericQuery def
 
 newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
-    { _ogxOptionGroup :: Maybe OptionGroup
-      -- ^ 
+    { _mogrsOptionGroup :: Maybe OptionGroup
     } deriving (Show, Generic)
 
 -- | 
-ogxOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
-ogxOptionGroup = lens _ogxOptionGroup (\s a -> s { _ogxOptionGroup = a })
-{-# INLINE ogxOptionGroup #-}
+mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
+mogrsOptionGroup =
+    lens _mogrsOptionGroup (\s a -> s { _mogrsOptionGroup = a })
+{-# INLINE mogrsOptionGroup #-}
 
 instance FromXML ModifyOptionGroupResponse where
     fromXMLOptions = xmlOptions

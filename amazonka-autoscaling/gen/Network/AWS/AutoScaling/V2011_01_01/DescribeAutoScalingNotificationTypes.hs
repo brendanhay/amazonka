@@ -24,44 +24,32 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes
     -- * Request
       DescribeAutoScalingNotificationTypes
     -- ** Request constructor
-    , mkUnknown
+    , mkDescribeAutoScalingNotificationTypes
     -- * Response
     , DescribeAutoScalingNotificationTypesResponse
     -- ** Response lenses
-    , dasntaAutoScalingNotificationTypes
+    , dasntrsAutoScalingNotificationTypes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAutoScalingNotificationTypes' request.
-mkUnknown :: DescribeAutoScalingNotificationTypes
-mkUnknown = DescribeAutoScalingNotificationTypes
-{-# INLINE mkUnknown #-}
-
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAutoScalingNotificationTypes' request.
+mkDescribeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
+mkDescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
+{-# INLINE mkDescribeAutoScalingNotificationTypes #-}
 
 instance ToQuery DescribeAutoScalingNotificationTypes where
     toQuery = genericQuery def
 
+-- | The AutoScalingNotificationTypes data type.
 newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
-    { _dasntaAutoScalingNotificationTypes :: [Text]
-      -- ^ Returns a list of all notification types supported by Auto
-      -- Scaling. They are: autoscaling:EC2_INSTANCE_LAUNCH
-      -- autoscaling:EC2_INSTANCE_LAUNCH_ERROR
-      -- autoscaling:EC2_INSTANCE_TERMINATE
-      -- autoscaling:EC2_INSTANCE_TERMINATE_ERROR
-      -- autoscaling:TEST_NOTIFICATION
-      -- https://autoscaling.amazonaws.com/?Version=2011-01-01&Action=DescribeAutoScalingNotificationTypes
-      -- &AUTHPARAMS autoscaling:EC2_INSTANCE_LAUNCH
-      -- autoscaling:EC2_INSTANCE_LAUNCH_ERROR
-      -- autoscaling:EC2_INSTANCE_TERMINATE
-      -- autoscaling:EC2_INSTANCE_TERMINATE_ERROR
-      -- autoscaling:TEST_NOTIFICATION
-      -- 42fc6794-bf21-11e2-a1cf-ff3dEXAMPLE.
+    { _dasntrsAutoScalingNotificationTypes :: [Text]
     } deriving (Show, Generic)
 
 -- | Returns a list of all notification types supported by Auto Scaling. They
@@ -73,9 +61,11 @@ newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotifi
 -- autoscaling:EC2_INSTANCE_LAUNCH_ERROR autoscaling:EC2_INSTANCE_TERMINATE
 -- autoscaling:EC2_INSTANCE_TERMINATE_ERROR autoscaling:TEST_NOTIFICATION
 -- 42fc6794-bf21-11e2-a1cf-ff3dEXAMPLE.
-dasntaAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse ([Text])
-dasntaAutoScalingNotificationTypes = lens _dasntaAutoScalingNotificationTypes (\s a -> s { _dasntaAutoScalingNotificationTypes = a })
-{-# INLINE dasntaAutoScalingNotificationTypes #-}
+dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
+dasntrsAutoScalingNotificationTypes =
+    lens _dasntrsAutoScalingNotificationTypes
+         (\s a -> s { _dasntrsAutoScalingNotificationTypes = a })
+{-# INLINE dasntrsAutoScalingNotificationTypes #-}
 
 instance FromXML DescribeAutoScalingNotificationTypesResponse where
     fromXMLOptions = xmlOptions

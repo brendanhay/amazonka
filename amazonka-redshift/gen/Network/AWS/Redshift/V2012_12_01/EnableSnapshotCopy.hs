@@ -24,83 +24,76 @@ module Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy
     -- * Request
       EnableSnapshotCopy
     -- ** Request constructor
-    , mkEnableSnapshotCopyMessage
+    , mkEnableSnapshotCopy
     -- ** Request lenses
-    , escmClusterIdentifier
-    , escmDestinationRegion
-    , escmRetentionPeriod
+    , escClusterIdentifier
+    , escDestinationRegion
+    , escRetentionPeriod
 
     -- * Response
     , EnableSnapshotCopyResponse
     -- ** Response lenses
-    , czCluster
+    , escrsCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data EnableSnapshotCopy = EnableSnapshotCopy
+    { _escClusterIdentifier :: Text
+    , _escDestinationRegion :: Text
+    , _escRetentionPeriod :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableSnapshotCopy' request.
-mkEnableSnapshotCopyMessage :: Text -- ^ 'escmClusterIdentifier'
-                            -> Text -- ^ 'escmDestinationRegion'
-                            -> EnableSnapshotCopy
-mkEnableSnapshotCopyMessage p1 p2 = EnableSnapshotCopy
-    { _escmClusterIdentifier = p1
-    , _escmDestinationRegion = p2
-    , _escmRetentionPeriod = Nothing
+mkEnableSnapshotCopy :: Text -- ^ 'escClusterIdentifier'
+                     -> Text -- ^ 'escDestinationRegion'
+                     -> EnableSnapshotCopy
+mkEnableSnapshotCopy p1 p2 = EnableSnapshotCopy
+    { _escClusterIdentifier = p1
+    , _escDestinationRegion = p2
+    , _escRetentionPeriod = Nothing
     }
-{-# INLINE mkEnableSnapshotCopyMessage #-}
-
-data EnableSnapshotCopy = EnableSnapshotCopy
-    { _escmClusterIdentifier :: Text
-      -- ^ The unique identifier of the source cluster to copy snapshots
-      -- from. Constraints: Must be the valid name of an existing cluster
-      -- that does not already have cross-region snapshot copy enabled.
-    , _escmDestinationRegion :: Text
-      -- ^ The destination region that you want to copy snapshots to.
-      -- Constraints: Must be the name of a valid region. For more
-      -- information, see Regions and Endpoints in the Amazon Web Services
-      -- General Reference.
-    , _escmRetentionPeriod :: Maybe Integer
-      -- ^ The number of days to retain automated snapshots in the
-      -- destination region after they are copied from the source region.
-      -- Default: 7. Constraints: Must be at least 1 and no more than 35.
-    } deriving (Show, Generic)
+{-# INLINE mkEnableSnapshotCopy #-}
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 -- Constraints: Must be the valid name of an existing cluster that does not
 -- already have cross-region snapshot copy enabled.
-escmClusterIdentifier :: Lens' EnableSnapshotCopy (Text)
-escmClusterIdentifier = lens _escmClusterIdentifier (\s a -> s { _escmClusterIdentifier = a })
-{-# INLINE escmClusterIdentifier #-}
+escClusterIdentifier :: Lens' EnableSnapshotCopy Text
+escClusterIdentifier =
+    lens _escClusterIdentifier (\s a -> s { _escClusterIdentifier = a })
+{-# INLINE escClusterIdentifier #-}
 
 -- | The destination region that you want to copy snapshots to. Constraints:
 -- Must be the name of a valid region. For more information, see Regions and
 -- Endpoints in the Amazon Web Services General Reference.
-escmDestinationRegion :: Lens' EnableSnapshotCopy (Text)
-escmDestinationRegion = lens _escmDestinationRegion (\s a -> s { _escmDestinationRegion = a })
-{-# INLINE escmDestinationRegion #-}
+escDestinationRegion :: Lens' EnableSnapshotCopy Text
+escDestinationRegion =
+    lens _escDestinationRegion (\s a -> s { _escDestinationRegion = a })
+{-# INLINE escDestinationRegion #-}
 
 -- | The number of days to retain automated snapshots in the destination region
 -- after they are copied from the source region. Default: 7. Constraints: Must
 -- be at least 1 and no more than 35.
-escmRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Integer)
-escmRetentionPeriod = lens _escmRetentionPeriod (\s a -> s { _escmRetentionPeriod = a })
-{-# INLINE escmRetentionPeriod #-}
+escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Integer)
+escRetentionPeriod =
+    lens _escRetentionPeriod (\s a -> s { _escRetentionPeriod = a })
+{-# INLINE escRetentionPeriod #-}
 
 instance ToQuery EnableSnapshotCopy where
     toQuery = genericQuery def
 
 newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
-    { _czCluster :: Maybe Cluster
-      -- ^ Describes a cluster.
+    { _escrsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-czCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
-czCluster = lens _czCluster (\s a -> s { _czCluster = a })
-{-# INLINE czCluster #-}
+escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
+escrsCluster = lens _escrsCluster (\s a -> s { _escrsCluster = a })
+{-# INLINE escrsCluster #-}
 
 instance FromXML EnableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

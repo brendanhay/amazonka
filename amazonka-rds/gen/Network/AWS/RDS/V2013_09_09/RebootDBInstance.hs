@@ -45,76 +45,69 @@ module Network.AWS.RDS.V2013_09_09.RebootDBInstance
     -- * Request
       RebootDBInstance
     -- ** Request constructor
-    , mkRebootDBInstanceMessage
+    , mkRebootDBInstance
     -- ** Request lenses
-    , rdbinDBInstanceIdentifier
-    , rdbinForceFailover
+    , rdbi1DBInstanceIdentifier
+    , rdbi1ForceFailover
 
     -- * Response
     , RebootDBInstanceResponse
     -- ** Response lenses
-    , dbidsDBInstance
+    , rdbirsDBInstance
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data RebootDBInstance = RebootDBInstance
+    { _rdbi1DBInstanceIdentifier :: Text
+    , _rdbi1ForceFailover :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootDBInstance' request.
-mkRebootDBInstanceMessage :: Text -- ^ 'rdbinDBInstanceIdentifier'
-                          -> RebootDBInstance
-mkRebootDBInstanceMessage p1 = RebootDBInstance
-    { _rdbinDBInstanceIdentifier = p1
-    , _rdbinForceFailover = Nothing
+mkRebootDBInstance :: Text -- ^ 'rdbi1DBInstanceIdentifier'
+                   -> RebootDBInstance
+mkRebootDBInstance p1 = RebootDBInstance
+    { _rdbi1DBInstanceIdentifier = p1
+    , _rdbi1ForceFailover = Nothing
     }
-{-# INLINE mkRebootDBInstanceMessage #-}
-
-data RebootDBInstance = RebootDBInstance
-    { _rdbinDBInstanceIdentifier :: Text
-      -- ^ The DB instance identifier. This parameter is stored as a
-      -- lowercase string. Constraints: Must contain from 1 to 63
-      -- alphanumeric characters or hyphens First character must be a
-      -- letter Cannot end with a hyphen or contain two consecutive
-      -- hyphens.
-    , _rdbinForceFailover :: Maybe Bool
-      -- ^ When true, the reboot will be conducted through a MultiAZ
-      -- failover. Constraint: You cannot specify true if the instance is
-      -- not configured for MultiAZ.
-    } deriving (Show, Generic)
+{-# INLINE mkRebootDBInstance #-}
 
 -- | The DB instance identifier. This parameter is stored as a lowercase string.
 -- Constraints: Must contain from 1 to 63 alphanumeric characters or hyphens
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-rdbinDBInstanceIdentifier :: Lens' RebootDBInstance (Text)
-rdbinDBInstanceIdentifier = lens _rdbinDBInstanceIdentifier (\s a -> s { _rdbinDBInstanceIdentifier = a })
-{-# INLINE rdbinDBInstanceIdentifier #-}
+rdbi1DBInstanceIdentifier :: Lens' RebootDBInstance Text
+rdbi1DBInstanceIdentifier =
+    lens _rdbi1DBInstanceIdentifier
+         (\s a -> s { _rdbi1DBInstanceIdentifier = a })
+{-# INLINE rdbi1DBInstanceIdentifier #-}
 
 -- | When true, the reboot will be conducted through a MultiAZ failover.
 -- Constraint: You cannot specify true if the instance is not configured for
 -- MultiAZ.
-rdbinForceFailover :: Lens' RebootDBInstance (Maybe Bool)
-rdbinForceFailover = lens _rdbinForceFailover (\s a -> s { _rdbinForceFailover = a })
-{-# INLINE rdbinForceFailover #-}
+rdbi1ForceFailover :: Lens' RebootDBInstance (Maybe Bool)
+rdbi1ForceFailover =
+    lens _rdbi1ForceFailover (\s a -> s { _rdbi1ForceFailover = a })
+{-# INLINE rdbi1ForceFailover #-}
 
 instance ToQuery RebootDBInstance where
     toQuery = genericQuery def
 
 newtype RebootDBInstanceResponse = RebootDBInstanceResponse
-    { _dbidsDBInstance :: Maybe DBInstance
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
-      -- data type is used as a response element in the
-      -- DescribeDBInstances action.
+    { _rdbirsDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbidsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
-dbidsDBInstance = lens _dbidsDBInstance (\s a -> s { _dbidsDBInstance = a })
-{-# INLINE dbidsDBInstance #-}
+rdbirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
+rdbirsDBInstance =
+    lens _rdbirsDBInstance (\s a -> s { _rdbirsDBInstance = a })
+{-# INLINE rdbirsDBInstance #-}
 
 instance FromXML RebootDBInstanceResponse where
     fromXMLOptions = xmlOptions

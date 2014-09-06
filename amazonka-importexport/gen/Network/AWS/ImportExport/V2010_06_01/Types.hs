@@ -38,6 +38,7 @@ module Network.AWS.ImportExport.V2010_06_01.Types
 
     -- * Job
     , Job
+    , mkJob
     , jJobId
     , jCreationDate
     , jIsCanceled
@@ -134,7 +135,6 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "http://importexport.amazonaws.com/doc/2010-06-01/"
     }
 
--- | Specifies whether the job to initiate is an import or export job.
 data JobType
     = JobTypeExport -- ^ Export
     | JobTypeImport -- ^ Import
@@ -161,35 +161,41 @@ instance ToQuery JobType where
 
 -- | Representation of a job returned by the ListJobs operation.
 data Job = Job
-    { _jJobId :: Text
-      -- ^ A unique identifier which refers to a particular job.
-    , _jCreationDate :: ISO8601
-      -- ^ Timestamp of the CreateJob request in ISO8601 date format. For
-      -- example "2010-03-28T20:27:35Z".
-    , _jIsCanceled :: Bool
-      -- ^ Indicates whether the job was canceled.
-    , _jJobType :: JobType
-      -- ^ Specifies whether the job to initiate is an import or export job.
+    { _jJobId :: Maybe Text
+    , _jCreationDate :: Maybe ISO8601
+    , _jIsCanceled :: Maybe Bool
+    , _jJobType :: Maybe JobType
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Job' data type to populate a request.
+mkJob :: Job
+mkJob = Job
+    { _jJobId = Nothing
+    , _jCreationDate = Nothing
+    , _jIsCanceled = Nothing
+    , _jJobType = Nothing
+    }
+{-# INLINE mkJob #-}
+
 -- | A unique identifier which refers to a particular job.
-jJobId :: Lens' Job (Text)
+jJobId :: Lens' Job (Maybe Text)
 jJobId = lens _jJobId (\s a -> s { _jJobId = a })
 {-# INLINE jJobId #-}
 
 -- | Timestamp of the CreateJob request in ISO8601 date format. For example
 -- "2010-03-28T20:27:35Z".
-jCreationDate :: Lens' Job (ISO8601)
+jCreationDate :: Lens' Job (Maybe ISO8601)
 jCreationDate = lens _jCreationDate (\s a -> s { _jCreationDate = a })
 {-# INLINE jCreationDate #-}
 
 -- | Indicates whether the job was canceled.
-jIsCanceled :: Lens' Job (Bool)
+jIsCanceled :: Lens' Job (Maybe Bool)
 jIsCanceled = lens _jIsCanceled (\s a -> s { _jIsCanceled = a })
 {-# INLINE jIsCanceled #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
-jJobType :: Lens' Job (JobType)
+jJobType :: Lens' Job (Maybe JobType)
 jJobType = lens _jJobType (\s a -> s { _jJobType = a })
 {-# INLINE jJobType #-}
 

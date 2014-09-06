@@ -30,10 +30,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteRoute
     -- * Request
       DeleteRoute
     -- ** Request constructor
-    , mkDeleteRouteRequest
+    , mkDeleteRoute
     -- ** Request lenses
-    , drrRouteTableId
-    , drrDestinationCidrBlock
+    , drRouteTableId
+    , drDestinationCidrBlock
 
     -- * Response
     , DeleteRouteResponse
@@ -43,35 +43,34 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRoute' request.
-mkDeleteRouteRequest :: Text -- ^ 'drrRouteTableId'
-                     -> Text -- ^ 'drrDestinationCidrBlock'
-                     -> DeleteRoute
-mkDeleteRouteRequest p1 p2 = DeleteRoute
-    { _drrRouteTableId = p1
-    , _drrDestinationCidrBlock = p2
-    }
-{-# INLINE mkDeleteRouteRequest #-}
-
+-- | 
 data DeleteRoute = DeleteRoute
-    { _drrRouteTableId :: Text
-      -- ^ The ID of the route table.
-    , _drrDestinationCidrBlock :: Text
-      -- ^ The CIDR range for the route. The value you specify must match
-      -- the CIDR for the route exactly.
+    { _drRouteTableId :: Text
+    , _drDestinationCidrBlock :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRoute' request.
+mkDeleteRoute :: Text -- ^ 'drRouteTableId'
+              -> Text -- ^ 'drDestinationCidrBlock'
+              -> DeleteRoute
+mkDeleteRoute p1 p2 = DeleteRoute
+    { _drRouteTableId = p1
+    , _drDestinationCidrBlock = p2
+    }
+{-# INLINE mkDeleteRoute #-}
+
 -- | The ID of the route table.
-drrRouteTableId :: Lens' DeleteRoute (Text)
-drrRouteTableId = lens _drrRouteTableId (\s a -> s { _drrRouteTableId = a })
-{-# INLINE drrRouteTableId #-}
+drRouteTableId :: Lens' DeleteRoute Text
+drRouteTableId = lens _drRouteTableId (\s a -> s { _drRouteTableId = a })
+{-# INLINE drRouteTableId #-}
 
 -- | The CIDR range for the route. The value you specify must match the CIDR for
 -- the route exactly.
-drrDestinationCidrBlock :: Lens' DeleteRoute (Text)
-drrDestinationCidrBlock = lens _drrDestinationCidrBlock (\s a -> s { _drrDestinationCidrBlock = a })
-{-# INLINE drrDestinationCidrBlock #-}
+drDestinationCidrBlock :: Lens' DeleteRoute Text
+drDestinationCidrBlock =
+    lens _drDestinationCidrBlock (\s a -> s { _drDestinationCidrBlock = a })
+{-# INLINE drDestinationCidrBlock #-}
 
 instance ToQuery DeleteRoute where
     toQuery = genericQuery def

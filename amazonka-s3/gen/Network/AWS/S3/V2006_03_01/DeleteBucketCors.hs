@@ -23,9 +23,9 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketCors
     -- * Request
       DeleteBucketCors
     -- ** Request constructor
-    , mkDeleteBucketCorsRequest
+    , mkDeleteBucketCors
     -- ** Request lenses
-    , dbcrBucket
+    , dbcBucket
 
     -- * Response
     , DeleteBucketCorsResponse
@@ -34,28 +34,29 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketCors
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype DeleteBucketCors = DeleteBucketCors
+    { _dbcBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketCors' request.
-mkDeleteBucketCorsRequest :: BucketName -- ^ 'dbcrBucket'
-                          -> DeleteBucketCors
-mkDeleteBucketCorsRequest p1 = DeleteBucketCors
-    { _dbcrBucket = p1
+mkDeleteBucketCors :: BucketName -- ^ 'dbcBucket'
+                   -> DeleteBucketCors
+mkDeleteBucketCors p1 = DeleteBucketCors
+    { _dbcBucket = p1
     }
-{-# INLINE mkDeleteBucketCorsRequest #-}
+{-# INLINE mkDeleteBucketCors #-}
 
-newtype DeleteBucketCors = DeleteBucketCors
-    { _dbcrBucket :: BucketName
-    } deriving (Show, Generic)
-
-dbcrBucket :: Lens' DeleteBucketCors (BucketName)
-dbcrBucket = lens _dbcrBucket (\s a -> s { _dbcrBucket = a })
-{-# INLINE dbcrBucket #-}
+dbcBucket :: Lens' DeleteBucketCors BucketName
+dbcBucket = lens _dbcBucket (\s a -> s { _dbcBucket = a })
+{-# INLINE dbcBucket #-}
 
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat
         [ "/"
-        , toBS _dbcrBucket
+        , toBS _dbcBucket
         ]
 
 instance ToQuery DeleteBucketCors where

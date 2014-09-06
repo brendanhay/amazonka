@@ -23,44 +23,45 @@ module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution
     -- * Request
       GetStreamingDistribution
     -- ** Request constructor
-    , mkGetStreamingDistributionRequest
+    , mkGetStreamingDistribution
     -- ** Request lenses
-    , gsdrId
+    , gsdId
 
     -- * Response
     , GetStreamingDistributionResponse
     -- ** Response lenses
-    , gsdsStreamingDistribution
-    , gsdsETag
+    , gsdrsStreamingDistribution
+    , gsdrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to get a streaming distribution's information.
+newtype GetStreamingDistribution = GetStreamingDistribution
+    { _gsdId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStreamingDistribution' request.
-mkGetStreamingDistributionRequest :: Text -- ^ 'gsdrId'
-                                  -> GetStreamingDistribution
-mkGetStreamingDistributionRequest p1 = GetStreamingDistribution
-    { _gsdrId = p1
+mkGetStreamingDistribution :: Text -- ^ 'gsdId'
+                           -> GetStreamingDistribution
+mkGetStreamingDistribution p1 = GetStreamingDistribution
+    { _gsdId = p1
     }
-{-# INLINE mkGetStreamingDistributionRequest #-}
-
-newtype GetStreamingDistribution = GetStreamingDistribution
-    { _gsdrId :: Text
-      -- ^ The streaming distribution's id.
-    } deriving (Show, Generic)
+{-# INLINE mkGetStreamingDistribution #-}
 
 -- | The streaming distribution's id.
-gsdrId :: Lens' GetStreamingDistribution (Text)
-gsdrId = lens _gsdrId (\s a -> s { _gsdrId = a })
-{-# INLINE gsdrId #-}
+gsdId :: Lens' GetStreamingDistribution Text
+gsdId = lens _gsdId (\s a -> s { _gsdId = a })
+{-# INLINE gsdId #-}
 
 instance ToPath GetStreamingDistribution where
     toPath GetStreamingDistribution{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
-        , toBS _gsdrId
+        , toBS _gsdId
         ]
 
 instance ToQuery GetStreamingDistribution
@@ -71,24 +72,24 @@ instance ToXML GetStreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetStreamingDistributionRequest"
 
+-- | The returned result of the corresponding request.
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse
-    { _gsdsStreamingDistribution :: Maybe StreamingDistribution
-      -- ^ The streaming distribution's information.
-    , _gsdsETag :: Maybe Text
-      -- ^ The current version of the streaming distribution's information.
-      -- For example: E2QWRUHAPOMQZL.
+    { _gsdrsStreamingDistribution :: Maybe StreamingDistribution
+    , _gsdrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-gsdsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
-gsdsStreamingDistribution = lens _gsdsStreamingDistribution (\s a -> s { _gsdsStreamingDistribution = a })
-{-# INLINE gsdsStreamingDistribution #-}
+gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
+gsdrsStreamingDistribution =
+    lens _gsdrsStreamingDistribution
+         (\s a -> s { _gsdrsStreamingDistribution = a })
+{-# INLINE gsdrsStreamingDistribution #-}
 
 -- | The current version of the streaming distribution's information. For
 -- example: E2QWRUHAPOMQZL.
-gsdsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
-gsdsETag = lens _gsdsETag (\s a -> s { _gsdsETag = a })
-{-# INLINE gsdsETag #-}
+gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
+gsdrsETag = lens _gsdrsETag (\s a -> s { _gsdrsETag = a })
+{-# INLINE gsdrsETag #-}
 
 instance AWSRequest GetStreamingDistribution where
     type Sv GetStreamingDistribution = CloudFront

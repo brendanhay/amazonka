@@ -33,10 +33,10 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream
     -- * Request
       DeleteLogStream
     -- ** Request constructor
-    , mkDeleteLogStreamRequest
+    , mkDeleteLogStream
     -- ** Request lenses
-    , dlsrLogGroupName
-    , dlsrLogStreamName
+    , dlsLogGroupName
+    , dlsLogStreamName
 
     -- * Response
     , DeleteLogStreamResponse
@@ -47,29 +47,30 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLogStream' request.
-mkDeleteLogStreamRequest :: Text -- ^ 'dlsrLogGroupName'
-                         -> Text -- ^ 'dlsrLogStreamName'
-                         -> DeleteLogStream
-mkDeleteLogStreamRequest p1 p2 = DeleteLogStream
-    { _dlsrLogGroupName = p1
-    , _dlsrLogStreamName = p2
-    }
-{-# INLINE mkDeleteLogStreamRequest #-}
-
 data DeleteLogStream = DeleteLogStream
-    { _dlsrLogGroupName :: Text
-    , _dlsrLogStreamName :: Text
+    { _dlsLogGroupName :: Text
+    , _dlsLogStreamName :: Text
     } deriving (Show, Generic)
 
-dlsrLogGroupName :: Lens' DeleteLogStream (Text)
-dlsrLogGroupName = lens _dlsrLogGroupName (\s a -> s { _dlsrLogGroupName = a })
-{-# INLINE dlsrLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLogStream' request.
+mkDeleteLogStream :: Text -- ^ 'dlsLogGroupName'
+                  -> Text -- ^ 'dlsLogStreamName'
+                  -> DeleteLogStream
+mkDeleteLogStream p1 p2 = DeleteLogStream
+    { _dlsLogGroupName = p1
+    , _dlsLogStreamName = p2
+    }
+{-# INLINE mkDeleteLogStream #-}
 
-dlsrLogStreamName :: Lens' DeleteLogStream (Text)
-dlsrLogStreamName = lens _dlsrLogStreamName (\s a -> s { _dlsrLogStreamName = a })
-{-# INLINE dlsrLogStreamName #-}
+dlsLogGroupName :: Lens' DeleteLogStream Text
+dlsLogGroupName = lens _dlsLogGroupName (\s a -> s { _dlsLogGroupName = a })
+{-# INLINE dlsLogGroupName #-}
+
+dlsLogStreamName :: Lens' DeleteLogStream Text
+dlsLogStreamName =
+    lens _dlsLogStreamName (\s a -> s { _dlsLogStreamName = a })
+{-# INLINE dlsLogStreamName #-}
 
 instance ToPath DeleteLogStream
 

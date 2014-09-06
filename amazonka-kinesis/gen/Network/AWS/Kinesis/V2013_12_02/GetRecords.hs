@@ -60,16 +60,16 @@ module Network.AWS.Kinesis.V2013_12_02.GetRecords
     -- * Request
       GetRecords
     -- ** Request constructor
-    , mkGetRecordsInput
+    , mkGetRecords
     -- ** Request lenses
-    , griShardIterator
-    , griLimit
+    , grShardIterator
+    , grLimit
 
     -- * Response
     , GetRecordsResponse
     -- ** Response lenses
-    , groRecords
-    , groNextShardIterator
+    , grrsRecords
+    , grrsNextShardIterator
     ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
@@ -77,36 +77,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Represents the input of a GetRecords operation.
+data GetRecords = GetRecords
+    { _grShardIterator :: Text
+    , _grLimit :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRecords' request.
-mkGetRecordsInput :: Text -- ^ 'griShardIterator'
-                  -> GetRecords
-mkGetRecordsInput p1 = GetRecords
-    { _griShardIterator = p1
-    , _griLimit = Nothing
+mkGetRecords :: Text -- ^ 'grShardIterator'
+             -> GetRecords
+mkGetRecords p1 = GetRecords
+    { _grShardIterator = p1
+    , _grLimit = Nothing
     }
-{-# INLINE mkGetRecordsInput #-}
-
-data GetRecords = GetRecords
-    { _griShardIterator :: Text
-      -- ^ The position in the shard from which you want to start
-      -- sequentially reading data records.
-    , _griLimit :: Maybe Integer
-      -- ^ The maximum number of records to return, which can be set to a
-      -- value of up to 10,000.
-    } deriving (Show, Generic)
+{-# INLINE mkGetRecords #-}
 
 -- | The position in the shard from which you want to start sequentially reading
 -- data records.
-griShardIterator :: Lens' GetRecords (Text)
-griShardIterator = lens _griShardIterator (\s a -> s { _griShardIterator = a })
-{-# INLINE griShardIterator #-}
+grShardIterator :: Lens' GetRecords Text
+grShardIterator = lens _grShardIterator (\s a -> s { _grShardIterator = a })
+{-# INLINE grShardIterator #-}
 
 -- | The maximum number of records to return, which can be set to a value of up
 -- to 10,000.
-griLimit :: Lens' GetRecords (Maybe Integer)
-griLimit = lens _griLimit (\s a -> s { _griLimit = a })
-{-# INLINE griLimit #-}
+grLimit :: Lens' GetRecords (Maybe Integer)
+grLimit = lens _grLimit (\s a -> s { _grLimit = a })
+{-# INLINE grLimit #-}
 
 instance ToPath GetRecords
 
@@ -116,26 +113,24 @@ instance ToHeaders GetRecords
 
 instance ToJSON GetRecords
 
+-- | Represents the output of a GetRecords operation.
 data GetRecordsResponse = GetRecordsResponse
-    { _groRecords :: [Record]
-      -- ^ The data records retrieved from the shard.
-    , _groNextShardIterator :: Maybe Text
-      -- ^ The next position in the shard from which to start sequentially
-      -- reading data records. If set to null, the shard has been closed
-      -- and the requested iterator will not return any more data.
+    { _grrsRecords :: [Record]
+    , _grrsNextShardIterator :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The data records retrieved from the shard.
-groRecords :: Lens' GetRecordsResponse ([Record])
-groRecords = lens _groRecords (\s a -> s { _groRecords = a })
-{-# INLINE groRecords #-}
+grrsRecords :: Lens' GetRecordsResponse [Record]
+grrsRecords = lens _grrsRecords (\s a -> s { _grrsRecords = a })
+{-# INLINE grrsRecords #-}
 
 -- | The next position in the shard from which to start sequentially reading
 -- data records. If set to null, the shard has been closed and the requested
 -- iterator will not return any more data.
-groNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
-groNextShardIterator = lens _groNextShardIterator (\s a -> s { _groNextShardIterator = a })
-{-# INLINE groNextShardIterator #-}
+grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
+grrsNextShardIterator =
+    lens _grrsNextShardIterator (\s a -> s { _grrsNextShardIterator = a })
+{-# INLINE grrsNextShardIterator #-}
 
 instance FromJSON GetRecordsResponse
 

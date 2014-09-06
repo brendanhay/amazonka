@@ -29,104 +29,91 @@ module Network.AWS.IAM.V2010_05_08.ListMFADevices
     -- * Request
       ListMFADevices
     -- ** Request constructor
-    , mkListMFADevicesRequest
+    , mkListMFADevices
     -- ** Request lenses
-    , lmfadrUserName
-    , lmfadrMarker
-    , lmfadrMaxItems
+    , lmfadUserName
+    , lmfadMarker
+    , lmfadMaxItems
 
     -- * Response
     , ListMFADevicesResponse
     -- ** Response lenses
-    , lmfadsMFADevices
-    , lmfadsIsTruncated
-    , lmfadsMarker
+    , lmfadrsMFADevices
+    , lmfadrsIsTruncated
+    , lmfadrsMarker
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListMFADevices' request.
-mkListMFADevicesRequest :: ListMFADevices
-mkListMFADevicesRequest = ListMFADevices
-    { _lmfadrUserName = Nothing
-    , _lmfadrMarker = Nothing
-    , _lmfadrMaxItems = Nothing
-    }
-{-# INLINE mkListMFADevicesRequest #-}
-
+-- | 
 data ListMFADevices = ListMFADevices
-    { _lmfadrUserName :: Maybe Text
-      -- ^ Name of the user whose MFA devices you want to list.
-    , _lmfadrMarker :: Maybe Text
-      -- ^ Use this only when paginating results, and only in a subsequent
-      -- request after you've received a response where the results are
-      -- truncated. Set it to the value of the Marker element in the
-      -- response you just received.
-    , _lmfadrMaxItems :: Maybe Integer
-      -- ^ Use this only when paginating results to indicate the maximum
-      -- number of MFA devices you want in the response. If there are
-      -- additional MFA devices beyond the maximum you specify, the
-      -- IsTruncated response element is true. This parameter is optional.
-      -- If you do not include it, it defaults to 100.
+    { _lmfadUserName :: Maybe Text
+    , _lmfadMarker :: Maybe Text
+    , _lmfadMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListMFADevices' request.
+mkListMFADevices :: ListMFADevices
+mkListMFADevices = ListMFADevices
+    { _lmfadUserName = Nothing
+    , _lmfadMarker = Nothing
+    , _lmfadMaxItems = Nothing
+    }
+{-# INLINE mkListMFADevices #-}
+
 -- | Name of the user whose MFA devices you want to list.
-lmfadrUserName :: Lens' ListMFADevices (Maybe Text)
-lmfadrUserName = lens _lmfadrUserName (\s a -> s { _lmfadrUserName = a })
-{-# INLINE lmfadrUserName #-}
+lmfadUserName :: Lens' ListMFADevices (Maybe Text)
+lmfadUserName = lens _lmfadUserName (\s a -> s { _lmfadUserName = a })
+{-# INLINE lmfadUserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-lmfadrMarker :: Lens' ListMFADevices (Maybe Text)
-lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
-{-# INLINE lmfadrMarker #-}
+lmfadMarker :: Lens' ListMFADevices (Maybe Text)
+lmfadMarker = lens _lmfadMarker (\s a -> s { _lmfadMarker = a })
+{-# INLINE lmfadMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of MFA
 -- devices you want in the response. If there are additional MFA devices
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-lmfadrMaxItems :: Lens' ListMFADevices (Maybe Integer)
-lmfadrMaxItems = lens _lmfadrMaxItems (\s a -> s { _lmfadrMaxItems = a })
-{-# INLINE lmfadrMaxItems #-}
+lmfadMaxItems :: Lens' ListMFADevices (Maybe Integer)
+lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a })
+{-# INLINE lmfadMaxItems #-}
 
 instance ToQuery ListMFADevices where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the ListMFADevices
+-- action.
 data ListMFADevicesResponse = ListMFADevicesResponse
-    { _lmfadsMFADevices :: [MFADevice]
-      -- ^ A list of MFA devices.
-    , _lmfadsIsTruncated :: Bool
-      -- ^ A flag that indicates whether there are more MFA devices to list.
-      -- If your results were truncated, you can make a subsequent
-      -- pagination request using the Marker request parameter to retrieve
-      -- more MFA devices in the list.
-    , _lmfadsMarker :: Maybe Text
-      -- ^ If IsTruncated is true, this element is present and contains the
-      -- value to use for the Marker parameter in a subsequent pagination
-      -- request.
+    { _lmfadrsMFADevices :: [MFADevice]
+    , _lmfadrsIsTruncated :: Maybe Bool
+    , _lmfadrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of MFA devices.
-lmfadsMFADevices :: Lens' ListMFADevicesResponse ([MFADevice])
-lmfadsMFADevices = lens _lmfadsMFADevices (\s a -> s { _lmfadsMFADevices = a })
-{-# INLINE lmfadsMFADevices #-}
+lmfadrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
+lmfadrsMFADevices =
+    lens _lmfadrsMFADevices (\s a -> s { _lmfadrsMFADevices = a })
+{-# INLINE lmfadrsMFADevices #-}
 
 -- | A flag that indicates whether there are more MFA devices to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more MFA devices in the list.
-lmfadsIsTruncated :: Lens' ListMFADevicesResponse (Bool)
-lmfadsIsTruncated = lens _lmfadsIsTruncated (\s a -> s { _lmfadsIsTruncated = a })
-{-# INLINE lmfadsIsTruncated #-}
+lmfadrsIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
+lmfadrsIsTruncated =
+    lens _lmfadrsIsTruncated (\s a -> s { _lmfadrsIsTruncated = a })
+{-# INLINE lmfadrsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lmfadsMarker :: Lens' ListMFADevicesResponse (Maybe Text)
-lmfadsMarker = lens _lmfadsMarker (\s a -> s { _lmfadsMarker = a })
-{-# INLINE lmfadsMarker #-}
+lmfadrsMarker :: Lens' ListMFADevicesResponse (Maybe Text)
+lmfadrsMarker = lens _lmfadrsMarker (\s a -> s { _lmfadrsMarker = a })
+{-# INLINE lmfadrsMarker #-}
 
 instance FromXML ListMFADevicesResponse where
     fromXMLOptions = xmlOptions
@@ -140,7 +127,7 @@ instance AWSRequest ListMFADevices where
 
 instance AWSPager ListMFADevices where
     next rq rs
-        | not (_lmfadsIsTruncated rs) = Nothing
+        | not (_lmfadrsIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lmfadrMarker = _lmfadsMarker rs
+            { _lmfadMarker = _lmfadrsMarker rs
             }

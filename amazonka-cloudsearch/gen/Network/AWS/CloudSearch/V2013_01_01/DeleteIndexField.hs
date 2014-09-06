@@ -24,70 +24,68 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField
     -- * Request
       DeleteIndexField
     -- ** Request constructor
-    , mkDeleteIndexFieldRequest
+    , mkDeleteIndexField
     -- ** Request lenses
-    , diftDomainName
-    , diftIndexFieldName
+    , dif1DomainName
+    , dif1IndexFieldName
 
     -- * Response
     , DeleteIndexFieldResponse
     -- ** Response lenses
-    , difuIndexField
+    , difrsrsIndexField
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the DeleteIndexField operation. Specifies
+-- the name of the domain you want to update and the name of the index field
+-- you want to delete.
+data DeleteIndexField = DeleteIndexField
+    { _dif1DomainName :: Text
+    , _dif1IndexFieldName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIndexField' request.
-mkDeleteIndexFieldRequest :: Text -- ^ 'diftDomainName'
-                          -> Text -- ^ 'diftIndexFieldName'
-                          -> DeleteIndexField
-mkDeleteIndexFieldRequest p1 p2 = DeleteIndexField
-    { _diftDomainName = p1
-    , _diftIndexFieldName = p2
+mkDeleteIndexField :: Text -- ^ 'dif1DomainName'
+                   -> Text -- ^ 'dif1IndexFieldName'
+                   -> DeleteIndexField
+mkDeleteIndexField p1 p2 = DeleteIndexField
+    { _dif1DomainName = p1
+    , _dif1IndexFieldName = p2
     }
-{-# INLINE mkDeleteIndexFieldRequest #-}
-
-data DeleteIndexField = DeleteIndexField
-    { _diftDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    , _diftIndexFieldName :: Text
-      -- ^ The name of the index field your want to remove from the domain's
-      -- indexing options.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteIndexField #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-diftDomainName :: Lens' DeleteIndexField (Text)
-diftDomainName = lens _diftDomainName (\s a -> s { _diftDomainName = a })
-{-# INLINE diftDomainName #-}
+dif1DomainName :: Lens' DeleteIndexField Text
+dif1DomainName = lens _dif1DomainName (\s a -> s { _dif1DomainName = a })
+{-# INLINE dif1DomainName #-}
 
 -- | The name of the index field your want to remove from the domain's indexing
 -- options.
-diftIndexFieldName :: Lens' DeleteIndexField (Text)
-diftIndexFieldName = lens _diftIndexFieldName (\s a -> s { _diftIndexFieldName = a })
-{-# INLINE diftIndexFieldName #-}
+dif1IndexFieldName :: Lens' DeleteIndexField Text
+dif1IndexFieldName =
+    lens _dif1IndexFieldName (\s a -> s { _dif1IndexFieldName = a })
+{-# INLINE dif1IndexFieldName #-}
 
 instance ToQuery DeleteIndexField where
     toQuery = genericQuery def
 
+-- | The result of a DeleteIndexField request.
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
-    { _difuIndexField :: IndexFieldStatus
-      -- ^ The status of the index field being deleted.
+    { _difrsrsIndexField :: IndexFieldStatus
     } deriving (Show, Generic)
 
 -- | The status of the index field being deleted.
-difuIndexField :: Lens' DeleteIndexFieldResponse (IndexFieldStatus)
-difuIndexField = lens _difuIndexField (\s a -> s { _difuIndexField = a })
-{-# INLINE difuIndexField #-}
+difrsrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
+difrsrsIndexField =
+    lens _difrsrsIndexField (\s a -> s { _difrsrsIndexField = a })
+{-# INLINE difrsrsIndexField #-}
 
 instance FromXML DeleteIndexFieldResponse where
     fromXMLOptions = xmlOptions

@@ -28,73 +28,67 @@ module Network.AWS.SimpleDB.V2009_04_15.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , mkListDomainsRequest
+    , mkListDomains
     -- ** Request lenses
-    , ldrMaxNumberOfDomains
-    , ldrNextToken
+    , ldMaxNumberOfDomains
+    , ldNextToken
 
     -- * Response
     , ListDomainsResponse
     -- ** Response lenses
-    , ldsDomainNames
-    , ldsNextToken
+    , ldrsDomainNames
+    , ldrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
+data ListDomains = ListDomains
+    { _ldMaxNumberOfDomains :: Maybe Integer
+    , _ldNextToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
-mkListDomainsRequest :: ListDomains
-mkListDomainsRequest = ListDomains
-    { _ldrMaxNumberOfDomains = Nothing
-    , _ldrNextToken = Nothing
+mkListDomains :: ListDomains
+mkListDomains = ListDomains
+    { _ldMaxNumberOfDomains = Nothing
+    , _ldNextToken = Nothing
     }
-{-# INLINE mkListDomainsRequest #-}
-
-data ListDomains = ListDomains
-    { _ldrMaxNumberOfDomains :: Maybe Integer
-      -- ^ The maximum number of domain names you want returned. The range
-      -- is 1 to 100. The default setting is 100.
-    , _ldrNextToken :: Maybe Text
-      -- ^ A string informing Amazon SimpleDB where to start the next list
-      -- of domain names.
-    } deriving (Show, Generic)
+{-# INLINE mkListDomains #-}
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
-ldrMaxNumberOfDomains :: Lens' ListDomains (Maybe Integer)
-ldrMaxNumberOfDomains = lens _ldrMaxNumberOfDomains (\s a -> s { _ldrMaxNumberOfDomains = a })
-{-# INLINE ldrMaxNumberOfDomains #-}
+ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Integer)
+ldMaxNumberOfDomains =
+    lens _ldMaxNumberOfDomains (\s a -> s { _ldMaxNumberOfDomains = a })
+{-# INLINE ldMaxNumberOfDomains #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of domain
 -- names.
-ldrNextToken :: Lens' ListDomains (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
-{-# INLINE ldrNextToken #-}
+ldNextToken :: Lens' ListDomains (Maybe Text)
+ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
+{-# INLINE ldNextToken #-}
 
 instance ToQuery ListDomains where
     toQuery = genericQuery def
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldsDomainNames :: [Text]
-      -- ^ A list of domain names that match the expression.
-    , _ldsNextToken :: Maybe Text
-      -- ^ An opaque token indicating that there are more domains than the
-      -- specified MaxNumberOfDomains still available.
+    { _ldrsDomainNames :: [Text]
+    , _ldrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of domain names that match the expression.
-ldsDomainNames :: Lens' ListDomainsResponse ([Text])
-ldsDomainNames = lens _ldsDomainNames (\s a -> s { _ldsDomainNames = a })
-{-# INLINE ldsDomainNames #-}
+ldrsDomainNames :: Lens' ListDomainsResponse [Text]
+ldrsDomainNames = lens _ldrsDomainNames (\s a -> s { _ldrsDomainNames = a })
+{-# INLINE ldrsDomainNames #-}
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
-ldsNextToken :: Lens' ListDomainsResponse (Maybe Text)
-ldsNextToken = lens _ldsNextToken (\s a -> s { _ldsNextToken = a })
-{-# INLINE ldsNextToken #-}
+ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\s a -> s { _ldrsNextToken = a })
+{-# INLINE ldrsNextToken #-}
 
 instance FromXML ListDomainsResponse where
     fromXMLOptions = xmlOptions
@@ -107,5 +101,5 @@ instance AWSRequest ListDomains where
     response _ = xmlResponse
 
 instance AWSPager ListDomains where
-    next rq rs = (\x -> rq { _ldrNextToken = Just x })
-        <$> (_ldsNextToken rs)
+    next rq rs = (\x -> rq { _ldNextToken = Just x })
+        <$> (_ldrsNextToken rs)

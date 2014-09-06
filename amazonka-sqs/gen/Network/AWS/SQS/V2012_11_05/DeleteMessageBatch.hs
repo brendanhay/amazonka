@@ -43,69 +43,69 @@ module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
     -- * Request
       DeleteMessageBatch
     -- ** Request constructor
-    , mkDeleteMessageBatchRequest
+    , mkDeleteMessageBatch
     -- ** Request lenses
-    , dmbrQueueUrl
-    , dmbrEntries
+    , dmbQueueUrl
+    , dmbEntries
 
     -- * Response
     , DeleteMessageBatchResponse
     -- ** Response lenses
-    , dmbsSuccessful
-    , dmbsFailed
+    , dmbrsSuccessful
+    , dmbrsFailed
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteMessageBatch' request.
-mkDeleteMessageBatchRequest :: Text -- ^ 'dmbrQueueUrl'
-                            -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbrEntries'
-                            -> DeleteMessageBatch
-mkDeleteMessageBatchRequest p1 p2 = DeleteMessageBatch
-    { _dmbrQueueUrl = p1
-    , _dmbrEntries = p2
-    }
-{-# INLINE mkDeleteMessageBatchRequest #-}
-
+-- | 
 data DeleteMessageBatch = DeleteMessageBatch
-    { _dmbrQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
-    , _dmbrEntries :: [DeleteMessageBatchRequestEntry]
-      -- ^ A list of receipt handles for the messages to be deleted.
+    { _dmbQueueUrl :: Text
+    , _dmbEntries :: [DeleteMessageBatchRequestEntry]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMessageBatch' request.
+mkDeleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
+                     -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
+                     -> DeleteMessageBatch
+mkDeleteMessageBatch p1 p2 = DeleteMessageBatch
+    { _dmbQueueUrl = p1
+    , _dmbEntries = p2
+    }
+{-# INLINE mkDeleteMessageBatch #-}
+
 -- | The URL of the Amazon SQS queue to take action on.
-dmbrQueueUrl :: Lens' DeleteMessageBatch (Text)
-dmbrQueueUrl = lens _dmbrQueueUrl (\s a -> s { _dmbrQueueUrl = a })
-{-# INLINE dmbrQueueUrl #-}
+dmbQueueUrl :: Lens' DeleteMessageBatch Text
+dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
+{-# INLINE dmbQueueUrl #-}
 
 -- | A list of receipt handles for the messages to be deleted.
-dmbrEntries :: Lens' DeleteMessageBatch ([DeleteMessageBatchRequestEntry])
-dmbrEntries = lens _dmbrEntries (\s a -> s { _dmbrEntries = a })
-{-# INLINE dmbrEntries #-}
+dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
+dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a })
+{-# INLINE dmbEntries #-}
 
 instance ToQuery DeleteMessageBatch where
     toQuery = genericQuery def
 
+-- | For each message in the batch, the response contains a
+-- DeleteMessageBatchResultEntry tag if the message is deleted or a
+-- BatchResultErrorEntry tag if the message cannot be deleted.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbsSuccessful :: [DeleteMessageBatchResultEntry]
-      -- ^ A list of DeleteMessageBatchResultEntry items.
-    , _dmbsFailed :: [BatchResultErrorEntry]
-      -- ^ A list of BatchResultErrorEntry items.
+    { _dmbrsSuccessful :: [DeleteMessageBatchResultEntry]
+    , _dmbrsFailed :: [BatchResultErrorEntry]
     } deriving (Show, Generic)
 
 -- | A list of DeleteMessageBatchResultEntry items.
-dmbsSuccessful :: Lens' DeleteMessageBatchResponse ([DeleteMessageBatchResultEntry])
-dmbsSuccessful = lens _dmbsSuccessful (\s a -> s { _dmbsSuccessful = a })
-{-# INLINE dmbsSuccessful #-}
+dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
+dmbrsSuccessful = lens _dmbrsSuccessful (\s a -> s { _dmbrsSuccessful = a })
+{-# INLINE dmbrsSuccessful #-}
 
 -- | A list of BatchResultErrorEntry items.
-dmbsFailed :: Lens' DeleteMessageBatchResponse ([BatchResultErrorEntry])
-dmbsFailed = lens _dmbsFailed (\s a -> s { _dmbsFailed = a })
-{-# INLINE dmbsFailed #-}
+dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
+dmbrsFailed = lens _dmbrsFailed (\s a -> s { _dmbrsFailed = a })
+{-# INLINE dmbrsFailed #-}
 
 instance FromXML DeleteMessageBatchResponse where
     fromXMLOptions = xmlOptions

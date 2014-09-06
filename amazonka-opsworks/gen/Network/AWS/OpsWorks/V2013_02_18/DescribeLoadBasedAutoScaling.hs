@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling
     -- * Request
       DescribeLoadBasedAutoScaling
     -- ** Request constructor
-    , mkDescribeLoadBasedAutoScalingRequest
+    , mkDescribeLoadBasedAutoScaling
     -- ** Request lenses
-    , dlbasrLayerIds
+    , dlbasLayerIds
 
     -- * Response
     , DescribeLoadBasedAutoScalingResponse
     -- ** Response lenses
-    , dlbassLoadBasedAutoScalingConfigurations
+    , dlbasrsLoadBasedAutoScalingConfigurations
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,24 +43,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBasedAutoScaling' request.
-mkDescribeLoadBasedAutoScalingRequest :: [Text] -- ^ 'dlbasrLayerIds'
-                                      -> DescribeLoadBasedAutoScaling
-mkDescribeLoadBasedAutoScalingRequest p1 = DescribeLoadBasedAutoScaling
-    { _dlbasrLayerIds = p1
-    }
-{-# INLINE mkDescribeLoadBasedAutoScalingRequest #-}
-
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
-    { _dlbasrLayerIds :: [Text]
-      -- ^ An array of layer IDs.
+    { _dlbasLayerIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBasedAutoScaling' request.
+mkDescribeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasLayerIds'
+                               -> DescribeLoadBasedAutoScaling
+mkDescribeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
+    { _dlbasLayerIds = p1
+    }
+{-# INLINE mkDescribeLoadBasedAutoScaling #-}
+
 -- | An array of layer IDs.
-dlbasrLayerIds :: Lens' DescribeLoadBasedAutoScaling ([Text])
-dlbasrLayerIds = lens _dlbasrLayerIds (\s a -> s { _dlbasrLayerIds = a })
-{-# INLINE dlbasrLayerIds #-}
+dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
+dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a })
+{-# INLINE dlbasLayerIds #-}
 
 instance ToPath DescribeLoadBasedAutoScaling
 
@@ -70,17 +69,18 @@ instance ToHeaders DescribeLoadBasedAutoScaling
 
 instance ToJSON DescribeLoadBasedAutoScaling
 
+-- | Contains the response to a DescribeLoadBasedAutoScaling request.
 newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
-    { _dlbassLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
-      -- ^ An array of LoadBasedAutoScalingConfiguration objects that
-      -- describe each layer's configuration.
+    { _dlbasrsLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
     } deriving (Show, Generic)
 
 -- | An array of LoadBasedAutoScalingConfiguration objects that describe each
 -- layer's configuration.
-dlbassLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse ([LoadBasedAutoScalingConfiguration])
-dlbassLoadBasedAutoScalingConfigurations = lens _dlbassLoadBasedAutoScalingConfigurations (\s a -> s { _dlbassLoadBasedAutoScalingConfigurations = a })
-{-# INLINE dlbassLoadBasedAutoScalingConfigurations #-}
+dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
+dlbasrsLoadBasedAutoScalingConfigurations =
+    lens _dlbasrsLoadBasedAutoScalingConfigurations
+         (\s a -> s { _dlbasrsLoadBasedAutoScalingConfigurations = a })
+{-# INLINE dlbasrsLoadBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse
 

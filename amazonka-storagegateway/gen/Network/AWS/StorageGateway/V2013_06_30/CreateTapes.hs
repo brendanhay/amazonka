@@ -22,18 +22,18 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateTapes
     -- * Request
       CreateTapes
     -- ** Request constructor
-    , mkCreateTapesInput
+    , mkCreateTapes
     -- ** Request lenses
-    , ctiGatewayARN
-    , ctiTapeSizeInBytes
-    , ctiClientToken
-    , ctiNumTapesToCreate
-    , ctiTapeBarcodePrefix
+    , ctGatewayARN
+    , ctTapeSizeInBytes
+    , ctClientToken
+    , ctNumTapesToCreate
+    , ctTapeBarcodePrefix
 
     -- * Response
     , CreateTapesResponse
     -- ** Response lenses
-    , ctoTapeARNs
+    , ctrsTapeARNs
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -41,55 +41,55 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data CreateTapes = CreateTapes
+    { _ctGatewayARN :: Text
+    , _ctTapeSizeInBytes :: Integer
+    , _ctClientToken :: Text
+    , _ctNumTapesToCreate :: Integer
+    , _ctTapeBarcodePrefix :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTapes' request.
-mkCreateTapesInput :: Text -- ^ 'ctiGatewayARN'
-                   -> Integer -- ^ 'ctiTapeSizeInBytes'
-                   -> Text -- ^ 'ctiClientToken'
-                   -> Integer -- ^ 'ctiNumTapesToCreate'
-                   -> Text -- ^ 'ctiTapeBarcodePrefix'
-                   -> CreateTapes
-mkCreateTapesInput p1 p2 p3 p4 p5 = CreateTapes
-    { _ctiGatewayARN = p1
-    , _ctiTapeSizeInBytes = p2
-    , _ctiClientToken = p3
-    , _ctiNumTapesToCreate = p4
-    , _ctiTapeBarcodePrefix = p5
+mkCreateTapes :: Text -- ^ 'ctGatewayARN'
+              -> Integer -- ^ 'ctTapeSizeInBytes'
+              -> Text -- ^ 'ctClientToken'
+              -> Integer -- ^ 'ctNumTapesToCreate'
+              -> Text -- ^ 'ctTapeBarcodePrefix'
+              -> CreateTapes
+mkCreateTapes p1 p2 p3 p4 p5 = CreateTapes
+    { _ctGatewayARN = p1
+    , _ctTapeSizeInBytes = p2
+    , _ctClientToken = p3
+    , _ctNumTapesToCreate = p4
+    , _ctTapeBarcodePrefix = p5
     }
-{-# INLINE mkCreateTapesInput #-}
-
-data CreateTapes = CreateTapes
-    { _ctiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _ctiTapeSizeInBytes :: Integer
-    , _ctiClientToken :: Text
-    , _ctiNumTapesToCreate :: Integer
-    , _ctiTapeBarcodePrefix :: Text
-    } deriving (Show, Generic)
+{-# INLINE mkCreateTapes #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ctiGatewayARN :: Lens' CreateTapes (Text)
-ctiGatewayARN = lens _ctiGatewayARN (\s a -> s { _ctiGatewayARN = a })
-{-# INLINE ctiGatewayARN #-}
+ctGatewayARN :: Lens' CreateTapes Text
+ctGatewayARN = lens _ctGatewayARN (\s a -> s { _ctGatewayARN = a })
+{-# INLINE ctGatewayARN #-}
 
-ctiTapeSizeInBytes :: Lens' CreateTapes (Integer)
-ctiTapeSizeInBytes = lens _ctiTapeSizeInBytes (\s a -> s { _ctiTapeSizeInBytes = a })
-{-# INLINE ctiTapeSizeInBytes #-}
+ctTapeSizeInBytes :: Lens' CreateTapes Integer
+ctTapeSizeInBytes =
+    lens _ctTapeSizeInBytes (\s a -> s { _ctTapeSizeInBytes = a })
+{-# INLINE ctTapeSizeInBytes #-}
 
-ctiClientToken :: Lens' CreateTapes (Text)
-ctiClientToken = lens _ctiClientToken (\s a -> s { _ctiClientToken = a })
-{-# INLINE ctiClientToken #-}
+ctClientToken :: Lens' CreateTapes Text
+ctClientToken = lens _ctClientToken (\s a -> s { _ctClientToken = a })
+{-# INLINE ctClientToken #-}
 
-ctiNumTapesToCreate :: Lens' CreateTapes (Integer)
-ctiNumTapesToCreate = lens _ctiNumTapesToCreate (\s a -> s { _ctiNumTapesToCreate = a })
-{-# INLINE ctiNumTapesToCreate #-}
+ctNumTapesToCreate :: Lens' CreateTapes Integer
+ctNumTapesToCreate =
+    lens _ctNumTapesToCreate (\s a -> s { _ctNumTapesToCreate = a })
+{-# INLINE ctNumTapesToCreate #-}
 
-ctiTapeBarcodePrefix :: Lens' CreateTapes (Text)
-ctiTapeBarcodePrefix = lens _ctiTapeBarcodePrefix (\s a -> s { _ctiTapeBarcodePrefix = a })
-{-# INLINE ctiTapeBarcodePrefix #-}
+ctTapeBarcodePrefix :: Lens' CreateTapes Text
+ctTapeBarcodePrefix =
+    lens _ctTapeBarcodePrefix (\s a -> s { _ctTapeBarcodePrefix = a })
+{-# INLINE ctTapeBarcodePrefix #-}
 
 instance ToPath CreateTapes
 
@@ -100,12 +100,12 @@ instance ToHeaders CreateTapes
 instance ToJSON CreateTapes
 
 newtype CreateTapesResponse = CreateTapesResponse
-    { _ctoTapeARNs :: [Text]
+    { _ctrsTapeARNs :: [Text]
     } deriving (Show, Generic)
 
-ctoTapeARNs :: Lens' CreateTapesResponse ([Text])
-ctoTapeARNs = lens _ctoTapeARNs (\s a -> s { _ctoTapeARNs = a })
-{-# INLINE ctoTapeARNs #-}
+ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
+ctrsTapeARNs = lens _ctrsTapeARNs (\s a -> s { _ctrsTapeARNs = a })
+{-# INLINE ctrsTapeARNs #-}
 
 instance FromJSON CreateTapesResponse
 

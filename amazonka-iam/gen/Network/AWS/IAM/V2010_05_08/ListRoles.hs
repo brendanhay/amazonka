@@ -39,113 +39,93 @@ module Network.AWS.IAM.V2010_05_08.ListRoles
     -- * Request
       ListRoles
     -- ** Request constructor
-    , mkListRolesRequest
+    , mkListRoles
     -- ** Request lenses
-    , lrrPathPrefix
-    , lrrMarker
-    , lrrMaxItems
+    , lrPathPrefix
+    , lrMarker
+    , lrMaxItems
 
     -- * Response
     , ListRolesResponse
     -- ** Response lenses
-    , lrsRoles
-    , lrsIsTruncated
-    , lrsMarker
+    , lrrsRoles
+    , lrrsIsTruncated
+    , lrrsMarker
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+data ListRoles = ListRoles
+    { _lrPathPrefix :: Maybe Text
+    , _lrMarker :: Maybe Text
+    , _lrMaxItems :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListRoles' request.
-mkListRolesRequest :: ListRoles
-mkListRolesRequest = ListRoles
-    { _lrrPathPrefix = Nothing
-    , _lrrMarker = Nothing
-    , _lrrMaxItems = Nothing
+mkListRoles :: ListRoles
+mkListRoles = ListRoles
+    { _lrPathPrefix = Nothing
+    , _lrMarker = Nothing
+    , _lrMaxItems = Nothing
     }
-{-# INLINE mkListRolesRequest #-}
-
-data ListRoles = ListRoles
-    { _lrrPathPrefix :: Maybe Text
-      -- ^ The path prefix for filtering the results. For example:
-      -- /application_abc/component_xyz/, which would get all roles whose
-      -- path starts with /application_abc/component_xyz/. This parameter
-      -- is optional. If it is not included, it defaults to a slash (/),
-      -- listing all roles.
-    , _lrrMarker :: Maybe Text
-      -- ^ Use this parameter only when paginating results, and only in a
-      -- subsequent request after you've received a response where the
-      -- results are truncated. Set it to the value of the Marker element
-      -- in the response you just received.
-    , _lrrMaxItems :: Maybe Integer
-      -- ^ Use this parameter only when paginating results to indicate the
-      -- maximum number of user names you want in the response. If there
-      -- are additional user names beyond the maximum you specify, the
-      -- IsTruncated response element is true. This parameter is optional.
-      -- If you do not include it, it defaults to 100.
-    } deriving (Show, Generic)
+{-# INLINE mkListRoles #-}
 
 -- | The path prefix for filtering the results. For example:
 -- /application_abc/component_xyz/, which would get all roles whose path
 -- starts with /application_abc/component_xyz/. This parameter is optional. If
 -- it is not included, it defaults to a slash (/), listing all roles.
-lrrPathPrefix :: Lens' ListRoles (Maybe Text)
-lrrPathPrefix = lens _lrrPathPrefix (\s a -> s { _lrrPathPrefix = a })
-{-# INLINE lrrPathPrefix #-}
+lrPathPrefix :: Lens' ListRoles (Maybe Text)
+lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
+{-# INLINE lrPathPrefix #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
 -- Set it to the value of the Marker element in the response you just
 -- received.
-lrrMarker :: Lens' ListRoles (Maybe Text)
-lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
-{-# INLINE lrrMarker #-}
+lrMarker :: Lens' ListRoles (Maybe Text)
+lrMarker = lens _lrMarker (\s a -> s { _lrMarker = a })
+{-# INLINE lrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of user names you want in the response. If there are additional user
 -- names beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lrrMaxItems :: Lens' ListRoles (Maybe Integer)
-lrrMaxItems = lens _lrrMaxItems (\s a -> s { _lrrMaxItems = a })
-{-# INLINE lrrMaxItems #-}
+lrMaxItems :: Lens' ListRoles (Maybe Integer)
+lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
+{-# INLINE lrMaxItems #-}
 
 instance ToQuery ListRoles where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the ListRoles action.
 data ListRolesResponse = ListRolesResponse
-    { _lrsRoles :: [Role]
-      -- ^ A list of roles.
-    , _lrsIsTruncated :: Bool
-      -- ^ A flag that indicates whether there are more roles to list. If
-      -- your results were truncated, you can make a subsequent pagination
-      -- request using the Marker request parameter to retrieve more roles
-      -- in the list.
-    , _lrsMarker :: Maybe Text
-      -- ^ If IsTruncated is true, this element is present and contains the
-      -- value to use for the Marker parameter in a subsequent pagination
-      -- request.
+    { _lrrsRoles :: [Role]
+    , _lrrsIsTruncated :: Maybe Bool
+    , _lrrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of roles.
-lrsRoles :: Lens' ListRolesResponse ([Role])
-lrsRoles = lens _lrsRoles (\s a -> s { _lrsRoles = a })
-{-# INLINE lrsRoles #-}
+lrrsRoles :: Lens' ListRolesResponse [Role]
+lrrsRoles = lens _lrrsRoles (\s a -> s { _lrrsRoles = a })
+{-# INLINE lrrsRoles #-}
 
 -- | A flag that indicates whether there are more roles to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more roles in the list.
-lrsIsTruncated :: Lens' ListRolesResponse (Bool)
-lrsIsTruncated = lens _lrsIsTruncated (\s a -> s { _lrsIsTruncated = a })
-{-# INLINE lrsIsTruncated #-}
+lrrsIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
+lrrsIsTruncated = lens _lrrsIsTruncated (\s a -> s { _lrrsIsTruncated = a })
+{-# INLINE lrrsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lrsMarker :: Lens' ListRolesResponse (Maybe Text)
-lrsMarker = lens _lrsMarker (\s a -> s { _lrsMarker = a })
-{-# INLINE lrsMarker #-}
+lrrsMarker :: Lens' ListRolesResponse (Maybe Text)
+lrrsMarker = lens _lrrsMarker (\s a -> s { _lrrsMarker = a })
+{-# INLINE lrrsMarker #-}
 
 instance FromXML ListRolesResponse where
     fromXMLOptions = xmlOptions
@@ -159,7 +139,7 @@ instance AWSRequest ListRoles where
 
 instance AWSPager ListRoles where
     next rq rs
-        | not (_lrsIsTruncated rs) = Nothing
+        | not (_lrrsIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lrrMarker = _lrsMarker rs
+            { _lrMarker = _lrrsMarker rs
             }

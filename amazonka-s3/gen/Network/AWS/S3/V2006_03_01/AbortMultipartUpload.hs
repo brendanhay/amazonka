@@ -25,11 +25,11 @@ module Network.AWS.S3.V2006_03_01.AbortMultipartUpload
     -- * Request
       AbortMultipartUpload
     -- ** Request constructor
-    , mkAbortMultipartUploadRequest
+    , mkAbortMultipartUpload
     -- ** Request lenses
-    , amurBucket
-    , amurKey
-    , amurUploadId
+    , amuBucket
+    , amuKey
+    , amuUploadId
 
     -- * Response
     , AbortMultipartUploadResponse
@@ -38,49 +38,50 @@ module Network.AWS.S3.V2006_03_01.AbortMultipartUpload
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data AbortMultipartUpload = AbortMultipartUpload
+    { _amuBucket :: BucketName
+    , _amuKey :: ObjectKey
+    , _amuUploadId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AbortMultipartUpload' request.
-mkAbortMultipartUploadRequest :: BucketName -- ^ 'amurBucket'
-                              -> ObjectKey -- ^ 'amurKey'
-                              -> Text -- ^ 'amurUploadId'
-                              -> AbortMultipartUpload
-mkAbortMultipartUploadRequest p1 p2 p3 = AbortMultipartUpload
-    { _amurBucket = p1
-    , _amurKey = p2
-    , _amurUploadId = p3
+mkAbortMultipartUpload :: BucketName -- ^ 'amuBucket'
+                       -> ObjectKey -- ^ 'amuKey'
+                       -> Text -- ^ 'amuUploadId'
+                       -> AbortMultipartUpload
+mkAbortMultipartUpload p1 p2 p3 = AbortMultipartUpload
+    { _amuBucket = p1
+    , _amuKey = p2
+    , _amuUploadId = p3
     }
-{-# INLINE mkAbortMultipartUploadRequest #-}
+{-# INLINE mkAbortMultipartUpload #-}
 
-data AbortMultipartUpload = AbortMultipartUpload
-    { _amurBucket :: BucketName
-    , _amurKey :: ObjectKey
-    , _amurUploadId :: Text
-    } deriving (Show, Generic)
+amuBucket :: Lens' AbortMultipartUpload BucketName
+amuBucket = lens _amuBucket (\s a -> s { _amuBucket = a })
+{-# INLINE amuBucket #-}
 
-amurBucket :: Lens' AbortMultipartUpload (BucketName)
-amurBucket = lens _amurBucket (\s a -> s { _amurBucket = a })
-{-# INLINE amurBucket #-}
+amuKey :: Lens' AbortMultipartUpload ObjectKey
+amuKey = lens _amuKey (\s a -> s { _amuKey = a })
+{-# INLINE amuKey #-}
 
-amurKey :: Lens' AbortMultipartUpload (ObjectKey)
-amurKey = lens _amurKey (\s a -> s { _amurKey = a })
-{-# INLINE amurKey #-}
-
-amurUploadId :: Lens' AbortMultipartUpload (Text)
-amurUploadId = lens _amurUploadId (\s a -> s { _amurUploadId = a })
-{-# INLINE amurUploadId #-}
+amuUploadId :: Lens' AbortMultipartUpload Text
+amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
+{-# INLINE amuUploadId #-}
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat
         [ "/"
-        , toBS _amurBucket
+        , toBS _amuBucket
         , "/"
-        , toBS _amurKey
+        , toBS _amuKey
         ]
 
 instance ToQuery AbortMultipartUpload where
     toQuery AbortMultipartUpload{..} = mconcat
-        [ "uploadId" =? _amurUploadId
+        [ "uploadId" =? _amuUploadId
         ]
 
 instance ToHeaders AbortMultipartUpload

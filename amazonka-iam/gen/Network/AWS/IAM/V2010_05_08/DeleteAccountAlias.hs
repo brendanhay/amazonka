@@ -27,9 +27,9 @@ module Network.AWS.IAM.V2010_05_08.DeleteAccountAlias
     -- * Request
       DeleteAccountAlias
     -- ** Request constructor
-    , mkDeleteAccountAliasRequest
+    , mkDeleteAccountAlias
     -- ** Request lenses
-    , daarAccountAlias
+    , daaAccountAlias
 
     -- * Response
     , DeleteAccountAliasResponse
@@ -39,24 +39,24 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAccountAlias' request.
-mkDeleteAccountAliasRequest :: Text -- ^ 'daarAccountAlias'
-                            -> DeleteAccountAlias
-mkDeleteAccountAliasRequest p1 = DeleteAccountAlias
-    { _daarAccountAlias = p1
-    }
-{-# INLINE mkDeleteAccountAliasRequest #-}
-
+-- | 
 newtype DeleteAccountAlias = DeleteAccountAlias
-    { _daarAccountAlias :: Text
-      -- ^ Name of the account alias to delete.
+    { _daaAccountAlias :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAccountAlias' request.
+mkDeleteAccountAlias :: Text -- ^ 'daaAccountAlias'
+                     -> DeleteAccountAlias
+mkDeleteAccountAlias p1 = DeleteAccountAlias
+    { _daaAccountAlias = p1
+    }
+{-# INLINE mkDeleteAccountAlias #-}
+
 -- | Name of the account alias to delete.
-daarAccountAlias :: Lens' DeleteAccountAlias (Text)
-daarAccountAlias = lens _daarAccountAlias (\s a -> s { _daarAccountAlias = a })
-{-# INLINE daarAccountAlias #-}
+daaAccountAlias :: Lens' DeleteAccountAlias Text
+daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
+{-# INLINE daaAccountAlias #-}
 
 instance ToQuery DeleteAccountAlias where
     toQuery = genericQuery def

@@ -22,19 +22,19 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices
     -- * Request
       DescribeVTLDevices
     -- ** Request constructor
-    , mkDescribeVTLDevicesInput
+    , mkDescribeVTLDevices
     -- ** Request lenses
-    , dvtldiGatewayARN
-    , dvtldiVTLDeviceARNs
-    , dvtldiMarker
-    , dvtldiLimit
+    , dvtldGatewayARN
+    , dvtldVTLDeviceARNs
+    , dvtldMarker
+    , dvtldLimit
 
     -- * Response
     , DescribeVTLDevicesResponse
     -- ** Response lenses
-    , dvtldoGatewayARN
-    , dvtldoVTLDevices
-    , dvtldoMarker
+    , dvtldrsGatewayARN
+    , dvtldrsVTLDevices
+    , dvtldrsMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -42,45 +42,43 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DescribeVTLDevices = DescribeVTLDevices
+    { _dvtldGatewayARN :: Text
+    , _dvtldVTLDeviceARNs :: [Text]
+    , _dvtldMarker :: Maybe Text
+    , _dvtldLimit :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVTLDevices' request.
-mkDescribeVTLDevicesInput :: Text -- ^ 'dvtldiGatewayARN'
-                          -> DescribeVTLDevices
-mkDescribeVTLDevicesInput p1 = DescribeVTLDevices
-    { _dvtldiGatewayARN = p1
-    , _dvtldiVTLDeviceARNs = mempty
-    , _dvtldiMarker = Nothing
-    , _dvtldiLimit = Nothing
+mkDescribeVTLDevices :: Text -- ^ 'dvtldGatewayARN'
+                     -> DescribeVTLDevices
+mkDescribeVTLDevices p1 = DescribeVTLDevices
+    { _dvtldGatewayARN = p1
+    , _dvtldVTLDeviceARNs = mempty
+    , _dvtldMarker = Nothing
+    , _dvtldLimit = Nothing
     }
-{-# INLINE mkDescribeVTLDevicesInput #-}
-
-data DescribeVTLDevices = DescribeVTLDevices
-    { _dvtldiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dvtldiVTLDeviceARNs :: [Text]
-    , _dvtldiMarker :: Maybe Text
-    , _dvtldiLimit :: Maybe Integer
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeVTLDevices #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dvtldiGatewayARN :: Lens' DescribeVTLDevices (Text)
-dvtldiGatewayARN = lens _dvtldiGatewayARN (\s a -> s { _dvtldiGatewayARN = a })
-{-# INLINE dvtldiGatewayARN #-}
+dvtldGatewayARN :: Lens' DescribeVTLDevices Text
+dvtldGatewayARN = lens _dvtldGatewayARN (\s a -> s { _dvtldGatewayARN = a })
+{-# INLINE dvtldGatewayARN #-}
 
-dvtldiVTLDeviceARNs :: Lens' DescribeVTLDevices ([Text])
-dvtldiVTLDeviceARNs = lens _dvtldiVTLDeviceARNs (\s a -> s { _dvtldiVTLDeviceARNs = a })
-{-# INLINE dvtldiVTLDeviceARNs #-}
+dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
+dvtldVTLDeviceARNs =
+    lens _dvtldVTLDeviceARNs (\s a -> s { _dvtldVTLDeviceARNs = a })
+{-# INLINE dvtldVTLDeviceARNs #-}
 
-dvtldiMarker :: Lens' DescribeVTLDevices (Maybe Text)
-dvtldiMarker = lens _dvtldiMarker (\s a -> s { _dvtldiMarker = a })
-{-# INLINE dvtldiMarker #-}
+dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
+dvtldMarker = lens _dvtldMarker (\s a -> s { _dvtldMarker = a })
+{-# INLINE dvtldMarker #-}
 
-dvtldiLimit :: Lens' DescribeVTLDevices (Maybe Integer)
-dvtldiLimit = lens _dvtldiLimit (\s a -> s { _dvtldiLimit = a })
-{-# INLINE dvtldiLimit #-}
+dvtldLimit :: Lens' DescribeVTLDevices (Maybe Integer)
+dvtldLimit = lens _dvtldLimit (\s a -> s { _dvtldLimit = a })
+{-# INLINE dvtldLimit #-}
 
 instance ToPath DescribeVTLDevices
 
@@ -91,27 +89,26 @@ instance ToHeaders DescribeVTLDevices
 instance ToJSON DescribeVTLDevices
 
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
-    { _dvtldoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dvtldoVTLDevices :: [VTLDevice]
-    , _dvtldoMarker :: Maybe Text
+    { _dvtldrsGatewayARN :: Maybe Text
+    , _dvtldrsVTLDevices :: [VTLDevice]
+    , _dvtldrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dvtldoGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldoGatewayARN = lens _dvtldoGatewayARN (\s a -> s { _dvtldoGatewayARN = a })
-{-# INLINE dvtldoGatewayARN #-}
+dvtldrsGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrsGatewayARN =
+    lens _dvtldrsGatewayARN (\s a -> s { _dvtldrsGatewayARN = a })
+{-# INLINE dvtldrsGatewayARN #-}
 
-dvtldoVTLDevices :: Lens' DescribeVTLDevicesResponse ([VTLDevice])
-dvtldoVTLDevices = lens _dvtldoVTLDevices (\s a -> s { _dvtldoVTLDevices = a })
-{-# INLINE dvtldoVTLDevices #-}
+dvtldrsVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
+dvtldrsVTLDevices =
+    lens _dvtldrsVTLDevices (\s a -> s { _dvtldrsVTLDevices = a })
+{-# INLINE dvtldrsVTLDevices #-}
 
-dvtldoMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldoMarker = lens _dvtldoMarker (\s a -> s { _dvtldoMarker = a })
-{-# INLINE dvtldoMarker #-}
+dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrsMarker = lens _dvtldrsMarker (\s a -> s { _dvtldrsMarker = a })
+{-# INLINE dvtldrsMarker #-}
 
 instance FromJSON DescribeVTLDevicesResponse
 
@@ -123,5 +120,5 @@ instance AWSRequest DescribeVTLDevices where
     response _ = jsonResponse
 
 instance AWSPager DescribeVTLDevices where
-    next rq rs = (\x -> rq { _dvtldiMarker = Just x })
-        <$> (_dvtldoMarker rs)
+    next rq rs = (\x -> rq { _dvtldMarker = Just x })
+        <$> (_dvtldrsMarker rs)

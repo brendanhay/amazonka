@@ -24,10 +24,10 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction
     -- * Request
       DeleteScheduledAction
     -- ** Request constructor
-    , mkDeleteScheduledActionType
+    , mkDeleteScheduledAction
     -- ** Request lenses
-    , dsatAutoScalingGroupName
-    , dsatScheduledActionName
+    , dsaAutoScalingGroupName
+    , dsaScheduledActionName
 
     -- * Response
     , DeleteScheduledActionResponse
@@ -37,32 +37,34 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteScheduledAction' request.
-mkDeleteScheduledActionType :: Text -- ^ 'dsatScheduledActionName'
-                            -> DeleteScheduledAction
-mkDeleteScheduledActionType p1 = DeleteScheduledAction
-    { _dsatAutoScalingGroupName = Nothing
-    , _dsatScheduledActionName = p2
-    }
-{-# INLINE mkDeleteScheduledActionType #-}
-
+-- | 
 data DeleteScheduledAction = DeleteScheduledAction
-    { _dsatAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group.
-    , _dsatScheduledActionName :: Text
-      -- ^ The name of the action you want to delete.
+    { _dsaAutoScalingGroupName :: Maybe Text
+    , _dsaScheduledActionName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteScheduledAction' request.
+mkDeleteScheduledAction :: Text -- ^ 'dsaScheduledActionName'
+                        -> DeleteScheduledAction
+mkDeleteScheduledAction p2 = DeleteScheduledAction
+    { _dsaAutoScalingGroupName = Nothing
+    , _dsaScheduledActionName = p2
+    }
+{-# INLINE mkDeleteScheduledAction #-}
+
 -- | The name of the Auto Scaling group.
-dsatAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
-dsatAutoScalingGroupName = lens _dsatAutoScalingGroupName (\s a -> s { _dsatAutoScalingGroupName = a })
-{-# INLINE dsatAutoScalingGroupName #-}
+dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
+dsaAutoScalingGroupName =
+    lens _dsaAutoScalingGroupName
+         (\s a -> s { _dsaAutoScalingGroupName = a })
+{-# INLINE dsaAutoScalingGroupName #-}
 
 -- | The name of the action you want to delete.
-dsatScheduledActionName :: Lens' DeleteScheduledAction (Text)
-dsatScheduledActionName = lens _dsatScheduledActionName (\s a -> s { _dsatScheduledActionName = a })
-{-# INLINE dsatScheduledActionName #-}
+dsaScheduledActionName :: Lens' DeleteScheduledAction Text
+dsaScheduledActionName =
+    lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })
+{-# INLINE dsaScheduledActionName #-}
 
 instance ToQuery DeleteScheduledAction where
     toQuery = genericQuery def

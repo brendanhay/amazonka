@@ -30,23 +30,23 @@ module Network.AWS.Support.V2013_04_15.DescribeCases
     -- * Request
       DescribeCases
     -- ** Request constructor
-    , mkDescribeCasesRequest
+    , mkDescribeCases
     -- ** Request lenses
-    , dcrCaseIdList
-    , dcrDisplayId
-    , dcrAfterTime
-    , dcrBeforeTime
-    , dcrIncludeResolvedCases
-    , dcrNextToken
-    , dcrMaxResults
-    , dcrLanguage
-    , dcrIncludeCommunications
+    , dcCaseIdList
+    , dcDisplayId
+    , dcAfterTime
+    , dcBeforeTime
+    , dcIncludeResolvedCases
+    , dcNextToken
+    , dcMaxResults
+    , dcLanguage
+    , dcIncludeCommunications
 
     -- * Response
     , DescribeCasesResponse
     -- ** Response lenses
-    , dcsCases
-    , dcsNextToken
+    , dcrsCases
+    , dcrsNextToken
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -54,105 +54,89 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | 
+data DescribeCases = DescribeCases
+    { _dcCaseIdList :: [Text]
+    , _dcDisplayId :: Maybe Text
+    , _dcAfterTime :: Maybe Text
+    , _dcBeforeTime :: Maybe Text
+    , _dcIncludeResolvedCases :: Maybe Bool
+    , _dcNextToken :: Maybe Text
+    , _dcMaxResults :: Maybe Integer
+    , _dcLanguage :: Maybe Text
+    , _dcIncludeCommunications :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCases' request.
-mkDescribeCasesRequest :: DescribeCases
-mkDescribeCasesRequest = DescribeCases
-    { _dcrCaseIdList = mempty
-    , _dcrDisplayId = Nothing
-    , _dcrAfterTime = Nothing
-    , _dcrBeforeTime = Nothing
-    , _dcrIncludeResolvedCases = Nothing
-    , _dcrNextToken = Nothing
-    , _dcrMaxResults = Nothing
-    , _dcrLanguage = Nothing
-    , _dcrIncludeCommunications = Nothing
+mkDescribeCases :: DescribeCases
+mkDescribeCases = DescribeCases
+    { _dcCaseIdList = mempty
+    , _dcDisplayId = Nothing
+    , _dcAfterTime = Nothing
+    , _dcBeforeTime = Nothing
+    , _dcIncludeResolvedCases = Nothing
+    , _dcNextToken = Nothing
+    , _dcMaxResults = Nothing
+    , _dcLanguage = Nothing
+    , _dcIncludeCommunications = Nothing
     }
-{-# INLINE mkDescribeCasesRequest #-}
-
-data DescribeCases = DescribeCases
-    { _dcrCaseIdList :: [Text]
-      -- ^ A list of ID numbers of the support cases you want returned. The
-      -- maximum number of cases is 100.
-    , _dcrDisplayId :: Maybe Text
-      -- ^ The ID displayed for a case in the AWS Support Center user
-      -- interface.
-    , _dcrAfterTime :: Maybe Text
-      -- ^ The start date for a filtered date search on support case
-      -- communications. Case communications are available for 12 months
-      -- after creation.
-    , _dcrBeforeTime :: Maybe Text
-      -- ^ The end date for a filtered date search on support case
-      -- communications. Case communications are available for 12 months
-      -- after creation.
-    , _dcrIncludeResolvedCases :: Maybe Bool
-      -- ^ Specifies whether resolved support cases should be included in
-      -- the DescribeCases results. The default is false.
-    , _dcrNextToken :: Maybe Text
-      -- ^ A resumption point for pagination.
-    , _dcrMaxResults :: Maybe Integer
-      -- ^ The maximum number of results to return before paginating.
-    , _dcrLanguage :: Maybe Text
-      -- ^ The ISO 639-1 code for the language in which AWS provides
-      -- support. AWS Support currently supports English ("en") and
-      -- Japanese ("ja"). Language parameters must be passed explicitly
-      -- for operations that take them.
-    , _dcrIncludeCommunications :: Maybe Bool
-      -- ^ Specifies whether communications should be included in the
-      -- DescribeCases results. The default is true.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeCases #-}
 
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
-dcrCaseIdList :: Lens' DescribeCases ([Text])
-dcrCaseIdList = lens _dcrCaseIdList (\s a -> s { _dcrCaseIdList = a })
-{-# INLINE dcrCaseIdList #-}
+dcCaseIdList :: Lens' DescribeCases [Text]
+dcCaseIdList = lens _dcCaseIdList (\s a -> s { _dcCaseIdList = a })
+{-# INLINE dcCaseIdList #-}
 
 -- | The ID displayed for a case in the AWS Support Center user interface.
-dcrDisplayId :: Lens' DescribeCases (Maybe Text)
-dcrDisplayId = lens _dcrDisplayId (\s a -> s { _dcrDisplayId = a })
-{-# INLINE dcrDisplayId #-}
+dcDisplayId :: Lens' DescribeCases (Maybe Text)
+dcDisplayId = lens _dcDisplayId (\s a -> s { _dcDisplayId = a })
+{-# INLINE dcDisplayId #-}
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dcrAfterTime :: Lens' DescribeCases (Maybe Text)
-dcrAfterTime = lens _dcrAfterTime (\s a -> s { _dcrAfterTime = a })
-{-# INLINE dcrAfterTime #-}
+dcAfterTime :: Lens' DescribeCases (Maybe Text)
+dcAfterTime = lens _dcAfterTime (\s a -> s { _dcAfterTime = a })
+{-# INLINE dcAfterTime #-}
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dcrBeforeTime :: Lens' DescribeCases (Maybe Text)
-dcrBeforeTime = lens _dcrBeforeTime (\s a -> s { _dcrBeforeTime = a })
-{-# INLINE dcrBeforeTime #-}
+dcBeforeTime :: Lens' DescribeCases (Maybe Text)
+dcBeforeTime = lens _dcBeforeTime (\s a -> s { _dcBeforeTime = a })
+{-# INLINE dcBeforeTime #-}
 
 -- | Specifies whether resolved support cases should be included in the
 -- DescribeCases results. The default is false.
-dcrIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
-dcrIncludeResolvedCases = lens _dcrIncludeResolvedCases (\s a -> s { _dcrIncludeResolvedCases = a })
-{-# INLINE dcrIncludeResolvedCases #-}
+dcIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
+dcIncludeResolvedCases =
+    lens _dcIncludeResolvedCases (\s a -> s { _dcIncludeResolvedCases = a })
+{-# INLINE dcIncludeResolvedCases #-}
 
 -- | A resumption point for pagination.
-dcrNextToken :: Lens' DescribeCases (Maybe Text)
-dcrNextToken = lens _dcrNextToken (\s a -> s { _dcrNextToken = a })
-{-# INLINE dcrNextToken #-}
+dcNextToken :: Lens' DescribeCases (Maybe Text)
+dcNextToken = lens _dcNextToken (\s a -> s { _dcNextToken = a })
+{-# INLINE dcNextToken #-}
 
 -- | The maximum number of results to return before paginating.
-dcrMaxResults :: Lens' DescribeCases (Maybe Integer)
-dcrMaxResults = lens _dcrMaxResults (\s a -> s { _dcrMaxResults = a })
-{-# INLINE dcrMaxResults #-}
+dcMaxResults :: Lens' DescribeCases (Maybe Integer)
+dcMaxResults = lens _dcMaxResults (\s a -> s { _dcMaxResults = a })
+{-# INLINE dcMaxResults #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dcrLanguage :: Lens' DescribeCases (Maybe Text)
-dcrLanguage = lens _dcrLanguage (\s a -> s { _dcrLanguage = a })
-{-# INLINE dcrLanguage #-}
+dcLanguage :: Lens' DescribeCases (Maybe Text)
+dcLanguage = lens _dcLanguage (\s a -> s { _dcLanguage = a })
+{-# INLINE dcLanguage #-}
 
 -- | Specifies whether communications should be included in the DescribeCases
 -- results. The default is true.
-dcrIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
-dcrIncludeCommunications = lens _dcrIncludeCommunications (\s a -> s { _dcrIncludeCommunications = a })
-{-# INLINE dcrIncludeCommunications #-}
+dcIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
+dcIncludeCommunications =
+    lens _dcIncludeCommunications
+         (\s a -> s { _dcIncludeCommunications = a })
+{-# INLINE dcIncludeCommunications #-}
 
 instance ToPath DescribeCases
 
@@ -162,22 +146,22 @@ instance ToHeaders DescribeCases
 
 instance ToJSON DescribeCases
 
+-- | Returns an array of CaseDetails objects and a NextToken that defines a
+-- point for pagination in the result set.
 data DescribeCasesResponse = DescribeCasesResponse
-    { _dcsCases :: [CaseDetails]
-      -- ^ The details for the cases that match the request.
-    , _dcsNextToken :: Maybe Text
-      -- ^ A resumption point for pagination.
+    { _dcrsCases :: [CaseDetails]
+    , _dcrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The details for the cases that match the request.
-dcsCases :: Lens' DescribeCasesResponse ([CaseDetails])
-dcsCases = lens _dcsCases (\s a -> s { _dcsCases = a })
-{-# INLINE dcsCases #-}
+dcrsCases :: Lens' DescribeCasesResponse [CaseDetails]
+dcrsCases = lens _dcrsCases (\s a -> s { _dcrsCases = a })
+{-# INLINE dcrsCases #-}
 
 -- | A resumption point for pagination.
-dcsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
-dcsNextToken = lens _dcsNextToken (\s a -> s { _dcsNextToken = a })
-{-# INLINE dcsNextToken #-}
+dcrsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
+dcrsNextToken = lens _dcrsNextToken (\s a -> s { _dcrsNextToken = a })
+{-# INLINE dcrsNextToken #-}
 
 instance FromJSON DescribeCasesResponse
 
@@ -189,5 +173,5 @@ instance AWSRequest DescribeCases where
     response _ = jsonResponse
 
 instance AWSPager DescribeCases where
-    next rq rs = (\x -> rq { _dcrNextToken = Just x })
-        <$> (_dcsNextToken rs)
+    next rq rs = (\x -> rq { _dcNextToken = Just x })
+        <$> (_dcrsNextToken rs)

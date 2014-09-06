@@ -31,78 +31,77 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations
     -- * Request
       DescribeLaunchConfigurations
     -- ** Request constructor
-    , mkLaunchConfigurationNamesType
+    , mkDescribeLaunchConfigurations
     -- ** Request lenses
-    , lcnuLaunchConfigurationNames
-    , lcnuNextToken
-    , lcnuMaxRecords
+    , dlc1LaunchConfigurationNames
+    , dlc1NextToken
+    , dlc1MaxRecords
 
     -- * Response
     , DescribeLaunchConfigurationsResponse
     -- ** Response lenses
-    , lctLaunchConfigurations
-    , lctNextToken
+    , dlcrsLaunchConfigurations
+    , dlcrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLaunchConfigurations' request.
-mkLaunchConfigurationNamesType :: DescribeLaunchConfigurations
-mkLaunchConfigurationNamesType = DescribeLaunchConfigurations
-    { _lcnuLaunchConfigurationNames = mempty
-    , _lcnuNextToken = Nothing
-    , _lcnuMaxRecords = Nothing
-    }
-{-# INLINE mkLaunchConfigurationNamesType #-}
-
+-- | The LaunchConfigurationNamesType data type.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations
-    { _lcnuLaunchConfigurationNames :: [Text]
-      -- ^ A list of launch configuration names.
-    , _lcnuNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
-    , _lcnuMaxRecords :: Maybe Integer
-      -- ^ The maximum number of launch configurations. The default is 100.
+    { _dlc1LaunchConfigurationNames :: [Text]
+    , _dlc1NextToken :: Maybe Text
+    , _dlc1MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLaunchConfigurations' request.
+mkDescribeLaunchConfigurations :: DescribeLaunchConfigurations
+mkDescribeLaunchConfigurations = DescribeLaunchConfigurations
+    { _dlc1LaunchConfigurationNames = mempty
+    , _dlc1NextToken = Nothing
+    , _dlc1MaxRecords = Nothing
+    }
+{-# INLINE mkDescribeLaunchConfigurations #-}
+
 -- | A list of launch configuration names.
-lcnuLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations ([Text])
-lcnuLaunchConfigurationNames = lens _lcnuLaunchConfigurationNames (\s a -> s { _lcnuLaunchConfigurationNames = a })
-{-# INLINE lcnuLaunchConfigurationNames #-}
+dlc1LaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlc1LaunchConfigurationNames =
+    lens _dlc1LaunchConfigurationNames
+         (\s a -> s { _dlc1LaunchConfigurationNames = a })
+{-# INLINE dlc1LaunchConfigurationNames #-}
 
 -- | A string that marks the start of the next batch of returned results.
-lcnuNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
-lcnuNextToken = lens _lcnuNextToken (\s a -> s { _lcnuNextToken = a })
-{-# INLINE lcnuNextToken #-}
+dlc1NextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
+dlc1NextToken = lens _dlc1NextToken (\s a -> s { _dlc1NextToken = a })
+{-# INLINE dlc1NextToken #-}
 
 -- | The maximum number of launch configurations. The default is 100.
-lcnuMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Integer)
-lcnuMaxRecords = lens _lcnuMaxRecords (\s a -> s { _lcnuMaxRecords = a })
-{-# INLINE lcnuMaxRecords #-}
+dlc1MaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Integer)
+dlc1MaxRecords = lens _dlc1MaxRecords (\s a -> s { _dlc1MaxRecords = a })
+{-# INLINE dlc1MaxRecords #-}
 
 instance ToQuery DescribeLaunchConfigurations where
     toQuery = genericQuery def
 
+-- | The LaunchConfigurationsType data type.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
-    { _lctLaunchConfigurations :: [LaunchConfiguration]
-      -- ^ A list of launch configurations.
-    , _lctNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+    { _dlcrsLaunchConfigurations :: [LaunchConfiguration]
+    , _dlcrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of launch configurations.
-lctLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse ([LaunchConfiguration])
-lctLaunchConfigurations = lens _lctLaunchConfigurations (\s a -> s { _lctLaunchConfigurations = a })
-{-# INLINE lctLaunchConfigurations #-}
+dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
+dlcrsLaunchConfigurations =
+    lens _dlcrsLaunchConfigurations
+         (\s a -> s { _dlcrsLaunchConfigurations = a })
+{-# INLINE dlcrsLaunchConfigurations #-}
 
 -- | A string that marks the start of the next batch of returned results.
-lctNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
-lctNextToken = lens _lctNextToken (\s a -> s { _lctNextToken = a })
-{-# INLINE lctNextToken #-}
+dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
+dlcrsNextToken = lens _dlcrsNextToken (\s a -> s { _dlcrsNextToken = a })
+{-# INLINE dlcrsNextToken #-}
 
 instance FromXML DescribeLaunchConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -115,5 +114,5 @@ instance AWSRequest DescribeLaunchConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeLaunchConfigurations where
-    next rq rs = (\x -> rq { _lcnuNextToken = Just x })
-        <$> (_lctNextToken rs)
+    next rq rs = (\x -> rq { _dlc1NextToken = Just x })
+        <$> (_dlcrsNextToken rs)

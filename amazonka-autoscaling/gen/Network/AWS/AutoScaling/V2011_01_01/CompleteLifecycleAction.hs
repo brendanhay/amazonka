@@ -33,12 +33,12 @@ module Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction
     -- * Request
       CompleteLifecycleAction
     -- ** Request constructor
-    , mkCompleteLifecycleActionType
+    , mkCompleteLifecycleAction
     -- ** Request lenses
-    , clatLifecycleHookName
-    , clatAutoScalingGroupName
-    , clatLifecycleActionToken
-    , clatLifecycleActionResult
+    , claLifecycleHookName
+    , claAutoScalingGroupName
+    , claLifecycleActionToken
+    , claLifecycleActionResult
 
     -- * Response
     , CompleteLifecycleActionResponse
@@ -48,63 +48,63 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CompleteLifecycleAction' request.
-mkCompleteLifecycleActionType :: Text -- ^ 'clatLifecycleHookName'
-                              -> Text -- ^ 'clatAutoScalingGroupName'
-                              -> Text -- ^ 'clatLifecycleActionToken'
-                              -> Text -- ^ 'clatLifecycleActionResult'
-                              -> CompleteLifecycleAction
-mkCompleteLifecycleActionType p1 p2 p3 p4 = CompleteLifecycleAction
-    { _clatLifecycleHookName = p1
-    , _clatAutoScalingGroupName = p2
-    , _clatLifecycleActionToken = p3
-    , _clatLifecycleActionResult = p4
-    }
-{-# INLINE mkCompleteLifecycleActionType #-}
-
+-- | 
 data CompleteLifecycleAction = CompleteLifecycleAction
-    { _clatLifecycleHookName :: Text
-      -- ^ The name of the lifecycle hook.
-    , _clatAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group to which the lifecycle hook
-      -- belongs.
-    , _clatLifecycleActionToken :: Text
-      -- ^ A universally unique identifier (UUID) that identifies a specific
-      -- lifecycle action associated with an instance. Auto Scaling sends
-      -- this token to the notification target you specified when you
-      -- created the lifecycle hook.
-    , _clatLifecycleActionResult :: Text
-      -- ^ The action the Auto Scaling group should take. The value for this
-      -- parameter can be either CONTINUE or ABANDON.
+    { _claLifecycleHookName :: Text
+    , _claAutoScalingGroupName :: Text
+    , _claLifecycleActionToken :: Text
+    , _claLifecycleActionResult :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CompleteLifecycleAction' request.
+mkCompleteLifecycleAction :: Text -- ^ 'claLifecycleHookName'
+                          -> Text -- ^ 'claAutoScalingGroupName'
+                          -> Text -- ^ 'claLifecycleActionToken'
+                          -> Text -- ^ 'claLifecycleActionResult'
+                          -> CompleteLifecycleAction
+mkCompleteLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
+    { _claLifecycleHookName = p1
+    , _claAutoScalingGroupName = p2
+    , _claLifecycleActionToken = p3
+    , _claLifecycleActionResult = p4
+    }
+{-# INLINE mkCompleteLifecycleAction #-}
+
 -- | The name of the lifecycle hook.
-clatLifecycleHookName :: Lens' CompleteLifecycleAction (Text)
-clatLifecycleHookName = lens _clatLifecycleHookName (\s a -> s { _clatLifecycleHookName = a })
-{-# INLINE clatLifecycleHookName #-}
+claLifecycleHookName :: Lens' CompleteLifecycleAction Text
+claLifecycleHookName =
+    lens _claLifecycleHookName (\s a -> s { _claLifecycleHookName = a })
+{-# INLINE claLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle hook belongs.
-clatAutoScalingGroupName :: Lens' CompleteLifecycleAction (Text)
-clatAutoScalingGroupName = lens _clatAutoScalingGroupName (\s a -> s { _clatAutoScalingGroupName = a })
-{-# INLINE clatAutoScalingGroupName #-}
+claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
+claAutoScalingGroupName =
+    lens _claAutoScalingGroupName
+         (\s a -> s { _claAutoScalingGroupName = a })
+{-# INLINE claAutoScalingGroupName #-}
 
 -- | A universally unique identifier (UUID) that identifies a specific lifecycle
 -- action associated with an instance. Auto Scaling sends this token to the
 -- notification target you specified when you created the lifecycle hook.
-clatLifecycleActionToken :: Lens' CompleteLifecycleAction (Text)
-clatLifecycleActionToken = lens _clatLifecycleActionToken (\s a -> s { _clatLifecycleActionToken = a })
-{-# INLINE clatLifecycleActionToken #-}
+claLifecycleActionToken :: Lens' CompleteLifecycleAction Text
+claLifecycleActionToken =
+    lens _claLifecycleActionToken
+         (\s a -> s { _claLifecycleActionToken = a })
+{-# INLINE claLifecycleActionToken #-}
 
 -- | The action the Auto Scaling group should take. The value for this parameter
 -- can be either CONTINUE or ABANDON.
-clatLifecycleActionResult :: Lens' CompleteLifecycleAction (Text)
-clatLifecycleActionResult = lens _clatLifecycleActionResult (\s a -> s { _clatLifecycleActionResult = a })
-{-# INLINE clatLifecycleActionResult #-}
+claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
+claLifecycleActionResult =
+    lens _claLifecycleActionResult
+         (\s a -> s { _claLifecycleActionResult = a })
+{-# INLINE claLifecycleActionResult #-}
 
 instance ToQuery CompleteLifecycleAction where
     toQuery = genericQuery def
 
+-- | The output of the CompleteLifecycleAction.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CompleteLifecycleAction where

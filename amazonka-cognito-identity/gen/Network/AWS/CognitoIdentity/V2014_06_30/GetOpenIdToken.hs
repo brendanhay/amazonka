@@ -31,16 +31,16 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
     -- * Request
       GetOpenIdToken
     -- ** Request constructor
-    , mkGetOpenIdTokenInput
+    , mkGetOpenIdToken
     -- ** Request lenses
-    , goitiIdentityId
-    , goitiLogins
+    , goitIdentityId
+    , goitLogins
 
     -- * Response
     , GetOpenIdTokenResponse
     -- ** Response lenses
-    , goitrIdentityId
-    , goitrToken
+    , goitrsIdentityId
+    , goitrsToken
     ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -48,34 +48,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetOpenIdToken' request.
-mkGetOpenIdTokenInput :: Text -- ^ 'goitiIdentityId'
-                      -> GetOpenIdToken
-mkGetOpenIdTokenInput p1 = GetOpenIdToken
-    { _goitiIdentityId = p1
-    , _goitiLogins = mempty
-    }
-{-# INLINE mkGetOpenIdTokenInput #-}
-
+-- | Input to the GetOpenIdToken action.
 data GetOpenIdToken = GetOpenIdToken
-    { _goitiIdentityId :: Text
-      -- ^ A unique identifier in the format REGION:GUID.
-    , _goitiLogins :: Map Text Text
-      -- ^ A set of optional name/value pairs that map provider names to
-      -- provider tokens.
+    { _goitIdentityId :: Text
+    , _goitLogins :: Map Text Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetOpenIdToken' request.
+mkGetOpenIdToken :: Text -- ^ 'goitIdentityId'
+                 -> GetOpenIdToken
+mkGetOpenIdToken p1 = GetOpenIdToken
+    { _goitIdentityId = p1
+    , _goitLogins = mempty
+    }
+{-# INLINE mkGetOpenIdToken #-}
+
 -- | A unique identifier in the format REGION:GUID.
-goitiIdentityId :: Lens' GetOpenIdToken (Text)
-goitiIdentityId = lens _goitiIdentityId (\s a -> s { _goitiIdentityId = a })
-{-# INLINE goitiIdentityId #-}
+goitIdentityId :: Lens' GetOpenIdToken Text
+goitIdentityId = lens _goitIdentityId (\s a -> s { _goitIdentityId = a })
+{-# INLINE goitIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-goitiLogins :: Lens' GetOpenIdToken (Map Text Text)
-goitiLogins = lens _goitiLogins (\s a -> s { _goitiLogins = a })
-{-# INLINE goitiLogins #-}
+goitLogins :: Lens' GetOpenIdToken (Map Text Text)
+goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a })
+{-# INLINE goitLogins #-}
 
 instance ToPath GetOpenIdToken
 
@@ -85,24 +83,23 @@ instance ToHeaders GetOpenIdToken
 
 instance ToJSON GetOpenIdToken
 
+-- | Returned in response to a successful GetOpenIdToken request.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse
-    { _goitrIdentityId :: Maybe Text
-      -- ^ A unique identifier in the format REGION:GUID. Note that the
-      -- IdentityId returned may not match the one passed on input.
-    , _goitrToken :: Maybe Text
-      -- ^ An OpenID token.
+    { _goitrsIdentityId :: Maybe Text
+    , _goitrsToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
-goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrIdentityId = lens _goitrIdentityId (\s a -> s { _goitrIdentityId = a })
-{-# INLINE goitrIdentityId #-}
+goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrsIdentityId =
+    lens _goitrsIdentityId (\s a -> s { _goitrsIdentityId = a })
+{-# INLINE goitrsIdentityId #-}
 
 -- | An OpenID token.
-goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrToken = lens _goitrToken (\s a -> s { _goitrToken = a })
-{-# INLINE goitrToken #-}
+goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrsToken = lens _goitrsToken (\s a -> s { _goitrsToken = a })
+{-# INLINE goitrsToken #-}
 
 instance FromJSON GetOpenIdTokenResponse
 

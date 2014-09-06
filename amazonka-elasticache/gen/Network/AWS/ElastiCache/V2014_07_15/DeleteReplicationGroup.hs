@@ -35,81 +35,78 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup
     -- * Request
       DeleteReplicationGroup
     -- ** Request constructor
-    , mkDeleteReplicationGroupMessage
+    , mkDeleteReplicationGroup
     -- ** Request lenses
-    , drgmReplicationGroupId
-    , drgmRetainPrimaryCluster
-    , drgmFinalSnapshotIdentifier
+    , drgReplicationGroupId
+    , drgRetainPrimaryCluster
+    , drgFinalSnapshotIdentifier
 
     -- * Response
     , DeleteReplicationGroupResponse
     -- ** Response lenses
-    , rgxReplicationGroup
+    , drgrsReplicationGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DeleteReplicationGroup operation.
+data DeleteReplicationGroup = DeleteReplicationGroup
+    { _drgReplicationGroupId :: Text
+    , _drgRetainPrimaryCluster :: Maybe Bool
+    , _drgFinalSnapshotIdentifier :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteReplicationGroup' request.
-mkDeleteReplicationGroupMessage :: Text -- ^ 'drgmReplicationGroupId'
-                                -> DeleteReplicationGroup
-mkDeleteReplicationGroupMessage p1 = DeleteReplicationGroup
-    { _drgmReplicationGroupId = p1
-    , _drgmRetainPrimaryCluster = Nothing
-    , _drgmFinalSnapshotIdentifier = Nothing
+mkDeleteReplicationGroup :: Text -- ^ 'drgReplicationGroupId'
+                         -> DeleteReplicationGroup
+mkDeleteReplicationGroup p1 = DeleteReplicationGroup
+    { _drgReplicationGroupId = p1
+    , _drgRetainPrimaryCluster = Nothing
+    , _drgFinalSnapshotIdentifier = Nothing
     }
-{-# INLINE mkDeleteReplicationGroupMessage #-}
-
-data DeleteReplicationGroup = DeleteReplicationGroup
-    { _drgmReplicationGroupId :: Text
-      -- ^ The identifier for the replication group to be deleted. This
-      -- parameter is not case sensitive.
-    , _drgmRetainPrimaryCluster :: Maybe Bool
-      -- ^ If set to true, all of the read replicas will be deleted, but the
-      -- primary cache cluster will be retained.
-    , _drgmFinalSnapshotIdentifier :: Maybe Text
-      -- ^ The name of a final cache cluster snapshot. ElastiCache creates
-      -- the snapshot from the primary cluster in the replication group,
-      -- rather than one of the replicas; this is to ensure that it
-      -- captures the freshest data. After the final snapshot is taken,
-      -- the replication group is deleted immediately afterward.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteReplicationGroup #-}
 
 -- | The identifier for the replication group to be deleted. This parameter is
 -- not case sensitive.
-drgmReplicationGroupId :: Lens' DeleteReplicationGroup (Text)
-drgmReplicationGroupId = lens _drgmReplicationGroupId (\s a -> s { _drgmReplicationGroupId = a })
-{-# INLINE drgmReplicationGroupId #-}
+drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
+drgReplicationGroupId =
+    lens _drgReplicationGroupId (\s a -> s { _drgReplicationGroupId = a })
+{-# INLINE drgReplicationGroupId #-}
 
 -- | If set to true, all of the read replicas will be deleted, but the primary
 -- cache cluster will be retained.
-drgmRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
-drgmRetainPrimaryCluster = lens _drgmRetainPrimaryCluster (\s a -> s { _drgmRetainPrimaryCluster = a })
-{-# INLINE drgmRetainPrimaryCluster #-}
+drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
+drgRetainPrimaryCluster =
+    lens _drgRetainPrimaryCluster
+         (\s a -> s { _drgRetainPrimaryCluster = a })
+{-# INLINE drgRetainPrimaryCluster #-}
 
 -- | The name of a final cache cluster snapshot. ElastiCache creates the
 -- snapshot from the primary cluster in the replication group, rather than one
 -- of the replicas; this is to ensure that it captures the freshest data.
 -- After the final snapshot is taken, the replication group is deleted
 -- immediately afterward.
-drgmFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
-drgmFinalSnapshotIdentifier = lens _drgmFinalSnapshotIdentifier (\s a -> s { _drgmFinalSnapshotIdentifier = a })
-{-# INLINE drgmFinalSnapshotIdentifier #-}
+drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
+drgFinalSnapshotIdentifier =
+    lens _drgFinalSnapshotIdentifier
+         (\s a -> s { _drgFinalSnapshotIdentifier = a })
+{-# INLINE drgFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteReplicationGroup where
     toQuery = genericQuery def
 
 newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
-    { _rgxReplicationGroup :: Maybe ReplicationGroup
-      -- ^ Contains all of the attributes of a specific replication group.
+    { _drgrsReplicationGroup :: Maybe ReplicationGroup
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-rgxReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
-rgxReplicationGroup = lens _rgxReplicationGroup (\s a -> s { _rgxReplicationGroup = a })
-{-# INLINE rgxReplicationGroup #-}
+drgrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
+drgrsReplicationGroup =
+    lens _drgrsReplicationGroup (\s a -> s { _drgrsReplicationGroup = a })
+{-# INLINE drgrsReplicationGroup #-}
 
 instance FromXML DeleteReplicationGroupResponse where
     fromXMLOptions = xmlOptions

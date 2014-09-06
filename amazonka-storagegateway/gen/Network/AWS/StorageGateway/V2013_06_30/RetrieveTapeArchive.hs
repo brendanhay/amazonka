@@ -22,15 +22,15 @@ module Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeArchive
     -- * Request
       RetrieveTapeArchive
     -- ** Request constructor
-    , mkRetrieveTapeArchiveInput
+    , mkRetrieveTapeArchive
     -- ** Request lenses
-    , rtaiTapeARN
-    , rtaiGatewayARN
+    , rtaTapeARN
+    , rtaGatewayARN
 
     -- * Response
     , RetrieveTapeArchiveResponse
     -- ** Response lenses
-    , rtaoTapeARN
+    , rtarsTapeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -38,34 +38,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RetrieveTapeArchive' request.
-mkRetrieveTapeArchiveInput :: Text -- ^ 'rtaiTapeARN'
-                           -> Text -- ^ 'rtaiGatewayARN'
-                           -> RetrieveTapeArchive
-mkRetrieveTapeArchiveInput p1 p2 = RetrieveTapeArchive
-    { _rtaiTapeARN = p1
-    , _rtaiGatewayARN = p2
-    }
-{-# INLINE mkRetrieveTapeArchiveInput #-}
-
 data RetrieveTapeArchive = RetrieveTapeArchive
-    { _rtaiTapeARN :: Text
-    , _rtaiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _rtaTapeARN :: Text
+    , _rtaGatewayARN :: Text
     } deriving (Show, Generic)
 
-rtaiTapeARN :: Lens' RetrieveTapeArchive (Text)
-rtaiTapeARN = lens _rtaiTapeARN (\s a -> s { _rtaiTapeARN = a })
-{-# INLINE rtaiTapeARN #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveTapeArchive' request.
+mkRetrieveTapeArchive :: Text -- ^ 'rtaTapeARN'
+                      -> Text -- ^ 'rtaGatewayARN'
+                      -> RetrieveTapeArchive
+mkRetrieveTapeArchive p1 p2 = RetrieveTapeArchive
+    { _rtaTapeARN = p1
+    , _rtaGatewayARN = p2
+    }
+{-# INLINE mkRetrieveTapeArchive #-}
+
+rtaTapeARN :: Lens' RetrieveTapeArchive Text
+rtaTapeARN = lens _rtaTapeARN (\s a -> s { _rtaTapeARN = a })
+{-# INLINE rtaTapeARN #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-rtaiGatewayARN :: Lens' RetrieveTapeArchive (Text)
-rtaiGatewayARN = lens _rtaiGatewayARN (\s a -> s { _rtaiGatewayARN = a })
-{-# INLINE rtaiGatewayARN #-}
+rtaGatewayARN :: Lens' RetrieveTapeArchive Text
+rtaGatewayARN = lens _rtaGatewayARN (\s a -> s { _rtaGatewayARN = a })
+{-# INLINE rtaGatewayARN #-}
 
 instance ToPath RetrieveTapeArchive
 
@@ -76,12 +73,12 @@ instance ToHeaders RetrieveTapeArchive
 instance ToJSON RetrieveTapeArchive
 
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
-    { _rtaoTapeARN :: Maybe Text
+    { _rtarsTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-rtaoTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
-rtaoTapeARN = lens _rtaoTapeARN (\s a -> s { _rtaoTapeARN = a })
-{-# INLINE rtaoTapeARN #-}
+rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
+rtarsTapeARN = lens _rtarsTapeARN (\s a -> s { _rtarsTapeARN = a })
+{-# INLINE rtarsTapeARN #-}
 
 instance FromJSON RetrieveTapeArchiveResponse
 

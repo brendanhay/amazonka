@@ -76,20 +76,20 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset
     -- * Request
       CreatePreset
     -- ** Request constructor
-    , mkCreatePresetRequest
+    , mkCreatePreset
     -- ** Request lenses
-    , cptName
-    , cptDescription
-    , cptContainer
-    , cptVideo
-    , cptAudio
-    , cptThumbnails
+    , cp1Name
+    , cp1Description
+    , cp1Container
+    , cp1Video
+    , cp1Audio
+    , cp1Thumbnails
 
     -- * Response
     , CreatePresetResponse
     -- ** Response lenses
-    , cpuPreset
-    , cpuWarning
+    , cprsrsPreset
+    , cprsrsWarning
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -97,73 +97,63 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The CreatePresetRequest structure.
+data CreatePreset = CreatePreset
+    { _cp1Name :: Text
+    , _cp1Description :: Maybe Text
+    , _cp1Container :: Text
+    , _cp1Video :: Maybe VideoParameters
+    , _cp1Audio :: Maybe AudioParameters
+    , _cp1Thumbnails :: Maybe Thumbnails
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePreset' request.
-mkCreatePresetRequest :: Text -- ^ 'cptName'
-                      -> Text -- ^ 'cptContainer'
-                      -> CreatePreset
-mkCreatePresetRequest p1 p2 = CreatePreset
-    { _cptName = p1
-    , _cptDescription = Nothing
-    , _cptContainer = p3
-    , _cptVideo = Nothing
-    , _cptAudio = Nothing
-    , _cptThumbnails = Nothing
+mkCreatePreset :: Text -- ^ 'cp1Name'
+               -> Text -- ^ 'cp1Container'
+               -> CreatePreset
+mkCreatePreset p1 p3 = CreatePreset
+    { _cp1Name = p1
+    , _cp1Description = Nothing
+    , _cp1Container = p3
+    , _cp1Video = Nothing
+    , _cp1Audio = Nothing
+    , _cp1Thumbnails = Nothing
     }
-{-# INLINE mkCreatePresetRequest #-}
-
-data CreatePreset = CreatePreset
-    { _cptName :: Text
-      -- ^ The name of the preset. We recommend that the name be unique
-      -- within the AWS account, but uniqueness is not enforced.
-    , _cptDescription :: Maybe Text
-      -- ^ A description of the preset.
-    , _cptContainer :: Text
-      -- ^ The container type for the output file. Valid values include mp3,
-      -- mp4, ogg, ts, and webm.
-    , _cptVideo :: Maybe VideoParameters
-      -- ^ A section of the request body that specifies the video
-      -- parameters.
-    , _cptAudio :: Maybe AudioParameters
-      -- ^ A section of the request body that specifies the audio
-      -- parameters.
-    , _cptThumbnails :: Maybe Thumbnails
-      -- ^ A section of the request body that specifies the thumbnail
-      -- parameters, if any.
-    } deriving (Show, Generic)
+{-# INLINE mkCreatePreset #-}
 
 -- | The name of the preset. We recommend that the name be unique within the AWS
 -- account, but uniqueness is not enforced.
-cptName :: Lens' CreatePreset (Text)
-cptName = lens _cptName (\s a -> s { _cptName = a })
-{-# INLINE cptName #-}
+cp1Name :: Lens' CreatePreset Text
+cp1Name = lens _cp1Name (\s a -> s { _cp1Name = a })
+{-# INLINE cp1Name #-}
 
 -- | A description of the preset.
-cptDescription :: Lens' CreatePreset (Maybe Text)
-cptDescription = lens _cptDescription (\s a -> s { _cptDescription = a })
-{-# INLINE cptDescription #-}
+cp1Description :: Lens' CreatePreset (Maybe Text)
+cp1Description = lens _cp1Description (\s a -> s { _cp1Description = a })
+{-# INLINE cp1Description #-}
 
 -- | The container type for the output file. Valid values include mp3, mp4, ogg,
 -- ts, and webm.
-cptContainer :: Lens' CreatePreset (Text)
-cptContainer = lens _cptContainer (\s a -> s { _cptContainer = a })
-{-# INLINE cptContainer #-}
+cp1Container :: Lens' CreatePreset Text
+cp1Container = lens _cp1Container (\s a -> s { _cp1Container = a })
+{-# INLINE cp1Container #-}
 
 -- | A section of the request body that specifies the video parameters.
-cptVideo :: Lens' CreatePreset (Maybe VideoParameters)
-cptVideo = lens _cptVideo (\s a -> s { _cptVideo = a })
-{-# INLINE cptVideo #-}
+cp1Video :: Lens' CreatePreset (Maybe VideoParameters)
+cp1Video = lens _cp1Video (\s a -> s { _cp1Video = a })
+{-# INLINE cp1Video #-}
 
 -- | A section of the request body that specifies the audio parameters.
-cptAudio :: Lens' CreatePreset (Maybe AudioParameters)
-cptAudio = lens _cptAudio (\s a -> s { _cptAudio = a })
-{-# INLINE cptAudio #-}
+cp1Audio :: Lens' CreatePreset (Maybe AudioParameters)
+cp1Audio = lens _cp1Audio (\s a -> s { _cp1Audio = a })
+{-# INLINE cp1Audio #-}
 
 -- | A section of the request body that specifies the thumbnail parameters, if
 -- any.
-cptThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
-cptThumbnails = lens _cptThumbnails (\s a -> s { _cptThumbnails = a })
-{-# INLINE cptThumbnails #-}
+cp1Thumbnails :: Lens' CreatePreset (Maybe Thumbnails)
+cp1Thumbnails = lens _cp1Thumbnails (\s a -> s { _cp1Thumbnails = a })
+{-# INLINE cp1Thumbnails #-}
 
 instance ToPath CreatePreset where
     toPath = const "/2012-09-25/presets"
@@ -174,31 +164,25 @@ instance ToHeaders CreatePreset
 
 instance ToJSON CreatePreset
 
+-- | The CreatePresetResponse structure.
 data CreatePresetResponse = CreatePresetResponse
-    { _cpuPreset :: Maybe Preset
-      -- ^ A section of the response body that provides information about
-      -- the preset that is created.
-    , _cpuWarning :: Maybe Text
-      -- ^ If the preset settings don't comply with the standards for the
-      -- video codec but Elastic Transcoder created the preset, this
-      -- message explains the reason the preset settings don't meet the
-      -- standard. Elastic Transcoder created the preset because the
-      -- settings might produce acceptable output.
+    { _cprsrsPreset :: Maybe Preset
+    , _cprsrsWarning :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the preset
 -- that is created.
-cpuPreset :: Lens' CreatePresetResponse (Maybe Preset)
-cpuPreset = lens _cpuPreset (\s a -> s { _cpuPreset = a })
-{-# INLINE cpuPreset #-}
+cprsrsPreset :: Lens' CreatePresetResponse (Maybe Preset)
+cprsrsPreset = lens _cprsrsPreset (\s a -> s { _cprsrsPreset = a })
+{-# INLINE cprsrsPreset #-}
 
 -- | If the preset settings don't comply with the standards for the video codec
 -- but Elastic Transcoder created the preset, this message explains the reason
 -- the preset settings don't meet the standard. Elastic Transcoder created the
 -- preset because the settings might produce acceptable output.
-cpuWarning :: Lens' CreatePresetResponse (Maybe Text)
-cpuWarning = lens _cpuWarning (\s a -> s { _cpuWarning = a })
-{-# INLINE cpuWarning #-}
+cprsrsWarning :: Lens' CreatePresetResponse (Maybe Text)
+cprsrsWarning = lens _cprsrsWarning (\s a -> s { _cprsrsWarning = a })
+{-# INLINE cprsrsWarning #-}
 
 instance FromJSON CreatePresetResponse
 

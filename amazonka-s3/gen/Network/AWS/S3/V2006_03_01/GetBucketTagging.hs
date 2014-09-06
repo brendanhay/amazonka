@@ -23,41 +23,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketTagging
     -- * Request
       GetBucketTagging
     -- ** Request constructor
-    , mkGetBucketTaggingRequest
+    , mkGetBucketTagging
     -- ** Request lenses
-    , gbtrBucket
+    , gbtBucket
 
     -- * Response
     , GetBucketTaggingResponse
     -- ** Response lenses
-    , gbtoTagSet
+    , gbtrsTagSet
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketTagging = GetBucketTagging
+    { _gbtBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketTagging' request.
-mkGetBucketTaggingRequest :: BucketName -- ^ 'gbtrBucket'
-                          -> GetBucketTagging
-mkGetBucketTaggingRequest p1 = GetBucketTagging
-    { _gbtrBucket = p1
+mkGetBucketTagging :: BucketName -- ^ 'gbtBucket'
+                   -> GetBucketTagging
+mkGetBucketTagging p1 = GetBucketTagging
+    { _gbtBucket = p1
     }
-{-# INLINE mkGetBucketTaggingRequest #-}
+{-# INLINE mkGetBucketTagging #-}
 
-newtype GetBucketTagging = GetBucketTagging
-    { _gbtrBucket :: BucketName
-    } deriving (Show, Generic)
-
-gbtrBucket :: Lens' GetBucketTagging (BucketName)
-gbtrBucket = lens _gbtrBucket (\s a -> s { _gbtrBucket = a })
-{-# INLINE gbtrBucket #-}
+gbtBucket :: Lens' GetBucketTagging BucketName
+gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
+{-# INLINE gbtBucket #-}
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat
         [ "/"
-        , toBS _gbtrBucket
+        , toBS _gbtBucket
         ]
 
 instance ToQuery GetBucketTagging where
@@ -70,12 +71,12 @@ instance ToHeaders GetBucketTagging
 instance ToBody GetBucketTagging
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
-    { _gbtoTagSet :: [Tag]
+    { _gbtrsTagSet :: [Tag]
     } deriving (Show, Generic)
 
-gbtoTagSet :: Lens' GetBucketTaggingResponse ([Tag])
-gbtoTagSet = lens _gbtoTagSet (\s a -> s { _gbtoTagSet = a })
-{-# INLINE gbtoTagSet #-}
+gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
+gbtrsTagSet = lens _gbtrsTagSet (\s a -> s { _gbtrsTagSet = a })
+{-# INLINE gbtrsTagSet #-}
 
 instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions

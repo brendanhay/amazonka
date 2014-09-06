@@ -55,67 +55,64 @@ module Network.AWS.EC2.V2014_06_15.StopInstances
     -- * Request
       StopInstances
     -- ** Request constructor
-    , mkStopInstancesRequest
+    , mkStopInstances
     -- ** Request lenses
-    , sisvInstanceIds
-    , sisvForce
+    , si1InstanceIds
+    , si1Force
 
     -- * Response
     , StopInstancesResponse
     -- ** Response lenses
-    , siswStoppingInstances
+    , sirsrsStoppingInstances
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StopInstances' request.
-mkStopInstancesRequest :: [Text] -- ^ 'sisvInstanceIds'
-                       -> StopInstances
-mkStopInstancesRequest p1 = StopInstances
-    { _sisvInstanceIds = p1
-    , _sisvForce = Nothing
-    }
-{-# INLINE mkStopInstancesRequest #-}
-
+-- | 
 data StopInstances = StopInstances
-    { _sisvInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    , _sisvForce :: Maybe Bool
-      -- ^ Forces the instances to stop. The instances do not have an
-      -- opportunity to flush file system caches or file system metadata.
-      -- If you use this option, you must perform file system check and
-      -- repair procedures. This option is not recommended for Windows
-      -- instances. Default: false.
+    { _si1InstanceIds :: [Text]
+    , _si1Force :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopInstances' request.
+mkStopInstances :: [Text] -- ^ 'si1InstanceIds'
+                -> StopInstances
+mkStopInstances p1 = StopInstances
+    { _si1InstanceIds = p1
+    , _si1Force = Nothing
+    }
+{-# INLINE mkStopInstances #-}
+
 -- | One or more instance IDs.
-sisvInstanceIds :: Lens' StopInstances ([Text])
-sisvInstanceIds = lens _sisvInstanceIds (\s a -> s { _sisvInstanceIds = a })
-{-# INLINE sisvInstanceIds #-}
+si1InstanceIds :: Lens' StopInstances [Text]
+si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
+{-# INLINE si1InstanceIds #-}
 
 -- | Forces the instances to stop. The instances do not have an opportunity to
 -- flush file system caches or file system metadata. If you use this option,
 -- you must perform file system check and repair procedures. This option is
 -- not recommended for Windows instances. Default: false.
-sisvForce :: Lens' StopInstances (Maybe Bool)
-sisvForce = lens _sisvForce (\s a -> s { _sisvForce = a })
-{-# INLINE sisvForce #-}
+si1Force :: Lens' StopInstances (Maybe Bool)
+si1Force = lens _si1Force (\s a -> s { _si1Force = a })
+{-# INLINE si1Force #-}
 
 instance ToQuery StopInstances where
     toQuery = genericQuery def
 
+-- | 
 newtype StopInstancesResponse = StopInstancesResponse
-    { _siswStoppingInstances :: [InstanceStateChange]
-      -- ^ Information about one or more stopped instances.
+    { _sirsrsStoppingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
 
 -- | Information about one or more stopped instances.
-siswStoppingInstances :: Lens' StopInstancesResponse ([InstanceStateChange])
-siswStoppingInstances = lens _siswStoppingInstances (\s a -> s { _siswStoppingInstances = a })
-{-# INLINE siswStoppingInstances #-}
+sirsrsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+sirsrsStoppingInstances =
+    lens _sirsrsStoppingInstances
+         (\s a -> s { _sirsrsStoppingInstances = a })
+{-# INLINE sirsrsStoppingInstances #-}
 
 instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions

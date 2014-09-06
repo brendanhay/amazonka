@@ -28,100 +28,95 @@ module Network.AWS.RDS.V2013_09_09.CreateOptionGroup
     -- * Request
       CreateOptionGroup
     -- ** Request constructor
-    , mkCreateOptionGroupMessage
+    , mkCreateOptionGroup
     -- ** Request lenses
-    , cogmOptionGroupName
-    , cogmEngineName
-    , cogmMajorEngineVersion
-    , cogmOptionGroupDescription
-    , cogmTags
+    , cogOptionGroupName
+    , cogEngineName
+    , cogMajorEngineVersion
+    , cogOptionGroupDescription
+    , cogTags
 
     -- * Response
     , CreateOptionGroupResponse
     -- ** Response lenses
-    , ogwOptionGroup
+    , cogrsOptionGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateOptionGroup = CreateOptionGroup
+    { _cogOptionGroupName :: Text
+    , _cogEngineName :: Text
+    , _cogMajorEngineVersion :: Text
+    , _cogOptionGroupDescription :: Text
+    , _cogTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOptionGroup' request.
-mkCreateOptionGroupMessage :: Text -- ^ 'cogmOptionGroupName'
-                           -> Text -- ^ 'cogmEngineName'
-                           -> Text -- ^ 'cogmMajorEngineVersion'
-                           -> Text -- ^ 'cogmOptionGroupDescription'
-                           -> CreateOptionGroup
-mkCreateOptionGroupMessage p1 p2 p3 p4 = CreateOptionGroup
-    { _cogmOptionGroupName = p1
-    , _cogmEngineName = p2
-    , _cogmMajorEngineVersion = p3
-    , _cogmOptionGroupDescription = p4
-    , _cogmTags = mempty
+mkCreateOptionGroup :: Text -- ^ 'cogOptionGroupName'
+                    -> Text -- ^ 'cogEngineName'
+                    -> Text -- ^ 'cogMajorEngineVersion'
+                    -> Text -- ^ 'cogOptionGroupDescription'
+                    -> CreateOptionGroup
+mkCreateOptionGroup p1 p2 p3 p4 = CreateOptionGroup
+    { _cogOptionGroupName = p1
+    , _cogEngineName = p2
+    , _cogMajorEngineVersion = p3
+    , _cogOptionGroupDescription = p4
+    , _cogTags = mempty
     }
-{-# INLINE mkCreateOptionGroupMessage #-}
-
-data CreateOptionGroup = CreateOptionGroup
-    { _cogmOptionGroupName :: Text
-      -- ^ Specifies the name of the option group to be created.
-      -- Constraints: Must be 1 to 255 alphanumeric characters or hyphens
-      -- First character must be a letter Cannot end with a hyphen or
-      -- contain two consecutive hyphens Example: myoptiongroup.
-    , _cogmEngineName :: Text
-      -- ^ Specifies the name of the engine that this option group should be
-      -- associated with.
-    , _cogmMajorEngineVersion :: Text
-      -- ^ Specifies the major version of the engine that this option group
-      -- should be associated with.
-    , _cogmOptionGroupDescription :: Text
-      -- ^ The description of the option group.
-    , _cogmTags :: [Tag]
-      -- ^ A list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateOptionGroup #-}
 
 -- | Specifies the name of the option group to be created. Constraints: Must be
 -- 1 to 255 alphanumeric characters or hyphens First character must be a
 -- letter Cannot end with a hyphen or contain two consecutive hyphens Example:
 -- myoptiongroup.
-cogmOptionGroupName :: Lens' CreateOptionGroup (Text)
-cogmOptionGroupName = lens _cogmOptionGroupName (\s a -> s { _cogmOptionGroupName = a })
-{-# INLINE cogmOptionGroupName #-}
+cogOptionGroupName :: Lens' CreateOptionGroup Text
+cogOptionGroupName =
+    lens _cogOptionGroupName (\s a -> s { _cogOptionGroupName = a })
+{-# INLINE cogOptionGroupName #-}
 
 -- | Specifies the name of the engine that this option group should be
 -- associated with.
-cogmEngineName :: Lens' CreateOptionGroup (Text)
-cogmEngineName = lens _cogmEngineName (\s a -> s { _cogmEngineName = a })
-{-# INLINE cogmEngineName #-}
+cogEngineName :: Lens' CreateOptionGroup Text
+cogEngineName = lens _cogEngineName (\s a -> s { _cogEngineName = a })
+{-# INLINE cogEngineName #-}
 
 -- | Specifies the major version of the engine that this option group should be
 -- associated with.
-cogmMajorEngineVersion :: Lens' CreateOptionGroup (Text)
-cogmMajorEngineVersion = lens _cogmMajorEngineVersion (\s a -> s { _cogmMajorEngineVersion = a })
-{-# INLINE cogmMajorEngineVersion #-}
+cogMajorEngineVersion :: Lens' CreateOptionGroup Text
+cogMajorEngineVersion =
+    lens _cogMajorEngineVersion (\s a -> s { _cogMajorEngineVersion = a })
+{-# INLINE cogMajorEngineVersion #-}
 
 -- | The description of the option group.
-cogmOptionGroupDescription :: Lens' CreateOptionGroup (Text)
-cogmOptionGroupDescription = lens _cogmOptionGroupDescription (\s a -> s { _cogmOptionGroupDescription = a })
-{-# INLINE cogmOptionGroupDescription #-}
+cogOptionGroupDescription :: Lens' CreateOptionGroup Text
+cogOptionGroupDescription =
+    lens _cogOptionGroupDescription
+         (\s a -> s { _cogOptionGroupDescription = a })
+{-# INLINE cogOptionGroupDescription #-}
 
 -- | A list of tags.
-cogmTags :: Lens' CreateOptionGroup ([Tag])
-cogmTags = lens _cogmTags (\s a -> s { _cogmTags = a })
-{-# INLINE cogmTags #-}
+cogTags :: Lens' CreateOptionGroup [Tag]
+cogTags = lens _cogTags (\s a -> s { _cogTags = a })
+{-# INLINE cogTags #-}
 
 instance ToQuery CreateOptionGroup where
     toQuery = genericQuery def
 
 newtype CreateOptionGroupResponse = CreateOptionGroupResponse
-    { _ogwOptionGroup :: Maybe OptionGroup
-      -- ^ 
+    { _cogrsOptionGroup :: Maybe OptionGroup
     } deriving (Show, Generic)
 
 -- | 
-ogwOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
-ogwOptionGroup = lens _ogwOptionGroup (\s a -> s { _ogwOptionGroup = a })
-{-# INLINE ogwOptionGroup #-}
+cogrsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
+cogrsOptionGroup =
+    lens _cogrsOptionGroup (\s a -> s { _cogrsOptionGroup = a })
+{-# INLINE cogrsOptionGroup #-}
 
 instance FromXML CreateOptionGroupResponse where
     fromXMLOptions = xmlOptions

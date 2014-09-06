@@ -32,10 +32,10 @@ module Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute
     -- * Request
       ResetNetworkInterfaceAttribute
     -- ** Request constructor
-    , mkResetNetworkInterfaceAttributeRequest
+    , mkResetNetworkInterfaceAttribute
     -- ** Request lenses
-    , rniarNetworkInterfaceId
-    , rniarSourceDestCheck
+    , rniaNetworkInterfaceId
+    , rniaSourceDestCheck
 
     -- * Response
     , ResetNetworkInterfaceAttributeResponse
@@ -45,37 +45,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetNetworkInterfaceAttribute' request.
-mkResetNetworkInterfaceAttributeRequest :: Text -- ^ 'rniarNetworkInterfaceId'
-                                        -> ResetNetworkInterfaceAttribute
-mkResetNetworkInterfaceAttributeRequest p1 = ResetNetworkInterfaceAttribute
-    { _rniarNetworkInterfaceId = p1
-    , _rniarSourceDestCheck = Nothing
-    }
-{-# INLINE mkResetNetworkInterfaceAttributeRequest #-}
-
+-- | 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
-    { _rniarNetworkInterfaceId :: Text
-      -- ^ The ID of the network interface.
-    , _rniarSourceDestCheck :: Maybe Text
-      -- ^ Indicates whether source/destination checking is enabled. A value
-      -- of true means checking is enabled, and false means checking is
-      -- disabled. This value must be false for a NAT instance to perform
-      -- NAT.
+    { _rniaNetworkInterfaceId :: Text
+    , _rniaSourceDestCheck :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetNetworkInterfaceAttribute' request.
+mkResetNetworkInterfaceAttribute :: Text -- ^ 'rniaNetworkInterfaceId'
+                                 -> ResetNetworkInterfaceAttribute
+mkResetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
+    { _rniaNetworkInterfaceId = p1
+    , _rniaSourceDestCheck = Nothing
+    }
+{-# INLINE mkResetNetworkInterfaceAttribute #-}
+
 -- | The ID of the network interface.
-rniarNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute (Text)
-rniarNetworkInterfaceId = lens _rniarNetworkInterfaceId (\s a -> s { _rniarNetworkInterfaceId = a })
-{-# INLINE rniarNetworkInterfaceId #-}
+rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
+rniaNetworkInterfaceId =
+    lens _rniaNetworkInterfaceId (\s a -> s { _rniaNetworkInterfaceId = a })
+{-# INLINE rniaNetworkInterfaceId #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT.
-rniarSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
-rniarSourceDestCheck = lens _rniarSourceDestCheck (\s a -> s { _rniarSourceDestCheck = a })
-{-# INLINE rniarSourceDestCheck #-}
+rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
+rniaSourceDestCheck =
+    lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
+{-# INLINE rniaSourceDestCheck #-}
 
 instance ToQuery ResetNetworkInterfaceAttribute where
     toQuery = genericQuery def

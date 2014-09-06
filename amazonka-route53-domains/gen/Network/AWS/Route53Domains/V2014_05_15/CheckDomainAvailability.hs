@@ -39,15 +39,15 @@ module Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
     -- * Request
       CheckDomainAvailability
     -- ** Request constructor
-    , mkCheckDomainAvailabilityRequest
+    , mkCheckDomainAvailability
     -- ** Request lenses
-    , cdarDomainName
-    , cdarIdnLangCode
+    , cdaDomainName
+    , cdaIdnLangCode
 
     -- * Response
     , CheckDomainAvailabilityResponse
     -- ** Response lenses
-    , cdasAvailability
+    , cdarsAvailability
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -55,38 +55,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The CheckDomainAvailability request contains the following elements.
+data CheckDomainAvailability = CheckDomainAvailability
+    { _cdaDomainName :: Text
+    , _cdaIdnLangCode :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDomainAvailability' request.
-mkCheckDomainAvailabilityRequest :: Text -- ^ 'cdarDomainName'
-                                 -> CheckDomainAvailability
-mkCheckDomainAvailabilityRequest p1 = CheckDomainAvailability
-    { _cdarDomainName = p1
-    , _cdarIdnLangCode = Nothing
+mkCheckDomainAvailability :: Text -- ^ 'cdaDomainName'
+                          -> CheckDomainAvailability
+mkCheckDomainAvailability p1 = CheckDomainAvailability
+    { _cdaDomainName = p1
+    , _cdaIdnLangCode = Nothing
     }
-{-# INLINE mkCheckDomainAvailabilityRequest #-}
-
-data CheckDomainAvailability = CheckDomainAvailability
-    { _cdarDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    , _cdarIdnLangCode :: Maybe Text
-      -- ^ Reserved for future use.
-    } deriving (Show, Generic)
+{-# INLINE mkCheckDomainAvailability #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-cdarDomainName :: Lens' CheckDomainAvailability (Text)
-cdarDomainName = lens _cdarDomainName (\s a -> s { _cdarDomainName = a })
-{-# INLINE cdarDomainName #-}
+cdaDomainName :: Lens' CheckDomainAvailability Text
+cdaDomainName = lens _cdaDomainName (\s a -> s { _cdaDomainName = a })
+{-# INLINE cdaDomainName #-}
 
 -- | Reserved for future use.
-cdarIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
-cdarIdnLangCode = lens _cdarIdnLangCode (\s a -> s { _cdarIdnLangCode = a })
-{-# INLINE cdarIdnLangCode #-}
+cdaIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
+cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
+{-# INLINE cdaIdnLangCode #-}
 
 instance ToPath CheckDomainAvailability
 
@@ -96,18 +92,9 @@ instance ToHeaders CheckDomainAvailability
 
 instance ToJSON CheckDomainAvailability
 
+-- | The CheckDomainAvailability response includes the following elements.
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
-    { _cdasAvailability :: DomainAvailability
-      -- ^ Whether the domain name is available for registering. You can
-      -- only register domains designated as AVAILABLE. Type: String Valid
-      -- values: AVAILABLE – The domain name is available.
-      -- AVAILABLE_RESERVED – The domain name is reserved under specific
-      -- conditions. AVAILABLE_PREORDER – The domain name is available and
-      -- can be preordered. UNAVAILABLE – The domain name is not
-      -- available. UNAVAILABLE_PREMIUM – The domain name is not
-      -- available. UNAVAILABLE_RESTRICTED – The domain name is forbidden.
-      -- RESERVED – The domain name has been reserved for another person
-      -- or organization.
+    { _cdarsAvailability :: DomainAvailability
     } deriving (Show, Generic)
 
 -- | Whether the domain name is available for registering. You can only register
@@ -118,9 +105,10 @@ newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 -- available. UNAVAILABLE_PREMIUM – The domain name is not available.
 -- UNAVAILABLE_RESTRICTED – The domain name is forbidden. RESERVED – The
 -- domain name has been reserved for another person or organization.
-cdasAvailability :: Lens' CheckDomainAvailabilityResponse (DomainAvailability)
-cdasAvailability = lens _cdasAvailability (\s a -> s { _cdasAvailability = a })
-{-# INLINE cdasAvailability #-}
+cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
+cdarsAvailability =
+    lens _cdarsAvailability (\s a -> s { _cdarsAvailability = a })
+{-# INLINE cdarsAvailability #-}
 
 instance FromJSON CheckDomainAvailabilityResponse
 

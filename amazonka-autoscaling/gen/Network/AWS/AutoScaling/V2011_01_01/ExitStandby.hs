@@ -32,66 +32,65 @@ module Network.AWS.AutoScaling.V2011_01_01.ExitStandby
     -- * Request
       ExitStandby
     -- ** Request constructor
-    , mkExitStandbyQuery
+    , mkExitStandby
     -- ** Request lenses
-    , esrInstanceIds
-    , esrAutoScalingGroupName
+    , es1InstanceIds
+    , es1AutoScalingGroupName
 
     -- * Response
     , ExitStandbyResponse
     -- ** Response lenses
-    , esbActivities
+    , esrsrsActivities
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data ExitStandby = ExitStandby
+    { _es1InstanceIds :: [Text]
+    , _es1AutoScalingGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExitStandby' request.
-mkExitStandbyQuery :: Text -- ^ 'esrAutoScalingGroupName'
-                   -> ExitStandby
-mkExitStandbyQuery p1 = ExitStandby
-    { _esrInstanceIds = mempty
-    , _esrAutoScalingGroupName = p2
+mkExitStandby :: Text -- ^ 'es1AutoScalingGroupName'
+              -> ExitStandby
+mkExitStandby p2 = ExitStandby
+    { _es1InstanceIds = mempty
+    , _es1AutoScalingGroupName = p2
     }
-{-# INLINE mkExitStandbyQuery #-}
-
-data ExitStandby = ExitStandby
-    { _esrInstanceIds :: [Text]
-      -- ^ A list of instances to move out of Standby mode. You must specify
-      -- at least one instance ID.
-    , _esrAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group from which to move instances
-      -- out of Standby mode.
-    } deriving (Show, Generic)
+{-# INLINE mkExitStandby #-}
 
 -- | A list of instances to move out of Standby mode. You must specify at least
 -- one instance ID.
-esrInstanceIds :: Lens' ExitStandby ([Text])
-esrInstanceIds = lens _esrInstanceIds (\s a -> s { _esrInstanceIds = a })
-{-# INLINE esrInstanceIds #-}
+es1InstanceIds :: Lens' ExitStandby [Text]
+es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a })
+{-# INLINE es1InstanceIds #-}
 
 -- | The name of the Auto Scaling group from which to move instances out of
 -- Standby mode.
-esrAutoScalingGroupName :: Lens' ExitStandby (Text)
-esrAutoScalingGroupName = lens _esrAutoScalingGroupName (\s a -> s { _esrAutoScalingGroupName = a })
-{-# INLINE esrAutoScalingGroupName #-}
+es1AutoScalingGroupName :: Lens' ExitStandby Text
+es1AutoScalingGroupName =
+    lens _es1AutoScalingGroupName
+         (\s a -> s { _es1AutoScalingGroupName = a })
+{-# INLINE es1AutoScalingGroupName #-}
 
 instance ToQuery ExitStandby where
     toQuery = genericQuery def
 
+-- | The output of the ExitStandby action.
 newtype ExitStandbyResponse = ExitStandbyResponse
-    { _esbActivities :: [Activity]
-      -- ^ A list describing the activities related to moving instances out
-      -- of Standby mode.
+    { _esrsrsActivities :: [Activity]
     } deriving (Show, Generic)
 
 -- | A list describing the activities related to moving instances out of Standby
 -- mode.
-esbActivities :: Lens' ExitStandbyResponse ([Activity])
-esbActivities = lens _esbActivities (\s a -> s { _esbActivities = a })
-{-# INLINE esbActivities #-}
+esrsrsActivities :: Lens' ExitStandbyResponse [Activity]
+esrsrsActivities =
+    lens _esrsrsActivities (\s a -> s { _esrsrsActivities = a })
+{-# INLINE esrsrsActivities #-}
 
 instance FromXML ExitStandbyResponse where
     fromXMLOptions = xmlOptions

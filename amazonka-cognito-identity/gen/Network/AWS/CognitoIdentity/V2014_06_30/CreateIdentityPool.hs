@@ -34,19 +34,19 @@ module Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool
     -- * Request
       CreateIdentityPool
     -- ** Request constructor
-    , mkCreateIdentityPoolInput
+    , mkCreateIdentityPool
     -- ** Request lenses
-    , cipiIdentityPoolName
-    , cipiAllowUnauthenticatedIdentities
-    , cipiSupportedLoginProviders
+    , cipIdentityPoolName
+    , cipAllowUnauthenticatedIdentities
+    , cipSupportedLoginProviders
 
     -- * Response
     , CreateIdentityPoolResponse
     -- ** Response lenses
-    , iqIdentityPoolId
-    , iqIdentityPoolName
-    , iqAllowUnauthenticatedIdentities
-    , iqSupportedLoginProviders
+    , ciprsIdentityPoolId
+    , ciprsIdentityPoolName
+    , ciprsAllowUnauthenticatedIdentities
+    , ciprsSupportedLoginProviders
     ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -54,42 +54,44 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateIdentityPool' request.
-mkCreateIdentityPoolInput :: Text -- ^ 'cipiIdentityPoolName'
-                          -> Bool -- ^ 'cipiAllowUnauthenticatedIdentities'
-                          -> CreateIdentityPool
-mkCreateIdentityPoolInput p1 p2 = CreateIdentityPool
-    { _cipiIdentityPoolName = p1
-    , _cipiAllowUnauthenticatedIdentities = p2
-    , _cipiSupportedLoginProviders = mempty
-    }
-{-# INLINE mkCreateIdentityPoolInput #-}
-
+-- | Input to the CreateIdentityPool action.
 data CreateIdentityPool = CreateIdentityPool
-    { _cipiIdentityPoolName :: Text
-      -- ^ A string that you provide.
-    , _cipiAllowUnauthenticatedIdentities :: Bool
-      -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _cipiSupportedLoginProviders :: Map Text Text
-      -- ^ Optional key:value pairs mapping provider names to provider app
-      -- IDs.
+    { _cipIdentityPoolName :: Text
+    , _cipAllowUnauthenticatedIdentities :: Bool
+    , _cipSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateIdentityPool' request.
+mkCreateIdentityPool :: Text -- ^ 'cipIdentityPoolName'
+                     -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
+                     -> CreateIdentityPool
+mkCreateIdentityPool p1 p2 = CreateIdentityPool
+    { _cipIdentityPoolName = p1
+    , _cipAllowUnauthenticatedIdentities = p2
+    , _cipSupportedLoginProviders = mempty
+    }
+{-# INLINE mkCreateIdentityPool #-}
+
 -- | A string that you provide.
-cipiIdentityPoolName :: Lens' CreateIdentityPool (Text)
-cipiIdentityPoolName = lens _cipiIdentityPoolName (\s a -> s { _cipiIdentityPoolName = a })
-{-# INLINE cipiIdentityPoolName #-}
+cipIdentityPoolName :: Lens' CreateIdentityPool Text
+cipIdentityPoolName =
+    lens _cipIdentityPoolName (\s a -> s { _cipIdentityPoolName = a })
+{-# INLINE cipIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-cipiAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool (Bool)
-cipiAllowUnauthenticatedIdentities = lens _cipiAllowUnauthenticatedIdentities (\s a -> s { _cipiAllowUnauthenticatedIdentities = a })
-{-# INLINE cipiAllowUnauthenticatedIdentities #-}
+cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
+cipAllowUnauthenticatedIdentities =
+    lens _cipAllowUnauthenticatedIdentities
+         (\s a -> s { _cipAllowUnauthenticatedIdentities = a })
+{-# INLINE cipAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-cipiSupportedLoginProviders :: Lens' CreateIdentityPool (Map Text Text)
-cipiSupportedLoginProviders = lens _cipiSupportedLoginProviders (\s a -> s { _cipiSupportedLoginProviders = a })
-{-# INLINE cipiSupportedLoginProviders #-}
+cipSupportedLoginProviders :: Lens' CreateIdentityPool (Map Text Text)
+cipSupportedLoginProviders =
+    lens _cipSupportedLoginProviders
+         (\s a -> s { _cipSupportedLoginProviders = a })
+{-# INLINE cipSupportedLoginProviders #-}
 
 instance ToPath CreateIdentityPool
 
@@ -99,37 +101,39 @@ instance ToHeaders CreateIdentityPool
 
 instance ToJSON CreateIdentityPool
 
+-- | An object representing a Cognito identity pool.
 data CreateIdentityPoolResponse = CreateIdentityPoolResponse
-    { _iqIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _iqIdentityPoolName :: Text
-      -- ^ A string that you provide.
-    , _iqAllowUnauthenticatedIdentities :: Bool
-      -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _iqSupportedLoginProviders :: Map Text Text
-      -- ^ Optional key:value pairs mapping provider names to provider app
-      -- IDs.
+    { _ciprsIdentityPoolId :: Text
+    , _ciprsIdentityPoolName :: Text
+    , _ciprsAllowUnauthenticatedIdentities :: Bool
+    , _ciprsSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-iqIdentityPoolId :: Lens' CreateIdentityPoolResponse (Text)
-iqIdentityPoolId = lens _iqIdentityPoolId (\s a -> s { _iqIdentityPoolId = a })
-{-# INLINE iqIdentityPoolId #-}
+ciprsIdentityPoolId :: Lens' CreateIdentityPoolResponse Text
+ciprsIdentityPoolId =
+    lens _ciprsIdentityPoolId (\s a -> s { _ciprsIdentityPoolId = a })
+{-# INLINE ciprsIdentityPoolId #-}
 
 -- | A string that you provide.
-iqIdentityPoolName :: Lens' CreateIdentityPoolResponse (Text)
-iqIdentityPoolName = lens _iqIdentityPoolName (\s a -> s { _iqIdentityPoolName = a })
-{-# INLINE iqIdentityPoolName #-}
+ciprsIdentityPoolName :: Lens' CreateIdentityPoolResponse Text
+ciprsIdentityPoolName =
+    lens _ciprsIdentityPoolName (\s a -> s { _ciprsIdentityPoolName = a })
+{-# INLINE ciprsIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-iqAllowUnauthenticatedIdentities :: Lens' CreateIdentityPoolResponse (Bool)
-iqAllowUnauthenticatedIdentities = lens _iqAllowUnauthenticatedIdentities (\s a -> s { _iqAllowUnauthenticatedIdentities = a })
-{-# INLINE iqAllowUnauthenticatedIdentities #-}
+ciprsAllowUnauthenticatedIdentities :: Lens' CreateIdentityPoolResponse Bool
+ciprsAllowUnauthenticatedIdentities =
+    lens _ciprsAllowUnauthenticatedIdentities
+         (\s a -> s { _ciprsAllowUnauthenticatedIdentities = a })
+{-# INLINE ciprsAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-iqSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (Map Text Text)
-iqSupportedLoginProviders = lens _iqSupportedLoginProviders (\s a -> s { _iqSupportedLoginProviders = a })
-{-# INLINE iqSupportedLoginProviders #-}
+ciprsSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (Map Text Text)
+ciprsSupportedLoginProviders =
+    lens _ciprsSupportedLoginProviders
+         (\s a -> s { _ciprsSupportedLoginProviders = a })
+{-# INLINE ciprsSupportedLoginProviders #-}
 
 instance FromJSON CreateIdentityPoolResponse
 

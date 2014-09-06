@@ -55,66 +55,43 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcPeeringConnections
     -- * Request
       DescribeVpcPeeringConnections
     -- ** Request constructor
-    , mkDescribeVpcPeeringConnectionsRequest
+    , mkDescribeVpcPeeringConnections
     -- ** Request lenses
-    , dvpctVpcPeeringConnectionIds
-    , dvpctFilters
+    , dvpc1VpcPeeringConnectionIds
+    , dvpc1Filters
 
     -- * Response
     , DescribeVpcPeeringConnectionsResponse
     -- ** Response lenses
-    , dvpcuVpcPeeringConnections
+    , dvpcrsrsVpcPeeringConnections
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
+    { _dvpc1VpcPeeringConnectionIds :: [Text]
+    , _dvpc1Filters :: [Filter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcPeeringConnections' request.
-mkDescribeVpcPeeringConnectionsRequest :: DescribeVpcPeeringConnections
-mkDescribeVpcPeeringConnectionsRequest = DescribeVpcPeeringConnections
-    { _dvpctVpcPeeringConnectionIds = mempty
-    , _dvpctFilters = mempty
+mkDescribeVpcPeeringConnections :: DescribeVpcPeeringConnections
+mkDescribeVpcPeeringConnections = DescribeVpcPeeringConnections
+    { _dvpc1VpcPeeringConnectionIds = mempty
+    , _dvpc1Filters = mempty
     }
-{-# INLINE mkDescribeVpcPeeringConnectionsRequest #-}
-
-data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpctVpcPeeringConnectionIds :: [Text]
-      -- ^ One or more VPC peering connection IDs. Default: Describes all
-      -- your VPC peering connections.
-    , _dvpctFilters :: [Filter]
-      -- ^ One or more filters. accepter-vpc-info.cidr-block - The CIDR
-      -- block of the peer VPC. accepter-vpc-info.owner-id - The AWS
-      -- account ID of the owner of the peer VPC. accepter-vpc-info.vpc-id
-      -- - The ID of the peer VPC. expiration-time - The expiration date
-      -- and time for the VPC peering connection.
-      -- requester-vpc-info.cidr-block - The CIDR block of the requester's
-      -- VPC. requester-vpc-info.owner-id - The AWS account ID of the
-      -- owner of the requester VPC. requester-vpc-info.vpc-id - The ID of
-      -- the requester VPC. status-code - The status of the VPC peering
-      -- connection (pending-acceptance | failed | expired | provisioning
-      -- | active | deleted | rejected). status-message - A message that
-      -- provides more information about the status of the VPC peering
-      -- connection, if applicable. tag:key=value - The key/value
-      -- combination of a tag assigned to the resource. tag-key - The key
-      -- of a tag assigned to the resource. This filter is independent of
-      -- the tag-value filter. For example, if you use both the filter
-      -- "tag-key=Purpose" and the filter "tag-value=X", you get any
-      -- resources assigned both the tag key Purpose (regardless of what
-      -- the tag's value is), and the tag value X (regardless of what the
-      -- tag's key is). If you want to list only resources where Purpose
-      -- is X, see the tag:key=value filter. tag-value - The value of a
-      -- tag assigned to the resource. This filter is independent of the
-      -- tag-key filter. vpc-peering-connection-id - The ID of the VPC
-      -- peering connection.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeVpcPeeringConnections #-}
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
-dvpctVpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections ([Text])
-dvpctVpcPeeringConnectionIds = lens _dvpctVpcPeeringConnectionIds (\s a -> s { _dvpctVpcPeeringConnectionIds = a })
-{-# INLINE dvpctVpcPeeringConnectionIds #-}
+dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
+dvpc1VpcPeeringConnectionIds =
+    lens _dvpc1VpcPeeringConnectionIds
+         (\s a -> s { _dvpc1VpcPeeringConnectionIds = a })
+{-# INLINE dvpc1VpcPeeringConnectionIds #-}
 
 -- | One or more filters. accepter-vpc-info.cidr-block - The CIDR block of the
 -- peer VPC. accepter-vpc-info.owner-id - The AWS account ID of the owner of
@@ -136,22 +113,24 @@ dvpctVpcPeeringConnectionIds = lens _dvpctVpcPeeringConnectionIds (\s a -> s { _
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-peering-connection-id - The ID of the VPC peering connection.
-dvpctFilters :: Lens' DescribeVpcPeeringConnections ([Filter])
-dvpctFilters = lens _dvpctFilters (\s a -> s { _dvpctFilters = a })
-{-# INLINE dvpctFilters #-}
+dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]
+dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
+{-# INLINE dvpc1Filters #-}
 
 instance ToQuery DescribeVpcPeeringConnections where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
-    { _dvpcuVpcPeeringConnections :: [VpcPeeringConnection]
-      -- ^ Information about the VPC peering connections.
+    { _dvpcrsrsVpcPeeringConnections :: [VpcPeeringConnection]
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connections.
-dvpcuVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse ([VpcPeeringConnection])
-dvpcuVpcPeeringConnections = lens _dvpcuVpcPeeringConnections (\s a -> s { _dvpcuVpcPeeringConnections = a })
-{-# INLINE dvpcuVpcPeeringConnections #-}
+dvpcrsrsVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
+dvpcrsrsVpcPeeringConnections =
+    lens _dvpcrsrsVpcPeeringConnections
+         (\s a -> s { _dvpcrsrsVpcPeeringConnections = a })
+{-# INLINE dvpcrsrsVpcPeeringConnections #-}
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     fromXMLOptions = xmlOptions

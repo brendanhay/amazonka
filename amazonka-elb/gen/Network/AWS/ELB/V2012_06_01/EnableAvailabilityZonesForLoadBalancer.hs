@@ -34,64 +34,66 @@ module Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer
     -- * Request
       EnableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
-    , mkAddAvailabilityZonesInput
+    , mkEnableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
-    , aaziLoadBalancerName
-    , aaziAvailabilityZones
+    , eazflbLoadBalancerName
+    , eazflbAvailabilityZones
 
     -- * Response
     , EnableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
-    , aazoAvailabilityZones
+    , eazflbrsAvailabilityZones
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableAvailabilityZonesForLoadBalancer' request.
-mkAddAvailabilityZonesInput :: Text -- ^ 'aaziLoadBalancerName'
-                            -> [Text] -- ^ 'aaziAvailabilityZones'
-                            -> EnableAvailabilityZonesForLoadBalancer
-mkAddAvailabilityZonesInput p1 p2 = EnableAvailabilityZonesForLoadBalancer
-    { _aaziLoadBalancerName = p1
-    , _aaziAvailabilityZones = p2
-    }
-{-# INLINE mkAddAvailabilityZonesInput #-}
-
+-- | The input for the EnableAvailabilityZonesForLoadBalancer action.
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
-    { _aaziLoadBalancerName :: Text
-      -- ^ The name associated with the load balancer.
-    , _aaziAvailabilityZones :: [Text]
-      -- ^ A list of new Availability Zones for the load balancer. Each
-      -- Availability Zone must be in the same region as the load
-      -- balancer.
+    { _eazflbLoadBalancerName :: Text
+    , _eazflbAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableAvailabilityZonesForLoadBalancer' request.
+mkEnableAvailabilityZonesForLoadBalancer :: Text -- ^ 'eazflbLoadBalancerName'
+                                         -> [Text] -- ^ 'eazflbAvailabilityZones'
+                                         -> EnableAvailabilityZonesForLoadBalancer
+mkEnableAvailabilityZonesForLoadBalancer p1 p2 = EnableAvailabilityZonesForLoadBalancer
+    { _eazflbLoadBalancerName = p1
+    , _eazflbAvailabilityZones = p2
+    }
+{-# INLINE mkEnableAvailabilityZonesForLoadBalancer #-}
+
 -- | The name associated with the load balancer.
-aaziLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer (Text)
-aaziLoadBalancerName = lens _aaziLoadBalancerName (\s a -> s { _aaziLoadBalancerName = a })
-{-# INLINE aaziLoadBalancerName #-}
+eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
+eazflbLoadBalancerName =
+    lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
+{-# INLINE eazflbLoadBalancerName #-}
 
 -- | A list of new Availability Zones for the load balancer. Each Availability
 -- Zone must be in the same region as the load balancer.
-aaziAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer ([Text])
-aaziAvailabilityZones = lens _aaziAvailabilityZones (\s a -> s { _aaziAvailabilityZones = a })
-{-# INLINE aaziAvailabilityZones #-}
+eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
+eazflbAvailabilityZones =
+    lens _eazflbAvailabilityZones
+         (\s a -> s { _eazflbAvailabilityZones = a })
+{-# INLINE eazflbAvailabilityZones #-}
 
 instance ToQuery EnableAvailabilityZonesForLoadBalancer where
     toQuery = genericQuery def
 
+-- | The output for the EnableAvailabilityZonesForLoadBalancer action.
 newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
-    { _aazoAvailabilityZones :: [Text]
-      -- ^ An updated list of Availability Zones for the load balancer.
+    { _eazflbrsAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 
 -- | An updated list of Availability Zones for the load balancer.
-aazoAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse ([Text])
-aazoAvailabilityZones = lens _aazoAvailabilityZones (\s a -> s { _aazoAvailabilityZones = a })
-{-# INLINE aazoAvailabilityZones #-}
+eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
+eazflbrsAvailabilityZones =
+    lens _eazflbrsAvailabilityZones
+         (\s a -> s { _eazflbrsAvailabilityZones = a })
+{-# INLINE eazflbrsAvailabilityZones #-}
 
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions

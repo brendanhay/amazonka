@@ -35,11 +35,11 @@ module Network.AWS.IAM.V2010_05_08.PutRolePolicy
     -- * Request
       PutRolePolicy
     -- ** Request constructor
-    , mkPutRolePolicyRequest
+    , mkPutRolePolicy
     -- ** Request lenses
-    , prprRoleName
-    , prprPolicyName
-    , prprPolicyDocument
+    , prpRoleName
+    , prpPolicyName
+    , prpPolicyDocument
 
     -- * Response
     , PutRolePolicyResponse
@@ -49,42 +49,41 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutRolePolicy' request.
-mkPutRolePolicyRequest :: Text -- ^ 'prprRoleName'
-                       -> Text -- ^ 'prprPolicyName'
-                       -> Text -- ^ 'prprPolicyDocument'
-                       -> PutRolePolicy
-mkPutRolePolicyRequest p1 p2 p3 = PutRolePolicy
-    { _prprRoleName = p1
-    , _prprPolicyName = p2
-    , _prprPolicyDocument = p3
-    }
-{-# INLINE mkPutRolePolicyRequest #-}
-
+-- | 
 data PutRolePolicy = PutRolePolicy
-    { _prprRoleName :: Text
-      -- ^ Name of the role to associate the policy with.
-    , _prprPolicyName :: Text
-      -- ^ Name of the policy document.
-    , _prprPolicyDocument :: Text
-      -- ^ The policy document.
+    { _prpRoleName :: Text
+    , _prpPolicyName :: Text
+    , _prpPolicyDocument :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutRolePolicy' request.
+mkPutRolePolicy :: Text -- ^ 'prpRoleName'
+                -> Text -- ^ 'prpPolicyName'
+                -> Text -- ^ 'prpPolicyDocument'
+                -> PutRolePolicy
+mkPutRolePolicy p1 p2 p3 = PutRolePolicy
+    { _prpRoleName = p1
+    , _prpPolicyName = p2
+    , _prpPolicyDocument = p3
+    }
+{-# INLINE mkPutRolePolicy #-}
+
 -- | Name of the role to associate the policy with.
-prprRoleName :: Lens' PutRolePolicy (Text)
-prprRoleName = lens _prprRoleName (\s a -> s { _prprRoleName = a })
-{-# INLINE prprRoleName #-}
+prpRoleName :: Lens' PutRolePolicy Text
+prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
+{-# INLINE prpRoleName #-}
 
 -- | Name of the policy document.
-prprPolicyName :: Lens' PutRolePolicy (Text)
-prprPolicyName = lens _prprPolicyName (\s a -> s { _prprPolicyName = a })
-{-# INLINE prprPolicyName #-}
+prpPolicyName :: Lens' PutRolePolicy Text
+prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
+{-# INLINE prpPolicyName #-}
 
 -- | The policy document.
-prprPolicyDocument :: Lens' PutRolePolicy (Text)
-prprPolicyDocument = lens _prprPolicyDocument (\s a -> s { _prprPolicyDocument = a })
-{-# INLINE prprPolicyDocument #-}
+prpPolicyDocument :: Lens' PutRolePolicy Text
+prpPolicyDocument =
+    lens _prpPolicyDocument (\s a -> s { _prpPolicyDocument = a })
+{-# INLINE prpPolicyDocument #-}
 
 instance ToQuery PutRolePolicy where
     toQuery = genericQuery def

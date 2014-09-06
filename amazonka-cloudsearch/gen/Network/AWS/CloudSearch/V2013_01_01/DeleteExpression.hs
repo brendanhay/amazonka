@@ -24,68 +24,68 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteExpression
     -- * Request
       DeleteExpression
     -- ** Request constructor
-    , mkDeleteExpressionRequest
+    , mkDeleteExpression
     -- ** Request lenses
-    , detDomainName
-    , detExpressionName
+    , de1DomainName
+    , de1ExpressionName
 
     -- * Response
     , DeleteExpressionResponse
     -- ** Response lenses
-    , deuExpression
+    , dersrsExpression
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the DeleteExpression operation. Specifies
+-- the name of the domain you want to update and the name of the expression
+-- you want to delete.
+data DeleteExpression = DeleteExpression
+    { _de1DomainName :: Text
+    , _de1ExpressionName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteExpression' request.
-mkDeleteExpressionRequest :: Text -- ^ 'detDomainName'
-                          -> Text -- ^ 'detExpressionName'
-                          -> DeleteExpression
-mkDeleteExpressionRequest p1 p2 = DeleteExpression
-    { _detDomainName = p1
-    , _detExpressionName = p2
+mkDeleteExpression :: Text -- ^ 'de1DomainName'
+                   -> Text -- ^ 'de1ExpressionName'
+                   -> DeleteExpression
+mkDeleteExpression p1 p2 = DeleteExpression
+    { _de1DomainName = p1
+    , _de1ExpressionName = p2
     }
-{-# INLINE mkDeleteExpressionRequest #-}
-
-data DeleteExpression = DeleteExpression
-    { _detDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    , _detExpressionName :: Text
-      -- ^ The name of the Expression to delete.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteExpression #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-detDomainName :: Lens' DeleteExpression (Text)
-detDomainName = lens _detDomainName (\s a -> s { _detDomainName = a })
-{-# INLINE detDomainName #-}
+de1DomainName :: Lens' DeleteExpression Text
+de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
+{-# INLINE de1DomainName #-}
 
 -- | The name of the Expression to delete.
-detExpressionName :: Lens' DeleteExpression (Text)
-detExpressionName = lens _detExpressionName (\s a -> s { _detExpressionName = a })
-{-# INLINE detExpressionName #-}
+de1ExpressionName :: Lens' DeleteExpression Text
+de1ExpressionName =
+    lens _de1ExpressionName (\s a -> s { _de1ExpressionName = a })
+{-# INLINE de1ExpressionName #-}
 
 instance ToQuery DeleteExpression where
     toQuery = genericQuery def
 
+-- | The result of a DeleteExpression request. Specifies the expression being
+-- deleted.
 newtype DeleteExpressionResponse = DeleteExpressionResponse
-    { _deuExpression :: ExpressionStatus
-      -- ^ The status of the expression being deleted.
+    { _dersrsExpression :: ExpressionStatus
     } deriving (Show, Generic)
 
 -- | The status of the expression being deleted.
-deuExpression :: Lens' DeleteExpressionResponse (ExpressionStatus)
-deuExpression = lens _deuExpression (\s a -> s { _deuExpression = a })
-{-# INLINE deuExpression #-}
+dersrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
+dersrsExpression =
+    lens _dersrsExpression (\s a -> s { _dersrsExpression = a })
+{-# INLINE dersrsExpression #-}
 
 instance FromXML DeleteExpressionResponse where
     fromXMLOptions = xmlOptions

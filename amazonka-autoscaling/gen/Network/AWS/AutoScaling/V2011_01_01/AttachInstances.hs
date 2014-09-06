@@ -26,10 +26,10 @@ module Network.AWS.AutoScaling.V2011_01_01.AttachInstances
     -- * Request
       AttachInstances
     -- ** Request constructor
-    , mkAttachInstancesQuery
+    , mkAttachInstances
     -- ** Request lenses
-    , aiqInstanceIds
-    , aiqAutoScalingGroupName
+    , aiInstanceIds
+    , aiAutoScalingGroupName
 
     -- * Response
     , AttachInstancesResponse
@@ -39,37 +39,34 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data AttachInstances = AttachInstances
+    { _aiInstanceIds :: [Text]
+    , _aiAutoScalingGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachInstances' request.
-mkAttachInstancesQuery :: Text -- ^ 'aiqAutoScalingGroupName'
-                       -> AttachInstances
-mkAttachInstancesQuery p1 = AttachInstances
-    { _aiqInstanceIds = mempty
-    , _aiqAutoScalingGroupName = p2
+mkAttachInstances :: Text -- ^ 'aiAutoScalingGroupName'
+                  -> AttachInstances
+mkAttachInstances p2 = AttachInstances
+    { _aiInstanceIds = mempty
+    , _aiAutoScalingGroupName = p2
     }
-{-# INLINE mkAttachInstancesQuery #-}
-
-data AttachInstances = AttachInstances
-    { _aiqInstanceIds :: [Text]
-      -- ^ One or more IDs of the Amazon EC2 instances to attach to the
-      -- specified Auto Scaling group. You must specify at least one
-      -- instance ID.
-    , _aiqAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group to which to attach the
-      -- specified instance(s).
-    } deriving (Show, Generic)
+{-# INLINE mkAttachInstances #-}
 
 -- | One or more IDs of the Amazon EC2 instances to attach to the specified Auto
 -- Scaling group. You must specify at least one instance ID.
-aiqInstanceIds :: Lens' AttachInstances ([Text])
-aiqInstanceIds = lens _aiqInstanceIds (\s a -> s { _aiqInstanceIds = a })
-{-# INLINE aiqInstanceIds #-}
+aiInstanceIds :: Lens' AttachInstances [Text]
+aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
+{-# INLINE aiInstanceIds #-}
 
 -- | The name of the Auto Scaling group to which to attach the specified
 -- instance(s).
-aiqAutoScalingGroupName :: Lens' AttachInstances (Text)
-aiqAutoScalingGroupName = lens _aiqAutoScalingGroupName (\s a -> s { _aiqAutoScalingGroupName = a })
-{-# INLINE aiqAutoScalingGroupName #-}
+aiAutoScalingGroupName :: Lens' AttachInstances Text
+aiAutoScalingGroupName =
+    lens _aiAutoScalingGroupName (\s a -> s { _aiAutoScalingGroupName = a })
+{-# INLINE aiAutoScalingGroupName #-}
 
 instance ToQuery AttachInstances where
     toQuery = genericQuery def

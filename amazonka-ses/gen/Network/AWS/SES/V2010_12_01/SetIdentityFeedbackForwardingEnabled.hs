@@ -39,10 +39,10 @@ module Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled
     -- * Request
       SetIdentityFeedbackForwardingEnabled
     -- ** Request constructor
-    , mkSetIdentityFeedbackForwardingEnabledRequest
+    , mkSetIdentityFeedbackForwardingEnabled
     -- ** Request lenses
-    , sifferIdentity
-    , sifferForwardingEnabled
+    , siffeIdentity
+    , siffeForwardingEnabled
 
     -- * Response
     , SetIdentityFeedbackForwardingEnabledResponse
@@ -52,37 +52,28 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
+    { _siffeIdentity :: Text
+    , _siffeForwardingEnabled :: Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityFeedbackForwardingEnabled' request.
-mkSetIdentityFeedbackForwardingEnabledRequest :: Text -- ^ 'sifferIdentity'
-                                              -> Bool -- ^ 'sifferForwardingEnabled'
-                                              -> SetIdentityFeedbackForwardingEnabled
-mkSetIdentityFeedbackForwardingEnabledRequest p1 p2 = SetIdentityFeedbackForwardingEnabled
-    { _sifferIdentity = p1
-    , _sifferForwardingEnabled = p2
+mkSetIdentityFeedbackForwardingEnabled :: Text -- ^ 'siffeIdentity'
+                                       -> Bool -- ^ 'siffeForwardingEnabled'
+                                       -> SetIdentityFeedbackForwardingEnabled
+mkSetIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnabled
+    { _siffeIdentity = p1
+    , _siffeForwardingEnabled = p2
     }
-{-# INLINE mkSetIdentityFeedbackForwardingEnabledRequest #-}
-
-data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
-    { _sifferIdentity :: Text
-      -- ^ The identity for which to set bounce and complaint notification
-      -- forwarding. Examples: user@example.com, example.com.
-    , _sifferForwardingEnabled :: Bool
-      -- ^ Sets whether Amazon SES will forward bounce and complaint
-      -- notifications as email. true specifies that Amazon SES will
-      -- forward bounce and complaint notifications as email, in addition
-      -- to any Amazon SNS topic publishing otherwise specified. false
-      -- specifies that Amazon SES will publish bounce and complaint
-      -- notifications only through Amazon SNS. This value can only be set
-      -- to false when Amazon SNS topics are set for both Bounce and
-      -- Complaint notification types.
-    } deriving (Show, Generic)
+{-# INLINE mkSetIdentityFeedbackForwardingEnabled #-}
 
 -- | The identity for which to set bounce and complaint notification forwarding.
 -- Examples: user@example.com, example.com.
-sifferIdentity :: Lens' SetIdentityFeedbackForwardingEnabled (Text)
-sifferIdentity = lens _sifferIdentity (\s a -> s { _sifferIdentity = a })
-{-# INLINE sifferIdentity #-}
+siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
+siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
+{-# INLINE siffeIdentity #-}
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications as
 -- email. true specifies that Amazon SES will forward bounce and complaint
@@ -91,13 +82,16 @@ sifferIdentity = lens _sifferIdentity (\s a -> s { _sifferIdentity = a })
 -- and complaint notifications only through Amazon SNS. This value can only be
 -- set to false when Amazon SNS topics are set for both Bounce and Complaint
 -- notification types.
-sifferForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled (Bool)
-sifferForwardingEnabled = lens _sifferForwardingEnabled (\s a -> s { _sifferForwardingEnabled = a })
-{-# INLINE sifferForwardingEnabled #-}
+siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
+siffeForwardingEnabled =
+    lens _siffeForwardingEnabled (\s a -> s { _siffeForwardingEnabled = a })
+{-# INLINE siffeForwardingEnabled #-}
 
 instance ToQuery SetIdentityFeedbackForwardingEnabled where
     toQuery = genericQuery def
 
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where

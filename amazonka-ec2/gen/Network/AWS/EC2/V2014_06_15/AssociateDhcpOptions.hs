@@ -46,10 +46,10 @@ module Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions
     -- * Request
       AssociateDhcpOptions
     -- ** Request constructor
-    , mkAssociateDhcpOptionsRequest
+    , mkAssociateDhcpOptions
     -- ** Request lenses
-    , adorDhcpOptionsId
-    , adorVpcId
+    , adoDhcpOptionsId
+    , adoVpcId
 
     -- * Response
     , AssociateDhcpOptionsResponse
@@ -59,35 +59,34 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data AssociateDhcpOptions = AssociateDhcpOptions
+    { _adoDhcpOptionsId :: Text
+    , _adoVpcId :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateDhcpOptions' request.
-mkAssociateDhcpOptionsRequest :: Text -- ^ 'adorDhcpOptionsId'
-                              -> Text -- ^ 'adorVpcId'
-                              -> AssociateDhcpOptions
-mkAssociateDhcpOptionsRequest p1 p2 = AssociateDhcpOptions
-    { _adorDhcpOptionsId = p1
-    , _adorVpcId = p2
+mkAssociateDhcpOptions :: Text -- ^ 'adoDhcpOptionsId'
+                       -> Text -- ^ 'adoVpcId'
+                       -> AssociateDhcpOptions
+mkAssociateDhcpOptions p1 p2 = AssociateDhcpOptions
+    { _adoDhcpOptionsId = p1
+    , _adoVpcId = p2
     }
-{-# INLINE mkAssociateDhcpOptionsRequest #-}
-
-data AssociateDhcpOptions = AssociateDhcpOptions
-    { _adorDhcpOptionsId :: Text
-      -- ^ The ID of the DHCP options set, or default to associate no DHCP
-      -- options with the VPC.
-    , _adorVpcId :: Text
-      -- ^ The ID of the VPC.
-    } deriving (Show, Generic)
+{-# INLINE mkAssociateDhcpOptions #-}
 
 -- | The ID of the DHCP options set, or default to associate no DHCP options
 -- with the VPC.
-adorDhcpOptionsId :: Lens' AssociateDhcpOptions (Text)
-adorDhcpOptionsId = lens _adorDhcpOptionsId (\s a -> s { _adorDhcpOptionsId = a })
-{-# INLINE adorDhcpOptionsId #-}
+adoDhcpOptionsId :: Lens' AssociateDhcpOptions Text
+adoDhcpOptionsId =
+    lens _adoDhcpOptionsId (\s a -> s { _adoDhcpOptionsId = a })
+{-# INLINE adoDhcpOptionsId #-}
 
 -- | The ID of the VPC.
-adorVpcId :: Lens' AssociateDhcpOptions (Text)
-adorVpcId = lens _adorVpcId (\s a -> s { _adorVpcId = a })
-{-# INLINE adorVpcId #-}
+adoVpcId :: Lens' AssociateDhcpOptions Text
+adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
+{-# INLINE adoVpcId #-}
 
 instance ToQuery AssociateDhcpOptions where
     toQuery = genericQuery def

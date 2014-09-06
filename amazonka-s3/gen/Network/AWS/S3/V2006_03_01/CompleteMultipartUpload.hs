@@ -23,133 +23,131 @@ module Network.AWS.S3.V2006_03_01.CompleteMultipartUpload
     -- * Request
       CompleteMultipartUpload
     -- ** Request constructor
-    , mkCompleteMultipartUploadRequest
+    , mkCompleteMultipartUpload
     -- ** Request lenses
-    , cmurBucket
-    , cmurKey
-    , cmurMultipartUpload
-    , cmurUploadId
+    , cmuBucket
+    , cmuKey
+    , cmuMultipartUpload
+    , cmuUploadId
 
     -- * Response
     , CompleteMultipartUploadResponse
     -- ** Response lenses
-    , cmuoLocation
-    , cmuoBucket
-    , cmuoKey
-    , cmuoExpiration
-    , cmuoETag
-    , cmuoServerSideEncryption
-    , cmuoVersionId
+    , cmursLocation
+    , cmursBucket
+    , cmursKey
+    , cmursExpiration
+    , cmursETag
+    , cmursServerSideEncryption
+    , cmursVersionId
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data CompleteMultipartUpload = CompleteMultipartUpload
+    { _cmuBucket :: BucketName
+    , _cmuKey :: ObjectKey
+    , _cmuMultipartUpload :: Maybe CompletedMultipartUpload
+    , _cmuUploadId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CompleteMultipartUpload' request.
-mkCompleteMultipartUploadRequest :: BucketName -- ^ 'cmurBucket'
-                                 -> ObjectKey -- ^ 'cmurKey'
-                                 -> Text -- ^ 'cmurUploadId'
-                                 -> CompleteMultipartUpload
-mkCompleteMultipartUploadRequest p1 p2 p3 = CompleteMultipartUpload
-    { _cmurBucket = p1
-    , _cmurKey = p2
-    , _cmurMultipartUpload = Nothing
-    , _cmurUploadId = p4
+mkCompleteMultipartUpload :: BucketName -- ^ 'cmuBucket'
+                          -> ObjectKey -- ^ 'cmuKey'
+                          -> Text -- ^ 'cmuUploadId'
+                          -> CompleteMultipartUpload
+mkCompleteMultipartUpload p1 p2 p4 = CompleteMultipartUpload
+    { _cmuBucket = p1
+    , _cmuKey = p2
+    , _cmuMultipartUpload = Nothing
+    , _cmuUploadId = p4
     }
-{-# INLINE mkCompleteMultipartUploadRequest #-}
+{-# INLINE mkCompleteMultipartUpload #-}
 
-data CompleteMultipartUpload = CompleteMultipartUpload
-    { _cmurBucket :: BucketName
-    , _cmurKey :: ObjectKey
-    , _cmurMultipartUpload :: Maybe CompletedMultipartUpload
-    , _cmurUploadId :: Text
-    } deriving (Show, Generic)
+cmuBucket :: Lens' CompleteMultipartUpload BucketName
+cmuBucket = lens _cmuBucket (\s a -> s { _cmuBucket = a })
+{-# INLINE cmuBucket #-}
 
-cmurBucket :: Lens' CompleteMultipartUpload (BucketName)
-cmurBucket = lens _cmurBucket (\s a -> s { _cmurBucket = a })
-{-# INLINE cmurBucket #-}
+cmuKey :: Lens' CompleteMultipartUpload ObjectKey
+cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
+{-# INLINE cmuKey #-}
 
-cmurKey :: Lens' CompleteMultipartUpload (ObjectKey)
-cmurKey = lens _cmurKey (\s a -> s { _cmurKey = a })
-{-# INLINE cmurKey #-}
+cmuMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
+cmuMultipartUpload =
+    lens _cmuMultipartUpload (\s a -> s { _cmuMultipartUpload = a })
+{-# INLINE cmuMultipartUpload #-}
 
-cmurMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
-cmurMultipartUpload = lens _cmurMultipartUpload (\s a -> s { _cmurMultipartUpload = a })
-{-# INLINE cmurMultipartUpload #-}
-
-cmurUploadId :: Lens' CompleteMultipartUpload (Text)
-cmurUploadId = lens _cmurUploadId (\s a -> s { _cmurUploadId = a })
-{-# INLINE cmurUploadId #-}
+cmuUploadId :: Lens' CompleteMultipartUpload Text
+cmuUploadId = lens _cmuUploadId (\s a -> s { _cmuUploadId = a })
+{-# INLINE cmuUploadId #-}
 
 instance ToPath CompleteMultipartUpload where
     toPath CompleteMultipartUpload{..} = mconcat
         [ "/"
-        , toBS _cmurBucket
+        , toBS _cmuBucket
         , "/"
-        , toBS _cmurKey
+        , toBS _cmuKey
         ]
 
 instance ToQuery CompleteMultipartUpload where
     toQuery CompleteMultipartUpload{..} = mconcat
-        [ "uploadId" =? _cmurUploadId
+        [ "uploadId" =? _cmuUploadId
         ]
 
 instance ToHeaders CompleteMultipartUpload
 
-instance ToBody CompleteMultipartUpload
+instance ToBody CompleteMultipartUpload where
+    toBody = toBody . encodeXML . _cmuMultipartUpload
 
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
-    { _cmuoLocation :: Maybe Text
-    , _cmuoBucket :: Maybe BucketName
-    , _cmuoKey :: Maybe ObjectKey
-    , _cmuoExpiration :: Maybe RFC822
-      -- ^ If the object expiration is configured, this will contain the
-      -- expiration date (expiry-date) and rule ID (rule-id). The value of
-      -- rule-id is URL encoded.
-    , _cmuoETag :: Maybe ETag
-      -- ^ Entity tag of the object.
-    , _cmuoServerSideEncryption :: Maybe ServerSideEncryption
-      -- ^ The Server-side encryption algorithm used when storing this
-      -- object in S3.
-    , _cmuoVersionId :: Maybe ObjectVersionId
-      -- ^ Version of the object.
+    { _cmursLocation :: Maybe Text
+    , _cmursBucket :: Maybe BucketName
+    , _cmursKey :: Maybe ObjectKey
+    , _cmursExpiration :: Maybe RFC822
+    , _cmursETag :: Maybe ETag
+    , _cmursServerSideEncryption :: Maybe ServerSideEncryption
+    , _cmursVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
-cmuoLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
-cmuoLocation = lens _cmuoLocation (\s a -> s { _cmuoLocation = a })
-{-# INLINE cmuoLocation #-}
+cmursLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+cmursLocation = lens _cmursLocation (\s a -> s { _cmursLocation = a })
+{-# INLINE cmursLocation #-}
 
-cmuoBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
-cmuoBucket = lens _cmuoBucket (\s a -> s { _cmuoBucket = a })
-{-# INLINE cmuoBucket #-}
+cmursBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
+cmursBucket = lens _cmursBucket (\s a -> s { _cmursBucket = a })
+{-# INLINE cmursBucket #-}
 
-cmuoKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
-cmuoKey = lens _cmuoKey (\s a -> s { _cmuoKey = a })
-{-# INLINE cmuoKey #-}
+cmursKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
+cmursKey = lens _cmursKey (\s a -> s { _cmursKey = a })
+{-# INLINE cmursKey #-}
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
-cmuoExpiration :: Lens' CompleteMultipartUploadResponse (Maybe RFC822)
-cmuoExpiration = lens _cmuoExpiration (\s a -> s { _cmuoExpiration = a })
-{-# INLINE cmuoExpiration #-}
+cmursExpiration :: Lens' CompleteMultipartUploadResponse (Maybe RFC822)
+cmursExpiration = lens _cmursExpiration (\s a -> s { _cmursExpiration = a })
+{-# INLINE cmursExpiration #-}
 
 -- | Entity tag of the object.
-cmuoETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
-cmuoETag = lens _cmuoETag (\s a -> s { _cmuoETag = a })
-{-# INLINE cmuoETag #-}
+cmursETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
+cmursETag = lens _cmursETag (\s a -> s { _cmursETag = a })
+{-# INLINE cmursETag #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cmuoServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
-cmuoServerSideEncryption = lens _cmuoServerSideEncryption (\s a -> s { _cmuoServerSideEncryption = a })
-{-# INLINE cmuoServerSideEncryption #-}
+cmursServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
+cmursServerSideEncryption =
+    lens _cmursServerSideEncryption
+         (\s a -> s { _cmursServerSideEncryption = a })
+{-# INLINE cmursServerSideEncryption #-}
 
 -- | Version of the object.
-cmuoVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
-cmuoVersionId = lens _cmuoVersionId (\s a -> s { _cmuoVersionId = a })
-{-# INLINE cmuoVersionId #-}
+cmursVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
+cmursVersionId = lens _cmursVersionId (\s a -> s { _cmursVersionId = a })
+{-# INLINE cmursVersionId #-}
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3

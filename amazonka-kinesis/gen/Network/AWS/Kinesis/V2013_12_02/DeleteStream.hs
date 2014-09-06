@@ -43,9 +43,9 @@ module Network.AWS.Kinesis.V2013_12_02.DeleteStream
     -- * Request
       DeleteStream
     -- ** Request constructor
-    , mkDeleteStreamInput
+    , mkDeleteStream
     -- ** Request lenses
-    , dsiStreamName
+    , dsStreamName
 
     -- * Response
     , DeleteStreamResponse
@@ -56,24 +56,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStream' request.
-mkDeleteStreamInput :: Text -- ^ 'dsiStreamName'
-                    -> DeleteStream
-mkDeleteStreamInput p1 = DeleteStream
-    { _dsiStreamName = p1
-    }
-{-# INLINE mkDeleteStreamInput #-}
-
+-- | Represents the input of a DeleteStream operation.
 newtype DeleteStream = DeleteStream
-    { _dsiStreamName :: Text
-      -- ^ The name of the stream to delete.
+    { _dsStreamName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStream' request.
+mkDeleteStream :: Text -- ^ 'dsStreamName'
+               -> DeleteStream
+mkDeleteStream p1 = DeleteStream
+    { _dsStreamName = p1
+    }
+{-# INLINE mkDeleteStream #-}
+
 -- | The name of the stream to delete.
-dsiStreamName :: Lens' DeleteStream (Text)
-dsiStreamName = lens _dsiStreamName (\s a -> s { _dsiStreamName = a })
-{-# INLINE dsiStreamName #-}
+dsStreamName :: Lens' DeleteStream Text
+dsStreamName = lens _dsStreamName (\s a -> s { _dsStreamName = a })
+{-# INLINE dsStreamName #-}
 
 instance ToPath DeleteStream
 

@@ -23,11 +23,11 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateRdsDbInstance
     -- * Request
       UpdateRdsDbInstance
     -- ** Request constructor
-    , mkUpdateRdsDbInstanceRequest
+    , mkUpdateRdsDbInstance
     -- ** Request lenses
-    , urdirRdsDbInstanceArn
-    , urdirDbUser
-    , urdirDbPassword
+    , urdiRdsDbInstanceArn
+    , urdiDbUser
+    , urdiDbPassword
 
     -- * Response
     , UpdateRdsDbInstanceResponse
@@ -38,40 +38,38 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateRdsDbInstance' request.
-mkUpdateRdsDbInstanceRequest :: Text -- ^ 'urdirRdsDbInstanceArn'
-                             -> UpdateRdsDbInstance
-mkUpdateRdsDbInstanceRequest p1 = UpdateRdsDbInstance
-    { _urdirRdsDbInstanceArn = p1
-    , _urdirDbUser = Nothing
-    , _urdirDbPassword = Nothing
-    }
-{-# INLINE mkUpdateRdsDbInstanceRequest #-}
-
 data UpdateRdsDbInstance = UpdateRdsDbInstance
-    { _urdirRdsDbInstanceArn :: Text
-      -- ^ The Amazon RDS instance's ARN.
-    , _urdirDbUser :: Maybe Text
-      -- ^ The master user name.
-    , _urdirDbPassword :: Maybe Text
-      -- ^ The database password.
+    { _urdiRdsDbInstanceArn :: Text
+    , _urdiDbUser :: Maybe Text
+    , _urdiDbPassword :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateRdsDbInstance' request.
+mkUpdateRdsDbInstance :: Text -- ^ 'urdiRdsDbInstanceArn'
+                      -> UpdateRdsDbInstance
+mkUpdateRdsDbInstance p1 = UpdateRdsDbInstance
+    { _urdiRdsDbInstanceArn = p1
+    , _urdiDbUser = Nothing
+    , _urdiDbPassword = Nothing
+    }
+{-# INLINE mkUpdateRdsDbInstance #-}
+
 -- | The Amazon RDS instance's ARN.
-urdirRdsDbInstanceArn :: Lens' UpdateRdsDbInstance (Text)
-urdirRdsDbInstanceArn = lens _urdirRdsDbInstanceArn (\s a -> s { _urdirRdsDbInstanceArn = a })
-{-# INLINE urdirRdsDbInstanceArn #-}
+urdiRdsDbInstanceArn :: Lens' UpdateRdsDbInstance Text
+urdiRdsDbInstanceArn =
+    lens _urdiRdsDbInstanceArn (\s a -> s { _urdiRdsDbInstanceArn = a })
+{-# INLINE urdiRdsDbInstanceArn #-}
 
 -- | The master user name.
-urdirDbUser :: Lens' UpdateRdsDbInstance (Maybe Text)
-urdirDbUser = lens _urdirDbUser (\s a -> s { _urdirDbUser = a })
-{-# INLINE urdirDbUser #-}
+urdiDbUser :: Lens' UpdateRdsDbInstance (Maybe Text)
+urdiDbUser = lens _urdiDbUser (\s a -> s { _urdiDbUser = a })
+{-# INLINE urdiDbUser #-}
 
 -- | The database password.
-urdirDbPassword :: Lens' UpdateRdsDbInstance (Maybe Text)
-urdirDbPassword = lens _urdirDbPassword (\s a -> s { _urdirDbPassword = a })
-{-# INLINE urdirDbPassword #-}
+urdiDbPassword :: Lens' UpdateRdsDbInstance (Maybe Text)
+urdiDbPassword = lens _urdiDbPassword (\s a -> s { _urdiDbPassword = a })
+{-# INLINE urdiDbPassword #-}
 
 instance ToPath UpdateRdsDbInstance
 

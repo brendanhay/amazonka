@@ -42,22 +42,22 @@ module Network.AWS.DynamoDB.V2012_08_10.PutItem
     -- * Request
       PutItem
     -- ** Request constructor
-    , mkPutItemInput
+    , mkPutItem
     -- ** Request lenses
-    , piiTableName
-    , piiItem
-    , piiExpected
-    , piiReturnValues
-    , piiReturnConsumedCapacity
-    , piiReturnItemCollectionMetrics
-    , piiConditionalOperator
+    , piTableName
+    , piItem
+    , piExpected
+    , piReturnValues
+    , piReturnConsumedCapacity
+    , piReturnItemCollectionMetrics
+    , piConditionalOperator
 
     -- * Response
     , PutItemResponse
     -- ** Response lenses
-    , pioAttributes
-    , pioConsumedCapacity
-    , pioItemCollectionMetrics
+    , pirsAttributes
+    , pirsConsumedCapacity
+    , pirsItemCollectionMetrics
     ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
@@ -65,90 +65,37 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutItem' request.
-mkPutItemInput :: Text -- ^ 'piiTableName'
-               -> Map Text AttributeValue -- ^ 'piiItem'
-               -> PutItem
-mkPutItemInput p1 p2 = PutItem
-    { _piiTableName = p1
-    , _piiItem = p2
-    , _piiExpected = mempty
-    , _piiReturnValues = Nothing
-    , _piiReturnConsumedCapacity = Nothing
-    , _piiReturnItemCollectionMetrics = Nothing
-    , _piiConditionalOperator = Nothing
-    }
-{-# INLINE mkPutItemInput #-}
-
+-- | Represents the input of a PutItem operation.
 data PutItem = PutItem
-    { _piiTableName :: Text
-      -- ^ The name of the table to contain the item.
-    , _piiItem :: Map Text AttributeValue
-      -- ^ A map of attribute name/value pairs, one for each attribute. Only
-      -- the primary key attributes are required; you can optionally
-      -- provide other attribute name-value pairs for the item. If you
-      -- specify any attributes that are part of an index key, then the
-      -- data types for those attributes must match those of the schema in
-      -- the table's attribute definition. For more information about
-      -- primary keys, see Primary Key in the Amazon DynamoDB Developer
-      -- Guide. Each element in the Item map is an AttributeValue object.
-    , _piiExpected :: Map Text ExpectedAttributeValue
-      -- ^ A map of attribute/condition pairs. This is the conditional block
-      -- for the PutItem operation. All the conditions must be met for the
-      -- operation to succeed. Expected allows you to provide an attribute
-      -- name, and whether or not DynamoDB should check to see if the
-      -- attribute value already exists; or if the attribute value exists
-      -- and has a particular value before changing it. Each item in
-      -- Expected represents an attribute name for DynamoDB to check,
-      -- along with the following: Value - A value for DynamoDB to compare
-      -- with an attribute. When performing the comparison, strongly
-      -- consistent reads are used. Exists - Causes DynamoDB to evaluate
-      -- the value before attempting a conditional operation: If Exists is
-      -- true, DynamoDB will check to see if that attribute value already
-      -- exists in the table. If it is found, then the operation succeeds.
-      -- If it is not found, the operation fails with a
-      -- ConditionalCheckFailedException. If Exists is false, DynamoDB
-      -- assumes that the attribute value does not exist in the table. If
-      -- in fact the value does not exist, then the assumption is valid
-      -- and the operation succeeds. If the value is found, despite the
-      -- assumption that it does not exist, the operation fails with a
-      -- ConditionalCheckFailedException. The default setting for Exists
-      -- is true. If you supply a Value all by itself, DynamoDB assumes
-      -- the attribute exists: You don't have to set Exists to true,
-      -- because it is implied. DynamoDB returns a ValidationException if:
-      -- Exists is true but there is no Value to check. (You expect a
-      -- value to exist, but don't specify what that value is.) Exists is
-      -- false but you also specify a Value. (You cannot expect an
-      -- attribute to have a value, while also expecting it not to exist.)
-      -- If you specify more than one condition for Exists, then all of
-      -- the conditions must evaluate to true. (In other words, the
-      -- conditions are ANDed together.) Otherwise, the conditional
-      -- operation will fail.
-    , _piiReturnValues :: Maybe ReturnValue
-      -- ^ Use ReturnValues if you want to get the item attributes as they
-      -- appeared before they were updated with the PutItem request. For
-      -- PutItem, the valid values are: NONE - If ReturnValues is not
-      -- specified, or if its value is NONE, then nothing is returned.
-      -- (This is the default for ReturnValues.) ALL_OLD - If PutItem
-      -- overwrote an attribute name-value pair, then the content of the
-      -- old item is returned.
-    , _piiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-      -- ^ If set to TOTAL, the response includes ConsumedCapacity data for
-      -- tables and indexes. If set to INDEXES, the repsonse includes
-      -- ConsumedCapacity for indexes. If set to NONE (the default),
-      -- ConsumedCapacity is not included in the response.
-    , _piiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-      -- ^ If set to SIZE, statistics about item collections, if any, that
-      -- were modified during the operation are returned in the response.
-      -- If set to NONE (the default), no statistics are returned.
-    , _piiConditionalOperator :: Maybe ConditionalOperator
+    { _piTableName :: Text
+    , _piItem :: Map Text AttributeValue
+    , _piExpected :: Map Text ExpectedAttributeValue
+    , _piReturnValues :: Maybe ReturnValue
+    , _piReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
+    , _piReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    , _piConditionalOperator :: Maybe ConditionalOperator
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutItem' request.
+mkPutItem :: Text -- ^ 'piTableName'
+          -> Map Text AttributeValue -- ^ 'piItem'
+          -> PutItem
+mkPutItem p1 p2 = PutItem
+    { _piTableName = p1
+    , _piItem = p2
+    , _piExpected = mempty
+    , _piReturnValues = Nothing
+    , _piReturnConsumedCapacity = Nothing
+    , _piReturnItemCollectionMetrics = Nothing
+    , _piConditionalOperator = Nothing
+    }
+{-# INLINE mkPutItem #-}
+
 -- | The name of the table to contain the item.
-piiTableName :: Lens' PutItem (Text)
-piiTableName = lens _piiTableName (\s a -> s { _piiTableName = a })
-{-# INLINE piiTableName #-}
+piTableName :: Lens' PutItem Text
+piTableName = lens _piTableName (\s a -> s { _piTableName = a })
+{-# INLINE piTableName #-}
 
 -- | A map of attribute name/value pairs, one for each attribute. Only the
 -- primary key attributes are required; you can optionally provide other
@@ -157,9 +104,9 @@ piiTableName = lens _piiTableName (\s a -> s { _piiTableName = a })
 -- match those of the schema in the table's attribute definition. For more
 -- information about primary keys, see Primary Key in the Amazon DynamoDB
 -- Developer Guide. Each element in the Item map is an AttributeValue object.
-piiItem :: Lens' PutItem (Map Text AttributeValue)
-piiItem = lens _piiItem (\s a -> s { _piiItem = a })
-{-# INLINE piiItem #-}
+piItem :: Lens' PutItem (Map Text AttributeValue)
+piItem = lens _piItem (\s a -> s { _piItem = a })
+{-# INLINE piItem #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
 -- PutItem operation. All the conditions must be met for the operation to
@@ -187,9 +134,9 @@ piiItem = lens _piiItem (\s a -> s { _piiItem = a })
 -- exist.) If you specify more than one condition for Exists, then all of the
 -- conditions must evaluate to true. (In other words, the conditions are ANDed
 -- together.) Otherwise, the conditional operation will fail.
-piiExpected :: Lens' PutItem (Map Text ExpectedAttributeValue)
-piiExpected = lens _piiExpected (\s a -> s { _piiExpected = a })
-{-# INLINE piiExpected #-}
+piExpected :: Lens' PutItem (Map Text ExpectedAttributeValue)
+piExpected = lens _piExpected (\s a -> s { _piExpected = a })
+{-# INLINE piExpected #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
 -- before they were updated with the PutItem request. For PutItem, the valid
@@ -197,28 +144,33 @@ piiExpected = lens _piiExpected (\s a -> s { _piiExpected = a })
 -- NONE, then nothing is returned. (This is the default for ReturnValues.)
 -- ALL_OLD - If PutItem overwrote an attribute name-value pair, then the
 -- content of the old item is returned.
-piiReturnValues :: Lens' PutItem (Maybe ReturnValue)
-piiReturnValues = lens _piiReturnValues (\s a -> s { _piiReturnValues = a })
-{-# INLINE piiReturnValues #-}
+piReturnValues :: Lens' PutItem (Maybe ReturnValue)
+piReturnValues = lens _piReturnValues (\s a -> s { _piReturnValues = a })
+{-# INLINE piReturnValues #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-piiReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
-piiReturnConsumedCapacity = lens _piiReturnConsumedCapacity (\s a -> s { _piiReturnConsumedCapacity = a })
-{-# INLINE piiReturnConsumedCapacity #-}
+piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
+piReturnConsumedCapacity =
+    lens _piReturnConsumedCapacity
+         (\s a -> s { _piReturnConsumedCapacity = a })
+{-# INLINE piReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
 -- (the default), no statistics are returned.
-piiReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
-piiReturnItemCollectionMetrics = lens _piiReturnItemCollectionMetrics (\s a -> s { _piiReturnItemCollectionMetrics = a })
-{-# INLINE piiReturnItemCollectionMetrics #-}
+piReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
+piReturnItemCollectionMetrics =
+    lens _piReturnItemCollectionMetrics
+         (\s a -> s { _piReturnItemCollectionMetrics = a })
+{-# INLINE piReturnItemCollectionMetrics #-}
 
-piiConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
-piiConditionalOperator = lens _piiConditionalOperator (\s a -> s { _piiConditionalOperator = a })
-{-# INLINE piiConditionalOperator #-}
+piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
+piConditionalOperator =
+    lens _piConditionalOperator (\s a -> s { _piConditionalOperator = a })
+{-# INLINE piConditionalOperator #-}
 
 instance ToPath PutItem
 
@@ -228,53 +180,29 @@ instance ToHeaders PutItem
 
 instance ToJSON PutItem
 
+-- | Represents the output of a PutItem operation.
 data PutItemResponse = PutItemResponse
-    { _pioAttributes :: Map Text AttributeValue
-      -- ^ The attribute values as they appeared before the PutItem
-      -- operation, but only if ReturnValues is specified as ALL_OLD in
-      -- the request. Each element consists of an attribute name and an
-      -- attribute value.
-    , _pioConsumedCapacity :: Maybe ConsumedCapacity
-      -- ^ Represents the capacity units consumed by an operation. The data
-      -- returned includes the total provisioned throughput consumed,
-      -- along with statistics for the table and any indexes involved in
-      -- the operation. ConsumedCapacity is only returned if it was asked
-      -- for in the request. For more information, see Provisioned
-      -- Throughput in the Amazon DynamoDB Developer Guide.
-    , _pioItemCollectionMetrics :: Maybe ItemCollectionMetrics
-      -- ^ Information about item collections, if any, that were affected by
-      -- the operation. ItemCollectionMetrics is only returned if it was
-      -- asked for in the request. If the table does not have any local
-      -- secondary indexes, this information is not returned in the
-      -- response. Each ItemCollectionMetrics element consists of:
-      -- ItemCollectionKey - The hash key value of the item collection.
-      -- This is the same as the hash key of the item. SizeEstimateRange -
-      -- An estimate of item collection size, measured in gigabytes. This
-      -- is a two-element array containing a lower bound and an upper
-      -- bound for the estimate. The estimate includes the size of all the
-      -- items in the table, plus the size of all attributes projected
-      -- into all of the local secondary indexes on that table. Use this
-      -- estimate to measure whether a local secondary index is
-      -- approaching its size limit. The estimate is subject to change
-      -- over time; therefore, do not rely on the precision or accuracy of
-      -- the estimate.
+    { _pirsAttributes :: Map Text AttributeValue
+    , _pirsConsumedCapacity :: Maybe ConsumedCapacity
+    , _pirsItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Show, Generic)
 
 -- | The attribute values as they appeared before the PutItem operation, but
 -- only if ReturnValues is specified as ALL_OLD in the request. Each element
 -- consists of an attribute name and an attribute value.
-pioAttributes :: Lens' PutItemResponse (Map Text AttributeValue)
-pioAttributes = lens _pioAttributes (\s a -> s { _pioAttributes = a })
-{-# INLINE pioAttributes #-}
+pirsAttributes :: Lens' PutItemResponse (Map Text AttributeValue)
+pirsAttributes = lens _pirsAttributes (\s a -> s { _pirsAttributes = a })
+{-# INLINE pirsAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-pioConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
-pioConsumedCapacity = lens _pioConsumedCapacity (\s a -> s { _pioConsumedCapacity = a })
-{-# INLINE pioConsumedCapacity #-}
+pirsConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
+pirsConsumedCapacity =
+    lens _pirsConsumedCapacity (\s a -> s { _pirsConsumedCapacity = a })
+{-# INLINE pirsConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
@@ -290,9 +218,11 @@ pioConsumedCapacity = lens _pioConsumedCapacity (\s a -> s { _pioConsumedCapacit
 -- secondary index is approaching its size limit. The estimate is subject to
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
-pioItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
-pioItemCollectionMetrics = lens _pioItemCollectionMetrics (\s a -> s { _pioItemCollectionMetrics = a })
-{-# INLINE pioItemCollectionMetrics #-}
+pirsItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
+pirsItemCollectionMetrics =
+    lens _pirsItemCollectionMetrics
+         (\s a -> s { _pirsItemCollectionMetrics = a })
+{-# INLINE pirsItemCollectionMetrics #-}
 
 instance FromJSON PutItemResponse
 

@@ -31,90 +31,79 @@ module Network.AWS.SimpleDB.V2009_04_15.Select
     -- * Request
       Select
     -- ** Request constructor
-    , mkSelectRequest
+    , mkSelect
     -- ** Request lenses
-    , sstSelectExpression
-    , sstNextToken
-    , sstConsistentRead
+    , sSelectExpression
+    , sNextToken
+    , sConsistentRead
 
     -- * Response
     , SelectResponse
     -- ** Response lenses
-    , ssuItems
-    , ssuNextToken
+    , srsItems
+    , srsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'Select' request.
-mkSelectRequest :: Text -- ^ 'sstSelectExpression'
-                -> Select
-mkSelectRequest p1 = Select
-    { _sstSelectExpression = p1
-    , _sstNextToken = Nothing
-    , _sstConsistentRead = Nothing
-    }
-{-# INLINE mkSelectRequest #-}
-
 data Select = Select
-    { _sstSelectExpression :: Text
-      -- ^ The expression used to query the domain.
-    , _sstNextToken :: Maybe Text
-      -- ^ A string informing Amazon SimpleDB where to start the next list
-      -- of ItemNames.
-    , _sstConsistentRead :: Maybe Bool
-      -- ^ Determines whether or not strong consistency should be enforced
-      -- when data is read from SimpleDB. If true, any data previously
-      -- written to SimpleDB will be returned. Otherwise, results will be
-      -- consistent eventually, and the client may not see data that was
-      -- written immediately before your read.
+    { _sSelectExpression :: Text
+    , _sNextToken :: Maybe Text
+    , _sConsistentRead :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'Select' request.
+mkSelect :: Text -- ^ 'sSelectExpression'
+         -> Select
+mkSelect p1 = Select
+    { _sSelectExpression = p1
+    , _sNextToken = Nothing
+    , _sConsistentRead = Nothing
+    }
+{-# INLINE mkSelect #-}
+
 -- | The expression used to query the domain.
-sstSelectExpression :: Lens' Select (Text)
-sstSelectExpression = lens _sstSelectExpression (\s a -> s { _sstSelectExpression = a })
-{-# INLINE sstSelectExpression #-}
+sSelectExpression :: Lens' Select Text
+sSelectExpression =
+    lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
+{-# INLINE sSelectExpression #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- ItemNames.
-sstNextToken :: Lens' Select (Maybe Text)
-sstNextToken = lens _sstNextToken (\s a -> s { _sstNextToken = a })
-{-# INLINE sstNextToken #-}
+sNextToken :: Lens' Select (Maybe Text)
+sNextToken = lens _sNextToken (\s a -> s { _sNextToken = a })
+{-# INLINE sNextToken #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
 -- will be returned. Otherwise, results will be consistent eventually, and the
 -- client may not see data that was written immediately before your read.
-sstConsistentRead :: Lens' Select (Maybe Bool)
-sstConsistentRead = lens _sstConsistentRead (\s a -> s { _sstConsistentRead = a })
-{-# INLINE sstConsistentRead #-}
+sConsistentRead :: Lens' Select (Maybe Bool)
+sConsistentRead = lens _sConsistentRead (\s a -> s { _sConsistentRead = a })
+{-# INLINE sConsistentRead #-}
 
 instance ToQuery Select where
     toQuery = genericQuery def
 
 data SelectResponse = SelectResponse
-    { _ssuItems :: [Item]
-      -- ^ A list of items that match the select expression.
-    , _ssuNextToken :: Maybe Text
-      -- ^ An opaque token indicating that more items than MaxNumberOfItems
-      -- were matched, the response size exceeded 1 megabyte, or the
-      -- execution time exceeded 5 seconds.
+    { _srsItems :: [Item]
+    , _srsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of items that match the select expression.
-ssuItems :: Lens' SelectResponse ([Item])
-ssuItems = lens _ssuItems (\s a -> s { _ssuItems = a })
-{-# INLINE ssuItems #-}
+srsItems :: Lens' SelectResponse [Item]
+srsItems = lens _srsItems (\s a -> s { _srsItems = a })
+{-# INLINE srsItems #-}
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
-ssuNextToken :: Lens' SelectResponse (Maybe Text)
-ssuNextToken = lens _ssuNextToken (\s a -> s { _ssuNextToken = a })
-{-# INLINE ssuNextToken #-}
+srsNextToken :: Lens' SelectResponse (Maybe Text)
+srsNextToken = lens _srsNextToken (\s a -> s { _srsNextToken = a })
+{-# INLINE srsNextToken #-}
 
 instance FromXML SelectResponse where
     fromXMLOptions = xmlOptions
@@ -127,5 +116,5 @@ instance AWSRequest Select where
     response _ = xmlResponse
 
 instance AWSPager Select where
-    next rq rs = (\x -> rq { _sstNextToken = Just x })
-        <$> (_ssuNextToken rs)
+    next rq rs = (\x -> rq { _sNextToken = Just x })
+        <$> (_srsNextToken rs)

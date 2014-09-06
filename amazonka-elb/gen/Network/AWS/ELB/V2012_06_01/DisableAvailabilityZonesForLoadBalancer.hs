@@ -37,66 +37,67 @@ module Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer
     -- * Request
       DisableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
-    , mkRemoveAvailabilityZonesInput
+    , mkDisableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
-    , raziLoadBalancerName
-    , raziAvailabilityZones
+    , dazflbLoadBalancerName
+    , dazflbAvailabilityZones
 
     -- * Response
     , DisableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
-    , razoAvailabilityZones
+    , dazflbrsAvailabilityZones
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableAvailabilityZonesForLoadBalancer' request.
-mkRemoveAvailabilityZonesInput :: Text -- ^ 'raziLoadBalancerName'
-                               -> [Text] -- ^ 'raziAvailabilityZones'
-                               -> DisableAvailabilityZonesForLoadBalancer
-mkRemoveAvailabilityZonesInput p1 p2 = DisableAvailabilityZonesForLoadBalancer
-    { _raziLoadBalancerName = p1
-    , _raziAvailabilityZones = p2
-    }
-{-# INLINE mkRemoveAvailabilityZonesInput #-}
-
+-- | The input for the DisableAvailabilityZonesForLoadBalancer action.
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
-    { _raziLoadBalancerName :: Text
-      -- ^ The name associated with the load balancer.
-    , _raziAvailabilityZones :: [Text]
-      -- ^ A list of Availability Zones to be removed from the load
-      -- balancer. There must be at least one Availability Zone registered
-      -- with a load balancer at all times. Specified Availability Zones
-      -- must be in the same region.
+    { _dazflbLoadBalancerName :: Text
+    , _dazflbAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableAvailabilityZonesForLoadBalancer' request.
+mkDisableAvailabilityZonesForLoadBalancer :: Text -- ^ 'dazflbLoadBalancerName'
+                                          -> [Text] -- ^ 'dazflbAvailabilityZones'
+                                          -> DisableAvailabilityZonesForLoadBalancer
+mkDisableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoadBalancer
+    { _dazflbLoadBalancerName = p1
+    , _dazflbAvailabilityZones = p2
+    }
+{-# INLINE mkDisableAvailabilityZonesForLoadBalancer #-}
+
 -- | The name associated with the load balancer.
-raziLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer (Text)
-raziLoadBalancerName = lens _raziLoadBalancerName (\s a -> s { _raziLoadBalancerName = a })
-{-# INLINE raziLoadBalancerName #-}
+dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
+dazflbLoadBalancerName =
+    lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
+{-# INLINE dazflbLoadBalancerName #-}
 
 -- | A list of Availability Zones to be removed from the load balancer. There
 -- must be at least one Availability Zone registered with a load balancer at
 -- all times. Specified Availability Zones must be in the same region.
-raziAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer ([Text])
-raziAvailabilityZones = lens _raziAvailabilityZones (\s a -> s { _raziAvailabilityZones = a })
-{-# INLINE raziAvailabilityZones #-}
+dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
+dazflbAvailabilityZones =
+    lens _dazflbAvailabilityZones
+         (\s a -> s { _dazflbAvailabilityZones = a })
+{-# INLINE dazflbAvailabilityZones #-}
 
 instance ToQuery DisableAvailabilityZonesForLoadBalancer where
     toQuery = genericQuery def
 
+-- | The output for the DisableAvailabilityZonesForLoadBalancer action.
 newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
-    { _razoAvailabilityZones :: [Text]
-      -- ^ A list of updated Availability Zones for the load balancer.
+    { _dazflbrsAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of updated Availability Zones for the load balancer.
-razoAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse ([Text])
-razoAvailabilityZones = lens _razoAvailabilityZones (\s a -> s { _razoAvailabilityZones = a })
-{-# INLINE razoAvailabilityZones #-}
+dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
+dazflbrsAvailabilityZones =
+    lens _dazflbrsAvailabilityZones
+         (\s a -> s { _dazflbrsAvailabilityZones = a })
+{-# INLINE dazflbrsAvailabilityZones #-}
 
 instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions

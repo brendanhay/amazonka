@@ -38,50 +38,51 @@ module Network.AWS.IAM.V2010_05_08.CreateAccessKey
     -- * Request
       CreateAccessKey
     -- ** Request constructor
-    , mkCreateAccessKeyRequest
+    , mkCreateAccessKey
     -- ** Request lenses
-    , cakrUserName
+    , cakUserName
 
     -- * Response
     , CreateAccessKeyResponse
     -- ** Response lenses
-    , caksAccessKey
+    , cakrsAccessKey
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateAccessKey' request.
-mkCreateAccessKeyRequest :: CreateAccessKey
-mkCreateAccessKeyRequest = CreateAccessKey
-    { _cakrUserName = Nothing
-    }
-{-# INLINE mkCreateAccessKeyRequest #-}
-
+-- | 
 newtype CreateAccessKey = CreateAccessKey
-    { _cakrUserName :: Maybe Text
-      -- ^ The user name that the new key will belong to.
+    { _cakUserName :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAccessKey' request.
+mkCreateAccessKey :: CreateAccessKey
+mkCreateAccessKey = CreateAccessKey
+    { _cakUserName = Nothing
+    }
+{-# INLINE mkCreateAccessKey #-}
+
 -- | The user name that the new key will belong to.
-cakrUserName :: Lens' CreateAccessKey (Maybe Text)
-cakrUserName = lens _cakrUserName (\s a -> s { _cakrUserName = a })
-{-# INLINE cakrUserName #-}
+cakUserName :: Lens' CreateAccessKey (Maybe Text)
+cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
+{-# INLINE cakUserName #-}
 
 instance ToQuery CreateAccessKey where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the CreateAccessKey
+-- action.
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
-    { _caksAccessKey :: AccessKey
-      -- ^ Information about the access key.
+    { _cakrsAccessKey :: AccessKey
     } deriving (Show, Generic)
 
 -- | Information about the access key.
-caksAccessKey :: Lens' CreateAccessKeyResponse (AccessKey)
-caksAccessKey = lens _caksAccessKey (\s a -> s { _caksAccessKey = a })
-{-# INLINE caksAccessKey #-}
+cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey
+cakrsAccessKey = lens _cakrsAccessKey (\s a -> s { _cakrsAccessKey = a })
+{-# INLINE cakrsAccessKey #-}
 
 instance FromXML CreateAccessKeyResponse where
     fromXMLOptions = xmlOptions

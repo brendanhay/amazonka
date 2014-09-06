@@ -49,14 +49,14 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset
     -- * Request
       ReadPreset
     -- ** Request constructor
-    , mkReadPresetRequest
+    , mkReadPreset
     -- ** Request lenses
-    , rptId
+    , rp1Id
 
     -- * Response
     , ReadPresetResponse
     -- ** Response lenses
-    , rpuPreset
+    , rprsrsPreset
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -64,31 +64,30 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The ReadPresetRequest structure.
+newtype ReadPreset = ReadPreset
+    { _rp1Id :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPreset' request.
-mkReadPresetRequest :: Text -- ^ 'rptId'
-                    -> ReadPreset
-mkReadPresetRequest p1 = ReadPreset
-    { _rptId = p1
+mkReadPreset :: Text -- ^ 'rp1Id'
+             -> ReadPreset
+mkReadPreset p1 = ReadPreset
+    { _rp1Id = p1
     }
-{-# INLINE mkReadPresetRequest #-}
-
-newtype ReadPreset = ReadPreset
-    { _rptId :: Text
-      -- ^ The identifier of the preset for which you want to get detailed
-      -- information.
-    } deriving (Show, Generic)
+{-# INLINE mkReadPreset #-}
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-rptId :: Lens' ReadPreset (Text)
-rptId = lens _rptId (\s a -> s { _rptId = a })
-{-# INLINE rptId #-}
+rp1Id :: Lens' ReadPreset Text
+rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
+{-# INLINE rp1Id #-}
 
 instance ToPath ReadPreset where
     toPath ReadPreset{..} = mconcat
         [ "/2012-09-25/presets/"
-        , toBS _rptId
+        , toBS _rp1Id
         ]
 
 instance ToQuery ReadPreset
@@ -97,16 +96,15 @@ instance ToHeaders ReadPreset
 
 instance ToJSON ReadPreset
 
+-- | The ReadPresetResponse structure.
 newtype ReadPresetResponse = ReadPresetResponse
-    { _rpuPreset :: Maybe Preset
-      -- ^ A section of the response body that provides information about
-      -- the preset.
+    { _rprsrsPreset :: Maybe Preset
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the preset.
-rpuPreset :: Lens' ReadPresetResponse (Maybe Preset)
-rpuPreset = lens _rpuPreset (\s a -> s { _rpuPreset = a })
-{-# INLINE rpuPreset #-}
+rprsrsPreset :: Lens' ReadPresetResponse (Maybe Preset)
+rprsrsPreset = lens _rprsrsPreset (\s a -> s { _rprsrsPreset = a })
+{-# INLINE rprsrsPreset #-}
 
 instance FromJSON ReadPresetResponse
 

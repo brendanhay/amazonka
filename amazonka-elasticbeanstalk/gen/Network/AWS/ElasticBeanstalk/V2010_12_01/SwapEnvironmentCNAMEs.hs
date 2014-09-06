@@ -26,12 +26,12 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.SwapEnvironmentCNAMEs
     -- * Request
       SwapEnvironmentCNAMEs
     -- ** Request constructor
-    , mkSwapEnvironmentCNAMEsMessage
+    , mkSwapEnvironmentCNAMEs
     -- ** Request lenses
-    , secnamemSourceEnvironmentId
-    , secnamemSourceEnvironmentName
-    , secnamemDestinationEnvironmentId
-    , secnamemDestinationEnvironmentName
+    , secnameSourceEnvironmentId
+    , secnameSourceEnvironmentName
+    , secnameDestinationEnvironmentId
+    , secnameDestinationEnvironmentName
 
     -- * Response
     , SwapEnvironmentCNAMEsResponse
@@ -41,74 +41,64 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
+    { _secnameSourceEnvironmentId :: Maybe Text
+    , _secnameSourceEnvironmentName :: Maybe Text
+    , _secnameDestinationEnvironmentId :: Maybe Text
+    , _secnameDestinationEnvironmentName :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SwapEnvironmentCNAMEs' request.
-mkSwapEnvironmentCNAMEsMessage :: SwapEnvironmentCNAMEs
-mkSwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEs
-    { _secnamemSourceEnvironmentId = Nothing
-    , _secnamemSourceEnvironmentName = Nothing
-    , _secnamemDestinationEnvironmentId = Nothing
-    , _secnamemDestinationEnvironmentName = Nothing
+mkSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
+mkSwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
+    { _secnameSourceEnvironmentId = Nothing
+    , _secnameSourceEnvironmentName = Nothing
+    , _secnameDestinationEnvironmentId = Nothing
+    , _secnameDestinationEnvironmentName = Nothing
     }
-{-# INLINE mkSwapEnvironmentCNAMEsMessage #-}
-
-data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
-    { _secnamemSourceEnvironmentId :: Maybe Text
-      -- ^ The ID of the source environment. Condition: You must specify at
-      -- least the SourceEnvironmentID or the SourceEnvironmentName. You
-      -- may also specify both. If you specify the SourceEnvironmentId,
-      -- you must specify the DestinationEnvironmentId.
-    , _secnamemSourceEnvironmentName :: Maybe Text
-      -- ^ The name of the source environment. Condition: You must specify
-      -- at least the SourceEnvironmentID or the SourceEnvironmentName.
-      -- You may also specify both. If you specify the
-      -- SourceEnvironmentName, you must specify the
-      -- DestinationEnvironmentName.
-    , _secnamemDestinationEnvironmentId :: Maybe Text
-      -- ^ The ID of the destination environment. Condition: You must
-      -- specify at least the DestinationEnvironmentID or the
-      -- DestinationEnvironmentName. You may also specify both. You must
-      -- specify the SourceEnvironmentId with the
-      -- DestinationEnvironmentId.
-    , _secnamemDestinationEnvironmentName :: Maybe Text
-      -- ^ The name of the destination environment. Condition: You must
-      -- specify at least the DestinationEnvironmentID or the
-      -- DestinationEnvironmentName. You may also specify both. You must
-      -- specify the SourceEnvironmentName with the
-      -- DestinationEnvironmentName.
-    } deriving (Show, Generic)
+{-# INLINE mkSwapEnvironmentCNAMEs #-}
 
 -- | The ID of the source environment. Condition: You must specify at least the
 -- SourceEnvironmentID or the SourceEnvironmentName. You may also specify
 -- both. If you specify the SourceEnvironmentId, you must specify the
 -- DestinationEnvironmentId.
-secnamemSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamemSourceEnvironmentId = lens _secnamemSourceEnvironmentId (\s a -> s { _secnamemSourceEnvironmentId = a })
-{-# INLINE secnamemSourceEnvironmentId #-}
+secnameSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameSourceEnvironmentId =
+    lens _secnameSourceEnvironmentId
+         (\s a -> s { _secnameSourceEnvironmentId = a })
+{-# INLINE secnameSourceEnvironmentId #-}
 
 -- | The name of the source environment. Condition: You must specify at least
 -- the SourceEnvironmentID or the SourceEnvironmentName. You may also specify
 -- both. If you specify the SourceEnvironmentName, you must specify the
 -- DestinationEnvironmentName.
-secnamemSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamemSourceEnvironmentName = lens _secnamemSourceEnvironmentName (\s a -> s { _secnamemSourceEnvironmentName = a })
-{-# INLINE secnamemSourceEnvironmentName #-}
+secnameSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameSourceEnvironmentName =
+    lens _secnameSourceEnvironmentName
+         (\s a -> s { _secnameSourceEnvironmentName = a })
+{-# INLINE secnameSourceEnvironmentName #-}
 
 -- | The ID of the destination environment. Condition: You must specify at least
 -- the DestinationEnvironmentID or the DestinationEnvironmentName. You may
 -- also specify both. You must specify the SourceEnvironmentId with the
 -- DestinationEnvironmentId.
-secnamemDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamemDestinationEnvironmentId = lens _secnamemDestinationEnvironmentId (\s a -> s { _secnamemDestinationEnvironmentId = a })
-{-# INLINE secnamemDestinationEnvironmentId #-}
+secnameDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameDestinationEnvironmentId =
+    lens _secnameDestinationEnvironmentId
+         (\s a -> s { _secnameDestinationEnvironmentId = a })
+{-# INLINE secnameDestinationEnvironmentId #-}
 
 -- | The name of the destination environment. Condition: You must specify at
 -- least the DestinationEnvironmentID or the DestinationEnvironmentName. You
 -- may also specify both. You must specify the SourceEnvironmentName with the
 -- DestinationEnvironmentName.
-secnamemDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamemDestinationEnvironmentName = lens _secnamemDestinationEnvironmentName (\s a -> s { _secnamemDestinationEnvironmentName = a })
-{-# INLINE secnamemDestinationEnvironmentName #-}
+secnameDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameDestinationEnvironmentName =
+    lens _secnameDestinationEnvironmentName
+         (\s a -> s { _secnameDestinationEnvironmentName = a })
+{-# INLINE secnameDestinationEnvironmentName #-}
 
 instance ToQuery SwapEnvironmentCNAMEs where
     toQuery = genericQuery def

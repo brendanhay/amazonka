@@ -27,24 +27,26 @@ module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
     -- * Request
       GetCheckerIpRanges
     -- ** Request constructor
-    , mkGetCheckerIpRangesRequest
+    , mkGetCheckerIpRanges
     -- * Response
     , GetCheckerIpRangesResponse
     -- ** Response lenses
-    , gcirsCheckerIpRanges
+    , gcirrsCheckerIpRanges
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | Empty request.
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCheckerIpRanges' request.
-mkGetCheckerIpRangesRequest :: GetCheckerIpRanges
-mkGetCheckerIpRangesRequest = GetCheckerIpRanges
-{-# INLINE mkGetCheckerIpRangesRequest #-}
-
-    deriving (Eq, Show, Generic)
+mkGetCheckerIpRanges :: GetCheckerIpRanges
+mkGetCheckerIpRanges = GetCheckerIpRanges
+{-# INLINE mkGetCheckerIpRanges #-}
 
 instance ToPath GetCheckerIpRanges where
     toPath = const "/2013-04-01/checkeripranges"
@@ -57,17 +59,17 @@ instance ToXML GetCheckerIpRanges where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetCheckerIpRangesRequest"
 
+-- | A complex type that contains the CheckerIpRanges element.
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
-    { _gcirsCheckerIpRanges :: [Text]
-      -- ^ A complex type that contains sorted list of IP ranges in CIDR
-      -- format for Amazon Route 53 health checkers.
+    { _gcirrsCheckerIpRanges :: [Text]
     } deriving (Show, Generic)
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
-gcirsCheckerIpRanges :: Lens' GetCheckerIpRangesResponse ([Text])
-gcirsCheckerIpRanges = lens _gcirsCheckerIpRanges (\s a -> s { _gcirsCheckerIpRanges = a })
-{-# INLINE gcirsCheckerIpRanges #-}
+gcirrsCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
+gcirrsCheckerIpRanges =
+    lens _gcirrsCheckerIpRanges (\s a -> s { _gcirrsCheckerIpRanges = a })
+{-# INLINE gcirrsCheckerIpRanges #-}
 
 instance FromXML GetCheckerIpRangesResponse where
     fromXMLOptions = xmlOptions

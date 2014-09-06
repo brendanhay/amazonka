@@ -37,62 +37,61 @@ module Network.AWS.EC2.V2014_06_15.AssociateRouteTable
     -- * Request
       AssociateRouteTable
     -- ** Request constructor
-    , mkAssociateRouteTableRequest
+    , mkAssociateRouteTable
     -- ** Request lenses
-    , artrSubnetId
-    , artrRouteTableId
+    , artSubnetId
+    , artRouteTableId
 
     -- * Response
     , AssociateRouteTableResponse
     -- ** Response lenses
-    , artsAssociationId
+    , artrsAssociationId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AssociateRouteTable' request.
-mkAssociateRouteTableRequest :: Text -- ^ 'artrSubnetId'
-                             -> Text -- ^ 'artrRouteTableId'
-                             -> AssociateRouteTable
-mkAssociateRouteTableRequest p1 p2 = AssociateRouteTable
-    { _artrSubnetId = p1
-    , _artrRouteTableId = p2
-    }
-{-# INLINE mkAssociateRouteTableRequest #-}
-
+-- | 
 data AssociateRouteTable = AssociateRouteTable
-    { _artrSubnetId :: Text
-      -- ^ The ID of the subnet.
-    , _artrRouteTableId :: Text
-      -- ^ The ID of the route table.
+    { _artSubnetId :: Text
+    , _artRouteTableId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateRouteTable' request.
+mkAssociateRouteTable :: Text -- ^ 'artSubnetId'
+                      -> Text -- ^ 'artRouteTableId'
+                      -> AssociateRouteTable
+mkAssociateRouteTable p1 p2 = AssociateRouteTable
+    { _artSubnetId = p1
+    , _artRouteTableId = p2
+    }
+{-# INLINE mkAssociateRouteTable #-}
+
 -- | The ID of the subnet.
-artrSubnetId :: Lens' AssociateRouteTable (Text)
-artrSubnetId = lens _artrSubnetId (\s a -> s { _artrSubnetId = a })
-{-# INLINE artrSubnetId #-}
+artSubnetId :: Lens' AssociateRouteTable Text
+artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
+{-# INLINE artSubnetId #-}
 
 -- | The ID of the route table.
-artrRouteTableId :: Lens' AssociateRouteTable (Text)
-artrRouteTableId = lens _artrRouteTableId (\s a -> s { _artrRouteTableId = a })
-{-# INLINE artrRouteTableId #-}
+artRouteTableId :: Lens' AssociateRouteTable Text
+artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
+{-# INLINE artRouteTableId #-}
 
 instance ToQuery AssociateRouteTable where
     toQuery = genericQuery def
 
+-- | 
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
-    { _artsAssociationId :: Maybe Text
-      -- ^ The route table association ID (needed to disassociate the route
-      -- table).
+    { _artrsAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The route table association ID (needed to disassociate the route table).
-artsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
-artsAssociationId = lens _artsAssociationId (\s a -> s { _artsAssociationId = a })
-{-# INLINE artsAssociationId #-}
+artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
+artrsAssociationId =
+    lens _artrsAssociationId (\s a -> s { _artrsAssociationId = a })
+{-# INLINE artrsAssociationId #-}
 
 instance FromXML AssociateRouteTableResponse where
     fromXMLOptions = xmlOptions

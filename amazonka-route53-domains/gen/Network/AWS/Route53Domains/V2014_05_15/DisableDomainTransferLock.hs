@@ -42,14 +42,14 @@ module Network.AWS.Route53Domains.V2014_05_15.DisableDomainTransferLock
     -- * Request
       DisableDomainTransferLock
     -- ** Request constructor
-    , mkDisableDomainTransferLockRequest
+    , mkDisableDomainTransferLock
     -- ** Request lenses
-    , ddtlrDomainName
+    , ddtlDomainName
 
     -- * Response
     , DisableDomainTransferLockResponse
     -- ** Response lenses
-    , ddtlsOperationId
+    , ddtlrsOperationId
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -57,30 +57,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The DisableDomainTransferLock request includes the following element.
+newtype DisableDomainTransferLock = DisableDomainTransferLock
+    { _ddtlDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableDomainTransferLock' request.
-mkDisableDomainTransferLockRequest :: Text -- ^ 'ddtlrDomainName'
-                                   -> DisableDomainTransferLock
-mkDisableDomainTransferLockRequest p1 = DisableDomainTransferLock
-    { _ddtlrDomainName = p1
+mkDisableDomainTransferLock :: Text -- ^ 'ddtlDomainName'
+                            -> DisableDomainTransferLock
+mkDisableDomainTransferLock p1 = DisableDomainTransferLock
+    { _ddtlDomainName = p1
     }
-{-# INLINE mkDisableDomainTransferLockRequest #-}
-
-newtype DisableDomainTransferLock = DisableDomainTransferLock
-    { _ddtlrDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    } deriving (Show, Generic)
+{-# INLINE mkDisableDomainTransferLock #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-ddtlrDomainName :: Lens' DisableDomainTransferLock (Text)
-ddtlrDomainName = lens _ddtlrDomainName (\s a -> s { _ddtlrDomainName = a })
-{-# INLINE ddtlrDomainName #-}
+ddtlDomainName :: Lens' DisableDomainTransferLock Text
+ddtlDomainName = lens _ddtlDomainName (\s a -> s { _ddtlDomainName = a })
+{-# INLINE ddtlDomainName #-}
 
 instance ToPath DisableDomainTransferLock
 
@@ -90,19 +87,18 @@ instance ToHeaders DisableDomainTransferLock
 
 instance ToJSON DisableDomainTransferLock
 
+-- | The DisableDomainTransferLock response includes the following element.
 newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
-    { _ddtlsOperationId :: Text
-      -- ^ Identifier for tracking the progress of the request. To use this
-      -- ID to query the operation status, use GetOperationDetail. Type:
-      -- String Default: None Constraints: Maximum 255 characters.
+    { _ddtlrsOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-ddtlsOperationId :: Lens' DisableDomainTransferLockResponse (Text)
-ddtlsOperationId = lens _ddtlsOperationId (\s a -> s { _ddtlsOperationId = a })
-{-# INLINE ddtlsOperationId #-}
+ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
+ddtlrsOperationId =
+    lens _ddtlrsOperationId (\s a -> s { _ddtlrsOperationId = a })
+{-# INLINE ddtlrsOperationId #-}
 
 instance FromJSON DisableDomainTransferLockResponse
 

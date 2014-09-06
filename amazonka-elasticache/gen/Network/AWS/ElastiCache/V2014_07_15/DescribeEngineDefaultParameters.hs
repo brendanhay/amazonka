@@ -35,84 +35,76 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParameters
     -- ** Request constructor
-    , mkDescribeEngineDefaultParametersMessage
+    , mkDescribeEngineDefaultParameters
     -- ** Request lenses
-    , dedpmCacheParameterGroupFamily
-    , dedpmMaxRecords
-    , dedpmMarker
+    , dedpCacheParameterGroupFamily
+    , dedpMaxRecords
+    , dedpMarker
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
     -- ** Response lenses
-    , edwEngineDefaults
+    , dedprsEngineDefaults
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DescribeEngineDefaultParameters operation.
+data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
+    { _dedpCacheParameterGroupFamily :: Text
+    , _dedpMaxRecords :: Maybe Integer
+    , _dedpMarker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEngineDefaultParameters' request.
-mkDescribeEngineDefaultParametersMessage :: Text -- ^ 'dedpmCacheParameterGroupFamily'
-                                         -> DescribeEngineDefaultParameters
-mkDescribeEngineDefaultParametersMessage p1 = DescribeEngineDefaultParameters
-    { _dedpmCacheParameterGroupFamily = p1
-    , _dedpmMaxRecords = Nothing
-    , _dedpmMarker = Nothing
+mkDescribeEngineDefaultParameters :: Text -- ^ 'dedpCacheParameterGroupFamily'
+                                  -> DescribeEngineDefaultParameters
+mkDescribeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
+    { _dedpCacheParameterGroupFamily = p1
+    , _dedpMaxRecords = Nothing
+    , _dedpMarker = Nothing
     }
-{-# INLINE mkDescribeEngineDefaultParametersMessage #-}
-
-data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
-    { _dedpmCacheParameterGroupFamily :: Text
-      -- ^ The name of the cache parameter group family. Valid values are:
-      -- memcached1.4 | redis2.6 | redis2.8.
-    , _dedpmMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a marker is
-      -- included in the response so that the remaining results can be
-      -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dedpmMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeEngineDefaultParameters #-}
 
 -- | The name of the cache parameter group family. Valid values are:
 -- memcached1.4 | redis2.6 | redis2.8.
-dedpmCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters (Text)
-dedpmCacheParameterGroupFamily = lens _dedpmCacheParameterGroupFamily (\s a -> s { _dedpmCacheParameterGroupFamily = a })
-{-# INLINE dedpmCacheParameterGroupFamily #-}
+dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedpCacheParameterGroupFamily =
+    lens _dedpCacheParameterGroupFamily
+         (\s a -> s { _dedpCacheParameterGroupFamily = a })
+{-# INLINE dedpCacheParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dedpmMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
-dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
-{-# INLINE dedpmMaxRecords #-}
+dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
+dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
+{-# INLINE dedpMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dedpmMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
-{-# INLINE dedpmMarker #-}
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
+{-# INLINE dedpMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _edwEngineDefaults :: Maybe EngineDefaults
-      -- ^ Represents the output of a DescribeEngineDefaultParameters
-      -- operation.
+    { _dedprsEngineDefaults :: Maybe EngineDefaults
     } deriving (Show, Generic)
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
-edwEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
-edwEngineDefaults = lens _edwEngineDefaults (\s a -> s { _edwEngineDefaults = a })
-{-# INLINE edwEngineDefaults #-}
+dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
+dedprsEngineDefaults =
+    lens _dedprsEngineDefaults (\s a -> s { _dedprsEngineDefaults = a })
+{-# INLINE dedprsEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
@@ -125,5 +117,5 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq { _dedpmMarker = Just x })
-        <$> (_edMarker $ _edwEngineDefaults rs)
+    next rq rs = (\x -> rq { _dedpMarker = Just x })
+        <$> (_edMarker $ _dedprsEngineDefaults rs)

@@ -28,10 +28,10 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment
     -- * Request
       RebuildEnvironment
     -- ** Request constructor
-    , mkRebuildEnvironmentMessage
+    , mkRebuildEnvironment
     -- ** Request lenses
-    , remEnvironmentId
-    , remEnvironmentName
+    , reEnvironmentId
+    , reEnvironmentName
 
     -- * Response
     , RebuildEnvironmentResponse
@@ -41,41 +41,35 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data RebuildEnvironment = RebuildEnvironment
+    { _reEnvironmentId :: Maybe Text
+    , _reEnvironmentName :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebuildEnvironment' request.
-mkRebuildEnvironmentMessage :: RebuildEnvironment
-mkRebuildEnvironmentMessage = RebuildEnvironment
-    { _remEnvironmentId = Nothing
-    , _remEnvironmentName = Nothing
+mkRebuildEnvironment :: RebuildEnvironment
+mkRebuildEnvironment = RebuildEnvironment
+    { _reEnvironmentId = Nothing
+    , _reEnvironmentName = Nothing
     }
-{-# INLINE mkRebuildEnvironmentMessage #-}
-
-data RebuildEnvironment = RebuildEnvironment
-    { _remEnvironmentId :: Maybe Text
-      -- ^ The ID of the environment to rebuild. Condition: You must specify
-      -- either this or an EnvironmentName, or both. If you do not specify
-      -- either, AWS Elastic Beanstalk returns MissingRequiredParameter
-      -- error.
-    , _remEnvironmentName :: Maybe Text
-      -- ^ The name of the environment to rebuild. Condition: You must
-      -- specify either this or an EnvironmentId, or both. If you do not
-      -- specify either, AWS Elastic Beanstalk returns
-      -- MissingRequiredParameter error.
-    } deriving (Show, Generic)
+{-# INLINE mkRebuildEnvironment #-}
 
 -- | The ID of the environment to rebuild. Condition: You must specify either
 -- this or an EnvironmentName, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
-remEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
-remEnvironmentId = lens _remEnvironmentId (\s a -> s { _remEnvironmentId = a })
-{-# INLINE remEnvironmentId #-}
+reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
+reEnvironmentId = lens _reEnvironmentId (\s a -> s { _reEnvironmentId = a })
+{-# INLINE reEnvironmentId #-}
 
 -- | The name of the environment to rebuild. Condition: You must specify either
 -- this or an EnvironmentId, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
-remEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
-remEnvironmentName = lens _remEnvironmentName (\s a -> s { _remEnvironmentName = a })
-{-# INLINE remEnvironmentName #-}
+reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
+reEnvironmentName =
+    lens _reEnvironmentName (\s a -> s { _reEnvironmentName = a })
+{-# INLINE reEnvironmentName #-}
 
 instance ToQuery RebuildEnvironment where
     toQuery = genericQuery def

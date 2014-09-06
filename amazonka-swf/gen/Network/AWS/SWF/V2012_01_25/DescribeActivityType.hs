@@ -58,16 +58,16 @@ module Network.AWS.SWF.V2012_01_25.DescribeActivityType
     -- * Request
       DescribeActivityType
     -- ** Request constructor
-    , mkDescribeActivityTypeInput
+    , mkDescribeActivityType
     -- ** Request lenses
-    , datjDomain
-    , datjActivityType
+    , dat1Domain
+    , dat1ActivityType
 
     -- * Response
     , DescribeActivityTypeResponse
     -- ** Response lenses
-    , atdTypeInfo
-    , atdConfiguration
+    , datrsTypeInfo
+    , datrsConfiguration
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -75,33 +75,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeActivityType' request.
-mkDescribeActivityTypeInput :: Text -- ^ 'datjDomain'
-                            -> ActivityType -- ^ 'datjActivityType'
-                            -> DescribeActivityType
-mkDescribeActivityTypeInput p1 p2 = DescribeActivityType
-    { _datjDomain = p1
-    , _datjActivityType = p2
-    }
-{-# INLINE mkDescribeActivityTypeInput #-}
-
 data DescribeActivityType = DescribeActivityType
-    { _datjDomain :: Text
-      -- ^ The name of the domain in which the activity type is registered.
-    , _datjActivityType :: ActivityType
-      -- ^ The activity type to describe.
+    { _dat1Domain :: Text
+    , _dat1ActivityType :: ActivityType
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeActivityType' request.
+mkDescribeActivityType :: Text -- ^ 'dat1Domain'
+                       -> ActivityType -- ^ 'dat1ActivityType'
+                       -> DescribeActivityType
+mkDescribeActivityType p1 p2 = DescribeActivityType
+    { _dat1Domain = p1
+    , _dat1ActivityType = p2
+    }
+{-# INLINE mkDescribeActivityType #-}
+
 -- | The name of the domain in which the activity type is registered.
-datjDomain :: Lens' DescribeActivityType (Text)
-datjDomain = lens _datjDomain (\s a -> s { _datjDomain = a })
-{-# INLINE datjDomain #-}
+dat1Domain :: Lens' DescribeActivityType Text
+dat1Domain = lens _dat1Domain (\s a -> s { _dat1Domain = a })
+{-# INLINE dat1Domain #-}
 
 -- | The activity type to describe.
-datjActivityType :: Lens' DescribeActivityType (ActivityType)
-datjActivityType = lens _datjActivityType (\s a -> s { _datjActivityType = a })
-{-# INLINE datjActivityType #-}
+dat1ActivityType :: Lens' DescribeActivityType ActivityType
+dat1ActivityType =
+    lens _dat1ActivityType (\s a -> s { _dat1ActivityType = a })
+{-# INLINE dat1ActivityType #-}
 
 instance ToPath DescribeActivityType
 
@@ -111,17 +110,10 @@ instance ToHeaders DescribeActivityType
 
 instance ToJSON DescribeActivityType
 
+-- | Detailed information about an activity type.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse
-    { _atdTypeInfo :: ActivityTypeInfo
-      -- ^ General information about the activity type. The status of
-      -- activity type (returned in the ActivityTypeInfo structure) can be
-      -- one of the following. REGISTERED: The type is registered and
-      -- available. Workers supporting this type should be running.
-      -- DEPRECATED: The type was deprecated using DeprecateActivityType,
-      -- but is still in use. You should keep workers supporting this type
-      -- running. You cannot create new tasks of this type.
-    , _atdConfiguration :: ActivityTypeConfiguration
-      -- ^ The configuration settings registered with the activity type.
+    { _datrsTypeInfo :: ActivityTypeInfo
+    , _datrsConfiguration :: ActivityTypeConfiguration
     } deriving (Show, Generic)
 
 -- | General information about the activity type. The status of activity type
@@ -130,14 +122,15 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
 -- type should be running. DEPRECATED: The type was deprecated using
 -- DeprecateActivityType, but is still in use. You should keep workers
 -- supporting this type running. You cannot create new tasks of this type.
-atdTypeInfo :: Lens' DescribeActivityTypeResponse (ActivityTypeInfo)
-atdTypeInfo = lens _atdTypeInfo (\s a -> s { _atdTypeInfo = a })
-{-# INLINE atdTypeInfo #-}
+datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
+datrsTypeInfo = lens _datrsTypeInfo (\s a -> s { _datrsTypeInfo = a })
+{-# INLINE datrsTypeInfo #-}
 
 -- | The configuration settings registered with the activity type.
-atdConfiguration :: Lens' DescribeActivityTypeResponse (ActivityTypeConfiguration)
-atdConfiguration = lens _atdConfiguration (\s a -> s { _atdConfiguration = a })
-{-# INLINE atdConfiguration #-}
+datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
+datrsConfiguration =
+    lens _datrsConfiguration (\s a -> s { _datrsConfiguration = a })
+{-# INLINE datrsConfiguration #-}
 
 instance FromJSON DescribeActivityTypeResponse
 

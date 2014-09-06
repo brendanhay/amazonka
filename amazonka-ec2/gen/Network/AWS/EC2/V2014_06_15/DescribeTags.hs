@@ -60,51 +60,39 @@ module Network.AWS.EC2.V2014_06_15.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , mkDescribeTagsRequest
+    , mkDescribeTags
     -- ** Request lenses
-    , dtsFilters
-    , dtsMaxResults
-    , dtsNextToken
+    , dt1Filters
+    , dt1MaxResults
+    , dt1NextToken
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response lenses
-    , dttTags
-    , dttNextToken
+    , dtrsTags
+    , dtrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeTags = DescribeTags
+    { _dt1Filters :: [Filter]
+    , _dt1MaxResults :: Maybe Integer
+    , _dt1NextToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
-mkDescribeTagsRequest :: DescribeTags
-mkDescribeTagsRequest = DescribeTags
-    { _dtsFilters = mempty
-    , _dtsMaxResults = Nothing
-    , _dtsNextToken = Nothing
+mkDescribeTags :: DescribeTags
+mkDescribeTags = DescribeTags
+    { _dt1Filters = mempty
+    , _dt1MaxResults = Nothing
+    , _dt1NextToken = Nothing
     }
-{-# INLINE mkDescribeTagsRequest #-}
-
-data DescribeTags = DescribeTags
-    { _dtsFilters :: [Filter]
-      -- ^ One or more filters. key - The tag key. resource-id - The
-      -- resource ID. resource-type - The resource type (customer-gateway
-      -- | dhcp-options | image | instance | internet-gateway |
-      -- network-acl | network-interface | reserved-instances |
-      -- route-table | security-group | snapshot | spot-instances-request
-      -- | subnet | volume | vpc | vpn-connection | vpn-gateway). value -
-      -- The tag value.
-    , _dtsMaxResults :: Maybe Integer
-      -- ^ The maximum number of items to return for this call. The call
-      -- also returns a token that you can specify in a subsequent call to
-      -- get the next set of results. If the value is greater than 1000,
-      -- we return only 1000 items.
-    , _dtsNextToken :: Maybe Text
-      -- ^ The token for the next set of items to return. (You received this
-      -- token from a prior call.).
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeTags #-}
 
 -- | One or more filters. key - The tag key. resource-id - The resource ID.
 -- resource-type - The resource type (customer-gateway | dhcp-options | image
@@ -112,44 +100,42 @@ data DescribeTags = DescribeTags
 -- reserved-instances | route-table | security-group | snapshot |
 -- spot-instances-request | subnet | volume | vpc | vpn-connection |
 -- vpn-gateway). value - The tag value.
-dtsFilters :: Lens' DescribeTags ([Filter])
-dtsFilters = lens _dtsFilters (\s a -> s { _dtsFilters = a })
-{-# INLINE dtsFilters #-}
+dt1Filters :: Lens' DescribeTags [Filter]
+dt1Filters = lens _dt1Filters (\s a -> s { _dt1Filters = a })
+{-# INLINE dt1Filters #-}
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
-dtsMaxResults :: Lens' DescribeTags (Maybe Integer)
-dtsMaxResults = lens _dtsMaxResults (\s a -> s { _dtsMaxResults = a })
-{-# INLINE dtsMaxResults #-}
+dt1MaxResults :: Lens' DescribeTags (Maybe Integer)
+dt1MaxResults = lens _dt1MaxResults (\s a -> s { _dt1MaxResults = a })
+{-# INLINE dt1MaxResults #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
-dtsNextToken :: Lens' DescribeTags (Maybe Text)
-dtsNextToken = lens _dtsNextToken (\s a -> s { _dtsNextToken = a })
-{-# INLINE dtsNextToken #-}
+dt1NextToken :: Lens' DescribeTags (Maybe Text)
+dt1NextToken = lens _dt1NextToken (\s a -> s { _dt1NextToken = a })
+{-# INLINE dt1NextToken #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
+-- | 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dttTags :: [TagDescription]
-      -- ^ A list of tags.
-    , _dttNextToken :: Maybe Text
-      -- ^ The token to use when requesting the next set of items. If there
-      -- are no additional items to return, the string is empty.
+    { _dtrsTags :: [TagDescription]
+    , _dtrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of tags.
-dttTags :: Lens' DescribeTagsResponse ([TagDescription])
-dttTags = lens _dttTags (\s a -> s { _dttTags = a })
-{-# INLINE dttTags #-}
+dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTags = lens _dtrsTags (\s a -> s { _dtrsTags = a })
+{-# INLINE dtrsTags #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dttNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dttNextToken = lens _dttNextToken (\s a -> s { _dttNextToken = a })
-{-# INLINE dttNextToken #-}
+dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
+dtrsNextToken = lens _dtrsNextToken (\s a -> s { _dtrsNextToken = a })
+{-# INLINE dtrsNextToken #-}
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -162,5 +148,5 @@ instance AWSRequest DescribeTags where
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq { _dtsNextToken = Just x })
-        <$> (_dttNextToken rs)
+    next rq rs = (\x -> rq { _dt1NextToken = Just x })
+        <$> (_dtrsNextToken rs)

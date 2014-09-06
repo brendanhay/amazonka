@@ -31,57 +31,33 @@ module Network.AWS.IAM.V2010_05_08.GetAccountSummary
     -- * Request
       GetAccountSummary
     -- ** Request constructor
-    , mkUnknown
+    , mkGetAccountSummary
     -- * Response
     , GetAccountSummaryResponse
     -- ** Response lenses
-    , gasrSummaryMap
+    , gasrsSummaryMap
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetAccountSummary' request.
-mkUnknown :: GetAccountSummary
-mkUnknown = GetAccountSummary
-{-# INLINE mkUnknown #-}
-
 data GetAccountSummary = GetAccountSummary
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAccountSummary' request.
+mkGetAccountSummary :: GetAccountSummary
+mkGetAccountSummary = GetAccountSummary
+{-# INLINE mkGetAccountSummary #-}
 
 instance ToQuery GetAccountSummary where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetAccountSummary
+-- action.
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
-    { _gasrSummaryMap :: Map SummaryKeyType Integer
-      -- ^ A set of key value pairs containing account-level information.
-      -- SummaryMap contains the following keys: AccessKeysPerUserQuota -
-      -- Maximum number of access keys that can be created per user
-      -- AccountMFAEnabled - 1 if the root account has an MFA device
-      -- assigned to it, 0 otherwise AssumeRolePolicySizeQuota - Maximum
-      -- allowed size for assume role policy documents (in kilobytes)
-      -- GroupPolicySizeQuota - Maximum allowed size for Group policy
-      -- documents (in kilobytes) Groups - Number of Groups for the AWS
-      -- account GroupsPerUserQuota - Maximum number of groups a user can
-      -- belong to GroupsQuota - Maximum groups allowed for the AWS
-      -- account InstanceProfiles - Number of instance profiles for the
-      -- AWS account InstanceProfilesQuota - Maximum instance profiles
-      -- allowed for the AWS account MFADevices - Number of MFA devices,
-      -- either assigned or unassigned MFADevicesInUse - Number of MFA
-      -- devices that have been assigned to an IAM user or to the root
-      -- account RolePolicySizeQuota - Maximum allowed size for role
-      -- policy documents (in kilobytes) Roles - Number of roles for the
-      -- AWS account RolesQuota - Maximum roles allowed for the AWS
-      -- account ServerCertificates - Number of server certificates for
-      -- the AWS account ServerCertificatesQuota - Maximum server
-      -- certificates allowed for the AWS account
-      -- SigningCertificatesPerUserQuota - Maximum number of X509
-      -- certificates allowed for a user UserPolicySizeQuota - Maximum
-      -- allowed size for user policy documents (in kilobytes) Users -
-      -- Number of users for the AWS account UsersQuota - Maximum users
-      -- allowed for the AWS account.
+    { _gasrsSummaryMap :: Map SummaryKeyType Integer
     } deriving (Show, Generic)
 
 -- | A set of key value pairs containing account-level information. SummaryMap
@@ -106,9 +82,9 @@ newtype GetAccountSummaryResponse = GetAccountSummaryResponse
 -- - Maximum allowed size for user policy documents (in kilobytes) Users -
 -- Number of users for the AWS account UsersQuota - Maximum users allowed for
 -- the AWS account.
-gasrSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Integer)
-gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
-{-# INLINE gasrSummaryMap #-}
+gasrsSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Integer)
+gasrsSummaryMap = lens _gasrsSummaryMap (\s a -> s { _gasrsSummaryMap = a })
+{-# INLINE gasrsSummaryMap #-}
 
 instance FromXML GetAccountSummaryResponse where
     fromXMLOptions = xmlOptions

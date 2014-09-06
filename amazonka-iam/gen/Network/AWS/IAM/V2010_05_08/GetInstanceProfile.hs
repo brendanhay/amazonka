@@ -36,51 +36,54 @@ module Network.AWS.IAM.V2010_05_08.GetInstanceProfile
     -- * Request
       GetInstanceProfile
     -- ** Request constructor
-    , mkGetInstanceProfileRequest
+    , mkGetInstanceProfile
     -- ** Request lenses
-    , giprInstanceProfileName
+    , gipInstanceProfileName
 
     -- * Response
     , GetInstanceProfileResponse
     -- ** Response lenses
-    , gipsInstanceProfile
+    , giprsInstanceProfile
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetInstanceProfile' request.
-mkGetInstanceProfileRequest :: Text -- ^ 'giprInstanceProfileName'
-                            -> GetInstanceProfile
-mkGetInstanceProfileRequest p1 = GetInstanceProfile
-    { _giprInstanceProfileName = p1
-    }
-{-# INLINE mkGetInstanceProfileRequest #-}
-
+-- | 
 newtype GetInstanceProfile = GetInstanceProfile
-    { _giprInstanceProfileName :: Text
-      -- ^ Name of the instance profile to get information about.
+    { _gipInstanceProfileName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetInstanceProfile' request.
+mkGetInstanceProfile :: Text -- ^ 'gipInstanceProfileName'
+                     -> GetInstanceProfile
+mkGetInstanceProfile p1 = GetInstanceProfile
+    { _gipInstanceProfileName = p1
+    }
+{-# INLINE mkGetInstanceProfile #-}
+
 -- | Name of the instance profile to get information about.
-giprInstanceProfileName :: Lens' GetInstanceProfile (Text)
-giprInstanceProfileName = lens _giprInstanceProfileName (\s a -> s { _giprInstanceProfileName = a })
-{-# INLINE giprInstanceProfileName #-}
+gipInstanceProfileName :: Lens' GetInstanceProfile Text
+gipInstanceProfileName =
+    lens _gipInstanceProfileName (\s a -> s { _gipInstanceProfileName = a })
+{-# INLINE gipInstanceProfileName #-}
 
 instance ToQuery GetInstanceProfile where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetInstanceProfile
+-- action.
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
-    { _gipsInstanceProfile :: InstanceProfile
-      -- ^ Information about the instance profile.
+    { _giprsInstanceProfile :: InstanceProfile
     } deriving (Show, Generic)
 
 -- | Information about the instance profile.
-gipsInstanceProfile :: Lens' GetInstanceProfileResponse (InstanceProfile)
-gipsInstanceProfile = lens _gipsInstanceProfile (\s a -> s { _gipsInstanceProfile = a })
-{-# INLINE gipsInstanceProfile #-}
+giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
+giprsInstanceProfile =
+    lens _giprsInstanceProfile (\s a -> s { _giprsInstanceProfile = a })
+{-# INLINE giprsInstanceProfile #-}
 
 instance FromXML GetInstanceProfileResponse where
     fromXMLOptions = xmlOptions

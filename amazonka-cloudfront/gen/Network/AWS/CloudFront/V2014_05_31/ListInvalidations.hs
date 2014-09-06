@@ -23,54 +23,46 @@ module Network.AWS.CloudFront.V2014_05_31.ListInvalidations
     -- * Request
       ListInvalidations
     -- ** Request constructor
-    , mkListInvalidationsRequest
+    , mkListInvalidations
     -- ** Request lenses
-    , lirDistributionId
-    , lirMarker
-    , lirMaxItems
+    , liDistributionId
+    , liMarker
+    , liMaxItems
 
     -- * Response
     , ListInvalidationsResponse
     -- ** Response lenses
-    , lisInvalidationList
+    , lirsInvalidationList
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to list invalidations.
+data ListInvalidations = ListInvalidations
+    { _liDistributionId :: Text
+    , _liMarker :: Maybe Text
+    , _liMaxItems :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInvalidations' request.
-mkListInvalidationsRequest :: Text -- ^ 'lirDistributionId'
-                           -> ListInvalidations
-mkListInvalidationsRequest p1 = ListInvalidations
-    { _lirDistributionId = p1
-    , _lirMarker = Nothing
-    , _lirMaxItems = Nothing
+mkListInvalidations :: Text -- ^ 'liDistributionId'
+                    -> ListInvalidations
+mkListInvalidations p1 = ListInvalidations
+    { _liDistributionId = p1
+    , _liMarker = Nothing
+    , _liMaxItems = Nothing
     }
-{-# INLINE mkListInvalidationsRequest #-}
-
-data ListInvalidations = ListInvalidations
-    { _lirDistributionId :: Text
-      -- ^ The distribution's id.
-    , _lirMarker :: Maybe Text
-      -- ^ Use this parameter when paginating results to indicate where to
-      -- begin in your list of invalidation batches. Because the results
-      -- are returned in decreasing order from most recent to oldest, the
-      -- most recent results are on the first page, the second page will
-      -- contain earlier results, and so on. To get the next page of
-      -- results, set the Marker to the value of the NextMarker from the
-      -- current page's response. This value is the same as the ID of the
-      -- last invalidation batch on that page.
-    , _lirMaxItems :: Maybe Text
-      -- ^ The maximum number of invalidation batches you want in the
-      -- response body.
-    } deriving (Show, Generic)
+{-# INLINE mkListInvalidations #-}
 
 -- | The distribution's id.
-lirDistributionId :: Lens' ListInvalidations (Text)
-lirDistributionId = lens _lirDistributionId (\s a -> s { _lirDistributionId = a })
-{-# INLINE lirDistributionId #-}
+liDistributionId :: Lens' ListInvalidations Text
+liDistributionId =
+    lens _liDistributionId (\s a -> s { _liDistributionId = a })
+{-# INLINE liDistributionId #-}
 
 -- | Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
@@ -79,26 +71,26 @@ lirDistributionId = lens _lirDistributionId (\s a -> s { _lirDistributionId = a 
 -- get the next page of results, set the Marker to the value of the NextMarker
 -- from the current page's response. This value is the same as the ID of the
 -- last invalidation batch on that page.
-lirMarker :: Lens' ListInvalidations (Maybe Text)
-lirMarker = lens _lirMarker (\s a -> s { _lirMarker = a })
-{-# INLINE lirMarker #-}
+liMarker :: Lens' ListInvalidations (Maybe Text)
+liMarker = lens _liMarker (\s a -> s { _liMarker = a })
+{-# INLINE liMarker #-}
 
 -- | The maximum number of invalidation batches you want in the response body.
-lirMaxItems :: Lens' ListInvalidations (Maybe Text)
-lirMaxItems = lens _lirMaxItems (\s a -> s { _lirMaxItems = a })
-{-# INLINE lirMaxItems #-}
+liMaxItems :: Lens' ListInvalidations (Maybe Text)
+liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
+{-# INLINE liMaxItems #-}
 
 instance ToPath ListInvalidations where
     toPath ListInvalidations{..} = mconcat
         [ "/2014-05-31/distribution/"
-        , toBS _lirDistributionId
+        , toBS _liDistributionId
         , "/invalidation"
         ]
 
 instance ToQuery ListInvalidations where
     toQuery ListInvalidations{..} = mconcat
-        [ "Marker" =? _lirMarker
-        , "MaxItems" =? _lirMaxItems
+        [ "Marker" =? _liMarker
+        , "MaxItems" =? _liMaxItems
         ]
 
 instance ToHeaders ListInvalidations
@@ -107,15 +99,16 @@ instance ToXML ListInvalidations where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListInvalidationsRequest"
 
+-- | The returned result of the corresponding request.
 newtype ListInvalidationsResponse = ListInvalidationsResponse
-    { _lisInvalidationList :: Maybe InvalidationList
-      -- ^ Information about invalidation batches.
+    { _lirsInvalidationList :: Maybe InvalidationList
     } deriving (Show, Generic)
 
 -- | Information about invalidation batches.
-lisInvalidationList :: Lens' ListInvalidationsResponse (Maybe InvalidationList)
-lisInvalidationList = lens _lisInvalidationList (\s a -> s { _lisInvalidationList = a })
-{-# INLINE lisInvalidationList #-}
+lirsInvalidationList :: Lens' ListInvalidationsResponse (Maybe InvalidationList)
+lirsInvalidationList =
+    lens _lirsInvalidationList (\s a -> s { _lirsInvalidationList = a })
+{-# INLINE lirsInvalidationList #-}
 
 instance FromXML ListInvalidationsResponse where
     fromXMLOptions = xmlOptions
@@ -129,7 +122,7 @@ instance AWSRequest ListInvalidations where
 
 instance AWSPager ListInvalidations where
     next rq rs
-        | not (_ilIsTruncated $ _lisInvalidationList rs) = Nothing
+        | not (_ilIsTruncated $ _lirsInvalidationList rs) = Nothing
         | otherwise = Just $ rq
-            { _lirMarker = _ilNextMarker $ _lisInvalidationList rs
+            { _liMarker = _ilNextMarker $ _lirsInvalidationList rs
             }

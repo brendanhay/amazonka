@@ -34,11 +34,11 @@ module Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
     -- * Request
       UpdateServerCertificate
     -- ** Request constructor
-    , mkUpdateServerCertificateRequest
+    , mkUpdateServerCertificate
     -- ** Request lenses
-    , uscrServerCertificateName
-    , uscrNewPath
-    , uscrNewServerCertificateName
+    , uscServerCertificateName
+    , uscNewPath
+    , uscNewServerCertificateName
 
     -- * Response
     , UpdateServerCertificateResponse
@@ -48,44 +48,44 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateServerCertificate' request.
-mkUpdateServerCertificateRequest :: Text -- ^ 'uscrServerCertificateName'
-                                 -> UpdateServerCertificate
-mkUpdateServerCertificateRequest p1 = UpdateServerCertificate
-    { _uscrServerCertificateName = p1
-    , _uscrNewPath = Nothing
-    , _uscrNewServerCertificateName = Nothing
-    }
-{-# INLINE mkUpdateServerCertificateRequest #-}
-
+-- | 
 data UpdateServerCertificate = UpdateServerCertificate
-    { _uscrServerCertificateName :: Text
-      -- ^ The name of the server certificate that you want to update.
-    , _uscrNewPath :: Maybe Text
-      -- ^ The new path for the server certificate. Include this only if you
-      -- are updating the server certificate's path.
-    , _uscrNewServerCertificateName :: Maybe Text
-      -- ^ The new name for the server certificate. Include this only if you
-      -- are updating the server certificate's name.
+    { _uscServerCertificateName :: Text
+    , _uscNewPath :: Maybe Text
+    , _uscNewServerCertificateName :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateServerCertificate' request.
+mkUpdateServerCertificate :: Text -- ^ 'uscServerCertificateName'
+                          -> UpdateServerCertificate
+mkUpdateServerCertificate p1 = UpdateServerCertificate
+    { _uscServerCertificateName = p1
+    , _uscNewPath = Nothing
+    , _uscNewServerCertificateName = Nothing
+    }
+{-# INLINE mkUpdateServerCertificate #-}
+
 -- | The name of the server certificate that you want to update.
-uscrServerCertificateName :: Lens' UpdateServerCertificate (Text)
-uscrServerCertificateName = lens _uscrServerCertificateName (\s a -> s { _uscrServerCertificateName = a })
-{-# INLINE uscrServerCertificateName #-}
+uscServerCertificateName :: Lens' UpdateServerCertificate Text
+uscServerCertificateName =
+    lens _uscServerCertificateName
+         (\s a -> s { _uscServerCertificateName = a })
+{-# INLINE uscServerCertificateName #-}
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate's path.
-uscrNewPath :: Lens' UpdateServerCertificate (Maybe Text)
-uscrNewPath = lens _uscrNewPath (\s a -> s { _uscrNewPath = a })
-{-# INLINE uscrNewPath #-}
+uscNewPath :: Lens' UpdateServerCertificate (Maybe Text)
+uscNewPath = lens _uscNewPath (\s a -> s { _uscNewPath = a })
+{-# INLINE uscNewPath #-}
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate's name.
-uscrNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
-uscrNewServerCertificateName = lens _uscrNewServerCertificateName (\s a -> s { _uscrNewServerCertificateName = a })
-{-# INLINE uscrNewServerCertificateName #-}
+uscNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
+uscNewServerCertificateName =
+    lens _uscNewServerCertificateName
+         (\s a -> s { _uscNewServerCertificateName = a })
+{-# INLINE uscNewServerCertificateName #-}
 
 instance ToQuery UpdateServerCertificate where
     toQuery = genericQuery def

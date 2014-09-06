@@ -42,15 +42,15 @@ module Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage
     -- * Request
       AddWorkingStorage
     -- ** Request constructor
-    , mkAddWorkingStorageInput
+    , mkAddWorkingStorage
     -- ** Request lenses
-    , awsiGatewayARN
-    , awsiDiskIds
+    , awsGatewayARN
+    , awsDiskIds
 
     -- * Response
     , AddWorkingStorageResponse
     -- ** Response lenses
-    , awsoGatewayARN
+    , awsrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -58,41 +58,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing one or more of the following fields:
+-- AddWorkingStorageInput$DiskIds.
+data AddWorkingStorage = AddWorkingStorage
+    { _awsGatewayARN :: Text
+    , _awsDiskIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddWorkingStorage' request.
-mkAddWorkingStorageInput :: Text -- ^ 'awsiGatewayARN'
-                         -> [Text] -- ^ 'awsiDiskIds'
-                         -> AddWorkingStorage
-mkAddWorkingStorageInput p1 p2 = AddWorkingStorage
-    { _awsiGatewayARN = p1
-    , _awsiDiskIds = p2
+mkAddWorkingStorage :: Text -- ^ 'awsGatewayARN'
+                    -> [Text] -- ^ 'awsDiskIds'
+                    -> AddWorkingStorage
+mkAddWorkingStorage p1 p2 = AddWorkingStorage
+    { _awsGatewayARN = p1
+    , _awsDiskIds = p2
     }
-{-# INLINE mkAddWorkingStorageInput #-}
-
-data AddWorkingStorage = AddWorkingStorage
-    { _awsiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _awsiDiskIds :: [Text]
-      -- ^ An array of strings that identify disks that are to be configured
-      -- as working storage. Each string have a minimum length of 1 and
-      -- maximum length of 300. You can get the disk IDs from the
-      -- ListLocalDisks API.
-    } deriving (Show, Generic)
+{-# INLINE mkAddWorkingStorage #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-awsiGatewayARN :: Lens' AddWorkingStorage (Text)
-awsiGatewayARN = lens _awsiGatewayARN (\s a -> s { _awsiGatewayARN = a })
-{-# INLINE awsiGatewayARN #-}
+awsGatewayARN :: Lens' AddWorkingStorage Text
+awsGatewayARN = lens _awsGatewayARN (\s a -> s { _awsGatewayARN = a })
+{-# INLINE awsGatewayARN #-}
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string have a minimum length of 1 and maximum length
 -- of 300. You can get the disk IDs from the ListLocalDisks API.
-awsiDiskIds :: Lens' AddWorkingStorage ([Text])
-awsiDiskIds = lens _awsiDiskIds (\s a -> s { _awsiDiskIds = a })
-{-# INLINE awsiDiskIds #-}
+awsDiskIds :: Lens' AddWorkingStorage [Text]
+awsDiskIds = lens _awsDiskIds (\s a -> s { _awsDiskIds = a })
+{-# INLINE awsDiskIds #-}
 
 instance ToPath AddWorkingStorage
 
@@ -102,18 +97,17 @@ instance ToHeaders AddWorkingStorage
 
 instance ToJSON AddWorkingStorage
 
+-- | A JSON object containing the of the gateway for which working storage was
+-- configured.
 newtype AddWorkingStorageResponse = AddWorkingStorageResponse
-    { _awsoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _awsrsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-awsoGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
-awsoGatewayARN = lens _awsoGatewayARN (\s a -> s { _awsoGatewayARN = a })
-{-# INLINE awsoGatewayARN #-}
+awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
+awsrsGatewayARN = lens _awsrsGatewayARN (\s a -> s { _awsrsGatewayARN = a })
+{-# INLINE awsrsGatewayARN #-}
 
 instance FromJSON AddWorkingStorageResponse
 

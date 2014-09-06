@@ -40,14 +40,14 @@ module Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock
     -- * Request
       EnableDomainTransferLock
     -- ** Request constructor
-    , mkEnableDomainTransferLockRequest
+    , mkEnableDomainTransferLock
     -- ** Request lenses
-    , edtlrDomainName
+    , edtlDomainName
 
     -- * Response
     , EnableDomainTransferLockResponse
     -- ** Response lenses
-    , edtlsOperationId
+    , edtlrsOperationId
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -55,30 +55,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The EnableDomainTransferLock request includes the following element.
+newtype EnableDomainTransferLock = EnableDomainTransferLock
+    { _edtlDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableDomainTransferLock' request.
-mkEnableDomainTransferLockRequest :: Text -- ^ 'edtlrDomainName'
-                                  -> EnableDomainTransferLock
-mkEnableDomainTransferLockRequest p1 = EnableDomainTransferLock
-    { _edtlrDomainName = p1
+mkEnableDomainTransferLock :: Text -- ^ 'edtlDomainName'
+                           -> EnableDomainTransferLock
+mkEnableDomainTransferLock p1 = EnableDomainTransferLock
+    { _edtlDomainName = p1
     }
-{-# INLINE mkEnableDomainTransferLockRequest #-}
-
-newtype EnableDomainTransferLock = EnableDomainTransferLock
-    { _edtlrDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    } deriving (Show, Generic)
+{-# INLINE mkEnableDomainTransferLock #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-edtlrDomainName :: Lens' EnableDomainTransferLock (Text)
-edtlrDomainName = lens _edtlrDomainName (\s a -> s { _edtlrDomainName = a })
-{-# INLINE edtlrDomainName #-}
+edtlDomainName :: Lens' EnableDomainTransferLock Text
+edtlDomainName = lens _edtlDomainName (\s a -> s { _edtlDomainName = a })
+{-# INLINE edtlDomainName #-}
 
 instance ToPath EnableDomainTransferLock
 
@@ -88,19 +85,18 @@ instance ToHeaders EnableDomainTransferLock
 
 instance ToJSON EnableDomainTransferLock
 
+-- | The EnableDomainTransferLock response includes the following elements.
 newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
-    { _edtlsOperationId :: Text
-      -- ^ Identifier for tracking the progress of the request. To use this
-      -- ID to query the operation status, use GetOperationDetail. Type:
-      -- String Default: None Constraints: Maximum 255 characters.
+    { _edtlrsOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-edtlsOperationId :: Lens' EnableDomainTransferLockResponse (Text)
-edtlsOperationId = lens _edtlsOperationId (\s a -> s { _edtlsOperationId = a })
-{-# INLINE edtlsOperationId #-}
+edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
+edtlrsOperationId =
+    lens _edtlrsOperationId (\s a -> s { _edtlrsOperationId = a })
+{-# INLINE edtlrsOperationId #-}
 
 instance FromJSON EnableDomainTransferLockResponse
 

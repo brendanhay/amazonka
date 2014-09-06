@@ -26,22 +26,22 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateLayer
     -- * Request
       UpdateLayer
     -- ** Request constructor
-    , mkUpdateLayerRequest
+    , mkUpdateLayer
     -- ** Request lenses
-    , ulrLayerId
-    , ulrName
-    , ulrShortname
-    , ulrAttributes
-    , ulrCustomInstanceProfileArn
-    , ulrCustomSecurityGroupIds
-    , ulrPackages
-    , ulrVolumeConfigurations
-    , ulrEnableAutoHealing
-    , ulrAutoAssignElasticIps
-    , ulrAutoAssignPublicIps
-    , ulrCustomRecipes
-    , ulrInstallUpdatesOnBoot
-    , ulrUseEbsOptimizedInstances
+    , ulLayerId
+    , ulName
+    , ulShortname
+    , ulAttributes
+    , ulCustomInstanceProfileArn
+    , ulCustomSecurityGroupIds
+    , ulPackages
+    , ulVolumeConfigurations
+    , ulEnableAutoHealing
+    , ulAutoAssignElasticIps
+    , ulAutoAssignPublicIps
+    , ulCustomRecipes
+    , ulInstallUpdatesOnBoot
+    , ulUseEbsOptimizedInstances
 
     -- * Response
     , UpdateLayerResponse
@@ -52,146 +52,121 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateLayer' request.
-mkUpdateLayerRequest :: Text -- ^ 'ulrLayerId'
-                     -> UpdateLayer
-mkUpdateLayerRequest p1 = UpdateLayer
-    { _ulrLayerId = p1
-    , _ulrName = Nothing
-    , _ulrShortname = Nothing
-    , _ulrAttributes = mempty
-    , _ulrCustomInstanceProfileArn = Nothing
-    , _ulrCustomSecurityGroupIds = mempty
-    , _ulrPackages = mempty
-    , _ulrVolumeConfigurations = mempty
-    , _ulrEnableAutoHealing = Nothing
-    , _ulrAutoAssignElasticIps = Nothing
-    , _ulrAutoAssignPublicIps = Nothing
-    , _ulrCustomRecipes = Nothing
-    , _ulrInstallUpdatesOnBoot = Nothing
-    , _ulrUseEbsOptimizedInstances = Nothing
-    }
-{-# INLINE mkUpdateLayerRequest #-}
-
 data UpdateLayer = UpdateLayer
-    { _ulrLayerId :: Text
-      -- ^ The layer ID.
-    , _ulrName :: Maybe Text
-      -- ^ The layer name, which is used by the console.
-    , _ulrShortname :: Maybe Text
-      -- ^ The layer short name, which is used internally by AWS OpsWorksand
-      -- by Chef. The short name is also used as the name for the
-      -- directory where your app files are installed. It can have a
-      -- maximum of 200 characters and must be in the following format:
-      -- /\A[a-z0-9\-\_\.]+\Z/.
-    , _ulrAttributes :: Map LayerAttributesKeys Text
-      -- ^ One or more user-defined key/value pairs to be added to the stack
-      -- attributes.
-    , _ulrCustomInstanceProfileArn :: Maybe Text
-      -- ^ The ARN of an IAM profile to be used for all of the layer's EC2
-      -- instances. For more information about IAM ARNs, see Using
-      -- Identifiers.
-    , _ulrCustomSecurityGroupIds :: [Text]
-      -- ^ An array containing the layer's custom security group IDs.
-    , _ulrPackages :: [Text]
-      -- ^ An array of Package objects that describe the layer's packages.
-    , _ulrVolumeConfigurations :: [VolumeConfiguration]
-      -- ^ A VolumeConfigurations object that describes the layer's Amazon
-      -- EBS volumes.
-    , _ulrEnableAutoHealing :: Maybe Bool
-      -- ^ Whether to disable auto healing for the layer.
-    , _ulrAutoAssignElasticIps :: Maybe Bool
-      -- ^ Whether to automatically assign an Elastic IP address to the
-      -- layer's instances. For more information, see How to Edit a Layer.
-    , _ulrAutoAssignPublicIps :: Maybe Bool
-      -- ^ For stacks that are running in a VPC, whether to automatically
-      -- assign a public IP address to the layer's instances. For more
-      -- information, see How to Edit a Layer.
-    , _ulrCustomRecipes :: Maybe Recipes
-      -- ^ A LayerCustomRecipes object that specifies the layer's custom
-      -- recipes.
-    , _ulrInstallUpdatesOnBoot :: Maybe Bool
-      -- ^ Whether to install operating system and package updates when the
-      -- instance boots. The default value is true. To control when
-      -- updates are installed, set this value to false. You must then
-      -- update your instances manually by using CreateDeployment to run
-      -- the update_dependencies stack command or manually running yum
-      -- (Amazon Linux) or apt-get (Ubuntu) on the instances. We strongly
-      -- recommend using the default value of true, to ensure that your
-      -- instances have the latest security updates.
-    , _ulrUseEbsOptimizedInstances :: Maybe Bool
-      -- ^ Whether to use Amazon EBS-optimized instances.
+    { _ulLayerId :: Text
+    , _ulName :: Maybe Text
+    , _ulShortname :: Maybe Text
+    , _ulAttributes :: Map LayerAttributesKeys Text
+    , _ulCustomInstanceProfileArn :: Maybe Text
+    , _ulCustomSecurityGroupIds :: [Text]
+    , _ulPackages :: [Text]
+    , _ulVolumeConfigurations :: [VolumeConfiguration]
+    , _ulEnableAutoHealing :: Maybe Bool
+    , _ulAutoAssignElasticIps :: Maybe Bool
+    , _ulAutoAssignPublicIps :: Maybe Bool
+    , _ulCustomRecipes :: Maybe Recipes
+    , _ulInstallUpdatesOnBoot :: Maybe Bool
+    , _ulUseEbsOptimizedInstances :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateLayer' request.
+mkUpdateLayer :: Text -- ^ 'ulLayerId'
+              -> UpdateLayer
+mkUpdateLayer p1 = UpdateLayer
+    { _ulLayerId = p1
+    , _ulName = Nothing
+    , _ulShortname = Nothing
+    , _ulAttributes = mempty
+    , _ulCustomInstanceProfileArn = Nothing
+    , _ulCustomSecurityGroupIds = mempty
+    , _ulPackages = mempty
+    , _ulVolumeConfigurations = mempty
+    , _ulEnableAutoHealing = Nothing
+    , _ulAutoAssignElasticIps = Nothing
+    , _ulAutoAssignPublicIps = Nothing
+    , _ulCustomRecipes = Nothing
+    , _ulInstallUpdatesOnBoot = Nothing
+    , _ulUseEbsOptimizedInstances = Nothing
+    }
+{-# INLINE mkUpdateLayer #-}
+
 -- | The layer ID.
-ulrLayerId :: Lens' UpdateLayer (Text)
-ulrLayerId = lens _ulrLayerId (\s a -> s { _ulrLayerId = a })
-{-# INLINE ulrLayerId #-}
+ulLayerId :: Lens' UpdateLayer Text
+ulLayerId = lens _ulLayerId (\s a -> s { _ulLayerId = a })
+{-# INLINE ulLayerId #-}
 
 -- | The layer name, which is used by the console.
-ulrName :: Lens' UpdateLayer (Maybe Text)
-ulrName = lens _ulrName (\s a -> s { _ulrName = a })
-{-# INLINE ulrName #-}
+ulName :: Lens' UpdateLayer (Maybe Text)
+ulName = lens _ulName (\s a -> s { _ulName = a })
+{-# INLINE ulName #-}
 
 -- | The layer short name, which is used internally by AWS OpsWorksand by Chef.
 -- The short name is also used as the name for the directory where your app
 -- files are installed. It can have a maximum of 200 characters and must be in
 -- the following format: /\A[a-z0-9\-\_\.]+\Z/.
-ulrShortname :: Lens' UpdateLayer (Maybe Text)
-ulrShortname = lens _ulrShortname (\s a -> s { _ulrShortname = a })
-{-# INLINE ulrShortname #-}
+ulShortname :: Lens' UpdateLayer (Maybe Text)
+ulShortname = lens _ulShortname (\s a -> s { _ulShortname = a })
+{-# INLINE ulShortname #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-ulrAttributes :: Lens' UpdateLayer (Map LayerAttributesKeys Text)
-ulrAttributes = lens _ulrAttributes (\s a -> s { _ulrAttributes = a })
-{-# INLINE ulrAttributes #-}
+ulAttributes :: Lens' UpdateLayer (Map LayerAttributesKeys Text)
+ulAttributes = lens _ulAttributes (\s a -> s { _ulAttributes = a })
+{-# INLINE ulAttributes #-}
 
 -- | The ARN of an IAM profile to be used for all of the layer's EC2 instances.
 -- For more information about IAM ARNs, see Using Identifiers.
-ulrCustomInstanceProfileArn :: Lens' UpdateLayer (Maybe Text)
-ulrCustomInstanceProfileArn = lens _ulrCustomInstanceProfileArn (\s a -> s { _ulrCustomInstanceProfileArn = a })
-{-# INLINE ulrCustomInstanceProfileArn #-}
+ulCustomInstanceProfileArn :: Lens' UpdateLayer (Maybe Text)
+ulCustomInstanceProfileArn =
+    lens _ulCustomInstanceProfileArn
+         (\s a -> s { _ulCustomInstanceProfileArn = a })
+{-# INLINE ulCustomInstanceProfileArn #-}
 
 -- | An array containing the layer's custom security group IDs.
-ulrCustomSecurityGroupIds :: Lens' UpdateLayer ([Text])
-ulrCustomSecurityGroupIds = lens _ulrCustomSecurityGroupIds (\s a -> s { _ulrCustomSecurityGroupIds = a })
-{-# INLINE ulrCustomSecurityGroupIds #-}
+ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
+ulCustomSecurityGroupIds =
+    lens _ulCustomSecurityGroupIds
+         (\s a -> s { _ulCustomSecurityGroupIds = a })
+{-# INLINE ulCustomSecurityGroupIds #-}
 
 -- | An array of Package objects that describe the layer's packages.
-ulrPackages :: Lens' UpdateLayer ([Text])
-ulrPackages = lens _ulrPackages (\s a -> s { _ulrPackages = a })
-{-# INLINE ulrPackages #-}
+ulPackages :: Lens' UpdateLayer [Text]
+ulPackages = lens _ulPackages (\s a -> s { _ulPackages = a })
+{-# INLINE ulPackages #-}
 
 -- | A VolumeConfigurations object that describes the layer's Amazon EBS
 -- volumes.
-ulrVolumeConfigurations :: Lens' UpdateLayer ([VolumeConfiguration])
-ulrVolumeConfigurations = lens _ulrVolumeConfigurations (\s a -> s { _ulrVolumeConfigurations = a })
-{-# INLINE ulrVolumeConfigurations #-}
+ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
+ulVolumeConfigurations =
+    lens _ulVolumeConfigurations (\s a -> s { _ulVolumeConfigurations = a })
+{-# INLINE ulVolumeConfigurations #-}
 
 -- | Whether to disable auto healing for the layer.
-ulrEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
-ulrEnableAutoHealing = lens _ulrEnableAutoHealing (\s a -> s { _ulrEnableAutoHealing = a })
-{-# INLINE ulrEnableAutoHealing #-}
+ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
+ulEnableAutoHealing =
+    lens _ulEnableAutoHealing (\s a -> s { _ulEnableAutoHealing = a })
+{-# INLINE ulEnableAutoHealing #-}
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
-ulrAutoAssignElasticIps :: Lens' UpdateLayer (Maybe Bool)
-ulrAutoAssignElasticIps = lens _ulrAutoAssignElasticIps (\s a -> s { _ulrAutoAssignElasticIps = a })
-{-# INLINE ulrAutoAssignElasticIps #-}
+ulAutoAssignElasticIps :: Lens' UpdateLayer (Maybe Bool)
+ulAutoAssignElasticIps =
+    lens _ulAutoAssignElasticIps (\s a -> s { _ulAutoAssignElasticIps = a })
+{-# INLINE ulAutoAssignElasticIps #-}
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer's instances. For more information, see How
 -- to Edit a Layer.
-ulrAutoAssignPublicIps :: Lens' UpdateLayer (Maybe Bool)
-ulrAutoAssignPublicIps = lens _ulrAutoAssignPublicIps (\s a -> s { _ulrAutoAssignPublicIps = a })
-{-# INLINE ulrAutoAssignPublicIps #-}
+ulAutoAssignPublicIps :: Lens' UpdateLayer (Maybe Bool)
+ulAutoAssignPublicIps =
+    lens _ulAutoAssignPublicIps (\s a -> s { _ulAutoAssignPublicIps = a })
+{-# INLINE ulAutoAssignPublicIps #-}
 
 -- | A LayerCustomRecipes object that specifies the layer's custom recipes.
-ulrCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
-ulrCustomRecipes = lens _ulrCustomRecipes (\s a -> s { _ulrCustomRecipes = a })
-{-# INLINE ulrCustomRecipes #-}
+ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
+ulCustomRecipes = lens _ulCustomRecipes (\s a -> s { _ulCustomRecipes = a })
+{-# INLINE ulCustomRecipes #-}
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. To control when updates are installed,
@@ -200,14 +175,17 @@ ulrCustomRecipes = lens _ulrCustomRecipes (\s a -> s { _ulrCustomRecipes = a })
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 -- We strongly recommend using the default value of true, to ensure that your
 -- instances have the latest security updates.
-ulrInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
-ulrInstallUpdatesOnBoot = lens _ulrInstallUpdatesOnBoot (\s a -> s { _ulrInstallUpdatesOnBoot = a })
-{-# INLINE ulrInstallUpdatesOnBoot #-}
+ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
+ulInstallUpdatesOnBoot =
+    lens _ulInstallUpdatesOnBoot (\s a -> s { _ulInstallUpdatesOnBoot = a })
+{-# INLINE ulInstallUpdatesOnBoot #-}
 
 -- | Whether to use Amazon EBS-optimized instances.
-ulrUseEbsOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
-ulrUseEbsOptimizedInstances = lens _ulrUseEbsOptimizedInstances (\s a -> s { _ulrUseEbsOptimizedInstances = a })
-{-# INLINE ulrUseEbsOptimizedInstances #-}
+ulUseEbsOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
+ulUseEbsOptimizedInstances =
+    lens _ulUseEbsOptimizedInstances
+         (\s a -> s { _ulUseEbsOptimizedInstances = a })
+{-# INLINE ulUseEbsOptimizedInstances #-}
 
 instance ToPath UpdateLayer
 

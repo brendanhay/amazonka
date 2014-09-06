@@ -33,9 +33,9 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup
     -- * Request
       DeleteClusterSecurityGroup
     -- ** Request constructor
-    , mkDeleteClusterSecurityGroupMessage
+    , mkDeleteClusterSecurityGroup
     -- ** Request lenses
-    , dcsgmClusterSecurityGroupName
+    , dcsgClusterSecurityGroupName
 
     -- * Response
     , DeleteClusterSecurityGroupResponse
@@ -45,24 +45,26 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteClusterSecurityGroup' request.
-mkDeleteClusterSecurityGroupMessage :: Text -- ^ 'dcsgmClusterSecurityGroupName'
-                                    -> DeleteClusterSecurityGroup
-mkDeleteClusterSecurityGroupMessage p1 = DeleteClusterSecurityGroup
-    { _dcsgmClusterSecurityGroupName = p1
-    }
-{-# INLINE mkDeleteClusterSecurityGroupMessage #-}
-
+-- | 
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
-    { _dcsgmClusterSecurityGroupName :: Text
-      -- ^ The name of the cluster security group to be deleted.
+    { _dcsgClusterSecurityGroupName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterSecurityGroup' request.
+mkDeleteClusterSecurityGroup :: Text -- ^ 'dcsgClusterSecurityGroupName'
+                             -> DeleteClusterSecurityGroup
+mkDeleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
+    { _dcsgClusterSecurityGroupName = p1
+    }
+{-# INLINE mkDeleteClusterSecurityGroup #-}
+
 -- | The name of the cluster security group to be deleted.
-dcsgmClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup (Text)
-dcsgmClusterSecurityGroupName = lens _dcsgmClusterSecurityGroupName (\s a -> s { _dcsgmClusterSecurityGroupName = a })
-{-# INLINE dcsgmClusterSecurityGroupName #-}
+dcsgClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
+dcsgClusterSecurityGroupName =
+    lens _dcsgClusterSecurityGroupName
+         (\s a -> s { _dcsgClusterSecurityGroupName = a })
+{-# INLINE dcsgClusterSecurityGroupName #-}
 
 instance ToQuery DeleteClusterSecurityGroup where
     toQuery = genericQuery def

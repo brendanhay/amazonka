@@ -30,14 +30,14 @@ module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
     -- * Request
       RefreshTrustedAdvisorCheck
     -- ** Request constructor
-    , mkRefreshTrustedAdvisorCheckRequest
+    , mkRefreshTrustedAdvisorCheck
     -- ** Request lenses
-    , rtacrCheckId
+    , rtacCheckId
 
     -- * Response
     , RefreshTrustedAdvisorCheckResponse
     -- ** Response lenses
-    , rtacsStatus
+    , rtacrsStatus
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -45,24 +45,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RefreshTrustedAdvisorCheck' request.
-mkRefreshTrustedAdvisorCheckRequest :: Text -- ^ 'rtacrCheckId'
-                                    -> RefreshTrustedAdvisorCheck
-mkRefreshTrustedAdvisorCheckRequest p1 = RefreshTrustedAdvisorCheck
-    { _rtacrCheckId = p1
-    }
-{-# INLINE mkRefreshTrustedAdvisorCheckRequest #-}
-
+-- | 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
-    { _rtacrCheckId :: Text
-      -- ^ The unique identifier for the Trusted Advisor check.
+    { _rtacCheckId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RefreshTrustedAdvisorCheck' request.
+mkRefreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
+                             -> RefreshTrustedAdvisorCheck
+mkRefreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
+    { _rtacCheckId = p1
+    }
+{-# INLINE mkRefreshTrustedAdvisorCheck #-}
+
 -- | The unique identifier for the Trusted Advisor check.
-rtacrCheckId :: Lens' RefreshTrustedAdvisorCheck (Text)
-rtacrCheckId = lens _rtacrCheckId (\s a -> s { _rtacrCheckId = a })
-{-# INLINE rtacrCheckId #-}
+rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
+rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
+{-# INLINE rtacCheckId #-}
 
 instance ToPath RefreshTrustedAdvisorCheck
 
@@ -72,17 +72,16 @@ instance ToHeaders RefreshTrustedAdvisorCheck
 
 instance ToJSON RefreshTrustedAdvisorCheck
 
+-- | The current refresh status of a Trusted Advisor check.
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
-    { _rtacsStatus :: TrustedAdvisorCheckRefreshStatus
-      -- ^ The current refresh status for a check, including the amount of
-      -- time until the check is eligible for refresh.
+    { _rtacrsStatus :: TrustedAdvisorCheckRefreshStatus
     } deriving (Show, Generic)
 
 -- | The current refresh status for a check, including the amount of time until
 -- the check is eligible for refresh.
-rtacsStatus :: Lens' RefreshTrustedAdvisorCheckResponse (TrustedAdvisorCheckRefreshStatus)
-rtacsStatus = lens _rtacsStatus (\s a -> s { _rtacsStatus = a })
-{-# INLINE rtacsStatus #-}
+rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
+rtacrsStatus = lens _rtacrsStatus (\s a -> s { _rtacrsStatus = a })
+{-# INLINE rtacrsStatus #-}
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse
 

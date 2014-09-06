@@ -26,196 +26,177 @@ module Network.AWS.ImportExport.V2010_06_01.GetStatus
     -- * Request
       GetStatus
     -- ** Request constructor
-    , mkGetStatusInput
+    , mkGetStatus
     -- ** Request lenses
-    , gsiJobId
+    , gsJobId
 
     -- * Response
     , GetStatusResponse
     -- ** Response lenses
-    , gsoJobId
-    , gsoJobType
-    , gsoAwsShippingAddress
-    , gsoLocationCode
-    , gsoLocationMessage
-    , gsoProgressCode
-    , gsoProgressMessage
-    , gsoCarrier
-    , gsoTrackingNumber
-    , gsoLogBucket
-    , gsoLogKey
-    , gsoErrorCount
-    , gsoSignature
-    , gsoSignatureFileContents
-    , gsoCurrentManifest
-    , gsoCreationDate
+    , gsrsJobId
+    , gsrsJobType
+    , gsrsAwsShippingAddress
+    , gsrsLocationCode
+    , gsrsLocationMessage
+    , gsrsProgressCode
+    , gsrsProgressMessage
+    , gsrsCarrier
+    , gsrsTrackingNumber
+    , gsrsLogBucket
+    , gsrsLogKey
+    , gsrsErrorCount
+    , gsrsSignature
+    , gsrsSignatureFileContents
+    , gsrsCurrentManifest
+    , gsrsCreationDate
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetStatus' request.
-mkGetStatusInput :: Text -- ^ 'gsiJobId'
-                 -> GetStatus
-mkGetStatusInput p1 = GetStatus
-    { _gsiJobId = p1
-    }
-{-# INLINE mkGetStatusInput #-}
-
+-- | Input structure for the GetStatus operation.
 newtype GetStatus = GetStatus
-    { _gsiJobId :: Text
-      -- ^ A unique identifier which refers to a particular job.
+    { _gsJobId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetStatus' request.
+mkGetStatus :: Text -- ^ 'gsJobId'
+            -> GetStatus
+mkGetStatus p1 = GetStatus
+    { _gsJobId = p1
+    }
+{-# INLINE mkGetStatus #-}
+
 -- | A unique identifier which refers to a particular job.
-gsiJobId :: Lens' GetStatus (Text)
-gsiJobId = lens _gsiJobId (\s a -> s { _gsiJobId = a })
-{-# INLINE gsiJobId #-}
+gsJobId :: Lens' GetStatus Text
+gsJobId = lens _gsJobId (\s a -> s { _gsJobId = a })
+{-# INLINE gsJobId #-}
 
 instance ToQuery GetStatus where
     toQuery = genericQuery def
 
+-- | Output structure for the GetStatus operation.
 data GetStatusResponse = GetStatusResponse
-    { _gsoJobId :: Maybe Text
-      -- ^ A unique identifier which refers to a particular job.
-    , _gsoJobType :: Maybe JobType
-      -- ^ Specifies whether the job to initiate is an import or export job.
-    , _gsoAwsShippingAddress :: Maybe Text
-      -- ^ Address you ship your storage device to.
-    , _gsoLocationCode :: Maybe Text
-      -- ^ A token representing the location of the storage device, such as
-      -- "AtAWS".
-    , _gsoLocationMessage :: Maybe Text
-      -- ^ A more human readable form of the physical location of the
-      -- storage device.
-    , _gsoProgressCode :: Maybe Text
-      -- ^ A token representing the state of the job, such as "Started".
-    , _gsoProgressMessage :: Maybe Text
-      -- ^ A more human readable form of the job status.
-    , _gsoCarrier :: Maybe Text
-      -- ^ Name of the shipping company. This value is included when the
-      -- LocationCode is "Returned".
-    , _gsoTrackingNumber :: Maybe Text
-      -- ^ The shipping tracking number assigned by AWS Import/Export to the
-      -- storage device when it's returned to you. We return this value
-      -- when the LocationCode is "Returned".
-    , _gsoLogBucket :: Maybe Text
-      -- ^ Amazon S3 bucket for user logs.
-    , _gsoLogKey :: Maybe Text
-      -- ^ The key where the user logs were stored.
-    , _gsoErrorCount :: Maybe Integer
-      -- ^ Number of errors. We return this value when the ProgressCode is
-      -- Success or SuccessWithErrors.
-    , _gsoSignature :: Maybe Text
-      -- ^ An encrypted code used to authenticate the request and response,
-      -- for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value
-      -- is you want to create the signature file yourself. Generally you
-      -- should use the SignatureFileContents value.
-    , _gsoSignatureFileContents :: Maybe Text
-      -- ^ An encrypted code used to authenticate the request and response,
-      -- for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value
-      -- is you want to create the signature file yourself. Generally you
-      -- should use the SignatureFileContents value.
-    , _gsoCurrentManifest :: Maybe Text
-      -- ^ The last manifest submitted, which will be used to process the
-      -- job.
-    , _gsoCreationDate :: Maybe ISO8601
-      -- ^ Timestamp of the CreateJob request in ISO8601 date format. For
-      -- example "2010-03-28T20:27:35Z".
+    { _gsrsJobId :: Maybe Text
+    , _gsrsJobType :: Maybe JobType
+    , _gsrsAwsShippingAddress :: Maybe Text
+    , _gsrsLocationCode :: Maybe Text
+    , _gsrsLocationMessage :: Maybe Text
+    , _gsrsProgressCode :: Maybe Text
+    , _gsrsProgressMessage :: Maybe Text
+    , _gsrsCarrier :: Maybe Text
+    , _gsrsTrackingNumber :: Maybe Text
+    , _gsrsLogBucket :: Maybe Text
+    , _gsrsLogKey :: Maybe Text
+    , _gsrsErrorCount :: Maybe Integer
+    , _gsrsSignature :: Maybe Text
+    , _gsrsSignatureFileContents :: Maybe Text
+    , _gsrsCurrentManifest :: Maybe Text
+    , _gsrsCreationDate :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | A unique identifier which refers to a particular job.
-gsoJobId :: Lens' GetStatusResponse (Maybe Text)
-gsoJobId = lens _gsoJobId (\s a -> s { _gsoJobId = a })
-{-# INLINE gsoJobId #-}
+gsrsJobId :: Lens' GetStatusResponse (Maybe Text)
+gsrsJobId = lens _gsrsJobId (\s a -> s { _gsrsJobId = a })
+{-# INLINE gsrsJobId #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
-gsoJobType :: Lens' GetStatusResponse (Maybe JobType)
-gsoJobType = lens _gsoJobType (\s a -> s { _gsoJobType = a })
-{-# INLINE gsoJobType #-}
+gsrsJobType :: Lens' GetStatusResponse (Maybe JobType)
+gsrsJobType = lens _gsrsJobType (\s a -> s { _gsrsJobType = a })
+{-# INLINE gsrsJobType #-}
 
 -- | Address you ship your storage device to.
-gsoAwsShippingAddress :: Lens' GetStatusResponse (Maybe Text)
-gsoAwsShippingAddress = lens _gsoAwsShippingAddress (\s a -> s { _gsoAwsShippingAddress = a })
-{-# INLINE gsoAwsShippingAddress #-}
+gsrsAwsShippingAddress :: Lens' GetStatusResponse (Maybe Text)
+gsrsAwsShippingAddress =
+    lens _gsrsAwsShippingAddress (\s a -> s { _gsrsAwsShippingAddress = a })
+{-# INLINE gsrsAwsShippingAddress #-}
 
 -- | A token representing the location of the storage device, such as "AtAWS".
-gsoLocationCode :: Lens' GetStatusResponse (Maybe Text)
-gsoLocationCode = lens _gsoLocationCode (\s a -> s { _gsoLocationCode = a })
-{-# INLINE gsoLocationCode #-}
+gsrsLocationCode :: Lens' GetStatusResponse (Maybe Text)
+gsrsLocationCode =
+    lens _gsrsLocationCode (\s a -> s { _gsrsLocationCode = a })
+{-# INLINE gsrsLocationCode #-}
 
 -- | A more human readable form of the physical location of the storage device.
-gsoLocationMessage :: Lens' GetStatusResponse (Maybe Text)
-gsoLocationMessage = lens _gsoLocationMessage (\s a -> s { _gsoLocationMessage = a })
-{-# INLINE gsoLocationMessage #-}
+gsrsLocationMessage :: Lens' GetStatusResponse (Maybe Text)
+gsrsLocationMessage =
+    lens _gsrsLocationMessage (\s a -> s { _gsrsLocationMessage = a })
+{-# INLINE gsrsLocationMessage #-}
 
 -- | A token representing the state of the job, such as "Started".
-gsoProgressCode :: Lens' GetStatusResponse (Maybe Text)
-gsoProgressCode = lens _gsoProgressCode (\s a -> s { _gsoProgressCode = a })
-{-# INLINE gsoProgressCode #-}
+gsrsProgressCode :: Lens' GetStatusResponse (Maybe Text)
+gsrsProgressCode =
+    lens _gsrsProgressCode (\s a -> s { _gsrsProgressCode = a })
+{-# INLINE gsrsProgressCode #-}
 
 -- | A more human readable form of the job status.
-gsoProgressMessage :: Lens' GetStatusResponse (Maybe Text)
-gsoProgressMessage = lens _gsoProgressMessage (\s a -> s { _gsoProgressMessage = a })
-{-# INLINE gsoProgressMessage #-}
+gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
+gsrsProgressMessage =
+    lens _gsrsProgressMessage (\s a -> s { _gsrsProgressMessage = a })
+{-# INLINE gsrsProgressMessage #-}
 
 -- | Name of the shipping company. This value is included when the LocationCode
 -- is "Returned".
-gsoCarrier :: Lens' GetStatusResponse (Maybe Text)
-gsoCarrier = lens _gsoCarrier (\s a -> s { _gsoCarrier = a })
-{-# INLINE gsoCarrier #-}
+gsrsCarrier :: Lens' GetStatusResponse (Maybe Text)
+gsrsCarrier = lens _gsrsCarrier (\s a -> s { _gsrsCarrier = a })
+{-# INLINE gsrsCarrier #-}
 
 -- | The shipping tracking number assigned by AWS Import/Export to the storage
 -- device when it's returned to you. We return this value when the
 -- LocationCode is "Returned".
-gsoTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
-gsoTrackingNumber = lens _gsoTrackingNumber (\s a -> s { _gsoTrackingNumber = a })
-{-# INLINE gsoTrackingNumber #-}
+gsrsTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
+gsrsTrackingNumber =
+    lens _gsrsTrackingNumber (\s a -> s { _gsrsTrackingNumber = a })
+{-# INLINE gsrsTrackingNumber #-}
 
 -- | Amazon S3 bucket for user logs.
-gsoLogBucket :: Lens' GetStatusResponse (Maybe Text)
-gsoLogBucket = lens _gsoLogBucket (\s a -> s { _gsoLogBucket = a })
-{-# INLINE gsoLogBucket #-}
+gsrsLogBucket :: Lens' GetStatusResponse (Maybe Text)
+gsrsLogBucket = lens _gsrsLogBucket (\s a -> s { _gsrsLogBucket = a })
+{-# INLINE gsrsLogBucket #-}
 
 -- | The key where the user logs were stored.
-gsoLogKey :: Lens' GetStatusResponse (Maybe Text)
-gsoLogKey = lens _gsoLogKey (\s a -> s { _gsoLogKey = a })
-{-# INLINE gsoLogKey #-}
+gsrsLogKey :: Lens' GetStatusResponse (Maybe Text)
+gsrsLogKey = lens _gsrsLogKey (\s a -> s { _gsrsLogKey = a })
+{-# INLINE gsrsLogKey #-}
 
 -- | Number of errors. We return this value when the ProgressCode is Success or
 -- SuccessWithErrors.
-gsoErrorCount :: Lens' GetStatusResponse (Maybe Integer)
-gsoErrorCount = lens _gsoErrorCount (\s a -> s { _gsoErrorCount = a })
-{-# INLINE gsoErrorCount #-}
+gsrsErrorCount :: Lens' GetStatusResponse (Maybe Integer)
+gsrsErrorCount = lens _gsrsErrorCount (\s a -> s { _gsrsErrorCount = a })
+{-# INLINE gsrsErrorCount #-}
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
 -- create the signature file yourself. Generally you should use the
 -- SignatureFileContents value.
-gsoSignature :: Lens' GetStatusResponse (Maybe Text)
-gsoSignature = lens _gsoSignature (\s a -> s { _gsoSignature = a })
-{-# INLINE gsoSignature #-}
+gsrsSignature :: Lens' GetStatusResponse (Maybe Text)
+gsrsSignature = lens _gsrsSignature (\s a -> s { _gsrsSignature = a })
+{-# INLINE gsrsSignature #-}
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
 -- create the signature file yourself. Generally you should use the
 -- SignatureFileContents value.
-gsoSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
-gsoSignatureFileContents = lens _gsoSignatureFileContents (\s a -> s { _gsoSignatureFileContents = a })
-{-# INLINE gsoSignatureFileContents #-}
+gsrsSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
+gsrsSignatureFileContents =
+    lens _gsrsSignatureFileContents
+         (\s a -> s { _gsrsSignatureFileContents = a })
+{-# INLINE gsrsSignatureFileContents #-}
 
 -- | The last manifest submitted, which will be used to process the job.
-gsoCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
-gsoCurrentManifest = lens _gsoCurrentManifest (\s a -> s { _gsoCurrentManifest = a })
-{-# INLINE gsoCurrentManifest #-}
+gsrsCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
+gsrsCurrentManifest =
+    lens _gsrsCurrentManifest (\s a -> s { _gsrsCurrentManifest = a })
+{-# INLINE gsrsCurrentManifest #-}
 
 -- | Timestamp of the CreateJob request in ISO8601 date format. For example
 -- "2010-03-28T20:27:35Z".
-gsoCreationDate :: Lens' GetStatusResponse (Maybe ISO8601)
-gsoCreationDate = lens _gsoCreationDate (\s a -> s { _gsoCreationDate = a })
-{-# INLINE gsoCreationDate #-}
+gsrsCreationDate :: Lens' GetStatusResponse (Maybe ISO8601)
+gsrsCreationDate =
+    lens _gsrsCreationDate (\s a -> s { _gsrsCreationDate = a })
+{-# INLINE gsrsCreationDate #-}
 
 instance FromXML GetStatusResponse where
     fromXMLOptions = xmlOptions

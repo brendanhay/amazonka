@@ -33,11 +33,11 @@ module Network.AWS.DataPipeline.V2012_10_29.SetStatus
     -- * Request
       SetStatus
     -- ** Request constructor
-    , mkSetStatusInput
+    , mkSetStatus
     -- ** Request lenses
-    , ssiPipelineId
-    , ssiObjectIds
-    , ssiStatus
+    , ssPipelineId
+    , ssObjectIds
+    , ssStatus
 
     -- * Response
     , SetStatusResponse
@@ -48,48 +48,43 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetStatus' request.
-mkSetStatusInput :: Text -- ^ 'ssiPipelineId'
-                 -> [Text] -- ^ 'ssiObjectIds'
-                 -> Text -- ^ 'ssiStatus'
-                 -> SetStatus
-mkSetStatusInput p1 p2 p3 = SetStatus
-    { _ssiPipelineId = p1
-    , _ssiObjectIds = p2
-    , _ssiStatus = p3
-    }
-{-# INLINE mkSetStatusInput #-}
-
+-- | The input to the SetStatus action.
 data SetStatus = SetStatus
-    { _ssiPipelineId :: Text
-      -- ^ Identifies the pipeline that contains the objects.
-    , _ssiObjectIds :: [Text]
-      -- ^ Identifies an array of objects. The corresponding objects can be
-      -- either physical or components, but not a mix of both types.
-    , _ssiStatus :: Text
-      -- ^ Specifies the status to be set on all the objects in objectIds.
-      -- For components, this can be either PAUSE or RESUME. For
-      -- instances, this can be either CANCEL, RERUN, or MARK_FINISHED.
+    { _ssPipelineId :: Text
+    , _ssObjectIds :: [Text]
+    , _ssStatus :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetStatus' request.
+mkSetStatus :: Text -- ^ 'ssPipelineId'
+            -> [Text] -- ^ 'ssObjectIds'
+            -> Text -- ^ 'ssStatus'
+            -> SetStatus
+mkSetStatus p1 p2 p3 = SetStatus
+    { _ssPipelineId = p1
+    , _ssObjectIds = p2
+    , _ssStatus = p3
+    }
+{-# INLINE mkSetStatus #-}
+
 -- | Identifies the pipeline that contains the objects.
-ssiPipelineId :: Lens' SetStatus (Text)
-ssiPipelineId = lens _ssiPipelineId (\s a -> s { _ssiPipelineId = a })
-{-# INLINE ssiPipelineId #-}
+ssPipelineId :: Lens' SetStatus Text
+ssPipelineId = lens _ssPipelineId (\s a -> s { _ssPipelineId = a })
+{-# INLINE ssPipelineId #-}
 
 -- | Identifies an array of objects. The corresponding objects can be either
 -- physical or components, but not a mix of both types.
-ssiObjectIds :: Lens' SetStatus ([Text])
-ssiObjectIds = lens _ssiObjectIds (\s a -> s { _ssiObjectIds = a })
-{-# INLINE ssiObjectIds #-}
+ssObjectIds :: Lens' SetStatus [Text]
+ssObjectIds = lens _ssObjectIds (\s a -> s { _ssObjectIds = a })
+{-# INLINE ssObjectIds #-}
 
 -- | Specifies the status to be set on all the objects in objectIds. For
 -- components, this can be either PAUSE or RESUME. For instances, this can be
 -- either CANCEL, RERUN, or MARK_FINISHED.
-ssiStatus :: Lens' SetStatus (Text)
-ssiStatus = lens _ssiStatus (\s a -> s { _ssiStatus = a })
-{-# INLINE ssiStatus #-}
+ssStatus :: Lens' SetStatus Text
+ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
+{-# INLINE ssStatus #-}
 
 instance ToPath SetStatus
 

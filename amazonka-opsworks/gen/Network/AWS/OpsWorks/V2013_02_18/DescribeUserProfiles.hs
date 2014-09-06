@@ -25,14 +25,14 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
     -- * Request
       DescribeUserProfiles
     -- ** Request constructor
-    , mkDescribeUserProfilesRequest
+    , mkDescribeUserProfiles
     -- ** Request lenses
-    , dupsIamUserArns
+    , dup1IamUserArns
 
     -- * Response
     , DescribeUserProfilesResponse
     -- ** Response lenses
-    , duptUserProfiles
+    , duprsUserProfiles
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -40,24 +40,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeUserProfiles' request.
-mkDescribeUserProfilesRequest :: DescribeUserProfiles
-mkDescribeUserProfilesRequest = DescribeUserProfiles
-    { _dupsIamUserArns = mempty
-    }
-{-# INLINE mkDescribeUserProfilesRequest #-}
-
 newtype DescribeUserProfiles = DescribeUserProfiles
-    { _dupsIamUserArns :: [Text]
-      -- ^ An array of IAM user ARNs that identify the users to be
-      -- described.
+    { _dup1IamUserArns :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeUserProfiles' request.
+mkDescribeUserProfiles :: DescribeUserProfiles
+mkDescribeUserProfiles = DescribeUserProfiles
+    { _dup1IamUserArns = mempty
+    }
+{-# INLINE mkDescribeUserProfiles #-}
+
 -- | An array of IAM user ARNs that identify the users to be described.
-dupsIamUserArns :: Lens' DescribeUserProfiles ([Text])
-dupsIamUserArns = lens _dupsIamUserArns (\s a -> s { _dupsIamUserArns = a })
-{-# INLINE dupsIamUserArns #-}
+dup1IamUserArns :: Lens' DescribeUserProfiles [Text]
+dup1IamUserArns = lens _dup1IamUserArns (\s a -> s { _dup1IamUserArns = a })
+{-# INLINE dup1IamUserArns #-}
 
 instance ToPath DescribeUserProfiles
 
@@ -67,15 +65,16 @@ instance ToHeaders DescribeUserProfiles
 
 instance ToJSON DescribeUserProfiles
 
+-- | Contains the response to a DescribeUserProfiles request.
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
-    { _duptUserProfiles :: [UserProfile]
-      -- ^ A Users object that describes the specified users.
+    { _duprsUserProfiles :: [UserProfile]
     } deriving (Show, Generic)
 
 -- | A Users object that describes the specified users.
-duptUserProfiles :: Lens' DescribeUserProfilesResponse ([UserProfile])
-duptUserProfiles = lens _duptUserProfiles (\s a -> s { _duptUserProfiles = a })
-{-# INLINE duptUserProfiles #-}
+duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
+duprsUserProfiles =
+    lens _duprsUserProfiles (\s a -> s { _duprsUserProfiles = a })
+{-# INLINE duprsUserProfiles #-}
 
 instance FromJSON DescribeUserProfilesResponse
 

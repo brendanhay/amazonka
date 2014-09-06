@@ -36,60 +36,57 @@ module Network.AWS.SNS.V2010_03_31.ListTopics
     -- * Request
       ListTopics
     -- ** Request constructor
-    , mkListTopicsInput
+    , mkListTopics
     -- ** Request lenses
-    , ltiNextToken
+    , ltNextToken
 
     -- * Response
     , ListTopicsResponse
     -- ** Response lenses
-    , ltrTopics
-    , ltrNextToken
+    , ltrsTopics
+    , ltrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListTopics' request.
-mkListTopicsInput :: ListTopics
-mkListTopicsInput = ListTopics
-    { _ltiNextToken = Nothing
-    }
-{-# INLINE mkListTopicsInput #-}
-
 newtype ListTopics = ListTopics
-    { _ltiNextToken :: Maybe Text
-      -- ^ Token returned by the previous ListTopics request.
+    { _ltNextToken :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTopics' request.
+mkListTopics :: ListTopics
+mkListTopics = ListTopics
+    { _ltNextToken = Nothing
+    }
+{-# INLINE mkListTopics #-}
+
 -- | Token returned by the previous ListTopics request.
-ltiNextToken :: Lens' ListTopics (Maybe Text)
-ltiNextToken = lens _ltiNextToken (\s a -> s { _ltiNextToken = a })
-{-# INLINE ltiNextToken #-}
+ltNextToken :: Lens' ListTopics (Maybe Text)
+ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
+{-# INLINE ltNextToken #-}
 
 instance ToQuery ListTopics where
     toQuery = genericQuery def
 
+-- | Response for ListTopics action.
 data ListTopicsResponse = ListTopicsResponse
-    { _ltrTopics :: [Topic]
-      -- ^ A list of topic ARNs.
-    , _ltrNextToken :: Maybe Text
-      -- ^ Token to pass along to the next ListTopics request. This element
-      -- is returned if there are additional topics to retrieve.
+    { _ltrsTopics :: [Topic]
+    , _ltrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of topic ARNs.
-ltrTopics :: Lens' ListTopicsResponse ([Topic])
-ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
-{-# INLINE ltrTopics #-}
+ltrsTopics :: Lens' ListTopicsResponse [Topic]
+ltrsTopics = lens _ltrsTopics (\s a -> s { _ltrsTopics = a })
+{-# INLINE ltrsTopics #-}
 
 -- | Token to pass along to the next ListTopics request. This element is
 -- returned if there are additional topics to retrieve.
-ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
-ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
-{-# INLINE ltrNextToken #-}
+ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
+ltrsNextToken = lens _ltrsNextToken (\s a -> s { _ltrsNextToken = a })
+{-# INLINE ltrsNextToken #-}
 
 instance FromXML ListTopicsResponse where
     fromXMLOptions = xmlOptions
@@ -102,5 +99,5 @@ instance AWSRequest ListTopics where
     response _ = xmlResponse
 
 instance AWSPager ListTopics where
-    next rq rs = (\x -> rq { _ltiNextToken = Just x })
-        <$> (_ltrNextToken rs)
+    next rq rs = (\x -> rq { _ltNextToken = Just x })
+        <$> (_ltrsNextToken rs)

@@ -57,6 +57,7 @@ module Network.AWS.CloudSearch.V2013_01_01.Types
 
     -- * AccessPoliciesStatus
     , AccessPoliciesStatus
+    , mkAccessPoliciesStatus
     , apsOptions
     , apsStatus
 
@@ -77,32 +78,34 @@ module Network.AWS.CloudSearch.V2013_01_01.Types
 
     -- * AnalysisSchemeStatus
     , AnalysisSchemeStatus
+    , mkAnalysisSchemeStatus
     , assOptions
     , assStatus
 
     -- * AvailabilityOptionsStatus
     , AvailabilityOptionsStatus
+    , mkAvailabilityOptionsStatus
     , aosOptions
     , aosStatus
 
     -- * DateArrayOptions
     , DateArrayOptions
     , mkDateArrayOptions
-    , dapDefaultValue
-    , dapSourceFields
-    , dapFacetEnabled
-    , dapSearchEnabled
-    , dapReturnEnabled
+    , dao1DefaultValue
+    , dao1SourceFields
+    , dao1FacetEnabled
+    , dao1SearchEnabled
+    , dao1ReturnEnabled
 
     -- * DateOptions
     , DateOptions
     , mkDateOptions
-    , dvDefaultValue
-    , dvSourceField
-    , dvFacetEnabled
-    , dvSearchEnabled
-    , dvReturnEnabled
-    , dvSortEnabled
+    , do1DefaultValue
+    , do1SourceField
+    , do1FacetEnabled
+    , do1SearchEnabled
+    , do1ReturnEnabled
+    , do1SortEnabled
 
     -- * DocumentSuggesterOptions
     , DocumentSuggesterOptions
@@ -113,6 +116,7 @@ module Network.AWS.CloudSearch.V2013_01_01.Types
 
     -- * DomainStatus
     , DomainStatus
+    , mkDomainStatus
     , dsDomainId
     , dsDomainName
     , dsARN
@@ -138,21 +142,22 @@ module Network.AWS.CloudSearch.V2013_01_01.Types
     -- * DoubleOptions
     , DoubleOptions
     , mkDoubleOptions
-    , duDefaultValue
-    , duSourceField
-    , duFacetEnabled
-    , duSearchEnabled
-    , duReturnEnabled
-    , duSortEnabled
+    , doDefaultValue
+    , doSourceField
+    , doFacetEnabled
+    , doSearchEnabled
+    , doReturnEnabled
+    , doSortEnabled
 
     -- * Expression
     , Expression
     , mkExpression
-    , gExpressionName
-    , gExpressionValue
+    , eExpressionName
+    , eExpressionValue
 
     -- * ExpressionStatus
     , ExpressionStatus
+    , mkExpressionStatus
     , esOptions
     , esStatus
 
@@ -175,6 +180,7 @@ module Network.AWS.CloudSearch.V2013_01_01.Types
 
     -- * IndexFieldStatus
     , IndexFieldStatus
+    , mkIndexFieldStatus
     , ifsOptions
     , ifsStatus
 
@@ -238,23 +244,25 @@ module Network.AWS.CloudSearch.V2013_01_01.Types
     -- * ScalingParameters
     , ScalingParameters
     , mkScalingParameters
-    , sssDesiredInstanceType
-    , sssDesiredReplicationCount
-    , sssDesiredPartitionCount
+    , spDesiredInstanceType
+    , spDesiredReplicationCount
+    , spDesiredPartitionCount
 
     -- * ScalingParametersStatus
     , ScalingParametersStatus
+    , mkScalingParametersStatus
     , spsOptions
     , spsStatus
 
     -- * Suggester
     , Suggester
     , mkSuggester
-    , srSuggesterName
-    , srDocumentSuggesterOptions
+    , sSuggesterName
+    , sDocumentSuggesterOptions
 
     -- * SuggesterStatus
     , SuggesterStatus
+    , mkSuggesterStatus
     , ssOptions
     , ssStatus
 
@@ -326,10 +334,6 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "http://cloudsearch.amazonaws.com/doc/2013-01-01/"
     }
 
--- | The level of algorithmic stemming to perform: none, minimal, light, or
--- full. The available levels vary depending on the language. For more
--- information, see Language Specific Text Processing Settings in the Amazon
--- CloudSearch Developer Guide.
 data AlgorithmicStemming
     = AlgorithmicStemmingFull -- ^ full
     | AlgorithmicStemmingLight -- ^ light
@@ -360,7 +364,6 @@ instance FromXML AlgorithmicStemming where
 instance ToQuery AlgorithmicStemming where
     toQuery = genericQuery def
 
--- | An IETF RFC 4646 language code or mul for multiple languages.
 data AnalysisSchemeLanguage
     = AnalysisSchemeLanguageAr -- ^ ar
     | AnalysisSchemeLanguageBg -- ^ bg
@@ -484,9 +487,6 @@ instance FromXML AnalysisSchemeLanguage where
 instance ToQuery AnalysisSchemeLanguage where
     toQuery = genericQuery def
 
--- | The type of field. The valid options for a field depend on the field type.
--- For more information about the supported field types, see Configuring Index
--- Fields in the Amazon CloudSearch Developer Guide.
 data IndexFieldType
     = IndexFieldTypeDate -- ^ date
     | IndexFieldTypeDateArray -- ^ date-array
@@ -538,14 +538,6 @@ instance FromXML IndexFieldType where
 instance ToQuery IndexFieldType where
     toQuery = genericQuery def
 
--- | The state of processing a change to an option. Possible values:
--- RequiresIndexDocuments: the option's latest value will not be deployed
--- until IndexDocuments has been called and indexing is complete. Processing:
--- the option's latest value is in the process of being activated. Active: the
--- option's latest value is completely deployed. FailedToValidate: the option
--- value is not compatible with the domain's data and cannot be used to index
--- the data. You must either modify the option value or update or remove the
--- incompatible documents.
 data OptionState
     = OptionStateActive -- ^ Active
     | OptionStateFailedToValidate -- ^ FailedToValidate
@@ -576,8 +568,6 @@ instance FromXML OptionState where
 instance ToQuery OptionState where
     toQuery = genericQuery def
 
--- | The instance type that you want to preconfigure for your domain. For
--- example, search.m1.small.
 data PartitionInstanceType
     = PartitionInstanceTypeSearchM1Large -- ^ search.m1.large
     | PartitionInstanceTypeSearchM1Small -- ^ search.m1.small
@@ -608,11 +598,6 @@ instance FromXML PartitionInstanceType where
 instance ToQuery PartitionInstanceType where
     toQuery = genericQuery def
 
--- | The level of fuzziness allowed when suggesting matches for a string: none,
--- low, or high. With none, the specified string is treated as an exact
--- prefix. With low, suggestions must differ from the specified string by no
--- more than one character. With high, suggestions can differ by up to two
--- characters. The default is none.
 data SuggesterFuzzyMatching
     = SuggesterFuzzyMatchingHigh -- ^ high
     | SuggesterFuzzyMatchingLow -- ^ low
@@ -643,13 +628,15 @@ instance ToQuery SuggesterFuzzyMatching where
 -- | The service endpoint for updating documents in a search domain.
 newtype ServiceEndpoint = ServiceEndpoint
     { _seEndpoint :: Maybe Text
-      -- ^ The endpoint to which service requests can be submitted. For
-      -- example,
-      -- search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com
-      -- or
-      -- doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com.
-      -- 
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ServiceEndpoint' data type to populate a request.
+mkServiceEndpoint :: ServiceEndpoint
+mkServiceEndpoint = ServiceEndpoint
+    { _seEndpoint = Nothing
+    }
+{-# INLINE mkServiceEndpoint #-}
 
 -- | The endpoint to which service requests can be submitted. For example,
 -- search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com
@@ -659,14 +646,6 @@ newtype ServiceEndpoint = ServiceEndpoint
 seEndpoint :: Lens' ServiceEndpoint (Maybe Text)
 seEndpoint = lens _seEndpoint (\s a -> s { _seEndpoint = a })
 {-# INLINE seEndpoint #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ServiceEndpoint' data type to populate a request.
-mkServiceEndpoint :: ServiceEndpoint
-mkServiceEndpoint = ServiceEndpoint
-    { _seEndpoint = Nothing
-    }
-{-# INLINE mkServiceEndpoint #-}
 
 instance FromXML ServiceEndpoint where
     fromXMLOptions = xmlOptions
@@ -678,24 +657,30 @@ instance ToQuery ServiceEndpoint where
 -- | The access rules configured for the domain specified in the request.
 data AccessPoliciesStatus = AccessPoliciesStatus
     { _apsOptions :: Text
-      -- ^ Access rules for a domain's document or search service endpoints.
-      -- For more information, see Configuring Access for a Search Domain
-      -- in the Amazon CloudSearch Developer Guide. The maximum size of a
-      -- policy document is 100 KB.
     , _apsStatus :: OptionStatus
-      -- ^ The status of domain configuration option.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AccessPoliciesStatus' data type to populate a request.
+mkAccessPoliciesStatus :: Text -- ^ 'apsOptions'
+                       -> OptionStatus -- ^ 'apsStatus'
+                       -> AccessPoliciesStatus
+mkAccessPoliciesStatus p1 p2 = AccessPoliciesStatus
+    { _apsOptions = p1
+    , _apsStatus = p2
+    }
+{-# INLINE mkAccessPoliciesStatus #-}
 
 -- | Access rules for a domain's document or search service endpoints. For more
 -- information, see Configuring Access for a Search Domain in the Amazon
 -- CloudSearch Developer Guide. The maximum size of a policy document is 100
 -- KB.
-apsOptions :: Lens' AccessPoliciesStatus (Text)
+apsOptions :: Lens' AccessPoliciesStatus Text
 apsOptions = lens _apsOptions (\s a -> s { _apsOptions = a })
 {-# INLINE apsOptions #-}
 
 -- | The status of domain configuration option.
-apsStatus :: Lens' AccessPoliciesStatus (OptionStatus)
+apsStatus :: Lens' AccessPoliciesStatus OptionStatus
 apsStatus = lens _apsStatus (\s a -> s { _apsStatus = a })
 {-# INLINE apsStatus #-}
 
@@ -706,35 +691,21 @@ instance FromXML AccessPoliciesStatus where
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
 data AnalysisOptions = AnalysisOptions
     { _aoSynonyms :: Maybe Text
-      -- ^ A JSON object that defines synonym groups and aliases. A synonym
-      -- group is an array of arrays, where each sub-array is a group of
-      -- terms where each term in the group is considered a synonym of
-      -- every other term in the group. The aliases value is an object
-      -- that contains a collection of string:value pairs where the string
-      -- specifies a term and the array of values specifies each of the
-      -- aliases for that term. An alias is considered a synonym of the
-      -- specified term, but the term is not considered a synonym of the
-      -- alias. For more information about specifying synonyms, see
-      -- Synonyms in the Amazon CloudSearch Developer Guide.
     , _aoStopwords :: Maybe Text
-      -- ^ A JSON array of terms to ignore during indexing and searching.
-      -- For example, ["a", "an", "the", "of"]. The stopwords dictionary
-      -- must explicitly list each word you want to ignore. Wildcards and
-      -- regular expressions are not supported.
     , _aoStemmingDictionary :: Maybe Text
-      -- ^ A JSON object that contains a collection of string:value pairs
-      -- that each map a term to its stem. For example, {"term1": "stem1",
-      -- "term2": "stem2", "term3": "stem3"}. The stemming dictionary is
-      -- applied in addition to any algorithmic stemming. This enables you
-      -- to override the results of the algorithmic stemming to correct
-      -- specific cases of overstemming or understemming. The maximum size
-      -- of a stemming dictionary is 500 KB.
     , _aoAlgorithmicStemming :: Maybe AlgorithmicStemming
-      -- ^ The level of algorithmic stemming to perform: none, minimal,
-      -- light, or full. The available levels vary depending on the
-      -- language. For more information, see Language Specific Text
-      -- Processing Settings in the Amazon CloudSearch Developer Guide.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AnalysisOptions' data type to populate a request.
+mkAnalysisOptions :: AnalysisOptions
+mkAnalysisOptions = AnalysisOptions
+    { _aoSynonyms = Nothing
+    , _aoStopwords = Nothing
+    , _aoStemmingDictionary = Nothing
+    , _aoAlgorithmicStemming = Nothing
+    }
+{-# INLINE mkAnalysisOptions #-}
 
 -- | A JSON object that defines synonym groups and aliases. A synonym group is
 -- an array of arrays, where each sub-array is a group of terms where each
@@ -764,7 +735,8 @@ aoStopwords = lens _aoStopwords (\s a -> s { _aoStopwords = a })
 -- algorithmic stemming to correct specific cases of overstemming or
 -- understemming. The maximum size of a stemming dictionary is 500 KB.
 aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
-aoStemmingDictionary = lens _aoStemmingDictionary (\s a -> s { _aoStemmingDictionary = a })
+aoStemmingDictionary =
+    lens _aoStemmingDictionary (\s a -> s { _aoStemmingDictionary = a })
 {-# INLINE aoStemmingDictionary #-}
 
 -- | The level of algorithmic stemming to perform: none, minimal, light, or
@@ -772,19 +744,9 @@ aoStemmingDictionary = lens _aoStemmingDictionary (\s a -> s { _aoStemmingDictio
 -- information, see Language Specific Text Processing Settings in the Amazon
 -- CloudSearch Developer Guide.
 aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
-aoAlgorithmicStemming = lens _aoAlgorithmicStemming (\s a -> s { _aoAlgorithmicStemming = a })
+aoAlgorithmicStemming =
+    lens _aoAlgorithmicStemming (\s a -> s { _aoAlgorithmicStemming = a })
 {-# INLINE aoAlgorithmicStemming #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'AnalysisOptions' data type to populate a request.
-mkAnalysisOptions :: AnalysisOptions
-mkAnalysisOptions = AnalysisOptions
-    { _aoSynonyms = Nothing
-    , _aoStopwords = Nothing
-    , _aoStemmingDictionary = Nothing
-    , _aoAlgorithmicStemming = Nothing
-    }
-{-# INLINE mkAnalysisOptions #-}
 
 instance FromXML AnalysisOptions where
     fromXMLOptions = xmlOptions
@@ -799,34 +761,9 @@ instance ToQuery AnalysisOptions where
 -- Stopwords, StemmingDictionary, and AlgorithmicStemming.
 data AnalysisScheme = AnalysisScheme
     { _asAnalysisSchemeName :: Text
-      -- ^ A string that represents the name of an index field. Field names
-      -- begin with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). The name "score" is
-      -- reserved and cannot be used as a field name. To reference a
-      -- document's ID, you can use the name _id.
     , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
-      -- ^ An IETF RFC 4646 language code or mul for multiple languages.
     , _asAnalysisOptions :: Maybe AnalysisOptions
-      -- ^ Synonyms, stopwords, and stemming options for an analysis scheme.
     } deriving (Show, Generic)
-
--- | A string that represents the name of an index field. Field names begin with
--- a letter and can contain the following characters: a-z (lowercase), 0-9,
--- and _ (underscore). The name "score" is reserved and cannot be used as a
--- field name. To reference a document's ID, you can use the name _id.
-asAnalysisSchemeName :: Lens' AnalysisScheme (Text)
-asAnalysisSchemeName = lens _asAnalysisSchemeName (\s a -> s { _asAnalysisSchemeName = a })
-{-# INLINE asAnalysisSchemeName #-}
-
--- | An IETF RFC 4646 language code or mul for multiple languages.
-asAnalysisSchemeLanguage :: Lens' AnalysisScheme (AnalysisSchemeLanguage)
-asAnalysisSchemeLanguage = lens _asAnalysisSchemeLanguage (\s a -> s { _asAnalysisSchemeLanguage = a })
-{-# INLINE asAnalysisSchemeLanguage #-}
-
--- | Synonyms, stopwords, and stemming options for an analysis scheme.
-asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
-asAnalysisOptions = lens _asAnalysisOptions (\s a -> s { _asAnalysisOptions = a })
-{-# INLINE asAnalysisOptions #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AnalysisScheme' data type to populate a request.
@@ -840,6 +777,28 @@ mkAnalysisScheme p1 p2 = AnalysisScheme
     }
 {-# INLINE mkAnalysisScheme #-}
 
+-- | A string that represents the name of an index field. Field names begin with
+-- a letter and can contain the following characters: a-z (lowercase), 0-9,
+-- and _ (underscore). The name "score" is reserved and cannot be used as a
+-- field name. To reference a document's ID, you can use the name _id.
+asAnalysisSchemeName :: Lens' AnalysisScheme Text
+asAnalysisSchemeName =
+    lens _asAnalysisSchemeName (\s a -> s { _asAnalysisSchemeName = a })
+{-# INLINE asAnalysisSchemeName #-}
+
+-- | An IETF RFC 4646 language code or mul for multiple languages.
+asAnalysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
+asAnalysisSchemeLanguage =
+    lens _asAnalysisSchemeLanguage
+         (\s a -> s { _asAnalysisSchemeLanguage = a })
+{-# INLINE asAnalysisSchemeLanguage #-}
+
+-- | Synonyms, stopwords, and stemming options for an analysis scheme.
+asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
+asAnalysisOptions =
+    lens _asAnalysisOptions (\s a -> s { _asAnalysisOptions = a })
+{-# INLINE asAnalysisOptions #-}
+
 instance FromXML AnalysisScheme where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AnalysisScheme"
@@ -850,25 +809,30 @@ instance ToQuery AnalysisScheme where
 -- | The status and configuration of an AnalysisScheme.
 data AnalysisSchemeStatus = AnalysisSchemeStatus
     { _assOptions :: AnalysisScheme
-      -- ^ Configuration information for an analysis scheme. Each analysis
-      -- scheme has a unique name and specifies the language of the text
-      -- to be processed. The following options can be configured for an
-      -- analysis scheme: Synonyms, Stopwords, StemmingDictionary, and
-      -- AlgorithmicStemming.
     , _assStatus :: OptionStatus
-      -- ^ The status of domain configuration option.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AnalysisSchemeStatus' data type to populate a request.
+mkAnalysisSchemeStatus :: AnalysisScheme -- ^ 'assOptions'
+                       -> OptionStatus -- ^ 'assStatus'
+                       -> AnalysisSchemeStatus
+mkAnalysisSchemeStatus p1 p2 = AnalysisSchemeStatus
+    { _assOptions = p1
+    , _assStatus = p2
+    }
+{-# INLINE mkAnalysisSchemeStatus #-}
 
 -- | Configuration information for an analysis scheme. Each analysis scheme has
 -- a unique name and specifies the language of the text to be processed. The
 -- following options can be configured for an analysis scheme: Synonyms,
 -- Stopwords, StemmingDictionary, and AlgorithmicStemming.
-assOptions :: Lens' AnalysisSchemeStatus (AnalysisScheme)
+assOptions :: Lens' AnalysisSchemeStatus AnalysisScheme
 assOptions = lens _assOptions (\s a -> s { _assOptions = a })
 {-# INLINE assOptions #-}
 
 -- | The status of domain configuration option.
-assStatus :: Lens' AnalysisSchemeStatus (OptionStatus)
+assStatus :: Lens' AnalysisSchemeStatus OptionStatus
 assStatus = lens _assStatus (\s a -> s { _assStatus = a })
 {-# INLINE assStatus #-}
 
@@ -880,18 +844,27 @@ instance FromXML AnalysisSchemeStatus where
 -- Multi-AZ is enabled for the domain.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus
     { _aosOptions :: Bool
-      -- ^ The availability options configured for the domain.
     , _aosStatus :: OptionStatus
-      -- ^ The status of domain configuration option.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AvailabilityOptionsStatus' data type to populate a request.
+mkAvailabilityOptionsStatus :: Bool -- ^ 'aosOptions'
+                            -> OptionStatus -- ^ 'aosStatus'
+                            -> AvailabilityOptionsStatus
+mkAvailabilityOptionsStatus p1 p2 = AvailabilityOptionsStatus
+    { _aosOptions = p1
+    , _aosStatus = p2
+    }
+{-# INLINE mkAvailabilityOptionsStatus #-}
+
 -- | The availability options configured for the domain.
-aosOptions :: Lens' AvailabilityOptionsStatus (Bool)
+aosOptions :: Lens' AvailabilityOptionsStatus Bool
 aosOptions = lens _aosOptions (\s a -> s { _aosOptions = a })
 {-# INLINE aosOptions #-}
 
 -- | The status of domain configuration option.
-aosStatus :: Lens' AvailabilityOptionsStatus (OptionStatus)
+aosStatus :: Lens' AvailabilityOptionsStatus OptionStatus
 aosStatus = lens _aosStatus (\s a -> s { _aosStatus = a })
 {-# INLINE aosStatus #-}
 
@@ -903,56 +876,54 @@ instance FromXML AvailabilityOptionsStatus where
 -- IndexFieldType specifies the field is of type date-array. All options are
 -- enabled by default.
 data DateArrayOptions = DateArrayOptions
-    { _dapDefaultValue :: Maybe Text
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
-    , _dapSourceFields :: Maybe Text
-      -- ^ A list of source fields to map to the field.
-    , _dapFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
-    , _dapSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _dapReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
+    { _dao1DefaultValue :: Maybe Text
+    , _dao1SourceFields :: Maybe Text
+    , _dao1FacetEnabled :: Maybe Bool
+    , _dao1SearchEnabled :: Maybe Bool
+    , _dao1ReturnEnabled :: Maybe Bool
     } deriving (Show, Generic)
-
--- | A value to use for the field if the field isn't specified for a document.
-dapDefaultValue :: Lens' DateArrayOptions (Maybe Text)
-dapDefaultValue = lens _dapDefaultValue (\s a -> s { _dapDefaultValue = a })
-{-# INLINE dapDefaultValue #-}
-
--- | A list of source fields to map to the field.
-dapSourceFields :: Lens' DateArrayOptions (Maybe Text)
-dapSourceFields = lens _dapSourceFields (\s a -> s { _dapSourceFields = a })
-{-# INLINE dapSourceFields #-}
-
--- | Whether facet information can be returned for the field.
-dapFacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
-dapFacetEnabled = lens _dapFacetEnabled (\s a -> s { _dapFacetEnabled = a })
-{-# INLINE dapFacetEnabled #-}
-
--- | Whether the contents of the field are searchable.
-dapSearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
-dapSearchEnabled = lens _dapSearchEnabled (\s a -> s { _dapSearchEnabled = a })
-{-# INLINE dapSearchEnabled #-}
-
--- | Whether the contents of the field can be returned in the search results.
-dapReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
-dapReturnEnabled = lens _dapReturnEnabled (\s a -> s { _dapReturnEnabled = a })
-{-# INLINE dapReturnEnabled #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DateArrayOptions' data type to populate a request.
 mkDateArrayOptions :: DateArrayOptions
 mkDateArrayOptions = DateArrayOptions
-    { _dapDefaultValue = Nothing
-    , _dapSourceFields = Nothing
-    , _dapFacetEnabled = Nothing
-    , _dapSearchEnabled = Nothing
-    , _dapReturnEnabled = Nothing
+    { _dao1DefaultValue = Nothing
+    , _dao1SourceFields = Nothing
+    , _dao1FacetEnabled = Nothing
+    , _dao1SearchEnabled = Nothing
+    , _dao1ReturnEnabled = Nothing
     }
 {-# INLINE mkDateArrayOptions #-}
+
+-- | A value to use for the field if the field isn't specified for a document.
+dao1DefaultValue :: Lens' DateArrayOptions (Maybe Text)
+dao1DefaultValue =
+    lens _dao1DefaultValue (\s a -> s { _dao1DefaultValue = a })
+{-# INLINE dao1DefaultValue #-}
+
+-- | A list of source fields to map to the field.
+dao1SourceFields :: Lens' DateArrayOptions (Maybe Text)
+dao1SourceFields =
+    lens _dao1SourceFields (\s a -> s { _dao1SourceFields = a })
+{-# INLINE dao1SourceFields #-}
+
+-- | Whether facet information can be returned for the field.
+dao1FacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
+dao1FacetEnabled =
+    lens _dao1FacetEnabled (\s a -> s { _dao1FacetEnabled = a })
+{-# INLINE dao1FacetEnabled #-}
+
+-- | Whether the contents of the field are searchable.
+dao1SearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
+dao1SearchEnabled =
+    lens _dao1SearchEnabled (\s a -> s { _dao1SearchEnabled = a })
+{-# INLINE dao1SearchEnabled #-}
+
+-- | Whether the contents of the field can be returned in the search results.
+dao1ReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
+dao1ReturnEnabled =
+    lens _dao1ReturnEnabled (\s a -> s { _dao1ReturnEnabled = a })
+{-# INLINE dao1ReturnEnabled #-}
 
 instance FromXML DateArrayOptions where
     fromXMLOptions = xmlOptions
@@ -966,71 +937,61 @@ instance ToQuery DateArrayOptions where
 -- IndexFieldType specifies the field is of type date. All options are enabled
 -- by default.
 data DateOptions = DateOptions
-    { _dvDefaultValue :: Maybe Text
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
-    , _dvSourceField :: Maybe Text
-      -- ^ A string that represents the name of an index field. Field names
-      -- begin with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). The name "score" is
-      -- reserved and cannot be used as a field name. To reference a
-      -- document's ID, you can use the name _id.
-    , _dvFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
-    , _dvSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _dvReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
-    , _dvSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
+    { _do1DefaultValue :: Maybe Text
+    , _do1SourceField :: Maybe Text
+    , _do1FacetEnabled :: Maybe Bool
+    , _do1SearchEnabled :: Maybe Bool
+    , _do1ReturnEnabled :: Maybe Bool
+    , _do1SortEnabled :: Maybe Bool
     } deriving (Show, Generic)
-
--- | A value to use for the field if the field isn't specified for a document.
-dvDefaultValue :: Lens' DateOptions (Maybe Text)
-dvDefaultValue = lens _dvDefaultValue (\s a -> s { _dvDefaultValue = a })
-{-# INLINE dvDefaultValue #-}
-
--- | A string that represents the name of an index field. Field names begin with
--- a letter and can contain the following characters: a-z (lowercase), 0-9,
--- and _ (underscore). The name "score" is reserved and cannot be used as a
--- field name. To reference a document's ID, you can use the name _id.
-dvSourceField :: Lens' DateOptions (Maybe Text)
-dvSourceField = lens _dvSourceField (\s a -> s { _dvSourceField = a })
-{-# INLINE dvSourceField #-}
-
--- | Whether facet information can be returned for the field.
-dvFacetEnabled :: Lens' DateOptions (Maybe Bool)
-dvFacetEnabled = lens _dvFacetEnabled (\s a -> s { _dvFacetEnabled = a })
-{-# INLINE dvFacetEnabled #-}
-
--- | Whether the contents of the field are searchable.
-dvSearchEnabled :: Lens' DateOptions (Maybe Bool)
-dvSearchEnabled = lens _dvSearchEnabled (\s a -> s { _dvSearchEnabled = a })
-{-# INLINE dvSearchEnabled #-}
-
--- | Whether the contents of the field can be returned in the search results.
-dvReturnEnabled :: Lens' DateOptions (Maybe Bool)
-dvReturnEnabled = lens _dvReturnEnabled (\s a -> s { _dvReturnEnabled = a })
-{-# INLINE dvReturnEnabled #-}
-
--- | Whether the field can be used to sort the search results.
-dvSortEnabled :: Lens' DateOptions (Maybe Bool)
-dvSortEnabled = lens _dvSortEnabled (\s a -> s { _dvSortEnabled = a })
-{-# INLINE dvSortEnabled #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DateOptions' data type to populate a request.
 mkDateOptions :: DateOptions
 mkDateOptions = DateOptions
-    { _dvDefaultValue = Nothing
-    , _dvSourceField = Nothing
-    , _dvFacetEnabled = Nothing
-    , _dvSearchEnabled = Nothing
-    , _dvReturnEnabled = Nothing
-    , _dvSortEnabled = Nothing
+    { _do1DefaultValue = Nothing
+    , _do1SourceField = Nothing
+    , _do1FacetEnabled = Nothing
+    , _do1SearchEnabled = Nothing
+    , _do1ReturnEnabled = Nothing
+    , _do1SortEnabled = Nothing
     }
 {-# INLINE mkDateOptions #-}
+
+-- | A value to use for the field if the field isn't specified for a document.
+do1DefaultValue :: Lens' DateOptions (Maybe Text)
+do1DefaultValue = lens _do1DefaultValue (\s a -> s { _do1DefaultValue = a })
+{-# INLINE do1DefaultValue #-}
+
+-- | A string that represents the name of an index field. Field names begin with
+-- a letter and can contain the following characters: a-z (lowercase), 0-9,
+-- and _ (underscore). The name "score" is reserved and cannot be used as a
+-- field name. To reference a document's ID, you can use the name _id.
+do1SourceField :: Lens' DateOptions (Maybe Text)
+do1SourceField = lens _do1SourceField (\s a -> s { _do1SourceField = a })
+{-# INLINE do1SourceField #-}
+
+-- | Whether facet information can be returned for the field.
+do1FacetEnabled :: Lens' DateOptions (Maybe Bool)
+do1FacetEnabled = lens _do1FacetEnabled (\s a -> s { _do1FacetEnabled = a })
+{-# INLINE do1FacetEnabled #-}
+
+-- | Whether the contents of the field are searchable.
+do1SearchEnabled :: Lens' DateOptions (Maybe Bool)
+do1SearchEnabled =
+    lens _do1SearchEnabled (\s a -> s { _do1SearchEnabled = a })
+{-# INLINE do1SearchEnabled #-}
+
+-- | Whether the contents of the field can be returned in the search results.
+do1ReturnEnabled :: Lens' DateOptions (Maybe Bool)
+do1ReturnEnabled =
+    lens _do1ReturnEnabled (\s a -> s { _do1ReturnEnabled = a })
+{-# INLINE do1ReturnEnabled #-}
+
+-- | Whether the field can be used to sort the search results.
+do1SortEnabled :: Lens' DateOptions (Maybe Bool)
+do1SortEnabled = lens _do1SortEnabled (\s a -> s { _do1SortEnabled = a })
+{-# INLINE do1SortEnabled #-}
 
 instance FromXML DateOptions where
     fromXMLOptions = xmlOptions
@@ -1042,38 +1003,9 @@ instance ToQuery DateOptions where
 -- | Options for a search suggester.
 data DocumentSuggesterOptions = DocumentSuggesterOptions
     { _dsoSourceField :: Text
-      -- ^ The name of the index field you want to use for suggestions.
     , _dsoFuzzyMatching :: Maybe SuggesterFuzzyMatching
-      -- ^ The level of fuzziness allowed when suggesting matches for a
-      -- string: none, low, or high. With none, the specified string is
-      -- treated as an exact prefix. With low, suggestions must differ
-      -- from the specified string by no more than one character. With
-      -- high, suggestions can differ by up to two characters. The default
-      -- is none.
     , _dsoSortExpression :: Maybe Text
-      -- ^ An expression that computes a score for each suggestion to
-      -- control how they are sorted.
     } deriving (Show, Generic)
-
--- | The name of the index field you want to use for suggestions.
-dsoSourceField :: Lens' DocumentSuggesterOptions (Text)
-dsoSourceField = lens _dsoSourceField (\s a -> s { _dsoSourceField = a })
-{-# INLINE dsoSourceField #-}
-
--- | The level of fuzziness allowed when suggesting matches for a string: none,
--- low, or high. With none, the specified string is treated as an exact
--- prefix. With low, suggestions must differ from the specified string by no
--- more than one character. With high, suggestions can differ by up to two
--- characters. The default is none.
-dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
-dsoFuzzyMatching = lens _dsoFuzzyMatching (\s a -> s { _dsoFuzzyMatching = a })
-{-# INLINE dsoFuzzyMatching #-}
-
--- | An expression that computes a score for each suggestion to control how they
--- are sorted.
-dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
-dsoSortExpression = lens _dsoSortExpression (\s a -> s { _dsoSortExpression = a })
-{-# INLINE dsoSortExpression #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DocumentSuggesterOptions' data type to populate a request.
@@ -1086,6 +1018,28 @@ mkDocumentSuggesterOptions p1 = DocumentSuggesterOptions
     }
 {-# INLINE mkDocumentSuggesterOptions #-}
 
+-- | The name of the index field you want to use for suggestions.
+dsoSourceField :: Lens' DocumentSuggesterOptions Text
+dsoSourceField = lens _dsoSourceField (\s a -> s { _dsoSourceField = a })
+{-# INLINE dsoSourceField #-}
+
+-- | The level of fuzziness allowed when suggesting matches for a string: none,
+-- low, or high. With none, the specified string is treated as an exact
+-- prefix. With low, suggestions must differ from the specified string by no
+-- more than one character. With high, suggestions can differ by up to two
+-- characters. The default is none.
+dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
+dsoFuzzyMatching =
+    lens _dsoFuzzyMatching (\s a -> s { _dsoFuzzyMatching = a })
+{-# INLINE dsoFuzzyMatching #-}
+
+-- | An expression that computes a score for each suggestion to control how they
+-- are sorted.
+dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
+dsoSortExpression =
+    lens _dsoSortExpression (\s a -> s { _dsoSortExpression = a })
+{-# INLINE dsoSortExpression #-}
+
 instance FromXML DocumentSuggesterOptions where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DocumentSuggesterOptions"
@@ -1096,50 +1050,43 @@ instance ToQuery DocumentSuggesterOptions where
 -- | The current status of the search domain.
 data DomainStatus = DomainStatus
     { _dsDomainId :: Text
-      -- ^ An internally generated unique identifier for a domain.
     , _dsDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
     , _dsARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the search domain. See
-      -- Identifiers for IAM Entities in Using AWS Identity and Access
-      -- Management for more information.
     , _dsCreated :: Maybe Bool
-      -- ^ True if the search domain is created. It can take several minutes
-      -- to initialize a domain when CreateDomain is called. Newly created
-      -- search domains are returned from DescribeDomains with a false
-      -- value for Created until domain creation is complete.
     , _dsDeleted :: Maybe Bool
-      -- ^ True if the search domain has been deleted. The system must clean
-      -- up resources dedicated to the search domain when DeleteDomain is
-      -- called. Newly deleted search domains are returned from
-      -- DescribeDomains with a true value for IsDeleted for several
-      -- minutes until resource cleanup is complete.
     , _dsDocService :: Maybe ServiceEndpoint
-      -- ^ The service endpoint for updating documents in a search domain.
     , _dsSearchService :: Maybe ServiceEndpoint
-      -- ^ The service endpoint for requesting search results from a search
-      -- domain.
     , _dsRequiresIndexDocuments :: Bool
-      -- ^ True if IndexDocuments needs to be called to activate the current
-      -- domain configuration.
     , _dsProcessing :: Maybe Bool
-      -- ^ True if processing is being done to activate the current domain
-      -- configuration.
     , _dsSearchInstanceType :: Maybe Text
-      -- ^ The instance type that is being used to process search requests.
     , _dsSearchPartitionCount :: Maybe Integer
-      -- ^ The number of partitions across which the search index is spread.
     , _dsSearchInstanceCount :: Maybe Integer
-      -- ^ The number of search instances that are available to process
-      -- search requests.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DomainStatus' data type to populate a request.
+mkDomainStatus :: Text -- ^ 'dsDomainId'
+               -> Text -- ^ 'dsDomainName'
+               -> Bool -- ^ 'dsRequiresIndexDocuments'
+               -> DomainStatus
+mkDomainStatus p1 p2 p8 = DomainStatus
+    { _dsDomainId = p1
+    , _dsDomainName = p2
+    , _dsARN = Nothing
+    , _dsCreated = Nothing
+    , _dsDeleted = Nothing
+    , _dsDocService = Nothing
+    , _dsSearchService = Nothing
+    , _dsRequiresIndexDocuments = p8
+    , _dsProcessing = Nothing
+    , _dsSearchInstanceType = Nothing
+    , _dsSearchPartitionCount = Nothing
+    , _dsSearchInstanceCount = Nothing
+    }
+{-# INLINE mkDomainStatus #-}
+
 -- | An internally generated unique identifier for a domain.
-dsDomainId :: Lens' DomainStatus (Text)
+dsDomainId :: Lens' DomainStatus Text
 dsDomainId = lens _dsDomainId (\s a -> s { _dsDomainId = a })
 {-# INLINE dsDomainId #-}
 
@@ -1147,7 +1094,7 @@ dsDomainId = lens _dsDomainId (\s a -> s { _dsDomainId = a })
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dsDomainName :: Lens' DomainStatus (Text)
+dsDomainName :: Lens' DomainStatus Text
 dsDomainName = lens _dsDomainName (\s a -> s { _dsDomainName = a })
 {-# INLINE dsDomainName #-}
 
@@ -1186,8 +1133,10 @@ dsSearchService = lens _dsSearchService (\s a -> s { _dsSearchService = a })
 
 -- | True if IndexDocuments needs to be called to activate the current domain
 -- configuration.
-dsRequiresIndexDocuments :: Lens' DomainStatus (Bool)
-dsRequiresIndexDocuments = lens _dsRequiresIndexDocuments (\s a -> s { _dsRequiresIndexDocuments = a })
+dsRequiresIndexDocuments :: Lens' DomainStatus Bool
+dsRequiresIndexDocuments =
+    lens _dsRequiresIndexDocuments
+         (\s a -> s { _dsRequiresIndexDocuments = a })
 {-# INLINE dsRequiresIndexDocuments #-}
 
 -- | True if processing is being done to activate the current domain
@@ -1198,18 +1147,21 @@ dsProcessing = lens _dsProcessing (\s a -> s { _dsProcessing = a })
 
 -- | The instance type that is being used to process search requests.
 dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
-dsSearchInstanceType = lens _dsSearchInstanceType (\s a -> s { _dsSearchInstanceType = a })
+dsSearchInstanceType =
+    lens _dsSearchInstanceType (\s a -> s { _dsSearchInstanceType = a })
 {-# INLINE dsSearchInstanceType #-}
 
 -- | The number of partitions across which the search index is spread.
 dsSearchPartitionCount :: Lens' DomainStatus (Maybe Integer)
-dsSearchPartitionCount = lens _dsSearchPartitionCount (\s a -> s { _dsSearchPartitionCount = a })
+dsSearchPartitionCount =
+    lens _dsSearchPartitionCount (\s a -> s { _dsSearchPartitionCount = a })
 {-# INLINE dsSearchPartitionCount #-}
 
 -- | The number of search instances that are available to process search
 -- requests.
 dsSearchInstanceCount :: Lens' DomainStatus (Maybe Integer)
-dsSearchInstanceCount = lens _dsSearchInstanceCount (\s a -> s { _dsSearchInstanceCount = a })
+dsSearchInstanceCount =
+    lens _dsSearchInstanceCount (\s a -> s { _dsSearchInstanceCount = a })
 {-# INLINE dsSearchInstanceCount #-}
 
 instance FromXML DomainStatus where
@@ -1221,18 +1173,23 @@ instance FromXML DomainStatus where
 -- type double-array. All options are enabled by default.
 data DoubleArrayOptions = DoubleArrayOptions
     { _daoDefaultValue :: Maybe Double
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
     , _daoSourceFields :: Maybe Text
-      -- ^ A list of source fields to map to the field.
     , _daoFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
     , _daoSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _daoReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DoubleArrayOptions' data type to populate a request.
+mkDoubleArrayOptions :: DoubleArrayOptions
+mkDoubleArrayOptions = DoubleArrayOptions
+    { _daoDefaultValue = Nothing
+    , _daoSourceFields = Nothing
+    , _daoFacetEnabled = Nothing
+    , _daoSearchEnabled = Nothing
+    , _daoReturnEnabled = Nothing
+    }
+{-# INLINE mkDoubleArrayOptions #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 daoDefaultValue :: Lens' DoubleArrayOptions (Maybe Double)
@@ -1251,25 +1208,15 @@ daoFacetEnabled = lens _daoFacetEnabled (\s a -> s { _daoFacetEnabled = a })
 
 -- | Whether the contents of the field are searchable.
 daoSearchEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
-daoSearchEnabled = lens _daoSearchEnabled (\s a -> s { _daoSearchEnabled = a })
+daoSearchEnabled =
+    lens _daoSearchEnabled (\s a -> s { _daoSearchEnabled = a })
 {-# INLINE daoSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
 daoReturnEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
-daoReturnEnabled = lens _daoReturnEnabled (\s a -> s { _daoReturnEnabled = a })
+daoReturnEnabled =
+    lens _daoReturnEnabled (\s a -> s { _daoReturnEnabled = a })
 {-# INLINE daoReturnEnabled #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'DoubleArrayOptions' data type to populate a request.
-mkDoubleArrayOptions :: DoubleArrayOptions
-mkDoubleArrayOptions = DoubleArrayOptions
-    { _daoDefaultValue = Nothing
-    , _daoSourceFields = Nothing
-    , _daoFacetEnabled = Nothing
-    , _daoSearchEnabled = Nothing
-    , _daoReturnEnabled = Nothing
-    }
-{-# INLINE mkDoubleArrayOptions #-}
 
 instance FromXML DoubleArrayOptions where
     fromXMLOptions = xmlOptions
@@ -1282,67 +1229,58 @@ instance ToQuery DoubleArrayOptions where
 -- IndexFieldType specifies the field is of type double. All options are
 -- enabled by default.
 data DoubleOptions = DoubleOptions
-    { _duDefaultValue :: Maybe Double
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document. This can be important if you are using the field in an
-      -- expression and that field is not present in every document.
-    , _duSourceField :: Maybe Text
-      -- ^ The name of the source field to map to the field.
-    , _duFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
-    , _duSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
-    , _duReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
-    , _duSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
+    { _doDefaultValue :: Maybe Double
+    , _doSourceField :: Maybe Text
+    , _doFacetEnabled :: Maybe Bool
+    , _doSearchEnabled :: Maybe Bool
+    , _doReturnEnabled :: Maybe Bool
+    , _doSortEnabled :: Maybe Bool
     } deriving (Show, Generic)
-
--- | A value to use for the field if the field isn't specified for a document.
--- This can be important if you are using the field in an expression and that
--- field is not present in every document.
-duDefaultValue :: Lens' DoubleOptions (Maybe Double)
-duDefaultValue = lens _duDefaultValue (\s a -> s { _duDefaultValue = a })
-{-# INLINE duDefaultValue #-}
-
--- | The name of the source field to map to the field.
-duSourceField :: Lens' DoubleOptions (Maybe Text)
-duSourceField = lens _duSourceField (\s a -> s { _duSourceField = a })
-{-# INLINE duSourceField #-}
-
--- | Whether facet information can be returned for the field.
-duFacetEnabled :: Lens' DoubleOptions (Maybe Bool)
-duFacetEnabled = lens _duFacetEnabled (\s a -> s { _duFacetEnabled = a })
-{-# INLINE duFacetEnabled #-}
-
--- | Whether the contents of the field are searchable.
-duSearchEnabled :: Lens' DoubleOptions (Maybe Bool)
-duSearchEnabled = lens _duSearchEnabled (\s a -> s { _duSearchEnabled = a })
-{-# INLINE duSearchEnabled #-}
-
--- | Whether the contents of the field can be returned in the search results.
-duReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
-duReturnEnabled = lens _duReturnEnabled (\s a -> s { _duReturnEnabled = a })
-{-# INLINE duReturnEnabled #-}
-
--- | Whether the field can be used to sort the search results.
-duSortEnabled :: Lens' DoubleOptions (Maybe Bool)
-duSortEnabled = lens _duSortEnabled (\s a -> s { _duSortEnabled = a })
-{-# INLINE duSortEnabled #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DoubleOptions' data type to populate a request.
 mkDoubleOptions :: DoubleOptions
 mkDoubleOptions = DoubleOptions
-    { _duDefaultValue = Nothing
-    , _duSourceField = Nothing
-    , _duFacetEnabled = Nothing
-    , _duSearchEnabled = Nothing
-    , _duReturnEnabled = Nothing
-    , _duSortEnabled = Nothing
+    { _doDefaultValue = Nothing
+    , _doSourceField = Nothing
+    , _doFacetEnabled = Nothing
+    , _doSearchEnabled = Nothing
+    , _doReturnEnabled = Nothing
+    , _doSortEnabled = Nothing
     }
 {-# INLINE mkDoubleOptions #-}
+
+-- | A value to use for the field if the field isn't specified for a document.
+-- This can be important if you are using the field in an expression and that
+-- field is not present in every document.
+doDefaultValue :: Lens' DoubleOptions (Maybe Double)
+doDefaultValue = lens _doDefaultValue (\s a -> s { _doDefaultValue = a })
+{-# INLINE doDefaultValue #-}
+
+-- | The name of the source field to map to the field.
+doSourceField :: Lens' DoubleOptions (Maybe Text)
+doSourceField = lens _doSourceField (\s a -> s { _doSourceField = a })
+{-# INLINE doSourceField #-}
+
+-- | Whether facet information can be returned for the field.
+doFacetEnabled :: Lens' DoubleOptions (Maybe Bool)
+doFacetEnabled = lens _doFacetEnabled (\s a -> s { _doFacetEnabled = a })
+{-# INLINE doFacetEnabled #-}
+
+-- | Whether the contents of the field are searchable.
+doSearchEnabled :: Lens' DoubleOptions (Maybe Bool)
+doSearchEnabled = lens _doSearchEnabled (\s a -> s { _doSearchEnabled = a })
+{-# INLINE doSearchEnabled #-}
+
+-- | Whether the contents of the field can be returned in the search results.
+doReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
+doReturnEnabled = lens _doReturnEnabled (\s a -> s { _doReturnEnabled = a })
+{-# INLINE doReturnEnabled #-}
+
+-- | Whether the field can be used to sort the search results.
+doSortEnabled :: Lens' DoubleOptions (Maybe Bool)
+doSortEnabled = lens _doSortEnabled (\s a -> s { _doSortEnabled = a })
+{-# INLINE doSortEnabled #-}
 
 instance FromXML DoubleOptions where
     fromXMLOptions = xmlOptions
@@ -1354,45 +1292,37 @@ instance ToQuery DoubleOptions where
 -- | A named expression that can be evaluated at search time. Can be used for
 -- sorting and filtering search results and constructing other expressions.
 data Expression = Expression
-    { _gExpressionName :: Text
-      -- ^ A string that represents the name of an index field. Field names
-      -- begin with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). The name "score" is
-      -- reserved and cannot be used as a field name. To reference a
-      -- document's ID, you can use the name _id.
-    , _gExpressionValue :: Text
-      -- ^ The expression to evaluate for sorting while processing a search
-      -- request. The Expression syntax is based on JavaScript
-      -- expressions. For more information, see Configuring Expressions in
-      -- the Amazon CloudSearch Developer Guide.
+    { _eExpressionName :: Text
+    , _eExpressionValue :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Expression' data type to populate a request.
+mkExpression :: Text -- ^ 'eExpressionName'
+             -> Text -- ^ 'eExpressionValue'
+             -> Expression
+mkExpression p1 p2 = Expression
+    { _eExpressionName = p1
+    , _eExpressionValue = p2
+    }
+{-# INLINE mkExpression #-}
 
 -- | A string that represents the name of an index field. Field names begin with
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-gExpressionName :: Lens' Expression (Text)
-gExpressionName = lens _gExpressionName (\s a -> s { _gExpressionName = a })
-{-# INLINE gExpressionName #-}
+eExpressionName :: Lens' Expression Text
+eExpressionName = lens _eExpressionName (\s a -> s { _eExpressionName = a })
+{-# INLINE eExpressionName #-}
 
 -- | The expression to evaluate for sorting while processing a search request.
 -- The Expression syntax is based on JavaScript expressions. For more
 -- information, see Configuring Expressions in the Amazon CloudSearch
 -- Developer Guide.
-gExpressionValue :: Lens' Expression (Text)
-gExpressionValue = lens _gExpressionValue (\s a -> s { _gExpressionValue = a })
-{-# INLINE gExpressionValue #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Expression' data type to populate a request.
-mkExpression :: Text -- ^ 'gExpressionName'
-             -> Text -- ^ 'gExpressionValue'
-             -> Expression
-mkExpression p1 p2 = Expression
-    { _gExpressionName = p1
-    , _gExpressionValue = p2
-    }
-{-# INLINE mkExpression #-}
+eExpressionValue :: Lens' Expression Text
+eExpressionValue =
+    lens _eExpressionValue (\s a -> s { _eExpressionValue = a })
+{-# INLINE eExpressionValue #-}
 
 instance FromXML Expression where
     fromXMLOptions = xmlOptions
@@ -1404,20 +1334,28 @@ instance ToQuery Expression where
 -- | The value of an Expression and its current status.
 data ExpressionStatus = ExpressionStatus
     { _esOptions :: Expression
-      -- ^ The expression that is evaluated for sorting or filtering while
-      -- processing a search request.
     , _esStatus :: OptionStatus
-      -- ^ The status of domain configuration option.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ExpressionStatus' data type to populate a request.
+mkExpressionStatus :: Expression -- ^ 'esOptions'
+                   -> OptionStatus -- ^ 'esStatus'
+                   -> ExpressionStatus
+mkExpressionStatus p1 p2 = ExpressionStatus
+    { _esOptions = p1
+    , _esStatus = p2
+    }
+{-# INLINE mkExpressionStatus #-}
 
 -- | The expression that is evaluated for sorting or filtering while processing
 -- a search request.
-esOptions :: Lens' ExpressionStatus (Expression)
+esOptions :: Lens' ExpressionStatus Expression
 esOptions = lens _esOptions (\s a -> s { _esOptions = a })
 {-# INLINE esOptions #-}
 
 -- | The status of domain configuration option.
-esStatus :: Lens' ExpressionStatus (OptionStatus)
+esStatus :: Lens' ExpressionStatus OptionStatus
 esStatus = lens _esStatus (\s a -> s { _esStatus = a })
 {-# INLINE esStatus #-}
 
@@ -1428,78 +1366,57 @@ instance FromXML ExpressionStatus where
 -- | The index field and field options you want to configure.
 data IndexField = IndexField
     { _ifIndexFieldName :: Text
-      -- ^ The name of a field in the search index. Field names must begin
-      -- with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). Uppercase letters and
-      -- hyphens are not allowed. The name "score" is reserved and cannot
-      -- be specified as field or expression name.
     , _ifIndexFieldType :: IndexFieldType
-      -- ^ The type of field. The valid options for a field depend on the
-      -- field type. For more information about the supported field types,
-      -- see Configuring Index Fields in the Amazon CloudSearch Developer
-      -- Guide.
     , _ifIntOptions :: Maybe IntOptions
-      -- ^ Options for a 64-bit signed integer field. Present if
-      -- IndexFieldType specifies the field is of type int. All options
-      -- are enabled by default.
     , _ifDoubleOptions :: Maybe DoubleOptions
-      -- ^ Options for a double-precision 64-bit floating point field.
-      -- Present if IndexFieldType specifies the field is of type double.
-      -- All options are enabled by default.
     , _ifLiteralOptions :: Maybe LiteralOptions
-      -- ^ Options for literal field. Present if IndexFieldType specifies
-      -- the field is of type literal. All options are enabled by default.
     , _ifTextOptions :: Maybe TextOptions
-      -- ^ Options for text field. Present if IndexFieldType specifies the
-      -- field is of type text. A text field is always searchable. All
-      -- options are enabled by default.
     , _ifDateOptions :: Maybe DateOptions
-      -- ^ Options for a date field. Dates and times are specified in UTC
-      -- (Coordinated Universal Time) according to IETF RFC3339:
-      -- yyyy-mm-ddT00:00:00Z. Present if IndexFieldType specifies the
-      -- field is of type date. All options are enabled by default.
     , _ifLatLonOptions :: Maybe LatLonOptions
-      -- ^ Options for a latlon field. A latlon field contains a location
-      -- stored as a latitude and longitude value pair. Present if
-      -- IndexFieldType specifies the field is of type latlon. All options
-      -- are enabled by default.
     , _ifIntArrayOptions :: Maybe IntArrayOptions
-      -- ^ Options for a field that contains an array of 64-bit signed
-      -- integers. Present if IndexFieldType specifies the field is of
-      -- type int-array. All options are enabled by default.
     , _ifDoubleArrayOptions :: Maybe DoubleArrayOptions
-      -- ^ Options for a field that contains an array of double-precision
-      -- 64-bit floating point values. Present if IndexFieldType specifies
-      -- the field is of type double-array. All options are enabled by
-      -- default.
     , _ifLiteralArrayOptions :: Maybe LiteralArrayOptions
-      -- ^ Options for a field that contains an array of literal strings.
-      -- Present if IndexFieldType specifies the field is of type
-      -- literal-array. All options are enabled by default.
     , _ifTextArrayOptions :: Maybe TextArrayOptions
-      -- ^ Options for a field that contains an array of text strings.
-      -- Present if IndexFieldType specifies the field is of type
-      -- text-array. A text-array field is always searchable. All options
-      -- are enabled by default.
     , _ifDateArrayOptions :: Maybe DateArrayOptions
-      -- ^ Options for a field that contains an array of dates. Present if
-      -- IndexFieldType specifies the field is of type date-array. All
-      -- options are enabled by default.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IndexField' data type to populate a request.
+mkIndexField :: Text -- ^ 'ifIndexFieldName'
+             -> IndexFieldType -- ^ 'ifIndexFieldType'
+             -> IndexField
+mkIndexField p1 p2 = IndexField
+    { _ifIndexFieldName = p1
+    , _ifIndexFieldType = p2
+    , _ifIntOptions = Nothing
+    , _ifDoubleOptions = Nothing
+    , _ifLiteralOptions = Nothing
+    , _ifTextOptions = Nothing
+    , _ifDateOptions = Nothing
+    , _ifLatLonOptions = Nothing
+    , _ifIntArrayOptions = Nothing
+    , _ifDoubleArrayOptions = Nothing
+    , _ifLiteralArrayOptions = Nothing
+    , _ifTextArrayOptions = Nothing
+    , _ifDateArrayOptions = Nothing
+    }
+{-# INLINE mkIndexField #-}
 
 -- | The name of a field in the search index. Field names must begin with a
 -- letter and can contain the following characters: a-z (lowercase), 0-9, and
 -- _ (underscore). Uppercase letters and hyphens are not allowed. The name
 -- "score" is reserved and cannot be specified as field or expression name.
-ifIndexFieldName :: Lens' IndexField (Text)
-ifIndexFieldName = lens _ifIndexFieldName (\s a -> s { _ifIndexFieldName = a })
+ifIndexFieldName :: Lens' IndexField Text
+ifIndexFieldName =
+    lens _ifIndexFieldName (\s a -> s { _ifIndexFieldName = a })
 {-# INLINE ifIndexFieldName #-}
 
 -- | The type of field. The valid options for a field depend on the field type.
 -- For more information about the supported field types, see Configuring Index
 -- Fields in the Amazon CloudSearch Developer Guide.
-ifIndexFieldType :: Lens' IndexField (IndexFieldType)
-ifIndexFieldType = lens _ifIndexFieldType (\s a -> s { _ifIndexFieldType = a })
+ifIndexFieldType :: Lens' IndexField IndexFieldType
+ifIndexFieldType =
+    lens _ifIndexFieldType (\s a -> s { _ifIndexFieldType = a })
 {-# INLINE ifIndexFieldType #-}
 
 -- | Options for a 64-bit signed integer field. Present if IndexFieldType
@@ -1518,7 +1435,8 @@ ifDoubleOptions = lens _ifDoubleOptions (\s a -> s { _ifDoubleOptions = a })
 -- | Options for literal field. Present if IndexFieldType specifies the field is
 -- of type literal. All options are enabled by default.
 ifLiteralOptions :: Lens' IndexField (Maybe LiteralOptions)
-ifLiteralOptions = lens _ifLiteralOptions (\s a -> s { _ifLiteralOptions = a })
+ifLiteralOptions =
+    lens _ifLiteralOptions (\s a -> s { _ifLiteralOptions = a })
 {-# INLINE ifLiteralOptions #-}
 
 -- | Options for text field. Present if IndexFieldType specifies the field is of
@@ -1547,58 +1465,41 @@ ifLatLonOptions = lens _ifLatLonOptions (\s a -> s { _ifLatLonOptions = a })
 -- Present if IndexFieldType specifies the field is of type int-array. All
 -- options are enabled by default.
 ifIntArrayOptions :: Lens' IndexField (Maybe IntArrayOptions)
-ifIntArrayOptions = lens _ifIntArrayOptions (\s a -> s { _ifIntArrayOptions = a })
+ifIntArrayOptions =
+    lens _ifIntArrayOptions (\s a -> s { _ifIntArrayOptions = a })
 {-# INLINE ifIntArrayOptions #-}
 
 -- | Options for a field that contains an array of double-precision 64-bit
 -- floating point values. Present if IndexFieldType specifies the field is of
 -- type double-array. All options are enabled by default.
 ifDoubleArrayOptions :: Lens' IndexField (Maybe DoubleArrayOptions)
-ifDoubleArrayOptions = lens _ifDoubleArrayOptions (\s a -> s { _ifDoubleArrayOptions = a })
+ifDoubleArrayOptions =
+    lens _ifDoubleArrayOptions (\s a -> s { _ifDoubleArrayOptions = a })
 {-# INLINE ifDoubleArrayOptions #-}
 
 -- | Options for a field that contains an array of literal strings. Present if
 -- IndexFieldType specifies the field is of type literal-array. All options
 -- are enabled by default.
 ifLiteralArrayOptions :: Lens' IndexField (Maybe LiteralArrayOptions)
-ifLiteralArrayOptions = lens _ifLiteralArrayOptions (\s a -> s { _ifLiteralArrayOptions = a })
+ifLiteralArrayOptions =
+    lens _ifLiteralArrayOptions (\s a -> s { _ifLiteralArrayOptions = a })
 {-# INLINE ifLiteralArrayOptions #-}
 
 -- | Options for a field that contains an array of text strings. Present if
 -- IndexFieldType specifies the field is of type text-array. A text-array
 -- field is always searchable. All options are enabled by default.
 ifTextArrayOptions :: Lens' IndexField (Maybe TextArrayOptions)
-ifTextArrayOptions = lens _ifTextArrayOptions (\s a -> s { _ifTextArrayOptions = a })
+ifTextArrayOptions =
+    lens _ifTextArrayOptions (\s a -> s { _ifTextArrayOptions = a })
 {-# INLINE ifTextArrayOptions #-}
 
 -- | Options for a field that contains an array of dates. Present if
 -- IndexFieldType specifies the field is of type date-array. All options are
 -- enabled by default.
 ifDateArrayOptions :: Lens' IndexField (Maybe DateArrayOptions)
-ifDateArrayOptions = lens _ifDateArrayOptions (\s a -> s { _ifDateArrayOptions = a })
+ifDateArrayOptions =
+    lens _ifDateArrayOptions (\s a -> s { _ifDateArrayOptions = a })
 {-# INLINE ifDateArrayOptions #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'IndexField' data type to populate a request.
-mkIndexField :: Text -- ^ 'ifIndexFieldName'
-             -> IndexFieldType -- ^ 'ifIndexFieldType'
-             -> IndexField
-mkIndexField p1 p2 = IndexField
-    { _ifIndexFieldName = p1
-    , _ifIndexFieldType = p2
-    , _ifIntOptions = Nothing
-    , _ifDoubleOptions = Nothing
-    , _ifLiteralOptions = Nothing
-    , _ifTextOptions = Nothing
-    , _ifDateOptions = Nothing
-    , _ifLatLonOptions = Nothing
-    , _ifIntArrayOptions = Nothing
-    , _ifDoubleArrayOptions = Nothing
-    , _ifLiteralArrayOptions = Nothing
-    , _ifTextArrayOptions = Nothing
-    , _ifDateArrayOptions = Nothing
-    }
-{-# INLINE mkIndexField #-}
 
 instance FromXML IndexField where
     fromXMLOptions = xmlOptions
@@ -1610,21 +1511,28 @@ instance ToQuery IndexField where
 -- | The value of an IndexField and its current status.
 data IndexFieldStatus = IndexFieldStatus
     { _ifsOptions :: IndexField
-      -- ^ Configuration information for a field in the index, including its
-      -- name, type, and options. The supported options depend on the
-      -- IndexFieldType.
     , _ifsStatus :: OptionStatus
-      -- ^ The status of domain configuration option.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IndexFieldStatus' data type to populate a request.
+mkIndexFieldStatus :: IndexField -- ^ 'ifsOptions'
+                   -> OptionStatus -- ^ 'ifsStatus'
+                   -> IndexFieldStatus
+mkIndexFieldStatus p1 p2 = IndexFieldStatus
+    { _ifsOptions = p1
+    , _ifsStatus = p2
+    }
+{-# INLINE mkIndexFieldStatus #-}
 
 -- | Configuration information for a field in the index, including its name,
 -- type, and options. The supported options depend on the IndexFieldType.
-ifsOptions :: Lens' IndexFieldStatus (IndexField)
+ifsOptions :: Lens' IndexFieldStatus IndexField
 ifsOptions = lens _ifsOptions (\s a -> s { _ifsOptions = a })
 {-# INLINE ifsOptions #-}
 
 -- | The status of domain configuration option.
-ifsStatus :: Lens' IndexFieldStatus (OptionStatus)
+ifsStatus :: Lens' IndexFieldStatus OptionStatus
 ifsStatus = lens _ifsStatus (\s a -> s { _ifsStatus = a })
 {-# INLINE ifsStatus #-}
 
@@ -1637,18 +1545,23 @@ instance FromXML IndexFieldStatus where
 -- options are enabled by default.
 data IntArrayOptions = IntArrayOptions
     { _iaoDefaultValue :: Maybe Integer
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
     , _iaoSourceFields :: Maybe Text
-      -- ^ A list of source fields to map to the field.
     , _iaoFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
     , _iaoSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _iaoReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IntArrayOptions' data type to populate a request.
+mkIntArrayOptions :: IntArrayOptions
+mkIntArrayOptions = IntArrayOptions
+    { _iaoDefaultValue = Nothing
+    , _iaoSourceFields = Nothing
+    , _iaoFacetEnabled = Nothing
+    , _iaoSearchEnabled = Nothing
+    , _iaoReturnEnabled = Nothing
+    }
+{-# INLINE mkIntArrayOptions #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 iaoDefaultValue :: Lens' IntArrayOptions (Maybe Integer)
@@ -1667,25 +1580,15 @@ iaoFacetEnabled = lens _iaoFacetEnabled (\s a -> s { _iaoFacetEnabled = a })
 
 -- | Whether the contents of the field are searchable.
 iaoSearchEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoSearchEnabled = lens _iaoSearchEnabled (\s a -> s { _iaoSearchEnabled = a })
+iaoSearchEnabled =
+    lens _iaoSearchEnabled (\s a -> s { _iaoSearchEnabled = a })
 {-# INLINE iaoSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
 iaoReturnEnabled :: Lens' IntArrayOptions (Maybe Bool)
-iaoReturnEnabled = lens _iaoReturnEnabled (\s a -> s { _iaoReturnEnabled = a })
+iaoReturnEnabled =
+    lens _iaoReturnEnabled (\s a -> s { _iaoReturnEnabled = a })
 {-# INLINE iaoReturnEnabled #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'IntArrayOptions' data type to populate a request.
-mkIntArrayOptions :: IntArrayOptions
-mkIntArrayOptions = IntArrayOptions
-    { _iaoDefaultValue = Nothing
-    , _iaoSourceFields = Nothing
-    , _iaoFacetEnabled = Nothing
-    , _iaoSearchEnabled = Nothing
-    , _iaoReturnEnabled = Nothing
-    }
-{-# INLINE mkIntArrayOptions #-}
 
 instance FromXML IntArrayOptions where
     fromXMLOptions = xmlOptions
@@ -1698,21 +1601,25 @@ instance ToQuery IntArrayOptions where
 -- specifies the field is of type int. All options are enabled by default.
 data IntOptions = IntOptions
     { _ioDefaultValue :: Maybe Integer
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document. This can be important if you are using the field in an
-      -- expression and that field is not present in every document.
     , _ioSourceField :: Maybe Text
-      -- ^ The name of the source field to map to the field.
     , _ioFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
     , _ioSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _ioReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     , _ioSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IntOptions' data type to populate a request.
+mkIntOptions :: IntOptions
+mkIntOptions = IntOptions
+    { _ioDefaultValue = Nothing
+    , _ioSourceField = Nothing
+    , _ioFacetEnabled = Nothing
+    , _ioSearchEnabled = Nothing
+    , _ioReturnEnabled = Nothing
+    , _ioSortEnabled = Nothing
+    }
+{-# INLINE mkIntOptions #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 -- This can be important if you are using the field in an expression and that
@@ -1746,19 +1653,6 @@ ioSortEnabled :: Lens' IntOptions (Maybe Bool)
 ioSortEnabled = lens _ioSortEnabled (\s a -> s { _ioSortEnabled = a })
 {-# INLINE ioSortEnabled #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'IntOptions' data type to populate a request.
-mkIntOptions :: IntOptions
-mkIntOptions = IntOptions
-    { _ioDefaultValue = Nothing
-    , _ioSourceField = Nothing
-    , _ioFacetEnabled = Nothing
-    , _ioSearchEnabled = Nothing
-    , _ioReturnEnabled = Nothing
-    , _ioSortEnabled = Nothing
-    }
-{-# INLINE mkIntOptions #-}
-
 instance FromXML IntOptions where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "IntOptions"
@@ -1771,24 +1665,25 @@ instance ToQuery IntOptions where
 -- field is of type latlon. All options are enabled by default.
 data LatLonOptions = LatLonOptions
     { _lloDefaultValue :: Maybe Text
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
     , _lloSourceField :: Maybe Text
-      -- ^ A string that represents the name of an index field. Field names
-      -- begin with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). The name "score" is
-      -- reserved and cannot be used as a field name. To reference a
-      -- document's ID, you can use the name _id.
     , _lloFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
     , _lloSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _lloReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     , _lloSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LatLonOptions' data type to populate a request.
+mkLatLonOptions :: LatLonOptions
+mkLatLonOptions = LatLonOptions
+    { _lloDefaultValue = Nothing
+    , _lloSourceField = Nothing
+    , _lloFacetEnabled = Nothing
+    , _lloSearchEnabled = Nothing
+    , _lloReturnEnabled = Nothing
+    , _lloSortEnabled = Nothing
+    }
+{-# INLINE mkLatLonOptions #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 lloDefaultValue :: Lens' LatLonOptions (Maybe Text)
@@ -1810,31 +1705,20 @@ lloFacetEnabled = lens _lloFacetEnabled (\s a -> s { _lloFacetEnabled = a })
 
 -- | Whether the contents of the field are searchable.
 lloSearchEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloSearchEnabled = lens _lloSearchEnabled (\s a -> s { _lloSearchEnabled = a })
+lloSearchEnabled =
+    lens _lloSearchEnabled (\s a -> s { _lloSearchEnabled = a })
 {-# INLINE lloSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
 lloReturnEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloReturnEnabled = lens _lloReturnEnabled (\s a -> s { _lloReturnEnabled = a })
+lloReturnEnabled =
+    lens _lloReturnEnabled (\s a -> s { _lloReturnEnabled = a })
 {-# INLINE lloReturnEnabled #-}
 
 -- | Whether the field can be used to sort the search results.
 lloSortEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloSortEnabled = lens _lloSortEnabled (\s a -> s { _lloSortEnabled = a })
 {-# INLINE lloSortEnabled #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LatLonOptions' data type to populate a request.
-mkLatLonOptions :: LatLonOptions
-mkLatLonOptions = LatLonOptions
-    { _lloDefaultValue = Nothing
-    , _lloSourceField = Nothing
-    , _lloFacetEnabled = Nothing
-    , _lloSearchEnabled = Nothing
-    , _lloReturnEnabled = Nothing
-    , _lloSortEnabled = Nothing
-    }
-{-# INLINE mkLatLonOptions #-}
 
 instance FromXML LatLonOptions where
     fromXMLOptions = xmlOptions
@@ -1848,18 +1732,23 @@ instance ToQuery LatLonOptions where
 -- are enabled by default.
 data LiteralArrayOptions = LiteralArrayOptions
     { _laoDefaultValue :: Maybe Text
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
     , _laoSourceFields :: Maybe Text
-      -- ^ A list of source fields to map to the field.
     , _laoFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
     , _laoSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _laoReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LiteralArrayOptions' data type to populate a request.
+mkLiteralArrayOptions :: LiteralArrayOptions
+mkLiteralArrayOptions = LiteralArrayOptions
+    { _laoDefaultValue = Nothing
+    , _laoSourceFields = Nothing
+    , _laoFacetEnabled = Nothing
+    , _laoSearchEnabled = Nothing
+    , _laoReturnEnabled = Nothing
+    }
+{-# INLINE mkLiteralArrayOptions #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 laoDefaultValue :: Lens' LiteralArrayOptions (Maybe Text)
@@ -1878,25 +1767,15 @@ laoFacetEnabled = lens _laoFacetEnabled (\s a -> s { _laoFacetEnabled = a })
 
 -- | Whether the contents of the field are searchable.
 laoSearchEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
-laoSearchEnabled = lens _laoSearchEnabled (\s a -> s { _laoSearchEnabled = a })
+laoSearchEnabled =
+    lens _laoSearchEnabled (\s a -> s { _laoSearchEnabled = a })
 {-# INLINE laoSearchEnabled #-}
 
 -- | Whether the contents of the field can be returned in the search results.
 laoReturnEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
-laoReturnEnabled = lens _laoReturnEnabled (\s a -> s { _laoReturnEnabled = a })
+laoReturnEnabled =
+    lens _laoReturnEnabled (\s a -> s { _laoReturnEnabled = a })
 {-# INLINE laoReturnEnabled #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LiteralArrayOptions' data type to populate a request.
-mkLiteralArrayOptions :: LiteralArrayOptions
-mkLiteralArrayOptions = LiteralArrayOptions
-    { _laoDefaultValue = Nothing
-    , _laoSourceFields = Nothing
-    , _laoFacetEnabled = Nothing
-    , _laoSearchEnabled = Nothing
-    , _laoReturnEnabled = Nothing
-    }
-{-# INLINE mkLiteralArrayOptions #-}
 
 instance FromXML LiteralArrayOptions where
     fromXMLOptions = xmlOptions
@@ -1909,24 +1788,25 @@ instance ToQuery LiteralArrayOptions where
 -- of type literal. All options are enabled by default.
 data LiteralOptions = LiteralOptions
     { _loDefaultValue :: Maybe Text
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
     , _loSourceField :: Maybe Text
-      -- ^ A string that represents the name of an index field. Field names
-      -- begin with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). The name "score" is
-      -- reserved and cannot be used as a field name. To reference a
-      -- document's ID, you can use the name _id.
     , _loFacetEnabled :: Maybe Bool
-      -- ^ Whether facet information can be returned for the field.
     , _loSearchEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field are searchable.
     , _loReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     , _loSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LiteralOptions' data type to populate a request.
+mkLiteralOptions :: LiteralOptions
+mkLiteralOptions = LiteralOptions
+    { _loDefaultValue = Nothing
+    , _loSourceField = Nothing
+    , _loFacetEnabled = Nothing
+    , _loSearchEnabled = Nothing
+    , _loReturnEnabled = Nothing
+    , _loSortEnabled = Nothing
+    }
+{-# INLINE mkLiteralOptions #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 loDefaultValue :: Lens' LiteralOptions (Maybe Text)
@@ -1961,19 +1841,6 @@ loSortEnabled :: Lens' LiteralOptions (Maybe Bool)
 loSortEnabled = lens _loSortEnabled (\s a -> s { _loSortEnabled = a })
 {-# INLINE loSortEnabled #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'LiteralOptions' data type to populate a request.
-mkLiteralOptions :: LiteralOptions
-mkLiteralOptions = LiteralOptions
-    { _loDefaultValue = Nothing
-    , _loSourceField = Nothing
-    , _loFacetEnabled = Nothing
-    , _loSearchEnabled = Nothing
-    , _loReturnEnabled = Nothing
-    , _loSortEnabled = Nothing
-    }
-{-# INLINE mkLiteralOptions #-}
-
 instance FromXML LiteralOptions where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "LiteralOptions"
@@ -1984,34 +1851,34 @@ instance ToQuery LiteralOptions where
 -- | The status of domain configuration option.
 data OptionStatus = OptionStatus
     { _osCreationDate :: ISO8601
-      -- ^ A timestamp for when this option was created.
     , _osUpdateDate :: ISO8601
-      -- ^ A timestamp for when this option was last updated.
     , _osUpdateVersion :: Maybe Integer
-      -- ^ A unique integer that indicates when this option was last
-      -- updated.
     , _osState :: OptionState
-      -- ^ The state of processing a change to an option. Possible values:
-      -- RequiresIndexDocuments: the option's latest value will not be
-      -- deployed until IndexDocuments has been called and indexing is
-      -- complete. Processing: the option's latest value is in the process
-      -- of being activated. Active: the option's latest value is
-      -- completely deployed. FailedToValidate: the option value is not
-      -- compatible with the domain's data and cannot be used to index the
-      -- data. You must either modify the option value or update or remove
-      -- the incompatible documents.
     , _osPendingDeletion :: Maybe Bool
-      -- ^ Indicates that the option will be deleted once processing is
-      -- complete.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'OptionStatus' data type to populate a request.
+mkOptionStatus :: ISO8601 -- ^ 'osCreationDate'
+               -> ISO8601 -- ^ 'osUpdateDate'
+               -> OptionState -- ^ 'osState'
+               -> OptionStatus
+mkOptionStatus p1 p2 p4 = OptionStatus
+    { _osCreationDate = p1
+    , _osUpdateDate = p2
+    , _osUpdateVersion = Nothing
+    , _osState = p4
+    , _osPendingDeletion = Nothing
+    }
+{-# INLINE mkOptionStatus #-}
+
 -- | A timestamp for when this option was created.
-osCreationDate :: Lens' OptionStatus (ISO8601)
+osCreationDate :: Lens' OptionStatus ISO8601
 osCreationDate = lens _osCreationDate (\s a -> s { _osCreationDate = a })
 {-# INLINE osCreationDate #-}
 
 -- | A timestamp for when this option was last updated.
-osUpdateDate :: Lens' OptionStatus (ISO8601)
+osUpdateDate :: Lens' OptionStatus ISO8601
 osUpdateDate = lens _osUpdateDate (\s a -> s { _osUpdateDate = a })
 {-# INLINE osUpdateDate #-}
 
@@ -2028,29 +1895,15 @@ osUpdateVersion = lens _osUpdateVersion (\s a -> s { _osUpdateVersion = a })
 -- value is not compatible with the domain's data and cannot be used to index
 -- the data. You must either modify the option value or update or remove the
 -- incompatible documents.
-osState :: Lens' OptionStatus (OptionState)
+osState :: Lens' OptionStatus OptionState
 osState = lens _osState (\s a -> s { _osState = a })
 {-# INLINE osState #-}
 
 -- | Indicates that the option will be deleted once processing is complete.
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
-osPendingDeletion = lens _osPendingDeletion (\s a -> s { _osPendingDeletion = a })
+osPendingDeletion =
+    lens _osPendingDeletion (\s a -> s { _osPendingDeletion = a })
 {-# INLINE osPendingDeletion #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionStatus' data type to populate a request.
-mkOptionStatus :: ISO8601 -- ^ 'osCreationDate'
-               -> ISO8601 -- ^ 'osUpdateDate'
-               -> OptionState -- ^ 'osState'
-               -> OptionStatus
-mkOptionStatus p1 p2 p3 = OptionStatus
-    { _osCreationDate = p1
-    , _osUpdateDate = p2
-    , _osUpdateVersion = Nothing
-    , _osState = p4
-    , _osPendingDeletion = Nothing
-    }
-{-# INLINE mkOptionStatus #-}
 
 instance FromXML OptionStatus where
     fromXMLOptions = xmlOptions
@@ -2062,44 +1915,42 @@ instance ToQuery OptionStatus where
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
 data ScalingParameters = ScalingParameters
-    { _sssDesiredInstanceType :: Maybe PartitionInstanceType
-      -- ^ The instance type that you want to preconfigure for your domain.
-      -- For example, search.m1.small.
-    , _sssDesiredReplicationCount :: Maybe Integer
-      -- ^ The number of replicas you want to preconfigure for each index
-      -- partition.
-    , _sssDesiredPartitionCount :: Maybe Integer
-      -- ^ The number of partitions you want to preconfigure for your
-      -- domain. Only valid when you select m2.2xlarge as the desired
-      -- instance type.
+    { _spDesiredInstanceType :: Maybe PartitionInstanceType
+    , _spDesiredReplicationCount :: Maybe Integer
+    , _spDesiredPartitionCount :: Maybe Integer
     } deriving (Show, Generic)
-
--- | The instance type that you want to preconfigure for your domain. For
--- example, search.m1.small.
-sssDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
-sssDesiredInstanceType = lens _sssDesiredInstanceType (\s a -> s { _sssDesiredInstanceType = a })
-{-# INLINE sssDesiredInstanceType #-}
-
--- | The number of replicas you want to preconfigure for each index partition.
-sssDesiredReplicationCount :: Lens' ScalingParameters (Maybe Integer)
-sssDesiredReplicationCount = lens _sssDesiredReplicationCount (\s a -> s { _sssDesiredReplicationCount = a })
-{-# INLINE sssDesiredReplicationCount #-}
-
--- | The number of partitions you want to preconfigure for your domain. Only
--- valid when you select m2.2xlarge as the desired instance type.
-sssDesiredPartitionCount :: Lens' ScalingParameters (Maybe Integer)
-sssDesiredPartitionCount = lens _sssDesiredPartitionCount (\s a -> s { _sssDesiredPartitionCount = a })
-{-# INLINE sssDesiredPartitionCount #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScalingParameters' data type to populate a request.
 mkScalingParameters :: ScalingParameters
 mkScalingParameters = ScalingParameters
-    { _sssDesiredInstanceType = Nothing
-    , _sssDesiredReplicationCount = Nothing
-    , _sssDesiredPartitionCount = Nothing
+    { _spDesiredInstanceType = Nothing
+    , _spDesiredReplicationCount = Nothing
+    , _spDesiredPartitionCount = Nothing
     }
 {-# INLINE mkScalingParameters #-}
+
+-- | The instance type that you want to preconfigure for your domain. For
+-- example, search.m1.small.
+spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
+spDesiredInstanceType =
+    lens _spDesiredInstanceType (\s a -> s { _spDesiredInstanceType = a })
+{-# INLINE spDesiredInstanceType #-}
+
+-- | The number of replicas you want to preconfigure for each index partition.
+spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Integer)
+spDesiredReplicationCount =
+    lens _spDesiredReplicationCount
+         (\s a -> s { _spDesiredReplicationCount = a })
+{-# INLINE spDesiredReplicationCount #-}
+
+-- | The number of partitions you want to preconfigure for your domain. Only
+-- valid when you select m2.2xlarge as the desired instance type.
+spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Integer)
+spDesiredPartitionCount =
+    lens _spDesiredPartitionCount
+         (\s a -> s { _spDesiredPartitionCount = a })
+{-# INLINE spDesiredPartitionCount #-}
 
 instance FromXML ScalingParameters where
     fromXMLOptions = xmlOptions
@@ -2111,20 +1962,28 @@ instance ToQuery ScalingParameters where
 -- | The status and configuration of a search domain's scaling parameters.
 data ScalingParametersStatus = ScalingParametersStatus
     { _spsOptions :: ScalingParameters
-      -- ^ The desired instance type and desired number of replicas of each
-      -- index partition.
     , _spsStatus :: OptionStatus
-      -- ^ The status of domain configuration option.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ScalingParametersStatus' data type to populate a request.
+mkScalingParametersStatus :: ScalingParameters -- ^ 'spsOptions'
+                          -> OptionStatus -- ^ 'spsStatus'
+                          -> ScalingParametersStatus
+mkScalingParametersStatus p1 p2 = ScalingParametersStatus
+    { _spsOptions = p1
+    , _spsStatus = p2
+    }
+{-# INLINE mkScalingParametersStatus #-}
 
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
-spsOptions :: Lens' ScalingParametersStatus (ScalingParameters)
+spsOptions :: Lens' ScalingParametersStatus ScalingParameters
 spsOptions = lens _spsOptions (\s a -> s { _spsOptions = a })
 {-# INLINE spsOptions #-}
 
 -- | The status of domain configuration option.
-spsStatus :: Lens' ScalingParametersStatus (OptionStatus)
+spsStatus :: Lens' ScalingParametersStatus OptionStatus
 spsStatus = lens _spsStatus (\s a -> s { _spsStatus = a })
 {-# INLINE spsStatus #-}
 
@@ -2137,39 +1996,35 @@ instance FromXML ScalingParametersStatus where
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
 data Suggester = Suggester
-    { _srSuggesterName :: Text
-      -- ^ A string that represents the name of an index field. Field names
-      -- begin with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). The name "score" is
-      -- reserved and cannot be used as a field name. To reference a
-      -- document's ID, you can use the name _id.
-    , _srDocumentSuggesterOptions :: DocumentSuggesterOptions
-      -- ^ Options for a search suggester.
+    { _sSuggesterName :: Text
+    , _sDocumentSuggesterOptions :: DocumentSuggesterOptions
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Suggester' data type to populate a request.
+mkSuggester :: Text -- ^ 'sSuggesterName'
+            -> DocumentSuggesterOptions -- ^ 'sDocumentSuggesterOptions'
+            -> Suggester
+mkSuggester p1 p2 = Suggester
+    { _sSuggesterName = p1
+    , _sDocumentSuggesterOptions = p2
+    }
+{-# INLINE mkSuggester #-}
 
 -- | A string that represents the name of an index field. Field names begin with
 -- a letter and can contain the following characters: a-z (lowercase), 0-9,
 -- and _ (underscore). The name "score" is reserved and cannot be used as a
 -- field name. To reference a document's ID, you can use the name _id.
-srSuggesterName :: Lens' Suggester (Text)
-srSuggesterName = lens _srSuggesterName (\s a -> s { _srSuggesterName = a })
-{-# INLINE srSuggesterName #-}
+sSuggesterName :: Lens' Suggester Text
+sSuggesterName = lens _sSuggesterName (\s a -> s { _sSuggesterName = a })
+{-# INLINE sSuggesterName #-}
 
 -- | Options for a search suggester.
-srDocumentSuggesterOptions :: Lens' Suggester (DocumentSuggesterOptions)
-srDocumentSuggesterOptions = lens _srDocumentSuggesterOptions (\s a -> s { _srDocumentSuggesterOptions = a })
-{-# INLINE srDocumentSuggesterOptions #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Suggester' data type to populate a request.
-mkSuggester :: Text -- ^ 'srSuggesterName'
-            -> DocumentSuggesterOptions -- ^ 'srDocumentSuggesterOptions'
-            -> Suggester
-mkSuggester p1 p2 = Suggester
-    { _srSuggesterName = p1
-    , _srDocumentSuggesterOptions = p2
-    }
-{-# INLINE mkSuggester #-}
+sDocumentSuggesterOptions :: Lens' Suggester DocumentSuggesterOptions
+sDocumentSuggesterOptions =
+    lens _sDocumentSuggesterOptions
+         (\s a -> s { _sDocumentSuggesterOptions = a })
+{-# INLINE sDocumentSuggesterOptions #-}
 
 instance FromXML Suggester where
     fromXMLOptions = xmlOptions
@@ -2181,24 +2036,30 @@ instance ToQuery Suggester where
 -- | The value of a Suggester and its current status.
 data SuggesterStatus = SuggesterStatus
     { _ssOptions :: Suggester
-      -- ^ Configuration information for a search suggester. Each suggester
-      -- has a unique name and specifies the text field you want to use
-      -- for suggestions. The following options can be configured for a
-      -- suggester: FuzzyMatching, SortExpression.
     , _ssStatus :: OptionStatus
-      -- ^ The status of domain configuration option.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'SuggesterStatus' data type to populate a request.
+mkSuggesterStatus :: Suggester -- ^ 'ssOptions'
+                  -> OptionStatus -- ^ 'ssStatus'
+                  -> SuggesterStatus
+mkSuggesterStatus p1 p2 = SuggesterStatus
+    { _ssOptions = p1
+    , _ssStatus = p2
+    }
+{-# INLINE mkSuggesterStatus #-}
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for suggestions.
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
-ssOptions :: Lens' SuggesterStatus (Suggester)
+ssOptions :: Lens' SuggesterStatus Suggester
 ssOptions = lens _ssOptions (\s a -> s { _ssOptions = a })
 {-# INLINE ssOptions #-}
 
 -- | The status of domain configuration option.
-ssStatus :: Lens' SuggesterStatus (OptionStatus)
+ssStatus :: Lens' SuggesterStatus OptionStatus
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 {-# INLINE ssStatus #-}
 
@@ -2211,43 +2072,11 @@ instance FromXML SuggesterStatus where
 -- field is always searchable. All options are enabled by default.
 data TextArrayOptions = TextArrayOptions
     { _taoDefaultValue :: Maybe Text
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
     , _taoSourceFields :: Maybe Text
-      -- ^ A list of source fields to map to the field.
     , _taoReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     , _taoHighlightEnabled :: Maybe Bool
-      -- ^ Whether highlights can be returned for the field.
     , _taoAnalysisScheme :: Maybe Text
-      -- ^ The name of an analysis scheme for a text-array field.
     } deriving (Show, Generic)
-
--- | A value to use for the field if the field isn't specified for a document.
-taoDefaultValue :: Lens' TextArrayOptions (Maybe Text)
-taoDefaultValue = lens _taoDefaultValue (\s a -> s { _taoDefaultValue = a })
-{-# INLINE taoDefaultValue #-}
-
--- | A list of source fields to map to the field.
-taoSourceFields :: Lens' TextArrayOptions (Maybe Text)
-taoSourceFields = lens _taoSourceFields (\s a -> s { _taoSourceFields = a })
-{-# INLINE taoSourceFields #-}
-
--- | Whether the contents of the field can be returned in the search results.
-taoReturnEnabled :: Lens' TextArrayOptions (Maybe Bool)
-taoReturnEnabled = lens _taoReturnEnabled (\s a -> s { _taoReturnEnabled = a })
-{-# INLINE taoReturnEnabled #-}
-
--- | Whether highlights can be returned for the field.
-taoHighlightEnabled :: Lens' TextArrayOptions (Maybe Bool)
-taoHighlightEnabled = lens _taoHighlightEnabled (\s a -> s { _taoHighlightEnabled = a })
-{-# INLINE taoHighlightEnabled #-}
-
--- | The name of an analysis scheme for a text-array field.
-taoAnalysisScheme :: Lens' TextArrayOptions (Maybe Text)
-taoAnalysisScheme = lens _taoAnalysisScheme (\s a -> s { _taoAnalysisScheme = a })
-{-# INLINE taoAnalysisScheme #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TextArrayOptions' data type to populate a request.
@@ -2261,6 +2090,34 @@ mkTextArrayOptions = TextArrayOptions
     }
 {-# INLINE mkTextArrayOptions #-}
 
+-- | A value to use for the field if the field isn't specified for a document.
+taoDefaultValue :: Lens' TextArrayOptions (Maybe Text)
+taoDefaultValue = lens _taoDefaultValue (\s a -> s { _taoDefaultValue = a })
+{-# INLINE taoDefaultValue #-}
+
+-- | A list of source fields to map to the field.
+taoSourceFields :: Lens' TextArrayOptions (Maybe Text)
+taoSourceFields = lens _taoSourceFields (\s a -> s { _taoSourceFields = a })
+{-# INLINE taoSourceFields #-}
+
+-- | Whether the contents of the field can be returned in the search results.
+taoReturnEnabled :: Lens' TextArrayOptions (Maybe Bool)
+taoReturnEnabled =
+    lens _taoReturnEnabled (\s a -> s { _taoReturnEnabled = a })
+{-# INLINE taoReturnEnabled #-}
+
+-- | Whether highlights can be returned for the field.
+taoHighlightEnabled :: Lens' TextArrayOptions (Maybe Bool)
+taoHighlightEnabled =
+    lens _taoHighlightEnabled (\s a -> s { _taoHighlightEnabled = a })
+{-# INLINE taoHighlightEnabled #-}
+
+-- | The name of an analysis scheme for a text-array field.
+taoAnalysisScheme :: Lens' TextArrayOptions (Maybe Text)
+taoAnalysisScheme =
+    lens _taoAnalysisScheme (\s a -> s { _taoAnalysisScheme = a })
+{-# INLINE taoAnalysisScheme #-}
+
 instance FromXML TextArrayOptions where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TextArrayOptions"
@@ -2273,24 +2130,25 @@ instance ToQuery TextArrayOptions where
 -- default.
 data TextOptions = TextOptions
     { _toDefaultValue :: Maybe Text
-      -- ^ A value to use for the field if the field isn't specified for a
-      -- document.
     , _toSourceField :: Maybe Text
-      -- ^ A string that represents the name of an index field. Field names
-      -- begin with a letter and can contain the following characters: a-z
-      -- (lowercase), 0-9, and _ (underscore). The name "score" is
-      -- reserved and cannot be used as a field name. To reference a
-      -- document's ID, you can use the name _id.
     , _toReturnEnabled :: Maybe Bool
-      -- ^ Whether the contents of the field can be returned in the search
-      -- results.
     , _toSortEnabled :: Maybe Bool
-      -- ^ Whether the field can be used to sort the search results.
     , _toHighlightEnabled :: Maybe Bool
-      -- ^ Whether highlights can be returned for the field.
     , _toAnalysisScheme :: Maybe Text
-      -- ^ The name of an analysis scheme for a text field.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TextOptions' data type to populate a request.
+mkTextOptions :: TextOptions
+mkTextOptions = TextOptions
+    { _toDefaultValue = Nothing
+    , _toSourceField = Nothing
+    , _toReturnEnabled = Nothing
+    , _toSortEnabled = Nothing
+    , _toHighlightEnabled = Nothing
+    , _toAnalysisScheme = Nothing
+    }
+{-# INLINE mkTextOptions #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 toDefaultValue :: Lens' TextOptions (Maybe Text)
@@ -2317,26 +2175,15 @@ toSortEnabled = lens _toSortEnabled (\s a -> s { _toSortEnabled = a })
 
 -- | Whether highlights can be returned for the field.
 toHighlightEnabled :: Lens' TextOptions (Maybe Bool)
-toHighlightEnabled = lens _toHighlightEnabled (\s a -> s { _toHighlightEnabled = a })
+toHighlightEnabled =
+    lens _toHighlightEnabled (\s a -> s { _toHighlightEnabled = a })
 {-# INLINE toHighlightEnabled #-}
 
 -- | The name of an analysis scheme for a text field.
 toAnalysisScheme :: Lens' TextOptions (Maybe Text)
-toAnalysisScheme = lens _toAnalysisScheme (\s a -> s { _toAnalysisScheme = a })
+toAnalysisScheme =
+    lens _toAnalysisScheme (\s a -> s { _toAnalysisScheme = a })
 {-# INLINE toAnalysisScheme #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'TextOptions' data type to populate a request.
-mkTextOptions :: TextOptions
-mkTextOptions = TextOptions
-    { _toDefaultValue = Nothing
-    , _toSourceField = Nothing
-    , _toReturnEnabled = Nothing
-    , _toSortEnabled = Nothing
-    , _toHighlightEnabled = Nothing
-    , _toAnalysisScheme = Nothing
-    }
-{-# INLINE mkTextOptions #-}
 
 instance FromXML TextOptions where
     fromXMLOptions = xmlOptions

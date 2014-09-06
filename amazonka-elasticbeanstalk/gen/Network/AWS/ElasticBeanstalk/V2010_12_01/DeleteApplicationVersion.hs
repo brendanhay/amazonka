@@ -28,11 +28,11 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion
     -- * Request
       DeleteApplicationVersion
     -- ** Request constructor
-    , mkDeleteApplicationVersionMessage
+    , mkDeleteApplicationVersion
     -- ** Request lenses
-    , davmApplicationName
-    , davmVersionLabel
-    , davmDeleteSourceBundle
+    , davApplicationName
+    , davVersionLabel
+    , davDeleteSourceBundle
 
     -- * Response
     , DeleteApplicationVersionResponse
@@ -42,48 +42,44 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteApplicationVersion' request.
-mkDeleteApplicationVersionMessage :: Text -- ^ 'davmApplicationName'
-                                  -> Text -- ^ 'davmVersionLabel'
-                                  -> DeleteApplicationVersion
-mkDeleteApplicationVersionMessage p1 p2 = DeleteApplicationVersion
-    { _davmApplicationName = p1
-    , _davmVersionLabel = p2
-    , _davmDeleteSourceBundle = Nothing
-    }
-{-# INLINE mkDeleteApplicationVersionMessage #-}
-
+-- | This documentation target is not reported in the API reference.
 data DeleteApplicationVersion = DeleteApplicationVersion
-    { _davmApplicationName :: Text
-      -- ^ The name of the application to delete releases from.
-    , _davmVersionLabel :: Text
-      -- ^ The label of the version to delete.
-    , _davmDeleteSourceBundle :: Maybe Bool
-      -- ^ Indicates whether to delete the associated source bundle from
-      -- Amazon S3: true: An attempt is made to delete the associated
-      -- Amazon S3 source bundle specified at time of creation. false: No
-      -- action is taken on the Amazon S3 source bundle specified at time
-      -- of creation. Valid Values: true | false.
+    { _davApplicationName :: Text
+    , _davVersionLabel :: Text
+    , _davDeleteSourceBundle :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteApplicationVersion' request.
+mkDeleteApplicationVersion :: Text -- ^ 'davApplicationName'
+                           -> Text -- ^ 'davVersionLabel'
+                           -> DeleteApplicationVersion
+mkDeleteApplicationVersion p1 p2 = DeleteApplicationVersion
+    { _davApplicationName = p1
+    , _davVersionLabel = p2
+    , _davDeleteSourceBundle = Nothing
+    }
+{-# INLINE mkDeleteApplicationVersion #-}
+
 -- | The name of the application to delete releases from.
-davmApplicationName :: Lens' DeleteApplicationVersion (Text)
-davmApplicationName = lens _davmApplicationName (\s a -> s { _davmApplicationName = a })
-{-# INLINE davmApplicationName #-}
+davApplicationName :: Lens' DeleteApplicationVersion Text
+davApplicationName =
+    lens _davApplicationName (\s a -> s { _davApplicationName = a })
+{-# INLINE davApplicationName #-}
 
 -- | The label of the version to delete.
-davmVersionLabel :: Lens' DeleteApplicationVersion (Text)
-davmVersionLabel = lens _davmVersionLabel (\s a -> s { _davmVersionLabel = a })
-{-# INLINE davmVersionLabel #-}
+davVersionLabel :: Lens' DeleteApplicationVersion Text
+davVersionLabel = lens _davVersionLabel (\s a -> s { _davVersionLabel = a })
+{-# INLINE davVersionLabel #-}
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
 -- true: An attempt is made to delete the associated Amazon S3 source bundle
 -- specified at time of creation. false: No action is taken on the Amazon S3
 -- source bundle specified at time of creation. Valid Values: true | false.
-davmDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
-davmDeleteSourceBundle = lens _davmDeleteSourceBundle (\s a -> s { _davmDeleteSourceBundle = a })
-{-# INLINE davmDeleteSourceBundle #-}
+davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
+davDeleteSourceBundle =
+    lens _davDeleteSourceBundle (\s a -> s { _davDeleteSourceBundle = a })
+{-# INLINE davDeleteSourceBundle #-}
 
 instance ToQuery DeleteApplicationVersion where
     toQuery = genericQuery def

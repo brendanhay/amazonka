@@ -67,11 +67,11 @@ module Network.AWS.Kinesis.V2013_12_02.SplitShard
     -- * Request
       SplitShard
     -- ** Request constructor
-    , mkSplitShardInput
+    , mkSplitShard
     -- ** Request lenses
-    , sskStreamName
-    , sskShardToSplit
-    , sskNewStartingHashKey
+    , ssStreamName
+    , ssShardToSplit
+    , ssNewStartingHashKey
 
     -- * Response
     , SplitShardResponse
@@ -82,44 +82,35 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SplitShard' request.
-mkSplitShardInput :: Text -- ^ 'sskStreamName'
-                  -> Text -- ^ 'sskShardToSplit'
-                  -> Text -- ^ 'sskNewStartingHashKey'
-                  -> SplitShard
-mkSplitShardInput p1 p2 p3 = SplitShard
-    { _sskStreamName = p1
-    , _sskShardToSplit = p2
-    , _sskNewStartingHashKey = p3
-    }
-{-# INLINE mkSplitShardInput #-}
-
+-- | Represents the input of a SplitShard operation.
 data SplitShard = SplitShard
-    { _sskStreamName :: Text
-      -- ^ The name of the stream for the shard split.
-    , _sskShardToSplit :: Text
-      -- ^ The shard ID of the shard to split.
-    , _sskNewStartingHashKey :: Text
-      -- ^ A hash key value for the starting hash key of one of the child
-      -- shards created by the split. The hash key range for a given shard
-      -- constitutes a set of ordered contiguous positive integers. The
-      -- value for NewStartingHashKey must be in the range of hash keys
-      -- being mapped into the shard. The NewStartingHashKey hash key
-      -- value and all higher hash key values in hash key range are
-      -- distributed to one of the child shards. All the lower hash key
-      -- values in the range are distributed to the other child shard.
+    { _ssStreamName :: Text
+    , _ssShardToSplit :: Text
+    , _ssNewStartingHashKey :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SplitShard' request.
+mkSplitShard :: Text -- ^ 'ssStreamName'
+             -> Text -- ^ 'ssShardToSplit'
+             -> Text -- ^ 'ssNewStartingHashKey'
+             -> SplitShard
+mkSplitShard p1 p2 p3 = SplitShard
+    { _ssStreamName = p1
+    , _ssShardToSplit = p2
+    , _ssNewStartingHashKey = p3
+    }
+{-# INLINE mkSplitShard #-}
+
 -- | The name of the stream for the shard split.
-sskStreamName :: Lens' SplitShard (Text)
-sskStreamName = lens _sskStreamName (\s a -> s { _sskStreamName = a })
-{-# INLINE sskStreamName #-}
+ssStreamName :: Lens' SplitShard Text
+ssStreamName = lens _ssStreamName (\s a -> s { _ssStreamName = a })
+{-# INLINE ssStreamName #-}
 
 -- | The shard ID of the shard to split.
-sskShardToSplit :: Lens' SplitShard (Text)
-sskShardToSplit = lens _sskShardToSplit (\s a -> s { _sskShardToSplit = a })
-{-# INLINE sskShardToSplit #-}
+ssShardToSplit :: Lens' SplitShard Text
+ssShardToSplit = lens _ssShardToSplit (\s a -> s { _ssShardToSplit = a })
+{-# INLINE ssShardToSplit #-}
 
 -- | A hash key value for the starting hash key of one of the child shards
 -- created by the split. The hash key range for a given shard constitutes a
@@ -128,9 +119,10 @@ sskShardToSplit = lens _sskShardToSplit (\s a -> s { _sskShardToSplit = a })
 -- shard. The NewStartingHashKey hash key value and all higher hash key values
 -- in hash key range are distributed to one of the child shards. All the lower
 -- hash key values in the range are distributed to the other child shard.
-sskNewStartingHashKey :: Lens' SplitShard (Text)
-sskNewStartingHashKey = lens _sskNewStartingHashKey (\s a -> s { _sskNewStartingHashKey = a })
-{-# INLINE sskNewStartingHashKey #-}
+ssNewStartingHashKey :: Lens' SplitShard Text
+ssNewStartingHashKey =
+    lens _ssNewStartingHashKey (\s a -> s { _ssNewStartingHashKey = a })
+{-# INLINE ssNewStartingHashKey #-}
 
 instance ToPath SplitShard
 

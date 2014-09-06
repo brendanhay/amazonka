@@ -23,44 +23,45 @@ module Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfi
     -- * Request
       GetCloudFrontOriginAccessIdentityConfig
     -- ** Request constructor
-    , mkGetCloudFrontOriginAccessIdentityConfigRequest
+    , mkGetCloudFrontOriginAccessIdentityConfig
     -- ** Request lenses
-    , gcfoaicrId
+    , gcfoaicId
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityConfigResponse
     -- ** Response lenses
-    , gcfoaicsCloudFrontOriginAccessIdentityConfig
-    , gcfoaicsETag
+    , gcfoaicrsCloudFrontOriginAccessIdentityConfig
+    , gcfoaicrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to get an origin access identity's configuration.
+newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig
+    { _gcfoaicId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCloudFrontOriginAccessIdentityConfig' request.
-mkGetCloudFrontOriginAccessIdentityConfigRequest :: Text -- ^ 'gcfoaicrId'
-                                                 -> GetCloudFrontOriginAccessIdentityConfig
-mkGetCloudFrontOriginAccessIdentityConfigRequest p1 = GetCloudFrontOriginAccessIdentityConfig
-    { _gcfoaicrId = p1
+mkGetCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'gcfoaicId'
+                                          -> GetCloudFrontOriginAccessIdentityConfig
+mkGetCloudFrontOriginAccessIdentityConfig p1 = GetCloudFrontOriginAccessIdentityConfig
+    { _gcfoaicId = p1
     }
-{-# INLINE mkGetCloudFrontOriginAccessIdentityConfigRequest #-}
-
-newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig
-    { _gcfoaicrId :: Text
-      -- ^ The identity's id.
-    } deriving (Show, Generic)
+{-# INLINE mkGetCloudFrontOriginAccessIdentityConfig #-}
 
 -- | The identity's id.
-gcfoaicrId :: Lens' GetCloudFrontOriginAccessIdentityConfig (Text)
-gcfoaicrId = lens _gcfoaicrId (\s a -> s { _gcfoaicrId = a })
-{-# INLINE gcfoaicrId #-}
+gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
+gcfoaicId = lens _gcfoaicId (\s a -> s { _gcfoaicId = a })
+{-# INLINE gcfoaicId #-}
 
 instance ToPath GetCloudFrontOriginAccessIdentityConfig where
     toPath GetCloudFrontOriginAccessIdentityConfig{..} = mconcat
         [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toBS _gcfoaicrId
+        , toBS _gcfoaicId
         , "/config"
         ]
 
@@ -72,23 +73,23 @@ instance ToXML GetCloudFrontOriginAccessIdentityConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityConfigRequest"
 
+-- | The returned result of the corresponding request.
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse
-    { _gcfoaicsCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
-      -- ^ The origin access identity's configuration information.
-    , _gcfoaicsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
+    { _gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
+    , _gcfoaicrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The origin access identity's configuration information.
-gcfoaicsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
-gcfoaicsCloudFrontOriginAccessIdentityConfig = lens _gcfoaicsCloudFrontOriginAccessIdentityConfig (\s a -> s { _gcfoaicsCloudFrontOriginAccessIdentityConfig = a })
-{-# INLINE gcfoaicsCloudFrontOriginAccessIdentityConfig #-}
+gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
+gcfoaicrsCloudFrontOriginAccessIdentityConfig =
+    lens _gcfoaicrsCloudFrontOriginAccessIdentityConfig
+         (\s a -> s { _gcfoaicrsCloudFrontOriginAccessIdentityConfig = a })
+{-# INLINE gcfoaicrsCloudFrontOriginAccessIdentityConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gcfoaicsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
-gcfoaicsETag = lens _gcfoaicsETag (\s a -> s { _gcfoaicsETag = a })
-{-# INLINE gcfoaicsETag #-}
+gcfoaicrsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
+gcfoaicrsETag = lens _gcfoaicrsETag (\s a -> s { _gcfoaicrsETag = a })
+{-# INLINE gcfoaicrsETag #-}
 
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront

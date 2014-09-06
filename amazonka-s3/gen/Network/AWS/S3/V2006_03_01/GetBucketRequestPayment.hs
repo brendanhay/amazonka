@@ -23,41 +23,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
     -- * Request
       GetBucketRequestPayment
     -- ** Request constructor
-    , mkGetBucketRequestPaymentRequest
+    , mkGetBucketRequestPayment
     -- ** Request lenses
-    , gbrprBucket
+    , gbrpBucket
 
     -- * Response
     , GetBucketRequestPaymentResponse
     -- ** Response lenses
-    , gbrpoPayer
+    , gbrprsPayer
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketRequestPayment = GetBucketRequestPayment
+    { _gbrpBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketRequestPayment' request.
-mkGetBucketRequestPaymentRequest :: BucketName -- ^ 'gbrprBucket'
-                                 -> GetBucketRequestPayment
-mkGetBucketRequestPaymentRequest p1 = GetBucketRequestPayment
-    { _gbrprBucket = p1
+mkGetBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
+                          -> GetBucketRequestPayment
+mkGetBucketRequestPayment p1 = GetBucketRequestPayment
+    { _gbrpBucket = p1
     }
-{-# INLINE mkGetBucketRequestPaymentRequest #-}
+{-# INLINE mkGetBucketRequestPayment #-}
 
-newtype GetBucketRequestPayment = GetBucketRequestPayment
-    { _gbrprBucket :: BucketName
-    } deriving (Show, Generic)
-
-gbrprBucket :: Lens' GetBucketRequestPayment (BucketName)
-gbrprBucket = lens _gbrprBucket (\s a -> s { _gbrprBucket = a })
-{-# INLINE gbrprBucket #-}
+gbrpBucket :: Lens' GetBucketRequestPayment BucketName
+gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
+{-# INLINE gbrpBucket #-}
 
 instance ToPath GetBucketRequestPayment where
     toPath GetBucketRequestPayment{..} = mconcat
         [ "/"
-        , toBS _gbrprBucket
+        , toBS _gbrpBucket
         ]
 
 instance ToQuery GetBucketRequestPayment where
@@ -70,14 +71,13 @@ instance ToHeaders GetBucketRequestPayment
 instance ToBody GetBucketRequestPayment
 
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
-    { _gbrpoPayer :: Maybe Payer
-      -- ^ Specifies who pays for the download and request fees.
+    { _gbrprsPayer :: Maybe Payer
     } deriving (Show, Generic)
 
 -- | Specifies who pays for the download and request fees.
-gbrpoPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
-gbrpoPayer = lens _gbrpoPayer (\s a -> s { _gbrpoPayer = a })
-{-# INLINE gbrpoPayer #-}
+gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
+gbrprsPayer = lens _gbrprsPayer (\s a -> s { _gbrprsPayer = a })
+{-# INLINE gbrprsPayer #-}
 
 instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions

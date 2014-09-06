@@ -41,67 +41,66 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies
     -- * Request
       DescribeLoadBalancerPolicies
     -- ** Request constructor
-    , mkDescribeLoadBalancerPoliciesInput
+    , mkDescribeLoadBalancerPolicies
     -- ** Request lenses
-    , dlbpjLoadBalancerName
-    , dlbpjPolicyNames
+    , dlbp1LoadBalancerName
+    , dlbp1PolicyNames
 
     -- * Response
     , DescribeLoadBalancerPoliciesResponse
     -- ** Response lenses
-    , dlbppPolicyDescriptions
+    , dlbprsrsPolicyDescriptions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
+    { _dlbp1LoadBalancerName :: Maybe Text
+    , _dlbp1PolicyNames :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerPolicies' request.
-mkDescribeLoadBalancerPoliciesInput :: DescribeLoadBalancerPolicies
-mkDescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPolicies
-    { _dlbpjLoadBalancerName = Nothing
-    , _dlbpjPolicyNames = mempty
+mkDescribeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
+mkDescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
+    { _dlbp1LoadBalancerName = Nothing
+    , _dlbp1PolicyNames = mempty
     }
-{-# INLINE mkDescribeLoadBalancerPoliciesInput #-}
-
-data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
-    { _dlbpjLoadBalancerName :: Maybe Text
-      -- ^ The mnemonic name associated with the load balancer. If no name
-      -- is specified, the operation returns the attributes of either all
-      -- the sample policies pre-defined by Elastic Load Balancing or the
-      -- specified sample polices.
-    , _dlbpjPolicyNames :: [Text]
-      -- ^ The names of load balancer policies you've created or Elastic
-      -- Load Balancing sample policy names.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeLoadBalancerPolicies #-}
 
 -- | The mnemonic name associated with the load balancer. If no name is
 -- specified, the operation returns the attributes of either all the sample
 -- policies pre-defined by Elastic Load Balancing or the specified sample
 -- polices.
-dlbpjLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
-dlbpjLoadBalancerName = lens _dlbpjLoadBalancerName (\s a -> s { _dlbpjLoadBalancerName = a })
-{-# INLINE dlbpjLoadBalancerName #-}
+dlbp1LoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
+dlbp1LoadBalancerName =
+    lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
+{-# INLINE dlbp1LoadBalancerName #-}
 
 -- | The names of load balancer policies you've created or Elastic Load
 -- Balancing sample policy names.
-dlbpjPolicyNames :: Lens' DescribeLoadBalancerPolicies ([Text])
-dlbpjPolicyNames = lens _dlbpjPolicyNames (\s a -> s { _dlbpjPolicyNames = a })
-{-# INLINE dlbpjPolicyNames #-}
+dlbp1PolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
+dlbp1PolicyNames =
+    lens _dlbp1PolicyNames (\s a -> s { _dlbp1PolicyNames = a })
+{-# INLINE dlbp1PolicyNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicies where
     toQuery = genericQuery def
 
+-- | The output for the DescribeLoadBalancerPolicies action.
 newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
-    { _dlbppPolicyDescriptions :: [PolicyDescription]
-      -- ^ A list of policy description structures.
+    { _dlbprsrsPolicyDescriptions :: [PolicyDescription]
     } deriving (Show, Generic)
 
 -- | A list of policy description structures.
-dlbppPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse ([PolicyDescription])
-dlbppPolicyDescriptions = lens _dlbppPolicyDescriptions (\s a -> s { _dlbppPolicyDescriptions = a })
-{-# INLINE dlbppPolicyDescriptions #-}
+dlbprsrsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
+dlbprsrsPolicyDescriptions =
+    lens _dlbprsrsPolicyDescriptions
+         (\s a -> s { _dlbprsrsPolicyDescriptions = a })
+{-# INLINE dlbprsrsPolicyDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPoliciesResponse where
     fromXMLOptions = xmlOptions

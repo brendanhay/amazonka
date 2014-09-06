@@ -26,9 +26,9 @@ module Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
     -- * Request
       DeleteIdentityPool
     -- ** Request constructor
-    , mkDeleteIdentityPoolInput
+    , mkDeleteIdentityPool
     -- ** Request lenses
-    , dipiIdentityPoolId
+    , dipIdentityPoolId
 
     -- * Response
     , DeleteIdentityPoolResponse
@@ -39,24 +39,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteIdentityPool' request.
-mkDeleteIdentityPoolInput :: Text -- ^ 'dipiIdentityPoolId'
-                          -> DeleteIdentityPool
-mkDeleteIdentityPoolInput p1 = DeleteIdentityPool
-    { _dipiIdentityPoolId = p1
-    }
-{-# INLINE mkDeleteIdentityPoolInput #-}
-
+-- | Input to the DeleteIdentityPool action.
 newtype DeleteIdentityPool = DeleteIdentityPool
-    { _dipiIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
+    { _dipIdentityPoolId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteIdentityPool' request.
+mkDeleteIdentityPool :: Text -- ^ 'dipIdentityPoolId'
+                     -> DeleteIdentityPool
+mkDeleteIdentityPool p1 = DeleteIdentityPool
+    { _dipIdentityPoolId = p1
+    }
+{-# INLINE mkDeleteIdentityPool #-}
+
 -- | An identity pool ID in the format REGION:GUID.
-dipiIdentityPoolId :: Lens' DeleteIdentityPool (Text)
-dipiIdentityPoolId = lens _dipiIdentityPoolId (\s a -> s { _dipiIdentityPoolId = a })
-{-# INLINE dipiIdentityPoolId #-}
+dipIdentityPoolId :: Lens' DeleteIdentityPool Text
+dipIdentityPoolId =
+    lens _dipIdentityPoolId (\s a -> s { _dipIdentityPoolId = a })
+{-# INLINE dipIdentityPoolId #-}
 
 instance ToPath DeleteIdentityPool
 

@@ -25,119 +25,113 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions
     -- * Request
       DescribeScheduledActions
     -- ** Request constructor
-    , mkDescribeScheduledActionsType
+    , mkDescribeScheduledActions
     -- ** Request lenses
-    , dsavAutoScalingGroupName
-    , dsavScheduledActionNames
-    , dsavStartTime
-    , dsavEndTime
-    , dsavNextToken
-    , dsavMaxRecords
+    , dsa2AutoScalingGroupName
+    , dsa2ScheduledActionNames
+    , dsa2StartTime
+    , dsa2EndTime
+    , dsa2NextToken
+    , dsa2MaxRecords
 
     -- * Response
     , DescribeScheduledActionsResponse
     -- ** Response lenses
-    , satScheduledUpdateGroupActions
-    , satNextToken
+    , dsarsrsScheduledUpdateGroupActions
+    , dsarsrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeScheduledActions' request.
-mkDescribeScheduledActionsType :: DescribeScheduledActions
-mkDescribeScheduledActionsType = DescribeScheduledActions
-    { _dsavAutoScalingGroupName = Nothing
-    , _dsavScheduledActionNames = mempty
-    , _dsavStartTime = Nothing
-    , _dsavEndTime = Nothing
-    , _dsavNextToken = Nothing
-    , _dsavMaxRecords = Nothing
-    }
-{-# INLINE mkDescribeScheduledActionsType #-}
-
+-- | 
 data DescribeScheduledActions = DescribeScheduledActions
-    { _dsavAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group.
-    , _dsavScheduledActionNames :: [Text]
-      -- ^ A list of scheduled actions to be described. If this list is
-      -- omitted, all scheduled actions are described. The list of
-      -- requested scheduled actions cannot contain more than 50 items. If
-      -- an auto scaling group name is provided, the results are limited
-      -- to that group. If unknown scheduled actions are requested, they
-      -- are ignored with no error.
-    , _dsavStartTime :: Maybe ISO8601
-      -- ^ The earliest scheduled start time to return. If scheduled action
-      -- names are provided, this field will be ignored.
-    , _dsavEndTime :: Maybe ISO8601
-      -- ^ The latest scheduled start time to return. If scheduled action
-      -- names are provided, this field is ignored.
-    , _dsavNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
-    , _dsavMaxRecords :: Maybe Integer
-      -- ^ The maximum number of scheduled actions to return.
+    { _dsa2AutoScalingGroupName :: Maybe Text
+    , _dsa2ScheduledActionNames :: [Text]
+    , _dsa2StartTime :: Maybe ISO8601
+    , _dsa2EndTime :: Maybe ISO8601
+    , _dsa2NextToken :: Maybe Text
+    , _dsa2MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScheduledActions' request.
+mkDescribeScheduledActions :: DescribeScheduledActions
+mkDescribeScheduledActions = DescribeScheduledActions
+    { _dsa2AutoScalingGroupName = Nothing
+    , _dsa2ScheduledActionNames = mempty
+    , _dsa2StartTime = Nothing
+    , _dsa2EndTime = Nothing
+    , _dsa2NextToken = Nothing
+    , _dsa2MaxRecords = Nothing
+    }
+{-# INLINE mkDescribeScheduledActions #-}
+
 -- | The name of the Auto Scaling group.
-dsavAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
-dsavAutoScalingGroupName = lens _dsavAutoScalingGroupName (\s a -> s { _dsavAutoScalingGroupName = a })
-{-# INLINE dsavAutoScalingGroupName #-}
+dsa2AutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
+dsa2AutoScalingGroupName =
+    lens _dsa2AutoScalingGroupName
+         (\s a -> s { _dsa2AutoScalingGroupName = a })
+{-# INLINE dsa2AutoScalingGroupName #-}
 
 -- | A list of scheduled actions to be described. If this list is omitted, all
 -- scheduled actions are described. The list of requested scheduled actions
 -- cannot contain more than 50 items. If an auto scaling group name is
 -- provided, the results are limited to that group. If unknown scheduled
 -- actions are requested, they are ignored with no error.
-dsavScheduledActionNames :: Lens' DescribeScheduledActions ([Text])
-dsavScheduledActionNames = lens _dsavScheduledActionNames (\s a -> s { _dsavScheduledActionNames = a })
-{-# INLINE dsavScheduledActionNames #-}
+dsa2ScheduledActionNames :: Lens' DescribeScheduledActions [Text]
+dsa2ScheduledActionNames =
+    lens _dsa2ScheduledActionNames
+         (\s a -> s { _dsa2ScheduledActionNames = a })
+{-# INLINE dsa2ScheduledActionNames #-}
 
 -- | The earliest scheduled start time to return. If scheduled action names are
 -- provided, this field will be ignored.
-dsavStartTime :: Lens' DescribeScheduledActions (Maybe ISO8601)
-dsavStartTime = lens _dsavStartTime (\s a -> s { _dsavStartTime = a })
-{-# INLINE dsavStartTime #-}
+dsa2StartTime :: Lens' DescribeScheduledActions (Maybe ISO8601)
+dsa2StartTime = lens _dsa2StartTime (\s a -> s { _dsa2StartTime = a })
+{-# INLINE dsa2StartTime #-}
 
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this field is ignored.
-dsavEndTime :: Lens' DescribeScheduledActions (Maybe ISO8601)
-dsavEndTime = lens _dsavEndTime (\s a -> s { _dsavEndTime = a })
-{-# INLINE dsavEndTime #-}
+dsa2EndTime :: Lens' DescribeScheduledActions (Maybe ISO8601)
+dsa2EndTime = lens _dsa2EndTime (\s a -> s { _dsa2EndTime = a })
+{-# INLINE dsa2EndTime #-}
 
 -- | A string that marks the start of the next batch of returned results.
-dsavNextToken :: Lens' DescribeScheduledActions (Maybe Text)
-dsavNextToken = lens _dsavNextToken (\s a -> s { _dsavNextToken = a })
-{-# INLINE dsavNextToken #-}
+dsa2NextToken :: Lens' DescribeScheduledActions (Maybe Text)
+dsa2NextToken = lens _dsa2NextToken (\s a -> s { _dsa2NextToken = a })
+{-# INLINE dsa2NextToken #-}
 
 -- | The maximum number of scheduled actions to return.
-dsavMaxRecords :: Lens' DescribeScheduledActions (Maybe Integer)
-dsavMaxRecords = lens _dsavMaxRecords (\s a -> s { _dsavMaxRecords = a })
-{-# INLINE dsavMaxRecords #-}
+dsa2MaxRecords :: Lens' DescribeScheduledActions (Maybe Integer)
+dsa2MaxRecords = lens _dsa2MaxRecords (\s a -> s { _dsa2MaxRecords = a })
+{-# INLINE dsa2MaxRecords #-}
 
 instance ToQuery DescribeScheduledActions where
     toQuery = genericQuery def
 
+-- | A scaling action that is scheduled for a future time and date. An action
+-- can be scheduled up to thirty days in advance. Starting with API version
+-- 2011-01-01, you can use recurrence to specify that a scaling action occurs
+-- regularly on a schedule.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
-    { _satScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
-      -- ^ A list of scheduled actions designed to update an Auto Scaling
-      -- group.
-    , _satNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+    { _dsarsrsScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
+    , _dsarsrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of scheduled actions designed to update an Auto Scaling group.
-satScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse ([ScheduledUpdateGroupAction])
-satScheduledUpdateGroupActions = lens _satScheduledUpdateGroupActions (\s a -> s { _satScheduledUpdateGroupActions = a })
-{-# INLINE satScheduledUpdateGroupActions #-}
+dsarsrsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
+dsarsrsScheduledUpdateGroupActions =
+    lens _dsarsrsScheduledUpdateGroupActions
+         (\s a -> s { _dsarsrsScheduledUpdateGroupActions = a })
+{-# INLINE dsarsrsScheduledUpdateGroupActions #-}
 
 -- | A string that marks the start of the next batch of returned results.
-satNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
-satNextToken = lens _satNextToken (\s a -> s { _satNextToken = a })
-{-# INLINE satNextToken #-}
+dsarsrsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
+dsarsrsNextToken =
+    lens _dsarsrsNextToken (\s a -> s { _dsarsrsNextToken = a })
+{-# INLINE dsarsrsNextToken #-}
 
 instance FromXML DescribeScheduledActionsResponse where
     fromXMLOptions = xmlOptions
@@ -150,5 +144,5 @@ instance AWSRequest DescribeScheduledActions where
     response _ = xmlResponse
 
 instance AWSPager DescribeScheduledActions where
-    next rq rs = (\x -> rq { _dsavNextToken = Just x })
-        <$> (_satNextToken rs)
+    next rq rs = (\x -> rq { _dsa2NextToken = Just x })
+        <$> (_dsarsrsNextToken rs)

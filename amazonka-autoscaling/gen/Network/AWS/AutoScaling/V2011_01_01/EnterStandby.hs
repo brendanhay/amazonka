@@ -33,82 +33,77 @@ module Network.AWS.AutoScaling.V2011_01_01.EnterStandby
     -- * Request
       EnterStandby
     -- ** Request constructor
-    , mkEnterStandbyQuery
+    , mkEnterStandby
     -- ** Request lenses
-    , esqInstanceIds
-    , esqAutoScalingGroupName
-    , esqShouldDecrementDesiredCapacity
+    , esInstanceIds
+    , esAutoScalingGroupName
+    , esShouldDecrementDesiredCapacity
 
     -- * Response
     , EnterStandbyResponse
     -- ** Response lenses
-    , esaActivities
+    , esrsActivities
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data EnterStandby = EnterStandby
+    { _esInstanceIds :: [Text]
+    , _esAutoScalingGroupName :: Text
+    , _esShouldDecrementDesiredCapacity :: Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnterStandby' request.
-mkEnterStandbyQuery :: Text -- ^ 'esqAutoScalingGroupName'
-                    -> Bool -- ^ 'esqShouldDecrementDesiredCapacity'
-                    -> EnterStandby
-mkEnterStandbyQuery p1 p2 = EnterStandby
-    { _esqInstanceIds = mempty
-    , _esqAutoScalingGroupName = p2
-    , _esqShouldDecrementDesiredCapacity = p3
+mkEnterStandby :: Text -- ^ 'esAutoScalingGroupName'
+               -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
+               -> EnterStandby
+mkEnterStandby p2 p3 = EnterStandby
+    { _esInstanceIds = mempty
+    , _esAutoScalingGroupName = p2
+    , _esShouldDecrementDesiredCapacity = p3
     }
-{-# INLINE mkEnterStandbyQuery #-}
-
-data EnterStandby = EnterStandby
-    { _esqInstanceIds :: [Text]
-      -- ^ The instances to move into Standby mode. You must specify at
-      -- least one instance ID.
-    , _esqAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group from which to move instances
-      -- into Standby mode.
-    , _esqShouldDecrementDesiredCapacity :: Bool
-      -- ^ Specifies whether the instances moved to Standby mode count as
-      -- part of the Auto Scaling group's desired capacity. If set, the
-      -- desired capacity for the Auto Scaling group decrements by the
-      -- number of instances moved to Standby mode.
-    } deriving (Show, Generic)
+{-# INLINE mkEnterStandby #-}
 
 -- | The instances to move into Standby mode. You must specify at least one
 -- instance ID.
-esqInstanceIds :: Lens' EnterStandby ([Text])
-esqInstanceIds = lens _esqInstanceIds (\s a -> s { _esqInstanceIds = a })
-{-# INLINE esqInstanceIds #-}
+esInstanceIds :: Lens' EnterStandby [Text]
+esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a })
+{-# INLINE esInstanceIds #-}
 
 -- | The name of the Auto Scaling group from which to move instances into
 -- Standby mode.
-esqAutoScalingGroupName :: Lens' EnterStandby (Text)
-esqAutoScalingGroupName = lens _esqAutoScalingGroupName (\s a -> s { _esqAutoScalingGroupName = a })
-{-# INLINE esqAutoScalingGroupName #-}
+esAutoScalingGroupName :: Lens' EnterStandby Text
+esAutoScalingGroupName =
+    lens _esAutoScalingGroupName (\s a -> s { _esAutoScalingGroupName = a })
+{-# INLINE esAutoScalingGroupName #-}
 
 -- | Specifies whether the instances moved to Standby mode count as part of the
 -- Auto Scaling group's desired capacity. If set, the desired capacity for the
 -- Auto Scaling group decrements by the number of instances moved to Standby
 -- mode.
-esqShouldDecrementDesiredCapacity :: Lens' EnterStandby (Bool)
-esqShouldDecrementDesiredCapacity = lens _esqShouldDecrementDesiredCapacity (\s a -> s { _esqShouldDecrementDesiredCapacity = a })
-{-# INLINE esqShouldDecrementDesiredCapacity #-}
+esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
+esShouldDecrementDesiredCapacity =
+    lens _esShouldDecrementDesiredCapacity
+         (\s a -> s { _esShouldDecrementDesiredCapacity = a })
+{-# INLINE esShouldDecrementDesiredCapacity #-}
 
 instance ToQuery EnterStandby where
     toQuery = genericQuery def
 
+-- | The output of the EnterStandby action.
 newtype EnterStandbyResponse = EnterStandbyResponse
-    { _esaActivities :: [Activity]
-      -- ^ A list describing the activities related to moving instances into
-      -- Standby mode.
+    { _esrsActivities :: [Activity]
     } deriving (Show, Generic)
 
 -- | A list describing the activities related to moving instances into Standby
 -- mode.
-esaActivities :: Lens' EnterStandbyResponse ([Activity])
-esaActivities = lens _esaActivities (\s a -> s { _esaActivities = a })
-{-# INLINE esaActivities #-}
+esrsActivities :: Lens' EnterStandbyResponse [Activity]
+esrsActivities = lens _esrsActivities (\s a -> s { _esrsActivities = a })
+{-# INLINE esrsActivities #-}
 
 instance FromXML EnterStandbyResponse where
     fromXMLOptions = xmlOptions

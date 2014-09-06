@@ -30,9 +30,9 @@ module Network.AWS.SimpleDB.V2009_04_15.CreateDomain
     -- * Request
       CreateDomain
     -- ** Request constructor
-    , mkCreateDomainRequest
+    , mkCreateDomain
     -- ** Request lenses
-    , cdrDomainName
+    , cdDomainName
 
     -- * Response
     , CreateDomainResponse
@@ -42,28 +42,25 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
+newtype CreateDomain = CreateDomain
+    { _cdDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomain' request.
-mkCreateDomainRequest :: Text -- ^ 'cdrDomainName'
-                      -> CreateDomain
-mkCreateDomainRequest p1 = CreateDomain
-    { _cdrDomainName = p1
+mkCreateDomain :: Text -- ^ 'cdDomainName'
+               -> CreateDomain
+mkCreateDomain p1 = CreateDomain
+    { _cdDomainName = p1
     }
-{-# INLINE mkCreateDomainRequest #-}
-
-newtype CreateDomain = CreateDomain
-    { _cdrDomainName :: Text
-      -- ^ The name of the domain to create. The name can range between 3
-      -- and 255 characters and can contain the following characters: a-z,
-      -- A-Z, 0-9, '_', '-', and '.'.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateDomain #-}
 
 -- | The name of the domain to create. The name can range between 3 and 255
 -- characters and can contain the following characters: a-z, A-Z, 0-9, '_',
 -- '-', and '.'.
-cdrDomainName :: Lens' CreateDomain (Text)
-cdrDomainName = lens _cdrDomainName (\s a -> s { _cdrDomainName = a })
-{-# INLINE cdrDomainName #-}
+cdDomainName :: Lens' CreateDomain Text
+cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
+{-# INLINE cdDomainName #-}
 
 instance ToQuery CreateDomain where
     toQuery = genericQuery def

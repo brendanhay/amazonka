@@ -23,38 +23,40 @@ module Network.AWS.CloudSearch.V2013_01_01.ListDomainNames
     -- * Request
       ListDomainNames
     -- ** Request constructor
-    , mkUnknown
+    , mkListDomainNames
     -- * Response
     , ListDomainNamesResponse
     -- ** Response lenses
-    , ldnrDomainNames
+    , ldnrsDomainNames
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDomainNames' request.
-mkUnknown :: ListDomainNames
-mkUnknown = ListDomainNames
-{-# INLINE mkUnknown #-}
-
 data ListDomainNames = ListDomainNames
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDomainNames' request.
+mkListDomainNames :: ListDomainNames
+mkListDomainNames = ListDomainNames
+{-# INLINE mkListDomainNames #-}
 
 instance ToQuery ListDomainNames where
     toQuery = genericQuery def
 
+-- | The result of a ListDomainNames request. Contains a list of the domains
+-- owned by an account.
 newtype ListDomainNamesResponse = ListDomainNamesResponse
-    { _ldnrDomainNames :: Map Text Text
-      -- ^ The names of the search domains owned by an account.
+    { _ldnrsDomainNames :: Map Text Text
     } deriving (Show, Generic)
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
-ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
-{-# INLINE ldnrDomainNames #-}
+ldnrsDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
+ldnrsDomainNames =
+    lens _ldnrsDomainNames (\s a -> s { _ldnrsDomainNames = a })
+{-# INLINE ldnrsDomainNames #-}
 
 instance FromXML ListDomainNamesResponse where
     fromXMLOptions = xmlOptions

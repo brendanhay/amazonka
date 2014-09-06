@@ -24,9 +24,9 @@ module Network.AWS.S3.V2006_03_01.HeadBucket
     -- * Request
       HeadBucket
     -- ** Request constructor
-    , mkHeadBucketRequest
+    , mkHeadBucket
     -- ** Request lenses
-    , hbrBucket
+    , hbBucket
 
     -- * Response
     , HeadBucketResponse
@@ -35,28 +35,29 @@ module Network.AWS.S3.V2006_03_01.HeadBucket
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype HeadBucket = HeadBucket
+    { _hbBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'HeadBucket' request.
-mkHeadBucketRequest :: BucketName -- ^ 'hbrBucket'
-                    -> HeadBucket
-mkHeadBucketRequest p1 = HeadBucket
-    { _hbrBucket = p1
+mkHeadBucket :: BucketName -- ^ 'hbBucket'
+             -> HeadBucket
+mkHeadBucket p1 = HeadBucket
+    { _hbBucket = p1
     }
-{-# INLINE mkHeadBucketRequest #-}
+{-# INLINE mkHeadBucket #-}
 
-newtype HeadBucket = HeadBucket
-    { _hbrBucket :: BucketName
-    } deriving (Show, Generic)
-
-hbrBucket :: Lens' HeadBucket (BucketName)
-hbrBucket = lens _hbrBucket (\s a -> s { _hbrBucket = a })
-{-# INLINE hbrBucket #-}
+hbBucket :: Lens' HeadBucket BucketName
+hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
+{-# INLINE hbBucket #-}
 
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat
         [ "/"
-        , toBS _hbrBucket
+        , toBS _hbBucket
         ]
 
 instance ToQuery HeadBucket

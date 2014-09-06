@@ -25,101 +25,99 @@ module Network.AWS.SimpleDB.V2009_04_15.DomainMetadata
     -- * Request
       DomainMetadata
     -- ** Request constructor
-    , mkDomainMetadataRequest
+    , mkDomainMetadata
     -- ** Request lenses
-    , dmrDomainName
+    , dmDomainName
 
     -- * Response
     , DomainMetadataResponse
     -- ** Response lenses
-    , dmsItemCount
-    , dmsItemNamesSizeBytes
-    , dmsAttributeNameCount
-    , dmsAttributeNamesSizeBytes
-    , dmsAttributeValueCount
-    , dmsAttributeValuesSizeBytes
-    , dmsTimestamp
+    , dmrsItemCount
+    , dmrsItemNamesSizeBytes
+    , dmrsAttributeNameCount
+    , dmrsAttributeNamesSizeBytes
+    , dmrsAttributeValueCount
+    , dmrsAttributeValuesSizeBytes
+    , dmrsTimestamp
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DomainMetadata' request.
-mkDomainMetadataRequest :: Text -- ^ 'dmrDomainName'
-                        -> DomainMetadata
-mkDomainMetadataRequest p1 = DomainMetadata
-    { _dmrDomainName = p1
-    }
-{-# INLINE mkDomainMetadataRequest #-}
-
 newtype DomainMetadata = DomainMetadata
-    { _dmrDomainName :: Text
-      -- ^ The name of the domain for which to display the metadata of.
+    { _dmDomainName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DomainMetadata' request.
+mkDomainMetadata :: Text -- ^ 'dmDomainName'
+                 -> DomainMetadata
+mkDomainMetadata p1 = DomainMetadata
+    { _dmDomainName = p1
+    }
+{-# INLINE mkDomainMetadata #-}
+
 -- | The name of the domain for which to display the metadata of.
-dmrDomainName :: Lens' DomainMetadata (Text)
-dmrDomainName = lens _dmrDomainName (\s a -> s { _dmrDomainName = a })
-{-# INLINE dmrDomainName #-}
+dmDomainName :: Lens' DomainMetadata Text
+dmDomainName = lens _dmDomainName (\s a -> s { _dmDomainName = a })
+{-# INLINE dmDomainName #-}
 
 instance ToQuery DomainMetadata where
     toQuery = genericQuery def
 
 data DomainMetadataResponse = DomainMetadataResponse
-    { _dmsItemCount :: Maybe Integer
-      -- ^ The number of all items in the domain.
-    , _dmsItemNamesSizeBytes :: Maybe Integer
-      -- ^ The total size of all item names in the domain, in bytes.
-    , _dmsAttributeNameCount :: Maybe Integer
-      -- ^ The number of unique attribute names in the domain.
-    , _dmsAttributeNamesSizeBytes :: Maybe Integer
-      -- ^ The total size of all unique attribute names in the domain, in
-      -- bytes.
-    , _dmsAttributeValueCount :: Maybe Integer
-      -- ^ The number of all attribute name/value pairs in the domain.
-    , _dmsAttributeValuesSizeBytes :: Maybe Integer
-      -- ^ The total size of all attribute values in the domain, in bytes.
-    , _dmsTimestamp :: Maybe Integer
-      -- ^ The data and time when metadata was calculated, in Epoch (UNIX)
-      -- seconds.
+    { _dmrsItemCount :: Maybe Integer
+    , _dmrsItemNamesSizeBytes :: Maybe Integer
+    , _dmrsAttributeNameCount :: Maybe Integer
+    , _dmrsAttributeNamesSizeBytes :: Maybe Integer
+    , _dmrsAttributeValueCount :: Maybe Integer
+    , _dmrsAttributeValuesSizeBytes :: Maybe Integer
+    , _dmrsTimestamp :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The number of all items in the domain.
-dmsItemCount :: Lens' DomainMetadataResponse (Maybe Integer)
-dmsItemCount = lens _dmsItemCount (\s a -> s { _dmsItemCount = a })
-{-# INLINE dmsItemCount #-}
+dmrsItemCount :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsItemCount = lens _dmrsItemCount (\s a -> s { _dmrsItemCount = a })
+{-# INLINE dmrsItemCount #-}
 
 -- | The total size of all item names in the domain, in bytes.
-dmsItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmsItemNamesSizeBytes = lens _dmsItemNamesSizeBytes (\s a -> s { _dmsItemNamesSizeBytes = a })
-{-# INLINE dmsItemNamesSizeBytes #-}
+dmrsItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsItemNamesSizeBytes =
+    lens _dmrsItemNamesSizeBytes (\s a -> s { _dmrsItemNamesSizeBytes = a })
+{-# INLINE dmrsItemNamesSizeBytes #-}
 
 -- | The number of unique attribute names in the domain.
-dmsAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Integer)
-dmsAttributeNameCount = lens _dmsAttributeNameCount (\s a -> s { _dmsAttributeNameCount = a })
-{-# INLINE dmsAttributeNameCount #-}
+dmrsAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsAttributeNameCount =
+    lens _dmrsAttributeNameCount (\s a -> s { _dmrsAttributeNameCount = a })
+{-# INLINE dmrsAttributeNameCount #-}
 
 -- | The total size of all unique attribute names in the domain, in bytes.
-dmsAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmsAttributeNamesSizeBytes = lens _dmsAttributeNamesSizeBytes (\s a -> s { _dmsAttributeNamesSizeBytes = a })
-{-# INLINE dmsAttributeNamesSizeBytes #-}
+dmrsAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsAttributeNamesSizeBytes =
+    lens _dmrsAttributeNamesSizeBytes
+         (\s a -> s { _dmrsAttributeNamesSizeBytes = a })
+{-# INLINE dmrsAttributeNamesSizeBytes #-}
 
 -- | The number of all attribute name/value pairs in the domain.
-dmsAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Integer)
-dmsAttributeValueCount = lens _dmsAttributeValueCount (\s a -> s { _dmsAttributeValueCount = a })
-{-# INLINE dmsAttributeValueCount #-}
+dmrsAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsAttributeValueCount =
+    lens _dmrsAttributeValueCount
+         (\s a -> s { _dmrsAttributeValueCount = a })
+{-# INLINE dmrsAttributeValueCount #-}
 
 -- | The total size of all attribute values in the domain, in bytes.
-dmsAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmsAttributeValuesSizeBytes = lens _dmsAttributeValuesSizeBytes (\s a -> s { _dmsAttributeValuesSizeBytes = a })
-{-# INLINE dmsAttributeValuesSizeBytes #-}
+dmrsAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsAttributeValuesSizeBytes =
+    lens _dmrsAttributeValuesSizeBytes
+         (\s a -> s { _dmrsAttributeValuesSizeBytes = a })
+{-# INLINE dmrsAttributeValuesSizeBytes #-}
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-dmsTimestamp :: Lens' DomainMetadataResponse (Maybe Integer)
-dmsTimestamp = lens _dmsTimestamp (\s a -> s { _dmsTimestamp = a })
-{-# INLINE dmsTimestamp #-}
+dmrsTimestamp :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsTimestamp = lens _dmrsTimestamp (\s a -> s { _dmrsTimestamp = a })
+{-# INLINE dmrsTimestamp #-}
 
 instance FromXML DomainMetadataResponse where
     fromXMLOptions = xmlOptions

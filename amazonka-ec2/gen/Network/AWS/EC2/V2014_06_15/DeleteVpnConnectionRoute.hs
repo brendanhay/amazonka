@@ -35,10 +35,10 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute
     -- * Request
       DeleteVpnConnectionRoute
     -- ** Request constructor
-    , mkDeleteVpnConnectionRouteRequest
+    , mkDeleteVpnConnectionRoute
     -- ** Request lenses
-    , dvcrrVpnConnectionId
-    , dvcrrDestinationCidrBlock
+    , dvcrVpnConnectionId
+    , dvcrDestinationCidrBlock
 
     -- * Response
     , DeleteVpnConnectionRouteResponse
@@ -48,34 +48,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnConnectionRoute' request.
-mkDeleteVpnConnectionRouteRequest :: Text -- ^ 'dvcrrVpnConnectionId'
-                                  -> Text -- ^ 'dvcrrDestinationCidrBlock'
-                                  -> DeleteVpnConnectionRoute
-mkDeleteVpnConnectionRouteRequest p1 p2 = DeleteVpnConnectionRoute
-    { _dvcrrVpnConnectionId = p1
-    , _dvcrrDestinationCidrBlock = p2
-    }
-{-# INLINE mkDeleteVpnConnectionRouteRequest #-}
-
+-- | 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
-    { _dvcrrVpnConnectionId :: Text
-      -- ^ The ID of the VPN connection.
-    , _dvcrrDestinationCidrBlock :: Text
-      -- ^ The CIDR block associated with the local subnet of the customer
-      -- network.
+    { _dvcrVpnConnectionId :: Text
+    , _dvcrDestinationCidrBlock :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpnConnectionRoute' request.
+mkDeleteVpnConnectionRoute :: Text -- ^ 'dvcrVpnConnectionId'
+                           -> Text -- ^ 'dvcrDestinationCidrBlock'
+                           -> DeleteVpnConnectionRoute
+mkDeleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
+    { _dvcrVpnConnectionId = p1
+    , _dvcrDestinationCidrBlock = p2
+    }
+{-# INLINE mkDeleteVpnConnectionRoute #-}
+
 -- | The ID of the VPN connection.
-dvcrrVpnConnectionId :: Lens' DeleteVpnConnectionRoute (Text)
-dvcrrVpnConnectionId = lens _dvcrrVpnConnectionId (\s a -> s { _dvcrrVpnConnectionId = a })
-{-# INLINE dvcrrVpnConnectionId #-}
+dvcrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
+dvcrVpnConnectionId =
+    lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })
+{-# INLINE dvcrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
-dvcrrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute (Text)
-dvcrrDestinationCidrBlock = lens _dvcrrDestinationCidrBlock (\s a -> s { _dvcrrDestinationCidrBlock = a })
-{-# INLINE dvcrrDestinationCidrBlock #-}
+dvcrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute Text
+dvcrDestinationCidrBlock =
+    lens _dvcrDestinationCidrBlock
+         (\s a -> s { _dvcrDestinationCidrBlock = a })
+{-# INLINE dvcrDestinationCidrBlock #-}
 
 instance ToQuery DeleteVpnConnectionRoute where
     toQuery = genericQuery def

@@ -35,78 +35,56 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSnapshots
     -- * Request
       DescribeDBSnapshots
     -- ** Request constructor
-    , mkDescribeDBSnapshotsMessage
+    , mkDescribeDBSnapshots
     -- ** Request lenses
-    , ddbsnDBInstanceIdentifier
-    , ddbsnDBSnapshotIdentifier
-    , ddbsnSnapshotType
-    , ddbsnMaxRecords
-    , ddbsnMarker
+    , ddbs1DBInstanceIdentifier
+    , ddbs1DBSnapshotIdentifier
+    , ddbs1SnapshotType
+    , ddbs1MaxRecords
+    , ddbs1Marker
 
     -- * Response
     , DescribeDBSnapshotsResponse
     -- ** Response lenses
-    , dbspMarker
-    , dbspDBSnapshots
+    , ddbsrsrsMarker
+    , ddbsrsrsDBSnapshots
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeDBSnapshots = DescribeDBSnapshots
+    { _ddbs1DBInstanceIdentifier :: Maybe Text
+    , _ddbs1DBSnapshotIdentifier :: Maybe Text
+    , _ddbs1SnapshotType :: Maybe Text
+    , _ddbs1MaxRecords :: Maybe Integer
+    , _ddbs1Marker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSnapshots' request.
-mkDescribeDBSnapshotsMessage :: DescribeDBSnapshots
-mkDescribeDBSnapshotsMessage = DescribeDBSnapshots
-    { _ddbsnDBInstanceIdentifier = Nothing
-    , _ddbsnDBSnapshotIdentifier = Nothing
-    , _ddbsnSnapshotType = Nothing
-    , _ddbsnMaxRecords = Nothing
-    , _ddbsnMarker = Nothing
+mkDescribeDBSnapshots :: DescribeDBSnapshots
+mkDescribeDBSnapshots = DescribeDBSnapshots
+    { _ddbs1DBInstanceIdentifier = Nothing
+    , _ddbs1DBSnapshotIdentifier = Nothing
+    , _ddbs1SnapshotType = Nothing
+    , _ddbs1MaxRecords = Nothing
+    , _ddbs1Marker = Nothing
     }
-{-# INLINE mkDescribeDBSnapshotsMessage #-}
-
-data DescribeDBSnapshots = DescribeDBSnapshots
-    { _ddbsnDBInstanceIdentifier :: Maybe Text
-      -- ^ A DB instance identifier to retrieve the list of DB snapshots
-      -- for. Cannot be used in conjunction with DBSnapshotIdentifier.
-      -- This parameter is not case sensitive. Constraints: Must contain
-      -- from 1 to 63 alphanumeric characters or hyphens First character
-      -- must be a letter Cannot end with a hyphen or contain two
-      -- consecutive hyphens.
-    , _ddbsnDBSnapshotIdentifier :: Maybe Text
-      -- ^ A specific DB snapshot identifier to describe. Cannot be used in
-      -- conjunction with DBInstanceIdentifier. This value is stored as a
-      -- lowercase string. Constraints: Must be 1 to 255 alphanumeric
-      -- characters First character must be a letter Cannot end with a
-      -- hyphen or contain two consecutive hyphens If this is the
-      -- identifier of an automated snapshot, the SnapshotType parameter
-      -- must also be specified.
-    , _ddbsnSnapshotType :: Maybe Text
-      -- ^ The type of snapshots that will be returned. Values can be
-      -- "automated" or "manual." If not specified, the returned results
-      -- will include all snapshots types.
-    , _ddbsnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a pagination
-      -- token called a marker is included in the response so that the
-      -- remaining results may be retrieved. Default: 100 Constraints:
-      -- minimum 20, maximum 100.
-    , _ddbsnMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeDBSnapshots request. If this parameter is specified, the
-      -- response includes only records beyond the marker, up to the value
-      -- specified by MaxRecords.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeDBSnapshots #-}
 
 -- | A DB instance identifier to retrieve the list of DB snapshots for. Cannot
 -- be used in conjunction with DBSnapshotIdentifier. This parameter is not
 -- case sensitive. Constraints: Must contain from 1 to 63 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-ddbsnDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsnDBInstanceIdentifier = lens _ddbsnDBInstanceIdentifier (\s a -> s { _ddbsnDBInstanceIdentifier = a })
-{-# INLINE ddbsnDBInstanceIdentifier #-}
+ddbs1DBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
+ddbs1DBInstanceIdentifier =
+    lens _ddbs1DBInstanceIdentifier
+         (\s a -> s { _ddbs1DBInstanceIdentifier = a })
+{-# INLINE ddbs1DBInstanceIdentifier #-}
 
 -- | A specific DB snapshot identifier to describe. Cannot be used in
 -- conjunction with DBInstanceIdentifier. This value is stored as a lowercase
@@ -114,55 +92,57 @@ ddbsnDBInstanceIdentifier = lens _ddbsnDBInstanceIdentifier (\s a -> s { _ddbsnD
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens If this is the identifier of an automated snapshot, the
 -- SnapshotType parameter must also be specified.
-ddbsnDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsnDBSnapshotIdentifier = lens _ddbsnDBSnapshotIdentifier (\s a -> s { _ddbsnDBSnapshotIdentifier = a })
-{-# INLINE ddbsnDBSnapshotIdentifier #-}
+ddbs1DBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
+ddbs1DBSnapshotIdentifier =
+    lens _ddbs1DBSnapshotIdentifier
+         (\s a -> s { _ddbs1DBSnapshotIdentifier = a })
+{-# INLINE ddbs1DBSnapshotIdentifier #-}
 
 -- | The type of snapshots that will be returned. Values can be "automated" or
 -- "manual." If not specified, the returned results will include all snapshots
 -- types.
-ddbsnSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsnSnapshotType = lens _ddbsnSnapshotType (\s a -> s { _ddbsnSnapshotType = a })
-{-# INLINE ddbsnSnapshotType #-}
+ddbs1SnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
+ddbs1SnapshotType =
+    lens _ddbs1SnapshotType (\s a -> s { _ddbs1SnapshotType = a })
+{-# INLINE ddbs1SnapshotType #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbsnMaxRecords :: Lens' DescribeDBSnapshots (Maybe Integer)
-ddbsnMaxRecords = lens _ddbsnMaxRecords (\s a -> s { _ddbsnMaxRecords = a })
-{-# INLINE ddbsnMaxRecords #-}
+ddbs1MaxRecords :: Lens' DescribeDBSnapshots (Maybe Integer)
+ddbs1MaxRecords = lens _ddbs1MaxRecords (\s a -> s { _ddbs1MaxRecords = a })
+{-# INLINE ddbs1MaxRecords #-}
 
 -- | An optional pagination token provided by a previous DescribeDBSnapshots
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
-ddbsnMarker :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsnMarker = lens _ddbsnMarker (\s a -> s { _ddbsnMarker = a })
-{-# INLINE ddbsnMarker #-}
+ddbs1Marker :: Lens' DescribeDBSnapshots (Maybe Text)
+ddbs1Marker = lens _ddbs1Marker (\s a -> s { _ddbs1Marker = a })
+{-# INLINE ddbs1Marker #-}
 
 instance ToQuery DescribeDBSnapshots where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the DescribeDBSnapshots
+-- action.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
-    { _dbspMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous request. If
-      -- this parameter is specified, the response includes only records
-      -- beyond the marker, up to the value specified by MaxRecords.
-    , _dbspDBSnapshots :: [DBSnapshot]
-      -- ^ A list of DBSnapshot instances.
+    { _ddbsrsrsMarker :: Maybe Text
+    , _ddbsrsrsDBSnapshots :: [DBSnapshot]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbspMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
-dbspMarker = lens _dbspMarker (\s a -> s { _dbspMarker = a })
-{-# INLINE dbspMarker #-}
+ddbsrsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
+ddbsrsrsMarker = lens _ddbsrsrsMarker (\s a -> s { _ddbsrsrsMarker = a })
+{-# INLINE ddbsrsrsMarker #-}
 
 -- | A list of DBSnapshot instances.
-dbspDBSnapshots :: Lens' DescribeDBSnapshotsResponse ([DBSnapshot])
-dbspDBSnapshots = lens _dbspDBSnapshots (\s a -> s { _dbspDBSnapshots = a })
-{-# INLINE dbspDBSnapshots #-}
+ddbsrsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
+ddbsrsrsDBSnapshots =
+    lens _ddbsrsrsDBSnapshots (\s a -> s { _ddbsrsrsDBSnapshots = a })
+{-# INLINE ddbsrsrsDBSnapshots #-}
 
 instance FromXML DescribeDBSnapshotsResponse where
     fromXMLOptions = xmlOptions
@@ -175,5 +155,5 @@ instance AWSRequest DescribeDBSnapshots where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSnapshots where
-    next rq rs = (\x -> rq { _ddbsnMarker = Just x })
-        <$> (_dbspMarker rs)
+    next rq rs = (\x -> rq { _ddbs1Marker = Just x })
+        <$> (_ddbsrsrsMarker rs)

@@ -62,22 +62,22 @@ module Network.AWS.SWF.V2012_01_25.StartWorkflowExecution
     -- * Request
       StartWorkflowExecution
     -- ** Request constructor
-    , mkStartWorkflowExecutionInput
+    , mkStartWorkflowExecution
     -- ** Request lenses
-    , swejDomain
-    , swejWorkflowId
-    , swejWorkflowType
-    , swejTaskList
-    , swejInput
-    , swejExecutionStartToCloseTimeout
-    , swejTagList
-    , swejTaskStartToCloseTimeout
-    , swejChildPolicy
+    , swe1Domain
+    , swe1WorkflowId
+    , swe1WorkflowType
+    , swe1TaskList
+    , swe1Input
+    , swe1ExecutionStartToCloseTimeout
+    , swe1TagList
+    , swe1TaskStartToCloseTimeout
+    , swe1ChildPolicy
 
     -- * Response
     , StartWorkflowExecutionResponse
     -- ** Response lenses
-    , rrrnRunId
+    , swersRunId
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -85,113 +85,41 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartWorkflowExecution' request.
-mkStartWorkflowExecutionInput :: Text -- ^ 'swejDomain'
-                              -> Text -- ^ 'swejWorkflowId'
-                              -> WorkflowType -- ^ 'swejWorkflowType'
-                              -> StartWorkflowExecution
-mkStartWorkflowExecutionInput p1 p2 p3 = StartWorkflowExecution
-    { _swejDomain = p1
-    , _swejWorkflowId = p2
-    , _swejWorkflowType = p3
-    , _swejTaskList = Nothing
-    , _swejInput = Nothing
-    , _swejExecutionStartToCloseTimeout = Nothing
-    , _swejTagList = mempty
-    , _swejTaskStartToCloseTimeout = Nothing
-    , _swejChildPolicy = Nothing
-    }
-{-# INLINE mkStartWorkflowExecutionInput #-}
-
 data StartWorkflowExecution = StartWorkflowExecution
-    { _swejDomain :: Text
-      -- ^ The name of the domain in which the workflow execution is
-      -- created.
-    , _swejWorkflowId :: Text
-      -- ^ The user defined identifier associated with the workflow
-      -- execution. You can use this to associate a custom identifier with
-      -- the workflow execution. You may specify the same identifier if a
-      -- workflow execution is logically a restart of a previous
-      -- execution. You cannot have two open workflow executions with the
-      -- same workflowId at the same time. The specified string must not
-      -- start or end with whitespace. It must not contain a : (colon), /
-      -- (slash), | (vertical bar), or any control characters
-      -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the
-      -- literal string &quot;arn&quot;.
-    , _swejWorkflowType :: WorkflowType
-      -- ^ The type of the workflow to start.
-    , _swejTaskList :: Maybe TaskList
-      -- ^ The task list to use for the decision tasks generated for this
-      -- workflow execution. This overrides the defaultTaskList specified
-      -- when registering the workflow type. A task list for this workflow
-      -- execution must be specified either as a default for the workflow
-      -- type or through this parameter. If neither this parameter is set
-      -- nor a default task list was specified at registration time then a
-      -- fault will be returned. The specified string must not start or
-      -- end with whitespace. It must not contain a : (colon), / (slash),
-      -- | (vertical bar), or any control characters (\u0000-\u001f |
-      -- \u007f - \u009f). Also, it must not contain the literal string
-      -- &quot;arn&quot;.
-    , _swejInput :: Maybe Text
-      -- ^ The input for the workflow execution. This is a free form string
-      -- which should be meaningful to the workflow you are starting. This
-      -- input is made available to the new workflow execution in the
-      -- WorkflowExecutionStarted history event.
-    , _swejExecutionStartToCloseTimeout :: Maybe Text
-      -- ^ The total duration for this workflow execution. This overrides
-      -- the defaultExecutionStartToCloseTimeout specified when
-      -- registering the workflow type. The duration is specified in
-      -- seconds. The valid values are integers greater than or equal to
-      -- 0. Exceeding this limit will cause the workflow execution to time
-      -- out. Unlike some of the other timeout parameters in Amazon SWF,
-      -- you cannot specify a value of "NONE" for this timeout; there is a
-      -- one-year max limit on the time that a workflow execution can run.
-      -- An execution start-to-close timeout must be specified either
-      -- through this parameter or as a default when the workflow type is
-      -- registered. If neither this parameter nor a default execution
-      -- start-to-close timeout is specified, a fault is returned.
-    , _swejTagList :: [Text]
-      -- ^ The list of tags to associate with the workflow execution. You
-      -- can specify a maximum of 5 tags. You can list workflow executions
-      -- with a specific tag by calling ListOpenWorkflowExecutions or
-      -- ListClosedWorkflowExecutions and specifying a TagFilter.
-    , _swejTaskStartToCloseTimeout :: Maybe Text
-      -- ^ Specifies the maximum duration of decision tasks for this
-      -- workflow execution. This parameter overrides the
-      -- defaultTaskStartToCloseTimout specified when registering the
-      -- workflow type using RegisterWorkflowType. The valid values are
-      -- integers greater than or equal to 0. An integer value can be used
-      -- to specify the duration in seconds while NONE can be used to
-      -- specify unlimited duration. A task start-to-close timeout for
-      -- this workflow execution must be specified either as a default for
-      -- the workflow type or through this parameter. If neither this
-      -- parameter is set nor a default task start-to-close timeout was
-      -- specified at registration time then a fault will be returned.
-    , _swejChildPolicy :: Maybe ChildPolicy
-      -- ^ If set, specifies the policy to use for the child workflow
-      -- executions of this workflow execution if it is terminated, by
-      -- calling the TerminateWorkflowExecution action explicitly or due
-      -- to an expired timeout. This policy overrides the default child
-      -- policy specified when registering the workflow type using
-      -- RegisterWorkflowType. The supported child policies are:
-      -- TERMINATE: the child executions will be terminated.
-      -- REQUEST_CANCEL: a request to cancel will be attempted for each
-      -- child execution by recording a WorkflowExecutionCancelRequested
-      -- event in its history. It is up to the decider to take appropriate
-      -- actions when it receives an execution history with this event.
-      -- ABANDON: no action will be taken. The child executions will
-      -- continue to run. A child policy for this workflow execution must
-      -- be specified either as a default for the workflow type or through
-      -- this parameter. If neither this parameter is set nor a default
-      -- child policy was specified at registration time then a fault will
-      -- be returned.
+    { _swe1Domain :: Text
+    , _swe1WorkflowId :: Text
+    , _swe1WorkflowType :: WorkflowType
+    , _swe1TaskList :: Maybe TaskList
+    , _swe1Input :: Maybe Text
+    , _swe1ExecutionStartToCloseTimeout :: Maybe Text
+    , _swe1TagList :: [Text]
+    , _swe1TaskStartToCloseTimeout :: Maybe Text
+    , _swe1ChildPolicy :: Maybe ChildPolicy
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartWorkflowExecution' request.
+mkStartWorkflowExecution :: Text -- ^ 'swe1Domain'
+                         -> Text -- ^ 'swe1WorkflowId'
+                         -> WorkflowType -- ^ 'swe1WorkflowType'
+                         -> StartWorkflowExecution
+mkStartWorkflowExecution p1 p2 p3 = StartWorkflowExecution
+    { _swe1Domain = p1
+    , _swe1WorkflowId = p2
+    , _swe1WorkflowType = p3
+    , _swe1TaskList = Nothing
+    , _swe1Input = Nothing
+    , _swe1ExecutionStartToCloseTimeout = Nothing
+    , _swe1TagList = mempty
+    , _swe1TaskStartToCloseTimeout = Nothing
+    , _swe1ChildPolicy = Nothing
+    }
+{-# INLINE mkStartWorkflowExecution #-}
+
 -- | The name of the domain in which the workflow execution is created.
-swejDomain :: Lens' StartWorkflowExecution (Text)
-swejDomain = lens _swejDomain (\s a -> s { _swejDomain = a })
-{-# INLINE swejDomain #-}
+swe1Domain :: Lens' StartWorkflowExecution Text
+swe1Domain = lens _swe1Domain (\s a -> s { _swe1Domain = a })
+{-# INLINE swe1Domain #-}
 
 -- | The user defined identifier associated with the workflow execution. You can
 -- use this to associate a custom identifier with the workflow execution. You
@@ -202,14 +130,15 @@ swejDomain = lens _swejDomain (\s a -> s { _swejDomain = a })
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-swejWorkflowId :: Lens' StartWorkflowExecution (Text)
-swejWorkflowId = lens _swejWorkflowId (\s a -> s { _swejWorkflowId = a })
-{-# INLINE swejWorkflowId #-}
+swe1WorkflowId :: Lens' StartWorkflowExecution Text
+swe1WorkflowId = lens _swe1WorkflowId (\s a -> s { _swe1WorkflowId = a })
+{-# INLINE swe1WorkflowId #-}
 
 -- | The type of the workflow to start.
-swejWorkflowType :: Lens' StartWorkflowExecution (WorkflowType)
-swejWorkflowType = lens _swejWorkflowType (\s a -> s { _swejWorkflowType = a })
-{-# INLINE swejWorkflowType #-}
+swe1WorkflowType :: Lens' StartWorkflowExecution WorkflowType
+swe1WorkflowType =
+    lens _swe1WorkflowType (\s a -> s { _swe1WorkflowType = a })
+{-# INLINE swe1WorkflowType #-}
 
 -- | The task list to use for the decision tasks generated for this workflow
 -- execution. This overrides the defaultTaskList specified when registering
@@ -221,17 +150,17 @@ swejWorkflowType = lens _swejWorkflowType (\s a -> s { _swejWorkflowType = a })
 -- (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
-swejTaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
-swejTaskList = lens _swejTaskList (\s a -> s { _swejTaskList = a })
-{-# INLINE swejTaskList #-}
+swe1TaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
+swe1TaskList = lens _swe1TaskList (\s a -> s { _swe1TaskList = a })
+{-# INLINE swe1TaskList #-}
 
 -- | The input for the workflow execution. This is a free form string which
 -- should be meaningful to the workflow you are starting. This input is made
 -- available to the new workflow execution in the WorkflowExecutionStarted
 -- history event.
-swejInput :: Lens' StartWorkflowExecution (Maybe Text)
-swejInput = lens _swejInput (\s a -> s { _swejInput = a })
-{-# INLINE swejInput #-}
+swe1Input :: Lens' StartWorkflowExecution (Maybe Text)
+swe1Input = lens _swe1Input (\s a -> s { _swe1Input = a })
+{-# INLINE swe1Input #-}
 
 -- | The total duration for this workflow execution. This overrides the
 -- defaultExecutionStartToCloseTimeout specified when registering the workflow
@@ -244,17 +173,19 @@ swejInput = lens _swejInput (\s a -> s { _swejInput = a })
 -- parameter or as a default when the workflow type is registered. If neither
 -- this parameter nor a default execution start-to-close timeout is specified,
 -- a fault is returned.
-swejExecutionStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
-swejExecutionStartToCloseTimeout = lens _swejExecutionStartToCloseTimeout (\s a -> s { _swejExecutionStartToCloseTimeout = a })
-{-# INLINE swejExecutionStartToCloseTimeout #-}
+swe1ExecutionStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
+swe1ExecutionStartToCloseTimeout =
+    lens _swe1ExecutionStartToCloseTimeout
+         (\s a -> s { _swe1ExecutionStartToCloseTimeout = a })
+{-# INLINE swe1ExecutionStartToCloseTimeout #-}
 
 -- | The list of tags to associate with the workflow execution. You can specify
 -- a maximum of 5 tags. You can list workflow executions with a specific tag
 -- by calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
 -- specifying a TagFilter.
-swejTagList :: Lens' StartWorkflowExecution ([Text])
-swejTagList = lens _swejTagList (\s a -> s { _swejTagList = a })
-{-# INLINE swejTagList #-}
+swe1TagList :: Lens' StartWorkflowExecution [Text]
+swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a })
+{-# INLINE swe1TagList #-}
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the defaultTaskStartToCloseTimout
@@ -266,9 +197,11 @@ swejTagList = lens _swejTagList (\s a -> s { _swejTagList = a })
 -- through this parameter. If neither this parameter is set nor a default task
 -- start-to-close timeout was specified at registration time then a fault will
 -- be returned.
-swejTaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
-swejTaskStartToCloseTimeout = lens _swejTaskStartToCloseTimeout (\s a -> s { _swejTaskStartToCloseTimeout = a })
-{-# INLINE swejTaskStartToCloseTimeout #-}
+swe1TaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
+swe1TaskStartToCloseTimeout =
+    lens _swe1TaskStartToCloseTimeout
+         (\s a -> s { _swe1TaskStartToCloseTimeout = a })
+{-# INLINE swe1TaskStartToCloseTimeout #-}
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- this workflow execution if it is terminated, by calling the
@@ -284,9 +217,9 @@ swejTaskStartToCloseTimeout = lens _swejTaskStartToCloseTimeout (\s a -> s { _sw
 -- specified either as a default for the workflow type or through this
 -- parameter. If neither this parameter is set nor a default child policy was
 -- specified at registration time then a fault will be returned.
-swejChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
-swejChildPolicy = lens _swejChildPolicy (\s a -> s { _swejChildPolicy = a })
-{-# INLINE swejChildPolicy #-}
+swe1ChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
+swe1ChildPolicy = lens _swe1ChildPolicy (\s a -> s { _swe1ChildPolicy = a })
+{-# INLINE swe1ChildPolicy #-}
 
 instance ToPath StartWorkflowExecution
 
@@ -296,18 +229,16 @@ instance ToHeaders StartWorkflowExecution
 
 instance ToJSON StartWorkflowExecution
 
+-- | Specifies the runId of a workflow execution.
 newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
-    { _rrrnRunId :: Maybe Text
-      -- ^ The runId of a workflow execution. This Id is generated by the
-      -- service and can be used to uniquely identify the workflow
-      -- execution within a domain.
+    { _swersRunId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The runId of a workflow execution. This Id is generated by the service and
 -- can be used to uniquely identify the workflow execution within a domain.
-rrrnRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
-rrrnRunId = lens _rrrnRunId (\s a -> s { _rrrnRunId = a })
-{-# INLINE rrrnRunId #-}
+swersRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
+swersRunId = lens _swersRunId (\s a -> s { _swersRunId = a })
+{-# INLINE swersRunId #-}
 
 instance FromJSON StartWorkflowExecutionResponse
 

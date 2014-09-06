@@ -37,10 +37,10 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream
     -- * Request
       CreateLogStream
     -- ** Request constructor
-    , mkCreateLogStreamRequest
+    , mkCreateLogStream
     -- ** Request lenses
-    , clsrLogGroupName
-    , clsrLogStreamName
+    , clsLogGroupName
+    , clsLogStreamName
 
     -- * Response
     , CreateLogStreamResponse
@@ -51,29 +51,30 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLogStream' request.
-mkCreateLogStreamRequest :: Text -- ^ 'clsrLogGroupName'
-                         -> Text -- ^ 'clsrLogStreamName'
-                         -> CreateLogStream
-mkCreateLogStreamRequest p1 p2 = CreateLogStream
-    { _clsrLogGroupName = p1
-    , _clsrLogStreamName = p2
-    }
-{-# INLINE mkCreateLogStreamRequest #-}
-
 data CreateLogStream = CreateLogStream
-    { _clsrLogGroupName :: Text
-    , _clsrLogStreamName :: Text
+    { _clsLogGroupName :: Text
+    , _clsLogStreamName :: Text
     } deriving (Show, Generic)
 
-clsrLogGroupName :: Lens' CreateLogStream (Text)
-clsrLogGroupName = lens _clsrLogGroupName (\s a -> s { _clsrLogGroupName = a })
-{-# INLINE clsrLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLogStream' request.
+mkCreateLogStream :: Text -- ^ 'clsLogGroupName'
+                  -> Text -- ^ 'clsLogStreamName'
+                  -> CreateLogStream
+mkCreateLogStream p1 p2 = CreateLogStream
+    { _clsLogGroupName = p1
+    , _clsLogStreamName = p2
+    }
+{-# INLINE mkCreateLogStream #-}
 
-clsrLogStreamName :: Lens' CreateLogStream (Text)
-clsrLogStreamName = lens _clsrLogStreamName (\s a -> s { _clsrLogStreamName = a })
-{-# INLINE clsrLogStreamName #-}
+clsLogGroupName :: Lens' CreateLogStream Text
+clsLogGroupName = lens _clsLogGroupName (\s a -> s { _clsLogGroupName = a })
+{-# INLINE clsLogGroupName #-}
+
+clsLogStreamName :: Lens' CreateLogStream Text
+clsLogStreamName =
+    lens _clsLogStreamName (\s a -> s { _clsLogStreamName = a })
+{-# INLINE clsLogStreamName #-}
 
 instance ToPath CreateLogStream
 

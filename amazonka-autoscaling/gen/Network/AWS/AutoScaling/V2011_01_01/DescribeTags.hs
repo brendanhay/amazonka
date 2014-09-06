@@ -32,85 +32,76 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , mkDescribeTagsType
+    , mkDescribeTags
     -- ** Request lenses
-    , dtuFilters
-    , dtuNextToken
-    , dtuMaxRecords
+    , dt1Filters
+    , dt1NextToken
+    , dt1MaxRecords
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response lenses
-    , ttkTags
-    , ttkNextToken
+    , dtrsTags
+    , dtrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeTags = DescribeTags
+    { _dt1Filters :: [Filter]
+    , _dt1NextToken :: Maybe Text
+    , _dt1MaxRecords :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
-mkDescribeTagsType :: DescribeTags
-mkDescribeTagsType = DescribeTags
-    { _dtuFilters = mempty
-    , _dtuNextToken = Nothing
-    , _dtuMaxRecords = Nothing
+mkDescribeTags :: DescribeTags
+mkDescribeTags = DescribeTags
+    { _dt1Filters = mempty
+    , _dt1NextToken = Nothing
+    , _dt1MaxRecords = Nothing
     }
-{-# INLINE mkDescribeTagsType #-}
-
-data DescribeTags = DescribeTags
-    { _dtuFilters :: [Filter]
-      -- ^ The value of the filter type used to identify the tags to be
-      -- returned. For example, you can filter so that tags are returned
-      -- according to Auto Scaling group, the key and value, or whether
-      -- the new tag will be applied to instances launched after the tag
-      -- is created (PropagateAtLaunch).
-    , _dtuNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
-    , _dtuMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to return.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeTags #-}
 
 -- | The value of the filter type used to identify the tags to be returned. For
 -- example, you can filter so that tags are returned according to Auto Scaling
 -- group, the key and value, or whether the new tag will be applied to
 -- instances launched after the tag is created (PropagateAtLaunch).
-dtuFilters :: Lens' DescribeTags ([Filter])
-dtuFilters = lens _dtuFilters (\s a -> s { _dtuFilters = a })
-{-# INLINE dtuFilters #-}
+dt1Filters :: Lens' DescribeTags [Filter]
+dt1Filters = lens _dt1Filters (\s a -> s { _dt1Filters = a })
+{-# INLINE dt1Filters #-}
 
 -- | A string that marks the start of the next batch of returned results.
-dtuNextToken :: Lens' DescribeTags (Maybe Text)
-dtuNextToken = lens _dtuNextToken (\s a -> s { _dtuNextToken = a })
-{-# INLINE dtuNextToken #-}
+dt1NextToken :: Lens' DescribeTags (Maybe Text)
+dt1NextToken = lens _dt1NextToken (\s a -> s { _dt1NextToken = a })
+{-# INLINE dt1NextToken #-}
 
 -- | The maximum number of records to return.
-dtuMaxRecords :: Lens' DescribeTags (Maybe Integer)
-dtuMaxRecords = lens _dtuMaxRecords (\s a -> s { _dtuMaxRecords = a })
-{-# INLINE dtuMaxRecords #-}
+dt1MaxRecords :: Lens' DescribeTags (Maybe Integer)
+dt1MaxRecords = lens _dt1MaxRecords (\s a -> s { _dt1MaxRecords = a })
+{-# INLINE dt1MaxRecords #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
+-- | 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _ttkTags :: [TagDescription]
-      -- ^ The list of tags.
-    , _ttkNextToken :: Maybe Text
-      -- ^ A string used to mark the start of the next batch of returned
-      -- results.
+    { _dtrsTags :: [TagDescription]
+    , _dtrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of tags.
-ttkTags :: Lens' DescribeTagsResponse ([TagDescription])
-ttkTags = lens _ttkTags (\s a -> s { _ttkTags = a })
-{-# INLINE ttkTags #-}
+dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTags = lens _dtrsTags (\s a -> s { _dtrsTags = a })
+{-# INLINE dtrsTags #-}
 
 -- | A string used to mark the start of the next batch of returned results.
-ttkNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-ttkNextToken = lens _ttkNextToken (\s a -> s { _ttkNextToken = a })
-{-# INLINE ttkNextToken #-}
+dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
+dtrsNextToken = lens _dtrsNextToken (\s a -> s { _dtrsNextToken = a })
+{-# INLINE dtrsNextToken #-}
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -123,5 +114,5 @@ instance AWSRequest DescribeTags where
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq { _dtuNextToken = Just x })
-        <$> (_ttkNextToken rs)
+    next rq rs = (\x -> rq { _dt1NextToken = Just x })
+        <$> (_dtrsNextToken rs)

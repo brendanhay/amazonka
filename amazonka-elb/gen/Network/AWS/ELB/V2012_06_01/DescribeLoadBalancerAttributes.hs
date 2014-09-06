@@ -28,51 +28,55 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes
     -- * Request
       DescribeLoadBalancerAttributes
     -- ** Request constructor
-    , mkDescribeLoadBalancerAttributesInput
+    , mkDescribeLoadBalancerAttributes
     -- ** Request lenses
-    , dlbaiLoadBalancerName
+    , dlbaLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerAttributesResponse
     -- ** Response lenses
-    , dlbaoLoadBalancerAttributes
+    , dlbarsLoadBalancerAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancerAttributes' request.
-mkDescribeLoadBalancerAttributesInput :: Text -- ^ 'dlbaiLoadBalancerName'
-                                      -> DescribeLoadBalancerAttributes
-mkDescribeLoadBalancerAttributesInput p1 = DescribeLoadBalancerAttributes
-    { _dlbaiLoadBalancerName = p1
-    }
-{-# INLINE mkDescribeLoadBalancerAttributesInput #-}
-
+-- | The input for the DescribeLoadBalancerAttributes action.
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
-    { _dlbaiLoadBalancerName :: Text
-      -- ^ The name of the load balancer.
+    { _dlbaLoadBalancerName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancerAttributes' request.
+mkDescribeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
+                                 -> DescribeLoadBalancerAttributes
+mkDescribeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
+    { _dlbaLoadBalancerName = p1
+    }
+{-# INLINE mkDescribeLoadBalancerAttributes #-}
+
 -- | The name of the load balancer.
-dlbaiLoadBalancerName :: Lens' DescribeLoadBalancerAttributes (Text)
-dlbaiLoadBalancerName = lens _dlbaiLoadBalancerName (\s a -> s { _dlbaiLoadBalancerName = a })
-{-# INLINE dlbaiLoadBalancerName #-}
+dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
+dlbaLoadBalancerName =
+    lens _dlbaLoadBalancerName (\s a -> s { _dlbaLoadBalancerName = a })
+{-# INLINE dlbaLoadBalancerName #-}
 
 instance ToQuery DescribeLoadBalancerAttributes where
     toQuery = genericQuery def
 
+-- | The following element is returned in a structure named
+-- DescribeLoadBalancerAttributesResult.
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
-    { _dlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-      -- ^ The load balancer attributes structure.
+    { _dlbarsLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Show, Generic)
 
 -- | The load balancer attributes structure.
-dlbaoLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-dlbaoLoadBalancerAttributes = lens _dlbaoLoadBalancerAttributes (\s a -> s { _dlbaoLoadBalancerAttributes = a })
-{-# INLINE dlbaoLoadBalancerAttributes #-}
+dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+dlbarsLoadBalancerAttributes =
+    lens _dlbarsLoadBalancerAttributes
+         (\s a -> s { _dlbarsLoadBalancerAttributes = a })
+{-# INLINE dlbarsLoadBalancerAttributes #-}
 
 instance FromXML DescribeLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions

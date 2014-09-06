@@ -22,57 +22,58 @@ module Network.AWS.Route53.V2013_04_01.ListTagsForResources
     -- * Request
       ListTagsForResources
     -- ** Request constructor
-    , mkListTagsForResourcesRequest
+    , mkListTagsForResources
     -- ** Request lenses
-    , ltfrtResourceType
-    , ltfrtResourceIds
+    , ltfr1ResourceType
+    , ltfr1ResourceIds
 
     -- * Response
     , ListTagsForResourcesResponse
     -- ** Response lenses
-    , ltfruResourceTagSets
+    , ltfrrsrsResourceTagSets
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | A complex type containing information about a request for a list of the
+-- tags that are associated with up to 10 specified resources.
+data ListTagsForResources = ListTagsForResources
+    { _ltfr1ResourceType :: TagResourceType
+    , _ltfr1ResourceIds :: [Text]
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResources' request.
-mkListTagsForResourcesRequest :: TagResourceType -- ^ 'ltfrtResourceType'
-                              -> [Text] -- ^ 'ltfrtResourceIds'
-                              -> ListTagsForResources
-mkListTagsForResourcesRequest p1 p2 = ListTagsForResources
-    { _ltfrtResourceType = p1
-    , _ltfrtResourceIds = p2
+mkListTagsForResources :: TagResourceType -- ^ 'ltfr1ResourceType'
+                       -> [Text] -- ^ 'ltfr1ResourceIds'
+                       -> ListTagsForResources
+mkListTagsForResources p1 p2 = ListTagsForResources
+    { _ltfr1ResourceType = p1
+    , _ltfr1ResourceIds = p2
     }
-{-# INLINE mkListTagsForResourcesRequest #-}
-
-data ListTagsForResources = ListTagsForResources
-    { _ltfrtResourceType :: TagResourceType
-      -- ^ The type of the resources. The resource type for health checks is
-      -- healthcheck.
-    , _ltfrtResourceIds :: [Text]
-      -- ^ A complex type that contains the ResourceId element for each
-      -- resource for which you want to get a list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkListTagsForResources #-}
 
 -- | The type of the resources. The resource type for health checks is
 -- healthcheck.
-ltfrtResourceType :: Lens' ListTagsForResources (TagResourceType)
-ltfrtResourceType = lens _ltfrtResourceType (\s a -> s { _ltfrtResourceType = a })
-{-# INLINE ltfrtResourceType #-}
+ltfr1ResourceType :: Lens' ListTagsForResources TagResourceType
+ltfr1ResourceType =
+    lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
+{-# INLINE ltfr1ResourceType #-}
 
 -- | A complex type that contains the ResourceId element for each resource for
 -- which you want to get a list of tags.
-ltfrtResourceIds :: Lens' ListTagsForResources ([Text])
-ltfrtResourceIds = lens _ltfrtResourceIds (\s a -> s { _ltfrtResourceIds = a })
-{-# INLINE ltfrtResourceIds #-}
+ltfr1ResourceIds :: Lens' ListTagsForResources [Text]
+ltfr1ResourceIds =
+    lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a })
+{-# INLINE ltfr1ResourceIds #-}
 
 instance ToPath ListTagsForResources where
     toPath ListTagsForResources{..} = mconcat
         [ "/2013-04-01/tags/"
-        , toBS _ltfrtResourceType
+        , toBS _ltfr1ResourceType
         ]
 
 instance ToQuery ListTagsForResources
@@ -83,17 +84,18 @@ instance ToXML ListTagsForResources where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListTagsForResourcesRequest"
 
+-- | A complex type containing tags for the specified resources.
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
-    { _ltfruResourceTagSets :: [ResourceTagSet]
-      -- ^ A list of ResourceTagSets containing tags associated with the
-      -- specified resources.
+    { _ltfrrsrsResourceTagSets :: [ResourceTagSet]
     } deriving (Show, Generic)
 
 -- | A list of ResourceTagSets containing tags associated with the specified
 -- resources.
-ltfruResourceTagSets :: Lens' ListTagsForResourcesResponse ([ResourceTagSet])
-ltfruResourceTagSets = lens _ltfruResourceTagSets (\s a -> s { _ltfruResourceTagSets = a })
-{-# INLINE ltfruResourceTagSets #-}
+ltfrrsrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
+ltfrrsrsResourceTagSets =
+    lens _ltfrrsrsResourceTagSets
+         (\s a -> s { _ltfrrsrsResourceTagSets = a })
+{-# INLINE ltfrrsrsResourceTagSets #-}
 
 instance FromXML ListTagsForResourcesResponse where
     fromXMLOptions = xmlOptions

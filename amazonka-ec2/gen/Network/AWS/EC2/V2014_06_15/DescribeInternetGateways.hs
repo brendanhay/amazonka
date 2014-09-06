@@ -27,56 +27,42 @@ module Network.AWS.EC2.V2014_06_15.DescribeInternetGateways
     -- * Request
       DescribeInternetGateways
     -- ** Request constructor
-    , mkDescribeInternetGatewaysRequest
+    , mkDescribeInternetGateways
     -- ** Request lenses
-    , digsInternetGatewayIds
-    , digsFilters
+    , dig1InternetGatewayIds
+    , dig1Filters
 
     -- * Response
     , DescribeInternetGatewaysResponse
     -- ** Response lenses
-    , digtInternetGateways
+    , digrsInternetGateways
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeInternetGateways = DescribeInternetGateways
+    { _dig1InternetGatewayIds :: [Text]
+    , _dig1Filters :: [Filter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInternetGateways' request.
-mkDescribeInternetGatewaysRequest :: DescribeInternetGateways
-mkDescribeInternetGatewaysRequest = DescribeInternetGateways
-    { _digsInternetGatewayIds = mempty
-    , _digsFilters = mempty
+mkDescribeInternetGateways :: DescribeInternetGateways
+mkDescribeInternetGateways = DescribeInternetGateways
+    { _dig1InternetGatewayIds = mempty
+    , _dig1Filters = mempty
     }
-{-# INLINE mkDescribeInternetGatewaysRequest #-}
-
-data DescribeInternetGateways = DescribeInternetGateways
-    { _digsInternetGatewayIds :: [Text]
-      -- ^ One or more Internet gateway IDs. Default: Describes all your
-      -- Internet gateways.
-    , _digsFilters :: [Filter]
-      -- ^ One or more filters. attachment.state - The current state of the
-      -- attachment between the gateway and the VPC. Present only if a VPC
-      -- is attached. attachment.vpc-id - The ID of an attached VPC.
-      -- internet-gateway-id - The ID of the Internet gateway.
-      -- tag:key=value - The key/value combination of a tag assigned to
-      -- the resource. tag-key - The key of a tag assigned to the
-      -- resource. This filter is independent of the tag-value filter. For
-      -- example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeInternetGateways #-}
 
 -- | One or more Internet gateway IDs. Default: Describes all your Internet
 -- gateways.
-digsInternetGatewayIds :: Lens' DescribeInternetGateways ([Text])
-digsInternetGatewayIds = lens _digsInternetGatewayIds (\s a -> s { _digsInternetGatewayIds = a })
-{-# INLINE digsInternetGatewayIds #-}
+dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+dig1InternetGatewayIds =
+    lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
+{-# INLINE dig1InternetGatewayIds #-}
 
 -- | One or more filters. attachment.state - The current state of the attachment
 -- between the gateway and the VPC. Present only if a VPC is attached.
@@ -90,22 +76,23 @@ digsInternetGatewayIds = lens _digsInternetGatewayIds (\s a -> s { _digsInternet
 -- is). If you want to list only resources where Purpose is X, see the
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
-digsFilters :: Lens' DescribeInternetGateways ([Filter])
-digsFilters = lens _digsFilters (\s a -> s { _digsFilters = a })
-{-# INLINE digsFilters #-}
+dig1Filters :: Lens' DescribeInternetGateways [Filter]
+dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a })
+{-# INLINE dig1Filters #-}
 
 instance ToQuery DescribeInternetGateways where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { _digtInternetGateways :: [InternetGateway]
-      -- ^ Information about one or more Internet gateways.
+    { _digrsInternetGateways :: [InternetGateway]
     } deriving (Show, Generic)
 
 -- | Information about one or more Internet gateways.
-digtInternetGateways :: Lens' DescribeInternetGatewaysResponse ([InternetGateway])
-digtInternetGateways = lens _digtInternetGateways (\s a -> s { _digtInternetGateways = a })
-{-# INLINE digtInternetGateways #-}
+digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digrsInternetGateways =
+    lens _digrsInternetGateways (\s a -> s { _digrsInternetGateways = a })
+{-# INLINE digrsInternetGateways #-}
 
 instance FromXML DescribeInternetGatewaysResponse where
     fromXMLOptions = xmlOptions

@@ -37,7 +37,7 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
     -- * Query
     , Query
     , mkQuery
-    , qySelectors
+    , qSelectors
 
     -- * Field
     , Field
@@ -49,17 +49,18 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
     -- * InstanceIdentity
     , InstanceIdentity
     , mkInstanceIdentity
-    , ijDocument
-    , ijSignature
+    , iiDocument
+    , iiSignature
 
     -- * Operator
     , Operator
     , mkOperator
-    , orType
-    , orValues
+    , oType
+    , oValues
 
     -- * PipelineDescription
     , PipelineDescription
+    , mkPipelineDescription
     , pdPipelineId
     , pdName
     , pdFields
@@ -67,6 +68,7 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
 
     -- * PipelineIdName
     , PipelineIdName
+    , mkPipelineIdName
     , pinId
     , pinName
 
@@ -80,11 +82,12 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
     -- * Selector
     , Selector
     , mkSelector
-    , srFieldName
-    , srOperator
+    , sFieldName
+    , sOperator
 
     -- * TaskObject
     , TaskObject
+    , mkTaskObject
     , toTaskId
     , toPipelineId
     , toAttemptId
@@ -92,13 +95,15 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
 
     -- * ValidationError
     , ValidationError
-    , vfId
-    , vfErrors
+    , mkValidationError
+    , veId
+    , veErrors
 
     -- * ValidationWarning
     , ValidationWarning
-    , vxId
-    , vxWarnings
+    , mkValidationWarning
+    , vwId
+    , vwWarnings
     ) where
 
 import Network.AWS.Prelude
@@ -150,21 +155,6 @@ instance AWSServiceError (Er DataPipeline) where
 
 instance Exception (Er DataPipeline)
 
--- | The logical operation to be performed: equal (EQ), equal reference
--- (REF_EQ), less than or equal (LE), greater than or equal (GE), or between
--- (BETWEEN). Equal reference (REF_EQ) can be used only with reference fields.
--- The other comparison types can be used only with String fields. The
--- comparison types you can use apply only to certain object fields, as
--- detailed below. The comparison operators EQ and REF_EQ act on the following
--- fields: name @sphere parent @componentParent @instanceParent @status
--- @scheduledStartTime @scheduledEndTime @actualStartTime @actualEndTime The
--- comparison operators GE, LE, and BETWEEN act on the following fields:
--- @scheduledStartTime @scheduledEndTime @actualStartTime @actualEndTime Note
--- that fields beginning with the at sign (@) are read-only and set by the web
--- service. When you name fields, you should choose names containing only
--- alpha-numeric values, as symbols may be reserved by AWS Data Pipeline.
--- User-defined fields that you add to a pipeline should prefix their name
--- with the string "my".
 data OperatorType
     = OperatorTypeBetween -- ^ BETWEEN
     | OperatorTypeEq -- ^ EQ
@@ -206,8 +196,6 @@ instance FromJSON OperatorType
 
 instance ToJSON OperatorType
 
--- | If FINISHED, the task successfully completed. If FAILED the task ended
--- unsuccessfully. The FALSE value is used by preconditions.
 data TaskStatus
     = TaskStatusFailed -- ^ FAILED
     | TaskStatusFalse -- ^ FALSE
@@ -244,24 +232,22 @@ instance ToJSON TaskStatus
 -- top-level String fields in the object. These filters can be applied to
 -- components, instances, and attempts.
 newtype Query = Query
-    { _qySelectors :: [Selector]
-      -- ^ List of selectors that define the query. An object must satisfy
-      -- all of the selectors to match the query.
+    { _qSelectors :: [Selector]
     } deriving (Show, Generic)
-
--- | List of selectors that define the query. An object must satisfy all of the
--- selectors to match the query.
-qySelectors :: Lens' Query ([Selector])
-qySelectors = lens _qySelectors (\s a -> s { _qySelectors = a })
-{-# INLINE qySelectors #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Query' data type to populate a request.
 mkQuery :: Query
 mkQuery = Query
-    { _qySelectors = mempty
+    { _qSelectors = mempty
     }
 {-# INLINE mkQuery #-}
+
+-- | List of selectors that define the query. An object must satisfy all of the
+-- selectors to match the query.
+qSelectors :: Lens' Query [Selector]
+qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a })
+{-# INLINE qSelectors #-}
 
 instance ToJSON Query
 
@@ -270,15 +256,23 @@ instance ToJSON Query
 -- another object (RefValue) but not as both.
 data Field = Field
     { _fKey :: Text
-      -- ^ The field identifier.
     , _fStringValue :: Maybe Text
-      -- ^ The field value, expressed as a String.
     , _fRefValue :: Maybe Text
-      -- ^ The field value, expressed as the identifier of another object.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Field' data type to populate a request.
+mkField :: Text -- ^ 'fKey'
+        -> Field
+mkField p1 = Field
+    { _fKey = p1
+    , _fStringValue = Nothing
+    , _fRefValue = Nothing
+    }
+{-# INLINE mkField #-}
+
 -- | The field identifier.
-fKey :: Lens' Field (Text)
+fKey :: Lens' Field Text
 fKey = lens _fKey (\s a -> s { _fKey = a })
 {-# INLINE fKey #-}
 
@@ -292,17 +286,6 @@ fRefValue :: Lens' Field (Maybe Text)
 fRefValue = lens _fRefValue (\s a -> s { _fRefValue = a })
 {-# INLINE fRefValue #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Field' data type to populate a request.
-mkField :: Text -- ^ 'fKey'
-        -> Field
-mkField p1 = Field
-    { _fKey = p1
-    , _fStringValue = Nothing
-    , _fRefValue = Nothing
-    }
-{-# INLINE mkField #-}
-
 instance FromJSON Field
 
 instance ToJSON Field
@@ -315,65 +298,49 @@ instance ToJSON Field
 -- running on an EC2 instance, and ensures the proper AWS Data Pipeline
 -- service charges are applied to your pipeline.
 data InstanceIdentity = InstanceIdentity
-    { _ijDocument :: Maybe Text
-      -- ^ A description of an Amazon EC2 instance that is generated when
-      -- the instance is launched and exposed to the instance via the
-      -- instance metadata service in the form of a JSON representation of
-      -- an object.
-    , _ijSignature :: Maybe Text
-      -- ^ A signature which can be used to verify the accuracy and
-      -- authenticity of the information provided in the instance identity
-      -- document.
+    { _iiDocument :: Maybe Text
+    , _iiSignature :: Maybe Text
     } deriving (Show, Generic)
-
--- | A description of an Amazon EC2 instance that is generated when the instance
--- is launched and exposed to the instance via the instance metadata service
--- in the form of a JSON representation of an object.
-ijDocument :: Lens' InstanceIdentity (Maybe Text)
-ijDocument = lens _ijDocument (\s a -> s { _ijDocument = a })
-{-# INLINE ijDocument #-}
-
--- | A signature which can be used to verify the accuracy and authenticity of
--- the information provided in the instance identity document.
-ijSignature :: Lens' InstanceIdentity (Maybe Text)
-ijSignature = lens _ijSignature (\s a -> s { _ijSignature = a })
-{-# INLINE ijSignature #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceIdentity' data type to populate a request.
 mkInstanceIdentity :: InstanceIdentity
 mkInstanceIdentity = InstanceIdentity
-    { _ijDocument = Nothing
-    , _ijSignature = Nothing
+    { _iiDocument = Nothing
+    , _iiSignature = Nothing
     }
 {-# INLINE mkInstanceIdentity #-}
+
+-- | A description of an Amazon EC2 instance that is generated when the instance
+-- is launched and exposed to the instance via the instance metadata service
+-- in the form of a JSON representation of an object.
+iiDocument :: Lens' InstanceIdentity (Maybe Text)
+iiDocument = lens _iiDocument (\s a -> s { _iiDocument = a })
+{-# INLINE iiDocument #-}
+
+-- | A signature which can be used to verify the accuracy and authenticity of
+-- the information provided in the instance identity document.
+iiSignature :: Lens' InstanceIdentity (Maybe Text)
+iiSignature = lens _iiSignature (\s a -> s { _iiSignature = a })
+{-# INLINE iiSignature #-}
 
 instance ToJSON InstanceIdentity
 
 -- | Contains a logical operation for comparing the value of a field with a
 -- specified value.
 data Operator = Operator
-    { _orType :: Maybe OperatorType
-      -- ^ The logical operation to be performed: equal (EQ), equal
-      -- reference (REF_EQ), less than or equal (LE), greater than or
-      -- equal (GE), or between (BETWEEN). Equal reference (REF_EQ) can be
-      -- used only with reference fields. The other comparison types can
-      -- be used only with String fields. The comparison types you can use
-      -- apply only to certain object fields, as detailed below. The
-      -- comparison operators EQ and REF_EQ act on the following fields:
-      -- name @sphere parent @componentParent @instanceParent @status
-      -- @scheduledStartTime @scheduledEndTime @actualStartTime
-      -- @actualEndTime The comparison operators GE, LE, and BETWEEN act
-      -- on the following fields: @scheduledStartTime @scheduledEndTime
-      -- @actualStartTime @actualEndTime Note that fields beginning with
-      -- the at sign (@) are read-only and set by the web service. When
-      -- you name fields, you should choose names containing only
-      -- alpha-numeric values, as symbols may be reserved by AWS Data
-      -- Pipeline. User-defined fields that you add to a pipeline should
-      -- prefix their name with the string "my".
-    , _orValues :: [Text]
-      -- ^ The value that the actual field value will be compared with.
+    { _oType :: Maybe OperatorType
+    , _oValues :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Operator' data type to populate a request.
+mkOperator :: Operator
+mkOperator = Operator
+    { _oType = Nothing
+    , _oValues = mempty
+    }
+{-# INLINE mkOperator #-}
 
 -- | The logical operation to be performed: equal (EQ), equal reference
 -- (REF_EQ), less than or equal (LE), greater than or equal (GE), or between
@@ -390,23 +357,14 @@ data Operator = Operator
 -- alpha-numeric values, as symbols may be reserved by AWS Data Pipeline.
 -- User-defined fields that you add to a pipeline should prefix their name
 -- with the string "my".
-orType :: Lens' Operator (Maybe OperatorType)
-orType = lens _orType (\s a -> s { _orType = a })
-{-# INLINE orType #-}
+oType :: Lens' Operator (Maybe OperatorType)
+oType = lens _oType (\s a -> s { _oType = a })
+{-# INLINE oType #-}
 
 -- | The value that the actual field value will be compared with.
-orValues :: Lens' Operator ([Text])
-orValues = lens _orValues (\s a -> s { _orValues = a })
-{-# INLINE orValues #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Operator' data type to populate a request.
-mkOperator :: Operator
-mkOperator = Operator
-    { _orType = Nothing
-    , _orValues = mempty
-    }
-{-# INLINE mkOperator #-}
+oValues :: Lens' Operator [Text]
+oValues = lens _oValues (\s a -> s { _oValues = a })
+{-# INLINE oValues #-}
 
 instance FromJSON Operator
 
@@ -415,31 +373,39 @@ instance ToJSON Operator
 -- | Contains pipeline metadata.
 data PipelineDescription = PipelineDescription
     { _pdPipelineId :: Text
-      -- ^ The pipeline identifier that was assigned by AWS Data Pipeline.
-      -- This is a string of the form df-297EG78HU43EEXAMPLE.
     , _pdName :: Text
-      -- ^ Name of the pipeline.
     , _pdFields :: [Field]
-      -- ^ A list of read-only fields that contain metadata about the
-      -- pipeline: @userId, @accountId, and @pipelineState.
     , _pdDescription :: Maybe Text
-      -- ^ Description of the pipeline.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PipelineDescription' data type to populate a request.
+mkPipelineDescription :: Text -- ^ 'pdPipelineId'
+                      -> Text -- ^ 'pdName'
+                      -> [Field] -- ^ 'pdFields'
+                      -> PipelineDescription
+mkPipelineDescription p1 p2 p3 = PipelineDescription
+    { _pdPipelineId = p1
+    , _pdName = p2
+    , _pdFields = p3
+    , _pdDescription = Nothing
+    }
+{-# INLINE mkPipelineDescription #-}
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a
 -- string of the form df-297EG78HU43EEXAMPLE.
-pdPipelineId :: Lens' PipelineDescription (Text)
+pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 {-# INLINE pdPipelineId #-}
 
 -- | Name of the pipeline.
-pdName :: Lens' PipelineDescription (Text)
+pdName :: Lens' PipelineDescription Text
 pdName = lens _pdName (\s a -> s { _pdName = a })
 {-# INLINE pdName #-}
 
 -- | A list of read-only fields that contain metadata about the pipeline:
 -- @userId, @accountId, and @pipelineState.
-pdFields :: Lens' PipelineDescription ([Field])
+pdFields :: Lens' PipelineDescription [Field]
 pdFields = lens _pdFields (\s a -> s { _pdFields = a })
 {-# INLINE pdFields #-}
 
@@ -453,11 +419,17 @@ instance FromJSON PipelineDescription
 -- | Contains the name and identifier of a pipeline.
 data PipelineIdName = PipelineIdName
     { _pinId :: Maybe Text
-      -- ^ Identifier of the pipeline that was assigned by AWS Data
-      -- Pipeline. This is a string of the form df-297EG78HU43EEXAMPLE.
     , _pinName :: Maybe Text
-      -- ^ Name of the pipeline.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PipelineIdName' data type to populate a request.
+mkPipelineIdName :: PipelineIdName
+mkPipelineIdName = PipelineIdName
+    { _pinId = Nothing
+    , _pinName = Nothing
+    }
+{-# INLINE mkPipelineIdName #-}
 
 -- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is
 -- a string of the form df-297EG78HU43EEXAMPLE.
@@ -477,27 +449,9 @@ instance FromJSON PipelineIdName
 -- components of a pipeline defines the pipeline.
 data PipelineObject = PipelineObject
     { _poId :: Text
-      -- ^ Identifier of the object.
     , _poName :: Text
-      -- ^ Name of the object.
     , _poFields :: [Field]
-      -- ^ Key-value pairs that define the properties of the object.
     } deriving (Show, Generic)
-
--- | Identifier of the object.
-poId :: Lens' PipelineObject (Text)
-poId = lens _poId (\s a -> s { _poId = a })
-{-# INLINE poId #-}
-
--- | Name of the object.
-poName :: Lens' PipelineObject (Text)
-poName = lens _poName (\s a -> s { _poName = a })
-{-# INLINE poName #-}
-
--- | Key-value pairs that define the properties of the object.
-poFields :: Lens' PipelineObject ([Field])
-poFields = lens _poFields (\s a -> s { _poFields = a })
-{-# INLINE poFields #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PipelineObject' data type to populate a request.
@@ -512,6 +466,21 @@ mkPipelineObject p1 p2 p3 = PipelineObject
     }
 {-# INLINE mkPipelineObject #-}
 
+-- | Identifier of the object.
+poId :: Lens' PipelineObject Text
+poId = lens _poId (\s a -> s { _poId = a })
+{-# INLINE poId #-}
+
+-- | Name of the object.
+poName :: Lens' PipelineObject Text
+poName = lens _poName (\s a -> s { _poName = a })
+{-# INLINE poName #-}
+
+-- | Key-value pairs that define the properties of the object.
+poFields :: Lens' PipelineObject [Field]
+poFields = lens _poFields (\s a -> s { _poFields = a })
+{-# INLINE poFields #-}
+
 instance FromJSON PipelineObject
 
 instance ToJSON PipelineObject
@@ -519,38 +488,32 @@ instance ToJSON PipelineObject
 -- | A comparision that is used to determine whether a query should return this
 -- object.
 data Selector = Selector
-    { _srFieldName :: Maybe Text
-      -- ^ The name of the field that the operator will be applied to. The
-      -- field name is the "key" portion of the field definition in the
-      -- pipeline definition syntax that is used by the AWS Data Pipeline
-      -- API. If the field is not set on the object, the condition fails.
-    , _srOperator :: Maybe Operator
-      -- ^ Contains a logical operation for comparing the value of a field
-      -- with a specified value.
+    { _sFieldName :: Maybe Text
+    , _sOperator :: Maybe Operator
     } deriving (Show, Generic)
-
--- | The name of the field that the operator will be applied to. The field name
--- is the "key" portion of the field definition in the pipeline definition
--- syntax that is used by the AWS Data Pipeline API. If the field is not set
--- on the object, the condition fails.
-srFieldName :: Lens' Selector (Maybe Text)
-srFieldName = lens _srFieldName (\s a -> s { _srFieldName = a })
-{-# INLINE srFieldName #-}
-
--- | Contains a logical operation for comparing the value of a field with a
--- specified value.
-srOperator :: Lens' Selector (Maybe Operator)
-srOperator = lens _srOperator (\s a -> s { _srOperator = a })
-{-# INLINE srOperator #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Selector' data type to populate a request.
 mkSelector :: Selector
 mkSelector = Selector
-    { _srFieldName = Nothing
-    , _srOperator = Nothing
+    { _sFieldName = Nothing
+    , _sOperator = Nothing
     }
 {-# INLINE mkSelector #-}
+
+-- | The name of the field that the operator will be applied to. The field name
+-- is the "key" portion of the field definition in the pipeline definition
+-- syntax that is used by the AWS Data Pipeline API. If the field is not set
+-- on the object, the condition fails.
+sFieldName :: Lens' Selector (Maybe Text)
+sFieldName = lens _sFieldName (\s a -> s { _sFieldName = a })
+{-# INLINE sFieldName #-}
+
+-- | Contains a logical operation for comparing the value of a field with a
+-- specified value.
+sOperator :: Lens' Selector (Maybe Operator)
+sOperator = lens _sOperator (\s a -> s { _sOperator = a })
+{-# INLINE sOperator #-}
 
 instance ToJSON Selector
 
@@ -562,17 +525,21 @@ instance ToJSON Selector
 -- ReportTaskProgress and SetTaskStatus.
 data TaskObject = TaskObject
     { _toTaskId :: Maybe Text
-      -- ^ An internal identifier for the task. This ID is passed to the
-      -- SetTaskStatus and ReportTaskProgress actions.
     , _toPipelineId :: Maybe Text
-      -- ^ Identifier of the pipeline that provided the task.
     , _toAttemptId :: Maybe Text
-      -- ^ Identifier of the pipeline task attempt object. AWS Data Pipeline
-      -- uses this value to track how many times a task is attempted.
     , _toObjects :: Map Text PipelineObject
-      -- ^ Connection information for the location where the task runner
-      -- will publish the output of the task.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TaskObject' data type to populate a request.
+mkTaskObject :: TaskObject
+mkTaskObject = TaskObject
+    { _toTaskId = Nothing
+    , _toPipelineId = Nothing
+    , _toAttemptId = Nothing
+    , _toObjects = mempty
+    }
+{-# INLINE mkTaskObject #-}
 
 -- | An internal identifier for the task. This ID is passed to the SetTaskStatus
 -- and ReportTaskProgress actions.
@@ -604,21 +571,28 @@ instance FromJSON TaskObject
 -- The set of validation errors that can be returned are defined by AWS Data
 -- Pipeline.
 data ValidationError = ValidationError
-    { _vfId :: Maybe Text
-      -- ^ The identifier of the object that contains the validation error.
-    , _vfErrors :: [Text]
-      -- ^ A description of the validation error.
+    { _veId :: Maybe Text
+    , _veErrors :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ValidationError' data type to populate a request.
+mkValidationError :: ValidationError
+mkValidationError = ValidationError
+    { _veId = Nothing
+    , _veErrors = mempty
+    }
+{-# INLINE mkValidationError #-}
+
 -- | The identifier of the object that contains the validation error.
-vfId :: Lens' ValidationError (Maybe Text)
-vfId = lens _vfId (\s a -> s { _vfId = a })
-{-# INLINE vfId #-}
+veId :: Lens' ValidationError (Maybe Text)
+veId = lens _veId (\s a -> s { _veId = a })
+{-# INLINE veId #-}
 
 -- | A description of the validation error.
-vfErrors :: Lens' ValidationError ([Text])
-vfErrors = lens _vfErrors (\s a -> s { _vfErrors = a })
-{-# INLINE vfErrors #-}
+veErrors :: Lens' ValidationError [Text]
+veErrors = lens _veErrors (\s a -> s { _veErrors = a })
+{-# INLINE veErrors #-}
 
 instance FromJSON ValidationError
 
@@ -627,21 +601,27 @@ instance FromJSON ValidationError
 -- activation. The set of validation warnings that can be returned are defined
 -- by AWS Data Pipeline.
 data ValidationWarning = ValidationWarning
-    { _vxId :: Maybe Text
-      -- ^ The identifier of the object that contains the validation
-      -- warning.
-    , _vxWarnings :: [Text]
-      -- ^ A description of the validation warning.
+    { _vwId :: Maybe Text
+    , _vwWarnings :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ValidationWarning' data type to populate a request.
+mkValidationWarning :: ValidationWarning
+mkValidationWarning = ValidationWarning
+    { _vwId = Nothing
+    , _vwWarnings = mempty
+    }
+{-# INLINE mkValidationWarning #-}
+
 -- | The identifier of the object that contains the validation warning.
-vxId :: Lens' ValidationWarning (Maybe Text)
-vxId = lens _vxId (\s a -> s { _vxId = a })
-{-# INLINE vxId #-}
+vwId :: Lens' ValidationWarning (Maybe Text)
+vwId = lens _vwId (\s a -> s { _vwId = a })
+{-# INLINE vwId #-}
 
 -- | A description of the validation warning.
-vxWarnings :: Lens' ValidationWarning ([Text])
-vxWarnings = lens _vxWarnings (\s a -> s { _vxWarnings = a })
-{-# INLINE vxWarnings #-}
+vwWarnings :: Lens' ValidationWarning [Text]
+vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a })
+{-# INLINE vwWarnings #-}
 
 instance FromJSON ValidationWarning

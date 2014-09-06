@@ -64,21 +64,21 @@ module Network.AWS.SWF.V2012_01_25.PollForActivityTask
     -- * Request
       PollForActivityTask
     -- ** Request constructor
-    , mkPollForActivityTaskInput
+    , mkPollForActivityTask
     -- ** Request lenses
-    , pfatiDomain
-    , pfatiTaskList
-    , pfatiIdentity
+    , pfatDomain
+    , pfatTaskList
+    , pfatIdentity
 
     -- * Response
     , PollForActivityTaskResponse
     -- ** Response lenses
-    , azTaskToken
-    , azActivityId
-    , azStartedEventId
-    , azWorkflowExecution
-    , azActivityType
-    , azInput
+    , pfatrsTaskToken
+    , pfatrsActivityId
+    , pfatrsStartedEventId
+    , pfatrsWorkflowExecution
+    , pfatrsActivityType
+    , pfatrsInput
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -86,54 +86,44 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PollForActivityTask' request.
-mkPollForActivityTaskInput :: Text -- ^ 'pfatiDomain'
-                           -> TaskList -- ^ 'pfatiTaskList'
-                           -> PollForActivityTask
-mkPollForActivityTaskInput p1 p2 = PollForActivityTask
-    { _pfatiDomain = p1
-    , _pfatiTaskList = p2
-    , _pfatiIdentity = Nothing
-    }
-{-# INLINE mkPollForActivityTaskInput #-}
-
 data PollForActivityTask = PollForActivityTask
-    { _pfatiDomain :: Text
-      -- ^ The name of the domain that contains the task lists being polled.
-    , _pfatiTaskList :: TaskList
-      -- ^ Specifies the task list to poll for activity tasks. The specified
-      -- string must not start or end with whitespace. It must not contain
-      -- a : (colon), / (slash), | (vertical bar), or any control
-      -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not
-      -- contain the literal string &quot;arn&quot;.
-    , _pfatiIdentity :: Maybe Text
-      -- ^ Identity of the worker making the request, which is recorded in
-      -- the ActivityTaskStarted event in the workflow history. This
-      -- enables diagnostic tracing when problems arise. The form of this
-      -- identity is user defined.
+    { _pfatDomain :: Text
+    , _pfatTaskList :: TaskList
+    , _pfatIdentity :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PollForActivityTask' request.
+mkPollForActivityTask :: Text -- ^ 'pfatDomain'
+                      -> TaskList -- ^ 'pfatTaskList'
+                      -> PollForActivityTask
+mkPollForActivityTask p1 p2 = PollForActivityTask
+    { _pfatDomain = p1
+    , _pfatTaskList = p2
+    , _pfatIdentity = Nothing
+    }
+{-# INLINE mkPollForActivityTask #-}
+
 -- | The name of the domain that contains the task lists being polled.
-pfatiDomain :: Lens' PollForActivityTask (Text)
-pfatiDomain = lens _pfatiDomain (\s a -> s { _pfatiDomain = a })
-{-# INLINE pfatiDomain #-}
+pfatDomain :: Lens' PollForActivityTask Text
+pfatDomain = lens _pfatDomain (\s a -> s { _pfatDomain = a })
+{-# INLINE pfatDomain #-}
 
 -- | Specifies the task list to poll for activity tasks. The specified string
 -- must not start or end with whitespace. It must not contain a : (colon), /
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-pfatiTaskList :: Lens' PollForActivityTask (TaskList)
-pfatiTaskList = lens _pfatiTaskList (\s a -> s { _pfatiTaskList = a })
-{-# INLINE pfatiTaskList #-}
+pfatTaskList :: Lens' PollForActivityTask TaskList
+pfatTaskList = lens _pfatTaskList (\s a -> s { _pfatTaskList = a })
+{-# INLINE pfatTaskList #-}
 
 -- | Identity of the worker making the request, which is recorded in the
 -- ActivityTaskStarted event in the workflow history. This enables diagnostic
 -- tracing when problems arise. The form of this identity is user defined.
-pfatiIdentity :: Lens' PollForActivityTask (Maybe Text)
-pfatiIdentity = lens _pfatiIdentity (\s a -> s { _pfatiIdentity = a })
-{-# INLINE pfatiIdentity #-}
+pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
+pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
+{-# INLINE pfatIdentity #-}
 
 instance ToPath PollForActivityTask
 
@@ -143,58 +133,54 @@ instance ToHeaders PollForActivityTask
 
 instance ToJSON PollForActivityTask
 
+-- | Unit of work sent to an activity worker.
 data PollForActivityTaskResponse = PollForActivityTaskResponse
-    { _azTaskToken :: Text
-      -- ^ The opaque string used as a handle on the task. This token is
-      -- used by workers to communicate progress and response information
-      -- back to the system about the task.
-    , _azActivityId :: Text
-      -- ^ The unique ID of the task.
-    , _azStartedEventId :: Integer
-      -- ^ The id of the ActivityTaskStarted event recorded in the history.
-    , _azWorkflowExecution :: WorkflowExecution
-      -- ^ The workflow execution that started this activity task.
-    , _azActivityType :: ActivityType
-      -- ^ The type of this activity task.
-    , _azInput :: Maybe Text
-      -- ^ The inputs provided when the activity task was scheduled. The
-      -- form of the input is user defined and should be meaningful to the
-      -- activity implementation.
+    { _pfatrsTaskToken :: Text
+    , _pfatrsActivityId :: Text
+    , _pfatrsStartedEventId :: Integer
+    , _pfatrsWorkflowExecution :: WorkflowExecution
+    , _pfatrsActivityType :: ActivityType
+    , _pfatrsInput :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system
 -- about the task.
-azTaskToken :: Lens' PollForActivityTaskResponse (Text)
-azTaskToken = lens _azTaskToken (\s a -> s { _azTaskToken = a })
-{-# INLINE azTaskToken #-}
+pfatrsTaskToken :: Lens' PollForActivityTaskResponse Text
+pfatrsTaskToken = lens _pfatrsTaskToken (\s a -> s { _pfatrsTaskToken = a })
+{-# INLINE pfatrsTaskToken #-}
 
 -- | The unique ID of the task.
-azActivityId :: Lens' PollForActivityTaskResponse (Text)
-azActivityId = lens _azActivityId (\s a -> s { _azActivityId = a })
-{-# INLINE azActivityId #-}
+pfatrsActivityId :: Lens' PollForActivityTaskResponse Text
+pfatrsActivityId =
+    lens _pfatrsActivityId (\s a -> s { _pfatrsActivityId = a })
+{-# INLINE pfatrsActivityId #-}
 
 -- | The id of the ActivityTaskStarted event recorded in the history.
-azStartedEventId :: Lens' PollForActivityTaskResponse (Integer)
-azStartedEventId = lens _azStartedEventId (\s a -> s { _azStartedEventId = a })
-{-# INLINE azStartedEventId #-}
+pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
+pfatrsStartedEventId =
+    lens _pfatrsStartedEventId (\s a -> s { _pfatrsStartedEventId = a })
+{-# INLINE pfatrsStartedEventId #-}
 
 -- | The workflow execution that started this activity task.
-azWorkflowExecution :: Lens' PollForActivityTaskResponse (WorkflowExecution)
-azWorkflowExecution = lens _azWorkflowExecution (\s a -> s { _azWorkflowExecution = a })
-{-# INLINE azWorkflowExecution #-}
+pfatrsWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
+pfatrsWorkflowExecution =
+    lens _pfatrsWorkflowExecution
+         (\s a -> s { _pfatrsWorkflowExecution = a })
+{-# INLINE pfatrsWorkflowExecution #-}
 
 -- | The type of this activity task.
-azActivityType :: Lens' PollForActivityTaskResponse (ActivityType)
-azActivityType = lens _azActivityType (\s a -> s { _azActivityType = a })
-{-# INLINE azActivityType #-}
+pfatrsActivityType :: Lens' PollForActivityTaskResponse ActivityType
+pfatrsActivityType =
+    lens _pfatrsActivityType (\s a -> s { _pfatrsActivityType = a })
+{-# INLINE pfatrsActivityType #-}
 
 -- | The inputs provided when the activity task was scheduled. The form of the
 -- input is user defined and should be meaningful to the activity
 -- implementation.
-azInput :: Lens' PollForActivityTaskResponse (Maybe Text)
-azInput = lens _azInput (\s a -> s { _azInput = a })
-{-# INLINE azInput #-}
+pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
+pfatrsInput = lens _pfatrsInput (\s a -> s { _pfatrsInput = a })
+{-# INLINE pfatrsInput #-}
 
 instance FromJSON PollForActivityTaskResponse
 

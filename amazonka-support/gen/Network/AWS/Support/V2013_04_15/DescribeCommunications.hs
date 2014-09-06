@@ -30,19 +30,19 @@ module Network.AWS.Support.V2013_04_15.DescribeCommunications
     -- * Request
       DescribeCommunications
     -- ** Request constructor
-    , mkDescribeCommunicationsRequest
+    , mkDescribeCommunications
     -- ** Request lenses
-    , dctCaseId
-    , dctBeforeTime
-    , dctAfterTime
-    , dctNextToken
-    , dctMaxResults
+    , dc1CaseId
+    , dc1BeforeTime
+    , dc1AfterTime
+    , dc1NextToken
+    , dc1MaxResults
 
     -- * Response
     , DescribeCommunicationsResponse
     -- ** Response lenses
-    , dcuCommunications
-    , dcuNextToken
+    , dcrsrsCommunications
+    , dcrsrsNextToken
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -50,66 +50,56 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | 
+data DescribeCommunications = DescribeCommunications
+    { _dc1CaseId :: Text
+    , _dc1BeforeTime :: Maybe Text
+    , _dc1AfterTime :: Maybe Text
+    , _dc1NextToken :: Maybe Text
+    , _dc1MaxResults :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommunications' request.
-mkDescribeCommunicationsRequest :: Text -- ^ 'dctCaseId'
-                                -> DescribeCommunications
-mkDescribeCommunicationsRequest p1 = DescribeCommunications
-    { _dctCaseId = p1
-    , _dctBeforeTime = Nothing
-    , _dctAfterTime = Nothing
-    , _dctNextToken = Nothing
-    , _dctMaxResults = Nothing
+mkDescribeCommunications :: Text -- ^ 'dc1CaseId'
+                         -> DescribeCommunications
+mkDescribeCommunications p1 = DescribeCommunications
+    { _dc1CaseId = p1
+    , _dc1BeforeTime = Nothing
+    , _dc1AfterTime = Nothing
+    , _dc1NextToken = Nothing
+    , _dc1MaxResults = Nothing
     }
-{-# INLINE mkDescribeCommunicationsRequest #-}
-
-data DescribeCommunications = DescribeCommunications
-    { _dctCaseId :: Text
-      -- ^ The AWS Support case ID requested or returned in the call. The
-      -- case ID is an alphanumeric string formatted as shown in this
-      -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
-    , _dctBeforeTime :: Maybe Text
-      -- ^ The end date for a filtered date search on support case
-      -- communications. Case communications are available for 12 months
-      -- after creation.
-    , _dctAfterTime :: Maybe Text
-      -- ^ The start date for a filtered date search on support case
-      -- communications. Case communications are available for 12 months
-      -- after creation.
-    , _dctNextToken :: Maybe Text
-      -- ^ A resumption point for pagination.
-    , _dctMaxResults :: Maybe Integer
-      -- ^ The maximum number of results to return before paginating.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeCommunications #-}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
-dctCaseId :: Lens' DescribeCommunications (Text)
-dctCaseId = lens _dctCaseId (\s a -> s { _dctCaseId = a })
-{-# INLINE dctCaseId #-}
+dc1CaseId :: Lens' DescribeCommunications Text
+dc1CaseId = lens _dc1CaseId (\s a -> s { _dc1CaseId = a })
+{-# INLINE dc1CaseId #-}
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dctBeforeTime :: Lens' DescribeCommunications (Maybe Text)
-dctBeforeTime = lens _dctBeforeTime (\s a -> s { _dctBeforeTime = a })
-{-# INLINE dctBeforeTime #-}
+dc1BeforeTime :: Lens' DescribeCommunications (Maybe Text)
+dc1BeforeTime = lens _dc1BeforeTime (\s a -> s { _dc1BeforeTime = a })
+{-# INLINE dc1BeforeTime #-}
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dctAfterTime :: Lens' DescribeCommunications (Maybe Text)
-dctAfterTime = lens _dctAfterTime (\s a -> s { _dctAfterTime = a })
-{-# INLINE dctAfterTime #-}
+dc1AfterTime :: Lens' DescribeCommunications (Maybe Text)
+dc1AfterTime = lens _dc1AfterTime (\s a -> s { _dc1AfterTime = a })
+{-# INLINE dc1AfterTime #-}
 
 -- | A resumption point for pagination.
-dctNextToken :: Lens' DescribeCommunications (Maybe Text)
-dctNextToken = lens _dctNextToken (\s a -> s { _dctNextToken = a })
-{-# INLINE dctNextToken #-}
+dc1NextToken :: Lens' DescribeCommunications (Maybe Text)
+dc1NextToken = lens _dc1NextToken (\s a -> s { _dc1NextToken = a })
+{-# INLINE dc1NextToken #-}
 
 -- | The maximum number of results to return before paginating.
-dctMaxResults :: Lens' DescribeCommunications (Maybe Integer)
-dctMaxResults = lens _dctMaxResults (\s a -> s { _dctMaxResults = a })
-{-# INLINE dctMaxResults #-}
+dc1MaxResults :: Lens' DescribeCommunications (Maybe Integer)
+dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a })
+{-# INLINE dc1MaxResults #-}
 
 instance ToPath DescribeCommunications
 
@@ -119,22 +109,22 @@ instance ToHeaders DescribeCommunications
 
 instance ToJSON DescribeCommunications
 
+-- | The communications returned by the DescribeCommunications operation.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
-    { _dcuCommunications :: [Communication]
-      -- ^ The communications for the case.
-    , _dcuNextToken :: Maybe Text
-      -- ^ A resumption point for pagination.
+    { _dcrsrsCommunications :: [Communication]
+    , _dcrsrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The communications for the case.
-dcuCommunications :: Lens' DescribeCommunicationsResponse ([Communication])
-dcuCommunications = lens _dcuCommunications (\s a -> s { _dcuCommunications = a })
-{-# INLINE dcuCommunications #-}
+dcrsrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
+dcrsrsCommunications =
+    lens _dcrsrsCommunications (\s a -> s { _dcrsrsCommunications = a })
+{-# INLINE dcrsrsCommunications #-}
 
 -- | A resumption point for pagination.
-dcuNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
-dcuNextToken = lens _dcuNextToken (\s a -> s { _dcuNextToken = a })
-{-# INLINE dcuNextToken #-}
+dcrsrsNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
+dcrsrsNextToken = lens _dcrsrsNextToken (\s a -> s { _dcrsrsNextToken = a })
+{-# INLINE dcrsrsNextToken #-}
 
 instance FromJSON DescribeCommunicationsResponse
 
@@ -146,5 +136,5 @@ instance AWSRequest DescribeCommunications where
     response _ = jsonResponse
 
 instance AWSPager DescribeCommunications where
-    next rq rs = (\x -> rq { _dctNextToken = Just x })
-        <$> (_dcuNextToken rs)
+    next rq rs = (\x -> rq { _dc1NextToken = Just x })
+        <$> (_dcrsrsNextToken rs)

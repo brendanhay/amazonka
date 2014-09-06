@@ -27,15 +27,15 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeApps
     -- * Request
       DescribeApps
     -- ** Request constructor
-    , mkDescribeAppsRequest
+    , mkDescribeApps
     -- ** Request lenses
-    , dasStackId
-    , dasAppIds
+    , da1StackId
+    , da1AppIds
 
     -- * Response
     , DescribeAppsResponse
     -- ** Response lenses
-    , datApps
+    , darsApps
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,37 +43,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DescribeApps = DescribeApps
+    { _da1StackId :: Maybe Text
+    , _da1AppIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApps' request.
-mkDescribeAppsRequest :: DescribeApps
-mkDescribeAppsRequest = DescribeApps
-    { _dasStackId = Nothing
-    , _dasAppIds = mempty
+mkDescribeApps :: DescribeApps
+mkDescribeApps = DescribeApps
+    { _da1StackId = Nothing
+    , _da1AppIds = mempty
     }
-{-# INLINE mkDescribeAppsRequest #-}
-
-data DescribeApps = DescribeApps
-    { _dasStackId :: Maybe Text
-      -- ^ The app stack ID. If you use this parameter, DescribeApps returns
-      -- a description of the apps in the specified stack.
-    , _dasAppIds :: [Text]
-      -- ^ An array of app IDs for the apps to be described. If you use this
-      -- parameter, DescribeApps returns a description of the specified
-      -- apps. Otherwise, it returns a description of every app.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeApps #-}
 
 -- | The app stack ID. If you use this parameter, DescribeApps returns a
 -- description of the apps in the specified stack.
-dasStackId :: Lens' DescribeApps (Maybe Text)
-dasStackId = lens _dasStackId (\s a -> s { _dasStackId = a })
-{-# INLINE dasStackId #-}
+da1StackId :: Lens' DescribeApps (Maybe Text)
+da1StackId = lens _da1StackId (\s a -> s { _da1StackId = a })
+{-# INLINE da1StackId #-}
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, DescribeApps returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-dasAppIds :: Lens' DescribeApps ([Text])
-dasAppIds = lens _dasAppIds (\s a -> s { _dasAppIds = a })
-{-# INLINE dasAppIds #-}
+da1AppIds :: Lens' DescribeApps [Text]
+da1AppIds = lens _da1AppIds (\s a -> s { _da1AppIds = a })
+{-# INLINE da1AppIds #-}
 
 instance ToPath DescribeApps
 
@@ -83,15 +78,15 @@ instance ToHeaders DescribeApps
 
 instance ToJSON DescribeApps
 
+-- | Contains the response to a DescribeApps request.
 newtype DescribeAppsResponse = DescribeAppsResponse
-    { _datApps :: [App]
-      -- ^ An array of App objects that describe the specified apps.
+    { _darsApps :: [App]
     } deriving (Show, Generic)
 
 -- | An array of App objects that describe the specified apps.
-datApps :: Lens' DescribeAppsResponse ([App])
-datApps = lens _datApps (\s a -> s { _datApps = a })
-{-# INLINE datApps #-}
+darsApps :: Lens' DescribeAppsResponse [App]
+darsApps = lens _darsApps (\s a -> s { _darsApps = a })
+{-# INLINE darsApps #-}
 
 instance FromJSON DescribeAppsResponse
 

@@ -25,11 +25,11 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
     -- * Request
       DescribeLocations
     -- ** Request constructor
-    , mkUnknown
+    , mkDescribeLocations
     -- * Response
     , DescribeLocationsResponse
     -- ** Response lenses
-    , lsLocations
+    , dlrsLocations
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -37,14 +37,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLocations' request.
-mkUnknown :: DescribeLocations
-mkUnknown = DescribeLocations
-{-# INLINE mkUnknown #-}
-
 data DescribeLocations = DescribeLocations
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLocations' request.
+mkDescribeLocations :: DescribeLocations
+mkDescribeLocations = DescribeLocations
+{-# INLINE mkDescribeLocations #-}
 
 instance ToPath DescribeLocations
 
@@ -55,12 +55,12 @@ instance ToHeaders DescribeLocations
 instance ToJSON DescribeLocations
 
 newtype DescribeLocationsResponse = DescribeLocationsResponse
-    { _lsLocations :: [Location]
+    { _dlrsLocations :: [Location]
     } deriving (Show, Generic)
 
-lsLocations :: Lens' DescribeLocationsResponse ([Location])
-lsLocations = lens _lsLocations (\s a -> s { _lsLocations = a })
-{-# INLINE lsLocations #-}
+dlrsLocations :: Lens' DescribeLocationsResponse [Location]
+dlrsLocations = lens _dlrsLocations (\s a -> s { _dlrsLocations = a })
+{-# INLINE dlrsLocations #-}
 
 instance FromJSON DescribeLocationsResponse
 

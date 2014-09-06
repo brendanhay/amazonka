@@ -25,11 +25,11 @@ module Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity
     -- * Request
       UnlinkIdentity
     -- ** Request constructor
-    , mkUnlinkIdentityInput
+    , mkUnlinkIdentity
     -- ** Request lenses
-    , uiiIdentityId
-    , uiiLogins
-    , uiiLoginsToRemove
+    , uiIdentityId
+    , uiLogins
+    , uiLoginsToRemove
 
     -- * Response
     , UnlinkIdentityResponse
@@ -40,44 +40,42 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UnlinkIdentity' request.
-mkUnlinkIdentityInput :: Text -- ^ 'uiiIdentityId'
-                      -> Map Text Text -- ^ 'uiiLogins'
-                      -> [Text] -- ^ 'uiiLoginsToRemove'
-                      -> UnlinkIdentity
-mkUnlinkIdentityInput p1 p2 p3 = UnlinkIdentity
-    { _uiiIdentityId = p1
-    , _uiiLogins = p2
-    , _uiiLoginsToRemove = p3
-    }
-{-# INLINE mkUnlinkIdentityInput #-}
-
+-- | Input to the UnlinkIdentity action.
 data UnlinkIdentity = UnlinkIdentity
-    { _uiiIdentityId :: Text
-      -- ^ A unique identifier in the format REGION:GUID.
-    , _uiiLogins :: Map Text Text
-      -- ^ A set of optional name/value pairs that map provider names to
-      -- provider tokens.
-    , _uiiLoginsToRemove :: [Text]
-      -- ^ Provider names to unlink from this identity.
+    { _uiIdentityId :: Text
+    , _uiLogins :: Map Text Text
+    , _uiLoginsToRemove :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnlinkIdentity' request.
+mkUnlinkIdentity :: Text -- ^ 'uiIdentityId'
+                 -> Map Text Text -- ^ 'uiLogins'
+                 -> [Text] -- ^ 'uiLoginsToRemove'
+                 -> UnlinkIdentity
+mkUnlinkIdentity p1 p2 p3 = UnlinkIdentity
+    { _uiIdentityId = p1
+    , _uiLogins = p2
+    , _uiLoginsToRemove = p3
+    }
+{-# INLINE mkUnlinkIdentity #-}
+
 -- | A unique identifier in the format REGION:GUID.
-uiiIdentityId :: Lens' UnlinkIdentity (Text)
-uiiIdentityId = lens _uiiIdentityId (\s a -> s { _uiiIdentityId = a })
-{-# INLINE uiiIdentityId #-}
+uiIdentityId :: Lens' UnlinkIdentity Text
+uiIdentityId = lens _uiIdentityId (\s a -> s { _uiIdentityId = a })
+{-# INLINE uiIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-uiiLogins :: Lens' UnlinkIdentity (Map Text Text)
-uiiLogins = lens _uiiLogins (\s a -> s { _uiiLogins = a })
-{-# INLINE uiiLogins #-}
+uiLogins :: Lens' UnlinkIdentity (Map Text Text)
+uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a })
+{-# INLINE uiLogins #-}
 
 -- | Provider names to unlink from this identity.
-uiiLoginsToRemove :: Lens' UnlinkIdentity ([Text])
-uiiLoginsToRemove = lens _uiiLoginsToRemove (\s a -> s { _uiiLoginsToRemove = a })
-{-# INLINE uiiLoginsToRemove #-}
+uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
+uiLoginsToRemove =
+    lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a })
+{-# INLINE uiLoginsToRemove #-}
 
 instance ToPath UnlinkIdentity
 

@@ -24,11 +24,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketPolicy
     -- * Request
       PutBucketPolicy
     -- ** Request constructor
-    , mkPutBucketPolicyRequest
+    , mkPutBucketPolicy
     -- ** Request lenses
-    , pbprBucket
-    , pbprContentMD5
-    , pbprPolicy
+    , pbpBucket
+    , pbpContentMD5
+    , pbpPolicy
 
     -- * Response
     , PutBucketPolicyResponse
@@ -37,43 +37,43 @@ module Network.AWS.S3.V2006_03_01.PutBucketPolicy
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data PutBucketPolicy = PutBucketPolicy
+    { _pbpBucket :: BucketName
+    , _pbpContentMD5 :: Maybe Text
+    , _pbpPolicy :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketPolicy' request.
-mkPutBucketPolicyRequest :: BucketName -- ^ 'pbprBucket'
-                         -> Text -- ^ 'pbprPolicy'
-                         -> PutBucketPolicy
-mkPutBucketPolicyRequest p1 p2 = PutBucketPolicy
-    { _pbprBucket = p1
-    , _pbprContentMD5 = Nothing
-    , _pbprPolicy = p3
+mkPutBucketPolicy :: BucketName -- ^ 'pbpBucket'
+                  -> Text -- ^ 'pbpPolicy'
+                  -> PutBucketPolicy
+mkPutBucketPolicy p1 p3 = PutBucketPolicy
+    { _pbpBucket = p1
+    , _pbpContentMD5 = Nothing
+    , _pbpPolicy = p3
     }
-{-# INLINE mkPutBucketPolicyRequest #-}
+{-# INLINE mkPutBucketPolicy #-}
 
-data PutBucketPolicy = PutBucketPolicy
-    { _pbprBucket :: BucketName
-    , _pbprContentMD5 :: Maybe Text
-    , _pbprPolicy :: Text
-      -- ^ The bucket policy as a JSON document.
-    } deriving (Show, Generic)
+pbpBucket :: Lens' PutBucketPolicy BucketName
+pbpBucket = lens _pbpBucket (\s a -> s { _pbpBucket = a })
+{-# INLINE pbpBucket #-}
 
-pbprBucket :: Lens' PutBucketPolicy (BucketName)
-pbprBucket = lens _pbprBucket (\s a -> s { _pbprBucket = a })
-{-# INLINE pbprBucket #-}
-
-pbprContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
-pbprContentMD5 = lens _pbprContentMD5 (\s a -> s { _pbprContentMD5 = a })
-{-# INLINE pbprContentMD5 #-}
+pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
+pbpContentMD5 = lens _pbpContentMD5 (\s a -> s { _pbpContentMD5 = a })
+{-# INLINE pbpContentMD5 #-}
 
 -- | The bucket policy as a JSON document.
-pbprPolicy :: Lens' PutBucketPolicy (Text)
-pbprPolicy = lens _pbprPolicy (\s a -> s { _pbprPolicy = a })
-{-# INLINE pbprPolicy #-}
+pbpPolicy :: Lens' PutBucketPolicy Text
+pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
+{-# INLINE pbpPolicy #-}
 
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat
         [ "/"
-        , toBS _pbprBucket
+        , toBS _pbpBucket
         ]
 
 instance ToQuery PutBucketPolicy where
@@ -81,9 +81,13 @@ instance ToQuery PutBucketPolicy where
         [ "policy"
         ]
 
-instance ToHeaders PutBucketPolicy
+instance ToHeaders PutBucketPolicy where
+    toHeaders PutBucketPolicy{..} = concat
+        [ "Content-MD5" =: _pbpContentMD5
+        ]
 
-instance ToBody PutBucketPolicy
+instance ToBody PutBucketPolicy where
+    toBody = toBody . encodeXML . _pbpPolicy
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
     deriving (Eq, Show, Generic)

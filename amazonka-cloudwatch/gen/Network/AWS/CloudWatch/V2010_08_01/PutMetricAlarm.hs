@@ -29,23 +29,23 @@ module Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm
     -- * Request
       PutMetricAlarm
     -- ** Request constructor
-    , mkPutMetricAlarmInput
+    , mkPutMetricAlarm
     -- ** Request lenses
-    , pmaiAlarmName
-    , pmaiAlarmDescription
-    , pmaiActionsEnabled
-    , pmaiOKActions
-    , pmaiAlarmActions
-    , pmaiInsufficientDataActions
-    , pmaiMetricName
-    , pmaiNamespace
-    , pmaiStatistic
-    , pmaiDimensions
-    , pmaiPeriod
-    , pmaiUnit
-    , pmaiEvaluationPeriods
-    , pmaiThreshold
-    , pmaiComparisonOperator
+    , pmaAlarmName
+    , pmaAlarmDescription
+    , pmaActionsEnabled
+    , pmaOKActions
+    , pmaAlarmActions
+    , pmaInsufficientDataActions
+    , pmaMetricName
+    , pmaNamespace
+    , pmaStatistic
+    , pmaDimensions
+    , pmaPeriod
+    , pmaUnit
+    , pmaEvaluationPeriods
+    , pmaThreshold
+    , pmaComparisonOperator
 
     -- * Response
     , PutMetricAlarmResponse
@@ -55,174 +55,148 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data PutMetricAlarm = PutMetricAlarm
+    { _pmaAlarmName :: Text
+    , _pmaAlarmDescription :: Maybe Text
+    , _pmaActionsEnabled :: Maybe Bool
+    , _pmaOKActions :: [Text]
+    , _pmaAlarmActions :: [Text]
+    , _pmaInsufficientDataActions :: [Text]
+    , _pmaMetricName :: Text
+    , _pmaNamespace :: Text
+    , _pmaStatistic :: Statistic
+    , _pmaDimensions :: [Dimension]
+    , _pmaPeriod :: Integer
+    , _pmaUnit :: Maybe StandardUnit
+    , _pmaEvaluationPeriods :: Integer
+    , _pmaThreshold :: Double
+    , _pmaComparisonOperator :: ComparisonOperator
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricAlarm' request.
-mkPutMetricAlarmInput :: Text -- ^ 'pmaiAlarmName'
-                      -> Text -- ^ 'pmaiMetricName'
-                      -> Text -- ^ 'pmaiNamespace'
-                      -> Statistic -- ^ 'pmaiStatistic'
-                      -> Integer -- ^ 'pmaiPeriod'
-                      -> Integer -- ^ 'pmaiEvaluationPeriods'
-                      -> Double -- ^ 'pmaiThreshold'
-                      -> ComparisonOperator -- ^ 'pmaiComparisonOperator'
-                      -> PutMetricAlarm
-mkPutMetricAlarmInput p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
-    { _pmaiAlarmName = p1
-    , _pmaiAlarmDescription = Nothing
-    , _pmaiActionsEnabled = Nothing
-    , _pmaiOKActions = mempty
-    , _pmaiAlarmActions = mempty
-    , _pmaiInsufficientDataActions = mempty
-    , _pmaiMetricName = p7
-    , _pmaiNamespace = p8
-    , _pmaiStatistic = p9
-    , _pmaiDimensions = mempty
-    , _pmaiPeriod = p11
-    , _pmaiUnit = Nothing
-    , _pmaiEvaluationPeriods = p13
-    , _pmaiThreshold = p14
-    , _pmaiComparisonOperator = p15
+mkPutMetricAlarm :: Text -- ^ 'pmaAlarmName'
+                 -> Integer -- ^ 'pmaPeriod'
+                 -> Integer -- ^ 'pmaEvaluationPeriods'
+                 -> Double -- ^ 'pmaThreshold'
+                 -> ComparisonOperator -- ^ 'pmaComparisonOperator'
+                 -> Text -- ^ 'pmaMetricName'
+                 -> Text -- ^ 'pmaNamespace'
+                 -> Statistic -- ^ 'pmaStatistic'
+                 -> PutMetricAlarm
+mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 = PutMetricAlarm
+    { _pmaAlarmName = p1
+    , _pmaAlarmDescription = Nothing
+    , _pmaActionsEnabled = Nothing
+    , _pmaOKActions = mempty
+    , _pmaAlarmActions = mempty
+    , _pmaInsufficientDataActions = mempty
+    , _pmaMetricName = p7
+    , _pmaNamespace = p8
+    , _pmaStatistic = p9
+    , _pmaDimensions = mempty
+    , _pmaPeriod = p11
+    , _pmaUnit = Nothing
+    , _pmaEvaluationPeriods = p13
+    , _pmaThreshold = p14
+    , _pmaComparisonOperator = p15
     }
-{-# INLINE mkPutMetricAlarmInput #-}
-
-data PutMetricAlarm = PutMetricAlarm
-    { _pmaiAlarmName :: Text
-      -- ^ The descriptive name for the alarm. This name must be unique
-      -- within the user's AWS account.
-    , _pmaiAlarmDescription :: Maybe Text
-      -- ^ The description for the alarm.
-    , _pmaiActionsEnabled :: Maybe Bool
-      -- ^ Indicates whether or not actions should be executed during any
-      -- changes to the alarm's state.
-    , _pmaiOKActions :: [Text]
-      -- ^ The list of actions to execute when this alarm transitions into
-      -- an OK state from any other state. Each action is specified as an
-      -- Amazon Resource Number (ARN). Currently the only action supported
-      -- is publishing to an Amazon SNS topic or an Amazon Auto Scaling
-      -- policy.
-    , _pmaiAlarmActions :: [Text]
-      -- ^ The list of actions to execute when this alarm transitions into
-      -- an ALARM state from any other state. Each action is specified as
-      -- an Amazon Resource Number (ARN). Currently the only action
-      -- supported is publishing to an Amazon SNS topic or an Amazon Auto
-      -- Scaling policy.
-    , _pmaiInsufficientDataActions :: [Text]
-      -- ^ The list of actions to execute when this alarm transitions into
-      -- an INSUFFICIENT_DATA state from any other state. Each action is
-      -- specified as an Amazon Resource Number (ARN). Currently the only
-      -- action supported is publishing to an Amazon SNS topic or an
-      -- Amazon Auto Scaling policy.
-    , _pmaiMetricName :: Text
-      -- ^ The name for the alarm's associated metric.
-    , _pmaiNamespace :: Text
-      -- ^ The namespace for the alarm's associated metric.
-    , _pmaiStatistic :: Statistic
-      -- ^ The statistic to apply to the alarm's associated metric.
-    , _pmaiDimensions :: [Dimension]
-      -- ^ The dimensions for the alarm's associated metric.
-    , _pmaiPeriod :: Integer
-      -- ^ The period in seconds over which the specified statistic is
-      -- applied.
-    , _pmaiUnit :: Maybe StandardUnit
-      -- ^ The unit for the alarm's associated metric.
-    , _pmaiEvaluationPeriods :: Integer
-      -- ^ The number of periods over which data is compared to the
-      -- specified threshold.
-    , _pmaiThreshold :: Double
-      -- ^ The value against which the specified statistic is compared.
-    , _pmaiComparisonOperator :: ComparisonOperator
-      -- ^ The arithmetic operation to use when comparing the specified
-      -- Statistic and Threshold. The specified Statistic value is used as
-      -- the first operand.
-    } deriving (Show, Generic)
+{-# INLINE mkPutMetricAlarm #-}
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account.
-pmaiAlarmName :: Lens' PutMetricAlarm (Text)
-pmaiAlarmName = lens _pmaiAlarmName (\s a -> s { _pmaiAlarmName = a })
-{-# INLINE pmaiAlarmName #-}
+pmaAlarmName :: Lens' PutMetricAlarm Text
+pmaAlarmName = lens _pmaAlarmName (\s a -> s { _pmaAlarmName = a })
+{-# INLINE pmaAlarmName #-}
 
 -- | The description for the alarm.
-pmaiAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
-pmaiAlarmDescription = lens _pmaiAlarmDescription (\s a -> s { _pmaiAlarmDescription = a })
-{-# INLINE pmaiAlarmDescription #-}
+pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
+pmaAlarmDescription =
+    lens _pmaAlarmDescription (\s a -> s { _pmaAlarmDescription = a })
+{-# INLINE pmaAlarmDescription #-}
 
 -- | Indicates whether or not actions should be executed during any changes to
 -- the alarm's state.
-pmaiActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
-pmaiActionsEnabled = lens _pmaiActionsEnabled (\s a -> s { _pmaiActionsEnabled = a })
-{-# INLINE pmaiActionsEnabled #-}
+pmaActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
+pmaActionsEnabled =
+    lens _pmaActionsEnabled (\s a -> s { _pmaActionsEnabled = a })
+{-# INLINE pmaActionsEnabled #-}
 
 -- | The list of actions to execute when this alarm transitions into an OK state
 -- from any other state. Each action is specified as an Amazon Resource Number
 -- (ARN). Currently the only action supported is publishing to an Amazon SNS
 -- topic or an Amazon Auto Scaling policy.
-pmaiOKActions :: Lens' PutMetricAlarm ([Text])
-pmaiOKActions = lens _pmaiOKActions (\s a -> s { _pmaiOKActions = a })
-{-# INLINE pmaiOKActions #-}
+pmaOKActions :: Lens' PutMetricAlarm [Text]
+pmaOKActions = lens _pmaOKActions (\s a -> s { _pmaOKActions = a })
+{-# INLINE pmaOKActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an ALARM
 -- state from any other state. Each action is specified as an Amazon Resource
 -- Number (ARN). Currently the only action supported is publishing to an
 -- Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaiAlarmActions :: Lens' PutMetricAlarm ([Text])
-pmaiAlarmActions = lens _pmaiAlarmActions (\s a -> s { _pmaiAlarmActions = a })
-{-# INLINE pmaiAlarmActions #-}
+pmaAlarmActions :: Lens' PutMetricAlarm [Text]
+pmaAlarmActions = lens _pmaAlarmActions (\s a -> s { _pmaAlarmActions = a })
+{-# INLINE pmaAlarmActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an
 -- INSUFFICIENT_DATA state from any other state. Each action is specified as
 -- an Amazon Resource Number (ARN). Currently the only action supported is
 -- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaiInsufficientDataActions :: Lens' PutMetricAlarm ([Text])
-pmaiInsufficientDataActions = lens _pmaiInsufficientDataActions (\s a -> s { _pmaiInsufficientDataActions = a })
-{-# INLINE pmaiInsufficientDataActions #-}
+pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
+pmaInsufficientDataActions =
+    lens _pmaInsufficientDataActions
+         (\s a -> s { _pmaInsufficientDataActions = a })
+{-# INLINE pmaInsufficientDataActions #-}
 
 -- | The name for the alarm's associated metric.
-pmaiMetricName :: Lens' PutMetricAlarm (Text)
-pmaiMetricName = lens _pmaiMetricName (\s a -> s { _pmaiMetricName = a })
-{-# INLINE pmaiMetricName #-}
+pmaMetricName :: Lens' PutMetricAlarm Text
+pmaMetricName = lens _pmaMetricName (\s a -> s { _pmaMetricName = a })
+{-# INLINE pmaMetricName #-}
 
 -- | The namespace for the alarm's associated metric.
-pmaiNamespace :: Lens' PutMetricAlarm (Text)
-pmaiNamespace = lens _pmaiNamespace (\s a -> s { _pmaiNamespace = a })
-{-# INLINE pmaiNamespace #-}
+pmaNamespace :: Lens' PutMetricAlarm Text
+pmaNamespace = lens _pmaNamespace (\s a -> s { _pmaNamespace = a })
+{-# INLINE pmaNamespace #-}
 
 -- | The statistic to apply to the alarm's associated metric.
-pmaiStatistic :: Lens' PutMetricAlarm (Statistic)
-pmaiStatistic = lens _pmaiStatistic (\s a -> s { _pmaiStatistic = a })
-{-# INLINE pmaiStatistic #-}
+pmaStatistic :: Lens' PutMetricAlarm Statistic
+pmaStatistic = lens _pmaStatistic (\s a -> s { _pmaStatistic = a })
+{-# INLINE pmaStatistic #-}
 
 -- | The dimensions for the alarm's associated metric.
-pmaiDimensions :: Lens' PutMetricAlarm ([Dimension])
-pmaiDimensions = lens _pmaiDimensions (\s a -> s { _pmaiDimensions = a })
-{-# INLINE pmaiDimensions #-}
+pmaDimensions :: Lens' PutMetricAlarm [Dimension]
+pmaDimensions = lens _pmaDimensions (\s a -> s { _pmaDimensions = a })
+{-# INLINE pmaDimensions #-}
 
 -- | The period in seconds over which the specified statistic is applied.
-pmaiPeriod :: Lens' PutMetricAlarm (Integer)
-pmaiPeriod = lens _pmaiPeriod (\s a -> s { _pmaiPeriod = a })
-{-# INLINE pmaiPeriod #-}
+pmaPeriod :: Lens' PutMetricAlarm Integer
+pmaPeriod = lens _pmaPeriod (\s a -> s { _pmaPeriod = a })
+{-# INLINE pmaPeriod #-}
 
 -- | The unit for the alarm's associated metric.
-pmaiUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
-pmaiUnit = lens _pmaiUnit (\s a -> s { _pmaiUnit = a })
-{-# INLINE pmaiUnit #-}
+pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
+pmaUnit = lens _pmaUnit (\s a -> s { _pmaUnit = a })
+{-# INLINE pmaUnit #-}
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
-pmaiEvaluationPeriods :: Lens' PutMetricAlarm (Integer)
-pmaiEvaluationPeriods = lens _pmaiEvaluationPeriods (\s a -> s { _pmaiEvaluationPeriods = a })
-{-# INLINE pmaiEvaluationPeriods #-}
+pmaEvaluationPeriods :: Lens' PutMetricAlarm Integer
+pmaEvaluationPeriods =
+    lens _pmaEvaluationPeriods (\s a -> s { _pmaEvaluationPeriods = a })
+{-# INLINE pmaEvaluationPeriods #-}
 
 -- | The value against which the specified statistic is compared.
-pmaiThreshold :: Lens' PutMetricAlarm (Double)
-pmaiThreshold = lens _pmaiThreshold (\s a -> s { _pmaiThreshold = a })
-{-# INLINE pmaiThreshold #-}
+pmaThreshold :: Lens' PutMetricAlarm Double
+pmaThreshold = lens _pmaThreshold (\s a -> s { _pmaThreshold = a })
+{-# INLINE pmaThreshold #-}
 
 -- | The arithmetic operation to use when comparing the specified Statistic and
 -- Threshold. The specified Statistic value is used as the first operand.
-pmaiComparisonOperator :: Lens' PutMetricAlarm (ComparisonOperator)
-pmaiComparisonOperator = lens _pmaiComparisonOperator (\s a -> s { _pmaiComparisonOperator = a })
-{-# INLINE pmaiComparisonOperator #-}
+pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
+pmaComparisonOperator =
+    lens _pmaComparisonOperator (\s a -> s { _pmaComparisonOperator = a })
+{-# INLINE pmaComparisonOperator #-}
 
 instance ToQuery PutMetricAlarm where
     toQuery = genericQuery def

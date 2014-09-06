@@ -23,63 +23,62 @@ module Network.AWS.ElastiCache.V2014_07_15.CopySnapshot
     -- * Request
       CopySnapshot
     -- ** Request constructor
-    , mkCopySnapshotMessage
+    , mkCopySnapshot
     -- ** Request lenses
-    , csmSourceSnapshotName
-    , csmTargetSnapshotName
+    , csSourceSnapshotName
+    , csTargetSnapshotName
 
     -- * Response
     , CopySnapshotResponse
     -- ** Response lenses
-    , swSnapshot
+    , csrsSnapshot
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CopySnapshot' request.
-mkCopySnapshotMessage :: Text -- ^ 'csmSourceSnapshotName'
-                      -> Text -- ^ 'csmTargetSnapshotName'
-                      -> CopySnapshot
-mkCopySnapshotMessage p1 p2 = CopySnapshot
-    { _csmSourceSnapshotName = p1
-    , _csmTargetSnapshotName = p2
-    }
-{-# INLINE mkCopySnapshotMessage #-}
-
+-- | Represents the input of a CopySnapshotMessage operation.
 data CopySnapshot = CopySnapshot
-    { _csmSourceSnapshotName :: Text
-      -- ^ The name of an existing snapshot from which to copy.
-    , _csmTargetSnapshotName :: Text
-      -- ^ A name for the copied snapshot.
+    { _csSourceSnapshotName :: Text
+    , _csTargetSnapshotName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopySnapshot' request.
+mkCopySnapshot :: Text -- ^ 'csSourceSnapshotName'
+               -> Text -- ^ 'csTargetSnapshotName'
+               -> CopySnapshot
+mkCopySnapshot p1 p2 = CopySnapshot
+    { _csSourceSnapshotName = p1
+    , _csTargetSnapshotName = p2
+    }
+{-# INLINE mkCopySnapshot #-}
+
 -- | The name of an existing snapshot from which to copy.
-csmSourceSnapshotName :: Lens' CopySnapshot (Text)
-csmSourceSnapshotName = lens _csmSourceSnapshotName (\s a -> s { _csmSourceSnapshotName = a })
-{-# INLINE csmSourceSnapshotName #-}
+csSourceSnapshotName :: Lens' CopySnapshot Text
+csSourceSnapshotName =
+    lens _csSourceSnapshotName (\s a -> s { _csSourceSnapshotName = a })
+{-# INLINE csSourceSnapshotName #-}
 
 -- | A name for the copied snapshot.
-csmTargetSnapshotName :: Lens' CopySnapshot (Text)
-csmTargetSnapshotName = lens _csmTargetSnapshotName (\s a -> s { _csmTargetSnapshotName = a })
-{-# INLINE csmTargetSnapshotName #-}
+csTargetSnapshotName :: Lens' CopySnapshot Text
+csTargetSnapshotName =
+    lens _csTargetSnapshotName (\s a -> s { _csTargetSnapshotName = a })
+{-# INLINE csTargetSnapshotName #-}
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
 
 newtype CopySnapshotResponse = CopySnapshotResponse
-    { _swSnapshot :: Maybe Snapshot
-      -- ^ Represents a copy of an entire cache cluster as of the time when
-      -- the snapshot was taken.
+    { _csrsSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-swSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
-swSnapshot = lens _swSnapshot (\s a -> s { _swSnapshot = a })
-{-# INLINE swSnapshot #-}
+csrsSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
+csrsSnapshot = lens _csrsSnapshot (\s a -> s { _csrsSnapshot = a })
+{-# INLINE csrsSnapshot #-}
 
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions

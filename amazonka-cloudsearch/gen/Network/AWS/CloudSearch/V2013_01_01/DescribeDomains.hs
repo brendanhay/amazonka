@@ -29,50 +29,54 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeDomains
     -- * Request
       DescribeDomains
     -- ** Request constructor
-    , mkDescribeDomainsRequest
+    , mkDescribeDomains
     -- ** Request lenses
-    , ddwDomainNames
+    , dd1DomainNames
 
     -- * Response
     , DescribeDomainsResponse
     -- ** Response lenses
-    , ddxDomainStatusList
+    , ddrsrsDomainStatusList
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeDomains' request.
-mkDescribeDomainsRequest :: DescribeDomains
-mkDescribeDomainsRequest = DescribeDomains
-    { _ddwDomainNames = mempty
-    }
-{-# INLINE mkDescribeDomainsRequest #-}
-
+-- | Container for the parameters to the DescribeDomains operation. By default
+-- shows the status of all domains. To restrict the response to particular
+-- domains, specify the names of the domains you want to describe.
 newtype DescribeDomains = DescribeDomains
-    { _ddwDomainNames :: [Text]
-      -- ^ The names of the domains you want to include in the response.
+    { _dd1DomainNames :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDomains' request.
+mkDescribeDomains :: DescribeDomains
+mkDescribeDomains = DescribeDomains
+    { _dd1DomainNames = mempty
+    }
+{-# INLINE mkDescribeDomains #-}
+
 -- | The names of the domains you want to include in the response.
-ddwDomainNames :: Lens' DescribeDomains ([Text])
-ddwDomainNames = lens _ddwDomainNames (\s a -> s { _ddwDomainNames = a })
-{-# INLINE ddwDomainNames #-}
+dd1DomainNames :: Lens' DescribeDomains [Text]
+dd1DomainNames = lens _dd1DomainNames (\s a -> s { _dd1DomainNames = a })
+{-# INLINE dd1DomainNames #-}
 
 instance ToQuery DescribeDomains where
     toQuery = genericQuery def
 
+-- | The result of a DescribeDomains request. Contains the status of the domains
+-- specified in the request or all domains owned by the account.
 newtype DescribeDomainsResponse = DescribeDomainsResponse
-    { _ddxDomainStatusList :: [DomainStatus]
-      -- ^ A list that contains the status of each requested domain.
+    { _ddrsrsDomainStatusList :: [DomainStatus]
     } deriving (Show, Generic)
 
 -- | A list that contains the status of each requested domain.
-ddxDomainStatusList :: Lens' DescribeDomainsResponse ([DomainStatus])
-ddxDomainStatusList = lens _ddxDomainStatusList (\s a -> s { _ddxDomainStatusList = a })
-{-# INLINE ddxDomainStatusList #-}
+ddrsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+ddrsrsDomainStatusList =
+    lens _ddrsrsDomainStatusList (\s a -> s { _ddrsrsDomainStatusList = a })
+{-# INLINE ddrsrsDomainStatusList #-}
 
 instance FromXML DescribeDomainsResponse where
     fromXMLOptions = xmlOptions

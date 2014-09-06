@@ -38,10 +38,10 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute
     -- * Request
       CreateVpnConnectionRoute
     -- ** Request constructor
-    , mkCreateVpnConnectionRouteRequest
+    , mkCreateVpnConnectionRoute
     -- ** Request lenses
-    , cvcrrVpnConnectionId
-    , cvcrrDestinationCidrBlock
+    , cvcrVpnConnectionId
+    , cvcrDestinationCidrBlock
 
     -- * Response
     , CreateVpnConnectionRouteResponse
@@ -51,34 +51,35 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpnConnectionRoute' request.
-mkCreateVpnConnectionRouteRequest :: Text -- ^ 'cvcrrVpnConnectionId'
-                                  -> Text -- ^ 'cvcrrDestinationCidrBlock'
-                                  -> CreateVpnConnectionRoute
-mkCreateVpnConnectionRouteRequest p1 p2 = CreateVpnConnectionRoute
-    { _cvcrrVpnConnectionId = p1
-    , _cvcrrDestinationCidrBlock = p2
-    }
-{-# INLINE mkCreateVpnConnectionRouteRequest #-}
-
+-- | 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
-    { _cvcrrVpnConnectionId :: Text
-      -- ^ The ID of the VPN connection.
-    , _cvcrrDestinationCidrBlock :: Text
-      -- ^ The CIDR block associated with the local subnet of the customer
-      -- network.
+    { _cvcrVpnConnectionId :: Text
+    , _cvcrDestinationCidrBlock :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpnConnectionRoute' request.
+mkCreateVpnConnectionRoute :: Text -- ^ 'cvcrVpnConnectionId'
+                           -> Text -- ^ 'cvcrDestinationCidrBlock'
+                           -> CreateVpnConnectionRoute
+mkCreateVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
+    { _cvcrVpnConnectionId = p1
+    , _cvcrDestinationCidrBlock = p2
+    }
+{-# INLINE mkCreateVpnConnectionRoute #-}
+
 -- | The ID of the VPN connection.
-cvcrrVpnConnectionId :: Lens' CreateVpnConnectionRoute (Text)
-cvcrrVpnConnectionId = lens _cvcrrVpnConnectionId (\s a -> s { _cvcrrVpnConnectionId = a })
-{-# INLINE cvcrrVpnConnectionId #-}
+cvcrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
+cvcrVpnConnectionId =
+    lens _cvcrVpnConnectionId (\s a -> s { _cvcrVpnConnectionId = a })
+{-# INLINE cvcrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
-cvcrrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute (Text)
-cvcrrDestinationCidrBlock = lens _cvcrrDestinationCidrBlock (\s a -> s { _cvcrrDestinationCidrBlock = a })
-{-# INLINE cvcrrDestinationCidrBlock #-}
+cvcrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute Text
+cvcrDestinationCidrBlock =
+    lens _cvcrDestinationCidrBlock
+         (\s a -> s { _cvcrDestinationCidrBlock = a })
+{-# INLINE cvcrDestinationCidrBlock #-}
 
 instance ToQuery CreateVpnConnectionRoute where
     toQuery = genericQuery def

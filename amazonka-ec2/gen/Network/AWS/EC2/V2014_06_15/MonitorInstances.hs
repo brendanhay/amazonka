@@ -37,51 +37,53 @@ module Network.AWS.EC2.V2014_06_15.MonitorInstances
     -- * Request
       MonitorInstances
     -- ** Request constructor
-    , mkMonitorInstancesRequest
+    , mkMonitorInstances
     -- ** Request lenses
-    , mirInstanceIds
+    , miInstanceIds
 
     -- * Response
     , MonitorInstancesResponse
     -- ** Response lenses
-    , misInstanceMonitorings
+    , mirsInstanceMonitorings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'MonitorInstances' request.
-mkMonitorInstancesRequest :: [Text] -- ^ 'mirInstanceIds'
-                          -> MonitorInstances
-mkMonitorInstancesRequest p1 = MonitorInstances
-    { _mirInstanceIds = p1
-    }
-{-# INLINE mkMonitorInstancesRequest #-}
-
+-- | 
 newtype MonitorInstances = MonitorInstances
-    { _mirInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
+    { _miInstanceIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'MonitorInstances' request.
+mkMonitorInstances :: [Text] -- ^ 'miInstanceIds'
+                   -> MonitorInstances
+mkMonitorInstances p1 = MonitorInstances
+    { _miInstanceIds = p1
+    }
+{-# INLINE mkMonitorInstances #-}
+
 -- | One or more instance IDs.
-mirInstanceIds :: Lens' MonitorInstances ([Text])
-mirInstanceIds = lens _mirInstanceIds (\s a -> s { _mirInstanceIds = a })
-{-# INLINE mirInstanceIds #-}
+miInstanceIds :: Lens' MonitorInstances [Text]
+miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
+{-# INLINE miInstanceIds #-}
 
 instance ToQuery MonitorInstances where
     toQuery = genericQuery def
 
+-- | 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
-    { _misInstanceMonitorings :: [InstanceMonitoring]
-      -- ^ Monitoring information for one or more instances.
+    { _mirsInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
-misInstanceMonitorings :: Lens' MonitorInstancesResponse ([InstanceMonitoring])
-misInstanceMonitorings = lens _misInstanceMonitorings (\s a -> s { _misInstanceMonitorings = a })
-{-# INLINE misInstanceMonitorings #-}
+mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
+mirsInstanceMonitorings =
+    lens _mirsInstanceMonitorings
+         (\s a -> s { _mirsInstanceMonitorings = a })
+{-# INLINE mirsInstanceMonitorings #-}
 
 instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions

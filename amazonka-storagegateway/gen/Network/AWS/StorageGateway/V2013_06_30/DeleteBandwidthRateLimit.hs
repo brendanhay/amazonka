@@ -39,15 +39,15 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteBandwidthRateLimit
     -- * Request
       DeleteBandwidthRateLimit
     -- ** Request constructor
-    , mkDeleteBandwidthRateLimitInput
+    , mkDeleteBandwidthRateLimit
     -- ** Request lenses
-    , dbrliGatewayARN
-    , dbrliBandwidthType
+    , dbrlGatewayARN
+    , dbrlBandwidthType
 
     -- * Response
     , DeleteBandwidthRateLimitResponse
     -- ** Response lenses
-    , dbrloGatewayARN
+    , dbrlrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -55,34 +55,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
+    { _dbrlGatewayARN :: Text
+    , _dbrlBandwidthType :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBandwidthRateLimit' request.
-mkDeleteBandwidthRateLimitInput :: Text -- ^ 'dbrliGatewayARN'
-                                -> Text -- ^ 'dbrliBandwidthType'
-                                -> DeleteBandwidthRateLimit
-mkDeleteBandwidthRateLimitInput p1 p2 = DeleteBandwidthRateLimit
-    { _dbrliGatewayARN = p1
-    , _dbrliBandwidthType = p2
+mkDeleteBandwidthRateLimit :: Text -- ^ 'dbrlGatewayARN'
+                           -> Text -- ^ 'dbrlBandwidthType'
+                           -> DeleteBandwidthRateLimit
+mkDeleteBandwidthRateLimit p1 p2 = DeleteBandwidthRateLimit
+    { _dbrlGatewayARN = p1
+    , _dbrlBandwidthType = p2
     }
-{-# INLINE mkDeleteBandwidthRateLimitInput #-}
-
-data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
-    { _dbrliGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dbrliBandwidthType :: Text
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteBandwidthRateLimit #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dbrliGatewayARN :: Lens' DeleteBandwidthRateLimit (Text)
-dbrliGatewayARN = lens _dbrliGatewayARN (\s a -> s { _dbrliGatewayARN = a })
-{-# INLINE dbrliGatewayARN #-}
+dbrlGatewayARN :: Lens' DeleteBandwidthRateLimit Text
+dbrlGatewayARN = lens _dbrlGatewayARN (\s a -> s { _dbrlGatewayARN = a })
+{-# INLINE dbrlGatewayARN #-}
 
-dbrliBandwidthType :: Lens' DeleteBandwidthRateLimit (Text)
-dbrliBandwidthType = lens _dbrliBandwidthType (\s a -> s { _dbrliBandwidthType = a })
-{-# INLINE dbrliBandwidthType #-}
+dbrlBandwidthType :: Lens' DeleteBandwidthRateLimit Text
+dbrlBandwidthType =
+    lens _dbrlBandwidthType (\s a -> s { _dbrlBandwidthType = a })
+{-# INLINE dbrlBandwidthType #-}
 
 instance ToPath DeleteBandwidthRateLimit
 
@@ -92,18 +90,18 @@ instance ToHeaders DeleteBandwidthRateLimit
 
 instance ToJSON DeleteBandwidthRateLimit
 
+-- | A JSON object containing the of the gateway whose bandwidth rate
+-- information was deleted.
 newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
-    { _dbrloGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _dbrlrsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dbrloGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
-dbrloGatewayARN = lens _dbrloGatewayARN (\s a -> s { _dbrloGatewayARN = a })
-{-# INLINE dbrloGatewayARN #-}
+dbrlrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
+dbrlrsGatewayARN =
+    lens _dbrlrsGatewayARN (\s a -> s { _dbrlrsGatewayARN = a })
+{-# INLINE dbrlrsGatewayARN #-}
 
 instance FromJSON DeleteBandwidthRateLimitResponse
 

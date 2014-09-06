@@ -33,278 +33,95 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBInstance
     -- * Request
       ModifyDBInstance
     -- ** Request constructor
-    , mkModifyDBInstanceMessage
+    , mkModifyDBInstance
     -- ** Request lenses
-    , mdbimDBInstanceIdentifier
-    , mdbimAllocatedStorage
-    , mdbimDBInstanceClass
-    , mdbimDBSecurityGroups
-    , mdbimVpcSecurityGroupIds
-    , mdbimApplyImmediately
-    , mdbimMasterUserPassword
-    , mdbimDBParameterGroupName
-    , mdbimBackupRetentionPeriod
-    , mdbimPreferredBackupWindow
-    , mdbimPreferredMaintenanceWindow
-    , mdbimMultiAZ
-    , mdbimEngineVersion
-    , mdbimAllowMajorVersionUpgrade
-    , mdbimAutoMinorVersionUpgrade
-    , mdbimIops
-    , mdbimOptionGroupName
-    , mdbimNewDBInstanceIdentifier
+    , mdbiDBInstanceIdentifier
+    , mdbiAllocatedStorage
+    , mdbiDBInstanceClass
+    , mdbiDBSecurityGroups
+    , mdbiVpcSecurityGroupIds
+    , mdbiApplyImmediately
+    , mdbiMasterUserPassword
+    , mdbiDBParameterGroupName
+    , mdbiBackupRetentionPeriod
+    , mdbiPreferredBackupWindow
+    , mdbiPreferredMaintenanceWindow
+    , mdbiMultiAZ
+    , mdbiEngineVersion
+    , mdbiAllowMajorVersionUpgrade
+    , mdbiAutoMinorVersionUpgrade
+    , mdbiIops
+    , mdbiOptionGroupName
+    , mdbiNewDBInstanceIdentifier
 
     -- * Response
     , ModifyDBInstanceResponse
     -- ** Response lenses
-    , dbizDBInstance
+    , mdbirsDBInstance
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data ModifyDBInstance = ModifyDBInstance
+    { _mdbiDBInstanceIdentifier :: Text
+    , _mdbiAllocatedStorage :: Maybe Integer
+    , _mdbiDBInstanceClass :: Maybe Text
+    , _mdbiDBSecurityGroups :: [Text]
+    , _mdbiVpcSecurityGroupIds :: [Text]
+    , _mdbiApplyImmediately :: Maybe Bool
+    , _mdbiMasterUserPassword :: Maybe Text
+    , _mdbiDBParameterGroupName :: Maybe Text
+    , _mdbiBackupRetentionPeriod :: Maybe Integer
+    , _mdbiPreferredBackupWindow :: Maybe Text
+    , _mdbiPreferredMaintenanceWindow :: Maybe Text
+    , _mdbiMultiAZ :: Maybe Bool
+    , _mdbiEngineVersion :: Maybe Text
+    , _mdbiAllowMajorVersionUpgrade :: Maybe Bool
+    , _mdbiAutoMinorVersionUpgrade :: Maybe Bool
+    , _mdbiIops :: Maybe Integer
+    , _mdbiOptionGroupName :: Maybe Text
+    , _mdbiNewDBInstanceIdentifier :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBInstance' request.
-mkModifyDBInstanceMessage :: Text -- ^ 'mdbimDBInstanceIdentifier'
-                          -> ModifyDBInstance
-mkModifyDBInstanceMessage p1 = ModifyDBInstance
-    { _mdbimDBInstanceIdentifier = p1
-    , _mdbimAllocatedStorage = Nothing
-    , _mdbimDBInstanceClass = Nothing
-    , _mdbimDBSecurityGroups = mempty
-    , _mdbimVpcSecurityGroupIds = mempty
-    , _mdbimApplyImmediately = Nothing
-    , _mdbimMasterUserPassword = Nothing
-    , _mdbimDBParameterGroupName = Nothing
-    , _mdbimBackupRetentionPeriod = Nothing
-    , _mdbimPreferredBackupWindow = Nothing
-    , _mdbimPreferredMaintenanceWindow = Nothing
-    , _mdbimMultiAZ = Nothing
-    , _mdbimEngineVersion = Nothing
-    , _mdbimAllowMajorVersionUpgrade = Nothing
-    , _mdbimAutoMinorVersionUpgrade = Nothing
-    , _mdbimIops = Nothing
-    , _mdbimOptionGroupName = Nothing
-    , _mdbimNewDBInstanceIdentifier = Nothing
+mkModifyDBInstance :: Text -- ^ 'mdbiDBInstanceIdentifier'
+                   -> ModifyDBInstance
+mkModifyDBInstance p1 = ModifyDBInstance
+    { _mdbiDBInstanceIdentifier = p1
+    , _mdbiAllocatedStorage = Nothing
+    , _mdbiDBInstanceClass = Nothing
+    , _mdbiDBSecurityGroups = mempty
+    , _mdbiVpcSecurityGroupIds = mempty
+    , _mdbiApplyImmediately = Nothing
+    , _mdbiMasterUserPassword = Nothing
+    , _mdbiDBParameterGroupName = Nothing
+    , _mdbiBackupRetentionPeriod = Nothing
+    , _mdbiPreferredBackupWindow = Nothing
+    , _mdbiPreferredMaintenanceWindow = Nothing
+    , _mdbiMultiAZ = Nothing
+    , _mdbiEngineVersion = Nothing
+    , _mdbiAllowMajorVersionUpgrade = Nothing
+    , _mdbiAutoMinorVersionUpgrade = Nothing
+    , _mdbiIops = Nothing
+    , _mdbiOptionGroupName = Nothing
+    , _mdbiNewDBInstanceIdentifier = Nothing
     }
-{-# INLINE mkModifyDBInstanceMessage #-}
-
-data ModifyDBInstance = ModifyDBInstance
-    { _mdbimDBInstanceIdentifier :: Text
-      -- ^ The DB instance identifier. This value is stored as a lowercase
-      -- string. Constraints: Must be the identifier for an existing DB
-      -- instance Must contain from 1 to 63 alphanumeric characters or
-      -- hyphens First character must be a letter Cannot end with a hyphen
-      -- or contain two consecutive hyphens.
-    , _mdbimAllocatedStorage :: Maybe Integer
-      -- ^ The new storage capacity of the RDS instance. Changing this
-      -- parameter does not result in an outage and the change is applied
-      -- during the next maintenance window unless the ApplyImmediately
-      -- parameter is set to true for this request. MySQL Default: Uses
-      -- existing setting Valid Values: 5-1024 Constraints: Value supplied
-      -- must be at least 10% greater than the current value. Values that
-      -- are not at least 10% greater than the existing value are rounded
-      -- up so that they are 10% greater than the current value. Type:
-      -- Integer Oracle Default: Uses existing setting Valid Values:
-      -- 10-1024 Constraints: Value supplied must be at least 10% greater
-      -- than the current value. Values that are not at least 10% greater
-      -- than the existing value are rounded up so that they are 10%
-      -- greater than the current value. SQL Server Cannot be modified. If
-      -- you choose to migrate your DB instance from using standard
-      -- storage to using Provisioned IOPS, or from using Provisioned IOPS
-      -- to using standard storage, the process can take time. The
-      -- duration of the migration depends on several factors such as
-      -- database load, storage size, storage type (standard or
-      -- Provisioned IOPS), amount of IOPS provisioned (if any), and the
-      -- number of prior scale storage operations. Typical migration times
-      -- are under 24 hours, but the process can take up to several days
-      -- in some cases. During the migration, the DB instance will be
-      -- available for use, but may experience performance degradation.
-      -- While the migration takes place, nightly backups for the instance
-      -- will be suspended. No other Amazon RDS operations can take place
-      -- for the instance, including modifying the instance, rebooting the
-      -- instance, deleting the instance, creating a read replica for the
-      -- instance, and creating a DB snapshot of the instance.
-    , _mdbimDBInstanceClass :: Maybe Text
-      -- ^ The new compute and memory capacity of the DB instance. To
-      -- determine the instance classes that are available for a
-      -- particular DB engine, use the DescribeOrderableDBInstanceOptions
-      -- action. Passing a value for this parameter causes an outage
-      -- during the change and is applied during the next maintenance
-      -- window, unless the ApplyImmediately parameter is specified as
-      -- true for this request. Default: Uses existing setting Valid
-      -- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
-      -- db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge.
-    , _mdbimDBSecurityGroups :: [Text]
-      -- ^ A list of DB security groups to authorize on this DB instance.
-      -- Changing this parameter does not result in an outage and the
-      -- change is asynchronously applied as soon as possible.
-      -- Constraints: Must be 1 to 255 alphanumeric characters First
-      -- character must be a letter Cannot end with a hyphen or contain
-      -- two consecutive hyphens.
-    , _mdbimVpcSecurityGroupIds :: [Text]
-      -- ^ A list of EC2 VPC security groups to authorize on this DB
-      -- instance. This change is asynchronously applied as soon as
-      -- possible. Constraints: Must be 1 to 255 alphanumeric characters
-      -- First character must be a letter Cannot end with a hyphen or
-      -- contain two consecutive hyphens.
-    , _mdbimApplyImmediately :: Maybe Bool
-      -- ^ Specifies whether or not the modifications in this request and
-      -- any pending modifications are asynchronously applied as soon as
-      -- possible, regardless of the PreferredMaintenanceWindow setting
-      -- for the DB instance. If this parameter is passed as false,
-      -- changes to the DB instance are applied on the next call to
-      -- RebootDBInstance, the next maintenance reboot, or the next
-      -- failure reboot, whichever occurs first. See each parameter to
-      -- determine when a change is applied. Default: false.
-    , _mdbimMasterUserPassword :: Maybe Text
-      -- ^ The new password for the DB instance master user. Can be any
-      -- printable ASCII character except "/", """, or "@". Changing this
-      -- parameter does not result in an outage and the change is
-      -- asynchronously applied as soon as possible. Between the time of
-      -- the request and the completion of the request, the
-      -- MasterUserPassword element exists in the PendingModifiedValues
-      -- element of the operation response. Default: Uses existing setting
-      -- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8
-      -- to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric
-      -- characters (SQL Server). Amazon RDS API actions never return the
-      -- password, so this action provides a way to regain access to a
-      -- master instance user if the password is lost.
-    , _mdbimDBParameterGroupName :: Maybe Text
-      -- ^ The name of the DB parameter group to apply to this DB instance.
-      -- Changing this parameter does not result in an outage and the
-      -- change is applied during the next maintenance window unless the
-      -- ApplyImmediately parameter is set to true for this request.
-      -- Default: Uses existing setting Constraints: The DB parameter
-      -- group must be in the same DB parameter group family as this DB
-      -- instance.
-    , _mdbimBackupRetentionPeriod :: Maybe Integer
-      -- ^ The number of days to retain automated backups. Setting this
-      -- parameter to a positive number enables backups. Setting this
-      -- parameter to 0 disables automated backups. Changing this
-      -- parameter can result in an outage if you change from 0 to a
-      -- non-zero value or from a non-zero value to 0. These changes are
-      -- applied during the next maintenance window unless the
-      -- ApplyImmediately parameter is set to true for this request. If
-      -- you change the parameter from one non-zero value to another
-      -- non-zero value, the change is asynchronously applied as soon as
-      -- possible. Default: Uses existing setting Constraints: Must be a
-      -- value from 0 to 35 Can be specified for a read replica only if
-      -- the source is running MySQL 5.6 Cannot be set to 0 if the DB
-      -- instance is a source to read replicas.
-    , _mdbimPreferredBackupWindow :: Maybe Text
-      -- ^ The daily time range during which automated backups are created
-      -- if automated backups are enabled, as determined by the
-      -- BackupRetentionPeriod. Changing this parameter does not result in
-      -- an outage and the change is asynchronously applied as soon as
-      -- possible. Constraints: Must be in the format hh24:mi-hh24:mi
-      -- Times should be Universal Time Coordinated (UTC) Must not
-      -- conflict with the preferred maintenance window Must be at least
-      -- 30 minutes.
-    , _mdbimPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The weekly time range (in UTC) during which system maintenance
-      -- can occur, which may result in an outage. Changing this parameter
-      -- does not result in an outage, except in the following situation,
-      -- and the change is asynchronously applied as soon as possible. If
-      -- there are pending actions that cause a reboot, and the
-      -- maintenance window is changed to include the current time, then
-      -- changing this parameter will cause a reboot of the DB instance.
-      -- If moving this window to the current time, there must be at least
-      -- 30 minutes between the current time and end of the window to
-      -- ensure pending changes are applied. Default: Uses existing
-      -- setting Format: ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue |
-      -- Wed | Thu | Fri | Sat | Sun Constraints: Must be at least 30
-      -- minutes.
-    , _mdbimMultiAZ :: Maybe Bool
-      -- ^ Specifies if the DB instance is a Multi-AZ deployment. Changing
-      -- this parameter does not result in an outage and the change is
-      -- applied during the next maintenance window unless the
-      -- ApplyImmediately parameter is set to true for this request.
-      -- Constraints: Cannot be specified if the DB instance is a read
-      -- replica.
-    , _mdbimEngineVersion :: Maybe Text
-      -- ^ The version number of the database engine to upgrade to. Changing
-      -- this parameter results in an outage and the change is applied
-      -- during the next maintenance window unless the ApplyImmediately
-      -- parameter is set to true for this request. For major version
-      -- upgrades, if a non-default DB parameter group is currently in
-      -- use, a new DB parameter group in the DB parameter group family
-      -- for the new engine version must be specified. The new DB
-      -- parameter group can be the default for that DB parameter group
-      -- family. Example: 5.1.42.
-    , _mdbimAllowMajorVersionUpgrade :: Maybe Bool
-      -- ^ Indicates that major version upgrades are allowed. Changing this
-      -- parameter does not result in an outage and the change is
-      -- asynchronously applied as soon as possible. Constraints: This
-      -- parameter must be set to true when specifying a value for the
-      -- EngineVersion parameter that is a different major version than
-      -- the DB instance's current version.
-    , _mdbimAutoMinorVersionUpgrade :: Maybe Bool
-      -- ^ Indicates that minor version upgrades will be applied
-      -- automatically to the DB instance during the maintenance window.
-      -- Changing this parameter does not result in an outage except in
-      -- the following case and the change is asynchronously applied as
-      -- soon as possible. An outage will result if this parameter is set
-      -- to true during the maintenance window, and a newer minor version
-      -- is available, and RDS has enabled auto patching for that engine
-      -- version.
-    , _mdbimIops :: Maybe Integer
-      -- ^ The new Provisioned IOPS (I/O operations per second) value for
-      -- the RDS instance. Changing this parameter does not result in an
-      -- outage and the change is applied during the next maintenance
-      -- window unless the ApplyImmediately parameter is set to true for
-      -- this request. Default: Uses existing setting Constraints: Value
-      -- supplied must be at least 10% greater than the current value.
-      -- Values that are not at least 10% greater than the existing value
-      -- are rounded up so that they are 10% greater than the current
-      -- value. Type: Integer If you choose to migrate your DB instance
-      -- from using standard storage to using Provisioned IOPS, or from
-      -- using Provisioned IOPS to using standard storage, the process can
-      -- take time. The duration of the migration depends on several
-      -- factors such as database load, storage size, storage type
-      -- (standard or Provisioned IOPS), amount of IOPS provisioned (if
-      -- any), and the number of prior scale storage operations. Typical
-      -- migration times are under 24 hours, but the process can take up
-      -- to several days in some cases. During the migration, the DB
-      -- instance will be available for use, but may experience
-      -- performance degradation. While the migration takes place, nightly
-      -- backups for the instance will be suspended. No other Amazon RDS
-      -- operations can take place for the instance, including modifying
-      -- the instance, rebooting the instance, deleting the instance,
-      -- creating a read replica for the instance, and creating a DB
-      -- snapshot of the instance.
-    , _mdbimOptionGroupName :: Maybe Text
-      -- ^ Indicates that the DB instance should be associated with the
-      -- specified option group. Changing this parameter does not result
-      -- in an outage except in the following case and the change is
-      -- applied during the next maintenance window unless the
-      -- ApplyImmediately parameter is set to true for this request. If
-      -- the parameter change results in an option group that enables OEM,
-      -- this change can cause a brief (sub-second) period during which
-      -- new connections are rejected but existing connections are not
-      -- interrupted. cannot be removed from an option group while DB
-      -- instances are associated with the option group. --> Permanent
-      -- options, such as the TDE option for Oracle Advanced Security TDE,
-      -- cannot be removed from an option group, and that option group
-      -- cannot be removed from a DB instance once it is associated with a
-      -- DB instance.
-    , _mdbimNewDBInstanceIdentifier :: Maybe Text
-      -- ^ The new DB instance identifier for the DB instance when renaming
-      -- a DB Instance. This value is stored as a lowercase string.
-      -- Constraints: Must contain from 1 to 63 alphanumeric characters or
-      -- hyphens First character must be a letter Cannot end with a hyphen
-      -- or contain two consecutive hyphens.
-    } deriving (Show, Generic)
+{-# INLINE mkModifyDBInstance #-}
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 -- Constraints: Must be the identifier for an existing DB instance Must
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-mdbimDBInstanceIdentifier :: Lens' ModifyDBInstance (Text)
-mdbimDBInstanceIdentifier = lens _mdbimDBInstanceIdentifier (\s a -> s { _mdbimDBInstanceIdentifier = a })
-{-# INLINE mdbimDBInstanceIdentifier #-}
+mdbiDBInstanceIdentifier :: Lens' ModifyDBInstance Text
+mdbiDBInstanceIdentifier =
+    lens _mdbiDBInstanceIdentifier
+         (\s a -> s { _mdbiDBInstanceIdentifier = a })
+{-# INLINE mdbiDBInstanceIdentifier #-}
 
 -- | The new storage capacity of the RDS instance. Changing this parameter does
 -- not result in an outage and the change is applied during the next
@@ -330,9 +147,10 @@ mdbimDBInstanceIdentifier = lens _mdbimDBInstanceIdentifier (\s a -> s { _mdbimD
 -- RDS operations can take place for the instance, including modifying the
 -- instance, rebooting the instance, deleting the instance, creating a read
 -- replica for the instance, and creating a DB snapshot of the instance.
-mdbimAllocatedStorage :: Lens' ModifyDBInstance (Maybe Integer)
-mdbimAllocatedStorage = lens _mdbimAllocatedStorage (\s a -> s { _mdbimAllocatedStorage = a })
-{-# INLINE mdbimAllocatedStorage #-}
+mdbiAllocatedStorage :: Lens' ModifyDBInstance (Maybe Integer)
+mdbiAllocatedStorage =
+    lens _mdbiAllocatedStorage (\s a -> s { _mdbiAllocatedStorage = a })
+{-# INLINE mdbiAllocatedStorage #-}
 
 -- | The new compute and memory capacity of the DB instance. To determine the
 -- instance classes that are available for a particular DB engine, use the
@@ -342,26 +160,30 @@ mdbimAllocatedStorage = lens _mdbimAllocatedStorage (\s a -> s { _mdbimAllocated
 -- true for this request. Default: Uses existing setting Valid Values:
 -- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
 -- db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge.
-mdbimDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
-mdbimDBInstanceClass = lens _mdbimDBInstanceClass (\s a -> s { _mdbimDBInstanceClass = a })
-{-# INLINE mdbimDBInstanceClass #-}
+mdbiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
+mdbiDBInstanceClass =
+    lens _mdbiDBInstanceClass (\s a -> s { _mdbiDBInstanceClass = a })
+{-# INLINE mdbiDBInstanceClass #-}
 
 -- | A list of DB security groups to authorize on this DB instance. Changing
 -- this parameter does not result in an outage and the change is
 -- asynchronously applied as soon as possible. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-mdbimDBSecurityGroups :: Lens' ModifyDBInstance ([Text])
-mdbimDBSecurityGroups = lens _mdbimDBSecurityGroups (\s a -> s { _mdbimDBSecurityGroups = a })
-{-# INLINE mdbimDBSecurityGroups #-}
+mdbiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
+mdbiDBSecurityGroups =
+    lens _mdbiDBSecurityGroups (\s a -> s { _mdbiDBSecurityGroups = a })
+{-# INLINE mdbiDBSecurityGroups #-}
 
 -- | A list of EC2 VPC security groups to authorize on this DB instance. This
 -- change is asynchronously applied as soon as possible. Constraints: Must be
 -- 1 to 255 alphanumeric characters First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
-mdbimVpcSecurityGroupIds :: Lens' ModifyDBInstance ([Text])
-mdbimVpcSecurityGroupIds = lens _mdbimVpcSecurityGroupIds (\s a -> s { _mdbimVpcSecurityGroupIds = a })
-{-# INLINE mdbimVpcSecurityGroupIds #-}
+mdbiVpcSecurityGroupIds :: Lens' ModifyDBInstance [Text]
+mdbiVpcSecurityGroupIds =
+    lens _mdbiVpcSecurityGroupIds
+         (\s a -> s { _mdbiVpcSecurityGroupIds = a })
+{-# INLINE mdbiVpcSecurityGroupIds #-}
 
 -- | Specifies whether or not the modifications in this request and any pending
 -- modifications are asynchronously applied as soon as possible, regardless of
@@ -370,9 +192,10 @@ mdbimVpcSecurityGroupIds = lens _mdbimVpcSecurityGroupIds (\s a -> s { _mdbimVpc
 -- next call to RebootDBInstance, the next maintenance reboot, or the next
 -- failure reboot, whichever occurs first. See each parameter to determine
 -- when a change is applied. Default: false.
-mdbimApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
-mdbimApplyImmediately = lens _mdbimApplyImmediately (\s a -> s { _mdbimApplyImmediately = a })
-{-# INLINE mdbimApplyImmediately #-}
+mdbiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
+mdbiApplyImmediately =
+    lens _mdbiApplyImmediately (\s a -> s { _mdbiApplyImmediately = a })
+{-# INLINE mdbiApplyImmediately #-}
 
 -- | The new password for the DB instance master user. Can be any printable
 -- ASCII character except "/", """, or "@". Changing this parameter does not
@@ -385,9 +208,10 @@ mdbimApplyImmediately = lens _mdbimApplyImmediately (\s a -> s { _mdbimApplyImme
 -- Server). Amazon RDS API actions never return the password, so this action
 -- provides a way to regain access to a master instance user if the password
 -- is lost.
-mdbimMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
-mdbimMasterUserPassword = lens _mdbimMasterUserPassword (\s a -> s { _mdbimMasterUserPassword = a })
-{-# INLINE mdbimMasterUserPassword #-}
+mdbiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
+mdbiMasterUserPassword =
+    lens _mdbiMasterUserPassword (\s a -> s { _mdbiMasterUserPassword = a })
+{-# INLINE mdbiMasterUserPassword #-}
 
 -- | The name of the DB parameter group to apply to this DB instance. Changing
 -- this parameter does not result in an outage and the change is applied
@@ -395,9 +219,11 @@ mdbimMasterUserPassword = lens _mdbimMasterUserPassword (\s a -> s { _mdbimMaste
 -- set to true for this request. Default: Uses existing setting Constraints:
 -- The DB parameter group must be in the same DB parameter group family as
 -- this DB instance.
-mdbimDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
-mdbimDBParameterGroupName = lens _mdbimDBParameterGroupName (\s a -> s { _mdbimDBParameterGroupName = a })
-{-# INLINE mdbimDBParameterGroupName #-}
+mdbiDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
+mdbiDBParameterGroupName =
+    lens _mdbiDBParameterGroupName
+         (\s a -> s { _mdbiDBParameterGroupName = a })
+{-# INLINE mdbiDBParameterGroupName #-}
 
 -- | The number of days to retain automated backups. Setting this parameter to a
 -- positive number enables backups. Setting this parameter to 0 disables
@@ -410,9 +236,11 @@ mdbimDBParameterGroupName = lens _mdbimDBParameterGroupName (\s a -> s { _mdbimD
 -- setting Constraints: Must be a value from 0 to 35 Can be specified for a
 -- read replica only if the source is running MySQL 5.6 Cannot be set to 0 if
 -- the DB instance is a source to read replicas.
-mdbimBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Integer)
-mdbimBackupRetentionPeriod = lens _mdbimBackupRetentionPeriod (\s a -> s { _mdbimBackupRetentionPeriod = a })
-{-# INLINE mdbimBackupRetentionPeriod #-}
+mdbiBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Integer)
+mdbiBackupRetentionPeriod =
+    lens _mdbiBackupRetentionPeriod
+         (\s a -> s { _mdbiBackupRetentionPeriod = a })
+{-# INLINE mdbiBackupRetentionPeriod #-}
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, as determined by the BackupRetentionPeriod.
@@ -421,9 +249,11 @@ mdbimBackupRetentionPeriod = lens _mdbimBackupRetentionPeriod (\s a -> s { _mdbi
 -- format hh24:mi-hh24:mi Times should be Universal Time Coordinated (UTC)
 -- Must not conflict with the preferred maintenance window Must be at least 30
 -- minutes.
-mdbimPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
-mdbimPreferredBackupWindow = lens _mdbimPreferredBackupWindow (\s a -> s { _mdbimPreferredBackupWindow = a })
-{-# INLINE mdbimPreferredBackupWindow #-}
+mdbiPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
+mdbiPreferredBackupWindow =
+    lens _mdbiPreferredBackupWindow
+         (\s a -> s { _mdbiPreferredBackupWindow = a })
+{-# INLINE mdbiPreferredBackupWindow #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur,
 -- which may result in an outage. Changing this parameter does not result in
@@ -436,18 +266,20 @@ mdbimPreferredBackupWindow = lens _mdbimPreferredBackupWindow (\s a -> s { _mdbi
 -- changes are applied. Default: Uses existing setting Format:
 -- ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 -- Constraints: Must be at least 30 minutes.
-mdbimPreferredMaintenanceWindow :: Lens' ModifyDBInstance (Maybe Text)
-mdbimPreferredMaintenanceWindow = lens _mdbimPreferredMaintenanceWindow (\s a -> s { _mdbimPreferredMaintenanceWindow = a })
-{-# INLINE mdbimPreferredMaintenanceWindow #-}
+mdbiPreferredMaintenanceWindow :: Lens' ModifyDBInstance (Maybe Text)
+mdbiPreferredMaintenanceWindow =
+    lens _mdbiPreferredMaintenanceWindow
+         (\s a -> s { _mdbiPreferredMaintenanceWindow = a })
+{-# INLINE mdbiPreferredMaintenanceWindow #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
 -- parameter does not result in an outage and the change is applied during the
 -- next maintenance window unless the ApplyImmediately parameter is set to
 -- true for this request. Constraints: Cannot be specified if the DB instance
 -- is a read replica.
-mdbimMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
-mdbimMultiAZ = lens _mdbimMultiAZ (\s a -> s { _mdbimMultiAZ = a })
-{-# INLINE mdbimMultiAZ #-}
+mdbiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
+mdbiMultiAZ = lens _mdbiMultiAZ (\s a -> s { _mdbiMultiAZ = a })
+{-# INLINE mdbiMultiAZ #-}
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
@@ -457,18 +289,21 @@ mdbimMultiAZ = lens _mdbimMultiAZ (\s a -> s { _mdbimMultiAZ = a })
 -- group family for the new engine version must be specified. The new DB
 -- parameter group can be the default for that DB parameter group family.
 -- Example: 5.1.42.
-mdbimEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
-mdbimEngineVersion = lens _mdbimEngineVersion (\s a -> s { _mdbimEngineVersion = a })
-{-# INLINE mdbimEngineVersion #-}
+mdbiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
+mdbiEngineVersion =
+    lens _mdbiEngineVersion (\s a -> s { _mdbiEngineVersion = a })
+{-# INLINE mdbiEngineVersion #-}
 
 -- | Indicates that major version upgrades are allowed. Changing this parameter
 -- does not result in an outage and the change is asynchronously applied as
 -- soon as possible. Constraints: This parameter must be set to true when
 -- specifying a value for the EngineVersion parameter that is a different
 -- major version than the DB instance's current version.
-mdbimAllowMajorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
-mdbimAllowMajorVersionUpgrade = lens _mdbimAllowMajorVersionUpgrade (\s a -> s { _mdbimAllowMajorVersionUpgrade = a })
-{-# INLINE mdbimAllowMajorVersionUpgrade #-}
+mdbiAllowMajorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
+mdbiAllowMajorVersionUpgrade =
+    lens _mdbiAllowMajorVersionUpgrade
+         (\s a -> s { _mdbiAllowMajorVersionUpgrade = a })
+{-# INLINE mdbiAllowMajorVersionUpgrade #-}
 
 -- | Indicates that minor version upgrades will be applied automatically to the
 -- DB instance during the maintenance window. Changing this parameter does not
@@ -477,9 +312,11 @@ mdbimAllowMajorVersionUpgrade = lens _mdbimAllowMajorVersionUpgrade (\s a -> s {
 -- parameter is set to true during the maintenance window, and a newer minor
 -- version is available, and RDS has enabled auto patching for that engine
 -- version.
-mdbimAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
-mdbimAutoMinorVersionUpgrade = lens _mdbimAutoMinorVersionUpgrade (\s a -> s { _mdbimAutoMinorVersionUpgrade = a })
-{-# INLINE mdbimAutoMinorVersionUpgrade #-}
+mdbiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
+mdbiAutoMinorVersionUpgrade =
+    lens _mdbiAutoMinorVersionUpgrade
+         (\s a -> s { _mdbiAutoMinorVersionUpgrade = a })
+{-# INLINE mdbiAutoMinorVersionUpgrade #-}
 
 -- | The new Provisioned IOPS (I/O operations per second) value for the RDS
 -- instance. Changing this parameter does not result in an outage and the
@@ -501,9 +338,9 @@ mdbimAutoMinorVersionUpgrade = lens _mdbimAutoMinorVersionUpgrade (\s a -> s { _
 -- RDS operations can take place for the instance, including modifying the
 -- instance, rebooting the instance, deleting the instance, creating a read
 -- replica for the instance, and creating a DB snapshot of the instance.
-mdbimIops :: Lens' ModifyDBInstance (Maybe Integer)
-mdbimIops = lens _mdbimIops (\s a -> s { _mdbimIops = a })
-{-# INLINE mdbimIops #-}
+mdbiIops :: Lens' ModifyDBInstance (Maybe Integer)
+mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
+{-# INLINE mdbiIops #-}
 
 -- | Indicates that the DB instance should be associated with the specified
 -- option group. Changing this parameter does not result in an outage except
@@ -517,36 +354,36 @@ mdbimIops = lens _mdbimIops (\s a -> s { _mdbimIops = a })
 -- Oracle Advanced Security TDE, cannot be removed from an option group, and
 -- that option group cannot be removed from a DB instance once it is
 -- associated with a DB instance.
-mdbimOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
-mdbimOptionGroupName = lens _mdbimOptionGroupName (\s a -> s { _mdbimOptionGroupName = a })
-{-# INLINE mdbimOptionGroupName #-}
+mdbiOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
+mdbiOptionGroupName =
+    lens _mdbiOptionGroupName (\s a -> s { _mdbiOptionGroupName = a })
+{-# INLINE mdbiOptionGroupName #-}
 
 -- | The new DB instance identifier for the DB instance when renaming a DB
 -- Instance. This value is stored as a lowercase string. Constraints: Must
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-mdbimNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
-mdbimNewDBInstanceIdentifier = lens _mdbimNewDBInstanceIdentifier (\s a -> s { _mdbimNewDBInstanceIdentifier = a })
-{-# INLINE mdbimNewDBInstanceIdentifier #-}
+mdbiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
+mdbiNewDBInstanceIdentifier =
+    lens _mdbiNewDBInstanceIdentifier
+         (\s a -> s { _mdbiNewDBInstanceIdentifier = a })
+{-# INLINE mdbiNewDBInstanceIdentifier #-}
 
 instance ToQuery ModifyDBInstance where
     toQuery = genericQuery def
 
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
-    { _dbizDBInstance :: Maybe DBInstance
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
-      -- data type is used as a response element in the
-      -- DescribeDBInstances action.
+    { _mdbirsDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbizDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
-dbizDBInstance = lens _dbizDBInstance (\s a -> s { _dbizDBInstance = a })
-{-# INLINE dbizDBInstance #-}
+mdbirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
+mdbirsDBInstance =
+    lens _mdbirsDBInstance (\s a -> s { _mdbirsDBInstance = a })
+{-# INLINE mdbirsDBInstance #-}
 
 instance FromXML ModifyDBInstanceResponse where
     fromXMLOptions = xmlOptions

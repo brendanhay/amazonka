@@ -68,60 +68,62 @@ module Network.AWS.IAM.V2010_05_08.UploadSigningCertificate
     -- * Request
       UploadSigningCertificate
     -- ** Request constructor
-    , mkUploadSigningCertificateRequest
+    , mkUploadSigningCertificate
     -- ** Request lenses
-    , uscvUserName
-    , uscvCertificateBody
+    , usc3UserName
+    , usc3CertificateBody
 
     -- * Response
     , UploadSigningCertificateResponse
     -- ** Response lenses
-    , uscwCertificate
+    , uscrsrsCertificate
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UploadSigningCertificate' request.
-mkUploadSigningCertificateRequest :: Text -- ^ 'uscvCertificateBody'
-                                  -> UploadSigningCertificate
-mkUploadSigningCertificateRequest p1 = UploadSigningCertificate
-    { _uscvUserName = Nothing
-    , _uscvCertificateBody = p2
-    }
-{-# INLINE mkUploadSigningCertificateRequest #-}
-
+-- | 
 data UploadSigningCertificate = UploadSigningCertificate
-    { _uscvUserName :: Maybe Text
-      -- ^ Name of the user the signing certificate is for.
-    , _uscvCertificateBody :: Text
-      -- ^ The contents of the signing certificate.
+    { _usc3UserName :: Maybe Text
+    , _usc3CertificateBody :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UploadSigningCertificate' request.
+mkUploadSigningCertificate :: Text -- ^ 'usc3CertificateBody'
+                           -> UploadSigningCertificate
+mkUploadSigningCertificate p2 = UploadSigningCertificate
+    { _usc3UserName = Nothing
+    , _usc3CertificateBody = p2
+    }
+{-# INLINE mkUploadSigningCertificate #-}
+
 -- | Name of the user the signing certificate is for.
-uscvUserName :: Lens' UploadSigningCertificate (Maybe Text)
-uscvUserName = lens _uscvUserName (\s a -> s { _uscvUserName = a })
-{-# INLINE uscvUserName #-}
+usc3UserName :: Lens' UploadSigningCertificate (Maybe Text)
+usc3UserName = lens _usc3UserName (\s a -> s { _usc3UserName = a })
+{-# INLINE usc3UserName #-}
 
 -- | The contents of the signing certificate.
-uscvCertificateBody :: Lens' UploadSigningCertificate (Text)
-uscvCertificateBody = lens _uscvCertificateBody (\s a -> s { _uscvCertificateBody = a })
-{-# INLINE uscvCertificateBody #-}
+usc3CertificateBody :: Lens' UploadSigningCertificate Text
+usc3CertificateBody =
+    lens _usc3CertificateBody (\s a -> s { _usc3CertificateBody = a })
+{-# INLINE usc3CertificateBody #-}
 
 instance ToQuery UploadSigningCertificate where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the
+-- UploadSigningCertificate action.
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
-    { _uscwCertificate :: SigningCertificate
-      -- ^ Information about the certificate.
+    { _uscrsrsCertificate :: SigningCertificate
     } deriving (Show, Generic)
 
 -- | Information about the certificate.
-uscwCertificate :: Lens' UploadSigningCertificateResponse (SigningCertificate)
-uscwCertificate = lens _uscwCertificate (\s a -> s { _uscwCertificate = a })
-{-# INLINE uscwCertificate #-}
+uscrsrsCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
+uscrsrsCertificate =
+    lens _uscrsrsCertificate (\s a -> s { _uscrsrsCertificate = a })
+{-# INLINE uscrsrsCertificate #-}
 
 instance FromXML UploadSigningCertificateResponse where
     fromXMLOptions = xmlOptions

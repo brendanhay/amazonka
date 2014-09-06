@@ -23,11 +23,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketWebsite
     -- * Request
       PutBucketWebsite
     -- ** Request constructor
-    , mkPutBucketWebsiteRequest
+    , mkPutBucketWebsite
     -- ** Request lenses
-    , pbwrBucket
-    , pbwrContentMD5
-    , pbwrWebsiteConfiguration
+    , pbwBucket
+    , pbwContentMD5
+    , pbwWebsiteConfiguration
 
     -- * Response
     , PutBucketWebsiteResponse
@@ -36,41 +36,44 @@ module Network.AWS.S3.V2006_03_01.PutBucketWebsite
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data PutBucketWebsite = PutBucketWebsite
+    { _pbwBucket :: BucketName
+    , _pbwContentMD5 :: Maybe Text
+    , _pbwWebsiteConfiguration :: WebsiteConfiguration
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketWebsite' request.
-mkPutBucketWebsiteRequest :: BucketName -- ^ 'pbwrBucket'
-                          -> WebsiteConfiguration -- ^ 'pbwrWebsiteConfiguration'
-                          -> PutBucketWebsite
-mkPutBucketWebsiteRequest p1 p2 = PutBucketWebsite
-    { _pbwrBucket = p1
-    , _pbwrContentMD5 = Nothing
-    , _pbwrWebsiteConfiguration = p3
+mkPutBucketWebsite :: BucketName -- ^ 'pbwBucket'
+                   -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
+                   -> PutBucketWebsite
+mkPutBucketWebsite p1 p3 = PutBucketWebsite
+    { _pbwBucket = p1
+    , _pbwContentMD5 = Nothing
+    , _pbwWebsiteConfiguration = p3
     }
-{-# INLINE mkPutBucketWebsiteRequest #-}
+{-# INLINE mkPutBucketWebsite #-}
 
-data PutBucketWebsite = PutBucketWebsite
-    { _pbwrBucket :: BucketName
-    , _pbwrContentMD5 :: Maybe Text
-    , _pbwrWebsiteConfiguration :: WebsiteConfiguration
-    } deriving (Show, Generic)
+pbwBucket :: Lens' PutBucketWebsite BucketName
+pbwBucket = lens _pbwBucket (\s a -> s { _pbwBucket = a })
+{-# INLINE pbwBucket #-}
 
-pbwrBucket :: Lens' PutBucketWebsite (BucketName)
-pbwrBucket = lens _pbwrBucket (\s a -> s { _pbwrBucket = a })
-{-# INLINE pbwrBucket #-}
+pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
+pbwContentMD5 = lens _pbwContentMD5 (\s a -> s { _pbwContentMD5 = a })
+{-# INLINE pbwContentMD5 #-}
 
-pbwrContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
-pbwrContentMD5 = lens _pbwrContentMD5 (\s a -> s { _pbwrContentMD5 = a })
-{-# INLINE pbwrContentMD5 #-}
-
-pbwrWebsiteConfiguration :: Lens' PutBucketWebsite (WebsiteConfiguration)
-pbwrWebsiteConfiguration = lens _pbwrWebsiteConfiguration (\s a -> s { _pbwrWebsiteConfiguration = a })
-{-# INLINE pbwrWebsiteConfiguration #-}
+pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
+pbwWebsiteConfiguration =
+    lens _pbwWebsiteConfiguration
+         (\s a -> s { _pbwWebsiteConfiguration = a })
+{-# INLINE pbwWebsiteConfiguration #-}
 
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat
         [ "/"
-        , toBS _pbwrBucket
+        , toBS _pbwBucket
         ]
 
 instance ToQuery PutBucketWebsite where
@@ -78,9 +81,13 @@ instance ToQuery PutBucketWebsite where
         [ "website"
         ]
 
-instance ToHeaders PutBucketWebsite
+instance ToHeaders PutBucketWebsite where
+    toHeaders PutBucketWebsite{..} = concat
+        [ "Content-MD5" =: _pbwContentMD5
+        ]
 
-instance ToBody PutBucketWebsite
+instance ToBody PutBucketWebsite where
+    toBody = toBody . encodeXML . _pbwWebsiteConfiguration
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)

@@ -37,80 +37,79 @@ module Network.AWS.EC2.V2014_06_15.ImportVolume
     -- * Request
       ImportVolume
     -- ** Request constructor
-    , mkImportVolumeRequest
+    , mkImportVolume
     -- ** Request lenses
-    , ivrAvailabilityZone
-    , ivrImage
-    , ivrDescription
-    , ivrVolume
+    , ivAvailabilityZone
+    , ivImage
+    , ivDescription
+    , ivVolume
 
     -- * Response
     , ImportVolumeResponse
     -- ** Response lenses
-    , ivsConversionTask
+    , ivrsConversionTask
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ImportVolume' request.
-mkImportVolumeRequest :: Text -- ^ 'ivrAvailabilityZone'
-                      -> DiskImageDetail -- ^ 'ivrImage'
-                      -> VolumeDetail -- ^ 'ivrVolume'
-                      -> ImportVolume
-mkImportVolumeRequest p1 p2 p3 = ImportVolume
-    { _ivrAvailabilityZone = p1
-    , _ivrImage = p2
-    , _ivrDescription = Nothing
-    , _ivrVolume = p4
-    }
-{-# INLINE mkImportVolumeRequest #-}
-
+-- | 
 data ImportVolume = ImportVolume
-    { _ivrAvailabilityZone :: Text
-      -- ^ The Availability Zone for the resulting Amazon EBS volume.
-    , _ivrImage :: DiskImageDetail
-      -- ^ 
-    , _ivrDescription :: Maybe Text
-      -- ^ An optional description for the volume being imported.
-    , _ivrVolume :: VolumeDetail
-      -- ^ 
+    { _ivAvailabilityZone :: Text
+    , _ivImage :: DiskImageDetail
+    , _ivDescription :: Maybe Text
+    , _ivVolume :: VolumeDetail
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportVolume' request.
+mkImportVolume :: Text -- ^ 'ivAvailabilityZone'
+               -> DiskImageDetail -- ^ 'ivImage'
+               -> VolumeDetail -- ^ 'ivVolume'
+               -> ImportVolume
+mkImportVolume p1 p2 p4 = ImportVolume
+    { _ivAvailabilityZone = p1
+    , _ivImage = p2
+    , _ivDescription = Nothing
+    , _ivVolume = p4
+    }
+{-# INLINE mkImportVolume #-}
+
 -- | The Availability Zone for the resulting Amazon EBS volume.
-ivrAvailabilityZone :: Lens' ImportVolume (Text)
-ivrAvailabilityZone = lens _ivrAvailabilityZone (\s a -> s { _ivrAvailabilityZone = a })
-{-# INLINE ivrAvailabilityZone #-}
+ivAvailabilityZone :: Lens' ImportVolume Text
+ivAvailabilityZone =
+    lens _ivAvailabilityZone (\s a -> s { _ivAvailabilityZone = a })
+{-# INLINE ivAvailabilityZone #-}
 
 -- | 
-ivrImage :: Lens' ImportVolume (DiskImageDetail)
-ivrImage = lens _ivrImage (\s a -> s { _ivrImage = a })
-{-# INLINE ivrImage #-}
+ivImage :: Lens' ImportVolume DiskImageDetail
+ivImage = lens _ivImage (\s a -> s { _ivImage = a })
+{-# INLINE ivImage #-}
 
 -- | An optional description for the volume being imported.
-ivrDescription :: Lens' ImportVolume (Maybe Text)
-ivrDescription = lens _ivrDescription (\s a -> s { _ivrDescription = a })
-{-# INLINE ivrDescription #-}
+ivDescription :: Lens' ImportVolume (Maybe Text)
+ivDescription = lens _ivDescription (\s a -> s { _ivDescription = a })
+{-# INLINE ivDescription #-}
 
 -- | 
-ivrVolume :: Lens' ImportVolume (VolumeDetail)
-ivrVolume = lens _ivrVolume (\s a -> s { _ivrVolume = a })
-{-# INLINE ivrVolume #-}
+ivVolume :: Lens' ImportVolume VolumeDetail
+ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
+{-# INLINE ivVolume #-}
 
 instance ToQuery ImportVolume where
     toQuery = genericQuery def
 
+-- | 
 newtype ImportVolumeResponse = ImportVolumeResponse
-    { _ivsConversionTask :: Maybe ConversionTask
-      -- ^ 
+    { _ivrsConversionTask :: Maybe ConversionTask
     } deriving (Show, Generic)
 
 -- | 
-ivsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
-ivsConversionTask = lens _ivsConversionTask (\s a -> s { _ivsConversionTask = a })
-{-# INLINE ivsConversionTask #-}
+ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
+ivrsConversionTask =
+    lens _ivrsConversionTask (\s a -> s { _ivrsConversionTask = a })
+{-# INLINE ivrsConversionTask #-}
 
 instance FromXML ImportVolumeResponse where
     fromXMLOptions = xmlOptions

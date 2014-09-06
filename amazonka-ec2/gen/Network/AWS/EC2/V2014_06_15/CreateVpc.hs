@@ -52,49 +52,41 @@ module Network.AWS.EC2.V2014_06_15.CreateVpc
     -- * Request
       CreateVpc
     -- ** Request constructor
-    , mkCreateVpcRequest
+    , mkCreateVpc
     -- ** Request lenses
-    , cvsCidrBlock
-    , cvsInstanceTenancy
+    , cv1CidrBlock
+    , cv1InstanceTenancy
 
     -- * Response
     , CreateVpcResponse
     -- ** Response lenses
-    , cvtVpc
+    , cvrsrsVpc
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpc' request.
-mkCreateVpcRequest :: Text -- ^ 'cvsCidrBlock'
-                   -> CreateVpc
-mkCreateVpcRequest p1 = CreateVpc
-    { _cvsCidrBlock = p1
-    , _cvsInstanceTenancy = Nothing
-    }
-{-# INLINE mkCreateVpcRequest #-}
-
+-- | 
 data CreateVpc = CreateVpc
-    { _cvsCidrBlock :: Text
-      -- ^ The network range for the VPC, in CIDR notation. For example,
-      -- 10.0.0.0/16.
-    , _cvsInstanceTenancy :: Maybe Tenancy
-      -- ^ The supported tenancy options for instances launched into the
-      -- VPC. A value of default means that instances can be launched with
-      -- any tenancy; a value of dedicated means all instances launched
-      -- into the VPC are launched as dedicated tenancy instances
-      -- regardless of the tenancy assigned to the instance at launch.
-      -- Dedicated tenancy instances runs on single-tenant hardware.
-      -- Default: default.
+    { _cv1CidrBlock :: Text
+    , _cv1InstanceTenancy :: Maybe Tenancy
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpc' request.
+mkCreateVpc :: Text -- ^ 'cv1CidrBlock'
+            -> CreateVpc
+mkCreateVpc p1 = CreateVpc
+    { _cv1CidrBlock = p1
+    , _cv1InstanceTenancy = Nothing
+    }
+{-# INLINE mkCreateVpc #-}
+
 -- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
-cvsCidrBlock :: Lens' CreateVpc (Text)
-cvsCidrBlock = lens _cvsCidrBlock (\s a -> s { _cvsCidrBlock = a })
-{-# INLINE cvsCidrBlock #-}
+cv1CidrBlock :: Lens' CreateVpc Text
+cv1CidrBlock = lens _cv1CidrBlock (\s a -> s { _cv1CidrBlock = a })
+{-# INLINE cv1CidrBlock #-}
 
 -- | The supported tenancy options for instances launched into the VPC. A value
 -- of default means that instances can be launched with any tenancy; a value
@@ -102,22 +94,23 @@ cvsCidrBlock = lens _cvsCidrBlock (\s a -> s { _cvsCidrBlock = a })
 -- dedicated tenancy instances regardless of the tenancy assigned to the
 -- instance at launch. Dedicated tenancy instances runs on single-tenant
 -- hardware. Default: default.
-cvsInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
-cvsInstanceTenancy = lens _cvsInstanceTenancy (\s a -> s { _cvsInstanceTenancy = a })
-{-# INLINE cvsInstanceTenancy #-}
+cv1InstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
+cv1InstanceTenancy =
+    lens _cv1InstanceTenancy (\s a -> s { _cv1InstanceTenancy = a })
+{-# INLINE cv1InstanceTenancy #-}
 
 instance ToQuery CreateVpc where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateVpcResponse = CreateVpcResponse
-    { _cvtVpc :: Maybe Vpc
-      -- ^ Information about the VPC.
+    { _cvrsrsVpc :: Maybe Vpc
     } deriving (Show, Generic)
 
 -- | Information about the VPC.
-cvtVpc :: Lens' CreateVpcResponse (Maybe Vpc)
-cvtVpc = lens _cvtVpc (\s a -> s { _cvtVpc = a })
-{-# INLINE cvtVpc #-}
+cvrsrsVpc :: Lens' CreateVpcResponse (Maybe Vpc)
+cvrsrsVpc = lens _cvrsrsVpc (\s a -> s { _cvrsrsVpc = a })
+{-# INLINE cvrsrsVpc #-}
 
 instance FromXML CreateVpcResponse where
     fromXMLOptions = xmlOptions

@@ -33,69 +33,67 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup
     -- * Request
       CreateClusterSecurityGroup
     -- ** Request constructor
-    , mkCreateClusterSecurityGroupMessage
+    , mkCreateClusterSecurityGroup
     -- ** Request lenses
-    , ccsgmClusterSecurityGroupName
-    , ccsgmDescription
+    , ccsgClusterSecurityGroupName
+    , ccsgDescription
 
     -- * Response
     , CreateClusterSecurityGroupResponse
     -- ** Response lenses
-    , csgxClusterSecurityGroup
+    , ccsgrsClusterSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | ???.
+data CreateClusterSecurityGroup = CreateClusterSecurityGroup
+    { _ccsgClusterSecurityGroupName :: Text
+    , _ccsgDescription :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSecurityGroup' request.
-mkCreateClusterSecurityGroupMessage :: Text -- ^ 'ccsgmClusterSecurityGroupName'
-                                    -> Text -- ^ 'ccsgmDescription'
-                                    -> CreateClusterSecurityGroup
-mkCreateClusterSecurityGroupMessage p1 p2 = CreateClusterSecurityGroup
-    { _ccsgmClusterSecurityGroupName = p1
-    , _ccsgmDescription = p2
+mkCreateClusterSecurityGroup :: Text -- ^ 'ccsgClusterSecurityGroupName'
+                             -> Text -- ^ 'ccsgDescription'
+                             -> CreateClusterSecurityGroup
+mkCreateClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
+    { _ccsgClusterSecurityGroupName = p1
+    , _ccsgDescription = p2
     }
-{-# INLINE mkCreateClusterSecurityGroupMessage #-}
-
-data CreateClusterSecurityGroup = CreateClusterSecurityGroup
-    { _ccsgmClusterSecurityGroupName :: Text
-      -- ^ The name for the security group. Amazon Redshift stores the value
-      -- as a lowercase string. Constraints: Must contain no more than 255
-      -- alphanumeric characters or hyphens. Must not be "Default". Must
-      -- be unique for all security groups that are created by your AWS
-      -- account. Example: examplesecuritygroup.
-    , _ccsgmDescription :: Text
-      -- ^ A description for the security group.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateClusterSecurityGroup #-}
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string. Constraints: Must contain no more than 255 alphanumeric
 -- characters or hyphens. Must not be "Default". Must be unique for all
 -- security groups that are created by your AWS account. Example:
 -- examplesecuritygroup.
-ccsgmClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup (Text)
-ccsgmClusterSecurityGroupName = lens _ccsgmClusterSecurityGroupName (\s a -> s { _ccsgmClusterSecurityGroupName = a })
-{-# INLINE ccsgmClusterSecurityGroupName #-}
+ccsgClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
+ccsgClusterSecurityGroupName =
+    lens _ccsgClusterSecurityGroupName
+         (\s a -> s { _ccsgClusterSecurityGroupName = a })
+{-# INLINE ccsgClusterSecurityGroupName #-}
 
 -- | A description for the security group.
-ccsgmDescription :: Lens' CreateClusterSecurityGroup (Text)
-ccsgmDescription = lens _ccsgmDescription (\s a -> s { _ccsgmDescription = a })
-{-# INLINE ccsgmDescription #-}
+ccsgDescription :: Lens' CreateClusterSecurityGroup Text
+ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
+{-# INLINE ccsgDescription #-}
 
 instance ToQuery CreateClusterSecurityGroup where
     toQuery = genericQuery def
 
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
-    { _csgxClusterSecurityGroup :: Maybe ClusterSecurityGroup
-      -- ^ Describes a security group.
+    { _ccsgrsClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-csgxClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
-csgxClusterSecurityGroup = lens _csgxClusterSecurityGroup (\s a -> s { _csgxClusterSecurityGroup = a })
-{-# INLINE csgxClusterSecurityGroup #-}
+ccsgrsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
+ccsgrsClusterSecurityGroup =
+    lens _ccsgrsClusterSecurityGroup
+         (\s a -> s { _ccsgrsClusterSecurityGroup = a })
+{-# INLINE ccsgrsClusterSecurityGroup #-}
 
 instance FromXML CreateClusterSecurityGroupResponse where
     fromXMLOptions = xmlOptions

@@ -29,72 +29,73 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeSuggesters
     -- * Request
       DescribeSuggesters
     -- ** Request constructor
-    , mkDescribeSuggestersRequest
+    , mkDescribeSuggesters
     -- ** Request lenses
-    , dsvDomainName
-    , dsvSuggesterNames
-    , dsvDeployed
+    , ds3DomainName
+    , ds3SuggesterNames
+    , ds3Deployed
 
     -- * Response
     , DescribeSuggestersResponse
     -- ** Response lenses
-    , dswSuggesters
+    , dsrs1Suggesters
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSuggesters' request.
-mkDescribeSuggestersRequest :: Text -- ^ 'dsvDomainName'
-                            -> DescribeSuggesters
-mkDescribeSuggestersRequest p1 = DescribeSuggesters
-    { _dsvDomainName = p1
-    , _dsvSuggesterNames = mempty
-    , _dsvDeployed = Nothing
-    }
-{-# INLINE mkDescribeSuggestersRequest #-}
-
+-- | Container for the parameters to the DescribeSuggester operation. Specifies
+-- the name of the domain you want to describe. To restrict the response to
+-- particular suggesters, specify the names of the suggesters you want to
+-- describe. To show the active configuration and exclude any pending changes,
+-- set the Deployed option to true.
 data DescribeSuggesters = DescribeSuggesters
-    { _dsvDomainName :: Text
-      -- ^ The name of the domain you want to describe.
-    , _dsvSuggesterNames :: [Text]
-      -- ^ The suggesters you want to describe.
-    , _dsvDeployed :: Maybe Bool
-      -- ^ Whether to display the deployed configuration (true) or include
-      -- any pending changes (false). Defaults to false.
+    { _ds3DomainName :: Text
+    , _ds3SuggesterNames :: [Text]
+    , _ds3Deployed :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSuggesters' request.
+mkDescribeSuggesters :: Text -- ^ 'ds3DomainName'
+                     -> DescribeSuggesters
+mkDescribeSuggesters p1 = DescribeSuggesters
+    { _ds3DomainName = p1
+    , _ds3SuggesterNames = mempty
+    , _ds3Deployed = Nothing
+    }
+{-# INLINE mkDescribeSuggesters #-}
+
 -- | The name of the domain you want to describe.
-dsvDomainName :: Lens' DescribeSuggesters (Text)
-dsvDomainName = lens _dsvDomainName (\s a -> s { _dsvDomainName = a })
-{-# INLINE dsvDomainName #-}
+ds3DomainName :: Lens' DescribeSuggesters Text
+ds3DomainName = lens _ds3DomainName (\s a -> s { _ds3DomainName = a })
+{-# INLINE ds3DomainName #-}
 
 -- | The suggesters you want to describe.
-dsvSuggesterNames :: Lens' DescribeSuggesters ([Text])
-dsvSuggesterNames = lens _dsvSuggesterNames (\s a -> s { _dsvSuggesterNames = a })
-{-# INLINE dsvSuggesterNames #-}
+ds3SuggesterNames :: Lens' DescribeSuggesters [Text]
+ds3SuggesterNames =
+    lens _ds3SuggesterNames (\s a -> s { _ds3SuggesterNames = a })
+{-# INLINE ds3SuggesterNames #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-dsvDeployed :: Lens' DescribeSuggesters (Maybe Bool)
-dsvDeployed = lens _dsvDeployed (\s a -> s { _dsvDeployed = a })
-{-# INLINE dsvDeployed #-}
+ds3Deployed :: Lens' DescribeSuggesters (Maybe Bool)
+ds3Deployed = lens _ds3Deployed (\s a -> s { _ds3Deployed = a })
+{-# INLINE ds3Deployed #-}
 
 instance ToQuery DescribeSuggesters where
     toQuery = genericQuery def
 
+-- | The result of a DescribeSuggesters request.
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
-    { _dswSuggesters :: [SuggesterStatus]
-      -- ^ The suggesters configured for the domain specified in the
-      -- request.
+    { _dsrs1Suggesters :: [SuggesterStatus]
     } deriving (Show, Generic)
 
 -- | The suggesters configured for the domain specified in the request.
-dswSuggesters :: Lens' DescribeSuggestersResponse ([SuggesterStatus])
-dswSuggesters = lens _dswSuggesters (\s a -> s { _dswSuggesters = a })
-{-# INLINE dswSuggesters #-}
+dsrs1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dsrs1Suggesters = lens _dsrs1Suggesters (\s a -> s { _dsrs1Suggesters = a })
+{-# INLINE dsrs1Suggesters #-}
 
 instance FromXML DescribeSuggestersResponse where
     fromXMLOptions = xmlOptions

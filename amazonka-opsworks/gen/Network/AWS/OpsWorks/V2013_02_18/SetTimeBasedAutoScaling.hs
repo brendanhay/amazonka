@@ -28,10 +28,10 @@ module Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling
     -- * Request
       SetTimeBasedAutoScaling
     -- ** Request constructor
-    , mkSetTimeBasedAutoScalingRequest
+    , mkSetTimeBasedAutoScaling
     -- ** Request lenses
-    , stbasrInstanceId
-    , stbasrAutoScalingSchedule
+    , stbasInstanceId
+    , stbasAutoScalingSchedule
 
     -- * Response
     , SetTimeBasedAutoScalingResponse
@@ -42,32 +42,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetTimeBasedAutoScaling' request.
-mkSetTimeBasedAutoScalingRequest :: Text -- ^ 'stbasrInstanceId'
-                                 -> SetTimeBasedAutoScaling
-mkSetTimeBasedAutoScalingRequest p1 = SetTimeBasedAutoScaling
-    { _stbasrInstanceId = p1
-    , _stbasrAutoScalingSchedule = Nothing
-    }
-{-# INLINE mkSetTimeBasedAutoScalingRequest #-}
-
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
-    { _stbasrInstanceId :: Text
-      -- ^ The instance ID.
-    , _stbasrAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
-      -- ^ An AutoScalingSchedule with the instance schedule.
+    { _stbasInstanceId :: Text
+    , _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTimeBasedAutoScaling' request.
+mkSetTimeBasedAutoScaling :: Text -- ^ 'stbasInstanceId'
+                          -> SetTimeBasedAutoScaling
+mkSetTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
+    { _stbasInstanceId = p1
+    , _stbasAutoScalingSchedule = Nothing
+    }
+{-# INLINE mkSetTimeBasedAutoScaling #-}
+
 -- | The instance ID.
-stbasrInstanceId :: Lens' SetTimeBasedAutoScaling (Text)
-stbasrInstanceId = lens _stbasrInstanceId (\s a -> s { _stbasrInstanceId = a })
-{-# INLINE stbasrInstanceId #-}
+stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
+stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
+{-# INLINE stbasInstanceId #-}
 
 -- | An AutoScalingSchedule with the instance schedule.
-stbasrAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
-stbasrAutoScalingSchedule = lens _stbasrAutoScalingSchedule (\s a -> s { _stbasrAutoScalingSchedule = a })
-{-# INLINE stbasrAutoScalingSchedule #-}
+stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
+stbasAutoScalingSchedule =
+    lens _stbasAutoScalingSchedule
+         (\s a -> s { _stbasAutoScalingSchedule = a })
+{-# INLINE stbasAutoScalingSchedule #-}
 
 instance ToPath SetTimeBasedAutoScaling
 

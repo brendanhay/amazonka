@@ -37,7 +37,7 @@ library
     default-language:  Haskell2010
     hs-source-dirs:    src gen
 
-    ghc-options:       -Wall
+    ghc-options:       -Wall -ddump-splices
 
     exposed-modules:
           Network.AWS.DynamoDB

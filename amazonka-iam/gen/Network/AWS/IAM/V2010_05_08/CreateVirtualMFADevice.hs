@@ -37,67 +37,67 @@ module Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
     -- * Request
       CreateVirtualMFADevice
     -- ** Request constructor
-    , mkCreateVirtualMFADeviceRequest
+    , mkCreateVirtualMFADevice
     -- ** Request lenses
-    , cvmfadrPath
-    , cvmfadrVirtualMFADeviceName
+    , cvmfadPath
+    , cvmfadVirtualMFADeviceName
 
     -- * Response
     , CreateVirtualMFADeviceResponse
     -- ** Response lenses
-    , cvmfadsVirtualMFADevice
+    , cvmfadrsVirtualMFADevice
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateVirtualMFADevice = CreateVirtualMFADevice
+    { _cvmfadPath :: Maybe Text
+    , _cvmfadVirtualMFADeviceName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVirtualMFADevice' request.
-mkCreateVirtualMFADeviceRequest :: Text -- ^ 'cvmfadrVirtualMFADeviceName'
-                                -> CreateVirtualMFADevice
-mkCreateVirtualMFADeviceRequest p1 = CreateVirtualMFADevice
-    { _cvmfadrPath = Nothing
-    , _cvmfadrVirtualMFADeviceName = p2
+mkCreateVirtualMFADevice :: Text -- ^ 'cvmfadVirtualMFADeviceName'
+                         -> CreateVirtualMFADevice
+mkCreateVirtualMFADevice p2 = CreateVirtualMFADevice
+    { _cvmfadPath = Nothing
+    , _cvmfadVirtualMFADeviceName = p2
     }
-{-# INLINE mkCreateVirtualMFADeviceRequest #-}
-
-data CreateVirtualMFADevice = CreateVirtualMFADevice
-    { _cvmfadrPath :: Maybe Text
-      -- ^ The path for the virtual MFA device. For more information about
-      -- paths, see Identifiers for IAM Entities in the Using IAM guide.
-      -- This parameter is optional. If it is not included, it defaults to
-      -- a slash (/).
-    , _cvmfadrVirtualMFADeviceName :: Text
-      -- ^ The name of the virtual MFA device. Use with path to uniquely
-      -- identify a virtual MFA device.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateVirtualMFADevice #-}
 
 -- | The path for the virtual MFA device. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
-cvmfadrPath :: Lens' CreateVirtualMFADevice (Maybe Text)
-cvmfadrPath = lens _cvmfadrPath (\s a -> s { _cvmfadrPath = a })
-{-# INLINE cvmfadrPath #-}
+cvmfadPath :: Lens' CreateVirtualMFADevice (Maybe Text)
+cvmfadPath = lens _cvmfadPath (\s a -> s { _cvmfadPath = a })
+{-# INLINE cvmfadPath #-}
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
-cvmfadrVirtualMFADeviceName :: Lens' CreateVirtualMFADevice (Text)
-cvmfadrVirtualMFADeviceName = lens _cvmfadrVirtualMFADeviceName (\s a -> s { _cvmfadrVirtualMFADeviceName = a })
-{-# INLINE cvmfadrVirtualMFADeviceName #-}
+cvmfadVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
+cvmfadVirtualMFADeviceName =
+    lens _cvmfadVirtualMFADeviceName
+         (\s a -> s { _cvmfadVirtualMFADeviceName = a })
+{-# INLINE cvmfadVirtualMFADeviceName #-}
 
 instance ToQuery CreateVirtualMFADevice where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the
+-- CreateVirtualMFADevice action.
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
-    { _cvmfadsVirtualMFADevice :: VirtualMFADevice
-      -- ^ A newly created virtual MFA device.
+    { _cvmfadrsVirtualMFADevice :: VirtualMFADevice
     } deriving (Show, Generic)
 
 -- | A newly created virtual MFA device.
-cvmfadsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse (VirtualMFADevice)
-cvmfadsVirtualMFADevice = lens _cvmfadsVirtualMFADevice (\s a -> s { _cvmfadsVirtualMFADevice = a })
-{-# INLINE cvmfadsVirtualMFADevice #-}
+cvmfadrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
+cvmfadrsVirtualMFADevice =
+    lens _cvmfadrsVirtualMFADevice
+         (\s a -> s { _cvmfadrsVirtualMFADevice = a })
+{-# INLINE cvmfadrsVirtualMFADevice #-}
 
 instance FromXML CreateVirtualMFADeviceResponse where
     fromXMLOptions = xmlOptions

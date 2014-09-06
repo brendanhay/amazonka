@@ -48,51 +48,53 @@ module Network.AWS.EC2.V2014_06_15.TerminateInstances
     -- * Request
       TerminateInstances
     -- ** Request constructor
-    , mkTerminateInstancesRequest
+    , mkTerminateInstances
     -- ** Request lenses
-    , tirInstanceIds
+    , tiInstanceIds
 
     -- * Response
     , TerminateInstancesResponse
     -- ** Response lenses
-    , tisTerminatingInstances
+    , tirsTerminatingInstances
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TerminateInstances' request.
-mkTerminateInstancesRequest :: [Text] -- ^ 'tirInstanceIds'
-                            -> TerminateInstances
-mkTerminateInstancesRequest p1 = TerminateInstances
-    { _tirInstanceIds = p1
-    }
-{-# INLINE mkTerminateInstancesRequest #-}
-
+-- | 
 newtype TerminateInstances = TerminateInstances
-    { _tirInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
+    { _tiInstanceIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateInstances' request.
+mkTerminateInstances :: [Text] -- ^ 'tiInstanceIds'
+                     -> TerminateInstances
+mkTerminateInstances p1 = TerminateInstances
+    { _tiInstanceIds = p1
+    }
+{-# INLINE mkTerminateInstances #-}
+
 -- | One or more instance IDs.
-tirInstanceIds :: Lens' TerminateInstances ([Text])
-tirInstanceIds = lens _tirInstanceIds (\s a -> s { _tirInstanceIds = a })
-{-# INLINE tirInstanceIds #-}
+tiInstanceIds :: Lens' TerminateInstances [Text]
+tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
+{-# INLINE tiInstanceIds #-}
 
 instance ToQuery TerminateInstances where
     toQuery = genericQuery def
 
+-- | 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
-    { _tisTerminatingInstances :: [InstanceStateChange]
-      -- ^ Information about one or more terminated instances.
+    { _tirsTerminatingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
 
 -- | Information about one or more terminated instances.
-tisTerminatingInstances :: Lens' TerminateInstancesResponse ([InstanceStateChange])
-tisTerminatingInstances = lens _tisTerminatingInstances (\s a -> s { _tisTerminatingInstances = a })
-{-# INLINE tisTerminatingInstances #-}
+tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
+tirsTerminatingInstances =
+    lens _tirsTerminatingInstances
+         (\s a -> s { _tirsTerminatingInstances = a })
+{-# INLINE tirsTerminatingInstances #-}
 
 instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions

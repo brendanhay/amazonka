@@ -27,11 +27,11 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateVolume
     -- * Request
       UpdateVolume
     -- ** Request constructor
-    , mkUpdateVolumeRequest
+    , mkUpdateVolume
     -- ** Request lenses
-    , uvsVolumeId
-    , uvsName
-    , uvsMountPoint
+    , uv1VolumeId
+    , uv1Name
+    , uv1MountPoint
 
     -- * Response
     , UpdateVolumeResponse
@@ -42,40 +42,37 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateVolume' request.
-mkUpdateVolumeRequest :: Text -- ^ 'uvsVolumeId'
-                      -> UpdateVolume
-mkUpdateVolumeRequest p1 = UpdateVolume
-    { _uvsVolumeId = p1
-    , _uvsName = Nothing
-    , _uvsMountPoint = Nothing
-    }
-{-# INLINE mkUpdateVolumeRequest #-}
-
 data UpdateVolume = UpdateVolume
-    { _uvsVolumeId :: Text
-      -- ^ The volume ID.
-    , _uvsName :: Maybe Text
-      -- ^ The new name.
-    , _uvsMountPoint :: Maybe Text
-      -- ^ The new mount point.
+    { _uv1VolumeId :: Text
+    , _uv1Name :: Maybe Text
+    , _uv1MountPoint :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateVolume' request.
+mkUpdateVolume :: Text -- ^ 'uv1VolumeId'
+               -> UpdateVolume
+mkUpdateVolume p1 = UpdateVolume
+    { _uv1VolumeId = p1
+    , _uv1Name = Nothing
+    , _uv1MountPoint = Nothing
+    }
+{-# INLINE mkUpdateVolume #-}
+
 -- | The volume ID.
-uvsVolumeId :: Lens' UpdateVolume (Text)
-uvsVolumeId = lens _uvsVolumeId (\s a -> s { _uvsVolumeId = a })
-{-# INLINE uvsVolumeId #-}
+uv1VolumeId :: Lens' UpdateVolume Text
+uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
+{-# INLINE uv1VolumeId #-}
 
 -- | The new name.
-uvsName :: Lens' UpdateVolume (Maybe Text)
-uvsName = lens _uvsName (\s a -> s { _uvsName = a })
-{-# INLINE uvsName #-}
+uv1Name :: Lens' UpdateVolume (Maybe Text)
+uv1Name = lens _uv1Name (\s a -> s { _uv1Name = a })
+{-# INLINE uv1Name #-}
 
 -- | The new mount point.
-uvsMountPoint :: Lens' UpdateVolume (Maybe Text)
-uvsMountPoint = lens _uvsMountPoint (\s a -> s { _uvsMountPoint = a })
-{-# INLINE uvsMountPoint #-}
+uv1MountPoint :: Lens' UpdateVolume (Maybe Text)
+uv1MountPoint = lens _uv1MountPoint (\s a -> s { _uv1MountPoint = a })
+{-# INLINE uv1MountPoint #-}
 
 instance ToPath UpdateVolume
 

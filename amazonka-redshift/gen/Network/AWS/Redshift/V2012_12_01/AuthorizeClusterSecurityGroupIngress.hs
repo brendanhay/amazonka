@@ -43,84 +43,84 @@ module Network.AWS.Redshift.V2012_12_01.AuthorizeClusterSecurityGroupIngress
     -- * Request
       AuthorizeClusterSecurityGroupIngress
     -- ** Request constructor
-    , mkAuthorizeClusterSecurityGroupIngressMessage
+    , mkAuthorizeClusterSecurityGroupIngress
     -- ** Request lenses
-    , acsgimClusterSecurityGroupName
-    , acsgimCIDRIP
-    , acsgimEC2SecurityGroupName
-    , acsgimEC2SecurityGroupOwnerId
+    , acsgiClusterSecurityGroupName
+    , acsgiCIDRIP
+    , acsgiEC2SecurityGroupName
+    , acsgiEC2SecurityGroupOwnerId
 
     -- * Response
     , AuthorizeClusterSecurityGroupIngressResponse
     -- ** Response lenses
-    , csgwClusterSecurityGroup
+    , acsgirsClusterSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AuthorizeClusterSecurityGroupIngress' request.
-mkAuthorizeClusterSecurityGroupIngressMessage :: Text -- ^ 'acsgimClusterSecurityGroupName'
-                                              -> AuthorizeClusterSecurityGroupIngress
-mkAuthorizeClusterSecurityGroupIngressMessage p1 = AuthorizeClusterSecurityGroupIngress
-    { _acsgimClusterSecurityGroupName = p1
-    , _acsgimCIDRIP = Nothing
-    , _acsgimEC2SecurityGroupName = Nothing
-    , _acsgimEC2SecurityGroupOwnerId = Nothing
-    }
-{-# INLINE mkAuthorizeClusterSecurityGroupIngressMessage #-}
-
+-- | ???.
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
-    { _acsgimClusterSecurityGroupName :: Text
-      -- ^ The name of the security group to which the ingress rule is
-      -- added.
-    , _acsgimCIDRIP :: Maybe Text
-      -- ^ The IP range to be added the Amazon Redshift security group.
-    , _acsgimEC2SecurityGroupName :: Maybe Text
-      -- ^ The EC2 security group to be added the Amazon Redshift security
-      -- group.
-    , _acsgimEC2SecurityGroupOwnerId :: Maybe Text
-      -- ^ The AWS account number of the owner of the security group
-      -- specified by the EC2SecurityGroupName parameter. The AWS Access
-      -- Key ID is not an acceptable value. Example: 111122223333.
+    { _acsgiClusterSecurityGroupName :: Text
+    , _acsgiCIDRIP :: Maybe Text
+    , _acsgiEC2SecurityGroupName :: Maybe Text
+    , _acsgiEC2SecurityGroupOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AuthorizeClusterSecurityGroupIngress' request.
+mkAuthorizeClusterSecurityGroupIngress :: Text -- ^ 'acsgiClusterSecurityGroupName'
+                                       -> AuthorizeClusterSecurityGroupIngress
+mkAuthorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
+    { _acsgiClusterSecurityGroupName = p1
+    , _acsgiCIDRIP = Nothing
+    , _acsgiEC2SecurityGroupName = Nothing
+    , _acsgiEC2SecurityGroupOwnerId = Nothing
+    }
+{-# INLINE mkAuthorizeClusterSecurityGroupIngress #-}
+
 -- | The name of the security group to which the ingress rule is added.
-acsgimClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Text)
-acsgimClusterSecurityGroupName = lens _acsgimClusterSecurityGroupName (\s a -> s { _acsgimClusterSecurityGroupName = a })
-{-# INLINE acsgimClusterSecurityGroupName #-}
+acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
+acsgiClusterSecurityGroupName =
+    lens _acsgiClusterSecurityGroupName
+         (\s a -> s { _acsgiClusterSecurityGroupName = a })
+{-# INLINE acsgiClusterSecurityGroupName #-}
 
 -- | The IP range to be added the Amazon Redshift security group.
-acsgimCIDRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgimCIDRIP = lens _acsgimCIDRIP (\s a -> s { _acsgimCIDRIP = a })
-{-# INLINE acsgimCIDRIP #-}
+acsgiCIDRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgiCIDRIP = lens _acsgiCIDRIP (\s a -> s { _acsgiCIDRIP = a })
+{-# INLINE acsgiCIDRIP #-}
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
-acsgimEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgimEC2SecurityGroupName = lens _acsgimEC2SecurityGroupName (\s a -> s { _acsgimEC2SecurityGroupName = a })
-{-# INLINE acsgimEC2SecurityGroupName #-}
+acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgiEC2SecurityGroupName =
+    lens _acsgiEC2SecurityGroupName
+         (\s a -> s { _acsgiEC2SecurityGroupName = a })
+{-# INLINE acsgiEC2SecurityGroupName #-}
 
 -- | The AWS account number of the owner of the security group specified by the
 -- EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
 -- value. Example: 111122223333.
-acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgimEC2SecurityGroupOwnerId = lens _acsgimEC2SecurityGroupOwnerId (\s a -> s { _acsgimEC2SecurityGroupOwnerId = a })
-{-# INLINE acsgimEC2SecurityGroupOwnerId #-}
+acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgiEC2SecurityGroupOwnerId =
+    lens _acsgiEC2SecurityGroupOwnerId
+         (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
+{-# INLINE acsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeClusterSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
-    { _csgwClusterSecurityGroup :: Maybe ClusterSecurityGroup
-      -- ^ Describes a security group.
+    { _acsgirsClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-csgwClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
-csgwClusterSecurityGroup = lens _csgwClusterSecurityGroup (\s a -> s { _csgwClusterSecurityGroup = a })
-{-# INLINE csgwClusterSecurityGroup #-}
+acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
+acsgirsClusterSecurityGroup =
+    lens _acsgirsClusterSecurityGroup
+         (\s a -> s { _acsgirsClusterSecurityGroup = a })
+{-# INLINE acsgirsClusterSecurityGroup #-}
 
 instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

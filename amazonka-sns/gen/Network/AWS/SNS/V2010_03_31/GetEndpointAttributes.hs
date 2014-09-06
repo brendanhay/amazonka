@@ -44,55 +44,45 @@ module Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
     -- * Request
       GetEndpointAttributes
     -- ** Request constructor
-    , mkGetEndpointAttributesInput
+    , mkGetEndpointAttributes
     -- ** Request lenses
-    , geaiEndpointArn
+    , geaEndpointArn
 
     -- * Response
     , GetEndpointAttributesResponse
     -- ** Response lenses
-    , gearAttributes
+    , gearsAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetEndpointAttributes' request.
-mkGetEndpointAttributesInput :: Text -- ^ 'geaiEndpointArn'
-                             -> GetEndpointAttributes
-mkGetEndpointAttributesInput p1 = GetEndpointAttributes
-    { _geaiEndpointArn = p1
-    }
-{-# INLINE mkGetEndpointAttributesInput #-}
-
+-- | Input for GetEndpointAttributes action.
 newtype GetEndpointAttributes = GetEndpointAttributes
-    { _geaiEndpointArn :: Text
-      -- ^ EndpointArn for GetEndpointAttributes input.
+    { _geaEndpointArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetEndpointAttributes' request.
+mkGetEndpointAttributes :: Text -- ^ 'geaEndpointArn'
+                        -> GetEndpointAttributes
+mkGetEndpointAttributes p1 = GetEndpointAttributes
+    { _geaEndpointArn = p1
+    }
+{-# INLINE mkGetEndpointAttributes #-}
+
 -- | EndpointArn for GetEndpointAttributes input.
-geaiEndpointArn :: Lens' GetEndpointAttributes (Text)
-geaiEndpointArn = lens _geaiEndpointArn (\s a -> s { _geaiEndpointArn = a })
-{-# INLINE geaiEndpointArn #-}
+geaEndpointArn :: Lens' GetEndpointAttributes Text
+geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
+{-# INLINE geaEndpointArn #-}
 
 instance ToQuery GetEndpointAttributes where
     toQuery = genericQuery def
 
+-- | Response from GetEndpointAttributes of the EndpointArn.
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes :: Map Text Text
-      -- ^ Attributes include the following: CustomUserData -- arbitrary
-      -- user data to associate with the endpoint. Amazon SNS does not use
-      -- this data. The data must be in UTF-8 format and less than 2KB.
-      -- Enabled -- flag that enables/disables delivery to the endpoint.
-      -- Amazon SNS will set this to false when a notification service
-      -- indicates to Amazon SNS that the endpoint is invalid. Users can
-      -- set it back to true, typically after updating Token. Token --
-      -- device token, also referred to as a registration id, for an app
-      -- and mobile device. This is returned from the notification service
-      -- when an app and mobile device are registered with the
-      -- notification service.
+    { _gearsAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | Attributes include the following: CustomUserData -- arbitrary user data to
@@ -104,9 +94,9 @@ newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
 -- Token -- device token, also referred to as a registration id, for an app
 -- and mobile device. This is returned from the notification service when an
 -- app and mobile device are registered with the notification service.
-gearAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
-gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
-{-# INLINE gearAttributes #-}
+gearsAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
+gearsAttributes = lens _gearsAttributes (\s a -> s { _gearsAttributes = a })
+{-# INLINE gearsAttributes #-}
 
 instance FromXML GetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions

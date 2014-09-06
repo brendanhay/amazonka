@@ -33,10 +33,10 @@ module Network.AWS.EC2.V2014_06_15.DisassociateAddress
     -- * Request
       DisassociateAddress
     -- ** Request constructor
-    , mkDisassociateAddressRequest
+    , mkDisassociateAddress
     -- ** Request lenses
-    , datPublicIp
-    , datAssociationId
+    , da1PublicIp
+    , da1AssociationId
 
     -- * Response
     , DisassociateAddressResponse
@@ -46,31 +46,31 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisassociateAddress' request.
-mkDisassociateAddressRequest :: DisassociateAddress
-mkDisassociateAddressRequest = DisassociateAddress
-    { _datPublicIp = Nothing
-    , _datAssociationId = Nothing
-    }
-{-# INLINE mkDisassociateAddressRequest #-}
-
+-- | 
 data DisassociateAddress = DisassociateAddress
-    { _datPublicIp :: Maybe Text
-      -- ^ [EC2-Classic] The Elastic IP address.
-    , _datAssociationId :: Maybe Text
-      -- ^ [EC2-VPC] The association ID.
+    { _da1PublicIp :: Maybe Text
+    , _da1AssociationId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisassociateAddress' request.
+mkDisassociateAddress :: DisassociateAddress
+mkDisassociateAddress = DisassociateAddress
+    { _da1PublicIp = Nothing
+    , _da1AssociationId = Nothing
+    }
+{-# INLINE mkDisassociateAddress #-}
+
 -- | [EC2-Classic] The Elastic IP address.
-datPublicIp :: Lens' DisassociateAddress (Maybe Text)
-datPublicIp = lens _datPublicIp (\s a -> s { _datPublicIp = a })
-{-# INLINE datPublicIp #-}
+da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
+da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
+{-# INLINE da1PublicIp #-}
 
 -- | [EC2-VPC] The association ID.
-datAssociationId :: Lens' DisassociateAddress (Maybe Text)
-datAssociationId = lens _datAssociationId (\s a -> s { _datAssociationId = a })
-{-# INLINE datAssociationId #-}
+da1AssociationId :: Lens' DisassociateAddress (Maybe Text)
+da1AssociationId =
+    lens _da1AssociationId (\s a -> s { _da1AssociationId = a })
+{-# INLINE da1AssociationId #-}
 
 instance ToQuery DisassociateAddress where
     toQuery = genericQuery def

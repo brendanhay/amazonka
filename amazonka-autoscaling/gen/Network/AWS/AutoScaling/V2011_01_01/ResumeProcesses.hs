@@ -25,10 +25,10 @@ module Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses
     -- * Request
       ResumeProcesses
     -- ** Request constructor
-    , mkScalingProcessQuery
+    , mkResumeProcesses
     -- ** Request lenses
-    , spqAutoScalingGroupName
-    , spqScalingProcesses
+    , rpAutoScalingGroupName
+    , rpScalingProcesses
 
     -- * Response
     , ResumeProcessesResponse
@@ -38,39 +38,36 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResumeProcesses' request.
-mkScalingProcessQuery :: Text -- ^ 'spqAutoScalingGroupName'
-                      -> ResumeProcesses
-mkScalingProcessQuery p1 = ResumeProcesses
-    { _spqAutoScalingGroupName = p1
-    , _spqScalingProcesses = mempty
-    }
-{-# INLINE mkScalingProcessQuery #-}
-
+-- | 
 data ResumeProcesses = ResumeProcesses
-    { _spqAutoScalingGroupName :: Text
-      -- ^ The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-    , _spqScalingProcesses :: [Text]
-      -- ^ The processes that you want to suspend or resume, which can
-      -- include one or more of the following: Launch Terminate
-      -- HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification
-      -- ScheduledActions AddToLoadBalancer To suspend all process types,
-      -- omit this parameter.
+    { _rpAutoScalingGroupName :: Text
+    , _rpScalingProcesses :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResumeProcesses' request.
+mkResumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
+                  -> ResumeProcesses
+mkResumeProcesses p1 = ResumeProcesses
+    { _rpAutoScalingGroupName = p1
+    , _rpScalingProcesses = mempty
+    }
+{-# INLINE mkResumeProcesses #-}
+
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-spqAutoScalingGroupName :: Lens' ResumeProcesses (Text)
-spqAutoScalingGroupName = lens _spqAutoScalingGroupName (\s a -> s { _spqAutoScalingGroupName = a })
-{-# INLINE spqAutoScalingGroupName #-}
+rpAutoScalingGroupName :: Lens' ResumeProcesses Text
+rpAutoScalingGroupName =
+    lens _rpAutoScalingGroupName (\s a -> s { _rpAutoScalingGroupName = a })
+{-# INLINE rpAutoScalingGroupName #-}
 
 -- | The processes that you want to suspend or resume, which can include one or
 -- more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
 -- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To suspend
 -- all process types, omit this parameter.
-spqScalingProcesses :: Lens' ResumeProcesses ([Text])
-spqScalingProcesses = lens _spqScalingProcesses (\s a -> s { _spqScalingProcesses = a })
-{-# INLINE spqScalingProcesses #-}
+rpScalingProcesses :: Lens' ResumeProcesses [Text]
+rpScalingProcesses =
+    lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })
+{-# INLINE rpScalingProcesses #-}
 
 instance ToQuery ResumeProcesses where
     toQuery = genericQuery def

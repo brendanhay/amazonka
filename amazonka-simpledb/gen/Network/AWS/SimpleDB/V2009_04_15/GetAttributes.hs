@@ -30,86 +30,79 @@ module Network.AWS.SimpleDB.V2009_04_15.GetAttributes
     -- * Request
       GetAttributes
     -- ** Request constructor
-    , mkGetAttributesRequest
+    , mkGetAttributes
     -- ** Request lenses
-    , garDomainName
-    , garItemName
-    , garAttributeNames
-    , garConsistentRead
+    , gaDomainName
+    , gaItemName
+    , gaAttributeNames
+    , gaConsistentRead
 
     -- * Response
     , GetAttributesResponse
     -- ** Response lenses
-    , gasAttributes
+    , garsAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetAttributes' request.
-mkGetAttributesRequest :: Text -- ^ 'garDomainName'
-                       -> Text -- ^ 'garItemName'
-                       -> GetAttributes
-mkGetAttributesRequest p1 p2 = GetAttributes
-    { _garDomainName = p1
-    , _garItemName = p2
-    , _garAttributeNames = mempty
-    , _garConsistentRead = Nothing
-    }
-{-# INLINE mkGetAttributesRequest #-}
-
 data GetAttributes = GetAttributes
-    { _garDomainName :: Text
-      -- ^ The name of the domain in which to perform the operation.
-    , _garItemName :: Text
-      -- ^ The name of the item.
-    , _garAttributeNames :: [Text]
-      -- ^ The names of the attributes.
-    , _garConsistentRead :: Maybe Bool
-      -- ^ Determines whether or not strong consistency should be enforced
-      -- when data is read from SimpleDB. If true, any data previously
-      -- written to SimpleDB will be returned. Otherwise, results will be
-      -- consistent eventually, and the client may not see data that was
-      -- written immediately before your read.
+    { _gaDomainName :: Text
+    , _gaItemName :: Text
+    , _gaAttributeNames :: [Text]
+    , _gaConsistentRead :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAttributes' request.
+mkGetAttributes :: Text -- ^ 'gaDomainName'
+                -> Text -- ^ 'gaItemName'
+                -> GetAttributes
+mkGetAttributes p1 p2 = GetAttributes
+    { _gaDomainName = p1
+    , _gaItemName = p2
+    , _gaAttributeNames = mempty
+    , _gaConsistentRead = Nothing
+    }
+{-# INLINE mkGetAttributes #-}
+
 -- | The name of the domain in which to perform the operation.
-garDomainName :: Lens' GetAttributes (Text)
-garDomainName = lens _garDomainName (\s a -> s { _garDomainName = a })
-{-# INLINE garDomainName #-}
+gaDomainName :: Lens' GetAttributes Text
+gaDomainName = lens _gaDomainName (\s a -> s { _gaDomainName = a })
+{-# INLINE gaDomainName #-}
 
 -- | The name of the item.
-garItemName :: Lens' GetAttributes (Text)
-garItemName = lens _garItemName (\s a -> s { _garItemName = a })
-{-# INLINE garItemName #-}
+gaItemName :: Lens' GetAttributes Text
+gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
+{-# INLINE gaItemName #-}
 
 -- | The names of the attributes.
-garAttributeNames :: Lens' GetAttributes ([Text])
-garAttributeNames = lens _garAttributeNames (\s a -> s { _garAttributeNames = a })
-{-# INLINE garAttributeNames #-}
+gaAttributeNames :: Lens' GetAttributes [Text]
+gaAttributeNames =
+    lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a })
+{-# INLINE gaAttributeNames #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
 -- will be returned. Otherwise, results will be consistent eventually, and the
 -- client may not see data that was written immediately before your read.
-garConsistentRead :: Lens' GetAttributes (Maybe Bool)
-garConsistentRead = lens _garConsistentRead (\s a -> s { _garConsistentRead = a })
-{-# INLINE garConsistentRead #-}
+gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
+gaConsistentRead =
+    lens _gaConsistentRead (\s a -> s { _gaConsistentRead = a })
+{-# INLINE gaConsistentRead #-}
 
 instance ToQuery GetAttributes where
     toQuery = genericQuery def
 
 newtype GetAttributesResponse = GetAttributesResponse
-    { _gasAttributes :: [Attribute]
-      -- ^ The list of attributes returned by the operation.
+    { _garsAttributes :: [Attribute]
     } deriving (Show, Generic)
 
 -- | The list of attributes returned by the operation.
-gasAttributes :: Lens' GetAttributesResponse ([Attribute])
-gasAttributes = lens _gasAttributes (\s a -> s { _gasAttributes = a })
-{-# INLINE gasAttributes #-}
+garsAttributes :: Lens' GetAttributesResponse [Attribute]
+garsAttributes = lens _garsAttributes (\s a -> s { _garsAttributes = a })
+{-# INLINE garsAttributes #-}
 
 instance FromXML GetAttributesResponse where
     fromXMLOptions = xmlOptions

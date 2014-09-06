@@ -30,10 +30,10 @@ module Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate
     -- * Request
       DeleteSigningCertificate
     -- ** Request constructor
-    , mkDeleteSigningCertificateRequest
+    , mkDeleteSigningCertificate
     -- ** Request lenses
-    , dscsUserName
-    , dscsCertificateId
+    , dsc1UserName
+    , dsc1CertificateId
 
     -- * Response
     , DeleteSigningCertificateResponse
@@ -43,32 +43,32 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSigningCertificate' request.
-mkDeleteSigningCertificateRequest :: Text -- ^ 'dscsCertificateId'
-                                  -> DeleteSigningCertificate
-mkDeleteSigningCertificateRequest p1 = DeleteSigningCertificate
-    { _dscsUserName = Nothing
-    , _dscsCertificateId = p2
-    }
-{-# INLINE mkDeleteSigningCertificateRequest #-}
-
+-- | 
 data DeleteSigningCertificate = DeleteSigningCertificate
-    { _dscsUserName :: Maybe Text
-      -- ^ Name of the user the signing certificate belongs to.
-    , _dscsCertificateId :: Text
-      -- ^ ID of the signing certificate to delete.
+    { _dsc1UserName :: Maybe Text
+    , _dsc1CertificateId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSigningCertificate' request.
+mkDeleteSigningCertificate :: Text -- ^ 'dsc1CertificateId'
+                           -> DeleteSigningCertificate
+mkDeleteSigningCertificate p2 = DeleteSigningCertificate
+    { _dsc1UserName = Nothing
+    , _dsc1CertificateId = p2
+    }
+{-# INLINE mkDeleteSigningCertificate #-}
+
 -- | Name of the user the signing certificate belongs to.
-dscsUserName :: Lens' DeleteSigningCertificate (Maybe Text)
-dscsUserName = lens _dscsUserName (\s a -> s { _dscsUserName = a })
-{-# INLINE dscsUserName #-}
+dsc1UserName :: Lens' DeleteSigningCertificate (Maybe Text)
+dsc1UserName = lens _dsc1UserName (\s a -> s { _dsc1UserName = a })
+{-# INLINE dsc1UserName #-}
 
 -- | ID of the signing certificate to delete.
-dscsCertificateId :: Lens' DeleteSigningCertificate (Text)
-dscsCertificateId = lens _dscsCertificateId (\s a -> s { _dscsCertificateId = a })
-{-# INLINE dscsCertificateId #-}
+dsc1CertificateId :: Lens' DeleteSigningCertificate Text
+dsc1CertificateId =
+    lens _dsc1CertificateId (\s a -> s { _dsc1CertificateId = a })
+{-# INLINE dsc1CertificateId #-}
 
 instance ToQuery DeleteSigningCertificate where
     toQuery = genericQuery def

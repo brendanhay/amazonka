@@ -31,86 +31,85 @@ module Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering
     -- * Request
       PurchaseReservedDBInstancesOffering
     -- ** Request constructor
-    , mkPurchaseReservedDBInstancesOfferingMessage
+    , mkPurchaseReservedDBInstancesOffering
     -- ** Request lenses
-    , prdbiomReservedDBInstancesOfferingId
-    , prdbiomReservedDBInstanceId
-    , prdbiomDBInstanceCount
-    , prdbiomTags
+    , prdbioReservedDBInstancesOfferingId
+    , prdbioReservedDBInstanceId
+    , prdbioDBInstanceCount
+    , prdbioTags
 
     -- * Response
     , PurchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
-    , rdbiwReservedDBInstance
+    , prdbiorsReservedDBInstance
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
+    { _prdbioReservedDBInstancesOfferingId :: Text
+    , _prdbioReservedDBInstanceId :: Maybe Text
+    , _prdbioDBInstanceCount :: Maybe Integer
+    , _prdbioTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedDBInstancesOffering' request.
-mkPurchaseReservedDBInstancesOfferingMessage :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
-                                             -> PurchaseReservedDBInstancesOffering
-mkPurchaseReservedDBInstancesOfferingMessage p1 = PurchaseReservedDBInstancesOffering
-    { _prdbiomReservedDBInstancesOfferingId = p1
-    , _prdbiomReservedDBInstanceId = Nothing
-    , _prdbiomDBInstanceCount = Nothing
-    , _prdbiomTags = mempty
+mkPurchaseReservedDBInstancesOffering :: Text -- ^ 'prdbioReservedDBInstancesOfferingId'
+                                      -> PurchaseReservedDBInstancesOffering
+mkPurchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
+    { _prdbioReservedDBInstancesOfferingId = p1
+    , _prdbioReservedDBInstanceId = Nothing
+    , _prdbioDBInstanceCount = Nothing
+    , _prdbioTags = mempty
     }
-{-# INLINE mkPurchaseReservedDBInstancesOfferingMessage #-}
-
-data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
-    { _prdbiomReservedDBInstancesOfferingId :: Text
-      -- ^ The ID of the Reserved DB instance offering to purchase. Example:
-      -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-    , _prdbiomReservedDBInstanceId :: Maybe Text
-      -- ^ Customer-specified identifier to track this reservation. Example:
-      -- myreservationID.
-    , _prdbiomDBInstanceCount :: Maybe Integer
-      -- ^ The number of instances to reserve. Default: 1.
-    , _prdbiomTags :: [Tag]
-      -- ^ A list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkPurchaseReservedDBInstancesOffering #-}
 
 -- | The ID of the Reserved DB instance offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-prdbiomReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering (Text)
-prdbiomReservedDBInstancesOfferingId = lens _prdbiomReservedDBInstancesOfferingId (\s a -> s { _prdbiomReservedDBInstancesOfferingId = a })
-{-# INLINE prdbiomReservedDBInstancesOfferingId #-}
+prdbioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
+prdbioReservedDBInstancesOfferingId =
+    lens _prdbioReservedDBInstancesOfferingId
+         (\s a -> s { _prdbioReservedDBInstancesOfferingId = a })
+{-# INLINE prdbioReservedDBInstancesOfferingId #-}
 
 -- | Customer-specified identifier to track this reservation. Example:
 -- myreservationID.
-prdbiomReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
-prdbiomReservedDBInstanceId = lens _prdbiomReservedDBInstanceId (\s a -> s { _prdbiomReservedDBInstanceId = a })
-{-# INLINE prdbiomReservedDBInstanceId #-}
+prdbioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
+prdbioReservedDBInstanceId =
+    lens _prdbioReservedDBInstanceId
+         (\s a -> s { _prdbioReservedDBInstanceId = a })
+{-# INLINE prdbioReservedDBInstanceId #-}
 
 -- | The number of instances to reserve. Default: 1.
-prdbiomDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Integer)
-prdbiomDBInstanceCount = lens _prdbiomDBInstanceCount (\s a -> s { _prdbiomDBInstanceCount = a })
-{-# INLINE prdbiomDBInstanceCount #-}
+prdbioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Integer)
+prdbioDBInstanceCount =
+    lens _prdbioDBInstanceCount (\s a -> s { _prdbioDBInstanceCount = a })
+{-# INLINE prdbioDBInstanceCount #-}
 
 -- | A list of tags.
-prdbiomTags :: Lens' PurchaseReservedDBInstancesOffering ([Tag])
-prdbiomTags = lens _prdbiomTags (\s a -> s { _prdbiomTags = a })
-{-# INLINE prdbiomTags #-}
+prdbioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
+prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a })
+{-# INLINE prdbioTags #-}
 
 instance ToQuery PurchaseReservedDBInstancesOffering where
     toQuery = genericQuery def
 
 newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
-    { _rdbiwReservedDBInstance :: Maybe ReservedDBInstance
-      -- ^ This data type is used as a response element in the
-      -- DescribeReservedDBInstances and
-      -- PurchaseReservedDBInstancesOffering actions.
+    { _prdbiorsReservedDBInstance :: Maybe ReservedDBInstance
     } deriving (Show, Generic)
 
 -- | This data type is used as a response element in the
 -- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
 -- actions.
-rdbiwReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
-rdbiwReservedDBInstance = lens _rdbiwReservedDBInstance (\s a -> s { _rdbiwReservedDBInstance = a })
-{-# INLINE rdbiwReservedDBInstance #-}
+prdbiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
+prdbiorsReservedDBInstance =
+    lens _prdbiorsReservedDBInstance
+         (\s a -> s { _prdbiorsReservedDBInstance = a })
+{-# INLINE prdbiorsReservedDBInstance #-}
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     fromXMLOptions = xmlOptions

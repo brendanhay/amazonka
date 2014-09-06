@@ -46,74 +46,71 @@ module Network.AWS.EC2.V2014_06_15.CreateSubnet
     -- * Request
       CreateSubnet
     -- ** Request constructor
-    , mkCreateSubnetRequest
+    , mkCreateSubnet
     -- ** Request lenses
-    , csuVpcId
-    , csuCidrBlock
-    , csuAvailabilityZone
+    , cs2VpcId
+    , cs2CidrBlock
+    , cs2AvailabilityZone
 
     -- * Response
     , CreateSubnetResponse
     -- ** Response lenses
-    , csvSubnet
+    , csrs1Subnet
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSubnet' request.
-mkCreateSubnetRequest :: Text -- ^ 'csuVpcId'
-                      -> Text -- ^ 'csuCidrBlock'
-                      -> CreateSubnet
-mkCreateSubnetRequest p1 p2 = CreateSubnet
-    { _csuVpcId = p1
-    , _csuCidrBlock = p2
-    , _csuAvailabilityZone = Nothing
-    }
-{-# INLINE mkCreateSubnetRequest #-}
-
+-- | 
 data CreateSubnet = CreateSubnet
-    { _csuVpcId :: Text
-      -- ^ The ID of the VPC.
-    , _csuCidrBlock :: Text
-      -- ^ The network range for the subnet, in CIDR notation. For example,
-      -- 10.0.0.0/24.
-    , _csuAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the subnet. Default: Amazon EC2 selects
-      -- one for you (recommended).
+    { _cs2VpcId :: Text
+    , _cs2CidrBlock :: Text
+    , _cs2AvailabilityZone :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSubnet' request.
+mkCreateSubnet :: Text -- ^ 'cs2VpcId'
+               -> Text -- ^ 'cs2CidrBlock'
+               -> CreateSubnet
+mkCreateSubnet p1 p2 = CreateSubnet
+    { _cs2VpcId = p1
+    , _cs2CidrBlock = p2
+    , _cs2AvailabilityZone = Nothing
+    }
+{-# INLINE mkCreateSubnet #-}
+
 -- | The ID of the VPC.
-csuVpcId :: Lens' CreateSubnet (Text)
-csuVpcId = lens _csuVpcId (\s a -> s { _csuVpcId = a })
-{-# INLINE csuVpcId #-}
+cs2VpcId :: Lens' CreateSubnet Text
+cs2VpcId = lens _cs2VpcId (\s a -> s { _cs2VpcId = a })
+{-# INLINE cs2VpcId #-}
 
 -- | The network range for the subnet, in CIDR notation. For example,
 -- 10.0.0.0/24.
-csuCidrBlock :: Lens' CreateSubnet (Text)
-csuCidrBlock = lens _csuCidrBlock (\s a -> s { _csuCidrBlock = a })
-{-# INLINE csuCidrBlock #-}
+cs2CidrBlock :: Lens' CreateSubnet Text
+cs2CidrBlock = lens _cs2CidrBlock (\s a -> s { _cs2CidrBlock = a })
+{-# INLINE cs2CidrBlock #-}
 
 -- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
 -- you (recommended).
-csuAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
-csuAvailabilityZone = lens _csuAvailabilityZone (\s a -> s { _csuAvailabilityZone = a })
-{-# INLINE csuAvailabilityZone #-}
+cs2AvailabilityZone :: Lens' CreateSubnet (Maybe Text)
+cs2AvailabilityZone =
+    lens _cs2AvailabilityZone (\s a -> s { _cs2AvailabilityZone = a })
+{-# INLINE cs2AvailabilityZone #-}
 
 instance ToQuery CreateSubnet where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateSubnetResponse = CreateSubnetResponse
-    { _csvSubnet :: Maybe Subnet
-      -- ^ Information about the subnet.
+    { _csrs1Subnet :: Maybe Subnet
     } deriving (Show, Generic)
 
 -- | Information about the subnet.
-csvSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-csvSubnet = lens _csvSubnet (\s a -> s { _csvSubnet = a })
-{-# INLINE csvSubnet #-}
+csrs1Subnet :: Lens' CreateSubnetResponse (Maybe Subnet)
+csrs1Subnet = lens _csrs1Subnet (\s a -> s { _csrs1Subnet = a })
+{-# INLINE csrs1Subnet #-}
 
 instance FromXML CreateSubnetResponse where
     fromXMLOptions = xmlOptions

@@ -41,54 +41,46 @@ module Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
     -- * Request
       GetSubscriptionAttributes
     -- ** Request constructor
-    , mkGetSubscriptionAttributesInput
+    , mkGetSubscriptionAttributes
     -- ** Request lenses
-    , gsaiSubscriptionArn
+    , gsaSubscriptionArn
 
     -- * Response
     , GetSubscriptionAttributesResponse
     -- ** Response lenses
-    , gsarAttributes
+    , gsarsAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSubscriptionAttributes' request.
-mkGetSubscriptionAttributesInput :: Text -- ^ 'gsaiSubscriptionArn'
-                                 -> GetSubscriptionAttributes
-mkGetSubscriptionAttributesInput p1 = GetSubscriptionAttributes
-    { _gsaiSubscriptionArn = p1
-    }
-{-# INLINE mkGetSubscriptionAttributesInput #-}
-
+-- | Input for GetSubscriptionAttributes.
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes
-    { _gsaiSubscriptionArn :: Text
-      -- ^ The ARN of the subscription whose properties you want to get.
+    { _gsaSubscriptionArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSubscriptionAttributes' request.
+mkGetSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
+                            -> GetSubscriptionAttributes
+mkGetSubscriptionAttributes p1 = GetSubscriptionAttributes
+    { _gsaSubscriptionArn = p1
+    }
+{-# INLINE mkGetSubscriptionAttributes #-}
+
 -- | The ARN of the subscription whose properties you want to get.
-gsaiSubscriptionArn :: Lens' GetSubscriptionAttributes (Text)
-gsaiSubscriptionArn = lens _gsaiSubscriptionArn (\s a -> s { _gsaiSubscriptionArn = a })
-{-# INLINE gsaiSubscriptionArn #-}
+gsaSubscriptionArn :: Lens' GetSubscriptionAttributes Text
+gsaSubscriptionArn =
+    lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
+{-# INLINE gsaSubscriptionArn #-}
 
 instance ToQuery GetSubscriptionAttributes where
     toQuery = genericQuery def
 
+-- | Response for GetSubscriptionAttributes action.
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
-    { _gsarAttributes :: Map Text Text
-      -- ^ A map of the subscription's attributes. Attributes in this map
-      -- include the following: SubscriptionArn -- the subscription's ARN
-      -- TopicArn -- the topic ARN that the subscription is associated
-      -- with Owner -- the AWS account ID of the subscription's owner
-      -- ConfirmationWasAuthenticated -- true if the subscription
-      -- confirmation request was authenticated DeliveryPolicy -- the JSON
-      -- serialization of the subscription's delivery policy
-      -- EffectiveDeliveryPolicy -- the JSON serialization of the
-      -- effective delivery policy that takes into account the topic
-      -- delivery policy and account system defaults.
+    { _gsarsAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | A map of the subscription's attributes. Attributes in this map include the
@@ -100,9 +92,9 @@ newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 -- EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
 -- policy that takes into account the topic delivery policy and account system
 -- defaults.
-gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
-gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
-{-# INLINE gsarAttributes #-}
+gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
+gsarsAttributes = lens _gsarsAttributes (\s a -> s { _gsarsAttributes = a })
+{-# INLINE gsarsAttributes #-}
 
 instance FromXML GetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions

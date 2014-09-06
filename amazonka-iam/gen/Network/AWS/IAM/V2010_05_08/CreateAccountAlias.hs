@@ -27,9 +27,9 @@ module Network.AWS.IAM.V2010_05_08.CreateAccountAlias
     -- * Request
       CreateAccountAlias
     -- ** Request constructor
-    , mkCreateAccountAliasRequest
+    , mkCreateAccountAlias
     -- ** Request lenses
-    , caarAccountAlias
+    , caaAccountAlias
 
     -- * Response
     , CreateAccountAliasResponse
@@ -39,24 +39,24 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateAccountAlias' request.
-mkCreateAccountAliasRequest :: Text -- ^ 'caarAccountAlias'
-                            -> CreateAccountAlias
-mkCreateAccountAliasRequest p1 = CreateAccountAlias
-    { _caarAccountAlias = p1
-    }
-{-# INLINE mkCreateAccountAliasRequest #-}
-
+-- | 
 newtype CreateAccountAlias = CreateAccountAlias
-    { _caarAccountAlias :: Text
-      -- ^ Name of the account alias to create.
+    { _caaAccountAlias :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAccountAlias' request.
+mkCreateAccountAlias :: Text -- ^ 'caaAccountAlias'
+                     -> CreateAccountAlias
+mkCreateAccountAlias p1 = CreateAccountAlias
+    { _caaAccountAlias = p1
+    }
+{-# INLINE mkCreateAccountAlias #-}
+
 -- | Name of the account alias to create.
-caarAccountAlias :: Lens' CreateAccountAlias (Text)
-caarAccountAlias = lens _caarAccountAlias (\s a -> s { _caarAccountAlias = a })
-{-# INLINE caarAccountAlias #-}
+caaAccountAlias :: Lens' CreateAccountAlias Text
+caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
+{-# INLINE caaAccountAlias #-}
 
 instance ToQuery CreateAccountAlias where
     toQuery = genericQuery def

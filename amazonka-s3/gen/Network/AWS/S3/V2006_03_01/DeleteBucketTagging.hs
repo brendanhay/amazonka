@@ -23,9 +23,9 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketTagging
     -- * Request
       DeleteBucketTagging
     -- ** Request constructor
-    , mkDeleteBucketTaggingRequest
+    , mkDeleteBucketTagging
     -- ** Request lenses
-    , dbtrBucket
+    , dbtBucket
 
     -- * Response
     , DeleteBucketTaggingResponse
@@ -34,28 +34,29 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketTagging
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype DeleteBucketTagging = DeleteBucketTagging
+    { _dbtBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketTagging' request.
-mkDeleteBucketTaggingRequest :: BucketName -- ^ 'dbtrBucket'
-                             -> DeleteBucketTagging
-mkDeleteBucketTaggingRequest p1 = DeleteBucketTagging
-    { _dbtrBucket = p1
+mkDeleteBucketTagging :: BucketName -- ^ 'dbtBucket'
+                      -> DeleteBucketTagging
+mkDeleteBucketTagging p1 = DeleteBucketTagging
+    { _dbtBucket = p1
     }
-{-# INLINE mkDeleteBucketTaggingRequest #-}
+{-# INLINE mkDeleteBucketTagging #-}
 
-newtype DeleteBucketTagging = DeleteBucketTagging
-    { _dbtrBucket :: BucketName
-    } deriving (Show, Generic)
-
-dbtrBucket :: Lens' DeleteBucketTagging (BucketName)
-dbtrBucket = lens _dbtrBucket (\s a -> s { _dbtrBucket = a })
-{-# INLINE dbtrBucket #-}
+dbtBucket :: Lens' DeleteBucketTagging BucketName
+dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
+{-# INLINE dbtBucket #-}
 
 instance ToPath DeleteBucketTagging where
     toPath DeleteBucketTagging{..} = mconcat
         [ "/"
-        , toBS _dbtrBucket
+        , toBS _dbtBucket
         ]
 
 instance ToQuery DeleteBucketTagging where

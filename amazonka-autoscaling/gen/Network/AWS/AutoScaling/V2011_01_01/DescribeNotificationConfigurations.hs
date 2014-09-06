@@ -24,80 +24,79 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations
     -- * Request
       DescribeNotificationConfigurations
     -- ** Request constructor
-    , mkDescribeNotificationConfigurationsType
+    , mkDescribeNotificationConfigurations
     -- ** Request lenses
-    , dncuAutoScalingGroupNames
-    , dncuNextToken
-    , dncuMaxRecords
+    , dnc1AutoScalingGroupNames
+    , dnc1NextToken
+    , dnc1MaxRecords
 
     -- * Response
     , DescribeNotificationConfigurationsResponse
     -- ** Response lenses
-    , dncaNotificationConfigurations
-    , dncaNextToken
+    , dncrsNotificationConfigurations
+    , dncrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeNotificationConfigurations' request.
-mkDescribeNotificationConfigurationsType :: DescribeNotificationConfigurations
-mkDescribeNotificationConfigurationsType = DescribeNotificationConfigurations
-    { _dncuAutoScalingGroupNames = mempty
-    , _dncuNextToken = Nothing
-    , _dncuMaxRecords = Nothing
-    }
-{-# INLINE mkDescribeNotificationConfigurationsType #-}
-
+-- | 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
-    { _dncuAutoScalingGroupNames :: [Text]
-      -- ^ The name of the Auto Scaling group.
-    , _dncuNextToken :: Maybe Text
-      -- ^ A string that is used to mark the start of the next batch of
-      -- returned results for pagination.
-    , _dncuMaxRecords :: Maybe Integer
-      -- ^ Maximum number of records to be returned.
+    { _dnc1AutoScalingGroupNames :: [Text]
+    , _dnc1NextToken :: Maybe Text
+    , _dnc1MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNotificationConfigurations' request.
+mkDescribeNotificationConfigurations :: DescribeNotificationConfigurations
+mkDescribeNotificationConfigurations = DescribeNotificationConfigurations
+    { _dnc1AutoScalingGroupNames = mempty
+    , _dnc1NextToken = Nothing
+    , _dnc1MaxRecords = Nothing
+    }
+{-# INLINE mkDescribeNotificationConfigurations #-}
+
 -- | The name of the Auto Scaling group.
-dncuAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations ([Text])
-dncuAutoScalingGroupNames = lens _dncuAutoScalingGroupNames (\s a -> s { _dncuAutoScalingGroupNames = a })
-{-# INLINE dncuAutoScalingGroupNames #-}
+dnc1AutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
+dnc1AutoScalingGroupNames =
+    lens _dnc1AutoScalingGroupNames
+         (\s a -> s { _dnc1AutoScalingGroupNames = a })
+{-# INLINE dnc1AutoScalingGroupNames #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dncuNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
-dncuNextToken = lens _dncuNextToken (\s a -> s { _dncuNextToken = a })
-{-# INLINE dncuNextToken #-}
+dnc1NextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
+dnc1NextToken = lens _dnc1NextToken (\s a -> s { _dnc1NextToken = a })
+{-# INLINE dnc1NextToken #-}
 
 -- | Maximum number of records to be returned.
-dncuMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Integer)
-dncuMaxRecords = lens _dncuMaxRecords (\s a -> s { _dncuMaxRecords = a })
-{-# INLINE dncuMaxRecords #-}
+dnc1MaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Integer)
+dnc1MaxRecords = lens _dnc1MaxRecords (\s a -> s { _dnc1MaxRecords = a })
+{-# INLINE dnc1MaxRecords #-}
 
 instance ToQuery DescribeNotificationConfigurations where
     toQuery = genericQuery def
 
+-- | The output of the DescribeNotificationConfigurations action.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
-    { _dncaNotificationConfigurations :: [NotificationConfiguration]
-      -- ^ The list of notification configurations.
-    , _dncaNextToken :: Maybe Text
-      -- ^ A string that is used to mark the start of the next batch of
-      -- returned results for pagination.
+    { _dncrsNotificationConfigurations :: [NotificationConfiguration]
+    , _dncrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of notification configurations.
-dncaNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse ([NotificationConfiguration])
-dncaNotificationConfigurations = lens _dncaNotificationConfigurations (\s a -> s { _dncaNotificationConfigurations = a })
-{-# INLINE dncaNotificationConfigurations #-}
+dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
+dncrsNotificationConfigurations =
+    lens _dncrsNotificationConfigurations
+         (\s a -> s { _dncrsNotificationConfigurations = a })
+{-# INLINE dncrsNotificationConfigurations #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dncaNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
-dncaNextToken = lens _dncaNextToken (\s a -> s { _dncaNextToken = a })
-{-# INLINE dncaNextToken #-}
+dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
+dncrsNextToken = lens _dncrsNextToken (\s a -> s { _dncrsNextToken = a })
+{-# INLINE dncrsNextToken #-}
 
 instance FromXML DescribeNotificationConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -110,5 +109,5 @@ instance AWSRequest DescribeNotificationConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeNotificationConfigurations where
-    next rq rs = (\x -> rq { _dncuNextToken = Just x })
-        <$> (_dncaNextToken rs)
+    next rq rs = (\x -> rq { _dnc1NextToken = Just x })
+        <$> (_dncrsNextToken rs)

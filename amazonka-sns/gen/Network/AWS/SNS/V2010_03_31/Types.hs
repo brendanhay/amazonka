@@ -40,12 +40,14 @@ module Network.AWS.SNS.V2010_03_31.Types
 
     -- * Topic
     , Topic
-    , tcTopicArn
+    , mkTopic
+    , tTopicArn
 
     -- * Endpoint
     , Endpoint
-    , fEndpointArn
-    , fAttributes
+    , mkEndpoint
+    , eEndpointArn
+    , eAttributes
 
     -- * MessageAttributeValue
     , MessageAttributeValue
@@ -56,16 +58,18 @@ module Network.AWS.SNS.V2010_03_31.Types
 
     -- * PlatformApplication
     , PlatformApplication
+    , mkPlatformApplication
     , paPlatformApplicationArn
     , paAttributes
 
     -- * Subscription
     , Subscription
-    , ssnSubscriptionArn
-    , ssnOwner
-    , ssnProtocol
-    , ssnEndpoint
-    , ssnTopicArn
+    , mkSubscription
+    , sSubscriptionArn
+    , sOwner
+    , sProtocol
+    , sEndpoint
+    , sTopicArn
     ) where
 
 import Network.AWS.Prelude
@@ -137,14 +141,21 @@ xmlOptions = Tagged def
 -- | A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a
 -- topic's attributes, use GetTopicAttributes.
 newtype Topic = Topic
-    { _tcTopicArn :: Maybe Text
-      -- ^ The topic's ARN.
+    { _tTopicArn :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Topic' data type to populate a request.
+mkTopic :: Topic
+mkTopic = Topic
+    { _tTopicArn = Nothing
+    }
+{-# INLINE mkTopic #-}
+
 -- | The topic's ARN.
-tcTopicArn :: Lens' Topic (Maybe Text)
-tcTopicArn = lens _tcTopicArn (\s a -> s { _tcTopicArn = a })
-{-# INLINE tcTopicArn #-}
+tTopicArn :: Lens' Topic (Maybe Text)
+tTopicArn = lens _tTopicArn (\s a -> s { _tTopicArn = a })
+{-# INLINE tTopicArn #-}
 
 instance FromXML Topic where
     fromXMLOptions = xmlOptions
@@ -152,21 +163,28 @@ instance FromXML Topic where
 
 -- | Endpoint for mobile app and device.
 data Endpoint = Endpoint
-    { _fEndpointArn :: Maybe Text
-      -- ^ EndpointArn for mobile app and device.
-    , _fAttributes :: Map Text Text
-      -- ^ Attributes for endpoint.
+    { _eEndpointArn :: Maybe Text
+    , _eAttributes :: Map Text Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Endpoint' data type to populate a request.
+mkEndpoint :: Endpoint
+mkEndpoint = Endpoint
+    { _eEndpointArn = Nothing
+    , _eAttributes = mempty
+    }
+{-# INLINE mkEndpoint #-}
+
 -- | EndpointArn for mobile app and device.
-fEndpointArn :: Lens' Endpoint (Maybe Text)
-fEndpointArn = lens _fEndpointArn (\s a -> s { _fEndpointArn = a })
-{-# INLINE fEndpointArn #-}
+eEndpointArn :: Lens' Endpoint (Maybe Text)
+eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
+{-# INLINE eEndpointArn #-}
 
 -- | Attributes for endpoint.
-fAttributes :: Lens' Endpoint (Map Text Text)
-fAttributes = lens _fAttributes (\s a -> s { _fAttributes = a })
-{-# INLINE fAttributes #-}
+eAttributes :: Lens' Endpoint (Map Text Text)
+eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a })
+{-# INLINE eAttributes #-}
 
 instance FromXML Endpoint where
     fromXMLOptions = xmlOptions
@@ -182,21 +200,24 @@ instance FromXML Endpoint where
 -- Attributes.
 data MessageAttributeValue = MessageAttributeValue
     { _mavDataType :: Text
-      -- ^ Amazon SNS supports the following logical data types: String,
-      -- Number, and Binary. For more information, see Message Attribute
-      -- Data Types.
     , _mavStringValue :: Maybe Text
-      -- ^ Strings are Unicode with UTF8 binary encoding. For a list of code
-      -- values, see
-      -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
     , _mavBinaryValue :: Maybe ByteString
-      -- ^ Binary type attributes can store any binary data, for example,
-      -- compressed data, encrypted data, or images.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'MessageAttributeValue' data type to populate a request.
+mkMessageAttributeValue :: Text -- ^ 'mavDataType'
+                        -> MessageAttributeValue
+mkMessageAttributeValue p1 = MessageAttributeValue
+    { _mavDataType = p1
+    , _mavStringValue = Nothing
+    , _mavBinaryValue = Nothing
+    }
+{-# INLINE mkMessageAttributeValue #-}
 
 -- | Amazon SNS supports the following logical data types: String, Number, and
 -- Binary. For more information, see Message Attribute Data Types.
-mavDataType :: Lens' MessageAttributeValue (Text)
+mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
 {-# INLINE mavDataType #-}
 
@@ -212,31 +233,29 @@ mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
 {-# INLINE mavBinaryValue #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'MessageAttributeValue' data type to populate a request.
-mkMessageAttributeValue :: Text -- ^ 'mavDataType'
-                        -> MessageAttributeValue
-mkMessageAttributeValue p1 = MessageAttributeValue
-    { _mavDataType = p1
-    , _mavStringValue = Nothing
-    , _mavBinaryValue = Nothing
-    }
-{-# INLINE mkMessageAttributeValue #-}
-
 instance ToQuery MessageAttributeValue where
     toQuery = genericQuery def
 
 -- | Platform application object.
 data PlatformApplication = PlatformApplication
     { _paPlatformApplicationArn :: Maybe Text
-      -- ^ PlatformApplicationArn for platform application object.
     , _paAttributes :: Map Text Text
-      -- ^ Attributes for platform application object.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PlatformApplication' data type to populate a request.
+mkPlatformApplication :: PlatformApplication
+mkPlatformApplication = PlatformApplication
+    { _paPlatformApplicationArn = Nothing
+    , _paAttributes = mempty
+    }
+{-# INLINE mkPlatformApplication #-}
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationArn :: Lens' PlatformApplication (Maybe Text)
-paPlatformApplicationArn = lens _paPlatformApplicationArn (\s a -> s { _paPlatformApplicationArn = a })
+paPlatformApplicationArn =
+    lens _paPlatformApplicationArn
+         (\s a -> s { _paPlatformApplicationArn = a })
 {-# INLINE paPlatformApplicationArn #-}
 
 -- | Attributes for platform application object.
@@ -250,42 +269,50 @@ instance FromXML PlatformApplication where
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 data Subscription = Subscription
-    { _ssnSubscriptionArn :: Maybe Text
-      -- ^ The subscription's ARN.
-    , _ssnOwner :: Maybe Text
-      -- ^ The subscription's owner.
-    , _ssnProtocol :: Maybe Text
-      -- ^ The subscription's protocol.
-    , _ssnEndpoint :: Maybe Text
-      -- ^ The subscription's endpoint (format depends on the protocol).
-    , _ssnTopicArn :: Maybe Text
-      -- ^ The ARN of the subscription's topic.
+    { _sSubscriptionArn :: Maybe Text
+    , _sOwner :: Maybe Text
+    , _sProtocol :: Maybe Text
+    , _sEndpoint :: Maybe Text
+    , _sTopicArn :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Subscription' data type to populate a request.
+mkSubscription :: Subscription
+mkSubscription = Subscription
+    { _sSubscriptionArn = Nothing
+    , _sOwner = Nothing
+    , _sProtocol = Nothing
+    , _sEndpoint = Nothing
+    , _sTopicArn = Nothing
+    }
+{-# INLINE mkSubscription #-}
+
 -- | The subscription's ARN.
-ssnSubscriptionArn :: Lens' Subscription (Maybe Text)
-ssnSubscriptionArn = lens _ssnSubscriptionArn (\s a -> s { _ssnSubscriptionArn = a })
-{-# INLINE ssnSubscriptionArn #-}
+sSubscriptionArn :: Lens' Subscription (Maybe Text)
+sSubscriptionArn =
+    lens _sSubscriptionArn (\s a -> s { _sSubscriptionArn = a })
+{-# INLINE sSubscriptionArn #-}
 
 -- | The subscription's owner.
-ssnOwner :: Lens' Subscription (Maybe Text)
-ssnOwner = lens _ssnOwner (\s a -> s { _ssnOwner = a })
-{-# INLINE ssnOwner #-}
+sOwner :: Lens' Subscription (Maybe Text)
+sOwner = lens _sOwner (\s a -> s { _sOwner = a })
+{-# INLINE sOwner #-}
 
 -- | The subscription's protocol.
-ssnProtocol :: Lens' Subscription (Maybe Text)
-ssnProtocol = lens _ssnProtocol (\s a -> s { _ssnProtocol = a })
-{-# INLINE ssnProtocol #-}
+sProtocol :: Lens' Subscription (Maybe Text)
+sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
+{-# INLINE sProtocol #-}
 
 -- | The subscription's endpoint (format depends on the protocol).
-ssnEndpoint :: Lens' Subscription (Maybe Text)
-ssnEndpoint = lens _ssnEndpoint (\s a -> s { _ssnEndpoint = a })
-{-# INLINE ssnEndpoint #-}
+sEndpoint :: Lens' Subscription (Maybe Text)
+sEndpoint = lens _sEndpoint (\s a -> s { _sEndpoint = a })
+{-# INLINE sEndpoint #-}
 
 -- | The ARN of the subscription's topic.
-ssnTopicArn :: Lens' Subscription (Maybe Text)
-ssnTopicArn = lens _ssnTopicArn (\s a -> s { _ssnTopicArn = a })
-{-# INLINE ssnTopicArn #-}
+sTopicArn :: Lens' Subscription (Maybe Text)
+sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
+{-# INLINE sTopicArn #-}
 
 instance FromXML Subscription where
     fromXMLOptions = xmlOptions

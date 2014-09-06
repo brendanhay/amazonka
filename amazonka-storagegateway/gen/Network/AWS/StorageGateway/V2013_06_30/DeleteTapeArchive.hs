@@ -22,14 +22,14 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive
     -- * Request
       DeleteTapeArchive
     -- ** Request constructor
-    , mkDeleteTapeArchiveInput
+    , mkDeleteTapeArchive
     -- ** Request lenses
-    , dtaiTapeARN
+    , dtaTapeARN
 
     -- * Response
     , DeleteTapeArchiveResponse
     -- ** Response lenses
-    , dtaoTapeARN
+    , dtarsTapeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -37,22 +37,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTapeArchive' request.
-mkDeleteTapeArchiveInput :: Text -- ^ 'dtaiTapeARN'
-                         -> DeleteTapeArchive
-mkDeleteTapeArchiveInput p1 = DeleteTapeArchive
-    { _dtaiTapeARN = p1
-    }
-{-# INLINE mkDeleteTapeArchiveInput #-}
-
 newtype DeleteTapeArchive = DeleteTapeArchive
-    { _dtaiTapeARN :: Text
+    { _dtaTapeARN :: Text
     } deriving (Show, Generic)
 
-dtaiTapeARN :: Lens' DeleteTapeArchive (Text)
-dtaiTapeARN = lens _dtaiTapeARN (\s a -> s { _dtaiTapeARN = a })
-{-# INLINE dtaiTapeARN #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTapeArchive' request.
+mkDeleteTapeArchive :: Text -- ^ 'dtaTapeARN'
+                    -> DeleteTapeArchive
+mkDeleteTapeArchive p1 = DeleteTapeArchive
+    { _dtaTapeARN = p1
+    }
+{-# INLINE mkDeleteTapeArchive #-}
+
+dtaTapeARN :: Lens' DeleteTapeArchive Text
+dtaTapeARN = lens _dtaTapeARN (\s a -> s { _dtaTapeARN = a })
+{-# INLINE dtaTapeARN #-}
 
 instance ToPath DeleteTapeArchive
 
@@ -63,12 +63,12 @@ instance ToHeaders DeleteTapeArchive
 instance ToJSON DeleteTapeArchive
 
 newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
-    { _dtaoTapeARN :: Maybe Text
+    { _dtarsTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dtaoTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
-dtaoTapeARN = lens _dtaoTapeARN (\s a -> s { _dtaoTapeARN = a })
-{-# INLINE dtaoTapeARN #-}
+dtarsTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
+dtarsTapeARN = lens _dtarsTapeARN (\s a -> s { _dtarsTapeARN = a })
+{-# INLINE dtarsTapeARN #-}
 
 instance FromJSON DeleteTapeArchiveResponse
 

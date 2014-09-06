@@ -29,16 +29,16 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
     -- * Request
       ListIdentityPools
     -- ** Request constructor
-    , mkListIdentityPoolsInput
+    , mkListIdentityPools
     -- ** Request lenses
-    , lipiMaxResults
-    , lipiNextToken
+    , lipMaxResults
+    , lipNextToken
 
     -- * Response
     , ListIdentityPoolsResponse
     -- ** Response lenses
-    , liprIdentityPools
-    , liprNextToken
+    , liprsIdentityPools
+    , liprsNextToken
     ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -46,32 +46,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListIdentityPools' request.
-mkListIdentityPoolsInput :: Integer -- ^ 'lipiMaxResults'
-                         -> ListIdentityPools
-mkListIdentityPoolsInput p1 = ListIdentityPools
-    { _lipiMaxResults = p1
-    , _lipiNextToken = Nothing
-    }
-{-# INLINE mkListIdentityPoolsInput #-}
-
+-- | Input to the ListIdentityPools action.
 data ListIdentityPools = ListIdentityPools
-    { _lipiMaxResults :: Integer
-      -- ^ The maximum number of identities to return.
-    , _lipiNextToken :: Maybe Text
-      -- ^ A pagination token.
+    { _lipMaxResults :: Integer
+    , _lipNextToken :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentityPools' request.
+mkListIdentityPools :: Integer -- ^ 'lipMaxResults'
+                    -> ListIdentityPools
+mkListIdentityPools p1 = ListIdentityPools
+    { _lipMaxResults = p1
+    , _lipNextToken = Nothing
+    }
+{-# INLINE mkListIdentityPools #-}
+
 -- | The maximum number of identities to return.
-lipiMaxResults :: Lens' ListIdentityPools (Integer)
-lipiMaxResults = lens _lipiMaxResults (\s a -> s { _lipiMaxResults = a })
-{-# INLINE lipiMaxResults #-}
+lipMaxResults :: Lens' ListIdentityPools Integer
+lipMaxResults = lens _lipMaxResults (\s a -> s { _lipMaxResults = a })
+{-# INLINE lipMaxResults #-}
 
 -- | A pagination token.
-lipiNextToken :: Lens' ListIdentityPools (Maybe Text)
-lipiNextToken = lens _lipiNextToken (\s a -> s { _lipiNextToken = a })
-{-# INLINE lipiNextToken #-}
+lipNextToken :: Lens' ListIdentityPools (Maybe Text)
+lipNextToken = lens _lipNextToken (\s a -> s { _lipNextToken = a })
+{-# INLINE lipNextToken #-}
 
 instance ToPath ListIdentityPools
 
@@ -81,22 +80,22 @@ instance ToHeaders ListIdentityPools
 
 instance ToJSON ListIdentityPools
 
+-- | The result of a successful ListIdentityPools action.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse
-    { _liprIdentityPools :: [IdentityPoolShortDescription]
-      -- ^ The identity pools returned by the ListIdentityPools action.
-    , _liprNextToken :: Maybe Text
-      -- ^ A pagination token.
+    { _liprsIdentityPools :: [IdentityPoolShortDescription]
+    , _liprsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The identity pools returned by the ListIdentityPools action.
-liprIdentityPools :: Lens' ListIdentityPoolsResponse ([IdentityPoolShortDescription])
-liprIdentityPools = lens _liprIdentityPools (\s a -> s { _liprIdentityPools = a })
-{-# INLINE liprIdentityPools #-}
+liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
+liprsIdentityPools =
+    lens _liprsIdentityPools (\s a -> s { _liprsIdentityPools = a })
+{-# INLINE liprsIdentityPools #-}
 
 -- | A pagination token.
-liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
-liprNextToken = lens _liprNextToken (\s a -> s { _liprNextToken = a })
-{-# INLINE liprNextToken #-}
+liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
+liprsNextToken = lens _liprsNextToken (\s a -> s { _liprsNextToken = a })
+{-# INLINE liprsNextToken #-}
 
 instance FromJSON ListIdentityPoolsResponse
 

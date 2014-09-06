@@ -30,57 +30,56 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBSnapshot
     -- * Request
       DeleteDBSnapshot
     -- ** Request constructor
-    , mkDeleteDBSnapshotMessage
+    , mkDeleteDBSnapshot
     -- ** Request lenses
-    , ddbsmDBSnapshotIdentifier
+    , ddbsDBSnapshotIdentifier
 
     -- * Response
     , DeleteDBSnapshotResponse
     -- ** Response lenses
-    , dbsyDBSnapshot
+    , ddbsrsDBSnapshot
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DeleteDBSnapshot = DeleteDBSnapshot
+    { _ddbsDBSnapshotIdentifier :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBSnapshot' request.
-mkDeleteDBSnapshotMessage :: Text -- ^ 'ddbsmDBSnapshotIdentifier'
-                          -> DeleteDBSnapshot
-mkDeleteDBSnapshotMessage p1 = DeleteDBSnapshot
-    { _ddbsmDBSnapshotIdentifier = p1
+mkDeleteDBSnapshot :: Text -- ^ 'ddbsDBSnapshotIdentifier'
+                   -> DeleteDBSnapshot
+mkDeleteDBSnapshot p1 = DeleteDBSnapshot
+    { _ddbsDBSnapshotIdentifier = p1
     }
-{-# INLINE mkDeleteDBSnapshotMessage #-}
-
-newtype DeleteDBSnapshot = DeleteDBSnapshot
-    { _ddbsmDBSnapshotIdentifier :: Text
-      -- ^ The DBSnapshot identifier. Constraints: Must be the name of an
-      -- existing DB snapshot in the available state.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteDBSnapshot #-}
 
 -- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB
 -- snapshot in the available state.
-ddbsmDBSnapshotIdentifier :: Lens' DeleteDBSnapshot (Text)
-ddbsmDBSnapshotIdentifier = lens _ddbsmDBSnapshotIdentifier (\s a -> s { _ddbsmDBSnapshotIdentifier = a })
-{-# INLINE ddbsmDBSnapshotIdentifier #-}
+ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
+ddbsDBSnapshotIdentifier =
+    lens _ddbsDBSnapshotIdentifier
+         (\s a -> s { _ddbsDBSnapshotIdentifier = a })
+{-# INLINE ddbsDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBSnapshot where
     toQuery = genericQuery def
 
 newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
-    { _dbsyDBSnapshot :: Maybe DBSnapshot
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBSnapshot DeleteDBSnapshot This data type is used
-      -- as a response element in the DescribeDBSnapshots action.
+    { _ddbsrsDBSnapshot :: Maybe DBSnapshot
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
-dbsyDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
-dbsyDBSnapshot = lens _dbsyDBSnapshot (\s a -> s { _dbsyDBSnapshot = a })
-{-# INLINE dbsyDBSnapshot #-}
+ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
+ddbsrsDBSnapshot =
+    lens _ddbsrsDBSnapshot (\s a -> s { _ddbsrsDBSnapshot = a })
+{-# INLINE ddbsrsDBSnapshot #-}
 
 instance FromXML DeleteDBSnapshotResponse where
     fromXMLOptions = xmlOptions

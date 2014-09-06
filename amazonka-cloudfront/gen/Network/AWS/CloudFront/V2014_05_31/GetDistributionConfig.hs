@@ -23,44 +23,45 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig
     -- * Request
       GetDistributionConfig
     -- ** Request constructor
-    , mkGetDistributionConfigRequest
+    , mkGetDistributionConfig
     -- ** Request lenses
-    , gdcrId
+    , gdcId
 
     -- * Response
     , GetDistributionConfigResponse
     -- ** Response lenses
-    , gdcsDistributionConfig
-    , gdcsETag
+    , gdcrsDistributionConfig
+    , gdcrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to get a distribution configuration.
+newtype GetDistributionConfig = GetDistributionConfig
+    { _gdcId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistributionConfig' request.
-mkGetDistributionConfigRequest :: Text -- ^ 'gdcrId'
-                               -> GetDistributionConfig
-mkGetDistributionConfigRequest p1 = GetDistributionConfig
-    { _gdcrId = p1
+mkGetDistributionConfig :: Text -- ^ 'gdcId'
+                        -> GetDistributionConfig
+mkGetDistributionConfig p1 = GetDistributionConfig
+    { _gdcId = p1
     }
-{-# INLINE mkGetDistributionConfigRequest #-}
-
-newtype GetDistributionConfig = GetDistributionConfig
-    { _gdcrId :: Text
-      -- ^ The distribution's id.
-    } deriving (Show, Generic)
+{-# INLINE mkGetDistributionConfig #-}
 
 -- | The distribution's id.
-gdcrId :: Lens' GetDistributionConfig (Text)
-gdcrId = lens _gdcrId (\s a -> s { _gdcrId = a })
-{-# INLINE gdcrId #-}
+gdcId :: Lens' GetDistributionConfig Text
+gdcId = lens _gdcId (\s a -> s { _gdcId = a })
+{-# INLINE gdcId #-}
 
 instance ToPath GetDistributionConfig where
     toPath GetDistributionConfig{..} = mconcat
         [ "/2014-05-31/distribution/"
-        , toBS _gdcrId
+        , toBS _gdcId
         , "/config"
         ]
 
@@ -72,23 +73,23 @@ instance ToXML GetDistributionConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetDistributionConfigRequest"
 
+-- | The returned result of the corresponding request.
 data GetDistributionConfigResponse = GetDistributionConfigResponse
-    { _gdcsDistributionConfig :: Maybe DistributionConfig
-      -- ^ The distribution's configuration information.
-    , _gdcsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
+    { _gdcrsDistributionConfig :: Maybe DistributionConfig
+    , _gdcrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's configuration information.
-gdcsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcsDistributionConfig = lens _gdcsDistributionConfig (\s a -> s { _gdcsDistributionConfig = a })
-{-# INLINE gdcsDistributionConfig #-}
+gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
+gdcrsDistributionConfig =
+    lens _gdcrsDistributionConfig
+         (\s a -> s { _gdcrsDistributionConfig = a })
+{-# INLINE gdcrsDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gdcsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcsETag = lens _gdcsETag (\s a -> s { _gdcsETag = a })
-{-# INLINE gdcsETag #-}
+gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
+gdcrsETag = lens _gdcrsETag (\s a -> s { _gdcrsETag = a })
+{-# INLINE gdcrsETag #-}
 
 instance AWSRequest GetDistributionConfig where
     type Sv GetDistributionConfig = CloudFront

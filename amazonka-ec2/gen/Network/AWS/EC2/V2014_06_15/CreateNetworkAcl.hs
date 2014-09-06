@@ -35,51 +35,51 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkAcl
     -- * Request
       CreateNetworkAcl
     -- ** Request constructor
-    , mkCreateNetworkAclRequest
+    , mkCreateNetworkAcl
     -- ** Request lenses
-    , cnarVpcId
+    , cnaVpcId
 
     -- * Response
     , CreateNetworkAclResponse
     -- ** Response lenses
-    , cnasNetworkAcl
+    , cnarsNetworkAcl
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateNetworkAcl' request.
-mkCreateNetworkAclRequest :: Text -- ^ 'cnarVpcId'
-                          -> CreateNetworkAcl
-mkCreateNetworkAclRequest p1 = CreateNetworkAcl
-    { _cnarVpcId = p1
-    }
-{-# INLINE mkCreateNetworkAclRequest #-}
-
+-- | 
 newtype CreateNetworkAcl = CreateNetworkAcl
-    { _cnarVpcId :: Text
-      -- ^ The ID of the VPC.
+    { _cnaVpcId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateNetworkAcl' request.
+mkCreateNetworkAcl :: Text -- ^ 'cnaVpcId'
+                   -> CreateNetworkAcl
+mkCreateNetworkAcl p1 = CreateNetworkAcl
+    { _cnaVpcId = p1
+    }
+{-# INLINE mkCreateNetworkAcl #-}
+
 -- | The ID of the VPC.
-cnarVpcId :: Lens' CreateNetworkAcl (Text)
-cnarVpcId = lens _cnarVpcId (\s a -> s { _cnarVpcId = a })
-{-# INLINE cnarVpcId #-}
+cnaVpcId :: Lens' CreateNetworkAcl Text
+cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
+{-# INLINE cnaVpcId #-}
 
 instance ToQuery CreateNetworkAcl where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
-    { _cnasNetworkAcl :: Maybe NetworkAcl
-      -- ^ Information about the network ACL.
+    { _cnarsNetworkAcl :: Maybe NetworkAcl
     } deriving (Show, Generic)
 
 -- | Information about the network ACL.
-cnasNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
-cnasNetworkAcl = lens _cnasNetworkAcl (\s a -> s { _cnasNetworkAcl = a })
-{-# INLINE cnasNetworkAcl #-}
+cnarsNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
+cnarsNetworkAcl = lens _cnarsNetworkAcl (\s a -> s { _cnarsNetworkAcl = a })
+{-# INLINE cnarsNetworkAcl #-}
 
 instance FromXML CreateNetworkAclResponse where
     fromXMLOptions = xmlOptions

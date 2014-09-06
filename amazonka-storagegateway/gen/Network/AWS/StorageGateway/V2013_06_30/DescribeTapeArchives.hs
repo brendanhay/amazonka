@@ -22,17 +22,17 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
     -- * Request
       DescribeTapeArchives
     -- ** Request constructor
-    , mkDescribeTapeArchivesInput
+    , mkDescribeTapeArchives
     -- ** Request lenses
-    , dtajTapeARNs
-    , dtajMarker
-    , dtajLimit
+    , dta1TapeARNs
+    , dta1Marker
+    , dta1Limit
 
     -- * Response
     , DescribeTapeArchivesResponse
     -- ** Response lenses
-    , dtapTapeArchives
-    , dtapMarker
+    , dtarsrsTapeArchives
+    , dtarsrsMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -40,33 +40,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTapeArchives' request.
-mkDescribeTapeArchivesInput :: DescribeTapeArchives
-mkDescribeTapeArchivesInput = DescribeTapeArchives
-    { _dtajTapeARNs = mempty
-    , _dtajMarker = Nothing
-    , _dtajLimit = Nothing
-    }
-{-# INLINE mkDescribeTapeArchivesInput #-}
-
 data DescribeTapeArchives = DescribeTapeArchives
-    { _dtajTapeARNs :: [Text]
-    , _dtajMarker :: Maybe Text
-    , _dtajLimit :: Maybe Integer
+    { _dta1TapeARNs :: [Text]
+    , _dta1Marker :: Maybe Text
+    , _dta1Limit :: Maybe Integer
     } deriving (Show, Generic)
 
-dtajTapeARNs :: Lens' DescribeTapeArchives ([Text])
-dtajTapeARNs = lens _dtajTapeARNs (\s a -> s { _dtajTapeARNs = a })
-{-# INLINE dtajTapeARNs #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTapeArchives' request.
+mkDescribeTapeArchives :: DescribeTapeArchives
+mkDescribeTapeArchives = DescribeTapeArchives
+    { _dta1TapeARNs = mempty
+    , _dta1Marker = Nothing
+    , _dta1Limit = Nothing
+    }
+{-# INLINE mkDescribeTapeArchives #-}
 
-dtajMarker :: Lens' DescribeTapeArchives (Maybe Text)
-dtajMarker = lens _dtajMarker (\s a -> s { _dtajMarker = a })
-{-# INLINE dtajMarker #-}
+dta1TapeARNs :: Lens' DescribeTapeArchives [Text]
+dta1TapeARNs = lens _dta1TapeARNs (\s a -> s { _dta1TapeARNs = a })
+{-# INLINE dta1TapeARNs #-}
 
-dtajLimit :: Lens' DescribeTapeArchives (Maybe Integer)
-dtajLimit = lens _dtajLimit (\s a -> s { _dtajLimit = a })
-{-# INLINE dtajLimit #-}
+dta1Marker :: Lens' DescribeTapeArchives (Maybe Text)
+dta1Marker = lens _dta1Marker (\s a -> s { _dta1Marker = a })
+{-# INLINE dta1Marker #-}
+
+dta1Limit :: Lens' DescribeTapeArchives (Maybe Integer)
+dta1Limit = lens _dta1Limit (\s a -> s { _dta1Limit = a })
+{-# INLINE dta1Limit #-}
 
 instance ToPath DescribeTapeArchives
 
@@ -77,17 +77,18 @@ instance ToHeaders DescribeTapeArchives
 instance ToJSON DescribeTapeArchives
 
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
-    { _dtapTapeArchives :: [TapeArchive]
-    , _dtapMarker :: Maybe Text
+    { _dtarsrsTapeArchives :: [TapeArchive]
+    , _dtarsrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
-dtapTapeArchives :: Lens' DescribeTapeArchivesResponse ([TapeArchive])
-dtapTapeArchives = lens _dtapTapeArchives (\s a -> s { _dtapTapeArchives = a })
-{-# INLINE dtapTapeArchives #-}
+dtarsrsTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
+dtarsrsTapeArchives =
+    lens _dtarsrsTapeArchives (\s a -> s { _dtarsrsTapeArchives = a })
+{-# INLINE dtarsrsTapeArchives #-}
 
-dtapMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
-dtapMarker = lens _dtapMarker (\s a -> s { _dtapMarker = a })
-{-# INLINE dtapMarker #-}
+dtarsrsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
+dtarsrsMarker = lens _dtarsrsMarker (\s a -> s { _dtarsrsMarker = a })
+{-# INLINE dtarsrsMarker #-}
 
 instance FromJSON DescribeTapeArchivesResponse
 
@@ -99,5 +100,5 @@ instance AWSRequest DescribeTapeArchives where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapeArchives where
-    next rq rs = (\x -> rq { _dtajMarker = Just x })
-        <$> (_dtapMarker rs)
+    next rq rs = (\x -> rq { _dta1Marker = Just x })
+        <$> (_dtarsrsMarker rs)

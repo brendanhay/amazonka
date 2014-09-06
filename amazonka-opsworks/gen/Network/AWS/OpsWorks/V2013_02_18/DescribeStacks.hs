@@ -27,14 +27,14 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStacks
     -- * Request
       DescribeStacks
     -- ** Request constructor
-    , mkDescribeStacksRequest
+    , mkDescribeStacks
     -- ** Request lenses
-    , dssStackIds
+    , ds2StackIds
 
     -- * Response
     , DescribeStacksResponse
     -- ** Response lenses
-    , dstStacks
+    , dsrsStacks
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -42,26 +42,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+newtype DescribeStacks = DescribeStacks
+    { _ds2StackIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStacks' request.
-mkDescribeStacksRequest :: DescribeStacks
-mkDescribeStacksRequest = DescribeStacks
-    { _dssStackIds = mempty
+mkDescribeStacks :: DescribeStacks
+mkDescribeStacks = DescribeStacks
+    { _ds2StackIds = mempty
     }
-{-# INLINE mkDescribeStacksRequest #-}
-
-newtype DescribeStacks = DescribeStacks
-    { _dssStackIds :: [Text]
-      -- ^ An array of stack IDs that specify the stacks to be described. If
-      -- you omit this parameter, DescribeStacks returns a description of
-      -- every stack.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeStacks #-}
 
 -- | An array of stack IDs that specify the stacks to be described. If you omit
 -- this parameter, DescribeStacks returns a description of every stack.
-dssStackIds :: Lens' DescribeStacks ([Text])
-dssStackIds = lens _dssStackIds (\s a -> s { _dssStackIds = a })
-{-# INLINE dssStackIds #-}
+ds2StackIds :: Lens' DescribeStacks [Text]
+ds2StackIds = lens _ds2StackIds (\s a -> s { _ds2StackIds = a })
+{-# INLINE ds2StackIds #-}
 
 instance ToPath DescribeStacks
 
@@ -71,15 +68,15 @@ instance ToHeaders DescribeStacks
 
 instance ToJSON DescribeStacks
 
+-- | Contains the response to a DescribeStacks request.
 newtype DescribeStacksResponse = DescribeStacksResponse
-    { _dstStacks :: [Stack]
-      -- ^ An array of Stack objects that describe the stacks.
+    { _dsrsStacks :: [Stack]
     } deriving (Show, Generic)
 
 -- | An array of Stack objects that describe the stacks.
-dstStacks :: Lens' DescribeStacksResponse ([Stack])
-dstStacks = lens _dstStacks (\s a -> s { _dstStacks = a })
-{-# INLINE dstStacks #-}
+dsrsStacks :: Lens' DescribeStacksResponse [Stack]
+dsrsStacks = lens _dsrsStacks (\s a -> s { _dsrsStacks = a })
+{-# INLINE dsrsStacks #-}
 
 instance FromJSON DescribeStacksResponse
 

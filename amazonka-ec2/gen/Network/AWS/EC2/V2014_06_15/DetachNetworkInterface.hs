@@ -30,10 +30,10 @@ module Network.AWS.EC2.V2014_06_15.DetachNetworkInterface
     -- * Request
       DetachNetworkInterface
     -- ** Request constructor
-    , mkDetachNetworkInterfaceRequest
+    , mkDetachNetworkInterface
     -- ** Request lenses
-    , dniuAttachmentId
-    , dniuForce
+    , dni2AttachmentId
+    , dni2Force
 
     -- * Response
     , DetachNetworkInterfaceResponse
@@ -43,32 +43,32 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachNetworkInterface' request.
-mkDetachNetworkInterfaceRequest :: Text -- ^ 'dniuAttachmentId'
-                                -> DetachNetworkInterface
-mkDetachNetworkInterfaceRequest p1 = DetachNetworkInterface
-    { _dniuAttachmentId = p1
-    , _dniuForce = Nothing
-    }
-{-# INLINE mkDetachNetworkInterfaceRequest #-}
-
+-- | 
 data DetachNetworkInterface = DetachNetworkInterface
-    { _dniuAttachmentId :: Text
-      -- ^ The ID of the attachment.
-    , _dniuForce :: Maybe Bool
-      -- ^ Specifies whether to force a detachment.
+    { _dni2AttachmentId :: Text
+    , _dni2Force :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachNetworkInterface' request.
+mkDetachNetworkInterface :: Text -- ^ 'dni2AttachmentId'
+                         -> DetachNetworkInterface
+mkDetachNetworkInterface p1 = DetachNetworkInterface
+    { _dni2AttachmentId = p1
+    , _dni2Force = Nothing
+    }
+{-# INLINE mkDetachNetworkInterface #-}
+
 -- | The ID of the attachment.
-dniuAttachmentId :: Lens' DetachNetworkInterface (Text)
-dniuAttachmentId = lens _dniuAttachmentId (\s a -> s { _dniuAttachmentId = a })
-{-# INLINE dniuAttachmentId #-}
+dni2AttachmentId :: Lens' DetachNetworkInterface Text
+dni2AttachmentId =
+    lens _dni2AttachmentId (\s a -> s { _dni2AttachmentId = a })
+{-# INLINE dni2AttachmentId #-}
 
 -- | Specifies whether to force a detachment.
-dniuForce :: Lens' DetachNetworkInterface (Maybe Bool)
-dniuForce = lens _dniuForce (\s a -> s { _dniuForce = a })
-{-# INLINE dniuForce #-}
+dni2Force :: Lens' DetachNetworkInterface (Maybe Bool)
+dni2Force = lens _dni2Force (\s a -> s { _dni2Force = a })
+{-# INLINE dni2Force #-}
 
 instance ToQuery DetachNetworkInterface where
     toQuery = genericQuery def

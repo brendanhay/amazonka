@@ -23,58 +23,56 @@ module Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
     -- * Request
       BuildSuggesters
     -- ** Request constructor
-    , mkBuildSuggestersRequest
+    , mkBuildSuggesters
     -- ** Request lenses
-    , bsrDomainName
+    , bsDomainName
 
     -- * Response
     , BuildSuggestersResponse
     -- ** Response lenses
-    , bssFieldNames
+    , bsrsFieldNames
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the BuildSuggester operation. Specifies the
+-- name of the domain you want to update.
+newtype BuildSuggesters = BuildSuggesters
+    { _bsDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BuildSuggesters' request.
-mkBuildSuggestersRequest :: Text -- ^ 'bsrDomainName'
-                         -> BuildSuggesters
-mkBuildSuggestersRequest p1 = BuildSuggesters
-    { _bsrDomainName = p1
+mkBuildSuggesters :: Text -- ^ 'bsDomainName'
+                  -> BuildSuggesters
+mkBuildSuggesters p1 = BuildSuggesters
+    { _bsDomainName = p1
     }
-{-# INLINE mkBuildSuggestersRequest #-}
-
-newtype BuildSuggesters = BuildSuggesters
-    { _bsrDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    } deriving (Show, Generic)
+{-# INLINE mkBuildSuggesters #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-bsrDomainName :: Lens' BuildSuggesters (Text)
-bsrDomainName = lens _bsrDomainName (\s a -> s { _bsrDomainName = a })
-{-# INLINE bsrDomainName #-}
+bsDomainName :: Lens' BuildSuggesters Text
+bsDomainName = lens _bsDomainName (\s a -> s { _bsDomainName = a })
+{-# INLINE bsDomainName #-}
 
 instance ToQuery BuildSuggesters where
     toQuery = genericQuery def
 
+-- | The result of a BuildSuggester request. Contains a list of the fields used
+-- for suggestions.
 newtype BuildSuggestersResponse = BuildSuggestersResponse
-    { _bssFieldNames :: [Text]
-      -- ^ A list of field names.
+    { _bsrsFieldNames :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of field names.
-bssFieldNames :: Lens' BuildSuggestersResponse ([Text])
-bssFieldNames = lens _bssFieldNames (\s a -> s { _bssFieldNames = a })
-{-# INLINE bssFieldNames #-}
+bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
+bsrsFieldNames = lens _bsrsFieldNames (\s a -> s { _bsrsFieldNames = a })
+{-# INLINE bsrsFieldNames #-}
 
 instance FromXML BuildSuggestersResponse where
     fromXMLOptions = xmlOptions

@@ -38,12 +38,12 @@ module Network.AWS.SNS.V2010_03_31.AddPermission
     -- * Request
       AddPermission
     -- ** Request constructor
-    , mkAddPermissionInput
+    , mkAddPermission
     -- ** Request lenses
-    , apiTopicArn
-    , apiLabel
-    , apiAWSAccountId
-    , apiActionName
+    , apTopicArn
+    , apLabel
+    , apAWSAccountId
+    , apActionName
 
     -- * Response
     , AddPermissionResponse
@@ -53,58 +53,50 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddPermission' request.
-mkAddPermissionInput :: Text -- ^ 'apiTopicArn'
-                     -> Text -- ^ 'apiLabel'
-                     -> [Text] -- ^ 'apiAWSAccountId'
-                     -> [Text] -- ^ 'apiActionName'
-                     -> AddPermission
-mkAddPermissionInput p1 p2 p3 p4 = AddPermission
-    { _apiTopicArn = p1
-    , _apiLabel = p2
-    , _apiAWSAccountId = p3
-    , _apiActionName = p4
-    }
-{-# INLINE mkAddPermissionInput #-}
-
 data AddPermission = AddPermission
-    { _apiTopicArn :: Text
-      -- ^ The ARN of the topic whose access control policy you wish to
-      -- modify.
-    , _apiLabel :: Text
-      -- ^ A unique identifier for the new policy statement.
-    , _apiAWSAccountId :: [Text]
-      -- ^ The AWS account IDs of the users (principals) who will be given
-      -- access to the specified actions. The users must have AWS
-      -- accounts, but do not need to be signed up for this service.
-    , _apiActionName :: [Text]
-      -- ^ The action you want to allow for the specified principal(s).
-      -- Valid values: any Amazon SNS action name.
+    { _apTopicArn :: Text
+    , _apLabel :: Text
+    , _apAWSAccountId :: [Text]
+    , _apActionName :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddPermission' request.
+mkAddPermission :: Text -- ^ 'apTopicArn'
+                -> Text -- ^ 'apLabel'
+                -> [Text] -- ^ 'apAWSAccountId'
+                -> [Text] -- ^ 'apActionName'
+                -> AddPermission
+mkAddPermission p1 p2 p3 p4 = AddPermission
+    { _apTopicArn = p1
+    , _apLabel = p2
+    , _apAWSAccountId = p3
+    , _apActionName = p4
+    }
+{-# INLINE mkAddPermission #-}
+
 -- | The ARN of the topic whose access control policy you wish to modify.
-apiTopicArn :: Lens' AddPermission (Text)
-apiTopicArn = lens _apiTopicArn (\s a -> s { _apiTopicArn = a })
-{-# INLINE apiTopicArn #-}
+apTopicArn :: Lens' AddPermission Text
+apTopicArn = lens _apTopicArn (\s a -> s { _apTopicArn = a })
+{-# INLINE apTopicArn #-}
 
 -- | A unique identifier for the new policy statement.
-apiLabel :: Lens' AddPermission (Text)
-apiLabel = lens _apiLabel (\s a -> s { _apiLabel = a })
-{-# INLINE apiLabel #-}
+apLabel :: Lens' AddPermission Text
+apLabel = lens _apLabel (\s a -> s { _apLabel = a })
+{-# INLINE apLabel #-}
 
 -- | The AWS account IDs of the users (principals) who will be given access to
 -- the specified actions. The users must have AWS accounts, but do not need to
 -- be signed up for this service.
-apiAWSAccountId :: Lens' AddPermission ([Text])
-apiAWSAccountId = lens _apiAWSAccountId (\s a -> s { _apiAWSAccountId = a })
-{-# INLINE apiAWSAccountId #-}
+apAWSAccountId :: Lens' AddPermission [Text]
+apAWSAccountId = lens _apAWSAccountId (\s a -> s { _apAWSAccountId = a })
+{-# INLINE apAWSAccountId #-}
 
 -- | The action you want to allow for the specified principal(s). Valid values:
 -- any Amazon SNS action name.
-apiActionName :: Lens' AddPermission ([Text])
-apiActionName = lens _apiActionName (\s a -> s { _apiActionName = a })
-{-# INLINE apiActionName #-}
+apActionName :: Lens' AddPermission [Text]
+apActionName = lens _apActionName (\s a -> s { _apActionName = a })
+{-# INLINE apActionName #-}
 
 instance ToQuery AddPermission where
     toQuery = genericQuery def

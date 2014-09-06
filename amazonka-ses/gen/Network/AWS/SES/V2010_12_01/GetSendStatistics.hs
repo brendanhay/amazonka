@@ -34,39 +34,41 @@ module Network.AWS.SES.V2010_12_01.GetSendStatistics
     -- * Request
       GetSendStatistics
     -- ** Request constructor
-    , mkUnknown
+    , mkGetSendStatistics
     -- * Response
     , GetSendStatisticsResponse
     -- ** Response lenses
-    , gssrSendDataPoints
+    , gssrsSendDataPoints
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSendStatistics' request.
-mkUnknown :: GetSendStatistics
-mkUnknown = GetSendStatistics
-{-# INLINE mkUnknown #-}
-
 data GetSendStatistics = GetSendStatistics
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSendStatistics' request.
+mkGetSendStatistics :: GetSendStatistics
+mkGetSendStatistics = GetSendStatistics
+{-# INLINE mkGetSendStatistics #-}
 
 instance ToQuery GetSendStatistics where
     toQuery = genericQuery def
 
+-- | Represents a list of SendDataPoint items returned from a successful
+-- GetSendStatistics request. This list contains aggregated data from the
+-- previous two weeks of sending activity.
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
-    { _gssrSendDataPoints :: [SendDataPoint]
-      -- ^ A list of data points, each of which represents 15 minutes of
-      -- activity.
+    { _gssrsSendDataPoints :: [SendDataPoint]
     } deriving (Show, Generic)
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrSendDataPoints :: Lens' GetSendStatisticsResponse ([SendDataPoint])
-gssrSendDataPoints = lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
-{-# INLINE gssrSendDataPoints #-}
+gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
+gssrsSendDataPoints =
+    lens _gssrsSendDataPoints (\s a -> s { _gssrsSendDataPoints = a })
+{-# INLINE gssrsSendDataPoints #-}
 
 instance FromXML GetSendStatisticsResponse where
     fromXMLOptions = xmlOptions

@@ -41,16 +41,16 @@ module Network.AWS.Route53Domains.V2014_05_15.ListOperations
     -- * Request
       ListOperations
     -- ** Request constructor
-    , mkListOperationsRequest
+    , mkListOperations
     -- ** Request lenses
-    , lorMarker
-    , lorMaxItems
+    , loMarker
+    , loMaxItems
 
     -- * Response
     , ListOperationsResponse
     -- ** Response lenses
-    , losOperations
-    , losNextPageMarker
+    , lorsOperations
+    , lorsNextPageMarker
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -58,28 +58,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The ListOperations request includes the following elements.
+data ListOperations = ListOperations
+    { _loMarker :: Maybe Text
+    , _loMaxItems :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListOperations' request.
-mkListOperationsRequest :: ListOperations
-mkListOperationsRequest = ListOperations
-    { _lorMarker = Nothing
-    , _lorMaxItems = Nothing
+mkListOperations :: ListOperations
+mkListOperations = ListOperations
+    { _loMarker = Nothing
+    , _loMaxItems = Nothing
     }
-{-# INLINE mkListOperationsRequest #-}
-
-data ListOperations = ListOperations
-    { _lorMarker :: Maybe Text
-      -- ^ For an initial request for a list of operations, omit this
-      -- element. If the number of operations that are not yet complete is
-      -- greater than the value that you specified for MaxItems, you can
-      -- use Marker to return additional operations. Get the value of
-      -- NextPageMarker from the previous response, and submit another
-      -- request that includes the value of NextPageMarker in the Marker
-      -- element. Type: String Default: None Required: No.
-    , _lorMaxItems :: Maybe Integer
-      -- ^ Number of domains to be returned. Type: Integer Default: 20
-      -- Constraints: A value between 1 and 100. Required: No.
-    } deriving (Show, Generic)
+{-# INLINE mkListOperations #-}
 
 -- | For an initial request for a list of operations, omit this element. If the
 -- number of operations that are not yet complete is greater than the value
@@ -87,15 +79,15 @@ data ListOperations = ListOperations
 -- operations. Get the value of NextPageMarker from the previous response, and
 -- submit another request that includes the value of NextPageMarker in the
 -- Marker element. Type: String Default: None Required: No.
-lorMarker :: Lens' ListOperations (Maybe Text)
-lorMarker = lens _lorMarker (\s a -> s { _lorMarker = a })
-{-# INLINE lorMarker #-}
+loMarker :: Lens' ListOperations (Maybe Text)
+loMarker = lens _loMarker (\s a -> s { _loMarker = a })
+{-# INLINE loMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- value between 1 and 100. Required: No.
-lorMaxItems :: Lens' ListOperations (Maybe Integer)
-lorMaxItems = lens _lorMaxItems (\s a -> s { _lorMaxItems = a })
-{-# INLINE lorMaxItems #-}
+loMaxItems :: Lens' ListOperations (Maybe Integer)
+loMaxItems = lens _loMaxItems (\s a -> s { _loMaxItems = a })
+{-# INLINE loMaxItems #-}
 
 instance ToPath ListOperations
 
@@ -105,30 +97,25 @@ instance ToHeaders ListOperations
 
 instance ToJSON ListOperations
 
+-- | The ListOperations response includes the following elements.
 data ListOperationsResponse = ListOperationsResponse
-    { _losOperations :: [OperationSummary]
-      -- ^ Lists summaries of the operations. Type: Complex type containing
-      -- a list of operation summaries Children: OperationId, Status,
-      -- SubmittedDate, Type.
-    , _losNextPageMarker :: Maybe Text
-      -- ^ If there are more operations than you specified for MaxItems in
-      -- the request, submit another request and include the value of
-      -- NextPageMarker in the value of Marker. Type: String Parent:
-      -- Operations.
+    { _lorsOperations :: [OperationSummary]
+    , _lorsNextPageMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Lists summaries of the operations. Type: Complex type containing a list of
 -- operation summaries Children: OperationId, Status, SubmittedDate, Type.
-losOperations :: Lens' ListOperationsResponse ([OperationSummary])
-losOperations = lens _losOperations (\s a -> s { _losOperations = a })
-{-# INLINE losOperations #-}
+lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
+lorsOperations = lens _lorsOperations (\s a -> s { _lorsOperations = a })
+{-# INLINE lorsOperations #-}
 
 -- | If there are more operations than you specified for MaxItems in the
 -- request, submit another request and include the value of NextPageMarker in
 -- the value of Marker. Type: String Parent: Operations.
-losNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
-losNextPageMarker = lens _losNextPageMarker (\s a -> s { _losNextPageMarker = a })
-{-# INLINE losNextPageMarker #-}
+lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
+lorsNextPageMarker =
+    lens _lorsNextPageMarker (\s a -> s { _lorsNextPageMarker = a })
+{-# INLINE lorsNextPageMarker #-}
 
 instance FromJSON ListOperationsResponse
 

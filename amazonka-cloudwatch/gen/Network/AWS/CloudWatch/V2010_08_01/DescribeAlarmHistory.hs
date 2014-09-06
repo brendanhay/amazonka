@@ -26,106 +26,100 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory
     -- * Request
       DescribeAlarmHistory
     -- ** Request constructor
-    , mkDescribeAlarmHistoryInput
+    , mkDescribeAlarmHistory
     -- ** Request lenses
-    , dahiAlarmName
-    , dahiHistoryItemType
-    , dahiStartDate
-    , dahiEndDate
-    , dahiMaxRecords
-    , dahiNextToken
+    , dahAlarmName
+    , dahHistoryItemType
+    , dahStartDate
+    , dahEndDate
+    , dahMaxRecords
+    , dahNextToken
 
     -- * Response
     , DescribeAlarmHistoryResponse
     -- ** Response lenses
-    , dahoAlarmHistoryItems
-    , dahoNextToken
+    , dahrsAlarmHistoryItems
+    , dahrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAlarmHistory' request.
-mkDescribeAlarmHistoryInput :: DescribeAlarmHistory
-mkDescribeAlarmHistoryInput = DescribeAlarmHistory
-    { _dahiAlarmName = Nothing
-    , _dahiHistoryItemType = Nothing
-    , _dahiStartDate = Nothing
-    , _dahiEndDate = Nothing
-    , _dahiMaxRecords = Nothing
-    , _dahiNextToken = Nothing
-    }
-{-# INLINE mkDescribeAlarmHistoryInput #-}
-
+-- | 
 data DescribeAlarmHistory = DescribeAlarmHistory
-    { _dahiAlarmName :: Maybe Text
-      -- ^ The name of the alarm.
-    , _dahiHistoryItemType :: Maybe HistoryItemType
-      -- ^ The type of alarm histories to retrieve.
-    , _dahiStartDate :: Maybe ISO8601
-      -- ^ The starting date to retrieve alarm history.
-    , _dahiEndDate :: Maybe ISO8601
-      -- ^ The ending date to retrieve alarm history.
-    , _dahiMaxRecords :: Maybe Integer
-      -- ^ The maximum number of alarm history records to retrieve.
-    , _dahiNextToken :: Maybe Text
-      -- ^ The token returned by a previous call to indicate that there is
-      -- more data available.
+    { _dahAlarmName :: Maybe Text
+    , _dahHistoryItemType :: Maybe HistoryItemType
+    , _dahStartDate :: Maybe ISO8601
+    , _dahEndDate :: Maybe ISO8601
+    , _dahMaxRecords :: Maybe Integer
+    , _dahNextToken :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAlarmHistory' request.
+mkDescribeAlarmHistory :: DescribeAlarmHistory
+mkDescribeAlarmHistory = DescribeAlarmHistory
+    { _dahAlarmName = Nothing
+    , _dahHistoryItemType = Nothing
+    , _dahStartDate = Nothing
+    , _dahEndDate = Nothing
+    , _dahMaxRecords = Nothing
+    , _dahNextToken = Nothing
+    }
+{-# INLINE mkDescribeAlarmHistory #-}
+
 -- | The name of the alarm.
-dahiAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
-dahiAlarmName = lens _dahiAlarmName (\s a -> s { _dahiAlarmName = a })
-{-# INLINE dahiAlarmName #-}
+dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
+dahAlarmName = lens _dahAlarmName (\s a -> s { _dahAlarmName = a })
+{-# INLINE dahAlarmName #-}
 
 -- | The type of alarm histories to retrieve.
-dahiHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
-dahiHistoryItemType = lens _dahiHistoryItemType (\s a -> s { _dahiHistoryItemType = a })
-{-# INLINE dahiHistoryItemType #-}
+dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
+dahHistoryItemType =
+    lens _dahHistoryItemType (\s a -> s { _dahHistoryItemType = a })
+{-# INLINE dahHistoryItemType #-}
 
 -- | The starting date to retrieve alarm history.
-dahiStartDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
-dahiStartDate = lens _dahiStartDate (\s a -> s { _dahiStartDate = a })
-{-# INLINE dahiStartDate #-}
+dahStartDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
+dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a })
+{-# INLINE dahStartDate #-}
 
 -- | The ending date to retrieve alarm history.
-dahiEndDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
-dahiEndDate = lens _dahiEndDate (\s a -> s { _dahiEndDate = a })
-{-# INLINE dahiEndDate #-}
+dahEndDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
+dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a })
+{-# INLINE dahEndDate #-}
 
 -- | The maximum number of alarm history records to retrieve.
-dahiMaxRecords :: Lens' DescribeAlarmHistory (Maybe Integer)
-dahiMaxRecords = lens _dahiMaxRecords (\s a -> s { _dahiMaxRecords = a })
-{-# INLINE dahiMaxRecords #-}
+dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Integer)
+dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a })
+{-# INLINE dahMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-dahiNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
-dahiNextToken = lens _dahiNextToken (\s a -> s { _dahiNextToken = a })
-{-# INLINE dahiNextToken #-}
+dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
+dahNextToken = lens _dahNextToken (\s a -> s { _dahNextToken = a })
+{-# INLINE dahNextToken #-}
 
 instance ToQuery DescribeAlarmHistory where
     toQuery = genericQuery def
 
+-- | The output for the DescribeAlarmHistory action.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
-    { _dahoAlarmHistoryItems :: [AlarmHistoryItem]
-      -- ^ A list of alarm histories in JSON format.
-    , _dahoNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+    { _dahrsAlarmHistoryItems :: [AlarmHistoryItem]
+    , _dahrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of alarm histories in JSON format.
-dahoAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse ([AlarmHistoryItem])
-dahoAlarmHistoryItems = lens _dahoAlarmHistoryItems (\s a -> s { _dahoAlarmHistoryItems = a })
-{-# INLINE dahoAlarmHistoryItems #-}
+dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
+dahrsAlarmHistoryItems =
+    lens _dahrsAlarmHistoryItems (\s a -> s { _dahrsAlarmHistoryItems = a })
+{-# INLINE dahrsAlarmHistoryItems #-}
 
 -- | A string that marks the start of the next batch of returned results.
-dahoNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
-dahoNextToken = lens _dahoNextToken (\s a -> s { _dahoNextToken = a })
-{-# INLINE dahoNextToken #-}
+dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
+dahrsNextToken = lens _dahrsNextToken (\s a -> s { _dahrsNextToken = a })
+{-# INLINE dahrsNextToken #-}
 
 instance FromXML DescribeAlarmHistoryResponse where
     fromXMLOptions = xmlOptions
@@ -138,5 +132,5 @@ instance AWSRequest DescribeAlarmHistory where
     response _ = xmlResponse
 
 instance AWSPager DescribeAlarmHistory where
-    next rq rs = (\x -> rq { _dahiNextToken = Just x })
-        <$> (_dahoNextToken rs)
+    next rq rs = (\x -> rq { _dahNextToken = Just x })
+        <$> (_dahrsNextToken rs)

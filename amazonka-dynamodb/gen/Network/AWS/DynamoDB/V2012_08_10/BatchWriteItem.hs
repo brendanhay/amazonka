@@ -71,18 +71,18 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
     -- * Request
       BatchWriteItem
     -- ** Request constructor
-    , mkBatchWriteItemInput
+    , mkBatchWriteItem
     -- ** Request lenses
-    , bwiiRequestItems
-    , bwiiReturnConsumedCapacity
-    , bwiiReturnItemCollectionMetrics
+    , bwiRequestItems
+    , bwiReturnConsumedCapacity
+    , bwiReturnItemCollectionMetrics
 
     -- * Response
     , BatchWriteItemResponse
     -- ** Response lenses
-    , bwioUnprocessedItems
-    , bwioItemCollectionMetrics
-    , bwioConsumedCapacity
+    , bwirsUnprocessedItems
+    , bwirsItemCollectionMetrics
+    , bwirsConsumedCapacity
     ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
@@ -90,47 +90,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Represents the input of a BatchWriteItem operation.
+data BatchWriteItem = BatchWriteItem
+    { _bwiRequestItems :: Map Text [WriteRequest]
+    , _bwiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
+    , _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchWriteItem' request.
-mkBatchWriteItemInput :: Map Text [WriteRequest] -- ^ 'bwiiRequestItems'
-                      -> BatchWriteItem
-mkBatchWriteItemInput p1 = BatchWriteItem
-    { _bwiiRequestItems = p1
-    , _bwiiReturnConsumedCapacity = Nothing
-    , _bwiiReturnItemCollectionMetrics = Nothing
+mkBatchWriteItem :: Map Text [WriteRequest] -- ^ 'bwiRequestItems'
+                 -> BatchWriteItem
+mkBatchWriteItem p1 = BatchWriteItem
+    { _bwiRequestItems = p1
+    , _bwiReturnConsumedCapacity = Nothing
+    , _bwiReturnItemCollectionMetrics = Nothing
     }
-{-# INLINE mkBatchWriteItemInput #-}
-
-data BatchWriteItem = BatchWriteItem
-    { _bwiiRequestItems :: Map Text [WriteRequest]
-      -- ^ A map of one or more table names and, for each table, a list of
-      -- operations to be performed (DeleteRequest or PutRequest). Each
-      -- element in the map consists of the following: DeleteRequest -
-      -- Perform a DeleteItem operation on the specified item. The item to
-      -- be deleted is identified by a Key subelement: Key - A map of
-      -- primary key attribute values that uniquely identify the item.
-      -- Each entry in this map consists of an attribute name and an
-      -- attribute value. PutRequest - Perform a PutItem operation on the
-      -- specified item. The item to be put is identified by an Item
-      -- subelement: Item - A map of attributes and their values. Each
-      -- entry in this map consists of an attribute name and an attribute
-      -- value. Attribute values must not be null; string and binary type
-      -- attributes must have lengths greater than zero; and set type
-      -- attributes must not be empty. Requests that contain empty values
-      -- will be rejected with a ValidationException. If you specify any
-      -- attributes that are part of an index key, then the data types for
-      -- those attributes must match those of the schema in the table's
-      -- attribute definition.
-    , _bwiiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-      -- ^ If set to TOTAL, the response includes ConsumedCapacity data for
-      -- tables and indexes. If set to INDEXES, the repsonse includes
-      -- ConsumedCapacity for indexes. If set to NONE (the default),
-      -- ConsumedCapacity is not included in the response.
-    , _bwiiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-      -- ^ If set to SIZE, statistics about item collections, if any, that
-      -- were modified during the operation are returned in the response.
-      -- If set to NONE (the default), no statistics are returned.
-    } deriving (Show, Generic)
+{-# INLINE mkBatchWriteItem #-}
 
 -- | A map of one or more table names and, for each table, a list of operations
 -- to be performed (DeleteRequest or PutRequest). Each element in the map
@@ -148,24 +124,28 @@ data BatchWriteItem = BatchWriteItem
 -- any attributes that are part of an index key, then the data types for those
 -- attributes must match those of the schema in the table's attribute
 -- definition.
-bwiiRequestItems :: Lens' BatchWriteItem (Map Text [WriteRequest])
-bwiiRequestItems = lens _bwiiRequestItems (\s a -> s { _bwiiRequestItems = a })
-{-# INLINE bwiiRequestItems #-}
+bwiRequestItems :: Lens' BatchWriteItem (Map Text [WriteRequest])
+bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a })
+{-# INLINE bwiRequestItems #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
 -- indexes. If set to NONE (the default), ConsumedCapacity is not included in
 -- the response.
-bwiiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
-bwiiReturnConsumedCapacity = lens _bwiiReturnConsumedCapacity (\s a -> s { _bwiiReturnConsumedCapacity = a })
-{-# INLINE bwiiReturnConsumedCapacity #-}
+bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
+bwiReturnConsumedCapacity =
+    lens _bwiReturnConsumedCapacity
+         (\s a -> s { _bwiReturnConsumedCapacity = a })
+{-# INLINE bwiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
 -- (the default), no statistics are returned.
-bwiiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
-bwiiReturnItemCollectionMetrics = lens _bwiiReturnItemCollectionMetrics (\s a -> s { _bwiiReturnItemCollectionMetrics = a })
-{-# INLINE bwiiReturnItemCollectionMetrics #-}
+bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
+bwiReturnItemCollectionMetrics =
+    lens _bwiReturnItemCollectionMetrics
+         (\s a -> s { _bwiReturnItemCollectionMetrics = a })
+{-# INLINE bwiReturnItemCollectionMetrics #-}
 
 instance ToPath BatchWriteItem
 
@@ -175,50 +155,11 @@ instance ToHeaders BatchWriteItem
 
 instance ToJSON BatchWriteItem
 
+-- | Represents the output of a BatchWriteItem operation.
 data BatchWriteItemResponse = BatchWriteItemResponse
-    { _bwioUnprocessedItems :: Map Text [WriteRequest]
-      -- ^ A map of tables and requests against those tables that were not
-      -- processed. The UnprocessedKeys value is in the same form as
-      -- RequestItems, so you can provide this value directly to a
-      -- subsequent BatchGetItem operation. For more information, see
-      -- RequestItems in the Request Parameters section. Each
-      -- UnprocessedItems entry consists of a table name and, for that
-      -- table, a list of operations to perform (DeleteRequest or
-      -- PutRequest). DeleteRequest - Perform a DeleteItem operation on
-      -- the specified item. The item to be deleted is identified by a Key
-      -- subelement: Key - A map of primary key attribute values that
-      -- uniquely identify the item. Each entry in this map consists of an
-      -- attribute name and an attribute value. PutRequest - Perform a
-      -- PutItem operation on the specified item. The item to be put is
-      -- identified by an Item subelement: Item - A map of attributes and
-      -- their values. Each entry in this map consists of an attribute
-      -- name and an attribute value. Attribute values must not be null;
-      -- string and binary type attributes must have lengths greater than
-      -- zero; and set type attributes must not be empty. Requests that
-      -- contain empty values will be rejected with a ValidationException.
-      -- If you specify any attributes that are part of an index key, then
-      -- the data types for those attributes must match those of the
-      -- schema in the table's attribute definition.
-    , _bwioItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
-      -- ^ A list of tables that were processed by BatchWriteItem and, for
-      -- each table, information about any item collections that were
-      -- affected by individual DeleteItem or PutItem operations. Each
-      -- entry consists of the following subelements: ItemCollectionKey -
-      -- The hash key value of the item collection. This is the same as
-      -- the hash key of the item. SizeEstimateRange - An estimate of item
-      -- collection size, expressed in GB. This is a two-element array
-      -- containing a lower bound and an upper bound for the estimate. The
-      -- estimate includes the size of all the items in the table, plus
-      -- the size of all attributes projected into all of the local
-      -- secondary indexes on the table. Use this estimate to measure
-      -- whether a local secondary index is approaching its size limit.
-      -- The estimate is subject to change over time; therefore, do not
-      -- rely on the precision or accuracy of the estimate.
-    , _bwioConsumedCapacity :: [ConsumedCapacity]
-      -- ^ The capacity units consumed by the operation. Each element
-      -- consists of: TableName - The table that consumed the provisioned
-      -- throughput. CapacityUnits - The total number of capacity units
-      -- consumed.
+    { _bwirsUnprocessedItems :: Map Text [WriteRequest]
+    , _bwirsItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
+    , _bwirsConsumedCapacity :: [ConsumedCapacity]
     } deriving (Show, Generic)
 
 -- | A map of tables and requests against those tables that were not processed.
@@ -240,9 +181,10 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 -- ValidationException. If you specify any attributes that are part of an
 -- index key, then the data types for those attributes must match those of the
 -- schema in the table's attribute definition.
-bwioUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
-bwioUnprocessedItems = lens _bwioUnprocessedItems (\s a -> s { _bwioUnprocessedItems = a })
-{-# INLINE bwioUnprocessedItems #-}
+bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
+bwirsUnprocessedItems =
+    lens _bwirsUnprocessedItems (\s a -> s { _bwirsUnprocessedItems = a })
+{-# INLINE bwirsUnprocessedItems #-}
 
 -- | A list of tables that were processed by BatchWriteItem and, for each table,
 -- information about any item collections that were affected by individual
@@ -256,16 +198,19 @@ bwioUnprocessedItems = lens _bwioUnprocessedItems (\s a -> s { _bwioUnprocessedI
 -- table. Use this estimate to measure whether a local secondary index is
 -- approaching its size limit. The estimate is subject to change over time;
 -- therefore, do not rely on the precision or accuracy of the estimate.
-bwioItemCollectionMetrics :: Lens' BatchWriteItemResponse (Map Text [ItemCollectionMetrics])
-bwioItemCollectionMetrics = lens _bwioItemCollectionMetrics (\s a -> s { _bwioItemCollectionMetrics = a })
-{-# INLINE bwioItemCollectionMetrics #-}
+bwirsItemCollectionMetrics :: Lens' BatchWriteItemResponse (Map Text [ItemCollectionMetrics])
+bwirsItemCollectionMetrics =
+    lens _bwirsItemCollectionMetrics
+         (\s a -> s { _bwirsItemCollectionMetrics = a })
+{-# INLINE bwirsItemCollectionMetrics #-}
 
 -- | The capacity units consumed by the operation. Each element consists of:
 -- TableName - The table that consumed the provisioned throughput.
 -- CapacityUnits - The total number of capacity units consumed.
-bwioConsumedCapacity :: Lens' BatchWriteItemResponse ([ConsumedCapacity])
-bwioConsumedCapacity = lens _bwioConsumedCapacity (\s a -> s { _bwioConsumedCapacity = a })
-{-# INLINE bwioConsumedCapacity #-}
+bwirsConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
+bwirsConsumedCapacity =
+    lens _bwirsConsumedCapacity (\s a -> s { _bwirsConsumedCapacity = a })
+{-# INLINE bwirsConsumedCapacity #-}
 
 instance FromJSON BatchWriteItemResponse
 

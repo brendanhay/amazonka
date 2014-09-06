@@ -55,61 +55,40 @@ module Network.AWS.EC2.V2014_06_15.DescribeSubnets
     -- * Request
       DescribeSubnets
     -- ** Request constructor
-    , mkDescribeSubnetsRequest
+    , mkDescribeSubnets
     -- ** Request lenses
-    , dsxSubnetIds
-    , dsxFilters
+    , ds3SubnetIds
+    , ds3Filters
 
     -- * Response
     , DescribeSubnetsResponse
     -- ** Response lenses
-    , dsySubnets
+    , dsrsrsSubnets
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeSubnets' request.
-mkDescribeSubnetsRequest :: DescribeSubnets
-mkDescribeSubnetsRequest = DescribeSubnets
-    { _dsxSubnetIds = mempty
-    , _dsxFilters = mempty
-    }
-{-# INLINE mkDescribeSubnetsRequest #-}
-
+-- | 
 data DescribeSubnets = DescribeSubnets
-    { _dsxSubnetIds :: [Text]
-      -- ^ One or more subnet IDs. Default: Describes all your subnets.
-    , _dsxFilters :: [Filter]
-      -- ^ One or more filters. availabilityZone - The Availability Zone for
-      -- the subnet. You can also use availability-zone as the filter
-      -- name. available-ip-address-count - The number of IP addresses in
-      -- the subnet that are available. cidrBlock - The CIDR block of the
-      -- subnet. The CIDR block you specify must exactly match the
-      -- subnet's CIDR block for information to be returned for the
-      -- subnet. You can also use cidr or cidr-block as the filter names.
-      -- defaultForAz - Indicates whether this is the default subnet for
-      -- the Availability Zone. You can also use default-for-az as the
-      -- filter name. state - The state of the subnet (pending |
-      -- available). subnet-id - The ID of the subnet. tag:key=value - The
-      -- key/value combination of a tag assigned to the resource. tag-key
-      -- - The key of a tag assigned to the resource. This filter is
-      -- independent of the tag-value filter. For example, if you use both
-      -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
-      -- get any resources assigned both the tag key Purpose (regardless
-      -- of what the tag's value is), and the tag value X (regardless of
-      -- what the tag's key is). If you want to list only resources where
-      -- Purpose is X, see the tag:key=value filter. tag-value - The value
-      -- of a tag assigned to the resource. This filter is independent of
-      -- the tag-key filter. vpc-id - The ID of the VPC for the subnet.
+    { _ds3SubnetIds :: [Text]
+    , _ds3Filters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSubnets' request.
+mkDescribeSubnets :: DescribeSubnets
+mkDescribeSubnets = DescribeSubnets
+    { _ds3SubnetIds = mempty
+    , _ds3Filters = mempty
+    }
+{-# INLINE mkDescribeSubnets #-}
+
 -- | One or more subnet IDs. Default: Describes all your subnets.
-dsxSubnetIds :: Lens' DescribeSubnets ([Text])
-dsxSubnetIds = lens _dsxSubnetIds (\s a -> s { _dsxSubnetIds = a })
-{-# INLINE dsxSubnetIds #-}
+ds3SubnetIds :: Lens' DescribeSubnets [Text]
+ds3SubnetIds = lens _ds3SubnetIds (\s a -> s { _ds3SubnetIds = a })
+{-# INLINE ds3SubnetIds #-}
 
 -- | One or more filters. availabilityZone - The Availability Zone for the
 -- subnet. You can also use availability-zone as the filter name.
@@ -130,22 +109,22 @@ dsxSubnetIds = lens _dsxSubnetIds (\s a -> s { _dsxSubnetIds = a })
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the subnet.
-dsxFilters :: Lens' DescribeSubnets ([Filter])
-dsxFilters = lens _dsxFilters (\s a -> s { _dsxFilters = a })
-{-# INLINE dsxFilters #-}
+ds3Filters :: Lens' DescribeSubnets [Filter]
+ds3Filters = lens _ds3Filters (\s a -> s { _ds3Filters = a })
+{-# INLINE ds3Filters #-}
 
 instance ToQuery DescribeSubnets where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
-    { _dsySubnets :: [Subnet]
-      -- ^ Information about one or more subnets.
+    { _dsrsrsSubnets :: [Subnet]
     } deriving (Show, Generic)
 
 -- | Information about one or more subnets.
-dsySubnets :: Lens' DescribeSubnetsResponse ([Subnet])
-dsySubnets = lens _dsySubnets (\s a -> s { _dsySubnets = a })
-{-# INLINE dsySubnets #-}
+dsrsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
+dsrsrsSubnets = lens _dsrsrsSubnets (\s a -> s { _dsrsrsSubnets = a })
+{-# INLINE dsrsrsSubnets #-}
 
 instance FromXML DescribeSubnetsResponse where
     fromXMLOptions = xmlOptions

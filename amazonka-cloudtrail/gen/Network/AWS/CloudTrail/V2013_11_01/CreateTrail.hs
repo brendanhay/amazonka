@@ -24,22 +24,22 @@ module Network.AWS.CloudTrail.V2013_11_01.CreateTrail
     -- * Request
       CreateTrail
     -- ** Request constructor
-    , mkCreateTrailRequest
+    , mkCreateTrail
     -- ** Request lenses
-    , ctrName
-    , ctrS3BucketName
-    , ctrS3KeyPrefix
-    , ctrSnsTopicName
-    , ctrIncludeGlobalServiceEvents
+    , ctName
+    , ctS3BucketName
+    , ctS3KeyPrefix
+    , ctSnsTopicName
+    , ctIncludeGlobalServiceEvents
 
     -- * Response
     , CreateTrailResponse
     -- ** Response lenses
-    , ctsName
-    , ctsS3BucketName
-    , ctsS3KeyPrefix
-    , ctsSnsTopicName
-    , ctsIncludeGlobalServiceEvents
+    , ctrsName
+    , ctrsS3BucketName
+    , ctrsS3KeyPrefix
+    , ctrsSnsTopicName
+    , ctrsIncludeGlobalServiceEvents
     ) where
 
 import           Network.AWS.CloudTrail.V2013_11_01.Types
@@ -47,65 +47,59 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateTrail' request.
-mkCreateTrailRequest :: Text -- ^ 'ctrName'
-                     -> Text -- ^ 'ctrS3BucketName'
-                     -> CreateTrail
-mkCreateTrailRequest p1 p2 = CreateTrail
-    { _ctrName = p1
-    , _ctrS3BucketName = p2
-    , _ctrS3KeyPrefix = Nothing
-    , _ctrSnsTopicName = Nothing
-    , _ctrIncludeGlobalServiceEvents = Nothing
-    }
-{-# INLINE mkCreateTrailRequest #-}
-
+-- | Specifies the settings for each trail.
 data CreateTrail = CreateTrail
-    { _ctrName :: Text
-      -- ^ Specifies the name of the trail.
-    , _ctrS3BucketName :: Text
-      -- ^ Specifies the name of the Amazon S3 bucket designated for
-      -- publishing log files.
-    , _ctrS3KeyPrefix :: Maybe Text
-      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
-      -- bucket you have designated for log file delivery.
-    , _ctrSnsTopicName :: Maybe Text
-      -- ^ Specifies the name of the Amazon SNS topic defined for
-      -- notification of log file delivery.
-    , _ctrIncludeGlobalServiceEvents :: Maybe Bool
-      -- ^ Specifies whether the trail is publishing events from global
-      -- services such as IAM to the log files.
+    { _ctName :: Text
+    , _ctS3BucketName :: Text
+    , _ctS3KeyPrefix :: Maybe Text
+    , _ctSnsTopicName :: Maybe Text
+    , _ctIncludeGlobalServiceEvents :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTrail' request.
+mkCreateTrail :: Text -- ^ 'ctName'
+              -> Text -- ^ 'ctS3BucketName'
+              -> CreateTrail
+mkCreateTrail p1 p2 = CreateTrail
+    { _ctName = p1
+    , _ctS3BucketName = p2
+    , _ctS3KeyPrefix = Nothing
+    , _ctSnsTopicName = Nothing
+    , _ctIncludeGlobalServiceEvents = Nothing
+    }
+{-# INLINE mkCreateTrail #-}
+
 -- | Specifies the name of the trail.
-ctrName :: Lens' CreateTrail (Text)
-ctrName = lens _ctrName (\s a -> s { _ctrName = a })
-{-# INLINE ctrName #-}
+ctName :: Lens' CreateTrail Text
+ctName = lens _ctName (\s a -> s { _ctName = a })
+{-# INLINE ctName #-}
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
-ctrS3BucketName :: Lens' CreateTrail (Text)
-ctrS3BucketName = lens _ctrS3BucketName (\s a -> s { _ctrS3BucketName = a })
-{-# INLINE ctrS3BucketName #-}
+ctS3BucketName :: Lens' CreateTrail Text
+ctS3BucketName = lens _ctS3BucketName (\s a -> s { _ctS3BucketName = a })
+{-# INLINE ctS3BucketName #-}
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
-ctrS3KeyPrefix :: Lens' CreateTrail (Maybe Text)
-ctrS3KeyPrefix = lens _ctrS3KeyPrefix (\s a -> s { _ctrS3KeyPrefix = a })
-{-# INLINE ctrS3KeyPrefix #-}
+ctS3KeyPrefix :: Lens' CreateTrail (Maybe Text)
+ctS3KeyPrefix = lens _ctS3KeyPrefix (\s a -> s { _ctS3KeyPrefix = a })
+{-# INLINE ctS3KeyPrefix #-}
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
-ctrSnsTopicName :: Lens' CreateTrail (Maybe Text)
-ctrSnsTopicName = lens _ctrSnsTopicName (\s a -> s { _ctrSnsTopicName = a })
-{-# INLINE ctrSnsTopicName #-}
+ctSnsTopicName :: Lens' CreateTrail (Maybe Text)
+ctSnsTopicName = lens _ctSnsTopicName (\s a -> s { _ctSnsTopicName = a })
+{-# INLINE ctSnsTopicName #-}
 
 -- | Specifies whether the trail is publishing events from global services such
 -- as IAM to the log files.
-ctrIncludeGlobalServiceEvents :: Lens' CreateTrail (Maybe Bool)
-ctrIncludeGlobalServiceEvents = lens _ctrIncludeGlobalServiceEvents (\s a -> s { _ctrIncludeGlobalServiceEvents = a })
-{-# INLINE ctrIncludeGlobalServiceEvents #-}
+ctIncludeGlobalServiceEvents :: Lens' CreateTrail (Maybe Bool)
+ctIncludeGlobalServiceEvents =
+    lens _ctIncludeGlobalServiceEvents
+         (\s a -> s { _ctIncludeGlobalServiceEvents = a })
+{-# INLINE ctIncludeGlobalServiceEvents #-}
 
 instance ToPath CreateTrail
 
@@ -115,51 +109,48 @@ instance ToHeaders CreateTrail
 
 instance ToJSON CreateTrail
 
+-- | Returns the objects or data listed below if successful. Otherwise, returns
+-- an error.
 data CreateTrailResponse = CreateTrailResponse
-    { _ctsName :: Maybe Text
-      -- ^ Specifies the name of the trail.
-    , _ctsS3BucketName :: Maybe Text
-      -- ^ Specifies the name of the Amazon S3 bucket designated for
-      -- publishing log files.
-    , _ctsS3KeyPrefix :: Maybe Text
-      -- ^ Specifies the Amazon S3 key prefix that precedes the name of the
-      -- bucket you have designated for log file delivery.
-    , _ctsSnsTopicName :: Maybe Text
-      -- ^ Specifies the name of the Amazon SNS topic defined for
-      -- notification of log file delivery.
-    , _ctsIncludeGlobalServiceEvents :: Maybe Bool
-      -- ^ Specifies whether the trail is publishing events from global
-      -- services such as IAM to the log files.
+    { _ctrsName :: Maybe Text
+    , _ctrsS3BucketName :: Maybe Text
+    , _ctrsS3KeyPrefix :: Maybe Text
+    , _ctrsSnsTopicName :: Maybe Text
+    , _ctrsIncludeGlobalServiceEvents :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Specifies the name of the trail.
-ctsName :: Lens' CreateTrailResponse (Maybe Text)
-ctsName = lens _ctsName (\s a -> s { _ctsName = a })
-{-# INLINE ctsName #-}
+ctrsName :: Lens' CreateTrailResponse (Maybe Text)
+ctrsName = lens _ctrsName (\s a -> s { _ctrsName = a })
+{-# INLINE ctrsName #-}
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
-ctsS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
-ctsS3BucketName = lens _ctsS3BucketName (\s a -> s { _ctsS3BucketName = a })
-{-# INLINE ctsS3BucketName #-}
+ctrsS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
+ctrsS3BucketName =
+    lens _ctrsS3BucketName (\s a -> s { _ctrsS3BucketName = a })
+{-# INLINE ctrsS3BucketName #-}
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
-ctsS3KeyPrefix :: Lens' CreateTrailResponse (Maybe Text)
-ctsS3KeyPrefix = lens _ctsS3KeyPrefix (\s a -> s { _ctsS3KeyPrefix = a })
-{-# INLINE ctsS3KeyPrefix #-}
+ctrsS3KeyPrefix :: Lens' CreateTrailResponse (Maybe Text)
+ctrsS3KeyPrefix = lens _ctrsS3KeyPrefix (\s a -> s { _ctrsS3KeyPrefix = a })
+{-# INLINE ctrsS3KeyPrefix #-}
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
-ctsSnsTopicName :: Lens' CreateTrailResponse (Maybe Text)
-ctsSnsTopicName = lens _ctsSnsTopicName (\s a -> s { _ctsSnsTopicName = a })
-{-# INLINE ctsSnsTopicName #-}
+ctrsSnsTopicName :: Lens' CreateTrailResponse (Maybe Text)
+ctrsSnsTopicName =
+    lens _ctrsSnsTopicName (\s a -> s { _ctrsSnsTopicName = a })
+{-# INLINE ctrsSnsTopicName #-}
 
 -- | Specifies whether the trail is publishing events from global services such
 -- as IAM to the log files.
-ctsIncludeGlobalServiceEvents :: Lens' CreateTrailResponse (Maybe Bool)
-ctsIncludeGlobalServiceEvents = lens _ctsIncludeGlobalServiceEvents (\s a -> s { _ctsIncludeGlobalServiceEvents = a })
-{-# INLINE ctsIncludeGlobalServiceEvents #-}
+ctrsIncludeGlobalServiceEvents :: Lens' CreateTrailResponse (Maybe Bool)
+ctrsIncludeGlobalServiceEvents =
+    lens _ctrsIncludeGlobalServiceEvents
+         (\s a -> s { _ctrsIncludeGlobalServiceEvents = a })
+{-# INLINE ctrsIncludeGlobalServiceEvents #-}
 
 instance FromJSON CreateTrailResponse
 

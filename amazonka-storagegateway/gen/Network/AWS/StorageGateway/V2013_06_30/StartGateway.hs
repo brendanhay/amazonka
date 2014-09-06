@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.V2013_06_30.StartGateway
     -- * Request
       StartGateway
     -- ** Request constructor
-    , mkStartGatewayInput
+    , mkStartGateway
     -- ** Request lenses
-    , sgjGatewayARN
+    , sg1GatewayARN
 
     -- * Response
     , StartGatewayResponse
     -- ** Response lenses
-    , sgpGatewayARN
+    , sgrsrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -58,27 +58,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the of the gateway to start.
+newtype StartGateway = StartGateway
+    { _sg1GatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartGateway' request.
-mkStartGatewayInput :: Text -- ^ 'sgjGatewayARN'
-                    -> StartGateway
-mkStartGatewayInput p1 = StartGateway
-    { _sgjGatewayARN = p1
+mkStartGateway :: Text -- ^ 'sg1GatewayARN'
+               -> StartGateway
+mkStartGateway p1 = StartGateway
+    { _sg1GatewayARN = p1
     }
-{-# INLINE mkStartGatewayInput #-}
-
-newtype StartGateway = StartGateway
-    { _sgjGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkStartGateway #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgjGatewayARN :: Lens' StartGateway (Text)
-sgjGatewayARN = lens _sgjGatewayARN (\s a -> s { _sgjGatewayARN = a })
-{-# INLINE sgjGatewayARN #-}
+sg1GatewayARN :: Lens' StartGateway Text
+sg1GatewayARN = lens _sg1GatewayARN (\s a -> s { _sg1GatewayARN = a })
+{-# INLINE sg1GatewayARN #-}
 
 instance ToPath StartGateway
 
@@ -88,18 +86,17 @@ instance ToHeaders StartGateway
 
 instance ToJSON StartGateway
 
+-- | A JSON object containing the of the gateway that was restarted.
 newtype StartGatewayResponse = StartGatewayResponse
-    { _sgpGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _sgrsrsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgpGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-sgpGatewayARN = lens _sgpGatewayARN (\s a -> s { _sgpGatewayARN = a })
-{-# INLINE sgpGatewayARN #-}
+sgrsrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
+sgrsrsGatewayARN =
+    lens _sgrsrsGatewayARN (\s a -> s { _sgrsrsGatewayARN = a })
+{-# INLINE sgrsrsGatewayARN #-}
 
 instance FromJSON StartGatewayResponse
 

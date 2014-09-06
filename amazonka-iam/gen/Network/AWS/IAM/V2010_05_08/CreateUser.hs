@@ -29,65 +29,61 @@ module Network.AWS.IAM.V2010_05_08.CreateUser
     -- * Request
       CreateUser
     -- ** Request constructor
-    , mkCreateUserRequest
+    , mkCreateUser
     -- ** Request lenses
-    , curPath
-    , curUserName
+    , cuPath
+    , cuUserName
 
     -- * Response
     , CreateUserResponse
     -- ** Response lenses
-    , cusUser
+    , cursUser
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateUser = CreateUser
+    { _cuPath :: Maybe Text
+    , _cuUserName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUser' request.
-mkCreateUserRequest :: Text -- ^ 'curUserName'
-                    -> CreateUser
-mkCreateUserRequest p1 = CreateUser
-    { _curPath = Nothing
-    , _curUserName = p2
+mkCreateUser :: Text -- ^ 'cuUserName'
+             -> CreateUser
+mkCreateUser p2 = CreateUser
+    { _cuPath = Nothing
+    , _cuUserName = p2
     }
-{-# INLINE mkCreateUserRequest #-}
-
-data CreateUser = CreateUser
-    { _curPath :: Maybe Text
-      -- ^ The path for the user name. For more information about paths, see
-      -- Identifiers for IAM Entities in the Using IAM guide. This
-      -- parameter is optional. If it is not included, it defaults to a
-      -- slash (/).
-    , _curUserName :: Text
-      -- ^ Name of the user to create.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateUser #-}
 
 -- | The path for the user name. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
-curPath :: Lens' CreateUser (Maybe Text)
-curPath = lens _curPath (\s a -> s { _curPath = a })
-{-# INLINE curPath #-}
+cuPath :: Lens' CreateUser (Maybe Text)
+cuPath = lens _cuPath (\s a -> s { _cuPath = a })
+{-# INLINE cuPath #-}
 
 -- | Name of the user to create.
-curUserName :: Lens' CreateUser (Text)
-curUserName = lens _curUserName (\s a -> s { _curUserName = a })
-{-# INLINE curUserName #-}
+cuUserName :: Lens' CreateUser Text
+cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
+{-# INLINE cuUserName #-}
 
 instance ToQuery CreateUser where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the CreateUser action.
 newtype CreateUserResponse = CreateUserResponse
-    { _cusUser :: Maybe User
-      -- ^ Information about the user.
+    { _cursUser :: Maybe User
     } deriving (Show, Generic)
 
 -- | Information about the user.
-cusUser :: Lens' CreateUserResponse (Maybe User)
-cusUser = lens _cusUser (\s a -> s { _cusUser = a })
-{-# INLINE cusUser #-}
+cursUser :: Lens' CreateUserResponse (Maybe User)
+cursUser = lens _cursUser (\s a -> s { _cursUser = a })
+{-# INLINE cursUser #-}
 
 instance FromXML CreateUserResponse where
     fromXMLOptions = xmlOptions

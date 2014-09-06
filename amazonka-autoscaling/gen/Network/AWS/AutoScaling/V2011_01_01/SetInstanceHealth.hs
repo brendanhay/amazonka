@@ -25,11 +25,11 @@ module Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth
     -- * Request
       SetInstanceHealth
     -- ** Request constructor
-    , mkSetInstanceHealthQuery
+    , mkSetInstanceHealth
     -- ** Request lenses
-    , sihqInstanceId
-    , sihqHealthStatus
-    , sihqShouldRespectGracePeriod
+    , sihInstanceId
+    , sihHealthStatus
+    , sihShouldRespectGracePeriod
 
     -- * Response
     , SetInstanceHealthResponse
@@ -39,46 +39,36 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetInstanceHealth' request.
-mkSetInstanceHealthQuery :: Text -- ^ 'sihqInstanceId'
-                         -> Text -- ^ 'sihqHealthStatus'
-                         -> SetInstanceHealth
-mkSetInstanceHealthQuery p1 p2 = SetInstanceHealth
-    { _sihqInstanceId = p1
-    , _sihqHealthStatus = p2
-    , _sihqShouldRespectGracePeriod = Nothing
-    }
-{-# INLINE mkSetInstanceHealthQuery #-}
-
+-- | 
 data SetInstanceHealth = SetInstanceHealth
-    { _sihqInstanceId :: Text
-      -- ^ The identifier of the Amazon EC2 instance.
-    , _sihqHealthStatus :: Text
-      -- ^ The health status of the instance. Set to Healthy if you want the
-      -- instance to remain in service. Set to Unhealthy if you want the
-      -- instance to be out of service. Auto Scaling will terminate and
-      -- replace the unhealthy instance.
-    , _sihqShouldRespectGracePeriod :: Maybe Bool
-      -- ^ If the Auto Scaling group of the specified instance has a
-      -- HealthCheckGracePeriod specified for the group, by default, this
-      -- call will respect the grace period. Set this to False, if you do
-      -- not want the call to respect the grace period associated with the
-      -- group. For more information, see the HealthCheckGracePeriod
-      -- parameter description in the CreateAutoScalingGroup action.
+    { _sihInstanceId :: Text
+    , _sihHealthStatus :: Text
+    , _sihShouldRespectGracePeriod :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetInstanceHealth' request.
+mkSetInstanceHealth :: Text -- ^ 'sihInstanceId'
+                    -> Text -- ^ 'sihHealthStatus'
+                    -> SetInstanceHealth
+mkSetInstanceHealth p1 p2 = SetInstanceHealth
+    { _sihInstanceId = p1
+    , _sihHealthStatus = p2
+    , _sihShouldRespectGracePeriod = Nothing
+    }
+{-# INLINE mkSetInstanceHealth #-}
+
 -- | The identifier of the Amazon EC2 instance.
-sihqInstanceId :: Lens' SetInstanceHealth (Text)
-sihqInstanceId = lens _sihqInstanceId (\s a -> s { _sihqInstanceId = a })
-{-# INLINE sihqInstanceId #-}
+sihInstanceId :: Lens' SetInstanceHealth Text
+sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
+{-# INLINE sihInstanceId #-}
 
 -- | The health status of the instance. Set to Healthy if you want the instance
 -- to remain in service. Set to Unhealthy if you want the instance to be out
 -- of service. Auto Scaling will terminate and replace the unhealthy instance.
-sihqHealthStatus :: Lens' SetInstanceHealth (Text)
-sihqHealthStatus = lens _sihqHealthStatus (\s a -> s { _sihqHealthStatus = a })
-{-# INLINE sihqHealthStatus #-}
+sihHealthStatus :: Lens' SetInstanceHealth Text
+sihHealthStatus = lens _sihHealthStatus (\s a -> s { _sihHealthStatus = a })
+{-# INLINE sihHealthStatus #-}
 
 -- | If the Auto Scaling group of the specified instance has a
 -- HealthCheckGracePeriod specified for the group, by default, this call will
@@ -86,9 +76,11 @@ sihqHealthStatus = lens _sihqHealthStatus (\s a -> s { _sihqHealthStatus = a })
 -- respect the grace period associated with the group. For more information,
 -- see the HealthCheckGracePeriod parameter description in the
 -- CreateAutoScalingGroup action.
-sihqShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
-sihqShouldRespectGracePeriod = lens _sihqShouldRespectGracePeriod (\s a -> s { _sihqShouldRespectGracePeriod = a })
-{-# INLINE sihqShouldRespectGracePeriod #-}
+sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
+sihShouldRespectGracePeriod =
+    lens _sihShouldRespectGracePeriod
+         (\s a -> s { _sihShouldRespectGracePeriod = a })
+{-# INLINE sihShouldRespectGracePeriod #-}
 
 instance ToQuery SetInstanceHealth where
     toQuery = genericQuery def

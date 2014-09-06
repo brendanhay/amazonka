@@ -36,11 +36,11 @@ module Network.AWS.IAM.V2010_05_08.UpdateGroup
     -- * Request
       UpdateGroup
     -- ** Request constructor
-    , mkUpdateGroupRequest
+    , mkUpdateGroup
     -- ** Request lenses
-    , ugrGroupName
-    , ugrNewPath
-    , ugrNewGroupName
+    , ugGroupName
+    , ugNewPath
+    , ugNewGroupName
 
     -- * Response
     , UpdateGroupResponse
@@ -50,44 +50,39 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+data UpdateGroup = UpdateGroup
+    { _ugGroupName :: Text
+    , _ugNewPath :: Maybe Text
+    , _ugNewGroupName :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGroup' request.
-mkUpdateGroupRequest :: Text -- ^ 'ugrGroupName'
-                     -> UpdateGroup
-mkUpdateGroupRequest p1 = UpdateGroup
-    { _ugrGroupName = p1
-    , _ugrNewPath = Nothing
-    , _ugrNewGroupName = Nothing
+mkUpdateGroup :: Text -- ^ 'ugGroupName'
+              -> UpdateGroup
+mkUpdateGroup p1 = UpdateGroup
+    { _ugGroupName = p1
+    , _ugNewPath = Nothing
+    , _ugNewGroupName = Nothing
     }
-{-# INLINE mkUpdateGroupRequest #-}
-
-data UpdateGroup = UpdateGroup
-    { _ugrGroupName :: Text
-      -- ^ Name of the group to update. If you're changing the name of the
-      -- group, this is the original name.
-    , _ugrNewPath :: Maybe Text
-      -- ^ New path for the group. Only include this if changing the group's
-      -- path.
-    , _ugrNewGroupName :: Maybe Text
-      -- ^ New name for the group. Only include this if changing the group's
-      -- name.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateGroup #-}
 
 -- | Name of the group to update. If you're changing the name of the group, this
 -- is the original name.
-ugrGroupName :: Lens' UpdateGroup (Text)
-ugrGroupName = lens _ugrGroupName (\s a -> s { _ugrGroupName = a })
-{-# INLINE ugrGroupName #-}
+ugGroupName :: Lens' UpdateGroup Text
+ugGroupName = lens _ugGroupName (\s a -> s { _ugGroupName = a })
+{-# INLINE ugGroupName #-}
 
 -- | New path for the group. Only include this if changing the group's path.
-ugrNewPath :: Lens' UpdateGroup (Maybe Text)
-ugrNewPath = lens _ugrNewPath (\s a -> s { _ugrNewPath = a })
-{-# INLINE ugrNewPath #-}
+ugNewPath :: Lens' UpdateGroup (Maybe Text)
+ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
+{-# INLINE ugNewPath #-}
 
 -- | New name for the group. Only include this if changing the group's name.
-ugrNewGroupName :: Lens' UpdateGroup (Maybe Text)
-ugrNewGroupName = lens _ugrNewGroupName (\s a -> s { _ugrNewGroupName = a })
-{-# INLINE ugrNewGroupName #-}
+ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
+ugNewGroupName = lens _ugNewGroupName (\s a -> s { _ugNewGroupName = a })
+{-# INLINE ugNewGroupName #-}
 
 instance ToQuery UpdateGroup where
     toQuery = genericQuery def

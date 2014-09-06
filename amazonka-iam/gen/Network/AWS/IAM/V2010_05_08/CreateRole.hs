@@ -37,75 +37,72 @@ module Network.AWS.IAM.V2010_05_08.CreateRole
     -- * Request
       CreateRole
     -- ** Request constructor
-    , mkCreateRoleRequest
+    , mkCreateRole
     -- ** Request lenses
-    , crrPath
-    , crrRoleName
-    , crrAssumeRolePolicyDocument
+    , crPath
+    , crRoleName
+    , crAssumeRolePolicyDocument
 
     -- * Response
     , CreateRoleResponse
     -- ** Response lenses
-    , crsRole
+    , crrsRole
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateRole = CreateRole
+    { _crPath :: Maybe Text
+    , _crRoleName :: Text
+    , _crAssumeRolePolicyDocument :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRole' request.
-mkCreateRoleRequest :: Text -- ^ 'crrRoleName'
-                    -> Text -- ^ 'crrAssumeRolePolicyDocument'
-                    -> CreateRole
-mkCreateRoleRequest p1 p2 = CreateRole
-    { _crrPath = Nothing
-    , _crrRoleName = p2
-    , _crrAssumeRolePolicyDocument = p3
+mkCreateRole :: Text -- ^ 'crRoleName'
+             -> Text -- ^ 'crAssumeRolePolicyDocument'
+             -> CreateRole
+mkCreateRole p2 p3 = CreateRole
+    { _crPath = Nothing
+    , _crRoleName = p2
+    , _crAssumeRolePolicyDocument = p3
     }
-{-# INLINE mkCreateRoleRequest #-}
-
-data CreateRole = CreateRole
-    { _crrPath :: Maybe Text
-      -- ^ The path to the role. For more information about paths, see
-      -- Identifiers for IAM Entities in the Using IAM guide. This
-      -- parameter is optional. If it is not included, it defaults to a
-      -- slash (/).
-    , _crrRoleName :: Text
-      -- ^ Name of the role to create.
-    , _crrAssumeRolePolicyDocument :: Text
-      -- ^ The policy that grants an entity permission to assume the role.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateRole #-}
 
 -- | The path to the role. For more information about paths, see Identifiers for
 -- IAM Entities in the Using IAM guide. This parameter is optional. If it is
 -- not included, it defaults to a slash (/).
-crrPath :: Lens' CreateRole (Maybe Text)
-crrPath = lens _crrPath (\s a -> s { _crrPath = a })
-{-# INLINE crrPath #-}
+crPath :: Lens' CreateRole (Maybe Text)
+crPath = lens _crPath (\s a -> s { _crPath = a })
+{-# INLINE crPath #-}
 
 -- | Name of the role to create.
-crrRoleName :: Lens' CreateRole (Text)
-crrRoleName = lens _crrRoleName (\s a -> s { _crrRoleName = a })
-{-# INLINE crrRoleName #-}
+crRoleName :: Lens' CreateRole Text
+crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
+{-# INLINE crRoleName #-}
 
 -- | The policy that grants an entity permission to assume the role.
-crrAssumeRolePolicyDocument :: Lens' CreateRole (Text)
-crrAssumeRolePolicyDocument = lens _crrAssumeRolePolicyDocument (\s a -> s { _crrAssumeRolePolicyDocument = a })
-{-# INLINE crrAssumeRolePolicyDocument #-}
+crAssumeRolePolicyDocument :: Lens' CreateRole Text
+crAssumeRolePolicyDocument =
+    lens _crAssumeRolePolicyDocument
+         (\s a -> s { _crAssumeRolePolicyDocument = a })
+{-# INLINE crAssumeRolePolicyDocument #-}
 
 instance ToQuery CreateRole where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the CreateRole action.
 newtype CreateRoleResponse = CreateRoleResponse
-    { _crsRole :: Role
-      -- ^ Information about the role.
+    { _crrsRole :: Role
     } deriving (Show, Generic)
 
 -- | Information about the role.
-crsRole :: Lens' CreateRoleResponse (Role)
-crsRole = lens _crsRole (\s a -> s { _crsRole = a })
-{-# INLINE crsRole #-}
+crrsRole :: Lens' CreateRoleResponse Role
+crrsRole = lens _crrsRole (\s a -> s { _crrsRole = a })
+{-# INLINE crrsRole #-}
 
 instance FromXML CreateRoleResponse where
     fromXMLOptions = xmlOptions

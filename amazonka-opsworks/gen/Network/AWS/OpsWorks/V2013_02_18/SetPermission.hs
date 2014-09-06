@@ -27,13 +27,13 @@ module Network.AWS.OpsWorks.V2013_02_18.SetPermission
     -- * Request
       SetPermission
     -- ** Request constructor
-    , mkSetPermissionRequest
+    , mkSetPermission
     -- ** Request lenses
-    , sprStackId
-    , sprIamUserArn
-    , sprAllowSsh
-    , sprAllowSudo
-    , sprLevel
+    , spStackId
+    , spIamUserArn
+    , spAllowSsh
+    , spAllowSudo
+    , spLevel
 
     -- * Response
     , SetPermissionResponse
@@ -44,64 +44,55 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetPermission' request.
-mkSetPermissionRequest :: Text -- ^ 'sprStackId'
-                       -> Text -- ^ 'sprIamUserArn'
-                       -> SetPermission
-mkSetPermissionRequest p1 p2 = SetPermission
-    { _sprStackId = p1
-    , _sprIamUserArn = p2
-    , _sprAllowSsh = Nothing
-    , _sprAllowSudo = Nothing
-    , _sprLevel = Nothing
-    }
-{-# INLINE mkSetPermissionRequest #-}
-
 data SetPermission = SetPermission
-    { _sprStackId :: Text
-      -- ^ The stack ID.
-    , _sprIamUserArn :: Text
-      -- ^ The user's IAM ARN.
-    , _sprAllowSsh :: Maybe Bool
-      -- ^ The user is allowed to use SSH to communicate with the instance.
-    , _sprAllowSudo :: Maybe Bool
-      -- ^ The user is allowed to use sudo to elevate privileges.
-    , _sprLevel :: Maybe Text
-      -- ^ The user's permission level, which must be set to one of the
-      -- following strings. You cannot set your own permissions level.
-      -- deny show deploy manage iam_only For more information on the
-      -- permissions associated with these levels, see Managing User
-      -- Permissions.
+    { _spStackId :: Text
+    , _spIamUserArn :: Text
+    , _spAllowSsh :: Maybe Bool
+    , _spAllowSudo :: Maybe Bool
+    , _spLevel :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetPermission' request.
+mkSetPermission :: Text -- ^ 'spStackId'
+                -> Text -- ^ 'spIamUserArn'
+                -> SetPermission
+mkSetPermission p1 p2 = SetPermission
+    { _spStackId = p1
+    , _spIamUserArn = p2
+    , _spAllowSsh = Nothing
+    , _spAllowSudo = Nothing
+    , _spLevel = Nothing
+    }
+{-# INLINE mkSetPermission #-}
+
 -- | The stack ID.
-sprStackId :: Lens' SetPermission (Text)
-sprStackId = lens _sprStackId (\s a -> s { _sprStackId = a })
-{-# INLINE sprStackId #-}
+spStackId :: Lens' SetPermission Text
+spStackId = lens _spStackId (\s a -> s { _spStackId = a })
+{-# INLINE spStackId #-}
 
 -- | The user's IAM ARN.
-sprIamUserArn :: Lens' SetPermission (Text)
-sprIamUserArn = lens _sprIamUserArn (\s a -> s { _sprIamUserArn = a })
-{-# INLINE sprIamUserArn #-}
+spIamUserArn :: Lens' SetPermission Text
+spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
+{-# INLINE spIamUserArn #-}
 
 -- | The user is allowed to use SSH to communicate with the instance.
-sprAllowSsh :: Lens' SetPermission (Maybe Bool)
-sprAllowSsh = lens _sprAllowSsh (\s a -> s { _sprAllowSsh = a })
-{-# INLINE sprAllowSsh #-}
+spAllowSsh :: Lens' SetPermission (Maybe Bool)
+spAllowSsh = lens _spAllowSsh (\s a -> s { _spAllowSsh = a })
+{-# INLINE spAllowSsh #-}
 
 -- | The user is allowed to use sudo to elevate privileges.
-sprAllowSudo :: Lens' SetPermission (Maybe Bool)
-sprAllowSudo = lens _sprAllowSudo (\s a -> s { _sprAllowSudo = a })
-{-# INLINE sprAllowSudo #-}
+spAllowSudo :: Lens' SetPermission (Maybe Bool)
+spAllowSudo = lens _spAllowSudo (\s a -> s { _spAllowSudo = a })
+{-# INLINE spAllowSudo #-}
 
 -- | The user's permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level. deny show deploy manage
 -- iam_only For more information on the permissions associated with these
 -- levels, see Managing User Permissions.
-sprLevel :: Lens' SetPermission (Maybe Text)
-sprLevel = lens _sprLevel (\s a -> s { _sprLevel = a })
-{-# INLINE sprLevel #-}
+spLevel :: Lens' SetPermission (Maybe Text)
+spLevel = lens _spLevel (\s a -> s { _spLevel = a })
+{-# INLINE spLevel #-}
 
 instance ToPath SetPermission
 

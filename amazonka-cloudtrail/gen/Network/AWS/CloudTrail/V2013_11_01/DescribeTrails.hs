@@ -24,14 +24,14 @@ module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
     -- * Request
       DescribeTrails
     -- ** Request constructor
-    , mkDescribeTrailsRequest
+    , mkDescribeTrails
     -- ** Request lenses
-    , dttTrailNameList
+    , dt1TrailNameList
 
     -- * Response
     , DescribeTrailsResponse
     -- ** Response lenses
-    , dtuTrailList
+    , dtrsrsTrailList
     ) where
 
 import           Network.AWS.CloudTrail.V2013_11_01.Types
@@ -39,23 +39,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTrails' request.
-mkDescribeTrailsRequest :: DescribeTrails
-mkDescribeTrailsRequest = DescribeTrails
-    { _dttTrailNameList = mempty
-    }
-{-# INLINE mkDescribeTrailsRequest #-}
-
+-- | Returns information about the trail.
 newtype DescribeTrails = DescribeTrails
-    { _dttTrailNameList :: [Text]
-      -- ^ The trail returned.
+    { _dt1TrailNameList :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrails' request.
+mkDescribeTrails :: DescribeTrails
+mkDescribeTrails = DescribeTrails
+    { _dt1TrailNameList = mempty
+    }
+{-# INLINE mkDescribeTrails #-}
+
 -- | The trail returned.
-dttTrailNameList :: Lens' DescribeTrails ([Text])
-dttTrailNameList = lens _dttTrailNameList (\s a -> s { _dttTrailNameList = a })
-{-# INLINE dttTrailNameList #-}
+dt1TrailNameList :: Lens' DescribeTrails [Text]
+dt1TrailNameList =
+    lens _dt1TrailNameList (\s a -> s { _dt1TrailNameList = a })
+{-# INLINE dt1TrailNameList #-}
 
 instance ToPath DescribeTrails
 
@@ -65,15 +66,16 @@ instance ToHeaders DescribeTrails
 
 instance ToJSON DescribeTrails
 
+-- | Returns the objects or data listed below if successful. Otherwise, returns
+-- an error.
 newtype DescribeTrailsResponse = DescribeTrailsResponse
-    { _dtuTrailList :: [Trail]
-      -- ^ The list of trails.
+    { _dtrsrsTrailList :: [Trail]
     } deriving (Show, Generic)
 
 -- | The list of trails.
-dtuTrailList :: Lens' DescribeTrailsResponse ([Trail])
-dtuTrailList = lens _dtuTrailList (\s a -> s { _dtuTrailList = a })
-{-# INLINE dtuTrailList #-}
+dtrsrsTrailList :: Lens' DescribeTrailsResponse [Trail]
+dtrsrsTrailList = lens _dtrsrsTrailList (\s a -> s { _dtrsrsTrailList = a })
+{-# INLINE dtrsrsTrailList #-}
 
 instance FromJSON DescribeTrailsResponse
 

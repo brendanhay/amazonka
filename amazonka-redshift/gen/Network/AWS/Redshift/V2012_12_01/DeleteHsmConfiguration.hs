@@ -23,9 +23,9 @@ module Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration
     -- * Request
       DeleteHsmConfiguration
     -- ** Request constructor
-    , mkDeleteHsmConfigurationMessage
+    , mkDeleteHsmConfiguration
     -- ** Request lenses
-    , dhcmHsmConfigurationIdentifier
+    , dhcHsmConfigurationIdentifier
 
     -- * Response
     , DeleteHsmConfigurationResponse
@@ -35,25 +35,26 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteHsmConfiguration' request.
-mkDeleteHsmConfigurationMessage :: Text -- ^ 'dhcmHsmConfigurationIdentifier'
-                                -> DeleteHsmConfiguration
-mkDeleteHsmConfigurationMessage p1 = DeleteHsmConfiguration
-    { _dhcmHsmConfigurationIdentifier = p1
-    }
-{-# INLINE mkDeleteHsmConfigurationMessage #-}
-
+-- | 
 newtype DeleteHsmConfiguration = DeleteHsmConfiguration
-    { _dhcmHsmConfigurationIdentifier :: Text
-      -- ^ The identifier of the Amazon Redshift HSM configuration to be
-      -- deleted.
+    { _dhcHsmConfigurationIdentifier :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHsmConfiguration' request.
+mkDeleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
+                         -> DeleteHsmConfiguration
+mkDeleteHsmConfiguration p1 = DeleteHsmConfiguration
+    { _dhcHsmConfigurationIdentifier = p1
+    }
+{-# INLINE mkDeleteHsmConfiguration #-}
+
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
-dhcmHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration (Text)
-dhcmHsmConfigurationIdentifier = lens _dhcmHsmConfigurationIdentifier (\s a -> s { _dhcmHsmConfigurationIdentifier = a })
-{-# INLINE dhcmHsmConfigurationIdentifier #-}
+dhcHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration Text
+dhcHsmConfigurationIdentifier =
+    lens _dhcHsmConfigurationIdentifier
+         (\s a -> s { _dhcHsmConfigurationIdentifier = a })
+{-# INLINE dhcHsmConfigurationIdentifier #-}
 
 instance ToQuery DeleteHsmConfiguration where
     toQuery = genericQuery def

@@ -49,66 +49,62 @@ module Network.AWS.EC2.V2014_06_15.BundleInstance
     -- * Request
       BundleInstance
     -- ** Request constructor
-    , mkBundleInstanceRequest
+    , mkBundleInstance
     -- ** Request lenses
-    , birInstanceId
-    , birStorage
+    , biInstanceId
+    , biStorage
 
     -- * Response
     , BundleInstanceResponse
     -- ** Response lenses
-    , bisBundleTask
+    , birsBundleTask
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BundleInstance' request.
-mkBundleInstanceRequest :: Text -- ^ 'birInstanceId'
-                        -> Storage -- ^ 'birStorage'
-                        -> BundleInstance
-mkBundleInstanceRequest p1 p2 = BundleInstance
-    { _birInstanceId = p1
-    , _birStorage = p2
-    }
-{-# INLINE mkBundleInstanceRequest #-}
-
+-- | 
 data BundleInstance = BundleInstance
-    { _birInstanceId :: Text
-      -- ^ The ID of the instance to bundle.
-    , _birStorage :: Storage
-      -- ^ The bucket in which to store the AMI. You can specify a bucket
-      -- that you already own or a new bucket that Amazon EC2 creates on
-      -- your behalf. If you specify a bucket that belongs to someone
-      -- else, Amazon EC2 returns an error.
+    { _biInstanceId :: Text
+    , _biStorage :: Storage
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BundleInstance' request.
+mkBundleInstance :: Text -- ^ 'biInstanceId'
+                 -> Storage -- ^ 'biStorage'
+                 -> BundleInstance
+mkBundleInstance p1 p2 = BundleInstance
+    { _biInstanceId = p1
+    , _biStorage = p2
+    }
+{-# INLINE mkBundleInstance #-}
+
 -- | The ID of the instance to bundle.
-birInstanceId :: Lens' BundleInstance (Text)
-birInstanceId = lens _birInstanceId (\s a -> s { _birInstanceId = a })
-{-# INLINE birInstanceId #-}
+biInstanceId :: Lens' BundleInstance Text
+biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
+{-# INLINE biInstanceId #-}
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If you
 -- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
-birStorage :: Lens' BundleInstance (Storage)
-birStorage = lens _birStorage (\s a -> s { _birStorage = a })
-{-# INLINE birStorage #-}
+biStorage :: Lens' BundleInstance Storage
+biStorage = lens _biStorage (\s a -> s { _biStorage = a })
+{-# INLINE biStorage #-}
 
 instance ToQuery BundleInstance where
     toQuery = genericQuery def
 
+-- | 
 newtype BundleInstanceResponse = BundleInstanceResponse
-    { _bisBundleTask :: Maybe BundleTask
-      -- ^ Information about the bundle task.
+    { _birsBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
 
 -- | Information about the bundle task.
-bisBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
-bisBundleTask = lens _bisBundleTask (\s a -> s { _bisBundleTask = a })
-{-# INLINE bisBundleTask #-}
+birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
+birsBundleTask = lens _birsBundleTask (\s a -> s { _birsBundleTask = a })
+{-# INLINE birsBundleTask #-}
 
 instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions

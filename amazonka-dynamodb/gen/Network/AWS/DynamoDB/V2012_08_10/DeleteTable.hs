@@ -37,14 +37,14 @@ module Network.AWS.DynamoDB.V2012_08_10.DeleteTable
     -- * Request
       DeleteTable
     -- ** Request constructor
-    , mkDeleteTableInput
+    , mkDeleteTable
     -- ** Request lenses
-    , dtiTableName
+    , dtTableName
 
     -- * Response
     , DeleteTableResponse
     -- ** Response lenses
-    , dtoTableDescription
+    , dtrsTableDescription
     ) where
 
 import           Network.AWS.DynamoDB.V2012_08_10.Types
@@ -52,24 +52,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteTable' request.
-mkDeleteTableInput :: Text -- ^ 'dtiTableName'
-                   -> DeleteTable
-mkDeleteTableInput p1 = DeleteTable
-    { _dtiTableName = p1
-    }
-{-# INLINE mkDeleteTableInput #-}
-
+-- | Represents the input of a DeleteTable operation.
 newtype DeleteTable = DeleteTable
-    { _dtiTableName :: Text
-      -- ^ The name of the table to delete.
+    { _dtTableName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTable' request.
+mkDeleteTable :: Text -- ^ 'dtTableName'
+              -> DeleteTable
+mkDeleteTable p1 = DeleteTable
+    { _dtTableName = p1
+    }
+{-# INLINE mkDeleteTable #-}
+
 -- | The name of the table to delete.
-dtiTableName :: Lens' DeleteTable (Text)
-dtiTableName = lens _dtiTableName (\s a -> s { _dtiTableName = a })
-{-# INLINE dtiTableName #-}
+dtTableName :: Lens' DeleteTable Text
+dtTableName = lens _dtTableName (\s a -> s { _dtTableName = a })
+{-# INLINE dtTableName #-}
 
 instance ToPath DeleteTable
 
@@ -79,15 +79,16 @@ instance ToHeaders DeleteTable
 
 instance ToJSON DeleteTable
 
+-- | Represents the output of a DeleteTable operation.
 newtype DeleteTableResponse = DeleteTableResponse
-    { _dtoTableDescription :: Maybe TableDescription
-      -- ^ Represents the properties of a table.
+    { _dtrsTableDescription :: Maybe TableDescription
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-dtoTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
-dtoTableDescription = lens _dtoTableDescription (\s a -> s { _dtoTableDescription = a })
-{-# INLINE dtoTableDescription #-}
+dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
+dtrsTableDescription =
+    lens _dtrsTableDescription (\s a -> s { _dtrsTableDescription = a })
+{-# INLINE dtrsTableDescription #-}
 
 instance FromJSON DeleteTableResponse
 

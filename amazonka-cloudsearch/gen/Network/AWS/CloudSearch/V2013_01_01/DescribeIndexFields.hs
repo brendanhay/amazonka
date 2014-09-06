@@ -28,74 +28,75 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeIndexFields
     -- * Request
       DescribeIndexFields
     -- ** Request constructor
-    , mkDescribeIndexFieldsRequest
+    , mkDescribeIndexFields
     -- ** Request lenses
-    , difvDomainName
-    , difvFieldNames
-    , difvDeployed
+    , dif2DomainName
+    , dif2FieldNames
+    , dif2Deployed
 
     -- * Response
     , DescribeIndexFieldsResponse
     -- ** Response lenses
-    , difwIndexFields
+    , difrs1IndexFields
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeIndexFields' request.
-mkDescribeIndexFieldsRequest :: Text -- ^ 'difvDomainName'
-                             -> DescribeIndexFields
-mkDescribeIndexFieldsRequest p1 = DescribeIndexFields
-    { _difvDomainName = p1
-    , _difvFieldNames = mempty
-    , _difvDeployed = Nothing
-    }
-{-# INLINE mkDescribeIndexFieldsRequest #-}
-
+-- | Container for the parameters to the DescribeIndexFields operation.
+-- Specifies the name of the domain you want to describe. To restrict the
+-- response to particular index fields, specify the names of the index fields
+-- you want to describe. To show the active configuration and exclude any
+-- pending changes, set the Deployed option to true.
 data DescribeIndexFields = DescribeIndexFields
-    { _difvDomainName :: Text
-      -- ^ The name of the domain you want to describe.
-    , _difvFieldNames :: [Text]
-      -- ^ A list of the index fields you want to describe. If not
-      -- specified, information is returned for all configured index
-      -- fields.
-    , _difvDeployed :: Maybe Bool
-      -- ^ Whether to display the deployed configuration (true) or include
-      -- any pending changes (false). Defaults to false.
+    { _dif2DomainName :: Text
+    , _dif2FieldNames :: [Text]
+    , _dif2Deployed :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeIndexFields' request.
+mkDescribeIndexFields :: Text -- ^ 'dif2DomainName'
+                      -> DescribeIndexFields
+mkDescribeIndexFields p1 = DescribeIndexFields
+    { _dif2DomainName = p1
+    , _dif2FieldNames = mempty
+    , _dif2Deployed = Nothing
+    }
+{-# INLINE mkDescribeIndexFields #-}
+
 -- | The name of the domain you want to describe.
-difvDomainName :: Lens' DescribeIndexFields (Text)
-difvDomainName = lens _difvDomainName (\s a -> s { _difvDomainName = a })
-{-# INLINE difvDomainName #-}
+dif2DomainName :: Lens' DescribeIndexFields Text
+dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
+{-# INLINE dif2DomainName #-}
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-difvFieldNames :: Lens' DescribeIndexFields ([Text])
-difvFieldNames = lens _difvFieldNames (\s a -> s { _difvFieldNames = a })
-{-# INLINE difvFieldNames #-}
+dif2FieldNames :: Lens' DescribeIndexFields [Text]
+dif2FieldNames = lens _dif2FieldNames (\s a -> s { _dif2FieldNames = a })
+{-# INLINE dif2FieldNames #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-difvDeployed :: Lens' DescribeIndexFields (Maybe Bool)
-difvDeployed = lens _difvDeployed (\s a -> s { _difvDeployed = a })
-{-# INLINE difvDeployed #-}
+dif2Deployed :: Lens' DescribeIndexFields (Maybe Bool)
+dif2Deployed = lens _dif2Deployed (\s a -> s { _dif2Deployed = a })
+{-# INLINE dif2Deployed #-}
 
 instance ToQuery DescribeIndexFields where
     toQuery = genericQuery def
 
+-- | The result of a DescribeIndexFields request. Contains the index fields
+-- configured for the domain specified in the request.
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
-    { _difwIndexFields :: [IndexFieldStatus]
-      -- ^ The index fields configured for the domain.
+    { _difrs1IndexFields :: [IndexFieldStatus]
     } deriving (Show, Generic)
 
 -- | The index fields configured for the domain.
-difwIndexFields :: Lens' DescribeIndexFieldsResponse ([IndexFieldStatus])
-difwIndexFields = lens _difwIndexFields (\s a -> s { _difwIndexFields = a })
-{-# INLINE difwIndexFields #-}
+difrs1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+difrs1IndexFields =
+    lens _difrs1IndexFields (\s a -> s { _difrs1IndexFields = a })
+{-# INLINE difrs1IndexFields #-}
 
 instance FromXML DescribeIndexFieldsResponse where
     fromXMLOptions = xmlOptions

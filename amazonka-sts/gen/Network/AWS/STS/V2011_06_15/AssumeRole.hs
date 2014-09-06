@@ -90,103 +90,65 @@ module Network.AWS.STS.V2011_06_15.AssumeRole
     -- * Request
       AssumeRole
     -- ** Request constructor
-    , mkAssumeRoleRequest
+    , mkAssumeRole
     -- ** Request lenses
-    , arrRoleArn
-    , arrRoleSessionName
-    , arrPolicy
-    , arrDurationSeconds
-    , arrExternalId
-    , arrSerialNumber
-    , arrTokenCode
+    , arRoleArn
+    , arRoleSessionName
+    , arPolicy
+    , arDurationSeconds
+    , arExternalId
+    , arSerialNumber
+    , arTokenCode
 
     -- * Response
     , AssumeRoleResponse
     -- ** Response lenses
-    , arsCredentials
-    , arsAssumedRoleUser
-    , arsPackedPolicySize
+    , arrsCredentials
+    , arrsAssumedRoleUser
+    , arrsPackedPolicySize
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AssumeRole' request.
-mkAssumeRoleRequest :: Text -- ^ 'arrRoleArn'
-                    -> Text -- ^ 'arrRoleSessionName'
-                    -> AssumeRole
-mkAssumeRoleRequest p1 p2 = AssumeRole
-    { _arrRoleArn = p1
-    , _arrRoleSessionName = p2
-    , _arrPolicy = Nothing
-    , _arrDurationSeconds = Nothing
-    , _arrExternalId = Nothing
-    , _arrSerialNumber = Nothing
-    , _arrTokenCode = Nothing
-    }
-{-# INLINE mkAssumeRoleRequest #-}
-
 data AssumeRole = AssumeRole
-    { _arrRoleArn :: Text
-      -- ^ The Amazon Resource Name (ARN) of the role that the caller is
-      -- assuming.
-    , _arrRoleSessionName :: Text
-      -- ^ An identifier for the assumed role session. The session name is
-      -- included as part of the AssumedRoleUser.
-    , _arrPolicy :: Maybe Text
-      -- ^ An IAM policy in JSON format. The policy parameter is optional.
-      -- If you pass a policy, the temporary security credentials that are
-      -- returned by the operation have the permissions that are allowed
-      -- by both the access policy of the role that is being assumed, and
-      -- the policy that you pass. This gives you a way to further
-      -- restrict the permissions for the resulting temporary security
-      -- credentials. You cannot use the passed policy to grant
-      -- permissions that are in excess of those allowed by the access
-      -- policy of the role that is being assumed. For more information,
-      -- see Permissions for AssumeRole in Using Temporary Security
-      -- Credentials.
-    , _arrDurationSeconds :: Maybe Integer
-      -- ^ The duration, in seconds, of the role session. The value can
-      -- range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By
-      -- default, the value is set to 3600 seconds.
-    , _arrExternalId :: Maybe Text
-      -- ^ A unique identifier that is used by third parties to assume a
-      -- role in their customers' accounts. For each role that the third
-      -- party can assume, they should instruct their customers to create
-      -- a role with the external ID that the third party generated. Each
-      -- time the third party assumes the role, they must pass the
-      -- customer's external ID. The external ID is useful in order to
-      -- help third parties bind a role to the customer who created it.
-      -- For more information about the external ID, see About the
-      -- External ID in Using Temporary Security Credentials.
-    , _arrSerialNumber :: Maybe Text
-      -- ^ The identification number of the MFA device that is associated
-      -- with the user who is making the AssumeRole call. Specify this
-      -- value if the trust policy of the role being assumed includes a
-      -- condition that requires MFA authentication. The value is either
-      -- the serial number for a hardware device (such as GAHT12345678) or
-      -- an Amazon Resource Name (ARN) for a virtual device (such as
-      -- arn:aws:iam::123456789012:mfa/user).
-    , _arrTokenCode :: Maybe Text
-      -- ^ The value provided by the MFA device, if the trust policy of the
-      -- role being assumed requires MFA (that is, if the policy includes
-      -- a condition that tests for MFA). If the role being assumed
-      -- requires MFA and if the TokenCode value is missing or expired,
-      -- the AssumeRole call returns an "access denied" error.
+    { _arRoleArn :: Text
+    , _arRoleSessionName :: Text
+    , _arPolicy :: Maybe Text
+    , _arDurationSeconds :: Maybe Integer
+    , _arExternalId :: Maybe Text
+    , _arSerialNumber :: Maybe Text
+    , _arTokenCode :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssumeRole' request.
+mkAssumeRole :: Text -- ^ 'arRoleArn'
+             -> Text -- ^ 'arRoleSessionName'
+             -> AssumeRole
+mkAssumeRole p1 p2 = AssumeRole
+    { _arRoleArn = p1
+    , _arRoleSessionName = p2
+    , _arPolicy = Nothing
+    , _arDurationSeconds = Nothing
+    , _arExternalId = Nothing
+    , _arSerialNumber = Nothing
+    , _arTokenCode = Nothing
+    }
+{-# INLINE mkAssumeRole #-}
+
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arrRoleArn :: Lens' AssumeRole (Text)
-arrRoleArn = lens _arrRoleArn (\s a -> s { _arrRoleArn = a })
-{-# INLINE arrRoleArn #-}
+arRoleArn :: Lens' AssumeRole Text
+arRoleArn = lens _arRoleArn (\s a -> s { _arRoleArn = a })
+{-# INLINE arRoleArn #-}
 
 -- | An identifier for the assumed role session. The session name is included as
 -- part of the AssumedRoleUser.
-arrRoleSessionName :: Lens' AssumeRole (Text)
-arrRoleSessionName = lens _arrRoleSessionName (\s a -> s { _arrRoleSessionName = a })
-{-# INLINE arrRoleSessionName #-}
+arRoleSessionName :: Lens' AssumeRole Text
+arRoleSessionName =
+    lens _arRoleSessionName (\s a -> s { _arRoleSessionName = a })
+{-# INLINE arRoleSessionName #-}
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you pass
 -- a policy, the temporary security credentials that are returned by the
@@ -197,16 +159,17 @@ arrRoleSessionName = lens _arrRoleSessionName (\s a -> s { _arrRoleSessionName =
 -- that are in excess of those allowed by the access policy of the role that
 -- is being assumed. For more information, see Permissions for AssumeRole in
 -- Using Temporary Security Credentials.
-arrPolicy :: Lens' AssumeRole (Maybe Text)
-arrPolicy = lens _arrPolicy (\s a -> s { _arrPolicy = a })
-{-# INLINE arrPolicy #-}
+arPolicy :: Lens' AssumeRole (Maybe Text)
+arPolicy = lens _arPolicy (\s a -> s { _arPolicy = a })
+{-# INLINE arPolicy #-}
 
 -- | The duration, in seconds, of the role session. The value can range from 900
 -- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
 -- to 3600 seconds.
-arrDurationSeconds :: Lens' AssumeRole (Maybe Integer)
-arrDurationSeconds = lens _arrDurationSeconds (\s a -> s { _arrDurationSeconds = a })
-{-# INLINE arrDurationSeconds #-}
+arDurationSeconds :: Lens' AssumeRole (Maybe Integer)
+arDurationSeconds =
+    lens _arDurationSeconds (\s a -> s { _arDurationSeconds = a })
+{-# INLINE arDurationSeconds #-}
 
 -- | A unique identifier that is used by third parties to assume a role in their
 -- customers' accounts. For each role that the third party can assume, they
@@ -216,9 +179,9 @@ arrDurationSeconds = lens _arrDurationSeconds (\s a -> s { _arrDurationSeconds =
 -- help third parties bind a role to the customer who created it. For more
 -- information about the external ID, see About the External ID in Using
 -- Temporary Security Credentials.
-arrExternalId :: Lens' AssumeRole (Maybe Text)
-arrExternalId = lens _arrExternalId (\s a -> s { _arrExternalId = a })
-{-# INLINE arrExternalId #-}
+arExternalId :: Lens' AssumeRole (Maybe Text)
+arExternalId = lens _arExternalId (\s a -> s { _arExternalId = a })
+{-# INLINE arExternalId #-}
 
 -- | The identification number of the MFA device that is associated with the
 -- user who is making the AssumeRole call. Specify this value if the trust
@@ -226,45 +189,35 @@ arrExternalId = lens _arrExternalId (\s a -> s { _arrExternalId = a })
 -- authentication. The value is either the serial number for a hardware device
 -- (such as GAHT12345678) or an Amazon Resource Name (ARN) for a virtual
 -- device (such as arn:aws:iam::123456789012:mfa/user).
-arrSerialNumber :: Lens' AssumeRole (Maybe Text)
-arrSerialNumber = lens _arrSerialNumber (\s a -> s { _arrSerialNumber = a })
-{-# INLINE arrSerialNumber #-}
+arSerialNumber :: Lens' AssumeRole (Maybe Text)
+arSerialNumber = lens _arSerialNumber (\s a -> s { _arSerialNumber = a })
+{-# INLINE arSerialNumber #-}
 
 -- | The value provided by the MFA device, if the trust policy of the role being
 -- assumed requires MFA (that is, if the policy includes a condition that
 -- tests for MFA). If the role being assumed requires MFA and if the TokenCode
 -- value is missing or expired, the AssumeRole call returns an "access denied"
 -- error.
-arrTokenCode :: Lens' AssumeRole (Maybe Text)
-arrTokenCode = lens _arrTokenCode (\s a -> s { _arrTokenCode = a })
-{-# INLINE arrTokenCode #-}
+arTokenCode :: Lens' AssumeRole (Maybe Text)
+arTokenCode = lens _arTokenCode (\s a -> s { _arTokenCode = a })
+{-# INLINE arTokenCode #-}
 
 instance ToQuery AssumeRole where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful call to the AssumeRole action,
+-- including temporary AWS credentials that can be used to make AWS requests.
 data AssumeRoleResponse = AssumeRoleResponse
-    { _arsCredentials :: Maybe Credentials
-      -- ^ The temporary security credentials, which include an access key
-      -- ID, a secret access key, and a security (or session) token.
-    , _arsAssumedRoleUser :: Maybe AssumedRoleUser
-      -- ^ The Amazon Resource Name (ARN) and the assumed role ID, which are
-      -- identifiers that you can use to refer to the resulting temporary
-      -- security credentials. For example, you can reference these
-      -- credentials as a principal in a resource-based policy by using
-      -- the ARN or assumed role ID. The ARN and ID include the
-      -- RoleSessionName that you specified when you called AssumeRole.
-    , _arsPackedPolicySize :: Maybe Integer
-      -- ^ A percentage value that indicates the size of the policy in
-      -- packed form. The service rejects any policy with a packed size
-      -- greater than 100 percent, which means the policy exceeded the
-      -- allowed space.
+    { _arrsCredentials :: Maybe Credentials
+    , _arrsAssumedRoleUser :: Maybe AssumedRoleUser
+    , _arrsPackedPolicySize :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security (or session) token.
-arsCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
-arsCredentials = lens _arsCredentials (\s a -> s { _arsCredentials = a })
-{-# INLINE arsCredentials #-}
+arrsCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
+arrsCredentials = lens _arrsCredentials (\s a -> s { _arrsCredentials = a })
+{-# INLINE arrsCredentials #-}
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
 -- identifiers that you can use to refer to the resulting temporary security
@@ -272,16 +225,18 @@ arsCredentials = lens _arsCredentials (\s a -> s { _arsCredentials = a })
 -- principal in a resource-based policy by using the ARN or assumed role ID.
 -- The ARN and ID include the RoleSessionName that you specified when you
 -- called AssumeRole.
-arsAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
-arsAssumedRoleUser = lens _arsAssumedRoleUser (\s a -> s { _arsAssumedRoleUser = a })
-{-# INLINE arsAssumedRoleUser #-}
+arrsAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
+arrsAssumedRoleUser =
+    lens _arrsAssumedRoleUser (\s a -> s { _arrsAssumedRoleUser = a })
+{-# INLINE arrsAssumedRoleUser #-}
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
 -- which means the policy exceeded the allowed space.
-arsPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Integer)
-arsPackedPolicySize = lens _arsPackedPolicySize (\s a -> s { _arsPackedPolicySize = a })
-{-# INLINE arsPackedPolicySize #-}
+arrsPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Integer)
+arrsPackedPolicySize =
+    lens _arrsPackedPolicySize (\s a -> s { _arrsPackedPolicySize = a })
+{-# INLINE arrsPackedPolicySize #-}
 
 instance FromXML AssumeRoleResponse where
     fromXMLOptions = xmlOptions

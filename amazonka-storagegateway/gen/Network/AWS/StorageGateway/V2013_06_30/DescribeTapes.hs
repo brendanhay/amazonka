@@ -22,18 +22,18 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapes
     -- * Request
       DescribeTapes
     -- ** Request constructor
-    , mkDescribeTapesInput
+    , mkDescribeTapes
     -- ** Request lenses
-    , dtjGatewayARN
-    , dtjTapeARNs
-    , dtjMarker
-    , dtjLimit
+    , dt1GatewayARN
+    , dt1TapeARNs
+    , dt1Marker
+    , dt1Limit
 
     -- * Response
     , DescribeTapesResponse
     -- ** Response lenses
-    , dtpTapes
-    , dtpMarker
+    , dtrsrsTapes
+    , dtrsrsMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -41,45 +41,42 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DescribeTapes = DescribeTapes
+    { _dt1GatewayARN :: Text
+    , _dt1TapeARNs :: [Text]
+    , _dt1Marker :: Maybe Text
+    , _dt1Limit :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapes' request.
-mkDescribeTapesInput :: Text -- ^ 'dtjGatewayARN'
-                     -> DescribeTapes
-mkDescribeTapesInput p1 = DescribeTapes
-    { _dtjGatewayARN = p1
-    , _dtjTapeARNs = mempty
-    , _dtjMarker = Nothing
-    , _dtjLimit = Nothing
+mkDescribeTapes :: Text -- ^ 'dt1GatewayARN'
+                -> DescribeTapes
+mkDescribeTapes p1 = DescribeTapes
+    { _dt1GatewayARN = p1
+    , _dt1TapeARNs = mempty
+    , _dt1Marker = Nothing
+    , _dt1Limit = Nothing
     }
-{-# INLINE mkDescribeTapesInput #-}
-
-data DescribeTapes = DescribeTapes
-    { _dtjGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dtjTapeARNs :: [Text]
-    , _dtjMarker :: Maybe Text
-    , _dtjLimit :: Maybe Integer
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeTapes #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dtjGatewayARN :: Lens' DescribeTapes (Text)
-dtjGatewayARN = lens _dtjGatewayARN (\s a -> s { _dtjGatewayARN = a })
-{-# INLINE dtjGatewayARN #-}
+dt1GatewayARN :: Lens' DescribeTapes Text
+dt1GatewayARN = lens _dt1GatewayARN (\s a -> s { _dt1GatewayARN = a })
+{-# INLINE dt1GatewayARN #-}
 
-dtjTapeARNs :: Lens' DescribeTapes ([Text])
-dtjTapeARNs = lens _dtjTapeARNs (\s a -> s { _dtjTapeARNs = a })
-{-# INLINE dtjTapeARNs #-}
+dt1TapeARNs :: Lens' DescribeTapes [Text]
+dt1TapeARNs = lens _dt1TapeARNs (\s a -> s { _dt1TapeARNs = a })
+{-# INLINE dt1TapeARNs #-}
 
-dtjMarker :: Lens' DescribeTapes (Maybe Text)
-dtjMarker = lens _dtjMarker (\s a -> s { _dtjMarker = a })
-{-# INLINE dtjMarker #-}
+dt1Marker :: Lens' DescribeTapes (Maybe Text)
+dt1Marker = lens _dt1Marker (\s a -> s { _dt1Marker = a })
+{-# INLINE dt1Marker #-}
 
-dtjLimit :: Lens' DescribeTapes (Maybe Integer)
-dtjLimit = lens _dtjLimit (\s a -> s { _dtjLimit = a })
-{-# INLINE dtjLimit #-}
+dt1Limit :: Lens' DescribeTapes (Maybe Integer)
+dt1Limit = lens _dt1Limit (\s a -> s { _dt1Limit = a })
+{-# INLINE dt1Limit #-}
 
 instance ToPath DescribeTapes
 
@@ -90,17 +87,17 @@ instance ToHeaders DescribeTapes
 instance ToJSON DescribeTapes
 
 data DescribeTapesResponse = DescribeTapesResponse
-    { _dtpTapes :: [Tape]
-    , _dtpMarker :: Maybe Text
+    { _dtrsrsTapes :: [Tape]
+    , _dtrsrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
-dtpTapes :: Lens' DescribeTapesResponse ([Tape])
-dtpTapes = lens _dtpTapes (\s a -> s { _dtpTapes = a })
-{-# INLINE dtpTapes #-}
+dtrsrsTapes :: Lens' DescribeTapesResponse [Tape]
+dtrsrsTapes = lens _dtrsrsTapes (\s a -> s { _dtrsrsTapes = a })
+{-# INLINE dtrsrsTapes #-}
 
-dtpMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtpMarker = lens _dtpMarker (\s a -> s { _dtpMarker = a })
-{-# INLINE dtpMarker #-}
+dtrsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
+dtrsrsMarker = lens _dtrsrsMarker (\s a -> s { _dtrsrsMarker = a })
+{-# INLINE dtrsrsMarker #-}
 
 instance FromJSON DescribeTapesResponse
 
@@ -112,5 +109,5 @@ instance AWSRequest DescribeTapes where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapes where
-    next rq rs = (\x -> rq { _dtjMarker = Just x })
-        <$> (_dtpMarker rs)
+    next rq rs = (\x -> rq { _dt1Marker = Just x })
+        <$> (_dtrsrsMarker rs)

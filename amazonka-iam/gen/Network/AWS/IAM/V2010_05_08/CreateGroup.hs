@@ -27,66 +27,61 @@ module Network.AWS.IAM.V2010_05_08.CreateGroup
     -- * Request
       CreateGroup
     -- ** Request constructor
-    , mkCreateGroupRequest
+    , mkCreateGroup
     -- ** Request lenses
-    , cgrPath
-    , cgrGroupName
+    , cgPath
+    , cgGroupName
 
     -- * Response
     , CreateGroupResponse
     -- ** Response lenses
-    , cgsGroup
+    , cgrsGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateGroup = CreateGroup
+    { _cgPath :: Maybe Text
+    , _cgGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateGroup' request.
-mkCreateGroupRequest :: Text -- ^ 'cgrGroupName'
-                     -> CreateGroup
-mkCreateGroupRequest p1 = CreateGroup
-    { _cgrPath = Nothing
-    , _cgrGroupName = p2
+mkCreateGroup :: Text -- ^ 'cgGroupName'
+              -> CreateGroup
+mkCreateGroup p2 = CreateGroup
+    { _cgPath = Nothing
+    , _cgGroupName = p2
     }
-{-# INLINE mkCreateGroupRequest #-}
-
-data CreateGroup = CreateGroup
-    { _cgrPath :: Maybe Text
-      -- ^ The path to the group. For more information about paths, see
-      -- Identifiers for IAM Entities in the Using IAM guide. This
-      -- parameter is optional. If it is not included, it defaults to a
-      -- slash (/).
-    , _cgrGroupName :: Text
-      -- ^ Name of the group to create. Do not include the path in this
-      -- value.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateGroup #-}
 
 -- | The path to the group. For more information about paths, see Identifiers
 -- for IAM Entities in the Using IAM guide. This parameter is optional. If it
 -- is not included, it defaults to a slash (/).
-cgrPath :: Lens' CreateGroup (Maybe Text)
-cgrPath = lens _cgrPath (\s a -> s { _cgrPath = a })
-{-# INLINE cgrPath #-}
+cgPath :: Lens' CreateGroup (Maybe Text)
+cgPath = lens _cgPath (\s a -> s { _cgPath = a })
+{-# INLINE cgPath #-}
 
 -- | Name of the group to create. Do not include the path in this value.
-cgrGroupName :: Lens' CreateGroup (Text)
-cgrGroupName = lens _cgrGroupName (\s a -> s { _cgrGroupName = a })
-{-# INLINE cgrGroupName #-}
+cgGroupName :: Lens' CreateGroup Text
+cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
+{-# INLINE cgGroupName #-}
 
 instance ToQuery CreateGroup where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the CreateGroup action.
 newtype CreateGroupResponse = CreateGroupResponse
-    { _cgsGroup :: Group
-      -- ^ Information about the group.
+    { _cgrsGroup :: Group
     } deriving (Show, Generic)
 
 -- | Information about the group.
-cgsGroup :: Lens' CreateGroupResponse (Group)
-cgsGroup = lens _cgsGroup (\s a -> s { _cgsGroup = a })
-{-# INLINE cgsGroup #-}
+cgrsGroup :: Lens' CreateGroupResponse Group
+cgrsGroup = lens _cgrsGroup (\s a -> s { _cgrsGroup = a })
+{-# INLINE cgrsGroup #-}
 
 instance FromXML CreateGroupResponse where
     fromXMLOptions = xmlOptions

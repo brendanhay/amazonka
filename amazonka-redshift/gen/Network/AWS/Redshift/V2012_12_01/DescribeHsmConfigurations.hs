@@ -25,71 +25,57 @@ module Network.AWS.Redshift.V2012_12_01.DescribeHsmConfigurations
     -- * Request
       DescribeHsmConfigurations
     -- ** Request constructor
-    , mkDescribeHsmConfigurationsMessage
+    , mkDescribeHsmConfigurations
     -- ** Request lenses
-    , dhcnHsmConfigurationIdentifier
-    , dhcnMaxRecords
-    , dhcnMarker
+    , dhc1HsmConfigurationIdentifier
+    , dhc1MaxRecords
+    , dhc1Marker
 
     -- * Response
     , DescribeHsmConfigurationsResponse
     -- ** Response lenses
-    , hcmMarker
-    , hcmHsmConfigurations
+    , dhcrsMarker
+    , dhcrsHsmConfigurations
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeHsmConfigurations = DescribeHsmConfigurations
+    { _dhc1HsmConfigurationIdentifier :: Maybe Text
+    , _dhc1MaxRecords :: Maybe Integer
+    , _dhc1Marker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeHsmConfigurations' request.
-mkDescribeHsmConfigurationsMessage :: DescribeHsmConfigurations
-mkDescribeHsmConfigurationsMessage = DescribeHsmConfigurations
-    { _dhcnHsmConfigurationIdentifier = Nothing
-    , _dhcnMaxRecords = Nothing
-    , _dhcnMarker = Nothing
+mkDescribeHsmConfigurations :: DescribeHsmConfigurations
+mkDescribeHsmConfigurations = DescribeHsmConfigurations
+    { _dhc1HsmConfigurationIdentifier = Nothing
+    , _dhc1MaxRecords = Nothing
+    , _dhc1Marker = Nothing
     }
-{-# INLINE mkDescribeHsmConfigurationsMessage #-}
-
-data DescribeHsmConfigurations = DescribeHsmConfigurations
-    { _dhcnHsmConfigurationIdentifier :: Maybe Text
-      -- ^ The identifier of a specific Amazon Redshift HSM configuration to
-      -- be described. If no identifier is specified, information is
-      -- returned for all HSM configurations owned by your AWS customer
-      -- account.
-    , _dhcnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _dhcnMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a
-      -- DescribeHsmConfigurations request exceed the value specified in
-      -- MaxRecords, AWS returns a value in the Marker field of the
-      -- response. You can retrieve the next set of response records by
-      -- providing the returned marker value in the Marker parameter and
-      -- retrying the request.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeHsmConfigurations #-}
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for all
 -- HSM configurations owned by your AWS customer account.
-dhcnHsmConfigurationIdentifier :: Lens' DescribeHsmConfigurations (Maybe Text)
-dhcnHsmConfigurationIdentifier = lens _dhcnHsmConfigurationIdentifier (\s a -> s { _dhcnHsmConfigurationIdentifier = a })
-{-# INLINE dhcnHsmConfigurationIdentifier #-}
+dhc1HsmConfigurationIdentifier :: Lens' DescribeHsmConfigurations (Maybe Text)
+dhc1HsmConfigurationIdentifier =
+    lens _dhc1HsmConfigurationIdentifier
+         (\s a -> s { _dhc1HsmConfigurationIdentifier = a })
+{-# INLINE dhc1HsmConfigurationIdentifier #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dhcnMaxRecords :: Lens' DescribeHsmConfigurations (Maybe Integer)
-dhcnMaxRecords = lens _dhcnMaxRecords (\s a -> s { _dhcnMaxRecords = a })
-{-# INLINE dhcnMaxRecords #-}
+dhc1MaxRecords :: Lens' DescribeHsmConfigurations (Maybe Integer)
+dhc1MaxRecords = lens _dhc1MaxRecords (\s a -> s { _dhc1MaxRecords = a })
+{-# INLINE dhc1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeHsmConfigurations request
@@ -97,23 +83,17 @@ dhcnMaxRecords = lens _dhcnMaxRecords (\s a -> s { _dhcnMaxRecords = a })
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-dhcnMarker :: Lens' DescribeHsmConfigurations (Maybe Text)
-dhcnMarker = lens _dhcnMarker (\s a -> s { _dhcnMarker = a })
-{-# INLINE dhcnMarker #-}
+dhc1Marker :: Lens' DescribeHsmConfigurations (Maybe Text)
+dhc1Marker = lens _dhc1Marker (\s a -> s { _dhc1Marker = a })
+{-# INLINE dhc1Marker #-}
 
 instance ToQuery DescribeHsmConfigurations where
     toQuery = genericQuery def
 
+-- | 
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
-    { _hcmMarker :: Maybe Text
-      -- ^ A value that indicates the starting point for the next set of
-      -- response records in a subsequent request. If a value is returned
-      -- in a response, you can retrieve the next set of records by
-      -- providing this returned marker value in the Marker parameter and
-      -- retrying the command. If the Marker field is empty, all response
-      -- records have been retrieved for the request.
-    , _hcmHsmConfigurations :: [HsmConfiguration]
-      -- ^ A list of Amazon Redshift HSM configurations.
+    { _dhcrsMarker :: Maybe Text
+    , _dhcrsHsmConfigurations :: [HsmConfiguration]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -121,14 +101,15 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-hcmMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
-hcmMarker = lens _hcmMarker (\s a -> s { _hcmMarker = a })
-{-# INLINE hcmMarker #-}
+dhcrsMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
+dhcrsMarker = lens _dhcrsMarker (\s a -> s { _dhcrsMarker = a })
+{-# INLINE dhcrsMarker #-}
 
 -- | A list of Amazon Redshift HSM configurations.
-hcmHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse ([HsmConfiguration])
-hcmHsmConfigurations = lens _hcmHsmConfigurations (\s a -> s { _hcmHsmConfigurations = a })
-{-# INLINE hcmHsmConfigurations #-}
+dhcrsHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse [HsmConfiguration]
+dhcrsHsmConfigurations =
+    lens _dhcrsHsmConfigurations (\s a -> s { _dhcrsHsmConfigurations = a })
+{-# INLINE dhcrsHsmConfigurations #-}
 
 instance FromXML DescribeHsmConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -141,5 +122,5 @@ instance AWSRequest DescribeHsmConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmConfigurations where
-    next rq rs = (\x -> rq { _dhcnMarker = Just x })
-        <$> (_hcmMarker rs)
+    next rq rs = (\x -> rq { _dhc1Marker = Just x })
+        <$> (_dhcrsMarker rs)

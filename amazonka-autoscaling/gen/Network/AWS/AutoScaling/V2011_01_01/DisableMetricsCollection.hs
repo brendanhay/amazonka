@@ -25,10 +25,10 @@ module Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection
     -- * Request
       DisableMetricsCollection
     -- ** Request constructor
-    , mkDisableMetricsCollectionQuery
+    , mkDisableMetricsCollection
     -- ** Request lenses
-    , dmcqAutoScalingGroupName
-    , dmcqMetrics
+    , dmcAutoScalingGroupName
+    , dmcMetrics
 
     -- * Response
     , DisableMetricsCollectionResponse
@@ -38,41 +38,37 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DisableMetricsCollection' request.
-mkDisableMetricsCollectionQuery :: Text -- ^ 'dmcqAutoScalingGroupName'
-                                -> DisableMetricsCollection
-mkDisableMetricsCollectionQuery p1 = DisableMetricsCollection
-    { _dmcqAutoScalingGroupName = p1
-    , _dmcqMetrics = mempty
-    }
-{-# INLINE mkDisableMetricsCollectionQuery #-}
-
+-- | 
 data DisableMetricsCollection = DisableMetricsCollection
-    { _dmcqAutoScalingGroupName :: Text
-      -- ^ The name or ARN of the Auto Scaling Group.
-    , _dmcqMetrics :: [Text]
-      -- ^ The list of metrics to disable. If no metrics are specified, all
-      -- metrics are disabled. The following metrics are supported:
-      -- GroupMinSize GroupMaxSize GroupDesiredCapacity
-      -- GroupInServiceInstances GroupPendingInstances
-      -- GroupStandbyInstances GroupTerminatingInstances
-      -- GroupTotalInstances.
+    { _dmcAutoScalingGroupName :: Text
+    , _dmcMetrics :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableMetricsCollection' request.
+mkDisableMetricsCollection :: Text -- ^ 'dmcAutoScalingGroupName'
+                           -> DisableMetricsCollection
+mkDisableMetricsCollection p1 = DisableMetricsCollection
+    { _dmcAutoScalingGroupName = p1
+    , _dmcMetrics = mempty
+    }
+{-# INLINE mkDisableMetricsCollection #-}
+
 -- | The name or ARN of the Auto Scaling Group.
-dmcqAutoScalingGroupName :: Lens' DisableMetricsCollection (Text)
-dmcqAutoScalingGroupName = lens _dmcqAutoScalingGroupName (\s a -> s { _dmcqAutoScalingGroupName = a })
-{-# INLINE dmcqAutoScalingGroupName #-}
+dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
+dmcAutoScalingGroupName =
+    lens _dmcAutoScalingGroupName
+         (\s a -> s { _dmcAutoScalingGroupName = a })
+{-# INLINE dmcAutoScalingGroupName #-}
 
 -- | The list of metrics to disable. If no metrics are specified, all metrics
 -- are disabled. The following metrics are supported: GroupMinSize
 -- GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
-dmcqMetrics :: Lens' DisableMetricsCollection ([Text])
-dmcqMetrics = lens _dmcqMetrics (\s a -> s { _dmcqMetrics = a })
-{-# INLINE dmcqMetrics #-}
+dmcMetrics :: Lens' DisableMetricsCollection [Text]
+dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a })
+{-# INLINE dmcMetrics #-}
 
 instance ToQuery DisableMetricsCollection where
     toQuery = genericQuery def

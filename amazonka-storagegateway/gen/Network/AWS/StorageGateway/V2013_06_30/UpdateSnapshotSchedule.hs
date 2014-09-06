@@ -43,17 +43,17 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule
     -- * Request
       UpdateSnapshotSchedule
     -- ** Request constructor
-    , mkUpdateSnapshotScheduleInput
+    , mkUpdateSnapshotSchedule
     -- ** Request lenses
-    , ussiVolumeARN
-    , ussiStartAt
-    , ussiRecurrenceInHours
-    , ussiDescription
+    , ussVolumeARN
+    , ussStartAt
+    , ussRecurrenceInHours
+    , ussDescription
 
     -- * Response
     , UpdateSnapshotScheduleResponse
     -- ** Response lenses
-    , ussoVolumeARN
+    , ussrsVolumeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -61,59 +61,55 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing one or more of the following fields:
+-- UpdateSnapshotScheduleInput$Description
+-- UpdateSnapshotScheduleInput$RecurrenceInHours
+-- UpdateSnapshotScheduleInput$StartAt UpdateSnapshotScheduleInput$VolumeARN.
+data UpdateSnapshotSchedule = UpdateSnapshotSchedule
+    { _ussVolumeARN :: Text
+    , _ussStartAt :: Integer
+    , _ussRecurrenceInHours :: Integer
+    , _ussDescription :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSnapshotSchedule' request.
-mkUpdateSnapshotScheduleInput :: Text -- ^ 'ussiVolumeARN'
-                              -> Integer -- ^ 'ussiStartAt'
-                              -> Integer -- ^ 'ussiRecurrenceInHours'
-                              -> UpdateSnapshotSchedule
-mkUpdateSnapshotScheduleInput p1 p2 p3 = UpdateSnapshotSchedule
-    { _ussiVolumeARN = p1
-    , _ussiStartAt = p2
-    , _ussiRecurrenceInHours = p3
-    , _ussiDescription = Nothing
+mkUpdateSnapshotSchedule :: Text -- ^ 'ussVolumeARN'
+                         -> Integer -- ^ 'ussStartAt'
+                         -> Integer -- ^ 'ussRecurrenceInHours'
+                         -> UpdateSnapshotSchedule
+mkUpdateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
+    { _ussVolumeARN = p1
+    , _ussStartAt = p2
+    , _ussRecurrenceInHours = p3
+    , _ussDescription = Nothing
     }
-{-# INLINE mkUpdateSnapshotScheduleInput #-}
-
-data UpdateSnapshotSchedule = UpdateSnapshotSchedule
-    { _ussiVolumeARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
-      -- operation to return a list of gateway volumes.
-    , _ussiStartAt :: Integer
-      -- ^ The hour of the day at which the snapshot schedule begins
-      -- represented as hh, where hh is the hour (0 to 23). The hour of
-      -- the day is in the time zone of the gateway.
-    , _ussiRecurrenceInHours :: Integer
-      -- ^ Frequency of snapshots. Specify the number of hours between
-      -- snapshots.
-    , _ussiDescription :: Maybe Text
-      -- ^ Optional description of the snapshot that overwrites the existing
-      -- description.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateSnapshotSchedule #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-ussiVolumeARN :: Lens' UpdateSnapshotSchedule (Text)
-ussiVolumeARN = lens _ussiVolumeARN (\s a -> s { _ussiVolumeARN = a })
-{-# INLINE ussiVolumeARN #-}
+ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
+ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })
+{-# INLINE ussVolumeARN #-}
 
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- hh, where hh is the hour (0 to 23). The hour of the day is in the time zone
 -- of the gateway.
-ussiStartAt :: Lens' UpdateSnapshotSchedule (Integer)
-ussiStartAt = lens _ussiStartAt (\s a -> s { _ussiStartAt = a })
-{-# INLINE ussiStartAt #-}
+ussStartAt :: Lens' UpdateSnapshotSchedule Integer
+ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a })
+{-# INLINE ussStartAt #-}
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
-ussiRecurrenceInHours :: Lens' UpdateSnapshotSchedule (Integer)
-ussiRecurrenceInHours = lens _ussiRecurrenceInHours (\s a -> s { _ussiRecurrenceInHours = a })
-{-# INLINE ussiRecurrenceInHours #-}
+ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Integer
+ussRecurrenceInHours =
+    lens _ussRecurrenceInHours (\s a -> s { _ussRecurrenceInHours = a })
+{-# INLINE ussRecurrenceInHours #-}
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
-ussiDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
-ussiDescription = lens _ussiDescription (\s a -> s { _ussiDescription = a })
-{-# INLINE ussiDescription #-}
+ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
+ussDescription = lens _ussDescription (\s a -> s { _ussDescription = a })
+{-# INLINE ussDescription #-}
 
 instance ToPath UpdateSnapshotSchedule
 
@@ -123,15 +119,15 @@ instance ToHeaders UpdateSnapshotSchedule
 
 instance ToJSON UpdateSnapshotSchedule
 
+-- | A JSON object containing the of the updated storage volume.
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
-    { _ussoVolumeARN :: Maybe Text
-      -- ^ 
+    { _ussrsVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | 
-ussoVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
-ussoVolumeARN = lens _ussoVolumeARN (\s a -> s { _ussoVolumeARN = a })
-{-# INLINE ussoVolumeARN #-}
+ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
+ussrsVolumeARN = lens _ussrsVolumeARN (\s a -> s { _ussrsVolumeARN = a })
+{-# INLINE ussrsVolumeARN #-}
 
 instance FromJSON UpdateSnapshotScheduleResponse
 

@@ -40,80 +40,73 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStackResources
     -- * Request
       ListStackResources
     -- ** Request constructor
-    , mkListStackResourcesInput
+    , mkListStackResources
     -- ** Request lenses
-    , lsriStackName
-    , lsriNextToken
+    , lsrStackName
+    , lsrNextToken
 
     -- * Response
     , ListStackResourcesResponse
     -- ** Response lenses
-    , lsroStackResourceSummaries
-    , lsroNextToken
+    , lsrrsStackResourceSummaries
+    , lsrrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | The input for ListStackResource action.
+data ListStackResources = ListStackResources
+    { _lsrStackName :: Text
+    , _lsrNextToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStackResources' request.
-mkListStackResourcesInput :: Text -- ^ 'lsriStackName'
-                          -> ListStackResources
-mkListStackResourcesInput p1 = ListStackResources
-    { _lsriStackName = p1
-    , _lsriNextToken = Nothing
+mkListStackResources :: Text -- ^ 'lsrStackName'
+                     -> ListStackResources
+mkListStackResources p1 = ListStackResources
+    { _lsrStackName = p1
+    , _lsrNextToken = Nothing
     }
-{-# INLINE mkListStackResourcesInput #-}
-
-data ListStackResources = ListStackResources
-    { _lsriStackName :: Text
-      -- ^ The name or the unique identifier associated with the stack,
-      -- which are not always interchangeable: Running stacks: You can
-      -- specify either the stack's name or its unique stack ID. Deleted
-      -- stacks: You must specify the unique stack ID. Default: There is
-      -- no default value.
-    , _lsriNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of stack
-      -- resource summaries, if there is one. Default: There is no default
-      -- value.
-    } deriving (Show, Generic)
+{-# INLINE mkListStackResources #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-lsriStackName :: Lens' ListStackResources (Text)
-lsriStackName = lens _lsriStackName (\s a -> s { _lsriStackName = a })
-{-# INLINE lsriStackName #-}
+lsrStackName :: Lens' ListStackResources Text
+lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
+{-# INLINE lsrStackName #-}
 
 -- | String that identifies the start of the next list of stack resource
 -- summaries, if there is one. Default: There is no default value.
-lsriNextToken :: Lens' ListStackResources (Maybe Text)
-lsriNextToken = lens _lsriNextToken (\s a -> s { _lsriNextToken = a })
-{-# INLINE lsriNextToken #-}
+lsrNextToken :: Lens' ListStackResources (Maybe Text)
+lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
+{-# INLINE lsrNextToken #-}
 
 instance ToQuery ListStackResources where
     toQuery = genericQuery def
 
+-- | The output for a ListStackResources action.
 data ListStackResourcesResponse = ListStackResourcesResponse
-    { _lsroStackResourceSummaries :: [StackResourceSummary]
-      -- ^ A list of StackResourceSummary structures.
-    , _lsroNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of stack
-      -- resources, if there is one.
+    { _lsrrsStackResourceSummaries :: [StackResourceSummary]
+    , _lsrrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of StackResourceSummary structures.
-lsroStackResourceSummaries :: Lens' ListStackResourcesResponse ([StackResourceSummary])
-lsroStackResourceSummaries = lens _lsroStackResourceSummaries (\s a -> s { _lsroStackResourceSummaries = a })
-{-# INLINE lsroStackResourceSummaries #-}
+lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
+lsrrsStackResourceSummaries =
+    lens _lsrrsStackResourceSummaries
+         (\s a -> s { _lsrrsStackResourceSummaries = a })
+{-# INLINE lsrrsStackResourceSummaries #-}
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
-lsroNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
-lsroNextToken = lens _lsroNextToken (\s a -> s { _lsroNextToken = a })
-{-# INLINE lsroNextToken #-}
+lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
+lsrrsNextToken = lens _lsrrsNextToken (\s a -> s { _lsrrsNextToken = a })
+{-# INLINE lsrrsNextToken #-}
 
 instance FromXML ListStackResourcesResponse where
     fromXMLOptions = xmlOptions
@@ -126,5 +119,5 @@ instance AWSRequest ListStackResources where
     response _ = xmlResponse
 
 instance AWSPager ListStackResources where
-    next rq rs = (\x -> rq { _lsriNextToken = Just x })
-        <$> (_lsroNextToken rs)
+    next rq rs = (\x -> rq { _lsrNextToken = Just x })
+        <$> (_lsrrsNextToken rs)

@@ -37,17 +37,17 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime
     -- * Request
       UpdateMaintenanceStartTime
     -- ** Request constructor
-    , mkUpdateMaintenanceStartTimeInput
+    , mkUpdateMaintenanceStartTime
     -- ** Request lenses
-    , umstiGatewayARN
-    , umstiHourOfDay
-    , umstiMinuteOfHour
-    , umstiDayOfWeek
+    , umstGatewayARN
+    , umstHourOfDay
+    , umstMinuteOfHour
+    , umstDayOfWeek
 
     -- * Response
     , UpdateMaintenanceStartTimeResponse
     -- ** Response lenses
-    , umstoGatewayARN
+    , umstrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -55,62 +55,57 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the following fields:
+-- UpdateMaintenanceStartTimeInput$DayOfWeek
+-- UpdateMaintenanceStartTimeInput$HourOfDay
+-- UpdateMaintenanceStartTimeInput$MinuteOfHour.
+data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
+    { _umstGatewayARN :: Text
+    , _umstHourOfDay :: Integer
+    , _umstMinuteOfHour :: Integer
+    , _umstDayOfWeek :: Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMaintenanceStartTime' request.
-mkUpdateMaintenanceStartTimeInput :: Text -- ^ 'umstiGatewayARN'
-                                  -> Integer -- ^ 'umstiHourOfDay'
-                                  -> Integer -- ^ 'umstiMinuteOfHour'
-                                  -> Integer -- ^ 'umstiDayOfWeek'
-                                  -> UpdateMaintenanceStartTime
-mkUpdateMaintenanceStartTimeInput p1 p2 p3 p4 = UpdateMaintenanceStartTime
-    { _umstiGatewayARN = p1
-    , _umstiHourOfDay = p2
-    , _umstiMinuteOfHour = p3
-    , _umstiDayOfWeek = p4
+mkUpdateMaintenanceStartTime :: Text -- ^ 'umstGatewayARN'
+                             -> Integer -- ^ 'umstHourOfDay'
+                             -> Integer -- ^ 'umstMinuteOfHour'
+                             -> Integer -- ^ 'umstDayOfWeek'
+                             -> UpdateMaintenanceStartTime
+mkUpdateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
+    { _umstGatewayARN = p1
+    , _umstHourOfDay = p2
+    , _umstMinuteOfHour = p3
+    , _umstDayOfWeek = p4
     }
-{-# INLINE mkUpdateMaintenanceStartTimeInput #-}
-
-data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
-    { _umstiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _umstiHourOfDay :: Integer
-      -- ^ The hour component of the maintenance start time represented as
-      -- hh, where hh is the hour (00 to 23). The hour of the day is in
-      -- the time zone of the gateway.
-    , _umstiMinuteOfHour :: Integer
-      -- ^ The minute component of the maintenance start time represented as
-      -- mm, where mm is the minute (00 to 59). The minute of the hour is
-      -- in the time zone of the gateway.
-    , _umstiDayOfWeek :: Integer
-      -- ^ The maintenance start time day of the week.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateMaintenanceStartTime #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-umstiGatewayARN :: Lens' UpdateMaintenanceStartTime (Text)
-umstiGatewayARN = lens _umstiGatewayARN (\s a -> s { _umstiGatewayARN = a })
-{-# INLINE umstiGatewayARN #-}
+umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
+umstGatewayARN = lens _umstGatewayARN (\s a -> s { _umstGatewayARN = a })
+{-# INLINE umstGatewayARN #-}
 
 -- | The hour component of the maintenance start time represented as hh, where
 -- hh is the hour (00 to 23). The hour of the day is in the time zone of the
 -- gateway.
-umstiHourOfDay :: Lens' UpdateMaintenanceStartTime (Integer)
-umstiHourOfDay = lens _umstiHourOfDay (\s a -> s { _umstiHourOfDay = a })
-{-# INLINE umstiHourOfDay #-}
+umstHourOfDay :: Lens' UpdateMaintenanceStartTime Integer
+umstHourOfDay = lens _umstHourOfDay (\s a -> s { _umstHourOfDay = a })
+{-# INLINE umstHourOfDay #-}
 
 -- | The minute component of the maintenance start time represented as mm, where
 -- mm is the minute (00 to 59). The minute of the hour is in the time zone of
 -- the gateway.
-umstiMinuteOfHour :: Lens' UpdateMaintenanceStartTime (Integer)
-umstiMinuteOfHour = lens _umstiMinuteOfHour (\s a -> s { _umstiMinuteOfHour = a })
-{-# INLINE umstiMinuteOfHour #-}
+umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Integer
+umstMinuteOfHour =
+    lens _umstMinuteOfHour (\s a -> s { _umstMinuteOfHour = a })
+{-# INLINE umstMinuteOfHour #-}
 
 -- | The maintenance start time day of the week.
-umstiDayOfWeek :: Lens' UpdateMaintenanceStartTime (Integer)
-umstiDayOfWeek = lens _umstiDayOfWeek (\s a -> s { _umstiDayOfWeek = a })
-{-# INLINE umstiDayOfWeek #-}
+umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Integer
+umstDayOfWeek = lens _umstDayOfWeek (\s a -> s { _umstDayOfWeek = a })
+{-# INLINE umstDayOfWeek #-}
 
 instance ToPath UpdateMaintenanceStartTime
 
@@ -120,18 +115,18 @@ instance ToHeaders UpdateMaintenanceStartTime
 
 instance ToJSON UpdateMaintenanceStartTime
 
+-- | A JSON object containing the of the gateway whose maintenance start time is
+-- updated.
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
-    { _umstoGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _umstrsGatewayARN :: Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-umstoGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Text)
-umstoGatewayARN = lens _umstoGatewayARN (\s a -> s { _umstoGatewayARN = a })
-{-# INLINE umstoGatewayARN #-}
+umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse Text
+umstrsGatewayARN =
+    lens _umstrsGatewayARN (\s a -> s { _umstrsGatewayARN = a })
+{-# INLINE umstrsGatewayARN #-}
 
 instance FromJSON UpdateMaintenanceStartTimeResponse
 

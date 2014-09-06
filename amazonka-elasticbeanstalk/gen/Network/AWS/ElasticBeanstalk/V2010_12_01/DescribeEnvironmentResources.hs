@@ -30,71 +30,68 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources
     -- * Request
       DescribeEnvironmentResources
     -- ** Request constructor
-    , mkDescribeEnvironmentResourcesMessage
+    , mkDescribeEnvironmentResources
     -- ** Request lenses
-    , dermEnvironmentId
-    , dermEnvironmentName
+    , derEnvironmentId
+    , derEnvironmentName
 
     -- * Response
     , DescribeEnvironmentResourcesResponse
     -- ** Response lenses
-    , erdmEnvironmentResources
+    , derrsEnvironmentResources
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | This documentation target is not reported in the API reference.
+data DescribeEnvironmentResources = DescribeEnvironmentResources
+    { _derEnvironmentId :: Maybe Text
+    , _derEnvironmentName :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironmentResources' request.
-mkDescribeEnvironmentResourcesMessage :: DescribeEnvironmentResources
-mkDescribeEnvironmentResourcesMessage = DescribeEnvironmentResources
-    { _dermEnvironmentId = Nothing
-    , _dermEnvironmentName = Nothing
+mkDescribeEnvironmentResources :: DescribeEnvironmentResources
+mkDescribeEnvironmentResources = DescribeEnvironmentResources
+    { _derEnvironmentId = Nothing
+    , _derEnvironmentName = Nothing
     }
-{-# INLINE mkDescribeEnvironmentResourcesMessage #-}
-
-data DescribeEnvironmentResources = DescribeEnvironmentResources
-    { _dermEnvironmentId :: Maybe Text
-      -- ^ The ID of the environment to retrieve AWS resource usage data.
-      -- Condition: You must specify either this or an EnvironmentName, or
-      -- both. If you do not specify either, AWS Elastic Beanstalk returns
-      -- MissingRequiredParameter error.
-    , _dermEnvironmentName :: Maybe Text
-      -- ^ The name of the environment to retrieve AWS resource usage data.
-      -- Condition: You must specify either this or an EnvironmentId, or
-      -- both. If you do not specify either, AWS Elastic Beanstalk returns
-      -- MissingRequiredParameter error.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeEnvironmentResources #-}
 
 -- | The ID of the environment to retrieve AWS resource usage data. Condition:
 -- You must specify either this or an EnvironmentName, or both. If you do not
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
-dermEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
-dermEnvironmentId = lens _dermEnvironmentId (\s a -> s { _dermEnvironmentId = a })
-{-# INLINE dermEnvironmentId #-}
+derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentId =
+    lens _derEnvironmentId (\s a -> s { _derEnvironmentId = a })
+{-# INLINE derEnvironmentId #-}
 
 -- | The name of the environment to retrieve AWS resource usage data. Condition:
 -- You must specify either this or an EnvironmentId, or both. If you do not
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
-dermEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
-dermEnvironmentName = lens _dermEnvironmentName (\s a -> s { _dermEnvironmentName = a })
-{-# INLINE dermEnvironmentName #-}
+derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentName =
+    lens _derEnvironmentName (\s a -> s { _derEnvironmentName = a })
+{-# INLINE derEnvironmentName #-}
 
 instance ToQuery DescribeEnvironmentResources where
     toQuery = genericQuery def
 
+-- | Result message containing a list of environment resource descriptions.
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
-    { _erdmEnvironmentResources :: Maybe EnvironmentResourceDescription
-      -- ^ A list of EnvironmentResourceDescription.
+    { _derrsEnvironmentResources :: Maybe EnvironmentResourceDescription
     } deriving (Show, Generic)
 
 -- | A list of EnvironmentResourceDescription.
-erdmEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
-erdmEnvironmentResources = lens _erdmEnvironmentResources (\s a -> s { _erdmEnvironmentResources = a })
-{-# INLINE erdmEnvironmentResources #-}
+derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
+derrsEnvironmentResources =
+    lens _derrsEnvironmentResources
+         (\s a -> s { _derrsEnvironmentResources = a })
+{-# INLINE derrsEnvironmentResources #-}
 
 instance FromXML DescribeEnvironmentResourcesResponse where
     fromXMLOptions = xmlOptions

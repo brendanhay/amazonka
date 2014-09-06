@@ -30,58 +30,57 @@ module Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate
     -- * Request
       CreateHsmClientCertificate
     -- ** Request constructor
-    , mkCreateHsmClientCertificateMessage
+    , mkCreateHsmClientCertificate
     -- ** Request lenses
-    , chccmHsmClientCertificateIdentifier
+    , chccHsmClientCertificateIdentifier
 
     -- * Response
     , CreateHsmClientCertificateResponse
     -- ** Response lenses
-    , hccwHsmClientCertificate
+    , chccrsHsmClientCertificate
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype CreateHsmClientCertificate = CreateHsmClientCertificate
+    { _chccHsmClientCertificateIdentifier :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmClientCertificate' request.
-mkCreateHsmClientCertificateMessage :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
-                                    -> CreateHsmClientCertificate
-mkCreateHsmClientCertificateMessage p1 = CreateHsmClientCertificate
-    { _chccmHsmClientCertificateIdentifier = p1
+mkCreateHsmClientCertificate :: Text -- ^ 'chccHsmClientCertificateIdentifier'
+                             -> CreateHsmClientCertificate
+mkCreateHsmClientCertificate p1 = CreateHsmClientCertificate
+    { _chccHsmClientCertificateIdentifier = p1
     }
-{-# INLINE mkCreateHsmClientCertificateMessage #-}
-
-newtype CreateHsmClientCertificate = CreateHsmClientCertificate
-    { _chccmHsmClientCertificateIdentifier :: Text
-      -- ^ The identifier to be assigned to the new HSM client certificate
-      -- that the cluster will use to connect to the HSM to use the
-      -- database encryption keys.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateHsmClientCertificate #-}
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption keys.
-chccmHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificate (Text)
-chccmHsmClientCertificateIdentifier = lens _chccmHsmClientCertificateIdentifier (\s a -> s { _chccmHsmClientCertificateIdentifier = a })
-{-# INLINE chccmHsmClientCertificateIdentifier #-}
+chccHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificate Text
+chccHsmClientCertificateIdentifier =
+    lens _chccHsmClientCertificateIdentifier
+         (\s a -> s { _chccHsmClientCertificateIdentifier = a })
+{-# INLINE chccHsmClientCertificateIdentifier #-}
 
 instance ToQuery CreateHsmClientCertificate where
     toQuery = genericQuery def
 
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
-    { _hccwHsmClientCertificate :: Maybe HsmClientCertificate
-      -- ^ Returns information about an HSM client certificate. The
-      -- certificate is stored in a secure Hardware Storage Module (HSM),
-      -- and used by the Amazon Redshift cluster to encrypt data files.
+    { _chccrsHsmClientCertificate :: Maybe HsmClientCertificate
     } deriving (Show, Generic)
 
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
 -- Redshift cluster to encrypt data files.
-hccwHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe HsmClientCertificate)
-hccwHsmClientCertificate = lens _hccwHsmClientCertificate (\s a -> s { _hccwHsmClientCertificate = a })
-{-# INLINE hccwHsmClientCertificate #-}
+chccrsHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe HsmClientCertificate)
+chccrsHsmClientCertificate =
+    lens _chccrsHsmClientCertificate
+         (\s a -> s { _chccrsHsmClientCertificate = a })
+{-# INLINE chccrsHsmClientCertificate #-}
 
 instance FromXML CreateHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions

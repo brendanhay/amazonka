@@ -23,41 +23,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketNotification
     -- * Request
       GetBucketNotification
     -- ** Request constructor
-    , mkGetBucketNotificationRequest
+    , mkGetBucketNotification
     -- ** Request lenses
-    , gbnrBucket
+    , gbnBucket
 
     -- * Response
     , GetBucketNotificationResponse
     -- ** Response lenses
-    , gbnoTopicConfiguration
+    , gbnrsTopicConfiguration
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketNotification = GetBucketNotification
+    { _gbnBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketNotification' request.
-mkGetBucketNotificationRequest :: BucketName -- ^ 'gbnrBucket'
-                               -> GetBucketNotification
-mkGetBucketNotificationRequest p1 = GetBucketNotification
-    { _gbnrBucket = p1
+mkGetBucketNotification :: BucketName -- ^ 'gbnBucket'
+                        -> GetBucketNotification
+mkGetBucketNotification p1 = GetBucketNotification
+    { _gbnBucket = p1
     }
-{-# INLINE mkGetBucketNotificationRequest #-}
+{-# INLINE mkGetBucketNotification #-}
 
-newtype GetBucketNotification = GetBucketNotification
-    { _gbnrBucket :: BucketName
-    } deriving (Show, Generic)
-
-gbnrBucket :: Lens' GetBucketNotification (BucketName)
-gbnrBucket = lens _gbnrBucket (\s a -> s { _gbnrBucket = a })
-{-# INLINE gbnrBucket #-}
+gbnBucket :: Lens' GetBucketNotification BucketName
+gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
+{-# INLINE gbnBucket #-}
 
 instance ToPath GetBucketNotification where
     toPath GetBucketNotification{..} = mconcat
         [ "/"
-        , toBS _gbnrBucket
+        , toBS _gbnBucket
         ]
 
 instance ToQuery GetBucketNotification where
@@ -70,12 +71,14 @@ instance ToHeaders GetBucketNotification
 instance ToBody GetBucketNotification
 
 newtype GetBucketNotificationResponse = GetBucketNotificationResponse
-    { _gbnoTopicConfiguration :: Maybe TopicConfiguration
+    { _gbnrsTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
 
-gbnoTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
-gbnoTopicConfiguration = lens _gbnoTopicConfiguration (\s a -> s { _gbnoTopicConfiguration = a })
-{-# INLINE gbnoTopicConfiguration #-}
+gbnrsTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
+gbnrsTopicConfiguration =
+    lens _gbnrsTopicConfiguration
+         (\s a -> s { _gbnrsTopicConfiguration = a })
+{-# INLINE gbnrsTopicConfiguration #-}
 
 instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions

@@ -23,11 +23,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketCors
     -- * Request
       PutBucketCors
     -- ** Request constructor
-    , mkPutBucketCorsRequest
+    , mkPutBucketCors
     -- ** Request lenses
-    , pbcrBucket
-    , pbcrCORSConfiguration
-    , pbcrContentMD5
+    , pbcBucket
+    , pbcCORSConfiguration
+    , pbcContentMD5
 
     -- * Response
     , PutBucketCorsResponse
@@ -36,40 +36,42 @@ module Network.AWS.S3.V2006_03_01.PutBucketCors
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data PutBucketCors = PutBucketCors
+    { _pbcBucket :: BucketName
+    , _pbcCORSConfiguration :: Maybe CORSConfiguration
+    , _pbcContentMD5 :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketCors' request.
-mkPutBucketCorsRequest :: BucketName -- ^ 'pbcrBucket'
-                       -> PutBucketCors
-mkPutBucketCorsRequest p1 = PutBucketCors
-    { _pbcrBucket = p1
-    , _pbcrCORSConfiguration = Nothing
-    , _pbcrContentMD5 = Nothing
+mkPutBucketCors :: BucketName -- ^ 'pbcBucket'
+                -> PutBucketCors
+mkPutBucketCors p1 = PutBucketCors
+    { _pbcBucket = p1
+    , _pbcCORSConfiguration = Nothing
+    , _pbcContentMD5 = Nothing
     }
-{-# INLINE mkPutBucketCorsRequest #-}
+{-# INLINE mkPutBucketCors #-}
 
-data PutBucketCors = PutBucketCors
-    { _pbcrBucket :: BucketName
-    , _pbcrCORSConfiguration :: Maybe CORSConfiguration
-    , _pbcrContentMD5 :: Maybe Text
-    } deriving (Show, Generic)
+pbcBucket :: Lens' PutBucketCors BucketName
+pbcBucket = lens _pbcBucket (\s a -> s { _pbcBucket = a })
+{-# INLINE pbcBucket #-}
 
-pbcrBucket :: Lens' PutBucketCors (BucketName)
-pbcrBucket = lens _pbcrBucket (\s a -> s { _pbcrBucket = a })
-{-# INLINE pbcrBucket #-}
+pbcCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
+pbcCORSConfiguration =
+    lens _pbcCORSConfiguration (\s a -> s { _pbcCORSConfiguration = a })
+{-# INLINE pbcCORSConfiguration #-}
 
-pbcrCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
-pbcrCORSConfiguration = lens _pbcrCORSConfiguration (\s a -> s { _pbcrCORSConfiguration = a })
-{-# INLINE pbcrCORSConfiguration #-}
-
-pbcrContentMD5 :: Lens' PutBucketCors (Maybe Text)
-pbcrContentMD5 = lens _pbcrContentMD5 (\s a -> s { _pbcrContentMD5 = a })
-{-# INLINE pbcrContentMD5 #-}
+pbcContentMD5 :: Lens' PutBucketCors (Maybe Text)
+pbcContentMD5 = lens _pbcContentMD5 (\s a -> s { _pbcContentMD5 = a })
+{-# INLINE pbcContentMD5 #-}
 
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat
         [ "/"
-        , toBS _pbcrBucket
+        , toBS _pbcBucket
         ]
 
 instance ToQuery PutBucketCors where
@@ -77,9 +79,13 @@ instance ToQuery PutBucketCors where
         [ "cors"
         ]
 
-instance ToHeaders PutBucketCors
+instance ToHeaders PutBucketCors where
+    toHeaders PutBucketCors{..} = concat
+        [ "Content-MD5" =: _pbcContentMD5
+        ]
 
-instance ToBody PutBucketCors
+instance ToBody PutBucketCors where
+    toBody = toBody . encodeXML . _pbcCORSConfiguration
 
 data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Show, Generic)

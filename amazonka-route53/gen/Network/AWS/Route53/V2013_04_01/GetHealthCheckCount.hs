@@ -24,24 +24,27 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
     -- * Request
       GetHealthCheckCount
     -- ** Request constructor
-    , mkGetHealthCheckCountRequest
+    , mkGetHealthCheckCount
     -- * Response
     , GetHealthCheckCountResponse
     -- ** Response lenses
-    , ghccsHealthCheckCount
+    , ghccrsHealthCheckCount
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | To retrieve a count of all your health checks, send a GET request to the
+-- 2013-04-01/healthcheckcount resource.
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheckCount' request.
-mkGetHealthCheckCountRequest :: GetHealthCheckCount
-mkGetHealthCheckCountRequest = GetHealthCheckCount
-{-# INLINE mkGetHealthCheckCountRequest #-}
-
-    deriving (Eq, Show, Generic)
+mkGetHealthCheckCount :: GetHealthCheckCount
+mkGetHealthCheckCount = GetHealthCheckCount
+{-# INLINE mkGetHealthCheckCount #-}
 
 instance ToPath GetHealthCheckCount where
     toPath = const "/2013-04-01/healthcheckcount"
@@ -54,16 +57,17 @@ instance ToXML GetHealthCheckCount where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHealthCheckCountRequest"
 
+-- | A complex type that contains the count of health checks associated with the
+-- current AWS account.
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
-    { _ghccsHealthCheckCount :: Integer
-      -- ^ The number of health checks associated with the current AWS
-      -- account.
+    { _ghccrsHealthCheckCount :: Integer
     } deriving (Show, Generic)
 
 -- | The number of health checks associated with the current AWS account.
-ghccsHealthCheckCount :: Lens' GetHealthCheckCountResponse (Integer)
-ghccsHealthCheckCount = lens _ghccsHealthCheckCount (\s a -> s { _ghccsHealthCheckCount = a })
-{-# INLINE ghccsHealthCheckCount #-}
+ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
+ghccrsHealthCheckCount =
+    lens _ghccrsHealthCheckCount (\s a -> s { _ghccrsHealthCheckCount = a })
+{-# INLINE ghccrsHealthCheckCount #-}
 
 instance FromXML GetHealthCheckCountResponse where
     fromXMLOptions = xmlOptions

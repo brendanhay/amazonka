@@ -37,9 +37,9 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob
     -- * Request
       CancelJob
     -- ** Request constructor
-    , mkCancelJobRequest
+    , mkCancelJob
     -- ** Request lenses
-    , cjrId
+    , cjId
 
     -- * Response
     , CancelJobResponse
@@ -50,33 +50,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The CancelJobRequest structure.
+newtype CancelJob = CancelJob
+    { _cjId :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelJob' request.
-mkCancelJobRequest :: Text -- ^ 'cjrId'
-                   -> CancelJob
-mkCancelJobRequest p1 = CancelJob
-    { _cjrId = p1
+mkCancelJob :: Text -- ^ 'cjId'
+            -> CancelJob
+mkCancelJob p1 = CancelJob
+    { _cjId = p1
     }
-{-# INLINE mkCancelJobRequest #-}
-
-newtype CancelJob = CancelJob
-    { _cjrId :: Text
-      -- ^ The identifier of the job that you want to cancel. To get a list
-      -- of the jobs (including their jobId) that have a status of
-      -- Submitted, use the ListJobsByStatus API action.
-    } deriving (Show, Generic)
+{-# INLINE mkCancelJob #-}
 
 -- | The identifier of the job that you want to cancel. To get a list of the
 -- jobs (including their jobId) that have a status of Submitted, use the
 -- ListJobsByStatus API action.
-cjrId :: Lens' CancelJob (Text)
-cjrId = lens _cjrId (\s a -> s { _cjrId = a })
-{-# INLINE cjrId #-}
+cjId :: Lens' CancelJob Text
+cjId = lens _cjId (\s a -> s { _cjId = a })
+{-# INLINE cjId #-}
 
 instance ToPath CancelJob where
     toPath CancelJob{..} = mconcat
         [ "/2012-09-25/jobs/"
-        , toBS _cjrId
+        , toBS _cjId
         ]
 
 instance ToQuery CancelJob
@@ -85,6 +83,8 @@ instance ToHeaders CancelJob
 
 instance ToJSON CancelJob
 
+-- | The response body contains a JSON object. If the job is successfully
+-- canceled, the value of Success is true.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest CancelJob where

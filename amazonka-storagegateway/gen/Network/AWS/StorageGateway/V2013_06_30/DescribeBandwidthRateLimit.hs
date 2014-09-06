@@ -43,16 +43,16 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit
     -- * Request
       DescribeBandwidthRateLimit
     -- ** Request constructor
-    , mkDescribeBandwidthRateLimitInput
+    , mkDescribeBandwidthRateLimit
     -- ** Request lenses
-    , dbrljGatewayARN
+    , dbrl1GatewayARN
 
     -- * Response
     , DescribeBandwidthRateLimitResponse
     -- ** Response lenses
-    , dbrlpGatewayARN
-    , dbrlpAverageUploadRateLimitInBitsPerSec
-    , dbrlpAverageDownloadRateLimitInBitsPerSec
+    , dbrlrsrsGatewayARN
+    , dbrlrsrsAverageUploadRateLimitInBitsPerSec
+    , dbrlrsrsAverageDownloadRateLimitInBitsPerSec
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -60,27 +60,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the of the gateway.
+newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
+    { _dbrl1GatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBandwidthRateLimit' request.
-mkDescribeBandwidthRateLimitInput :: Text -- ^ 'dbrljGatewayARN'
-                                  -> DescribeBandwidthRateLimit
-mkDescribeBandwidthRateLimitInput p1 = DescribeBandwidthRateLimit
-    { _dbrljGatewayARN = p1
+mkDescribeBandwidthRateLimit :: Text -- ^ 'dbrl1GatewayARN'
+                             -> DescribeBandwidthRateLimit
+mkDescribeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
+    { _dbrl1GatewayARN = p1
     }
-{-# INLINE mkDescribeBandwidthRateLimitInput #-}
-
-newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
-    { _dbrljGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeBandwidthRateLimit #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dbrljGatewayARN :: Lens' DescribeBandwidthRateLimit (Text)
-dbrljGatewayARN = lens _dbrljGatewayARN (\s a -> s { _dbrljGatewayARN = a })
-{-# INLINE dbrljGatewayARN #-}
+dbrl1GatewayARN :: Lens' DescribeBandwidthRateLimit Text
+dbrl1GatewayARN = lens _dbrl1GatewayARN (\s a -> s { _dbrl1GatewayARN = a })
+{-# INLINE dbrl1GatewayARN #-}
 
 instance ToPath DescribeBandwidthRateLimit
 
@@ -90,38 +88,35 @@ instance ToHeaders DescribeBandwidthRateLimit
 
 instance ToJSON DescribeBandwidthRateLimit
 
+-- | A JSON object containing the following fields:.
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
-    { _dbrlpGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dbrlpAverageUploadRateLimitInBitsPerSec :: Maybe Integer
-      -- ^ The average upload bandwidth rate limit in bits per second. This
-      -- field does not appear in the response if the upload rate limit is
-      -- not set.
-    , _dbrlpAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
-      -- ^ The average download bandwidth rate limit in bits per second.
-      -- This field does not appear in the response if the download rate
-      -- limit is not set.
+    { _dbrlrsrsGatewayARN :: Maybe Text
+    , _dbrlrsrsAverageUploadRateLimitInBitsPerSec :: Maybe Integer
+    , _dbrlrsrsAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dbrlpGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
-dbrlpGatewayARN = lens _dbrlpGatewayARN (\s a -> s { _dbrlpGatewayARN = a })
-{-# INLINE dbrlpGatewayARN #-}
+dbrlrsrsGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
+dbrlrsrsGatewayARN =
+    lens _dbrlrsrsGatewayARN (\s a -> s { _dbrlrsrsGatewayARN = a })
+{-# INLINE dbrlrsrsGatewayARN #-}
 
 -- | The average upload bandwidth rate limit in bits per second. This field does
 -- not appear in the response if the upload rate limit is not set.
-dbrlpAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Integer)
-dbrlpAverageUploadRateLimitInBitsPerSec = lens _dbrlpAverageUploadRateLimitInBitsPerSec (\s a -> s { _dbrlpAverageUploadRateLimitInBitsPerSec = a })
-{-# INLINE dbrlpAverageUploadRateLimitInBitsPerSec #-}
+dbrlrsrsAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Integer)
+dbrlrsrsAverageUploadRateLimitInBitsPerSec =
+    lens _dbrlrsrsAverageUploadRateLimitInBitsPerSec
+         (\s a -> s { _dbrlrsrsAverageUploadRateLimitInBitsPerSec = a })
+{-# INLINE dbrlrsrsAverageUploadRateLimitInBitsPerSec #-}
 
 -- | The average download bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the download rate limit is not set.
-dbrlpAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Integer)
-dbrlpAverageDownloadRateLimitInBitsPerSec = lens _dbrlpAverageDownloadRateLimitInBitsPerSec (\s a -> s { _dbrlpAverageDownloadRateLimitInBitsPerSec = a })
-{-# INLINE dbrlpAverageDownloadRateLimitInBitsPerSec #-}
+dbrlrsrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Integer)
+dbrlrsrsAverageDownloadRateLimitInBitsPerSec =
+    lens _dbrlrsrsAverageDownloadRateLimitInBitsPerSec
+         (\s a -> s { _dbrlrsrsAverageDownloadRateLimitInBitsPerSec = a })
+{-# INLINE dbrlrsrsAverageDownloadRateLimitInBitsPerSec #-}
 
 instance FromJSON DescribeBandwidthRateLimitResponse
 

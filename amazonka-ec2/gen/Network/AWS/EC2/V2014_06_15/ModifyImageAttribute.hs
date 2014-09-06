@@ -25,17 +25,17 @@ module Network.AWS.EC2.V2014_06_15.ModifyImageAttribute
     -- * Request
       ModifyImageAttribute
     -- ** Request constructor
-    , mkModifyImageAttributeRequest
+    , mkModifyImageAttribute
     -- ** Request lenses
-    , miarImageId
-    , miarAttribute
-    , miarOperationType
-    , miarUserIds
-    , miarUserGroups
-    , miarProductCodes
-    , miarValue
-    , miarLaunchPermission
-    , miarDescription
+    , miaImageId
+    , miaAttribute
+    , miaOperationType
+    , miaUserIds
+    , miaUserGroups
+    , miaProductCodes
+    , miaValue
+    , miaLaunchPermission
+    , miaDescription
 
     -- * Response
     , ModifyImageAttributeResponse
@@ -45,97 +45,86 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyImageAttribute' request.
-mkModifyImageAttributeRequest :: Text -- ^ 'miarImageId'
-                              -> ModifyImageAttribute
-mkModifyImageAttributeRequest p1 = ModifyImageAttribute
-    { _miarImageId = p1
-    , _miarAttribute = Nothing
-    , _miarOperationType = Nothing
-    , _miarUserIds = mempty
-    , _miarUserGroups = mempty
-    , _miarProductCodes = mempty
-    , _miarValue = Nothing
-    , _miarLaunchPermission = Nothing
-    , _miarDescription = Nothing
-    }
-{-# INLINE mkModifyImageAttributeRequest #-}
-
+-- | 
 data ModifyImageAttribute = ModifyImageAttribute
-    { _miarImageId :: Text
-      -- ^ The ID of the AMI.
-    , _miarAttribute :: Maybe Text
-      -- ^ The name of the attribute to modify.
-    , _miarOperationType :: Maybe Text
-      -- ^ The operation type.
-    , _miarUserIds :: [Text]
-      -- ^ One or more AWS account IDs. This is only valid when modifying
-      -- the launchPermission attribute.
-    , _miarUserGroups :: [Text]
-      -- ^ One or more user groups. This is only valid when modifying the
-      -- launchPermission attribute.
-    , _miarProductCodes :: [Text]
-      -- ^ One or more product codes. After you add a product code to an
-      -- AMI, it can't be removed. This is only valid when modifying the
-      -- productCodes attribute.
-    , _miarValue :: Maybe Text
-      -- ^ The value of the attribute being modified. This is only valid
-      -- when modifying the description attribute.
-    , _miarLaunchPermission :: Maybe LaunchPermissionModifications
-      -- ^ 
-    , _miarDescription :: Maybe AttributeValue
-      -- ^ A description for the AMI.
+    { _miaImageId :: Text
+    , _miaAttribute :: Maybe Text
+    , _miaOperationType :: Maybe Text
+    , _miaUserIds :: [Text]
+    , _miaUserGroups :: [Text]
+    , _miaProductCodes :: [Text]
+    , _miaValue :: Maybe Text
+    , _miaLaunchPermission :: Maybe LaunchPermissionModifications
+    , _miaDescription :: Maybe AttributeValue
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyImageAttribute' request.
+mkModifyImageAttribute :: Text -- ^ 'miaImageId'
+                       -> ModifyImageAttribute
+mkModifyImageAttribute p1 = ModifyImageAttribute
+    { _miaImageId = p1
+    , _miaAttribute = Nothing
+    , _miaOperationType = Nothing
+    , _miaUserIds = mempty
+    , _miaUserGroups = mempty
+    , _miaProductCodes = mempty
+    , _miaValue = Nothing
+    , _miaLaunchPermission = Nothing
+    , _miaDescription = Nothing
+    }
+{-# INLINE mkModifyImageAttribute #-}
+
 -- | The ID of the AMI.
-miarImageId :: Lens' ModifyImageAttribute (Text)
-miarImageId = lens _miarImageId (\s a -> s { _miarImageId = a })
-{-# INLINE miarImageId #-}
+miaImageId :: Lens' ModifyImageAttribute Text
+miaImageId = lens _miaImageId (\s a -> s { _miaImageId = a })
+{-# INLINE miaImageId #-}
 
 -- | The name of the attribute to modify.
-miarAttribute :: Lens' ModifyImageAttribute (Maybe Text)
-miarAttribute = lens _miarAttribute (\s a -> s { _miarAttribute = a })
-{-# INLINE miarAttribute #-}
+miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
+miaAttribute = lens _miaAttribute (\s a -> s { _miaAttribute = a })
+{-# INLINE miaAttribute #-}
 
 -- | The operation type.
-miarOperationType :: Lens' ModifyImageAttribute (Maybe Text)
-miarOperationType = lens _miarOperationType (\s a -> s { _miarOperationType = a })
-{-# INLINE miarOperationType #-}
+miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
+miaOperationType =
+    lens _miaOperationType (\s a -> s { _miaOperationType = a })
+{-# INLINE miaOperationType #-}
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- launchPermission attribute.
-miarUserIds :: Lens' ModifyImageAttribute ([Text])
-miarUserIds = lens _miarUserIds (\s a -> s { _miarUserIds = a })
-{-# INLINE miarUserIds #-}
+miaUserIds :: Lens' ModifyImageAttribute [Text]
+miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
+{-# INLINE miaUserIds #-}
 
 -- | One or more user groups. This is only valid when modifying the
 -- launchPermission attribute.
-miarUserGroups :: Lens' ModifyImageAttribute ([Text])
-miarUserGroups = lens _miarUserGroups (\s a -> s { _miarUserGroups = a })
-{-# INLINE miarUserGroups #-}
+miaUserGroups :: Lens' ModifyImageAttribute [Text]
+miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a })
+{-# INLINE miaUserGroups #-}
 
 -- | One or more product codes. After you add a product code to an AMI, it can't
 -- be removed. This is only valid when modifying the productCodes attribute.
-miarProductCodes :: Lens' ModifyImageAttribute ([Text])
-miarProductCodes = lens _miarProductCodes (\s a -> s { _miarProductCodes = a })
-{-# INLINE miarProductCodes #-}
+miaProductCodes :: Lens' ModifyImageAttribute [Text]
+miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a })
+{-# INLINE miaProductCodes #-}
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the description attribute.
-miarValue :: Lens' ModifyImageAttribute (Maybe Text)
-miarValue = lens _miarValue (\s a -> s { _miarValue = a })
-{-# INLINE miarValue #-}
+miaValue :: Lens' ModifyImageAttribute (Maybe Text)
+miaValue = lens _miaValue (\s a -> s { _miaValue = a })
+{-# INLINE miaValue #-}
 
 -- | 
-miarLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
-miarLaunchPermission = lens _miarLaunchPermission (\s a -> s { _miarLaunchPermission = a })
-{-# INLINE miarLaunchPermission #-}
+miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
+miaLaunchPermission =
+    lens _miaLaunchPermission (\s a -> s { _miaLaunchPermission = a })
+{-# INLINE miaLaunchPermission #-}
 
 -- | A description for the AMI.
-miarDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
-miarDescription = lens _miarDescription (\s a -> s { _miarDescription = a })
-{-# INLINE miarDescription #-}
+miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
+miaDescription = lens _miaDescription (\s a -> s { _miaDescription = a })
+{-# INLINE miaDescription #-}
 
 instance ToQuery ModifyImageAttribute where
     toQuery = genericQuery def

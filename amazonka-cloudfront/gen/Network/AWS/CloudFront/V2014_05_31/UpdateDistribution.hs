@@ -23,93 +23,94 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateDistribution
     -- * Request
       UpdateDistribution
     -- ** Request constructor
-    , mkUpdateDistributionRequest
+    , mkUpdateDistribution
     -- ** Request lenses
-    , udrDistributionConfig
-    , udrId
-    , udrIfMatch
+    , udDistributionConfig
+    , udId
+    , udIfMatch
 
     -- * Response
     , UpdateDistributionResponse
     -- ** Response lenses
-    , udsDistribution
-    , udsETag
+    , udrsDistribution
+    , udrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to update a distribution.
+data UpdateDistribution = UpdateDistribution
+    { _udDistributionConfig :: DistributionConfig
+    , _udId :: Text
+    , _udIfMatch :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDistribution' request.
-mkUpdateDistributionRequest :: DistributionConfig -- ^ 'udrDistributionConfig'
-                            -> Text -- ^ 'udrId'
-                            -> UpdateDistribution
-mkUpdateDistributionRequest p1 p2 = UpdateDistribution
-    { _udrDistributionConfig = p1
-    , _udrId = p2
-    , _udrIfMatch = Nothing
+mkUpdateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
+                     -> Text -- ^ 'udId'
+                     -> UpdateDistribution
+mkUpdateDistribution p1 p2 = UpdateDistribution
+    { _udDistributionConfig = p1
+    , _udId = p2
+    , _udIfMatch = Nothing
     }
-{-# INLINE mkUpdateDistributionRequest #-}
-
-data UpdateDistribution = UpdateDistribution
-    { _udrDistributionConfig :: DistributionConfig
-      -- ^ The distribution's configuration information.
-    , _udrId :: Text
-      -- ^ The distribution's id.
-    , _udrIfMatch :: Maybe Text
-      -- ^ The value of the ETag header you received when retrieving the
-      -- distribution's configuration. For example: E2QWRUHAPOMQZL.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateDistribution #-}
 
 -- | The distribution's configuration information.
-udrDistributionConfig :: Lens' UpdateDistribution (DistributionConfig)
-udrDistributionConfig = lens _udrDistributionConfig (\s a -> s { _udrDistributionConfig = a })
-{-# INLINE udrDistributionConfig #-}
+udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
+udDistributionConfig =
+    lens _udDistributionConfig (\s a -> s { _udDistributionConfig = a })
+{-# INLINE udDistributionConfig #-}
 
 -- | The distribution's id.
-udrId :: Lens' UpdateDistribution (Text)
-udrId = lens _udrId (\s a -> s { _udrId = a })
-{-# INLINE udrId #-}
+udId :: Lens' UpdateDistribution Text
+udId = lens _udId (\s a -> s { _udId = a })
+{-# INLINE udId #-}
 
 -- | The value of the ETag header you received when retrieving the
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
-udrIfMatch :: Lens' UpdateDistribution (Maybe Text)
-udrIfMatch = lens _udrIfMatch (\s a -> s { _udrIfMatch = a })
-{-# INLINE udrIfMatch #-}
+udIfMatch :: Lens' UpdateDistribution (Maybe Text)
+udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
+{-# INLINE udIfMatch #-}
 
 instance ToPath UpdateDistribution where
     toPath UpdateDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
-        , toBS _udrId
+        , toBS _udId
         , "/config"
         ]
 
 instance ToQuery UpdateDistribution
 
-instance ToHeaders UpdateDistribution
+instance ToHeaders UpdateDistribution where
+    toHeaders UpdateDistribution{..} = concat
+        [ "If-Match" =: _udIfMatch
+        ]
 
 instance ToXML UpdateDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UpdateDistributionRequest"
 
+-- | The returned result of the corresponding request.
 data UpdateDistributionResponse = UpdateDistributionResponse
-    { _udsDistribution :: Maybe Distribution
-      -- ^ The distribution's information.
-    , _udsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
+    { _udrsDistribution :: Maybe Distribution
+    , _udrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-udsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
-udsDistribution = lens _udsDistribution (\s a -> s { _udsDistribution = a })
-{-# INLINE udsDistribution #-}
+udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
+udrsDistribution =
+    lens _udrsDistribution (\s a -> s { _udrsDistribution = a })
+{-# INLINE udrsDistribution #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-udsETag :: Lens' UpdateDistributionResponse (Maybe Text)
-udsETag = lens _udsETag (\s a -> s { _udsETag = a })
-{-# INLINE udsETag #-}
+udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
+udrsETag = lens _udrsETag (\s a -> s { _udrsETag = a })
+{-# INLINE udrsETag #-}
 
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront

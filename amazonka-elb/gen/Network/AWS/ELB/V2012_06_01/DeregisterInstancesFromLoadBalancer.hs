@@ -34,63 +34,62 @@ module Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer
     -- * Request
       DeregisterInstancesFromLoadBalancer
     -- ** Request constructor
-    , mkDeregisterEndPointsInput
+    , mkDeregisterInstancesFromLoadBalancer
     -- ** Request lenses
-    , depiLoadBalancerName
-    , depiInstances
+    , diflbLoadBalancerName
+    , diflbInstances
 
     -- * Response
     , DeregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
-    , depoInstances
+    , diflbrsInstances
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterInstancesFromLoadBalancer' request.
-mkDeregisterEndPointsInput :: Text -- ^ 'depiLoadBalancerName'
-                           -> [Instance] -- ^ 'depiInstances'
-                           -> DeregisterInstancesFromLoadBalancer
-mkDeregisterEndPointsInput p1 p2 = DeregisterInstancesFromLoadBalancer
-    { _depiLoadBalancerName = p1
-    , _depiInstances = p2
-    }
-{-# INLINE mkDeregisterEndPointsInput #-}
-
+-- | The input for the DeregisterInstancesFromLoadBalancer action.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
-    { _depiLoadBalancerName :: Text
-      -- ^ The name associated with the load balancer.
-    , _depiInstances :: [Instance]
-      -- ^ A list of EC2 instance IDs consisting of all instances to be
-      -- deregistered.
+    { _diflbLoadBalancerName :: Text
+    , _diflbInstances :: [Instance]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterInstancesFromLoadBalancer' request.
+mkDeregisterInstancesFromLoadBalancer :: Text -- ^ 'diflbLoadBalancerName'
+                                      -> [Instance] -- ^ 'diflbInstances'
+                                      -> DeregisterInstancesFromLoadBalancer
+mkDeregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalancer
+    { _diflbLoadBalancerName = p1
+    , _diflbInstances = p2
+    }
+{-# INLINE mkDeregisterInstancesFromLoadBalancer #-}
+
 -- | The name associated with the load balancer.
-depiLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer (Text)
-depiLoadBalancerName = lens _depiLoadBalancerName (\s a -> s { _depiLoadBalancerName = a })
-{-# INLINE depiLoadBalancerName #-}
+diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
+diflbLoadBalancerName =
+    lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
+{-# INLINE diflbLoadBalancerName #-}
 
 -- | A list of EC2 instance IDs consisting of all instances to be deregistered.
-depiInstances :: Lens' DeregisterInstancesFromLoadBalancer ([Instance])
-depiInstances = lens _depiInstances (\s a -> s { _depiInstances = a })
-{-# INLINE depiInstances #-}
+diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
+diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a })
+{-# INLINE diflbInstances #-}
 
 instance ToQuery DeregisterInstancesFromLoadBalancer where
     toQuery = genericQuery def
 
+-- | The output for the DeregisterInstancesFromLoadBalancer action.
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
-    { _depoInstances :: [Instance]
-      -- ^ An updated list of remaining instances registered with the load
-      -- balancer.
+    { _diflbrsInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | An updated list of remaining instances registered with the load balancer.
-depoInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse ([Instance])
-depoInstances = lens _depoInstances (\s a -> s { _depoInstances = a })
-{-# INLINE depoInstances #-}
+diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
+diflbrsInstances =
+    lens _diflbrsInstances (\s a -> s { _diflbrsInstances = a })
+{-# INLINE diflbrsInstances #-}
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
     fromXMLOptions = xmlOptions

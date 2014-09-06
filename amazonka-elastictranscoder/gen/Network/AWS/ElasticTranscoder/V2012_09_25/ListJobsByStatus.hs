@@ -67,17 +67,17 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByStatus
     -- * Request
       ListJobsByStatus
     -- ** Request constructor
-    , mkListJobsByStatusRequest
+    , mkListJobsByStatus
     -- ** Request lenses
-    , ljbsrStatus
-    , ljbsrAscending
-    , ljbsrPageToken
+    , ljbsStatus
+    , ljbsAscending
+    , ljbsPageToken
 
     -- * Response
     , ListJobsByStatusResponse
     -- ** Response lenses
-    , ljbssJobs
-    , ljbssNextPageToken
+    , ljbsrsJobs
+    , ljbsrsNextPageToken
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -85,92 +85,80 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The ListJobsByStatusRequest structure.
+data ListJobsByStatus = ListJobsByStatus
+    { _ljbsStatus :: Text
+    , _ljbsAscending :: Maybe Text
+    , _ljbsPageToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsByStatus' request.
-mkListJobsByStatusRequest :: Text -- ^ 'ljbsrStatus'
-                          -> ListJobsByStatus
-mkListJobsByStatusRequest p1 = ListJobsByStatus
-    { _ljbsrStatus = p1
-    , _ljbsrAscending = Nothing
-    , _ljbsrPageToken = Nothing
+mkListJobsByStatus :: Text -- ^ 'ljbsStatus'
+                   -> ListJobsByStatus
+mkListJobsByStatus p1 = ListJobsByStatus
+    { _ljbsStatus = p1
+    , _ljbsAscending = Nothing
+    , _ljbsPageToken = Nothing
     }
-{-# INLINE mkListJobsByStatusRequest #-}
-
-data ListJobsByStatus = ListJobsByStatus
-    { _ljbsrStatus :: Text
-      -- ^ To get information about all of the jobs associated with the
-      -- current AWS account that have a given status, specify the
-      -- following status: Submitted, Progressing, Complete, Canceled, or
-      -- Error.
-    , _ljbsrAscending :: Maybe Text
-      -- ^ To list jobs in chronological order by the date and time that
-      -- they were submitted, enter true. To list jobs in reverse
-      -- chronological order, enter false.
-    , _ljbsrPageToken :: Maybe Text
-      -- ^ When Elastic Transcoder returns more than one page of results,
-      -- use pageToken in subsequent GET requests to get each successive
-      -- page of results.
-    } deriving (Show, Generic)
+{-# INLINE mkListJobsByStatus #-}
 
 -- | To get information about all of the jobs associated with the current AWS
 -- account that have a given status, specify the following status: Submitted,
 -- Progressing, Complete, Canceled, or Error.
-ljbsrStatus :: Lens' ListJobsByStatus (Text)
-ljbsrStatus = lens _ljbsrStatus (\s a -> s { _ljbsrStatus = a })
-{-# INLINE ljbsrStatus #-}
+ljbsStatus :: Lens' ListJobsByStatus Text
+ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
+{-# INLINE ljbsStatus #-}
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter true. To list jobs in reverse chronological order, enter
 -- false.
-ljbsrAscending :: Lens' ListJobsByStatus (Maybe Text)
-ljbsrAscending = lens _ljbsrAscending (\s a -> s { _ljbsrAscending = a })
-{-# INLINE ljbsrAscending #-}
+ljbsAscending :: Lens' ListJobsByStatus (Maybe Text)
+ljbsAscending = lens _ljbsAscending (\s a -> s { _ljbsAscending = a })
+{-# INLINE ljbsAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
-ljbsrPageToken :: Lens' ListJobsByStatus (Maybe Text)
-ljbsrPageToken = lens _ljbsrPageToken (\s a -> s { _ljbsrPageToken = a })
-{-# INLINE ljbsrPageToken #-}
+ljbsPageToken :: Lens' ListJobsByStatus (Maybe Text)
+ljbsPageToken = lens _ljbsPageToken (\s a -> s { _ljbsPageToken = a })
+{-# INLINE ljbsPageToken #-}
 
 instance ToPath ListJobsByStatus where
     toPath ListJobsByStatus{..} = mconcat
         [ "/2012-09-25/jobsByStatus/"
-        , toBS _ljbsrStatus
+        , toBS _ljbsStatus
         ]
 
 instance ToQuery ListJobsByStatus where
     toQuery ListJobsByStatus{..} = mconcat
-        [ "Ascending" =? _ljbsrAscending
-        , "PageToken" =? _ljbsrPageToken
+        [ "Ascending" =? _ljbsAscending
+        , "PageToken" =? _ljbsPageToken
         ]
 
 instance ToHeaders ListJobsByStatus
 
 instance ToJSON ListJobsByStatus
 
+-- | The ListJobsByStatusResponse structure.
 data ListJobsByStatusResponse = ListJobsByStatusResponse
-    { _ljbssJobs :: [Job]
-      -- ^ An array of Job objects that have the specified status.
-    , _ljbssNextPageToken :: Maybe Text
-      -- ^ A value that you use to access the second and subsequent pages of
-      -- results, if any. When the jobs in the specified pipeline fit on
-      -- one page or when you've reached the last page of results, the
-      -- value of NextPageToken is null.
+    { _ljbsrsJobs :: [Job]
+    , _ljbsrsNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An array of Job objects that have the specified status.
-ljbssJobs :: Lens' ListJobsByStatusResponse ([Job])
-ljbssJobs = lens _ljbssJobs (\s a -> s { _ljbssJobs = a })
-{-# INLINE ljbssJobs #-}
+ljbsrsJobs :: Lens' ListJobsByStatusResponse [Job]
+ljbsrsJobs = lens _ljbsrsJobs (\s a -> s { _ljbsrsJobs = a })
+{-# INLINE ljbsrsJobs #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the jobs in the specified pipeline fit on one page or when
 -- you've reached the last page of results, the value of NextPageToken is
 -- null.
-ljbssNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
-ljbssNextPageToken = lens _ljbssNextPageToken (\s a -> s { _ljbssNextPageToken = a })
-{-# INLINE ljbssNextPageToken #-}
+ljbsrsNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
+ljbsrsNextPageToken =
+    lens _ljbsrsNextPageToken (\s a -> s { _ljbsrsNextPageToken = a })
+{-# INLINE ljbsrsNextPageToken #-}
 
 instance FromJSON ListJobsByStatusResponse
 
@@ -182,5 +170,5 @@ instance AWSRequest ListJobsByStatus where
     response _ = jsonResponse
 
 instance AWSPager ListJobsByStatus where
-    next rq rs = (\x -> rq { _ljbsrPageToken = Just x })
-        <$> (_ljbssNextPageToken rs)
+    next rq rs = (\x -> rq { _ljbsPageToken = Just x })
+        <$> (_ljbsrsNextPageToken rs)

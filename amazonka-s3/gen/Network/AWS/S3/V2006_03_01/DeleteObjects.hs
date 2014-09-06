@@ -26,64 +26,62 @@ module Network.AWS.S3.V2006_03_01.DeleteObjects
     -- ** Request alias
     , DeleteMultipleObjects
     -- ** Request constructor
-    , mkDeleteObjectsRequest
+    , mkDeleteObjects
     -- ** Request lenses
-    , dosBucket
-    , dosDelete
-    , dosMFA
+    , do1Bucket
+    , do1Delete
+    , do1MFA
 
     -- * Response
     , DeleteObjectsResponse
     -- ** Response lenses
-    , dopDeleted
-    , dopErrors
+    , dorsrsDeleted
+    , dorsrsErrors
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
 
 type DeleteMultipleObjects = DeleteObjects
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteObjects' request.
-mkDeleteObjectsRequest :: BucketName -- ^ 'dosBucket'
-                       -> Delete -- ^ 'dosDelete'
-                       -> DeleteObjects
-mkDeleteObjectsRequest p1 p2 = DeleteObjects
-    { _dosBucket = p1
-    , _dosDelete = p2
-    , _dosMFA = Nothing
-    }
-{-# INLINE mkDeleteObjectsRequest #-}
-
 data DeleteObjects = DeleteObjects
-    { _dosBucket :: BucketName
-    , _dosDelete :: Delete
-    , _dosMFA :: Maybe Text
-      -- ^ The concatenation of the authentication device's serial number, a
-      -- space, and the value that is displayed on your authentication
-      -- device.
+    { _do1Bucket :: BucketName
+    , _do1Delete :: Delete
+    , _do1MFA :: Maybe Text
     } deriving (Show, Generic)
 
-dosBucket :: Lens' DeleteObjects (BucketName)
-dosBucket = lens _dosBucket (\s a -> s { _dosBucket = a })
-{-# INLINE dosBucket #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteObjects' request.
+mkDeleteObjects :: BucketName -- ^ 'do1Bucket'
+                -> Delete -- ^ 'do1Delete'
+                -> DeleteObjects
+mkDeleteObjects p1 p2 = DeleteObjects
+    { _do1Bucket = p1
+    , _do1Delete = p2
+    , _do1MFA = Nothing
+    }
+{-# INLINE mkDeleteObjects #-}
 
-dosDelete :: Lens' DeleteObjects (Delete)
-dosDelete = lens _dosDelete (\s a -> s { _dosDelete = a })
-{-# INLINE dosDelete #-}
+do1Bucket :: Lens' DeleteObjects BucketName
+do1Bucket = lens _do1Bucket (\s a -> s { _do1Bucket = a })
+{-# INLINE do1Bucket #-}
+
+do1Delete :: Lens' DeleteObjects Delete
+do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
+{-# INLINE do1Delete #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-dosMFA :: Lens' DeleteObjects (Maybe Text)
-dosMFA = lens _dosMFA (\s a -> s { _dosMFA = a })
-{-# INLINE dosMFA #-}
+do1MFA :: Lens' DeleteObjects (Maybe Text)
+do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
+{-# INLINE do1MFA #-}
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
         [ "/"
-        , toBS _dosBucket
+        , toBS _do1Bucket
         ]
 
 instance ToQuery DeleteObjects where
@@ -91,22 +89,26 @@ instance ToQuery DeleteObjects where
         [ "delete"
         ]
 
-instance ToHeaders DeleteObjects
+instance ToHeaders DeleteObjects where
+    toHeaders DeleteObjects{..} = concat
+        [ "x-amz-mfa" =: _do1MFA
+        ]
 
-instance ToBody DeleteObjects
+instance ToBody DeleteObjects where
+    toBody = toBody . encodeXML . _do1Delete
 
 data DeleteObjectsResponse = DeleteObjectsResponse
-    { _dopDeleted :: [DeletedObject]
-    , _dopErrors :: [Error]
+    { _dorsrsDeleted :: [DeletedObject]
+    , _dorsrsErrors :: [Error]
     } deriving (Show, Generic)
 
-dopDeleted :: Lens' DeleteObjectsResponse ([DeletedObject])
-dopDeleted = lens _dopDeleted (\s a -> s { _dopDeleted = a })
-{-# INLINE dopDeleted #-}
+dorsrsDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
+dorsrsDeleted = lens _dorsrsDeleted (\s a -> s { _dorsrsDeleted = a })
+{-# INLINE dorsrsDeleted #-}
 
-dopErrors :: Lens' DeleteObjectsResponse ([Error])
-dopErrors = lens _dopErrors (\s a -> s { _dopErrors = a })
-{-# INLINE dopErrors #-}
+dorsrsErrors :: Lens' DeleteObjectsResponse [Error]
+dorsrsErrors = lens _dorsrsErrors (\s a -> s { _dorsrsErrors = a })
+{-# INLINE dorsrsErrors #-}
 
 instance FromXML DeleteObjectsResponse where
     fromXMLOptions = xmlOptions

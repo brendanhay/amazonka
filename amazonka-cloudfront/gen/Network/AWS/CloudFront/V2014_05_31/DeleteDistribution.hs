@@ -23,10 +23,10 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteDistribution
     -- * Request
       DeleteDistribution
     -- ** Request constructor
-    , mkDeleteDistributionRequest
+    , mkDeleteDistribution
     -- ** Request lenses
-    , ddrId
-    , ddrIfMatch
+    , ddId
+    , ddIfMatch
 
     -- * Response
     , DeleteDistributionResponse
@@ -35,45 +35,47 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteDistribution
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to delete a distribution.
+data DeleteDistribution = DeleteDistribution
+    { _ddId :: Text
+    , _ddIfMatch :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDistribution' request.
-mkDeleteDistributionRequest :: Text -- ^ 'ddrId'
-                            -> DeleteDistribution
-mkDeleteDistributionRequest p1 = DeleteDistribution
-    { _ddrId = p1
-    , _ddrIfMatch = Nothing
+mkDeleteDistribution :: Text -- ^ 'ddId'
+                     -> DeleteDistribution
+mkDeleteDistribution p1 = DeleteDistribution
+    { _ddId = p1
+    , _ddIfMatch = Nothing
     }
-{-# INLINE mkDeleteDistributionRequest #-}
-
-data DeleteDistribution = DeleteDistribution
-    { _ddrId :: Text
-      -- ^ The distribution id.
-    , _ddrIfMatch :: Maybe Text
-      -- ^ The value of the ETag header you received when you disabled the
-      -- distribution. For example: E2QWRUHAPOMQZL.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteDistribution #-}
 
 -- | The distribution id.
-ddrId :: Lens' DeleteDistribution (Text)
-ddrId = lens _ddrId (\s a -> s { _ddrId = a })
-{-# INLINE ddrId #-}
+ddId :: Lens' DeleteDistribution Text
+ddId = lens _ddId (\s a -> s { _ddId = a })
+{-# INLINE ddId #-}
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
-ddrIfMatch :: Lens' DeleteDistribution (Maybe Text)
-ddrIfMatch = lens _ddrIfMatch (\s a -> s { _ddrIfMatch = a })
-{-# INLINE ddrIfMatch #-}
+ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
+ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
+{-# INLINE ddIfMatch #-}
 
 instance ToPath DeleteDistribution where
     toPath DeleteDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
-        , toBS _ddrId
+        , toBS _ddId
         ]
 
 instance ToQuery DeleteDistribution
 
-instance ToHeaders DeleteDistribution
+instance ToHeaders DeleteDistribution where
+    toHeaders DeleteDistribution{..} = concat
+        [ "If-Match" =: _ddIfMatch
+        ]
 
 instance ToXML DeleteDistribution where
     toXMLOptions = xmlOptions

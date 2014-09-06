@@ -29,30 +29,30 @@ module Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface
     -- * Request
       AllocatePublicVirtualInterface
     -- ** Request constructor
-    , mkAllocatePublicVirtualInterfaceRequest
+    , mkAllocatePublicVirtualInterface
     -- ** Request lenses
-    , apvisConnectionId
-    , apvisOwnerAccount
-    , apvisNewPublicVirtualInterfaceAllocation
+    , apvi1ConnectionId
+    , apvi1OwnerAccount
+    , apvi1NewPublicVirtualInterfaceAllocation
 
     -- * Response
     , AllocatePublicVirtualInterfaceResponse
     -- ** Response lenses
-    , vjOwnerAccount
-    , vjVirtualInterfaceId
-    , vjLocation
-    , vjConnectionId
-    , vjVirtualInterfaceType
-    , vjVirtualInterfaceName
-    , vjVlan
-    , vjAsn
-    , vjAuthKey
-    , vjAmazonAddress
-    , vjCustomerAddress
-    , vjVirtualInterfaceState
-    , vjCustomerRouterConfig
-    , vjVirtualGatewayId
-    , vjRouteFilterPrefixes
+    , apvirsrsOwnerAccount
+    , apvirsrsVirtualInterfaceId
+    , apvirsrsLocation
+    , apvirsrsConnectionId
+    , apvirsrsVirtualInterfaceType
+    , apvirsrsVirtualInterfaceName
+    , apvirsrsVlan
+    , apvirsrsAsn
+    , apvirsrsAuthKey
+    , apvirsrsAmazonAddress
+    , apvirsrsCustomerAddress
+    , apvirsrsVirtualInterfaceState
+    , apvirsrsCustomerRouterConfig
+    , apvirsrsVirtualGatewayId
+    , apvirsrsRouteFilterPrefixes
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -60,48 +60,48 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Container for the parameters to the AllocatePublicVirtualInterface
+-- operation.
+data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface
+    { _apvi1ConnectionId :: Text
+    , _apvi1OwnerAccount :: Text
+    , _apvi1NewPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocatePublicVirtualInterface' request.
-mkAllocatePublicVirtualInterfaceRequest :: Text -- ^ 'apvisConnectionId'
-                                        -> Text -- ^ 'apvisOwnerAccount'
-                                        -> NewPublicVirtualInterfaceAllocation -- ^ 'apvisNewPublicVirtualInterfaceAllocation'
-                                        -> AllocatePublicVirtualInterface
-mkAllocatePublicVirtualInterfaceRequest p1 p2 p3 = AllocatePublicVirtualInterface
-    { _apvisConnectionId = p1
-    , _apvisOwnerAccount = p2
-    , _apvisNewPublicVirtualInterfaceAllocation = p3
+mkAllocatePublicVirtualInterface :: Text -- ^ 'apvi1ConnectionId'
+                                 -> Text -- ^ 'apvi1OwnerAccount'
+                                 -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
+                                 -> AllocatePublicVirtualInterface
+mkAllocatePublicVirtualInterface p1 p2 p3 = AllocatePublicVirtualInterface
+    { _apvi1ConnectionId = p1
+    , _apvi1OwnerAccount = p2
+    , _apvi1NewPublicVirtualInterfaceAllocation = p3
     }
-{-# INLINE mkAllocatePublicVirtualInterfaceRequest #-}
-
-data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface
-    { _apvisConnectionId :: Text
-      -- ^ The connection ID on which the public virtual interface is
-      -- provisioned. Default: None.
-    , _apvisOwnerAccount :: Text
-      -- ^ The AWS account that will own the new public virtual interface.
-      -- Default: None.
-    , _apvisNewPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation
-      -- ^ Detailed information for the public virtual interface to be
-      -- provisioned. Default: None.
-    } deriving (Show, Generic)
+{-# INLINE mkAllocatePublicVirtualInterface #-}
 
 -- | The connection ID on which the public virtual interface is provisioned.
 -- Default: None.
-apvisConnectionId :: Lens' AllocatePublicVirtualInterface (Text)
-apvisConnectionId = lens _apvisConnectionId (\s a -> s { _apvisConnectionId = a })
-{-# INLINE apvisConnectionId #-}
+apvi1ConnectionId :: Lens' AllocatePublicVirtualInterface Text
+apvi1ConnectionId =
+    lens _apvi1ConnectionId (\s a -> s { _apvi1ConnectionId = a })
+{-# INLINE apvi1ConnectionId #-}
 
 -- | The AWS account that will own the new public virtual interface. Default:
 -- None.
-apvisOwnerAccount :: Lens' AllocatePublicVirtualInterface (Text)
-apvisOwnerAccount = lens _apvisOwnerAccount (\s a -> s { _apvisOwnerAccount = a })
-{-# INLINE apvisOwnerAccount #-}
+apvi1OwnerAccount :: Lens' AllocatePublicVirtualInterface Text
+apvi1OwnerAccount =
+    lens _apvi1OwnerAccount (\s a -> s { _apvi1OwnerAccount = a })
+{-# INLINE apvi1OwnerAccount #-}
 
 -- | Detailed information for the public virtual interface to be provisioned.
 -- Default: None.
-apvisNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface (NewPublicVirtualInterfaceAllocation)
-apvisNewPublicVirtualInterfaceAllocation = lens _apvisNewPublicVirtualInterfaceAllocation (\s a -> s { _apvisNewPublicVirtualInterfaceAllocation = a })
-{-# INLINE apvisNewPublicVirtualInterfaceAllocation #-}
+apvi1NewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
+apvi1NewPublicVirtualInterfaceAllocation =
+    lens _apvi1NewPublicVirtualInterfaceAllocation
+         (\s a -> s { _apvi1NewPublicVirtualInterfaceAllocation = a })
+{-# INLINE apvi1NewPublicVirtualInterfaceAllocation #-}
 
 instance ToPath AllocatePublicVirtualInterface
 
@@ -111,121 +111,94 @@ instance ToHeaders AllocatePublicVirtualInterface
 
 instance ToJSON AllocatePublicVirtualInterface
 
+-- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
+-- Connect location and the customer.
 data AllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResponse
-    { _vjOwnerAccount :: Maybe Text
-    , _vjVirtualInterfaceId :: Maybe Text
-      -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
-      -- None.
-    , _vjLocation :: Maybe Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _vjConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _vjVirtualInterfaceType :: Maybe Text
-      -- ^ The type of virtual interface. Example: private (Amazon VPC) or
-      -- public (Amazon S3, Amazon DynamoDB, and so on.).
-    , _vjVirtualInterfaceName :: Maybe Text
-      -- ^ The name of the virtual interface assigned by the customer.
-      -- Example: "My VPC".
-    , _vjVlan :: Maybe Integer
-      -- ^ The VLAN ID. Example: 101.
-    , _vjAsn :: Maybe Integer
-      -- ^ Autonomous system (AS) number for Border Gateway Protocol (BGP)
-      -- configuration. Example: 65000.
-    , _vjAuthKey :: Maybe Text
-      -- ^ Authentication key for BGP configuration. Example: asdf34example.
-    , _vjAmazonAddress :: Maybe Text
-      -- ^ IP address assigned to the Amazon interface. Example:
-      -- 192.168.1.1/30.
-    , _vjCustomerAddress :: Maybe Text
-      -- ^ IP address assigned to the customer interface. Example:
-      -- 192.168.1.2/30.
-    , _vjVirtualInterfaceState :: Maybe VirtualInterfaceState
-      -- ^ State of the virtual interface. Confirming: The creation of the
-      -- virtual interface is pending confirmation from the virtual
-      -- interface owner. If the owner of the virtual interface is
-      -- different from the owner of the connection on which it is
-      -- provisioned, then the virtual interface will remain in this state
-      -- until it is confirmed by the virtual interface owner. Verifying:
-      -- This state only applies to public virtual interfaces. Each public
-      -- virtual interface needs validation before the virtual interface
-      -- can be created. Pending: A virtual interface is in this state
-      -- from the time that it is created until the virtual interface is
-      -- ready to forward traffic. Available: A virtual interface that is
-      -- able to forward traffic. Deleting: A virtual interface is in this
-      -- state immediately after calling DeleteVirtualInterface until it
-      -- can no longer forward traffic. Deleted: A virtual interface that
-      -- cannot forward traffic. Rejected: The virtual interface owner has
-      -- declined creation of the virtual interface. If a virtual
-      -- interface in the 'Confirming' state is deleted by the virtual
-      -- interface owner, the virtual interface will enter the 'Rejected'
-      -- state.
-    , _vjCustomerRouterConfig :: Maybe Text
-      -- ^ Information for generating the customer router configuration.
-    , _vjVirtualGatewayId :: Maybe Text
-      -- ^ The ID of the virtual private gateway to a VPC. This only applies
-      -- to private virtual interfaces. Example: vgw-123er56.
-    , _vjRouteFilterPrefixes :: [RouteFilterPrefix]
-      -- ^ A list of routes to be advertised to the AWS network in this
-      -- region (public virtual interface) or your VPC (private virtual
-      -- interface).
+    { _apvirsrsOwnerAccount :: Maybe Text
+    , _apvirsrsVirtualInterfaceId :: Maybe Text
+    , _apvirsrsLocation :: Maybe Text
+    , _apvirsrsConnectionId :: Maybe Text
+    , _apvirsrsVirtualInterfaceType :: Maybe Text
+    , _apvirsrsVirtualInterfaceName :: Maybe Text
+    , _apvirsrsVlan :: Maybe Integer
+    , _apvirsrsAsn :: Maybe Integer
+    , _apvirsrsAuthKey :: Maybe Text
+    , _apvirsrsAmazonAddress :: Maybe Text
+    , _apvirsrsCustomerAddress :: Maybe Text
+    , _apvirsrsVirtualInterfaceState :: Maybe VirtualInterfaceState
+    , _apvirsrsCustomerRouterConfig :: Maybe Text
+    , _apvirsrsVirtualGatewayId :: Maybe Text
+    , _apvirsrsRouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
 
-vjOwnerAccount :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjOwnerAccount = lens _vjOwnerAccount (\s a -> s { _vjOwnerAccount = a })
-{-# INLINE vjOwnerAccount #-}
+apvirsrsOwnerAccount :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsOwnerAccount =
+    lens _apvirsrsOwnerAccount (\s a -> s { _apvirsrsOwnerAccount = a })
+{-# INLINE apvirsrsOwnerAccount #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-vjVirtualInterfaceId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjVirtualInterfaceId = lens _vjVirtualInterfaceId (\s a -> s { _vjVirtualInterfaceId = a })
-{-# INLINE vjVirtualInterfaceId #-}
+apvirsrsVirtualInterfaceId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsVirtualInterfaceId =
+    lens _apvirsrsVirtualInterfaceId
+         (\s a -> s { _apvirsrsVirtualInterfaceId = a })
+{-# INLINE apvirsrsVirtualInterfaceId #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-vjLocation :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjLocation = lens _vjLocation (\s a -> s { _vjLocation = a })
-{-# INLINE vjLocation #-}
+apvirsrsLocation :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsLocation =
+    lens _apvirsrsLocation (\s a -> s { _apvirsrsLocation = a })
+{-# INLINE apvirsrsLocation #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-vjConnectionId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjConnectionId = lens _vjConnectionId (\s a -> s { _vjConnectionId = a })
-{-# INLINE vjConnectionId #-}
+apvirsrsConnectionId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsConnectionId =
+    lens _apvirsrsConnectionId (\s a -> s { _apvirsrsConnectionId = a })
+{-# INLINE apvirsrsConnectionId #-}
 
 -- | The type of virtual interface. Example: private (Amazon VPC) or public
 -- (Amazon S3, Amazon DynamoDB, and so on.).
-vjVirtualInterfaceType :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjVirtualInterfaceType = lens _vjVirtualInterfaceType (\s a -> s { _vjVirtualInterfaceType = a })
-{-# INLINE vjVirtualInterfaceType #-}
+apvirsrsVirtualInterfaceType :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsVirtualInterfaceType =
+    lens _apvirsrsVirtualInterfaceType
+         (\s a -> s { _apvirsrsVirtualInterfaceType = a })
+{-# INLINE apvirsrsVirtualInterfaceType #-}
 
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
-vjVirtualInterfaceName :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjVirtualInterfaceName = lens _vjVirtualInterfaceName (\s a -> s { _vjVirtualInterfaceName = a })
-{-# INLINE vjVirtualInterfaceName #-}
+apvirsrsVirtualInterfaceName :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsVirtualInterfaceName =
+    lens _apvirsrsVirtualInterfaceName
+         (\s a -> s { _apvirsrsVirtualInterfaceName = a })
+{-# INLINE apvirsrsVirtualInterfaceName #-}
 
 -- | The VLAN ID. Example: 101.
-vjVlan :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Integer)
-vjVlan = lens _vjVlan (\s a -> s { _vjVlan = a })
-{-# INLINE vjVlan #-}
+apvirsrsVlan :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Integer)
+apvirsrsVlan = lens _apvirsrsVlan (\s a -> s { _apvirsrsVlan = a })
+{-# INLINE apvirsrsVlan #-}
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
-vjAsn :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Integer)
-vjAsn = lens _vjAsn (\s a -> s { _vjAsn = a })
-{-# INLINE vjAsn #-}
+apvirsrsAsn :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Integer)
+apvirsrsAsn = lens _apvirsrsAsn (\s a -> s { _apvirsrsAsn = a })
+{-# INLINE apvirsrsAsn #-}
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
-vjAuthKey :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjAuthKey = lens _vjAuthKey (\s a -> s { _vjAuthKey = a })
-{-# INLINE vjAuthKey #-}
+apvirsrsAuthKey :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsAuthKey = lens _apvirsrsAuthKey (\s a -> s { _apvirsrsAuthKey = a })
+{-# INLINE apvirsrsAuthKey #-}
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
-vjAmazonAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjAmazonAddress = lens _vjAmazonAddress (\s a -> s { _vjAmazonAddress = a })
-{-# INLINE vjAmazonAddress #-}
+apvirsrsAmazonAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsAmazonAddress =
+    lens _apvirsrsAmazonAddress (\s a -> s { _apvirsrsAmazonAddress = a })
+{-# INLINE apvirsrsAmazonAddress #-}
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
-vjCustomerAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjCustomerAddress = lens _vjCustomerAddress (\s a -> s { _vjCustomerAddress = a })
-{-# INLINE vjCustomerAddress #-}
+apvirsrsCustomerAddress :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsCustomerAddress =
+    lens _apvirsrsCustomerAddress
+         (\s a -> s { _apvirsrsCustomerAddress = a })
+{-# INLINE apvirsrsCustomerAddress #-}
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
 -- interface is pending confirmation from the virtual interface owner. If the
@@ -243,26 +216,34 @@ vjCustomerAddress = lens _vjCustomerAddress (\s a -> s { _vjCustomerAddress = a 
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-vjVirtualInterfaceState :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-vjVirtualInterfaceState = lens _vjVirtualInterfaceState (\s a -> s { _vjVirtualInterfaceState = a })
-{-# INLINE vjVirtualInterfaceState #-}
+apvirsrsVirtualInterfaceState :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+apvirsrsVirtualInterfaceState =
+    lens _apvirsrsVirtualInterfaceState
+         (\s a -> s { _apvirsrsVirtualInterfaceState = a })
+{-# INLINE apvirsrsVirtualInterfaceState #-}
 
 -- | Information for generating the customer router configuration.
-vjCustomerRouterConfig :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjCustomerRouterConfig = lens _vjCustomerRouterConfig (\s a -> s { _vjCustomerRouterConfig = a })
-{-# INLINE vjCustomerRouterConfig #-}
+apvirsrsCustomerRouterConfig :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsCustomerRouterConfig =
+    lens _apvirsrsCustomerRouterConfig
+         (\s a -> s { _apvirsrsCustomerRouterConfig = a })
+{-# INLINE apvirsrsCustomerRouterConfig #-}
 
 -- | The ID of the virtual private gateway to a VPC. This only applies to
 -- private virtual interfaces. Example: vgw-123er56.
-vjVirtualGatewayId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
-vjVirtualGatewayId = lens _vjVirtualGatewayId (\s a -> s { _vjVirtualGatewayId = a })
-{-# INLINE vjVirtualGatewayId #-}
+apvirsrsVirtualGatewayId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvirsrsVirtualGatewayId =
+    lens _apvirsrsVirtualGatewayId
+         (\s a -> s { _apvirsrsVirtualGatewayId = a })
+{-# INLINE apvirsrsVirtualGatewayId #-}
 
 -- | A list of routes to be advertised to the AWS network in this region (public
 -- virtual interface) or your VPC (private virtual interface).
-vjRouteFilterPrefixes :: Lens' AllocatePublicVirtualInterfaceResponse ([RouteFilterPrefix])
-vjRouteFilterPrefixes = lens _vjRouteFilterPrefixes (\s a -> s { _vjRouteFilterPrefixes = a })
-{-# INLINE vjRouteFilterPrefixes #-}
+apvirsrsRouteFilterPrefixes :: Lens' AllocatePublicVirtualInterfaceResponse [RouteFilterPrefix]
+apvirsrsRouteFilterPrefixes =
+    lens _apvirsrsRouteFilterPrefixes
+         (\s a -> s { _apvirsrsRouteFilterPrefixes = a })
+{-# INLINE apvirsrsRouteFilterPrefixes #-}
 
 instance FromJSON AllocatePublicVirtualInterfaceResponse
 

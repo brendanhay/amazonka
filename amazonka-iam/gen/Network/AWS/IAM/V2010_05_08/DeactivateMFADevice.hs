@@ -26,10 +26,10 @@ module Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
     -- * Request
       DeactivateMFADevice
     -- ** Request constructor
-    , mkDeactivateMFADeviceRequest
+    , mkDeactivateMFADevice
     -- ** Request lenses
-    , dmfadrUserName
-    , dmfadrSerialNumber
+    , dmfadUserName
+    , dmfadSerialNumber
 
     -- * Response
     , DeactivateMFADeviceResponse
@@ -39,35 +39,34 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeactivateMFADevice' request.
-mkDeactivateMFADeviceRequest :: Text -- ^ 'dmfadrUserName'
-                             -> Text -- ^ 'dmfadrSerialNumber'
-                             -> DeactivateMFADevice
-mkDeactivateMFADeviceRequest p1 p2 = DeactivateMFADevice
-    { _dmfadrUserName = p1
-    , _dmfadrSerialNumber = p2
-    }
-{-# INLINE mkDeactivateMFADeviceRequest #-}
-
+-- | 
 data DeactivateMFADevice = DeactivateMFADevice
-    { _dmfadrUserName :: Text
-      -- ^ Name of the user whose MFA device you want to deactivate.
-    , _dmfadrSerialNumber :: Text
-      -- ^ The serial number that uniquely identifies the MFA device. For
-      -- virtual MFA devices, the serial number is the device ARN.
+    { _dmfadUserName :: Text
+    , _dmfadSerialNumber :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeactivateMFADevice' request.
+mkDeactivateMFADevice :: Text -- ^ 'dmfadUserName'
+                      -> Text -- ^ 'dmfadSerialNumber'
+                      -> DeactivateMFADevice
+mkDeactivateMFADevice p1 p2 = DeactivateMFADevice
+    { _dmfadUserName = p1
+    , _dmfadSerialNumber = p2
+    }
+{-# INLINE mkDeactivateMFADevice #-}
+
 -- | Name of the user whose MFA device you want to deactivate.
-dmfadrUserName :: Lens' DeactivateMFADevice (Text)
-dmfadrUserName = lens _dmfadrUserName (\s a -> s { _dmfadrUserName = a })
-{-# INLINE dmfadrUserName #-}
+dmfadUserName :: Lens' DeactivateMFADevice Text
+dmfadUserName = lens _dmfadUserName (\s a -> s { _dmfadUserName = a })
+{-# INLINE dmfadUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
-dmfadrSerialNumber :: Lens' DeactivateMFADevice (Text)
-dmfadrSerialNumber = lens _dmfadrSerialNumber (\s a -> s { _dmfadrSerialNumber = a })
-{-# INLINE dmfadrSerialNumber #-}
+dmfadSerialNumber :: Lens' DeactivateMFADevice Text
+dmfadSerialNumber =
+    lens _dmfadSerialNumber (\s a -> s { _dmfadSerialNumber = a })
+{-# INLINE dmfadSerialNumber #-}
 
 instance ToQuery DeactivateMFADevice where
     toQuery = genericQuery def

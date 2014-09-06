@@ -44,12 +44,12 @@ module Network.AWS.SQS.V2012_11_05.AddPermission
     -- * Request
       AddPermission
     -- ** Request constructor
-    , mkAddPermissionRequest
+    , mkAddPermission
     -- ** Request lenses
-    , aprQueueUrl
-    , aprLabel
-    , aprAWSAccountIds
-    , aprActions
+    , apQueueUrl
+    , apLabel
+    , apAWSAccountIds
+    , apActions
 
     -- * Response
     , AddPermissionResponse
@@ -59,66 +59,48 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddPermission' request.
-mkAddPermissionRequest :: Text -- ^ 'aprQueueUrl'
-                       -> Text -- ^ 'aprLabel'
-                       -> [Text] -- ^ 'aprAWSAccountIds'
-                       -> [Text] -- ^ 'aprActions'
-                       -> AddPermission
-mkAddPermissionRequest p1 p2 p3 p4 = AddPermission
-    { _aprQueueUrl = p1
-    , _aprLabel = p2
-    , _aprAWSAccountIds = p3
-    , _aprActions = p4
-    }
-{-# INLINE mkAddPermissionRequest #-}
-
+-- | 
 data AddPermission = AddPermission
-    { _aprQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
-    , _aprLabel :: Text
-      -- ^ The unique identification of the permission you're setting (e.g.,
-      -- AliceSendMessage). Constraints: Maximum 80 characters;
-      -- alphanumeric characters, hyphens (-), and underscores (_) are
-      -- allowed.
-    , _aprAWSAccountIds :: [Text]
-      -- ^ The AWS account number of the principal who will be given
-      -- permission. The principal must have an AWS account, but does not
-      -- need to be signed up for Amazon SQS. For information about
-      -- locating the AWS account identification, see Your AWS Identifiers
-      -- in the Amazon SQS Developer Guide.
-    , _aprActions :: [Text]
-      -- ^ The action the client wants to allow for the specified principal.
-      -- The following are valid values: * | SendMessage | ReceiveMessage
-      -- | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes |
-      -- GetQueueUrl. For more information about these actions, see
-      -- Understanding Permissions in the Amazon SQS Developer Guide.
-      -- Specifying SendMessage, DeleteMessage, or ChangeMessageVisibility
-      -- for the ActionName.n also grants permissions for the
-      -- corresponding batch versions of those actions: SendMessageBatch,
-      -- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
+    { _apQueueUrl :: Text
+    , _apLabel :: Text
+    , _apAWSAccountIds :: [Text]
+    , _apActions :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddPermission' request.
+mkAddPermission :: Text -- ^ 'apQueueUrl'
+                -> Text -- ^ 'apLabel'
+                -> [Text] -- ^ 'apAWSAccountIds'
+                -> [Text] -- ^ 'apActions'
+                -> AddPermission
+mkAddPermission p1 p2 p3 p4 = AddPermission
+    { _apQueueUrl = p1
+    , _apLabel = p2
+    , _apAWSAccountIds = p3
+    , _apActions = p4
+    }
+{-# INLINE mkAddPermission #-}
+
 -- | The URL of the Amazon SQS queue to take action on.
-aprQueueUrl :: Lens' AddPermission (Text)
-aprQueueUrl = lens _aprQueueUrl (\s a -> s { _aprQueueUrl = a })
-{-# INLINE aprQueueUrl #-}
+apQueueUrl :: Lens' AddPermission Text
+apQueueUrl = lens _apQueueUrl (\s a -> s { _apQueueUrl = a })
+{-# INLINE apQueueUrl #-}
 
 -- | The unique identification of the permission you're setting (e.g.,
 -- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric
 -- characters, hyphens (-), and underscores (_) are allowed.
-aprLabel :: Lens' AddPermission (Text)
-aprLabel = lens _aprLabel (\s a -> s { _aprLabel = a })
-{-# INLINE aprLabel #-}
+apLabel :: Lens' AddPermission Text
+apLabel = lens _apLabel (\s a -> s { _apLabel = a })
+{-# INLINE apLabel #-}
 
 -- | The AWS account number of the principal who will be given permission. The
 -- principal must have an AWS account, but does not need to be signed up for
 -- Amazon SQS. For information about locating the AWS account identification,
 -- see Your AWS Identifiers in the Amazon SQS Developer Guide.
-aprAWSAccountIds :: Lens' AddPermission ([Text])
-aprAWSAccountIds = lens _aprAWSAccountIds (\s a -> s { _aprAWSAccountIds = a })
-{-# INLINE aprAWSAccountIds #-}
+apAWSAccountIds :: Lens' AddPermission [Text]
+apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
+{-# INLINE apAWSAccountIds #-}
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values: * | SendMessage | ReceiveMessage |
@@ -128,9 +110,9 @@ aprAWSAccountIds = lens _aprAWSAccountIds (\s a -> s { _aprAWSAccountIds = a })
 -- ChangeMessageVisibility for the ActionName.n also grants permissions for
 -- the corresponding batch versions of those actions: SendMessageBatch,
 -- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
-aprActions :: Lens' AddPermission ([Text])
-aprActions = lens _aprActions (\s a -> s { _aprActions = a })
-{-# INLINE aprActions #-}
+apActions :: Lens' AddPermission [Text]
+apActions = lens _apActions (\s a -> s { _apActions = a })
+{-# INLINE apActions #-}
 
 instance ToQuery AddPermission where
     toQuery = genericQuery def

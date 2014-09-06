@@ -59,19 +59,19 @@ module Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
     -- * Request
       DescribeWorkflowExecution
     -- ** Request constructor
-    , mkDescribeWorkflowExecutionInput
+    , mkDescribeWorkflowExecution
     -- ** Request lenses
-    , dweiDomain
-    , dweiExecution
+    , dweDomain
+    , dweExecution
 
     -- * Response
     , DescribeWorkflowExecutionResponse
     -- ** Response lenses
-    , weeExecutionInfo
-    , weeExecutionConfiguration
-    , weeOpenCounts
-    , weeLatestActivityTaskTimestamp
-    , weeLatestExecutionContext
+    , dwersExecutionInfo
+    , dwersExecutionConfiguration
+    , dwersOpenCounts
+    , dwersLatestActivityTaskTimestamp
+    , dwersLatestExecutionContext
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -79,33 +79,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeWorkflowExecution' request.
-mkDescribeWorkflowExecutionInput :: Text -- ^ 'dweiDomain'
-                                 -> WorkflowExecution -- ^ 'dweiExecution'
-                                 -> DescribeWorkflowExecution
-mkDescribeWorkflowExecutionInput p1 p2 = DescribeWorkflowExecution
-    { _dweiDomain = p1
-    , _dweiExecution = p2
-    }
-{-# INLINE mkDescribeWorkflowExecutionInput #-}
-
 data DescribeWorkflowExecution = DescribeWorkflowExecution
-    { _dweiDomain :: Text
-      -- ^ The name of the domain containing the workflow execution.
-    , _dweiExecution :: WorkflowExecution
-      -- ^ The workflow execution to describe.
+    { _dweDomain :: Text
+    , _dweExecution :: WorkflowExecution
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeWorkflowExecution' request.
+mkDescribeWorkflowExecution :: Text -- ^ 'dweDomain'
+                            -> WorkflowExecution -- ^ 'dweExecution'
+                            -> DescribeWorkflowExecution
+mkDescribeWorkflowExecution p1 p2 = DescribeWorkflowExecution
+    { _dweDomain = p1
+    , _dweExecution = p2
+    }
+{-# INLINE mkDescribeWorkflowExecution #-}
+
 -- | The name of the domain containing the workflow execution.
-dweiDomain :: Lens' DescribeWorkflowExecution (Text)
-dweiDomain = lens _dweiDomain (\s a -> s { _dweiDomain = a })
-{-# INLINE dweiDomain #-}
+dweDomain :: Lens' DescribeWorkflowExecution Text
+dweDomain = lens _dweDomain (\s a -> s { _dweDomain = a })
+{-# INLINE dweDomain #-}
 
 -- | The workflow execution to describe.
-dweiExecution :: Lens' DescribeWorkflowExecution (WorkflowExecution)
-dweiExecution = lens _dweiExecution (\s a -> s { _dweiExecution = a })
-{-# INLINE dweiExecution #-}
+dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
+dweExecution = lens _dweExecution (\s a -> s { _dweExecution = a })
+{-# INLINE dweExecution #-}
 
 instance ToPath DescribeWorkflowExecution
 
@@ -115,58 +113,53 @@ instance ToHeaders DescribeWorkflowExecution
 
 instance ToJSON DescribeWorkflowExecution
 
+-- | Contains details about a workflow execution.
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
-    { _weeExecutionInfo :: WorkflowExecutionInfo
-      -- ^ Information about the workflow execution.
-    , _weeExecutionConfiguration :: WorkflowExecutionConfiguration
-      -- ^ The configuration settings for this workflow execution including
-      -- timeout values, tasklist etc.
-    , _weeOpenCounts :: WorkflowExecutionOpenCounts
-      -- ^ The number of tasks for this workflow execution. This includes
-      -- open and closed tasks of all types.
-    , _weeLatestActivityTaskTimestamp :: Maybe POSIX
-      -- ^ The time when the last activity task was scheduled for this
-      -- workflow execution. You can use this information to determine if
-      -- the workflow has not made progress for an unusually long period
-      -- of time and might require a corrective action.
-    , _weeLatestExecutionContext :: Maybe Text
-      -- ^ The latest executionContext provided by the decider for this
-      -- workflow execution. A decider can provide an executionContext,
-      -- which is a free form string, when closing a decision task using
-      -- RespondDecisionTaskCompleted.
+    { _dwersExecutionInfo :: WorkflowExecutionInfo
+    , _dwersExecutionConfiguration :: WorkflowExecutionConfiguration
+    , _dwersOpenCounts :: WorkflowExecutionOpenCounts
+    , _dwersLatestActivityTaskTimestamp :: Maybe POSIX
+    , _dwersLatestExecutionContext :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Information about the workflow execution.
-weeExecutionInfo :: Lens' DescribeWorkflowExecutionResponse (WorkflowExecutionInfo)
-weeExecutionInfo = lens _weeExecutionInfo (\s a -> s { _weeExecutionInfo = a })
-{-# INLINE weeExecutionInfo #-}
+dwersExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
+dwersExecutionInfo =
+    lens _dwersExecutionInfo (\s a -> s { _dwersExecutionInfo = a })
+{-# INLINE dwersExecutionInfo #-}
 
 -- | The configuration settings for this workflow execution including timeout
 -- values, tasklist etc.
-weeExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse (WorkflowExecutionConfiguration)
-weeExecutionConfiguration = lens _weeExecutionConfiguration (\s a -> s { _weeExecutionConfiguration = a })
-{-# INLINE weeExecutionConfiguration #-}
+dwersExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionConfiguration
+dwersExecutionConfiguration =
+    lens _dwersExecutionConfiguration
+         (\s a -> s { _dwersExecutionConfiguration = a })
+{-# INLINE dwersExecutionConfiguration #-}
 
 -- | The number of tasks for this workflow execution. This includes open and
 -- closed tasks of all types.
-weeOpenCounts :: Lens' DescribeWorkflowExecutionResponse (WorkflowExecutionOpenCounts)
-weeOpenCounts = lens _weeOpenCounts (\s a -> s { _weeOpenCounts = a })
-{-# INLINE weeOpenCounts #-}
+dwersOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
+dwersOpenCounts = lens _dwersOpenCounts (\s a -> s { _dwersOpenCounts = a })
+{-# INLINE dwersOpenCounts #-}
 
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
 -- not made progress for an unusually long period of time and might require a
 -- corrective action.
-weeLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe POSIX)
-weeLatestActivityTaskTimestamp = lens _weeLatestActivityTaskTimestamp (\s a -> s { _weeLatestActivityTaskTimestamp = a })
-{-# INLINE weeLatestActivityTaskTimestamp #-}
+dwersLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe POSIX)
+dwersLatestActivityTaskTimestamp =
+    lens _dwersLatestActivityTaskTimestamp
+         (\s a -> s { _dwersLatestActivityTaskTimestamp = a })
+{-# INLINE dwersLatestActivityTaskTimestamp #-}
 
 -- | The latest executionContext provided by the decider for this workflow
 -- execution. A decider can provide an executionContext, which is a free form
 -- string, when closing a decision task using RespondDecisionTaskCompleted.
-weeLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
-weeLatestExecutionContext = lens _weeLatestExecutionContext (\s a -> s { _weeLatestExecutionContext = a })
-{-# INLINE weeLatestExecutionContext #-}
+dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
+dwersLatestExecutionContext =
+    lens _dwersLatestExecutionContext
+         (\s a -> s { _dwersLatestExecutionContext = a })
+{-# INLINE dwersLatestExecutionContext #-}
 
 instance FromJSON DescribeWorkflowExecutionResponse
 

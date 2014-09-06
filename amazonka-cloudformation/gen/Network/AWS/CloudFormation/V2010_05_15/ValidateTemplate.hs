@@ -31,108 +31,92 @@ module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
     -- * Request
       ValidateTemplate
     -- ** Request constructor
-    , mkValidateTemplateInput
+    , mkValidateTemplate
     -- ** Request lenses
-    , vtiTemplateBody
-    , vtiTemplateURL
+    , vtTemplateBody
+    , vtTemplateURL
 
     -- * Response
     , ValidateTemplateResponse
     -- ** Response lenses
-    , vtoParameters
-    , vtoDescription
-    , vtoCapabilities
-    , vtoCapabilitiesReason
+    , vtrsParameters
+    , vtrsDescription
+    , vtrsCapabilities
+    , vtrsCapabilitiesReason
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | The input for ValidateTemplate action.
+data ValidateTemplate = ValidateTemplate
+    { _vtTemplateBody :: Maybe Text
+    , _vtTemplateURL :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateTemplate' request.
-mkValidateTemplateInput :: ValidateTemplate
-mkValidateTemplateInput = ValidateTemplate
-    { _vtiTemplateBody = Nothing
-    , _vtiTemplateURL = Nothing
+mkValidateTemplate :: ValidateTemplate
+mkValidateTemplate = ValidateTemplate
+    { _vtTemplateBody = Nothing
+    , _vtTemplateURL = Nothing
     }
-{-# INLINE mkValidateTemplateInput #-}
-
-data ValidateTemplate = ValidateTemplate
-    { _vtiTemplateBody :: Maybe Text
-      -- ^ Structure containing the template body with a minimum length of 1
-      -- byte and a maximum length of 51,200 bytes. For more information,
-      -- go to Template Anatomy in the AWS CloudFormation User Guide.
-      -- Conditional: You must pass TemplateURL or TemplateBody. If both
-      -- are passed, only TemplateBody is used.
-    , _vtiTemplateURL :: Maybe Text
-      -- ^ Location of file containing the template body. The URL must point
-      -- to a template (max size: 307,200 bytes) located in an S3 bucket
-      -- in the same region as the stack. For more information, go to
-      -- Template Anatomy in the AWS CloudFormation User Guide.
-      -- Conditional: You must pass TemplateURL or TemplateBody. If both
-      -- are passed, only TemplateBody is used.
-    } deriving (Show, Generic)
+{-# INLINE mkValidateTemplate #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. For more information, go to Template
 -- Anatomy in the AWS CloudFormation User Guide. Conditional: You must pass
 -- TemplateURL or TemplateBody. If both are passed, only TemplateBody is used.
-vtiTemplateBody :: Lens' ValidateTemplate (Maybe Text)
-vtiTemplateBody = lens _vtiTemplateBody (\s a -> s { _vtiTemplateBody = a })
-{-# INLINE vtiTemplateBody #-}
+vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
+vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
+{-# INLINE vtTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 307,200 bytes) located in an S3 bucket in the same
 -- region as the stack. For more information, go to Template Anatomy in the
 -- AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or
 -- TemplateBody. If both are passed, only TemplateBody is used.
-vtiTemplateURL :: Lens' ValidateTemplate (Maybe Text)
-vtiTemplateURL = lens _vtiTemplateURL (\s a -> s { _vtiTemplateURL = a })
-{-# INLINE vtiTemplateURL #-}
+vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
+vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
+{-# INLINE vtTemplateURL #-}
 
 instance ToQuery ValidateTemplate where
     toQuery = genericQuery def
 
+-- | The output for ValidateTemplate action.
 data ValidateTemplateResponse = ValidateTemplateResponse
-    { _vtoParameters :: [TemplateParameter]
-      -- ^ A list of TemplateParameter structures.
-    , _vtoDescription :: Maybe Text
-      -- ^ The description found within the template.
-    , _vtoCapabilities :: [Capability]
-      -- ^ The capabilities found within the template. Currently,
-      -- CAPABILITY_IAM is the only capability detected. If your template
-      -- contains IAM resources, you must specify the CAPABILITY_IAM value
-      -- for this parameter when you use the CreateStack or UpdateStack
-      -- actions with your template; otherwise, those actions return an
-      -- InsufficientCapabilities error.
-    , _vtoCapabilitiesReason :: Maybe Text
-      -- ^ The capabilities reason found within the template.
+    { _vtrsParameters :: [TemplateParameter]
+    , _vtrsDescription :: Maybe Text
+    , _vtrsCapabilities :: [Capability]
+    , _vtrsCapabilitiesReason :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of TemplateParameter structures.
-vtoParameters :: Lens' ValidateTemplateResponse ([TemplateParameter])
-vtoParameters = lens _vtoParameters (\s a -> s { _vtoParameters = a })
-{-# INLINE vtoParameters #-}
+vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrsParameters = lens _vtrsParameters (\s a -> s { _vtrsParameters = a })
+{-# INLINE vtrsParameters #-}
 
 -- | The description found within the template.
-vtoDescription :: Lens' ValidateTemplateResponse (Maybe Text)
-vtoDescription = lens _vtoDescription (\s a -> s { _vtoDescription = a })
-{-# INLINE vtoDescription #-}
+vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrsDescription = lens _vtrsDescription (\s a -> s { _vtrsDescription = a })
+{-# INLINE vtrsDescription #-}
 
 -- | The capabilities found within the template. Currently, CAPABILITY_IAM is
 -- the only capability detected. If your template contains IAM resources, you
 -- must specify the CAPABILITY_IAM value for this parameter when you use the
 -- CreateStack or UpdateStack actions with your template; otherwise, those
 -- actions return an InsufficientCapabilities error.
-vtoCapabilities :: Lens' ValidateTemplateResponse ([Capability])
-vtoCapabilities = lens _vtoCapabilities (\s a -> s { _vtoCapabilities = a })
-{-# INLINE vtoCapabilities #-}
+vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
+vtrsCapabilities =
+    lens _vtrsCapabilities (\s a -> s { _vtrsCapabilities = a })
+{-# INLINE vtrsCapabilities #-}
 
 -- | The capabilities reason found within the template.
-vtoCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
-vtoCapabilitiesReason = lens _vtoCapabilitiesReason (\s a -> s { _vtoCapabilitiesReason = a })
-{-# INLINE vtoCapabilitiesReason #-}
+vtrsCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrsCapabilitiesReason =
+    lens _vtrsCapabilitiesReason (\s a -> s { _vtrsCapabilitiesReason = a })
+{-# INLINE vtrsCapabilitiesReason #-}
 
 instance FromXML ValidateTemplateResponse where
     fromXMLOptions = xmlOptions

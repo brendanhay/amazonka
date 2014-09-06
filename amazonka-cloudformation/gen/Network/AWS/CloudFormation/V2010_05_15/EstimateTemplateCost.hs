@@ -33,85 +33,74 @@ module Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
     -- * Request
       EstimateTemplateCost
     -- ** Request constructor
-    , mkEstimateTemplateCostInput
+    , mkEstimateTemplateCost
     -- ** Request lenses
-    , etciTemplateBody
-    , etciTemplateURL
-    , etciParameters
+    , etcTemplateBody
+    , etcTemplateURL
+    , etcParameters
 
     -- * Response
     , EstimateTemplateCostResponse
     -- ** Response lenses
-    , etcoUrl
+    , etcrsUrl
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data EstimateTemplateCost = EstimateTemplateCost
+    { _etcTemplateBody :: Maybe Text
+    , _etcTemplateURL :: Maybe Text
+    , _etcParameters :: [Parameter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EstimateTemplateCost' request.
-mkEstimateTemplateCostInput :: EstimateTemplateCost
-mkEstimateTemplateCostInput = EstimateTemplateCost
-    { _etciTemplateBody = Nothing
-    , _etciTemplateURL = Nothing
-    , _etciParameters = mempty
+mkEstimateTemplateCost :: EstimateTemplateCost
+mkEstimateTemplateCost = EstimateTemplateCost
+    { _etcTemplateBody = Nothing
+    , _etcTemplateURL = Nothing
+    , _etcParameters = mempty
     }
-{-# INLINE mkEstimateTemplateCostInput #-}
-
-data EstimateTemplateCost = EstimateTemplateCost
-    { _etciTemplateBody :: Maybe Text
-      -- ^ Structure containing the template body with a minimum length of 1
-      -- byte and a maximum length of 51,200 bytes. (For more information,
-      -- go to Template Anatomy in the AWS CloudFormation User Guide.)
-      -- Conditional: You must pass TemplateBody or TemplateURL. If both
-      -- are passed, only TemplateBody is used.
-    , _etciTemplateURL :: Maybe Text
-      -- ^ Location of file containing the template body. The URL must point
-      -- to a template located in an S3 bucket in the same region as the
-      -- stack. For more information, go to Template Anatomy in the AWS
-      -- CloudFormation User Guide. Conditional: You must pass TemplateURL
-      -- or TemplateBody. If both are passed, only TemplateBody is used.
-    , _etciParameters :: [Parameter]
-      -- ^ A list of Parameter structures that specify input parameters.
-    } deriving (Show, Generic)
+{-# INLINE mkEstimateTemplateCost #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. (For more information, go to Template
 -- Anatomy in the AWS CloudFormation User Guide.) Conditional: You must pass
 -- TemplateBody or TemplateURL. If both are passed, only TemplateBody is used.
-etciTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
-etciTemplateBody = lens _etciTemplateBody (\s a -> s { _etciTemplateBody = a })
-{-# INLINE etciTemplateBody #-}
+etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
+etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
+{-# INLINE etcTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For more
 -- information, go to Template Anatomy in the AWS CloudFormation User Guide.
 -- Conditional: You must pass TemplateURL or TemplateBody. If both are passed,
 -- only TemplateBody is used.
-etciTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
-etciTemplateURL = lens _etciTemplateURL (\s a -> s { _etciTemplateURL = a })
-{-# INLINE etciTemplateURL #-}
+etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
+etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
+{-# INLINE etcTemplateURL #-}
 
 -- | A list of Parameter structures that specify input parameters.
-etciParameters :: Lens' EstimateTemplateCost ([Parameter])
-etciParameters = lens _etciParameters (\s a -> s { _etciParameters = a })
-{-# INLINE etciParameters #-}
+etcParameters :: Lens' EstimateTemplateCost [Parameter]
+etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a })
+{-# INLINE etcParameters #-}
 
 instance ToQuery EstimateTemplateCost where
     toQuery = genericQuery def
 
+-- | The output for a EstimateTemplateCost action.
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
-    { _etcoUrl :: Maybe Text
-      -- ^ An AWS Simple Monthly Calculator URL with a query string that
-      -- describes the resources required to run the template.
+    { _etcrsUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
-etcoUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
-etcoUrl = lens _etcoUrl (\s a -> s { _etcoUrl = a })
-{-# INLINE etcoUrl #-}
+etcrsUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
+etcrsUrl = lens _etcrsUrl (\s a -> s { _etcrsUrl = a })
+{-# INLINE etcrsUrl #-}
 
 instance FromXML EstimateTemplateCostResponse where
     fromXMLOptions = xmlOptions

@@ -33,67 +33,55 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSubnetGroups
     -- * Request
       DescribeClusterSubnetGroups
     -- ** Request constructor
-    , mkDescribeClusterSubnetGroupsMessage
+    , mkDescribeClusterSubnetGroups
     -- ** Request lenses
-    , dcsgpClusterSubnetGroupName
-    , dcsgpMaxRecords
-    , dcsgpMarker
+    , dcsg3ClusterSubnetGroupName
+    , dcsg3MaxRecords
+    , dcsg3Marker
 
     -- * Response
     , DescribeClusterSubnetGroupsResponse
     -- ** Response lenses
-    , csgpMarker
-    , csgpClusterSubnetGroups
+    , dcsgrsrsMarker
+    , dcsgrsrsClusterSubnetGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeClusterSubnetGroups' request.
-mkDescribeClusterSubnetGroupsMessage :: DescribeClusterSubnetGroups
-mkDescribeClusterSubnetGroupsMessage = DescribeClusterSubnetGroups
-    { _dcsgpClusterSubnetGroupName = Nothing
-    , _dcsgpMaxRecords = Nothing
-    , _dcsgpMarker = Nothing
-    }
-{-# INLINE mkDescribeClusterSubnetGroupsMessage #-}
-
+-- | 
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
-    { _dcsgpClusterSubnetGroupName :: Maybe Text
-      -- ^ The name of the cluster subnet group for which information is
-      -- requested.
-    , _dcsgpMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _dcsgpMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a
-      -- DescribeClusterSubnetGroups request exceed the value specified in
-      -- MaxRecords, AWS returns a value in the Marker field of the
-      -- response. You can retrieve the next set of response records by
-      -- providing the returned marker value in the Marker parameter and
-      -- retrying the request.
+    { _dcsg3ClusterSubnetGroupName :: Maybe Text
+    , _dcsg3MaxRecords :: Maybe Integer
+    , _dcsg3Marker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterSubnetGroups' request.
+mkDescribeClusterSubnetGroups :: DescribeClusterSubnetGroups
+mkDescribeClusterSubnetGroups = DescribeClusterSubnetGroups
+    { _dcsg3ClusterSubnetGroupName = Nothing
+    , _dcsg3MaxRecords = Nothing
+    , _dcsg3Marker = Nothing
+    }
+{-# INLINE mkDescribeClusterSubnetGroups #-}
+
 -- | The name of the cluster subnet group for which information is requested.
-dcsgpClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dcsgpClusterSubnetGroupName = lens _dcsgpClusterSubnetGroupName (\s a -> s { _dcsgpClusterSubnetGroupName = a })
-{-# INLINE dcsgpClusterSubnetGroupName #-}
+dcsg3ClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
+dcsg3ClusterSubnetGroupName =
+    lens _dcsg3ClusterSubnetGroupName
+         (\s a -> s { _dcsg3ClusterSubnetGroupName = a })
+{-# INLINE dcsg3ClusterSubnetGroupName #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsgpMaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Integer)
-dcsgpMaxRecords = lens _dcsgpMaxRecords (\s a -> s { _dcsgpMaxRecords = a })
-{-# INLINE dcsgpMaxRecords #-}
+dcsg3MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Integer)
+dcsg3MaxRecords = lens _dcsg3MaxRecords (\s a -> s { _dcsg3MaxRecords = a })
+{-# INLINE dcsg3MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterSubnetGroups request
@@ -101,23 +89,17 @@ dcsgpMaxRecords = lens _dcsgpMaxRecords (\s a -> s { _dcsgpMaxRecords = a })
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the Marker parameter and retrying
 -- the request.
-dcsgpMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dcsgpMarker = lens _dcsgpMarker (\s a -> s { _dcsgpMarker = a })
-{-# INLINE dcsgpMarker #-}
+dcsg3Marker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
+dcsg3Marker = lens _dcsg3Marker (\s a -> s { _dcsg3Marker = a })
+{-# INLINE dcsg3Marker #-}
 
 instance ToQuery DescribeClusterSubnetGroups where
     toQuery = genericQuery def
 
+-- | Contains the output from the DescribeClusterSubnetGroups action.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
-    { _csgpMarker :: Maybe Text
-      -- ^ A value that indicates the starting point for the next set of
-      -- response records in a subsequent request. If a value is returned
-      -- in a response, you can retrieve the next set of records by
-      -- providing this returned marker value in the Marker parameter and
-      -- retrying the command. If the Marker field is empty, all response
-      -- records have been retrieved for the request.
-    , _csgpClusterSubnetGroups :: [ClusterSubnetGroup]
-      -- ^ A list of ClusterSubnetGroup instances.
+    { _dcsgrsrsMarker :: Maybe Text
+    , _dcsgrsrsClusterSubnetGroups :: [ClusterSubnetGroup]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -125,14 +107,16 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-csgpMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
-csgpMarker = lens _csgpMarker (\s a -> s { _csgpMarker = a })
-{-# INLINE csgpMarker #-}
+dcsgrsrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
+dcsgrsrsMarker = lens _dcsgrsrsMarker (\s a -> s { _dcsgrsrsMarker = a })
+{-# INLINE dcsgrsrsMarker #-}
 
 -- | A list of ClusterSubnetGroup instances.
-csgpClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse ([ClusterSubnetGroup])
-csgpClusterSubnetGroups = lens _csgpClusterSubnetGroups (\s a -> s { _csgpClusterSubnetGroups = a })
-{-# INLINE csgpClusterSubnetGroups #-}
+dcsgrsrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgrsrsClusterSubnetGroups =
+    lens _dcsgrsrsClusterSubnetGroups
+         (\s a -> s { _dcsgrsrsClusterSubnetGroups = a })
+{-# INLINE dcsgrsrsClusterSubnetGroups #-}
 
 instance FromXML DescribeClusterSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -145,5 +129,5 @@ instance AWSRequest DescribeClusterSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSubnetGroups where
-    next rq rs = (\x -> rq { _dcsgpMarker = Just x })
-        <$> (_csgpMarker rs)
+    next rq rs = (\x -> rq { _dcsg3Marker = Just x })
+        <$> (_dcsgrsrsMarker rs)

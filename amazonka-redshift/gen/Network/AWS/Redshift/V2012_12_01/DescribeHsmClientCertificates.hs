@@ -25,71 +25,57 @@ module Network.AWS.Redshift.V2012_12_01.DescribeHsmClientCertificates
     -- * Request
       DescribeHsmClientCertificates
     -- ** Request constructor
-    , mkDescribeHsmClientCertificatesMessage
+    , mkDescribeHsmClientCertificates
     -- ** Request lenses
-    , dhccnHsmClientCertificateIdentifier
-    , dhccnMaxRecords
-    , dhccnMarker
+    , dhcc1HsmClientCertificateIdentifier
+    , dhcc1MaxRecords
+    , dhcc1Marker
 
     -- * Response
     , DescribeHsmClientCertificatesResponse
     -- ** Response lenses
-    , hccmMarker
-    , hccmHsmClientCertificates
+    , dhccrsMarker
+    , dhccrsHsmClientCertificates
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeHsmClientCertificates = DescribeHsmClientCertificates
+    { _dhcc1HsmClientCertificateIdentifier :: Maybe Text
+    , _dhcc1MaxRecords :: Maybe Integer
+    , _dhcc1Marker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeHsmClientCertificates' request.
-mkDescribeHsmClientCertificatesMessage :: DescribeHsmClientCertificates
-mkDescribeHsmClientCertificatesMessage = DescribeHsmClientCertificates
-    { _dhccnHsmClientCertificateIdentifier = Nothing
-    , _dhccnMaxRecords = Nothing
-    , _dhccnMarker = Nothing
+mkDescribeHsmClientCertificates :: DescribeHsmClientCertificates
+mkDescribeHsmClientCertificates = DescribeHsmClientCertificates
+    { _dhcc1HsmClientCertificateIdentifier = Nothing
+    , _dhcc1MaxRecords = Nothing
+    , _dhcc1Marker = Nothing
     }
-{-# INLINE mkDescribeHsmClientCertificatesMessage #-}
-
-data DescribeHsmClientCertificates = DescribeHsmClientCertificates
-    { _dhccnHsmClientCertificateIdentifier :: Maybe Text
-      -- ^ The identifier of a specific HSM client certificate for which you
-      -- want information. If no identifier is specified, information is
-      -- returned for all HSM client certificates owned by your AWS
-      -- customer account.
-    , _dhccnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _dhccnMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a
-      -- DescribeHsmClientCertificates request exceed the value specified
-      -- in MaxRecords, AWS returns a value in the Marker field of the
-      -- response. You can retrieve the next set of response records by
-      -- providing the returned marker value in the Marker parameter and
-      -- retrying the request.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeHsmClientCertificates #-}
 
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for all
 -- HSM client certificates owned by your AWS customer account.
-dhccnHsmClientCertificateIdentifier :: Lens' DescribeHsmClientCertificates (Maybe Text)
-dhccnHsmClientCertificateIdentifier = lens _dhccnHsmClientCertificateIdentifier (\s a -> s { _dhccnHsmClientCertificateIdentifier = a })
-{-# INLINE dhccnHsmClientCertificateIdentifier #-}
+dhcc1HsmClientCertificateIdentifier :: Lens' DescribeHsmClientCertificates (Maybe Text)
+dhcc1HsmClientCertificateIdentifier =
+    lens _dhcc1HsmClientCertificateIdentifier
+         (\s a -> s { _dhcc1HsmClientCertificateIdentifier = a })
+{-# INLINE dhcc1HsmClientCertificateIdentifier #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dhccnMaxRecords :: Lens' DescribeHsmClientCertificates (Maybe Integer)
-dhccnMaxRecords = lens _dhccnMaxRecords (\s a -> s { _dhccnMaxRecords = a })
-{-# INLINE dhccnMaxRecords #-}
+dhcc1MaxRecords :: Lens' DescribeHsmClientCertificates (Maybe Integer)
+dhcc1MaxRecords = lens _dhcc1MaxRecords (\s a -> s { _dhcc1MaxRecords = a })
+{-# INLINE dhcc1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeHsmClientCertificates
@@ -97,25 +83,17 @@ dhccnMaxRecords = lens _dhccnMaxRecords (\s a -> s { _dhccnMaxRecords = a })
 -- the Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
-dhccnMarker :: Lens' DescribeHsmClientCertificates (Maybe Text)
-dhccnMarker = lens _dhccnMarker (\s a -> s { _dhccnMarker = a })
-{-# INLINE dhccnMarker #-}
+dhcc1Marker :: Lens' DescribeHsmClientCertificates (Maybe Text)
+dhcc1Marker = lens _dhcc1Marker (\s a -> s { _dhcc1Marker = a })
+{-# INLINE dhcc1Marker #-}
 
 instance ToQuery DescribeHsmClientCertificates where
     toQuery = genericQuery def
 
+-- | 
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
-    { _hccmMarker :: Maybe Text
-      -- ^ A value that indicates the starting point for the next set of
-      -- response records in a subsequent request. If a value is returned
-      -- in a response, you can retrieve the next set of records by
-      -- providing this returned marker value in the Marker parameter and
-      -- retrying the command. If the Marker field is empty, all response
-      -- records have been retrieved for the request.
-    , _hccmHsmClientCertificates :: [HsmClientCertificate]
-      -- ^ A list of the identifiers for one or more HSM client certificates
-      -- used by Amazon Redshift clusters to store and retrieve database
-      -- encryption keys in an HSM.
+    { _dhccrsMarker :: Maybe Text
+    , _dhccrsHsmClientCertificates :: [HsmClientCertificate]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -123,16 +101,18 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-hccmMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
-hccmMarker = lens _hccmMarker (\s a -> s { _hccmMarker = a })
-{-# INLINE hccmMarker #-}
+dhccrsMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
+dhccrsMarker = lens _dhccrsMarker (\s a -> s { _dhccrsMarker = a })
+{-# INLINE dhccrsMarker #-}
 
 -- | A list of the identifiers for one or more HSM client certificates used by
 -- Amazon Redshift clusters to store and retrieve database encryption keys in
 -- an HSM.
-hccmHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse ([HsmClientCertificate])
-hccmHsmClientCertificates = lens _hccmHsmClientCertificates (\s a -> s { _hccmHsmClientCertificates = a })
-{-# INLINE hccmHsmClientCertificates #-}
+dhccrsHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse [HsmClientCertificate]
+dhccrsHsmClientCertificates =
+    lens _dhccrsHsmClientCertificates
+         (\s a -> s { _dhccrsHsmClientCertificates = a })
+{-# INLINE dhccrsHsmClientCertificates #-}
 
 instance FromXML DescribeHsmClientCertificatesResponse where
     fromXMLOptions = xmlOptions
@@ -145,5 +125,5 @@ instance AWSRequest DescribeHsmClientCertificates where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmClientCertificates where
-    next rq rs = (\x -> rq { _dhccnMarker = Just x })
-        <$> (_hccmMarker rs)
+    next rq rs = (\x -> rq { _dhcc1Marker = Just x })
+        <$> (_dhccrsMarker rs)

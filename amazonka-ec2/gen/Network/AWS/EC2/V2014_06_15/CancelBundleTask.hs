@@ -37,51 +37,51 @@ module Network.AWS.EC2.V2014_06_15.CancelBundleTask
     -- * Request
       CancelBundleTask
     -- ** Request constructor
-    , mkCancelBundleTaskRequest
+    , mkCancelBundleTask
     -- ** Request lenses
-    , cbtrBundleId
+    , cbtBundleId
 
     -- * Response
     , CancelBundleTaskResponse
     -- ** Response lenses
-    , cbtsBundleTask
+    , cbtrsBundleTask
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelBundleTask' request.
-mkCancelBundleTaskRequest :: Text -- ^ 'cbtrBundleId'
-                          -> CancelBundleTask
-mkCancelBundleTaskRequest p1 = CancelBundleTask
-    { _cbtrBundleId = p1
-    }
-{-# INLINE mkCancelBundleTaskRequest #-}
-
+-- | 
 newtype CancelBundleTask = CancelBundleTask
-    { _cbtrBundleId :: Text
-      -- ^ The ID of the bundle task.
+    { _cbtBundleId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelBundleTask' request.
+mkCancelBundleTask :: Text -- ^ 'cbtBundleId'
+                   -> CancelBundleTask
+mkCancelBundleTask p1 = CancelBundleTask
+    { _cbtBundleId = p1
+    }
+{-# INLINE mkCancelBundleTask #-}
+
 -- | The ID of the bundle task.
-cbtrBundleId :: Lens' CancelBundleTask (Text)
-cbtrBundleId = lens _cbtrBundleId (\s a -> s { _cbtrBundleId = a })
-{-# INLINE cbtrBundleId #-}
+cbtBundleId :: Lens' CancelBundleTask Text
+cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
+{-# INLINE cbtBundleId #-}
 
 instance ToQuery CancelBundleTask where
     toQuery = genericQuery def
 
+-- | 
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
-    { _cbtsBundleTask :: Maybe BundleTask
-      -- ^ The bundle task.
+    { _cbtrsBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
 
 -- | The bundle task.
-cbtsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
-cbtsBundleTask = lens _cbtsBundleTask (\s a -> s { _cbtsBundleTask = a })
-{-# INLINE cbtsBundleTask #-}
+cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
+cbtrsBundleTask = lens _cbtrsBundleTask (\s a -> s { _cbtrsBundleTask = a })
+{-# INLINE cbtrsBundleTask #-}
 
 instance FromXML CancelBundleTaskResponse where
     fromXMLOptions = xmlOptions

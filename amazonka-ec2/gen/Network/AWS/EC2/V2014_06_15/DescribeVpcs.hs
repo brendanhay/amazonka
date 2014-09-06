@@ -40,56 +40,40 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcs
     -- * Request
       DescribeVpcs
     -- ** Request constructor
-    , mkDescribeVpcsRequest
+    , mkDescribeVpcs
     -- ** Request lenses
-    , dvvVpcIds
-    , dvvFilters
+    , dv3VpcIds
+    , dv3Filters
 
     -- * Response
     , DescribeVpcsResponse
     -- ** Response lenses
-    , dvwVpcs
+    , dvrsrsVpcs
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpcs' request.
-mkDescribeVpcsRequest :: DescribeVpcs
-mkDescribeVpcsRequest = DescribeVpcs
-    { _dvvVpcIds = mempty
-    , _dvvFilters = mempty
-    }
-{-# INLINE mkDescribeVpcsRequest #-}
-
+-- | 
 data DescribeVpcs = DescribeVpcs
-    { _dvvVpcIds :: [Text]
-      -- ^ One or more VPC IDs. Default: Describes all your VPCs.
-    , _dvvFilters :: [Filter]
-      -- ^ One or more filters. cidr - The CIDR block of the VPC. The CIDR
-      -- block you specify must exactly match the VPC's CIDR block for
-      -- information to be returned for the VPC. dhcp-options-id - The ID
-      -- of a set of DHCP options. isDefault - Indicates whether the VPC
-      -- is the default VPC. state - The state of the VPC (pending |
-      -- available). tag:key=value - The key/value combination of a tag
-      -- assigned to the resource. tag-key - The key of a tag assigned to
-      -- the resource. This filter is independent of the tag-value filter.
-      -- For example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter. vpc-id - The ID
-      -- of the VPC.
+    { _dv3VpcIds :: [Text]
+    , _dv3Filters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpcs' request.
+mkDescribeVpcs :: DescribeVpcs
+mkDescribeVpcs = DescribeVpcs
+    { _dv3VpcIds = mempty
+    , _dv3Filters = mempty
+    }
+{-# INLINE mkDescribeVpcs #-}
+
 -- | One or more VPC IDs. Default: Describes all your VPCs.
-dvvVpcIds :: Lens' DescribeVpcs ([Text])
-dvvVpcIds = lens _dvvVpcIds (\s a -> s { _dvvVpcIds = a })
-{-# INLINE dvvVpcIds #-}
+dv3VpcIds :: Lens' DescribeVpcs [Text]
+dv3VpcIds = lens _dv3VpcIds (\s a -> s { _dv3VpcIds = a })
+{-# INLINE dv3VpcIds #-}
 
 -- | One or more filters. cidr - The CIDR block of the VPC. The CIDR block you
 -- specify must exactly match the VPC's CIDR block for information to be
@@ -105,22 +89,22 @@ dvvVpcIds = lens _dvvVpcIds (\s a -> s { _dvvVpcIds = a })
 -- X, see the tag:key=value filter. tag-value - The value of a tag assigned to
 -- the resource. This filter is independent of the tag-key filter. vpc-id -
 -- The ID of the VPC.
-dvvFilters :: Lens' DescribeVpcs ([Filter])
-dvvFilters = lens _dvvFilters (\s a -> s { _dvvFilters = a })
-{-# INLINE dvvFilters #-}
+dv3Filters :: Lens' DescribeVpcs [Filter]
+dv3Filters = lens _dv3Filters (\s a -> s { _dv3Filters = a })
+{-# INLINE dv3Filters #-}
 
 instance ToQuery DescribeVpcs where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
-    { _dvwVpcs :: [Vpc]
-      -- ^ Information about one or more VPCs.
+    { _dvrsrsVpcs :: [Vpc]
     } deriving (Show, Generic)
 
 -- | Information about one or more VPCs.
-dvwVpcs :: Lens' DescribeVpcsResponse ([Vpc])
-dvwVpcs = lens _dvwVpcs (\s a -> s { _dvwVpcs = a })
-{-# INLINE dvwVpcs #-}
+dvrsrsVpcs :: Lens' DescribeVpcsResponse [Vpc]
+dvrsrsVpcs = lens _dvrsrsVpcs (\s a -> s { _dvrsrsVpcs = a })
+{-# INLINE dvrsrsVpcs #-}
 
 instance FromXML DescribeVpcsResponse where
     fromXMLOptions = xmlOptions

@@ -30,85 +30,79 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup
     -- * Request
       CreateDBSecurityGroup
     -- ** Request constructor
-    , mkCreateDBSecurityGroupMessage
+    , mkCreateDBSecurityGroup
     -- ** Request lenses
-    , cdbsgmDBSecurityGroupName
-    , cdbsgmDBSecurityGroupDescription
-    , cdbsgmTags
+    , cdbsgDBSecurityGroupName
+    , cdbsgDBSecurityGroupDescription
+    , cdbsgTags
 
     -- * Response
     , CreateDBSecurityGroupResponse
     -- ** Response lenses
-    , dbsgxDBSecurityGroup
+    , cdbsgrsDBSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateDBSecurityGroup = CreateDBSecurityGroup
+    { _cdbsgDBSecurityGroupName :: Text
+    , _cdbsgDBSecurityGroupDescription :: Text
+    , _cdbsgTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSecurityGroup' request.
-mkCreateDBSecurityGroupMessage :: Text -- ^ 'cdbsgmDBSecurityGroupName'
-                               -> Text -- ^ 'cdbsgmDBSecurityGroupDescription'
-                               -> CreateDBSecurityGroup
-mkCreateDBSecurityGroupMessage p1 p2 = CreateDBSecurityGroup
-    { _cdbsgmDBSecurityGroupName = p1
-    , _cdbsgmDBSecurityGroupDescription = p2
-    , _cdbsgmTags = mempty
+mkCreateDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
+                        -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
+                        -> CreateDBSecurityGroup
+mkCreateDBSecurityGroup p1 p2 = CreateDBSecurityGroup
+    { _cdbsgDBSecurityGroupName = p1
+    , _cdbsgDBSecurityGroupDescription = p2
+    , _cdbsgTags = mempty
     }
-{-# INLINE mkCreateDBSecurityGroupMessage #-}
-
-data CreateDBSecurityGroup = CreateDBSecurityGroup
-    { _cdbsgmDBSecurityGroupName :: Text
-      -- ^ The name for the DB security group. This value is stored as a
-      -- lowercase string. Constraints: Must be 1 to 255 alphanumeric
-      -- characters First character must be a letter Cannot end with a
-      -- hyphen or contain two consecutive hyphens Must not be "Default"
-      -- May not contain spaces Example: mysecuritygroup.
-    , _cdbsgmDBSecurityGroupDescription :: Text
-      -- ^ The description for the DB security group.
-    , _cdbsgmTags :: [Tag]
-      -- ^ A list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateDBSecurityGroup #-}
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string. Constraints: Must be 1 to 255 alphanumeric characters First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Must not be "Default" May not contain spaces Example:
 -- mysecuritygroup.
-cdbsgmDBSecurityGroupName :: Lens' CreateDBSecurityGroup (Text)
-cdbsgmDBSecurityGroupName = lens _cdbsgmDBSecurityGroupName (\s a -> s { _cdbsgmDBSecurityGroupName = a })
-{-# INLINE cdbsgmDBSecurityGroupName #-}
+cdbsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
+cdbsgDBSecurityGroupName =
+    lens _cdbsgDBSecurityGroupName
+         (\s a -> s { _cdbsgDBSecurityGroupName = a })
+{-# INLINE cdbsgDBSecurityGroupName #-}
 
 -- | The description for the DB security group.
-cdbsgmDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup (Text)
-cdbsgmDBSecurityGroupDescription = lens _cdbsgmDBSecurityGroupDescription (\s a -> s { _cdbsgmDBSecurityGroupDescription = a })
-{-# INLINE cdbsgmDBSecurityGroupDescription #-}
+cdbsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
+cdbsgDBSecurityGroupDescription =
+    lens _cdbsgDBSecurityGroupDescription
+         (\s a -> s { _cdbsgDBSecurityGroupDescription = a })
+{-# INLINE cdbsgDBSecurityGroupDescription #-}
 
 -- | A list of tags.
-cdbsgmTags :: Lens' CreateDBSecurityGroup ([Tag])
-cdbsgmTags = lens _cdbsgmTags (\s a -> s { _cdbsgmTags = a })
-{-# INLINE cdbsgmTags #-}
+cdbsgTags :: Lens' CreateDBSecurityGroup [Tag]
+cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a })
+{-# INLINE cdbsgTags #-}
 
 instance ToQuery CreateDBSecurityGroup where
     toQuery = genericQuery def
 
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
-    { _dbsgxDBSecurityGroup :: Maybe DBSecurityGroup
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
-      -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type
-      -- is used as a response element in the DescribeDBSecurityGroups
-      -- action.
+    { _cdbsgrsDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
-dbsgxDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-dbsgxDBSecurityGroup = lens _dbsgxDBSecurityGroup (\s a -> s { _dbsgxDBSecurityGroup = a })
-{-# INLINE dbsgxDBSecurityGroup #-}
+cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
+cdbsgrsDBSecurityGroup =
+    lens _cdbsgrsDBSecurityGroup (\s a -> s { _cdbsgrsDBSecurityGroup = a })
+{-# INLINE cdbsgrsDBSecurityGroup #-}
 
 instance FromXML CreateDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions

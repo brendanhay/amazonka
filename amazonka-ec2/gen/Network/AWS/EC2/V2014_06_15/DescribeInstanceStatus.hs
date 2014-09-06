@@ -88,81 +88,51 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus
     -- * Request
       DescribeInstanceStatus
     -- ** Request constructor
-    , mkDescribeInstanceStatusRequest
+    , mkDescribeInstanceStatus
     -- ** Request lenses
-    , disrInstanceIds
-    , disrFilters
-    , disrNextToken
-    , disrMaxResults
-    , disrIncludeAllInstances
+    , disInstanceIds
+    , disFilters
+    , disNextToken
+    , disMaxResults
+    , disIncludeAllInstances
 
     -- * Response
     , DescribeInstanceStatusResponse
     -- ** Response lenses
-    , dissInstanceStatuses
-    , dissNextToken
+    , disrsInstanceStatuses
+    , disrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeInstanceStatus = DescribeInstanceStatus
+    { _disInstanceIds :: [Text]
+    , _disFilters :: [Filter]
+    , _disNextToken :: Maybe Text
+    , _disMaxResults :: Maybe Integer
+    , _disIncludeAllInstances :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceStatus' request.
-mkDescribeInstanceStatusRequest :: DescribeInstanceStatus
-mkDescribeInstanceStatusRequest = DescribeInstanceStatus
-    { _disrInstanceIds = mempty
-    , _disrFilters = mempty
-    , _disrNextToken = Nothing
-    , _disrMaxResults = Nothing
-    , _disrIncludeAllInstances = Nothing
+mkDescribeInstanceStatus :: DescribeInstanceStatus
+mkDescribeInstanceStatus = DescribeInstanceStatus
+    { _disInstanceIds = mempty
+    , _disFilters = mempty
+    , _disNextToken = Nothing
+    , _disMaxResults = Nothing
+    , _disIncludeAllInstances = Nothing
     }
-{-# INLINE mkDescribeInstanceStatusRequest #-}
-
-data DescribeInstanceStatus = DescribeInstanceStatus
-    { _disrInstanceIds :: [Text]
-      -- ^ One or more instance IDs. Default: Describes all your instances.
-      -- Constraints: Maximum 100 explicitly specified instance IDs.
-    , _disrFilters :: [Filter]
-      -- ^ One or more filters. availability-zone - The Availability Zone of
-      -- the instance. event.code - The code identifying the type of event
-      -- (instance-reboot | system-reboot | system-maintenance |
-      -- instance-retirement | instance-stop). event.description - A
-      -- description of the event. event.not-after - The latest end time
-      -- for the scheduled event. event.not-before - The earliest start
-      -- time for the scheduled event. instance-state-code - A code
-      -- representing the state of the instance, as a 16-bit unsigned
-      -- integer. The high byte is an opaque internal value and should be
-      -- ignored. The low byte is set based on the state represented. The
-      -- valid values are 0 (pending), 16 (running), 32 (shutting-down),
-      -- 48 (terminated), 64 (stopping), and 80 (stopped).
-      -- instance-state-name - The state of the instance (pending |
-      -- running | shutting-down | terminated | stopping | stopped).
-      -- instance-status.reachability - Filters on instance status where
-      -- the name is reachability (passed | failed | initializing |
-      -- insufficient-data). instance-status.status - The status of the
-      -- instance (ok | impaired | initializing | insufficient-data |
-      -- not-applicable). system-status.reachability - Filters on system
-      -- status where the name is reachability (passed | failed |
-      -- initializing | insufficient-data). system-status.status - The
-      -- system status of the instance (ok | impaired | initializing |
-      -- insufficient-data | not-applicable).
-    , _disrNextToken :: Maybe Text
-      -- ^ The next paginated set of results to return.
-    , _disrMaxResults :: Maybe Integer
-      -- ^ The maximum number of paginated instance items per response.
-      -- Default: 1000.
-    , _disrIncludeAllInstances :: Maybe Bool
-      -- ^ When true, includes the health status for all instances. When
-      -- false, includes the health status for running instances only.
-      -- Default: false.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeInstanceStatus #-}
 
 -- | One or more instance IDs. Default: Describes all your instances.
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-disrInstanceIds :: Lens' DescribeInstanceStatus ([Text])
-disrInstanceIds = lens _disrInstanceIds (\s a -> s { _disrInstanceIds = a })
-{-# INLINE disrInstanceIds #-}
+disInstanceIds :: Lens' DescribeInstanceStatus [Text]
+disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a })
+{-# INLINE disInstanceIds #-}
 
 -- | One or more filters. availability-zone - The Availability Zone of the
 -- instance. event.code - The code identifying the type of event
@@ -184,45 +154,46 @@ disrInstanceIds = lens _disrInstanceIds (\s a -> s { _disrInstanceIds = a })
 -- reachability (passed | failed | initializing | insufficient-data).
 -- system-status.status - The system status of the instance (ok | impaired |
 -- initializing | insufficient-data | not-applicable).
-disrFilters :: Lens' DescribeInstanceStatus ([Filter])
-disrFilters = lens _disrFilters (\s a -> s { _disrFilters = a })
-{-# INLINE disrFilters #-}
+disFilters :: Lens' DescribeInstanceStatus [Filter]
+disFilters = lens _disFilters (\s a -> s { _disFilters = a })
+{-# INLINE disFilters #-}
 
 -- | The next paginated set of results to return.
-disrNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
-disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
-{-# INLINE disrNextToken #-}
+disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
+disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
+{-# INLINE disNextToken #-}
 
 -- | The maximum number of paginated instance items per response. Default: 1000.
-disrMaxResults :: Lens' DescribeInstanceStatus (Maybe Integer)
-disrMaxResults = lens _disrMaxResults (\s a -> s { _disrMaxResults = a })
-{-# INLINE disrMaxResults #-}
+disMaxResults :: Lens' DescribeInstanceStatus (Maybe Integer)
+disMaxResults = lens _disMaxResults (\s a -> s { _disMaxResults = a })
+{-# INLINE disMaxResults #-}
 
 -- | When true, includes the health status for all instances. When false,
 -- includes the health status for running instances only. Default: false.
-disrIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
-disrIncludeAllInstances = lens _disrIncludeAllInstances (\s a -> s { _disrIncludeAllInstances = a })
-{-# INLINE disrIncludeAllInstances #-}
+disIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
+disIncludeAllInstances =
+    lens _disIncludeAllInstances (\s a -> s { _disIncludeAllInstances = a })
+{-# INLINE disIncludeAllInstances #-}
 
 instance ToQuery DescribeInstanceStatus where
     toQuery = genericQuery def
 
+-- | 
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
-    { _dissInstanceStatuses :: [InstanceStatus]
-      -- ^ One or more instance status descriptions.
-    , _dissNextToken :: Maybe Text
-      -- ^ The next paginated set of results to return.
+    { _disrsInstanceStatuses :: [InstanceStatus]
+    , _disrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | One or more instance status descriptions.
-dissInstanceStatuses :: Lens' DescribeInstanceStatusResponse ([InstanceStatus])
-dissInstanceStatuses = lens _dissInstanceStatuses (\s a -> s { _dissInstanceStatuses = a })
-{-# INLINE dissInstanceStatuses #-}
+disrsInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
+disrsInstanceStatuses =
+    lens _disrsInstanceStatuses (\s a -> s { _disrsInstanceStatuses = a })
+{-# INLINE disrsInstanceStatuses #-}
 
 -- | The next paginated set of results to return.
-dissNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
-dissNextToken = lens _dissNextToken (\s a -> s { _dissNextToken = a })
-{-# INLINE dissNextToken #-}
+disrsNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
+disrsNextToken = lens _disrsNextToken (\s a -> s { _disrsNextToken = a })
+{-# INLINE disrsNextToken #-}
 
 instance FromXML DescribeInstanceStatusResponse where
     fromXMLOptions = xmlOptions
@@ -235,5 +206,5 @@ instance AWSRequest DescribeInstanceStatus where
     response _ = xmlResponse
 
 instance AWSPager DescribeInstanceStatus where
-    next rq rs = (\x -> rq { _disrNextToken = Just x })
-        <$> (_dissNextToken rs)
+    next rq rs = (\x -> rq { _disNextToken = Just x })
+        <$> (_disrsNextToken rs)

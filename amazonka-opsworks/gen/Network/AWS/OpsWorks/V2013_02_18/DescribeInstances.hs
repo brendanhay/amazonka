@@ -27,16 +27,16 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeInstances
     -- * Request
       DescribeInstances
     -- ** Request constructor
-    , mkDescribeInstancesRequest
+    , mkDescribeInstances
     -- ** Request lenses
-    , disStackId
-    , disLayerId
-    , disInstanceIds
+    , di1StackId
+    , di1LayerId
+    , di1InstanceIds
 
     -- * Response
     , DescribeInstancesResponse
     -- ** Response lenses
-    , ditInstances
+    , dirsInstances
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -44,50 +44,40 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DescribeInstances = DescribeInstances
+    { _di1StackId :: Maybe Text
+    , _di1LayerId :: Maybe Text
+    , _di1InstanceIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstances' request.
-mkDescribeInstancesRequest :: DescribeInstances
-mkDescribeInstancesRequest = DescribeInstances
-    { _disStackId = Nothing
-    , _disLayerId = Nothing
-    , _disInstanceIds = mempty
+mkDescribeInstances :: DescribeInstances
+mkDescribeInstances = DescribeInstances
+    { _di1StackId = Nothing
+    , _di1LayerId = Nothing
+    , _di1InstanceIds = mempty
     }
-{-# INLINE mkDescribeInstancesRequest #-}
-
-data DescribeInstances = DescribeInstances
-    { _disStackId :: Maybe Text
-      -- ^ A stack ID. If you use this parameter, DescribeInstances returns
-      -- descriptions of the instances associated with the specified
-      -- stack.
-    , _disLayerId :: Maybe Text
-      -- ^ A layer ID. If you use this parameter, DescribeInstances returns
-      -- descriptions of the instances associated with the specified
-      -- layer.
-    , _disInstanceIds :: [Text]
-      -- ^ An array of instance IDs to be described. If you use this
-      -- parameter, DescribeInstances returns a description of the
-      -- specified instances. Otherwise, it returns a description of every
-      -- instance.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeInstances #-}
 
 -- | A stack ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified stack.
-disStackId :: Lens' DescribeInstances (Maybe Text)
-disStackId = lens _disStackId (\s a -> s { _disStackId = a })
-{-# INLINE disStackId #-}
+di1StackId :: Lens' DescribeInstances (Maybe Text)
+di1StackId = lens _di1StackId (\s a -> s { _di1StackId = a })
+{-# INLINE di1StackId #-}
 
 -- | A layer ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified layer.
-disLayerId :: Lens' DescribeInstances (Maybe Text)
-disLayerId = lens _disLayerId (\s a -> s { _disLayerId = a })
-{-# INLINE disLayerId #-}
+di1LayerId :: Lens' DescribeInstances (Maybe Text)
+di1LayerId = lens _di1LayerId (\s a -> s { _di1LayerId = a })
+{-# INLINE di1LayerId #-}
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- DescribeInstances returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
-disInstanceIds :: Lens' DescribeInstances ([Text])
-disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a })
-{-# INLINE disInstanceIds #-}
+di1InstanceIds :: Lens' DescribeInstances [Text]
+di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a })
+{-# INLINE di1InstanceIds #-}
 
 instance ToPath DescribeInstances
 
@@ -97,15 +87,15 @@ instance ToHeaders DescribeInstances
 
 instance ToJSON DescribeInstances
 
+-- | Contains the response to a DescribeInstances request.
 newtype DescribeInstancesResponse = DescribeInstancesResponse
-    { _ditInstances :: [Instance]
-      -- ^ An array of Instance objects that describe the instances.
+    { _dirsInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | An array of Instance objects that describe the instances.
-ditInstances :: Lens' DescribeInstancesResponse ([Instance])
-ditInstances = lens _ditInstances (\s a -> s { _ditInstances = a })
-{-# INLINE ditInstances #-}
+dirsInstances :: Lens' DescribeInstancesResponse [Instance]
+dirsInstances = lens _dirsInstances (\s a -> s { _dirsInstances = a })
+{-# INLINE dirsInstances #-}
 
 instance FromJSON DescribeInstancesResponse
 

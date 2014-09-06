@@ -33,53 +33,53 @@ module Network.AWS.SES.V2010_12_01.VerifyDomainIdentity
     -- * Request
       VerifyDomainIdentity
     -- ** Request constructor
-    , mkVerifyDomainIdentityRequest
+    , mkVerifyDomainIdentity
     -- ** Request lenses
-    , vdirDomain
+    , vdiDomain
 
     -- * Response
     , VerifyDomainIdentityResponse
     -- ** Response lenses
-    , vdisVerificationToken
+    , vdirsVerificationToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'VerifyDomainIdentity' request.
-mkVerifyDomainIdentityRequest :: Text -- ^ 'vdirDomain'
-                              -> VerifyDomainIdentity
-mkVerifyDomainIdentityRequest p1 = VerifyDomainIdentity
-    { _vdirDomain = p1
-    }
-{-# INLINE mkVerifyDomainIdentityRequest #-}
-
+-- | Represents a request instructing the service to begin domain verification.
 newtype VerifyDomainIdentity = VerifyDomainIdentity
-    { _vdirDomain :: Text
-      -- ^ The domain to be verified.
+    { _vdiDomain :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyDomainIdentity' request.
+mkVerifyDomainIdentity :: Text -- ^ 'vdiDomain'
+                       -> VerifyDomainIdentity
+mkVerifyDomainIdentity p1 = VerifyDomainIdentity
+    { _vdiDomain = p1
+    }
+{-# INLINE mkVerifyDomainIdentity #-}
+
 -- | The domain to be verified.
-vdirDomain :: Lens' VerifyDomainIdentity (Text)
-vdirDomain = lens _vdirDomain (\s a -> s { _vdirDomain = a })
-{-# INLINE vdirDomain #-}
+vdiDomain :: Lens' VerifyDomainIdentity Text
+vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
+{-# INLINE vdiDomain #-}
 
 instance ToQuery VerifyDomainIdentity where
     toQuery = genericQuery def
 
+-- | Represents a token used for domain ownership verification.
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
-    { _vdisVerificationToken :: Text
-      -- ^ A TXT record that must be placed in the DNS settings for the
-      -- domain, in order to complete domain verification.
+    { _vdirsVerificationToken :: Text
     } deriving (Show, Generic)
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.
-vdisVerificationToken :: Lens' VerifyDomainIdentityResponse (Text)
-vdisVerificationToken = lens _vdisVerificationToken (\s a -> s { _vdisVerificationToken = a })
-{-# INLINE vdisVerificationToken #-}
+vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
+vdirsVerificationToken =
+    lens _vdirsVerificationToken (\s a -> s { _vdirsVerificationToken = a })
+{-# INLINE vdirsVerificationToken #-}
 
 instance FromXML VerifyDomainIdentityResponse where
     fromXMLOptions = xmlOptions

@@ -46,60 +46,61 @@ module Network.AWS.EC2.V2014_06_15.StartInstances
     -- * Request
       StartInstances
     -- ** Request constructor
-    , mkStartInstancesRequest
+    , mkStartInstances
     -- ** Request lenses
-    , sistInstanceIds
-    , sistAdditionalInfo
+    , siInstanceIds
+    , siAdditionalInfo
 
     -- * Response
     , StartInstancesResponse
     -- ** Response lenses
-    , sisuStartingInstances
+    , sirsStartingInstances
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartInstances' request.
-mkStartInstancesRequest :: [Text] -- ^ 'sistInstanceIds'
-                        -> StartInstances
-mkStartInstancesRequest p1 = StartInstances
-    { _sistInstanceIds = p1
-    , _sistAdditionalInfo = Nothing
-    }
-{-# INLINE mkStartInstancesRequest #-}
-
+-- | 
 data StartInstances = StartInstances
-    { _sistInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
-    , _sistAdditionalInfo :: Maybe Text
-      -- ^ Reserved.
+    { _siInstanceIds :: [Text]
+    , _siAdditionalInfo :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartInstances' request.
+mkStartInstances :: [Text] -- ^ 'siInstanceIds'
+                 -> StartInstances
+mkStartInstances p1 = StartInstances
+    { _siInstanceIds = p1
+    , _siAdditionalInfo = Nothing
+    }
+{-# INLINE mkStartInstances #-}
+
 -- | One or more instance IDs.
-sistInstanceIds :: Lens' StartInstances ([Text])
-sistInstanceIds = lens _sistInstanceIds (\s a -> s { _sistInstanceIds = a })
-{-# INLINE sistInstanceIds #-}
+siInstanceIds :: Lens' StartInstances [Text]
+siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
+{-# INLINE siInstanceIds #-}
 
 -- | Reserved.
-sistAdditionalInfo :: Lens' StartInstances (Maybe Text)
-sistAdditionalInfo = lens _sistAdditionalInfo (\s a -> s { _sistAdditionalInfo = a })
-{-# INLINE sistAdditionalInfo #-}
+siAdditionalInfo :: Lens' StartInstances (Maybe Text)
+siAdditionalInfo =
+    lens _siAdditionalInfo (\s a -> s { _siAdditionalInfo = a })
+{-# INLINE siAdditionalInfo #-}
 
 instance ToQuery StartInstances where
     toQuery = genericQuery def
 
+-- | 
 newtype StartInstancesResponse = StartInstancesResponse
-    { _sisuStartingInstances :: [InstanceStateChange]
-      -- ^ Information about one or more started instances.
+    { _sirsStartingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
 
 -- | Information about one or more started instances.
-sisuStartingInstances :: Lens' StartInstancesResponse ([InstanceStateChange])
-sisuStartingInstances = lens _sisuStartingInstances (\s a -> s { _sisuStartingInstances = a })
-{-# INLINE sisuStartingInstances #-}
+sirsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+sirsStartingInstances =
+    lens _sirsStartingInstances (\s a -> s { _sirsStartingInstances = a })
+{-# INLINE sirsStartingInstances #-}
 
 instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions

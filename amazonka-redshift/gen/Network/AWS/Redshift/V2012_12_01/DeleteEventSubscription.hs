@@ -23,9 +23,9 @@ module Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription
     -- * Request
       DeleteEventSubscription
     -- ** Request constructor
-    , mkDeleteEventSubscriptionMessage
+    , mkDeleteEventSubscription
     -- ** Request lenses
-    , desmSubscriptionName
+    , desSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
@@ -35,26 +35,26 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DeleteEventSubscription = DeleteEventSubscription
+    { _desSubscriptionName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEventSubscription' request.
-mkDeleteEventSubscriptionMessage :: Text -- ^ 'desmSubscriptionName'
-                                 -> DeleteEventSubscription
-mkDeleteEventSubscriptionMessage p1 = DeleteEventSubscription
-    { _desmSubscriptionName = p1
+mkDeleteEventSubscription :: Text -- ^ 'desSubscriptionName'
+                          -> DeleteEventSubscription
+mkDeleteEventSubscription p1 = DeleteEventSubscription
+    { _desSubscriptionName = p1
     }
-{-# INLINE mkDeleteEventSubscriptionMessage #-}
-
-newtype DeleteEventSubscription = DeleteEventSubscription
-    { _desmSubscriptionName :: Text
-      -- ^ The name of the Amazon Redshift event notification subscription
-      -- to be deleted.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteEventSubscription #-}
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
-desmSubscriptionName :: Lens' DeleteEventSubscription (Text)
-desmSubscriptionName = lens _desmSubscriptionName (\s a -> s { _desmSubscriptionName = a })
-{-# INLINE desmSubscriptionName #-}
+desSubscriptionName :: Lens' DeleteEventSubscription Text
+desSubscriptionName =
+    lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
+{-# INLINE desSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where
     toQuery = genericQuery def

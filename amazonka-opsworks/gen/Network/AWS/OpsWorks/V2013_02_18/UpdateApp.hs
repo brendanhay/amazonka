@@ -26,18 +26,18 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateApp
     -- * Request
       UpdateApp
     -- ** Request constructor
-    , mkUpdateAppRequest
+    , mkUpdateApp
     -- ** Request lenses
-    , uarAppId
-    , uarName
-    , uarDescription
-    , uarDataSources
-    , uarType
-    , uarAppSource
-    , uarDomains
-    , uarEnableSsl
-    , uarSslConfiguration
-    , uarAttributes
+    , uaAppId
+    , uaName
+    , uaDescription
+    , uaDataSources
+    , uaType
+    , uaAppSource
+    , uaDomains
+    , uaEnableSsl
+    , uaSslConfiguration
+    , uaAttributes
 
     -- * Response
     , UpdateAppResponse
@@ -48,100 +48,89 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateApp' request.
-mkUpdateAppRequest :: Text -- ^ 'uarAppId'
-                   -> UpdateApp
-mkUpdateAppRequest p1 = UpdateApp
-    { _uarAppId = p1
-    , _uarName = Nothing
-    , _uarDescription = Nothing
-    , _uarDataSources = mempty
-    , _uarType = Nothing
-    , _uarAppSource = Nothing
-    , _uarDomains = mempty
-    , _uarEnableSsl = Nothing
-    , _uarSslConfiguration = Nothing
-    , _uarAttributes = mempty
-    }
-{-# INLINE mkUpdateAppRequest #-}
-
 data UpdateApp = UpdateApp
-    { _uarAppId :: Text
-      -- ^ The app ID.
-    , _uarName :: Maybe Text
-      -- ^ The app name.
-    , _uarDescription :: Maybe Text
-      -- ^ A description of the app.
-    , _uarDataSources :: [DataSource]
-      -- ^ The app's data sources.
-    , _uarType :: Maybe AppType
-      -- ^ The app type.
-    , _uarAppSource :: Maybe Source
-      -- ^ A Source object that specifies the app repository.
-    , _uarDomains :: [Text]
-      -- ^ The app's virtual host settings, with multiple domains separated
-      -- by commas. For example: 'www.example.com, example.com'.
-    , _uarEnableSsl :: Maybe Bool
-      -- ^ Whether SSL is enabled for the app.
-    , _uarSslConfiguration :: Maybe SslConfiguration
-      -- ^ An SslConfiguration object with the SSL configuration.
-    , _uarAttributes :: Map AppAttributesKeys Text
-      -- ^ One or more user-defined key/value pairs to be added to the stack
-      -- attributes.
+    { _uaAppId :: Text
+    , _uaName :: Maybe Text
+    , _uaDescription :: Maybe Text
+    , _uaDataSources :: [DataSource]
+    , _uaType :: Maybe AppType
+    , _uaAppSource :: Maybe Source
+    , _uaDomains :: [Text]
+    , _uaEnableSsl :: Maybe Bool
+    , _uaSslConfiguration :: Maybe SslConfiguration
+    , _uaAttributes :: Map AppAttributesKeys Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateApp' request.
+mkUpdateApp :: Text -- ^ 'uaAppId'
+            -> UpdateApp
+mkUpdateApp p1 = UpdateApp
+    { _uaAppId = p1
+    , _uaName = Nothing
+    , _uaDescription = Nothing
+    , _uaDataSources = mempty
+    , _uaType = Nothing
+    , _uaAppSource = Nothing
+    , _uaDomains = mempty
+    , _uaEnableSsl = Nothing
+    , _uaSslConfiguration = Nothing
+    , _uaAttributes = mempty
+    }
+{-# INLINE mkUpdateApp #-}
+
 -- | The app ID.
-uarAppId :: Lens' UpdateApp (Text)
-uarAppId = lens _uarAppId (\s a -> s { _uarAppId = a })
-{-# INLINE uarAppId #-}
+uaAppId :: Lens' UpdateApp Text
+uaAppId = lens _uaAppId (\s a -> s { _uaAppId = a })
+{-# INLINE uaAppId #-}
 
 -- | The app name.
-uarName :: Lens' UpdateApp (Maybe Text)
-uarName = lens _uarName (\s a -> s { _uarName = a })
-{-# INLINE uarName #-}
+uaName :: Lens' UpdateApp (Maybe Text)
+uaName = lens _uaName (\s a -> s { _uaName = a })
+{-# INLINE uaName #-}
 
 -- | A description of the app.
-uarDescription :: Lens' UpdateApp (Maybe Text)
-uarDescription = lens _uarDescription (\s a -> s { _uarDescription = a })
-{-# INLINE uarDescription #-}
+uaDescription :: Lens' UpdateApp (Maybe Text)
+uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
+{-# INLINE uaDescription #-}
 
 -- | The app's data sources.
-uarDataSources :: Lens' UpdateApp ([DataSource])
-uarDataSources = lens _uarDataSources (\s a -> s { _uarDataSources = a })
-{-# INLINE uarDataSources #-}
+uaDataSources :: Lens' UpdateApp [DataSource]
+uaDataSources = lens _uaDataSources (\s a -> s { _uaDataSources = a })
+{-# INLINE uaDataSources #-}
 
 -- | The app type.
-uarType :: Lens' UpdateApp (Maybe AppType)
-uarType = lens _uarType (\s a -> s { _uarType = a })
-{-# INLINE uarType #-}
+uaType :: Lens' UpdateApp (Maybe AppType)
+uaType = lens _uaType (\s a -> s { _uaType = a })
+{-# INLINE uaType #-}
 
 -- | A Source object that specifies the app repository.
-uarAppSource :: Lens' UpdateApp (Maybe Source)
-uarAppSource = lens _uarAppSource (\s a -> s { _uarAppSource = a })
-{-# INLINE uarAppSource #-}
+uaAppSource :: Lens' UpdateApp (Maybe Source)
+uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
+{-# INLINE uaAppSource #-}
 
 -- | The app's virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
-uarDomains :: Lens' UpdateApp ([Text])
-uarDomains = lens _uarDomains (\s a -> s { _uarDomains = a })
-{-# INLINE uarDomains #-}
+uaDomains :: Lens' UpdateApp [Text]
+uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a })
+{-# INLINE uaDomains #-}
 
 -- | Whether SSL is enabled for the app.
-uarEnableSsl :: Lens' UpdateApp (Maybe Bool)
-uarEnableSsl = lens _uarEnableSsl (\s a -> s { _uarEnableSsl = a })
-{-# INLINE uarEnableSsl #-}
+uaEnableSsl :: Lens' UpdateApp (Maybe Bool)
+uaEnableSsl = lens _uaEnableSsl (\s a -> s { _uaEnableSsl = a })
+{-# INLINE uaEnableSsl #-}
 
 -- | An SslConfiguration object with the SSL configuration.
-uarSslConfiguration :: Lens' UpdateApp (Maybe SslConfiguration)
-uarSslConfiguration = lens _uarSslConfiguration (\s a -> s { _uarSslConfiguration = a })
-{-# INLINE uarSslConfiguration #-}
+uaSslConfiguration :: Lens' UpdateApp (Maybe SslConfiguration)
+uaSslConfiguration =
+    lens _uaSslConfiguration (\s a -> s { _uaSslConfiguration = a })
+{-# INLINE uaSslConfiguration #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-uarAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
-uarAttributes = lens _uarAttributes (\s a -> s { _uarAttributes = a })
-{-# INLINE uarAttributes #-}
+uaAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
+uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a })
+{-# INLINE uaAttributes #-}
 
 instance ToPath UpdateApp
 

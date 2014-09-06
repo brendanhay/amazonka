@@ -28,12 +28,12 @@ module Network.AWS.IAM.V2010_05_08.EnableMFADevice
     -- * Request
       EnableMFADevice
     -- ** Request constructor
-    , mkEnableMFADeviceRequest
+    , mkEnableMFADevice
     -- ** Request lenses
-    , emfadrUserName
-    , emfadrSerialNumber
-    , emfadrAuthenticationCode1
-    , emfadrAuthenticationCode2
+    , emfadUserName
+    , emfadSerialNumber
+    , emfadAuthenticationCode1
+    , emfadAuthenticationCode2
 
     -- * Response
     , EnableMFADeviceResponse
@@ -43,53 +43,54 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableMFADevice' request.
-mkEnableMFADeviceRequest :: Text -- ^ 'emfadrUserName'
-                         -> Text -- ^ 'emfadrSerialNumber'
-                         -> Text -- ^ 'emfadrAuthenticationCode1'
-                         -> Text -- ^ 'emfadrAuthenticationCode2'
-                         -> EnableMFADevice
-mkEnableMFADeviceRequest p1 p2 p3 p4 = EnableMFADevice
-    { _emfadrUserName = p1
-    , _emfadrSerialNumber = p2
-    , _emfadrAuthenticationCode1 = p3
-    , _emfadrAuthenticationCode2 = p4
-    }
-{-# INLINE mkEnableMFADeviceRequest #-}
-
+-- | 
 data EnableMFADevice = EnableMFADevice
-    { _emfadrUserName :: Text
-      -- ^ Name of the user for whom you want to enable the MFA device.
-    , _emfadrSerialNumber :: Text
-      -- ^ The serial number that uniquely identifies the MFA device. For
-      -- virtual MFA devices, the serial number is the device ARN.
-    , _emfadrAuthenticationCode1 :: Text
-      -- ^ An authentication code emitted by the device.
-    , _emfadrAuthenticationCode2 :: Text
-      -- ^ A subsequent authentication code emitted by the device.
+    { _emfadUserName :: Text
+    , _emfadSerialNumber :: Text
+    , _emfadAuthenticationCode1 :: Text
+    , _emfadAuthenticationCode2 :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableMFADevice' request.
+mkEnableMFADevice :: Text -- ^ 'emfadUserName'
+                  -> Text -- ^ 'emfadSerialNumber'
+                  -> Text -- ^ 'emfadAuthenticationCode1'
+                  -> Text -- ^ 'emfadAuthenticationCode2'
+                  -> EnableMFADevice
+mkEnableMFADevice p1 p2 p3 p4 = EnableMFADevice
+    { _emfadUserName = p1
+    , _emfadSerialNumber = p2
+    , _emfadAuthenticationCode1 = p3
+    , _emfadAuthenticationCode2 = p4
+    }
+{-# INLINE mkEnableMFADevice #-}
+
 -- | Name of the user for whom you want to enable the MFA device.
-emfadrUserName :: Lens' EnableMFADevice (Text)
-emfadrUserName = lens _emfadrUserName (\s a -> s { _emfadrUserName = a })
-{-# INLINE emfadrUserName #-}
+emfadUserName :: Lens' EnableMFADevice Text
+emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
+{-# INLINE emfadUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
-emfadrSerialNumber :: Lens' EnableMFADevice (Text)
-emfadrSerialNumber = lens _emfadrSerialNumber (\s a -> s { _emfadrSerialNumber = a })
-{-# INLINE emfadrSerialNumber #-}
+emfadSerialNumber :: Lens' EnableMFADevice Text
+emfadSerialNumber =
+    lens _emfadSerialNumber (\s a -> s { _emfadSerialNumber = a })
+{-# INLINE emfadSerialNumber #-}
 
 -- | An authentication code emitted by the device.
-emfadrAuthenticationCode1 :: Lens' EnableMFADevice (Text)
-emfadrAuthenticationCode1 = lens _emfadrAuthenticationCode1 (\s a -> s { _emfadrAuthenticationCode1 = a })
-{-# INLINE emfadrAuthenticationCode1 #-}
+emfadAuthenticationCode1 :: Lens' EnableMFADevice Text
+emfadAuthenticationCode1 =
+    lens _emfadAuthenticationCode1
+         (\s a -> s { _emfadAuthenticationCode1 = a })
+{-# INLINE emfadAuthenticationCode1 #-}
 
 -- | A subsequent authentication code emitted by the device.
-emfadrAuthenticationCode2 :: Lens' EnableMFADevice (Text)
-emfadrAuthenticationCode2 = lens _emfadrAuthenticationCode2 (\s a -> s { _emfadrAuthenticationCode2 = a })
-{-# INLINE emfadrAuthenticationCode2 #-}
+emfadAuthenticationCode2 :: Lens' EnableMFADevice Text
+emfadAuthenticationCode2 =
+    lens _emfadAuthenticationCode2
+         (\s a -> s { _emfadAuthenticationCode2 = a })
+{-# INLINE emfadAuthenticationCode2 #-}
 
 instance ToQuery EnableMFADevice where
     toQuery = genericQuery def

@@ -57,16 +57,16 @@ module Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
     -- * Request
       DescribeWorkflowType
     -- ** Request constructor
-    , mkDescribeWorkflowTypeInput
+    , mkDescribeWorkflowType
     -- ** Request lenses
-    , dwtjDomain
-    , dwtjWorkflowType
+    , dwt1Domain
+    , dwt1WorkflowType
 
     -- * Response
     , DescribeWorkflowTypeResponse
     -- ** Response lenses
-    , wtdTypeInfo
-    , wtdConfiguration
+    , dwtrsTypeInfo
+    , dwtrsConfiguration
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -74,33 +74,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeWorkflowType' request.
-mkDescribeWorkflowTypeInput :: Text -- ^ 'dwtjDomain'
-                            -> WorkflowType -- ^ 'dwtjWorkflowType'
-                            -> DescribeWorkflowType
-mkDescribeWorkflowTypeInput p1 p2 = DescribeWorkflowType
-    { _dwtjDomain = p1
-    , _dwtjWorkflowType = p2
-    }
-{-# INLINE mkDescribeWorkflowTypeInput #-}
-
 data DescribeWorkflowType = DescribeWorkflowType
-    { _dwtjDomain :: Text
-      -- ^ The name of the domain in which this workflow type is registered.
-    , _dwtjWorkflowType :: WorkflowType
-      -- ^ The workflow type to describe.
+    { _dwt1Domain :: Text
+    , _dwt1WorkflowType :: WorkflowType
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeWorkflowType' request.
+mkDescribeWorkflowType :: Text -- ^ 'dwt1Domain'
+                       -> WorkflowType -- ^ 'dwt1WorkflowType'
+                       -> DescribeWorkflowType
+mkDescribeWorkflowType p1 p2 = DescribeWorkflowType
+    { _dwt1Domain = p1
+    , _dwt1WorkflowType = p2
+    }
+{-# INLINE mkDescribeWorkflowType #-}
+
 -- | The name of the domain in which this workflow type is registered.
-dwtjDomain :: Lens' DescribeWorkflowType (Text)
-dwtjDomain = lens _dwtjDomain (\s a -> s { _dwtjDomain = a })
-{-# INLINE dwtjDomain #-}
+dwt1Domain :: Lens' DescribeWorkflowType Text
+dwt1Domain = lens _dwt1Domain (\s a -> s { _dwt1Domain = a })
+{-# INLINE dwt1Domain #-}
 
 -- | The workflow type to describe.
-dwtjWorkflowType :: Lens' DescribeWorkflowType (WorkflowType)
-dwtjWorkflowType = lens _dwtjWorkflowType (\s a -> s { _dwtjWorkflowType = a })
-{-# INLINE dwtjWorkflowType #-}
+dwt1WorkflowType :: Lens' DescribeWorkflowType WorkflowType
+dwt1WorkflowType =
+    lens _dwt1WorkflowType (\s a -> s { _dwt1WorkflowType = a })
+{-# INLINE dwt1WorkflowType #-}
 
 instance ToPath DescribeWorkflowType
 
@@ -110,18 +109,10 @@ instance ToHeaders DescribeWorkflowType
 
 instance ToJSON DescribeWorkflowType
 
+-- | Contains details about a workflow type.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
-    { _wtdTypeInfo :: WorkflowTypeInfo
-      -- ^ General information about the workflow type. The status of the
-      -- workflow type (returned in the WorkflowTypeInfo structure) can be
-      -- one of the following. REGISTERED: The type is registered and
-      -- available. Workers supporting this type should be running.
-      -- DEPRECATED: The type was deprecated using DeprecateWorkflowType,
-      -- but is still in use. You should keep workers supporting this type
-      -- running. You cannot create new workflow executions of this type.
-    , _wtdConfiguration :: WorkflowTypeConfiguration
-      -- ^ Configuration settings of the workflow type registered through
-      -- RegisterWorkflowType.
+    { _dwtrsTypeInfo :: WorkflowTypeInfo
+    , _dwtrsConfiguration :: WorkflowTypeConfiguration
     } deriving (Show, Generic)
 
 -- | General information about the workflow type. The status of the workflow
@@ -131,15 +122,16 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
 -- using DeprecateWorkflowType, but is still in use. You should keep workers
 -- supporting this type running. You cannot create new workflow executions of
 -- this type.
-wtdTypeInfo :: Lens' DescribeWorkflowTypeResponse (WorkflowTypeInfo)
-wtdTypeInfo = lens _wtdTypeInfo (\s a -> s { _wtdTypeInfo = a })
-{-# INLINE wtdTypeInfo #-}
+dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
+dwtrsTypeInfo = lens _dwtrsTypeInfo (\s a -> s { _dwtrsTypeInfo = a })
+{-# INLINE dwtrsTypeInfo #-}
 
 -- | Configuration settings of the workflow type registered through
 -- RegisterWorkflowType.
-wtdConfiguration :: Lens' DescribeWorkflowTypeResponse (WorkflowTypeConfiguration)
-wtdConfiguration = lens _wtdConfiguration (\s a -> s { _wtdConfiguration = a })
-{-# INLINE wtdConfiguration #-}
+dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
+dwtrsConfiguration =
+    lens _dwtrsConfiguration (\s a -> s { _dwtrsConfiguration = a })
+{-# INLINE dwtrsConfiguration #-}
 
 instance FromJSON DescribeWorkflowTypeResponse
 

@@ -73,24 +73,24 @@ module Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
     -- * Request
       ListClosedWorkflowExecutions
     -- ** Request constructor
-    , mkListClosedWorkflowExecutionsInput
+    , mkListClosedWorkflowExecutions
     -- ** Request lenses
-    , lcweiDomain
-    , lcweiStartTimeFilter
-    , lcweiCloseTimeFilter
-    , lcweiExecutionFilter
-    , lcweiCloseStatusFilter
-    , lcweiTypeFilter
-    , lcweiTagFilter
-    , lcweiNextPageToken
-    , lcweiMaximumPageSize
-    , lcweiReverseOrder
+    , lcweDomain
+    , lcweStartTimeFilter
+    , lcweCloseTimeFilter
+    , lcweExecutionFilter
+    , lcweCloseStatusFilter
+    , lcweTypeFilter
+    , lcweTagFilter
+    , lcweNextPageToken
+    , lcweMaximumPageSize
+    , lcweReverseOrder
 
     -- * Response
     , ListClosedWorkflowExecutionsResponse
     -- ** Response lenses
-    , wekExecutionInfos
-    , wekNextPageToken
+    , lcwersExecutionInfos
+    , lcwersNextPageToken
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -98,86 +98,41 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListClosedWorkflowExecutions' request.
-mkListClosedWorkflowExecutionsInput :: Text -- ^ 'lcweiDomain'
-                                    -> ListClosedWorkflowExecutions
-mkListClosedWorkflowExecutionsInput p1 = ListClosedWorkflowExecutions
-    { _lcweiDomain = p1
-    , _lcweiStartTimeFilter = Nothing
-    , _lcweiCloseTimeFilter = Nothing
-    , _lcweiExecutionFilter = Nothing
-    , _lcweiCloseStatusFilter = Nothing
-    , _lcweiTypeFilter = Nothing
-    , _lcweiTagFilter = Nothing
-    , _lcweiNextPageToken = Nothing
-    , _lcweiMaximumPageSize = Nothing
-    , _lcweiReverseOrder = Nothing
-    }
-{-# INLINE mkListClosedWorkflowExecutionsInput #-}
-
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
-    { _lcweiDomain :: Text
-      -- ^ The name of the domain that contains the workflow executions to
-      -- list.
-    , _lcweiStartTimeFilter :: Maybe ExecutionTimeFilter
-      -- ^ If specified, the workflow executions are included in the
-      -- returned results based on whether their start times are within
-      -- the range specified by this filter. Also, if this parameter is
-      -- specified, the returned results are ordered by their start times.
-      -- startTimeFilter and closeTimeFilter are mutually exclusive. You
-      -- must specify one of these in a request but not both.
-    , _lcweiCloseTimeFilter :: Maybe ExecutionTimeFilter
-      -- ^ If specified, the workflow executions are included in the
-      -- returned results based on whether their close times are within
-      -- the range specified by this filter. Also, if this parameter is
-      -- specified, the returned results are ordered by their close times.
-      -- startTimeFilter and closeTimeFilter are mutually exclusive. You
-      -- must specify one of these in a request but not both.
-    , _lcweiExecutionFilter :: Maybe WorkflowExecutionFilter
-      -- ^ If specified, only workflow executions matching the workflow id
-      -- specified in the filter are returned. closeStatusFilter,
-      -- executionFilter, typeFilter and tagFilter are mutually exclusive.
-      -- You can specify at most one of these in a request.
-    , _lcweiCloseStatusFilter :: Maybe CloseStatusFilter
-      -- ^ If specified, only workflow executions that match this close
-      -- status are listed. For example, if TERMINATED is specified, then
-      -- only TERMINATED workflow executions are listed.
-      -- closeStatusFilter, executionFilter, typeFilter and tagFilter are
-      -- mutually exclusive. You can specify at most one of these in a
-      -- request.
-    , _lcweiTypeFilter :: Maybe WorkflowTypeFilter
-      -- ^ If specified, only executions of the type specified in the filter
-      -- are returned. closeStatusFilter, executionFilter, typeFilter and
-      -- tagFilter are mutually exclusive. You can specify at most one of
-      -- these in a request.
-    , _lcweiTagFilter :: Maybe TagFilter
-      -- ^ If specified, only executions that have the matching tag are
-      -- listed. closeStatusFilter, executionFilter, typeFilter and
-      -- tagFilter are mutually exclusive. You can specify at most one of
-      -- these in a request.
-    , _lcweiNextPageToken :: Maybe Text
-      -- ^ If on a previous call to this method a NextPageToken was
-      -- returned, the results are being paginated. To get the next page
-      -- of results, repeat the call with the returned token and all other
-      -- arguments unchanged.
-    , _lcweiMaximumPageSize :: Maybe Integer
-      -- ^ The maximum number of results returned in each page. The default
-      -- is 100, but the caller can override this value to a page size
-      -- smaller than the default. You cannot specify a page size greater
-      -- than 100. Note that the number of executions may be less than the
-      -- maxiumum page size, in which case, the returned page will have
-      -- fewer results than the maximumPageSize specified.
-    , _lcweiReverseOrder :: Maybe Bool
-      -- ^ When set to true, returns the results in reverse order. By
-      -- default the results are returned in descending order of the start
-      -- or the close time of the executions.
+    { _lcweDomain :: Text
+    , _lcweStartTimeFilter :: Maybe ExecutionTimeFilter
+    , _lcweCloseTimeFilter :: Maybe ExecutionTimeFilter
+    , _lcweExecutionFilter :: Maybe WorkflowExecutionFilter
+    , _lcweCloseStatusFilter :: Maybe CloseStatusFilter
+    , _lcweTypeFilter :: Maybe WorkflowTypeFilter
+    , _lcweTagFilter :: Maybe TagFilter
+    , _lcweNextPageToken :: Maybe Text
+    , _lcweMaximumPageSize :: Maybe Integer
+    , _lcweReverseOrder :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListClosedWorkflowExecutions' request.
+mkListClosedWorkflowExecutions :: Text -- ^ 'lcweDomain'
+                               -> ListClosedWorkflowExecutions
+mkListClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
+    { _lcweDomain = p1
+    , _lcweStartTimeFilter = Nothing
+    , _lcweCloseTimeFilter = Nothing
+    , _lcweExecutionFilter = Nothing
+    , _lcweCloseStatusFilter = Nothing
+    , _lcweTypeFilter = Nothing
+    , _lcweTagFilter = Nothing
+    , _lcweNextPageToken = Nothing
+    , _lcweMaximumPageSize = Nothing
+    , _lcweReverseOrder = Nothing
+    }
+{-# INLINE mkListClosedWorkflowExecutions #-}
+
 -- | The name of the domain that contains the workflow executions to list.
-lcweiDomain :: Lens' ListClosedWorkflowExecutions (Text)
-lcweiDomain = lens _lcweiDomain (\s a -> s { _lcweiDomain = a })
-{-# INLINE lcweiDomain #-}
+lcweDomain :: Lens' ListClosedWorkflowExecutions Text
+lcweDomain = lens _lcweDomain (\s a -> s { _lcweDomain = a })
+{-# INLINE lcweDomain #-}
 
 -- | If specified, the workflow executions are included in the returned results
 -- based on whether their start times are within the range specified by this
@@ -185,9 +140,10 @@ lcweiDomain = lens _lcweiDomain (\s a -> s { _lcweiDomain = a })
 -- ordered by their start times. startTimeFilter and closeTimeFilter are
 -- mutually exclusive. You must specify one of these in a request but not
 -- both.
-lcweiStartTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-lcweiStartTimeFilter = lens _lcweiStartTimeFilter (\s a -> s { _lcweiStartTimeFilter = a })
-{-# INLINE lcweiStartTimeFilter #-}
+lcweStartTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
+lcweStartTimeFilter =
+    lens _lcweStartTimeFilter (\s a -> s { _lcweStartTimeFilter = a })
+{-# INLINE lcweStartTimeFilter #-}
 
 -- | If specified, the workflow executions are included in the returned results
 -- based on whether their close times are within the range specified by this
@@ -195,47 +151,51 @@ lcweiStartTimeFilter = lens _lcweiStartTimeFilter (\s a -> s { _lcweiStartTimeFi
 -- ordered by their close times. startTimeFilter and closeTimeFilter are
 -- mutually exclusive. You must specify one of these in a request but not
 -- both.
-lcweiCloseTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-lcweiCloseTimeFilter = lens _lcweiCloseTimeFilter (\s a -> s { _lcweiCloseTimeFilter = a })
-{-# INLINE lcweiCloseTimeFilter #-}
+lcweCloseTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
+lcweCloseTimeFilter =
+    lens _lcweCloseTimeFilter (\s a -> s { _lcweCloseTimeFilter = a })
+{-# INLINE lcweCloseTimeFilter #-}
 
 -- | If specified, only workflow executions matching the workflow id specified
 -- in the filter are returned. closeStatusFilter, executionFilter, typeFilter
 -- and tagFilter are mutually exclusive. You can specify at most one of these
 -- in a request.
-lcweiExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
-lcweiExecutionFilter = lens _lcweiExecutionFilter (\s a -> s { _lcweiExecutionFilter = a })
-{-# INLINE lcweiExecutionFilter #-}
+lcweExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
+lcweExecutionFilter =
+    lens _lcweExecutionFilter (\s a -> s { _lcweExecutionFilter = a })
+{-# INLINE lcweExecutionFilter #-}
 
 -- | If specified, only workflow executions that match this close status are
 -- listed. For example, if TERMINATED is specified, then only TERMINATED
 -- workflow executions are listed. closeStatusFilter, executionFilter,
 -- typeFilter and tagFilter are mutually exclusive. You can specify at most
 -- one of these in a request.
-lcweiCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
-lcweiCloseStatusFilter = lens _lcweiCloseStatusFilter (\s a -> s { _lcweiCloseStatusFilter = a })
-{-# INLINE lcweiCloseStatusFilter #-}
+lcweCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
+lcweCloseStatusFilter =
+    lens _lcweCloseStatusFilter (\s a -> s { _lcweCloseStatusFilter = a })
+{-# INLINE lcweCloseStatusFilter #-}
 
 -- | If specified, only executions of the type specified in the filter are
 -- returned. closeStatusFilter, executionFilter, typeFilter and tagFilter are
 -- mutually exclusive. You can specify at most one of these in a request.
-lcweiTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
-lcweiTypeFilter = lens _lcweiTypeFilter (\s a -> s { _lcweiTypeFilter = a })
-{-# INLINE lcweiTypeFilter #-}
+lcweTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
+lcweTypeFilter = lens _lcweTypeFilter (\s a -> s { _lcweTypeFilter = a })
+{-# INLINE lcweTypeFilter #-}
 
 -- | If specified, only executions that have the matching tag are listed.
 -- closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 -- exclusive. You can specify at most one of these in a request.
-lcweiTagFilter :: Lens' ListClosedWorkflowExecutions (Maybe TagFilter)
-lcweiTagFilter = lens _lcweiTagFilter (\s a -> s { _lcweiTagFilter = a })
-{-# INLINE lcweiTagFilter #-}
+lcweTagFilter :: Lens' ListClosedWorkflowExecutions (Maybe TagFilter)
+lcweTagFilter = lens _lcweTagFilter (\s a -> s { _lcweTagFilter = a })
+{-# INLINE lcweTagFilter #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
-lcweiNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
-lcweiNextPageToken = lens _lcweiNextPageToken (\s a -> s { _lcweiNextPageToken = a })
-{-# INLINE lcweiNextPageToken #-}
+lcweNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
+lcweNextPageToken =
+    lens _lcweNextPageToken (\s a -> s { _lcweNextPageToken = a })
+{-# INLINE lcweNextPageToken #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
@@ -243,16 +203,18 @@ lcweiNextPageToken = lens _lcweiNextPageToken (\s a -> s { _lcweiNextPageToken =
 -- number of executions may be less than the maxiumum page size, in which
 -- case, the returned page will have fewer results than the maximumPageSize
 -- specified.
-lcweiMaximumPageSize :: Lens' ListClosedWorkflowExecutions (Maybe Integer)
-lcweiMaximumPageSize = lens _lcweiMaximumPageSize (\s a -> s { _lcweiMaximumPageSize = a })
-{-# INLINE lcweiMaximumPageSize #-}
+lcweMaximumPageSize :: Lens' ListClosedWorkflowExecutions (Maybe Integer)
+lcweMaximumPageSize =
+    lens _lcweMaximumPageSize (\s a -> s { _lcweMaximumPageSize = a })
+{-# INLINE lcweMaximumPageSize #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in descending order of the start or the close time of
 -- the executions.
-lcweiReverseOrder :: Lens' ListClosedWorkflowExecutions (Maybe Bool)
-lcweiReverseOrder = lens _lcweiReverseOrder (\s a -> s { _lcweiReverseOrder = a })
-{-# INLINE lcweiReverseOrder #-}
+lcweReverseOrder :: Lens' ListClosedWorkflowExecutions (Maybe Bool)
+lcweReverseOrder =
+    lens _lcweReverseOrder (\s a -> s { _lcweReverseOrder = a })
+{-# INLINE lcweReverseOrder #-}
 
 instance ToPath ListClosedWorkflowExecutions
 
@@ -262,27 +224,25 @@ instance ToHeaders ListClosedWorkflowExecutions
 
 instance ToJSON ListClosedWorkflowExecutions
 
+-- | Contains a paginated list of information about workflow executions.
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
-    { _wekExecutionInfos :: [WorkflowExecutionInfo]
-      -- ^ The list of workflow information structures.
-    , _wekNextPageToken :: Maybe Text
-      -- ^ The token of the next page in the result. If set, the results
-      -- have more than one page. The next page can be retrieved by
-      -- repeating the request with this token and all other arguments
-      -- unchanged.
+    { _lcwersExecutionInfos :: [WorkflowExecutionInfo]
+    , _lcwersNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of workflow information structures.
-wekExecutionInfos :: Lens' ListClosedWorkflowExecutionsResponse ([WorkflowExecutionInfo])
-wekExecutionInfos = lens _wekExecutionInfos (\s a -> s { _wekExecutionInfos = a })
-{-# INLINE wekExecutionInfos #-}
+lcwersExecutionInfos :: Lens' ListClosedWorkflowExecutionsResponse [WorkflowExecutionInfo]
+lcwersExecutionInfos =
+    lens _lcwersExecutionInfos (\s a -> s { _lcwersExecutionInfos = a })
+{-# INLINE lcwersExecutionInfos #-}
 
 -- | The token of the next page in the result. If set, the results have more
 -- than one page. The next page can be retrieved by repeating the request with
 -- this token and all other arguments unchanged.
-wekNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
-wekNextPageToken = lens _wekNextPageToken (\s a -> s { _wekNextPageToken = a })
-{-# INLINE wekNextPageToken #-}
+lcwersNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
+lcwersNextPageToken =
+    lens _lcwersNextPageToken (\s a -> s { _lcwersNextPageToken = a })
+{-# INLINE lcwersNextPageToken #-}
 
 instance FromJSON ListClosedWorkflowExecutionsResponse
 
@@ -294,5 +254,5 @@ instance AWSRequest ListClosedWorkflowExecutions where
     response _ = jsonResponse
 
 instance AWSPager ListClosedWorkflowExecutions where
-    next rq rs = (\x -> rq { _lcweiNextPageToken = Just x })
-        <$> (_wekNextPageToken rs)
+    next rq rs = (\x -> rq { _lcweNextPageToken = Just x })
+        <$> (_lcwersNextPageToken rs)

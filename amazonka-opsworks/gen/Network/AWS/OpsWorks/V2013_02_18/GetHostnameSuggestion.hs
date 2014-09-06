@@ -27,15 +27,15 @@ module Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion
     -- * Request
       GetHostnameSuggestion
     -- ** Request constructor
-    , mkGetHostnameSuggestionRequest
+    , mkGetHostnameSuggestion
     -- ** Request lenses
-    , ghsrLayerId
+    , ghsLayerId
 
     -- * Response
     , GetHostnameSuggestionResponse
     -- ** Response lenses
-    , ghssLayerId
-    , ghssHostname
+    , ghsrsLayerId
+    , ghsrsHostname
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,24 +43,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetHostnameSuggestion' request.
-mkGetHostnameSuggestionRequest :: Text -- ^ 'ghsrLayerId'
-                               -> GetHostnameSuggestion
-mkGetHostnameSuggestionRequest p1 = GetHostnameSuggestion
-    { _ghsrLayerId = p1
-    }
-{-# INLINE mkGetHostnameSuggestionRequest #-}
-
 newtype GetHostnameSuggestion = GetHostnameSuggestion
-    { _ghsrLayerId :: Text
-      -- ^ The layer ID.
+    { _ghsLayerId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHostnameSuggestion' request.
+mkGetHostnameSuggestion :: Text -- ^ 'ghsLayerId'
+                        -> GetHostnameSuggestion
+mkGetHostnameSuggestion p1 = GetHostnameSuggestion
+    { _ghsLayerId = p1
+    }
+{-# INLINE mkGetHostnameSuggestion #-}
+
 -- | The layer ID.
-ghsrLayerId :: Lens' GetHostnameSuggestion (Text)
-ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
-{-# INLINE ghsrLayerId #-}
+ghsLayerId :: Lens' GetHostnameSuggestion Text
+ghsLayerId = lens _ghsLayerId (\s a -> s { _ghsLayerId = a })
+{-# INLINE ghsLayerId #-}
 
 instance ToPath GetHostnameSuggestion
 
@@ -70,22 +69,21 @@ instance ToHeaders GetHostnameSuggestion
 
 instance ToJSON GetHostnameSuggestion
 
+-- | Contains the response to a GetHostnameSuggestion request.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
-    { _ghssLayerId :: Maybe Text
-      -- ^ The layer ID.
-    , _ghssHostname :: Maybe Text
-      -- ^ The generated host name.
+    { _ghsrsLayerId :: Maybe Text
+    , _ghsrsHostname :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The layer ID.
-ghssLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghssLayerId = lens _ghssLayerId (\s a -> s { _ghssLayerId = a })
-{-# INLINE ghssLayerId #-}
+ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
+ghsrsLayerId = lens _ghsrsLayerId (\s a -> s { _ghsrsLayerId = a })
+{-# INLINE ghsrsLayerId #-}
 
 -- | The generated host name.
-ghssHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghssHostname = lens _ghssHostname (\s a -> s { _ghssHostname = a })
-{-# INLINE ghssHostname #-}
+ghsrsHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
+ghsrsHostname = lens _ghsrsHostname (\s a -> s { _ghsrsHostname = a })
+{-# INLINE ghsrsHostname #-}
 
 instance FromJSON GetHostnameSuggestionResponse
 

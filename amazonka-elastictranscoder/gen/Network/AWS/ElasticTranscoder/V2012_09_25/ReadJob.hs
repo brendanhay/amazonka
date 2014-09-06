@@ -39,14 +39,14 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob
     -- * Request
       ReadJob
     -- ** Request constructor
-    , mkReadJobRequest
+    , mkReadJob
     -- ** Request lenses
-    , rjrId
+    , rjId
 
     -- * Response
     , ReadJobResponse
     -- ** Response lenses
-    , rjsJob
+    , rjrsJob
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -54,30 +54,29 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReadJob' request.
-mkReadJobRequest :: Text -- ^ 'rjrId'
-                 -> ReadJob
-mkReadJobRequest p1 = ReadJob
-    { _rjrId = p1
-    }
-{-# INLINE mkReadJobRequest #-}
-
+-- | The ReadJobRequest structure.
 newtype ReadJob = ReadJob
-    { _rjrId :: Text
-      -- ^ The identifier of the job for which you want to get detailed
-      -- information.
+    { _rjId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadJob' request.
+mkReadJob :: Text -- ^ 'rjId'
+          -> ReadJob
+mkReadJob p1 = ReadJob
+    { _rjId = p1
+    }
+{-# INLINE mkReadJob #-}
+
 -- | The identifier of the job for which you want to get detailed information.
-rjrId :: Lens' ReadJob (Text)
-rjrId = lens _rjrId (\s a -> s { _rjrId = a })
-{-# INLINE rjrId #-}
+rjId :: Lens' ReadJob Text
+rjId = lens _rjId (\s a -> s { _rjId = a })
+{-# INLINE rjId #-}
 
 instance ToPath ReadJob where
     toPath ReadJob{..} = mconcat
         [ "/2012-09-25/jobs/"
-        , toBS _rjrId
+        , toBS _rjId
         ]
 
 instance ToQuery ReadJob
@@ -86,16 +85,15 @@ instance ToHeaders ReadJob
 
 instance ToJSON ReadJob
 
+-- | The ReadJobResponse structure.
 newtype ReadJobResponse = ReadJobResponse
-    { _rjsJob :: Maybe Job
-      -- ^ A section of the response body that provides information about
-      -- the job.
+    { _rjrsJob :: Maybe Job
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the job.
-rjsJob :: Lens' ReadJobResponse (Maybe Job)
-rjsJob = lens _rjsJob (\s a -> s { _rjsJob = a })
-{-# INLINE rjsJob #-}
+rjrsJob :: Lens' ReadJobResponse (Maybe Job)
+rjrsJob = lens _rjrsJob (\s a -> s { _rjrsJob = a })
+{-# INLINE rjrsJob #-}
 
 instance FromJSON ReadJobResponse
 

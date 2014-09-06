@@ -24,10 +24,10 @@ module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy
     -- * Request
       DeleteLoadBalancerPolicy
     -- ** Request constructor
-    , mkDeleteLoadBalancerPolicyInput
+    , mkDeleteLoadBalancerPolicy
     -- ** Request lenses
-    , dlbpiLoadBalancerName
-    , dlbpiPolicyName
+    , dlbpLoadBalancerName
+    , dlbpPolicyName
 
     -- * Response
     , DeleteLoadBalancerPolicyResponse
@@ -37,37 +37,38 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoadBalancerPolicy' request.
-mkDeleteLoadBalancerPolicyInput :: Text -- ^ 'dlbpiLoadBalancerName'
-                                -> Text -- ^ 'dlbpiPolicyName'
-                                -> DeleteLoadBalancerPolicy
-mkDeleteLoadBalancerPolicyInput p1 p2 = DeleteLoadBalancerPolicy
-    { _dlbpiLoadBalancerName = p1
-    , _dlbpiPolicyName = p2
-    }
-{-# INLINE mkDeleteLoadBalancerPolicyInput #-}
-
+-- | The input for the DeleteLoadBalancerPolicy action.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
-    { _dlbpiLoadBalancerName :: Text
-      -- ^ The mnemonic name associated with the load balancer.
-    , _dlbpiPolicyName :: Text
-      -- ^ The mnemonic name for the policy being deleted.
+    { _dlbpLoadBalancerName :: Text
+    , _dlbpPolicyName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoadBalancerPolicy' request.
+mkDeleteLoadBalancerPolicy :: Text -- ^ 'dlbpLoadBalancerName'
+                           -> Text -- ^ 'dlbpPolicyName'
+                           -> DeleteLoadBalancerPolicy
+mkDeleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
+    { _dlbpLoadBalancerName = p1
+    , _dlbpPolicyName = p2
+    }
+{-# INLINE mkDeleteLoadBalancerPolicy #-}
+
 -- | The mnemonic name associated with the load balancer.
-dlbpiLoadBalancerName :: Lens' DeleteLoadBalancerPolicy (Text)
-dlbpiLoadBalancerName = lens _dlbpiLoadBalancerName (\s a -> s { _dlbpiLoadBalancerName = a })
-{-# INLINE dlbpiLoadBalancerName #-}
+dlbpLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
+dlbpLoadBalancerName =
+    lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
+{-# INLINE dlbpLoadBalancerName #-}
 
 -- | The mnemonic name for the policy being deleted.
-dlbpiPolicyName :: Lens' DeleteLoadBalancerPolicy (Text)
-dlbpiPolicyName = lens _dlbpiPolicyName (\s a -> s { _dlbpiPolicyName = a })
-{-# INLINE dlbpiPolicyName #-}
+dlbpPolicyName :: Lens' DeleteLoadBalancerPolicy Text
+dlbpPolicyName = lens _dlbpPolicyName (\s a -> s { _dlbpPolicyName = a })
+{-# INLINE dlbpPolicyName #-}
 
 instance ToQuery DeleteLoadBalancerPolicy where
     toQuery = genericQuery def
 
+-- | The output for the DeleteLoadBalancerPolicy action.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLoadBalancerPolicy where

@@ -31,53 +31,53 @@ module Network.AWS.RDS.V2013_09_09.DescribeEventCategories
     -- * Request
       DescribeEventCategories
     -- ** Request constructor
-    , mkDescribeEventCategoriesMessage
+    , mkDescribeEventCategories
     -- ** Request lenses
-    , decmSourceType
+    , decSourceType
 
     -- * Response
     , DescribeEventCategoriesResponse
     -- ** Response lenses
-    , ecpEventCategoriesMapList
+    , decrsEventCategoriesMapList
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DescribeEventCategories = DescribeEventCategories
+    { _decSourceType :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventCategories' request.
-mkDescribeEventCategoriesMessage :: DescribeEventCategories
-mkDescribeEventCategoriesMessage = DescribeEventCategories
-    { _decmSourceType = Nothing
+mkDescribeEventCategories :: DescribeEventCategories
+mkDescribeEventCategories = DescribeEventCategories
+    { _decSourceType = Nothing
     }
-{-# INLINE mkDescribeEventCategoriesMessage #-}
-
-newtype DescribeEventCategories = DescribeEventCategories
-    { _decmSourceType :: Maybe Text
-      -- ^ The type of source that will be generating the events. Valid
-      -- values: db-instance | db-parameter-group | db-security-group |
-      -- db-snapshot.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeEventCategories #-}
 
 -- | The type of source that will be generating the events. Valid values:
 -- db-instance | db-parameter-group | db-security-group | db-snapshot.
-decmSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decmSourceType = lens _decmSourceType (\s a -> s { _decmSourceType = a })
-{-# INLINE decmSourceType #-}
+decSourceType :: Lens' DescribeEventCategories (Maybe Text)
+decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
+{-# INLINE decSourceType #-}
 
 instance ToQuery DescribeEventCategories where
     toQuery = genericQuery def
 
+-- | Data returned from the DescribeEventCategories action.
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _ecpEventCategoriesMapList :: [EventCategoriesMap]
-      -- ^ A list of EventCategoriesMap data types.
+    { _decrsEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Show, Generic)
 
 -- | A list of EventCategoriesMap data types.
-ecpEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse ([EventCategoriesMap])
-ecpEventCategoriesMapList = lens _ecpEventCategoriesMapList (\s a -> s { _ecpEventCategoriesMapList = a })
-{-# INLINE ecpEventCategoriesMapList #-}
+decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrsEventCategoriesMapList =
+    lens _decrsEventCategoriesMapList
+         (\s a -> s { _decrsEventCategoriesMapList = a })
+{-# INLINE decrsEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions

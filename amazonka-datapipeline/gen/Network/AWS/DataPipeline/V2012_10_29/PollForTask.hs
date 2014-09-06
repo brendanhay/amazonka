@@ -62,16 +62,16 @@ module Network.AWS.DataPipeline.V2012_10_29.PollForTask
     -- * Request
       PollForTask
     -- ** Request constructor
-    , mkPollForTaskInput
+    , mkPollForTask
     -- ** Request lenses
-    , pftiWorkerGroup
-    , pftiHostname
-    , pftiInstanceIdentity
+    , pftWorkerGroup
+    , pftHostname
+    , pftInstanceIdentity
 
     -- * Response
     , PollForTaskResponse
     -- ** Response lenses
-    , pftoTaskObject
+    , pftrsTaskObject
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -79,51 +79,37 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The data type passed in as input to the PollForTask action.
+data PollForTask = PollForTask
+    { _pftWorkerGroup :: Text
+    , _pftHostname :: Maybe Text
+    , _pftInstanceIdentity :: Maybe InstanceIdentity
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForTask' request.
-mkPollForTaskInput :: Text -- ^ 'pftiWorkerGroup'
-                   -> PollForTask
-mkPollForTaskInput p1 = PollForTask
-    { _pftiWorkerGroup = p1
-    , _pftiHostname = Nothing
-    , _pftiInstanceIdentity = Nothing
+mkPollForTask :: Text -- ^ 'pftWorkerGroup'
+              -> PollForTask
+mkPollForTask p1 = PollForTask
+    { _pftWorkerGroup = p1
+    , _pftHostname = Nothing
+    , _pftInstanceIdentity = Nothing
     }
-{-# INLINE mkPollForTaskInput #-}
-
-data PollForTask = PollForTask
-    { _pftiWorkerGroup :: Text
-      -- ^ Indicates the type of task the task runner is configured to
-      -- accept and process. The worker group is set as a field on objects
-      -- in the pipeline when they are created. You can only specify a
-      -- single value for workerGroup in the call to PollForTask. There
-      -- are no wildcard values permitted in workerGroup, the string must
-      -- be an exact, case-sensitive, match.
-    , _pftiHostname :: Maybe Text
-      -- ^ The public DNS name of the calling task runner.
-    , _pftiInstanceIdentity :: Maybe InstanceIdentity
-      -- ^ Identity information for the Amazon EC2 instance that is hosting
-      -- the task runner. You can get this value by calling the URI,
-      -- http://169.254.169.254/latest/meta-data/instance-id, from the EC2
-      -- instance. For more information, go to Instance Metadata in the
-      -- Amazon Elastic Compute Cloud User Guide. Passing in this value
-      -- proves that your task runner is running on an EC2 instance, and
-      -- ensures the proper AWS Data Pipeline service charges are applied
-      -- to your pipeline.
-    } deriving (Show, Generic)
+{-# INLINE mkPollForTask #-}
 
 -- | Indicates the type of task the task runner is configured to accept and
 -- process. The worker group is set as a field on objects in the pipeline when
 -- they are created. You can only specify a single value for workerGroup in
 -- the call to PollForTask. There are no wildcard values permitted in
 -- workerGroup, the string must be an exact, case-sensitive, match.
-pftiWorkerGroup :: Lens' PollForTask (Text)
-pftiWorkerGroup = lens _pftiWorkerGroup (\s a -> s { _pftiWorkerGroup = a })
-{-# INLINE pftiWorkerGroup #-}
+pftWorkerGroup :: Lens' PollForTask Text
+pftWorkerGroup = lens _pftWorkerGroup (\s a -> s { _pftWorkerGroup = a })
+{-# INLINE pftWorkerGroup #-}
 
 -- | The public DNS name of the calling task runner.
-pftiHostname :: Lens' PollForTask (Maybe Text)
-pftiHostname = lens _pftiHostname (\s a -> s { _pftiHostname = a })
-{-# INLINE pftiHostname #-}
+pftHostname :: Lens' PollForTask (Maybe Text)
+pftHostname = lens _pftHostname (\s a -> s { _pftHostname = a })
+{-# INLINE pftHostname #-}
 
 -- | Identity information for the Amazon EC2 instance that is hosting the task
 -- runner. You can get this value by calling the URI,
@@ -132,9 +118,10 @@ pftiHostname = lens _pftiHostname (\s a -> s { _pftiHostname = a })
 -- Cloud User Guide. Passing in this value proves that your task runner is
 -- running on an EC2 instance, and ensures the proper AWS Data Pipeline
 -- service charges are applied to your pipeline.
-pftiInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
-pftiInstanceIdentity = lens _pftiInstanceIdentity (\s a -> s { _pftiInstanceIdentity = a })
-{-# INLINE pftiInstanceIdentity #-}
+pftInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
+pftInstanceIdentity =
+    lens _pftInstanceIdentity (\s a -> s { _pftInstanceIdentity = a })
+{-# INLINE pftInstanceIdentity #-}
 
 instance ToPath PollForTask
 
@@ -144,15 +131,9 @@ instance ToHeaders PollForTask
 
 instance ToJSON PollForTask
 
+-- | Contains the output from the PollForTask action.
 newtype PollForTaskResponse = PollForTaskResponse
-    { _pftoTaskObject :: Maybe TaskObject
-      -- ^ An instance of PollForTaskResult, which contains an instance of
-      -- TaskObject. The returned object contains all the information
-      -- needed to complete the task that is being assigned to the task
-      -- runner. One of the fields returned in this object is taskId,
-      -- which contains an identifier for the task being assigned. The
-      -- calling task runner uses taskId in subsequent calls to
-      -- ReportTaskProgress and SetTaskStatus.
+    { _pftrsTaskObject :: Maybe TaskObject
     } deriving (Show, Generic)
 
 -- | An instance of PollForTaskResult, which contains an instance of TaskObject.
@@ -161,9 +142,9 @@ newtype PollForTaskResponse = PollForTaskResponse
 -- in this object is taskId, which contains an identifier for the task being
 -- assigned. The calling task runner uses taskId in subsequent calls to
 -- ReportTaskProgress and SetTaskStatus.
-pftoTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
-pftoTaskObject = lens _pftoTaskObject (\s a -> s { _pftoTaskObject = a })
-{-# INLINE pftoTaskObject #-}
+pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
+pftrsTaskObject = lens _pftrsTaskObject (\s a -> s { _pftrsTaskObject = a })
+{-# INLINE pftrsTaskObject #-}
 
 instance FromJSON PollForTaskResponse
 

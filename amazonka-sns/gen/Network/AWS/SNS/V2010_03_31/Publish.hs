@@ -62,101 +62,58 @@ module Network.AWS.SNS.V2010_03_31.Publish
     -- * Request
       Publish
     -- ** Request constructor
-    , mkPublishInput
+    , mkPublish
     -- ** Request lenses
-    , piTopicArn
-    , piTargetArn
-    , piMessage
-    , piSubject
-    , piMessageStructure
-    , piMessageAttributes
+    , pTopicArn
+    , pTargetArn
+    , pMessage
+    , pSubject
+    , pMessageStructure
+    , pMessageAttributes
 
     -- * Response
     , PublishResponse
     -- ** Response lenses
-    , prMessageId
+    , prsMessageId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'Publish' request.
-mkPublishInput :: Text -- ^ 'piMessage'
-               -> Publish
-mkPublishInput p1 = Publish
-    { _piTopicArn = Nothing
-    , _piTargetArn = Nothing
-    , _piMessage = p3
-    , _piSubject = Nothing
-    , _piMessageStructure = Nothing
-    , _piMessageAttributes = mempty
-    }
-{-# INLINE mkPublishInput #-}
-
+-- | Input for Publish action.
 data Publish = Publish
-    { _piTopicArn :: Maybe Text
-      -- ^ The topic you want to publish to.
-    , _piTargetArn :: Maybe Text
-      -- ^ Either TopicArn or EndpointArn, but not both.
-    , _piMessage :: Text
-      -- ^ The message you want to send to the topic. If you want to send
-      -- the same message to all transport protocols, include the text of
-      -- the message as a String value. If you want to send different
-      -- messages for each transport protocol, set the value of the
-      -- MessageStructure parameter to json and use a JSON object for the
-      -- Message parameter. See the Examples section for the format of the
-      -- JSON object. Constraints: Messages must be UTF-8 encoded strings
-      -- at most 256 KB in size (262144 bytes, not 262144 characters).
-      -- JSON-specific constraints: Keys in the JSON object that
-      -- correspond to supported transport protocols must have simple JSON
-      -- string values. The values will be parsed (unescaped) before they
-      -- are used in outgoing messages. Outbound notifications are JSON
-      -- encoded (meaning that the characters will be reescaped for
-      -- sending). Values have a minimum length of 0 (the empty string,
-      -- "", is allowed). Values have a maximum length bounded by the
-      -- overall message size (so, including multiple protocols may limit
-      -- message sizes). Non-string values will cause the key to be
-      -- ignored. Keys that do not correspond to supported transport
-      -- protocols are ignored. Duplicate keys are not allowed. Failure to
-      -- parse or validate any key or value in the message will cause the
-      -- Publish call to return an error (no partial delivery).
-    , _piSubject :: Maybe Text
-      -- ^ Optional parameter to be used as the "Subject" line when the
-      -- message is delivered to email endpoints. This field will also be
-      -- included, if present, in the standard JSON messages delivered to
-      -- other endpoints. Constraints: Subjects must be ASCII text that
-      -- begins with a letter, number, or punctuation mark; must not
-      -- include line breaks or control characters; and must be less than
-      -- 100 characters long.
-    , _piMessageStructure :: Maybe Text
-      -- ^ Set MessageStructure to json if you want to send a different
-      -- message for each protocol. For example, using one publish action,
-      -- you can send a short message to your SMS subscribers and a longer
-      -- message to your email subscribers. If you set MessageStructure to
-      -- json, the value of the Message parameter must: be a syntactically
-      -- valid JSON object; and contain at least a top-level JSON key of
-      -- "default" with a value that is a string. You can define other
-      -- top-level keys that define the message you want to send to a
-      -- specific transport protocol (e.g., "http"). For information about
-      -- sending different messages for each protocol using the AWS
-      -- Management Console, go to Create Different Messages for Each
-      -- Protocol in the Amazon Simple Notification Service Getting
-      -- Started Guide. Valid value: json.
-    , _piMessageAttributes :: Map Text MessageAttributeValue
-      -- ^ Message attributes for Publish action.
+    { _pTopicArn :: Maybe Text
+    , _pTargetArn :: Maybe Text
+    , _pMessage :: Text
+    , _pSubject :: Maybe Text
+    , _pMessageStructure :: Maybe Text
+    , _pMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'Publish' request.
+mkPublish :: Text -- ^ 'pMessage'
+          -> Publish
+mkPublish p3 = Publish
+    { _pTopicArn = Nothing
+    , _pTargetArn = Nothing
+    , _pMessage = p3
+    , _pSubject = Nothing
+    , _pMessageStructure = Nothing
+    , _pMessageAttributes = mempty
+    }
+{-# INLINE mkPublish #-}
+
 -- | The topic you want to publish to.
-piTopicArn :: Lens' Publish (Maybe Text)
-piTopicArn = lens _piTopicArn (\s a -> s { _piTopicArn = a })
-{-# INLINE piTopicArn #-}
+pTopicArn :: Lens' Publish (Maybe Text)
+pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
+{-# INLINE pTopicArn #-}
 
 -- | Either TopicArn or EndpointArn, but not both.
-piTargetArn :: Lens' Publish (Maybe Text)
-piTargetArn = lens _piTargetArn (\s a -> s { _piTargetArn = a })
-{-# INLINE piTargetArn #-}
+pTargetArn :: Lens' Publish (Maybe Text)
+pTargetArn = lens _pTargetArn (\s a -> s { _pTargetArn = a })
+{-# INLINE pTargetArn #-}
 
 -- | The message you want to send to the topic. If you want to send the same
 -- message to all transport protocols, include the text of the message as a
@@ -177,9 +134,9 @@ piTargetArn = lens _piTargetArn (\s a -> s { _piTargetArn = a })
 -- Duplicate keys are not allowed. Failure to parse or validate any key or
 -- value in the message will cause the Publish call to return an error (no
 -- partial delivery).
-piMessage :: Lens' Publish (Text)
-piMessage = lens _piMessage (\s a -> s { _piMessage = a })
-{-# INLINE piMessage #-}
+pMessage :: Lens' Publish Text
+pMessage = lens _pMessage (\s a -> s { _pMessage = a })
+{-# INLINE pMessage #-}
 
 -- | Optional parameter to be used as the "Subject" line when the message is
 -- delivered to email endpoints. This field will also be included, if present,
@@ -187,9 +144,9 @@ piMessage = lens _piMessage (\s a -> s { _piMessage = a })
 -- Subjects must be ASCII text that begins with a letter, number, or
 -- punctuation mark; must not include line breaks or control characters; and
 -- must be less than 100 characters long.
-piSubject :: Lens' Publish (Maybe Text)
-piSubject = lens _piSubject (\s a -> s { _piSubject = a })
-{-# INLINE piSubject #-}
+pSubject :: Lens' Publish (Maybe Text)
+pSubject = lens _pSubject (\s a -> s { _pSubject = a })
+{-# INLINE pSubject #-}
 
 -- | Set MessageStructure to json if you want to send a different message for
 -- each protocol. For example, using one publish action, you can send a short
@@ -202,29 +159,30 @@ piSubject = lens _piSubject (\s a -> s { _piSubject = a })
 -- different messages for each protocol using the AWS Management Console, go
 -- to Create Different Messages for Each Protocol in the Amazon Simple
 -- Notification Service Getting Started Guide. Valid value: json.
-piMessageStructure :: Lens' Publish (Maybe Text)
-piMessageStructure = lens _piMessageStructure (\s a -> s { _piMessageStructure = a })
-{-# INLINE piMessageStructure #-}
+pMessageStructure :: Lens' Publish (Maybe Text)
+pMessageStructure =
+    lens _pMessageStructure (\s a -> s { _pMessageStructure = a })
+{-# INLINE pMessageStructure #-}
 
 -- | Message attributes for Publish action.
-piMessageAttributes :: Lens' Publish (Map Text MessageAttributeValue)
-piMessageAttributes = lens _piMessageAttributes (\s a -> s { _piMessageAttributes = a })
-{-# INLINE piMessageAttributes #-}
+pMessageAttributes :: Lens' Publish (Map Text MessageAttributeValue)
+pMessageAttributes =
+    lens _pMessageAttributes (\s a -> s { _pMessageAttributes = a })
+{-# INLINE pMessageAttributes #-}
 
 instance ToQuery Publish where
     toQuery = genericQuery def
 
+-- | Response for Publish action.
 newtype PublishResponse = PublishResponse
-    { _prMessageId :: Maybe Text
-      -- ^ Unique identifier assigned to the published message. Length
-      -- Constraint: Maximum 100 characters.
+    { _prsMessageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Unique identifier assigned to the published message. Length Constraint:
 -- Maximum 100 characters.
-prMessageId :: Lens' PublishResponse (Maybe Text)
-prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
-{-# INLINE prMessageId #-}
+prsMessageId :: Lens' PublishResponse (Maybe Text)
+prsMessageId = lens _prsMessageId (\s a -> s { _prsMessageId = a })
+{-# INLINE prsMessageId #-}
 
 instance FromXML PublishResponse where
     fromXMLOptions = xmlOptions

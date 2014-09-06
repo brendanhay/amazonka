@@ -25,72 +25,72 @@ module Network.AWS.Redshift.V2012_12_01.ModifyClusterSubnetGroup
     -- * Request
       ModifyClusterSubnetGroup
     -- ** Request constructor
-    , mkModifyClusterSubnetGroupMessage
+    , mkModifyClusterSubnetGroup
     -- ** Request lenses
-    , mcsgmClusterSubnetGroupName
-    , mcsgmDescription
-    , mcsgmSubnetIds
+    , mcsgClusterSubnetGroupName
+    , mcsgDescription
+    , mcsgSubnetIds
 
     -- * Response
     , ModifyClusterSubnetGroupResponse
     -- ** Response lenses
-    , csgzClusterSubnetGroup
+    , mcsgrsClusterSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyClusterSubnetGroup' request.
-mkModifyClusterSubnetGroupMessage :: Text -- ^ 'mcsgmClusterSubnetGroupName'
-                                  -> [Text] -- ^ 'mcsgmSubnetIds'
-                                  -> ModifyClusterSubnetGroup
-mkModifyClusterSubnetGroupMessage p1 p2 = ModifyClusterSubnetGroup
-    { _mcsgmClusterSubnetGroupName = p1
-    , _mcsgmDescription = Nothing
-    , _mcsgmSubnetIds = p3
-    }
-{-# INLINE mkModifyClusterSubnetGroupMessage #-}
-
+-- | 
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
-    { _mcsgmClusterSubnetGroupName :: Text
-      -- ^ The name of the subnet group to be modified.
-    , _mcsgmDescription :: Maybe Text
-      -- ^ A text description of the subnet group to be modified.
-    , _mcsgmSubnetIds :: [Text]
-      -- ^ An array of VPC subnet IDs. A maximum of 20 subnets can be
-      -- modified in a single request.
+    { _mcsgClusterSubnetGroupName :: Text
+    , _mcsgDescription :: Maybe Text
+    , _mcsgSubnetIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyClusterSubnetGroup' request.
+mkModifyClusterSubnetGroup :: Text -- ^ 'mcsgClusterSubnetGroupName'
+                           -> [Text] -- ^ 'mcsgSubnetIds'
+                           -> ModifyClusterSubnetGroup
+mkModifyClusterSubnetGroup p1 p3 = ModifyClusterSubnetGroup
+    { _mcsgClusterSubnetGroupName = p1
+    , _mcsgDescription = Nothing
+    , _mcsgSubnetIds = p3
+    }
+{-# INLINE mkModifyClusterSubnetGroup #-}
+
 -- | The name of the subnet group to be modified.
-mcsgmClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup (Text)
-mcsgmClusterSubnetGroupName = lens _mcsgmClusterSubnetGroupName (\s a -> s { _mcsgmClusterSubnetGroupName = a })
-{-# INLINE mcsgmClusterSubnetGroupName #-}
+mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
+mcsgClusterSubnetGroupName =
+    lens _mcsgClusterSubnetGroupName
+         (\s a -> s { _mcsgClusterSubnetGroupName = a })
+{-# INLINE mcsgClusterSubnetGroupName #-}
 
 -- | A text description of the subnet group to be modified.
-mcsgmDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
-mcsgmDescription = lens _mcsgmDescription (\s a -> s { _mcsgmDescription = a })
-{-# INLINE mcsgmDescription #-}
+mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
+mcsgDescription = lens _mcsgDescription (\s a -> s { _mcsgDescription = a })
+{-# INLINE mcsgDescription #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-mcsgmSubnetIds :: Lens' ModifyClusterSubnetGroup ([Text])
-mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
-{-# INLINE mcsgmSubnetIds #-}
+mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
+mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
+{-# INLINE mcsgSubnetIds #-}
 
 instance ToQuery ModifyClusterSubnetGroup where
     toQuery = genericQuery def
 
 newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
-    { _csgzClusterSubnetGroup :: Maybe ClusterSubnetGroup
-      -- ^ Describes a subnet group.
+    { _mcsgrsClusterSubnetGroup :: Maybe ClusterSubnetGroup
     } deriving (Show, Generic)
 
 -- | Describes a subnet group.
-csgzClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-csgzClusterSubnetGroup = lens _csgzClusterSubnetGroup (\s a -> s { _csgzClusterSubnetGroup = a })
-{-# INLINE csgzClusterSubnetGroup #-}
+mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
+mcsgrsClusterSubnetGroup =
+    lens _mcsgrsClusterSubnetGroup
+         (\s a -> s { _mcsgrsClusterSubnetGroup = a })
+{-# INLINE mcsgrsClusterSubnetGroup #-}
 
 instance FromXML ModifyClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions

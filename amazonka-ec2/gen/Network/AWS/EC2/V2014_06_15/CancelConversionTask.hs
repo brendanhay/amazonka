@@ -33,10 +33,10 @@ module Network.AWS.EC2.V2014_06_15.CancelConversionTask
     -- * Request
       CancelConversionTask
     -- ** Request constructor
-    , mkCancelConversionRequest
+    , mkCancelConversionTask
     -- ** Request lenses
-    , ccrConversionTaskId
-    , ccrReasonMessage
+    , cctConversionTaskId
+    , cctReasonMessage
 
     -- * Response
     , CancelConversionTaskResponse
@@ -46,32 +46,33 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelConversionTask' request.
-mkCancelConversionRequest :: Text -- ^ 'ccrConversionTaskId'
-                          -> CancelConversionTask
-mkCancelConversionRequest p1 = CancelConversionTask
-    { _ccrConversionTaskId = p1
-    , _ccrReasonMessage = Nothing
-    }
-{-# INLINE mkCancelConversionRequest #-}
-
+-- | 
 data CancelConversionTask = CancelConversionTask
-    { _ccrConversionTaskId :: Text
-      -- ^ The ID of the conversion task.
-    , _ccrReasonMessage :: Maybe Text
-      -- ^ 
+    { _cctConversionTaskId :: Text
+    , _cctReasonMessage :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelConversionTask' request.
+mkCancelConversionTask :: Text -- ^ 'cctConversionTaskId'
+                       -> CancelConversionTask
+mkCancelConversionTask p1 = CancelConversionTask
+    { _cctConversionTaskId = p1
+    , _cctReasonMessage = Nothing
+    }
+{-# INLINE mkCancelConversionTask #-}
+
 -- | The ID of the conversion task.
-ccrConversionTaskId :: Lens' CancelConversionTask (Text)
-ccrConversionTaskId = lens _ccrConversionTaskId (\s a -> s { _ccrConversionTaskId = a })
-{-# INLINE ccrConversionTaskId #-}
+cctConversionTaskId :: Lens' CancelConversionTask Text
+cctConversionTaskId =
+    lens _cctConversionTaskId (\s a -> s { _cctConversionTaskId = a })
+{-# INLINE cctConversionTaskId #-}
 
 -- | 
-ccrReasonMessage :: Lens' CancelConversionTask (Maybe Text)
-ccrReasonMessage = lens _ccrReasonMessage (\s a -> s { _ccrReasonMessage = a })
-{-# INLINE ccrReasonMessage #-}
+cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
+cctReasonMessage =
+    lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
+{-# INLINE cctReasonMessage #-}
 
 instance ToQuery CancelConversionTask where
     toQuery = genericQuery def

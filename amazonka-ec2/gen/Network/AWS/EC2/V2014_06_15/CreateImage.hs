@@ -36,100 +36,90 @@ module Network.AWS.EC2.V2014_06_15.CreateImage
     -- * Request
       CreateImage
     -- ** Request constructor
-    , mkCreateImageRequest
+    , mkCreateImage
     -- ** Request lenses
-    , citInstanceId
-    , citName
-    , citDescription
-    , citNoReboot
-    , citBlockDeviceMappings
+    , ci1InstanceId
+    , ci1Name
+    , ci1Description
+    , ci1NoReboot
+    , ci1BlockDeviceMappings
 
     -- * Response
     , CreateImageResponse
     -- ** Response lenses
-    , ciuImageId
+    , cirsrsImageId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateImage' request.
-mkCreateImageRequest :: Text -- ^ 'citInstanceId'
-                     -> Text -- ^ 'citName'
-                     -> CreateImage
-mkCreateImageRequest p1 p2 = CreateImage
-    { _citInstanceId = p1
-    , _citName = p2
-    , _citDescription = Nothing
-    , _citNoReboot = Nothing
-    , _citBlockDeviceMappings = mempty
-    }
-{-# INLINE mkCreateImageRequest #-}
-
+-- | 
 data CreateImage = CreateImage
-    { _citInstanceId :: Text
-      -- ^ The ID of the instance.
-    , _citName :: Text
-      -- ^ A name for the new image. Constraints: 3-128 alphanumeric
-      -- characters, parenthesis (()), periods (.), slashes (/), dashes
-      -- (-), or underscores(_).
-    , _citDescription :: Maybe Text
-      -- ^ A description for the new image.
-    , _citNoReboot :: Maybe Bool
-      -- ^ By default, this parameter is set to false, which means Amazon
-      -- EC2 attempts to shut down the instance cleanly before image
-      -- creation and then reboots the instance. When the parameter is set
-      -- to true, Amazon EC2 doesn't shut down the instance before
-      -- creating the image. When this option is used, file system
-      -- integrity on the created image can't be guaranteed.
-    , _citBlockDeviceMappings :: [BlockDeviceMapping]
-      -- ^ Information about one or more block device mappings.
+    { _ci1InstanceId :: Text
+    , _ci1Name :: Text
+    , _ci1Description :: Maybe Text
+    , _ci1NoReboot :: Maybe Bool
+    , _ci1BlockDeviceMappings :: [BlockDeviceMapping]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateImage' request.
+mkCreateImage :: Text -- ^ 'ci1InstanceId'
+              -> Text -- ^ 'ci1Name'
+              -> CreateImage
+mkCreateImage p1 p2 = CreateImage
+    { _ci1InstanceId = p1
+    , _ci1Name = p2
+    , _ci1Description = Nothing
+    , _ci1NoReboot = Nothing
+    , _ci1BlockDeviceMappings = mempty
+    }
+{-# INLINE mkCreateImage #-}
+
 -- | The ID of the instance.
-citInstanceId :: Lens' CreateImage (Text)
-citInstanceId = lens _citInstanceId (\s a -> s { _citInstanceId = a })
-{-# INLINE citInstanceId #-}
+ci1InstanceId :: Lens' CreateImage Text
+ci1InstanceId = lens _ci1InstanceId (\s a -> s { _ci1InstanceId = a })
+{-# INLINE ci1InstanceId #-}
 
 -- | A name for the new image. Constraints: 3-128 alphanumeric characters,
 -- parenthesis (()), periods (.), slashes (/), dashes (-), or underscores(_).
-citName :: Lens' CreateImage (Text)
-citName = lens _citName (\s a -> s { _citName = a })
-{-# INLINE citName #-}
+ci1Name :: Lens' CreateImage Text
+ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
+{-# INLINE ci1Name #-}
 
 -- | A description for the new image.
-citDescription :: Lens' CreateImage (Maybe Text)
-citDescription = lens _citDescription (\s a -> s { _citDescription = a })
-{-# INLINE citDescription #-}
+ci1Description :: Lens' CreateImage (Maybe Text)
+ci1Description = lens _ci1Description (\s a -> s { _ci1Description = a })
+{-# INLINE ci1Description #-}
 
 -- | By default, this parameter is set to false, which means Amazon EC2 attempts
 -- to shut down the instance cleanly before image creation and then reboots
 -- the instance. When the parameter is set to true, Amazon EC2 doesn't shut
 -- down the instance before creating the image. When this option is used, file
 -- system integrity on the created image can't be guaranteed.
-citNoReboot :: Lens' CreateImage (Maybe Bool)
-citNoReboot = lens _citNoReboot (\s a -> s { _citNoReboot = a })
-{-# INLINE citNoReboot #-}
+ci1NoReboot :: Lens' CreateImage (Maybe Bool)
+ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
+{-# INLINE ci1NoReboot #-}
 
 -- | Information about one or more block device mappings.
-citBlockDeviceMappings :: Lens' CreateImage ([BlockDeviceMapping])
-citBlockDeviceMappings = lens _citBlockDeviceMappings (\s a -> s { _citBlockDeviceMappings = a })
-{-# INLINE citBlockDeviceMappings #-}
+ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
+ci1BlockDeviceMappings =
+    lens _ci1BlockDeviceMappings (\s a -> s { _ci1BlockDeviceMappings = a })
+{-# INLINE ci1BlockDeviceMappings #-}
 
 instance ToQuery CreateImage where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateImageResponse = CreateImageResponse
-    { _ciuImageId :: Maybe Text
-      -- ^ The ID of the new AMI.
+    { _cirsrsImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new AMI.
-ciuImageId :: Lens' CreateImageResponse (Maybe Text)
-ciuImageId = lens _ciuImageId (\s a -> s { _ciuImageId = a })
-{-# INLINE ciuImageId #-}
+cirsrsImageId :: Lens' CreateImageResponse (Maybe Text)
+cirsrsImageId = lens _cirsrsImageId (\s a -> s { _cirsrsImageId = a })
+{-# INLINE cirsrsImageId #-}
 
 instance FromXML CreateImageResponse where
     fromXMLOptions = xmlOptions

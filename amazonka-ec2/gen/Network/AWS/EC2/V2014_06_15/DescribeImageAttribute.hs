@@ -33,117 +33,115 @@ module Network.AWS.EC2.V2014_06_15.DescribeImageAttribute
     -- * Request
       DescribeImageAttribute
     -- ** Request constructor
-    , mkDescribeImageAttributeRequest
+    , mkDescribeImageAttribute
     -- ** Request lenses
-    , diarImageId
-    , diarAttribute
+    , diaImageId
+    , diaAttribute
 
     -- * Response
     , DescribeImageAttributeResponse
     -- ** Response lenses
-    , iaImageId
-    , iaLaunchPermissions
-    , iaProductCodes
-    , iaKernelId
-    , iaRamdiskId
-    , iaDescription
-    , iaSriovNetSupport
-    , iaBlockDeviceMappings
+    , diarsImageId
+    , diarsLaunchPermissions
+    , diarsProductCodes
+    , diarsKernelId
+    , diarsRamdiskId
+    , diarsDescription
+    , diarsSriovNetSupport
+    , diarsBlockDeviceMappings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeImageAttribute' request.
-mkDescribeImageAttributeRequest :: Text -- ^ 'diarImageId'
-                                -> ImageAttributeName -- ^ 'diarAttribute'
-                                -> DescribeImageAttribute
-mkDescribeImageAttributeRequest p1 p2 = DescribeImageAttribute
-    { _diarImageId = p1
-    , _diarAttribute = p2
-    }
-{-# INLINE mkDescribeImageAttributeRequest #-}
-
+-- | 
 data DescribeImageAttribute = DescribeImageAttribute
-    { _diarImageId :: Text
-      -- ^ The ID of the AMI.
-    , _diarAttribute :: ImageAttributeName
-      -- ^ The AMI attribute.
+    { _diaImageId :: Text
+    , _diaAttribute :: ImageAttributeName
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeImageAttribute' request.
+mkDescribeImageAttribute :: Text -- ^ 'diaImageId'
+                         -> ImageAttributeName -- ^ 'diaAttribute'
+                         -> DescribeImageAttribute
+mkDescribeImageAttribute p1 p2 = DescribeImageAttribute
+    { _diaImageId = p1
+    , _diaAttribute = p2
+    }
+{-# INLINE mkDescribeImageAttribute #-}
+
 -- | The ID of the AMI.
-diarImageId :: Lens' DescribeImageAttribute (Text)
-diarImageId = lens _diarImageId (\s a -> s { _diarImageId = a })
-{-# INLINE diarImageId #-}
+diaImageId :: Lens' DescribeImageAttribute Text
+diaImageId = lens _diaImageId (\s a -> s { _diaImageId = a })
+{-# INLINE diaImageId #-}
 
 -- | The AMI attribute.
-diarAttribute :: Lens' DescribeImageAttribute (ImageAttributeName)
-diarAttribute = lens _diarAttribute (\s a -> s { _diarAttribute = a })
-{-# INLINE diarAttribute #-}
+diaAttribute :: Lens' DescribeImageAttribute ImageAttributeName
+diaAttribute = lens _diaAttribute (\s a -> s { _diaAttribute = a })
+{-# INLINE diaAttribute #-}
 
 instance ToQuery DescribeImageAttribute where
     toQuery = genericQuery def
 
+-- | Information about the image attribute.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { _iaImageId :: Maybe Text
-      -- ^ The ID of the AMI.
-    , _iaLaunchPermissions :: [LaunchPermission]
-      -- ^ One or more launch permissions.
-    , _iaProductCodes :: [ProductCode]
-      -- ^ One or more product codes.
-    , _iaKernelId :: Maybe AttributeValue
-      -- ^ The kernel ID.
-    , _iaRamdiskId :: Maybe AttributeValue
-      -- ^ The RAM disk ID.
-    , _iaDescription :: Maybe AttributeValue
-      -- ^ A description for the AMI.
-    , _iaSriovNetSupport :: Maybe AttributeValue
-      -- ^ 
-    , _iaBlockDeviceMappings :: [BlockDeviceMapping]
-      -- ^ One or more block device mapping entries.
+    { _diarsImageId :: Maybe Text
+    , _diarsLaunchPermissions :: [LaunchPermission]
+    , _diarsProductCodes :: [ProductCode]
+    , _diarsKernelId :: Maybe AttributeValue
+    , _diarsRamdiskId :: Maybe AttributeValue
+    , _diarsDescription :: Maybe AttributeValue
+    , _diarsSriovNetSupport :: Maybe AttributeValue
+    , _diarsBlockDeviceMappings :: [BlockDeviceMapping]
     } deriving (Show, Generic)
 
 -- | The ID of the AMI.
-iaImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
-iaImageId = lens _iaImageId (\s a -> s { _iaImageId = a })
-{-# INLINE iaImageId #-}
+diarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
+diarsImageId = lens _diarsImageId (\s a -> s { _diarsImageId = a })
+{-# INLINE diarsImageId #-}
 
 -- | One or more launch permissions.
-iaLaunchPermissions :: Lens' DescribeImageAttributeResponse ([LaunchPermission])
-iaLaunchPermissions = lens _iaLaunchPermissions (\s a -> s { _iaLaunchPermissions = a })
-{-# INLINE iaLaunchPermissions #-}
+diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
+diarsLaunchPermissions =
+    lens _diarsLaunchPermissions (\s a -> s { _diarsLaunchPermissions = a })
+{-# INLINE diarsLaunchPermissions #-}
 
 -- | One or more product codes.
-iaProductCodes :: Lens' DescribeImageAttributeResponse ([ProductCode])
-iaProductCodes = lens _iaProductCodes (\s a -> s { _iaProductCodes = a })
-{-# INLINE iaProductCodes #-}
+diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
+diarsProductCodes =
+    lens _diarsProductCodes (\s a -> s { _diarsProductCodes = a })
+{-# INLINE diarsProductCodes #-}
 
 -- | The kernel ID.
-iaKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-iaKernelId = lens _iaKernelId (\s a -> s { _iaKernelId = a })
-{-# INLINE iaKernelId #-}
+diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsKernelId = lens _diarsKernelId (\s a -> s { _diarsKernelId = a })
+{-# INLINE diarsKernelId #-}
 
 -- | The RAM disk ID.
-iaRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-iaRamdiskId = lens _iaRamdiskId (\s a -> s { _iaRamdiskId = a })
-{-# INLINE iaRamdiskId #-}
+diarsRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsRamdiskId = lens _diarsRamdiskId (\s a -> s { _diarsRamdiskId = a })
+{-# INLINE diarsRamdiskId #-}
 
 -- | A description for the AMI.
-iaDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-iaDescription = lens _iaDescription (\s a -> s { _iaDescription = a })
-{-# INLINE iaDescription #-}
+diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsDescription =
+    lens _diarsDescription (\s a -> s { _diarsDescription = a })
+{-# INLINE diarsDescription #-}
 
 -- | 
-iaSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-iaSriovNetSupport = lens _iaSriovNetSupport (\s a -> s { _iaSriovNetSupport = a })
-{-# INLINE iaSriovNetSupport #-}
+diarsSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsSriovNetSupport =
+    lens _diarsSriovNetSupport (\s a -> s { _diarsSriovNetSupport = a })
+{-# INLINE diarsSriovNetSupport #-}
 
 -- | One or more block device mapping entries.
-iaBlockDeviceMappings :: Lens' DescribeImageAttributeResponse ([BlockDeviceMapping])
-iaBlockDeviceMappings = lens _iaBlockDeviceMappings (\s a -> s { _iaBlockDeviceMappings = a })
-{-# INLINE iaBlockDeviceMappings #-}
+diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarsBlockDeviceMappings =
+    lens _diarsBlockDeviceMappings
+         (\s a -> s { _diarsBlockDeviceMappings = a })
+{-# INLINE diarsBlockDeviceMappings #-}
 
 instance FromXML DescribeImageAttributeResponse where
     fromXMLOptions = xmlOptions

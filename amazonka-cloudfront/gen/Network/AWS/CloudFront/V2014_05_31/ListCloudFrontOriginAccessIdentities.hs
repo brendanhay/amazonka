@@ -23,65 +23,59 @@ module Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
     -- * Request
       ListCloudFrontOriginAccessIdentities
     -- ** Request constructor
-    , mkListCloudFrontOriginAccessIdentitiesRequest
+    , mkListCloudFrontOriginAccessIdentities
     -- ** Request lenses
-    , lcfoairMarker
-    , lcfoairMaxItems
+    , lcfoaiMarker
+    , lcfoaiMaxItems
 
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
-    , lcfoaisCloudFrontOriginAccessIdentityList
+    , lcfoairsCloudFrontOriginAccessIdentityList
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to list origin access identities.
+data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
+    { _lcfoaiMarker :: Maybe Text
+    , _lcfoaiMaxItems :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListCloudFrontOriginAccessIdentities' request.
-mkListCloudFrontOriginAccessIdentitiesRequest :: ListCloudFrontOriginAccessIdentities
-mkListCloudFrontOriginAccessIdentitiesRequest = ListCloudFrontOriginAccessIdentities
-    { _lcfoairMarker = Nothing
-    , _lcfoairMaxItems = Nothing
+mkListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
+mkListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
+    { _lcfoaiMarker = Nothing
+    , _lcfoaiMaxItems = Nothing
     }
-{-# INLINE mkListCloudFrontOriginAccessIdentitiesRequest #-}
-
-data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
-    { _lcfoairMarker :: Maybe Text
-      -- ^ Use this when paginating results to indicate where to begin in
-      -- your list of origin access identities. The results include
-      -- identities in the list that occur after the marker. To get the
-      -- next page of results, set the Marker to the value of the
-      -- NextMarker from the current page's response (which is also the ID
-      -- of the last identity on that page).
-    , _lcfoairMaxItems :: Maybe Text
-      -- ^ The maximum number of origin access identities you want in the
-      -- response body.
-    } deriving (Show, Generic)
+{-# INLINE mkListCloudFrontOriginAccessIdentities #-}
 
 -- | Use this when paginating results to indicate where to begin in your list of
 -- origin access identities. The results include identities in the list that
 -- occur after the marker. To get the next page of results, set the Marker to
 -- the value of the NextMarker from the current page's response (which is also
 -- the ID of the last identity on that page).
-lcfoairMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoairMarker = lens _lcfoairMarker (\s a -> s { _lcfoairMarker = a })
-{-# INLINE lcfoairMarker #-}
+lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoaiMarker = lens _lcfoaiMarker (\s a -> s { _lcfoaiMarker = a })
+{-# INLINE lcfoaiMarker #-}
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
-lcfoairMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoairMaxItems = lens _lcfoairMaxItems (\s a -> s { _lcfoairMaxItems = a })
-{-# INLINE lcfoairMaxItems #-}
+lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
+{-# INLINE lcfoaiMaxItems #-}
 
 instance ToPath ListCloudFrontOriginAccessIdentities where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
 
 instance ToQuery ListCloudFrontOriginAccessIdentities where
     toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat
-        [ "Marker" =? _lcfoairMarker
-        , "MaxItems" =? _lcfoairMaxItems
+        [ "Marker" =? _lcfoaiMarker
+        , "MaxItems" =? _lcfoaiMaxItems
         ]
 
 instance ToHeaders ListCloudFrontOriginAccessIdentities
@@ -90,15 +84,17 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentitiesRequest"
 
+-- | The returned result of the corresponding request.
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoaisCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
-      -- ^ The CloudFrontOriginAccessIdentityList type.
+    { _lcfoairsCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
     } deriving (Show, Generic)
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoaisCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse (Maybe CloudFrontOriginAccessIdentityList)
-lcfoaisCloudFrontOriginAccessIdentityList = lens _lcfoaisCloudFrontOriginAccessIdentityList (\s a -> s { _lcfoaisCloudFrontOriginAccessIdentityList = a })
-{-# INLINE lcfoaisCloudFrontOriginAccessIdentityList #-}
+lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse (Maybe CloudFrontOriginAccessIdentityList)
+lcfoairsCloudFrontOriginAccessIdentityList =
+    lens _lcfoairsCloudFrontOriginAccessIdentityList
+         (\s a -> s { _lcfoairsCloudFrontOriginAccessIdentityList = a })
+{-# INLINE lcfoairsCloudFrontOriginAccessIdentityList #-}
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     fromXMLOptions = xmlOptions
@@ -112,7 +108,7 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs
-        | not (_cfoailIsTruncated $ _lcfoaisCloudFrontOriginAccessIdentityList rs) = Nothing
+        | not (_cfoailIsTruncated $ _lcfoairsCloudFrontOriginAccessIdentityList rs) = Nothing
         | otherwise = Just $ rq
-            { _lcfoairMarker = _cfoailNextMarker $ _lcfoaisCloudFrontOriginAccessIdentityList rs
+            { _lcfoaiMarker = _cfoailNextMarker $ _lcfoairsCloudFrontOriginAccessIdentityList rs
             }

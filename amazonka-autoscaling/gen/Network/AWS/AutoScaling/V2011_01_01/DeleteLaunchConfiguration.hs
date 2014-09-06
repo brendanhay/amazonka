@@ -28,9 +28,9 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration
     -- * Request
       DeleteLaunchConfiguration
     -- ** Request constructor
-    , mkLaunchConfigurationNameType
+    , mkDeleteLaunchConfiguration
     -- ** Request lenses
-    , lcntLaunchConfigurationName
+    , dlcLaunchConfigurationName
 
     -- * Response
     , DeleteLaunchConfigurationResponse
@@ -40,24 +40,26 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLaunchConfiguration' request.
-mkLaunchConfigurationNameType :: Text -- ^ 'lcntLaunchConfigurationName'
-                              -> DeleteLaunchConfiguration
-mkLaunchConfigurationNameType p1 = DeleteLaunchConfiguration
-    { _lcntLaunchConfigurationName = p1
-    }
-{-# INLINE mkLaunchConfigurationNameType #-}
-
+-- | 
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
-    { _lcntLaunchConfigurationName :: Text
-      -- ^ The name of the launch configuration.
+    { _dlcLaunchConfigurationName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLaunchConfiguration' request.
+mkDeleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
+                            -> DeleteLaunchConfiguration
+mkDeleteLaunchConfiguration p1 = DeleteLaunchConfiguration
+    { _dlcLaunchConfigurationName = p1
+    }
+{-# INLINE mkDeleteLaunchConfiguration #-}
+
 -- | The name of the launch configuration.
-lcntLaunchConfigurationName :: Lens' DeleteLaunchConfiguration (Text)
-lcntLaunchConfigurationName = lens _lcntLaunchConfigurationName (\s a -> s { _lcntLaunchConfigurationName = a })
-{-# INLINE lcntLaunchConfigurationName #-}
+dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
+dlcLaunchConfigurationName =
+    lens _dlcLaunchConfigurationName
+         (\s a -> s { _dlcLaunchConfigurationName = a })
+{-# INLINE dlcLaunchConfigurationName #-}
 
 instance ToQuery DeleteLaunchConfiguration where
     toQuery = genericQuery def

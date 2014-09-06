@@ -31,9 +31,9 @@ module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
     -- * Request
       DeleteHealthCheck
     -- ** Request constructor
-    , mkDeleteHealthCheckRequest
+    , mkDeleteHealthCheck
     -- ** Request lenses
-    , dhcrHealthCheckId
+    , dhcHealthCheckId
 
     -- * Response
     , DeleteHealthCheckResponse
@@ -42,30 +42,32 @@ module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | A complex type containing the request information for delete health check.
+newtype DeleteHealthCheck = DeleteHealthCheck
+    { _dhcHealthCheckId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHealthCheck' request.
-mkDeleteHealthCheckRequest :: Text -- ^ 'dhcrHealthCheckId'
-                           -> DeleteHealthCheck
-mkDeleteHealthCheckRequest p1 = DeleteHealthCheck
-    { _dhcrHealthCheckId = p1
+mkDeleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
+                    -> DeleteHealthCheck
+mkDeleteHealthCheck p1 = DeleteHealthCheck
+    { _dhcHealthCheckId = p1
     }
-{-# INLINE mkDeleteHealthCheckRequest #-}
-
-newtype DeleteHealthCheck = DeleteHealthCheck
-    { _dhcrHealthCheckId :: Text
-      -- ^ The ID of the health check to delete.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteHealthCheck #-}
 
 -- | The ID of the health check to delete.
-dhcrHealthCheckId :: Lens' DeleteHealthCheck (Text)
-dhcrHealthCheckId = lens _dhcrHealthCheckId (\s a -> s { _dhcrHealthCheckId = a })
-{-# INLINE dhcrHealthCheckId #-}
+dhcHealthCheckId :: Lens' DeleteHealthCheck Text
+dhcHealthCheckId =
+    lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
+{-# INLINE dhcHealthCheckId #-}
 
 instance ToPath DeleteHealthCheck where
     toPath DeleteHealthCheck{..} = mconcat
         [ "/2013-04-01/healthcheck/"
-        , toBS _dhcrHealthCheckId
+        , toBS _dhcHealthCheckId
         ]
 
 instance ToQuery DeleteHealthCheck
@@ -76,6 +78,7 @@ instance ToXML DeleteHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHealthCheckRequest"
 
+-- | Empty response for the request.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteHealthCheck where

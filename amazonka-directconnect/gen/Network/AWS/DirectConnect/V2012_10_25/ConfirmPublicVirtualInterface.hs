@@ -25,14 +25,14 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
     -- * Request
       ConfirmPublicVirtualInterface
     -- ** Request constructor
-    , mkConfirmPublicVirtualInterfaceRequest
+    , mkConfirmPublicVirtualInterface
     -- ** Request lenses
-    , cpvitVirtualInterfaceId
+    , cpvi1VirtualInterfaceId
 
     -- * Response
     , ConfirmPublicVirtualInterfaceResponse
     -- ** Response lenses
-    , cpviuVirtualInterfaceState
+    , cpvirsrsVirtualInterfaceState
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -40,25 +40,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ConfirmPublicVirtualInterface' request.
-mkConfirmPublicVirtualInterfaceRequest :: Text -- ^ 'cpvitVirtualInterfaceId'
-                                       -> ConfirmPublicVirtualInterface
-mkConfirmPublicVirtualInterfaceRequest p1 = ConfirmPublicVirtualInterface
-    { _cpvitVirtualInterfaceId = p1
-    }
-{-# INLINE mkConfirmPublicVirtualInterfaceRequest #-}
-
+-- | Container for the parameters to the ConfirmPublicVirtualInterface
+-- operation.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
-    { _cpvitVirtualInterfaceId :: Text
-      -- ^ ID of the virtual interface. Example: dxvif-123dfg56 Default:
-      -- None.
+    { _cpvi1VirtualInterfaceId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmPublicVirtualInterface' request.
+mkConfirmPublicVirtualInterface :: Text -- ^ 'cpvi1VirtualInterfaceId'
+                                -> ConfirmPublicVirtualInterface
+mkConfirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
+    { _cpvi1VirtualInterfaceId = p1
+    }
+{-# INLINE mkConfirmPublicVirtualInterface #-}
+
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-cpvitVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface (Text)
-cpvitVirtualInterfaceId = lens _cpvitVirtualInterfaceId (\s a -> s { _cpvitVirtualInterfaceId = a })
-{-# INLINE cpvitVirtualInterfaceId #-}
+cpvi1VirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
+cpvi1VirtualInterfaceId =
+    lens _cpvi1VirtualInterfaceId
+         (\s a -> s { _cpvi1VirtualInterfaceId = a })
+{-# INLINE cpvi1VirtualInterfaceId #-}
 
 instance ToPath ConfirmPublicVirtualInterface
 
@@ -68,27 +70,9 @@ instance ToHeaders ConfirmPublicVirtualInterface
 
 instance ToJSON ConfirmPublicVirtualInterface
 
+-- | The response received when ConfirmPublicVirtualInterface is called.
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
-    { _cpviuVirtualInterfaceState :: Maybe VirtualInterfaceState
-      -- ^ State of the virtual interface. Confirming: The creation of the
-      -- virtual interface is pending confirmation from the virtual
-      -- interface owner. If the owner of the virtual interface is
-      -- different from the owner of the connection on which it is
-      -- provisioned, then the virtual interface will remain in this state
-      -- until it is confirmed by the virtual interface owner. Verifying:
-      -- This state only applies to public virtual interfaces. Each public
-      -- virtual interface needs validation before the virtual interface
-      -- can be created. Pending: A virtual interface is in this state
-      -- from the time that it is created until the virtual interface is
-      -- ready to forward traffic. Available: A virtual interface that is
-      -- able to forward traffic. Deleting: A virtual interface is in this
-      -- state immediately after calling DeleteVirtualInterface until it
-      -- can no longer forward traffic. Deleted: A virtual interface that
-      -- cannot forward traffic. Rejected: The virtual interface owner has
-      -- declined creation of the virtual interface. If a virtual
-      -- interface in the 'Confirming' state is deleted by the virtual
-      -- interface owner, the virtual interface will enter the 'Rejected'
-      -- state.
+    { _cpvirsrsVirtualInterfaceState :: Maybe VirtualInterfaceState
     } deriving (Show, Generic)
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
@@ -107,9 +91,11 @@ newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRes
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-cpviuVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpviuVirtualInterfaceState = lens _cpviuVirtualInterfaceState (\s a -> s { _cpviuVirtualInterfaceState = a })
-{-# INLINE cpviuVirtualInterfaceState #-}
+cpvirsrsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+cpvirsrsVirtualInterfaceState =
+    lens _cpvirsrsVirtualInterfaceState
+         (\s a -> s { _cpvirsrsVirtualInterfaceState = a })
+{-# INLINE cpvirsrsVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPublicVirtualInterfaceResponse
 

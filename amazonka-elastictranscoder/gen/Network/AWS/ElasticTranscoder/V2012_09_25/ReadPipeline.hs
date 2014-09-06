@@ -40,14 +40,14 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline
     -- * Request
       ReadPipeline
     -- ** Request constructor
-    , mkReadPipelineRequest
+    , mkReadPipeline
     -- ** Request lenses
-    , rprId
+    , rpId
 
     -- * Response
     , ReadPipelineResponse
     -- ** Response lenses
-    , rpsPipeline
+    , rprsPipeline
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -55,29 +55,29 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ReadPipeline' request.
-mkReadPipelineRequest :: Text -- ^ 'rprId'
-                      -> ReadPipeline
-mkReadPipelineRequest p1 = ReadPipeline
-    { _rprId = p1
-    }
-{-# INLINE mkReadPipelineRequest #-}
-
+-- | The ReadPipelineRequest structure.
 newtype ReadPipeline = ReadPipeline
-    { _rprId :: Text
-      -- ^ The identifier of the pipeline to read.
+    { _rpId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadPipeline' request.
+mkReadPipeline :: Text -- ^ 'rpId'
+               -> ReadPipeline
+mkReadPipeline p1 = ReadPipeline
+    { _rpId = p1
+    }
+{-# INLINE mkReadPipeline #-}
+
 -- | The identifier of the pipeline to read.
-rprId :: Lens' ReadPipeline (Text)
-rprId = lens _rprId (\s a -> s { _rprId = a })
-{-# INLINE rprId #-}
+rpId :: Lens' ReadPipeline Text
+rpId = lens _rpId (\s a -> s { _rpId = a })
+{-# INLINE rpId #-}
 
 instance ToPath ReadPipeline where
     toPath ReadPipeline{..} = mconcat
         [ "/2012-09-25/pipelines/"
-        , toBS _rprId
+        , toBS _rpId
         ]
 
 instance ToQuery ReadPipeline
@@ -86,17 +86,16 @@ instance ToHeaders ReadPipeline
 
 instance ToJSON ReadPipeline
 
+-- | The ReadPipelineResponse structure.
 newtype ReadPipelineResponse = ReadPipelineResponse
-    { _rpsPipeline :: Maybe Pipeline
-      -- ^ A section of the response body that provides information about
-      -- the pipeline.
+    { _rprsPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-rpsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
-rpsPipeline = lens _rpsPipeline (\s a -> s { _rpsPipeline = a })
-{-# INLINE rpsPipeline #-}
+rprsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
+rprsPipeline = lens _rprsPipeline (\s a -> s { _rprsPipeline = a })
+{-# INLINE rprsPipeline #-}
 
 instance FromJSON ReadPipelineResponse
 

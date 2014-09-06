@@ -33,71 +33,41 @@ module Network.AWS.EC2.V2014_06_15.DescribeRouteTables
     -- * Request
       DescribeRouteTables
     -- ** Request constructor
-    , mkDescribeRouteTablesRequest
+    , mkDescribeRouteTables
     -- ** Request lenses
-    , drtsRouteTableIds
-    , drtsFilters
+    , drt1RouteTableIds
+    , drt1Filters
 
     -- * Response
     , DescribeRouteTablesResponse
     -- ** Response lenses
-    , drttRouteTables
+    , drtrsRouteTables
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeRouteTables' request.
-mkDescribeRouteTablesRequest :: DescribeRouteTables
-mkDescribeRouteTablesRequest = DescribeRouteTables
-    { _drtsRouteTableIds = mempty
-    , _drtsFilters = mempty
-    }
-{-# INLINE mkDescribeRouteTablesRequest #-}
-
+-- | 
 data DescribeRouteTables = DescribeRouteTables
-    { _drtsRouteTableIds :: [Text]
-      -- ^ One or more route table IDs. Default: Describes all your route
-      -- tables.
-    , _drtsFilters :: [Filter]
-      -- ^ One or more filters. association.route-table-association-id - The
-      -- ID of an association ID for the route table.
-      -- association.route-table-id - The ID of the route table involved
-      -- in the association. association.subnet-id - The ID of the subnet
-      -- involved in the association. association.main - Indicates whether
-      -- the route table is the main route table for the VPC.
-      -- route-table-id - The ID of the route table.
-      -- route.destination-cidr-block - The CIDR range specified in a
-      -- route in the table. route.gateway-id - The ID of a gateway
-      -- specified in a route in the table. route.instance-id - The ID of
-      -- an instance specified in a route in the table. route.origin -
-      -- Describes how the route was created (CreateRouteTable |
-      -- CreateRoute | EnableVgwRoutePropagation). route.state - The state
-      -- of a route in the route table (active | blackhole). The blackhole
-      -- state indicates that the route's target isn't available (for
-      -- example, the specified gateway isn't attached to the VPC, the
-      -- specified NAT instance has been terminated, and so on).
-      -- route.vpc-peering-connection-id - The ID of a VPC peering
-      -- connection specified in a route in the table. tag:key=value - The
-      -- key/value combination of a tag assigned to the resource. tag-key
-      -- - The key of a tag assigned to the resource. This filter is
-      -- independent of the tag-value filter. For example, if you use both
-      -- the filter "tag-key=Purpose" and the filter "tag-value=X", you
-      -- get any resources assigned both the tag key Purpose (regardless
-      -- of what the tag's value is), and the tag value X (regardless of
-      -- what the tag's key is). If you want to list only resources where
-      -- Purpose is X, see the tag:key=value filter. tag-value - The value
-      -- of a tag assigned to the resource. This filter is independent of
-      -- the tag-key filter. vpc-id - The ID of the VPC for the route
-      -- table.
+    { _drt1RouteTableIds :: [Text]
+    , _drt1Filters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRouteTables' request.
+mkDescribeRouteTables :: DescribeRouteTables
+mkDescribeRouteTables = DescribeRouteTables
+    { _drt1RouteTableIds = mempty
+    , _drt1Filters = mempty
+    }
+{-# INLINE mkDescribeRouteTables #-}
+
 -- | One or more route table IDs. Default: Describes all your route tables.
-drtsRouteTableIds :: Lens' DescribeRouteTables ([Text])
-drtsRouteTableIds = lens _drtsRouteTableIds (\s a -> s { _drtsRouteTableIds = a })
-{-# INLINE drtsRouteTableIds #-}
+drt1RouteTableIds :: Lens' DescribeRouteTables [Text]
+drt1RouteTableIds =
+    lens _drt1RouteTableIds (\s a -> s { _drt1RouteTableIds = a })
+{-# INLINE drt1RouteTableIds #-}
 
 -- | One or more filters. association.route-table-association-id - The ID of an
 -- association ID for the route table. association.route-table-id - The ID of
@@ -124,22 +94,23 @@ drtsRouteTableIds = lens _drtsRouteTableIds (\s a -> s { _drtsRouteTableIds = a 
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the route table.
-drtsFilters :: Lens' DescribeRouteTables ([Filter])
-drtsFilters = lens _drtsFilters (\s a -> s { _drtsFilters = a })
-{-# INLINE drtsFilters #-}
+drt1Filters :: Lens' DescribeRouteTables [Filter]
+drt1Filters = lens _drt1Filters (\s a -> s { _drt1Filters = a })
+{-# INLINE drt1Filters #-}
 
 instance ToQuery DescribeRouteTables where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
-    { _drttRouteTables :: [RouteTable]
-      -- ^ Information about one or more route tables.
+    { _drtrsRouteTables :: [RouteTable]
     } deriving (Show, Generic)
 
 -- | Information about one or more route tables.
-drttRouteTables :: Lens' DescribeRouteTablesResponse ([RouteTable])
-drttRouteTables = lens _drttRouteTables (\s a -> s { _drttRouteTables = a })
-{-# INLINE drttRouteTables #-}
+drtrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
+drtrsRouteTables =
+    lens _drtrsRouteTables (\s a -> s { _drtrsRouteTables = a })
+{-# INLINE drtrsRouteTables #-}
 
 instance FromXML DescribeRouteTablesResponse where
     fromXMLOptions = xmlOptions

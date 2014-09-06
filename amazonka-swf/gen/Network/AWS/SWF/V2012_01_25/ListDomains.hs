@@ -61,18 +61,18 @@ module Network.AWS.SWF.V2012_01_25.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , mkListDomainsInput
+    , mkListDomains
     -- ** Request lenses
-    , ldiNextPageToken
-    , ldiRegistrationStatus
-    , ldiMaximumPageSize
-    , ldiReverseOrder
+    , ldNextPageToken
+    , ldRegistrationStatus
+    , ldMaximumPageSize
+    , ldReverseOrder
 
     -- * Response
     , ListDomainsResponse
     -- ** Response lenses
-    , ddwDomainInfos
-    , ddwNextPageToken
+    , ldrsDomainInfos
+    , ldrsNextPageToken
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -80,50 +80,37 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data ListDomains = ListDomains
+    { _ldNextPageToken :: Maybe Text
+    , _ldRegistrationStatus :: RegistrationStatus
+    , _ldMaximumPageSize :: Maybe Integer
+    , _ldReverseOrder :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
-mkListDomainsInput :: RegistrationStatus -- ^ 'ldiRegistrationStatus'
-                   -> ListDomains
-mkListDomainsInput p1 = ListDomains
-    { _ldiNextPageToken = Nothing
-    , _ldiRegistrationStatus = p2
-    , _ldiMaximumPageSize = Nothing
-    , _ldiReverseOrder = Nothing
+mkListDomains :: RegistrationStatus -- ^ 'ldRegistrationStatus'
+              -> ListDomains
+mkListDomains p2 = ListDomains
+    { _ldNextPageToken = Nothing
+    , _ldRegistrationStatus = p2
+    , _ldMaximumPageSize = Nothing
+    , _ldReverseOrder = Nothing
     }
-{-# INLINE mkListDomainsInput #-}
-
-data ListDomains = ListDomains
-    { _ldiNextPageToken :: Maybe Text
-      -- ^ If on a previous call to this method a NextPageToken was
-      -- returned, the result has more than one page. To get the next page
-      -- of results, repeat the call with the returned token and all other
-      -- arguments unchanged.
-    , _ldiRegistrationStatus :: RegistrationStatus
-      -- ^ Specifies the registration status of the domains to list.
-    , _ldiMaximumPageSize :: Maybe Integer
-      -- ^ The maximum number of results returned in each page. The default
-      -- is 100, but the caller can override this value to a page size
-      -- smaller than the default. You cannot specify a page size greater
-      -- than 100. Note that the number of domains may be less than the
-      -- maxiumum page size, in which case, the returned page will have
-      -- fewer results than the maximumPageSize specified.
-    , _ldiReverseOrder :: Maybe Bool
-      -- ^ When set to true, returns the results in reverse order. By
-      -- default the results are returned in ascending alphabetical order
-      -- of the name of the domains.
-    } deriving (Show, Generic)
+{-# INLINE mkListDomains #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- result has more than one page. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
-ldiNextPageToken :: Lens' ListDomains (Maybe Text)
-ldiNextPageToken = lens _ldiNextPageToken (\s a -> s { _ldiNextPageToken = a })
-{-# INLINE ldiNextPageToken #-}
+ldNextPageToken :: Lens' ListDomains (Maybe Text)
+ldNextPageToken = lens _ldNextPageToken (\s a -> s { _ldNextPageToken = a })
+{-# INLINE ldNextPageToken #-}
 
 -- | Specifies the registration status of the domains to list.
-ldiRegistrationStatus :: Lens' ListDomains (RegistrationStatus)
-ldiRegistrationStatus = lens _ldiRegistrationStatus (\s a -> s { _ldiRegistrationStatus = a })
-{-# INLINE ldiRegistrationStatus #-}
+ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
+ldRegistrationStatus =
+    lens _ldRegistrationStatus (\s a -> s { _ldRegistrationStatus = a })
+{-# INLINE ldRegistrationStatus #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
@@ -131,16 +118,17 @@ ldiRegistrationStatus = lens _ldiRegistrationStatus (\s a -> s { _ldiRegistratio
 -- number of domains may be less than the maxiumum page size, in which case,
 -- the returned page will have fewer results than the maximumPageSize
 -- specified.
-ldiMaximumPageSize :: Lens' ListDomains (Maybe Integer)
-ldiMaximumPageSize = lens _ldiMaximumPageSize (\s a -> s { _ldiMaximumPageSize = a })
-{-# INLINE ldiMaximumPageSize #-}
+ldMaximumPageSize :: Lens' ListDomains (Maybe Integer)
+ldMaximumPageSize =
+    lens _ldMaximumPageSize (\s a -> s { _ldMaximumPageSize = a })
+{-# INLINE ldMaximumPageSize #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- domains.
-ldiReverseOrder :: Lens' ListDomains (Maybe Bool)
-ldiReverseOrder = lens _ldiReverseOrder (\s a -> s { _ldiReverseOrder = a })
-{-# INLINE ldiReverseOrder #-}
+ldReverseOrder :: Lens' ListDomains (Maybe Bool)
+ldReverseOrder = lens _ldReverseOrder (\s a -> s { _ldReverseOrder = a })
+{-# INLINE ldReverseOrder #-}
 
 instance ToPath ListDomains
 
@@ -150,26 +138,24 @@ instance ToHeaders ListDomains
 
 instance ToJSON ListDomains
 
+-- | Contains a paginated collection of DomainInfo structures.
 data ListDomainsResponse = ListDomainsResponse
-    { _ddwDomainInfos :: [DomainInfo]
-      -- ^ A list of DomainInfo structures.
-    , _ddwNextPageToken :: Maybe Text
-      -- ^ Returns a value if the results are paginated. To get the next
-      -- page of results, repeat the request specifying this token and all
-      -- other arguments unchanged.
+    { _ldrsDomainInfos :: [DomainInfo]
+    , _ldrsNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of DomainInfo structures.
-ddwDomainInfos :: Lens' ListDomainsResponse ([DomainInfo])
-ddwDomainInfos = lens _ddwDomainInfos (\s a -> s { _ddwDomainInfos = a })
-{-# INLINE ddwDomainInfos #-}
+ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
+ldrsDomainInfos = lens _ldrsDomainInfos (\s a -> s { _ldrsDomainInfos = a })
+{-# INLINE ldrsDomainInfos #-}
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
-ddwNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
-ddwNextPageToken = lens _ddwNextPageToken (\s a -> s { _ddwNextPageToken = a })
-{-# INLINE ddwNextPageToken #-}
+ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
+ldrsNextPageToken =
+    lens _ldrsNextPageToken (\s a -> s { _ldrsNextPageToken = a })
+{-# INLINE ldrsNextPageToken #-}
 
 instance FromJSON ListDomainsResponse
 
@@ -181,5 +167,5 @@ instance AWSRequest ListDomains where
     response _ = jsonResponse
 
 instance AWSPager ListDomains where
-    next rq rs = (\x -> rq { _ldiNextPageToken = Just x })
-        <$> (_ddwNextPageToken rs)
+    next rq rs = (\x -> rq { _ldNextPageToken = Just x })
+        <$> (_ldrsNextPageToken rs)

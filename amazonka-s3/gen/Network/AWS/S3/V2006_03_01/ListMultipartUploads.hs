@@ -23,87 +23,70 @@ module Network.AWS.S3.V2006_03_01.ListMultipartUploads
     -- * Request
       ListMultipartUploads
     -- ** Request constructor
-    , mkListMultipartUploadsRequest
+    , mkListMultipartUploads
     -- ** Request lenses
-    , lmurBucket
-    , lmurDelimiter
-    , lmurEncodingType
-    , lmurKeyMarker
-    , lmurMaxUploads
-    , lmurPrefix
-    , lmurUploadIdMarker
+    , lmuBucket
+    , lmuDelimiter
+    , lmuEncodingType
+    , lmuKeyMarker
+    , lmuMaxUploads
+    , lmuPrefix
+    , lmuUploadIdMarker
 
     -- * Response
     , ListMultipartUploadsResponse
     -- ** Response lenses
-    , lmuoBucket
-    , lmuoKeyMarker
-    , lmuoUploadIdMarker
-    , lmuoNextKeyMarker
-    , lmuoPrefix
-    , lmuoNextUploadIdMarker
-    , lmuoMaxUploads
-    , lmuoIsTruncated
-    , lmuoUploads
-    , lmuoCommonPrefixes
-    , lmuoEncodingType
+    , lmursBucket
+    , lmursKeyMarker
+    , lmursUploadIdMarker
+    , lmursNextKeyMarker
+    , lmursPrefix
+    , lmursNextUploadIdMarker
+    , lmursMaxUploads
+    , lmursIsTruncated
+    , lmursUploads
+    , lmursCommonPrefixes
+    , lmursEncodingType
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data ListMultipartUploads = ListMultipartUploads
+    { _lmuBucket :: BucketName
+    , _lmuDelimiter :: Maybe Char
+    , _lmuEncodingType :: Maybe EncodingType
+    , _lmuKeyMarker :: Maybe Text
+    , _lmuMaxUploads :: Maybe Integer
+    , _lmuPrefix :: Maybe Text
+    , _lmuUploadIdMarker :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMultipartUploads' request.
-mkListMultipartUploadsRequest :: BucketName -- ^ 'lmurBucket'
-                              -> ListMultipartUploads
-mkListMultipartUploadsRequest p1 = ListMultipartUploads
-    { _lmurBucket = p1
-    , _lmurDelimiter = Nothing
-    , _lmurEncodingType = Nothing
-    , _lmurKeyMarker = Nothing
-    , _lmurMaxUploads = Nothing
-    , _lmurPrefix = Nothing
-    , _lmurUploadIdMarker = Nothing
+mkListMultipartUploads :: BucketName -- ^ 'lmuBucket'
+                       -> ListMultipartUploads
+mkListMultipartUploads p1 = ListMultipartUploads
+    { _lmuBucket = p1
+    , _lmuDelimiter = Nothing
+    , _lmuEncodingType = Nothing
+    , _lmuKeyMarker = Nothing
+    , _lmuMaxUploads = Nothing
+    , _lmuPrefix = Nothing
+    , _lmuUploadIdMarker = Nothing
     }
-{-# INLINE mkListMultipartUploadsRequest #-}
+{-# INLINE mkListMultipartUploads #-}
 
-data ListMultipartUploads = ListMultipartUploads
-    { _lmurBucket :: BucketName
-    , _lmurDelimiter :: Maybe Char
-      -- ^ Character you use to group keys.
-    , _lmurEncodingType :: Maybe EncodingType
-      -- ^ Requests Amazon S3 to encode the object keys in the response and
-      -- specifies the encoding method to use. An object key may contain
-      -- any Unicode character; however, XML 1.0 parser cannot parse some
-      -- characters, such as characters with an ASCII value from 0 to 10.
-      -- For characters that are not supported in XML 1.0, you can add
-      -- this parameter to request that Amazon S3 encode the keys in the
-      -- response.
-    , _lmurKeyMarker :: Maybe Text
-      -- ^ Together with upload-id-marker, this parameter specifies the
-      -- multipart upload after which listing should begin.
-    , _lmurMaxUploads :: Maybe Integer
-      -- ^ Sets the maximum number of multipart uploads, from 1 to 1,000, to
-      -- return in the response body. 1,000 is the maximum number of
-      -- uploads that can be returned in a response.
-    , _lmurPrefix :: Maybe Text
-      -- ^ Lists in-progress uploads only for those keys that begin with the
-      -- specified prefix.
-    , _lmurUploadIdMarker :: Maybe Text
-      -- ^ Together with key-marker, specifies the multipart upload after
-      -- which listing should begin. If key-marker is not specified, the
-      -- upload-id-marker parameter is ignored.
-    } deriving (Show, Generic)
-
-lmurBucket :: Lens' ListMultipartUploads (BucketName)
-lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
-{-# INLINE lmurBucket #-}
+lmuBucket :: Lens' ListMultipartUploads BucketName
+lmuBucket = lens _lmuBucket (\s a -> s { _lmuBucket = a })
+{-# INLINE lmuBucket #-}
 
 -- | Character you use to group keys.
-lmurDelimiter :: Lens' ListMultipartUploads (Maybe Char)
-lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
-{-# INLINE lmurDelimiter #-}
+lmuDelimiter :: Lens' ListMultipartUploads (Maybe Char)
+lmuDelimiter = lens _lmuDelimiter (\s a -> s { _lmuDelimiter = a })
+{-# INLINE lmuDelimiter #-}
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
 -- the encoding method to use. An object key may contain any Unicode
@@ -111,50 +94,51 @@ lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
 -- characters with an ASCII value from 0 to 10. For characters that are not
 -- supported in XML 1.0, you can add this parameter to request that Amazon S3
 -- encode the keys in the response.
-lmurEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
-lmurEncodingType = lens _lmurEncodingType (\s a -> s { _lmurEncodingType = a })
-{-# INLINE lmurEncodingType #-}
+lmuEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
+lmuEncodingType = lens _lmuEncodingType (\s a -> s { _lmuEncodingType = a })
+{-# INLINE lmuEncodingType #-}
 
 -- | Together with upload-id-marker, this parameter specifies the multipart
 -- upload after which listing should begin.
-lmurKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmurKeyMarker = lens _lmurKeyMarker (\s a -> s { _lmurKeyMarker = a })
-{-# INLINE lmurKeyMarker #-}
+lmuKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmuKeyMarker = lens _lmuKeyMarker (\s a -> s { _lmuKeyMarker = a })
+{-# INLINE lmuKeyMarker #-}
 
 -- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return in
 -- the response body. 1,000 is the maximum number of uploads that can be
 -- returned in a response.
-lmurMaxUploads :: Lens' ListMultipartUploads (Maybe Integer)
-lmurMaxUploads = lens _lmurMaxUploads (\s a -> s { _lmurMaxUploads = a })
-{-# INLINE lmurMaxUploads #-}
+lmuMaxUploads :: Lens' ListMultipartUploads (Maybe Integer)
+lmuMaxUploads = lens _lmuMaxUploads (\s a -> s { _lmuMaxUploads = a })
+{-# INLINE lmuMaxUploads #-}
 
 -- | Lists in-progress uploads only for those keys that begin with the specified
 -- prefix.
-lmurPrefix :: Lens' ListMultipartUploads (Maybe Text)
-lmurPrefix = lens _lmurPrefix (\s a -> s { _lmurPrefix = a })
-{-# INLINE lmurPrefix #-}
+lmuPrefix :: Lens' ListMultipartUploads (Maybe Text)
+lmuPrefix = lens _lmuPrefix (\s a -> s { _lmuPrefix = a })
+{-# INLINE lmuPrefix #-}
 
 -- | Together with key-marker, specifies the multipart upload after which
 -- listing should begin. If key-marker is not specified, the upload-id-marker
 -- parameter is ignored.
-lmurUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmurUploadIdMarker = lens _lmurUploadIdMarker (\s a -> s { _lmurUploadIdMarker = a })
-{-# INLINE lmurUploadIdMarker #-}
+lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmuUploadIdMarker =
+    lens _lmuUploadIdMarker (\s a -> s { _lmuUploadIdMarker = a })
+{-# INLINE lmuUploadIdMarker #-}
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat
         [ "/"
-        , toBS _lmurBucket
+        , toBS _lmuBucket
         ]
 
 instance ToQuery ListMultipartUploads where
     toQuery ListMultipartUploads{..} = mconcat
-        [ "delimiter" =? _lmurDelimiter
-        , "encoding-type" =? _lmurEncodingType
-        , "key-marker" =? _lmurKeyMarker
-        , "max-uploads" =? _lmurMaxUploads
-        , "upload-id-marker" =? _lmurUploadIdMarker
-        , "uploads&prefix" =? _lmurPrefix
+        [ "delimiter" =? _lmuDelimiter
+        , "encoding-type" =? _lmuEncodingType
+        , "key-marker" =? _lmuKeyMarker
+        , "max-uploads" =? _lmuMaxUploads
+        , "upload-id-marker" =? _lmuUploadIdMarker
+        , "uploads&prefix" =? _lmuPrefix
         ]
 
 instance ToHeaders ListMultipartUploads
@@ -162,98 +146,85 @@ instance ToHeaders ListMultipartUploads
 instance ToBody ListMultipartUploads
 
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse
-    { _lmuoBucket :: Maybe BucketName
-      -- ^ Name of the bucket to which the multipart upload was initiated.
-    , _lmuoKeyMarker :: Maybe Text
-      -- ^ The key at or after which the listing began.
-    , _lmuoUploadIdMarker :: Maybe Text
-      -- ^ Upload ID after which listing began.
-    , _lmuoNextKeyMarker :: Maybe Text
-      -- ^ When a list is truncated, this element specifies the value that
-      -- should be used for the key-marker request parameter in a
-      -- subsequent request.
-    , _lmuoPrefix :: Maybe Text
-      -- ^ When a prefix is provided in the request, this field contains the
-      -- specified prefix. The result contains only keys starting with the
-      -- specified prefix.
-    , _lmuoNextUploadIdMarker :: Maybe Text
-      -- ^ When a list is truncated, this element specifies the value that
-      -- should be used for the upload-id-marker request parameter in a
-      -- subsequent request.
-    , _lmuoMaxUploads :: Maybe Integer
-      -- ^ Maximum number of multipart uploads that could have been included
-      -- in the response.
-    , _lmuoIsTruncated :: Bool
-      -- ^ Indicates whether the returned list of multipart uploads is
-      -- truncated. A value of true indicates that the list was truncated.
-      -- The list can be truncated if the number of multipart uploads
-      -- exceeds the limit allowed or specified by max uploads.
-    , _lmuoUploads :: [MultipartUpload]
-    , _lmuoCommonPrefixes :: [CommonPrefix]
-    , _lmuoEncodingType :: Maybe EncodingType
-      -- ^ Encoding type used by Amazon S3 to encode object keys in the
-      -- response.
+    { _lmursBucket :: Maybe BucketName
+    , _lmursKeyMarker :: Maybe Text
+    , _lmursUploadIdMarker :: Maybe Text
+    , _lmursNextKeyMarker :: Maybe Text
+    , _lmursPrefix :: Maybe Text
+    , _lmursNextUploadIdMarker :: Maybe Text
+    , _lmursMaxUploads :: Maybe Integer
+    , _lmursIsTruncated :: Bool
+    , _lmursUploads :: [MultipartUpload]
+    , _lmursCommonPrefixes :: [CommonPrefix]
+    , _lmursEncodingType :: Maybe EncodingType
     } deriving (Show, Generic)
 
 -- | Name of the bucket to which the multipart upload was initiated.
-lmuoBucket :: Lens' ListMultipartUploadsResponse (Maybe BucketName)
-lmuoBucket = lens _lmuoBucket (\s a -> s { _lmuoBucket = a })
-{-# INLINE lmuoBucket #-}
+lmursBucket :: Lens' ListMultipartUploadsResponse (Maybe BucketName)
+lmursBucket = lens _lmursBucket (\s a -> s { _lmursBucket = a })
+{-# INLINE lmursBucket #-}
 
 -- | The key at or after which the listing began.
-lmuoKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmuoKeyMarker = lens _lmuoKeyMarker (\s a -> s { _lmuoKeyMarker = a })
-{-# INLINE lmuoKeyMarker #-}
+lmursKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmursKeyMarker = lens _lmursKeyMarker (\s a -> s { _lmursKeyMarker = a })
+{-# INLINE lmursKeyMarker #-}
 
 -- | Upload ID after which listing began.
-lmuoUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmuoUploadIdMarker = lens _lmuoUploadIdMarker (\s a -> s { _lmuoUploadIdMarker = a })
-{-# INLINE lmuoUploadIdMarker #-}
+lmursUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmursUploadIdMarker =
+    lens _lmursUploadIdMarker (\s a -> s { _lmursUploadIdMarker = a })
+{-# INLINE lmursUploadIdMarker #-}
 
 -- | When a list is truncated, this element specifies the value that should be
 -- used for the key-marker request parameter in a subsequent request.
-lmuoNextKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmuoNextKeyMarker = lens _lmuoNextKeyMarker (\s a -> s { _lmuoNextKeyMarker = a })
-{-# INLINE lmuoNextKeyMarker #-}
+lmursNextKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmursNextKeyMarker =
+    lens _lmursNextKeyMarker (\s a -> s { _lmursNextKeyMarker = a })
+{-# INLINE lmursNextKeyMarker #-}
 
 -- | When a prefix is provided in the request, this field contains the specified
 -- prefix. The result contains only keys starting with the specified prefix.
-lmuoPrefix :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmuoPrefix = lens _lmuoPrefix (\s a -> s { _lmuoPrefix = a })
-{-# INLINE lmuoPrefix #-}
+lmursPrefix :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmursPrefix = lens _lmursPrefix (\s a -> s { _lmursPrefix = a })
+{-# INLINE lmursPrefix #-}
 
 -- | When a list is truncated, this element specifies the value that should be
 -- used for the upload-id-marker request parameter in a subsequent request.
-lmuoNextUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmuoNextUploadIdMarker = lens _lmuoNextUploadIdMarker (\s a -> s { _lmuoNextUploadIdMarker = a })
-{-# INLINE lmuoNextUploadIdMarker #-}
+lmursNextUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmursNextUploadIdMarker =
+    lens _lmursNextUploadIdMarker
+         (\s a -> s { _lmursNextUploadIdMarker = a })
+{-# INLINE lmursNextUploadIdMarker #-}
 
 -- | Maximum number of multipart uploads that could have been included in the
 -- response.
-lmuoMaxUploads :: Lens' ListMultipartUploadsResponse (Maybe Integer)
-lmuoMaxUploads = lens _lmuoMaxUploads (\s a -> s { _lmuoMaxUploads = a })
-{-# INLINE lmuoMaxUploads #-}
+lmursMaxUploads :: Lens' ListMultipartUploadsResponse (Maybe Integer)
+lmursMaxUploads = lens _lmursMaxUploads (\s a -> s { _lmursMaxUploads = a })
+{-# INLINE lmursMaxUploads #-}
 
 -- | Indicates whether the returned list of multipart uploads is truncated. A
 -- value of true indicates that the list was truncated. The list can be
 -- truncated if the number of multipart uploads exceeds the limit allowed or
 -- specified by max uploads.
-lmuoIsTruncated :: Lens' ListMultipartUploadsResponse (Bool)
-lmuoIsTruncated = lens _lmuoIsTruncated (\s a -> s { _lmuoIsTruncated = a })
-{-# INLINE lmuoIsTruncated #-}
+lmursIsTruncated :: Lens' ListMultipartUploadsResponse Bool
+lmursIsTruncated =
+    lens _lmursIsTruncated (\s a -> s { _lmursIsTruncated = a })
+{-# INLINE lmursIsTruncated #-}
 
-lmuoUploads :: Lens' ListMultipartUploadsResponse ([MultipartUpload])
-lmuoUploads = lens _lmuoUploads (\s a -> s { _lmuoUploads = a })
-{-# INLINE lmuoUploads #-}
+lmursUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
+lmursUploads = lens _lmursUploads (\s a -> s { _lmursUploads = a })
+{-# INLINE lmursUploads #-}
 
-lmuoCommonPrefixes :: Lens' ListMultipartUploadsResponse ([CommonPrefix])
-lmuoCommonPrefixes = lens _lmuoCommonPrefixes (\s a -> s { _lmuoCommonPrefixes = a })
-{-# INLINE lmuoCommonPrefixes #-}
+lmursCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
+lmursCommonPrefixes =
+    lens _lmursCommonPrefixes (\s a -> s { _lmursCommonPrefixes = a })
+{-# INLINE lmursCommonPrefixes #-}
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lmuoEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
-lmuoEncodingType = lens _lmuoEncodingType (\s a -> s { _lmuoEncodingType = a })
-{-# INLINE lmuoEncodingType #-}
+lmursEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
+lmursEncodingType =
+    lens _lmursEncodingType (\s a -> s { _lmursEncodingType = a })
+{-# INLINE lmursEncodingType #-}
 
 instance FromXML ListMultipartUploadsResponse where
     fromXMLOptions = xmlOptions
@@ -267,12 +238,12 @@ instance AWSRequest ListMultipartUploads where
 
 instance AWSPager ListMultipartUploads where
     next rq rs
-        | not (_lmuoIsTruncated rs) = Nothing
+        | not (_lmursIsTruncated rs) = Nothing
         | and [isNothing p1, isNothing p2] = Nothing
         | otherwise = Just $ rq
-            { _lmurKeyMarker = p1
-            , _lmurUploadIdMarker = p2
+            { _lmuKeyMarker = p1
+            , _lmuUploadIdMarker = p2
             }
       where
-        p1 = _lmuoNextKeyMarker rs
-        p2 = _lmuoNextUploadIdMarker rs
+        p1 = _lmursNextKeyMarker rs
+        p2 = _lmursNextUploadIdMarker rs

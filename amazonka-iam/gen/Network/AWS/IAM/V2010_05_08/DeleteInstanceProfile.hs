@@ -31,9 +31,9 @@ module Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile
     -- * Request
       DeleteInstanceProfile
     -- ** Request constructor
-    , mkDeleteInstanceProfileRequest
+    , mkDeleteInstanceProfile
     -- ** Request lenses
-    , diprInstanceProfileName
+    , dipInstanceProfileName
 
     -- * Response
     , DeleteInstanceProfileResponse
@@ -43,24 +43,25 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteInstanceProfile' request.
-mkDeleteInstanceProfileRequest :: Text -- ^ 'diprInstanceProfileName'
-                               -> DeleteInstanceProfile
-mkDeleteInstanceProfileRequest p1 = DeleteInstanceProfile
-    { _diprInstanceProfileName = p1
-    }
-{-# INLINE mkDeleteInstanceProfileRequest #-}
-
+-- | 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
-    { _diprInstanceProfileName :: Text
-      -- ^ Name of the instance profile to delete.
+    { _dipInstanceProfileName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInstanceProfile' request.
+mkDeleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
+                        -> DeleteInstanceProfile
+mkDeleteInstanceProfile p1 = DeleteInstanceProfile
+    { _dipInstanceProfileName = p1
+    }
+{-# INLINE mkDeleteInstanceProfile #-}
+
 -- | Name of the instance profile to delete.
-diprInstanceProfileName :: Lens' DeleteInstanceProfile (Text)
-diprInstanceProfileName = lens _diprInstanceProfileName (\s a -> s { _diprInstanceProfileName = a })
-{-# INLINE diprInstanceProfileName #-}
+dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
+dipInstanceProfileName =
+    lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
+{-# INLINE dipInstanceProfileName #-}
 
 instance ToQuery DeleteInstanceProfile where
     toQuery = genericQuery def

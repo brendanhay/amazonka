@@ -25,14 +25,14 @@ module Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
     -- * Request
       DescribeSeverityLevels
     -- ** Request constructor
-    , mkDescribeSeverityLevelsRequest
+    , mkDescribeSeverityLevels
     -- ** Request lenses
-    , dslrLanguage
+    , dslLanguage
 
     -- * Response
     , DescribeSeverityLevelsResponse
     -- ** Response lenses
-    , dslsSeverityLevels
+    , dslrsSeverityLevels
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -40,28 +40,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | 
+newtype DescribeSeverityLevels = DescribeSeverityLevels
+    { _dslLanguage :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSeverityLevels' request.
-mkDescribeSeverityLevelsRequest :: DescribeSeverityLevels
-mkDescribeSeverityLevelsRequest = DescribeSeverityLevels
-    { _dslrLanguage = Nothing
+mkDescribeSeverityLevels :: DescribeSeverityLevels
+mkDescribeSeverityLevels = DescribeSeverityLevels
+    { _dslLanguage = Nothing
     }
-{-# INLINE mkDescribeSeverityLevelsRequest #-}
-
-newtype DescribeSeverityLevels = DescribeSeverityLevels
-    { _dslrLanguage :: Maybe Text
-      -- ^ The ISO 639-1 code for the language in which AWS provides
-      -- support. AWS Support currently supports English ("en") and
-      -- Japanese ("ja"). Language parameters must be passed explicitly
-      -- for operations that take them.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeSeverityLevels #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dslrLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
-dslrLanguage = lens _dslrLanguage (\s a -> s { _dslrLanguage = a })
-{-# INLINE dslrLanguage #-}
+dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
+dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
+{-# INLINE dslLanguage #-}
 
 instance ToPath DescribeSeverityLevels
 
@@ -71,18 +68,18 @@ instance ToHeaders DescribeSeverityLevels
 
 instance ToJSON DescribeSeverityLevels
 
+-- | The list of severity levels returned by the DescribeSeverityLevels
+-- operation.
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
-    { _dslsSeverityLevels :: [SeverityLevel]
-      -- ^ The available severity levels for the support case. Available
-      -- severity levels are defined by your service level agreement with
-      -- AWS.
+    { _dslrsSeverityLevels :: [SeverityLevel]
     } deriving (Show, Generic)
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
-dslsSeverityLevels :: Lens' DescribeSeverityLevelsResponse ([SeverityLevel])
-dslsSeverityLevels = lens _dslsSeverityLevels (\s a -> s { _dslsSeverityLevels = a })
-{-# INLINE dslsSeverityLevels #-}
+dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
+dslrsSeverityLevels =
+    lens _dslrsSeverityLevels (\s a -> s { _dslrsSeverityLevels = a })
+{-# INLINE dslrsSeverityLevels #-}
 
 instance FromJSON DescribeSeverityLevelsResponse
 

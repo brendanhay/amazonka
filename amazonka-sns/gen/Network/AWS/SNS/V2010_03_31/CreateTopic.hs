@@ -38,56 +38,53 @@ module Network.AWS.SNS.V2010_03_31.CreateTopic
     -- * Request
       CreateTopic
     -- ** Request constructor
-    , mkCreateTopicInput
+    , mkCreateTopic
     -- ** Request lenses
-    , ctiName
+    , ctName
 
     -- * Response
     , CreateTopicResponse
     -- ** Response lenses
-    , ctrTopicArn
+    , ctrsTopicArn
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
+-- | Input for CreateTopic action.
+newtype CreateTopic = CreateTopic
+    { _ctName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTopic' request.
-mkCreateTopicInput :: Text -- ^ 'ctiName'
-                   -> CreateTopic
-mkCreateTopicInput p1 = CreateTopic
-    { _ctiName = p1
+mkCreateTopic :: Text -- ^ 'ctName'
+              -> CreateTopic
+mkCreateTopic p1 = CreateTopic
+    { _ctName = p1
     }
-{-# INLINE mkCreateTopicInput #-}
-
-newtype CreateTopic = CreateTopic
-    { _ctiName :: Text
-      -- ^ The name of the topic you want to create. Constraints: Topic
-      -- names must be made up of only uppercase and lowercase ASCII
-      -- letters, numbers, underscores, and hyphens, and must be between 1
-      -- and 256 characters long.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateTopic #-}
 
 -- | The name of the topic you want to create. Constraints: Topic names must be
 -- made up of only uppercase and lowercase ASCII letters, numbers,
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
-ctiName :: Lens' CreateTopic (Text)
-ctiName = lens _ctiName (\s a -> s { _ctiName = a })
-{-# INLINE ctiName #-}
+ctName :: Lens' CreateTopic Text
+ctName = lens _ctName (\s a -> s { _ctName = a })
+{-# INLINE ctName #-}
 
 instance ToQuery CreateTopic where
     toQuery = genericQuery def
 
+-- | Response from CreateTopic action.
 newtype CreateTopicResponse = CreateTopicResponse
-    { _ctrTopicArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) assigned to the created topic.
+    { _ctrsTopicArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
-ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
-ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
-{-# INLINE ctrTopicArn #-}
+ctrsTopicArn :: Lens' CreateTopicResponse (Maybe Text)
+ctrsTopicArn = lens _ctrsTopicArn (\s a -> s { _ctrsTopicArn = a })
+{-# INLINE ctrsTopicArn #-}
 
 instance FromXML CreateTopicResponse where
     fromXMLOptions = xmlOptions

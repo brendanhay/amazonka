@@ -26,14 +26,14 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks
     -- * Request
       DescribeTrustedAdvisorChecks
     -- ** Request constructor
-    , mkDescribeTrustedAdvisorChecksRequest
+    , mkDescribeTrustedAdvisorChecks
     -- ** Request lenses
-    , dtacrLanguage
+    , dtacLanguage
 
     -- * Response
     , DescribeTrustedAdvisorChecksResponse
     -- ** Response lenses
-    , dtacsChecks
+    , dtacrs1Checks
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -41,29 +41,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | 
+newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
+    { _dtacLanguage :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorChecks' request.
-mkDescribeTrustedAdvisorChecksRequest :: Text -- ^ 'dtacrLanguage'
-                                      -> DescribeTrustedAdvisorChecks
-mkDescribeTrustedAdvisorChecksRequest p1 = DescribeTrustedAdvisorChecks
-    { _dtacrLanguage = p1
+mkDescribeTrustedAdvisorChecks :: Text -- ^ 'dtacLanguage'
+                               -> DescribeTrustedAdvisorChecks
+mkDescribeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
+    { _dtacLanguage = p1
     }
-{-# INLINE mkDescribeTrustedAdvisorChecksRequest #-}
-
-newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
-    { _dtacrLanguage :: Text
-      -- ^ The ISO 639-1 code for the language in which AWS provides
-      -- support. AWS Support currently supports English ("en") and
-      -- Japanese ("ja"). Language parameters must be passed explicitly
-      -- for operations that take them.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeTrustedAdvisorChecks #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dtacrLanguage :: Lens' DescribeTrustedAdvisorChecks (Text)
-dtacrLanguage = lens _dtacrLanguage (\s a -> s { _dtacrLanguage = a })
-{-# INLINE dtacrLanguage #-}
+dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
+dtacLanguage = lens _dtacLanguage (\s a -> s { _dtacLanguage = a })
+{-# INLINE dtacLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorChecks
 
@@ -73,15 +70,16 @@ instance ToHeaders DescribeTrustedAdvisorChecks
 
 instance ToJSON DescribeTrustedAdvisorChecks
 
+-- | Information about the Trusted Advisor checks returned by the
+-- DescribeTrustedAdvisorChecks operation.
 newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
-    { _dtacsChecks :: [TrustedAdvisorCheckDescription]
-      -- ^ Information about all available Trusted Advisor checks.
+    { _dtacrs1Checks :: [TrustedAdvisorCheckDescription]
     } deriving (Show, Generic)
 
 -- | Information about all available Trusted Advisor checks.
-dtacsChecks :: Lens' DescribeTrustedAdvisorChecksResponse ([TrustedAdvisorCheckDescription])
-dtacsChecks = lens _dtacsChecks (\s a -> s { _dtacsChecks = a })
-{-# INLINE dtacsChecks #-}
+dtacrs1Checks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
+dtacrs1Checks = lens _dtacrs1Checks (\s a -> s { _dtacrs1Checks = a })
+{-# INLINE dtacrs1Checks #-}
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse
 

@@ -30,11 +30,11 @@ module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener
     -- * Request
       SetLoadBalancerPoliciesOfListener
     -- ** Request constructor
-    , mkSetLoadBalancerPoliciesOfListenerInput
+    , mkSetLoadBalancerPoliciesOfListener
     -- ** Request lenses
-    , slbpoliLoadBalancerName
-    , slbpoliLoadBalancerPort
-    , slbpoliPolicyNames
+    , slbpolLoadBalancerName
+    , slbpolLoadBalancerPort
+    , slbpolPolicyNames
 
     -- * Response
     , SetLoadBalancerPoliciesOfListenerResponse
@@ -44,48 +44,49 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetLoadBalancerPoliciesOfListener' request.
-mkSetLoadBalancerPoliciesOfListenerInput :: Text -- ^ 'slbpoliLoadBalancerName'
-                                         -> Integer -- ^ 'slbpoliLoadBalancerPort'
-                                         -> [Text] -- ^ 'slbpoliPolicyNames'
-                                         -> SetLoadBalancerPoliciesOfListener
-mkSetLoadBalancerPoliciesOfListenerInput p1 p2 p3 = SetLoadBalancerPoliciesOfListener
-    { _slbpoliLoadBalancerName = p1
-    , _slbpoliLoadBalancerPort = p2
-    , _slbpoliPolicyNames = p3
-    }
-{-# INLINE mkSetLoadBalancerPoliciesOfListenerInput #-}
-
+-- | The input for the SetLoadBalancerPoliciesOfListener action.
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
-    { _slbpoliLoadBalancerName :: Text
-      -- ^ The name of the load balancer.
-    , _slbpoliLoadBalancerPort :: Integer
-      -- ^ The external port of the load balancer to associate the policy.
-    , _slbpoliPolicyNames :: [Text]
-      -- ^ List of policies to be associated with the listener. If the list
-      -- is empty, the current policy is removed from the listener.
+    { _slbpolLoadBalancerName :: Text
+    , _slbpolLoadBalancerPort :: Integer
+    , _slbpolPolicyNames :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBalancerPoliciesOfListener' request.
+mkSetLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpolLoadBalancerName'
+                                    -> Integer -- ^ 'slbpolLoadBalancerPort'
+                                    -> [Text] -- ^ 'slbpolPolicyNames'
+                                    -> SetLoadBalancerPoliciesOfListener
+mkSetLoadBalancerPoliciesOfListener p1 p2 p3 = SetLoadBalancerPoliciesOfListener
+    { _slbpolLoadBalancerName = p1
+    , _slbpolLoadBalancerPort = p2
+    , _slbpolPolicyNames = p3
+    }
+{-# INLINE mkSetLoadBalancerPoliciesOfListener #-}
+
 -- | The name of the load balancer.
-slbpoliLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener (Text)
-slbpoliLoadBalancerName = lens _slbpoliLoadBalancerName (\s a -> s { _slbpoliLoadBalancerName = a })
-{-# INLINE slbpoliLoadBalancerName #-}
+slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
+slbpolLoadBalancerName =
+    lens _slbpolLoadBalancerName (\s a -> s { _slbpolLoadBalancerName = a })
+{-# INLINE slbpolLoadBalancerName #-}
 
 -- | The external port of the load balancer to associate the policy.
-slbpoliLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener (Integer)
-slbpoliLoadBalancerPort = lens _slbpoliLoadBalancerPort (\s a -> s { _slbpoliLoadBalancerPort = a })
-{-# INLINE slbpoliLoadBalancerPort #-}
+slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Integer
+slbpolLoadBalancerPort =
+    lens _slbpolLoadBalancerPort (\s a -> s { _slbpolLoadBalancerPort = a })
+{-# INLINE slbpolLoadBalancerPort #-}
 
 -- | List of policies to be associated with the listener. If the list is empty,
 -- the current policy is removed from the listener.
-slbpoliPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener ([Text])
-slbpoliPolicyNames = lens _slbpoliPolicyNames (\s a -> s { _slbpoliPolicyNames = a })
-{-# INLINE slbpoliPolicyNames #-}
+slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
+slbpolPolicyNames =
+    lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })
+{-# INLINE slbpolPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesOfListener where
     toQuery = genericQuery def
 
+-- | The output for the SetLoadBalancerPoliciesOfListener action.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener where

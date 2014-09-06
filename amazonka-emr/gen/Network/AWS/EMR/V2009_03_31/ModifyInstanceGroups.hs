@@ -42,9 +42,9 @@ module Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups
     -- * Request
       ModifyInstanceGroups
     -- ** Request constructor
-    , mkModifyInstanceGroupsInput
+    , mkModifyInstanceGroups
     -- ** Request lenses
-    , migiInstanceGroups
+    , migInstanceGroups
 
     -- * Response
     , ModifyInstanceGroupsResponse
@@ -55,23 +55,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyInstanceGroups' request.
-mkModifyInstanceGroupsInput :: ModifyInstanceGroups
-mkModifyInstanceGroupsInput = ModifyInstanceGroups
-    { _migiInstanceGroups = mempty
-    }
-{-# INLINE mkModifyInstanceGroupsInput #-}
-
+-- | Change the size of some instance groups.
 newtype ModifyInstanceGroups = ModifyInstanceGroups
-    { _migiInstanceGroups :: [InstanceGroupModifyConfig]
-      -- ^ Instance groups to change.
+    { _migInstanceGroups :: [InstanceGroupModifyConfig]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyInstanceGroups' request.
+mkModifyInstanceGroups :: ModifyInstanceGroups
+mkModifyInstanceGroups = ModifyInstanceGroups
+    { _migInstanceGroups = mempty
+    }
+{-# INLINE mkModifyInstanceGroups #-}
+
 -- | Instance groups to change.
-migiInstanceGroups :: Lens' ModifyInstanceGroups ([InstanceGroupModifyConfig])
-migiInstanceGroups = lens _migiInstanceGroups (\s a -> s { _migiInstanceGroups = a })
-{-# INLINE migiInstanceGroups #-}
+migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
+migInstanceGroups =
+    lens _migInstanceGroups (\s a -> s { _migInstanceGroups = a })
+{-# INLINE migInstanceGroups #-}
 
 instance ToPath ModifyInstanceGroups
 

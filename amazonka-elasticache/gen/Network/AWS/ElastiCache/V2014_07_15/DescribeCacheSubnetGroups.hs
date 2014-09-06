@@ -31,90 +31,84 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups
     -- * Request
       DescribeCacheSubnetGroups
     -- ** Request constructor
-    , mkDescribeCacheSubnetGroupsMessage
+    , mkDescribeCacheSubnetGroups
     -- ** Request lenses
-    , dcsgpCacheSubnetGroupName
-    , dcsgpMaxRecords
-    , dcsgpMarker
+    , dcsg3CacheSubnetGroupName
+    , dcsg3MaxRecords
+    , dcsg3Marker
 
     -- * Response
     , DescribeCacheSubnetGroupsResponse
     -- ** Response lenses
-    , csgqMarker
-    , csgqCacheSubnetGroups
+    , dcsgrsrsMarker
+    , dcsgrsrsCacheSubnetGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeCacheSubnetGroups' request.
-mkDescribeCacheSubnetGroupsMessage :: DescribeCacheSubnetGroups
-mkDescribeCacheSubnetGroupsMessage = DescribeCacheSubnetGroups
-    { _dcsgpCacheSubnetGroupName = Nothing
-    , _dcsgpMaxRecords = Nothing
-    , _dcsgpMarker = Nothing
-    }
-{-# INLINE mkDescribeCacheSubnetGroupsMessage #-}
-
+-- | Represents the input of a DescribeCacheSubnetGroups operation.
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
-    { _dcsgpCacheSubnetGroupName :: Maybe Text
-      -- ^ The name of the cache subnet group to return details for.
-    , _dcsgpMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a marker is
-      -- included in the response so that the remaining results can be
-      -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dcsgpMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
+    { _dcsg3CacheSubnetGroupName :: Maybe Text
+    , _dcsg3MaxRecords :: Maybe Integer
+    , _dcsg3Marker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheSubnetGroups' request.
+mkDescribeCacheSubnetGroups :: DescribeCacheSubnetGroups
+mkDescribeCacheSubnetGroups = DescribeCacheSubnetGroups
+    { _dcsg3CacheSubnetGroupName = Nothing
+    , _dcsg3MaxRecords = Nothing
+    , _dcsg3Marker = Nothing
+    }
+{-# INLINE mkDescribeCacheSubnetGroups #-}
+
 -- | The name of the cache subnet group to return details for.
-dcsgpCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgpCacheSubnetGroupName = lens _dcsgpCacheSubnetGroupName (\s a -> s { _dcsgpCacheSubnetGroupName = a })
-{-# INLINE dcsgpCacheSubnetGroupName #-}
+dcsg3CacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
+dcsg3CacheSubnetGroupName =
+    lens _dcsg3CacheSubnetGroupName
+         (\s a -> s { _dcsg3CacheSubnetGroupName = a })
+{-# INLINE dcsg3CacheSubnetGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcsgpMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Integer)
-dcsgpMaxRecords = lens _dcsgpMaxRecords (\s a -> s { _dcsgpMaxRecords = a })
-{-# INLINE dcsgpMaxRecords #-}
+dcsg3MaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Integer)
+dcsg3MaxRecords = lens _dcsg3MaxRecords (\s a -> s { _dcsg3MaxRecords = a })
+{-# INLINE dcsg3MaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dcsgpMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgpMarker = lens _dcsgpMarker (\s a -> s { _dcsgpMarker = a })
-{-# INLINE dcsgpMarker #-}
+dcsg3Marker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
+dcsg3Marker = lens _dcsg3Marker (\s a -> s { _dcsg3Marker = a })
+{-# INLINE dcsg3Marker #-}
 
 instance ToQuery DescribeCacheSubnetGroups where
     toQuery = genericQuery def
 
+-- | Represents the output of a DescribeCacheSubnetGroups operation.
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
-    { _csgqMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
-    , _csgqCacheSubnetGroups :: [CacheSubnetGroup]
-      -- ^ A list of cache subnet groups. Each element in the list contains
-      -- detailed information about one group.
+    { _dcsgrsrsMarker :: Maybe Text
+    , _dcsgrsrsCacheSubnetGroups :: [CacheSubnetGroup]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-csgqMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
-csgqMarker = lens _csgqMarker (\s a -> s { _csgqMarker = a })
-{-# INLINE csgqMarker #-}
+dcsgrsrsMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
+dcsgrsrsMarker = lens _dcsgrsrsMarker (\s a -> s { _dcsgrsrsMarker = a })
+{-# INLINE dcsgrsrsMarker #-}
 
 -- | A list of cache subnet groups. Each element in the list contains detailed
 -- information about one group.
-csgqCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse ([CacheSubnetGroup])
-csgqCacheSubnetGroups = lens _csgqCacheSubnetGroups (\s a -> s { _csgqCacheSubnetGroups = a })
-{-# INLINE csgqCacheSubnetGroups #-}
+dcsgrsrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
+dcsgrsrsCacheSubnetGroups =
+    lens _dcsgrsrsCacheSubnetGroups
+         (\s a -> s { _dcsgrsrsCacheSubnetGroups = a })
+{-# INLINE dcsgrsrsCacheSubnetGroups #-}
 
 instance FromXML DescribeCacheSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -127,5 +121,5 @@ instance AWSRequest DescribeCacheSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheSubnetGroups where
-    next rq rs = (\x -> rq { _dcsgpMarker = Just x })
-        <$> (_csgqMarker rs)
+    next rq rs = (\x -> rq { _dcsg3Marker = Just x })
+        <$> (_dcsgrsrsMarker rs)

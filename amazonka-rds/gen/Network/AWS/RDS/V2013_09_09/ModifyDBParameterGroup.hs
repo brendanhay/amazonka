@@ -40,57 +40,47 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup
     -- * Request
       ModifyDBParameterGroup
     -- ** Request constructor
-    , mkModifyDBParameterGroupMessage
+    , mkModifyDBParameterGroup
     -- ** Request lenses
-    , mdbpgmDBParameterGroupName
-    , mdbpgmParameters
+    , mdbpgDBParameterGroupName
+    , mdbpgParameters
 
     -- * Response
     , ModifyDBParameterGroupResponse
     -- ** Response lenses
-    , dbpgnmDBParameterGroupName
+    , mdbpgrsDBParameterGroupName
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data ModifyDBParameterGroup = ModifyDBParameterGroup
+    { _mdbpgDBParameterGroupName :: Text
+    , _mdbpgParameters :: [Parameter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBParameterGroup' request.
-mkModifyDBParameterGroupMessage :: Text -- ^ 'mdbpgmDBParameterGroupName'
-                                -> [Parameter] -- ^ 'mdbpgmParameters'
-                                -> ModifyDBParameterGroup
-mkModifyDBParameterGroupMessage p1 p2 = ModifyDBParameterGroup
-    { _mdbpgmDBParameterGroupName = p1
-    , _mdbpgmParameters = p2
+mkModifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
+                         -> [Parameter] -- ^ 'mdbpgParameters'
+                         -> ModifyDBParameterGroup
+mkModifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
+    { _mdbpgDBParameterGroupName = p1
+    , _mdbpgParameters = p2
     }
-{-# INLINE mkModifyDBParameterGroupMessage #-}
-
-data ModifyDBParameterGroup = ModifyDBParameterGroup
-    { _mdbpgmDBParameterGroupName :: Text
-      -- ^ The name of the DB parameter group. Constraints: Must be the name
-      -- of an existing DB parameter group Must be 1 to 255 alphanumeric
-      -- characters First character must be a letter Cannot end with a
-      -- hyphen or contain two consecutive hyphens.
-    , _mdbpgmParameters :: [Parameter]
-      -- ^ An array of parameter names, values, and the apply method for the
-      -- parameter update. At least one parameter name, value, and apply
-      -- method must be supplied; subsequent arguments are optional. A
-      -- maximum of 20 parameters may be modified in a single request.
-      -- Valid Values (for the application method): immediate |
-      -- pending-reboot You can use the immediate value with dynamic
-      -- parameters only. You can use the pending-reboot value for both
-      -- dynamic and static parameters, and changes are applied when DB
-      -- instance reboots.
-    } deriving (Show, Generic)
+{-# INLINE mkModifyDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group Must be 1 to 255 alphanumeric characters First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-mdbpgmDBParameterGroupName :: Lens' ModifyDBParameterGroup (Text)
-mdbpgmDBParameterGroupName = lens _mdbpgmDBParameterGroupName (\s a -> s { _mdbpgmDBParameterGroupName = a })
-{-# INLINE mdbpgmDBParameterGroupName #-}
+mdbpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
+mdbpgDBParameterGroupName =
+    lens _mdbpgDBParameterGroupName
+         (\s a -> s { _mdbpgDBParameterGroupName = a })
+{-# INLINE mdbpgDBParameterGroupName #-}
 
 -- | An array of parameter names, values, and the apply method for the parameter
 -- update. At least one parameter name, value, and apply method must be
@@ -99,22 +89,25 @@ mdbpgmDBParameterGroupName = lens _mdbpgmDBParameterGroupName (\s a -> s { _mdbp
 -- immediate | pending-reboot You can use the immediate value with dynamic
 -- parameters only. You can use the pending-reboot value for both dynamic and
 -- static parameters, and changes are applied when DB instance reboots.
-mdbpgmParameters :: Lens' ModifyDBParameterGroup ([Parameter])
-mdbpgmParameters = lens _mdbpgmParameters (\s a -> s { _mdbpgmParameters = a })
-{-# INLINE mdbpgmParameters #-}
+mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
+mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a })
+{-# INLINE mdbpgParameters #-}
 
 instance ToQuery ModifyDBParameterGroup where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the
+-- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
-    { _dbpgnmDBParameterGroupName :: Maybe Text
-      -- ^ The name of the DB parameter group.
+    { _mdbpgrsDBParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the DB parameter group.
-dbpgnmDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
-dbpgnmDBParameterGroupName = lens _dbpgnmDBParameterGroupName (\s a -> s { _dbpgnmDBParameterGroupName = a })
-{-# INLINE dbpgnmDBParameterGroupName #-}
+mdbpgrsDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
+mdbpgrsDBParameterGroupName =
+    lens _mdbpgrsDBParameterGroupName
+         (\s a -> s { _mdbpgrsDBParameterGroupName = a })
+{-# INLINE mdbpgrsDBParameterGroupName #-}
 
 instance FromXML ModifyDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

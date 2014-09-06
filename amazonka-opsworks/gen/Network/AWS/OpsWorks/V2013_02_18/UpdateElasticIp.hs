@@ -27,10 +27,10 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp
     -- * Request
       UpdateElasticIp
     -- ** Request constructor
-    , mkUpdateElasticIpRequest
+    , mkUpdateElasticIp
     -- ** Request lenses
-    , ueirElasticIp
-    , ueirName
+    , ueiElasticIp
+    , ueiName
 
     -- * Response
     , UpdateElasticIpResponse
@@ -41,32 +41,30 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateElasticIp' request.
-mkUpdateElasticIpRequest :: Text -- ^ 'ueirElasticIp'
-                         -> UpdateElasticIp
-mkUpdateElasticIpRequest p1 = UpdateElasticIp
-    { _ueirElasticIp = p1
-    , _ueirName = Nothing
-    }
-{-# INLINE mkUpdateElasticIpRequest #-}
-
 data UpdateElasticIp = UpdateElasticIp
-    { _ueirElasticIp :: Text
-      -- ^ The address.
-    , _ueirName :: Maybe Text
-      -- ^ The new name.
+    { _ueiElasticIp :: Text
+    , _ueiName :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateElasticIp' request.
+mkUpdateElasticIp :: Text -- ^ 'ueiElasticIp'
+                  -> UpdateElasticIp
+mkUpdateElasticIp p1 = UpdateElasticIp
+    { _ueiElasticIp = p1
+    , _ueiName = Nothing
+    }
+{-# INLINE mkUpdateElasticIp #-}
+
 -- | The address.
-ueirElasticIp :: Lens' UpdateElasticIp (Text)
-ueirElasticIp = lens _ueirElasticIp (\s a -> s { _ueirElasticIp = a })
-{-# INLINE ueirElasticIp #-}
+ueiElasticIp :: Lens' UpdateElasticIp Text
+ueiElasticIp = lens _ueiElasticIp (\s a -> s { _ueiElasticIp = a })
+{-# INLINE ueiElasticIp #-}
 
 -- | The new name.
-ueirName :: Lens' UpdateElasticIp (Maybe Text)
-ueirName = lens _ueirName (\s a -> s { _ueirName = a })
-{-# INLINE ueirName #-}
+ueiName :: Lens' UpdateElasticIp (Maybe Text)
+ueiName = lens _ueiName (\s a -> s { _ueiName = a })
+{-# INLINE ueiName #-}
 
 instance ToPath UpdateElasticIp
 

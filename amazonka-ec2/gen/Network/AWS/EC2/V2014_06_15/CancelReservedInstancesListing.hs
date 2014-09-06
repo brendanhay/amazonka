@@ -34,51 +34,55 @@ module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing
     -- * Request
       CancelReservedInstancesListing
     -- ** Request constructor
-    , mkCancelReservedInstancesListingRequest
+    , mkCancelReservedInstancesListing
     -- ** Request lenses
-    , crilrReservedInstancesListingId
+    , crilReservedInstancesListingId
 
     -- * Response
     , CancelReservedInstancesListingResponse
     -- ** Response lenses
-    , crilsReservedInstancesListings
+    , crilrsReservedInstancesListings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelReservedInstancesListing' request.
-mkCancelReservedInstancesListingRequest :: Text -- ^ 'crilrReservedInstancesListingId'
-                                        -> CancelReservedInstancesListing
-mkCancelReservedInstancesListingRequest p1 = CancelReservedInstancesListing
-    { _crilrReservedInstancesListingId = p1
-    }
-{-# INLINE mkCancelReservedInstancesListingRequest #-}
-
+-- | 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
-    { _crilrReservedInstancesListingId :: Text
-      -- ^ The ID of the Reserved Instance listing.
+    { _crilReservedInstancesListingId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelReservedInstancesListing' request.
+mkCancelReservedInstancesListing :: Text -- ^ 'crilReservedInstancesListingId'
+                                 -> CancelReservedInstancesListing
+mkCancelReservedInstancesListing p1 = CancelReservedInstancesListing
+    { _crilReservedInstancesListingId = p1
+    }
+{-# INLINE mkCancelReservedInstancesListing #-}
+
 -- | The ID of the Reserved Instance listing.
-crilrReservedInstancesListingId :: Lens' CancelReservedInstancesListing (Text)
-crilrReservedInstancesListingId = lens _crilrReservedInstancesListingId (\s a -> s { _crilrReservedInstancesListingId = a })
-{-# INLINE crilrReservedInstancesListingId #-}
+crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
+crilReservedInstancesListingId =
+    lens _crilReservedInstancesListingId
+         (\s a -> s { _crilReservedInstancesListingId = a })
+{-# INLINE crilReservedInstancesListingId #-}
 
 instance ToQuery CancelReservedInstancesListing where
     toQuery = genericQuery def
 
+-- | 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
-    { _crilsReservedInstancesListings :: [ReservedInstancesListing]
-      -- ^ The Reserved Instance listing.
+    { _crilrsReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
 
 -- | The Reserved Instance listing.
-crilsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse ([ReservedInstancesListing])
-crilsReservedInstancesListings = lens _crilsReservedInstancesListings (\s a -> s { _crilsReservedInstancesListings = a })
-{-# INLINE crilsReservedInstancesListings #-}
+crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
+crilrsReservedInstancesListings =
+    lens _crilrsReservedInstancesListings
+         (\s a -> s { _crilrsReservedInstancesListings = a })
+{-# INLINE crilrsReservedInstancesListings #-}
 
 instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions

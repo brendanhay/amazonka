@@ -47,15 +47,15 @@ module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
     -- * Request
       ListVolumeRecoveryPoints
     -- ** Request constructor
-    , mkListVolumeRecoveryPointsInput
+    , mkListVolumeRecoveryPoints
     -- ** Request lenses
-    , lvrpiGatewayARN
+    , lvrpGatewayARN
 
     -- * Response
     , ListVolumeRecoveryPointsResponse
     -- ** Response lenses
-    , lvrpoGatewayARN
-    , lvrpoVolumeRecoveryPointInfos
+    , lvrprsGatewayARN
+    , lvrprsVolumeRecoveryPointInfos
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -63,27 +63,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
+    { _lvrpGatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVolumeRecoveryPoints' request.
-mkListVolumeRecoveryPointsInput :: Text -- ^ 'lvrpiGatewayARN'
-                                -> ListVolumeRecoveryPoints
-mkListVolumeRecoveryPointsInput p1 = ListVolumeRecoveryPoints
-    { _lvrpiGatewayARN = p1
+mkListVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
+                           -> ListVolumeRecoveryPoints
+mkListVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
+    { _lvrpGatewayARN = p1
     }
-{-# INLINE mkListVolumeRecoveryPointsInput #-}
-
-newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
-    { _lvrpiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkListVolumeRecoveryPoints #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lvrpiGatewayARN :: Lens' ListVolumeRecoveryPoints (Text)
-lvrpiGatewayARN = lens _lvrpiGatewayARN (\s a -> s { _lvrpiGatewayARN = a })
-{-# INLINE lvrpiGatewayARN #-}
+lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
+lvrpGatewayARN = lens _lvrpGatewayARN (\s a -> s { _lvrpGatewayARN = a })
+{-# INLINE lvrpGatewayARN #-}
 
 instance ToPath ListVolumeRecoveryPoints
 
@@ -94,22 +91,22 @@ instance ToHeaders ListVolumeRecoveryPoints
 instance ToJSON ListVolumeRecoveryPoints
 
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
-    { _lvrpoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _lvrpoVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
+    { _lvrprsGatewayARN :: Maybe Text
+    , _lvrprsVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lvrpoGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
-lvrpoGatewayARN = lens _lvrpoGatewayARN (\s a -> s { _lvrpoGatewayARN = a })
-{-# INLINE lvrpoGatewayARN #-}
+lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
+lvrprsGatewayARN =
+    lens _lvrprsGatewayARN (\s a -> s { _lvrprsGatewayARN = a })
+{-# INLINE lvrprsGatewayARN #-}
 
-lvrpoVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse ([VolumeRecoveryPointInfo])
-lvrpoVolumeRecoveryPointInfos = lens _lvrpoVolumeRecoveryPointInfos (\s a -> s { _lvrpoVolumeRecoveryPointInfos = a })
-{-# INLINE lvrpoVolumeRecoveryPointInfos #-}
+lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
+lvrprsVolumeRecoveryPointInfos =
+    lens _lvrprsVolumeRecoveryPointInfos
+         (\s a -> s { _lvrprsVolumeRecoveryPointInfos = a })
+{-# INLINE lvrprsVolumeRecoveryPointInfos #-}
 
 instance FromJSON ListVolumeRecoveryPointsResponse
 

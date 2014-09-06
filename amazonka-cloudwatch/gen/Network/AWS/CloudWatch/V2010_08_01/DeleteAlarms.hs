@@ -24,9 +24,9 @@ module Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
     -- * Request
       DeleteAlarms
     -- ** Request constructor
-    , mkDeleteAlarmsInput
+    , mkDeleteAlarms
     -- ** Request lenses
-    , daiAlarmNames
+    , daAlarmNames
 
     -- * Response
     , DeleteAlarmsResponse
@@ -36,24 +36,24 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAlarms' request.
-mkDeleteAlarmsInput :: [Text] -- ^ 'daiAlarmNames'
-                    -> DeleteAlarms
-mkDeleteAlarmsInput p1 = DeleteAlarms
-    { _daiAlarmNames = p1
-    }
-{-# INLINE mkDeleteAlarmsInput #-}
-
+-- | 
 newtype DeleteAlarms = DeleteAlarms
-    { _daiAlarmNames :: [Text]
-      -- ^ A list of alarms to be deleted.
+    { _daAlarmNames :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAlarms' request.
+mkDeleteAlarms :: [Text] -- ^ 'daAlarmNames'
+               -> DeleteAlarms
+mkDeleteAlarms p1 = DeleteAlarms
+    { _daAlarmNames = p1
+    }
+{-# INLINE mkDeleteAlarms #-}
+
 -- | A list of alarms to be deleted.
-daiAlarmNames :: Lens' DeleteAlarms ([Text])
-daiAlarmNames = lens _daiAlarmNames (\s a -> s { _daiAlarmNames = a })
-{-# INLINE daiAlarmNames #-}
+daAlarmNames :: Lens' DeleteAlarms [Text]
+daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a })
+{-# INLINE daAlarmNames #-}
 
 instance ToQuery DeleteAlarms where
     toQuery = genericQuery def

@@ -32,15 +32,15 @@ module Network.AWS.Support.V2013_04_15.DescribeServices
     -- * Request
       DescribeServices
     -- ** Request constructor
-    , mkDescribeServicesRequest
+    , mkDescribeServices
     -- ** Request lenses
-    , dsrServiceCodeList
-    , dsrLanguage
+    , dsServiceCodeList
+    , dsLanguage
 
     -- * Response
     , DescribeServicesResponse
     -- ** Response lenses
-    , dssServices
+    , dsrsServices
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -48,37 +48,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServices' request.
-mkDescribeServicesRequest :: DescribeServices
-mkDescribeServicesRequest = DescribeServices
-    { _dsrServiceCodeList = mempty
-    , _dsrLanguage = Nothing
-    }
-{-# INLINE mkDescribeServicesRequest #-}
-
+-- | 
 data DescribeServices = DescribeServices
-    { _dsrServiceCodeList :: [Text]
-      -- ^ A JSON-formatted list of service codes available for AWS
-      -- services.
-    , _dsrLanguage :: Maybe Text
-      -- ^ The ISO 639-1 code for the language in which AWS provides
-      -- support. AWS Support currently supports English ("en") and
-      -- Japanese ("ja"). Language parameters must be passed explicitly
-      -- for operations that take them.
+    { _dsServiceCodeList :: [Text]
+    , _dsLanguage :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeServices' request.
+mkDescribeServices :: DescribeServices
+mkDescribeServices = DescribeServices
+    { _dsServiceCodeList = mempty
+    , _dsLanguage = Nothing
+    }
+{-# INLINE mkDescribeServices #-}
+
 -- | A JSON-formatted list of service codes available for AWS services.
-dsrServiceCodeList :: Lens' DescribeServices ([Text])
-dsrServiceCodeList = lens _dsrServiceCodeList (\s a -> s { _dsrServiceCodeList = a })
-{-# INLINE dsrServiceCodeList #-}
+dsServiceCodeList :: Lens' DescribeServices [Text]
+dsServiceCodeList =
+    lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
+{-# INLINE dsServiceCodeList #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
-dsrLanguage :: Lens' DescribeServices (Maybe Text)
-dsrLanguage = lens _dsrLanguage (\s a -> s { _dsrLanguage = a })
-{-# INLINE dsrLanguage #-}
+dsLanguage :: Lens' DescribeServices (Maybe Text)
+dsLanguage = lens _dsLanguage (\s a -> s { _dsLanguage = a })
+{-# INLINE dsLanguage #-}
 
 instance ToPath DescribeServices
 
@@ -88,15 +84,15 @@ instance ToHeaders DescribeServices
 
 instance ToJSON DescribeServices
 
+-- | The list of AWS services returned by the DescribeServices operation.
 newtype DescribeServicesResponse = DescribeServicesResponse
-    { _dssServices :: [Service]
-      -- ^ A JSON-formatted list of AWS services.
+    { _dsrsServices :: [Service]
     } deriving (Show, Generic)
 
 -- | A JSON-formatted list of AWS services.
-dssServices :: Lens' DescribeServicesResponse ([Service])
-dssServices = lens _dssServices (\s a -> s { _dssServices = a })
-{-# INLINE dssServices #-}
+dsrsServices :: Lens' DescribeServicesResponse [Service]
+dsrsServices = lens _dsrsServices (\s a -> s { _dsrsServices = a })
+{-# INLINE dsrsServices #-}
 
 instance FromJSON DescribeServicesResponse
 

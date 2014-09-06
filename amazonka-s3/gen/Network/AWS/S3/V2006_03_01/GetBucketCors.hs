@@ -23,41 +23,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketCors
     -- * Request
       GetBucketCors
     -- ** Request constructor
-    , mkGetBucketCorsRequest
+    , mkGetBucketCors
     -- ** Request lenses
-    , gbcrBucket
+    , gbcBucket
 
     -- * Response
     , GetBucketCorsResponse
     -- ** Response lenses
-    , gbcoCORSRules
+    , gbcrsCORSRules
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketCors = GetBucketCors
+    { _gbcBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketCors' request.
-mkGetBucketCorsRequest :: BucketName -- ^ 'gbcrBucket'
-                       -> GetBucketCors
-mkGetBucketCorsRequest p1 = GetBucketCors
-    { _gbcrBucket = p1
+mkGetBucketCors :: BucketName -- ^ 'gbcBucket'
+                -> GetBucketCors
+mkGetBucketCors p1 = GetBucketCors
+    { _gbcBucket = p1
     }
-{-# INLINE mkGetBucketCorsRequest #-}
+{-# INLINE mkGetBucketCors #-}
 
-newtype GetBucketCors = GetBucketCors
-    { _gbcrBucket :: BucketName
-    } deriving (Show, Generic)
-
-gbcrBucket :: Lens' GetBucketCors (BucketName)
-gbcrBucket = lens _gbcrBucket (\s a -> s { _gbcrBucket = a })
-{-# INLINE gbcrBucket #-}
+gbcBucket :: Lens' GetBucketCors BucketName
+gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
+{-# INLINE gbcBucket #-}
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
         [ "/"
-        , toBS _gbcrBucket
+        , toBS _gbcBucket
         ]
 
 instance ToQuery GetBucketCors where
@@ -70,12 +71,12 @@ instance ToHeaders GetBucketCors
 instance ToBody GetBucketCors
 
 newtype GetBucketCorsResponse = GetBucketCorsResponse
-    { _gbcoCORSRules :: [CORSRule]
+    { _gbcrsCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
-gbcoCORSRules :: Lens' GetBucketCorsResponse ([CORSRule])
-gbcoCORSRules = lens _gbcoCORSRules (\s a -> s { _gbcoCORSRules = a })
-{-# INLINE gbcoCORSRules #-}
+gbcrsCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
+gbcrsCORSRules = lens _gbcrsCORSRules (\s a -> s { _gbcrsCORSRules = a })
+{-# INLINE gbcrsCORSRules #-}
 
 instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions

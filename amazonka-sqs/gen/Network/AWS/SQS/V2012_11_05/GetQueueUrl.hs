@@ -35,63 +35,62 @@ module Network.AWS.SQS.V2012_11_05.GetQueueUrl
     -- * Request
       GetQueueUrl
     -- ** Request constructor
-    , mkGetQueueUrlRequest
+    , mkGetQueueUrl
     -- ** Request lenses
-    , gqurQueueName
-    , gqurQueueOwnerAWSAccountId
+    , gquQueueName
+    , gquQueueOwnerAWSAccountId
 
     -- * Response
     , GetQueueUrlResponse
     -- ** Response lenses
-    , gqusQueueUrl
+    , gqursQueueUrl
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
+-- | 
+data GetQueueUrl = GetQueueUrl
+    { _gquQueueName :: Text
+    , _gquQueueOwnerAWSAccountId :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetQueueUrl' request.
-mkGetQueueUrlRequest :: Text -- ^ 'gqurQueueName'
-                     -> GetQueueUrl
-mkGetQueueUrlRequest p1 = GetQueueUrl
-    { _gqurQueueName = p1
-    , _gqurQueueOwnerAWSAccountId = Nothing
+mkGetQueueUrl :: Text -- ^ 'gquQueueName'
+              -> GetQueueUrl
+mkGetQueueUrl p1 = GetQueueUrl
+    { _gquQueueName = p1
+    , _gquQueueOwnerAWSAccountId = Nothing
     }
-{-# INLINE mkGetQueueUrlRequest #-}
-
-data GetQueueUrl = GetQueueUrl
-    { _gqurQueueName :: Text
-      -- ^ The name of the queue whose URL must be fetched. Maximum 80
-      -- characters; alphanumeric characters, hyphens (-), and underscores
-      -- (_) are allowed.
-    , _gqurQueueOwnerAWSAccountId :: Maybe Text
-      -- ^ The AWS account ID of the account that created the queue.
-    } deriving (Show, Generic)
+{-# INLINE mkGetQueueUrl #-}
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
-gqurQueueName :: Lens' GetQueueUrl (Text)
-gqurQueueName = lens _gqurQueueName (\s a -> s { _gqurQueueName = a })
-{-# INLINE gqurQueueName #-}
+gquQueueName :: Lens' GetQueueUrl Text
+gquQueueName = lens _gquQueueName (\s a -> s { _gquQueueName = a })
+{-# INLINE gquQueueName #-}
 
 -- | The AWS account ID of the account that created the queue.
-gqurQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
-gqurQueueOwnerAWSAccountId = lens _gqurQueueOwnerAWSAccountId (\s a -> s { _gqurQueueOwnerAWSAccountId = a })
-{-# INLINE gqurQueueOwnerAWSAccountId #-}
+gquQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
+gquQueueOwnerAWSAccountId =
+    lens _gquQueueOwnerAWSAccountId
+         (\s a -> s { _gquQueueOwnerAWSAccountId = a })
+{-# INLINE gquQueueOwnerAWSAccountId #-}
 
 instance ToQuery GetQueueUrl where
     toQuery = genericQuery def
 
+-- | For more information, see Responses in the Amazon SQS Developer Guide.
 newtype GetQueueUrlResponse = GetQueueUrlResponse
-    { _gqusQueueUrl :: Maybe Text
-      -- ^ The URL for the queue.
+    { _gqursQueueUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The URL for the queue.
-gqusQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
-gqusQueueUrl = lens _gqusQueueUrl (\s a -> s { _gqusQueueUrl = a })
-{-# INLINE gqusQueueUrl #-}
+gqursQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
+gqursQueueUrl = lens _gqursQueueUrl (\s a -> s { _gqursQueueUrl = a })
+{-# INLINE gqursQueueUrl #-}
 
 instance FromXML GetQueueUrlResponse where
     fromXMLOptions = xmlOptions

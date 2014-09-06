@@ -24,14 +24,14 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
     -- * Request
       DescribeConnections
     -- ** Request constructor
-    , mkDescribeConnectionsRequest
+    , mkDescribeConnections
     -- ** Request lenses
-    , dcsConnectionId
+    , dc1ConnectionId
 
     -- * Response
     , DescribeConnectionsResponse
     -- ** Response lenses
-    , mConnections
+    , dcrsrsConnections
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -39,23 +39,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeConnections' request.
-mkDescribeConnectionsRequest :: DescribeConnections
-mkDescribeConnectionsRequest = DescribeConnections
-    { _dcsConnectionId = Nothing
-    }
-{-# INLINE mkDescribeConnectionsRequest #-}
-
+-- | Container for the parameters to the DescribeConnections operation.
 newtype DescribeConnections = DescribeConnections
-    { _dcsConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
+    { _dc1ConnectionId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConnections' request.
+mkDescribeConnections :: DescribeConnections
+mkDescribeConnections = DescribeConnections
+    { _dc1ConnectionId = Nothing
+    }
+{-# INLINE mkDescribeConnections #-}
+
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dcsConnectionId :: Lens' DescribeConnections (Maybe Text)
-dcsConnectionId = lens _dcsConnectionId (\s a -> s { _dcsConnectionId = a })
-{-# INLINE dcsConnectionId #-}
+dc1ConnectionId :: Lens' DescribeConnections (Maybe Text)
+dc1ConnectionId = lens _dc1ConnectionId (\s a -> s { _dc1ConnectionId = a })
+{-# INLINE dc1ConnectionId #-}
 
 instance ToPath DescribeConnections
 
@@ -65,15 +65,16 @@ instance ToHeaders DescribeConnections
 
 instance ToJSON DescribeConnections
 
+-- | A structure containing a list of connections.
 newtype DescribeConnectionsResponse = DescribeConnectionsResponse
-    { _mConnections :: [Connection]
-      -- ^ A list of connections.
+    { _dcrsrsConnections :: [Connection]
     } deriving (Show, Generic)
 
 -- | A list of connections.
-mConnections :: Lens' DescribeConnectionsResponse ([Connection])
-mConnections = lens _mConnections (\s a -> s { _mConnections = a })
-{-# INLINE mConnections #-}
+dcrsrsConnections :: Lens' DescribeConnectionsResponse [Connection]
+dcrsrsConnections =
+    lens _dcrsrsConnections (\s a -> s { _dcrsrsConnections = a })
+{-# INLINE dcrsrsConnections #-}
 
 instance FromJSON DescribeConnectionsResponse
 

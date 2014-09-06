@@ -35,51 +35,51 @@ module Network.AWS.IAM.V2010_05_08.GetRole
     -- * Request
       GetRole
     -- ** Request constructor
-    , mkGetRoleRequest
+    , mkGetRole
     -- ** Request lenses
-    , grrRoleName
+    , grRoleName
 
     -- * Response
     , GetRoleResponse
     -- ** Response lenses
-    , grsRole
+    , grrsRole
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetRole' request.
-mkGetRoleRequest :: Text -- ^ 'grrRoleName'
-                 -> GetRole
-mkGetRoleRequest p1 = GetRole
-    { _grrRoleName = p1
-    }
-{-# INLINE mkGetRoleRequest #-}
-
+-- | 
 newtype GetRole = GetRole
-    { _grrRoleName :: Text
-      -- ^ Name of the role to get information about.
+    { _grRoleName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRole' request.
+mkGetRole :: Text -- ^ 'grRoleName'
+          -> GetRole
+mkGetRole p1 = GetRole
+    { _grRoleName = p1
+    }
+{-# INLINE mkGetRole #-}
+
 -- | Name of the role to get information about.
-grrRoleName :: Lens' GetRole (Text)
-grrRoleName = lens _grrRoleName (\s a -> s { _grrRoleName = a })
-{-# INLINE grrRoleName #-}
+grRoleName :: Lens' GetRole Text
+grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
+{-# INLINE grRoleName #-}
 
 instance ToQuery GetRole where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetRole action.
 newtype GetRoleResponse = GetRoleResponse
-    { _grsRole :: Role
-      -- ^ Information about the role.
+    { _grrsRole :: Role
     } deriving (Show, Generic)
 
 -- | Information about the role.
-grsRole :: Lens' GetRoleResponse (Role)
-grsRole = lens _grsRole (\s a -> s { _grsRole = a })
-{-# INLINE grsRole #-}
+grrsRole :: Lens' GetRoleResponse Role
+grrsRole = lens _grrsRole (\s a -> s { _grrsRole = a })
+{-# INLINE grrsRole #-}
 
 instance FromXML GetRoleResponse where
     fromXMLOptions = xmlOptions

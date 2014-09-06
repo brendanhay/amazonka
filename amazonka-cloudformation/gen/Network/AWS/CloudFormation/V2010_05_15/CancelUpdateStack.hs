@@ -30,9 +30,9 @@ module Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack
     -- * Request
       CancelUpdateStack
     -- ** Request constructor
-    , mkCancelUpdateStackInput
+    , mkCancelUpdateStack
     -- ** Request lenses
-    , cusiStackName
+    , cusStackName
 
     -- * Response
     , CancelUpdateStackResponse
@@ -42,24 +42,24 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelUpdateStack' request.
-mkCancelUpdateStackInput :: Text -- ^ 'cusiStackName'
-                         -> CancelUpdateStack
-mkCancelUpdateStackInput p1 = CancelUpdateStack
-    { _cusiStackName = p1
-    }
-{-# INLINE mkCancelUpdateStackInput #-}
-
+-- | The input for CancelUpdateStack action.
 newtype CancelUpdateStack = CancelUpdateStack
-    { _cusiStackName :: Text
-      -- ^ The name or the unique identifier associated with the stack.
+    { _cusStackName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelUpdateStack' request.
+mkCancelUpdateStack :: Text -- ^ 'cusStackName'
+                    -> CancelUpdateStack
+mkCancelUpdateStack p1 = CancelUpdateStack
+    { _cusStackName = p1
+    }
+{-# INLINE mkCancelUpdateStack #-}
+
 -- | The name or the unique identifier associated with the stack.
-cusiStackName :: Lens' CancelUpdateStack (Text)
-cusiStackName = lens _cusiStackName (\s a -> s { _cusiStackName = a })
-{-# INLINE cusiStackName #-}
+cusStackName :: Lens' CancelUpdateStack Text
+cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
+{-# INLINE cusStackName #-}
 
 instance ToQuery CancelUpdateStack where
     toQuery = genericQuery def

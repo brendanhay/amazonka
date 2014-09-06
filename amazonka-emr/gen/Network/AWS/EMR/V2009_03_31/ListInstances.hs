@@ -27,18 +27,18 @@ module Network.AWS.EMR.V2009_03_31.ListInstances
     -- * Request
       ListInstances
     -- ** Request constructor
-    , mkListInstancesInput
+    , mkListInstances
     -- ** Request lenses
-    , liiClusterId
-    , liiInstanceGroupId
-    , liiInstanceGroupTypes
-    , liiMarker
+    , liClusterId
+    , liInstanceGroupId
+    , liInstanceGroupTypes
+    , liMarker
 
     -- * Response
     , ListInstancesResponse
     -- ** Response lenses
-    , lioInstances
-    , lioMarker
+    , lirsInstances
+    , lirsMarker
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -46,50 +46,47 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListInstances' request.
-mkListInstancesInput :: Text -- ^ 'liiClusterId'
-                     -> ListInstances
-mkListInstancesInput p1 = ListInstances
-    { _liiClusterId = p1
-    , _liiInstanceGroupId = Nothing
-    , _liiInstanceGroupTypes = mempty
-    , _liiMarker = Nothing
-    }
-{-# INLINE mkListInstancesInput #-}
-
+-- | This input determines which instances to list.
 data ListInstances = ListInstances
-    { _liiClusterId :: Text
-      -- ^ The identifier of the cluster for which to list the instances.
-    , _liiInstanceGroupId :: Maybe Text
-      -- ^ The identifier of the instance group for which to list the
-      -- instances.
-    , _liiInstanceGroupTypes :: [InstanceGroupType]
-      -- ^ The type of instance group for which to list the instances.
-    , _liiMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _liClusterId :: Text
+    , _liInstanceGroupId :: Maybe Text
+    , _liInstanceGroupTypes :: [InstanceGroupType]
+    , _liMarker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstances' request.
+mkListInstances :: Text -- ^ 'liClusterId'
+                -> ListInstances
+mkListInstances p1 = ListInstances
+    { _liClusterId = p1
+    , _liInstanceGroupId = Nothing
+    , _liInstanceGroupTypes = mempty
+    , _liMarker = Nothing
+    }
+{-# INLINE mkListInstances #-}
+
 -- | The identifier of the cluster for which to list the instances.
-liiClusterId :: Lens' ListInstances (Text)
-liiClusterId = lens _liiClusterId (\s a -> s { _liiClusterId = a })
-{-# INLINE liiClusterId #-}
+liClusterId :: Lens' ListInstances Text
+liClusterId = lens _liClusterId (\s a -> s { _liClusterId = a })
+{-# INLINE liClusterId #-}
 
 -- | The identifier of the instance group for which to list the instances.
-liiInstanceGroupId :: Lens' ListInstances (Maybe Text)
-liiInstanceGroupId = lens _liiInstanceGroupId (\s a -> s { _liiInstanceGroupId = a })
-{-# INLINE liiInstanceGroupId #-}
+liInstanceGroupId :: Lens' ListInstances (Maybe Text)
+liInstanceGroupId =
+    lens _liInstanceGroupId (\s a -> s { _liInstanceGroupId = a })
+{-# INLINE liInstanceGroupId #-}
 
 -- | The type of instance group for which to list the instances.
-liiInstanceGroupTypes :: Lens' ListInstances ([InstanceGroupType])
-liiInstanceGroupTypes = lens _liiInstanceGroupTypes (\s a -> s { _liiInstanceGroupTypes = a })
-{-# INLINE liiInstanceGroupTypes #-}
+liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
+liInstanceGroupTypes =
+    lens _liInstanceGroupTypes (\s a -> s { _liInstanceGroupTypes = a })
+{-# INLINE liInstanceGroupTypes #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-liiMarker :: Lens' ListInstances (Maybe Text)
-liiMarker = lens _liiMarker (\s a -> s { _liiMarker = a })
-{-# INLINE liiMarker #-}
+liMarker :: Lens' ListInstances (Maybe Text)
+liMarker = lens _liMarker (\s a -> s { _liMarker = a })
+{-# INLINE liMarker #-}
 
 instance ToPath ListInstances
 
@@ -99,23 +96,21 @@ instance ToHeaders ListInstances
 
 instance ToJSON ListInstances
 
+-- | This output contains the list of instances.
 data ListInstancesResponse = ListInstancesResponse
-    { _lioInstances :: [Instance]
-      -- ^ The list of instances for the cluster and given filters.
-    , _lioMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _lirsInstances :: [Instance]
+    , _lirsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of instances for the cluster and given filters.
-lioInstances :: Lens' ListInstancesResponse ([Instance])
-lioInstances = lens _lioInstances (\s a -> s { _lioInstances = a })
-{-# INLINE lioInstances #-}
+lirsInstances :: Lens' ListInstancesResponse [Instance]
+lirsInstances = lens _lirsInstances (\s a -> s { _lirsInstances = a })
+{-# INLINE lirsInstances #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lioMarker :: Lens' ListInstancesResponse (Maybe Text)
-lioMarker = lens _lioMarker (\s a -> s { _lioMarker = a })
-{-# INLINE lioMarker #-}
+lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
+lirsMarker = lens _lirsMarker (\s a -> s { _lirsMarker = a })
+{-# INLINE lirsMarker #-}
 
 instance FromJSON ListInstancesResponse
 
@@ -127,5 +122,5 @@ instance AWSRequest ListInstances where
     response _ = jsonResponse
 
 instance AWSPager ListInstances where
-    next rq rs = (\x -> rq { _liiMarker = Just x })
-        <$> (_lioMarker rs)
+    next rq rs = (\x -> rq { _liMarker = Just x })
+        <$> (_lirsMarker rs)

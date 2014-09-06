@@ -35,9 +35,9 @@ module Network.AWS.SNS.V2010_03_31.DeleteEndpoint
     -- * Request
       DeleteEndpoint
     -- ** Request constructor
-    , mkDeleteEndpointInput
+    , mkDeleteEndpoint
     -- ** Request lenses
-    , deiEndpointArn
+    , deEndpointArn
 
     -- * Response
     , DeleteEndpointResponse
@@ -47,24 +47,24 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteEndpoint' request.
-mkDeleteEndpointInput :: Text -- ^ 'deiEndpointArn'
-                      -> DeleteEndpoint
-mkDeleteEndpointInput p1 = DeleteEndpoint
-    { _deiEndpointArn = p1
-    }
-{-# INLINE mkDeleteEndpointInput #-}
-
+-- | Input for DeleteEndpoint action.
 newtype DeleteEndpoint = DeleteEndpoint
-    { _deiEndpointArn :: Text
-      -- ^ EndpointArn of endpoint to delete.
+    { _deEndpointArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEndpoint' request.
+mkDeleteEndpoint :: Text -- ^ 'deEndpointArn'
+                 -> DeleteEndpoint
+mkDeleteEndpoint p1 = DeleteEndpoint
+    { _deEndpointArn = p1
+    }
+{-# INLINE mkDeleteEndpoint #-}
+
 -- | EndpointArn of endpoint to delete.
-deiEndpointArn :: Lens' DeleteEndpoint (Text)
-deiEndpointArn = lens _deiEndpointArn (\s a -> s { _deiEndpointArn = a })
-{-# INLINE deiEndpointArn #-}
+deEndpointArn :: Lens' DeleteEndpoint Text
+deEndpointArn = lens _deEndpointArn (\s a -> s { _deEndpointArn = a })
+{-# INLINE deEndpointArn #-}
 
 instance ToQuery DeleteEndpoint where
     toQuery = genericQuery def

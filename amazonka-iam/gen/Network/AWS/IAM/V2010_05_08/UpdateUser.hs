@@ -34,11 +34,11 @@ module Network.AWS.IAM.V2010_05_08.UpdateUser
     -- * Request
       UpdateUser
     -- ** Request constructor
-    , mkUpdateUserRequest
+    , mkUpdateUser
     -- ** Request lenses
-    , uuvUserName
-    , uuvNewPath
-    , uuvNewUserName
+    , uuUserName
+    , uuNewPath
+    , uuNewUserName
 
     -- * Response
     , UpdateUserResponse
@@ -48,46 +48,41 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+data UpdateUser = UpdateUser
+    { _uuUserName :: Text
+    , _uuNewPath :: Maybe Text
+    , _uuNewUserName :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUser' request.
-mkUpdateUserRequest :: Text -- ^ 'uuvUserName'
-                    -> UpdateUser
-mkUpdateUserRequest p1 = UpdateUser
-    { _uuvUserName = p1
-    , _uuvNewPath = Nothing
-    , _uuvNewUserName = Nothing
+mkUpdateUser :: Text -- ^ 'uuUserName'
+             -> UpdateUser
+mkUpdateUser p1 = UpdateUser
+    { _uuUserName = p1
+    , _uuNewPath = Nothing
+    , _uuNewUserName = Nothing
     }
-{-# INLINE mkUpdateUserRequest #-}
-
-data UpdateUser = UpdateUser
-    { _uuvUserName :: Text
-      -- ^ Name of the user to update. If you're changing the name of the
-      -- user, this is the original user name.
-    , _uuvNewPath :: Maybe Text
-      -- ^ New path for the user. Include this parameter only if you're
-      -- changing the user's path.
-    , _uuvNewUserName :: Maybe Text
-      -- ^ New name for the user. Include this parameter only if you're
-      -- changing the user's name.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateUser #-}
 
 -- | Name of the user to update. If you're changing the name of the user, this
 -- is the original user name.
-uuvUserName :: Lens' UpdateUser (Text)
-uuvUserName = lens _uuvUserName (\s a -> s { _uuvUserName = a })
-{-# INLINE uuvUserName #-}
+uuUserName :: Lens' UpdateUser Text
+uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
+{-# INLINE uuUserName #-}
 
 -- | New path for the user. Include this parameter only if you're changing the
 -- user's path.
-uuvNewPath :: Lens' UpdateUser (Maybe Text)
-uuvNewPath = lens _uuvNewPath (\s a -> s { _uuvNewPath = a })
-{-# INLINE uuvNewPath #-}
+uuNewPath :: Lens' UpdateUser (Maybe Text)
+uuNewPath = lens _uuNewPath (\s a -> s { _uuNewPath = a })
+{-# INLINE uuNewPath #-}
 
 -- | New name for the user. Include this parameter only if you're changing the
 -- user's name.
-uuvNewUserName :: Lens' UpdateUser (Maybe Text)
-uuvNewUserName = lens _uuvNewUserName (\s a -> s { _uuvNewUserName = a })
-{-# INLINE uuvNewUserName #-}
+uuNewUserName :: Lens' UpdateUser (Maybe Text)
+uuNewUserName = lens _uuNewUserName (\s a -> s { _uuNewUserName = a })
+{-# INLINE uuNewUserName #-}
 
 instance ToQuery UpdateUser where
     toQuery = genericQuery def

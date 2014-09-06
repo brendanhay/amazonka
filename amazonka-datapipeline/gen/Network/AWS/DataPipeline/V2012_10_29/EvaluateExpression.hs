@@ -34,16 +34,16 @@ module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
     -- * Request
       EvaluateExpression
     -- ** Request constructor
-    , mkEvaluateExpressionInput
+    , mkEvaluateExpression
     -- ** Request lenses
-    , eeiPipelineId
-    , eeiObjectId
-    , eeiExpression
+    , eePipelineId
+    , eeObjectId
+    , eeExpression
 
     -- * Response
     , EvaluateExpressionResponse
     -- ** Response lenses
-    , eeoEvaluatedExpression
+    , eersEvaluatedExpression
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -51,42 +51,40 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EvaluateExpression' request.
-mkEvaluateExpressionInput :: Text -- ^ 'eeiPipelineId'
-                          -> Text -- ^ 'eeiObjectId'
-                          -> Text -- ^ 'eeiExpression'
-                          -> EvaluateExpression
-mkEvaluateExpressionInput p1 p2 p3 = EvaluateExpression
-    { _eeiPipelineId = p1
-    , _eeiObjectId = p2
-    , _eeiExpression = p3
-    }
-{-# INLINE mkEvaluateExpressionInput #-}
-
+-- | The input for the EvaluateExpression action.
 data EvaluateExpression = EvaluateExpression
-    { _eeiPipelineId :: Text
-      -- ^ The identifier of the pipeline.
-    , _eeiObjectId :: Text
-      -- ^ The identifier of the object.
-    , _eeiExpression :: Text
-      -- ^ The expression to evaluate.
+    { _eePipelineId :: Text
+    , _eeObjectId :: Text
+    , _eeExpression :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EvaluateExpression' request.
+mkEvaluateExpression :: Text -- ^ 'eePipelineId'
+                     -> Text -- ^ 'eeObjectId'
+                     -> Text -- ^ 'eeExpression'
+                     -> EvaluateExpression
+mkEvaluateExpression p1 p2 p3 = EvaluateExpression
+    { _eePipelineId = p1
+    , _eeObjectId = p2
+    , _eeExpression = p3
+    }
+{-# INLINE mkEvaluateExpression #-}
+
 -- | The identifier of the pipeline.
-eeiPipelineId :: Lens' EvaluateExpression (Text)
-eeiPipelineId = lens _eeiPipelineId (\s a -> s { _eeiPipelineId = a })
-{-# INLINE eeiPipelineId #-}
+eePipelineId :: Lens' EvaluateExpression Text
+eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
+{-# INLINE eePipelineId #-}
 
 -- | The identifier of the object.
-eeiObjectId :: Lens' EvaluateExpression (Text)
-eeiObjectId = lens _eeiObjectId (\s a -> s { _eeiObjectId = a })
-{-# INLINE eeiObjectId #-}
+eeObjectId :: Lens' EvaluateExpression Text
+eeObjectId = lens _eeObjectId (\s a -> s { _eeObjectId = a })
+{-# INLINE eeObjectId #-}
 
 -- | The expression to evaluate.
-eeiExpression :: Lens' EvaluateExpression (Text)
-eeiExpression = lens _eeiExpression (\s a -> s { _eeiExpression = a })
-{-# INLINE eeiExpression #-}
+eeExpression :: Lens' EvaluateExpression Text
+eeExpression = lens _eeExpression (\s a -> s { _eeExpression = a })
+{-# INLINE eeExpression #-}
 
 instance ToPath EvaluateExpression
 
@@ -96,15 +94,17 @@ instance ToHeaders EvaluateExpression
 
 instance ToJSON EvaluateExpression
 
+-- | Contains the output from the EvaluateExpression action.
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
-    { _eeoEvaluatedExpression :: Text
-      -- ^ The evaluated expression.
+    { _eersEvaluatedExpression :: Text
     } deriving (Show, Generic)
 
 -- | The evaluated expression.
-eeoEvaluatedExpression :: Lens' EvaluateExpressionResponse (Text)
-eeoEvaluatedExpression = lens _eeoEvaluatedExpression (\s a -> s { _eeoEvaluatedExpression = a })
-{-# INLINE eeoEvaluatedExpression #-}
+eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
+eersEvaluatedExpression =
+    lens _eersEvaluatedExpression
+         (\s a -> s { _eersEvaluatedExpression = a })
+{-# INLINE eersEvaluatedExpression #-}
 
 instance FromJSON EvaluateExpressionResponse
 

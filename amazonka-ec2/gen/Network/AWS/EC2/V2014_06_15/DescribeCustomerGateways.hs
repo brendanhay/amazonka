@@ -44,59 +44,42 @@ module Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways
     -- * Request
       DescribeCustomerGateways
     -- ** Request constructor
-    , mkDescribeCustomerGatewaysRequest
+    , mkDescribeCustomerGateways
     -- ** Request lenses
-    , dcgsCustomerGatewayIds
-    , dcgsFilters
+    , dcg1CustomerGatewayIds
+    , dcg1Filters
 
     -- * Response
     , DescribeCustomerGatewaysResponse
     -- ** Response lenses
-    , dcgtCustomerGateways
+    , dcgrsCustomerGateways
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeCustomerGateways = DescribeCustomerGateways
+    { _dcg1CustomerGatewayIds :: [Text]
+    , _dcg1Filters :: [Filter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCustomerGateways' request.
-mkDescribeCustomerGatewaysRequest :: DescribeCustomerGateways
-mkDescribeCustomerGatewaysRequest = DescribeCustomerGateways
-    { _dcgsCustomerGatewayIds = mempty
-    , _dcgsFilters = mempty
+mkDescribeCustomerGateways :: DescribeCustomerGateways
+mkDescribeCustomerGateways = DescribeCustomerGateways
+    { _dcg1CustomerGatewayIds = mempty
+    , _dcg1Filters = mempty
     }
-{-# INLINE mkDescribeCustomerGatewaysRequest #-}
-
-data DescribeCustomerGateways = DescribeCustomerGateways
-    { _dcgsCustomerGatewayIds :: [Text]
-      -- ^ One or more customer gateway IDs. Default: Describes all your
-      -- customer gateways.
-    , _dcgsFilters :: [Filter]
-      -- ^ One or more filters. bgp-asn - The customer gateway's Border
-      -- Gateway Protocol (BGP) Autonomous System Number (ASN).
-      -- customer-gateway-id - The ID of the customer gateway. ip-address
-      -- - The IP address of the customer gateway's Internet-routable
-      -- external interface. state - The state of the customer gateway
-      -- (pending | available | deleting | deleted). type - The type of
-      -- customer gateway. Currently, the only supported type is ipsec.1.
-      -- tag:key=value - The key/value combination of a tag assigned to
-      -- the resource. tag-key - The key of a tag assigned to the
-      -- resource. This filter is independent of the tag-value filter. For
-      -- example, if you use both the filter "tag-key=Purpose" and the
-      -- filter "tag-value=X", you get any resources assigned both the tag
-      -- key Purpose (regardless of what the tag's value is), and the tag
-      -- value X (regardless of what the tag's key is). If you want to
-      -- list only resources where Purpose is X, see the tag:key=value
-      -- filter. tag-value - The value of a tag assigned to the resource.
-      -- This filter is independent of the tag-key filter.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeCustomerGateways #-}
 
 -- | One or more customer gateway IDs. Default: Describes all your customer
 -- gateways.
-dcgsCustomerGatewayIds :: Lens' DescribeCustomerGateways ([Text])
-dcgsCustomerGatewayIds = lens _dcgsCustomerGatewayIds (\s a -> s { _dcgsCustomerGatewayIds = a })
-{-# INLINE dcgsCustomerGatewayIds #-}
+dcg1CustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
+dcg1CustomerGatewayIds =
+    lens _dcg1CustomerGatewayIds (\s a -> s { _dcg1CustomerGatewayIds = a })
+{-# INLINE dcg1CustomerGatewayIds #-}
 
 -- | One or more filters. bgp-asn - The customer gateway's Border Gateway
 -- Protocol (BGP) Autonomous System Number (ASN). customer-gateway-id - The ID
@@ -113,22 +96,23 @@ dcgsCustomerGatewayIds = lens _dcgsCustomerGatewayIds (\s a -> s { _dcgsCustomer
 -- you want to list only resources where Purpose is X, see the tag:key=value
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter.
-dcgsFilters :: Lens' DescribeCustomerGateways ([Filter])
-dcgsFilters = lens _dcgsFilters (\s a -> s { _dcgsFilters = a })
-{-# INLINE dcgsFilters #-}
+dcg1Filters :: Lens' DescribeCustomerGateways [Filter]
+dcg1Filters = lens _dcg1Filters (\s a -> s { _dcg1Filters = a })
+{-# INLINE dcg1Filters #-}
 
 instance ToQuery DescribeCustomerGateways where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgtCustomerGateways :: [CustomerGateway]
-      -- ^ Information about one or more customer gateways.
+    { _dcgrsCustomerGateways :: [CustomerGateway]
     } deriving (Show, Generic)
 
 -- | Information about one or more customer gateways.
-dcgtCustomerGateways :: Lens' DescribeCustomerGatewaysResponse ([CustomerGateway])
-dcgtCustomerGateways = lens _dcgtCustomerGateways (\s a -> s { _dcgtCustomerGateways = a })
-{-# INLINE dcgtCustomerGateways #-}
+dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgrsCustomerGateways =
+    lens _dcgrsCustomerGateways (\s a -> s { _dcgrsCustomerGateways = a })
+{-# INLINE dcgrsCustomerGateways #-}
 
 instance FromXML DescribeCustomerGatewaysResponse where
     fromXMLOptions = xmlOptions

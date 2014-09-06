@@ -88,112 +88,88 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancer
     -- * Request
       CreateLoadBalancer
     -- ** Request constructor
-    , mkCreateAccessPointInput
+    , mkCreateLoadBalancer
     -- ** Request lenses
-    , capiLoadBalancerName
-    , capiListeners
-    , capiAvailabilityZones
-    , capiSubnets
-    , capiSecurityGroups
-    , capiScheme
-    , capiTags
+    , clbLoadBalancerName
+    , clbListeners
+    , clbAvailabilityZones
+    , clbSubnets
+    , clbSecurityGroups
+    , clbScheme
+    , clbTags
 
     -- * Response
     , CreateLoadBalancerResponse
     -- ** Response lenses
-    , capoDNSName
+    , clbrsDNSName
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | The input for the CreateLoadBalancer action.
+data CreateLoadBalancer = CreateLoadBalancer
+    { _clbLoadBalancerName :: Text
+    , _clbListeners :: [Listener]
+    , _clbAvailabilityZones :: [Text]
+    , _clbSubnets :: [Text]
+    , _clbSecurityGroups :: [Text]
+    , _clbScheme :: Maybe Text
+    , _clbTags :: Maybe [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancer' request.
-mkCreateAccessPointInput :: Text -- ^ 'capiLoadBalancerName'
-                         -> [Listener] -- ^ 'capiListeners'
-                         -> CreateLoadBalancer
-mkCreateAccessPointInput p1 p2 = CreateLoadBalancer
-    { _capiLoadBalancerName = p1
-    , _capiListeners = p2
-    , _capiAvailabilityZones = mempty
-    , _capiSubnets = mempty
-    , _capiSecurityGroups = mempty
-    , _capiScheme = Nothing
-    , _capiTags = Nothing
+mkCreateLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
+                     -> [Listener] -- ^ 'clbListeners'
+                     -> CreateLoadBalancer
+mkCreateLoadBalancer p1 p2 = CreateLoadBalancer
+    { _clbLoadBalancerName = p1
+    , _clbListeners = p2
+    , _clbAvailabilityZones = mempty
+    , _clbSubnets = mempty
+    , _clbSecurityGroups = mempty
+    , _clbScheme = Nothing
+    , _clbTags = Nothing
     }
-{-# INLINE mkCreateAccessPointInput #-}
-
-data CreateLoadBalancer = CreateLoadBalancer
-    { _capiLoadBalancerName :: Text
-      -- ^ The name associated with the load balancer. The name must be
-      -- unique within your set of load balancers, must have a maximum of
-      -- 32 characters, and must only contain alphanumeric characters or
-      -- hyphens.
-    , _capiListeners :: [Listener]
-      -- ^ A list of the following tuples: Protocol, LoadBalancerPort,
-      -- InstanceProtocol, InstancePort, and SSLCertificateId.
-    , _capiAvailabilityZones :: [Text]
-      -- ^ A list of Availability Zones. At least one Availability Zone must
-      -- be specified. Specified Availability Zones must be in the same
-      -- EC2 Region as the load balancer. Traffic will be equally
-      -- distributed across all zones. You can later add more Availability
-      -- Zones after the creation of the load balancer by calling
-      -- EnableAvailabilityZonesForLoadBalancer action.
-    , _capiSubnets :: [Text]
-      -- ^ A list of subnet IDs in your VPC to attach to your load balancer.
-      -- Specify one subnet per Availability Zone.
-    , _capiSecurityGroups :: [Text]
-      -- ^ The security groups to assign to your load balancer within your
-      -- VPC.
-    , _capiScheme :: Maybe Text
-      -- ^ The type of a load balancer. By default, Elastic Load Balancing
-      -- creates an Internet-facing load balancer with a publicly
-      -- resolvable DNS name, which resolves to public IP addresses. For
-      -- more information about Internet-facing and Internal load
-      -- balancers, see Internet-facing and Internal Load Balancers.
-      -- Specify the value internal for this option to create an internal
-      -- load balancer with a DNS name that resolves to private IP
-      -- addresses. This option is only available for load balancers
-      -- created within EC2-VPC.
-    , _capiTags :: Maybe [Tag]
-      -- ^ A list of tags to assign to the load balancer. For more
-      -- information about setting tags for your load balancer, see
-      -- Tagging.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateLoadBalancer #-}
 
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers, must have a maximum of 32 characters, and must
 -- only contain alphanumeric characters or hyphens.
-capiLoadBalancerName :: Lens' CreateLoadBalancer (Text)
-capiLoadBalancerName = lens _capiLoadBalancerName (\s a -> s { _capiLoadBalancerName = a })
-{-# INLINE capiLoadBalancerName #-}
+clbLoadBalancerName :: Lens' CreateLoadBalancer Text
+clbLoadBalancerName =
+    lens _clbLoadBalancerName (\s a -> s { _clbLoadBalancerName = a })
+{-# INLINE clbLoadBalancerName #-}
 
 -- | A list of the following tuples: Protocol, LoadBalancerPort,
 -- InstanceProtocol, InstancePort, and SSLCertificateId.
-capiListeners :: Lens' CreateLoadBalancer ([Listener])
-capiListeners = lens _capiListeners (\s a -> s { _capiListeners = a })
-{-# INLINE capiListeners #-}
+clbListeners :: Lens' CreateLoadBalancer [Listener]
+clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a })
+{-# INLINE clbListeners #-}
 
 -- | A list of Availability Zones. At least one Availability Zone must be
 -- specified. Specified Availability Zones must be in the same EC2 Region as
 -- the load balancer. Traffic will be equally distributed across all zones.
 -- You can later add more Availability Zones after the creation of the load
 -- balancer by calling EnableAvailabilityZonesForLoadBalancer action.
-capiAvailabilityZones :: Lens' CreateLoadBalancer ([Text])
-capiAvailabilityZones = lens _capiAvailabilityZones (\s a -> s { _capiAvailabilityZones = a })
-{-# INLINE capiAvailabilityZones #-}
+clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
+clbAvailabilityZones =
+    lens _clbAvailabilityZones (\s a -> s { _clbAvailabilityZones = a })
+{-# INLINE clbAvailabilityZones #-}
 
 -- | A list of subnet IDs in your VPC to attach to your load balancer. Specify
 -- one subnet per Availability Zone.
-capiSubnets :: Lens' CreateLoadBalancer ([Text])
-capiSubnets = lens _capiSubnets (\s a -> s { _capiSubnets = a })
-{-# INLINE capiSubnets #-}
+clbSubnets :: Lens' CreateLoadBalancer [Text]
+clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a })
+{-# INLINE clbSubnets #-}
 
 -- | The security groups to assign to your load balancer within your VPC.
-capiSecurityGroups :: Lens' CreateLoadBalancer ([Text])
-capiSecurityGroups = lens _capiSecurityGroups (\s a -> s { _capiSecurityGroups = a })
-{-# INLINE capiSecurityGroups #-}
+clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
+clbSecurityGroups =
+    lens _clbSecurityGroups (\s a -> s { _clbSecurityGroups = a })
+{-# INLINE clbSecurityGroups #-}
 
 -- | The type of a load balancer. By default, Elastic Load Balancing creates an
 -- Internet-facing load balancer with a publicly resolvable DNS name, which
@@ -202,28 +178,28 @@ capiSecurityGroups = lens _capiSecurityGroups (\s a -> s { _capiSecurityGroups =
 -- Balancers. Specify the value internal for this option to create an internal
 -- load balancer with a DNS name that resolves to private IP addresses. This
 -- option is only available for load balancers created within EC2-VPC.
-capiScheme :: Lens' CreateLoadBalancer (Maybe Text)
-capiScheme = lens _capiScheme (\s a -> s { _capiScheme = a })
-{-# INLINE capiScheme #-}
+clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
+clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
+{-# INLINE clbScheme #-}
 
 -- | A list of tags to assign to the load balancer. For more information about
 -- setting tags for your load balancer, see Tagging.
-capiTags :: Lens' CreateLoadBalancer (Maybe [Tag])
-capiTags = lens _capiTags (\s a -> s { _capiTags = a })
-{-# INLINE capiTags #-}
+clbTags :: Lens' CreateLoadBalancer (Maybe [Tag])
+clbTags = lens _clbTags (\s a -> s { _clbTags = a })
+{-# INLINE clbTags #-}
 
 instance ToQuery CreateLoadBalancer where
     toQuery = genericQuery def
 
+-- | The output for the CreateLoadBalancer action.
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
-    { _capoDNSName :: Maybe Text
-      -- ^ The DNS name for the load balancer.
+    { _clbrsDNSName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The DNS name for the load balancer.
-capoDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
-capoDNSName = lens _capoDNSName (\s a -> s { _capoDNSName = a })
-{-# INLINE capoDNSName #-}
+clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
+clbrsDNSName = lens _clbrsDNSName (\s a -> s { _clbrsDNSName = a })
+{-# INLINE clbrsDNSName #-}
 
 instance FromXML CreateLoadBalancerResponse where
     fromXMLOptions = xmlOptions

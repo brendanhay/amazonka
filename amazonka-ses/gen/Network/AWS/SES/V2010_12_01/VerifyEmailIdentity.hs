@@ -33,9 +33,9 @@ module Network.AWS.SES.V2010_12_01.VerifyEmailIdentity
     -- * Request
       VerifyEmailIdentity
     -- ** Request constructor
-    , mkVerifyEmailIdentityRequest
+    , mkVerifyEmailIdentity
     -- ** Request lenses
-    , veirEmailAddress
+    , veiEmailAddress
 
     -- * Response
     , VerifyEmailIdentityResponse
@@ -45,28 +45,31 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'VerifyEmailIdentity' request.
-mkVerifyEmailIdentityRequest :: Text -- ^ 'veirEmailAddress'
-                             -> VerifyEmailIdentity
-mkVerifyEmailIdentityRequest p1 = VerifyEmailIdentity
-    { _veirEmailAddress = p1
-    }
-{-# INLINE mkVerifyEmailIdentityRequest #-}
-
+-- | Represents a request instructing the service to begin email address
+-- verification.
 newtype VerifyEmailIdentity = VerifyEmailIdentity
-    { _veirEmailAddress :: Text
-      -- ^ The email address to be verified.
+    { _veiEmailAddress :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyEmailIdentity' request.
+mkVerifyEmailIdentity :: Text -- ^ 'veiEmailAddress'
+                      -> VerifyEmailIdentity
+mkVerifyEmailIdentity p1 = VerifyEmailIdentity
+    { _veiEmailAddress = p1
+    }
+{-# INLINE mkVerifyEmailIdentity #-}
+
 -- | The email address to be verified.
-veirEmailAddress :: Lens' VerifyEmailIdentity (Text)
-veirEmailAddress = lens _veirEmailAddress (\s a -> s { _veirEmailAddress = a })
-{-# INLINE veirEmailAddress #-}
+veiEmailAddress :: Lens' VerifyEmailIdentity Text
+veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
+{-# INLINE veiEmailAddress #-}
 
 instance ToQuery VerifyEmailIdentity where
     toQuery = genericQuery def
 
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest VerifyEmailIdentity where

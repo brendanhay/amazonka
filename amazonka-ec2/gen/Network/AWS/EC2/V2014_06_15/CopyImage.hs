@@ -36,93 +36,86 @@ module Network.AWS.EC2.V2014_06_15.CopyImage
     -- * Request
       CopyImage
     -- ** Request constructor
-    , mkCopyImageRequest
+    , mkCopyImage
     -- ** Request lenses
-    , cirSourceRegion
-    , cirSourceImageId
-    , cirName
-    , cirDescription
-    , cirClientToken
+    , ciSourceRegion
+    , ciSourceImageId
+    , ciName
+    , ciDescription
+    , ciClientToken
 
     -- * Response
     , CopyImageResponse
     -- ** Response lenses
-    , cisImageId
+    , cirsImageId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CopyImage' request.
-mkCopyImageRequest :: Text -- ^ 'cirSourceRegion'
-                   -> Text -- ^ 'cirSourceImageId'
-                   -> CopyImage
-mkCopyImageRequest p1 p2 = CopyImage
-    { _cirSourceRegion = p1
-    , _cirSourceImageId = p2
-    , _cirName = Nothing
-    , _cirDescription = Nothing
-    , _cirClientToken = Nothing
-    }
-{-# INLINE mkCopyImageRequest #-}
-
+-- | 
 data CopyImage = CopyImage
-    { _cirSourceRegion :: Text
-      -- ^ The name of the region that contains the AMI to copy.
-    , _cirSourceImageId :: Text
-      -- ^ The ID of the AMI to copy.
-    , _cirName :: Maybe Text
-      -- ^ The name of the new AMI in the destination region.
-    , _cirDescription :: Maybe Text
-      -- ^ A description for the new AMI in the destination region.
-    , _cirClientToken :: Maybe Text
-      -- ^ Unique, case-sensitive identifier you provide to ensure
-      -- idempotency of the request. For more information, see How to
-      -- Ensure Idempotency in the Amazon Elastic Compute Cloud User
-      -- Guide.
+    { _ciSourceRegion :: Text
+    , _ciSourceImageId :: Text
+    , _ciName :: Maybe Text
+    , _ciDescription :: Maybe Text
+    , _ciClientToken :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopyImage' request.
+mkCopyImage :: Text -- ^ 'ciSourceRegion'
+            -> Text -- ^ 'ciSourceImageId'
+            -> CopyImage
+mkCopyImage p1 p2 = CopyImage
+    { _ciSourceRegion = p1
+    , _ciSourceImageId = p2
+    , _ciName = Nothing
+    , _ciDescription = Nothing
+    , _ciClientToken = Nothing
+    }
+{-# INLINE mkCopyImage #-}
+
 -- | The name of the region that contains the AMI to copy.
-cirSourceRegion :: Lens' CopyImage (Text)
-cirSourceRegion = lens _cirSourceRegion (\s a -> s { _cirSourceRegion = a })
-{-# INLINE cirSourceRegion #-}
+ciSourceRegion :: Lens' CopyImage Text
+ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
+{-# INLINE ciSourceRegion #-}
 
 -- | The ID of the AMI to copy.
-cirSourceImageId :: Lens' CopyImage (Text)
-cirSourceImageId = lens _cirSourceImageId (\s a -> s { _cirSourceImageId = a })
-{-# INLINE cirSourceImageId #-}
+ciSourceImageId :: Lens' CopyImage Text
+ciSourceImageId = lens _ciSourceImageId (\s a -> s { _ciSourceImageId = a })
+{-# INLINE ciSourceImageId #-}
 
 -- | The name of the new AMI in the destination region.
-cirName :: Lens' CopyImage (Maybe Text)
-cirName = lens _cirName (\s a -> s { _cirName = a })
-{-# INLINE cirName #-}
+ciName :: Lens' CopyImage (Maybe Text)
+ciName = lens _ciName (\s a -> s { _ciName = a })
+{-# INLINE ciName #-}
 
 -- | A description for the new AMI in the destination region.
-cirDescription :: Lens' CopyImage (Maybe Text)
-cirDescription = lens _cirDescription (\s a -> s { _cirDescription = a })
-{-# INLINE cirDescription #-}
+ciDescription :: Lens' CopyImage (Maybe Text)
+ciDescription = lens _ciDescription (\s a -> s { _ciDescription = a })
+{-# INLINE ciDescription #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the
 -- request. For more information, see How to Ensure Idempotency in the Amazon
 -- Elastic Compute Cloud User Guide.
-cirClientToken :: Lens' CopyImage (Maybe Text)
-cirClientToken = lens _cirClientToken (\s a -> s { _cirClientToken = a })
-{-# INLINE cirClientToken #-}
+ciClientToken :: Lens' CopyImage (Maybe Text)
+ciClientToken = lens _ciClientToken (\s a -> s { _ciClientToken = a })
+{-# INLINE ciClientToken #-}
 
 instance ToQuery CopyImage where
     toQuery = genericQuery def
 
+-- | 
 newtype CopyImageResponse = CopyImageResponse
-    { _cisImageId :: Maybe Text
-      -- ^ The ID of the new AMI.
+    { _cirsImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new AMI.
-cisImageId :: Lens' CopyImageResponse (Maybe Text)
-cisImageId = lens _cisImageId (\s a -> s { _cisImageId = a })
-{-# INLINE cisImageId #-}
+cirsImageId :: Lens' CopyImageResponse (Maybe Text)
+cirsImageId = lens _cirsImageId (\s a -> s { _cirsImageId = a })
+{-# INLINE cirsImageId #-}
 
 instance FromXML CopyImageResponse where
     fromXMLOptions = xmlOptions

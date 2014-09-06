@@ -36,84 +36,76 @@ module Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParameters
     -- ** Request constructor
-    , mkDescribeEngineDefaultParametersMessage
+    , mkDescribeEngineDefaultParameters
     -- ** Request lenses
-    , dedpmDBParameterGroupFamily
-    , dedpmMaxRecords
-    , dedpmMarker
+    , dedpDBParameterGroupFamily
+    , dedpMaxRecords
+    , dedpMarker
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
     -- ** Response lenses
-    , edwEngineDefaults
+    , dedprsEngineDefaults
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeEngineDefaultParameters' request.
-mkDescribeEngineDefaultParametersMessage :: Text -- ^ 'dedpmDBParameterGroupFamily'
-                                         -> DescribeEngineDefaultParameters
-mkDescribeEngineDefaultParametersMessage p1 = DescribeEngineDefaultParameters
-    { _dedpmDBParameterGroupFamily = p1
-    , _dedpmMaxRecords = Nothing
-    , _dedpmMarker = Nothing
-    }
-{-# INLINE mkDescribeEngineDefaultParametersMessage #-}
-
+-- | 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
-    { _dedpmDBParameterGroupFamily :: Text
-      -- ^ The name of the DB parameter group family.
-    , _dedpmMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a pagination
-      -- token called a marker is included in the response so that the
-      -- remaining results may be retrieved. Default: 100 Constraints:
-      -- minimum 20, maximum 100.
-    , _dedpmMarker :: Maybe Text
-      -- ^ An optional pagination token provided by a previous
-      -- DescribeEngineDefaultParameters request. If this parameter is
-      -- specified, the response includes only records beyond the marker,
-      -- up to the value specified by MaxRecords.
+    { _dedpDBParameterGroupFamily :: Text
+    , _dedpMaxRecords :: Maybe Integer
+    , _dedpMarker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEngineDefaultParameters' request.
+mkDescribeEngineDefaultParameters :: Text -- ^ 'dedpDBParameterGroupFamily'
+                                  -> DescribeEngineDefaultParameters
+mkDescribeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
+    { _dedpDBParameterGroupFamily = p1
+    , _dedpMaxRecords = Nothing
+    , _dedpMarker = Nothing
+    }
+{-# INLINE mkDescribeEngineDefaultParameters #-}
+
 -- | The name of the DB parameter group family.
-dedpmDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters (Text)
-dedpmDBParameterGroupFamily = lens _dedpmDBParameterGroupFamily (\s a -> s { _dedpmDBParameterGroupFamily = a })
-{-# INLINE dedpmDBParameterGroupFamily #-}
+dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedpDBParameterGroupFamily =
+    lens _dedpDBParameterGroupFamily
+         (\s a -> s { _dedpDBParameterGroupFamily = a })
+{-# INLINE dedpDBParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dedpmMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
-dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
-{-# INLINE dedpmMaxRecords #-}
+dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
+dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
+{-# INLINE dedpMaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeEngineDefaultParameters request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dedpmMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
-{-# INLINE dedpmMarker #-}
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
+{-# INLINE dedpMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _edwEngineDefaults :: Maybe EngineDefaults
-      -- ^ Contains the result of a successful invocation of the
-      -- DescribeEngineDefaultParameters action.
+    { _dedprsEngineDefaults :: Maybe EngineDefaults
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the
 -- DescribeEngineDefaultParameters action.
-edwEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
-edwEngineDefaults = lens _edwEngineDefaults (\s a -> s { _edwEngineDefaults = a })
-{-# INLINE edwEngineDefaults #-}
+dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
+dedprsEngineDefaults =
+    lens _dedprsEngineDefaults (\s a -> s { _dedprsEngineDefaults = a })
+{-# INLINE dedprsEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
@@ -126,5 +118,5 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq { _dedpmMarker = Just x })
-        <$> (_edMarker $ _edwEngineDefaults rs)
+    next rq rs = (\x -> rq { _dedpMarker = Just x })
+        <$> (_edMarker $ _dedprsEngineDefaults rs)

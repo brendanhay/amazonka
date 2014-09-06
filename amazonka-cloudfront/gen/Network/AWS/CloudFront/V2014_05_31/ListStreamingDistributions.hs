@@ -23,65 +23,59 @@ module Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions
     -- * Request
       ListStreamingDistributions
     -- ** Request constructor
-    , mkListStreamingDistributionsRequest
+    , mkListStreamingDistributions
     -- ** Request lenses
-    , lsdrMarker
-    , lsdrMaxItems
+    , lsdMarker
+    , lsdMaxItems
 
     -- * Response
     , ListStreamingDistributionsResponse
     -- ** Response lenses
-    , lsdsStreamingDistributionList
+    , lsdrsStreamingDistributionList
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to list your streaming distributions.
+data ListStreamingDistributions = ListStreamingDistributions
+    { _lsdMarker :: Maybe Text
+    , _lsdMaxItems :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStreamingDistributions' request.
-mkListStreamingDistributionsRequest :: ListStreamingDistributions
-mkListStreamingDistributionsRequest = ListStreamingDistributions
-    { _lsdrMarker = Nothing
-    , _lsdrMaxItems = Nothing
+mkListStreamingDistributions :: ListStreamingDistributions
+mkListStreamingDistributions = ListStreamingDistributions
+    { _lsdMarker = Nothing
+    , _lsdMaxItems = Nothing
     }
-{-# INLINE mkListStreamingDistributionsRequest #-}
-
-data ListStreamingDistributions = ListStreamingDistributions
-    { _lsdrMarker :: Maybe Text
-      -- ^ Use this when paginating results to indicate where to begin in
-      -- your list of streaming distributions. The results include
-      -- distributions in the list that occur after the marker. To get the
-      -- next page of results, set the Marker to the value of the
-      -- NextMarker from the current page's response (which is also the ID
-      -- of the last distribution on that page).
-    , _lsdrMaxItems :: Maybe Text
-      -- ^ The maximum number of streaming distributions you want in the
-      -- response body.
-    } deriving (Show, Generic)
+{-# INLINE mkListStreamingDistributions #-}
 
 -- | Use this when paginating results to indicate where to begin in your list of
 -- streaming distributions. The results include distributions in the list that
 -- occur after the marker. To get the next page of results, set the Marker to
 -- the value of the NextMarker from the current page's response (which is also
 -- the ID of the last distribution on that page).
-lsdrMarker :: Lens' ListStreamingDistributions (Maybe Text)
-lsdrMarker = lens _lsdrMarker (\s a -> s { _lsdrMarker = a })
-{-# INLINE lsdrMarker #-}
+lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMarker = lens _lsdMarker (\s a -> s { _lsdMarker = a })
+{-# INLINE lsdMarker #-}
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
-lsdrMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
-lsdrMaxItems = lens _lsdrMaxItems (\s a -> s { _lsdrMaxItems = a })
-{-# INLINE lsdrMaxItems #-}
+lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
+{-# INLINE lsdMaxItems #-}
 
 instance ToPath ListStreamingDistributions where
     toPath = const "/2014-05-31/streaming-distribution"
 
 instance ToQuery ListStreamingDistributions where
     toQuery ListStreamingDistributions{..} = mconcat
-        [ "Marker" =? _lsdrMarker
-        , "MaxItems" =? _lsdrMaxItems
+        [ "Marker" =? _lsdMarker
+        , "MaxItems" =? _lsdMaxItems
         ]
 
 instance ToHeaders ListStreamingDistributions
@@ -90,15 +84,17 @@ instance ToXML ListStreamingDistributions where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ListStreamingDistributionsRequest"
 
+-- | The returned result of the corresponding request.
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdsStreamingDistributionList :: Maybe StreamingDistributionList
-      -- ^ The StreamingDistributionList type.
+    { _lsdrsStreamingDistributionList :: Maybe StreamingDistributionList
     } deriving (Show, Generic)
 
 -- | The StreamingDistributionList type.
-lsdsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse (Maybe StreamingDistributionList)
-lsdsStreamingDistributionList = lens _lsdsStreamingDistributionList (\s a -> s { _lsdsStreamingDistributionList = a })
-{-# INLINE lsdsStreamingDistributionList #-}
+lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse (Maybe StreamingDistributionList)
+lsdrsStreamingDistributionList =
+    lens _lsdrsStreamingDistributionList
+         (\s a -> s { _lsdrsStreamingDistributionList = a })
+{-# INLINE lsdrsStreamingDistributionList #-}
 
 instance FromXML ListStreamingDistributionsResponse where
     fromXMLOptions = xmlOptions
@@ -112,7 +108,7 @@ instance AWSRequest ListStreamingDistributions where
 
 instance AWSPager ListStreamingDistributions where
     next rq rs
-        | not (_sdlIsTruncated $ _lsdsStreamingDistributionList rs) = Nothing
+        | not (_sdlIsTruncated $ _lsdrsStreamingDistributionList rs) = Nothing
         | otherwise = Just $ rq
-            { _lsdrMarker = _sdlNextMarker $ _lsdsStreamingDistributionList rs
+            { _lsdMarker = _sdlNextMarker $ _lsdrsStreamingDistributionList rs
             }

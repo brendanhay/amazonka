@@ -57,20 +57,20 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePipeline
     -- * Request
       CreatePipeline
     -- ** Request constructor
-    , mkCreatePipelineRequest
+    , mkCreatePipeline
     -- ** Request lenses
-    , cprName
-    , cprInputBucket
-    , cprOutputBucket
-    , cprRole
-    , cprNotifications
-    , cprContentConfig
-    , cprThumbnailConfig
+    , cpName
+    , cpInputBucket
+    , cpOutputBucket
+    , cpRole
+    , cpNotifications
+    , cpContentConfig
+    , cpThumbnailConfig
 
     -- * Response
     , CreatePipelineResponse
     -- ** Response lenses
-    , cpsPipeline
+    , cprsPipeline
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -78,180 +78,46 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The CreatePipelineRequest structure.
+data CreatePipeline = CreatePipeline
+    { _cpName :: Text
+    , _cpInputBucket :: Text
+    , _cpOutputBucket :: Maybe Text
+    , _cpRole :: Text
+    , _cpNotifications :: Maybe Notifications
+    , _cpContentConfig :: Maybe PipelineOutputConfig
+    , _cpThumbnailConfig :: Maybe PipelineOutputConfig
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePipeline' request.
-mkCreatePipelineRequest :: Text -- ^ 'cprName'
-                        -> Text -- ^ 'cprInputBucket'
-                        -> Text -- ^ 'cprRole'
-                        -> CreatePipeline
-mkCreatePipelineRequest p1 p2 p3 = CreatePipeline
-    { _cprName = p1
-    , _cprInputBucket = p2
-    , _cprOutputBucket = Nothing
-    , _cprRole = p4
-    , _cprNotifications = Nothing
-    , _cprContentConfig = Nothing
-    , _cprThumbnailConfig = Nothing
+mkCreatePipeline :: Text -- ^ 'cpName'
+                 -> Text -- ^ 'cpInputBucket'
+                 -> Text -- ^ 'cpRole'
+                 -> CreatePipeline
+mkCreatePipeline p1 p2 p4 = CreatePipeline
+    { _cpName = p1
+    , _cpInputBucket = p2
+    , _cpOutputBucket = Nothing
+    , _cpRole = p4
+    , _cpNotifications = Nothing
+    , _cpContentConfig = Nothing
+    , _cpThumbnailConfig = Nothing
     }
-{-# INLINE mkCreatePipelineRequest #-}
-
-data CreatePipeline = CreatePipeline
-    { _cprName :: Text
-      -- ^ The name of the pipeline. We recommend that the name be unique
-      -- within the AWS account, but uniqueness is not enforced.
-      -- Constraints: Maximum 40 characters.
-    , _cprInputBucket :: Text
-      -- ^ The Amazon S3 bucket in which you saved the media files that you
-      -- want to transcode.
-    , _cprOutputBucket :: Maybe Text
-      -- ^ The Amazon S3 bucket in which you want Elastic Transcoder to save
-      -- the transcoded files. (Use this, or use ContentConfig:Bucket plus
-      -- ThumbnailConfig:Bucket.) Specify this value when all of the
-      -- following are true: You want to save transcoded files, thumbnails
-      -- (if any), and playlists (if any) together in one bucket. You do
-      -- not want to specify the users or groups who have access to the
-      -- transcoded files, thumbnails, and playlists. You do not want to
-      -- specify the permissions that Elastic Transcoder grants to the
-      -- files. When Elastic Transcoder saves files in OutputBucket, it
-      -- grants full control over the files only to the AWS account that
-      -- owns the role that is specified by Role. You want to associate
-      -- the transcoded files and thumbnails with the Amazon S3 Standard
-      -- storage class. If you want to save transcoded files and playlists
-      -- in one bucket and thumbnails in another bucket, specify which
-      -- users can access the transcoded files or the permissions the
-      -- users have, or change the Amazon S3 storage class, omit
-      -- OutputBucket and specify values for ContentConfig and
-      -- ThumbnailConfig instead.
-    , _cprRole :: Text
-      -- ^ The IAM Amazon Resource Name (ARN) for the role that you want
-      -- Elastic Transcoder to use to create the pipeline.
-    , _cprNotifications :: Maybe Notifications
-      -- ^ The Amazon Simple Notification Service (Amazon SNS) topic that
-      -- you want to notify to report job status. To receive
-      -- notifications, you must also subscribe to the new topic in the
-      -- Amazon SNS console. Progressing: The topic ARN for the Amazon
-      -- Simple Notification Service (Amazon SNS) topic that you want to
-      -- notify when Elastic Transcoder has started to process a job in
-      -- this pipeline. This is the ARN that Amazon SNS returned when you
-      -- created the topic. For more information, see Create a Topic in
-      -- the Amazon Simple Notification Service Developer Guide.
-      -- Completed: The topic ARN for the Amazon SNS topic that you want
-      -- to notify when Elastic Transcoder has finished processing a job
-      -- in this pipeline. This is the ARN that Amazon SNS returned when
-      -- you created the topic. Warning: The topic ARN for the Amazon SNS
-      -- topic that you want to notify when Elastic Transcoder encounters
-      -- a warning condition while processing a job in this pipeline. This
-      -- is the ARN that Amazon SNS returned when you created the topic.
-      -- Error: The topic ARN for the Amazon SNS topic that you want to
-      -- notify when Elastic Transcoder encounters an error condition
-      -- while processing a job in this pipeline. This is the ARN that
-      -- Amazon SNS returned when you created the topic.
-    , _cprContentConfig :: Maybe PipelineOutputConfig
-      -- ^ The optional ContentConfig object specifies information about the
-      -- Amazon S3 bucket in which you want Elastic Transcoder to save
-      -- transcoded files and playlists: which bucket to use, which users
-      -- you want to have access to the files, the type of access you want
-      -- users to have, and the storage class that you want to assign to
-      -- the files. If you specify values for ContentConfig, you must also
-      -- specify values for ThumbnailConfig. If you specify values for
-      -- ContentConfig and ThumbnailConfig, omit the OutputBucket object.
-      -- Bucket: The Amazon S3 bucket in which you want Elastic Transcoder
-      -- to save transcoded files and playlists. Permissions (Optional):
-      -- The Permissions object specifies which users you want to have
-      -- access to transcoded files and the type of access you want them
-      -- to have. You can grant permissions to a maximum of 30 users
-      -- and/or predefined Amazon S3 groups. Grantee Type: Specify the
-      -- type of value that appears in the Grantee object: Canonical: The
-      -- value in the Grantee object is either the canonical user ID for
-      -- an AWS account or an origin access identity for an Amazon
-      -- CloudFront distribution. For more information about canonical
-      -- user IDs, see Access Control List (ACL) Overview in the Amazon
-      -- Simple Storage Service Developer Guide. For more information
-      -- about using CloudFront origin access identities to require that
-      -- users use CloudFront URLs instead of Amazon S3 URLs, see Using an
-      -- Origin Access Identity to Restrict Access to Your Amazon S3
-      -- Content. A canonical user ID is not the same as an AWS account
-      -- number. Email: The value in the Grantee object is the registered
-      -- email address of an AWS account. Group: The value in the Grantee
-      -- object is one of the following predefined Amazon S3 groups:
-      -- AllUsers, AuthenticatedUsers, or LogDelivery. Grantee: The AWS
-      -- user or group that you want to have access to transcoded files
-      -- and playlists. To identify the user or group, you can specify the
-      -- canonical user ID for an AWS account, an origin access identity
-      -- for a CloudFront distribution, the registered email address of an
-      -- AWS account, or a predefined Amazon S3 group Access: The
-      -- permission that you want to give to the AWS user that you
-      -- specified in Grantee. Permissions are granted on the files that
-      -- Elastic Transcoder adds to the bucket, including playlists and
-      -- video files. Valid values include: READ: The grantee can read the
-      -- objects and metadata for objects that Elastic Transcoder adds to
-      -- the Amazon S3 bucket. READ_ACP: The grantee can read the object
-      -- ACL for objects that Elastic Transcoder adds to the Amazon S3
-      -- bucket. WRITE_ACP: The grantee can write the ACL for the objects
-      -- that Elastic Transcoder adds to the Amazon S3 bucket.
-      -- FULL_CONTROL: The grantee has READ, READ_ACP, and WRITE_ACP
-      -- permissions for the objects that Elastic Transcoder adds to the
-      -- Amazon S3 bucket. StorageClass: The Amazon S3 storage class,
-      -- Standard or ReducedRedundancy, that you want Elastic Transcoder
-      -- to assign to the video files and playlists that it stores in your
-      -- Amazon S3 bucket.
-    , _cprThumbnailConfig :: Maybe PipelineOutputConfig
-      -- ^ The ThumbnailConfig object specifies several values, including
-      -- the Amazon S3 bucket in which you want Elastic Transcoder to save
-      -- thumbnail files, which users you want to have access to the
-      -- files, the type of access you want users to have, and the storage
-      -- class that you want to assign to the files. If you specify values
-      -- for ContentConfig, you must also specify values for
-      -- ThumbnailConfig even if you don't want to create thumbnails. If
-      -- you specify values for ContentConfig and ThumbnailConfig, omit
-      -- the OutputBucket object. Bucket: The Amazon S3 bucket in which
-      -- you want Elastic Transcoder to save thumbnail files. Permissions
-      -- (Optional): The Permissions object specifies which users and/or
-      -- predefined Amazon S3 groups you want to have access to thumbnail
-      -- files, and the type of access you want them to have. You can
-      -- grant permissions to a maximum of 30 users and/or predefined
-      -- Amazon S3 groups. GranteeType: Specify the type of value that
-      -- appears in the Grantee object: Canonical: The value in the
-      -- Grantee object is either the canonical user ID for an AWS account
-      -- or an origin access identity for an Amazon CloudFront
-      -- distribution. A canonical user ID is not the same as an AWS
-      -- account number. Email: The value in the Grantee object is the
-      -- registered email address of an AWS account. Group: The value in
-      -- the Grantee object is one of the following predefined Amazon S3
-      -- groups: AllUsers, AuthenticatedUsers, or LogDelivery. Grantee:
-      -- The AWS user or group that you want to have access to thumbnail
-      -- files. To identify the user or group, you can specify the
-      -- canonical user ID for an AWS account, an origin access identity
-      -- for a CloudFront distribution, the registered email address of an
-      -- AWS account, or a predefined Amazon S3 group. Access: The
-      -- permission that you want to give to the AWS user that you
-      -- specified in Grantee. Permissions are granted on the thumbnail
-      -- files that Elastic Transcoder adds to the bucket. Valid values
-      -- include: READ: The grantee can read the thumbnails and metadata
-      -- for objects that Elastic Transcoder adds to the Amazon S3 bucket.
-      -- READ_ACP: The grantee can read the object ACL for thumbnails that
-      -- Elastic Transcoder adds to the Amazon S3 bucket. WRITE_ACP: The
-      -- grantee can write the ACL for the thumbnails that Elastic
-      -- Transcoder adds to the Amazon S3 bucket. FULL_CONTROL: The
-      -- grantee has READ, READ_ACP, and WRITE_ACP permissions for the
-      -- thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
-      -- StorageClass: The Amazon S3 storage class, Standard or
-      -- ReducedRedundancy, that you want Elastic Transcoder to assign to
-      -- the thumbnails that it stores in your Amazon S3 bucket.
-    } deriving (Show, Generic)
+{-# INLINE mkCreatePipeline #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
-cprName :: Lens' CreatePipeline (Text)
-cprName = lens _cprName (\s a -> s { _cprName = a })
-{-# INLINE cprName #-}
+cpName :: Lens' CreatePipeline Text
+cpName = lens _cpName (\s a -> s { _cpName = a })
+{-# INLINE cpName #-}
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode.
-cprInputBucket :: Lens' CreatePipeline (Text)
-cprInputBucket = lens _cprInputBucket (\s a -> s { _cprInputBucket = a })
-{-# INLINE cprInputBucket #-}
+cpInputBucket :: Lens' CreatePipeline Text
+cpInputBucket = lens _cpInputBucket (\s a -> s { _cpInputBucket = a })
+{-# INLINE cpInputBucket #-}
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
 -- transcoded files. (Use this, or use ContentConfig:Bucket plus
@@ -269,15 +135,15 @@ cprInputBucket = lens _cprInputBucket (\s a -> s { _cprInputBucket = a })
 -- permissions the users have, or change the Amazon S3 storage class, omit
 -- OutputBucket and specify values for ContentConfig and ThumbnailConfig
 -- instead.
-cprOutputBucket :: Lens' CreatePipeline (Maybe Text)
-cprOutputBucket = lens _cprOutputBucket (\s a -> s { _cprOutputBucket = a })
-{-# INLINE cprOutputBucket #-}
+cpOutputBucket :: Lens' CreatePipeline (Maybe Text)
+cpOutputBucket = lens _cpOutputBucket (\s a -> s { _cpOutputBucket = a })
+{-# INLINE cpOutputBucket #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to create the pipeline.
-cprRole :: Lens' CreatePipeline (Text)
-cprRole = lens _cprRole (\s a -> s { _cprRole = a })
-{-# INLINE cprRole #-}
+cpRole :: Lens' CreatePipeline Text
+cpRole = lens _cpRole (\s a -> s { _cpRole = a })
+{-# INLINE cpRole #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
 -- notify to report job status. To receive notifications, you must also
@@ -296,9 +162,9 @@ cprRole = lens _cprRole (\s a -> s { _cprRole = a })
 -- for the Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition while processing a job in this pipeline. This
 -- is the ARN that Amazon SNS returned when you created the topic.
-cprNotifications :: Lens' CreatePipeline (Maybe Notifications)
-cprNotifications = lens _cprNotifications (\s a -> s { _cprNotifications = a })
-{-# INLINE cprNotifications #-}
+cpNotifications :: Lens' CreatePipeline (Maybe Notifications)
+cpNotifications = lens _cpNotifications (\s a -> s { _cpNotifications = a })
+{-# INLINE cpNotifications #-}
 
 -- | The optional ContentConfig object specifies information about the Amazon S3
 -- bucket in which you want Elastic Transcoder to save transcoded files and
@@ -341,9 +207,9 @@ cprNotifications = lens _cprNotifications (\s a -> s { _cprNotifications = a })
 -- Amazon S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the video
 -- files and playlists that it stores in your Amazon S3 bucket.
-cprContentConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
-cprContentConfig = lens _cprContentConfig (\s a -> s { _cprContentConfig = a })
-{-# INLINE cprContentConfig #-}
+cpContentConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
+cpContentConfig = lens _cpContentConfig (\s a -> s { _cpContentConfig = a })
+{-# INLINE cpContentConfig #-}
 
 -- | The ThumbnailConfig object specifies several values, including the Amazon
 -- S3 bucket in which you want Elastic Transcoder to save thumbnail files,
@@ -381,9 +247,10 @@ cprContentConfig = lens _cprContentConfig (\s a -> s { _cprContentConfig = a })
 -- S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the
 -- thumbnails that it stores in your Amazon S3 bucket.
-cprThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
-cprThumbnailConfig = lens _cprThumbnailConfig (\s a -> s { _cprThumbnailConfig = a })
-{-# INLINE cprThumbnailConfig #-}
+cpThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
+cpThumbnailConfig =
+    lens _cpThumbnailConfig (\s a -> s { _cpThumbnailConfig = a })
+{-# INLINE cpThumbnailConfig #-}
 
 instance ToPath CreatePipeline where
     toPath = const "/2012-09-25/pipelines"
@@ -394,17 +261,17 @@ instance ToHeaders CreatePipeline
 
 instance ToJSON CreatePipeline
 
+-- | When you create a pipeline, Elastic Transcoder returns the values that you
+-- specified in the request.
 newtype CreatePipelineResponse = CreatePipelineResponse
-    { _cpsPipeline :: Maybe Pipeline
-      -- ^ A section of the response body that provides information about
-      -- the pipeline that is created.
+    { _cprsPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
-cpsPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
-cpsPipeline = lens _cpsPipeline (\s a -> s { _cpsPipeline = a })
-{-# INLINE cpsPipeline #-}
+cprsPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
+cprsPipeline = lens _cprsPipeline (\s a -> s { _cprsPipeline = a })
+{-# INLINE cprsPipeline #-}
 
 instance FromJSON CreatePipelineResponse
 

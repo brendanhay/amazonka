@@ -23,16 +23,16 @@ module Network.AWS.EMR.V2009_03_31.ListInstanceGroups
     -- * Request
       ListInstanceGroups
     -- ** Request constructor
-    , mkListInstanceGroupsInput
+    , mkListInstanceGroups
     -- ** Request lenses
-    , ligiClusterId
-    , ligiMarker
+    , ligClusterId
+    , ligMarker
 
     -- * Response
     , ListInstanceGroupsResponse
     -- ** Response lenses
-    , ligoInstanceGroups
-    , ligoMarker
+    , ligrsInstanceGroups
+    , ligrsMarker
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -40,34 +40,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListInstanceGroups' request.
-mkListInstanceGroupsInput :: Text -- ^ 'ligiClusterId'
-                          -> ListInstanceGroups
-mkListInstanceGroupsInput p1 = ListInstanceGroups
-    { _ligiClusterId = p1
-    , _ligiMarker = Nothing
-    }
-{-# INLINE mkListInstanceGroupsInput #-}
-
+-- | This input determines which instance groups to retrieve.
 data ListInstanceGroups = ListInstanceGroups
-    { _ligiClusterId :: Text
-      -- ^ The identifier of the cluster for which to list the instance
-      -- groups.
-    , _ligiMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _ligClusterId :: Text
+    , _ligMarker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstanceGroups' request.
+mkListInstanceGroups :: Text -- ^ 'ligClusterId'
+                     -> ListInstanceGroups
+mkListInstanceGroups p1 = ListInstanceGroups
+    { _ligClusterId = p1
+    , _ligMarker = Nothing
+    }
+{-# INLINE mkListInstanceGroups #-}
+
 -- | The identifier of the cluster for which to list the instance groups.
-ligiClusterId :: Lens' ListInstanceGroups (Text)
-ligiClusterId = lens _ligiClusterId (\s a -> s { _ligiClusterId = a })
-{-# INLINE ligiClusterId #-}
+ligClusterId :: Lens' ListInstanceGroups Text
+ligClusterId = lens _ligClusterId (\s a -> s { _ligClusterId = a })
+{-# INLINE ligClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligiMarker :: Lens' ListInstanceGroups (Maybe Text)
-ligiMarker = lens _ligiMarker (\s a -> s { _ligiMarker = a })
-{-# INLINE ligiMarker #-}
+ligMarker :: Lens' ListInstanceGroups (Maybe Text)
+ligMarker = lens _ligMarker (\s a -> s { _ligMarker = a })
+{-# INLINE ligMarker #-}
 
 instance ToPath ListInstanceGroups
 
@@ -77,23 +74,22 @@ instance ToHeaders ListInstanceGroups
 
 instance ToJSON ListInstanceGroups
 
+-- | This input determines which instance groups to retrieve.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse
-    { _ligoInstanceGroups :: [InstanceGroup]
-      -- ^ The list of instance groups for the cluster and given filters.
-    , _ligoMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _ligrsInstanceGroups :: [InstanceGroup]
+    , _ligrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of instance groups for the cluster and given filters.
-ligoInstanceGroups :: Lens' ListInstanceGroupsResponse ([InstanceGroup])
-ligoInstanceGroups = lens _ligoInstanceGroups (\s a -> s { _ligoInstanceGroups = a })
-{-# INLINE ligoInstanceGroups #-}
+ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
+ligrsInstanceGroups =
+    lens _ligrsInstanceGroups (\s a -> s { _ligrsInstanceGroups = a })
+{-# INLINE ligrsInstanceGroups #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligoMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
-ligoMarker = lens _ligoMarker (\s a -> s { _ligoMarker = a })
-{-# INLINE ligoMarker #-}
+ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
+ligrsMarker = lens _ligrsMarker (\s a -> s { _ligrsMarker = a })
+{-# INLINE ligrsMarker #-}
 
 instance FromJSON ListInstanceGroupsResponse
 
@@ -105,5 +101,5 @@ instance AWSRequest ListInstanceGroups where
     response _ = jsonResponse
 
 instance AWSPager ListInstanceGroups where
-    next rq rs = (\x -> rq { _ligiMarker = Just x })
-        <$> (_ligoMarker rs)
+    next rq rs = (\x -> rq { _ligMarker = Just x })
+        <$> (_ligrsMarker rs)

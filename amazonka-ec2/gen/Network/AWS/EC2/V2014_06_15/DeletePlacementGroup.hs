@@ -32,9 +32,9 @@ module Network.AWS.EC2.V2014_06_15.DeletePlacementGroup
     -- * Request
       DeletePlacementGroup
     -- ** Request constructor
-    , mkDeletePlacementGroupRequest
+    , mkDeletePlacementGroup
     -- ** Request lenses
-    , dpgrGroupName
+    , dpgGroupName
 
     -- * Response
     , DeletePlacementGroupResponse
@@ -44,24 +44,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePlacementGroup' request.
-mkDeletePlacementGroupRequest :: Text -- ^ 'dpgrGroupName'
-                              -> DeletePlacementGroup
-mkDeletePlacementGroupRequest p1 = DeletePlacementGroup
-    { _dpgrGroupName = p1
-    }
-{-# INLINE mkDeletePlacementGroupRequest #-}
-
+-- | 
 newtype DeletePlacementGroup = DeletePlacementGroup
-    { _dpgrGroupName :: Text
-      -- ^ The name of the placement group.
+    { _dpgGroupName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePlacementGroup' request.
+mkDeletePlacementGroup :: Text -- ^ 'dpgGroupName'
+                       -> DeletePlacementGroup
+mkDeletePlacementGroup p1 = DeletePlacementGroup
+    { _dpgGroupName = p1
+    }
+{-# INLINE mkDeletePlacementGroup #-}
+
 -- | The name of the placement group.
-dpgrGroupName :: Lens' DeletePlacementGroup (Text)
-dpgrGroupName = lens _dpgrGroupName (\s a -> s { _dpgrGroupName = a })
-{-# INLINE dpgrGroupName #-}
+dpgGroupName :: Lens' DeletePlacementGroup Text
+dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
+{-# INLINE dpgGroupName #-}
 
 instance ToQuery DeletePlacementGroup where
     toQuery = genericQuery def

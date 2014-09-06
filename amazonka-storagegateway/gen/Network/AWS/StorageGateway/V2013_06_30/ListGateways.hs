@@ -44,16 +44,16 @@ module Network.AWS.StorageGateway.V2013_06_30.ListGateways
     -- * Request
       ListGateways
     -- ** Request constructor
-    , mkListGatewaysInput
+    , mkListGateways
     -- ** Request lenses
-    , lgiMarker
-    , lgiLimit
+    , lgMarker
+    , lgLimit
 
     -- * Response
     , ListGatewaysResponse
     -- ** Response lenses
-    , lgoGateways
-    , lgoMarker
+    , lgrsGateways
+    , lgrsMarker
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -61,35 +61,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing zero or more of the following fields:
+-- ListGatewaysInput$Limit ListGatewaysInput$Marker.
+data ListGateways = ListGateways
+    { _lgMarker :: Maybe Text
+    , _lgLimit :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGateways' request.
-mkListGatewaysInput :: ListGateways
-mkListGatewaysInput = ListGateways
-    { _lgiMarker = Nothing
-    , _lgiLimit = Nothing
+mkListGateways :: ListGateways
+mkListGateways = ListGateways
+    { _lgMarker = Nothing
+    , _lgLimit = Nothing
     }
-{-# INLINE mkListGatewaysInput #-}
-
-data ListGateways = ListGateways
-    { _lgiMarker :: Maybe Text
-      -- ^ An opaque string that indicates the position at which to begin
-      -- the returned list of gateways.
-    , _lgiLimit :: Maybe Integer
-      -- ^ Specifies that the list of gateways returned be limited to the
-      -- specified number of items.
-    } deriving (Show, Generic)
+{-# INLINE mkListGateways #-}
 
 -- | An opaque string that indicates the position at which to begin the returned
 -- list of gateways.
-lgiMarker :: Lens' ListGateways (Maybe Text)
-lgiMarker = lens _lgiMarker (\s a -> s { _lgiMarker = a })
-{-# INLINE lgiMarker #-}
+lgMarker :: Lens' ListGateways (Maybe Text)
+lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
+{-# INLINE lgMarker #-}
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
-lgiLimit :: Lens' ListGateways (Maybe Integer)
-lgiLimit = lens _lgiLimit (\s a -> s { _lgiLimit = a })
-{-# INLINE lgiLimit #-}
+lgLimit :: Lens' ListGateways (Maybe Integer)
+lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
+{-# INLINE lgLimit #-}
 
 instance ToPath ListGateways
 
@@ -100,17 +98,17 @@ instance ToHeaders ListGateways
 instance ToJSON ListGateways
 
 data ListGatewaysResponse = ListGatewaysResponse
-    { _lgoGateways :: [GatewayInformation]
-    , _lgoMarker :: Maybe Text
+    { _lgrsGateways :: [GatewayInformation]
+    , _lgrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
-lgoGateways :: Lens' ListGatewaysResponse ([GatewayInformation])
-lgoGateways = lens _lgoGateways (\s a -> s { _lgoGateways = a })
-{-# INLINE lgoGateways #-}
+lgrsGateways :: Lens' ListGatewaysResponse [GatewayInformation]
+lgrsGateways = lens _lgrsGateways (\s a -> s { _lgrsGateways = a })
+{-# INLINE lgrsGateways #-}
 
-lgoMarker :: Lens' ListGatewaysResponse (Maybe Text)
-lgoMarker = lens _lgoMarker (\s a -> s { _lgoMarker = a })
-{-# INLINE lgoMarker #-}
+lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
+lgrsMarker = lens _lgrsMarker (\s a -> s { _lgrsMarker = a })
+{-# INLINE lgrsMarker #-}
 
 instance FromJSON ListGatewaysResponse
 
@@ -122,5 +120,5 @@ instance AWSRequest ListGateways where
     response _ = jsonResponse
 
 instance AWSPager ListGateways where
-    next rq rs = (\x -> rq { _lgiMarker = Just x })
-        <$> (_lgoMarker rs)
+    next rq rs = (\x -> rq { _lgMarker = Just x })
+        <$> (_lgrsMarker rs)

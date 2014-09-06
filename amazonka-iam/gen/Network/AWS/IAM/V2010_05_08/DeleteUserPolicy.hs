@@ -26,10 +26,10 @@ module Network.AWS.IAM.V2010_05_08.DeleteUserPolicy
     -- * Request
       DeleteUserPolicy
     -- ** Request constructor
-    , mkDeleteUserPolicyRequest
+    , mkDeleteUserPolicy
     -- ** Request lenses
-    , duprUserName
-    , duprPolicyName
+    , dupUserName
+    , dupPolicyName
 
     -- * Response
     , DeleteUserPolicyResponse
@@ -39,33 +39,32 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteUserPolicy' request.
-mkDeleteUserPolicyRequest :: Text -- ^ 'duprUserName'
-                          -> Text -- ^ 'duprPolicyName'
-                          -> DeleteUserPolicy
-mkDeleteUserPolicyRequest p1 p2 = DeleteUserPolicy
-    { _duprUserName = p1
-    , _duprPolicyName = p2
-    }
-{-# INLINE mkDeleteUserPolicyRequest #-}
-
+-- | 
 data DeleteUserPolicy = DeleteUserPolicy
-    { _duprUserName :: Text
-      -- ^ Name of the user the policy is associated with.
-    , _duprPolicyName :: Text
-      -- ^ Name of the policy document to delete.
+    { _dupUserName :: Text
+    , _dupPolicyName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteUserPolicy' request.
+mkDeleteUserPolicy :: Text -- ^ 'dupUserName'
+                   -> Text -- ^ 'dupPolicyName'
+                   -> DeleteUserPolicy
+mkDeleteUserPolicy p1 p2 = DeleteUserPolicy
+    { _dupUserName = p1
+    , _dupPolicyName = p2
+    }
+{-# INLINE mkDeleteUserPolicy #-}
+
 -- | Name of the user the policy is associated with.
-duprUserName :: Lens' DeleteUserPolicy (Text)
-duprUserName = lens _duprUserName (\s a -> s { _duprUserName = a })
-{-# INLINE duprUserName #-}
+dupUserName :: Lens' DeleteUserPolicy Text
+dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
+{-# INLINE dupUserName #-}
 
 -- | Name of the policy document to delete.
-duprPolicyName :: Lens' DeleteUserPolicy (Text)
-duprPolicyName = lens _duprPolicyName (\s a -> s { _duprPolicyName = a })
-{-# INLINE duprPolicyName #-}
+dupPolicyName :: Lens' DeleteUserPolicy Text
+dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
+{-# INLINE dupPolicyName #-}
 
 instance ToQuery DeleteUserPolicy where
     toQuery = genericQuery def

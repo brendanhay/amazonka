@@ -23,44 +23,45 @@ module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig
     -- * Request
       GetStreamingDistributionConfig
     -- ** Request constructor
-    , mkGetStreamingDistributionConfigRequest
+    , mkGetStreamingDistributionConfig
     -- ** Request lenses
-    , gsdcrId
+    , gsdcId
 
     -- * Response
     , GetStreamingDistributionConfigResponse
     -- ** Response lenses
-    , gsdcsStreamingDistributionConfig
-    , gsdcsETag
+    , gsdcrsStreamingDistributionConfig
+    , gsdcrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | To request to get a streaming distribution configuration.
+newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
+    { _gsdcId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStreamingDistributionConfig' request.
-mkGetStreamingDistributionConfigRequest :: Text -- ^ 'gsdcrId'
-                                        -> GetStreamingDistributionConfig
-mkGetStreamingDistributionConfigRequest p1 = GetStreamingDistributionConfig
-    { _gsdcrId = p1
+mkGetStreamingDistributionConfig :: Text -- ^ 'gsdcId'
+                                 -> GetStreamingDistributionConfig
+mkGetStreamingDistributionConfig p1 = GetStreamingDistributionConfig
+    { _gsdcId = p1
     }
-{-# INLINE mkGetStreamingDistributionConfigRequest #-}
-
-newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
-    { _gsdcrId :: Text
-      -- ^ The streaming distribution's id.
-    } deriving (Show, Generic)
+{-# INLINE mkGetStreamingDistributionConfig #-}
 
 -- | The streaming distribution's id.
-gsdcrId :: Lens' GetStreamingDistributionConfig (Text)
-gsdcrId = lens _gsdcrId (\s a -> s { _gsdcrId = a })
-{-# INLINE gsdcrId #-}
+gsdcId :: Lens' GetStreamingDistributionConfig Text
+gsdcId = lens _gsdcId (\s a -> s { _gsdcId = a })
+{-# INLINE gsdcId #-}
 
 instance ToPath GetStreamingDistributionConfig where
     toPath GetStreamingDistributionConfig{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
-        , toBS _gsdcrId
+        , toBS _gsdcId
         , "/config"
         ]
 
@@ -72,23 +73,23 @@ instance ToXML GetStreamingDistributionConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetStreamingDistributionConfigRequest"
 
+-- | The returned result of the corresponding request.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
-    { _gsdcsStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-      -- ^ The streaming distribution's configuration information.
-    , _gsdcsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
+    { _gsdcrsStreamingDistributionConfig :: Maybe StreamingDistributionConfig
+    , _gsdcrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's configuration information.
-gsdcsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
-gsdcsStreamingDistributionConfig = lens _gsdcsStreamingDistributionConfig (\s a -> s { _gsdcsStreamingDistributionConfig = a })
-{-# INLINE gsdcsStreamingDistributionConfig #-}
+gsdcrsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
+gsdcrsStreamingDistributionConfig =
+    lens _gsdcrsStreamingDistributionConfig
+         (\s a -> s { _gsdcrsStreamingDistributionConfig = a })
+{-# INLINE gsdcrsStreamingDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gsdcsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
-gsdcsETag = lens _gsdcsETag (\s a -> s { _gsdcsETag = a })
-{-# INLINE gsdcsETag #-}
+gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
+gsdcrsETag = lens _gsdcrsETag (\s a -> s { _gsdcrsETag = a })
+{-# INLINE gsdcrsETag #-}
 
 instance AWSRequest GetStreamingDistributionConfig where
     type Sv GetStreamingDistributionConfig = CloudFront

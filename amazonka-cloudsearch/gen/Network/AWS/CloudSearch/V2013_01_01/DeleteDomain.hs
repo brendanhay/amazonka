@@ -25,51 +25,55 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteDomain
     -- * Request
       DeleteDomain
     -- ** Request constructor
-    , mkDeleteDomainRequest
+    , mkDeleteDomain
     -- ** Request lenses
-    , ddrDomainName
+    , ddDomainName
 
     -- * Response
     , DeleteDomainResponse
     -- ** Response lenses
-    , ddsDomainStatus
+    , ddrsDomainStatus
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDomain' request.
-mkDeleteDomainRequest :: Text -- ^ 'ddrDomainName'
-                      -> DeleteDomain
-mkDeleteDomainRequest p1 = DeleteDomain
-    { _ddrDomainName = p1
-    }
-{-# INLINE mkDeleteDomainRequest #-}
-
+-- | Container for the parameters to the DeleteDomain operation. Specifies the
+-- name of the domain you want to delete.
 newtype DeleteDomain = DeleteDomain
-    { _ddrDomainName :: Text
-      -- ^ The name of the domain you want to permanently delete.
+    { _ddDomainName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDomain' request.
+mkDeleteDomain :: Text -- ^ 'ddDomainName'
+               -> DeleteDomain
+mkDeleteDomain p1 = DeleteDomain
+    { _ddDomainName = p1
+    }
+{-# INLINE mkDeleteDomain #-}
+
 -- | The name of the domain you want to permanently delete.
-ddrDomainName :: Lens' DeleteDomain (Text)
-ddrDomainName = lens _ddrDomainName (\s a -> s { _ddrDomainName = a })
-{-# INLINE ddrDomainName #-}
+ddDomainName :: Lens' DeleteDomain Text
+ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
+{-# INLINE ddDomainName #-}
 
 instance ToQuery DeleteDomain where
     toQuery = genericQuery def
 
+-- | The result of a DeleteDomain request. Contains the status of a newly
+-- deleted domain, or no status if the domain has already been completely
+-- deleted.
 newtype DeleteDomainResponse = DeleteDomainResponse
-    { _ddsDomainStatus :: Maybe DomainStatus
-      -- ^ The current status of the search domain.
+    { _ddrsDomainStatus :: Maybe DomainStatus
     } deriving (Show, Generic)
 
 -- | The current status of the search domain.
-ddsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-ddsDomainStatus = lens _ddsDomainStatus (\s a -> s { _ddsDomainStatus = a })
-{-# INLINE ddsDomainStatus #-}
+ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
+ddrsDomainStatus =
+    lens _ddrsDomainStatus (\s a -> s { _ddrsDomainStatus = a })
+{-# INLINE ddrsDomainStatus #-}
 
 instance FromXML DeleteDomainResponse where
     fromXMLOptions = xmlOptions

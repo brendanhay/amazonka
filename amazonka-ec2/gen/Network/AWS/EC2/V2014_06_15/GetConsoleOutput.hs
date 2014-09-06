@@ -57,67 +57,65 @@ module Network.AWS.EC2.V2014_06_15.GetConsoleOutput
     -- * Request
       GetConsoleOutput
     -- ** Request constructor
-    , mkGetConsoleOutputRequest
+    , mkGetConsoleOutput
     -- ** Request lenses
-    , gcorInstanceId
+    , gcoInstanceId
 
     -- * Response
     , GetConsoleOutputResponse
     -- ** Response lenses
-    , gcosInstanceId
-    , gcosTimestamp
-    , gcosOutput
+    , gcorsInstanceId
+    , gcorsTimestamp
+    , gcorsOutput
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetConsoleOutput' request.
-mkGetConsoleOutputRequest :: Text -- ^ 'gcorInstanceId'
-                          -> GetConsoleOutput
-mkGetConsoleOutputRequest p1 = GetConsoleOutput
-    { _gcorInstanceId = p1
-    }
-{-# INLINE mkGetConsoleOutputRequest #-}
-
+-- | 
 newtype GetConsoleOutput = GetConsoleOutput
-    { _gcorInstanceId :: Text
-      -- ^ The ID of the instance.
+    { _gcoInstanceId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetConsoleOutput' request.
+mkGetConsoleOutput :: Text -- ^ 'gcoInstanceId'
+                   -> GetConsoleOutput
+mkGetConsoleOutput p1 = GetConsoleOutput
+    { _gcoInstanceId = p1
+    }
+{-# INLINE mkGetConsoleOutput #-}
+
 -- | The ID of the instance.
-gcorInstanceId :: Lens' GetConsoleOutput (Text)
-gcorInstanceId = lens _gcorInstanceId (\s a -> s { _gcorInstanceId = a })
-{-# INLINE gcorInstanceId #-}
+gcoInstanceId :: Lens' GetConsoleOutput Text
+gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
+{-# INLINE gcoInstanceId #-}
 
 instance ToQuery GetConsoleOutput where
     toQuery = genericQuery def
 
+-- | 
 data GetConsoleOutputResponse = GetConsoleOutputResponse
-    { _gcosInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
-    , _gcosTimestamp :: Maybe ISO8601
-      -- ^ The time the output was last updated.
-    , _gcosOutput :: Maybe Text
-      -- ^ The console output, Base64 encoded.
+    { _gcorsInstanceId :: Maybe Text
+    , _gcorsTimestamp :: Maybe ISO8601
+    , _gcorsOutput :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-gcosInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
-gcosInstanceId = lens _gcosInstanceId (\s a -> s { _gcosInstanceId = a })
-{-# INLINE gcosInstanceId #-}
+gcorsInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
+gcorsInstanceId = lens _gcorsInstanceId (\s a -> s { _gcorsInstanceId = a })
+{-# INLINE gcorsInstanceId #-}
 
 -- | The time the output was last updated.
-gcosTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
-gcosTimestamp = lens _gcosTimestamp (\s a -> s { _gcosTimestamp = a })
-{-# INLINE gcosTimestamp #-}
+gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
+gcorsTimestamp = lens _gcorsTimestamp (\s a -> s { _gcorsTimestamp = a })
+{-# INLINE gcorsTimestamp #-}
 
 -- | The console output, Base64 encoded.
-gcosOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
-gcosOutput = lens _gcosOutput (\s a -> s { _gcosOutput = a })
-{-# INLINE gcosOutput #-}
+gcorsOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
+gcorsOutput = lens _gcorsOutput (\s a -> s { _gcorsOutput = a })
+{-# INLINE gcorsOutput #-}
 
 instance FromXML GetConsoleOutputResponse where
     fromXMLOptions = xmlOptions

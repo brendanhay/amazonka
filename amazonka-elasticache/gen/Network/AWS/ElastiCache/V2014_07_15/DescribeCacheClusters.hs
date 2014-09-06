@@ -48,105 +48,94 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters
     -- * Request
       DescribeCacheClusters
     -- ** Request constructor
-    , mkDescribeCacheClustersMessage
+    , mkDescribeCacheClusters
     -- ** Request lenses
-    , dccnCacheClusterId
-    , dccnMaxRecords
-    , dccnMarker
-    , dccnShowCacheNodeInfo
+    , dcc1CacheClusterId
+    , dcc1MaxRecords
+    , dcc1Marker
+    , dcc1ShowCacheNodeInfo
 
     -- * Response
     , DescribeCacheClustersResponse
     -- ** Response lenses
-    , ccmMarker
-    , ccmCacheClusters
+    , dccrsrsMarker
+    , dccrsrsCacheClusters
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DescribeCacheClusters operation.
+data DescribeCacheClusters = DescribeCacheClusters
+    { _dcc1CacheClusterId :: Maybe Text
+    , _dcc1MaxRecords :: Maybe Integer
+    , _dcc1Marker :: Maybe Text
+    , _dcc1ShowCacheNodeInfo :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheClusters' request.
-mkDescribeCacheClustersMessage :: DescribeCacheClusters
-mkDescribeCacheClustersMessage = DescribeCacheClusters
-    { _dccnCacheClusterId = Nothing
-    , _dccnMaxRecords = Nothing
-    , _dccnMarker = Nothing
-    , _dccnShowCacheNodeInfo = Nothing
+mkDescribeCacheClusters :: DescribeCacheClusters
+mkDescribeCacheClusters = DescribeCacheClusters
+    { _dcc1CacheClusterId = Nothing
+    , _dcc1MaxRecords = Nothing
+    , _dcc1Marker = Nothing
+    , _dcc1ShowCacheNodeInfo = Nothing
     }
-{-# INLINE mkDescribeCacheClustersMessage #-}
-
-data DescribeCacheClusters = DescribeCacheClusters
-    { _dccnCacheClusterId :: Maybe Text
-      -- ^ The user-supplied cluster identifier. If this parameter is
-      -- specified, only information about that specific cache cluster is
-      -- returned. This parameter isn't case sensitive.
-    , _dccnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a marker is
-      -- included in the response so that the remaining results can be
-      -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _dccnMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
-    , _dccnShowCacheNodeInfo :: Maybe Bool
-      -- ^ An optional flag that can be included in the DescribeCacheCluster
-      -- request to retrieve information about the individual cache nodes.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeCacheClusters #-}
 
 -- | The user-supplied cluster identifier. If this parameter is specified, only
 -- information about that specific cache cluster is returned. This parameter
 -- isn't case sensitive.
-dccnCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
-dccnCacheClusterId = lens _dccnCacheClusterId (\s a -> s { _dccnCacheClusterId = a })
-{-# INLINE dccnCacheClusterId #-}
+dcc1CacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
+dcc1CacheClusterId =
+    lens _dcc1CacheClusterId (\s a -> s { _dcc1CacheClusterId = a })
+{-# INLINE dcc1CacheClusterId #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dccnMaxRecords :: Lens' DescribeCacheClusters (Maybe Integer)
-dccnMaxRecords = lens _dccnMaxRecords (\s a -> s { _dccnMaxRecords = a })
-{-# INLINE dccnMaxRecords #-}
+dcc1MaxRecords :: Lens' DescribeCacheClusters (Maybe Integer)
+dcc1MaxRecords = lens _dcc1MaxRecords (\s a -> s { _dcc1MaxRecords = a })
+{-# INLINE dcc1MaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dccnMarker :: Lens' DescribeCacheClusters (Maybe Text)
-dccnMarker = lens _dccnMarker (\s a -> s { _dccnMarker = a })
-{-# INLINE dccnMarker #-}
+dcc1Marker :: Lens' DescribeCacheClusters (Maybe Text)
+dcc1Marker = lens _dcc1Marker (\s a -> s { _dcc1Marker = a })
+{-# INLINE dcc1Marker #-}
 
 -- | An optional flag that can be included in the DescribeCacheCluster request
 -- to retrieve information about the individual cache nodes.
-dccnShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
-dccnShowCacheNodeInfo = lens _dccnShowCacheNodeInfo (\s a -> s { _dccnShowCacheNodeInfo = a })
-{-# INLINE dccnShowCacheNodeInfo #-}
+dcc1ShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
+dcc1ShowCacheNodeInfo =
+    lens _dcc1ShowCacheNodeInfo (\s a -> s { _dcc1ShowCacheNodeInfo = a })
+{-# INLINE dcc1ShowCacheNodeInfo #-}
 
 instance ToQuery DescribeCacheClusters where
     toQuery = genericQuery def
 
+-- | Represents the output of a DescribeCacheClusters operation.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
-    { _ccmMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
-    , _ccmCacheClusters :: [CacheCluster]
-      -- ^ A list of cache clusters. Each item in the list contains detailed
-      -- information about one cache cluster.
+    { _dccrsrsMarker :: Maybe Text
+    , _dccrsrsCacheClusters :: [CacheCluster]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-ccmMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
-ccmMarker = lens _ccmMarker (\s a -> s { _ccmMarker = a })
-{-# INLINE ccmMarker #-}
+dccrsrsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
+dccrsrsMarker = lens _dccrsrsMarker (\s a -> s { _dccrsrsMarker = a })
+{-# INLINE dccrsrsMarker #-}
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
-ccmCacheClusters :: Lens' DescribeCacheClustersResponse ([CacheCluster])
-ccmCacheClusters = lens _ccmCacheClusters (\s a -> s { _ccmCacheClusters = a })
-{-# INLINE ccmCacheClusters #-}
+dccrsrsCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
+dccrsrsCacheClusters =
+    lens _dccrsrsCacheClusters (\s a -> s { _dccrsrsCacheClusters = a })
+{-# INLINE dccrsrsCacheClusters #-}
 
 instance FromXML DescribeCacheClustersResponse where
     fromXMLOptions = xmlOptions
@@ -159,5 +148,5 @@ instance AWSRequest DescribeCacheClusters where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheClusters where
-    next rq rs = (\x -> rq { _dccnMarker = Just x })
-        <$> (_ccmMarker rs)
+    next rq rs = (\x -> rq { _dcc1Marker = Just x })
+        <$> (_dccrsrsMarker rs)

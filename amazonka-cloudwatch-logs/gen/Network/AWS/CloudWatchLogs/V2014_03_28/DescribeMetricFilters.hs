@@ -42,18 +42,18 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters
     -- * Request
       DescribeMetricFilters
     -- ** Request constructor
-    , mkDescribeMetricFiltersRequest
+    , mkDescribeMetricFilters
     -- ** Request lenses
-    , dmfsLogGroupName
-    , dmfsFilterNamePrefix
-    , dmfsNextToken
-    , dmfsLimit
+    , dmf1LogGroupName
+    , dmf1FilterNamePrefix
+    , dmf1NextToken
+    , dmf1Limit
 
     -- * Response
     , DescribeMetricFiltersResponse
     -- ** Response lenses
-    , dmftMetricFilters
-    , dmftNextToken
+    , dmfrsMetricFilters
+    , dmfrsNextToken
     ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -61,52 +61,48 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeMetricFilters' request.
-mkDescribeMetricFiltersRequest :: Text -- ^ 'dmfsLogGroupName'
-                               -> DescribeMetricFilters
-mkDescribeMetricFiltersRequest p1 = DescribeMetricFilters
-    { _dmfsLogGroupName = p1
-    , _dmfsFilterNamePrefix = Nothing
-    , _dmfsNextToken = Nothing
-    , _dmfsLimit = Nothing
-    }
-{-# INLINE mkDescribeMetricFiltersRequest #-}
-
 data DescribeMetricFilters = DescribeMetricFilters
-    { _dmfsLogGroupName :: Text
-    , _dmfsFilterNamePrefix :: Maybe Text
-      -- ^ The name of the metric filter.
-    , _dmfsNextToken :: Maybe Text
-      -- ^ A string token used for pagination that points to the next page
-      -- of results. It must be a value obtained from the response of the
-      -- previous DescribeMetricFilters request.
-    , _dmfsLimit :: Maybe Integer
-      -- ^ The maximum number of items returned in the response. If you
-      -- don't specify a value, the request would return up to 50 items.
+    { _dmf1LogGroupName :: Text
+    , _dmf1FilterNamePrefix :: Maybe Text
+    , _dmf1NextToken :: Maybe Text
+    , _dmf1Limit :: Maybe Integer
     } deriving (Show, Generic)
 
-dmfsLogGroupName :: Lens' DescribeMetricFilters (Text)
-dmfsLogGroupName = lens _dmfsLogGroupName (\s a -> s { _dmfsLogGroupName = a })
-{-# INLINE dmfsLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMetricFilters' request.
+mkDescribeMetricFilters :: Text -- ^ 'dmf1LogGroupName'
+                        -> DescribeMetricFilters
+mkDescribeMetricFilters p1 = DescribeMetricFilters
+    { _dmf1LogGroupName = p1
+    , _dmf1FilterNamePrefix = Nothing
+    , _dmf1NextToken = Nothing
+    , _dmf1Limit = Nothing
+    }
+{-# INLINE mkDescribeMetricFilters #-}
+
+dmf1LogGroupName :: Lens' DescribeMetricFilters Text
+dmf1LogGroupName =
+    lens _dmf1LogGroupName (\s a -> s { _dmf1LogGroupName = a })
+{-# INLINE dmf1LogGroupName #-}
 
 -- | The name of the metric filter.
-dmfsFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
-dmfsFilterNamePrefix = lens _dmfsFilterNamePrefix (\s a -> s { _dmfsFilterNamePrefix = a })
-{-# INLINE dmfsFilterNamePrefix #-}
+dmf1FilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
+dmf1FilterNamePrefix =
+    lens _dmf1FilterNamePrefix (\s a -> s { _dmf1FilterNamePrefix = a })
+{-# INLINE dmf1FilterNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeMetricFilters request.
-dmfsNextToken :: Lens' DescribeMetricFilters (Maybe Text)
-dmfsNextToken = lens _dmfsNextToken (\s a -> s { _dmfsNextToken = a })
-{-# INLINE dmfsNextToken #-}
+dmf1NextToken :: Lens' DescribeMetricFilters (Maybe Text)
+dmf1NextToken = lens _dmf1NextToken (\s a -> s { _dmf1NextToken = a })
+{-# INLINE dmf1NextToken #-}
 
 -- | The maximum number of items returned in the response. If you don't specify
 -- a value, the request would return up to 50 items.
-dmfsLimit :: Lens' DescribeMetricFilters (Maybe Integer)
-dmfsLimit = lens _dmfsLimit (\s a -> s { _dmfsLimit = a })
-{-# INLINE dmfsLimit #-}
+dmf1Limit :: Lens' DescribeMetricFilters (Maybe Integer)
+dmf1Limit = lens _dmf1Limit (\s a -> s { _dmf1Limit = a })
+{-# INLINE dmf1Limit #-}
 
 instance ToPath DescribeMetricFilters
 
@@ -117,23 +113,21 @@ instance ToHeaders DescribeMetricFilters
 instance ToJSON DescribeMetricFilters
 
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
-    { _dmftMetricFilters :: [MetricFilter]
-    , _dmftNextToken :: Maybe Text
-      -- ^ A string token used for pagination that points to the next page
-      -- of results. It must be a value obtained from the response of the
-      -- previous request. The token expires after 24 hours.
+    { _dmfrsMetricFilters :: [MetricFilter]
+    , _dmfrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
-dmftMetricFilters :: Lens' DescribeMetricFiltersResponse ([MetricFilter])
-dmftMetricFilters = lens _dmftMetricFilters (\s a -> s { _dmftMetricFilters = a })
-{-# INLINE dmftMetricFilters #-}
+dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
+dmfrsMetricFilters =
+    lens _dmfrsMetricFilters (\s a -> s { _dmfrsMetricFilters = a })
+{-# INLINE dmfrsMetricFilters #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dmftNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
-dmftNextToken = lens _dmftNextToken (\s a -> s { _dmftNextToken = a })
-{-# INLINE dmftNextToken #-}
+dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
+dmfrsNextToken = lens _dmfrsNextToken (\s a -> s { _dmfrsNextToken = a })
+{-# INLINE dmfrsNextToken #-}
 
 instance FromJSON DescribeMetricFiltersResponse
 
@@ -145,5 +139,5 @@ instance AWSRequest DescribeMetricFilters where
     response _ = jsonResponse
 
 instance AWSPager DescribeMetricFilters where
-    next rq rs = (\x -> rq { _dmfsNextToken = Just x })
-        <$> (_dmftNextToken rs)
+    next rq rs = (\x -> rq { _dmf1NextToken = Just x })
+        <$> (_dmfrsNextToken rs)

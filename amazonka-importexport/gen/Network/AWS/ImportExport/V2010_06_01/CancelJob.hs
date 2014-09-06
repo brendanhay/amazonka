@@ -24,52 +24,51 @@ module Network.AWS.ImportExport.V2010_06_01.CancelJob
     -- * Request
       CancelJob
     -- ** Request constructor
-    , mkCancelJobInput
+    , mkCancelJob
     -- ** Request lenses
-    , cjiJobId
+    , cjJobId
 
     -- * Response
     , CancelJobResponse
     -- ** Response lenses
-    , cjoSuccess
+    , cjrsSuccess
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CancelJob' request.
-mkCancelJobInput :: Text -- ^ 'cjiJobId'
-                 -> CancelJob
-mkCancelJobInput p1 = CancelJob
-    { _cjiJobId = p1
-    }
-{-# INLINE mkCancelJobInput #-}
-
+-- | Input structure for the CancelJob operation.
 newtype CancelJob = CancelJob
-    { _cjiJobId :: Text
-      -- ^ A unique identifier which refers to a particular job.
+    { _cjJobId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelJob' request.
+mkCancelJob :: Text -- ^ 'cjJobId'
+            -> CancelJob
+mkCancelJob p1 = CancelJob
+    { _cjJobId = p1
+    }
+{-# INLINE mkCancelJob #-}
+
 -- | A unique identifier which refers to a particular job.
-cjiJobId :: Lens' CancelJob (Text)
-cjiJobId = lens _cjiJobId (\s a -> s { _cjiJobId = a })
-{-# INLINE cjiJobId #-}
+cjJobId :: Lens' CancelJob Text
+cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
+{-# INLINE cjJobId #-}
 
 instance ToQuery CancelJob where
     toQuery = genericQuery def
 
+-- | Output structure for the CancelJob operation.
 newtype CancelJobResponse = CancelJobResponse
-    { _cjoSuccess :: Maybe Bool
-      -- ^ Specifies whether (true) or not (false) AWS Import/Export updated
-      -- your job.
+    { _cjrsSuccess :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
-cjoSuccess :: Lens' CancelJobResponse (Maybe Bool)
-cjoSuccess = lens _cjoSuccess (\s a -> s { _cjoSuccess = a })
-{-# INLINE cjoSuccess #-}
+cjrsSuccess :: Lens' CancelJobResponse (Maybe Bool)
+cjrsSuccess = lens _cjrsSuccess (\s a -> s { _cjrsSuccess = a })
+{-# INLINE cjrsSuccess #-}
 
 instance FromXML CancelJobResponse where
     fromXMLOptions = xmlOptions

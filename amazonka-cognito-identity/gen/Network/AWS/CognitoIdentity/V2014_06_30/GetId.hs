@@ -28,16 +28,16 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetId
     -- * Request
       GetId
     -- ** Request constructor
-    , mkGetIdInput
+    , mkGetId
     -- ** Request lenses
-    , giiAccountId
-    , giiIdentityPoolId
-    , giiLogins
+    , giAccountId
+    , giIdentityPoolId
+    , giLogins
 
     -- * Response
     , GetIdResponse
     -- ** Response lenses
-    , girIdentityId
+    , girsIdentityId
     ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -45,43 +45,41 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetId' request.
-mkGetIdInput :: Text -- ^ 'giiAccountId'
-             -> Text -- ^ 'giiIdentityPoolId'
-             -> GetId
-mkGetIdInput p1 p2 = GetId
-    { _giiAccountId = p1
-    , _giiIdentityPoolId = p2
-    , _giiLogins = mempty
-    }
-{-# INLINE mkGetIdInput #-}
-
+-- | Input to the GetId action.
 data GetId = GetId
-    { _giiAccountId :: Text
-      -- ^ A standard AWS account ID (9+ digits).
-    , _giiIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _giiLogins :: Map Text Text
-      -- ^ A set of optional name/value pairs that map provider names to
-      -- provider tokens.
+    { _giAccountId :: Text
+    , _giIdentityPoolId :: Text
+    , _giLogins :: Map Text Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetId' request.
+mkGetId :: Text -- ^ 'giAccountId'
+        -> Text -- ^ 'giIdentityPoolId'
+        -> GetId
+mkGetId p1 p2 = GetId
+    { _giAccountId = p1
+    , _giIdentityPoolId = p2
+    , _giLogins = mempty
+    }
+{-# INLINE mkGetId #-}
+
 -- | A standard AWS account ID (9+ digits).
-giiAccountId :: Lens' GetId (Text)
-giiAccountId = lens _giiAccountId (\s a -> s { _giiAccountId = a })
-{-# INLINE giiAccountId #-}
+giAccountId :: Lens' GetId Text
+giAccountId = lens _giAccountId (\s a -> s { _giAccountId = a })
+{-# INLINE giAccountId #-}
 
 -- | An identity pool ID in the format REGION:GUID.
-giiIdentityPoolId :: Lens' GetId (Text)
-giiIdentityPoolId = lens _giiIdentityPoolId (\s a -> s { _giiIdentityPoolId = a })
-{-# INLINE giiIdentityPoolId #-}
+giIdentityPoolId :: Lens' GetId Text
+giIdentityPoolId =
+    lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
+{-# INLINE giIdentityPoolId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
-giiLogins :: Lens' GetId (Map Text Text)
-giiLogins = lens _giiLogins (\s a -> s { _giiLogins = a })
-{-# INLINE giiLogins #-}
+giLogins :: Lens' GetId (Map Text Text)
+giLogins = lens _giLogins (\s a -> s { _giLogins = a })
+{-# INLINE giLogins #-}
 
 instance ToPath GetId
 
@@ -91,15 +89,15 @@ instance ToHeaders GetId
 
 instance ToJSON GetId
 
+-- | Returned in the response to a GetId request.
 newtype GetIdResponse = GetIdResponse
-    { _girIdentityId :: Maybe Text
-      -- ^ A unique identifier in the format REGION:GUID.
+    { _girsIdentityId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID.
-girIdentityId :: Lens' GetIdResponse (Maybe Text)
-girIdentityId = lens _girIdentityId (\s a -> s { _girIdentityId = a })
-{-# INLINE girIdentityId #-}
+girsIdentityId :: Lens' GetIdResponse (Maybe Text)
+girsIdentityId = lens _girsIdentityId (\s a -> s { _girsIdentityId = a })
+{-# INLINE girsIdentityId #-}
 
 instance FromJSON GetIdResponse
 

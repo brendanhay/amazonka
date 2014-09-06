@@ -25,63 +25,65 @@ module Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup
     -- * Request
       TerminateInstanceInAutoScalingGroup
     -- ** Request constructor
-    , mkTerminateInstanceInAutoScalingGroupType
+    , mkTerminateInstanceInAutoScalingGroup
     -- ** Request lenses
-    , tiiasgtInstanceId
-    , tiiasgtShouldDecrementDesiredCapacity
+    , tiiasgInstanceId
+    , tiiasgShouldDecrementDesiredCapacity
 
     -- * Response
     , TerminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
-    , aaeActivity
+    , tiiasgrsActivity
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'TerminateInstanceInAutoScalingGroup' request.
-mkTerminateInstanceInAutoScalingGroupType :: Text -- ^ 'tiiasgtInstanceId'
-                                          -> Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
-                                          -> TerminateInstanceInAutoScalingGroup
-mkTerminateInstanceInAutoScalingGroupType p1 p2 = TerminateInstanceInAutoScalingGroup
-    { _tiiasgtInstanceId = p1
-    , _tiiasgtShouldDecrementDesiredCapacity = p2
-    }
-{-# INLINE mkTerminateInstanceInAutoScalingGroupType #-}
-
+-- | 
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
-    { _tiiasgtInstanceId :: Text
-      -- ^ The ID of the Amazon EC2 instance to be terminated.
-    , _tiiasgtShouldDecrementDesiredCapacity :: Bool
-      -- ^ Specifies whether (true) or not (false) terminating this instance
-      -- should also decrement the size of the AutoScalingGroup.
+    { _tiiasgInstanceId :: Text
+    , _tiiasgShouldDecrementDesiredCapacity :: Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateInstanceInAutoScalingGroup' request.
+mkTerminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgInstanceId'
+                                      -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
+                                      -> TerminateInstanceInAutoScalingGroup
+mkTerminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
+    { _tiiasgInstanceId = p1
+    , _tiiasgShouldDecrementDesiredCapacity = p2
+    }
+{-# INLINE mkTerminateInstanceInAutoScalingGroup #-}
+
 -- | The ID of the Amazon EC2 instance to be terminated.
-tiiasgtInstanceId :: Lens' TerminateInstanceInAutoScalingGroup (Text)
-tiiasgtInstanceId = lens _tiiasgtInstanceId (\s a -> s { _tiiasgtInstanceId = a })
-{-# INLINE tiiasgtInstanceId #-}
+tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
+tiiasgInstanceId =
+    lens _tiiasgInstanceId (\s a -> s { _tiiasgInstanceId = a })
+{-# INLINE tiiasgInstanceId #-}
 
 -- | Specifies whether (true) or not (false) terminating this instance should
 -- also decrement the size of the AutoScalingGroup.
-tiiasgtShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup (Bool)
-tiiasgtShouldDecrementDesiredCapacity = lens _tiiasgtShouldDecrementDesiredCapacity (\s a -> s { _tiiasgtShouldDecrementDesiredCapacity = a })
-{-# INLINE tiiasgtShouldDecrementDesiredCapacity #-}
+tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
+tiiasgShouldDecrementDesiredCapacity =
+    lens _tiiasgShouldDecrementDesiredCapacity
+         (\s a -> s { _tiiasgShouldDecrementDesiredCapacity = a })
+{-# INLINE tiiasgShouldDecrementDesiredCapacity #-}
 
 instance ToQuery TerminateInstanceInAutoScalingGroup where
     toQuery = genericQuery def
 
+-- | The output for the TerminateInstanceInAutoScalingGroup action.
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
-    { _aaeActivity :: Maybe Activity
-      -- ^ A scaling Activity.
+    { _tiiasgrsActivity :: Maybe Activity
     } deriving (Show, Generic)
 
 -- | A scaling Activity.
-aaeActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
-aaeActivity = lens _aaeActivity (\s a -> s { _aaeActivity = a })
-{-# INLINE aaeActivity #-}
+tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
+tiiasgrsActivity =
+    lens _tiiasgrsActivity (\s a -> s { _tiiasgrsActivity = a })
+{-# INLINE tiiasgrsActivity #-}
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions

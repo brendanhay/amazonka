@@ -51,72 +51,70 @@ module Network.AWS.EC2.V2014_06_15.ImportKeyPair
     -- * Request
       ImportKeyPair
     -- ** Request constructor
-    , mkImportKeyPairRequest
+    , mkImportKeyPair
     -- ** Request lenses
-    , ikprKeyName
-    , ikprPublicKeyMaterial
+    , ikpKeyName
+    , ikpPublicKeyMaterial
 
     -- * Response
     , ImportKeyPairResponse
     -- ** Response lenses
-    , ikpsKeyName
-    , ikpsKeyFingerprint
+    , ikprsKeyName
+    , ikprsKeyFingerprint
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ImportKeyPair' request.
-mkImportKeyPairRequest :: Text -- ^ 'ikprKeyName'
-                       -> ByteString -- ^ 'ikprPublicKeyMaterial'
-                       -> ImportKeyPair
-mkImportKeyPairRequest p1 p2 = ImportKeyPair
-    { _ikprKeyName = p1
-    , _ikprPublicKeyMaterial = p2
-    }
-{-# INLINE mkImportKeyPairRequest #-}
-
+-- | 
 data ImportKeyPair = ImportKeyPair
-    { _ikprKeyName :: Text
-      -- ^ A unique name for the key pair.
-    , _ikprPublicKeyMaterial :: ByteString
-      -- ^ The public key. You must base64 encode the public key material
-      -- before sending it to AWS.
+    { _ikpKeyName :: Text
+    , _ikpPublicKeyMaterial :: ByteString
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportKeyPair' request.
+mkImportKeyPair :: Text -- ^ 'ikpKeyName'
+                -> ByteString -- ^ 'ikpPublicKeyMaterial'
+                -> ImportKeyPair
+mkImportKeyPair p1 p2 = ImportKeyPair
+    { _ikpKeyName = p1
+    , _ikpPublicKeyMaterial = p2
+    }
+{-# INLINE mkImportKeyPair #-}
+
 -- | A unique name for the key pair.
-ikprKeyName :: Lens' ImportKeyPair (Text)
-ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
-{-# INLINE ikprKeyName #-}
+ikpKeyName :: Lens' ImportKeyPair Text
+ikpKeyName = lens _ikpKeyName (\s a -> s { _ikpKeyName = a })
+{-# INLINE ikpKeyName #-}
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
-ikprPublicKeyMaterial :: Lens' ImportKeyPair (ByteString)
-ikprPublicKeyMaterial = lens _ikprPublicKeyMaterial (\s a -> s { _ikprPublicKeyMaterial = a })
-{-# INLINE ikprPublicKeyMaterial #-}
+ikpPublicKeyMaterial :: Lens' ImportKeyPair ByteString
+ikpPublicKeyMaterial =
+    lens _ikpPublicKeyMaterial (\s a -> s { _ikpPublicKeyMaterial = a })
+{-# INLINE ikpPublicKeyMaterial #-}
 
 instance ToQuery ImportKeyPair where
     toQuery = genericQuery def
 
+-- | 
 data ImportKeyPairResponse = ImportKeyPairResponse
-    { _ikpsKeyName :: Maybe Text
-      -- ^ The key pair name you provided.
-    , _ikpsKeyFingerprint :: Maybe Text
-      -- ^ The MD5 public key fingerprint as specified in section 4 of RFC
-      -- 4716.
+    { _ikprsKeyName :: Maybe Text
+    , _ikprsKeyFingerprint :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The key pair name you provided.
-ikpsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
-ikpsKeyName = lens _ikpsKeyName (\s a -> s { _ikpsKeyName = a })
-{-# INLINE ikpsKeyName #-}
+ikprsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
+ikprsKeyName = lens _ikprsKeyName (\s a -> s { _ikprsKeyName = a })
+{-# INLINE ikprsKeyName #-}
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-ikpsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
-ikpsKeyFingerprint = lens _ikpsKeyFingerprint (\s a -> s { _ikpsKeyFingerprint = a })
-{-# INLINE ikpsKeyFingerprint #-}
+ikprsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
+ikprsKeyFingerprint =
+    lens _ikprsKeyFingerprint (\s a -> s { _ikprsKeyFingerprint = a })
+{-# INLINE ikprsKeyFingerprint #-}
 
 instance FromXML ImportKeyPairResponse where
     fromXMLOptions = xmlOptions

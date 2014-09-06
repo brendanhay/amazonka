@@ -70,50 +70,52 @@ module Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes
     -- * Request
       DescribeAccountAttributes
     -- ** Request constructor
-    , mkDescribeAccountAttributesRequest
+    , mkDescribeAccountAttributes
     -- ** Request lenses
-    , daarAttributeNames
+    , daaAttributeNames
 
     -- * Response
     , DescribeAccountAttributesResponse
     -- ** Response lenses
-    , daasAccountAttributes
+    , daarsAccountAttributes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAccountAttributes' request.
-mkDescribeAccountAttributesRequest :: DescribeAccountAttributes
-mkDescribeAccountAttributesRequest = DescribeAccountAttributes
-    { _daarAttributeNames = mempty
-    }
-{-# INLINE mkDescribeAccountAttributesRequest #-}
-
+-- | 
 newtype DescribeAccountAttributes = DescribeAccountAttributes
-    { _daarAttributeNames :: [AccountAttributeName]
-      -- ^ One or more account attribute names.
+    { _daaAttributeNames :: [AccountAttributeName]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAccountAttributes' request.
+mkDescribeAccountAttributes :: DescribeAccountAttributes
+mkDescribeAccountAttributes = DescribeAccountAttributes
+    { _daaAttributeNames = mempty
+    }
+{-# INLINE mkDescribeAccountAttributes #-}
+
 -- | One or more account attribute names.
-daarAttributeNames :: Lens' DescribeAccountAttributes ([AccountAttributeName])
-daarAttributeNames = lens _daarAttributeNames (\s a -> s { _daarAttributeNames = a })
-{-# INLINE daarAttributeNames #-}
+daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
+daaAttributeNames =
+    lens _daaAttributeNames (\s a -> s { _daaAttributeNames = a })
+{-# INLINE daaAttributeNames #-}
 
 instance ToQuery DescribeAccountAttributes where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
-    { _daasAccountAttributes :: [AccountAttribute]
-      -- ^ Information about one or more account attributes.
+    { _daarsAccountAttributes :: [AccountAttribute]
     } deriving (Show, Generic)
 
 -- | Information about one or more account attributes.
-daasAccountAttributes :: Lens' DescribeAccountAttributesResponse ([AccountAttribute])
-daasAccountAttributes = lens _daasAccountAttributes (\s a -> s { _daasAccountAttributes = a })
-{-# INLINE daasAccountAttributes #-}
+daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
+daarsAccountAttributes =
+    lens _daarsAccountAttributes (\s a -> s { _daarsAccountAttributes = a })
+{-# INLINE daarsAccountAttributes #-}
 
 instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions

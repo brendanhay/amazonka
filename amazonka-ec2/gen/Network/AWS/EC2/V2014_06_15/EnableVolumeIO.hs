@@ -30,9 +30,9 @@ module Network.AWS.EC2.V2014_06_15.EnableVolumeIO
     -- * Request
       EnableVolumeIO
     -- ** Request constructor
-    , mkEnableVolumeIORequest
+    , mkEnableVolumeIO
     -- ** Request lenses
-    , eviorVolumeId
+    , evioVolumeId
 
     -- * Response
     , EnableVolumeIOResponse
@@ -42,24 +42,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableVolumeIO' request.
-mkEnableVolumeIORequest :: Text -- ^ 'eviorVolumeId'
-                        -> EnableVolumeIO
-mkEnableVolumeIORequest p1 = EnableVolumeIO
-    { _eviorVolumeId = p1
-    }
-{-# INLINE mkEnableVolumeIORequest #-}
-
+-- | 
 newtype EnableVolumeIO = EnableVolumeIO
-    { _eviorVolumeId :: Text
-      -- ^ The ID of the volume.
+    { _evioVolumeId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableVolumeIO' request.
+mkEnableVolumeIO :: Text -- ^ 'evioVolumeId'
+                 -> EnableVolumeIO
+mkEnableVolumeIO p1 = EnableVolumeIO
+    { _evioVolumeId = p1
+    }
+{-# INLINE mkEnableVolumeIO #-}
+
 -- | The ID of the volume.
-eviorVolumeId :: Lens' EnableVolumeIO (Text)
-eviorVolumeId = lens _eviorVolumeId (\s a -> s { _eviorVolumeId = a })
-{-# INLINE eviorVolumeId #-}
+evioVolumeId :: Lens' EnableVolumeIO Text
+evioVolumeId = lens _evioVolumeId (\s a -> s { _evioVolumeId = a })
+{-# INLINE evioVolumeId #-}
 
 instance ToQuery EnableVolumeIO where
     toQuery = genericQuery def

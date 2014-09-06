@@ -31,11 +31,12 @@ module Network.AWS.CloudTrail.V2013_11_01.Types
     , Er (..)
     -- * Trail
     , Trail
-    , tmName
-    , tmS3BucketName
-    , tmS3KeyPrefix
-    , tmSnsTopicName
-    , tmIncludeGlobalServiceEvents
+    , mkTrail
+    , tName
+    , tS3BucketName
+    , tS3KeyPrefix
+    , tSnsTopicName
+    , tIncludeGlobalServiceEvents
     ) where
 
 import Network.AWS.Prelude
@@ -84,48 +85,53 @@ instance Exception (Er CloudTrail)
 
 -- | The settings for a trail.
 data Trail = Trail
-    { _tmName :: Maybe Text
-      -- ^ Name of the trail set by calling CreateTrail.
-    , _tmS3BucketName :: Maybe Text
-      -- ^ Name of the Amazon S3 bucket into which CloudTrail delivers your
-      -- trail files.
-    , _tmS3KeyPrefix :: Maybe Text
-      -- ^ Value of the Amazon S3 prefix.
-    , _tmSnsTopicName :: Maybe Text
-      -- ^ Name of the existing Amazon SNS topic that CloudTrail uses to
-      -- notify the account owner when new CloudTrail log files have been
-      -- delivered.
-    , _tmIncludeGlobalServiceEvents :: Maybe Bool
-      -- ^ Set to True to include AWS API calls from AWS global services
-      -- such as IAM. Otherwise, False.
+    { _tName :: Maybe Text
+    , _tS3BucketName :: Maybe Text
+    , _tS3KeyPrefix :: Maybe Text
+    , _tSnsTopicName :: Maybe Text
+    , _tIncludeGlobalServiceEvents :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Trail' data type to populate a request.
+mkTrail :: Trail
+mkTrail = Trail
+    { _tName = Nothing
+    , _tS3BucketName = Nothing
+    , _tS3KeyPrefix = Nothing
+    , _tSnsTopicName = Nothing
+    , _tIncludeGlobalServiceEvents = Nothing
+    }
+{-# INLINE mkTrail #-}
+
 -- | Name of the trail set by calling CreateTrail.
-tmName :: Lens' Trail (Maybe Text)
-tmName = lens _tmName (\s a -> s { _tmName = a })
-{-# INLINE tmName #-}
+tName :: Lens' Trail (Maybe Text)
+tName = lens _tName (\s a -> s { _tName = a })
+{-# INLINE tName #-}
 
 -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail
 -- files.
-tmS3BucketName :: Lens' Trail (Maybe Text)
-tmS3BucketName = lens _tmS3BucketName (\s a -> s { _tmS3BucketName = a })
-{-# INLINE tmS3BucketName #-}
+tS3BucketName :: Lens' Trail (Maybe Text)
+tS3BucketName = lens _tS3BucketName (\s a -> s { _tS3BucketName = a })
+{-# INLINE tS3BucketName #-}
 
 -- | Value of the Amazon S3 prefix.
-tmS3KeyPrefix :: Lens' Trail (Maybe Text)
-tmS3KeyPrefix = lens _tmS3KeyPrefix (\s a -> s { _tmS3KeyPrefix = a })
-{-# INLINE tmS3KeyPrefix #-}
+tS3KeyPrefix :: Lens' Trail (Maybe Text)
+tS3KeyPrefix = lens _tS3KeyPrefix (\s a -> s { _tS3KeyPrefix = a })
+{-# INLINE tS3KeyPrefix #-}
 
 -- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the
 -- account owner when new CloudTrail log files have been delivered.
-tmSnsTopicName :: Lens' Trail (Maybe Text)
-tmSnsTopicName = lens _tmSnsTopicName (\s a -> s { _tmSnsTopicName = a })
-{-# INLINE tmSnsTopicName #-}
+tSnsTopicName :: Lens' Trail (Maybe Text)
+tSnsTopicName = lens _tSnsTopicName (\s a -> s { _tSnsTopicName = a })
+{-# INLINE tSnsTopicName #-}
 
 -- | Set to True to include AWS API calls from AWS global services such as IAM.
 -- Otherwise, False.
-tmIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
-tmIncludeGlobalServiceEvents = lens _tmIncludeGlobalServiceEvents (\s a -> s { _tmIncludeGlobalServiceEvents = a })
-{-# INLINE tmIncludeGlobalServiceEvents #-}
+tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
+tIncludeGlobalServiceEvents =
+    lens _tIncludeGlobalServiceEvents
+         (\s a -> s { _tIncludeGlobalServiceEvents = a })
+{-# INLINE tIncludeGlobalServiceEvents #-}
 
 instance FromJSON Trail

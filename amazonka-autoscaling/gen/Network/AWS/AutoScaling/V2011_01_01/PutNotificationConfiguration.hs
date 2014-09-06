@@ -28,11 +28,11 @@ module Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration
     -- * Request
       PutNotificationConfiguration
     -- ** Request constructor
-    , mkPutNotificationConfigurationType
+    , mkPutNotificationConfiguration
     -- ** Request lenses
-    , pnctAutoScalingGroupName
-    , pnctTopicARN
-    , pnctNotificationTypes
+    , pncAutoScalingGroupName
+    , pncTopicARN
+    , pncNotificationTypes
 
     -- * Response
     , PutNotificationConfigurationResponse
@@ -42,48 +42,46 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutNotificationConfiguration' request.
-mkPutNotificationConfigurationType :: Text -- ^ 'pnctAutoScalingGroupName'
-                                   -> Text -- ^ 'pnctTopicARN'
-                                   -> [Text] -- ^ 'pnctNotificationTypes'
-                                   -> PutNotificationConfiguration
-mkPutNotificationConfigurationType p1 p2 p3 = PutNotificationConfiguration
-    { _pnctAutoScalingGroupName = p1
-    , _pnctTopicARN = p2
-    , _pnctNotificationTypes = p3
-    }
-{-# INLINE mkPutNotificationConfigurationType #-}
-
+-- | 
 data PutNotificationConfiguration = PutNotificationConfiguration
-    { _pnctAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group.
-    , _pnctTopicARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
-      -- Service (SNS) topic.
-    , _pnctNotificationTypes :: [Text]
-      -- ^ The type of event that will cause the notification to be sent.
-      -- For details about notification types supported by Auto Scaling,
-      -- see DescribeAutoScalingNotificationTypes.
+    { _pncAutoScalingGroupName :: Text
+    , _pncTopicARN :: Text
+    , _pncNotificationTypes :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutNotificationConfiguration' request.
+mkPutNotificationConfiguration :: Text -- ^ 'pncAutoScalingGroupName'
+                               -> Text -- ^ 'pncTopicARN'
+                               -> [Text] -- ^ 'pncNotificationTypes'
+                               -> PutNotificationConfiguration
+mkPutNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
+    { _pncAutoScalingGroupName = p1
+    , _pncTopicARN = p2
+    , _pncNotificationTypes = p3
+    }
+{-# INLINE mkPutNotificationConfiguration #-}
+
 -- | The name of the Auto Scaling group.
-pnctAutoScalingGroupName :: Lens' PutNotificationConfiguration (Text)
-pnctAutoScalingGroupName = lens _pnctAutoScalingGroupName (\s a -> s { _pnctAutoScalingGroupName = a })
-{-# INLINE pnctAutoScalingGroupName #-}
+pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
+pncAutoScalingGroupName =
+    lens _pncAutoScalingGroupName
+         (\s a -> s { _pncAutoScalingGroupName = a })
+{-# INLINE pncAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-pnctTopicARN :: Lens' PutNotificationConfiguration (Text)
-pnctTopicARN = lens _pnctTopicARN (\s a -> s { _pnctTopicARN = a })
-{-# INLINE pnctTopicARN #-}
+pncTopicARN :: Lens' PutNotificationConfiguration Text
+pncTopicARN = lens _pncTopicARN (\s a -> s { _pncTopicARN = a })
+{-# INLINE pncTopicARN #-}
 
 -- | The type of event that will cause the notification to be sent. For details
 -- about notification types supported by Auto Scaling, see
 -- DescribeAutoScalingNotificationTypes.
-pnctNotificationTypes :: Lens' PutNotificationConfiguration ([Text])
-pnctNotificationTypes = lens _pnctNotificationTypes (\s a -> s { _pnctNotificationTypes = a })
-{-# INLINE pnctNotificationTypes #-}
+pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
+pncNotificationTypes =
+    lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })
+{-# INLINE pncNotificationTypes #-}
 
 instance ToQuery PutNotificationConfiguration where
     toQuery = genericQuery def

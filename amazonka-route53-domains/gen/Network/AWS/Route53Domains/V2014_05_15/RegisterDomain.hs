@@ -69,23 +69,23 @@ module Network.AWS.Route53Domains.V2014_05_15.RegisterDomain
     -- * Request
       RegisterDomain
     -- ** Request constructor
-    , mkRegisterDomainRequest
+    , mkRegisterDomain
     -- ** Request lenses
-    , rdrDomainName
-    , rdrIdnLangCode
-    , rdrDurationInYears
-    , rdrAutoRenew
-    , rdrAdminContact
-    , rdrRegistrantContact
-    , rdrTechContact
-    , rdrPrivacyProtectAdminContact
-    , rdrPrivacyProtectRegistrantContact
-    , rdrPrivacyProtectTechContact
+    , rdDomainName
+    , rdIdnLangCode
+    , rdDurationInYears
+    , rdAutoRenew
+    , rdAdminContact
+    , rdRegistrantContact
+    , rdTechContact
+    , rdPrivacyProtectAdminContact
+    , rdPrivacyProtectRegistrantContact
+    , rdPrivacyProtectTechContact
 
     -- * Response
     , RegisterDomainResponse
     -- ** Response lenses
-    , rdsOperationId
+    , rdrsOperationId
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -93,156 +93,125 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The RegisterDomain request includes the following elements.
+data RegisterDomain = RegisterDomain
+    { _rdDomainName :: Text
+    , _rdIdnLangCode :: Maybe Text
+    , _rdDurationInYears :: Integer
+    , _rdAutoRenew :: Maybe Bool
+    , _rdAdminContact :: ContactDetail
+    , _rdRegistrantContact :: ContactDetail
+    , _rdTechContact :: ContactDetail
+    , _rdPrivacyProtectAdminContact :: Maybe Bool
+    , _rdPrivacyProtectRegistrantContact :: Maybe Bool
+    , _rdPrivacyProtectTechContact :: Maybe Bool
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterDomain' request.
-mkRegisterDomainRequest :: Text -- ^ 'rdrDomainName'
-                        -> Integer -- ^ 'rdrDurationInYears'
-                        -> ContactDetail -- ^ 'rdrAdminContact'
-                        -> ContactDetail -- ^ 'rdrRegistrantContact'
-                        -> ContactDetail -- ^ 'rdrTechContact'
-                        -> RegisterDomain
-mkRegisterDomainRequest p1 p2 p3 p4 p5 = RegisterDomain
-    { _rdrDomainName = p1
-    , _rdrIdnLangCode = Nothing
-    , _rdrDurationInYears = p3
-    , _rdrAutoRenew = Nothing
-    , _rdrAdminContact = p5
-    , _rdrRegistrantContact = p6
-    , _rdrTechContact = p7
-    , _rdrPrivacyProtectAdminContact = Nothing
-    , _rdrPrivacyProtectRegistrantContact = Nothing
-    , _rdrPrivacyProtectTechContact = Nothing
+mkRegisterDomain :: Text -- ^ 'rdDomainName'
+                 -> Integer -- ^ 'rdDurationInYears'
+                 -> ContactDetail -- ^ 'rdAdminContact'
+                 -> ContactDetail -- ^ 'rdRegistrantContact'
+                 -> ContactDetail -- ^ 'rdTechContact'
+                 -> RegisterDomain
+mkRegisterDomain p1 p3 p5 p6 p7 = RegisterDomain
+    { _rdDomainName = p1
+    , _rdIdnLangCode = Nothing
+    , _rdDurationInYears = p3
+    , _rdAutoRenew = Nothing
+    , _rdAdminContact = p5
+    , _rdRegistrantContact = p6
+    , _rdTechContact = p7
+    , _rdPrivacyProtectAdminContact = Nothing
+    , _rdPrivacyProtectRegistrantContact = Nothing
+    , _rdPrivacyProtectTechContact = Nothing
     }
-{-# INLINE mkRegisterDomainRequest #-}
-
-data RegisterDomain = RegisterDomain
-    { _rdrDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    , _rdrIdnLangCode :: Maybe Text
-      -- ^ Reserved for future use.
-    , _rdrDurationInYears :: Integer
-      -- ^ The number of years the domain will be registered. Domains are
-      -- registered for a minimum of one year. The maximum period depends
-      -- on the top-level domain. Type: Integer Default: 1 Valid values:
-      -- Integer from 1 to 10 Required: Yes.
-    , _rdrAutoRenew :: Maybe Bool
-      -- ^ Indicates whether the domain will be automatically renewed (true)
-      -- or not (false). Autorenewal only takes effect after the account
-      -- is charged. Type: Boolean Valid values: true | false Default:
-      -- true Required: No.
-    , _rdrAdminContact :: ContactDetail
-      -- ^ Provides detailed contact information. Type: Complex Children:
-      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
-      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
-      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _rdrRegistrantContact :: ContactDetail
-      -- ^ Provides detailed contact information. Type: Complex Children:
-      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
-      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
-      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _rdrTechContact :: ContactDetail
-      -- ^ Provides detailed contact information. Type: Complex Children:
-      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
-      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
-      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _rdrPrivacyProtectAdminContact :: Maybe Bool
-      -- ^ Whether you want to conceal contact information from WHOIS
-      -- queries. If you specify true, WHOIS ("who is") queries will
-      -- return contact information for our registrar partner, Gandi,
-      -- instead of the contact information that you enter. Type: Boolean
-      -- Default: true Valid values: true | false Required: No.
-    , _rdrPrivacyProtectRegistrantContact :: Maybe Bool
-      -- ^ Whether you want to conceal contact information from WHOIS
-      -- queries. If you specify true, WHOIS ("who is") queries will
-      -- return contact information for our registrar partner, Gandi,
-      -- instead of the contact information that you enter. Type: Boolean
-      -- Default: true Valid values: true | false Required: No.
-    , _rdrPrivacyProtectTechContact :: Maybe Bool
-      -- ^ Whether you want to conceal contact information from WHOIS
-      -- queries. If you specify true, WHOIS ("who is") queries will
-      -- return contact information for our registrar partner, Gandi,
-      -- instead of the contact information that you enter. Type: Boolean
-      -- Default: true Valid values: true | false Required: No.
-    } deriving (Show, Generic)
+{-# INLINE mkRegisterDomain #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-rdrDomainName :: Lens' RegisterDomain (Text)
-rdrDomainName = lens _rdrDomainName (\s a -> s { _rdrDomainName = a })
-{-# INLINE rdrDomainName #-}
+rdDomainName :: Lens' RegisterDomain Text
+rdDomainName = lens _rdDomainName (\s a -> s { _rdDomainName = a })
+{-# INLINE rdDomainName #-}
 
 -- | Reserved for future use.
-rdrIdnLangCode :: Lens' RegisterDomain (Maybe Text)
-rdrIdnLangCode = lens _rdrIdnLangCode (\s a -> s { _rdrIdnLangCode = a })
-{-# INLINE rdrIdnLangCode #-}
+rdIdnLangCode :: Lens' RegisterDomain (Maybe Text)
+rdIdnLangCode = lens _rdIdnLangCode (\s a -> s { _rdIdnLangCode = a })
+{-# INLINE rdIdnLangCode #-}
 
 -- | The number of years the domain will be registered. Domains are registered
 -- for a minimum of one year. The maximum period depends on the top-level
 -- domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10
 -- Required: Yes.
-rdrDurationInYears :: Lens' RegisterDomain (Integer)
-rdrDurationInYears = lens _rdrDurationInYears (\s a -> s { _rdrDurationInYears = a })
-{-# INLINE rdrDurationInYears #-}
+rdDurationInYears :: Lens' RegisterDomain Integer
+rdDurationInYears =
+    lens _rdDurationInYears (\s a -> s { _rdDurationInYears = a })
+{-# INLINE rdDurationInYears #-}
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged. Type:
 -- Boolean Valid values: true | false Default: true Required: No.
-rdrAutoRenew :: Lens' RegisterDomain (Maybe Bool)
-rdrAutoRenew = lens _rdrAutoRenew (\s a -> s { _rdrAutoRenew = a })
-{-# INLINE rdrAutoRenew #-}
+rdAutoRenew :: Lens' RegisterDomain (Maybe Bool)
+rdAutoRenew = lens _rdAutoRenew (\s a -> s { _rdAutoRenew = a })
+{-# INLINE rdAutoRenew #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-rdrAdminContact :: Lens' RegisterDomain (ContactDetail)
-rdrAdminContact = lens _rdrAdminContact (\s a -> s { _rdrAdminContact = a })
-{-# INLINE rdrAdminContact #-}
+rdAdminContact :: Lens' RegisterDomain ContactDetail
+rdAdminContact = lens _rdAdminContact (\s a -> s { _rdAdminContact = a })
+{-# INLINE rdAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-rdrRegistrantContact :: Lens' RegisterDomain (ContactDetail)
-rdrRegistrantContact = lens _rdrRegistrantContact (\s a -> s { _rdrRegistrantContact = a })
-{-# INLINE rdrRegistrantContact #-}
+rdRegistrantContact :: Lens' RegisterDomain ContactDetail
+rdRegistrantContact =
+    lens _rdRegistrantContact (\s a -> s { _rdRegistrantContact = a })
+{-# INLINE rdRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-rdrTechContact :: Lens' RegisterDomain (ContactDetail)
-rdrTechContact = lens _rdrTechContact (\s a -> s { _rdrTechContact = a })
-{-# INLINE rdrTechContact #-}
+rdTechContact :: Lens' RegisterDomain ContactDetail
+rdTechContact = lens _rdTechContact (\s a -> s { _rdTechContact = a })
+{-# INLINE rdTechContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-rdrPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
-rdrPrivacyProtectAdminContact = lens _rdrPrivacyProtectAdminContact (\s a -> s { _rdrPrivacyProtectAdminContact = a })
-{-# INLINE rdrPrivacyProtectAdminContact #-}
+rdPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
+rdPrivacyProtectAdminContact =
+    lens _rdPrivacyProtectAdminContact
+         (\s a -> s { _rdPrivacyProtectAdminContact = a })
+{-# INLINE rdPrivacyProtectAdminContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-rdrPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
-rdrPrivacyProtectRegistrantContact = lens _rdrPrivacyProtectRegistrantContact (\s a -> s { _rdrPrivacyProtectRegistrantContact = a })
-{-# INLINE rdrPrivacyProtectRegistrantContact #-}
+rdPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
+rdPrivacyProtectRegistrantContact =
+    lens _rdPrivacyProtectRegistrantContact
+         (\s a -> s { _rdPrivacyProtectRegistrantContact = a })
+{-# INLINE rdPrivacyProtectRegistrantContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
 -- our registrar partner, Gandi, instead of the contact information that you
 -- enter. Type: Boolean Default: true Valid values: true | false Required: No.
-rdrPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
-rdrPrivacyProtectTechContact = lens _rdrPrivacyProtectTechContact (\s a -> s { _rdrPrivacyProtectTechContact = a })
-{-# INLINE rdrPrivacyProtectTechContact #-}
+rdPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
+rdPrivacyProtectTechContact =
+    lens _rdPrivacyProtectTechContact
+         (\s a -> s { _rdPrivacyProtectTechContact = a })
+{-# INLINE rdPrivacyProtectTechContact #-}
 
 instance ToPath RegisterDomain
 
@@ -252,19 +221,17 @@ instance ToHeaders RegisterDomain
 
 instance ToJSON RegisterDomain
 
+-- | The RegisterDomain response includes the following element.
 newtype RegisterDomainResponse = RegisterDomainResponse
-    { _rdsOperationId :: Text
-      -- ^ Identifier for tracking the progress of the request. To use this
-      -- ID to query the operation status, use GetOperationDetail. Type:
-      -- String Default: None Constraints: Maximum 255 characters.
+    { _rdrsOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-rdsOperationId :: Lens' RegisterDomainResponse (Text)
-rdsOperationId = lens _rdsOperationId (\s a -> s { _rdsOperationId = a })
-{-# INLINE rdsOperationId #-}
+rdrsOperationId :: Lens' RegisterDomainResponse Text
+rdrsOperationId = lens _rdrsOperationId (\s a -> s { _rdrsOperationId = a })
+{-# INLINE rdrsOperationId #-}
 
 instance FromJSON RegisterDomainResponse
 

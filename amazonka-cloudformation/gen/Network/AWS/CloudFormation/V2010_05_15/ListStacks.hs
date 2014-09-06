@@ -39,78 +39,72 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStacks
     -- * Request
       ListStacks
     -- ** Request constructor
-    , mkListStacksInput
+    , mkListStacks
     -- ** Request lenses
-    , lsiNextToken
-    , lsiStackStatusFilter
+    , lsNextToken
+    , lsStackStatusFilter
 
     -- * Response
     , ListStacksResponse
     -- ** Response lenses
-    , lsoStackSummaries
-    , lsoNextToken
+    , lsrsStackSummaries
+    , lsrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | The input for ListStacks action.
+data ListStacks = ListStacks
+    { _lsNextToken :: Maybe Text
+    , _lsStackStatusFilter :: [StackStatus]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStacks' request.
-mkListStacksInput :: ListStacks
-mkListStacksInput = ListStacks
-    { _lsiNextToken = Nothing
-    , _lsiStackStatusFilter = mempty
+mkListStacks :: ListStacks
+mkListStacks = ListStacks
+    { _lsNextToken = Nothing
+    , _lsStackStatusFilter = mempty
     }
-{-# INLINE mkListStacksInput #-}
-
-data ListStacks = ListStacks
-    { _lsiNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of stacks, if
-      -- there is one. Default: There is no default value.
-    , _lsiStackStatusFilter :: [StackStatus]
-      -- ^ Stack status to use as a filter. Specify one or more stack status
-      -- codes to list only stacks with the specified status codes. For a
-      -- complete list of stack status codes, see the StackStatus
-      -- parameter of the Stack data type.
-    } deriving (Show, Generic)
+{-# INLINE mkListStacks #-}
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one. Default: There is no default value.
-lsiNextToken :: Lens' ListStacks (Maybe Text)
-lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
-{-# INLINE lsiNextToken #-}
+lsNextToken :: Lens' ListStacks (Maybe Text)
+lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
+{-# INLINE lsNextToken #-}
 
 -- | Stack status to use as a filter. Specify one or more stack status codes to
 -- list only stacks with the specified status codes. For a complete list of
 -- stack status codes, see the StackStatus parameter of the Stack data type.
-lsiStackStatusFilter :: Lens' ListStacks ([StackStatus])
-lsiStackStatusFilter = lens _lsiStackStatusFilter (\s a -> s { _lsiStackStatusFilter = a })
-{-# INLINE lsiStackStatusFilter #-}
+lsStackStatusFilter :: Lens' ListStacks [StackStatus]
+lsStackStatusFilter =
+    lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
+{-# INLINE lsStackStatusFilter #-}
 
 instance ToQuery ListStacks where
     toQuery = genericQuery def
 
+-- | The output for ListStacks action.
 data ListStacksResponse = ListStacksResponse
-    { _lsoStackSummaries :: [StackSummary]
-      -- ^ A list of StackSummary structures containing information about
-      -- the specified stacks.
-    , _lsoNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of stacks, if
-      -- there is one.
+    { _lsrsStackSummaries :: [StackSummary]
+    , _lsrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of StackSummary structures containing information about the
 -- specified stacks.
-lsoStackSummaries :: Lens' ListStacksResponse ([StackSummary])
-lsoStackSummaries = lens _lsoStackSummaries (\s a -> s { _lsoStackSummaries = a })
-{-# INLINE lsoStackSummaries #-}
+lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
+lsrsStackSummaries =
+    lens _lsrsStackSummaries (\s a -> s { _lsrsStackSummaries = a })
+{-# INLINE lsrsStackSummaries #-}
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-lsoNextToken :: Lens' ListStacksResponse (Maybe Text)
-lsoNextToken = lens _lsoNextToken (\s a -> s { _lsoNextToken = a })
-{-# INLINE lsoNextToken #-}
+lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
+lsrsNextToken = lens _lsrsNextToken (\s a -> s { _lsrsNextToken = a })
+{-# INLINE lsrsNextToken #-}
 
 instance FromXML ListStacksResponse where
     fromXMLOptions = xmlOptions
@@ -123,5 +117,5 @@ instance AWSRequest ListStacks where
     response _ = xmlResponse
 
 instance AWSPager ListStacks where
-    next rq rs = (\x -> rq { _lsiNextToken = Just x })
-        <$> (_lsoNextToken rs)
+    next rq rs = (\x -> rq { _lsNextToken = Just x })
+        <$> (_lsrsNextToken rs)

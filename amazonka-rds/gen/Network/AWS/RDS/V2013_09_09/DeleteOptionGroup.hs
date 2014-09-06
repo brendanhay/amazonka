@@ -24,9 +24,9 @@ module Network.AWS.RDS.V2013_09_09.DeleteOptionGroup
     -- * Request
       DeleteOptionGroup
     -- ** Request constructor
-    , mkDeleteOptionGroupMessage
+    , mkDeleteOptionGroup
     -- ** Request lenses
-    , dogmOptionGroupName
+    , dogOptionGroupName
 
     -- * Response
     , DeleteOptionGroupResponse
@@ -36,26 +36,26 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DeleteOptionGroup = DeleteOptionGroup
+    { _dogOptionGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteOptionGroup' request.
-mkDeleteOptionGroupMessage :: Text -- ^ 'dogmOptionGroupName'
-                           -> DeleteOptionGroup
-mkDeleteOptionGroupMessage p1 = DeleteOptionGroup
-    { _dogmOptionGroupName = p1
+mkDeleteOptionGroup :: Text -- ^ 'dogOptionGroupName'
+                    -> DeleteOptionGroup
+mkDeleteOptionGroup p1 = DeleteOptionGroup
+    { _dogOptionGroupName = p1
     }
-{-# INLINE mkDeleteOptionGroupMessage #-}
-
-newtype DeleteOptionGroup = DeleteOptionGroup
-    { _dogmOptionGroupName :: Text
-      -- ^ The name of the option group to be deleted. You cannot delete
-      -- default option groups.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteOptionGroup #-}
 
 -- | The name of the option group to be deleted. You cannot delete default
 -- option groups.
-dogmOptionGroupName :: Lens' DeleteOptionGroup (Text)
-dogmOptionGroupName = lens _dogmOptionGroupName (\s a -> s { _dogmOptionGroupName = a })
-{-# INLINE dogmOptionGroupName #-}
+dogOptionGroupName :: Lens' DeleteOptionGroup Text
+dogOptionGroupName =
+    lens _dogOptionGroupName (\s a -> s { _dogOptionGroupName = a })
+{-# INLINE dogOptionGroupName #-}
 
 instance ToQuery DeleteOptionGroup where
     toQuery = genericQuery def

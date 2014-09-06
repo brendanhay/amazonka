@@ -38,10 +38,10 @@ module Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes
     -- * Request
       BatchDeleteAttributes
     -- ** Request constructor
-    , mkBatchDeleteAttributesRequest
+    , mkBatchDeleteAttributes
     -- ** Request lenses
-    , bdarDomainName
-    , bdarItems
+    , bdaDomainName
+    , bdaItems
 
     -- * Response
     , BatchDeleteAttributesResponse
@@ -51,33 +51,31 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'BatchDeleteAttributes' request.
-mkBatchDeleteAttributesRequest :: Text -- ^ 'bdarDomainName'
-                               -> [DeletableItem] -- ^ 'bdarItems'
-                               -> BatchDeleteAttributes
-mkBatchDeleteAttributesRequest p1 p2 = BatchDeleteAttributes
-    { _bdarDomainName = p1
-    , _bdarItems = p2
-    }
-{-# INLINE mkBatchDeleteAttributesRequest #-}
-
 data BatchDeleteAttributes = BatchDeleteAttributes
-    { _bdarDomainName :: Text
-      -- ^ The name of the domain in which the attributes are being deleted.
-    , _bdarItems :: [DeletableItem]
-      -- ^ A list of items on which to perform the operation.
+    { _bdaDomainName :: Text
+    , _bdaItems :: [DeletableItem]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchDeleteAttributes' request.
+mkBatchDeleteAttributes :: Text -- ^ 'bdaDomainName'
+                        -> [DeletableItem] -- ^ 'bdaItems'
+                        -> BatchDeleteAttributes
+mkBatchDeleteAttributes p1 p2 = BatchDeleteAttributes
+    { _bdaDomainName = p1
+    , _bdaItems = p2
+    }
+{-# INLINE mkBatchDeleteAttributes #-}
+
 -- | The name of the domain in which the attributes are being deleted.
-bdarDomainName :: Lens' BatchDeleteAttributes (Text)
-bdarDomainName = lens _bdarDomainName (\s a -> s { _bdarDomainName = a })
-{-# INLINE bdarDomainName #-}
+bdaDomainName :: Lens' BatchDeleteAttributes Text
+bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
+{-# INLINE bdaDomainName #-}
 
 -- | A list of items on which to perform the operation.
-bdarItems :: Lens' BatchDeleteAttributes ([DeletableItem])
-bdarItems = lens _bdarItems (\s a -> s { _bdarItems = a })
-{-# INLINE bdarItems #-}
+bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
+bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
+{-# INLINE bdaItems #-}
 
 instance ToQuery BatchDeleteAttributes where
     toQuery = genericQuery def

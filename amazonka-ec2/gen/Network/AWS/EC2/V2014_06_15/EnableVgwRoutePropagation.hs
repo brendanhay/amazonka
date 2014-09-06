@@ -31,10 +31,10 @@ module Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation
     -- * Request
       EnableVgwRoutePropagation
     -- ** Request constructor
-    , mkEnableVgwRoutePropagationRequest
+    , mkEnableVgwRoutePropagation
     -- ** Request lenses
-    , evrprRouteTableId
-    , evrprGatewayId
+    , evrpRouteTableId
+    , evrpGatewayId
 
     -- * Response
     , EnableVgwRoutePropagationResponse
@@ -44,33 +44,33 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableVgwRoutePropagation' request.
-mkEnableVgwRoutePropagationRequest :: Text -- ^ 'evrprRouteTableId'
-                                   -> Text -- ^ 'evrprGatewayId'
-                                   -> EnableVgwRoutePropagation
-mkEnableVgwRoutePropagationRequest p1 p2 = EnableVgwRoutePropagation
-    { _evrprRouteTableId = p1
-    , _evrprGatewayId = p2
-    }
-{-# INLINE mkEnableVgwRoutePropagationRequest #-}
-
+-- | 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
-    { _evrprRouteTableId :: Text
-      -- ^ The ID of the routing table.
-    , _evrprGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
+    { _evrpRouteTableId :: Text
+    , _evrpGatewayId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableVgwRoutePropagation' request.
+mkEnableVgwRoutePropagation :: Text -- ^ 'evrpRouteTableId'
+                            -> Text -- ^ 'evrpGatewayId'
+                            -> EnableVgwRoutePropagation
+mkEnableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
+    { _evrpRouteTableId = p1
+    , _evrpGatewayId = p2
+    }
+{-# INLINE mkEnableVgwRoutePropagation #-}
+
 -- | The ID of the routing table.
-evrprRouteTableId :: Lens' EnableVgwRoutePropagation (Text)
-evrprRouteTableId = lens _evrprRouteTableId (\s a -> s { _evrprRouteTableId = a })
-{-# INLINE evrprRouteTableId #-}
+evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
+evrpRouteTableId =
+    lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
+{-# INLINE evrpRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
-evrprGatewayId :: Lens' EnableVgwRoutePropagation (Text)
-evrprGatewayId = lens _evrprGatewayId (\s a -> s { _evrprGatewayId = a })
-{-# INLINE evrprGatewayId #-}
+evrpGatewayId :: Lens' EnableVgwRoutePropagation Text
+evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
+{-# INLINE evrpGatewayId #-}
 
 instance ToQuery EnableVgwRoutePropagation where
     toQuery = genericQuery def

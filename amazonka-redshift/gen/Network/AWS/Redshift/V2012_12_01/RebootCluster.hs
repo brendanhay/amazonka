@@ -38,51 +38,51 @@ module Network.AWS.Redshift.V2012_12_01.RebootCluster
     -- * Request
       RebootCluster
     -- ** Request constructor
-    , mkRebootClusterMessage
+    , mkRebootCluster
     -- ** Request lenses
-    , rcoClusterIdentifier
+    , rc1ClusterIdentifier
 
     -- * Response
     , RebootClusterResponse
     -- ** Response lenses
-    , ccwCluster
+    , rcrsCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RebootCluster' request.
-mkRebootClusterMessage :: Text -- ^ 'rcoClusterIdentifier'
-                       -> RebootCluster
-mkRebootClusterMessage p1 = RebootCluster
-    { _rcoClusterIdentifier = p1
-    }
-{-# INLINE mkRebootClusterMessage #-}
-
+-- | 
 newtype RebootCluster = RebootCluster
-    { _rcoClusterIdentifier :: Text
-      -- ^ The cluster identifier.
+    { _rc1ClusterIdentifier :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootCluster' request.
+mkRebootCluster :: Text -- ^ 'rc1ClusterIdentifier'
+                -> RebootCluster
+mkRebootCluster p1 = RebootCluster
+    { _rc1ClusterIdentifier = p1
+    }
+{-# INLINE mkRebootCluster #-}
+
 -- | The cluster identifier.
-rcoClusterIdentifier :: Lens' RebootCluster (Text)
-rcoClusterIdentifier = lens _rcoClusterIdentifier (\s a -> s { _rcoClusterIdentifier = a })
-{-# INLINE rcoClusterIdentifier #-}
+rc1ClusterIdentifier :: Lens' RebootCluster Text
+rc1ClusterIdentifier =
+    lens _rc1ClusterIdentifier (\s a -> s { _rc1ClusterIdentifier = a })
+{-# INLINE rc1ClusterIdentifier #-}
 
 instance ToQuery RebootCluster where
     toQuery = genericQuery def
 
 newtype RebootClusterResponse = RebootClusterResponse
-    { _ccwCluster :: Maybe Cluster
-      -- ^ Describes a cluster.
+    { _rcrsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccwCluster :: Lens' RebootClusterResponse (Maybe Cluster)
-ccwCluster = lens _ccwCluster (\s a -> s { _ccwCluster = a })
-{-# INLINE ccwCluster #-}
+rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
+rcrsCluster = lens _rcrsCluster (\s a -> s { _rcrsCluster = a })
+{-# INLINE rcrsCluster #-}
 
 instance FromXML RebootClusterResponse where
     fromXMLOptions = xmlOptions

@@ -28,74 +28,68 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineSuggester
     -- * Request
       DefineSuggester
     -- ** Request constructor
-    , mkDefineSuggesterRequest
+    , mkDefineSuggester
     -- ** Request lenses
-    , dsrDomainName
-    , dsrSuggester
+    , ds1DomainName
+    , ds1Suggester
 
     -- * Response
     , DefineSuggesterResponse
     -- ** Response lenses
-    , dssSuggester
+    , dsrsSuggester
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the DefineSuggester operation. Specifies
+-- the name of the domain you want to update and the suggester configuration.
+data DefineSuggester = DefineSuggester
+    { _ds1DomainName :: Text
+    , _ds1Suggester :: Suggester
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineSuggester' request.
-mkDefineSuggesterRequest :: Text -- ^ 'dsrDomainName'
-                         -> Suggester -- ^ 'dsrSuggester'
-                         -> DefineSuggester
-mkDefineSuggesterRequest p1 p2 = DefineSuggester
-    { _dsrDomainName = p1
-    , _dsrSuggester = p2
+mkDefineSuggester :: Text -- ^ 'ds1DomainName'
+                  -> Suggester -- ^ 'ds1Suggester'
+                  -> DefineSuggester
+mkDefineSuggester p1 p2 = DefineSuggester
+    { _ds1DomainName = p1
+    , _ds1Suggester = p2
     }
-{-# INLINE mkDefineSuggesterRequest #-}
-
-data DefineSuggester = DefineSuggester
-    { _dsrDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    , _dsrSuggester :: Suggester
-      -- ^ Configuration information for a search suggester. Each suggester
-      -- has a unique name and specifies the text field you want to use
-      -- for suggestions. The following options can be configured for a
-      -- suggester: FuzzyMatching, SortExpression.
-    } deriving (Show, Generic)
+{-# INLINE mkDefineSuggester #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dsrDomainName :: Lens' DefineSuggester (Text)
-dsrDomainName = lens _dsrDomainName (\s a -> s { _dsrDomainName = a })
-{-# INLINE dsrDomainName #-}
+ds1DomainName :: Lens' DefineSuggester Text
+ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
+{-# INLINE ds1DomainName #-}
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for suggestions.
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
-dsrSuggester :: Lens' DefineSuggester (Suggester)
-dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
-{-# INLINE dsrSuggester #-}
+ds1Suggester :: Lens' DefineSuggester Suggester
+ds1Suggester = lens _ds1Suggester (\s a -> s { _ds1Suggester = a })
+{-# INLINE ds1Suggester #-}
 
 instance ToQuery DefineSuggester where
     toQuery = genericQuery def
 
+-- | The result of a DefineSuggester request. Contains the status of the
+-- newly-configured suggester.
 newtype DefineSuggesterResponse = DefineSuggesterResponse
-    { _dssSuggester :: SuggesterStatus
-      -- ^ The value of a Suggester and its current status.
+    { _dsrsSuggester :: SuggesterStatus
     } deriving (Show, Generic)
 
 -- | The value of a Suggester and its current status.
-dssSuggester :: Lens' DefineSuggesterResponse (SuggesterStatus)
-dssSuggester = lens _dssSuggester (\s a -> s { _dssSuggester = a })
-{-# INLINE dssSuggester #-}
+dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
+dsrsSuggester = lens _dsrsSuggester (\s a -> s { _dsrsSuggester = a })
+{-# INLINE dsrsSuggester #-}
 
 instance FromXML DefineSuggesterResponse where
     fromXMLOptions = xmlOptions

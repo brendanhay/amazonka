@@ -32,12 +32,12 @@ module Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes
     -- * Request
       DeleteAttributes
     -- ** Request constructor
-    , mkDeleteAttributesRequest
+    , mkDeleteAttributes
     -- ** Request lenses
-    , darDomainName
-    , darItemName
-    , darAttributes
-    , darExpected
+    , daDomainName
+    , daItemName
+    , daAttributes
+    , daExpected
 
     -- * Response
     , DeleteAttributesResponse
@@ -47,60 +47,49 @@ import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.V2009_04_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteAttributes' request.
-mkDeleteAttributesRequest :: Text -- ^ 'darDomainName'
-                          -> Text -- ^ 'darItemName'
-                          -> DeleteAttributes
-mkDeleteAttributesRequest p1 p2 = DeleteAttributes
-    { _darDomainName = p1
-    , _darItemName = p2
-    , _darAttributes = mempty
-    , _darExpected = Nothing
-    }
-{-# INLINE mkDeleteAttributesRequest #-}
-
 data DeleteAttributes = DeleteAttributes
-    { _darDomainName :: Text
-      -- ^ The name of the domain in which to perform the operation.
-    , _darItemName :: Text
-      -- ^ The name of the item. Similar to rows on a spreadsheet, items
-      -- represent individual objects that contain one or more
-      -- value-attribute pairs.
-    , _darAttributes :: [Attribute]
-      -- ^ A list of Attributes. Similar to columns on a spreadsheet,
-      -- attributes represent categories of data that can be assigned to
-      -- items.
-    , _darExpected :: Maybe UpdateCondition
-      -- ^ The update condition which, if specified, determines whether the
-      -- specified attributes will be deleted or not. The update condition
-      -- must be satisfied in order for this request to be processed and
-      -- the attributes to be deleted.
+    { _daDomainName :: Text
+    , _daItemName :: Text
+    , _daAttributes :: [Attribute]
+    , _daExpected :: Maybe UpdateCondition
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAttributes' request.
+mkDeleteAttributes :: Text -- ^ 'daDomainName'
+                   -> Text -- ^ 'daItemName'
+                   -> DeleteAttributes
+mkDeleteAttributes p1 p2 = DeleteAttributes
+    { _daDomainName = p1
+    , _daItemName = p2
+    , _daAttributes = mempty
+    , _daExpected = Nothing
+    }
+{-# INLINE mkDeleteAttributes #-}
+
 -- | The name of the domain in which to perform the operation.
-darDomainName :: Lens' DeleteAttributes (Text)
-darDomainName = lens _darDomainName (\s a -> s { _darDomainName = a })
-{-# INLINE darDomainName #-}
+daDomainName :: Lens' DeleteAttributes Text
+daDomainName = lens _daDomainName (\s a -> s { _daDomainName = a })
+{-# INLINE daDomainName #-}
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent
 -- individual objects that contain one or more value-attribute pairs.
-darItemName :: Lens' DeleteAttributes (Text)
-darItemName = lens _darItemName (\s a -> s { _darItemName = a })
-{-# INLINE darItemName #-}
+daItemName :: Lens' DeleteAttributes Text
+daItemName = lens _daItemName (\s a -> s { _daItemName = a })
+{-# INLINE daItemName #-}
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
-darAttributes :: Lens' DeleteAttributes ([Attribute])
-darAttributes = lens _darAttributes (\s a -> s { _darAttributes = a })
-{-# INLINE darAttributes #-}
+daAttributes :: Lens' DeleteAttributes [Attribute]
+daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a })
+{-# INLINE daAttributes #-}
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be deleted or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be deleted.
-darExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-darExpected = lens _darExpected (\s a -> s { _darExpected = a })
-{-# INLINE darExpected #-}
+daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
+daExpected = lens _daExpected (\s a -> s { _daExpected = a })
+{-# INLINE daExpected #-}
 
 instance ToQuery DeleteAttributes where
     toQuery = genericQuery def

@@ -23,11 +23,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketTagging
     -- * Request
       PutBucketTagging
     -- ** Request constructor
-    , mkPutBucketTaggingRequest
+    , mkPutBucketTagging
     -- ** Request lenses
-    , pbtrBucket
-    , pbtrContentMD5
-    , pbtrTagging
+    , pbtBucket
+    , pbtContentMD5
+    , pbtTagging
 
     -- * Response
     , PutBucketTaggingResponse
@@ -36,41 +36,42 @@ module Network.AWS.S3.V2006_03_01.PutBucketTagging
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data PutBucketTagging = PutBucketTagging
+    { _pbtBucket :: BucketName
+    , _pbtContentMD5 :: Maybe Text
+    , _pbtTagging :: Tagging
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketTagging' request.
-mkPutBucketTaggingRequest :: BucketName -- ^ 'pbtrBucket'
-                          -> Tagging -- ^ 'pbtrTagging'
-                          -> PutBucketTagging
-mkPutBucketTaggingRequest p1 p2 = PutBucketTagging
-    { _pbtrBucket = p1
-    , _pbtrContentMD5 = Nothing
-    , _pbtrTagging = p3
+mkPutBucketTagging :: BucketName -- ^ 'pbtBucket'
+                   -> Tagging -- ^ 'pbtTagging'
+                   -> PutBucketTagging
+mkPutBucketTagging p1 p3 = PutBucketTagging
+    { _pbtBucket = p1
+    , _pbtContentMD5 = Nothing
+    , _pbtTagging = p3
     }
-{-# INLINE mkPutBucketTaggingRequest #-}
+{-# INLINE mkPutBucketTagging #-}
 
-data PutBucketTagging = PutBucketTagging
-    { _pbtrBucket :: BucketName
-    , _pbtrContentMD5 :: Maybe Text
-    , _pbtrTagging :: Tagging
-    } deriving (Show, Generic)
+pbtBucket :: Lens' PutBucketTagging BucketName
+pbtBucket = lens _pbtBucket (\s a -> s { _pbtBucket = a })
+{-# INLINE pbtBucket #-}
 
-pbtrBucket :: Lens' PutBucketTagging (BucketName)
-pbtrBucket = lens _pbtrBucket (\s a -> s { _pbtrBucket = a })
-{-# INLINE pbtrBucket #-}
+pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
+pbtContentMD5 = lens _pbtContentMD5 (\s a -> s { _pbtContentMD5 = a })
+{-# INLINE pbtContentMD5 #-}
 
-pbtrContentMD5 :: Lens' PutBucketTagging (Maybe Text)
-pbtrContentMD5 = lens _pbtrContentMD5 (\s a -> s { _pbtrContentMD5 = a })
-{-# INLINE pbtrContentMD5 #-}
-
-pbtrTagging :: Lens' PutBucketTagging (Tagging)
-pbtrTagging = lens _pbtrTagging (\s a -> s { _pbtrTagging = a })
-{-# INLINE pbtrTagging #-}
+pbtTagging :: Lens' PutBucketTagging Tagging
+pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
+{-# INLINE pbtTagging #-}
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat
         [ "/"
-        , toBS _pbtrBucket
+        , toBS _pbtBucket
         ]
 
 instance ToQuery PutBucketTagging where
@@ -78,9 +79,13 @@ instance ToQuery PutBucketTagging where
         [ "tagging"
         ]
 
-instance ToHeaders PutBucketTagging
+instance ToHeaders PutBucketTagging where
+    toHeaders PutBucketTagging{..} = concat
+        [ "Content-MD5" =: _pbtContentMD5
+        ]
 
-instance ToBody PutBucketTagging
+instance ToBody PutBucketTagging where
+    toBody = toBody . encodeXML . _pbtTagging
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)

@@ -33,9 +33,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpc
     -- * Request
       DeleteVpc
     -- ** Request constructor
-    , mkDeleteVpcRequest
+    , mkDeleteVpc
     -- ** Request lenses
-    , dvsVpcId
+    , dv1VpcId
 
     -- * Response
     , DeleteVpcResponse
@@ -45,24 +45,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpc' request.
-mkDeleteVpcRequest :: Text -- ^ 'dvsVpcId'
-                   -> DeleteVpc
-mkDeleteVpcRequest p1 = DeleteVpc
-    { _dvsVpcId = p1
-    }
-{-# INLINE mkDeleteVpcRequest #-}
-
+-- | 
 newtype DeleteVpc = DeleteVpc
-    { _dvsVpcId :: Text
-      -- ^ The ID of the VPC.
+    { _dv1VpcId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpc' request.
+mkDeleteVpc :: Text -- ^ 'dv1VpcId'
+            -> DeleteVpc
+mkDeleteVpc p1 = DeleteVpc
+    { _dv1VpcId = p1
+    }
+{-# INLINE mkDeleteVpc #-}
+
 -- | The ID of the VPC.
-dvsVpcId :: Lens' DeleteVpc (Text)
-dvsVpcId = lens _dvsVpcId (\s a -> s { _dvsVpcId = a })
-{-# INLINE dvsVpcId #-}
+dv1VpcId :: Lens' DeleteVpc Text
+dv1VpcId = lens _dv1VpcId (\s a -> s { _dv1VpcId = a })
+{-# INLINE dv1VpcId #-}
 
 instance ToQuery DeleteVpc where
     toQuery = genericQuery def

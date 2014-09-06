@@ -77,17 +77,17 @@ module Network.AWS.EMR.V2009_03_31.DescribeJobFlows
     -- * Request
       DescribeJobFlows
     -- ** Request constructor
-    , mkDescribeJobFlowsInput
+    , mkDescribeJobFlows
     -- ** Request lenses
-    , djfiCreatedAfter
-    , djfiCreatedBefore
-    , djfiJobFlowIds
-    , djfiJobFlowStates
+    , djfCreatedAfter
+    , djfCreatedBefore
+    , djfJobFlowIds
+    , djfJobFlowStates
 
     -- * Response
     , DescribeJobFlowsResponse
     -- ** Response lenses
-    , djfoJobFlows
+    , djfrsJobFlows
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -95,48 +95,46 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeJobFlows' request.
-mkDescribeJobFlowsInput :: DescribeJobFlows
-mkDescribeJobFlowsInput = DescribeJobFlows
-    { _djfiCreatedAfter = Nothing
-    , _djfiCreatedBefore = Nothing
-    , _djfiJobFlowIds = mempty
-    , _djfiJobFlowStates = mempty
-    }
-{-# INLINE mkDescribeJobFlowsInput #-}
-
+-- | The input for the DescribeJobFlows operation.
 data DescribeJobFlows = DescribeJobFlows
-    { _djfiCreatedAfter :: Maybe POSIX
-      -- ^ Return only job flows created after this date and time.
-    , _djfiCreatedBefore :: Maybe POSIX
-      -- ^ Return only job flows created before this date and time.
-    , _djfiJobFlowIds :: [Text]
-      -- ^ Return only job flows whose job flow ID is contained in this
-      -- list.
-    , _djfiJobFlowStates :: [JobFlowExecutionState]
-      -- ^ Return only job flows whose state is contained in this list.
+    { _djfCreatedAfter :: Maybe POSIX
+    , _djfCreatedBefore :: Maybe POSIX
+    , _djfJobFlowIds :: [Text]
+    , _djfJobFlowStates :: [JobFlowExecutionState]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeJobFlows' request.
+mkDescribeJobFlows :: DescribeJobFlows
+mkDescribeJobFlows = DescribeJobFlows
+    { _djfCreatedAfter = Nothing
+    , _djfCreatedBefore = Nothing
+    , _djfJobFlowIds = mempty
+    , _djfJobFlowStates = mempty
+    }
+{-# INLINE mkDescribeJobFlows #-}
+
 -- | Return only job flows created after this date and time.
-djfiCreatedAfter :: Lens' DescribeJobFlows (Maybe POSIX)
-djfiCreatedAfter = lens _djfiCreatedAfter (\s a -> s { _djfiCreatedAfter = a })
-{-# INLINE djfiCreatedAfter #-}
+djfCreatedAfter :: Lens' DescribeJobFlows (Maybe POSIX)
+djfCreatedAfter = lens _djfCreatedAfter (\s a -> s { _djfCreatedAfter = a })
+{-# INLINE djfCreatedAfter #-}
 
 -- | Return only job flows created before this date and time.
-djfiCreatedBefore :: Lens' DescribeJobFlows (Maybe POSIX)
-djfiCreatedBefore = lens _djfiCreatedBefore (\s a -> s { _djfiCreatedBefore = a })
-{-# INLINE djfiCreatedBefore #-}
+djfCreatedBefore :: Lens' DescribeJobFlows (Maybe POSIX)
+djfCreatedBefore =
+    lens _djfCreatedBefore (\s a -> s { _djfCreatedBefore = a })
+{-# INLINE djfCreatedBefore #-}
 
 -- | Return only job flows whose job flow ID is contained in this list.
-djfiJobFlowIds :: Lens' DescribeJobFlows ([Text])
-djfiJobFlowIds = lens _djfiJobFlowIds (\s a -> s { _djfiJobFlowIds = a })
-{-# INLINE djfiJobFlowIds #-}
+djfJobFlowIds :: Lens' DescribeJobFlows [Text]
+djfJobFlowIds = lens _djfJobFlowIds (\s a -> s { _djfJobFlowIds = a })
+{-# INLINE djfJobFlowIds #-}
 
 -- | Return only job flows whose state is contained in this list.
-djfiJobFlowStates :: Lens' DescribeJobFlows ([JobFlowExecutionState])
-djfiJobFlowStates = lens _djfiJobFlowStates (\s a -> s { _djfiJobFlowStates = a })
-{-# INLINE djfiJobFlowStates #-}
+djfJobFlowStates :: Lens' DescribeJobFlows [JobFlowExecutionState]
+djfJobFlowStates =
+    lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a })
+{-# INLINE djfJobFlowStates #-}
 
 instance ToPath DescribeJobFlows
 
@@ -146,15 +144,15 @@ instance ToHeaders DescribeJobFlows
 
 instance ToJSON DescribeJobFlows
 
+-- | The output for the DescribeJobFlows operation.
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
-    { _djfoJobFlows :: [JobFlowDetail]
-      -- ^ A list of job flows matching the parameters supplied.
+    { _djfrsJobFlows :: [JobFlowDetail]
     } deriving (Show, Generic)
 
 -- | A list of job flows matching the parameters supplied.
-djfoJobFlows :: Lens' DescribeJobFlowsResponse ([JobFlowDetail])
-djfoJobFlows = lens _djfoJobFlows (\s a -> s { _djfoJobFlows = a })
-{-# INLINE djfoJobFlows #-}
+djfrsJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
+djfrsJobFlows = lens _djfrsJobFlows (\s a -> s { _djfrsJobFlows = a })
+{-# INLINE djfrsJobFlows #-}
 
 instance FromJSON DescribeJobFlowsResponse
 

@@ -49,65 +49,41 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnConnections
     -- * Request
       DescribeVpnConnections
     -- ** Request constructor
-    , mkDescribeVpnConnectionsRequest
+    , mkDescribeVpnConnections
     -- ** Request lenses
-    , dvcsVpnConnectionIds
-    , dvcsFilters
+    , dvc1VpnConnectionIds
+    , dvc1Filters
 
     -- * Response
     , DescribeVpnConnectionsResponse
     -- ** Response lenses
-    , dvctVpnConnections
+    , dvcrsVpnConnections
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVpnConnections' request.
-mkDescribeVpnConnectionsRequest :: DescribeVpnConnections
-mkDescribeVpnConnectionsRequest = DescribeVpnConnections
-    { _dvcsVpnConnectionIds = mempty
-    , _dvcsFilters = mempty
-    }
-{-# INLINE mkDescribeVpnConnectionsRequest #-}
-
+-- | 
 data DescribeVpnConnections = DescribeVpnConnections
-    { _dvcsVpnConnectionIds :: [Text]
-      -- ^ One or more VPN connection IDs. Default: Describes your VPN
-      -- connections.
-    , _dvcsFilters :: [Filter]
-      -- ^ One or more filters. customer-gateway-configuration - The
-      -- configuration information for the customer gateway.
-      -- customer-gateway-id - The ID of a customer gateway associated
-      -- with the VPN connection. state - The state of the VPN connection
-      -- (pending | available | deleting | deleted).
-      -- option.static-routes-only - Indicates whether the connection has
-      -- static routes only. Used for devices that do not support Border
-      -- Gateway Protocol (BGP). route.destination-cidr-block - The
-      -- destination CIDR block. This corresponds to the subnet used in a
-      -- customer data center. bgp-asn - The BGP Autonomous System Number
-      -- (ASN) associated with a BGP device. tag:key=value - The key/value
-      -- combination of a tag assigned to the resource. tag-key - The key
-      -- of a tag assigned to the resource. This filter is independent of
-      -- the tag-value filter. For example, if you use both the filter
-      -- "tag-key=Purpose" and the filter "tag-value=X", you get any
-      -- resources assigned both the tag key Purpose (regardless of what
-      -- the tag's value is), and the tag value X (regardless of what the
-      -- tag's key is). If you want to list only resources where Purpose
-      -- is X, see the tag:key=value filter. tag-value - The value of a
-      -- tag assigned to the resource. This filter is independent of the
-      -- tag-key filter. type - The type of VPN connection. Currently the
-      -- only supported type is ipsec.1. vpn-connection-id - The ID of the
-      -- VPN connection. vpn-gateway-id - The ID of a virtual private
-      -- gateway associated with the VPN connection.
+    { _dvc1VpnConnectionIds :: [Text]
+    , _dvc1Filters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpnConnections' request.
+mkDescribeVpnConnections :: DescribeVpnConnections
+mkDescribeVpnConnections = DescribeVpnConnections
+    { _dvc1VpnConnectionIds = mempty
+    , _dvc1Filters = mempty
+    }
+{-# INLINE mkDescribeVpnConnections #-}
+
 -- | One or more VPN connection IDs. Default: Describes your VPN connections.
-dvcsVpnConnectionIds :: Lens' DescribeVpnConnections ([Text])
-dvcsVpnConnectionIds = lens _dvcsVpnConnectionIds (\s a -> s { _dvcsVpnConnectionIds = a })
-{-# INLINE dvcsVpnConnectionIds #-}
+dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
+dvc1VpnConnectionIds =
+    lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
+{-# INLINE dvc1VpnConnectionIds #-}
 
 -- | One or more filters. customer-gateway-configuration - The configuration
 -- information for the customer gateway. customer-gateway-id - The ID of a
@@ -130,22 +106,23 @@ dvcsVpnConnectionIds = lens _dvcsVpnConnectionIds (\s a -> s { _dvcsVpnConnectio
 -- Currently the only supported type is ipsec.1. vpn-connection-id - The ID of
 -- the VPN connection. vpn-gateway-id - The ID of a virtual private gateway
 -- associated with the VPN connection.
-dvcsFilters :: Lens' DescribeVpnConnections ([Filter])
-dvcsFilters = lens _dvcsFilters (\s a -> s { _dvcsFilters = a })
-{-# INLINE dvcsFilters #-}
+dvc1Filters :: Lens' DescribeVpnConnections [Filter]
+dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
+{-# INLINE dvc1Filters #-}
 
 instance ToQuery DescribeVpnConnections where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
-    { _dvctVpnConnections :: [VpnConnection]
-      -- ^ Information about one or more VPN connections.
+    { _dvcrsVpnConnections :: [VpnConnection]
     } deriving (Show, Generic)
 
 -- | Information about one or more VPN connections.
-dvctVpnConnections :: Lens' DescribeVpnConnectionsResponse ([VpnConnection])
-dvctVpnConnections = lens _dvctVpnConnections (\s a -> s { _dvctVpnConnections = a })
-{-# INLINE dvctVpnConnections #-}
+dvcrsVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
+dvcrsVpnConnections =
+    lens _dvcrsVpnConnections (\s a -> s { _dvcrsVpnConnections = a })
+{-# INLINE dvcrsVpnConnections #-}
 
 instance FromXML DescribeVpnConnectionsResponse where
     fromXMLOptions = xmlOptions

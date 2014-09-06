@@ -66,67 +66,47 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus
     -- * Request
       DescribeVolumeStatus
     -- ** Request constructor
-    , mkDescribeVolumeStatusRequest
+    , mkDescribeVolumeStatus
     -- ** Request lenses
-    , dvsrVolumeIds
-    , dvsrFilters
-    , dvsrNextToken
-    , dvsrMaxResults
+    , dvsVolumeIds
+    , dvsFilters
+    , dvsNextToken
+    , dvsMaxResults
 
     -- * Response
     , DescribeVolumeStatusResponse
     -- ** Response lenses
-    , dvssVolumeStatuses
-    , dvssNextToken
+    , dvsrsVolumeStatuses
+    , dvsrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVolumeStatus' request.
-mkDescribeVolumeStatusRequest :: DescribeVolumeStatus
-mkDescribeVolumeStatusRequest = DescribeVolumeStatus
-    { _dvsrVolumeIds = mempty
-    , _dvsrFilters = mempty
-    , _dvsrNextToken = Nothing
-    , _dvsrMaxResults = Nothing
-    }
-{-# INLINE mkDescribeVolumeStatusRequest #-}
-
+-- | 
 data DescribeVolumeStatus = DescribeVolumeStatus
-    { _dvsrVolumeIds :: [Text]
-      -- ^ One or more volume IDs. Default: Describes all your volumes.
-    , _dvsrFilters :: [Filter]
-      -- ^ One or more filters. action.code - The action code for the event
-      -- (for example, enable-volume-io). action.description - A
-      -- description of the action. action.event-id - The event ID
-      -- associated with the action. availability-zone - The Availability
-      -- Zone of the instance. event.description - A description of the
-      -- event. event.event-id - The event ID. event.event-type - The
-      -- event type (for io-enabled: passed | failed; for io-performance:
-      -- io-performance:degraded | io-performance:severely-degraded |
-      -- io-performance:stalled). event.not-after - The latest end time
-      -- for the event. event.not-before - The earliest start time for the
-      -- event. volume-status.details-name - The cause for
-      -- volume-status.status (io-enabled | io-performance).
-      -- volume-status.details-status - The status of
-      -- volume-status.details-name (for io-enabled: passed | failed; for
-      -- io-performance: normal | degraded | severely-degraded | stalled).
-      -- volume-status.status - The status of the volume (ok | impaired |
-      -- warning | insufficient-data).
-    , _dvsrNextToken :: Maybe Text
-      -- ^ The next paginated set of results to return using the pagination
-      -- token returned by a previous call.
-    , _dvsrMaxResults :: Maybe Integer
-      -- ^ The maximum number of paginated volume items per response.
+    { _dvsVolumeIds :: [Text]
+    , _dvsFilters :: [Filter]
+    , _dvsNextToken :: Maybe Text
+    , _dvsMaxResults :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumeStatus' request.
+mkDescribeVolumeStatus :: DescribeVolumeStatus
+mkDescribeVolumeStatus = DescribeVolumeStatus
+    { _dvsVolumeIds = mempty
+    , _dvsFilters = mempty
+    , _dvsNextToken = Nothing
+    , _dvsMaxResults = Nothing
+    }
+{-# INLINE mkDescribeVolumeStatus #-}
+
 -- | One or more volume IDs. Default: Describes all your volumes.
-dvsrVolumeIds :: Lens' DescribeVolumeStatus ([Text])
-dvsrVolumeIds = lens _dvsrVolumeIds (\s a -> s { _dvsrVolumeIds = a })
-{-# INLINE dvsrVolumeIds #-}
+dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
+dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
+{-# INLINE dvsVolumeIds #-}
 
 -- | One or more filters. action.code - The action code for the event (for
 -- example, enable-volume-io). action.description - A description of the
@@ -143,40 +123,40 @@ dvsrVolumeIds = lens _dvsrVolumeIds (\s a -> s { _dvsrVolumeIds = a })
 -- io-performance: normal | degraded | severely-degraded | stalled).
 -- volume-status.status - The status of the volume (ok | impaired | warning |
 -- insufficient-data).
-dvsrFilters :: Lens' DescribeVolumeStatus ([Filter])
-dvsrFilters = lens _dvsrFilters (\s a -> s { _dvsrFilters = a })
-{-# INLINE dvsrFilters #-}
+dvsFilters :: Lens' DescribeVolumeStatus [Filter]
+dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a })
+{-# INLINE dvsFilters #-}
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
-dvsrNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
-dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
-{-# INLINE dvsrNextToken #-}
+dvsNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
+dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
+{-# INLINE dvsNextToken #-}
 
 -- | The maximum number of paginated volume items per response.
-dvsrMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
-dvsrMaxResults = lens _dvsrMaxResults (\s a -> s { _dvsrMaxResults = a })
-{-# INLINE dvsrMaxResults #-}
+dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
+dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
+{-# INLINE dvsMaxResults #-}
 
 instance ToQuery DescribeVolumeStatus where
     toQuery = genericQuery def
 
+-- | 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
-    { _dvssVolumeStatuses :: [VolumeStatusItem]
-      -- ^ A list of volumes.
-    , _dvssNextToken :: Maybe Text
-      -- ^ The next paginated set of results to return.
+    { _dvsrsVolumeStatuses :: [VolumeStatusItem]
+    , _dvsrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of volumes.
-dvssVolumeStatuses :: Lens' DescribeVolumeStatusResponse ([VolumeStatusItem])
-dvssVolumeStatuses = lens _dvssVolumeStatuses (\s a -> s { _dvssVolumeStatuses = a })
-{-# INLINE dvssVolumeStatuses #-}
+dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
+dvsrsVolumeStatuses =
+    lens _dvsrsVolumeStatuses (\s a -> s { _dvsrsVolumeStatuses = a })
+{-# INLINE dvsrsVolumeStatuses #-}
 
 -- | The next paginated set of results to return.
-dvssNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
-dvssNextToken = lens _dvssNextToken (\s a -> s { _dvssNextToken = a })
-{-# INLINE dvssNextToken #-}
+dvsrsNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
+dvsrsNextToken = lens _dvsrsNextToken (\s a -> s { _dvsrsNextToken = a })
+{-# INLINE dvsrsNextToken #-}
 
 instance FromXML DescribeVolumeStatusResponse where
     fromXMLOptions = xmlOptions
@@ -189,5 +169,5 @@ instance AWSRequest DescribeVolumeStatus where
     response _ = xmlResponse
 
 instance AWSPager DescribeVolumeStatus where
-    next rq rs = (\x -> rq { _dvsrNextToken = Just x })
-        <$> (_dvssNextToken rs)
+    next rq rs = (\x -> rq { _dvsNextToken = Just x })
+        <$> (_dvsrsNextToken rs)

@@ -27,11 +27,11 @@ module Network.AWS.AutoScaling.V2011_01_01.EnableMetricsCollection
     -- * Request
       EnableMetricsCollection
     -- ** Request constructor
-    , mkEnableMetricsCollectionQuery
+    , mkEnableMetricsCollection
     -- ** Request lenses
-    , emcqAutoScalingGroupName
-    , emcqMetrics
-    , emcqGranularity
+    , emcAutoScalingGroupName
+    , emcMetrics
+    , emcGranularity
 
     -- * Response
     , EnableMetricsCollectionResponse
@@ -41,39 +41,31 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableMetricsCollection' request.
-mkEnableMetricsCollectionQuery :: Text -- ^ 'emcqAutoScalingGroupName'
-                               -> Text -- ^ 'emcqGranularity'
-                               -> EnableMetricsCollection
-mkEnableMetricsCollectionQuery p1 p2 = EnableMetricsCollection
-    { _emcqAutoScalingGroupName = p1
-    , _emcqMetrics = mempty
-    , _emcqGranularity = p3
-    }
-{-# INLINE mkEnableMetricsCollectionQuery #-}
-
+-- | 
 data EnableMetricsCollection = EnableMetricsCollection
-    { _emcqAutoScalingGroupName :: Text
-      -- ^ The name or ARN of the Auto Scaling group.
-    , _emcqMetrics :: [Text]
-      -- ^ The list of metrics to collect. If no metrics are specified, all
-      -- metrics are enabled. The following metrics are supported:
-      -- GroupMinSize GroupMaxSize GroupDesiredCapacity
-      -- GroupInServiceInstances GroupPendingInstances
-      -- GroupStandbyInstances GroupTerminatingInstances
-      -- GroupTotalInstances The GroupStandbyInstances metric is not
-      -- returned by default. You must explicitly request it when calling
-      -- EnableMetricsCollection.
-    , _emcqGranularity :: Text
-      -- ^ The granularity to associate with the metrics to collect.
-      -- Currently, the only legal granularity is "1Minute".
+    { _emcAutoScalingGroupName :: Text
+    , _emcMetrics :: [Text]
+    , _emcGranularity :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableMetricsCollection' request.
+mkEnableMetricsCollection :: Text -- ^ 'emcAutoScalingGroupName'
+                          -> Text -- ^ 'emcGranularity'
+                          -> EnableMetricsCollection
+mkEnableMetricsCollection p1 p3 = EnableMetricsCollection
+    { _emcAutoScalingGroupName = p1
+    , _emcMetrics = mempty
+    , _emcGranularity = p3
+    }
+{-# INLINE mkEnableMetricsCollection #-}
+
 -- | The name or ARN of the Auto Scaling group.
-emcqAutoScalingGroupName :: Lens' EnableMetricsCollection (Text)
-emcqAutoScalingGroupName = lens _emcqAutoScalingGroupName (\s a -> s { _emcqAutoScalingGroupName = a })
-{-# INLINE emcqAutoScalingGroupName #-}
+emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
+emcAutoScalingGroupName =
+    lens _emcAutoScalingGroupName
+         (\s a -> s { _emcAutoScalingGroupName = a })
+{-# INLINE emcAutoScalingGroupName #-}
 
 -- | The list of metrics to collect. If no metrics are specified, all metrics
 -- are enabled. The following metrics are supported: GroupMinSize GroupMaxSize
@@ -81,15 +73,15 @@ emcqAutoScalingGroupName = lens _emcqAutoScalingGroupName (\s a -> s { _emcqAuto
 -- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances The
 -- GroupStandbyInstances metric is not returned by default. You must
 -- explicitly request it when calling EnableMetricsCollection.
-emcqMetrics :: Lens' EnableMetricsCollection ([Text])
-emcqMetrics = lens _emcqMetrics (\s a -> s { _emcqMetrics = a })
-{-# INLINE emcqMetrics #-}
+emcMetrics :: Lens' EnableMetricsCollection [Text]
+emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a })
+{-# INLINE emcMetrics #-}
 
 -- | The granularity to associate with the metrics to collect. Currently, the
 -- only legal granularity is "1Minute".
-emcqGranularity :: Lens' EnableMetricsCollection (Text)
-emcqGranularity = lens _emcqGranularity (\s a -> s { _emcqGranularity = a })
-{-# INLINE emcqGranularity #-}
+emcGranularity :: Lens' EnableMetricsCollection Text
+emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
+{-# INLINE emcGranularity #-}
 
 instance ToQuery EnableMetricsCollection where
     toQuery = genericQuery def

@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
     -- * Request
       DeleteSnapshotSchedule
     -- ** Request constructor
-    , mkDeleteSnapshotScheduleInput
+    , mkDeleteSnapshotSchedule
     -- ** Request lenses
-    , dssiVolumeARN
+    , dssVolumeARN
 
     -- * Response
     , DeleteSnapshotScheduleResponse
     -- ** Response lenses
-    , dssoVolumeARN
+    , dssrsVolumeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -58,22 +58,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshotSchedule' request.
-mkDeleteSnapshotScheduleInput :: Text -- ^ 'dssiVolumeARN'
-                              -> DeleteSnapshotSchedule
-mkDeleteSnapshotScheduleInput p1 = DeleteSnapshotSchedule
-    { _dssiVolumeARN = p1
-    }
-{-# INLINE mkDeleteSnapshotScheduleInput #-}
-
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
-    { _dssiVolumeARN :: Text
+    { _dssVolumeARN :: Text
     } deriving (Show, Generic)
 
-dssiVolumeARN :: Lens' DeleteSnapshotSchedule (Text)
-dssiVolumeARN = lens _dssiVolumeARN (\s a -> s { _dssiVolumeARN = a })
-{-# INLINE dssiVolumeARN #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshotSchedule' request.
+mkDeleteSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
+                         -> DeleteSnapshotSchedule
+mkDeleteSnapshotSchedule p1 = DeleteSnapshotSchedule
+    { _dssVolumeARN = p1
+    }
+{-# INLINE mkDeleteSnapshotSchedule #-}
+
+dssVolumeARN :: Lens' DeleteSnapshotSchedule Text
+dssVolumeARN = lens _dssVolumeARN (\s a -> s { _dssVolumeARN = a })
+{-# INLINE dssVolumeARN #-}
 
 instance ToPath DeleteSnapshotSchedule
 
@@ -84,12 +84,12 @@ instance ToHeaders DeleteSnapshotSchedule
 instance ToJSON DeleteSnapshotSchedule
 
 newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
-    { _dssoVolumeARN :: Maybe Text
+    { _dssrsVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dssoVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
-dssoVolumeARN = lens _dssoVolumeARN (\s a -> s { _dssoVolumeARN = a })
-{-# INLINE dssoVolumeARN #-}
+dssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
+dssrsVolumeARN = lens _dssrsVolumeARN (\s a -> s { _dssrsVolumeARN = a })
+{-# INLINE dssrsVolumeARN #-}
 
 instance FromJSON DeleteSnapshotScheduleResponse
 

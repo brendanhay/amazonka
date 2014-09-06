@@ -43,15 +43,15 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications
     -- * Request
       UpdatePipelineNotifications
     -- ** Request constructor
-    , mkUpdatePipelineNotificationsRequest
+    , mkUpdatePipelineNotifications
     -- ** Request lenses
-    , upnrId
-    , upnrNotifications
+    , upnId
+    , upnNotifications
 
     -- * Response
     , UpdatePipelineNotificationsResponse
     -- ** Response lenses
-    , upnsPipeline
+    , upnrsPipeline
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -59,46 +59,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The UpdatePipelineNotificationsRequest structure.
+data UpdatePipelineNotifications = UpdatePipelineNotifications
+    { _upnId :: Text
+    , _upnNotifications :: Notifications
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineNotifications' request.
-mkUpdatePipelineNotificationsRequest :: Text -- ^ 'upnrId'
-                                     -> Notifications -- ^ 'upnrNotifications'
-                                     -> UpdatePipelineNotifications
-mkUpdatePipelineNotificationsRequest p1 p2 = UpdatePipelineNotifications
-    { _upnrId = p1
-    , _upnrNotifications = p2
+mkUpdatePipelineNotifications :: Text -- ^ 'upnId'
+                              -> Notifications -- ^ 'upnNotifications'
+                              -> UpdatePipelineNotifications
+mkUpdatePipelineNotifications p1 p2 = UpdatePipelineNotifications
+    { _upnId = p1
+    , _upnNotifications = p2
     }
-{-# INLINE mkUpdatePipelineNotificationsRequest #-}
-
-data UpdatePipelineNotifications = UpdatePipelineNotifications
-    { _upnrId :: Text
-      -- ^ The identifier of the pipeline for which you want to change
-      -- notification settings.
-    , _upnrNotifications :: Notifications
-      -- ^ The topic ARN for the Amazon Simple Notification Service (Amazon
-      -- SNS) topic that you want to notify to report job status. To
-      -- receive notifications, you must also subscribe to the new topic
-      -- in the Amazon SNS console. Progressing: The topic ARN for the
-      -- Amazon Simple Notification Service (Amazon SNS) topic that you
-      -- want to notify when Elastic Transcoder has started to process
-      -- jobs that are added to this pipeline. This is the ARN that Amazon
-      -- SNS returned when you created the topic. Completed: The topic ARN
-      -- for the Amazon SNS topic that you want to notify when Elastic
-      -- Transcoder has finished processing a job. This is the ARN that
-      -- Amazon SNS returned when you created the topic. Warning: The
-      -- topic ARN for the Amazon SNS topic that you want to notify when
-      -- Elastic Transcoder encounters a warning condition. This is the
-      -- ARN that Amazon SNS returned when you created the topic. Error:
-      -- The topic ARN for the Amazon SNS topic that you want to notify
-      -- when Elastic Transcoder encounters an error condition. This is
-      -- the ARN that Amazon SNS returned when you created the topic.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdatePipelineNotifications #-}
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
-upnrId :: Lens' UpdatePipelineNotifications (Text)
-upnrId = lens _upnrId (\s a -> s { _upnrId = a })
-{-# INLINE upnrId #-}
+upnId :: Lens' UpdatePipelineNotifications Text
+upnId = lens _upnId (\s a -> s { _upnId = a })
+{-# INLINE upnId #-}
 
 -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic
 -- that you want to notify to report job status. To receive notifications, you
@@ -115,14 +97,15 @@ upnrId = lens _upnrId (\s a -> s { _upnrId = a })
 -- created the topic. Error: The topic ARN for the Amazon SNS topic that you
 -- want to notify when Elastic Transcoder encounters an error condition. This
 -- is the ARN that Amazon SNS returned when you created the topic.
-upnrNotifications :: Lens' UpdatePipelineNotifications (Notifications)
-upnrNotifications = lens _upnrNotifications (\s a -> s { _upnrNotifications = a })
-{-# INLINE upnrNotifications #-}
+upnNotifications :: Lens' UpdatePipelineNotifications Notifications
+upnNotifications =
+    lens _upnNotifications (\s a -> s { _upnNotifications = a })
+{-# INLINE upnNotifications #-}
 
 instance ToPath UpdatePipelineNotifications where
     toPath UpdatePipelineNotifications{..} = mconcat
         [ "/2012-09-25/pipelines/"
-        , toBS _upnrId
+        , toBS _upnId
         , "/notifications"
         ]
 
@@ -132,17 +115,16 @@ instance ToHeaders UpdatePipelineNotifications
 
 instance ToJSON UpdatePipelineNotifications
 
+-- | The UpdatePipelineNotificationsResponse structure.
 newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
-    { _upnsPipeline :: Maybe Pipeline
-      -- ^ A section of the response body that provides information about
-      -- the pipeline.
+    { _upnrsPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upnsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
-upnsPipeline = lens _upnsPipeline (\s a -> s { _upnsPipeline = a })
-{-# INLINE upnsPipeline #-}
+upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
+upnrsPipeline = lens _upnrsPipeline (\s a -> s { _upnrsPipeline = a })
+{-# INLINE upnrsPipeline #-}
 
 instance FromJSON UpdatePipelineNotificationsResponse
 

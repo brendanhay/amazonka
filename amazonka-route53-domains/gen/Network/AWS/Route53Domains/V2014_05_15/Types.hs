@@ -63,10 +63,11 @@ module Network.AWS.Route53Domains.V2014_05_15.Types
 
     -- * DomainSummary
     , DomainSummary
-    , duDomainName
-    , duAutoRenew
-    , duTransferLock
-    , duExpiry
+    , mkDomainSummary
+    , dsDomainName
+    , dsAutoRenew
+    , dsTransferLock
+    , dsExpiry
 
     -- * ExtraParam
     , ExtraParam
@@ -82,10 +83,11 @@ module Network.AWS.Route53Domains.V2014_05_15.Types
 
     -- * OperationSummary
     , OperationSummary
-    , ouOperationId
-    , ouStatus
-    , ouType
-    , ouSubmittedDate
+    , mkOperationSummary
+    , osOperationId
+    , osStatus
+    , osType
+    , osSubmittedDate
     ) where
 
 import Network.AWS.Prelude
@@ -140,12 +142,6 @@ instance AWSServiceError (Er Route53Domains) where
 
 instance Exception (Er Route53Domains)
 
--- | Indicates whether the contact is a person, company, association, or public
--- organization. If you choose an option other than PERSON, you must enter an
--- organization name, and you can't enable privacy protection for the contact.
--- Type: String Default: None Constraints: Maximum 255 characters. Valid
--- values: PERSON | COMPANY | ASSOCIATION | PUBLIC_BODY Parents:
--- RegistrantContact, AdminContact, TechContact Required: Yes.
 data ContactType
     = ContactTypeAssociation -- ^ ASSOCIATION
     | ContactTypeCompany -- ^ COMPANY
@@ -187,9 +183,6 @@ instance FromJSON ContactType
 
 instance ToJSON ContactType
 
--- | Code for the country of the contact's address. Type: String Default: None
--- Constraints: Maximum 255 characters. Parents: RegistrantContact,
--- AdminContact, TechContact Required: Yes.
 data CountryCode
     = CountryCodeAd -- ^ AD
     | CountryCodeAe -- ^ AE
@@ -1127,14 +1120,6 @@ instance FromJSON CountryCode
 
 instance ToJSON CountryCode
 
--- | Whether the domain name is available for registering. You can only register
--- domains designated as AVAILABLE. Type: String Valid values: AVAILABLE – The
--- domain name is available. AVAILABLE_RESERVED – The domain name is reserved
--- under specific conditions. AVAILABLE_PREORDER – The domain name is
--- available and can be preordered. UNAVAILABLE – The domain name is not
--- available. UNAVAILABLE_PREMIUM – The domain name is not available.
--- UNAVAILABLE_RESTRICTED – The domain name is forbidden. RESERVED – The
--- domain name has been reserved for another person or organization.
 data DomainAvailability
     = DomainAvailabilityAvailable -- ^ AVAILABLE
     | DomainAvailabilityAvailablePreorder -- ^ AVAILABLE_PREORDER
@@ -1182,12 +1167,6 @@ instance ToQuery DomainAvailability where
 
 instance FromJSON DomainAvailability
 
--- | Name of the additional parameter required by the top-level domain. Type:
--- String Default: None Valid values: DUNS_NUMBER | BRAND_NUMBER |
--- BIRTH_DEPARTMENT | BIRTH_DATE_IN_YYYY_MM_DD | BIRTH_COUNTRY | BIRTH_CITY |
--- DOCUMENT_NUMBER | AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE |
--- FI_BUSINESS_NUMBER | FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA |
--- SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER Parent: ExtraParams Required: Yes.
 data ExtraParamName
     = ExtraParamNameAuIdNumber -- ^ AU_ID_NUMBER
     | ExtraParamNameAuIdType -- ^ AU_ID_TYPE
@@ -1277,7 +1256,6 @@ instance FromJSON ExtraParamName
 
 instance ToJSON ExtraParamName
 
--- | The current status of the requested operation in the system. Type: String.
 data OperationStatus
     = OperationStatusError -- ^ ERROR
     | OperationStatusFailed -- ^ FAILED
@@ -1319,7 +1297,6 @@ instance FromJSON OperationStatus
 
 instance ToJSON OperationStatus
 
--- | The type of operation that was requested. Type: String.
 data OperationType
     = OperationTypeChangePrivacyProtection -- ^ CHANGE_PRIVACY_PROTECTION
     | OperationTypeDeleteDomain -- ^ DELETE_DOMAIN
@@ -1375,74 +1352,41 @@ instance ToJSON OperationType
 -- Email, Fax, ExtraParams.
 data ContactDetail = ContactDetail
     { _cdFirstName :: Maybe Text
-      -- ^ First name of contact. Type: String Default: None Constraints:
-      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
-      -- TechContact Required: Yes.
     , _cdLastName :: Maybe Text
-      -- ^ Last name of contact. Type: String Default: None Constraints:
-      -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
-      -- TechContact Required: Yes.
     , _cdContactType :: Maybe ContactType
-      -- ^ Indicates whether the contact is a person, company, association,
-      -- or public organization. If you choose an option other than
-      -- PERSON, you must enter an organization name, and you can't enable
-      -- privacy protection for the contact. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Valid values: PERSON |
-      -- COMPANY | ASSOCIATION | PUBLIC_BODY Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
     , _cdOrganizationName :: Maybe Text
-      -- ^ Name of the organization for contact types other than PERSON.
-      -- Type: String Default: None Constraints: Maximum 255 characters.
-      -- Contact type must not be PERSON. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: No.
     , _cdAddressLine1 :: Maybe Text
-      -- ^ First line of the contact's address. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
     , _cdAddressLine2 :: Maybe Text
-      -- ^ Second line of contact's address, if any. Type: String Default:
-      -- None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
     , _cdCity :: Maybe Text
-      -- ^ The city of the contact's address. Type: String Default: None
-      -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
     , _cdState :: Maybe Text
-      -- ^ The state or province of the contact's city. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
     , _cdCountryCode :: Maybe CountryCode
-      -- ^ Code for the country of the contact's address. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: Yes.
     , _cdZipCode :: Maybe Text
-      -- ^ The zip or postal code of the contact's address. Type: String
-      -- Default: None Constraints: Maximum 255 characters. Parents:
-      -- RegistrantContact, AdminContact, TechContact Required: No.
     , _cdPhoneNumber :: Maybe Text
-      -- ^ The phone number of the contact. Type: String Default: None
-      -- Constraints: Phone number must be specified in the format
-      -- "+[country dialing code].[number including any area code&gt;]".
-      -- For example, a US phone number might appear as "+1.1234567890".
-      -- Parents: RegistrantContact, AdminContact, TechContact Required:
-      -- Yes.
     , _cdEmail :: Maybe Text
-      -- ^ Email address of the contact. Type: String Default: None
-      -- Constraints: Maximum 254 characters. Parents: RegistrantContact,
-      -- AdminContact, TechContact Required: Yes.
     , _cdFax :: Maybe Text
-      -- ^ Fax number of the contact. Type: String Default: None
-      -- Constraints: Phone number must be specified in the format
-      -- "+[country dialing code].[number including any area code]". For
-      -- example, a US phone number might appear as "+1.1234567890".
-      -- Parents: RegistrantContact, AdminContact, TechContact Required:
-      -- No.
     , _cdExtraParams :: [ExtraParam]
-      -- ^ A list of name-value pairs for parameters required by certain
-      -- top-level domains. Type: Complex Default: None Parents:
-      -- RegistrantContact, AdminContact, TechContact Children: Name,
-      -- Value Required: No.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ContactDetail' data type to populate a request.
+mkContactDetail :: ContactDetail
+mkContactDetail = ContactDetail
+    { _cdFirstName = Nothing
+    , _cdLastName = Nothing
+    , _cdContactType = Nothing
+    , _cdOrganizationName = Nothing
+    , _cdAddressLine1 = Nothing
+    , _cdAddressLine2 = Nothing
+    , _cdCity = Nothing
+    , _cdState = Nothing
+    , _cdCountryCode = Nothing
+    , _cdZipCode = Nothing
+    , _cdPhoneNumber = Nothing
+    , _cdEmail = Nothing
+    , _cdFax = Nothing
+    , _cdExtraParams = mempty
+    }
+{-# INLINE mkContactDetail #-}
 
 -- | First name of contact. Type: String Default: None Constraints: Maximum 255
 -- characters. Parents: RegistrantContact, AdminContact, TechContact Required:
@@ -1472,7 +1416,8 @@ cdContactType = lens _cdContactType (\s a -> s { _cdContactType = a })
 -- Default: None Constraints: Maximum 255 characters. Contact type must not be
 -- PERSON. Parents: RegistrantContact, AdminContact, TechContact Required: No.
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
-cdOrganizationName = lens _cdOrganizationName (\s a -> s { _cdOrganizationName = a })
+cdOrganizationName =
+    lens _cdOrganizationName (\s a -> s { _cdOrganizationName = a })
 {-# INLINE cdOrganizationName #-}
 
 -- | First line of the contact's address. Type: String Default: None
@@ -1545,107 +1490,63 @@ cdFax = lens _cdFax (\s a -> s { _cdFax = a })
 -- | A list of name-value pairs for parameters required by certain top-level
 -- domains. Type: Complex Default: None Parents: RegistrantContact,
 -- AdminContact, TechContact Children: Name, Value Required: No.
-cdExtraParams :: Lens' ContactDetail ([ExtraParam])
+cdExtraParams :: Lens' ContactDetail [ExtraParam]
 cdExtraParams = lens _cdExtraParams (\s a -> s { _cdExtraParams = a })
 {-# INLINE cdExtraParams #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'ContactDetail' data type to populate a request.
-mkContactDetail :: ContactDetail
-mkContactDetail = ContactDetail
-    { _cdFirstName = Nothing
-    , _cdLastName = Nothing
-    , _cdContactType = Nothing
-    , _cdOrganizationName = Nothing
-    , _cdAddressLine1 = Nothing
-    , _cdAddressLine2 = Nothing
-    , _cdCity = Nothing
-    , _cdState = Nothing
-    , _cdCountryCode = Nothing
-    , _cdZipCode = Nothing
-    , _cdPhoneNumber = Nothing
-    , _cdEmail = Nothing
-    , _cdFax = Nothing
-    , _cdExtraParams = mempty
-    }
-{-# INLINE mkContactDetail #-}
 
 instance FromJSON ContactDetail
 
 instance ToJSON ContactDetail
 
 data DomainSummary = DomainSummary
-    { _duDomainName :: Text
-      -- ^ The name of a domain. Type: String.
-    , _duAutoRenew :: Maybe Bool
-      -- ^ Indicates whether the domain is automatically renewed upon
-      -- expiration. Type: Boolean Valid values: True | False.
-    , _duTransferLock :: Maybe Bool
-      -- ^ Indicates whether a domain is locked from unauthorized transfer
-      -- to another party. Type: Boolean Valid values: True | False.
-    , _duExpiry :: Maybe ISO8601
-      -- ^ Expiration date of the domain in Coordinated Universal Time
-      -- (UTC). Type: Long.
+    { _dsDomainName :: Text
+    , _dsAutoRenew :: Maybe Bool
+    , _dsTransferLock :: Maybe Bool
+    , _dsExpiry :: Maybe ISO8601
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'DomainSummary' data type to populate a request.
+mkDomainSummary :: Text -- ^ 'dsDomainName'
+                -> DomainSummary
+mkDomainSummary p1 = DomainSummary
+    { _dsDomainName = p1
+    , _dsAutoRenew = Nothing
+    , _dsTransferLock = Nothing
+    , _dsExpiry = Nothing
+    }
+{-# INLINE mkDomainSummary #-}
+
 -- | The name of a domain. Type: String.
-duDomainName :: Lens' DomainSummary (Text)
-duDomainName = lens _duDomainName (\s a -> s { _duDomainName = a })
-{-# INLINE duDomainName #-}
+dsDomainName :: Lens' DomainSummary Text
+dsDomainName = lens _dsDomainName (\s a -> s { _dsDomainName = a })
+{-# INLINE dsDomainName #-}
 
 -- | Indicates whether the domain is automatically renewed upon expiration.
 -- Type: Boolean Valid values: True | False.
-duAutoRenew :: Lens' DomainSummary (Maybe Bool)
-duAutoRenew = lens _duAutoRenew (\s a -> s { _duAutoRenew = a })
-{-# INLINE duAutoRenew #-}
+dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
+dsAutoRenew = lens _dsAutoRenew (\s a -> s { _dsAutoRenew = a })
+{-# INLINE dsAutoRenew #-}
 
 -- | Indicates whether a domain is locked from unauthorized transfer to another
 -- party. Type: Boolean Valid values: True | False.
-duTransferLock :: Lens' DomainSummary (Maybe Bool)
-duTransferLock = lens _duTransferLock (\s a -> s { _duTransferLock = a })
-{-# INLINE duTransferLock #-}
+dsTransferLock :: Lens' DomainSummary (Maybe Bool)
+dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
+{-# INLINE dsTransferLock #-}
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC). Type:
 -- Long.
-duExpiry :: Lens' DomainSummary (Maybe ISO8601)
-duExpiry = lens _duExpiry (\s a -> s { _duExpiry = a })
-{-# INLINE duExpiry #-}
+dsExpiry :: Lens' DomainSummary (Maybe ISO8601)
+dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a })
+{-# INLINE dsExpiry #-}
 
 instance FromJSON DomainSummary
 
 -- | ExtraParam includes the following elements.
 data ExtraParam = ExtraParam
     { _epName :: ExtraParamName
-      -- ^ Name of the additional parameter required by the top-level
-      -- domain. Type: String Default: None Valid values: DUNS_NUMBER |
-      -- BRAND_NUMBER | BIRTH_DEPARTMENT | BIRTH_DATE_IN_YYYY_MM_DD |
-      -- BIRTH_COUNTRY | BIRTH_CITY | DOCUMENT_NUMBER | AU_ID_NUMBER |
-      -- AU_ID_TYPE | CA_LEGAL_TYPE | FI_BUSINESS_NUMBER | FI_ID_NUMBER |
-      -- IT_PIN | RU_PASSPORT_DATA | SE_ID_NUMBER | SG_ID_NUMBER |
-      -- VAT_NUMBER Parent: ExtraParams Required: Yes.
     , _epValue :: Text
-      -- ^ Values corresponding to the additional parameter names required
-      -- by some top-level domains. Type: String Default: None
-      -- Constraints: Maximum 2048 characters. Parent: ExtraParams
-      -- Required: Yes.
     } deriving (Show, Generic)
-
--- | Name of the additional parameter required by the top-level domain. Type:
--- String Default: None Valid values: DUNS_NUMBER | BRAND_NUMBER |
--- BIRTH_DEPARTMENT | BIRTH_DATE_IN_YYYY_MM_DD | BIRTH_COUNTRY | BIRTH_CITY |
--- DOCUMENT_NUMBER | AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE |
--- FI_BUSINESS_NUMBER | FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA |
--- SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER Parent: ExtraParams Required: Yes.
-epName :: Lens' ExtraParam (ExtraParamName)
-epName = lens _epName (\s a -> s { _epName = a })
-{-# INLINE epName #-}
-
--- | Values corresponding to the additional parameter names required by some
--- top-level domains. Type: String Default: None Constraints: Maximum 2048
--- characters. Parent: ExtraParams Required: Yes.
-epValue :: Lens' ExtraParam (Text)
-epValue = lens _epValue (\s a -> s { _epValue = a })
-{-# INLINE epValue #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExtraParam' data type to populate a request.
@@ -1658,6 +1559,23 @@ mkExtraParam p1 p2 = ExtraParam
     }
 {-# INLINE mkExtraParam #-}
 
+-- | Name of the additional parameter required by the top-level domain. Type:
+-- String Default: None Valid values: DUNS_NUMBER | BRAND_NUMBER |
+-- BIRTH_DEPARTMENT | BIRTH_DATE_IN_YYYY_MM_DD | BIRTH_COUNTRY | BIRTH_CITY |
+-- DOCUMENT_NUMBER | AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE |
+-- FI_BUSINESS_NUMBER | FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA |
+-- SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER Parent: ExtraParams Required: Yes.
+epName :: Lens' ExtraParam ExtraParamName
+epName = lens _epName (\s a -> s { _epName = a })
+{-# INLINE epName #-}
+
+-- | Values corresponding to the additional parameter names required by some
+-- top-level domains. Type: String Default: None Constraints: Maximum 2048
+-- characters. Parent: ExtraParams Required: Yes.
+epValue :: Lens' ExtraParam Text
+epValue = lens _epValue (\s a -> s { _epValue = a })
+{-# INLINE epValue #-}
+
 instance FromJSON ExtraParam
 
 instance ToJSON ExtraParam
@@ -1665,33 +1583,8 @@ instance ToJSON ExtraParam
 -- | Nameserver includes the following elements.
 data Nameserver = Nameserver
     { _nName :: Text
-      -- ^ The fully qualified host name of the name server. Type: String
-      -- Constraint: Maximum 255 characterss Parent: Nameservers.
     , _nGlueIps :: [Text]
-      -- ^ Glue IP address of a name server entry. Glue IP addresses are
-      -- required only when the name of the name server is a subdomain of
-      -- the domain. For example, if your domain is example.com and the
-      -- name server for the domain is ns.example.com, you need to specify
-      -- the IP address for ns.example.com. Type: List of IP addresses.
-      -- Constraints: The list can contain only one IPv4 and one IPv6
-      -- address. Parent: Nameservers.
     } deriving (Show, Generic)
-
--- | The fully qualified host name of the name server. Type: String Constraint:
--- Maximum 255 characterss Parent: Nameservers.
-nName :: Lens' Nameserver (Text)
-nName = lens _nName (\s a -> s { _nName = a })
-{-# INLINE nName #-}
-
--- | Glue IP address of a name server entry. Glue IP addresses are required only
--- when the name of the name server is a subdomain of the domain. For example,
--- if your domain is example.com and the name server for the domain is
--- ns.example.com, you need to specify the IP address for ns.example.com.
--- Type: List of IP addresses. Constraints: The list can contain only one IPv4
--- and one IPv6 address. Parent: Nameservers.
-nGlueIps :: Lens' Nameserver ([Text])
-nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a })
-{-# INLINE nGlueIps #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Nameserver' data type to populate a request.
@@ -1703,46 +1596,69 @@ mkNameserver p1 = Nameserver
     }
 {-# INLINE mkNameserver #-}
 
+-- | The fully qualified host name of the name server. Type: String Constraint:
+-- Maximum 255 characterss Parent: Nameservers.
+nName :: Lens' Nameserver Text
+nName = lens _nName (\s a -> s { _nName = a })
+{-# INLINE nName #-}
+
+-- | Glue IP address of a name server entry. Glue IP addresses are required only
+-- when the name of the name server is a subdomain of the domain. For example,
+-- if your domain is example.com and the name server for the domain is
+-- ns.example.com, you need to specify the IP address for ns.example.com.
+-- Type: List of IP addresses. Constraints: The list can contain only one IPv4
+-- and one IPv6 address. Parent: Nameservers.
+nGlueIps :: Lens' Nameserver [Text]
+nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a })
+{-# INLINE nGlueIps #-}
+
 instance FromJSON Nameserver
 
 instance ToJSON Nameserver
 
 -- | OperationSummary includes the following elements.
 data OperationSummary = OperationSummary
-    { _ouOperationId :: Text
-      -- ^ Identifier returned to track the requested action. Type: String.
-    , _ouStatus :: OperationStatus
-      -- ^ The current status of the requested operation in the system.
-      -- Type: String.
-    , _ouType :: OperationType
-      -- ^ Type of the action requested. Type: String Valid values:
-      -- REGISTER_DOMAIN | DELETE_DOMAIN | TRANSFER_IN_DOMAIN |
-      -- UPDATE_DOMAIN_CONTACT | UPDATE_NAMESERVER |
-      -- CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
-    , _ouSubmittedDate :: ISO8601
-      -- ^ The date when the request was submitted.
+    { _osOperationId :: Text
+    , _osStatus :: OperationStatus
+    , _osType :: OperationType
+    , _osSubmittedDate :: ISO8601
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'OperationSummary' data type to populate a request.
+mkOperationSummary :: Text -- ^ 'osOperationId'
+                   -> OperationStatus -- ^ 'osStatus'
+                   -> OperationType -- ^ 'osType'
+                   -> ISO8601 -- ^ 'osSubmittedDate'
+                   -> OperationSummary
+mkOperationSummary p1 p2 p3 p4 = OperationSummary
+    { _osOperationId = p1
+    , _osStatus = p2
+    , _osType = p3
+    , _osSubmittedDate = p4
+    }
+{-# INLINE mkOperationSummary #-}
+
 -- | Identifier returned to track the requested action. Type: String.
-ouOperationId :: Lens' OperationSummary (Text)
-ouOperationId = lens _ouOperationId (\s a -> s { _ouOperationId = a })
-{-# INLINE ouOperationId #-}
+osOperationId :: Lens' OperationSummary Text
+osOperationId = lens _osOperationId (\s a -> s { _osOperationId = a })
+{-# INLINE osOperationId #-}
 
 -- | The current status of the requested operation in the system. Type: String.
-ouStatus :: Lens' OperationSummary (OperationStatus)
-ouStatus = lens _ouStatus (\s a -> s { _ouStatus = a })
-{-# INLINE ouStatus #-}
+osStatus :: Lens' OperationSummary OperationStatus
+osStatus = lens _osStatus (\s a -> s { _osStatus = a })
+{-# INLINE osStatus #-}
 
 -- | Type of the action requested. Type: String Valid values: REGISTER_DOMAIN |
 -- DELETE_DOMAIN | TRANSFER_IN_DOMAIN | UPDATE_DOMAIN_CONTACT |
 -- UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
-ouType :: Lens' OperationSummary (OperationType)
-ouType = lens _ouType (\s a -> s { _ouType = a })
-{-# INLINE ouType #-}
+osType :: Lens' OperationSummary OperationType
+osType = lens _osType (\s a -> s { _osType = a })
+{-# INLINE osType #-}
 
 -- | The date when the request was submitted.
-ouSubmittedDate :: Lens' OperationSummary (ISO8601)
-ouSubmittedDate = lens _ouSubmittedDate (\s a -> s { _ouSubmittedDate = a })
-{-# INLINE ouSubmittedDate #-}
+osSubmittedDate :: Lens' OperationSummary ISO8601
+osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a })
+{-# INLINE osSubmittedDate #-}
 
 instance FromJSON OperationSummary

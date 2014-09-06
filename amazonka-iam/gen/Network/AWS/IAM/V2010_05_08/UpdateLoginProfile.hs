@@ -25,11 +25,11 @@ module Network.AWS.IAM.V2010_05_08.UpdateLoginProfile
     -- * Request
       UpdateLoginProfile
     -- ** Request constructor
-    , mkUpdateLoginProfileRequest
+    , mkUpdateLoginProfile
     -- ** Request lenses
-    , ulprUserName
-    , ulprPassword
-    , ulprPasswordResetRequired
+    , ulpUserName
+    , ulpPassword
+    , ulpPasswordResetRequired
 
     -- * Response
     , UpdateLoginProfileResponse
@@ -39,40 +39,40 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateLoginProfile' request.
-mkUpdateLoginProfileRequest :: Text -- ^ 'ulprUserName'
-                            -> UpdateLoginProfile
-mkUpdateLoginProfileRequest p1 = UpdateLoginProfile
-    { _ulprUserName = p1
-    , _ulprPassword = Nothing
-    , _ulprPasswordResetRequired = Nothing
-    }
-{-# INLINE mkUpdateLoginProfileRequest #-}
-
+-- | 
 data UpdateLoginProfile = UpdateLoginProfile
-    { _ulprUserName :: Text
-      -- ^ Name of the user whose password you want to update.
-    , _ulprPassword :: Maybe Text
-      -- ^ The new password for the specified user.
-    , _ulprPasswordResetRequired :: Maybe Bool
-      -- ^ Require the specified user to set a new password on next sign-in.
+    { _ulpUserName :: Text
+    , _ulpPassword :: Maybe Text
+    , _ulpPasswordResetRequired :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateLoginProfile' request.
+mkUpdateLoginProfile :: Text -- ^ 'ulpUserName'
+                     -> UpdateLoginProfile
+mkUpdateLoginProfile p1 = UpdateLoginProfile
+    { _ulpUserName = p1
+    , _ulpPassword = Nothing
+    , _ulpPasswordResetRequired = Nothing
+    }
+{-# INLINE mkUpdateLoginProfile #-}
+
 -- | Name of the user whose password you want to update.
-ulprUserName :: Lens' UpdateLoginProfile (Text)
-ulprUserName = lens _ulprUserName (\s a -> s { _ulprUserName = a })
-{-# INLINE ulprUserName #-}
+ulpUserName :: Lens' UpdateLoginProfile Text
+ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
+{-# INLINE ulpUserName #-}
 
 -- | The new password for the specified user.
-ulprPassword :: Lens' UpdateLoginProfile (Maybe Text)
-ulprPassword = lens _ulprPassword (\s a -> s { _ulprPassword = a })
-{-# INLINE ulprPassword #-}
+ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
+ulpPassword = lens _ulpPassword (\s a -> s { _ulpPassword = a })
+{-# INLINE ulpPassword #-}
 
 -- | Require the specified user to set a new password on next sign-in.
-ulprPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
-ulprPasswordResetRequired = lens _ulprPasswordResetRequired (\s a -> s { _ulprPasswordResetRequired = a })
-{-# INLINE ulprPasswordResetRequired #-}
+ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
+ulpPasswordResetRequired =
+    lens _ulpPasswordResetRequired
+         (\s a -> s { _ulpPasswordResetRequired = a })
+{-# INLINE ulpPasswordResetRequired #-}
 
 instance ToQuery UpdateLoginProfile where
     toQuery = genericQuery def

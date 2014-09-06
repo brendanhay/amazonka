@@ -46,16 +46,16 @@ module Network.AWS.Kinesis.V2013_12_02.ListStreams
     -- * Request
       ListStreams
     -- ** Request constructor
-    , mkListStreamsInput
+    , mkListStreams
     -- ** Request lenses
-    , lsiLimit
-    , lsiExclusiveStartStreamName
+    , lsLimit
+    , lsExclusiveStartStreamName
 
     -- * Response
     , ListStreamsResponse
     -- ** Response lenses
-    , lsoStreamNames
-    , lsoHasMoreStreams
+    , lsrsStreamNames
+    , lsrsHasMoreStreams
     ) where
 
 import           Network.AWS.Kinesis.V2013_12_02.Types
@@ -63,31 +63,32 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListStreams' request.
-mkListStreamsInput :: ListStreams
-mkListStreamsInput = ListStreams
-    { _lsiLimit = Nothing
-    , _lsiExclusiveStartStreamName = Nothing
-    }
-{-# INLINE mkListStreamsInput #-}
-
+-- | Represents the input of a ListStreams operation.
 data ListStreams = ListStreams
-    { _lsiLimit :: Maybe Integer
-      -- ^ The maximum number of streams to list.
-    , _lsiExclusiveStartStreamName :: Maybe Text
-      -- ^ The name of the stream to start the list with.
+    { _lsLimit :: Maybe Integer
+    , _lsExclusiveStartStreamName :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStreams' request.
+mkListStreams :: ListStreams
+mkListStreams = ListStreams
+    { _lsLimit = Nothing
+    , _lsExclusiveStartStreamName = Nothing
+    }
+{-# INLINE mkListStreams #-}
+
 -- | The maximum number of streams to list.
-lsiLimit :: Lens' ListStreams (Maybe Integer)
-lsiLimit = lens _lsiLimit (\s a -> s { _lsiLimit = a })
-{-# INLINE lsiLimit #-}
+lsLimit :: Lens' ListStreams (Maybe Integer)
+lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a })
+{-# INLINE lsLimit #-}
 
 -- | The name of the stream to start the list with.
-lsiExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
-lsiExclusiveStartStreamName = lens _lsiExclusiveStartStreamName (\s a -> s { _lsiExclusiveStartStreamName = a })
-{-# INLINE lsiExclusiveStartStreamName #-}
+lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
+lsExclusiveStartStreamName =
+    lens _lsExclusiveStartStreamName
+         (\s a -> s { _lsExclusiveStartStreamName = a })
+{-# INLINE lsExclusiveStartStreamName #-}
 
 instance ToPath ListStreams
 
@@ -97,24 +98,23 @@ instance ToHeaders ListStreams
 
 instance ToJSON ListStreams
 
+-- | Represents the output of a ListStreams operation.
 data ListStreamsResponse = ListStreamsResponse
-    { _lsoStreamNames :: [Text]
-      -- ^ The names of the streams that are associated with the AWS account
-      -- making the ListStreams request.
-    , _lsoHasMoreStreams :: Bool
-      -- ^ If set to true, there are more streams available to list.
+    { _lsrsStreamNames :: [Text]
+    , _lsrsHasMoreStreams :: Bool
     } deriving (Show, Generic)
 
 -- | The names of the streams that are associated with the AWS account making
 -- the ListStreams request.
-lsoStreamNames :: Lens' ListStreamsResponse ([Text])
-lsoStreamNames = lens _lsoStreamNames (\s a -> s { _lsoStreamNames = a })
-{-# INLINE lsoStreamNames #-}
+lsrsStreamNames :: Lens' ListStreamsResponse [Text]
+lsrsStreamNames = lens _lsrsStreamNames (\s a -> s { _lsrsStreamNames = a })
+{-# INLINE lsrsStreamNames #-}
 
 -- | If set to true, there are more streams available to list.
-lsoHasMoreStreams :: Lens' ListStreamsResponse (Bool)
-lsoHasMoreStreams = lens _lsoHasMoreStreams (\s a -> s { _lsoHasMoreStreams = a })
-{-# INLINE lsoHasMoreStreams #-}
+lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
+lsrsHasMoreStreams =
+    lens _lsrsHasMoreStreams (\s a -> s { _lsrsHasMoreStreams = a })
+{-# INLINE lsrsHasMoreStreams #-}
 
 instance FromJSON ListStreamsResponse
 
@@ -127,7 +127,7 @@ instance AWSRequest ListStreams where
 
 instance AWSPager ListStreams where
     next rq rs
-        | not (_lsoHasMoreStreams rs) = Nothing
+        | not (_lsrsHasMoreStreams rs) = Nothing
         | otherwise = Just $ rq
-            { _lsiExclusiveStartStreamName = keyed id _lsoStreamNames rs
+            { _lsExclusiveStartStreamName = keyed id _lsrsStreamNames rs
             }

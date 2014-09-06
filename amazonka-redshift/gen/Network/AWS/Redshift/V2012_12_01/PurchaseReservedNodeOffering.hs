@@ -39,61 +39,61 @@ module Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering
     -- * Request
       PurchaseReservedNodeOffering
     -- ** Request constructor
-    , mkPurchaseReservedNodeOfferingMessage
+    , mkPurchaseReservedNodeOffering
     -- ** Request lenses
-    , prnomReservedNodeOfferingId
-    , prnomNodeCount
+    , prnoReservedNodeOfferingId
+    , prnoNodeCount
 
     -- * Response
     , PurchaseReservedNodeOfferingResponse
     -- ** Response lenses
-    , rnwReservedNode
+    , prnorsReservedNode
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PurchaseReservedNodeOffering' request.
-mkPurchaseReservedNodeOfferingMessage :: Text -- ^ 'prnomReservedNodeOfferingId'
-                                      -> PurchaseReservedNodeOffering
-mkPurchaseReservedNodeOfferingMessage p1 = PurchaseReservedNodeOffering
-    { _prnomReservedNodeOfferingId = p1
-    , _prnomNodeCount = Nothing
-    }
-{-# INLINE mkPurchaseReservedNodeOfferingMessage #-}
-
+-- | 
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
-    { _prnomReservedNodeOfferingId :: Text
-      -- ^ The unique identifier of the reserved node offering you want to
-      -- purchase.
-    , _prnomNodeCount :: Maybe Integer
-      -- ^ The number of reserved nodes you want to purchase. Default: 1.
+    { _prnoReservedNodeOfferingId :: Text
+    , _prnoNodeCount :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedNodeOffering' request.
+mkPurchaseReservedNodeOffering :: Text -- ^ 'prnoReservedNodeOfferingId'
+                               -> PurchaseReservedNodeOffering
+mkPurchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
+    { _prnoReservedNodeOfferingId = p1
+    , _prnoNodeCount = Nothing
+    }
+{-# INLINE mkPurchaseReservedNodeOffering #-}
+
 -- | The unique identifier of the reserved node offering you want to purchase.
-prnomReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering (Text)
-prnomReservedNodeOfferingId = lens _prnomReservedNodeOfferingId (\s a -> s { _prnomReservedNodeOfferingId = a })
-{-# INLINE prnomReservedNodeOfferingId #-}
+prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
+prnoReservedNodeOfferingId =
+    lens _prnoReservedNodeOfferingId
+         (\s a -> s { _prnoReservedNodeOfferingId = a })
+{-# INLINE prnoReservedNodeOfferingId #-}
 
 -- | The number of reserved nodes you want to purchase. Default: 1.
-prnomNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Integer)
-prnomNodeCount = lens _prnomNodeCount (\s a -> s { _prnomNodeCount = a })
-{-# INLINE prnomNodeCount #-}
+prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Integer)
+prnoNodeCount = lens _prnoNodeCount (\s a -> s { _prnoNodeCount = a })
+{-# INLINE prnoNodeCount #-}
 
 instance ToQuery PurchaseReservedNodeOffering where
     toQuery = genericQuery def
 
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
-    { _rnwReservedNode :: Maybe ReservedNode
-      -- ^ Describes a reserved node.
+    { _prnorsReservedNode :: Maybe ReservedNode
     } deriving (Show, Generic)
 
 -- | Describes a reserved node.
-rnwReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
-rnwReservedNode = lens _rnwReservedNode (\s a -> s { _rnwReservedNode = a })
-{-# INLINE rnwReservedNode #-}
+prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
+prnorsReservedNode =
+    lens _prnorsReservedNode (\s a -> s { _prnorsReservedNode = a })
+{-# INLINE prnorsReservedNode #-}
 
 instance FromXML PurchaseReservedNodeOfferingResponse where
     fromXMLOptions = xmlOptions

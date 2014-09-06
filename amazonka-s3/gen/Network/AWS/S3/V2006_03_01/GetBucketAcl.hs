@@ -23,42 +23,43 @@ module Network.AWS.S3.V2006_03_01.GetBucketAcl
     -- * Request
       GetBucketAcl
     -- ** Request constructor
-    , mkGetBucketAclRequest
+    , mkGetBucketAcl
     -- ** Request lenses
-    , gbarBucket
+    , gbaBucket
 
     -- * Response
     , GetBucketAclResponse
     -- ** Response lenses
-    , gbaoOwner
-    , gbaoGrants
+    , gbarsOwner
+    , gbarsGrants
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketAcl = GetBucketAcl
+    { _gbaBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketAcl' request.
-mkGetBucketAclRequest :: BucketName -- ^ 'gbarBucket'
-                      -> GetBucketAcl
-mkGetBucketAclRequest p1 = GetBucketAcl
-    { _gbarBucket = p1
+mkGetBucketAcl :: BucketName -- ^ 'gbaBucket'
+               -> GetBucketAcl
+mkGetBucketAcl p1 = GetBucketAcl
+    { _gbaBucket = p1
     }
-{-# INLINE mkGetBucketAclRequest #-}
+{-# INLINE mkGetBucketAcl #-}
 
-newtype GetBucketAcl = GetBucketAcl
-    { _gbarBucket :: BucketName
-    } deriving (Show, Generic)
-
-gbarBucket :: Lens' GetBucketAcl (BucketName)
-gbarBucket = lens _gbarBucket (\s a -> s { _gbarBucket = a })
-{-# INLINE gbarBucket #-}
+gbaBucket :: Lens' GetBucketAcl BucketName
+gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
+{-# INLINE gbaBucket #-}
 
 instance ToPath GetBucketAcl where
     toPath GetBucketAcl{..} = mconcat
         [ "/"
-        , toBS _gbarBucket
+        , toBS _gbaBucket
         ]
 
 instance ToQuery GetBucketAcl where
@@ -71,19 +72,18 @@ instance ToHeaders GetBucketAcl
 instance ToBody GetBucketAcl
 
 data GetBucketAclResponse = GetBucketAclResponse
-    { _gbaoOwner :: Maybe Owner
-    , _gbaoGrants :: [Grant]
-      -- ^ A list of grants.
+    { _gbarsOwner :: Maybe Owner
+    , _gbarsGrants :: [Grant]
     } deriving (Show, Generic)
 
-gbaoOwner :: Lens' GetBucketAclResponse (Maybe Owner)
-gbaoOwner = lens _gbaoOwner (\s a -> s { _gbaoOwner = a })
-{-# INLINE gbaoOwner #-}
+gbarsOwner :: Lens' GetBucketAclResponse (Maybe Owner)
+gbarsOwner = lens _gbarsOwner (\s a -> s { _gbarsOwner = a })
+{-# INLINE gbarsOwner #-}
 
 -- | A list of grants.
-gbaoGrants :: Lens' GetBucketAclResponse ([Grant])
-gbaoGrants = lens _gbaoGrants (\s a -> s { _gbaoGrants = a })
-{-# INLINE gbaoGrants #-}
+gbarsGrants :: Lens' GetBucketAclResponse [Grant]
+gbarsGrants = lens _gbarsGrants (\s a -> s { _gbarsGrants = a })
+{-# INLINE gbarsGrants #-}
 
 instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions

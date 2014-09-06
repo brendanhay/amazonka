@@ -23,41 +23,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketPolicy
     -- * Request
       GetBucketPolicy
     -- ** Request constructor
-    , mkGetBucketPolicyRequest
+    , mkGetBucketPolicy
     -- ** Request lenses
-    , gbprBucket
+    , gbpBucket
 
     -- * Response
     , GetBucketPolicyResponse
     -- ** Response lenses
-    , gbpoPolicy
+    , gbprsPolicy
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketPolicy = GetBucketPolicy
+    { _gbpBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketPolicy' request.
-mkGetBucketPolicyRequest :: BucketName -- ^ 'gbprBucket'
-                         -> GetBucketPolicy
-mkGetBucketPolicyRequest p1 = GetBucketPolicy
-    { _gbprBucket = p1
+mkGetBucketPolicy :: BucketName -- ^ 'gbpBucket'
+                  -> GetBucketPolicy
+mkGetBucketPolicy p1 = GetBucketPolicy
+    { _gbpBucket = p1
     }
-{-# INLINE mkGetBucketPolicyRequest #-}
+{-# INLINE mkGetBucketPolicy #-}
 
-newtype GetBucketPolicy = GetBucketPolicy
-    { _gbprBucket :: BucketName
-    } deriving (Show, Generic)
-
-gbprBucket :: Lens' GetBucketPolicy (BucketName)
-gbprBucket = lens _gbprBucket (\s a -> s { _gbprBucket = a })
-{-# INLINE gbprBucket #-}
+gbpBucket :: Lens' GetBucketPolicy BucketName
+gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
+{-# INLINE gbpBucket #-}
 
 instance ToPath GetBucketPolicy where
     toPath GetBucketPolicy{..} = mconcat
         [ "/"
-        , toBS _gbprBucket
+        , toBS _gbpBucket
         ]
 
 instance ToQuery GetBucketPolicy where
@@ -70,14 +71,13 @@ instance ToHeaders GetBucketPolicy
 instance ToBody GetBucketPolicy
 
 newtype GetBucketPolicyResponse = GetBucketPolicyResponse
-    { _gbpoPolicy :: Maybe Text
-      -- ^ The bucket policy as a JSON document.
+    { _gbprsPolicy :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The bucket policy as a JSON document.
-gbpoPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
-gbpoPolicy = lens _gbpoPolicy (\s a -> s { _gbpoPolicy = a })
-{-# INLINE gbpoPolicy #-}
+gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
+gbprsPolicy = lens _gbprsPolicy (\s a -> s { _gbprsPolicy = a })
+{-# INLINE gbprsPolicy #-}
 
 instance FromXML GetBucketPolicyResponse where
     fromXMLOptions = xmlOptions

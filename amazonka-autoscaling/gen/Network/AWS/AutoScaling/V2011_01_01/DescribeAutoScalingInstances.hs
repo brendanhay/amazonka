@@ -33,87 +33,80 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances
     -- * Request
       DescribeAutoScalingInstances
     -- ** Request constructor
-    , mkDescribeAutoScalingInstancesType
+    , mkDescribeAutoScalingInstances
     -- ** Request lenses
-    , dasitInstanceIds
-    , dasitMaxRecords
-    , dasitNextToken
+    , dasiInstanceIds
+    , dasiMaxRecords
+    , dasiNextToken
 
     -- * Response
     , DescribeAutoScalingInstancesResponse
     -- ** Response lenses
-    , asitAutoScalingInstances
-    , asitNextToken
+    , dasirsAutoScalingInstances
+    , dasirsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeAutoScalingInstances = DescribeAutoScalingInstances
+    { _dasiInstanceIds :: [Text]
+    , _dasiMaxRecords :: Maybe Integer
+    , _dasiNextToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingInstances' request.
-mkDescribeAutoScalingInstancesType :: DescribeAutoScalingInstances
-mkDescribeAutoScalingInstancesType = DescribeAutoScalingInstances
-    { _dasitInstanceIds = mempty
-    , _dasitMaxRecords = Nothing
-    , _dasitNextToken = Nothing
+mkDescribeAutoScalingInstances :: DescribeAutoScalingInstances
+mkDescribeAutoScalingInstances = DescribeAutoScalingInstances
+    { _dasiInstanceIds = mempty
+    , _dasiMaxRecords = Nothing
+    , _dasiNextToken = Nothing
     }
-{-# INLINE mkDescribeAutoScalingInstancesType #-}
-
-data DescribeAutoScalingInstances = DescribeAutoScalingInstances
-    { _dasitInstanceIds :: [Text]
-      -- ^ The list of Auto Scaling instances to describe. If this list is
-      -- omitted, all auto scaling instances are described. The list of
-      -- requested instances cannot contain more than 50 items. If unknown
-      -- instances are requested, they are ignored with no error.
-    , _dasitMaxRecords :: Maybe Integer
-      -- ^ The maximum number of Auto Scaling instances to be described with
-      -- each call.
-    , _dasitNextToken :: Maybe Text
-      -- ^ The token returned by a previous call to indicate that there is
-      -- more data available.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeAutoScalingInstances #-}
 
 -- | The list of Auto Scaling instances to describe. If this list is omitted,
 -- all auto scaling instances are described. The list of requested instances
 -- cannot contain more than 50 items. If unknown instances are requested, they
 -- are ignored with no error.
-dasitInstanceIds :: Lens' DescribeAutoScalingInstances ([Text])
-dasitInstanceIds = lens _dasitInstanceIds (\s a -> s { _dasitInstanceIds = a })
-{-# INLINE dasitInstanceIds #-}
+dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
+dasiInstanceIds = lens _dasiInstanceIds (\s a -> s { _dasiInstanceIds = a })
+{-# INLINE dasiInstanceIds #-}
 
 -- | The maximum number of Auto Scaling instances to be described with each
 -- call.
-dasitMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Integer)
-dasitMaxRecords = lens _dasitMaxRecords (\s a -> s { _dasitMaxRecords = a })
-{-# INLINE dasitMaxRecords #-}
+dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Integer)
+dasiMaxRecords = lens _dasiMaxRecords (\s a -> s { _dasiMaxRecords = a })
+{-# INLINE dasiMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-dasitNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
-dasitNextToken = lens _dasitNextToken (\s a -> s { _dasitNextToken = a })
-{-# INLINE dasitNextToken #-}
+dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
+dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
+{-# INLINE dasiNextToken #-}
 
 instance ToQuery DescribeAutoScalingInstances where
     toQuery = genericQuery def
 
+-- | The AutoScalingInstancesType data type.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
-    { _asitAutoScalingInstances :: [AutoScalingInstanceDetails]
-      -- ^ A list of Auto Scaling instances.
-    , _asitNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+    { _dasirsAutoScalingInstances :: [AutoScalingInstanceDetails]
+    , _dasirsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of Auto Scaling instances.
-asitAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse ([AutoScalingInstanceDetails])
-asitAutoScalingInstances = lens _asitAutoScalingInstances (\s a -> s { _asitAutoScalingInstances = a })
-{-# INLINE asitAutoScalingInstances #-}
+dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
+dasirsAutoScalingInstances =
+    lens _dasirsAutoScalingInstances
+         (\s a -> s { _dasirsAutoScalingInstances = a })
+{-# INLINE dasirsAutoScalingInstances #-}
 
 -- | A string that marks the start of the next batch of returned results.
-asitNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
-asitNextToken = lens _asitNextToken (\s a -> s { _asitNextToken = a })
-{-# INLINE asitNextToken #-}
+dasirsNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
+dasirsNextToken = lens _dasirsNextToken (\s a -> s { _dasirsNextToken = a })
+{-# INLINE dasirsNextToken #-}
 
 instance FromXML DescribeAutoScalingInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -126,5 +119,5 @@ instance AWSRequest DescribeAutoScalingInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeAutoScalingInstances where
-    next rq rs = (\x -> rq { _dasitNextToken = Just x })
-        <$> (_asitNextToken rs)
+    next rq rs = (\x -> rq { _dasiNextToken = Just x })
+        <$> (_dasirsNextToken rs)

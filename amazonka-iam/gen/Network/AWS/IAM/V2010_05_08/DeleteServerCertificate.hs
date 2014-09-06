@@ -33,9 +33,9 @@ module Network.AWS.IAM.V2010_05_08.DeleteServerCertificate
     -- * Request
       DeleteServerCertificate
     -- ** Request constructor
-    , mkDeleteServerCertificateRequest
+    , mkDeleteServerCertificate
     -- ** Request lenses
-    , dscrServerCertificateName
+    , dscServerCertificateName
 
     -- * Response
     , DeleteServerCertificateResponse
@@ -45,24 +45,26 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteServerCertificate' request.
-mkDeleteServerCertificateRequest :: Text -- ^ 'dscrServerCertificateName'
-                                 -> DeleteServerCertificate
-mkDeleteServerCertificateRequest p1 = DeleteServerCertificate
-    { _dscrServerCertificateName = p1
-    }
-{-# INLINE mkDeleteServerCertificateRequest #-}
-
+-- | 
 newtype DeleteServerCertificate = DeleteServerCertificate
-    { _dscrServerCertificateName :: Text
-      -- ^ The name of the server certificate you want to delete.
+    { _dscServerCertificateName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteServerCertificate' request.
+mkDeleteServerCertificate :: Text -- ^ 'dscServerCertificateName'
+                          -> DeleteServerCertificate
+mkDeleteServerCertificate p1 = DeleteServerCertificate
+    { _dscServerCertificateName = p1
+    }
+{-# INLINE mkDeleteServerCertificate #-}
+
 -- | The name of the server certificate you want to delete.
-dscrServerCertificateName :: Lens' DeleteServerCertificate (Text)
-dscrServerCertificateName = lens _dscrServerCertificateName (\s a -> s { _dscrServerCertificateName = a })
-{-# INLINE dscrServerCertificateName #-}
+dscServerCertificateName :: Lens' DeleteServerCertificate Text
+dscServerCertificateName =
+    lens _dscServerCertificateName
+         (\s a -> s { _dscServerCertificateName = a })
+{-# INLINE dscServerCertificateName #-}
 
 instance ToQuery DeleteServerCertificate where
     toQuery = genericQuery def

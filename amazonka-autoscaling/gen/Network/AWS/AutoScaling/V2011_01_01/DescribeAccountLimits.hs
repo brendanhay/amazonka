@@ -31,48 +31,49 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits
     -- * Request
       DescribeAccountLimits
     -- ** Request constructor
-    , mkUnknown
+    , mkDescribeAccountLimits
     -- * Response
     , DescribeAccountLimitsResponse
     -- ** Response lenses
-    , dalaMaxNumberOfAutoScalingGroups
-    , dalaMaxNumberOfLaunchConfigurations
+    , dalrsMaxNumberOfAutoScalingGroups
+    , dalrsMaxNumberOfLaunchConfigurations
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAccountLimits' request.
-mkUnknown :: DescribeAccountLimits
-mkUnknown = DescribeAccountLimits
-{-# INLINE mkUnknown #-}
-
 data DescribeAccountLimits = DescribeAccountLimits
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAccountLimits' request.
+mkDescribeAccountLimits :: DescribeAccountLimits
+mkDescribeAccountLimits = DescribeAccountLimits
+{-# INLINE mkDescribeAccountLimits #-}
 
 instance ToQuery DescribeAccountLimits where
     toQuery = genericQuery def
 
+-- | The output of the DescribeAccountLimitsResult action.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
-    { _dalaMaxNumberOfAutoScalingGroups :: Maybe Integer
-      -- ^ The maximum number of Auto Scaling groups allowed for your AWS
-      -- account.
-    , _dalaMaxNumberOfLaunchConfigurations :: Maybe Integer
-      -- ^ The maximum number of launch configurations allowed for your AWS
-      -- account.
+    { _dalrsMaxNumberOfAutoScalingGroups :: Maybe Integer
+    , _dalrsMaxNumberOfLaunchConfigurations :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The maximum number of Auto Scaling groups allowed for your AWS account.
-dalaMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
-dalaMaxNumberOfAutoScalingGroups = lens _dalaMaxNumberOfAutoScalingGroups (\s a -> s { _dalaMaxNumberOfAutoScalingGroups = a })
-{-# INLINE dalaMaxNumberOfAutoScalingGroups #-}
+dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
+dalrsMaxNumberOfAutoScalingGroups =
+    lens _dalrsMaxNumberOfAutoScalingGroups
+         (\s a -> s { _dalrsMaxNumberOfAutoScalingGroups = a })
+{-# INLINE dalrsMaxNumberOfAutoScalingGroups #-}
 
 -- | The maximum number of launch configurations allowed for your AWS account.
-dalaMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
-dalaMaxNumberOfLaunchConfigurations = lens _dalaMaxNumberOfLaunchConfigurations (\s a -> s { _dalaMaxNumberOfLaunchConfigurations = a })
-{-# INLINE dalaMaxNumberOfLaunchConfigurations #-}
+dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
+dalrsMaxNumberOfLaunchConfigurations =
+    lens _dalrsMaxNumberOfLaunchConfigurations
+         (\s a -> s { _dalrsMaxNumberOfLaunchConfigurations = a })
+{-# INLINE dalrsMaxNumberOfLaunchConfigurations #-}
 
 instance FromXML DescribeAccountLimitsResponse where
     fromXMLOptions = xmlOptions

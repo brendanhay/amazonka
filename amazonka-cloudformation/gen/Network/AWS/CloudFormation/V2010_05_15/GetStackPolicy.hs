@@ -31,56 +31,54 @@ module Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
     -- * Request
       GetStackPolicy
     -- ** Request constructor
-    , mkGetStackPolicyInput
+    , mkGetStackPolicy
     -- ** Request lenses
-    , gspiStackName
+    , gspStackName
 
     -- * Response
     , GetStackPolicyResponse
     -- ** Response lenses
-    , gspoStackPolicyBody
+    , gsprsStackPolicyBody
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | The input for the GetStackPolicy action.
+newtype GetStackPolicy = GetStackPolicy
+    { _gspStackName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStackPolicy' request.
-mkGetStackPolicyInput :: Text -- ^ 'gspiStackName'
-                      -> GetStackPolicy
-mkGetStackPolicyInput p1 = GetStackPolicy
-    { _gspiStackName = p1
+mkGetStackPolicy :: Text -- ^ 'gspStackName'
+                 -> GetStackPolicy
+mkGetStackPolicy p1 = GetStackPolicy
+    { _gspStackName = p1
     }
-{-# INLINE mkGetStackPolicyInput #-}
-
-newtype GetStackPolicy = GetStackPolicy
-    { _gspiStackName :: Text
-      -- ^ The name or stack ID that is associated with the stack whose
-      -- policy you want to get.
-    } deriving (Show, Generic)
+{-# INLINE mkGetStackPolicy #-}
 
 -- | The name or stack ID that is associated with the stack whose policy you
 -- want to get.
-gspiStackName :: Lens' GetStackPolicy (Text)
-gspiStackName = lens _gspiStackName (\s a -> s { _gspiStackName = a })
-{-# INLINE gspiStackName #-}
+gspStackName :: Lens' GetStackPolicy Text
+gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
+{-# INLINE gspStackName #-}
 
 instance ToQuery GetStackPolicy where
     toQuery = genericQuery def
 
+-- | The output for the GetStackPolicy action.
 newtype GetStackPolicyResponse = GetStackPolicyResponse
-    { _gspoStackPolicyBody :: Maybe Text
-      -- ^ Structure containing the stack policy body. (For more
-      -- information, go to Prevent Updates to Stack Resources in the AWS
-      -- CloudFormation User Guide.).
+    { _gsprsStackPolicyBody :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.).
-gspoStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
-gspoStackPolicyBody = lens _gspoStackPolicyBody (\s a -> s { _gspoStackPolicyBody = a })
-{-# INLINE gspoStackPolicyBody #-}
+gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
+gsprsStackPolicyBody =
+    lens _gsprsStackPolicyBody (\s a -> s { _gsprsStackPolicyBody = a })
+{-# INLINE gsprsStackPolicyBody #-}
 
 instance FromXML GetStackPolicyResponse where
     fromXMLOptions = xmlOptions

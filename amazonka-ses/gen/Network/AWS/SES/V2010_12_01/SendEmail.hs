@@ -49,111 +49,99 @@ module Network.AWS.SES.V2010_12_01.SendEmail
     -- * Request
       SendEmail
     -- ** Request constructor
-    , mkSendEmailRequest
+    , mkSendEmail
     -- ** Request lenses
-    , serSource
-    , serDestination
-    , serMessage
-    , serReplyToAddresses
-    , serReturnPath
+    , seSource
+    , seDestination
+    , seMessage
+    , seReplyToAddresses
+    , seReturnPath
 
     -- * Response
     , SendEmailResponse
     -- ** Response lenses
-    , sesMessageId
+    , sersMessageId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Represents a request instructing the service to send a single email
+-- message. This datatype can be used in application code to compose a message
+-- consisting of source, destination, message, reply-to, and return-path
+-- parts. This object can then be sent using the SendEmail action.
+data SendEmail = SendEmail
+    { _seSource :: Text
+    , _seDestination :: Destination
+    , _seMessage :: Message
+    , _seReplyToAddresses :: [Text]
+    , _seReturnPath :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendEmail' request.
-mkSendEmailRequest :: Text -- ^ 'serSource'
-                   -> Destination -- ^ 'serDestination'
-                   -> Message -- ^ 'serMessage'
-                   -> SendEmail
-mkSendEmailRequest p1 p2 p3 = SendEmail
-    { _serSource = p1
-    , _serDestination = p2
-    , _serMessage = p3
-    , _serReplyToAddresses = mempty
-    , _serReturnPath = Nothing
+mkSendEmail :: Text -- ^ 'seSource'
+            -> Destination -- ^ 'seDestination'
+            -> Message -- ^ 'seMessage'
+            -> SendEmail
+mkSendEmail p1 p2 p3 = SendEmail
+    { _seSource = p1
+    , _seDestination = p2
+    , _seMessage = p3
+    , _seReplyToAddresses = mempty
+    , _seReturnPath = Nothing
     }
-{-# INLINE mkSendEmailRequest #-}
-
-data SendEmail = SendEmail
-    { _serSource :: Text
-      -- ^ The identity's email address. By default, the string must be
-      -- 7-bit ASCII. If the text must contain any other characters, then
-      -- you must use MIME encoded-word syntax (RFC 2047) instead of a
-      -- literal string. MIME encoded-word syntax uses the following form:
-      -- =?charset?encoding?encoded-text?=. For more information, see RFC
-      -- 2047.
-    , _serDestination :: Destination
-      -- ^ The destination for this email, composed of To:, CC:, and BCC:
-      -- fields.
-    , _serMessage :: Message
-      -- ^ The message to be sent.
-    , _serReplyToAddresses :: [Text]
-      -- ^ The reply-to email address(es) for the message. If the recipient
-      -- replies to the message, each reply-to address will receive the
-      -- reply.
-    , _serReturnPath :: Maybe Text
-      -- ^ The email address to which bounces and complaints are to be
-      -- forwarded when feedback forwarding is enabled. If the message
-      -- cannot be delivered to the recipient, then an error message will
-      -- be returned from the recipient's ISP; this message will then be
-      -- forwarded to the email address specified by the ReturnPath
-      -- parameter.
-    } deriving (Show, Generic)
+{-# INLINE mkSendEmail #-}
 
 -- | The identity's email address. By default, the string must be 7-bit ASCII.
 -- If the text must contain any other characters, then you must use MIME
 -- encoded-word syntax (RFC 2047) instead of a literal string. MIME
 -- encoded-word syntax uses the following form:
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
-serSource :: Lens' SendEmail (Text)
-serSource = lens _serSource (\s a -> s { _serSource = a })
-{-# INLINE serSource #-}
+seSource :: Lens' SendEmail Text
+seSource = lens _seSource (\s a -> s { _seSource = a })
+{-# INLINE seSource #-}
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
-serDestination :: Lens' SendEmail (Destination)
-serDestination = lens _serDestination (\s a -> s { _serDestination = a })
-{-# INLINE serDestination #-}
+seDestination :: Lens' SendEmail Destination
+seDestination = lens _seDestination (\s a -> s { _seDestination = a })
+{-# INLINE seDestination #-}
 
 -- | The message to be sent.
-serMessage :: Lens' SendEmail (Message)
-serMessage = lens _serMessage (\s a -> s { _serMessage = a })
-{-# INLINE serMessage #-}
+seMessage :: Lens' SendEmail Message
+seMessage = lens _seMessage (\s a -> s { _seMessage = a })
+{-# INLINE seMessage #-}
 
 -- | The reply-to email address(es) for the message. If the recipient replies to
 -- the message, each reply-to address will receive the reply.
-serReplyToAddresses :: Lens' SendEmail ([Text])
-serReplyToAddresses = lens _serReplyToAddresses (\s a -> s { _serReplyToAddresses = a })
-{-# INLINE serReplyToAddresses #-}
+seReplyToAddresses :: Lens' SendEmail [Text]
+seReplyToAddresses =
+    lens _seReplyToAddresses (\s a -> s { _seReplyToAddresses = a })
+{-# INLINE seReplyToAddresses #-}
 
 -- | The email address to which bounces and complaints are to be forwarded when
 -- feedback forwarding is enabled. If the message cannot be delivered to the
 -- recipient, then an error message will be returned from the recipient's ISP;
 -- this message will then be forwarded to the email address specified by the
 -- ReturnPath parameter.
-serReturnPath :: Lens' SendEmail (Maybe Text)
-serReturnPath = lens _serReturnPath (\s a -> s { _serReturnPath = a })
-{-# INLINE serReturnPath #-}
+seReturnPath :: Lens' SendEmail (Maybe Text)
+seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
+{-# INLINE seReturnPath #-}
 
 instance ToQuery SendEmail where
     toQuery = genericQuery def
 
+-- | Represents a unique message ID returned from a successful SendEmail
+-- request.
 newtype SendEmailResponse = SendEmailResponse
-    { _sesMessageId :: Text
-      -- ^ The unique message identifier returned from the SendEmail action.
+    { _sersMessageId :: Text
     } deriving (Show, Generic)
 
 -- | The unique message identifier returned from the SendEmail action.
-sesMessageId :: Lens' SendEmailResponse (Text)
-sesMessageId = lens _sesMessageId (\s a -> s { _sesMessageId = a })
-{-# INLINE sesMessageId #-}
+sersMessageId :: Lens' SendEmailResponse Text
+sersMessageId = lens _sersMessageId (\s a -> s { _sersMessageId = a })
+{-# INLINE sersMessageId #-}
 
 instance FromXML SendEmailResponse where
     fromXMLOptions = xmlOptions

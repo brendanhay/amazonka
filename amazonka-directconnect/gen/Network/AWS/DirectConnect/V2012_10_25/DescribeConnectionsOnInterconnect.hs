@@ -24,14 +24,14 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
     -- * Request
       DescribeConnectionsOnInterconnect
     -- ** Request constructor
-    , mkDescribeConnectionsOnInterconnectRequest
+    , mkDescribeConnectionsOnInterconnect
     -- ** Request lenses
-    , dcoirInterconnectId
+    , dcoiInterconnectId
 
     -- * Response
     , DescribeConnectionsOnInterconnectResponse
     -- ** Response lenses
-    , pConnections
+    , dcoirsConnections
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -39,26 +39,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | Container for the parameters to the DescribeConnectionsOnInterconnect
+-- operation.
+newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
+    { _dcoiInterconnectId :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConnectionsOnInterconnect' request.
-mkDescribeConnectionsOnInterconnectRequest :: Text -- ^ 'dcoirInterconnectId'
-                                           -> DescribeConnectionsOnInterconnect
-mkDescribeConnectionsOnInterconnectRequest p1 = DescribeConnectionsOnInterconnect
-    { _dcoirInterconnectId = p1
+mkDescribeConnectionsOnInterconnect :: Text -- ^ 'dcoiInterconnectId'
+                                    -> DescribeConnectionsOnInterconnect
+mkDescribeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
+    { _dcoiInterconnectId = p1
     }
-{-# INLINE mkDescribeConnectionsOnInterconnectRequest #-}
-
-newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
-    { _dcoirInterconnectId :: Text
-      -- ^ ID of the interconnect on which a list of connection is
-      -- provisioned. Example: dxcon-abc123 Default: None.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeConnectionsOnInterconnect #-}
 
 -- | ID of the interconnect on which a list of connection is provisioned.
 -- Example: dxcon-abc123 Default: None.
-dcoirInterconnectId :: Lens' DescribeConnectionsOnInterconnect (Text)
-dcoirInterconnectId = lens _dcoirInterconnectId (\s a -> s { _dcoirInterconnectId = a })
-{-# INLINE dcoirInterconnectId #-}
+dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
+dcoiInterconnectId =
+    lens _dcoiInterconnectId (\s a -> s { _dcoiInterconnectId = a })
+{-# INLINE dcoiInterconnectId #-}
 
 instance ToPath DescribeConnectionsOnInterconnect
 
@@ -68,15 +69,16 @@ instance ToHeaders DescribeConnectionsOnInterconnect
 
 instance ToJSON DescribeConnectionsOnInterconnect
 
+-- | A structure containing a list of connections.
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
-    { _pConnections :: [Connection]
-      -- ^ A list of connections.
+    { _dcoirsConnections :: [Connection]
     } deriving (Show, Generic)
 
 -- | A list of connections.
-pConnections :: Lens' DescribeConnectionsOnInterconnectResponse ([Connection])
-pConnections = lens _pConnections (\s a -> s { _pConnections = a })
-{-# INLINE pConnections #-}
+dcoirsConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
+dcoirsConnections =
+    lens _dcoirsConnections (\s a -> s { _dcoirsConnections = a })
+{-# INLINE dcoirsConnections #-}
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse
 

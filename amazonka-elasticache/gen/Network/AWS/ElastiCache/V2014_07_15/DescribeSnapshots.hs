@@ -33,125 +33,106 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeSnapshots
     -- * Request
       DescribeSnapshots
     -- ** Request constructor
-    , mkDescribeSnapshotsMessage
+    , mkDescribeSnapshots
     -- ** Request lenses
-    , dsnCacheClusterId
-    , dsnSnapshotName
-    , dsnSnapshotSource
-    , dsnMarker
-    , dsnMaxRecords
+    , ds1CacheClusterId
+    , ds1SnapshotName
+    , ds1SnapshotSource
+    , ds1Marker
+    , ds1MaxRecords
 
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response lenses
-    , dslmMarker
-    , dslmSnapshots
+    , dsrsrsMarker
+    , dsrsrsSnapshots
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DescribeSnapshotsMessage operation.
+data DescribeSnapshots = DescribeSnapshots
+    { _ds1CacheClusterId :: Maybe Text
+    , _ds1SnapshotName :: Maybe Text
+    , _ds1SnapshotSource :: Maybe Text
+    , _ds1Marker :: Maybe Text
+    , _ds1MaxRecords :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshots' request.
-mkDescribeSnapshotsMessage :: DescribeSnapshots
-mkDescribeSnapshotsMessage = DescribeSnapshots
-    { _dsnCacheClusterId = Nothing
-    , _dsnSnapshotName = Nothing
-    , _dsnSnapshotSource = Nothing
-    , _dsnMarker = Nothing
-    , _dsnMaxRecords = Nothing
+mkDescribeSnapshots :: DescribeSnapshots
+mkDescribeSnapshots = DescribeSnapshots
+    { _ds1CacheClusterId = Nothing
+    , _ds1SnapshotName = Nothing
+    , _ds1SnapshotSource = Nothing
+    , _ds1Marker = Nothing
+    , _ds1MaxRecords = Nothing
     }
-{-# INLINE mkDescribeSnapshotsMessage #-}
-
-data DescribeSnapshots = DescribeSnapshots
-    { _dsnCacheClusterId :: Maybe Text
-      -- ^ A user-supplied cluster identifier. If this parameter is
-      -- specified, only snapshots associated with that specific cache
-      -- cluster will be described.
-    , _dsnSnapshotName :: Maybe Text
-      -- ^ A user-supplied name of the snapshot. If this parameter is
-      -- specified, only this snapshot will be described.
-    , _dsnSnapshotSource :: Maybe Text
-      -- ^ If set to system, the output shows snapshots that were
-      -- automatically created by ElastiCache. If set to user the output
-      -- shows snapshots that were manually created. If omitted, the
-      -- output shows both automatically and manually created snapshots.
-    , _dsnMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
-    , _dsnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a marker is
-      -- included in the response so that the remaining results can be
-      -- retrieved. Default: 50 Constraints: minimum 20; maximum 50.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeSnapshots #-}
 
 -- | A user-supplied cluster identifier. If this parameter is specified, only
 -- snapshots associated with that specific cache cluster will be described.
-dsnCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
-dsnCacheClusterId = lens _dsnCacheClusterId (\s a -> s { _dsnCacheClusterId = a })
-{-# INLINE dsnCacheClusterId #-}
+ds1CacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
+ds1CacheClusterId =
+    lens _ds1CacheClusterId (\s a -> s { _ds1CacheClusterId = a })
+{-# INLINE ds1CacheClusterId #-}
 
 -- | A user-supplied name of the snapshot. If this parameter is specified, only
 -- this snapshot will be described.
-dsnSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
-dsnSnapshotName = lens _dsnSnapshotName (\s a -> s { _dsnSnapshotName = a })
-{-# INLINE dsnSnapshotName #-}
+ds1SnapshotName :: Lens' DescribeSnapshots (Maybe Text)
+ds1SnapshotName = lens _ds1SnapshotName (\s a -> s { _ds1SnapshotName = a })
+{-# INLINE ds1SnapshotName #-}
 
 -- | If set to system, the output shows snapshots that were automatically
 -- created by ElastiCache. If set to user the output shows snapshots that were
 -- manually created. If omitted, the output shows both automatically and
 -- manually created snapshots.
-dsnSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
-dsnSnapshotSource = lens _dsnSnapshotSource (\s a -> s { _dsnSnapshotSource = a })
-{-# INLINE dsnSnapshotSource #-}
+ds1SnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
+ds1SnapshotSource =
+    lens _ds1SnapshotSource (\s a -> s { _ds1SnapshotSource = a })
+{-# INLINE ds1SnapshotSource #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dsnMarker :: Lens' DescribeSnapshots (Maybe Text)
-dsnMarker = lens _dsnMarker (\s a -> s { _dsnMarker = a })
-{-# INLINE dsnMarker #-}
+ds1Marker :: Lens' DescribeSnapshots (Maybe Text)
+ds1Marker = lens _ds1Marker (\s a -> s { _ds1Marker = a })
+{-# INLINE ds1Marker #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 50
 -- Constraints: minimum 20; maximum 50.
-dsnMaxRecords :: Lens' DescribeSnapshots (Maybe Integer)
-dsnMaxRecords = lens _dsnMaxRecords (\s a -> s { _dsnMaxRecords = a })
-{-# INLINE dsnMaxRecords #-}
+ds1MaxRecords :: Lens' DescribeSnapshots (Maybe Integer)
+ds1MaxRecords = lens _ds1MaxRecords (\s a -> s { _ds1MaxRecords = a })
+{-# INLINE ds1MaxRecords #-}
 
 instance ToQuery DescribeSnapshots where
     toQuery = genericQuery def
 
+-- | Represents the output of a DescribeSnapshots operation.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dslmMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
-    , _dslmSnapshots :: [Snapshot]
-      -- ^ A list of snapshots. Each item in the list contains detailed
-      -- information about one snapshot.
+    { _dsrsrsMarker :: Maybe Text
+    , _dsrsrsSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dslmMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dslmMarker = lens _dslmMarker (\s a -> s { _dslmMarker = a })
-{-# INLINE dslmMarker #-}
+dsrsrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsrsrsMarker = lens _dsrsrsMarker (\s a -> s { _dsrsrsMarker = a })
+{-# INLINE dsrsrsMarker #-}
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dslmSnapshots :: Lens' DescribeSnapshotsResponse ([Snapshot])
-dslmSnapshots = lens _dslmSnapshots (\s a -> s { _dslmSnapshots = a })
-{-# INLINE dslmSnapshots #-}
+dsrsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrsrsSnapshots = lens _dsrsrsSnapshots (\s a -> s { _dsrsrsSnapshots = a })
+{-# INLINE dsrsrsSnapshots #-}
 
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions

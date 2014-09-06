@@ -31,16 +31,16 @@ module Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
     -- * Request
       AddAttachmentsToSet
     -- ** Request constructor
-    , mkAddAttachmentsToSetRequest
+    , mkAddAttachmentsToSet
     -- ** Request lenses
-    , aatsrAttachmentSetId
-    , aatsrAttachments
+    , aatsAttachmentSetId
+    , aatsAttachments
 
     -- * Response
     , AddAttachmentsToSetResponse
     -- ** Response lenses
-    , aatssAttachmentSetId
-    , aatssExpiryTime
+    , aatsrsAttachmentSetId
+    , aatsrsExpiryTime
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -48,40 +48,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | 
+data AddAttachmentsToSet = AddAttachmentsToSet
+    { _aatsAttachmentSetId :: Maybe Text
+    , _aatsAttachments :: [Attachment]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddAttachmentsToSet' request.
-mkAddAttachmentsToSetRequest :: [Attachment] -- ^ 'aatsrAttachments'
-                             -> AddAttachmentsToSet
-mkAddAttachmentsToSetRequest p1 = AddAttachmentsToSet
-    { _aatsrAttachmentSetId = Nothing
-    , _aatsrAttachments = p2
+mkAddAttachmentsToSet :: [Attachment] -- ^ 'aatsAttachments'
+                      -> AddAttachmentsToSet
+mkAddAttachmentsToSet p2 = AddAttachmentsToSet
+    { _aatsAttachmentSetId = Nothing
+    , _aatsAttachments = p2
     }
-{-# INLINE mkAddAttachmentsToSetRequest #-}
-
-data AddAttachmentsToSet = AddAttachmentsToSet
-    { _aatsrAttachmentSetId :: Maybe Text
-      -- ^ The ID of the attachment set. If an AttachmentSetId is not
-      -- specified, a new attachment set is created, and the ID of the set
-      -- is returned in the response. If an AttachmentSetId is specified,
-      -- the attachments are added to the specified set, if it exists.
-    , _aatsrAttachments :: [Attachment]
-      -- ^ One or more attachments to add to the set. The limit is 3
-      -- attachments per set, and the size limit is 5 MB per attachment.
-    } deriving (Show, Generic)
+{-# INLINE mkAddAttachmentsToSet #-}
 
 -- | The ID of the attachment set. If an AttachmentSetId is not specified, a new
 -- attachment set is created, and the ID of the set is returned in the
 -- response. If an AttachmentSetId is specified, the attachments are added to
 -- the specified set, if it exists.
-aatsrAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
-aatsrAttachmentSetId = lens _aatsrAttachmentSetId (\s a -> s { _aatsrAttachmentSetId = a })
-{-# INLINE aatsrAttachmentSetId #-}
+aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
+aatsAttachmentSetId =
+    lens _aatsAttachmentSetId (\s a -> s { _aatsAttachmentSetId = a })
+{-# INLINE aatsAttachmentSetId #-}
 
 -- | One or more attachments to add to the set. The limit is 3 attachments per
 -- set, and the size limit is 5 MB per attachment.
-aatsrAttachments :: Lens' AddAttachmentsToSet ([Attachment])
-aatsrAttachments = lens _aatsrAttachments (\s a -> s { _aatsrAttachments = a })
-{-# INLINE aatsrAttachments #-}
+aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
+aatsAttachments = lens _aatsAttachments (\s a -> s { _aatsAttachments = a })
+{-# INLINE aatsAttachments #-}
 
 instance ToPath AddAttachmentsToSet
 
@@ -91,28 +87,27 @@ instance ToHeaders AddAttachmentsToSet
 
 instance ToJSON AddAttachmentsToSet
 
+-- | The ID and expiry time of the attachment set returned by the
+-- AddAttachmentsToSet operation.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
-    { _aatssAttachmentSetId :: Maybe Text
-      -- ^ The ID of the attachment set. If an AttachmentSetId was not
-      -- specified, a new attachment set is created, and the ID of the set
-      -- is returned in the response. If an AttachmentSetId was specified,
-      -- the attachments are added to the specified set, if it exists.
-    , _aatssExpiryTime :: Maybe Text
-      -- ^ The time and date when the attachment set expires.
+    { _aatsrsAttachmentSetId :: Maybe Text
+    , _aatsrsExpiryTime :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the attachment set. If an AttachmentSetId was not specified, a
 -- new attachment set is created, and the ID of the set is returned in the
 -- response. If an AttachmentSetId was specified, the attachments are added to
 -- the specified set, if it exists.
-aatssAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatssAttachmentSetId = lens _aatssAttachmentSetId (\s a -> s { _aatssAttachmentSetId = a })
-{-# INLINE aatssAttachmentSetId #-}
+aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
+aatsrsAttachmentSetId =
+    lens _aatsrsAttachmentSetId (\s a -> s { _aatsrsAttachmentSetId = a })
+{-# INLINE aatsrsAttachmentSetId #-}
 
 -- | The time and date when the attachment set expires.
-aatssExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatssExpiryTime = lens _aatssExpiryTime (\s a -> s { _aatssExpiryTime = a })
-{-# INLINE aatssExpiryTime #-}
+aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
+aatsrsExpiryTime =
+    lens _aatsrsExpiryTime (\s a -> s { _aatsrsExpiryTime = a })
+{-# INLINE aatsrsExpiryTime #-}
 
 instance FromJSON AddAttachmentsToSetResponse
 

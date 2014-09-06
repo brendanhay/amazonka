@@ -27,15 +27,15 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLayers
     -- * Request
       DescribeLayers
     -- ** Request constructor
-    , mkDescribeLayersRequest
+    , mkDescribeLayers
     -- ** Request lenses
-    , dlsStackId
-    , dlsLayerIds
+    , dl1StackId
+    , dl1LayerIds
 
     -- * Response
     , DescribeLayersResponse
     -- ** Response lenses
-    , dltLayers
+    , dlrsLayers
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,35 +43,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLayers' request.
-mkDescribeLayersRequest :: DescribeLayers
-mkDescribeLayersRequest = DescribeLayers
-    { _dlsStackId = Nothing
-    , _dlsLayerIds = mempty
-    }
-{-# INLINE mkDescribeLayersRequest #-}
-
 data DescribeLayers = DescribeLayers
-    { _dlsStackId :: Maybe Text
-      -- ^ The stack ID.
-    , _dlsLayerIds :: [Text]
-      -- ^ An array of layer IDs that specify the layers to be described. If
-      -- you omit this parameter, DescribeLayers returns a description of
-      -- every layer in the specified stack.
+    { _dl1StackId :: Maybe Text
+    , _dl1LayerIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLayers' request.
+mkDescribeLayers :: DescribeLayers
+mkDescribeLayers = DescribeLayers
+    { _dl1StackId = Nothing
+    , _dl1LayerIds = mempty
+    }
+{-# INLINE mkDescribeLayers #-}
+
 -- | The stack ID.
-dlsStackId :: Lens' DescribeLayers (Maybe Text)
-dlsStackId = lens _dlsStackId (\s a -> s { _dlsStackId = a })
-{-# INLINE dlsStackId #-}
+dl1StackId :: Lens' DescribeLayers (Maybe Text)
+dl1StackId = lens _dl1StackId (\s a -> s { _dl1StackId = a })
+{-# INLINE dl1StackId #-}
 
 -- | An array of layer IDs that specify the layers to be described. If you omit
 -- this parameter, DescribeLayers returns a description of every layer in the
 -- specified stack.
-dlsLayerIds :: Lens' DescribeLayers ([Text])
-dlsLayerIds = lens _dlsLayerIds (\s a -> s { _dlsLayerIds = a })
-{-# INLINE dlsLayerIds #-}
+dl1LayerIds :: Lens' DescribeLayers [Text]
+dl1LayerIds = lens _dl1LayerIds (\s a -> s { _dl1LayerIds = a })
+{-# INLINE dl1LayerIds #-}
 
 instance ToPath DescribeLayers
 
@@ -81,15 +77,15 @@ instance ToHeaders DescribeLayers
 
 instance ToJSON DescribeLayers
 
+-- | Contains the response to a DescribeLayers request.
 newtype DescribeLayersResponse = DescribeLayersResponse
-    { _dltLayers :: [Layer]
-      -- ^ An array of Layer objects that describe the layers.
+    { _dlrsLayers :: [Layer]
     } deriving (Show, Generic)
 
 -- | An array of Layer objects that describe the layers.
-dltLayers :: Lens' DescribeLayersResponse ([Layer])
-dltLayers = lens _dltLayers (\s a -> s { _dltLayers = a })
-{-# INLINE dltLayers #-}
+dlrsLayers :: Lens' DescribeLayersResponse [Layer]
+dlrsLayers = lens _dlrsLayers (\s a -> s { _dlrsLayers = a })
+{-# INLINE dlrsLayers #-}
 
 instance FromJSON DescribeLayersResponse
 

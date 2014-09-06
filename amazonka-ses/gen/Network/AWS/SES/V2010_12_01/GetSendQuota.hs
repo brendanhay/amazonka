@@ -32,57 +32,57 @@ module Network.AWS.SES.V2010_12_01.GetSendQuota
     -- * Request
       GetSendQuota
     -- ** Request constructor
-    , mkUnknown
+    , mkGetSendQuota
     -- * Response
     , GetSendQuotaResponse
     -- ** Response lenses
-    , gsqrMax24HourSend
-    , gsqrMaxSendRate
-    , gsqrSentLast24Hours
+    , gsqrsMax24HourSend
+    , gsqrsMaxSendRate
+    , gsqrsSentLast24Hours
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetSendQuota' request.
-mkUnknown :: GetSendQuota
-mkUnknown = GetSendQuota
-{-# INLINE mkUnknown #-}
-
 data GetSendQuota = GetSendQuota
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSendQuota' request.
+mkGetSendQuota :: GetSendQuota
+mkGetSendQuota = GetSendQuota
+{-# INLINE mkGetSendQuota #-}
 
 instance ToQuery GetSendQuota where
     toQuery = genericQuery def
 
+-- | Represents the user's current activity limits returned from a successful
+-- GetSendQuota request.
 data GetSendQuotaResponse = GetSendQuotaResponse
-    { _gsqrMax24HourSend :: Maybe Double
-      -- ^ The maximum number of emails the user is allowed to send in a
-      -- 24-hour interval.
-    , _gsqrMaxSendRate :: Maybe Double
-      -- ^ The maximum number of emails the user is allowed to send per
-      -- second.
-    , _gsqrSentLast24Hours :: Maybe Double
-      -- ^ The number of emails sent during the previous 24 hours.
+    { _gsqrsMax24HourSend :: Maybe Double
+    , _gsqrsMaxSendRate :: Maybe Double
+    , _gsqrsSentLast24Hours :: Maybe Double
     } deriving (Show, Generic)
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
 -- interval.
-gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrMax24HourSend = lens _gsqrMax24HourSend (\s a -> s { _gsqrMax24HourSend = a })
-{-# INLINE gsqrMax24HourSend #-}
+gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrsMax24HourSend =
+    lens _gsqrsMax24HourSend (\s a -> s { _gsqrsMax24HourSend = a })
+{-# INLINE gsqrsMax24HourSend #-}
 
 -- | The maximum number of emails the user is allowed to send per second.
-gsqrMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrMaxSendRate = lens _gsqrMaxSendRate (\s a -> s { _gsqrMaxSendRate = a })
-{-# INLINE gsqrMaxSendRate #-}
+gsqrsMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrsMaxSendRate =
+    lens _gsqrsMaxSendRate (\s a -> s { _gsqrsMaxSendRate = a })
+{-# INLINE gsqrsMaxSendRate #-}
 
 -- | The number of emails sent during the previous 24 hours.
-gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrSentLast24Hours = lens _gsqrSentLast24Hours (\s a -> s { _gsqrSentLast24Hours = a })
-{-# INLINE gsqrSentLast24Hours #-}
+gsqrsSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrsSentLast24Hours =
+    lens _gsqrsSentLast24Hours (\s a -> s { _gsqrsSentLast24Hours = a })
+{-# INLINE gsqrsSentLast24Hours #-}
 
 instance FromXML GetSendQuotaResponse where
     fromXMLOptions = xmlOptions

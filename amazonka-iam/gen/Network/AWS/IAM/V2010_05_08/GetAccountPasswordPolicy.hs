@@ -27,42 +27,42 @@ module Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
     -- * Request
       GetAccountPasswordPolicy
     -- ** Request constructor
-    , mkUnknown
+    , mkGetAccountPasswordPolicy
     -- * Response
     , GetAccountPasswordPolicyResponse
     -- ** Response lenses
-    , gapprPasswordPolicy
+    , gapprsPasswordPolicy
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetAccountPasswordPolicy' request.
-mkUnknown :: GetAccountPasswordPolicy
-mkUnknown = GetAccountPasswordPolicy
-{-# INLINE mkUnknown #-}
-
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAccountPasswordPolicy' request.
+mkGetAccountPasswordPolicy :: GetAccountPasswordPolicy
+mkGetAccountPasswordPolicy = GetAccountPasswordPolicy
+{-# INLINE mkGetAccountPasswordPolicy #-}
 
 instance ToQuery GetAccountPasswordPolicy where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the
+-- GetAccountPasswordPolicy action.
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
-    { _gapprPasswordPolicy :: PasswordPolicy
-      -- ^ The PasswordPolicy data type contains information about the
-      -- account password policy. This data type is used as a response
-      -- element in the action GetAccountPasswordPolicy.
+    { _gapprsPasswordPolicy :: PasswordPolicy
     } deriving (Show, Generic)
 
 -- | The PasswordPolicy data type contains information about the account
 -- password policy. This data type is used as a response element in the action
 -- GetAccountPasswordPolicy.
-gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse (PasswordPolicy)
-gapprPasswordPolicy = lens _gapprPasswordPolicy (\s a -> s { _gapprPasswordPolicy = a })
-{-# INLINE gapprPasswordPolicy #-}
+gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
+gapprsPasswordPolicy =
+    lens _gapprsPasswordPolicy (\s a -> s { _gapprsPasswordPolicy = a })
+{-# INLINE gapprsPasswordPolicy #-}
 
 instance FromXML GetAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -27,11 +27,11 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
     -- * Request
       DescribeVirtualGateways
     -- ** Request constructor
-    , mkUnknown
+    , mkDescribeVirtualGateways
     -- * Response
     , DescribeVirtualGatewaysResponse
     -- ** Response lenses
-    , vgVirtualGateways
+    , dvgrsVirtualGateways
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -39,14 +39,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeVirtualGateways' request.
-mkUnknown :: DescribeVirtualGateways
-mkUnknown = DescribeVirtualGateways
-{-# INLINE mkUnknown #-}
-
 data DescribeVirtualGateways = DescribeVirtualGateways
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVirtualGateways' request.
+mkDescribeVirtualGateways :: DescribeVirtualGateways
+mkDescribeVirtualGateways = DescribeVirtualGateways
+{-# INLINE mkDescribeVirtualGateways #-}
 
 instance ToPath DescribeVirtualGateways
 
@@ -56,15 +56,16 @@ instance ToHeaders DescribeVirtualGateways
 
 instance ToJSON DescribeVirtualGateways
 
+-- | A structure containing a list of virtual private gateways.
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
-    { _vgVirtualGateways :: [VirtualGateway]
-      -- ^ A list of virtual private gateways.
+    { _dvgrsVirtualGateways :: [VirtualGateway]
     } deriving (Show, Generic)
 
 -- | A list of virtual private gateways.
-vgVirtualGateways :: Lens' DescribeVirtualGatewaysResponse ([VirtualGateway])
-vgVirtualGateways = lens _vgVirtualGateways (\s a -> s { _vgVirtualGateways = a })
-{-# INLINE vgVirtualGateways #-}
+dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrsVirtualGateways =
+    lens _dvgrsVirtualGateways (\s a -> s { _dvgrsVirtualGateways = a })
+{-# INLINE dvgrsVirtualGateways #-}
 
 instance FromJSON DescribeVirtualGatewaysResponse
 

@@ -54,53 +54,55 @@ module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
     -- * Request
       DecodeAuthorizationMessage
     -- ** Request constructor
-    , mkDecodeAuthorizationMessageRequest
+    , mkDecodeAuthorizationMessage
     -- ** Request lenses
-    , damrEncodedMessage
+    , damEncodedMessage
 
     -- * Response
     , DecodeAuthorizationMessageResponse
     -- ** Response lenses
-    , damsDecodedMessage
+    , damrsDecodedMessage
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DecodeAuthorizationMessage' request.
-mkDecodeAuthorizationMessageRequest :: Text -- ^ 'damrEncodedMessage'
-                                    -> DecodeAuthorizationMessage
-mkDecodeAuthorizationMessageRequest p1 = DecodeAuthorizationMessage
-    { _damrEncodedMessage = p1
-    }
-{-# INLINE mkDecodeAuthorizationMessageRequest #-}
-
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
-    { _damrEncodedMessage :: Text
-      -- ^ The encoded message that was returned with the response.
+    { _damEncodedMessage :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DecodeAuthorizationMessage' request.
+mkDecodeAuthorizationMessage :: Text -- ^ 'damEncodedMessage'
+                             -> DecodeAuthorizationMessage
+mkDecodeAuthorizationMessage p1 = DecodeAuthorizationMessage
+    { _damEncodedMessage = p1
+    }
+{-# INLINE mkDecodeAuthorizationMessage #-}
+
 -- | The encoded message that was returned with the response.
-damrEncodedMessage :: Lens' DecodeAuthorizationMessage (Text)
-damrEncodedMessage = lens _damrEncodedMessage (\s a -> s { _damrEncodedMessage = a })
-{-# INLINE damrEncodedMessage #-}
+damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
+damEncodedMessage =
+    lens _damEncodedMessage (\s a -> s { _damEncodedMessage = a })
+{-# INLINE damEncodedMessage #-}
 
 instance ToQuery DecodeAuthorizationMessage where
     toQuery = genericQuery def
 
+-- | A document that contains additional information about the authorization
+-- status of a request from an encoded message that is returned in response to
+-- an AWS request.
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
-    { _damsDecodedMessage :: Maybe Text
-      -- ^ An XML document that contains the decoded message. For more
-      -- information, see DecodeAuthorizationMessage.
+    { _damrsDecodedMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An XML document that contains the decoded message. For more information,
 -- see DecodeAuthorizationMessage.
-damsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
-damsDecodedMessage = lens _damsDecodedMessage (\s a -> s { _damsDecodedMessage = a })
-{-# INLINE damsDecodedMessage #-}
+damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
+damrsDecodedMessage =
+    lens _damrsDecodedMessage (\s a -> s { _damrsDecodedMessage = a })
+{-# INLINE damrsDecodedMessage #-}
 
 instance FromXML DecodeAuthorizationMessageResponse where
     fromXMLOptions = xmlOptions

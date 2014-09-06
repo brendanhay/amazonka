@@ -31,9 +31,9 @@ module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer
     -- * Request
       DeleteLoadBalancer
     -- ** Request constructor
-    , mkDeleteAccessPointInput
+    , mkDeleteLoadBalancer
     -- ** Request lenses
-    , dapiLoadBalancerName
+    , dlbLoadBalancerName
 
     -- * Response
     , DeleteLoadBalancerResponse
@@ -43,28 +43,30 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteLoadBalancer' request.
-mkDeleteAccessPointInput :: Text -- ^ 'dapiLoadBalancerName'
-                         -> DeleteLoadBalancer
-mkDeleteAccessPointInput p1 = DeleteLoadBalancer
-    { _dapiLoadBalancerName = p1
-    }
-{-# INLINE mkDeleteAccessPointInput #-}
-
+-- | The input for the DeleteLoadBalancer action.
 newtype DeleteLoadBalancer = DeleteLoadBalancer
-    { _dapiLoadBalancerName :: Text
-      -- ^ The name associated with the load balancer.
+    { _dlbLoadBalancerName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoadBalancer' request.
+mkDeleteLoadBalancer :: Text -- ^ 'dlbLoadBalancerName'
+                     -> DeleteLoadBalancer
+mkDeleteLoadBalancer p1 = DeleteLoadBalancer
+    { _dlbLoadBalancerName = p1
+    }
+{-# INLINE mkDeleteLoadBalancer #-}
+
 -- | The name associated with the load balancer.
-dapiLoadBalancerName :: Lens' DeleteLoadBalancer (Text)
-dapiLoadBalancerName = lens _dapiLoadBalancerName (\s a -> s { _dapiLoadBalancerName = a })
-{-# INLINE dapiLoadBalancerName #-}
+dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
+dlbLoadBalancerName =
+    lens _dlbLoadBalancerName (\s a -> s { _dlbLoadBalancerName = a })
+{-# INLINE dlbLoadBalancerName #-}
 
 instance ToQuery DeleteLoadBalancer where
     toQuery = genericQuery def
 
+-- | The output for the DeleteLoadBalancer action.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest DeleteLoadBalancer where

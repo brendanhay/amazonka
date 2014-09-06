@@ -29,9 +29,9 @@ module Network.AWS.IAM.V2010_05_08.DeleteRole
     -- * Request
       DeleteRole
     -- ** Request constructor
-    , mkDeleteRoleRequest
+    , mkDeleteRole
     -- ** Request lenses
-    , drrRoleName
+    , drRoleName
 
     -- * Response
     , DeleteRoleResponse
@@ -41,24 +41,24 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteRole' request.
-mkDeleteRoleRequest :: Text -- ^ 'drrRoleName'
-                    -> DeleteRole
-mkDeleteRoleRequest p1 = DeleteRole
-    { _drrRoleName = p1
-    }
-{-# INLINE mkDeleteRoleRequest #-}
-
+-- | 
 newtype DeleteRole = DeleteRole
-    { _drrRoleName :: Text
-      -- ^ Name of the role to delete.
+    { _drRoleName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRole' request.
+mkDeleteRole :: Text -- ^ 'drRoleName'
+             -> DeleteRole
+mkDeleteRole p1 = DeleteRole
+    { _drRoleName = p1
+    }
+{-# INLINE mkDeleteRole #-}
+
 -- | Name of the role to delete.
-drrRoleName :: Lens' DeleteRole (Text)
-drrRoleName = lens _drrRoleName (\s a -> s { _drrRoleName = a })
-{-# INLINE drrRoleName #-}
+drRoleName :: Lens' DeleteRole Text
+drRoleName = lens _drRoleName (\s a -> s { _drRoleName = a })
+{-# INLINE drRoleName #-}
 
 instance ToQuery DeleteRole where
     toQuery = genericQuery def

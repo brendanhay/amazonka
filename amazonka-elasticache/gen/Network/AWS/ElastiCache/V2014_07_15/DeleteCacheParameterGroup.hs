@@ -30,9 +30,9 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheParameterGroup
     -- * Request
       DeleteCacheParameterGroup
     -- ** Request constructor
-    , mkDeleteCacheParameterGroupMessage
+    , mkDeleteCacheParameterGroup
     -- ** Request lenses
-    , dcpgmCacheParameterGroupName
+    , dcpgCacheParameterGroupName
 
     -- * Response
     , DeleteCacheParameterGroupResponse
@@ -42,27 +42,27 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DeleteCacheParameterGroup operation.
+newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
+    { _dcpgCacheParameterGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheParameterGroup' request.
-mkDeleteCacheParameterGroupMessage :: Text -- ^ 'dcpgmCacheParameterGroupName'
-                                   -> DeleteCacheParameterGroup
-mkDeleteCacheParameterGroupMessage p1 = DeleteCacheParameterGroup
-    { _dcpgmCacheParameterGroupName = p1
+mkDeleteCacheParameterGroup :: Text -- ^ 'dcpgCacheParameterGroupName'
+                            -> DeleteCacheParameterGroup
+mkDeleteCacheParameterGroup p1 = DeleteCacheParameterGroup
+    { _dcpgCacheParameterGroupName = p1
     }
-{-# INLINE mkDeleteCacheParameterGroupMessage #-}
-
-newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
-    { _dcpgmCacheParameterGroupName :: Text
-      -- ^ The name of the cache parameter group to delete. The specified
-      -- cache security group must not be associated with any cache
-      -- clusters.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteCacheParameterGroup #-}
 
 -- | The name of the cache parameter group to delete. The specified cache
 -- security group must not be associated with any cache clusters.
-dcpgmCacheParameterGroupName :: Lens' DeleteCacheParameterGroup (Text)
-dcpgmCacheParameterGroupName = lens _dcpgmCacheParameterGroupName (\s a -> s { _dcpgmCacheParameterGroupName = a })
-{-# INLINE dcpgmCacheParameterGroupName #-}
+dcpgCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
+dcpgCacheParameterGroupName =
+    lens _dcpgCacheParameterGroupName
+         (\s a -> s { _dcpgCacheParameterGroupName = a })
+{-# INLINE dcpgCacheParameterGroupName #-}
 
 instance ToQuery DeleteCacheParameterGroup where
     toQuery = genericQuery def

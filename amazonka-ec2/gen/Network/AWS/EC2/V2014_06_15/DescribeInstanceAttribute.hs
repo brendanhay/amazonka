@@ -53,168 +53,163 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute
     -- * Request
       DescribeInstanceAttribute
     -- ** Request constructor
-    , mkDescribeInstanceAttributeRequest
+    , mkDescribeInstanceAttribute
     -- ** Request lenses
-    , diasInstanceId
-    , diasAttribute
+    , dia1InstanceId
+    , dia1Attribute
 
     -- * Response
     , DescribeInstanceAttributeResponse
     -- ** Response lenses
-    , ibInstanceId
-    , ibInstanceType
-    , ibKernelId
-    , ibRamdiskId
-    , ibUserData
-    , ibDisableApiTermination
-    , ibInstanceInitiatedShutdownBehavior
-    , ibRootDeviceName
-    , ibBlockDeviceMappings
-    , ibProductCodes
-    , ibEbsOptimized
-    , ibSriovNetSupport
-    , ibSourceDestCheck
+    , diarsrsInstanceId
+    , diarsrsInstanceType
+    , diarsrsKernelId
+    , diarsrsRamdiskId
+    , diarsrsUserData
+    , diarsrsDisableApiTermination
+    , diarsrsInstanceInitiatedShutdownBehavior
+    , diarsrsRootDeviceName
+    , diarsrsBlockDeviceMappings
+    , diarsrsProductCodes
+    , diarsrsEbsOptimized
+    , diarsrsSriovNetSupport
+    , diarsrsSourceDestCheck
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInstanceAttribute' request.
-mkDescribeInstanceAttributeRequest :: Text -- ^ 'diasInstanceId'
-                                   -> InstanceAttributeName -- ^ 'diasAttribute'
-                                   -> DescribeInstanceAttribute
-mkDescribeInstanceAttributeRequest p1 p2 = DescribeInstanceAttribute
-    { _diasInstanceId = p1
-    , _diasAttribute = p2
-    }
-{-# INLINE mkDescribeInstanceAttributeRequest #-}
-
+-- | 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { _diasInstanceId :: Text
-      -- ^ The ID of the instance.
-    , _diasAttribute :: InstanceAttributeName
-      -- ^ The instance attribute.
+    { _dia1InstanceId :: Text
+    , _dia1Attribute :: InstanceAttributeName
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstanceAttribute' request.
+mkDescribeInstanceAttribute :: Text -- ^ 'dia1InstanceId'
+                            -> InstanceAttributeName -- ^ 'dia1Attribute'
+                            -> DescribeInstanceAttribute
+mkDescribeInstanceAttribute p1 p2 = DescribeInstanceAttribute
+    { _dia1InstanceId = p1
+    , _dia1Attribute = p2
+    }
+{-# INLINE mkDescribeInstanceAttribute #-}
+
 -- | The ID of the instance.
-diasInstanceId :: Lens' DescribeInstanceAttribute (Text)
-diasInstanceId = lens _diasInstanceId (\s a -> s { _diasInstanceId = a })
-{-# INLINE diasInstanceId #-}
+dia1InstanceId :: Lens' DescribeInstanceAttribute Text
+dia1InstanceId = lens _dia1InstanceId (\s a -> s { _dia1InstanceId = a })
+{-# INLINE dia1InstanceId #-}
 
 -- | The instance attribute.
-diasAttribute :: Lens' DescribeInstanceAttribute (InstanceAttributeName)
-diasAttribute = lens _diasAttribute (\s a -> s { _diasAttribute = a })
-{-# INLINE diasAttribute #-}
+dia1Attribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
+dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
+{-# INLINE dia1Attribute #-}
 
 instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
 
+-- | 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { _ibInstanceId :: Maybe Text
-      -- ^ The ID of the instance.
-    , _ibInstanceType :: Maybe AttributeValue
-      -- ^ The instance type.
-    , _ibKernelId :: Maybe AttributeValue
-      -- ^ The kernel ID.
-    , _ibRamdiskId :: Maybe AttributeValue
-      -- ^ The RAM disk ID.
-    , _ibUserData :: Maybe AttributeValue
-      -- ^ The Base64-encoded MIME user data.
-    , _ibDisableApiTermination :: Maybe AttributeBooleanValue
-      -- ^ If the value is true, you can't terminate the instance through
-      -- the Amazon EC2 console, CLI, or API; otherwise, you can.
-    , _ibInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
-      -- ^ Indicates whether an instance stops or terminates when you
-      -- initiate shutdown from the instance (using the operating system
-      -- command for system shutdown).
-    , _ibRootDeviceName :: Maybe AttributeValue
-      -- ^ The name of the root device (for example, /dev/sda1).
-    , _ibBlockDeviceMappings :: [InstanceBlockDeviceMapping]
-      -- ^ The block device mapping of the instance.
-    , _ibProductCodes :: [ProductCode]
-      -- ^ A list of product codes.
-    , _ibEbsOptimized :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether the instance is optimized for EBS I/O.
-    , _ibSriovNetSupport :: Maybe AttributeValue
-      -- ^ 
-    , _ibSourceDestCheck :: Maybe AttributeBooleanValue
-      -- ^ Indicates whether source/destination checking is enabled. A value
-      -- of true means checking is enabled, and false means checking is
-      -- disabled. This value must be false for a NAT instance to perform
-      -- NAT.
+    { _diarsrsInstanceId :: Maybe Text
+    , _diarsrsInstanceType :: Maybe AttributeValue
+    , _diarsrsKernelId :: Maybe AttributeValue
+    , _diarsrsRamdiskId :: Maybe AttributeValue
+    , _diarsrsUserData :: Maybe AttributeValue
+    , _diarsrsDisableApiTermination :: Maybe AttributeBooleanValue
+    , _diarsrsInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+    , _diarsrsRootDeviceName :: Maybe AttributeValue
+    , _diarsrsBlockDeviceMappings :: [InstanceBlockDeviceMapping]
+    , _diarsrsProductCodes :: [ProductCode]
+    , _diarsrsEbsOptimized :: Maybe AttributeBooleanValue
+    , _diarsrsSriovNetSupport :: Maybe AttributeValue
+    , _diarsrsSourceDestCheck :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-ibInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
-ibInstanceId = lens _ibInstanceId (\s a -> s { _ibInstanceId = a })
-{-# INLINE ibInstanceId #-}
+diarsrsInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
+diarsrsInstanceId =
+    lens _diarsrsInstanceId (\s a -> s { _diarsrsInstanceId = a })
+{-# INLINE diarsrsInstanceId #-}
 
 -- | The instance type.
-ibInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibInstanceType = lens _ibInstanceType (\s a -> s { _ibInstanceType = a })
-{-# INLINE ibInstanceType #-}
+diarsrsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarsrsInstanceType =
+    lens _diarsrsInstanceType (\s a -> s { _diarsrsInstanceType = a })
+{-# INLINE diarsrsInstanceType #-}
 
 -- | The kernel ID.
-ibKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibKernelId = lens _ibKernelId (\s a -> s { _ibKernelId = a })
-{-# INLINE ibKernelId #-}
+diarsrsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarsrsKernelId = lens _diarsrsKernelId (\s a -> s { _diarsrsKernelId = a })
+{-# INLINE diarsrsKernelId #-}
 
 -- | The RAM disk ID.
-ibRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibRamdiskId = lens _ibRamdiskId (\s a -> s { _ibRamdiskId = a })
-{-# INLINE ibRamdiskId #-}
+diarsrsRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarsrsRamdiskId =
+    lens _diarsrsRamdiskId (\s a -> s { _diarsrsRamdiskId = a })
+{-# INLINE diarsrsRamdiskId #-}
 
 -- | The Base64-encoded MIME user data.
-ibUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibUserData = lens _ibUserData (\s a -> s { _ibUserData = a })
-{-# INLINE ibUserData #-}
+diarsrsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarsrsUserData = lens _diarsrsUserData (\s a -> s { _diarsrsUserData = a })
+{-# INLINE diarsrsUserData #-}
 
 -- | If the value is true, you can't terminate the instance through the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
-ibDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-ibDisableApiTermination = lens _ibDisableApiTermination (\s a -> s { _ibDisableApiTermination = a })
-{-# INLINE ibDisableApiTermination #-}
+diarsrsDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diarsrsDisableApiTermination =
+    lens _diarsrsDisableApiTermination
+         (\s a -> s { _diarsrsDisableApiTermination = a })
+{-# INLINE diarsrsDisableApiTermination #-}
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown).
-ibInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibInstanceInitiatedShutdownBehavior = lens _ibInstanceInitiatedShutdownBehavior (\s a -> s { _ibInstanceInitiatedShutdownBehavior = a })
-{-# INLINE ibInstanceInitiatedShutdownBehavior #-}
+diarsrsInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarsrsInstanceInitiatedShutdownBehavior =
+    lens _diarsrsInstanceInitiatedShutdownBehavior
+         (\s a -> s { _diarsrsInstanceInitiatedShutdownBehavior = a })
+{-# INLINE diarsrsInstanceInitiatedShutdownBehavior #-}
 
 -- | The name of the root device (for example, /dev/sda1).
-ibRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibRootDeviceName = lens _ibRootDeviceName (\s a -> s { _ibRootDeviceName = a })
-{-# INLINE ibRootDeviceName #-}
+diarsrsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarsrsRootDeviceName =
+    lens _diarsrsRootDeviceName (\s a -> s { _diarsrsRootDeviceName = a })
+{-# INLINE diarsrsRootDeviceName #-}
 
 -- | The block device mapping of the instance.
-ibBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse ([InstanceBlockDeviceMapping])
-ibBlockDeviceMappings = lens _ibBlockDeviceMappings (\s a -> s { _ibBlockDeviceMappings = a })
-{-# INLINE ibBlockDeviceMappings #-}
+diarsrsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
+diarsrsBlockDeviceMappings =
+    lens _diarsrsBlockDeviceMappings
+         (\s a -> s { _diarsrsBlockDeviceMappings = a })
+{-# INLINE diarsrsBlockDeviceMappings #-}
 
 -- | A list of product codes.
-ibProductCodes :: Lens' DescribeInstanceAttributeResponse ([ProductCode])
-ibProductCodes = lens _ibProductCodes (\s a -> s { _ibProductCodes = a })
-{-# INLINE ibProductCodes #-}
+diarsrsProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
+diarsrsProductCodes =
+    lens _diarsrsProductCodes (\s a -> s { _diarsrsProductCodes = a })
+{-# INLINE diarsrsProductCodes #-}
 
 -- | Indicates whether the instance is optimized for EBS I/O.
-ibEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-ibEbsOptimized = lens _ibEbsOptimized (\s a -> s { _ibEbsOptimized = a })
-{-# INLINE ibEbsOptimized #-}
+diarsrsEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diarsrsEbsOptimized =
+    lens _diarsrsEbsOptimized (\s a -> s { _diarsrsEbsOptimized = a })
+{-# INLINE diarsrsEbsOptimized #-}
 
 -- | 
-ibSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-ibSriovNetSupport = lens _ibSriovNetSupport (\s a -> s { _ibSriovNetSupport = a })
-{-# INLINE ibSriovNetSupport #-}
+diarsrsSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarsrsSriovNetSupport =
+    lens _diarsrsSriovNetSupport (\s a -> s { _diarsrsSriovNetSupport = a })
+{-# INLINE diarsrsSriovNetSupport #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT.
-ibSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-ibSourceDestCheck = lens _ibSourceDestCheck (\s a -> s { _ibSourceDestCheck = a })
-{-# INLINE ibSourceDestCheck #-}
+diarsrsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diarsrsSourceDestCheck =
+    lens _diarsrsSourceDestCheck (\s a -> s { _diarsrsSourceDestCheck = a })
+{-# INLINE diarsrsSourceDestCheck #-}
 
 instance FromXML DescribeInstanceAttributeResponse where
     fromXMLOptions = xmlOptions

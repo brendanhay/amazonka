@@ -37,60 +37,60 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnGateway
     -- * Request
       CreateVpnGateway
     -- ** Request constructor
-    , mkCreateVpnGatewayRequest
+    , mkCreateVpnGateway
     -- ** Request lenses
-    , cvgrType
-    , cvgrAvailabilityZone
+    , cvgType
+    , cvgAvailabilityZone
 
     -- * Response
     , CreateVpnGatewayResponse
     -- ** Response lenses
-    , cvgsVpnGateway
+    , cvgrsVpnGateway
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpnGateway' request.
-mkCreateVpnGatewayRequest :: GatewayType -- ^ 'cvgrType'
-                          -> CreateVpnGateway
-mkCreateVpnGatewayRequest p1 = CreateVpnGateway
-    { _cvgrType = p1
-    , _cvgrAvailabilityZone = Nothing
-    }
-{-# INLINE mkCreateVpnGatewayRequest #-}
-
+-- | 
 data CreateVpnGateway = CreateVpnGateway
-    { _cvgrType :: GatewayType
-      -- ^ The type of VPN connection this virtual private gateway supports.
-    , _cvgrAvailabilityZone :: Maybe Text
-      -- ^ The Availability Zone for the virtual private gateway.
+    { _cvgType :: GatewayType
+    , _cvgAvailabilityZone :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpnGateway' request.
+mkCreateVpnGateway :: GatewayType -- ^ 'cvgType'
+                   -> CreateVpnGateway
+mkCreateVpnGateway p1 = CreateVpnGateway
+    { _cvgType = p1
+    , _cvgAvailabilityZone = Nothing
+    }
+{-# INLINE mkCreateVpnGateway #-}
+
 -- | The type of VPN connection this virtual private gateway supports.
-cvgrType :: Lens' CreateVpnGateway (GatewayType)
-cvgrType = lens _cvgrType (\s a -> s { _cvgrType = a })
-{-# INLINE cvgrType #-}
+cvgType :: Lens' CreateVpnGateway GatewayType
+cvgType = lens _cvgType (\s a -> s { _cvgType = a })
+{-# INLINE cvgType #-}
 
 -- | The Availability Zone for the virtual private gateway.
-cvgrAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
-cvgrAvailabilityZone = lens _cvgrAvailabilityZone (\s a -> s { _cvgrAvailabilityZone = a })
-{-# INLINE cvgrAvailabilityZone #-}
+cvgAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
+cvgAvailabilityZone =
+    lens _cvgAvailabilityZone (\s a -> s { _cvgAvailabilityZone = a })
+{-# INLINE cvgAvailabilityZone #-}
 
 instance ToQuery CreateVpnGateway where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
-    { _cvgsVpnGateway :: Maybe VpnGateway
-      -- ^ Information about the virtual private gateway.
+    { _cvgrsVpnGateway :: Maybe VpnGateway
     } deriving (Show, Generic)
 
 -- | Information about the virtual private gateway.
-cvgsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
-cvgsVpnGateway = lens _cvgsVpnGateway (\s a -> s { _cvgsVpnGateway = a })
-{-# INLINE cvgsVpnGateway #-}
+cvgrsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
+cvgrsVpnGateway = lens _cvgrsVpnGateway (\s a -> s { _cvgrsVpnGateway = a })
+{-# INLINE cvgrsVpnGateway #-}
 
 instance FromXML CreateVpnGatewayResponse where
     fromXMLOptions = xmlOptions

@@ -51,16 +51,16 @@ module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
     -- * Request
       CountPendingDecisionTasks
     -- ** Request constructor
-    , mkCountPendingDecisionTasksInput
+    , mkCountPendingDecisionTasks
     -- ** Request lenses
-    , cpdtiDomain
-    , cpdtiTaskList
+    , cpdtDomain
+    , cpdtTaskList
 
     -- * Response
     , CountPendingDecisionTasksResponse
     -- ** Response lenses
-    , ptdCount
-    , ptdTruncated
+    , cpdtrsCount
+    , cpdtrsTruncated
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -68,33 +68,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CountPendingDecisionTasks' request.
-mkCountPendingDecisionTasksInput :: Text -- ^ 'cpdtiDomain'
-                                 -> TaskList -- ^ 'cpdtiTaskList'
-                                 -> CountPendingDecisionTasks
-mkCountPendingDecisionTasksInput p1 p2 = CountPendingDecisionTasks
-    { _cpdtiDomain = p1
-    , _cpdtiTaskList = p2
-    }
-{-# INLINE mkCountPendingDecisionTasksInput #-}
-
 data CountPendingDecisionTasks = CountPendingDecisionTasks
-    { _cpdtiDomain :: Text
-      -- ^ The name of the domain that contains the task list.
-    , _cpdtiTaskList :: TaskList
-      -- ^ The name of the task list.
+    { _cpdtDomain :: Text
+    , _cpdtTaskList :: TaskList
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountPendingDecisionTasks' request.
+mkCountPendingDecisionTasks :: Text -- ^ 'cpdtDomain'
+                            -> TaskList -- ^ 'cpdtTaskList'
+                            -> CountPendingDecisionTasks
+mkCountPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
+    { _cpdtDomain = p1
+    , _cpdtTaskList = p2
+    }
+{-# INLINE mkCountPendingDecisionTasks #-}
+
 -- | The name of the domain that contains the task list.
-cpdtiDomain :: Lens' CountPendingDecisionTasks (Text)
-cpdtiDomain = lens _cpdtiDomain (\s a -> s { _cpdtiDomain = a })
-{-# INLINE cpdtiDomain #-}
+cpdtDomain :: Lens' CountPendingDecisionTasks Text
+cpdtDomain = lens _cpdtDomain (\s a -> s { _cpdtDomain = a })
+{-# INLINE cpdtDomain #-}
 
 -- | The name of the task list.
-cpdtiTaskList :: Lens' CountPendingDecisionTasks (TaskList)
-cpdtiTaskList = lens _cpdtiTaskList (\s a -> s { _cpdtiTaskList = a })
-{-# INLINE cpdtiTaskList #-}
+cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
+cpdtTaskList = lens _cpdtTaskList (\s a -> s { _cpdtTaskList = a })
+{-# INLINE cpdtTaskList #-}
 
 instance ToPath CountPendingDecisionTasks
 
@@ -104,25 +102,22 @@ instance ToHeaders CountPendingDecisionTasks
 
 instance ToJSON CountPendingDecisionTasks
 
+-- | Contains the count of tasks in a task list.
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
-    { _ptdCount :: Integer
-      -- ^ The number of tasks in the task list.
-    , _ptdTruncated :: Maybe Bool
-      -- ^ If set to true, indicates that the actual count was more than the
-      -- maximum supported by this API and the count returned is the
-      -- truncated value.
+    { _cpdtrsCount :: Integer
+    , _cpdtrsTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The number of tasks in the task list.
-ptdCount :: Lens' CountPendingDecisionTasksResponse (Integer)
-ptdCount = lens _ptdCount (\s a -> s { _ptdCount = a })
-{-# INLINE ptdCount #-}
+cpdtrsCount :: Lens' CountPendingDecisionTasksResponse Integer
+cpdtrsCount = lens _cpdtrsCount (\s a -> s { _cpdtrsCount = a })
+{-# INLINE cpdtrsCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-ptdTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
-ptdTruncated = lens _ptdTruncated (\s a -> s { _ptdTruncated = a })
-{-# INLINE ptdTruncated #-}
+cpdtrsTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
+cpdtrsTruncated = lens _cpdtrsTruncated (\s a -> s { _cpdtrsTruncated = a })
+{-# INLINE cpdtrsTruncated #-}
 
 instance FromJSON CountPendingDecisionTasksResponse
 

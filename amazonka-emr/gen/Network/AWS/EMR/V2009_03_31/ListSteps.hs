@@ -23,17 +23,17 @@ module Network.AWS.EMR.V2009_03_31.ListSteps
     -- * Request
       ListSteps
     -- ** Request constructor
-    , mkListStepsInput
+    , mkListSteps
     -- ** Request lenses
-    , lsiClusterId
-    , lsiStepStates
-    , lsiMarker
+    , lsClusterId
+    , lsStepStates
+    , lsMarker
 
     -- * Response
     , ListStepsResponse
     -- ** Response lenses
-    , lsoSteps
-    , lsoMarker
+    , lsrsSteps
+    , lsrsMarker
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -41,41 +41,38 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListSteps' request.
-mkListStepsInput :: Text -- ^ 'lsiClusterId'
-                 -> ListSteps
-mkListStepsInput p1 = ListSteps
-    { _lsiClusterId = p1
-    , _lsiStepStates = mempty
-    , _lsiMarker = Nothing
-    }
-{-# INLINE mkListStepsInput #-}
-
+-- | This input determines which steps to list.
 data ListSteps = ListSteps
-    { _lsiClusterId :: Text
-      -- ^ The identifier of the cluster for which to list the steps.
-    , _lsiStepStates :: [StepState]
-      -- ^ The filter to limit the step list based on certain states.
-    , _lsiMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _lsClusterId :: Text
+    , _lsStepStates :: [StepState]
+    , _lsMarker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSteps' request.
+mkListSteps :: Text -- ^ 'lsClusterId'
+            -> ListSteps
+mkListSteps p1 = ListSteps
+    { _lsClusterId = p1
+    , _lsStepStates = mempty
+    , _lsMarker = Nothing
+    }
+{-# INLINE mkListSteps #-}
+
 -- | The identifier of the cluster for which to list the steps.
-lsiClusterId :: Lens' ListSteps (Text)
-lsiClusterId = lens _lsiClusterId (\s a -> s { _lsiClusterId = a })
-{-# INLINE lsiClusterId #-}
+lsClusterId :: Lens' ListSteps Text
+lsClusterId = lens _lsClusterId (\s a -> s { _lsClusterId = a })
+{-# INLINE lsClusterId #-}
 
 -- | The filter to limit the step list based on certain states.
-lsiStepStates :: Lens' ListSteps ([StepState])
-lsiStepStates = lens _lsiStepStates (\s a -> s { _lsiStepStates = a })
-{-# INLINE lsiStepStates #-}
+lsStepStates :: Lens' ListSteps [StepState]
+lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a })
+{-# INLINE lsStepStates #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lsiMarker :: Lens' ListSteps (Maybe Text)
-lsiMarker = lens _lsiMarker (\s a -> s { _lsiMarker = a })
-{-# INLINE lsiMarker #-}
+lsMarker :: Lens' ListSteps (Maybe Text)
+lsMarker = lens _lsMarker (\s a -> s { _lsMarker = a })
+{-# INLINE lsMarker #-}
 
 instance ToPath ListSteps
 
@@ -85,23 +82,21 @@ instance ToHeaders ListSteps
 
 instance ToJSON ListSteps
 
+-- | This output contains the list of steps.
 data ListStepsResponse = ListStepsResponse
-    { _lsoSteps :: [StepSummary]
-      -- ^ The filtered list of steps for the cluster.
-    , _lsoMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve.
+    { _lsrsSteps :: [StepSummary]
+    , _lsrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The filtered list of steps for the cluster.
-lsoSteps :: Lens' ListStepsResponse ([StepSummary])
-lsoSteps = lens _lsoSteps (\s a -> s { _lsoSteps = a })
-{-# INLINE lsoSteps #-}
+lsrsSteps :: Lens' ListStepsResponse [StepSummary]
+lsrsSteps = lens _lsrsSteps (\s a -> s { _lsrsSteps = a })
+{-# INLINE lsrsSteps #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lsoMarker :: Lens' ListStepsResponse (Maybe Text)
-lsoMarker = lens _lsoMarker (\s a -> s { _lsoMarker = a })
-{-# INLINE lsoMarker #-}
+lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
+lsrsMarker = lens _lsrsMarker (\s a -> s { _lsrsMarker = a })
+{-# INLINE lsrsMarker #-}
 
 instance FromJSON ListStepsResponse
 
@@ -113,5 +108,5 @@ instance AWSRequest ListSteps where
     response _ = jsonResponse
 
 instance AWSPager ListSteps where
-    next rq rs = (\x -> rq { _lsiMarker = Just x })
-        <$> (_lsoMarker rs)
+    next rq rs = (\x -> rq { _lsMarker = Just x })
+        <$> (_lsrsMarker rs)

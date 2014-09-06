@@ -32,60 +32,56 @@ module Network.AWS.CloudFormation.V2010_05_15.GetTemplate
     -- * Request
       GetTemplate
     -- ** Request constructor
-    , mkGetTemplateInput
+    , mkGetTemplate
     -- ** Request lenses
-    , gtiStackName
+    , gtStackName
 
     -- * Response
     , GetTemplateResponse
     -- ** Response lenses
-    , gtoTemplateBody
+    , gtrsTemplateBody
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | The input for a GetTemplate action.
+newtype GetTemplate = GetTemplate
+    { _gtStackName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTemplate' request.
-mkGetTemplateInput :: Text -- ^ 'gtiStackName'
-                   -> GetTemplate
-mkGetTemplateInput p1 = GetTemplate
-    { _gtiStackName = p1
+mkGetTemplate :: Text -- ^ 'gtStackName'
+              -> GetTemplate
+mkGetTemplate p1 = GetTemplate
+    { _gtStackName = p1
     }
-{-# INLINE mkGetTemplateInput #-}
-
-newtype GetTemplate = GetTemplate
-    { _gtiStackName :: Text
-      -- ^ The name or the unique identifier associated with the stack,
-      -- which are not always interchangeable: Running stacks: You can
-      -- specify either the stack's name or its unique stack ID. Deleted
-      -- stacks: You must specify the unique stack ID. Default: There is
-      -- no default value.
-    } deriving (Show, Generic)
+{-# INLINE mkGetTemplate #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-gtiStackName :: Lens' GetTemplate (Text)
-gtiStackName = lens _gtiStackName (\s a -> s { _gtiStackName = a })
-{-# INLINE gtiStackName #-}
+gtStackName :: Lens' GetTemplate Text
+gtStackName = lens _gtStackName (\s a -> s { _gtStackName = a })
+{-# INLINE gtStackName #-}
 
 instance ToQuery GetTemplate where
     toQuery = genericQuery def
 
+-- | The output for GetTemplate action.
 newtype GetTemplateResponse = GetTemplateResponse
-    { _gtoTemplateBody :: Maybe Text
-      -- ^ Structure containing the template body. (For more information, go
-      -- to Template Anatomy in the AWS CloudFormation User Guide.).
+    { _gtrsTemplateBody :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Structure containing the template body. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.).
-gtoTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
-gtoTemplateBody = lens _gtoTemplateBody (\s a -> s { _gtoTemplateBody = a })
-{-# INLINE gtoTemplateBody #-}
+gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
+gtrsTemplateBody =
+    lens _gtrsTemplateBody (\s a -> s { _gtrsTemplateBody = a })
+{-# INLINE gtrsTemplateBody #-}
 
 instance FromXML GetTemplateResponse where
     fromXMLOptions = xmlOptions

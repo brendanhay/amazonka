@@ -30,53 +30,53 @@ module Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues
     -- * Request
       ListDeadLetterSourceQueues
     -- ** Request constructor
-    , mkListDeadLetterSourceQueuesRequest
+    , mkListDeadLetterSourceQueues
     -- ** Request lenses
-    , ldlsqrQueueUrl
+    , ldlsqQueueUrl
 
     -- * Response
     , ListDeadLetterSourceQueuesResponse
     -- ** Response lenses
-    , ldlsqsQueueUrls
+    , ldlsqrsQueueUrls
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListDeadLetterSourceQueues' request.
-mkListDeadLetterSourceQueuesRequest :: Text -- ^ 'ldlsqrQueueUrl'
-                                    -> ListDeadLetterSourceQueues
-mkListDeadLetterSourceQueuesRequest p1 = ListDeadLetterSourceQueues
-    { _ldlsqrQueueUrl = p1
-    }
-{-# INLINE mkListDeadLetterSourceQueuesRequest #-}
-
+-- | 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
-    { _ldlsqrQueueUrl :: Text
-      -- ^ The queue URL of a dead letter queue.
+    { _ldlsqQueueUrl :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDeadLetterSourceQueues' request.
+mkListDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
+                             -> ListDeadLetterSourceQueues
+mkListDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
+    { _ldlsqQueueUrl = p1
+    }
+{-# INLINE mkListDeadLetterSourceQueues #-}
+
 -- | The queue URL of a dead letter queue.
-ldlsqrQueueUrl :: Lens' ListDeadLetterSourceQueues (Text)
-ldlsqrQueueUrl = lens _ldlsqrQueueUrl (\s a -> s { _ldlsqrQueueUrl = a })
-{-# INLINE ldlsqrQueueUrl #-}
+ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
+ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
+{-# INLINE ldlsqQueueUrl #-}
 
 instance ToQuery ListDeadLetterSourceQueues where
     toQuery = genericQuery def
 
+-- | A list of your dead letter source queues.
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqsQueueUrls :: [Text]
-      -- ^ A list of source queue URLs that have the RedrivePolicy queue
-      -- attribute configured with a dead letter queue.
+    { _ldlsqrsQueueUrls :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
-ldlsqsQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse ([Text])
-ldlsqsQueueUrls = lens _ldlsqsQueueUrls (\s a -> s { _ldlsqsQueueUrls = a })
-{-# INLINE ldlsqsQueueUrls #-}
+ldlsqrsQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
+ldlsqrsQueueUrls =
+    lens _ldlsqrsQueueUrls (\s a -> s { _ldlsqrsQueueUrls = a })
+{-# INLINE ldlsqrsQueueUrls #-}
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
     fromXMLOptions = xmlOptions

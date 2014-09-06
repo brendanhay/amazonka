@@ -58,75 +58,70 @@ module Network.AWS.EC2.V2014_06_15.CreateSecurityGroup
     -- * Request
       CreateSecurityGroup
     -- ** Request constructor
-    , mkCreateSecurityGroupRequest
+    , mkCreateSecurityGroup
     -- ** Request lenses
-    , csgrGroupName
-    , csgrDescription
-    , csgrVpcId
+    , csgGroupName
+    , csgDescription
+    , csgVpcId
 
     -- * Response
     , CreateSecurityGroupResponse
     -- ** Response lenses
-    , csgsGroupId
+    , csgrsGroupId
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateSecurityGroup = CreateSecurityGroup
+    { _csgGroupName :: Text
+    , _csgDescription :: Text
+    , _csgVpcId :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSecurityGroup' request.
-mkCreateSecurityGroupRequest :: Text -- ^ 'csgrGroupName'
-                             -> Text -- ^ 'csgrDescription'
-                             -> CreateSecurityGroup
-mkCreateSecurityGroupRequest p1 p2 = CreateSecurityGroup
-    { _csgrGroupName = p1
-    , _csgrDescription = p2
-    , _csgrVpcId = Nothing
+mkCreateSecurityGroup :: Text -- ^ 'csgGroupName'
+                      -> Text -- ^ 'csgDescription'
+                      -> CreateSecurityGroup
+mkCreateSecurityGroup p1 p2 = CreateSecurityGroup
+    { _csgGroupName = p1
+    , _csgDescription = p2
+    , _csgVpcId = Nothing
     }
-{-# INLINE mkCreateSecurityGroupRequest #-}
-
-data CreateSecurityGroup = CreateSecurityGroup
-    { _csgrGroupName :: Text
-      -- ^ The name of the security group. Constraints: Up to 255 characters
-      -- in length Constraints for EC2-Classic: ASCII characters
-      -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
-      -- ._-:/()#,@[]+=&amp;;{}!$*.
-    , _csgrDescription :: Text
-      -- ^ A description for the security group. This is informational only.
-    , _csgrVpcId :: Maybe Text
-      -- ^ [EC2-VPC] The ID of the VPC.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateSecurityGroup #-}
 
 -- | The name of the security group. Constraints: Up to 255 characters in length
 -- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
 -- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
-csgrGroupName :: Lens' CreateSecurityGroup (Text)
-csgrGroupName = lens _csgrGroupName (\s a -> s { _csgrGroupName = a })
-{-# INLINE csgrGroupName #-}
+csgGroupName :: Lens' CreateSecurityGroup Text
+csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
+{-# INLINE csgGroupName #-}
 
 -- | A description for the security group. This is informational only.
-csgrDescription :: Lens' CreateSecurityGroup (Text)
-csgrDescription = lens _csgrDescription (\s a -> s { _csgrDescription = a })
-{-# INLINE csgrDescription #-}
+csgDescription :: Lens' CreateSecurityGroup Text
+csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
+{-# INLINE csgDescription #-}
 
 -- | [EC2-VPC] The ID of the VPC.
-csgrVpcId :: Lens' CreateSecurityGroup (Maybe Text)
-csgrVpcId = lens _csgrVpcId (\s a -> s { _csgrVpcId = a })
-{-# INLINE csgrVpcId #-}
+csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
+csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
+{-# INLINE csgVpcId #-}
 
 instance ToQuery CreateSecurityGroup where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
-    { _csgsGroupId :: Maybe Text
-      -- ^ The ID of the security group.
+    { _csgrsGroupId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the security group.
-csgsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
-csgsGroupId = lens _csgsGroupId (\s a -> s { _csgsGroupId = a })
-{-# INLINE csgsGroupId #-}
+csgrsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
+csgrsGroupId = lens _csgrsGroupId (\s a -> s { _csgrsGroupId = a })
+{-# INLINE csgrsGroupId #-}
 
 instance FromXML CreateSecurityGroupResponse where
     fromXMLOptions = xmlOptions

@@ -27,80 +27,71 @@ module Network.AWS.ImportExport.V2010_06_01.ListJobs
     -- * Request
       ListJobs
     -- ** Request constructor
-    , mkListJobsInput
+    , mkListJobs
     -- ** Request lenses
-    , ljiMaxJobs
-    , ljiMarker
+    , ljMaxJobs
+    , ljMarker
 
     -- * Response
     , ListJobsResponse
     -- ** Response lenses
-    , ljoJobs
-    , ljoIsTruncated
+    , ljrsJobs
+    , ljrsIsTruncated
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.V2010_06_01.Types
 import Network.AWS.Prelude
 
+-- | Input structure for the ListJobs operation.
+data ListJobs = ListJobs
+    { _ljMaxJobs :: Maybe Integer
+    , _ljMarker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobs' request.
-mkListJobsInput :: ListJobs
-mkListJobsInput = ListJobs
-    { _ljiMaxJobs = Nothing
-    , _ljiMarker = Nothing
+mkListJobs :: ListJobs
+mkListJobs = ListJobs
+    { _ljMaxJobs = Nothing
+    , _ljMarker = Nothing
     }
-{-# INLINE mkListJobsInput #-}
-
-data ListJobs = ListJobs
-    { _ljiMaxJobs :: Maybe Integer
-      -- ^ Sets the maximum number of jobs returned in the response. If
-      -- there are additional jobs that were not returned because MaxJobs
-      -- was exceeded, the response contains
-      -- &lt;IsTruncated&gt;true&lt;/IsTruncated&gt;. To return the
-      -- additional jobs, see Marker.
-    , _ljiMarker :: Maybe Text
-      -- ^ Specifies the JOBID to start after when listing the jobs created
-      -- with your account. AWS Import/Export lists your jobs in reverse
-      -- chronological order. See MaxJobs.
-    } deriving (Show, Generic)
+{-# INLINE mkListJobs #-}
 
 -- | Sets the maximum number of jobs returned in the response. If there are
 -- additional jobs that were not returned because MaxJobs was exceeded, the
 -- response contains &lt;IsTruncated&gt;true&lt;/IsTruncated&gt;. To return
 -- the additional jobs, see Marker.
-ljiMaxJobs :: Lens' ListJobs (Maybe Integer)
-ljiMaxJobs = lens _ljiMaxJobs (\s a -> s { _ljiMaxJobs = a })
-{-# INLINE ljiMaxJobs #-}
+ljMaxJobs :: Lens' ListJobs (Maybe Integer)
+ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
+{-# INLINE ljMaxJobs #-}
 
 -- | Specifies the JOBID to start after when listing the jobs created with your
 -- account. AWS Import/Export lists your jobs in reverse chronological order.
 -- See MaxJobs.
-ljiMarker :: Lens' ListJobs (Maybe Text)
-ljiMarker = lens _ljiMarker (\s a -> s { _ljiMarker = a })
-{-# INLINE ljiMarker #-}
+ljMarker :: Lens' ListJobs (Maybe Text)
+ljMarker = lens _ljMarker (\s a -> s { _ljMarker = a })
+{-# INLINE ljMarker #-}
 
 instance ToQuery ListJobs where
     toQuery = genericQuery def
 
+-- | Output structure for the ListJobs operation.
 data ListJobsResponse = ListJobsResponse
-    { _ljoJobs :: [Job]
-      -- ^ A list container for Jobs returned by the ListJobs operation.
-    , _ljoIsTruncated :: Bool
-      -- ^ Indicates whether the list of jobs was truncated. If true, then
-      -- call ListJobs again using the last JobId element as the marker.
+    { _ljrsJobs :: [Job]
+    , _ljrsIsTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | A list container for Jobs returned by the ListJobs operation.
-ljoJobs :: Lens' ListJobsResponse ([Job])
-ljoJobs = lens _ljoJobs (\s a -> s { _ljoJobs = a })
-{-# INLINE ljoJobs #-}
+ljrsJobs :: Lens' ListJobsResponse [Job]
+ljrsJobs = lens _ljrsJobs (\s a -> s { _ljrsJobs = a })
+{-# INLINE ljrsJobs #-}
 
 -- | Indicates whether the list of jobs was truncated. If true, then call
 -- ListJobs again using the last JobId element as the marker.
-ljoIsTruncated :: Lens' ListJobsResponse (Bool)
-ljoIsTruncated = lens _ljoIsTruncated (\s a -> s { _ljoIsTruncated = a })
-{-# INLINE ljoIsTruncated #-}
+ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
+ljrsIsTruncated = lens _ljrsIsTruncated (\s a -> s { _ljrsIsTruncated = a })
+{-# INLINE ljrsIsTruncated #-}
 
 instance FromXML ListJobsResponse where
     fromXMLOptions = xmlOptions
@@ -114,7 +105,7 @@ instance AWSRequest ListJobs where
 
 instance AWSPager ListJobs where
     next rq rs
-        | not (_ljoIsTruncated rs) = Nothing
+        | not (_ljrsIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _ljiMarker = keyed _jJobId _ljoJobs rs
+            { _ljMarker = keyed _jJobId _ljrsJobs rs
             }

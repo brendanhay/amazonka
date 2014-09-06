@@ -37,70 +37,57 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterParameterGroups
     -- * Request
       DescribeClusterParameterGroups
     -- ** Request constructor
-    , mkDescribeClusterParameterGroupsMessage
+    , mkDescribeClusterParameterGroups
     -- ** Request lenses
-    , dcpgnParameterGroupName
-    , dcpgnMaxRecords
-    , dcpgnMarker
+    , dcpg1ParameterGroupName
+    , dcpg1MaxRecords
+    , dcpg1Marker
 
     -- * Response
     , DescribeClusterParameterGroupsResponse
     -- ** Response lenses
-    , cpgmMarker
-    , cpgmParameterGroups
+    , dcpgrsMarker
+    , dcpgrsParameterGroups
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DescribeClusterParameterGroups = DescribeClusterParameterGroups
+    { _dcpg1ParameterGroupName :: Maybe Text
+    , _dcpg1MaxRecords :: Maybe Integer
+    , _dcpg1Marker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterParameterGroups' request.
-mkDescribeClusterParameterGroupsMessage :: DescribeClusterParameterGroups
-mkDescribeClusterParameterGroupsMessage = DescribeClusterParameterGroups
-    { _dcpgnParameterGroupName = Nothing
-    , _dcpgnMaxRecords = Nothing
-    , _dcpgnMarker = Nothing
+mkDescribeClusterParameterGroups :: DescribeClusterParameterGroups
+mkDescribeClusterParameterGroups = DescribeClusterParameterGroups
+    { _dcpg1ParameterGroupName = Nothing
+    , _dcpg1MaxRecords = Nothing
+    , _dcpg1Marker = Nothing
     }
-{-# INLINE mkDescribeClusterParameterGroupsMessage #-}
-
-data DescribeClusterParameterGroups = DescribeClusterParameterGroups
-    { _dcpgnParameterGroupName :: Maybe Text
-      -- ^ The name of a specific parameter group for which to return
-      -- details. By default, details about all parameter groups and the
-      -- default parameter group are returned.
-    , _dcpgnMaxRecords :: Maybe Integer
-      -- ^ The maximum number of response records to return in each call. If
-      -- the number of remaining response records exceeds the specified
-      -- MaxRecords value, a value is returned in a marker field of the
-      -- response. You can retrieve the next set of records by retrying
-      -- the command with the returned marker value. Default: 100
-      -- Constraints: minimum 20, maximum 100.
-    , _dcpgnMarker :: Maybe Text
-      -- ^ An optional parameter that specifies the starting point to return
-      -- a set of response records. When the results of a
-      -- DescribeClusterParameterGroups request exceed the value specified
-      -- in MaxRecords, AWS returns a value in the Marker field of the
-      -- response. You can retrieve the next set of response records by
-      -- providing the returned marker value in the Marker parameter and
-      -- retrying the request.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeClusterParameterGroups #-}
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter group
 -- are returned.
-dcpgnParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
-dcpgnParameterGroupName = lens _dcpgnParameterGroupName (\s a -> s { _dcpgnParameterGroupName = a })
-{-# INLINE dcpgnParameterGroupName #-}
+dcpg1ParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
+dcpg1ParameterGroupName =
+    lens _dcpg1ParameterGroupName
+         (\s a -> s { _dcpg1ParameterGroupName = a })
+{-# INLINE dcpg1ParameterGroupName #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the returned
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcpgnMaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Integer)
-dcpgnMaxRecords = lens _dcpgnMaxRecords (\s a -> s { _dcpgnMaxRecords = a })
-{-# INLINE dcpgnMaxRecords #-}
+dcpg1MaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Integer)
+dcpg1MaxRecords = lens _dcpg1MaxRecords (\s a -> s { _dcpg1MaxRecords = a })
+{-# INLINE dcpg1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterParameterGroups
@@ -108,24 +95,17 @@ dcpgnMaxRecords = lens _dcpgnMaxRecords (\s a -> s { _dcpgnMaxRecords = a })
 -- the Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter and
 -- retrying the request.
-dcpgnMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
-dcpgnMarker = lens _dcpgnMarker (\s a -> s { _dcpgnMarker = a })
-{-# INLINE dcpgnMarker #-}
+dcpg1Marker :: Lens' DescribeClusterParameterGroups (Maybe Text)
+dcpg1Marker = lens _dcpg1Marker (\s a -> s { _dcpg1Marker = a })
+{-# INLINE dcpg1Marker #-}
 
 instance ToQuery DescribeClusterParameterGroups where
     toQuery = genericQuery def
 
+-- | Contains the output from the DescribeClusterParameterGroups action.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
-    { _cpgmMarker :: Maybe Text
-      -- ^ A value that indicates the starting point for the next set of
-      -- response records in a subsequent request. If a value is returned
-      -- in a response, you can retrieve the next set of records by
-      -- providing this returned marker value in the Marker parameter and
-      -- retrying the command. If the Marker field is empty, all response
-      -- records have been retrieved for the request.
-    , _cpgmParameterGroups :: [ClusterParameterGroup]
-      -- ^ A list of ClusterParameterGroup instances. Each instance
-      -- describes one cluster parameter group.
+    { _dcpgrsMarker :: Maybe Text
+    , _dcpgrsParameterGroups :: [ClusterParameterGroup]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -133,15 +113,16 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-cpgmMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
-cpgmMarker = lens _cpgmMarker (\s a -> s { _cpgmMarker = a })
-{-# INLINE cpgmMarker #-}
+dcpgrsMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
+dcpgrsMarker = lens _dcpgrsMarker (\s a -> s { _dcpgrsMarker = a })
+{-# INLINE dcpgrsMarker #-}
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-cpgmParameterGroups :: Lens' DescribeClusterParameterGroupsResponse ([ClusterParameterGroup])
-cpgmParameterGroups = lens _cpgmParameterGroups (\s a -> s { _cpgmParameterGroups = a })
-{-# INLINE cpgmParameterGroups #-}
+dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
+dcpgrsParameterGroups =
+    lens _dcpgrsParameterGroups (\s a -> s { _dcpgrsParameterGroups = a })
+{-# INLINE dcpgrsParameterGroups #-}
 
 instance FromXML DescribeClusterParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -154,5 +135,5 @@ instance AWSRequest DescribeClusterParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterParameterGroups where
-    next rq rs = (\x -> rq { _dcpgnMarker = Just x })
-        <$> (_cpgmMarker rs)
+    next rq rs = (\x -> rq { _dcpg1Marker = Just x })
+        <$> (_dcpgrsMarker rs)

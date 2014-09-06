@@ -30,145 +30,128 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodesOfferings
     -- * Request
       DescribeReservedCacheNodesOfferings
     -- ** Request constructor
-    , mkDescribeReservedCacheNodesOfferingsMessage
+    , mkDescribeReservedCacheNodesOfferings
     -- ** Request lenses
-    , drcnomReservedCacheNodesOfferingId
-    , drcnomCacheNodeType
-    , drcnomDuration
-    , drcnomProductDescription
-    , drcnomOfferingType
-    , drcnomMaxRecords
-    , drcnomMarker
+    , drcnoReservedCacheNodesOfferingId
+    , drcnoCacheNodeType
+    , drcnoDuration
+    , drcnoProductDescription
+    , drcnoOfferingType
+    , drcnoMaxRecords
+    , drcnoMarker
 
     -- * Response
     , DescribeReservedCacheNodesOfferingsResponse
     -- ** Response lenses
-    , rcnomMarker
-    , rcnomReservedCacheNodesOfferings
+    , drcnorsMarker
+    , drcnorsReservedCacheNodesOfferings
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DescribeReservedCacheNodesOfferings operation.
+data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
+    { _drcnoReservedCacheNodesOfferingId :: Maybe Text
+    , _drcnoCacheNodeType :: Maybe Text
+    , _drcnoDuration :: Maybe Text
+    , _drcnoProductDescription :: Maybe Text
+    , _drcnoOfferingType :: Maybe Text
+    , _drcnoMaxRecords :: Maybe Integer
+    , _drcnoMarker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedCacheNodesOfferings' request.
-mkDescribeReservedCacheNodesOfferingsMessage :: DescribeReservedCacheNodesOfferings
-mkDescribeReservedCacheNodesOfferingsMessage = DescribeReservedCacheNodesOfferings
-    { _drcnomReservedCacheNodesOfferingId = Nothing
-    , _drcnomCacheNodeType = Nothing
-    , _drcnomDuration = Nothing
-    , _drcnomProductDescription = Nothing
-    , _drcnomOfferingType = Nothing
-    , _drcnomMaxRecords = Nothing
-    , _drcnomMarker = Nothing
+mkDescribeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings
+mkDescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
+    { _drcnoReservedCacheNodesOfferingId = Nothing
+    , _drcnoCacheNodeType = Nothing
+    , _drcnoDuration = Nothing
+    , _drcnoProductDescription = Nothing
+    , _drcnoOfferingType = Nothing
+    , _drcnoMaxRecords = Nothing
+    , _drcnoMarker = Nothing
     }
-{-# INLINE mkDescribeReservedCacheNodesOfferingsMessage #-}
-
-data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
-    { _drcnomReservedCacheNodesOfferingId :: Maybe Text
-      -- ^ The offering identifier filter value. Use this parameter to show
-      -- only the available offering that matches the specified
-      -- reservation identifier. Example:
-      -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-    , _drcnomCacheNodeType :: Maybe Text
-      -- ^ The cache node type filter value. Use this parameter to show only
-      -- the available offerings matching the specified cache node type.
-    , _drcnomDuration :: Maybe Text
-      -- ^ Duration filter value, specified in years or seconds. Use this
-      -- parameter to show only reservations for a given duration. Valid
-      -- Values: 1 | 3 | 31536000 | 94608000.
-    , _drcnomProductDescription :: Maybe Text
-      -- ^ The product description filter value. Use this parameter to show
-      -- only the available offerings matching the specified product
-      -- description.
-    , _drcnomOfferingType :: Maybe Text
-      -- ^ The offering type filter value. Use this parameter to show only
-      -- the available offerings matching the specified offering type.
-      -- Valid Values: "Light Utilization" | "Medium Utilization" | "Heavy
-      -- Utilization".
-    , _drcnomMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a marker is
-      -- included in the response so that the remaining results can be
-      -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _drcnomMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeReservedCacheNodesOfferings #-}
 
 -- | The offering identifier filter value. Use this parameter to show only the
 -- available offering that matches the specified reservation identifier.
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-drcnomReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnomReservedCacheNodesOfferingId = lens _drcnomReservedCacheNodesOfferingId (\s a -> s { _drcnomReservedCacheNodesOfferingId = a })
-{-# INLINE drcnomReservedCacheNodesOfferingId #-}
+drcnoReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnoReservedCacheNodesOfferingId =
+    lens _drcnoReservedCacheNodesOfferingId
+         (\s a -> s { _drcnoReservedCacheNodesOfferingId = a })
+{-# INLINE drcnoReservedCacheNodesOfferingId #-}
 
 -- | The cache node type filter value. Use this parameter to show only the
 -- available offerings matching the specified cache node type.
-drcnomCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnomCacheNodeType = lens _drcnomCacheNodeType (\s a -> s { _drcnomCacheNodeType = a })
-{-# INLINE drcnomCacheNodeType #-}
+drcnoCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnoCacheNodeType =
+    lens _drcnoCacheNodeType (\s a -> s { _drcnoCacheNodeType = a })
+{-# INLINE drcnoCacheNodeType #-}
 
 -- | Duration filter value, specified in years or seconds. Use this parameter to
 -- show only reservations for a given duration. Valid Values: 1 | 3 | 31536000
 -- | 94608000.
-drcnomDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnomDuration = lens _drcnomDuration (\s a -> s { _drcnomDuration = a })
-{-# INLINE drcnomDuration #-}
+drcnoDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnoDuration = lens _drcnoDuration (\s a -> s { _drcnoDuration = a })
+{-# INLINE drcnoDuration #-}
 
 -- | The product description filter value. Use this parameter to show only the
 -- available offerings matching the specified product description.
-drcnomProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnomProductDescription = lens _drcnomProductDescription (\s a -> s { _drcnomProductDescription = a })
-{-# INLINE drcnomProductDescription #-}
+drcnoProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnoProductDescription =
+    lens _drcnoProductDescription
+         (\s a -> s { _drcnoProductDescription = a })
+{-# INLINE drcnoProductDescription #-}
 
 -- | The offering type filter value. Use this parameter to show only the
 -- available offerings matching the specified offering type. Valid Values:
 -- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
-drcnomOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnomOfferingType = lens _drcnomOfferingType (\s a -> s { _drcnomOfferingType = a })
-{-# INLINE drcnomOfferingType #-}
+drcnoOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnoOfferingType =
+    lens _drcnoOfferingType (\s a -> s { _drcnoOfferingType = a })
+{-# INLINE drcnoOfferingType #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-drcnomMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Integer)
-drcnomMaxRecords = lens _drcnomMaxRecords (\s a -> s { _drcnomMaxRecords = a })
-{-# INLINE drcnomMaxRecords #-}
+drcnoMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Integer)
+drcnoMaxRecords = lens _drcnoMaxRecords (\s a -> s { _drcnoMaxRecords = a })
+{-# INLINE drcnoMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-drcnomMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnomMarker = lens _drcnomMarker (\s a -> s { _drcnomMarker = a })
-{-# INLINE drcnomMarker #-}
+drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnoMarker = lens _drcnoMarker (\s a -> s { _drcnoMarker = a })
+{-# INLINE drcnoMarker #-}
 
 instance ToQuery DescribeReservedCacheNodesOfferings where
     toQuery = genericQuery def
 
+-- | Represents the output of a DescribeReservedCacheNodesOfferings operation.
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
-    { _rcnomMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
-    , _rcnomReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
-      -- ^ A list of reserved cache node offerings. Each element in the list
-      -- contains detailed information about one offering.
+    { _drcnorsMarker :: Maybe Text
+    , _drcnorsReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-rcnomMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
-rcnomMarker = lens _rcnomMarker (\s a -> s { _rcnomMarker = a })
-{-# INLINE rcnomMarker #-}
+drcnorsMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
+drcnorsMarker = lens _drcnorsMarker (\s a -> s { _drcnorsMarker = a })
+{-# INLINE drcnorsMarker #-}
 
 -- | A list of reserved cache node offerings. Each element in the list contains
 -- detailed information about one offering.
-rcnomReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse ([ReservedCacheNodesOffering])
-rcnomReservedCacheNodesOfferings = lens _rcnomReservedCacheNodesOfferings (\s a -> s { _rcnomReservedCacheNodesOfferings = a })
-{-# INLINE rcnomReservedCacheNodesOfferings #-}
+drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
+drcnorsReservedCacheNodesOfferings =
+    lens _drcnorsReservedCacheNodesOfferings
+         (\s a -> s { _drcnorsReservedCacheNodesOfferings = a })
+{-# INLINE drcnorsReservedCacheNodesOfferings #-}
 
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -181,5 +164,5 @@ instance AWSRequest DescribeReservedCacheNodesOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedCacheNodesOfferings where
-    next rq rs = (\x -> rq { _drcnomMarker = Just x })
-        <$> (_rcnomMarker rs)
+    next rq rs = (\x -> rq { _drcnoMarker = Just x })
+        <$> (_drcnorsMarker rs)

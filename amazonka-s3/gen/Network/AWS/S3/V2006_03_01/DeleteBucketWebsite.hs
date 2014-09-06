@@ -23,9 +23,9 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketWebsite
     -- * Request
       DeleteBucketWebsite
     -- ** Request constructor
-    , mkDeleteBucketWebsiteRequest
+    , mkDeleteBucketWebsite
     -- ** Request lenses
-    , dbwrBucket
+    , dbwBucket
 
     -- * Response
     , DeleteBucketWebsiteResponse
@@ -34,28 +34,29 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketWebsite
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype DeleteBucketWebsite = DeleteBucketWebsite
+    { _dbwBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketWebsite' request.
-mkDeleteBucketWebsiteRequest :: BucketName -- ^ 'dbwrBucket'
-                             -> DeleteBucketWebsite
-mkDeleteBucketWebsiteRequest p1 = DeleteBucketWebsite
-    { _dbwrBucket = p1
+mkDeleteBucketWebsite :: BucketName -- ^ 'dbwBucket'
+                      -> DeleteBucketWebsite
+mkDeleteBucketWebsite p1 = DeleteBucketWebsite
+    { _dbwBucket = p1
     }
-{-# INLINE mkDeleteBucketWebsiteRequest #-}
+{-# INLINE mkDeleteBucketWebsite #-}
 
-newtype DeleteBucketWebsite = DeleteBucketWebsite
-    { _dbwrBucket :: BucketName
-    } deriving (Show, Generic)
-
-dbwrBucket :: Lens' DeleteBucketWebsite (BucketName)
-dbwrBucket = lens _dbwrBucket (\s a -> s { _dbwrBucket = a })
-{-# INLINE dbwrBucket #-}
+dbwBucket :: Lens' DeleteBucketWebsite BucketName
+dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
+{-# INLINE dbwBucket #-}
 
 instance ToPath DeleteBucketWebsite where
     toPath DeleteBucketWebsite{..} = mconcat
         [ "/"
-        , toBS _dbwrBucket
+        , toBS _dbwBucket
         ]
 
 instance ToQuery DeleteBucketWebsite where

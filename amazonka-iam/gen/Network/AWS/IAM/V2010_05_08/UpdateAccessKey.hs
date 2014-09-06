@@ -33,11 +33,11 @@ module Network.AWS.IAM.V2010_05_08.UpdateAccessKey
     -- * Request
       UpdateAccessKey
     -- ** Request constructor
-    , mkUpdateAccessKeyRequest
+    , mkUpdateAccessKey
     -- ** Request lenses
-    , uakrUserName
-    , uakrAccessKeyId
-    , uakrStatus
+    , uakUserName
+    , uakAccessKeyId
+    , uakStatus
 
     -- * Response
     , UpdateAccessKeyResponse
@@ -47,45 +47,41 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateAccessKey' request.
-mkUpdateAccessKeyRequest :: Text -- ^ 'uakrAccessKeyId'
-                         -> StatusType -- ^ 'uakrStatus'
-                         -> UpdateAccessKey
-mkUpdateAccessKeyRequest p1 p2 = UpdateAccessKey
-    { _uakrUserName = Nothing
-    , _uakrAccessKeyId = p2
-    , _uakrStatus = p3
-    }
-{-# INLINE mkUpdateAccessKeyRequest #-}
-
+-- | 
 data UpdateAccessKey = UpdateAccessKey
-    { _uakrUserName :: Maybe Text
-      -- ^ Name of the user whose key you want to update.
-    , _uakrAccessKeyId :: Text
-      -- ^ The access key ID of the secret access key you want to update.
-    , _uakrStatus :: StatusType
-      -- ^ The status you want to assign to the secret access key. Active
-      -- means the key can be used for API calls to AWS, while Inactive
-      -- means the key cannot be used.
+    { _uakUserName :: Maybe Text
+    , _uakAccessKeyId :: Text
+    , _uakStatus :: StatusType
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAccessKey' request.
+mkUpdateAccessKey :: Text -- ^ 'uakAccessKeyId'
+                  -> StatusType -- ^ 'uakStatus'
+                  -> UpdateAccessKey
+mkUpdateAccessKey p2 p3 = UpdateAccessKey
+    { _uakUserName = Nothing
+    , _uakAccessKeyId = p2
+    , _uakStatus = p3
+    }
+{-# INLINE mkUpdateAccessKey #-}
+
 -- | Name of the user whose key you want to update.
-uakrUserName :: Lens' UpdateAccessKey (Maybe Text)
-uakrUserName = lens _uakrUserName (\s a -> s { _uakrUserName = a })
-{-# INLINE uakrUserName #-}
+uakUserName :: Lens' UpdateAccessKey (Maybe Text)
+uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
+{-# INLINE uakUserName #-}
 
 -- | The access key ID of the secret access key you want to update.
-uakrAccessKeyId :: Lens' UpdateAccessKey (Text)
-uakrAccessKeyId = lens _uakrAccessKeyId (\s a -> s { _uakrAccessKeyId = a })
-{-# INLINE uakrAccessKeyId #-}
+uakAccessKeyId :: Lens' UpdateAccessKey Text
+uakAccessKeyId = lens _uakAccessKeyId (\s a -> s { _uakAccessKeyId = a })
+{-# INLINE uakAccessKeyId #-}
 
 -- | The status you want to assign to the secret access key. Active means the
 -- key can be used for API calls to AWS, while Inactive means the key cannot
 -- be used.
-uakrStatus :: Lens' UpdateAccessKey (StatusType)
-uakrStatus = lens _uakrStatus (\s a -> s { _uakrStatus = a })
-{-# INLINE uakrStatus #-}
+uakStatus :: Lens' UpdateAccessKey StatusType
+uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
+{-# INLINE uakStatus #-}
 
 instance ToQuery UpdateAccessKey where
     toQuery = genericQuery def

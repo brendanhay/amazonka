@@ -29,9 +29,9 @@ module Network.AWS.CloudFormation.V2010_05_15.DeleteStack
     -- * Request
       DeleteStack
     -- ** Request constructor
-    , mkDeleteStackInput
+    , mkDeleteStack
     -- ** Request lenses
-    , dsiStackName
+    , dsStackName
 
     -- * Response
     , DeleteStackResponse
@@ -41,24 +41,24 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteStack' request.
-mkDeleteStackInput :: Text -- ^ 'dsiStackName'
-                   -> DeleteStack
-mkDeleteStackInput p1 = DeleteStack
-    { _dsiStackName = p1
-    }
-{-# INLINE mkDeleteStackInput #-}
-
+-- | The input for DeleteStack action.
 newtype DeleteStack = DeleteStack
-    { _dsiStackName :: Text
-      -- ^ The name or the unique identifier associated with the stack.
+    { _dsStackName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStack' request.
+mkDeleteStack :: Text -- ^ 'dsStackName'
+              -> DeleteStack
+mkDeleteStack p1 = DeleteStack
+    { _dsStackName = p1
+    }
+{-# INLINE mkDeleteStack #-}
+
 -- | The name or the unique identifier associated with the stack.
-dsiStackName :: Lens' DeleteStack (Text)
-dsiStackName = lens _dsiStackName (\s a -> s { _dsiStackName = a })
-{-# INLINE dsiStackName #-}
+dsStackName :: Lens' DeleteStack Text
+dsStackName = lens _dsStackName (\s a -> s { _dsStackName = a })
+{-# INLINE dsStackName #-}
 
 instance ToQuery DeleteStack where
     toQuery = genericQuery def

@@ -23,9 +23,9 @@ module Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions
     -- * Request
       EnableAlarmActions
     -- ** Request constructor
-    , mkEnableAlarmActionsInput
+    , mkEnableAlarmActions
     -- ** Request lenses
-    , eaaiAlarmNames
+    , eaaAlarmNames
 
     -- * Response
     , EnableAlarmActionsResponse
@@ -35,24 +35,24 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'EnableAlarmActions' request.
-mkEnableAlarmActionsInput :: [Text] -- ^ 'eaaiAlarmNames'
-                          -> EnableAlarmActions
-mkEnableAlarmActionsInput p1 = EnableAlarmActions
-    { _eaaiAlarmNames = p1
-    }
-{-# INLINE mkEnableAlarmActionsInput #-}
-
+-- | 
 newtype EnableAlarmActions = EnableAlarmActions
-    { _eaaiAlarmNames :: [Text]
-      -- ^ The names of the alarms to enable actions for.
+    { _eaaAlarmNames :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableAlarmActions' request.
+mkEnableAlarmActions :: [Text] -- ^ 'eaaAlarmNames'
+                     -> EnableAlarmActions
+mkEnableAlarmActions p1 = EnableAlarmActions
+    { _eaaAlarmNames = p1
+    }
+{-# INLINE mkEnableAlarmActions #-}
+
 -- | The names of the alarms to enable actions for.
-eaaiAlarmNames :: Lens' EnableAlarmActions ([Text])
-eaaiAlarmNames = lens _eaaiAlarmNames (\s a -> s { _eaaiAlarmNames = a })
-{-# INLINE eaaiAlarmNames #-}
+eaaAlarmNames :: Lens' EnableAlarmActions [Text]
+eaaAlarmNames = lens _eaaAlarmNames (\s a -> s { _eaaAlarmNames = a })
+{-# INLINE eaaAlarmNames #-}
 
 instance ToQuery EnableAlarmActions where
     toQuery = genericQuery def

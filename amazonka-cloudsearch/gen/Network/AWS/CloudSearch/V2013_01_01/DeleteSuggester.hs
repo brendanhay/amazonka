@@ -24,68 +24,67 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester
     -- * Request
       DeleteSuggester
     -- ** Request constructor
-    , mkDeleteSuggesterRequest
+    , mkDeleteSuggester
     -- ** Request lenses
-    , dstDomainName
-    , dstSuggesterName
+    , ds2DomainName
+    , ds2SuggesterName
 
     -- * Response
     , DeleteSuggesterResponse
     -- ** Response lenses
-    , dsuSuggester
+    , dsrsrsSuggester
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the DeleteSuggester operation. Specifies
+-- the name of the domain you want to update and name of the suggester you
+-- want to delete.
+data DeleteSuggester = DeleteSuggester
+    { _ds2DomainName :: Text
+    , _ds2SuggesterName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSuggester' request.
-mkDeleteSuggesterRequest :: Text -- ^ 'dstDomainName'
-                         -> Text -- ^ 'dstSuggesterName'
-                         -> DeleteSuggester
-mkDeleteSuggesterRequest p1 p2 = DeleteSuggester
-    { _dstDomainName = p1
-    , _dstSuggesterName = p2
+mkDeleteSuggester :: Text -- ^ 'ds2DomainName'
+                  -> Text -- ^ 'ds2SuggesterName'
+                  -> DeleteSuggester
+mkDeleteSuggester p1 p2 = DeleteSuggester
+    { _ds2DomainName = p1
+    , _ds2SuggesterName = p2
     }
-{-# INLINE mkDeleteSuggesterRequest #-}
-
-data DeleteSuggester = DeleteSuggester
-    { _dstDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    , _dstSuggesterName :: Text
-      -- ^ Specifies the name of the suggester you want to delete.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteSuggester #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dstDomainName :: Lens' DeleteSuggester (Text)
-dstDomainName = lens _dstDomainName (\s a -> s { _dstDomainName = a })
-{-# INLINE dstDomainName #-}
+ds2DomainName :: Lens' DeleteSuggester Text
+ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
+{-# INLINE ds2DomainName #-}
 
 -- | Specifies the name of the suggester you want to delete.
-dstSuggesterName :: Lens' DeleteSuggester (Text)
-dstSuggesterName = lens _dstSuggesterName (\s a -> s { _dstSuggesterName = a })
-{-# INLINE dstSuggesterName #-}
+ds2SuggesterName :: Lens' DeleteSuggester Text
+ds2SuggesterName =
+    lens _ds2SuggesterName (\s a -> s { _ds2SuggesterName = a })
+{-# INLINE ds2SuggesterName #-}
 
 instance ToQuery DeleteSuggester where
     toQuery = genericQuery def
 
+-- | The result of a DeleteSuggester request. Contains the status of the deleted
+-- suggester.
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
-    { _dsuSuggester :: SuggesterStatus
-      -- ^ The status of the suggester being deleted.
+    { _dsrsrsSuggester :: SuggesterStatus
     } deriving (Show, Generic)
 
 -- | The status of the suggester being deleted.
-dsuSuggester :: Lens' DeleteSuggesterResponse (SuggesterStatus)
-dsuSuggester = lens _dsuSuggester (\s a -> s { _dsuSuggester = a })
-{-# INLINE dsuSuggester #-}
+dsrsrsSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
+dsrsrsSuggester = lens _dsrsrsSuggester (\s a -> s { _dsrsrsSuggester = a })
+{-# INLINE dsrsrsSuggester #-}
 
 instance FromXML DeleteSuggesterResponse where
     fromXMLOptions = xmlOptions

@@ -29,64 +29,62 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplication
     -- * Request
       UpdateApplication
     -- ** Request constructor
-    , mkUpdateApplicationMessage
+    , mkUpdateApplication
     -- ** Request lenses
-    , uamApplicationName
-    , uamDescription
+    , uaApplicationName
+    , uaDescription
 
     -- * Response
     , UpdateApplicationResponse
     -- ** Response lenses
-    , adoApplication
+    , uarsApplication
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | This documentation target is not reported in the API reference.
+data UpdateApplication = UpdateApplication
+    { _uaApplicationName :: Text
+    , _uaDescription :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplication' request.
-mkUpdateApplicationMessage :: Text -- ^ 'uamApplicationName'
-                           -> UpdateApplication
-mkUpdateApplicationMessage p1 = UpdateApplication
-    { _uamApplicationName = p1
-    , _uamDescription = Nothing
+mkUpdateApplication :: Text -- ^ 'uaApplicationName'
+                    -> UpdateApplication
+mkUpdateApplication p1 = UpdateApplication
+    { _uaApplicationName = p1
+    , _uaDescription = Nothing
     }
-{-# INLINE mkUpdateApplicationMessage #-}
-
-data UpdateApplication = UpdateApplication
-    { _uamApplicationName :: Text
-      -- ^ The name of the application to update. If no such application is
-      -- found, UpdateApplication returns an InvalidParameterValue error.
-    , _uamDescription :: Maybe Text
-      -- ^ A new description for the application. Default: If not specified,
-      -- AWS Elastic Beanstalk does not update the description.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateApplication #-}
 
 -- | The name of the application to update. If no such application is found,
 -- UpdateApplication returns an InvalidParameterValue error.
-uamApplicationName :: Lens' UpdateApplication (Text)
-uamApplicationName = lens _uamApplicationName (\s a -> s { _uamApplicationName = a })
-{-# INLINE uamApplicationName #-}
+uaApplicationName :: Lens' UpdateApplication Text
+uaApplicationName =
+    lens _uaApplicationName (\s a -> s { _uaApplicationName = a })
+{-# INLINE uaApplicationName #-}
 
 -- | A new description for the application. Default: If not specified, AWS
 -- Elastic Beanstalk does not update the description.
-uamDescription :: Lens' UpdateApplication (Maybe Text)
-uamDescription = lens _uamDescription (\s a -> s { _uamDescription = a })
-{-# INLINE uamDescription #-}
+uaDescription :: Lens' UpdateApplication (Maybe Text)
+uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
+{-# INLINE uaDescription #-}
 
 instance ToQuery UpdateApplication where
     toQuery = genericQuery def
 
+-- | Result message containing a single description of an application.
 newtype UpdateApplicationResponse = UpdateApplicationResponse
-    { _adoApplication :: Maybe ApplicationDescription
-      -- ^ The ApplicationDescription of the application.
+    { _uarsApplication :: Maybe ApplicationDescription
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
-adoApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
-adoApplication = lens _adoApplication (\s a -> s { _adoApplication = a })
-{-# INLINE adoApplication #-}
+uarsApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
+uarsApplication = lens _uarsApplication (\s a -> s { _uarsApplication = a })
+{-# INLINE uarsApplication #-}
 
 instance FromXML UpdateApplicationResponse where
     fromXMLOptions = xmlOptions

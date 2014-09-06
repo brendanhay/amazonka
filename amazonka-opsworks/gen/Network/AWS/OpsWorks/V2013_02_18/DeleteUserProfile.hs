@@ -25,9 +25,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile
     -- * Request
       DeleteUserProfile
     -- ** Request constructor
-    , mkDeleteUserProfileRequest
+    , mkDeleteUserProfile
     -- ** Request lenses
-    , duprIamUserArn
+    , dupIamUserArn
 
     -- * Response
     , DeleteUserProfileResponse
@@ -38,24 +38,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteUserProfile' request.
-mkDeleteUserProfileRequest :: Text -- ^ 'duprIamUserArn'
-                           -> DeleteUserProfile
-mkDeleteUserProfileRequest p1 = DeleteUserProfile
-    { _duprIamUserArn = p1
-    }
-{-# INLINE mkDeleteUserProfileRequest #-}
-
 newtype DeleteUserProfile = DeleteUserProfile
-    { _duprIamUserArn :: Text
-      -- ^ The user's IAM ARN.
+    { _dupIamUserArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteUserProfile' request.
+mkDeleteUserProfile :: Text -- ^ 'dupIamUserArn'
+                    -> DeleteUserProfile
+mkDeleteUserProfile p1 = DeleteUserProfile
+    { _dupIamUserArn = p1
+    }
+{-# INLINE mkDeleteUserProfile #-}
+
 -- | The user's IAM ARN.
-duprIamUserArn :: Lens' DeleteUserProfile (Text)
-duprIamUserArn = lens _duprIamUserArn (\s a -> s { _duprIamUserArn = a })
-{-# INLINE duprIamUserArn #-}
+dupIamUserArn :: Lens' DeleteUserProfile Text
+dupIamUserArn = lens _dupIamUserArn (\s a -> s { _dupIamUserArn = a })
+{-# INLINE dupIamUserArn #-}
 
 instance ToPath DeleteUserProfile
 

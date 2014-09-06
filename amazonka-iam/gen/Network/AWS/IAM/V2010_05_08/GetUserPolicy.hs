@@ -29,77 +29,75 @@ module Network.AWS.IAM.V2010_05_08.GetUserPolicy
     -- * Request
       GetUserPolicy
     -- ** Request constructor
-    , mkGetUserPolicyRequest
+    , mkGetUserPolicy
     -- ** Request lenses
-    , guprUserName
-    , guprPolicyName
+    , gupUserName
+    , gupPolicyName
 
     -- * Response
     , GetUserPolicyResponse
     -- ** Response lenses
-    , gupsUserName
-    , gupsPolicyName
-    , gupsPolicyDocument
+    , guprsUserName
+    , guprsPolicyName
+    , guprsPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetUserPolicy' request.
-mkGetUserPolicyRequest :: Text -- ^ 'guprUserName'
-                       -> Text -- ^ 'guprPolicyName'
-                       -> GetUserPolicy
-mkGetUserPolicyRequest p1 p2 = GetUserPolicy
-    { _guprUserName = p1
-    , _guprPolicyName = p2
-    }
-{-# INLINE mkGetUserPolicyRequest #-}
-
+-- | 
 data GetUserPolicy = GetUserPolicy
-    { _guprUserName :: Text
-      -- ^ Name of the user who the policy is associated with.
-    , _guprPolicyName :: Text
-      -- ^ Name of the policy document to get.
+    { _gupUserName :: Text
+    , _gupPolicyName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetUserPolicy' request.
+mkGetUserPolicy :: Text -- ^ 'gupUserName'
+                -> Text -- ^ 'gupPolicyName'
+                -> GetUserPolicy
+mkGetUserPolicy p1 p2 = GetUserPolicy
+    { _gupUserName = p1
+    , _gupPolicyName = p2
+    }
+{-# INLINE mkGetUserPolicy #-}
+
 -- | Name of the user who the policy is associated with.
-guprUserName :: Lens' GetUserPolicy (Text)
-guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
-{-# INLINE guprUserName #-}
+gupUserName :: Lens' GetUserPolicy Text
+gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
+{-# INLINE gupUserName #-}
 
 -- | Name of the policy document to get.
-guprPolicyName :: Lens' GetUserPolicy (Text)
-guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
-{-# INLINE guprPolicyName #-}
+gupPolicyName :: Lens' GetUserPolicy Text
+gupPolicyName = lens _gupPolicyName (\s a -> s { _gupPolicyName = a })
+{-# INLINE gupPolicyName #-}
 
 instance ToQuery GetUserPolicy where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetUserPolicy action.
 data GetUserPolicyResponse = GetUserPolicyResponse
-    { _gupsUserName :: Text
-      -- ^ The user the policy is associated with.
-    , _gupsPolicyName :: Text
-      -- ^ The name of the policy.
-    , _gupsPolicyDocument :: Text
-      -- ^ The policy document.
+    { _guprsUserName :: Text
+    , _guprsPolicyName :: Text
+    , _guprsPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | The user the policy is associated with.
-gupsUserName :: Lens' GetUserPolicyResponse (Text)
-gupsUserName = lens _gupsUserName (\s a -> s { _gupsUserName = a })
-{-# INLINE gupsUserName #-}
+guprsUserName :: Lens' GetUserPolicyResponse Text
+guprsUserName = lens _guprsUserName (\s a -> s { _guprsUserName = a })
+{-# INLINE guprsUserName #-}
 
 -- | The name of the policy.
-gupsPolicyName :: Lens' GetUserPolicyResponse (Text)
-gupsPolicyName = lens _gupsPolicyName (\s a -> s { _gupsPolicyName = a })
-{-# INLINE gupsPolicyName #-}
+guprsPolicyName :: Lens' GetUserPolicyResponse Text
+guprsPolicyName = lens _guprsPolicyName (\s a -> s { _guprsPolicyName = a })
+{-# INLINE guprsPolicyName #-}
 
 -- | The policy document.
-gupsPolicyDocument :: Lens' GetUserPolicyResponse (Text)
-gupsPolicyDocument = lens _gupsPolicyDocument (\s a -> s { _gupsPolicyDocument = a })
-{-# INLINE gupsPolicyDocument #-}
+guprsPolicyDocument :: Lens' GetUserPolicyResponse Text
+guprsPolicyDocument =
+    lens _guprsPolicyDocument (\s a -> s { _guprsPolicyDocument = a })
+{-# INLINE guprsPolicyDocument #-}
 
 instance FromXML GetUserPolicyResponse where
     fromXMLOptions = xmlOptions

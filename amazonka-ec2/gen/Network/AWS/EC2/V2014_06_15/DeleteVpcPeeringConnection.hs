@@ -34,52 +34,53 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection
     -- * Request
       DeleteVpcPeeringConnection
     -- ** Request constructor
-    , mkDeleteVpcPeeringConnectionRequest
+    , mkDeleteVpcPeeringConnection
     -- ** Request lenses
-    , dvpcrVpcPeeringConnectionId
+    , dvpcVpcPeeringConnectionId
 
     -- * Response
     , DeleteVpcPeeringConnectionResponse
     -- ** Response lenses
-    , dvpcsReturn
+    , dvpcrsReturn
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpcPeeringConnection' request.
-mkDeleteVpcPeeringConnectionRequest :: Text -- ^ 'dvpcrVpcPeeringConnectionId'
-                                    -> DeleteVpcPeeringConnection
-mkDeleteVpcPeeringConnectionRequest p1 = DeleteVpcPeeringConnection
-    { _dvpcrVpcPeeringConnectionId = p1
-    }
-{-# INLINE mkDeleteVpcPeeringConnectionRequest #-}
-
+-- | 
 newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
-    { _dvpcrVpcPeeringConnectionId :: Text
-      -- ^ The ID of the VPC peering connection.
+    { _dvpcVpcPeeringConnectionId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpcPeeringConnection' request.
+mkDeleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
+                             -> DeleteVpcPeeringConnection
+mkDeleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
+    { _dvpcVpcPeeringConnectionId = p1
+    }
+{-# INLINE mkDeleteVpcPeeringConnection #-}
+
 -- | The ID of the VPC peering connection.
-dvpcrVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection (Text)
-dvpcrVpcPeeringConnectionId = lens _dvpcrVpcPeeringConnectionId (\s a -> s { _dvpcrVpcPeeringConnectionId = a })
-{-# INLINE dvpcrVpcPeeringConnectionId #-}
+dvpcVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
+dvpcVpcPeeringConnectionId =
+    lens _dvpcVpcPeeringConnectionId
+         (\s a -> s { _dvpcVpcPeeringConnectionId = a })
+{-# INLINE dvpcVpcPeeringConnectionId #-}
 
 instance ToQuery DeleteVpcPeeringConnection where
     toQuery = genericQuery def
 
+-- | 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
-    { _dvpcsReturn :: Maybe Bool
-      -- ^ Returns true if the request succeeds; otherwise, it returns an
-      -- error.
+    { _dvpcrsReturn :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
-dvpcsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
-dvpcsReturn = lens _dvpcsReturn (\s a -> s { _dvpcsReturn = a })
-{-# INLINE dvpcsReturn #-}
+dvpcrsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
+dvpcrsReturn = lens _dvpcrsReturn (\s a -> s { _dvpcrsReturn = a })
+{-# INLINE dvpcrsReturn #-}
 
 instance FromXML DeleteVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

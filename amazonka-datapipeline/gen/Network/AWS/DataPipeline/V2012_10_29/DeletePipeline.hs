@@ -36,9 +36,9 @@ module Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
     -- * Request
       DeletePipeline
     -- ** Request constructor
-    , mkDeletePipelineInput
+    , mkDeletePipeline
     -- ** Request lenses
-    , dpiPipelineId
+    , dpPipelineId
 
     -- * Response
     , DeletePipelineResponse
@@ -49,24 +49,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePipeline' request.
-mkDeletePipelineInput :: Text -- ^ 'dpiPipelineId'
-                      -> DeletePipeline
-mkDeletePipelineInput p1 = DeletePipeline
-    { _dpiPipelineId = p1
-    }
-{-# INLINE mkDeletePipelineInput #-}
-
+-- | The input for the DeletePipeline action.
 newtype DeletePipeline = DeletePipeline
-    { _dpiPipelineId :: Text
-      -- ^ The identifier of the pipeline to be deleted.
+    { _dpPipelineId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePipeline' request.
+mkDeletePipeline :: Text -- ^ 'dpPipelineId'
+                 -> DeletePipeline
+mkDeletePipeline p1 = DeletePipeline
+    { _dpPipelineId = p1
+    }
+{-# INLINE mkDeletePipeline #-}
+
 -- | The identifier of the pipeline to be deleted.
-dpiPipelineId :: Lens' DeletePipeline (Text)
-dpiPipelineId = lens _dpiPipelineId (\s a -> s { _dpiPipelineId = a })
-{-# INLINE dpiPipelineId #-}
+dpPipelineId :: Lens' DeletePipeline Text
+dpPipelineId = lens _dpPipelineId (\s a -> s { _dpPipelineId = a })
+{-# INLINE dpPipelineId #-}
 
 instance ToPath DeletePipeline
 

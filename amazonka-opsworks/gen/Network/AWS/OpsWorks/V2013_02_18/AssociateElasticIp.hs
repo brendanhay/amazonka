@@ -29,10 +29,10 @@ module Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp
     -- * Request
       AssociateElasticIp
     -- ** Request constructor
-    , mkAssociateElasticIpRequest
+    , mkAssociateElasticIp
     -- ** Request lenses
-    , aeirElasticIp
-    , aeirInstanceId
+    , aeiElasticIp
+    , aeiInstanceId
 
     -- * Response
     , AssociateElasticIpResponse
@@ -43,32 +43,30 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AssociateElasticIp' request.
-mkAssociateElasticIpRequest :: Text -- ^ 'aeirElasticIp'
-                            -> AssociateElasticIp
-mkAssociateElasticIpRequest p1 = AssociateElasticIp
-    { _aeirElasticIp = p1
-    , _aeirInstanceId = Nothing
-    }
-{-# INLINE mkAssociateElasticIpRequest #-}
-
 data AssociateElasticIp = AssociateElasticIp
-    { _aeirElasticIp :: Text
-      -- ^ The Elastic IP address.
-    , _aeirInstanceId :: Maybe Text
-      -- ^ The instance ID.
+    { _aeiElasticIp :: Text
+    , _aeiInstanceId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateElasticIp' request.
+mkAssociateElasticIp :: Text -- ^ 'aeiElasticIp'
+                     -> AssociateElasticIp
+mkAssociateElasticIp p1 = AssociateElasticIp
+    { _aeiElasticIp = p1
+    , _aeiInstanceId = Nothing
+    }
+{-# INLINE mkAssociateElasticIp #-}
+
 -- | The Elastic IP address.
-aeirElasticIp :: Lens' AssociateElasticIp (Text)
-aeirElasticIp = lens _aeirElasticIp (\s a -> s { _aeirElasticIp = a })
-{-# INLINE aeirElasticIp #-}
+aeiElasticIp :: Lens' AssociateElasticIp Text
+aeiElasticIp = lens _aeiElasticIp (\s a -> s { _aeiElasticIp = a })
+{-# INLINE aeiElasticIp #-}
 
 -- | The instance ID.
-aeirInstanceId :: Lens' AssociateElasticIp (Maybe Text)
-aeirInstanceId = lens _aeirInstanceId (\s a -> s { _aeirInstanceId = a })
-{-# INLINE aeirInstanceId #-}
+aeiInstanceId :: Lens' AssociateElasticIp (Maybe Text)
+aeiInstanceId = lens _aeiInstanceId (\s a -> s { _aeiInstanceId = a })
+{-# INLINE aeiInstanceId #-}
 
 instance ToPath AssociateElasticIp
 

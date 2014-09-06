@@ -32,53 +32,51 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot
     -- * Request
       DeleteSnapshot
     -- ** Request constructor
-    , mkDeleteSnapshotMessage
+    , mkDeleteSnapshot
     -- ** Request lenses
-    , dsmSnapshotName
+    , dsSnapshotName
 
     -- * Response
     , DeleteSnapshotResponse
     -- ** Response lenses
-    , ssssssssszSnapshot
+    , dsrsSnapshot
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteSnapshot' request.
-mkDeleteSnapshotMessage :: Text -- ^ 'dsmSnapshotName'
-                        -> DeleteSnapshot
-mkDeleteSnapshotMessage p1 = DeleteSnapshot
-    { _dsmSnapshotName = p1
-    }
-{-# INLINE mkDeleteSnapshotMessage #-}
-
+-- | Represents the input of a DeleteSnapshotMessage operation.
 newtype DeleteSnapshot = DeleteSnapshot
-    { _dsmSnapshotName :: Text
-      -- ^ The name of the snapshot to be deleted.
+    { _dsSnapshotName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshot' request.
+mkDeleteSnapshot :: Text -- ^ 'dsSnapshotName'
+                 -> DeleteSnapshot
+mkDeleteSnapshot p1 = DeleteSnapshot
+    { _dsSnapshotName = p1
+    }
+{-# INLINE mkDeleteSnapshot #-}
+
 -- | The name of the snapshot to be deleted.
-dsmSnapshotName :: Lens' DeleteSnapshot (Text)
-dsmSnapshotName = lens _dsmSnapshotName (\s a -> s { _dsmSnapshotName = a })
-{-# INLINE dsmSnapshotName #-}
+dsSnapshotName :: Lens' DeleteSnapshot Text
+dsSnapshotName = lens _dsSnapshotName (\s a -> s { _dsSnapshotName = a })
+{-# INLINE dsSnapshotName #-}
 
 instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def
 
 newtype DeleteSnapshotResponse = DeleteSnapshotResponse
-    { _ssssssssszSnapshot :: Maybe Snapshot
-      -- ^ Represents a copy of an entire cache cluster as of the time when
-      -- the snapshot was taken.
+    { _dsrsSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-ssssssssszSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
-ssssssssszSnapshot = lens _ssssssssszSnapshot (\s a -> s { _ssssssssszSnapshot = a })
-{-# INLINE ssssssssszSnapshot #-}
+dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
+dsrsSnapshot = lens _dsrsSnapshot (\s a -> s { _dsrsSnapshot = a })
+{-# INLINE dsrsSnapshot #-}
 
 instance FromXML DeleteSnapshotResponse where
     fromXMLOptions = xmlOptions

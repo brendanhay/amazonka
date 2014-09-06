@@ -29,9 +29,9 @@ module Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
     -- * Request
       DeleteVirtualMFADevice
     -- ** Request constructor
-    , mkDeleteVirtualMFADeviceRequest
+    , mkDeleteVirtualMFADevice
     -- ** Request lenses
-    , dvmfadrSerialNumber
+    , dvmfadSerialNumber
 
     -- * Response
     , DeleteVirtualMFADeviceResponse
@@ -41,26 +41,26 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
+    { _dvmfadSerialNumber :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVirtualMFADevice' request.
-mkDeleteVirtualMFADeviceRequest :: Text -- ^ 'dvmfadrSerialNumber'
-                                -> DeleteVirtualMFADevice
-mkDeleteVirtualMFADeviceRequest p1 = DeleteVirtualMFADevice
-    { _dvmfadrSerialNumber = p1
+mkDeleteVirtualMFADevice :: Text -- ^ 'dvmfadSerialNumber'
+                         -> DeleteVirtualMFADevice
+mkDeleteVirtualMFADevice p1 = DeleteVirtualMFADevice
+    { _dvmfadSerialNumber = p1
     }
-{-# INLINE mkDeleteVirtualMFADeviceRequest #-}
-
-newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
-    { _dvmfadrSerialNumber :: Text
-      -- ^ The serial number that uniquely identifies the MFA device. For
-      -- virtual MFA devices, the serial number is the same as the ARN.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteVirtualMFADevice #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the same as the ARN.
-dvmfadrSerialNumber :: Lens' DeleteVirtualMFADevice (Text)
-dvmfadrSerialNumber = lens _dvmfadrSerialNumber (\s a -> s { _dvmfadrSerialNumber = a })
-{-# INLINE dvmfadrSerialNumber #-}
+dvmfadSerialNumber :: Lens' DeleteVirtualMFADevice Text
+dvmfadSerialNumber =
+    lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })
+{-# INLINE dvmfadSerialNumber #-}
 
 instance ToQuery DeleteVirtualMFADevice where
     toQuery = genericQuery def

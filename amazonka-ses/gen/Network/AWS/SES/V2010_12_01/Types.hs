@@ -52,30 +52,32 @@ module Network.AWS.SES.V2010_12_01.Types
     -- * Body
     , Body
     , mkBody
-    , byText
-    , byHtml
+    , bText
+    , bHtml
 
     -- * Content
     , Content
     , mkContent
-    , ctData
-    , ctCharset
+    , cData
+    , cCharset
 
     -- * Destination
     , Destination
     , mkDestination
-    , vToAddresses
-    , vCcAddresses
-    , vBccAddresses
+    , dToAddresses
+    , dCcAddresses
+    , dBccAddresses
 
     -- * IdentityDkimAttributes
     , IdentityDkimAttributes
+    , mkIdentityDkimAttributes
     , idaDkimEnabled
     , idaDkimVerificationStatus
     , idaDkimTokens
 
     -- * IdentityNotificationAttributes
     , IdentityNotificationAttributes
+    , mkIdentityNotificationAttributes
     , inaBounceTopic
     , inaComplaintTopic
     , inaDeliveryTopic
@@ -83,17 +85,19 @@ module Network.AWS.SES.V2010_12_01.Types
 
     -- * IdentityVerificationAttributes
     , IdentityVerificationAttributes
+    , mkIdentityVerificationAttributes
     , ivaVerificationStatus
     , ivaVerificationToken
 
     -- * Message
     , Message
     , mkMessage
-    , zSubject
-    , zBody
+    , mSubject
+    , mBody
 
     -- * SendDataPoint
     , SendDataPoint
+    , mkSendDataPoint
     , sdpTimestamp
     , sdpDeliveryAttempts
     , sdpBounces
@@ -141,8 +145,6 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "http://ses.amazonaws.com/doc/2010-12-01/"
     }
 
--- | The type of the identities to list. Possible values are "EmailAddress" and
--- "Domain". If this parameter is omitted, then all identities will be listed.
 data IdentityType
     = IdentityTypeDomain -- ^ Domain
     | IdentityTypeEmailAddress -- ^ EmailAddress
@@ -163,8 +165,6 @@ instance ToByteString IdentityType
 instance ToQuery IdentityType where
     toQuery = genericQuery def
 
--- | The type of notifications that will be published to the specified Amazon
--- SNS topic.
 data NotificationType
     = NotificationTypeBounce -- ^ Bounce
     | NotificationTypeComplaint -- ^ Complaint
@@ -188,9 +188,6 @@ instance ToByteString NotificationType
 instance ToQuery NotificationType where
     toQuery = genericQuery def
 
--- | Describes whether Amazon SES has successfully verified the DKIM DNS records
--- (tokens) published in the domain name's DNS. (This only applies to domain
--- identities, not email address identities.).
 data VerificationStatus
     = VerificationStatusFailed -- ^ Failed
     | VerificationStatusNotStarted -- ^ NotStarted
@@ -232,22 +229,7 @@ instance ToQuery VerificationStatus where
 -- Developer Guide. Content must be base64-encoded, if MIME requires it.
 newtype RawMessage = RawMessage
     { _rmData :: ByteString
-      -- ^ The raw data of the message. The client must ensure that the
-      -- message format complies with Internet email standards regarding
-      -- email header fields, MIME types, MIME encoding, and base64
-      -- encoding (if necessary). The To:, CC:, and BCC: headers in the
-      -- raw message can contain a group list. For more information, go to
-      -- the Amazon SES Developer Guide.
     } deriving (Show, Generic)
-
--- | The raw data of the message. The client must ensure that the message format
--- complies with Internet email standards regarding email header fields, MIME
--- types, MIME encoding, and base64 encoding (if necessary). The To:, CC:, and
--- BCC: headers in the raw message can contain a group list. For more
--- information, go to the Amazon SES Developer Guide.
-rmData :: Lens' RawMessage (ByteString)
-rmData = lens _rmData (\s a -> s { _rmData = a })
-{-# INLINE rmData #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RawMessage' data type to populate a request.
@@ -258,42 +240,45 @@ mkRawMessage p1 = RawMessage
     }
 {-# INLINE mkRawMessage #-}
 
+-- | The raw data of the message. The client must ensure that the message format
+-- complies with Internet email standards regarding email header fields, MIME
+-- types, MIME encoding, and base64 encoding (if necessary). The To:, CC:, and
+-- BCC: headers in the raw message can contain a group list. For more
+-- information, go to the Amazon SES Developer Guide.
+rmData :: Lens' RawMessage ByteString
+rmData = lens _rmData (\s a -> s { _rmData = a })
+{-# INLINE rmData #-}
+
 instance ToQuery RawMessage where
     toQuery = genericQuery def
 
 -- | The message body.
 data Body = Body
-    { _byText :: Maybe Content
-      -- ^ The content of the message, in text format. Use this for
-      -- text-based email clients, or clients on high-latency networks
-      -- (such as mobile devices).
-    , _byHtml :: Maybe Content
-      -- ^ The content of the message, in HTML format. Use this for email
-      -- clients that can process HTML. You can include clickable links,
-      -- formatted text, and much more in an HTML message.
+    { _bText :: Maybe Content
+    , _bHtml :: Maybe Content
     } deriving (Show, Generic)
-
--- | The content of the message, in text format. Use this for text-based email
--- clients, or clients on high-latency networks (such as mobile devices).
-byText :: Lens' Body (Maybe Content)
-byText = lens _byText (\s a -> s { _byText = a })
-{-# INLINE byText #-}
-
--- | The content of the message, in HTML format. Use this for email clients that
--- can process HTML. You can include clickable links, formatted text, and much
--- more in an HTML message.
-byHtml :: Lens' Body (Maybe Content)
-byHtml = lens _byHtml (\s a -> s { _byHtml = a })
-{-# INLINE byHtml #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Body' data type to populate a request.
 mkBody :: Body
 mkBody = Body
-    { _byText = Nothing
-    , _byHtml = Nothing
+    { _bText = Nothing
+    , _bHtml = Nothing
     }
 {-# INLINE mkBody #-}
+
+-- | The content of the message, in text format. Use this for text-based email
+-- clients, or clients on high-latency networks (such as mobile devices).
+bText :: Lens' Body (Maybe Content)
+bText = lens _bText (\s a -> s { _bText = a })
+{-# INLINE bText #-}
+
+-- | The content of the message, in HTML format. Use this for email clients that
+-- can process HTML. You can include clickable links, formatted text, and much
+-- more in an HTML message.
+bHtml :: Lens' Body (Maybe Content)
+bHtml = lens _bHtml (\s a -> s { _bHtml = a })
+{-# INLINE bHtml #-}
 
 instance ToQuery Body where
     toQuery = genericQuery def
@@ -301,69 +286,64 @@ instance ToQuery Body where
 -- | The subject of the message: A short summary of the content, which will
 -- appear in the recipient's inbox.
 data Content = Content
-    { _ctData :: Text
-      -- ^ The textual data of the content.
-    , _ctCharset :: Maybe Text
-      -- ^ The character set of the content.
+    { _cData :: Text
+    , _cCharset :: Maybe Text
     } deriving (Show, Generic)
-
--- | The textual data of the content.
-ctData :: Lens' Content (Text)
-ctData = lens _ctData (\s a -> s { _ctData = a })
-{-# INLINE ctData #-}
-
--- | The character set of the content.
-ctCharset :: Lens' Content (Maybe Text)
-ctCharset = lens _ctCharset (\s a -> s { _ctCharset = a })
-{-# INLINE ctCharset #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Content' data type to populate a request.
-mkContent :: Text -- ^ 'ctData'
+mkContent :: Text -- ^ 'cData'
           -> Content
 mkContent p1 = Content
-    { _ctData = p1
-    , _ctCharset = Nothing
+    { _cData = p1
+    , _cCharset = Nothing
     }
 {-# INLINE mkContent #-}
+
+-- | The textual data of the content.
+cData :: Lens' Content Text
+cData = lens _cData (\s a -> s { _cData = a })
+{-# INLINE cData #-}
+
+-- | The character set of the content.
+cCharset :: Lens' Content (Maybe Text)
+cCharset = lens _cCharset (\s a -> s { _cCharset = a })
+{-# INLINE cCharset #-}
 
 instance ToQuery Content where
     toQuery = genericQuery def
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
 data Destination = Destination
-    { _vToAddresses :: [Text]
-      -- ^ The To: field(s) of the message.
-    , _vCcAddresses :: [Text]
-      -- ^ The CC: field(s) of the message.
-    , _vBccAddresses :: [Text]
-      -- ^ The BCC: field(s) of the message.
+    { _dToAddresses :: [Text]
+    , _dCcAddresses :: [Text]
+    , _dBccAddresses :: [Text]
     } deriving (Show, Generic)
-
--- | The To: field(s) of the message.
-vToAddresses :: Lens' Destination ([Text])
-vToAddresses = lens _vToAddresses (\s a -> s { _vToAddresses = a })
-{-# INLINE vToAddresses #-}
-
--- | The CC: field(s) of the message.
-vCcAddresses :: Lens' Destination ([Text])
-vCcAddresses = lens _vCcAddresses (\s a -> s { _vCcAddresses = a })
-{-# INLINE vCcAddresses #-}
-
--- | The BCC: field(s) of the message.
-vBccAddresses :: Lens' Destination ([Text])
-vBccAddresses = lens _vBccAddresses (\s a -> s { _vBccAddresses = a })
-{-# INLINE vBccAddresses #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Destination' data type to populate a request.
 mkDestination :: Destination
 mkDestination = Destination
-    { _vToAddresses = mempty
-    , _vCcAddresses = mempty
-    , _vBccAddresses = mempty
+    { _dToAddresses = mempty
+    , _dCcAddresses = mempty
+    , _dBccAddresses = mempty
     }
 {-# INLINE mkDestination #-}
+
+-- | The To: field(s) of the message.
+dToAddresses :: Lens' Destination [Text]
+dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a })
+{-# INLINE dToAddresses #-}
+
+-- | The CC: field(s) of the message.
+dCcAddresses :: Lens' Destination [Text]
+dCcAddresses = lens _dCcAddresses (\s a -> s { _dCcAddresses = a })
+{-# INLINE dCcAddresses #-}
+
+-- | The BCC: field(s) of the message.
+dBccAddresses :: Lens' Destination [Text]
+dBccAddresses = lens _dBccAddresses (\s a -> s { _dBccAddresses = a })
+{-# INLINE dBccAddresses #-}
 
 instance ToQuery Destination where
     toQuery = genericQuery def
@@ -371,37 +351,35 @@ instance ToQuery Destination where
 -- | Represents the DKIM attributes of a verified email address or a domain.
 data IdentityDkimAttributes = IdentityDkimAttributes
     { _idaDkimEnabled :: Bool
-      -- ^ True if DKIM signing is enabled for email sent from the identity;
-      -- false otherwise.
     , _idaDkimVerificationStatus :: VerificationStatus
-      -- ^ Describes whether Amazon SES has successfully verified the DKIM
-      -- DNS records (tokens) published in the domain name's DNS. (This
-      -- only applies to domain identities, not email address
-      -- identities.).
     , _idaDkimTokens :: [Text]
-      -- ^ A set of character strings that represent the domain's identity.
-      -- Using these tokens, you will need to create DNS CNAME records
-      -- that point to DKIM public keys hosted by Amazon SES. Amazon Web
-      -- Services will eventually detect that you have updated your DNS
-      -- records; this detection process may take up to 72 hours. Upon
-      -- successful detection, Amazon SES will be able to DKIM-sign email
-      -- originating from that domain. (This only applies to domain
-      -- identities, not email address identities.) For more information
-      -- about creating DNS records using DKIM tokens, go to the Amazon
-      -- SES Developer Guide.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IdentityDkimAttributes' data type to populate a request.
+mkIdentityDkimAttributes :: Bool -- ^ 'idaDkimEnabled'
+                         -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
+                         -> IdentityDkimAttributes
+mkIdentityDkimAttributes p1 p2 = IdentityDkimAttributes
+    { _idaDkimEnabled = p1
+    , _idaDkimVerificationStatus = p2
+    , _idaDkimTokens = mempty
+    }
+{-# INLINE mkIdentityDkimAttributes #-}
 
 -- | True if DKIM signing is enabled for email sent from the identity; false
 -- otherwise.
-idaDkimEnabled :: Lens' IdentityDkimAttributes (Bool)
+idaDkimEnabled :: Lens' IdentityDkimAttributes Bool
 idaDkimEnabled = lens _idaDkimEnabled (\s a -> s { _idaDkimEnabled = a })
 {-# INLINE idaDkimEnabled #-}
 
 -- | Describes whether Amazon SES has successfully verified the DKIM DNS records
 -- (tokens) published in the domain name's DNS. (This only applies to domain
 -- identities, not email address identities.).
-idaDkimVerificationStatus :: Lens' IdentityDkimAttributes (VerificationStatus)
-idaDkimVerificationStatus = lens _idaDkimVerificationStatus (\s a -> s { _idaDkimVerificationStatus = a })
+idaDkimVerificationStatus :: Lens' IdentityDkimAttributes VerificationStatus
+idaDkimVerificationStatus =
+    lens _idaDkimVerificationStatus
+         (\s a -> s { _idaDkimVerificationStatus = a })
 {-# INLINE idaDkimVerificationStatus #-}
 
 -- | A set of character strings that represent the domain's identity. Using
@@ -413,7 +391,7 @@ idaDkimVerificationStatus = lens _idaDkimVerificationStatus (\s a -> s { _idaDki
 -- identities, not email address identities.) For more information about
 -- creating DNS records using DKIM tokens, go to the Amazon SES Developer
 -- Guide.
-idaDkimTokens :: Lens' IdentityDkimAttributes ([Text])
+idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
 idaDkimTokens = lens _idaDkimTokens (\s a -> s { _idaDkimTokens = a })
 {-# INLINE idaDkimTokens #-}
 
@@ -427,39 +405,44 @@ instance FromXML IdentityDkimAttributes where
 -- forwarding is enabled for bounce and complaint notifications.
 data IdentityNotificationAttributes = IdentityNotificationAttributes
     { _inaBounceTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish bounce notifications.
     , _inaComplaintTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish complaint notifications.
     , _inaDeliveryTopic :: Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic where
-      -- Amazon SES will publish delivery notifications.
     , _inaForwardingEnabled :: Bool
-      -- ^ Describes whether Amazon SES will forward bounce and complaint
-      -- notifications as email. true indicates that Amazon SES will
-      -- forward bounce and complaint notifications as email, while false
-      -- indicates that bounce and complaint notifications will be
-      -- published only to the specified bounce and complaint Amazon SNS
-      -- topics.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IdentityNotificationAttributes' data type to populate a request.
+mkIdentityNotificationAttributes :: Text -- ^ 'inaBounceTopic'
+                                 -> Text -- ^ 'inaComplaintTopic'
+                                 -> Text -- ^ 'inaDeliveryTopic'
+                                 -> Bool -- ^ 'inaForwardingEnabled'
+                                 -> IdentityNotificationAttributes
+mkIdentityNotificationAttributes p1 p2 p3 p4 = IdentityNotificationAttributes
+    { _inaBounceTopic = p1
+    , _inaComplaintTopic = p2
+    , _inaDeliveryTopic = p3
+    , _inaForwardingEnabled = p4
+    }
+{-# INLINE mkIdentityNotificationAttributes #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish bounce notifications.
-inaBounceTopic :: Lens' IdentityNotificationAttributes (Text)
+inaBounceTopic :: Lens' IdentityNotificationAttributes Text
 inaBounceTopic = lens _inaBounceTopic (\s a -> s { _inaBounceTopic = a })
 {-# INLINE inaBounceTopic #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish complaint notifications.
-inaComplaintTopic :: Lens' IdentityNotificationAttributes (Text)
-inaComplaintTopic = lens _inaComplaintTopic (\s a -> s { _inaComplaintTopic = a })
+inaComplaintTopic :: Lens' IdentityNotificationAttributes Text
+inaComplaintTopic =
+    lens _inaComplaintTopic (\s a -> s { _inaComplaintTopic = a })
 {-# INLINE inaComplaintTopic #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish delivery notifications.
-inaDeliveryTopic :: Lens' IdentityNotificationAttributes (Text)
-inaDeliveryTopic = lens _inaDeliveryTopic (\s a -> s { _inaDeliveryTopic = a })
+inaDeliveryTopic :: Lens' IdentityNotificationAttributes Text
+inaDeliveryTopic =
+    lens _inaDeliveryTopic (\s a -> s { _inaDeliveryTopic = a })
 {-# INLINE inaDeliveryTopic #-}
 
 -- | Describes whether Amazon SES will forward bounce and complaint
@@ -467,8 +450,9 @@ inaDeliveryTopic = lens _inaDeliveryTopic (\s a -> s { _inaDeliveryTopic = a })
 -- and complaint notifications as email, while false indicates that bounce and
 -- complaint notifications will be published only to the specified bounce and
 -- complaint Amazon SNS topics.
-inaForwardingEnabled :: Lens' IdentityNotificationAttributes (Bool)
-inaForwardingEnabled = lens _inaForwardingEnabled (\s a -> s { _inaForwardingEnabled = a })
+inaForwardingEnabled :: Lens' IdentityNotificationAttributes Bool
+inaForwardingEnabled =
+    lens _inaForwardingEnabled (\s a -> s { _inaForwardingEnabled = a })
 {-# INLINE inaForwardingEnabled #-}
 
 instance FromXML IdentityNotificationAttributes where
@@ -478,23 +462,31 @@ instance FromXML IdentityNotificationAttributes where
 -- | Represents the verification attributes of a single identity.
 data IdentityVerificationAttributes = IdentityVerificationAttributes
     { _ivaVerificationStatus :: VerificationStatus
-      -- ^ The verification status of the identity: "Pending", "Success",
-      -- "Failed", or "TemporaryFailure".
     , _ivaVerificationToken :: Maybe Text
-      -- ^ The verification token for a domain identity. Null for email
-      -- address identities.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'IdentityVerificationAttributes' data type to populate a request.
+mkIdentityVerificationAttributes :: VerificationStatus -- ^ 'ivaVerificationStatus'
+                                 -> IdentityVerificationAttributes
+mkIdentityVerificationAttributes p1 = IdentityVerificationAttributes
+    { _ivaVerificationStatus = p1
+    , _ivaVerificationToken = Nothing
+    }
+{-# INLINE mkIdentityVerificationAttributes #-}
 
 -- | The verification status of the identity: "Pending", "Success", "Failed", or
 -- "TemporaryFailure".
-ivaVerificationStatus :: Lens' IdentityVerificationAttributes (VerificationStatus)
-ivaVerificationStatus = lens _ivaVerificationStatus (\s a -> s { _ivaVerificationStatus = a })
+ivaVerificationStatus :: Lens' IdentityVerificationAttributes VerificationStatus
+ivaVerificationStatus =
+    lens _ivaVerificationStatus (\s a -> s { _ivaVerificationStatus = a })
 {-# INLINE ivaVerificationStatus #-}
 
 -- | The verification token for a domain identity. Null for email address
 -- identities.
 ivaVerificationToken :: Lens' IdentityVerificationAttributes (Maybe Text)
-ivaVerificationToken = lens _ivaVerificationToken (\s a -> s { _ivaVerificationToken = a })
+ivaVerificationToken =
+    lens _ivaVerificationToken (\s a -> s { _ivaVerificationToken = a })
 {-# INLINE ivaVerificationToken #-}
 
 instance FromXML IdentityVerificationAttributes where
@@ -503,34 +495,31 @@ instance FromXML IdentityVerificationAttributes where
 
 -- | The message to be sent.
 data Message = Message
-    { _zSubject :: Content
-      -- ^ The subject of the message: A short summary of the content, which
-      -- will appear in the recipient's inbox.
-    , _zBody :: Body
-      -- ^ The message body.
+    { _mSubject :: Content
+    , _mBody :: Body
     } deriving (Show, Generic)
-
--- | The subject of the message: A short summary of the content, which will
--- appear in the recipient's inbox.
-zSubject :: Lens' Message (Content)
-zSubject = lens _zSubject (\s a -> s { _zSubject = a })
-{-# INLINE zSubject #-}
-
--- | The message body.
-zBody :: Lens' Message (Body)
-zBody = lens _zBody (\s a -> s { _zBody = a })
-{-# INLINE zBody #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Message' data type to populate a request.
-mkMessage :: Content -- ^ 'zSubject'
-          -> Body -- ^ 'zBody'
+mkMessage :: Content -- ^ 'mSubject'
+          -> Body -- ^ 'mBody'
           -> Message
 mkMessage p1 p2 = Message
-    { _zSubject = p1
-    , _zBody = p2
+    { _mSubject = p1
+    , _mBody = p2
     }
 {-# INLINE mkMessage #-}
+
+-- | The subject of the message: A short summary of the content, which will
+-- appear in the recipient's inbox.
+mSubject :: Lens' Message Content
+mSubject = lens _mSubject (\s a -> s { _mSubject = a })
+{-# INLINE mSubject #-}
+
+-- | The message body.
+mBody :: Lens' Message Body
+mBody = lens _mBody (\s a -> s { _mBody = a })
+{-# INLINE mBody #-}
 
 instance ToQuery Message where
     toQuery = genericQuery def
@@ -539,16 +528,23 @@ instance ToQuery Message where
 -- for a 15-minute period of sending activity.
 data SendDataPoint = SendDataPoint
     { _sdpTimestamp :: Maybe ISO8601
-      -- ^ Time of the data point.
     , _sdpDeliveryAttempts :: Maybe Integer
-      -- ^ Number of emails that have been enqueued for sending.
     , _sdpBounces :: Maybe Integer
-      -- ^ Number of emails that have bounced.
     , _sdpComplaints :: Maybe Integer
-      -- ^ Number of unwanted emails that were rejected by recipients.
     , _sdpRejects :: Maybe Integer
-      -- ^ Number of emails rejected by Amazon SES.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'SendDataPoint' data type to populate a request.
+mkSendDataPoint :: SendDataPoint
+mkSendDataPoint = SendDataPoint
+    { _sdpTimestamp = Nothing
+    , _sdpDeliveryAttempts = Nothing
+    , _sdpBounces = Nothing
+    , _sdpComplaints = Nothing
+    , _sdpRejects = Nothing
+    }
+{-# INLINE mkSendDataPoint #-}
 
 -- | Time of the data point.
 sdpTimestamp :: Lens' SendDataPoint (Maybe ISO8601)
@@ -557,7 +553,8 @@ sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a })
 
 -- | Number of emails that have been enqueued for sending.
 sdpDeliveryAttempts :: Lens' SendDataPoint (Maybe Integer)
-sdpDeliveryAttempts = lens _sdpDeliveryAttempts (\s a -> s { _sdpDeliveryAttempts = a })
+sdpDeliveryAttempts =
+    lens _sdpDeliveryAttempts (\s a -> s { _sdpDeliveryAttempts = a })
 {-# INLINE sdpDeliveryAttempts #-}
 
 -- | Number of emails that have bounced.

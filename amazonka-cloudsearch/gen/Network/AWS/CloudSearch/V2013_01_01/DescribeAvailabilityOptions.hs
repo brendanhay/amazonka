@@ -27,64 +27,67 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions
     -- * Request
       DescribeAvailabilityOptions
     -- ** Request constructor
-    , mkDescribeAvailabilityOptionsRequest
+    , mkDescribeAvailabilityOptions
     -- ** Request lenses
-    , daorDomainName
-    , daorDeployed
+    , dao2DomainName
+    , dao2Deployed
 
     -- * Response
     , DescribeAvailabilityOptionsResponse
     -- ** Response lenses
-    , daosAvailabilityOptions
+    , daorsrsAvailabilityOptions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAvailabilityOptions' request.
-mkDescribeAvailabilityOptionsRequest :: Text -- ^ 'daorDomainName'
-                                     -> DescribeAvailabilityOptions
-mkDescribeAvailabilityOptionsRequest p1 = DescribeAvailabilityOptions
-    { _daorDomainName = p1
-    , _daorDeployed = Nothing
-    }
-{-# INLINE mkDescribeAvailabilityOptionsRequest #-}
-
+-- | Container for the parameters to the DescribeAvailabilityOptions operation.
+-- Specifies the name of the domain you want to describe. To show the active
+-- configuration and exclude any pending changes, set the Deployed option to
+-- true.
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
-    { _daorDomainName :: Text
-      -- ^ The name of the domain you want to describe.
-    , _daorDeployed :: Maybe Bool
-      -- ^ Whether to display the deployed configuration (true) or include
-      -- any pending changes (false). Defaults to false.
+    { _dao2DomainName :: Text
+    , _dao2Deployed :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAvailabilityOptions' request.
+mkDescribeAvailabilityOptions :: Text -- ^ 'dao2DomainName'
+                              -> DescribeAvailabilityOptions
+mkDescribeAvailabilityOptions p1 = DescribeAvailabilityOptions
+    { _dao2DomainName = p1
+    , _dao2Deployed = Nothing
+    }
+{-# INLINE mkDescribeAvailabilityOptions #-}
+
 -- | The name of the domain you want to describe.
-daorDomainName :: Lens' DescribeAvailabilityOptions (Text)
-daorDomainName = lens _daorDomainName (\s a -> s { _daorDomainName = a })
-{-# INLINE daorDomainName #-}
+dao2DomainName :: Lens' DescribeAvailabilityOptions Text
+dao2DomainName = lens _dao2DomainName (\s a -> s { _dao2DomainName = a })
+{-# INLINE dao2DomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-daorDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
-daorDeployed = lens _daorDeployed (\s a -> s { _daorDeployed = a })
-{-# INLINE daorDeployed #-}
+dao2Deployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
+dao2Deployed = lens _dao2Deployed (\s a -> s { _dao2Deployed = a })
+{-# INLINE dao2Deployed #-}
 
 instance ToQuery DescribeAvailabilityOptions where
     toQuery = genericQuery def
 
+-- | The result of a DescribeAvailabilityOptions request. Indicates whether or
+-- not the Multi-AZ option is enabled for the domain specified in the request.
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
-    { _daosAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-      -- ^ The availability options configured for the domain. Indicates
-      -- whether Multi-AZ is enabled for the domain.
+    { _daorsrsAvailabilityOptions :: Maybe AvailabilityOptionsStatus
     } deriving (Show, Generic)
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
-daosAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-daosAvailabilityOptions = lens _daosAvailabilityOptions (\s a -> s { _daosAvailabilityOptions = a })
-{-# INLINE daosAvailabilityOptions #-}
+daorsrsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
+daorsrsAvailabilityOptions =
+    lens _daorsrsAvailabilityOptions
+         (\s a -> s { _daorsrsAvailabilityOptions = a })
+{-# INLINE daorsrsAvailabilityOptions #-}
 
 instance FromXML DescribeAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions

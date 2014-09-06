@@ -35,10 +35,10 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy
     -- * Request
       PutRetentionPolicy
     -- ** Request constructor
-    , mkPutRetentionPolicyRequest
+    , mkPutRetentionPolicy
     -- ** Request lenses
-    , prprLogGroupName
-    , prprRetentionInDays
+    , prpLogGroupName
+    , prpRetentionInDays
 
     -- * Response
     , PutRetentionPolicyResponse
@@ -49,35 +49,33 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutRetentionPolicy' request.
-mkPutRetentionPolicyRequest :: Text -- ^ 'prprLogGroupName'
-                            -> Integer -- ^ 'prprRetentionInDays'
-                            -> PutRetentionPolicy
-mkPutRetentionPolicyRequest p1 p2 = PutRetentionPolicy
-    { _prprLogGroupName = p1
-    , _prprRetentionInDays = p2
-    }
-{-# INLINE mkPutRetentionPolicyRequest #-}
-
 data PutRetentionPolicy = PutRetentionPolicy
-    { _prprLogGroupName :: Text
-    , _prprRetentionInDays :: Integer
-      -- ^ Specifies the number of days you want to retain log events in the
-      -- specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60,
-      -- 90, 120, 150, 180, 365, 400, 547, 730.
+    { _prpLogGroupName :: Text
+    , _prpRetentionInDays :: Integer
     } deriving (Show, Generic)
 
-prprLogGroupName :: Lens' PutRetentionPolicy (Text)
-prprLogGroupName = lens _prprLogGroupName (\s a -> s { _prprLogGroupName = a })
-{-# INLINE prprLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutRetentionPolicy' request.
+mkPutRetentionPolicy :: Text -- ^ 'prpLogGroupName'
+                     -> Integer -- ^ 'prpRetentionInDays'
+                     -> PutRetentionPolicy
+mkPutRetentionPolicy p1 p2 = PutRetentionPolicy
+    { _prpLogGroupName = p1
+    , _prpRetentionInDays = p2
+    }
+{-# INLINE mkPutRetentionPolicy #-}
+
+prpLogGroupName :: Lens' PutRetentionPolicy Text
+prpLogGroupName = lens _prpLogGroupName (\s a -> s { _prpLogGroupName = a })
+{-# INLINE prpLogGroupName #-}
 
 -- | Specifies the number of days you want to retain log events in the specified
 -- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
 -- 365, 400, 547, 730.
-prprRetentionInDays :: Lens' PutRetentionPolicy (Integer)
-prprRetentionInDays = lens _prprRetentionInDays (\s a -> s { _prprRetentionInDays = a })
-{-# INLINE prprRetentionInDays #-}
+prpRetentionInDays :: Lens' PutRetentionPolicy Integer
+prpRetentionInDays =
+    lens _prpRetentionInDays (\s a -> s { _prpRetentionInDays = a })
+{-# INLINE prpRetentionInDays #-}
 
 instance ToPath PutRetentionPolicy
 

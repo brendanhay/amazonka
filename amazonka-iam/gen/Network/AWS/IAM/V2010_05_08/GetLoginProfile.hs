@@ -27,51 +27,53 @@ module Network.AWS.IAM.V2010_05_08.GetLoginProfile
     -- * Request
       GetLoginProfile
     -- ** Request constructor
-    , mkGetLoginProfileRequest
+    , mkGetLoginProfile
     -- ** Request lenses
-    , glprUserName
+    , glpUserName
 
     -- * Response
     , GetLoginProfileResponse
     -- ** Response lenses
-    , glpsLoginProfile
+    , glprsLoginProfile
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetLoginProfile' request.
-mkGetLoginProfileRequest :: Text -- ^ 'glprUserName'
-                         -> GetLoginProfile
-mkGetLoginProfileRequest p1 = GetLoginProfile
-    { _glprUserName = p1
-    }
-{-# INLINE mkGetLoginProfileRequest #-}
-
+-- | 
 newtype GetLoginProfile = GetLoginProfile
-    { _glprUserName :: Text
-      -- ^ Name of the user whose login profile you want to retrieve.
+    { _glpUserName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetLoginProfile' request.
+mkGetLoginProfile :: Text -- ^ 'glpUserName'
+                  -> GetLoginProfile
+mkGetLoginProfile p1 = GetLoginProfile
+    { _glpUserName = p1
+    }
+{-# INLINE mkGetLoginProfile #-}
+
 -- | Name of the user whose login profile you want to retrieve.
-glprUserName :: Lens' GetLoginProfile (Text)
-glprUserName = lens _glprUserName (\s a -> s { _glprUserName = a })
-{-# INLINE glprUserName #-}
+glpUserName :: Lens' GetLoginProfile Text
+glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
+{-# INLINE glpUserName #-}
 
 instance ToQuery GetLoginProfile where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetLoginProfile
+-- action.
 newtype GetLoginProfileResponse = GetLoginProfileResponse
-    { _glpsLoginProfile :: LoginProfile
-      -- ^ User name and password create date for the user.
+    { _glprsLoginProfile :: LoginProfile
     } deriving (Show, Generic)
 
 -- | User name and password create date for the user.
-glpsLoginProfile :: Lens' GetLoginProfileResponse (LoginProfile)
-glpsLoginProfile = lens _glpsLoginProfile (\s a -> s { _glpsLoginProfile = a })
-{-# INLINE glpsLoginProfile #-}
+glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
+glprsLoginProfile =
+    lens _glprsLoginProfile (\s a -> s { _glprsLoginProfile = a })
+{-# INLINE glprsLoginProfile #-}
 
 instance FromXML GetLoginProfileResponse where
     fromXMLOptions = xmlOptions

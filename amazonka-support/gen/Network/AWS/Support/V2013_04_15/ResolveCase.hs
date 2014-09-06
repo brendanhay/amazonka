@@ -24,15 +24,15 @@ module Network.AWS.Support.V2013_04_15.ResolveCase
     -- * Request
       ResolveCase
     -- ** Request constructor
-    , mkResolveCaseRequest
+    , mkResolveCase
     -- ** Request lenses
-    , rcrCaseId
+    , rcCaseId
 
     -- * Response
     , ResolveCaseResponse
     -- ** Response lenses
-    , rcsInitialCaseStatus
-    , rcsFinalCaseStatus
+    , rcrsInitialCaseStatus
+    , rcrsFinalCaseStatus
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -40,27 +40,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | 
+newtype ResolveCase = ResolveCase
+    { _rcCaseId :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResolveCase' request.
-mkResolveCaseRequest :: ResolveCase
-mkResolveCaseRequest = ResolveCase
-    { _rcrCaseId = Nothing
+mkResolveCase :: ResolveCase
+mkResolveCase = ResolveCase
+    { _rcCaseId = Nothing
     }
-{-# INLINE mkResolveCaseRequest #-}
-
-newtype ResolveCase = ResolveCase
-    { _rcrCaseId :: Maybe Text
-      -- ^ The AWS Support case ID requested or returned in the call. The
-      -- case ID is an alphanumeric string formatted as shown in this
-      -- example: case-12345678910-2013-c4c1d2bf33c5cf47.
-    } deriving (Show, Generic)
+{-# INLINE mkResolveCase #-}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
-rcrCaseId :: Lens' ResolveCase (Maybe Text)
-rcrCaseId = lens _rcrCaseId (\s a -> s { _rcrCaseId = a })
-{-# INLINE rcrCaseId #-}
+rcCaseId :: Lens' ResolveCase (Maybe Text)
+rcCaseId = lens _rcCaseId (\s a -> s { _rcCaseId = a })
+{-# INLINE rcCaseId #-}
 
 instance ToPath ResolveCase
 
@@ -70,23 +68,23 @@ instance ToHeaders ResolveCase
 
 instance ToJSON ResolveCase
 
+-- | The status of the case returned by the ResolveCase operation.
 data ResolveCaseResponse = ResolveCaseResponse
-    { _rcsInitialCaseStatus :: Maybe Text
-      -- ^ The status of the case when the ResolveCase request was sent.
-    , _rcsFinalCaseStatus :: Maybe Text
-      -- ^ The status of the case after the ResolveCase request was
-      -- processed.
+    { _rcrsInitialCaseStatus :: Maybe Text
+    , _rcrsFinalCaseStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The status of the case when the ResolveCase request was sent.
-rcsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcsInitialCaseStatus = lens _rcsInitialCaseStatus (\s a -> s { _rcsInitialCaseStatus = a })
-{-# INLINE rcsInitialCaseStatus #-}
+rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrsInitialCaseStatus =
+    lens _rcrsInitialCaseStatus (\s a -> s { _rcrsInitialCaseStatus = a })
+{-# INLINE rcrsInitialCaseStatus #-}
 
 -- | The status of the case after the ResolveCase request was processed.
-rcsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcsFinalCaseStatus = lens _rcsFinalCaseStatus (\s a -> s { _rcsFinalCaseStatus = a })
-{-# INLINE rcsFinalCaseStatus #-}
+rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrsFinalCaseStatus =
+    lens _rcrsFinalCaseStatus (\s a -> s { _rcrsFinalCaseStatus = a })
+{-# INLINE rcrsFinalCaseStatus #-}
 
 instance FromJSON ResolveCaseResponse
 

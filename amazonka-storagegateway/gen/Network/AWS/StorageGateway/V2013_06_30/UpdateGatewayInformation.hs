@@ -37,16 +37,16 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
     -- * Request
       UpdateGatewayInformation
     -- ** Request constructor
-    , mkUpdateGatewayInformationInput
+    , mkUpdateGatewayInformation
     -- ** Request lenses
-    , ugiiGatewayARN
-    , ugiiGatewayName
-    , ugiiGatewayTimezone
+    , ugiGatewayARN
+    , ugiGatewayName
+    , ugiGatewayTimezone
 
     -- * Response
     , UpdateGatewayInformationResponse
     -- ** Response lenses
-    , ugioGatewayARN
+    , ugirsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -54,45 +54,40 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data UpdateGatewayInformation = UpdateGatewayInformation
+    { _ugiGatewayARN :: Text
+    , _ugiGatewayName :: Maybe Text
+    , _ugiGatewayTimezone :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGatewayInformation' request.
-mkUpdateGatewayInformationInput :: Text -- ^ 'ugiiGatewayARN'
-                                -> UpdateGatewayInformation
-mkUpdateGatewayInformationInput p1 = UpdateGatewayInformation
-    { _ugiiGatewayARN = p1
-    , _ugiiGatewayName = Nothing
-    , _ugiiGatewayTimezone = Nothing
+mkUpdateGatewayInformation :: Text -- ^ 'ugiGatewayARN'
+                           -> UpdateGatewayInformation
+mkUpdateGatewayInformation p1 = UpdateGatewayInformation
+    { _ugiGatewayARN = p1
+    , _ugiGatewayName = Nothing
+    , _ugiGatewayTimezone = Nothing
     }
-{-# INLINE mkUpdateGatewayInformationInput #-}
-
-data UpdateGatewayInformation = UpdateGatewayInformation
-    { _ugiiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _ugiiGatewayName :: Maybe Text
-      -- ^ A unique identifier for your gateway. This name becomes part of
-      -- the gateway Amazon Resources Name (ARN) which is what you use as
-      -- an input to other operations.
-    , _ugiiGatewayTimezone :: Maybe Text
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateGatewayInformation #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugiiGatewayARN :: Lens' UpdateGatewayInformation (Text)
-ugiiGatewayARN = lens _ugiiGatewayARN (\s a -> s { _ugiiGatewayARN = a })
-{-# INLINE ugiiGatewayARN #-}
+ugiGatewayARN :: Lens' UpdateGatewayInformation Text
+ugiGatewayARN = lens _ugiGatewayARN (\s a -> s { _ugiGatewayARN = a })
+{-# INLINE ugiGatewayARN #-}
 
 -- | A unique identifier for your gateway. This name becomes part of the gateway
 -- Amazon Resources Name (ARN) which is what you use as an input to other
 -- operations.
-ugiiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
-ugiiGatewayName = lens _ugiiGatewayName (\s a -> s { _ugiiGatewayName = a })
-{-# INLINE ugiiGatewayName #-}
+ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
+ugiGatewayName = lens _ugiGatewayName (\s a -> s { _ugiGatewayName = a })
+{-# INLINE ugiGatewayName #-}
 
-ugiiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
-ugiiGatewayTimezone = lens _ugiiGatewayTimezone (\s a -> s { _ugiiGatewayTimezone = a })
-{-# INLINE ugiiGatewayTimezone #-}
+ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
+ugiGatewayTimezone =
+    lens _ugiGatewayTimezone (\s a -> s { _ugiGatewayTimezone = a })
+{-# INLINE ugiGatewayTimezone #-}
 
 instance ToPath UpdateGatewayInformation
 
@@ -102,18 +97,16 @@ instance ToHeaders UpdateGatewayInformation
 
 instance ToJSON UpdateGatewayInformation
 
+-- | A JSON object containing the of the gateway that was updated.
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
-    { _ugioGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _ugirsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugioGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
-ugioGatewayARN = lens _ugioGatewayARN (\s a -> s { _ugioGatewayARN = a })
-{-# INLINE ugioGatewayARN #-}
+ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
+ugirsGatewayARN = lens _ugirsGatewayARN (\s a -> s { _ugirsGatewayARN = a })
+{-# INLINE ugirsGatewayARN #-}
 
 instance FromJSON UpdateGatewayInformationResponse
 

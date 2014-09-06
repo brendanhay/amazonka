@@ -28,10 +28,10 @@ module Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
     -- * Request
       AddRoleToInstanceProfile
     -- ** Request constructor
-    , mkAddRoleToInstanceProfileRequest
+    , mkAddRoleToInstanceProfile
     -- ** Request lenses
-    , artiprInstanceProfileName
-    , artiprRoleName
+    , artipInstanceProfileName
+    , artipRoleName
 
     -- * Response
     , AddRoleToInstanceProfileResponse
@@ -41,33 +41,34 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AddRoleToInstanceProfile' request.
-mkAddRoleToInstanceProfileRequest :: Text -- ^ 'artiprInstanceProfileName'
-                                  -> Text -- ^ 'artiprRoleName'
-                                  -> AddRoleToInstanceProfile
-mkAddRoleToInstanceProfileRequest p1 p2 = AddRoleToInstanceProfile
-    { _artiprInstanceProfileName = p1
-    , _artiprRoleName = p2
-    }
-{-# INLINE mkAddRoleToInstanceProfileRequest #-}
-
+-- | 
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
-    { _artiprInstanceProfileName :: Text
-      -- ^ Name of the instance profile to update.
-    , _artiprRoleName :: Text
-      -- ^ Name of the role to add.
+    { _artipInstanceProfileName :: Text
+    , _artipRoleName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddRoleToInstanceProfile' request.
+mkAddRoleToInstanceProfile :: Text -- ^ 'artipInstanceProfileName'
+                           -> Text -- ^ 'artipRoleName'
+                           -> AddRoleToInstanceProfile
+mkAddRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
+    { _artipInstanceProfileName = p1
+    , _artipRoleName = p2
+    }
+{-# INLINE mkAddRoleToInstanceProfile #-}
+
 -- | Name of the instance profile to update.
-artiprInstanceProfileName :: Lens' AddRoleToInstanceProfile (Text)
-artiprInstanceProfileName = lens _artiprInstanceProfileName (\s a -> s { _artiprInstanceProfileName = a })
-{-# INLINE artiprInstanceProfileName #-}
+artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
+artipInstanceProfileName =
+    lens _artipInstanceProfileName
+         (\s a -> s { _artipInstanceProfileName = a })
+{-# INLINE artipInstanceProfileName #-}
 
 -- | Name of the role to add.
-artiprRoleName :: Lens' AddRoleToInstanceProfile (Text)
-artiprRoleName = lens _artiprRoleName (\s a -> s { _artiprRoleName = a })
-{-# INLINE artiprRoleName #-}
+artipRoleName :: Lens' AddRoleToInstanceProfile Text
+artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
+{-# INLINE artipRoleName #-}
 
 instance ToQuery AddRoleToInstanceProfile where
     toQuery = genericQuery def

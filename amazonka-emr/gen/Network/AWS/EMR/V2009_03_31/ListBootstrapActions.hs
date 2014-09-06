@@ -23,16 +23,16 @@ module Network.AWS.EMR.V2009_03_31.ListBootstrapActions
     -- * Request
       ListBootstrapActions
     -- ** Request constructor
-    , mkListBootstrapActionsInput
+    , mkListBootstrapActions
     -- ** Request lenses
-    , lbaiClusterId
-    , lbaiMarker
+    , lbaClusterId
+    , lbaMarker
 
     -- * Response
     , ListBootstrapActionsResponse
     -- ** Response lenses
-    , lbaoBootstrapActions
-    , lbaoMarker
+    , lbarsBootstrapActions
+    , lbarsMarker
     ) where
 
 import           Network.AWS.EMR.V2009_03_31.Types
@@ -40,33 +40,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListBootstrapActions' request.
-mkListBootstrapActionsInput :: Text -- ^ 'lbaiClusterId'
-                            -> ListBootstrapActions
-mkListBootstrapActionsInput p1 = ListBootstrapActions
-    { _lbaiClusterId = p1
-    , _lbaiMarker = Nothing
-    }
-{-# INLINE mkListBootstrapActionsInput #-}
-
+-- | This input determines which bootstrap actions to retrieve.
 data ListBootstrapActions = ListBootstrapActions
-    { _lbaiClusterId :: Text
-      -- ^ The cluster identifier for the bootstrap actions to list .
-    , _lbaiMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve .
+    { _lbaClusterId :: Text
+    , _lbaMarker :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListBootstrapActions' request.
+mkListBootstrapActions :: Text -- ^ 'lbaClusterId'
+                       -> ListBootstrapActions
+mkListBootstrapActions p1 = ListBootstrapActions
+    { _lbaClusterId = p1
+    , _lbaMarker = Nothing
+    }
+{-# INLINE mkListBootstrapActions #-}
+
 -- | The cluster identifier for the bootstrap actions to list .
-lbaiClusterId :: Lens' ListBootstrapActions (Text)
-lbaiClusterId = lens _lbaiClusterId (\s a -> s { _lbaiClusterId = a })
-{-# INLINE lbaiClusterId #-}
+lbaClusterId :: Lens' ListBootstrapActions Text
+lbaClusterId = lens _lbaClusterId (\s a -> s { _lbaClusterId = a })
+{-# INLINE lbaClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve .
-lbaiMarker :: Lens' ListBootstrapActions (Maybe Text)
-lbaiMarker = lens _lbaiMarker (\s a -> s { _lbaiMarker = a })
-{-# INLINE lbaiMarker #-}
+lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
+lbaMarker = lens _lbaMarker (\s a -> s { _lbaMarker = a })
+{-# INLINE lbaMarker #-}
 
 instance ToPath ListBootstrapActions
 
@@ -76,23 +74,22 @@ instance ToHeaders ListBootstrapActions
 
 instance ToJSON ListBootstrapActions
 
+-- | This output contains the boostrap actions detail .
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse
-    { _lbaoBootstrapActions :: [Command]
-      -- ^ The bootstrap actions associated with the cluster .
-    , _lbaoMarker :: Maybe Text
-      -- ^ The pagination token that indicates the next set of results to
-      -- retrieve .
+    { _lbarsBootstrapActions :: [Command]
+    , _lbarsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The bootstrap actions associated with the cluster .
-lbaoBootstrapActions :: Lens' ListBootstrapActionsResponse ([Command])
-lbaoBootstrapActions = lens _lbaoBootstrapActions (\s a -> s { _lbaoBootstrapActions = a })
-{-# INLINE lbaoBootstrapActions #-}
+lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
+lbarsBootstrapActions =
+    lens _lbarsBootstrapActions (\s a -> s { _lbarsBootstrapActions = a })
+{-# INLINE lbarsBootstrapActions #-}
 
 -- | The pagination token that indicates the next set of results to retrieve .
-lbaoMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
-lbaoMarker = lens _lbaoMarker (\s a -> s { _lbaoMarker = a })
-{-# INLINE lbaoMarker #-}
+lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
+lbarsMarker = lens _lbarsMarker (\s a -> s { _lbarsMarker = a })
+{-# INLINE lbarsMarker #-}
 
 instance FromJSON ListBootstrapActionsResponse
 
@@ -104,5 +101,5 @@ instance AWSRequest ListBootstrapActions where
     response _ = jsonResponse
 
 instance AWSPager ListBootstrapActions where
-    next rq rs = (\x -> rq { _lbaiMarker = Just x })
-        <$> (_lbaoMarker rs)
+    next rq rs = (\x -> rq { _lbaMarker = Just x })
+        <$> (_lbarsMarker rs)

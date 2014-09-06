@@ -32,10 +32,10 @@ module Network.AWS.EC2.V2014_06_15.DetachInternetGateway
     -- * Request
       DetachInternetGateway
     -- ** Request constructor
-    , mkDetachInternetGatewayRequest
+    , mkDetachInternetGateway
     -- ** Request lenses
-    , diguInternetGatewayId
-    , diguVpcId
+    , dig2InternetGatewayId
+    , dig2VpcId
 
     -- * Response
     , DetachInternetGatewayResponse
@@ -45,33 +45,33 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachInternetGateway' request.
-mkDetachInternetGatewayRequest :: Text -- ^ 'diguInternetGatewayId'
-                               -> Text -- ^ 'diguVpcId'
-                               -> DetachInternetGateway
-mkDetachInternetGatewayRequest p1 p2 = DetachInternetGateway
-    { _diguInternetGatewayId = p1
-    , _diguVpcId = p2
-    }
-{-# INLINE mkDetachInternetGatewayRequest #-}
-
+-- | 
 data DetachInternetGateway = DetachInternetGateway
-    { _diguInternetGatewayId :: Text
-      -- ^ The ID of the Internet gateway.
-    , _diguVpcId :: Text
-      -- ^ The ID of the VPC.
+    { _dig2InternetGatewayId :: Text
+    , _dig2VpcId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachInternetGateway' request.
+mkDetachInternetGateway :: Text -- ^ 'dig2InternetGatewayId'
+                        -> Text -- ^ 'dig2VpcId'
+                        -> DetachInternetGateway
+mkDetachInternetGateway p1 p2 = DetachInternetGateway
+    { _dig2InternetGatewayId = p1
+    , _dig2VpcId = p2
+    }
+{-# INLINE mkDetachInternetGateway #-}
+
 -- | The ID of the Internet gateway.
-diguInternetGatewayId :: Lens' DetachInternetGateway (Text)
-diguInternetGatewayId = lens _diguInternetGatewayId (\s a -> s { _diguInternetGatewayId = a })
-{-# INLINE diguInternetGatewayId #-}
+dig2InternetGatewayId :: Lens' DetachInternetGateway Text
+dig2InternetGatewayId =
+    lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })
+{-# INLINE dig2InternetGatewayId #-}
 
 -- | The ID of the VPC.
-diguVpcId :: Lens' DetachInternetGateway (Text)
-diguVpcId = lens _diguVpcId (\s a -> s { _diguVpcId = a })
-{-# INLINE diguVpcId #-}
+dig2VpcId :: Lens' DetachInternetGateway Text
+dig2VpcId = lens _dig2VpcId (\s a -> s { _dig2VpcId = a })
+{-# INLINE dig2VpcId #-}
 
 instance ToQuery DetachInternetGateway where
     toQuery = genericQuery def

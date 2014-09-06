@@ -28,105 +28,91 @@ module Network.AWS.IAM.V2010_05_08.ListGroupsForUser
     -- * Request
       ListGroupsForUser
     -- ** Request constructor
-    , mkListGroupsForUserRequest
+    , mkListGroupsForUser
     -- ** Request lenses
-    , lgfurUserName
-    , lgfurMarker
-    , lgfurMaxItems
+    , lgfuUserName
+    , lgfuMarker
+    , lgfuMaxItems
 
     -- * Response
     , ListGroupsForUserResponse
     -- ** Response lenses
-    , lgfusGroups
-    , lgfusIsTruncated
-    , lgfusMarker
+    , lgfursGroups
+    , lgfursIsTruncated
+    , lgfursMarker
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListGroupsForUser' request.
-mkListGroupsForUserRequest :: Text -- ^ 'lgfurUserName'
-                           -> ListGroupsForUser
-mkListGroupsForUserRequest p1 = ListGroupsForUser
-    { _lgfurUserName = p1
-    , _lgfurMarker = Nothing
-    , _lgfurMaxItems = Nothing
-    }
-{-# INLINE mkListGroupsForUserRequest #-}
-
+-- | 
 data ListGroupsForUser = ListGroupsForUser
-    { _lgfurUserName :: Text
-      -- ^ The name of the user to list groups for.
-    , _lgfurMarker :: Maybe Text
-      -- ^ Use this only when paginating results, and only in a subsequent
-      -- request after you've received a response where the results are
-      -- truncated. Set it to the value of the Marker element in the
-      -- response you just received.
-    , _lgfurMaxItems :: Maybe Integer
-      -- ^ Use this only when paginating results to indicate the maximum
-      -- number of groups you want in the response. If there are
-      -- additional groups beyond the maximum you specify, the IsTruncated
-      -- response element is true. This parameter is optional. If you do
-      -- not include it, it defaults to 100.
+    { _lgfuUserName :: Text
+    , _lgfuMarker :: Maybe Text
+    , _lgfuMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGroupsForUser' request.
+mkListGroupsForUser :: Text -- ^ 'lgfuUserName'
+                    -> ListGroupsForUser
+mkListGroupsForUser p1 = ListGroupsForUser
+    { _lgfuUserName = p1
+    , _lgfuMarker = Nothing
+    , _lgfuMaxItems = Nothing
+    }
+{-# INLINE mkListGroupsForUser #-}
+
 -- | The name of the user to list groups for.
-lgfurUserName :: Lens' ListGroupsForUser (Text)
-lgfurUserName = lens _lgfurUserName (\s a -> s { _lgfurUserName = a })
-{-# INLINE lgfurUserName #-}
+lgfuUserName :: Lens' ListGroupsForUser Text
+lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
+{-# INLINE lgfuUserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-lgfurMarker :: Lens' ListGroupsForUser (Maybe Text)
-lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
-{-# INLINE lgfurMarker #-}
+lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
+lgfuMarker = lens _lgfuMarker (\s a -> s { _lgfuMarker = a })
+{-# INLINE lgfuMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- groups you want in the response. If there are additional groups beyond the
 -- maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
-lgfurMaxItems :: Lens' ListGroupsForUser (Maybe Integer)
-lgfurMaxItems = lens _lgfurMaxItems (\s a -> s { _lgfurMaxItems = a })
-{-# INLINE lgfurMaxItems #-}
+lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Integer)
+lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a })
+{-# INLINE lgfuMaxItems #-}
 
 instance ToQuery ListGroupsForUser where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the ListGroupsForUser
+-- action.
 data ListGroupsForUserResponse = ListGroupsForUserResponse
-    { _lgfusGroups :: [Group]
-      -- ^ A list of groups.
-    , _lgfusIsTruncated :: Bool
-      -- ^ A flag that indicates whether there are more groups to list. If
-      -- your results were truncated, you can make a subsequent pagination
-      -- request using the Marker request parameter to retrieve more
-      -- groups in the list.
-    , _lgfusMarker :: Maybe Text
-      -- ^ If IsTruncated is true, this element is present and contains the
-      -- value to use for the Marker parameter in a subsequent pagination
-      -- request.
+    { _lgfursGroups :: [Group]
+    , _lgfursIsTruncated :: Maybe Bool
+    , _lgfursMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of groups.
-lgfusGroups :: Lens' ListGroupsForUserResponse ([Group])
-lgfusGroups = lens _lgfusGroups (\s a -> s { _lgfusGroups = a })
-{-# INLINE lgfusGroups #-}
+lgfursGroups :: Lens' ListGroupsForUserResponse [Group]
+lgfursGroups = lens _lgfursGroups (\s a -> s { _lgfursGroups = a })
+{-# INLINE lgfursGroups #-}
 
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more groups in the list.
-lgfusIsTruncated :: Lens' ListGroupsForUserResponse (Bool)
-lgfusIsTruncated = lens _lgfusIsTruncated (\s a -> s { _lgfusIsTruncated = a })
-{-# INLINE lgfusIsTruncated #-}
+lgfursIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
+lgfursIsTruncated =
+    lens _lgfursIsTruncated (\s a -> s { _lgfursIsTruncated = a })
+{-# INLINE lgfursIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lgfusMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
-lgfusMarker = lens _lgfusMarker (\s a -> s { _lgfusMarker = a })
-{-# INLINE lgfusMarker #-}
+lgfursMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
+lgfursMarker = lens _lgfursMarker (\s a -> s { _lgfursMarker = a })
+{-# INLINE lgfursMarker #-}
 
 instance FromXML ListGroupsForUserResponse where
     fromXMLOptions = xmlOptions
@@ -140,7 +126,7 @@ instance AWSRequest ListGroupsForUser where
 
 instance AWSPager ListGroupsForUser where
     next rq rs
-        | not (_lgfusIsTruncated rs) = Nothing
+        | not (_lgfursIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lgfurMarker = _lgfusMarker rs
+            { _lgfuMarker = _lgfursMarker rs
             }

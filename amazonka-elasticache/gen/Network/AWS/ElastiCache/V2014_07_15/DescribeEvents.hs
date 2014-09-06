@@ -34,138 +34,118 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeEvents
     -- * Request
       DescribeEvents
     -- ** Request constructor
-    , mkDescribeEventsMessage
+    , mkDescribeEvents
     -- ** Request lenses
-    , demSourceIdentifier
-    , demSourceType
-    , demStartTime
-    , demEndTime
-    , demDuration
-    , demMaxRecords
-    , demMarker
+    , deSourceIdentifier
+    , deSourceType
+    , deStartTime
+    , deEndTime
+    , deDuration
+    , deMaxRecords
+    , deMarker
 
     -- * Response
     , DescribeEventsResponse
     -- ** Response lenses
-    , emMarker
-    , emEvents
+    , dersMarker
+    , dersEvents
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DescribeEvents operation.
+data DescribeEvents = DescribeEvents
+    { _deSourceIdentifier :: Maybe Text
+    , _deSourceType :: Maybe SourceType
+    , _deStartTime :: Maybe ISO8601
+    , _deEndTime :: Maybe ISO8601
+    , _deDuration :: Maybe Integer
+    , _deMaxRecords :: Maybe Integer
+    , _deMarker :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEvents' request.
-mkDescribeEventsMessage :: DescribeEvents
-mkDescribeEventsMessage = DescribeEvents
-    { _demSourceIdentifier = Nothing
-    , _demSourceType = Nothing
-    , _demStartTime = Nothing
-    , _demEndTime = Nothing
-    , _demDuration = Nothing
-    , _demMaxRecords = Nothing
-    , _demMarker = Nothing
+mkDescribeEvents :: DescribeEvents
+mkDescribeEvents = DescribeEvents
+    { _deSourceIdentifier = Nothing
+    , _deSourceType = Nothing
+    , _deStartTime = Nothing
+    , _deEndTime = Nothing
+    , _deDuration = Nothing
+    , _deMaxRecords = Nothing
+    , _deMarker = Nothing
     }
-{-# INLINE mkDescribeEventsMessage #-}
-
-data DescribeEvents = DescribeEvents
-    { _demSourceIdentifier :: Maybe Text
-      -- ^ The identifier of the event source for which events will be
-      -- returned. If not specified, then all sources are included in the
-      -- response.
-    , _demSourceType :: Maybe SourceType
-      -- ^ The event source to retrieve events for. If no value is
-      -- specified, all events are returned. Valid values are:
-      -- cache-cluster | cache-parameter-group | cache-security-group |
-      -- cache-subnet-group.
-    , _demStartTime :: Maybe ISO8601
-      -- ^ The beginning of the time interval to retrieve events for,
-      -- specified in ISO 8601 format.
-    , _demEndTime :: Maybe ISO8601
-      -- ^ The end of the time interval for which to retrieve events,
-      -- specified in ISO 8601 format.
-    , _demDuration :: Maybe Integer
-      -- ^ The number of minutes' worth of events to retrieve.
-    , _demMaxRecords :: Maybe Integer
-      -- ^ The maximum number of records to include in the response. If more
-      -- records exist than the specified MaxRecords value, a marker is
-      -- included in the response so that the remaining results can be
-      -- retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-    , _demMarker :: Maybe Text
-      -- ^ An optional marker returned from a prior request. Use this marker
-      -- for pagination of results from this operation. If this parameter
-      -- is specified, the response includes only records beyond the
-      -- marker, up to the value specified by MaxRecords.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeEvents #-}
 
 -- | The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
-demSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-demSourceIdentifier = lens _demSourceIdentifier (\s a -> s { _demSourceIdentifier = a })
-{-# INLINE demSourceIdentifier #-}
+deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
+deSourceIdentifier =
+    lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
+{-# INLINE deSourceIdentifier #-}
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned. Valid values are: cache-cluster |
 -- cache-parameter-group | cache-security-group | cache-subnet-group.
-demSourceType :: Lens' DescribeEvents (Maybe SourceType)
-demSourceType = lens _demSourceType (\s a -> s { _demSourceType = a })
-{-# INLINE demSourceType #-}
+deSourceType :: Lens' DescribeEvents (Maybe SourceType)
+deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
+{-# INLINE deSourceType #-}
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO
 -- 8601 format.
-demStartTime :: Lens' DescribeEvents (Maybe ISO8601)
-demStartTime = lens _demStartTime (\s a -> s { _demStartTime = a })
-{-# INLINE demStartTime #-}
+deStartTime :: Lens' DescribeEvents (Maybe ISO8601)
+deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
+{-# INLINE deStartTime #-}
 
 -- | The end of the time interval for which to retrieve events, specified in ISO
 -- 8601 format.
-demEndTime :: Lens' DescribeEvents (Maybe ISO8601)
-demEndTime = lens _demEndTime (\s a -> s { _demEndTime = a })
-{-# INLINE demEndTime #-}
+deEndTime :: Lens' DescribeEvents (Maybe ISO8601)
+deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
+{-# INLINE deEndTime #-}
 
 -- | The number of minutes' worth of events to retrieve.
-demDuration :: Lens' DescribeEvents (Maybe Integer)
-demDuration = lens _demDuration (\s a -> s { _demDuration = a })
-{-# INLINE demDuration #-}
+deDuration :: Lens' DescribeEvents (Maybe Integer)
+deDuration = lens _deDuration (\s a -> s { _deDuration = a })
+{-# INLINE deDuration #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-demMaxRecords :: Lens' DescribeEvents (Maybe Integer)
-demMaxRecords = lens _demMaxRecords (\s a -> s { _demMaxRecords = a })
-{-# INLINE demMaxRecords #-}
+deMaxRecords :: Lens' DescribeEvents (Maybe Integer)
+deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
+{-# INLINE deMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-demMarker :: Lens' DescribeEvents (Maybe Text)
-demMarker = lens _demMarker (\s a -> s { _demMarker = a })
-{-# INLINE demMarker #-}
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\s a -> s { _deMarker = a })
+{-# INLINE deMarker #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
 
+-- | Represents the output of a DescribeEvents operation.
 data DescribeEventsResponse = DescribeEventsResponse
-    { _emMarker :: Maybe Text
-      -- ^ Provides an identifier to allow retrieval of paginated results.
-    , _emEvents :: [Event]
-      -- ^ A list of events. Each element in the list contains detailed
-      -- information about one event.
+    { _dersMarker :: Maybe Text
+    , _dersEvents :: [Event]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-emMarker :: Lens' DescribeEventsResponse (Maybe Text)
-emMarker = lens _emMarker (\s a -> s { _emMarker = a })
-{-# INLINE emMarker #-}
+dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
+dersMarker = lens _dersMarker (\s a -> s { _dersMarker = a })
+{-# INLINE dersMarker #-}
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
-emEvents :: Lens' DescribeEventsResponse ([Event])
-emEvents = lens _emEvents (\s a -> s { _emEvents = a })
-{-# INLINE emEvents #-}
+dersEvents :: Lens' DescribeEventsResponse [Event]
+dersEvents = lens _dersEvents (\s a -> s { _dersEvents = a })
+{-# INLINE dersEvents #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -178,5 +158,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq { _demMarker = Just x })
-        <$> (_emMarker rs)
+    next rq rs = (\x -> rq { _deMarker = Just x })
+        <$> (_dersMarker rs)

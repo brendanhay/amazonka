@@ -24,43 +24,46 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheck
     -- * Request
       GetHealthCheck
     -- ** Request constructor
-    , mkGetHealthCheckRequest
+    , mkGetHealthCheck
     -- ** Request lenses
-    , ghcrHealthCheckId
+    , ghcHealthCheckId
 
     -- * Response
     , GetHealthCheckResponse
     -- ** Response lenses
-    , ghcsHealthCheck
+    , ghcrsHealthCheck
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.Route53.V2013_04_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | A complex type that contains information about the request to get a health
+-- check.
+newtype GetHealthCheck = GetHealthCheck
+    { _ghcHealthCheckId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheck' request.
-mkGetHealthCheckRequest :: Text -- ^ 'ghcrHealthCheckId'
-                        -> GetHealthCheck
-mkGetHealthCheckRequest p1 = GetHealthCheck
-    { _ghcrHealthCheckId = p1
+mkGetHealthCheck :: Text -- ^ 'ghcHealthCheckId'
+                 -> GetHealthCheck
+mkGetHealthCheck p1 = GetHealthCheck
+    { _ghcHealthCheckId = p1
     }
-{-# INLINE mkGetHealthCheckRequest #-}
-
-newtype GetHealthCheck = GetHealthCheck
-    { _ghcrHealthCheckId :: Text
-      -- ^ The ID of the health check to retrieve.
-    } deriving (Show, Generic)
+{-# INLINE mkGetHealthCheck #-}
 
 -- | The ID of the health check to retrieve.
-ghcrHealthCheckId :: Lens' GetHealthCheck (Text)
-ghcrHealthCheckId = lens _ghcrHealthCheckId (\s a -> s { _ghcrHealthCheckId = a })
-{-# INLINE ghcrHealthCheckId #-}
+ghcHealthCheckId :: Lens' GetHealthCheck Text
+ghcHealthCheckId =
+    lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
+{-# INLINE ghcHealthCheckId #-}
 
 instance ToPath GetHealthCheck where
     toPath GetHealthCheck{..} = mconcat
         [ "/2013-04-01/healthcheck/"
-        , toBS _ghcrHealthCheckId
+        , toBS _ghcHealthCheckId
         ]
 
 instance ToQuery GetHealthCheck
@@ -71,17 +74,17 @@ instance ToXML GetHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetHealthCheckRequest"
 
+-- | A complex type containing information about the specified health check.
 newtype GetHealthCheckResponse = GetHealthCheckResponse
-    { _ghcsHealthCheck :: HealthCheck
-      -- ^ A complex type that contains the information about the specified
-      -- health check.
+    { _ghcrsHealthCheck :: HealthCheck
     } deriving (Show, Generic)
 
 -- | A complex type that contains the information about the specified health
 -- check.
-ghcsHealthCheck :: Lens' GetHealthCheckResponse (HealthCheck)
-ghcsHealthCheck = lens _ghcsHealthCheck (\s a -> s { _ghcsHealthCheck = a })
-{-# INLINE ghcsHealthCheck #-}
+ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
+ghcrsHealthCheck =
+    lens _ghcrsHealthCheck (\s a -> s { _ghcrsHealthCheck = a })
+{-# INLINE ghcrsHealthCheck #-}
 
 instance FromXML GetHealthCheckResponse where
     fromXMLOptions = xmlOptions

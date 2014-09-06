@@ -29,10 +29,10 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate
     -- * Request
       DeleteConfigurationTemplate
     -- ** Request constructor
-    , mkDeleteConfigurationTemplateMessage
+    , mkDeleteConfigurationTemplate
     -- ** Request lenses
-    , dctmApplicationName
-    , dctmTemplateName
+    , dctApplicationName
+    , dctTemplateName
 
     -- * Response
     , DeleteConfigurationTemplateResponse
@@ -42,34 +42,33 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteConfigurationTemplate' request.
-mkDeleteConfigurationTemplateMessage :: Text -- ^ 'dctmApplicationName'
-                                     -> Text -- ^ 'dctmTemplateName'
-                                     -> DeleteConfigurationTemplate
-mkDeleteConfigurationTemplateMessage p1 p2 = DeleteConfigurationTemplate
-    { _dctmApplicationName = p1
-    , _dctmTemplateName = p2
-    }
-{-# INLINE mkDeleteConfigurationTemplateMessage #-}
-
+-- | This documentation target is not reported in the API reference.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
-    { _dctmApplicationName :: Text
-      -- ^ The name of the application to delete the configuration template
-      -- from.
-    , _dctmTemplateName :: Text
-      -- ^ The name of the configuration template to delete.
+    { _dctApplicationName :: Text
+    , _dctTemplateName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteConfigurationTemplate' request.
+mkDeleteConfigurationTemplate :: Text -- ^ 'dctApplicationName'
+                              -> Text -- ^ 'dctTemplateName'
+                              -> DeleteConfigurationTemplate
+mkDeleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
+    { _dctApplicationName = p1
+    , _dctTemplateName = p2
+    }
+{-# INLINE mkDeleteConfigurationTemplate #-}
+
 -- | The name of the application to delete the configuration template from.
-dctmApplicationName :: Lens' DeleteConfigurationTemplate (Text)
-dctmApplicationName = lens _dctmApplicationName (\s a -> s { _dctmApplicationName = a })
-{-# INLINE dctmApplicationName #-}
+dctApplicationName :: Lens' DeleteConfigurationTemplate Text
+dctApplicationName =
+    lens _dctApplicationName (\s a -> s { _dctApplicationName = a })
+{-# INLINE dctApplicationName #-}
 
 -- | The name of the configuration template to delete.
-dctmTemplateName :: Lens' DeleteConfigurationTemplate (Text)
-dctmTemplateName = lens _dctmTemplateName (\s a -> s { _dctmTemplateName = a })
-{-# INLINE dctmTemplateName #-}
+dctTemplateName :: Lens' DeleteConfigurationTemplate Text
+dctTemplateName = lens _dctTemplateName (\s a -> s { _dctTemplateName = a })
+{-# INLINE dctTemplateName #-}
 
 instance ToQuery DeleteConfigurationTemplate where
     toQuery = genericQuery def

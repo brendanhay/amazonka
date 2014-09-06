@@ -35,88 +35,87 @@ module Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup
     -- * Request
       ResetClusterParameterGroup
     -- ** Request constructor
-    , mkResetClusterParameterGroupMessage
+    , mkResetClusterParameterGroup
     -- ** Request lenses
-    , rcpgmParameterGroupName
-    , rcpgmResetAllParameters
-    , rcpgmParameters
+    , rcpgParameterGroupName
+    , rcpgResetAllParameters
+    , rcpgParameters
 
     -- * Response
     , ResetClusterParameterGroupResponse
     -- ** Response lenses
-    , cpgnnParameterGroupName
-    , cpgnnParameterGroupStatus
+    , rcpgrsParameterGroupName
+    , rcpgrsParameterGroupStatus
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetClusterParameterGroup' request.
-mkResetClusterParameterGroupMessage :: Text -- ^ 'rcpgmParameterGroupName'
-                                    -> ResetClusterParameterGroup
-mkResetClusterParameterGroupMessage p1 = ResetClusterParameterGroup
-    { _rcpgmParameterGroupName = p1
-    , _rcpgmResetAllParameters = Nothing
-    , _rcpgmParameters = mempty
-    }
-{-# INLINE mkResetClusterParameterGroupMessage #-}
-
+-- | 
 data ResetClusterParameterGroup = ResetClusterParameterGroup
-    { _rcpgmParameterGroupName :: Text
-      -- ^ The name of the cluster parameter group to be reset.
-    , _rcpgmResetAllParameters :: Maybe Bool
-      -- ^ If true, all parameters in the specified parameter group will be
-      -- reset to their default values. Default: true.
-    , _rcpgmParameters :: [Parameter]
-      -- ^ An array of names of parameters to be reset. If
-      -- ResetAllParameters option is not used, then at least one
-      -- parameter name must be supplied. Constraints: A maximum of 20
-      -- parameters can be reset in a single request.
+    { _rcpgParameterGroupName :: Text
+    , _rcpgResetAllParameters :: Maybe Bool
+    , _rcpgParameters :: [Parameter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetClusterParameterGroup' request.
+mkResetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
+                             -> ResetClusterParameterGroup
+mkResetClusterParameterGroup p1 = ResetClusterParameterGroup
+    { _rcpgParameterGroupName = p1
+    , _rcpgResetAllParameters = Nothing
+    , _rcpgParameters = mempty
+    }
+{-# INLINE mkResetClusterParameterGroup #-}
+
 -- | The name of the cluster parameter group to be reset.
-rcpgmParameterGroupName :: Lens' ResetClusterParameterGroup (Text)
-rcpgmParameterGroupName = lens _rcpgmParameterGroupName (\s a -> s { _rcpgmParameterGroupName = a })
-{-# INLINE rcpgmParameterGroupName #-}
+rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
+rcpgParameterGroupName =
+    lens _rcpgParameterGroupName (\s a -> s { _rcpgParameterGroupName = a })
+{-# INLINE rcpgParameterGroupName #-}
 
 -- | If true, all parameters in the specified parameter group will be reset to
 -- their default values. Default: true.
-rcpgmResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
-rcpgmResetAllParameters = lens _rcpgmResetAllParameters (\s a -> s { _rcpgmResetAllParameters = a })
-{-# INLINE rcpgmResetAllParameters #-}
+rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
+rcpgResetAllParameters =
+    lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
+{-# INLINE rcpgResetAllParameters #-}
 
 -- | An array of names of parameters to be reset. If ResetAllParameters option
 -- is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
-rcpgmParameters :: Lens' ResetClusterParameterGroup ([Parameter])
-rcpgmParameters = lens _rcpgmParameters (\s a -> s { _rcpgmParameters = a })
-{-# INLINE rcpgmParameters #-}
+rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
+rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a })
+{-# INLINE rcpgParameters #-}
 
 instance ToQuery ResetClusterParameterGroup where
     toQuery = genericQuery def
 
+-- | Contains the output from the ModifyClusterParameterGroup and
+-- ResetClusterParameterGroup actions and indicate the parameter group
+-- involved and the status of the operation on the parameter group.
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
-    { _cpgnnParameterGroupName :: Maybe Text
-      -- ^ The name of the cluster parameter group.
-    , _cpgnnParameterGroupStatus :: Maybe Text
-      -- ^ The status of the parameter group. For example, if you made a
-      -- change to a parameter group name-value pair, then the change
-      -- could be pending a reboot of an associated cluster.
+    { _rcpgrsParameterGroupName :: Maybe Text
+    , _rcpgrsParameterGroupStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the cluster parameter group.
-cpgnnParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
-cpgnnParameterGroupName = lens _cpgnnParameterGroupName (\s a -> s { _cpgnnParameterGroupName = a })
-{-# INLINE cpgnnParameterGroupName #-}
+rcpgrsParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
+rcpgrsParameterGroupName =
+    lens _rcpgrsParameterGroupName
+         (\s a -> s { _rcpgrsParameterGroupName = a })
+{-# INLINE rcpgrsParameterGroupName #-}
 
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot
 -- of an associated cluster.
-cpgnnParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
-cpgnnParameterGroupStatus = lens _cpgnnParameterGroupStatus (\s a -> s { _cpgnnParameterGroupStatus = a })
-{-# INLINE cpgnnParameterGroupStatus #-}
+rcpgrsParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
+rcpgrsParameterGroupStatus =
+    lens _rcpgrsParameterGroupStatus
+         (\s a -> s { _rcpgrsParameterGroupStatus = a })
+{-# INLINE rcpgrsParameterGroupStatus #-}
 
 instance FromXML ResetClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

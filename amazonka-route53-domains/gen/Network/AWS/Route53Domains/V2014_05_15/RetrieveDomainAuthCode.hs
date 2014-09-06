@@ -37,14 +37,14 @@ module Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
     -- * Request
       RetrieveDomainAuthCode
     -- ** Request constructor
-    , mkRetrieveDomainAuthCodeRequest
+    , mkRetrieveDomainAuthCode
     -- ** Request lenses
-    , rdacrDomainName
+    , rdacDomainName
 
     -- * Response
     , RetrieveDomainAuthCodeResponse
     -- ** Response lenses
-    , rdacsAuthCode
+    , rdacrsAuthCode
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -52,30 +52,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The RetrieveDomainAuthCode request includes the following element.
+newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
+    { _rdacDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveDomainAuthCode' request.
-mkRetrieveDomainAuthCodeRequest :: Text -- ^ 'rdacrDomainName'
-                                -> RetrieveDomainAuthCode
-mkRetrieveDomainAuthCodeRequest p1 = RetrieveDomainAuthCode
-    { _rdacrDomainName = p1
+mkRetrieveDomainAuthCode :: Text -- ^ 'rdacDomainName'
+                         -> RetrieveDomainAuthCode
+mkRetrieveDomainAuthCode p1 = RetrieveDomainAuthCode
+    { _rdacDomainName = p1
     }
-{-# INLINE mkRetrieveDomainAuthCodeRequest #-}
-
-newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
-    { _rdacrDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    } deriving (Show, Generic)
+{-# INLINE mkRetrieveDomainAuthCode #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-rdacrDomainName :: Lens' RetrieveDomainAuthCode (Text)
-rdacrDomainName = lens _rdacrDomainName (\s a -> s { _rdacrDomainName = a })
-{-# INLINE rdacrDomainName #-}
+rdacDomainName :: Lens' RetrieveDomainAuthCode Text
+rdacDomainName = lens _rdacDomainName (\s a -> s { _rdacDomainName = a })
+{-# INLINE rdacDomainName #-}
 
 instance ToPath RetrieveDomainAuthCode
 
@@ -85,15 +82,15 @@ instance ToHeaders RetrieveDomainAuthCode
 
 instance ToJSON RetrieveDomainAuthCode
 
+-- | The RetrieveDomainAuthCode response includes the following element.
 newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
-    { _rdacsAuthCode :: Text
-      -- ^ The authorization code for the domain. Type: String.
+    { _rdacrsAuthCode :: Text
     } deriving (Show, Generic)
 
 -- | The authorization code for the domain. Type: String.
-rdacsAuthCode :: Lens' RetrieveDomainAuthCodeResponse (Text)
-rdacsAuthCode = lens _rdacsAuthCode (\s a -> s { _rdacsAuthCode = a })
-{-# INLINE rdacsAuthCode #-}
+rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
+rdacrsAuthCode = lens _rdacrsAuthCode (\s a -> s { _rdacrsAuthCode = a })
+{-# INLINE rdacrsAuthCode #-}
 
 instance FromJSON RetrieveDomainAuthCodeResponse
 

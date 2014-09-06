@@ -23,44 +23,45 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistribution
     -- * Request
       GetDistribution
     -- ** Request constructor
-    , mkGetDistributionRequest
+    , mkGetDistribution
     -- ** Request lenses
-    , gdrId
+    , gdId
 
     -- * Response
     , GetDistributionResponse
     -- ** Response lenses
-    , gdsDistribution
-    , gdsETag
+    , gdrsDistribution
+    , gdrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to get a distribution's information.
+newtype GetDistribution = GetDistribution
+    { _gdId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistribution' request.
-mkGetDistributionRequest :: Text -- ^ 'gdrId'
-                         -> GetDistribution
-mkGetDistributionRequest p1 = GetDistribution
-    { _gdrId = p1
+mkGetDistribution :: Text -- ^ 'gdId'
+                  -> GetDistribution
+mkGetDistribution p1 = GetDistribution
+    { _gdId = p1
     }
-{-# INLINE mkGetDistributionRequest #-}
-
-newtype GetDistribution = GetDistribution
-    { _gdrId :: Text
-      -- ^ The distribution's id.
-    } deriving (Show, Generic)
+{-# INLINE mkGetDistribution #-}
 
 -- | The distribution's id.
-gdrId :: Lens' GetDistribution (Text)
-gdrId = lens _gdrId (\s a -> s { _gdrId = a })
-{-# INLINE gdrId #-}
+gdId :: Lens' GetDistribution Text
+gdId = lens _gdId (\s a -> s { _gdId = a })
+{-# INLINE gdId #-}
 
 instance ToPath GetDistribution where
     toPath GetDistribution{..} = mconcat
         [ "/2014-05-31/distribution/"
-        , toBS _gdrId
+        , toBS _gdId
         ]
 
 instance ToQuery GetDistribution
@@ -71,24 +72,23 @@ instance ToXML GetDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetDistributionRequest"
 
+-- | The returned result of the corresponding request.
 data GetDistributionResponse = GetDistributionResponse
-    { _gdsDistribution :: Maybe Distribution
-      -- ^ The distribution's information.
-    , _gdsETag :: Maybe Text
-      -- ^ The current version of the distribution's information. For
-      -- example: E2QWRUHAPOMQZL.
+    { _gdrsDistribution :: Maybe Distribution
+    , _gdrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-gdsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
-gdsDistribution = lens _gdsDistribution (\s a -> s { _gdsDistribution = a })
-{-# INLINE gdsDistribution #-}
+gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
+gdrsDistribution =
+    lens _gdrsDistribution (\s a -> s { _gdrsDistribution = a })
+{-# INLINE gdrsDistribution #-}
 
 -- | The current version of the distribution's information. For example:
 -- E2QWRUHAPOMQZL.
-gdsETag :: Lens' GetDistributionResponse (Maybe Text)
-gdsETag = lens _gdsETag (\s a -> s { _gdsETag = a })
-{-# INLINE gdsETag #-}
+gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
+gdrsETag = lens _gdrsETag (\s a -> s { _gdrsETag = a })
+{-# INLINE gdrsETag #-}
 
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront

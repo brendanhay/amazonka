@@ -25,56 +25,56 @@ module Network.AWS.IAM.V2010_05_08.GetCredentialReport
     -- * Request
       GetCredentialReport
     -- ** Request constructor
-    , mkUnknown
+    , mkGetCredentialReport
     -- * Response
     , GetCredentialReportResponse
     -- ** Response lenses
-    , gcrsContent
-    , gcrsReportFormat
-    , gcrsGeneratedTime
+    , gcrrsrsContent
+    , gcrrsrsReportFormat
+    , gcrrsrsGeneratedTime
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetCredentialReport' request.
-mkUnknown :: GetCredentialReport
-mkUnknown = GetCredentialReport
-{-# INLINE mkUnknown #-}
-
 data GetCredentialReport = GetCredentialReport
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetCredentialReport' request.
+mkGetCredentialReport :: GetCredentialReport
+mkGetCredentialReport = GetCredentialReport
+{-# INLINE mkGetCredentialReport #-}
 
 instance ToQuery GetCredentialReport where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetCredentialReport
+-- action.
 data GetCredentialReportResponse = GetCredentialReportResponse
-    { _gcrsContent :: Maybe ByteString
-      -- ^ Contains the credential report. The report is Base64-encoded.
-    , _gcrsReportFormat :: Maybe ReportFormatType
-      -- ^ The format (MIME type) of the credential report.
-    , _gcrsGeneratedTime :: Maybe ISO8601
-      -- ^ The time and date when the credential report was created, in ISO
-      -- 8601 date-time format.
+    { _gcrrsrsContent :: Maybe ByteString
+    , _gcrrsrsReportFormat :: Maybe ReportFormatType
+    , _gcrrsrsGeneratedTime :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Contains the credential report. The report is Base64-encoded.
-gcrsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
-gcrsContent = lens _gcrsContent (\s a -> s { _gcrsContent = a })
-{-# INLINE gcrsContent #-}
+gcrrsrsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
+gcrrsrsContent = lens _gcrrsrsContent (\s a -> s { _gcrrsrsContent = a })
+{-# INLINE gcrrsrsContent #-}
 
 -- | The format (MIME type) of the credential report.
-gcrsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
-gcrsReportFormat = lens _gcrsReportFormat (\s a -> s { _gcrsReportFormat = a })
-{-# INLINE gcrsReportFormat #-}
+gcrrsrsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
+gcrrsrsReportFormat =
+    lens _gcrrsrsReportFormat (\s a -> s { _gcrrsrsReportFormat = a })
+{-# INLINE gcrrsrsReportFormat #-}
 
 -- | The time and date when the credential report was created, in ISO 8601
 -- date-time format.
-gcrsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe ISO8601)
-gcrsGeneratedTime = lens _gcrsGeneratedTime (\s a -> s { _gcrsGeneratedTime = a })
-{-# INLINE gcrsGeneratedTime #-}
+gcrrsrsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe ISO8601)
+gcrrsrsGeneratedTime =
+    lens _gcrrsrsGeneratedTime (\s a -> s { _gcrrsrsGeneratedTime = a })
+{-# INLINE gcrrsrsGeneratedTime #-}
 
 instance FromXML GetCredentialReportResponse where
     fromXMLOptions = xmlOptions

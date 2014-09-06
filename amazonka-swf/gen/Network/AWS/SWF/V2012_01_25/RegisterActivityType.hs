@@ -57,17 +57,17 @@ module Network.AWS.SWF.V2012_01_25.RegisterActivityType
     -- * Request
       RegisterActivityType
     -- ** Request constructor
-    , mkRegisterActivityTypeInput
+    , mkRegisterActivityType
     -- ** Request lenses
-    , ratiDomain
-    , ratiName
-    , ratiVersion
-    , ratiDescription
-    , ratiDefaultTaskStartToCloseTimeout
-    , ratiDefaultTaskHeartbeatTimeout
-    , ratiDefaultTaskList
-    , ratiDefaultTaskScheduleToStartTimeout
-    , ratiDefaultTaskScheduleToCloseTimeout
+    , ratDomain
+    , ratName
+    , ratVersion
+    , ratDescription
+    , ratDefaultTaskStartToCloseTimeout
+    , ratDefaultTaskHeartbeatTimeout
+    , ratDefaultTaskList
+    , ratDefaultTaskScheduleToStartTimeout
+    , ratDefaultTaskScheduleToCloseTimeout
 
     -- * Response
     , RegisterActivityTypeResponse
@@ -78,102 +78,50 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterActivityType' request.
-mkRegisterActivityTypeInput :: Text -- ^ 'ratiDomain'
-                            -> Text -- ^ 'ratiName'
-                            -> Text -- ^ 'ratiVersion'
-                            -> RegisterActivityType
-mkRegisterActivityTypeInput p1 p2 p3 = RegisterActivityType
-    { _ratiDomain = p1
-    , _ratiName = p2
-    , _ratiVersion = p3
-    , _ratiDescription = Nothing
-    , _ratiDefaultTaskStartToCloseTimeout = Nothing
-    , _ratiDefaultTaskHeartbeatTimeout = Nothing
-    , _ratiDefaultTaskList = Nothing
-    , _ratiDefaultTaskScheduleToStartTimeout = Nothing
-    , _ratiDefaultTaskScheduleToCloseTimeout = Nothing
-    }
-{-# INLINE mkRegisterActivityTypeInput #-}
-
 data RegisterActivityType = RegisterActivityType
-    { _ratiDomain :: Text
-      -- ^ The name of the domain in which this activity is to be
-      -- registered.
-    , _ratiName :: Text
-      -- ^ The name of the activity type within the domain. The specified
-      -- string must not start or end with whitespace. It must not contain
-      -- a : (colon), / (slash), | (vertical bar), or any control
-      -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not
-      -- contain the literal string &quot;arn&quot;.
-    , _ratiVersion :: Text
-      -- ^ The version of the activity type. The activity type consists of
-      -- the name and version, the combination of which must be unique
-      -- within the domain. The specified string must not start or end
-      -- with whitespace. It must not contain a : (colon), / (slash), |
-      -- (vertical bar), or any control characters (\u0000-\u001f | \u007f
-      -- - \u009f). Also, it must not contain the literal string
-      -- &quot;arn&quot;.
-    , _ratiDescription :: Maybe Text
-      -- ^ A textual description of the activity type.
-    , _ratiDefaultTaskStartToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration that a worker can
-      -- take to process tasks of this activity type. This default can be
-      -- overridden when scheduling an activity task using the
-      -- ScheduleActivityTask Decision. The valid values are integers
-      -- greater than or equal to 0. An integer value can be used to
-      -- specify the duration in seconds while NONE can be used to specify
-      -- unlimited duration.
-    , _ratiDefaultTaskHeartbeatTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum time before which a worker
-      -- processing a task of this type must report progress by calling
-      -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the
-      -- activity task is automatically timed out. This default can be
-      -- overridden when scheduling an activity task using the
-      -- ScheduleActivityTask Decision. If the activity worker
-      -- subsequently attempts to record a heartbeat or returns a result,
-      -- the activity worker receives an UnknownResource fault. In this
-      -- case, Amazon SWF no longer considers the activity task to be
-      -- valid; the activity worker should clean up the activity task. The
-      -- valid values are integers greater than or equal to 0. An integer
-      -- value can be used to specify the duration in seconds while NONE
-      -- can be used to specify unlimited duration.
-    , _ratiDefaultTaskList :: Maybe TaskList
-      -- ^ If set, specifies the default task list to use for scheduling
-      -- tasks of this activity type. This default task list is used if a
-      -- task list is not provided when a task is scheduled through the
-      -- ScheduleActivityTask Decision.
-    , _ratiDefaultTaskScheduleToStartTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration that a task of
-      -- this activity type can wait before being assigned to a worker.
-      -- This default can be overridden when scheduling an activity task
-      -- using the ScheduleActivityTask Decision. The valid values are
-      -- integers greater than or equal to 0. An integer value can be used
-      -- to specify the duration in seconds while NONE can be used to
-      -- specify unlimited duration.
-    , _ratiDefaultTaskScheduleToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration for a task of this
-      -- activity type. This default can be overridden when scheduling an
-      -- activity task using the ScheduleActivityTask Decision. The valid
-      -- values are integers greater than or equal to 0. An integer value
-      -- can be used to specify the duration in seconds while NONE can be
-      -- used to specify unlimited duration.
+    { _ratDomain :: Text
+    , _ratName :: Text
+    , _ratVersion :: Text
+    , _ratDescription :: Maybe Text
+    , _ratDefaultTaskStartToCloseTimeout :: Maybe Text
+    , _ratDefaultTaskHeartbeatTimeout :: Maybe Text
+    , _ratDefaultTaskList :: Maybe TaskList
+    , _ratDefaultTaskScheduleToStartTimeout :: Maybe Text
+    , _ratDefaultTaskScheduleToCloseTimeout :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterActivityType' request.
+mkRegisterActivityType :: Text -- ^ 'ratDomain'
+                       -> Text -- ^ 'ratName'
+                       -> Text -- ^ 'ratVersion'
+                       -> RegisterActivityType
+mkRegisterActivityType p1 p2 p3 = RegisterActivityType
+    { _ratDomain = p1
+    , _ratName = p2
+    , _ratVersion = p3
+    , _ratDescription = Nothing
+    , _ratDefaultTaskStartToCloseTimeout = Nothing
+    , _ratDefaultTaskHeartbeatTimeout = Nothing
+    , _ratDefaultTaskList = Nothing
+    , _ratDefaultTaskScheduleToStartTimeout = Nothing
+    , _ratDefaultTaskScheduleToCloseTimeout = Nothing
+    }
+{-# INLINE mkRegisterActivityType #-}
+
 -- | The name of the domain in which this activity is to be registered.
-ratiDomain :: Lens' RegisterActivityType (Text)
-ratiDomain = lens _ratiDomain (\s a -> s { _ratiDomain = a })
-{-# INLINE ratiDomain #-}
+ratDomain :: Lens' RegisterActivityType Text
+ratDomain = lens _ratDomain (\s a -> s { _ratDomain = a })
+{-# INLINE ratDomain #-}
 
 -- | The name of the activity type within the domain. The specified string must
 -- not start or end with whitespace. It must not contain a : (colon), /
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 -- \u007f - \u009f). Also, it must not contain the literal string
 -- &quot;arn&quot;.
-ratiName :: Lens' RegisterActivityType (Text)
-ratiName = lens _ratiName (\s a -> s { _ratiName = a })
-{-# INLINE ratiName #-}
+ratName :: Lens' RegisterActivityType Text
+ratName = lens _ratName (\s a -> s { _ratName = a })
+{-# INLINE ratName #-}
 
 -- | The version of the activity type. The activity type consists of the name
 -- and version, the combination of which must be unique within the domain. The
@@ -181,14 +129,14 @@ ratiName = lens _ratiName (\s a -> s { _ratiName = a })
 -- a : (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string &quot;arn&quot;.
-ratiVersion :: Lens' RegisterActivityType (Text)
-ratiVersion = lens _ratiVersion (\s a -> s { _ratiVersion = a })
-{-# INLINE ratiVersion #-}
+ratVersion :: Lens' RegisterActivityType Text
+ratVersion = lens _ratVersion (\s a -> s { _ratVersion = a })
+{-# INLINE ratVersion #-}
 
 -- | A textual description of the activity type.
-ratiDescription :: Lens' RegisterActivityType (Maybe Text)
-ratiDescription = lens _ratiDescription (\s a -> s { _ratiDescription = a })
-{-# INLINE ratiDescription #-}
+ratDescription :: Lens' RegisterActivityType (Maybe Text)
+ratDescription = lens _ratDescription (\s a -> s { _ratDescription = a })
+{-# INLINE ratDescription #-}
 
 -- | If set, specifies the default maximum duration that a worker can take to
 -- process tasks of this activity type. This default can be overridden when
@@ -196,9 +144,11 @@ ratiDescription = lens _ratiDescription (\s a -> s { _ratiDescription = a })
 -- valid values are integers greater than or equal to 0. An integer value can
 -- be used to specify the duration in seconds while NONE can be used to
 -- specify unlimited duration.
-ratiDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskStartToCloseTimeout = lens _ratiDefaultTaskStartToCloseTimeout (\s a -> s { _ratiDefaultTaskStartToCloseTimeout = a })
-{-# INLINE ratiDefaultTaskStartToCloseTimeout #-}
+ratDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskStartToCloseTimeout =
+    lens _ratDefaultTaskStartToCloseTimeout
+         (\s a -> s { _ratDefaultTaskStartToCloseTimeout = a })
+{-# INLINE ratDefaultTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the default maximum time before which a worker processing
 -- a task of this type must report progress by calling
@@ -211,17 +161,20 @@ ratiDefaultTaskStartToCloseTimeout = lens _ratiDefaultTaskStartToCloseTimeout (\
 -- should clean up the activity task. The valid values are integers greater
 -- than or equal to 0. An integer value can be used to specify the duration in
 -- seconds while NONE can be used to specify unlimited duration.
-ratiDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskHeartbeatTimeout = lens _ratiDefaultTaskHeartbeatTimeout (\s a -> s { _ratiDefaultTaskHeartbeatTimeout = a })
-{-# INLINE ratiDefaultTaskHeartbeatTimeout #-}
+ratDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskHeartbeatTimeout =
+    lens _ratDefaultTaskHeartbeatTimeout
+         (\s a -> s { _ratDefaultTaskHeartbeatTimeout = a })
+{-# INLINE ratDefaultTaskHeartbeatTimeout #-}
 
 -- | If set, specifies the default task list to use for scheduling tasks of this
 -- activity type. This default task list is used if a task list is not
 -- provided when a task is scheduled through the ScheduleActivityTask
 -- Decision.
-ratiDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
-ratiDefaultTaskList = lens _ratiDefaultTaskList (\s a -> s { _ratiDefaultTaskList = a })
-{-# INLINE ratiDefaultTaskList #-}
+ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
+ratDefaultTaskList =
+    lens _ratDefaultTaskList (\s a -> s { _ratDefaultTaskList = a })
+{-# INLINE ratDefaultTaskList #-}
 
 -- | If set, specifies the default maximum duration that a task of this activity
 -- type can wait before being assigned to a worker. This default can be
@@ -229,18 +182,22 @@ ratiDefaultTaskList = lens _ratiDefaultTaskList (\s a -> s { _ratiDefaultTaskLis
 -- Decision. The valid values are integers greater than or equal to 0. An
 -- integer value can be used to specify the duration in seconds while NONE can
 -- be used to specify unlimited duration.
-ratiDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskScheduleToStartTimeout = lens _ratiDefaultTaskScheduleToStartTimeout (\s a -> s { _ratiDefaultTaskScheduleToStartTimeout = a })
-{-# INLINE ratiDefaultTaskScheduleToStartTimeout #-}
+ratDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskScheduleToStartTimeout =
+    lens _ratDefaultTaskScheduleToStartTimeout
+         (\s a -> s { _ratDefaultTaskScheduleToStartTimeout = a })
+{-# INLINE ratDefaultTaskScheduleToStartTimeout #-}
 
 -- | If set, specifies the default maximum duration for a task of this activity
 -- type. This default can be overridden when scheduling an activity task using
 -- the ScheduleActivityTask Decision. The valid values are integers greater
 -- than or equal to 0. An integer value can be used to specify the duration in
 -- seconds while NONE can be used to specify unlimited duration.
-ratiDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratiDefaultTaskScheduleToCloseTimeout = lens _ratiDefaultTaskScheduleToCloseTimeout (\s a -> s { _ratiDefaultTaskScheduleToCloseTimeout = a })
-{-# INLINE ratiDefaultTaskScheduleToCloseTimeout #-}
+ratDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskScheduleToCloseTimeout =
+    lens _ratDefaultTaskScheduleToCloseTimeout
+         (\s a -> s { _ratDefaultTaskScheduleToCloseTimeout = a })
+{-# INLINE ratDefaultTaskScheduleToCloseTimeout #-}
 
 instance ToPath RegisterActivityType
 

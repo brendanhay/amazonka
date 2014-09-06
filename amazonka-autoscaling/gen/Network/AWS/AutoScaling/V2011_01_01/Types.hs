@@ -43,7 +43,8 @@ module Network.AWS.AutoScaling.V2011_01_01.Types
 
     -- * AdjustmentType
     , AdjustmentType
-    , auAdjustmentType
+    , mkAdjustmentType
+    , atAdjustmentType
 
     -- * InstanceMonitoring
     , InstanceMonitoring
@@ -52,60 +53,66 @@ module Network.AWS.AutoScaling.V2011_01_01.Types
 
     -- * MetricCollectionType
     , MetricCollectionType
-    , mcuMetric
+    , mkMetricCollectionType
+    , mctMetric
 
     -- * MetricGranularityType
     , MetricGranularityType
-    , mguGranularity
+    , mkMetricGranularityType
+    , mgtGranularity
 
     -- * ProcessType
     , ProcessType
-    , pwProcessName
+    , mkProcessType
+    , ptProcessName
 
     -- * Activity
     , Activity
-    , ayActivityId
-    , ayAutoScalingGroupName
-    , ayDescription
-    , ayCause
-    , ayStartTime
-    , ayEndTime
-    , ayStatusCode
-    , ayStatusMessage
-    , ayProgress
-    , ayDetails
+    , mkActivity
+    , arsActivityId
+    , arsAutoScalingGroupName
+    , arsDescription
+    , arsCause
+    , arsStartTime
+    , arsEndTime
+    , arsStatusCode
+    , arsStatusMessage
+    , arsProgress
+    , arsDetails
 
     -- * Alarm
     , Alarm
     , mkAlarm
-    , amAlarmName
-    , amAlarmARN
+    , aAlarmName
+    , aAlarmARN
 
     -- * AutoScalingGroup
     , AutoScalingGroup
-    , ashAutoScalingGroupName
-    , ashAutoScalingGroupARN
-    , ashLaunchConfigurationName
-    , ashMinSize
-    , ashMaxSize
-    , ashDesiredCapacity
-    , ashDefaultCooldown
-    , ashAvailabilityZones
-    , ashLoadBalancerNames
-    , ashHealthCheckType
-    , ashHealthCheckGracePeriod
-    , ashInstances
-    , ashCreatedTime
-    , ashSuspendedProcesses
-    , ashPlacementGroup
-    , ashVPCZoneIdentifier
-    , ashEnabledMetrics
-    , ashStatus
-    , ashTags
-    , ashTerminationPolicies
+    , mkAutoScalingGroup
+    , asgAutoScalingGroupName
+    , asgAutoScalingGroupARN
+    , asgLaunchConfigurationName
+    , asgMinSize
+    , asgMaxSize
+    , asgDesiredCapacity
+    , asgDefaultCooldown
+    , asgAvailabilityZones
+    , asgLoadBalancerNames
+    , asgHealthCheckType
+    , asgHealthCheckGracePeriod
+    , asgInstances
+    , asgCreatedTime
+    , asgSuspendedProcesses
+    , asgPlacementGroup
+    , asgVPCZoneIdentifier
+    , asgEnabledMetrics
+    , asgStatus
+    , asgTags
+    , asgTerminationPolicies
 
     -- * AutoScalingInstanceDetails
     , AutoScalingInstanceDetails
+    , mkAutoScalingInstanceDetails
     , asidInstanceId
     , asidAutoScalingGroupName
     , asidAvailabilityZone
@@ -116,10 +123,10 @@ module Network.AWS.AutoScaling.V2011_01_01.Types
     -- * BlockDeviceMapping
     , BlockDeviceMapping
     , mkBlockDeviceMapping
-    , bdnVirtualName
-    , bdnDeviceName
-    , bdnEbs
-    , bdnNoDevice
+    , bdmVirtualName
+    , bdmDeviceName
+    , bdmEbs
+    , bdmNoDevice
 
     -- * Ebs
     , Ebs
@@ -133,100 +140,105 @@ module Network.AWS.AutoScaling.V2011_01_01.Types
     -- * EnabledMetric
     , EnabledMetric
     , mkEnabledMetric
-    , enMetric
-    , enGranularity
+    , emMetric
+    , emGranularity
 
     -- * Filter
     , Filter
     , mkFilter
-    , frName
-    , frValues
+    , fName
+    , fValues
 
     -- * Instance
     , Instance
     , mkInstance
-    , pInstanceId
-    , pAvailabilityZone
-    , pLifecycleState
-    , pHealthStatus
-    , pLaunchConfigurationName
+    , iInstanceId
+    , iAvailabilityZone
+    , iLifecycleState
+    , iHealthStatus
+    , iLaunchConfigurationName
 
     -- * LaunchConfiguration
     , LaunchConfiguration
-    , ldLaunchConfigurationName
-    , ldLaunchConfigurationARN
-    , ldImageId
-    , ldKeyName
-    , ldSecurityGroups
-    , ldUserData
-    , ldInstanceType
-    , ldKernelId
-    , ldRamdiskId
-    , ldBlockDeviceMappings
-    , ldInstanceMonitoring
-    , ldSpotPrice
-    , ldIamInstanceProfile
-    , ldCreatedTime
-    , ldEbsOptimized
-    , ldAssociatePublicIpAddress
-    , ldPlacementTenancy
+    , mkLaunchConfiguration
+    , lcLaunchConfigurationName
+    , lcLaunchConfigurationARN
+    , lcImageId
+    , lcKeyName
+    , lcSecurityGroups
+    , lcUserData
+    , lcInstanceType
+    , lcKernelId
+    , lcRamdiskId
+    , lcBlockDeviceMappings
+    , lcInstanceMonitoring
+    , lcSpotPrice
+    , lcIamInstanceProfile
+    , lcCreatedTime
+    , lcEbsOptimized
+    , lcAssociatePublicIpAddress
+    , lcPlacementTenancy
 
     -- * LifecycleHook
     , LifecycleHook
-    , liLifecycleHookName
-    , liAutoScalingGroupName
-    , liLifecycleTransition
-    , liNotificationTargetARN
-    , liRoleARN
-    , liNotificationMetadata
-    , liHeartbeatTimeout
-    , liGlobalTimeout
-    , liDefaultResult
+    , mkLifecycleHook
+    , lhLifecycleHookName
+    , lhAutoScalingGroupName
+    , lhLifecycleTransition
+    , lhNotificationTargetARN
+    , lhRoleARN
+    , lhNotificationMetadata
+    , lhHeartbeatTimeout
+    , lhGlobalTimeout
+    , lhDefaultResult
 
     -- * NotificationConfiguration
     , NotificationConfiguration
-    , nfAutoScalingGroupName
-    , nfTopicARN
-    , nfNotificationType
+    , mkNotificationConfiguration
+    , ncAutoScalingGroupName
+    , ncTopicARN
+    , ncNotificationType
 
     -- * ScalingPolicy
     , ScalingPolicy
-    , suAutoScalingGroupName
-    , suPolicyName
-    , suScalingAdjustment
-    , suAdjustmentType
-    , suCooldown
-    , suPolicyARN
-    , suAlarms
-    , suMinAdjustmentStep
+    , mkScalingPolicy
+    , sprsAutoScalingGroupName
+    , sprsPolicyName
+    , sprsScalingAdjustment
+    , sprsAdjustmentType
+    , sprsCooldown
+    , sprsPolicyARN
+    , sprsAlarms
+    , sprsMinAdjustmentStep
 
     -- * ScheduledUpdateGroupAction
     , ScheduledUpdateGroupAction
-    , sugbAutoScalingGroupName
-    , sugbScheduledActionName
-    , sugbScheduledActionARN
-    , sugbTime
-    , sugbStartTime
-    , sugbEndTime
-    , sugbRecurrence
-    , sugbMinSize
-    , sugbMaxSize
-    , sugbDesiredCapacity
+    , mkScheduledUpdateGroupAction
+    , sugaAutoScalingGroupName
+    , sugaScheduledActionName
+    , sugaScheduledActionARN
+    , sugaTime
+    , sugaStartTime
+    , sugaEndTime
+    , sugaRecurrence
+    , sugaMinSize
+    , sugaMaxSize
+    , sugaDesiredCapacity
 
     -- * SuspendedProcess
     , SuspendedProcess
     , mkSuspendedProcess
-    , srProcessName
-    , srSuspensionReason
+    , spProcessName
+    , spSuspensionReason
 
     -- * Tag
     , Tag
     , mkTag
-    , uResourceId
-    , uResourceType
-    , uKey
-    , uValue
-    , uPropagateAtLaunch
+    , tResourceId
+    , tResourceType
+    , tKey
+    , tValue
+    , tPropagateAtLaunch
 
     -- * TagDescription
     , TagDescription
@@ -292,8 +304,6 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "http://autoscaling.amazonaws.com/doc/2011-01-01/"
     }
 
--- | Contains a description of the current lifecycle state. The Quarantined
--- lifecycle state is currently not used.
 data LifecycleState
     = LifecycleStateDetached -- ^ Detached
     | LifecycleStateDetaching -- ^ Detaching
@@ -351,7 +361,6 @@ instance FromXML LifecycleState where
 instance ToQuery LifecycleState where
     toQuery = genericQuery def
 
--- | Contains the current status of the activity.
 data ScalingActivityStatusCode
     = ScalingActivityStatusCodeCancelled -- ^ Cancelled
     | ScalingActivityStatusCodeFailed -- ^ Failed
@@ -403,16 +412,23 @@ instance ToQuery ScalingActivityStatusCode where
 -- | Specifies whether the PutScalingPolicy ScalingAdjustment parameter is an
 -- absolute number or a percentage of the current capacity.
 newtype AdjustmentType = AdjustmentType
-    { _auAdjustmentType :: Maybe Text
-      -- ^ A policy adjustment type. Valid values are ChangeInCapacity,
-      -- ExactCapacity, and PercentChangeInCapacity.
+    { _atAdjustmentType :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AdjustmentType' data type to populate a request.
+mkAdjustmentType :: AdjustmentType
+mkAdjustmentType = AdjustmentType
+    { _atAdjustmentType = Nothing
+    }
+{-# INLINE mkAdjustmentType #-}
 
 -- | A policy adjustment type. Valid values are ChangeInCapacity, ExactCapacity,
 -- and PercentChangeInCapacity.
-auAdjustmentType :: Lens' AdjustmentType (Maybe Text)
-auAdjustmentType = lens _auAdjustmentType (\s a -> s { _auAdjustmentType = a })
-{-# INLINE auAdjustmentType #-}
+atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
+atAdjustmentType =
+    lens _atAdjustmentType (\s a -> s { _atAdjustmentType = a })
+{-# INLINE atAdjustmentType #-}
 
 instance FromXML AdjustmentType where
     fromXMLOptions = xmlOptions
@@ -427,13 +443,7 @@ instance FromXML AdjustmentType where
 -- Amazon CloudWatch Developer Guide.
 newtype InstanceMonitoring = InstanceMonitoring
     { _imEnabled :: Maybe Bool
-      -- ^ If True, instance monitoring is enabled.
     } deriving (Show, Generic)
-
--- | If True, instance monitoring is enabled.
-imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
-imEnabled = lens _imEnabled (\s a -> s { _imEnabled = a })
-{-# INLINE imEnabled #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceMonitoring' data type to populate a request.
@@ -442,6 +452,11 @@ mkInstanceMonitoring = InstanceMonitoring
     { _imEnabled = Nothing
     }
 {-# INLINE mkInstanceMonitoring #-}
+
+-- | If True, instance monitoring is enabled.
+imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
+imEnabled = lens _imEnabled (\s a -> s { _imEnabled = a })
+{-# INLINE imEnabled #-}
 
 instance FromXML InstanceMonitoring where
     fromXMLOptions = xmlOptions
@@ -452,14 +467,21 @@ instance ToQuery InstanceMonitoring where
 
 -- | The MetricCollectionType data type.
 newtype MetricCollectionType = MetricCollectionType
-    { _mcuMetric :: Maybe Text
-      -- ^ 
+    { _mctMetric :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'MetricCollectionType' data type to populate a request.
+mkMetricCollectionType :: MetricCollectionType
+mkMetricCollectionType = MetricCollectionType
+    { _mctMetric = Nothing
+    }
+{-# INLINE mkMetricCollectionType #-}
+
 -- | 
-mcuMetric :: Lens' MetricCollectionType (Maybe Text)
-mcuMetric = lens _mcuMetric (\s a -> s { _mcuMetric = a })
-{-# INLINE mcuMetric #-}
+mctMetric :: Lens' MetricCollectionType (Maybe Text)
+mctMetric = lens _mctMetric (\s a -> s { _mctMetric = a })
+{-# INLINE mctMetric #-}
 
 instance FromXML MetricCollectionType where
     fromXMLOptions = xmlOptions
@@ -467,14 +489,21 @@ instance FromXML MetricCollectionType where
 
 -- | The MetricGranularityType data type.
 newtype MetricGranularityType = MetricGranularityType
-    { _mguGranularity :: Maybe Text
-      -- ^ The granularity of a Metric.
+    { _mgtGranularity :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'MetricGranularityType' data type to populate a request.
+mkMetricGranularityType :: MetricGranularityType
+mkMetricGranularityType = MetricGranularityType
+    { _mgtGranularity = Nothing
+    }
+{-# INLINE mkMetricGranularityType #-}
+
 -- | The granularity of a Metric.
-mguGranularity :: Lens' MetricGranularityType (Maybe Text)
-mguGranularity = lens _mguGranularity (\s a -> s { _mguGranularity = a })
-{-# INLINE mguGranularity #-}
+mgtGranularity :: Lens' MetricGranularityType (Maybe Text)
+mgtGranularity = lens _mgtGranularity (\s a -> s { _mgtGranularity = a })
+{-# INLINE mgtGranularity #-}
 
 instance FromXML MetricGranularityType where
     fromXMLOptions = xmlOptions
@@ -540,14 +569,22 @@ instance FromXML MetricGranularityType where
 -- either Launch or Terminate, your scheduled actions might not function as
 -- expected.
 newtype ProcessType = ProcessType
-    { _pwProcessName :: Text
-      -- ^ The name of a process.
+    { _ptProcessName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ProcessType' data type to populate a request.
+mkProcessType :: Text -- ^ 'ptProcessName'
+              -> ProcessType
+mkProcessType p1 = ProcessType
+    { _ptProcessName = p1
+    }
+{-# INLINE mkProcessType #-}
+
 -- | The name of a process.
-pwProcessName :: Lens' ProcessType (Text)
-pwProcessName = lens _pwProcessName (\s a -> s { _pwProcessName = a })
-{-# INLINE pwProcessName #-}
+ptProcessName :: Lens' ProcessType Text
+ptProcessName = lens _ptProcessName (\s a -> s { _ptProcessName = a })
+{-# INLINE ptProcessName #-}
 
 instance FromXML ProcessType where
     fromXMLOptions = xmlOptions
@@ -558,81 +595,93 @@ instance FromXML ProcessType where
 -- be a process to replace an instance, or a process to perform any other
 -- long-running operations supported by the API.
 data Activity = Activity
-    { _ayActivityId :: Text
-      -- ^ Specifies the ID of the activity.
-    , _ayAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group.
-    , _ayDescription :: Maybe Text
-      -- ^ Contains a friendly, more verbose description of the scaling
-      -- activity.
-    , _ayCause :: Text
-      -- ^ Contains the reason the activity was begun.
-    , _ayStartTime :: ISO8601
-      -- ^ Provides the start time of this activity.
-    , _ayEndTime :: Maybe ISO8601
-      -- ^ Provides the end time of this activity.
-    , _ayStatusCode :: ScalingActivityStatusCode
-      -- ^ Contains the current status of the activity.
-    , _ayStatusMessage :: Maybe Text
-      -- ^ Contains a friendly, more verbose description of the activity
-      -- status.
-    , _ayProgress :: Maybe Integer
-      -- ^ Specifies a value between 0 and 100 that indicates the progress
-      -- of the activity.
-    , _ayDetails :: Maybe Text
-      -- ^ Contains details of the scaling activity.
+    { _arsActivityId :: Text
+    , _arsAutoScalingGroupName :: Text
+    , _arsDescription :: Maybe Text
+    , _arsCause :: Text
+    , _arsStartTime :: ISO8601
+    , _arsEndTime :: Maybe ISO8601
+    , _arsStatusCode :: ScalingActivityStatusCode
+    , _arsStatusMessage :: Maybe Text
+    , _arsProgress :: Maybe Integer
+    , _arsDetails :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Activity' data type to populate a request.
+mkActivity :: Text -- ^ 'arsActivityId'
+           -> Text -- ^ 'arsAutoScalingGroupName'
+           -> Text -- ^ 'arsCause'
+           -> ISO8601 -- ^ 'arsStartTime'
+           -> ScalingActivityStatusCode -- ^ 'arsStatusCode'
+           -> Activity
+mkActivity p1 p2 p4 p5 p7 = Activity
+    { _arsActivityId = p1
+    , _arsAutoScalingGroupName = p2
+    , _arsDescription = Nothing
+    , _arsCause = p4
+    , _arsStartTime = p5
+    , _arsEndTime = Nothing
+    , _arsStatusCode = p7
+    , _arsStatusMessage = Nothing
+    , _arsProgress = Nothing
+    , _arsDetails = Nothing
+    }
+{-# INLINE mkActivity #-}
+
 -- | Specifies the ID of the activity.
-ayActivityId :: Lens' Activity (Text)
-ayActivityId = lens _ayActivityId (\s a -> s { _ayActivityId = a })
-{-# INLINE ayActivityId #-}
+arsActivityId :: Lens' Activity Text
+arsActivityId = lens _arsActivityId (\s a -> s { _arsActivityId = a })
+{-# INLINE arsActivityId #-}
 
 -- | The name of the Auto Scaling group.
-ayAutoScalingGroupName :: Lens' Activity (Text)
-ayAutoScalingGroupName = lens _ayAutoScalingGroupName (\s a -> s { _ayAutoScalingGroupName = a })
-{-# INLINE ayAutoScalingGroupName #-}
+arsAutoScalingGroupName :: Lens' Activity Text
+arsAutoScalingGroupName =
+    lens _arsAutoScalingGroupName
+         (\s a -> s { _arsAutoScalingGroupName = a })
+{-# INLINE arsAutoScalingGroupName #-}
 
 -- | Contains a friendly, more verbose description of the scaling activity.
-ayDescription :: Lens' Activity (Maybe Text)
-ayDescription = lens _ayDescription (\s a -> s { _ayDescription = a })
-{-# INLINE ayDescription #-}
+arsDescription :: Lens' Activity (Maybe Text)
+arsDescription = lens _arsDescription (\s a -> s { _arsDescription = a })
+{-# INLINE arsDescription #-}
 
 -- | Contains the reason the activity was begun.
-ayCause :: Lens' Activity (Text)
-ayCause = lens _ayCause (\s a -> s { _ayCause = a })
-{-# INLINE ayCause #-}
+arsCause :: Lens' Activity Text
+arsCause = lens _arsCause (\s a -> s { _arsCause = a })
+{-# INLINE arsCause #-}
 
 -- | Provides the start time of this activity.
-ayStartTime :: Lens' Activity (ISO8601)
-ayStartTime = lens _ayStartTime (\s a -> s { _ayStartTime = a })
-{-# INLINE ayStartTime #-}
+arsStartTime :: Lens' Activity ISO8601
+arsStartTime = lens _arsStartTime (\s a -> s { _arsStartTime = a })
+{-# INLINE arsStartTime #-}
 
 -- | Provides the end time of this activity.
-ayEndTime :: Lens' Activity (Maybe ISO8601)
-ayEndTime = lens _ayEndTime (\s a -> s { _ayEndTime = a })
-{-# INLINE ayEndTime #-}
+arsEndTime :: Lens' Activity (Maybe ISO8601)
+arsEndTime = lens _arsEndTime (\s a -> s { _arsEndTime = a })
+{-# INLINE arsEndTime #-}
 
 -- | Contains the current status of the activity.
-ayStatusCode :: Lens' Activity (ScalingActivityStatusCode)
-ayStatusCode = lens _ayStatusCode (\s a -> s { _ayStatusCode = a })
-{-# INLINE ayStatusCode #-}
+arsStatusCode :: Lens' Activity ScalingActivityStatusCode
+arsStatusCode = lens _arsStatusCode (\s a -> s { _arsStatusCode = a })
+{-# INLINE arsStatusCode #-}
 
 -- | Contains a friendly, more verbose description of the activity status.
-ayStatusMessage :: Lens' Activity (Maybe Text)
-ayStatusMessage = lens _ayStatusMessage (\s a -> s { _ayStatusMessage = a })
-{-# INLINE ayStatusMessage #-}
+arsStatusMessage :: Lens' Activity (Maybe Text)
+arsStatusMessage =
+    lens _arsStatusMessage (\s a -> s { _arsStatusMessage = a })
+{-# INLINE arsStatusMessage #-}
 
 -- | Specifies a value between 0 and 100 that indicates the progress of the
 -- activity.
-ayProgress :: Lens' Activity (Maybe Integer)
-ayProgress = lens _ayProgress (\s a -> s { _ayProgress = a })
-{-# INLINE ayProgress #-}
+arsProgress :: Lens' Activity (Maybe Integer)
+arsProgress = lens _arsProgress (\s a -> s { _arsProgress = a })
+{-# INLINE arsProgress #-}
 
 -- | Contains details of the scaling activity.
-ayDetails :: Lens' Activity (Maybe Text)
-ayDetails = lens _ayDetails (\s a -> s { _ayDetails = a })
-{-# INLINE ayDetails #-}
+arsDetails :: Lens' Activity (Maybe Text)
+arsDetails = lens _arsDetails (\s a -> s { _arsDetails = a })
+{-# INLINE arsDetails #-}
 
 instance FromXML Activity where
     fromXMLOptions = xmlOptions
@@ -640,30 +689,28 @@ instance FromXML Activity where
 
 -- | The Alarm data type.
 data Alarm = Alarm
-    { _amAlarmName :: Maybe Text
-      -- ^ The name of the alarm.
-    , _amAlarmARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the alarm.
+    { _aAlarmName :: Maybe Text
+    , _aAlarmARN :: Maybe Text
     } deriving (Show, Generic)
-
--- | The name of the alarm.
-amAlarmName :: Lens' Alarm (Maybe Text)
-amAlarmName = lens _amAlarmName (\s a -> s { _amAlarmName = a })
-{-# INLINE amAlarmName #-}
-
--- | The Amazon Resource Name (ARN) of the alarm.
-amAlarmARN :: Lens' Alarm (Maybe Text)
-amAlarmARN = lens _amAlarmARN (\s a -> s { _amAlarmARN = a })
-{-# INLINE amAlarmARN #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Alarm' data type to populate a request.
 mkAlarm :: Alarm
 mkAlarm = Alarm
-    { _amAlarmName = Nothing
-    , _amAlarmARN = Nothing
+    { _aAlarmName = Nothing
+    , _aAlarmARN = Nothing
     }
 {-# INLINE mkAlarm #-}
+
+-- | The name of the alarm.
+aAlarmName :: Lens' Alarm (Maybe Text)
+aAlarmName = lens _aAlarmName (\s a -> s { _aAlarmName = a })
+{-# INLINE aAlarmName #-}
+
+-- | The Amazon Resource Name (ARN) of the alarm.
+aAlarmARN :: Lens' Alarm (Maybe Text)
+aAlarmARN = lens _aAlarmARN (\s a -> s { _aAlarmARN = a })
+{-# INLINE aAlarmARN #-}
 
 instance FromXML Alarm where
     fromXMLOptions = xmlOptions
@@ -674,168 +721,189 @@ instance ToQuery Alarm where
 
 -- | The AutoScalingGroup data type.
 data AutoScalingGroup = AutoScalingGroup
-    { _ashAutoScalingGroupName :: Text
-      -- ^ Specifies the name of the group.
-    , _ashAutoScalingGroupARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the Auto Scaling group.
-    , _ashLaunchConfigurationName :: Text
-      -- ^ Specifies the name of the associated LaunchConfiguration.
-    , _ashMinSize :: Integer
-      -- ^ Contains the minimum size of the Auto Scaling group.
-    , _ashMaxSize :: Integer
-      -- ^ Contains the maximum size of the Auto Scaling group.
-    , _ashDesiredCapacity :: Integer
-      -- ^ Specifies the desired capacity for the Auto Scaling group.
-    , _ashDefaultCooldown :: Integer
-      -- ^ The number of seconds after a scaling activity completes before
-      -- any further scaling activities can start.
-    , _ashAvailabilityZones :: [Text]
-      -- ^ Contains a list of Availability Zones for the group.
-    , _ashLoadBalancerNames :: [Text]
-      -- ^ A list of load balancers associated with this Auto Scaling group.
-    , _ashHealthCheckType :: Text
-      -- ^ The service of interest for the health status check, either "EC2"
-      -- for Amazon EC2 or "ELB" for Elastic Load Balancing.
-    , _ashHealthCheckGracePeriod :: Maybe Integer
-      -- ^ The length of time that Auto Scaling waits before checking an
-      -- instance's health status. The grace period begins when an
-      -- instance comes into service.
-    , _ashInstances :: [Instance]
-      -- ^ Provides a summary list of Amazon EC2 instances.
-    , _ashCreatedTime :: ISO8601
-      -- ^ Specifies the date and time the Auto Scaling group was created.
-    , _ashSuspendedProcesses :: [SuspendedProcess]
-      -- ^ Suspended processes associated with this Auto Scaling group.
-    , _ashPlacementGroup :: Maybe Text
-      -- ^ The name of the cluster placement group, if applicable. For more
-      -- information, go to Using Cluster Instances in the Amazon EC2 User
-      -- Guide.
-    , _ashVPCZoneIdentifier :: Maybe Text
-      -- ^ The subnet identifier for the Amazon VPC connection, if
-      -- applicable. You can specify several subnets in a comma-separated
-      -- list. When you specify VPCZoneIdentifier with AvailabilityZones,
-      -- ensure that the subnets' Availability Zones match the values you
-      -- specify for AvailabilityZones.
-    , _ashEnabledMetrics :: [EnabledMetric]
-      -- ^ A list of metrics enabled for this Auto Scaling group.
-    , _ashStatus :: Maybe Text
-      -- ^ The current state of the Auto Scaling group when a
-      -- DeleteAutoScalingGroup action is in progress.
-    , _ashTags :: [TagDescription]
-      -- ^ A list of tags for the Auto Scaling group.
-    , _ashTerminationPolicies :: [Text]
-      -- ^ A standalone termination policy or a list of termination policies
-      -- for this Auto Scaling group.
+    { _asgAutoScalingGroupName :: Text
+    , _asgAutoScalingGroupARN :: Maybe Text
+    , _asgLaunchConfigurationName :: Text
+    , _asgMinSize :: Integer
+    , _asgMaxSize :: Integer
+    , _asgDesiredCapacity :: Integer
+    , _asgDefaultCooldown :: Integer
+    , _asgAvailabilityZones :: [Text]
+    , _asgLoadBalancerNames :: [Text]
+    , _asgHealthCheckType :: Text
+    , _asgHealthCheckGracePeriod :: Maybe Integer
+    , _asgInstances :: [Instance]
+    , _asgCreatedTime :: ISO8601
+    , _asgSuspendedProcesses :: [SuspendedProcess]
+    , _asgPlacementGroup :: Maybe Text
+    , _asgVPCZoneIdentifier :: Maybe Text
+    , _asgEnabledMetrics :: [EnabledMetric]
+    , _asgStatus :: Maybe Text
+    , _asgTags :: [TagDescription]
+    , _asgTerminationPolicies :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AutoScalingGroup' data type to populate a request.
+mkAutoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
+                   -> Text -- ^ 'asgHealthCheckType'
+                   -> ISO8601 -- ^ 'asgCreatedTime'
+                   -> Text -- ^ 'asgLaunchConfigurationName'
+                   -> Integer -- ^ 'asgMinSize'
+                   -> Integer -- ^ 'asgMaxSize'
+                   -> Integer -- ^ 'asgDesiredCapacity'
+                   -> Integer -- ^ 'asgDefaultCooldown'
+                   -> [Text] -- ^ 'asgAvailabilityZones'
+                   -> AutoScalingGroup
+mkAutoScalingGroup p1 p10 p13 p3 p4 p5 p6 p7 p8 = AutoScalingGroup
+    { _asgAutoScalingGroupName = p1
+    , _asgAutoScalingGroupARN = Nothing
+    , _asgLaunchConfigurationName = p3
+    , _asgMinSize = p4
+    , _asgMaxSize = p5
+    , _asgDesiredCapacity = p6
+    , _asgDefaultCooldown = p7
+    , _asgAvailabilityZones = p8
+    , _asgLoadBalancerNames = mempty
+    , _asgHealthCheckType = p10
+    , _asgHealthCheckGracePeriod = Nothing
+    , _asgInstances = mempty
+    , _asgCreatedTime = p13
+    , _asgSuspendedProcesses = mempty
+    , _asgPlacementGroup = Nothing
+    , _asgVPCZoneIdentifier = Nothing
+    , _asgEnabledMetrics = mempty
+    , _asgStatus = Nothing
+    , _asgTags = mempty
+    , _asgTerminationPolicies = mempty
+    }
+{-# INLINE mkAutoScalingGroup #-}
+
 -- | Specifies the name of the group.
-ashAutoScalingGroupName :: Lens' AutoScalingGroup (Text)
-ashAutoScalingGroupName = lens _ashAutoScalingGroupName (\s a -> s { _ashAutoScalingGroupName = a })
-{-# INLINE ashAutoScalingGroupName #-}
+asgAutoScalingGroupName :: Lens' AutoScalingGroup Text
+asgAutoScalingGroupName =
+    lens _asgAutoScalingGroupName
+         (\s a -> s { _asgAutoScalingGroupName = a })
+{-# INLINE asgAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
-ashAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
-ashAutoScalingGroupARN = lens _ashAutoScalingGroupARN (\s a -> s { _ashAutoScalingGroupARN = a })
-{-# INLINE ashAutoScalingGroupARN #-}
+asgAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
+asgAutoScalingGroupARN =
+    lens _asgAutoScalingGroupARN (\s a -> s { _asgAutoScalingGroupARN = a })
+{-# INLINE asgAutoScalingGroupARN #-}
 
 -- | Specifies the name of the associated LaunchConfiguration.
-ashLaunchConfigurationName :: Lens' AutoScalingGroup (Text)
-ashLaunchConfigurationName = lens _ashLaunchConfigurationName (\s a -> s { _ashLaunchConfigurationName = a })
-{-# INLINE ashLaunchConfigurationName #-}
+asgLaunchConfigurationName :: Lens' AutoScalingGroup Text
+asgLaunchConfigurationName =
+    lens _asgLaunchConfigurationName
+         (\s a -> s { _asgLaunchConfigurationName = a })
+{-# INLINE asgLaunchConfigurationName #-}
 
 -- | Contains the minimum size of the Auto Scaling group.
-ashMinSize :: Lens' AutoScalingGroup (Integer)
-ashMinSize = lens _ashMinSize (\s a -> s { _ashMinSize = a })
-{-# INLINE ashMinSize #-}
+asgMinSize :: Lens' AutoScalingGroup Integer
+asgMinSize = lens _asgMinSize (\s a -> s { _asgMinSize = a })
+{-# INLINE asgMinSize #-}
 
 -- | Contains the maximum size of the Auto Scaling group.
-ashMaxSize :: Lens' AutoScalingGroup (Integer)
-ashMaxSize = lens _ashMaxSize (\s a -> s { _ashMaxSize = a })
-{-# INLINE ashMaxSize #-}
+asgMaxSize :: Lens' AutoScalingGroup Integer
+asgMaxSize = lens _asgMaxSize (\s a -> s { _asgMaxSize = a })
+{-# INLINE asgMaxSize #-}
 
 -- | Specifies the desired capacity for the Auto Scaling group.
-ashDesiredCapacity :: Lens' AutoScalingGroup (Integer)
-ashDesiredCapacity = lens _ashDesiredCapacity (\s a -> s { _ashDesiredCapacity = a })
-{-# INLINE ashDesiredCapacity #-}
+asgDesiredCapacity :: Lens' AutoScalingGroup Integer
+asgDesiredCapacity =
+    lens _asgDesiredCapacity (\s a -> s { _asgDesiredCapacity = a })
+{-# INLINE asgDesiredCapacity #-}
 
 -- | The number of seconds after a scaling activity completes before any further
 -- scaling activities can start.
-ashDefaultCooldown :: Lens' AutoScalingGroup (Integer)
-ashDefaultCooldown = lens _ashDefaultCooldown (\s a -> s { _ashDefaultCooldown = a })
-{-# INLINE ashDefaultCooldown #-}
+asgDefaultCooldown :: Lens' AutoScalingGroup Integer
+asgDefaultCooldown =
+    lens _asgDefaultCooldown (\s a -> s { _asgDefaultCooldown = a })
+{-# INLINE asgDefaultCooldown #-}
 
 -- | Contains a list of Availability Zones for the group.
-ashAvailabilityZones :: Lens' AutoScalingGroup ([Text])
-ashAvailabilityZones = lens _ashAvailabilityZones (\s a -> s { _ashAvailabilityZones = a })
-{-# INLINE ashAvailabilityZones #-}
+asgAvailabilityZones :: Lens' AutoScalingGroup [Text]
+asgAvailabilityZones =
+    lens _asgAvailabilityZones (\s a -> s { _asgAvailabilityZones = a })
+{-# INLINE asgAvailabilityZones #-}
 
 -- | A list of load balancers associated with this Auto Scaling group.
-ashLoadBalancerNames :: Lens' AutoScalingGroup ([Text])
-ashLoadBalancerNames = lens _ashLoadBalancerNames (\s a -> s { _ashLoadBalancerNames = a })
-{-# INLINE ashLoadBalancerNames #-}
+asgLoadBalancerNames :: Lens' AutoScalingGroup [Text]
+asgLoadBalancerNames =
+    lens _asgLoadBalancerNames (\s a -> s { _asgLoadBalancerNames = a })
+{-# INLINE asgLoadBalancerNames #-}
 
 -- | The service of interest for the health status check, either "EC2" for
 -- Amazon EC2 or "ELB" for Elastic Load Balancing.
-ashHealthCheckType :: Lens' AutoScalingGroup (Text)
-ashHealthCheckType = lens _ashHealthCheckType (\s a -> s { _ashHealthCheckType = a })
-{-# INLINE ashHealthCheckType #-}
+asgHealthCheckType :: Lens' AutoScalingGroup Text
+asgHealthCheckType =
+    lens _asgHealthCheckType (\s a -> s { _asgHealthCheckType = a })
+{-# INLINE asgHealthCheckType #-}
 
 -- | The length of time that Auto Scaling waits before checking an instance's
 -- health status. The grace period begins when an instance comes into service.
-ashHealthCheckGracePeriod :: Lens' AutoScalingGroup (Maybe Integer)
-ashHealthCheckGracePeriod = lens _ashHealthCheckGracePeriod (\s a -> s { _ashHealthCheckGracePeriod = a })
-{-# INLINE ashHealthCheckGracePeriod #-}
+asgHealthCheckGracePeriod :: Lens' AutoScalingGroup (Maybe Integer)
+asgHealthCheckGracePeriod =
+    lens _asgHealthCheckGracePeriod
+         (\s a -> s { _asgHealthCheckGracePeriod = a })
+{-# INLINE asgHealthCheckGracePeriod #-}
 
 -- | Provides a summary list of Amazon EC2 instances.
-ashInstances :: Lens' AutoScalingGroup ([Instance])
-ashInstances = lens _ashInstances (\s a -> s { _ashInstances = a })
-{-# INLINE ashInstances #-}
+asgInstances :: Lens' AutoScalingGroup [Instance]
+asgInstances = lens _asgInstances (\s a -> s { _asgInstances = a })
+{-# INLINE asgInstances #-}
 
 -- | Specifies the date and time the Auto Scaling group was created.
-ashCreatedTime :: Lens' AutoScalingGroup (ISO8601)
-ashCreatedTime = lens _ashCreatedTime (\s a -> s { _ashCreatedTime = a })
-{-# INLINE ashCreatedTime #-}
+asgCreatedTime :: Lens' AutoScalingGroup ISO8601
+asgCreatedTime = lens _asgCreatedTime (\s a -> s { _asgCreatedTime = a })
+{-# INLINE asgCreatedTime #-}
 
 -- | Suspended processes associated with this Auto Scaling group.
-ashSuspendedProcesses :: Lens' AutoScalingGroup ([SuspendedProcess])
-ashSuspendedProcesses = lens _ashSuspendedProcesses (\s a -> s { _ashSuspendedProcesses = a })
-{-# INLINE ashSuspendedProcesses #-}
+asgSuspendedProcesses :: Lens' AutoScalingGroup [SuspendedProcess]
+asgSuspendedProcesses =
+    lens _asgSuspendedProcesses (\s a -> s { _asgSuspendedProcesses = a })
+{-# INLINE asgSuspendedProcesses #-}
 
 -- | The name of the cluster placement group, if applicable. For more
 -- information, go to Using Cluster Instances in the Amazon EC2 User Guide.
-ashPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
-ashPlacementGroup = lens _ashPlacementGroup (\s a -> s { _ashPlacementGroup = a })
-{-# INLINE ashPlacementGroup #-}
+asgPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
+asgPlacementGroup =
+    lens _asgPlacementGroup (\s a -> s { _asgPlacementGroup = a })
+{-# INLINE asgPlacementGroup #-}
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You can
 -- specify several subnets in a comma-separated list. When you specify
 -- VPCZoneIdentifier with AvailabilityZones, ensure that the subnets'
 -- Availability Zones match the values you specify for AvailabilityZones.
-ashVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
-ashVPCZoneIdentifier = lens _ashVPCZoneIdentifier (\s a -> s { _ashVPCZoneIdentifier = a })
-{-# INLINE ashVPCZoneIdentifier #-}
+asgVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
+asgVPCZoneIdentifier =
+    lens _asgVPCZoneIdentifier (\s a -> s { _asgVPCZoneIdentifier = a })
+{-# INLINE asgVPCZoneIdentifier #-}
 
 -- | A list of metrics enabled for this Auto Scaling group.
-ashEnabledMetrics :: Lens' AutoScalingGroup ([EnabledMetric])
-ashEnabledMetrics = lens _ashEnabledMetrics (\s a -> s { _ashEnabledMetrics = a })
-{-# INLINE ashEnabledMetrics #-}
+asgEnabledMetrics :: Lens' AutoScalingGroup [EnabledMetric]
+asgEnabledMetrics =
+    lens _asgEnabledMetrics (\s a -> s { _asgEnabledMetrics = a })
+{-# INLINE asgEnabledMetrics #-}
 
 -- | The current state of the Auto Scaling group when a DeleteAutoScalingGroup
 -- action is in progress.
-ashStatus :: Lens' AutoScalingGroup (Maybe Text)
-ashStatus = lens _ashStatus (\s a -> s { _ashStatus = a })
-{-# INLINE ashStatus #-}
+asgStatus :: Lens' AutoScalingGroup (Maybe Text)
+asgStatus = lens _asgStatus (\s a -> s { _asgStatus = a })
+{-# INLINE asgStatus #-}
 
 -- | A list of tags for the Auto Scaling group.
-ashTags :: Lens' AutoScalingGroup ([TagDescription])
-ashTags = lens _ashTags (\s a -> s { _ashTags = a })
-{-# INLINE ashTags #-}
+asgTags :: Lens' AutoScalingGroup [TagDescription]
+asgTags = lens _asgTags (\s a -> s { _asgTags = a })
+{-# INLINE asgTags #-}
 
 -- | A standalone termination policy or a list of termination policies for this
 -- Auto Scaling group.
-ashTerminationPolicies :: Lens' AutoScalingGroup ([Text])
-ashTerminationPolicies = lens _ashTerminationPolicies (\s a -> s { _ashTerminationPolicies = a })
-{-# INLINE ashTerminationPolicies #-}
+asgTerminationPolicies :: Lens' AutoScalingGroup [Text]
+asgTerminationPolicies =
+    lens _asgTerminationPolicies (\s a -> s { _asgTerminationPolicies = a })
+{-# INLINE asgTerminationPolicies #-}
 
 instance FromXML AutoScalingGroup where
     fromXMLOptions = xmlOptions
@@ -844,54 +912,70 @@ instance FromXML AutoScalingGroup where
 -- | The AutoScalingInstanceDetails data type.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     { _asidInstanceId :: Text
-      -- ^ The instance ID of the Amazon EC2 instance.
     , _asidAutoScalingGroupName :: Text
-      -- ^ The name of the Auto Scaling group associated with this instance.
     , _asidAvailabilityZone :: Text
-      -- ^ The Availability Zone in which this instance resides.
     , _asidLifecycleState :: Text
-      -- ^ The life cycle state of this instance. for more information, see
-      -- Instance Lifecycle State in the Auto Scaling Developer Guide.
     , _asidHealthStatus :: Text
-      -- ^ The health status of this instance. "Healthy" means that the
-      -- instance is healthy and should remain in service. "Unhealthy"
-      -- means that the instance is unhealthy. Auto Scaling should
-      -- terminate and replace it.
     , _asidLaunchConfigurationName :: Text
-      -- ^ The launch configuration associated with this instance.
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AutoScalingInstanceDetails' data type to populate a request.
+mkAutoScalingInstanceDetails :: Text -- ^ 'asidInstanceId'
+                             -> Text -- ^ 'asidAutoScalingGroupName'
+                             -> Text -- ^ 'asidAvailabilityZone'
+                             -> Text -- ^ 'asidLifecycleState'
+                             -> Text -- ^ 'asidHealthStatus'
+                             -> Text -- ^ 'asidLaunchConfigurationName'
+                             -> AutoScalingInstanceDetails
+mkAutoScalingInstanceDetails p1 p2 p3 p4 p5 p6 = AutoScalingInstanceDetails
+    { _asidInstanceId = p1
+    , _asidAutoScalingGroupName = p2
+    , _asidAvailabilityZone = p3
+    , _asidLifecycleState = p4
+    , _asidHealthStatus = p5
+    , _asidLaunchConfigurationName = p6
+    }
+{-# INLINE mkAutoScalingInstanceDetails #-}
+
 -- | The instance ID of the Amazon EC2 instance.
-asidInstanceId :: Lens' AutoScalingInstanceDetails (Text)
+asidInstanceId :: Lens' AutoScalingInstanceDetails Text
 asidInstanceId = lens _asidInstanceId (\s a -> s { _asidInstanceId = a })
 {-# INLINE asidInstanceId #-}
 
 -- | The name of the Auto Scaling group associated with this instance.
-asidAutoScalingGroupName :: Lens' AutoScalingInstanceDetails (Text)
-asidAutoScalingGroupName = lens _asidAutoScalingGroupName (\s a -> s { _asidAutoScalingGroupName = a })
+asidAutoScalingGroupName :: Lens' AutoScalingInstanceDetails Text
+asidAutoScalingGroupName =
+    lens _asidAutoScalingGroupName
+         (\s a -> s { _asidAutoScalingGroupName = a })
 {-# INLINE asidAutoScalingGroupName #-}
 
 -- | The Availability Zone in which this instance resides.
-asidAvailabilityZone :: Lens' AutoScalingInstanceDetails (Text)
-asidAvailabilityZone = lens _asidAvailabilityZone (\s a -> s { _asidAvailabilityZone = a })
+asidAvailabilityZone :: Lens' AutoScalingInstanceDetails Text
+asidAvailabilityZone =
+    lens _asidAvailabilityZone (\s a -> s { _asidAvailabilityZone = a })
 {-# INLINE asidAvailabilityZone #-}
 
 -- | The life cycle state of this instance. for more information, see Instance
 -- Lifecycle State in the Auto Scaling Developer Guide.
-asidLifecycleState :: Lens' AutoScalingInstanceDetails (Text)
-asidLifecycleState = lens _asidLifecycleState (\s a -> s { _asidLifecycleState = a })
+asidLifecycleState :: Lens' AutoScalingInstanceDetails Text
+asidLifecycleState =
+    lens _asidLifecycleState (\s a -> s { _asidLifecycleState = a })
 {-# INLINE asidLifecycleState #-}
 
 -- | The health status of this instance. "Healthy" means that the instance is
 -- healthy and should remain in service. "Unhealthy" means that the instance
 -- is unhealthy. Auto Scaling should terminate and replace it.
-asidHealthStatus :: Lens' AutoScalingInstanceDetails (Text)
-asidHealthStatus = lens _asidHealthStatus (\s a -> s { _asidHealthStatus = a })
+asidHealthStatus :: Lens' AutoScalingInstanceDetails Text
+asidHealthStatus =
+    lens _asidHealthStatus (\s a -> s { _asidHealthStatus = a })
 {-# INLINE asidHealthStatus #-}
 
 -- | The launch configuration associated with this instance.
-asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails (Text)
-asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\s a -> s { _asidLaunchConfigurationName = a })
+asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails Text
+asidLaunchConfigurationName =
+    lens _asidLaunchConfigurationName
+         (\s a -> s { _asidLaunchConfigurationName = a })
 {-# INLINE asidLaunchConfigurationName #-}
 
 instance FromXML AutoScalingInstanceDetails where
@@ -900,53 +984,45 @@ instance FromXML AutoScalingInstanceDetails where
 
 -- | The BlockDeviceMapping data type.
 data BlockDeviceMapping = BlockDeviceMapping
-    { _bdnVirtualName :: Maybe Text
-      -- ^ The virtual name associated with the device.
-    , _bdnDeviceName :: Text
-      -- ^ The name of the device within Amazon EC2 (for example, /dev/sdh
-      -- or xvdh).
-    , _bdnEbs :: Maybe Ebs
-      -- ^ The Elastic Block Storage volume information.
-    , _bdnNoDevice :: Maybe Bool
-      -- ^ Suppresses the device mapping. If NoDevice is set to true for the
-      -- root device, the instance might fail the EC2 health check. Auto
-      -- Scaling launches a replacement instance if the instance fails the
-      -- health check.
+    { _bdmVirtualName :: Maybe Text
+    , _bdmDeviceName :: Text
+    , _bdmEbs :: Maybe Ebs
+    , _bdmNoDevice :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'BlockDeviceMapping' data type to populate a request.
+mkBlockDeviceMapping :: Text -- ^ 'bdmDeviceName'
+                     -> BlockDeviceMapping
+mkBlockDeviceMapping p2 = BlockDeviceMapping
+    { _bdmVirtualName = Nothing
+    , _bdmDeviceName = p2
+    , _bdmEbs = Nothing
+    , _bdmNoDevice = Nothing
+    }
+{-# INLINE mkBlockDeviceMapping #-}
+
 -- | The virtual name associated with the device.
-bdnVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
-bdnVirtualName = lens _bdnVirtualName (\s a -> s { _bdnVirtualName = a })
-{-# INLINE bdnVirtualName #-}
+bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
+bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
+{-# INLINE bdmVirtualName #-}
 
 -- | The name of the device within Amazon EC2 (for example, /dev/sdh or xvdh).
-bdnDeviceName :: Lens' BlockDeviceMapping (Text)
-bdnDeviceName = lens _bdnDeviceName (\s a -> s { _bdnDeviceName = a })
-{-# INLINE bdnDeviceName #-}
+bdmDeviceName :: Lens' BlockDeviceMapping Text
+bdmDeviceName = lens _bdmDeviceName (\s a -> s { _bdmDeviceName = a })
+{-# INLINE bdmDeviceName #-}
 
 -- | The Elastic Block Storage volume information.
-bdnEbs :: Lens' BlockDeviceMapping (Maybe Ebs)
-bdnEbs = lens _bdnEbs (\s a -> s { _bdnEbs = a })
-{-# INLINE bdnEbs #-}
+bdmEbs :: Lens' BlockDeviceMapping (Maybe Ebs)
+bdmEbs = lens _bdmEbs (\s a -> s { _bdmEbs = a })
+{-# INLINE bdmEbs #-}
 
 -- | Suppresses the device mapping. If NoDevice is set to true for the root
 -- device, the instance might fail the EC2 health check. Auto Scaling launches
 -- a replacement instance if the instance fails the health check.
-bdnNoDevice :: Lens' BlockDeviceMapping (Maybe Bool)
-bdnNoDevice = lens _bdnNoDevice (\s a -> s { _bdnNoDevice = a })
-{-# INLINE bdnNoDevice #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'BlockDeviceMapping' data type to populate a request.
-mkBlockDeviceMapping :: Text -- ^ 'bdnDeviceName'
-                     -> BlockDeviceMapping
-mkBlockDeviceMapping p1 = BlockDeviceMapping
-    { _bdnVirtualName = Nothing
-    , _bdnDeviceName = p2
-    , _bdnEbs = Nothing
-    , _bdnNoDevice = Nothing
-    }
-{-# INLINE mkBlockDeviceMapping #-}
+bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Bool)
+bdmNoDevice = lens _bdmNoDevice (\s a -> s { _bdmNoDevice = a })
+{-# INLINE bdmNoDevice #-}
 
 instance FromXML BlockDeviceMapping where
     fromXMLOptions = xmlOptions
@@ -958,23 +1034,23 @@ instance ToQuery BlockDeviceMapping where
 -- | The Elastic Block Storage volume information.
 data Ebs = Ebs
     { _eSnapshotId :: Maybe Text
-      -- ^ The snapshot ID.
     , _eVolumeSize :: Maybe Integer
-      -- ^ The volume size, in gigabytes. Valid values: If the volume type
-      -- is io1, the minimum size of the volume is 10. Default: If you're
-      -- creating the volume from a snapshot, and you don't specify a
-      -- volume size, the default is the snapshot size. Required: Required
-      -- when the volume type is io1.
     , _eVolumeType :: Maybe Text
-      -- ^ The volume type. Valid values: standard | io1 Default: standard.
     , _eDeleteOnTermination :: Maybe Bool
-      -- ^ Indicates whether to delete the volume on instance termination.
-      -- Default: true.
     , _eIops :: Maybe Integer
-      -- ^ The number of I/O operations per second (IOPS) that the volume
-      -- supports. The maximum ratio of IOPS to volume size is 30.0 Valid
-      -- Values: Range is 100 to 4000. Default: None.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Ebs' data type to populate a request.
+mkEbs :: Ebs
+mkEbs = Ebs
+    { _eSnapshotId = Nothing
+    , _eVolumeSize = Nothing
+    , _eVolumeType = Nothing
+    , _eDeleteOnTermination = Nothing
+    , _eIops = Nothing
+    }
+{-# INLINE mkEbs #-}
 
 -- | The snapshot ID.
 eSnapshotId :: Lens' Ebs (Maybe Text)
@@ -997,7 +1073,8 @@ eVolumeType = lens _eVolumeType (\s a -> s { _eVolumeType = a })
 -- | Indicates whether to delete the volume on instance termination. Default:
 -- true.
 eDeleteOnTermination :: Lens' Ebs (Maybe Bool)
-eDeleteOnTermination = lens _eDeleteOnTermination (\s a -> s { _eDeleteOnTermination = a })
+eDeleteOnTermination =
+    lens _eDeleteOnTermination (\s a -> s { _eDeleteOnTermination = a })
 {-# INLINE eDeleteOnTermination #-}
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
@@ -1006,18 +1083,6 @@ eDeleteOnTermination = lens _eDeleteOnTermination (\s a -> s { _eDeleteOnTermina
 eIops :: Lens' Ebs (Maybe Integer)
 eIops = lens _eIops (\s a -> s { _eIops = a })
 {-# INLINE eIops #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Ebs' data type to populate a request.
-mkEbs :: Ebs
-mkEbs = Ebs
-    { _eSnapshotId = Nothing
-    , _eVolumeSize = Nothing
-    , _eVolumeType = Nothing
-    , _eDeleteOnTermination = Nothing
-    , _eIops = Nothing
-    }
-{-# INLINE mkEbs #-}
 
 instance FromXML Ebs where
     fromXMLOptions = xmlOptions
@@ -1028,30 +1093,28 @@ instance ToQuery Ebs where
 
 -- | The EnabledMetric data type.
 data EnabledMetric = EnabledMetric
-    { _enMetric :: Maybe Text
-      -- ^ The name of the enabled metric.
-    , _enGranularity :: Maybe Text
-      -- ^ The granularity of the enabled metric.
+    { _emMetric :: Maybe Text
+    , _emGranularity :: Maybe Text
     } deriving (Show, Generic)
-
--- | The name of the enabled metric.
-enMetric :: Lens' EnabledMetric (Maybe Text)
-enMetric = lens _enMetric (\s a -> s { _enMetric = a })
-{-# INLINE enMetric #-}
-
--- | The granularity of the enabled metric.
-enGranularity :: Lens' EnabledMetric (Maybe Text)
-enGranularity = lens _enGranularity (\s a -> s { _enGranularity = a })
-{-# INLINE enGranularity #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnabledMetric' data type to populate a request.
 mkEnabledMetric :: EnabledMetric
 mkEnabledMetric = EnabledMetric
-    { _enMetric = Nothing
-    , _enGranularity = Nothing
+    { _emMetric = Nothing
+    , _emGranularity = Nothing
     }
 {-# INLINE mkEnabledMetric #-}
+
+-- | The name of the enabled metric.
+emMetric :: Lens' EnabledMetric (Maybe Text)
+emMetric = lens _emMetric (\s a -> s { _emMetric = a })
+{-# INLINE emMetric #-}
+
+-- | The granularity of the enabled metric.
+emGranularity :: Lens' EnabledMetric (Maybe Text)
+emGranularity = lens _emGranularity (\s a -> s { _emGranularity = a })
+{-# INLINE emGranularity #-}
 
 instance FromXML EnabledMetric where
     fromXMLOptions = xmlOptions
@@ -1062,94 +1125,88 @@ instance ToQuery EnabledMetric where
 
 -- | The Filter data type.
 data Filter = Filter
-    { _frName :: Text
-      -- ^ The name of the filter. Valid Name values are:
-      -- "auto-scaling-group", "key", "value", and "propagate-at-launch".
-    , _frValues :: [Text]
-      -- ^ The value of the filter.
+    { _fName :: Maybe Text
+    , _fValues :: [Text]
     } deriving (Show, Generic)
-
--- | The name of the filter. Valid Name values are: "auto-scaling-group", "key",
--- "value", and "propagate-at-launch".
-frName :: Lens' Filter (Text)
-frName = lens _frName (\s a -> s { _frName = a })
-{-# INLINE frName #-}
-
--- | The value of the filter.
-frValues :: Lens' Filter ([Text])
-frValues = lens _frValues (\s a -> s { _frValues = a })
-{-# INLINE frValues #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Filter' data type to populate a request.
-mkFilter :: Text -- ^ 'frName'
+mkFilter :: Maybe Text -- ^ 'fName'
          -> Filter
 mkFilter p1 = Filter
-    { _frName = p1
-    , _frValues = mempty
+    { _fName = p1
+    , _fValues = mempty
     }
 {-# INLINE mkFilter #-}
+
+-- | The name of the filter. Valid Name values are: "auto-scaling-group", "key",
+-- "value", and "propagate-at-launch".
+fName :: Lens' Filter (Maybe Text)
+fName = lens _fName (\s a -> s { _fName = a })
+{-# INLINE fName #-}
+
+-- | The value of the filter.
+fValues :: Lens' Filter [Text]
+fValues = lens _fValues (\s a -> s { _fValues = a })
+{-# INLINE fValues #-}
 
 instance ToQuery Filter where
     toQuery = genericQuery def
 
 -- | The Instance data type.
 data Instance = Instance
-    { _pInstanceId :: Text
-      -- ^ Specifies the ID of the Amazon EC2 instance.
-    , _pAvailabilityZone :: Text
-      -- ^ Availability Zones associated with this instance.
-    , _pLifecycleState :: LifecycleState
-      -- ^ Contains a description of the current lifecycle state. The
-      -- Quarantined lifecycle state is currently not used.
-    , _pHealthStatus :: Text
-      -- ^ The instance's health status.
-    , _pLaunchConfigurationName :: Text
-      -- ^ The launch configuration associated with this instance.
+    { _iInstanceId :: Text
+    , _iAvailabilityZone :: Text
+    , _iLifecycleState :: LifecycleState
+    , _iHealthStatus :: Text
+    , _iLaunchConfigurationName :: Text
     } deriving (Show, Generic)
-
--- | Specifies the ID of the Amazon EC2 instance.
-pInstanceId :: Lens' Instance (Text)
-pInstanceId = lens _pInstanceId (\s a -> s { _pInstanceId = a })
-{-# INLINE pInstanceId #-}
-
--- | Availability Zones associated with this instance.
-pAvailabilityZone :: Lens' Instance (Text)
-pAvailabilityZone = lens _pAvailabilityZone (\s a -> s { _pAvailabilityZone = a })
-{-# INLINE pAvailabilityZone #-}
-
--- | Contains a description of the current lifecycle state. The Quarantined
--- lifecycle state is currently not used.
-pLifecycleState :: Lens' Instance (LifecycleState)
-pLifecycleState = lens _pLifecycleState (\s a -> s { _pLifecycleState = a })
-{-# INLINE pLifecycleState #-}
-
--- | The instance's health status.
-pHealthStatus :: Lens' Instance (Text)
-pHealthStatus = lens _pHealthStatus (\s a -> s { _pHealthStatus = a })
-{-# INLINE pHealthStatus #-}
-
--- | The launch configuration associated with this instance.
-pLaunchConfigurationName :: Lens' Instance (Text)
-pLaunchConfigurationName = lens _pLaunchConfigurationName (\s a -> s { _pLaunchConfigurationName = a })
-{-# INLINE pLaunchConfigurationName #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
-mkInstance :: Text -- ^ 'pInstanceId'
-           -> Text -- ^ 'pAvailabilityZone'
-           -> LifecycleState -- ^ 'pLifecycleState'
-           -> Text -- ^ 'pHealthStatus'
-           -> Text -- ^ 'pLaunchConfigurationName'
+mkInstance :: Text -- ^ 'iInstanceId'
+           -> Text -- ^ 'iAvailabilityZone'
+           -> LifecycleState -- ^ 'iLifecycleState'
+           -> Text -- ^ 'iHealthStatus'
+           -> Text -- ^ 'iLaunchConfigurationName'
            -> Instance
 mkInstance p1 p2 p3 p4 p5 = Instance
-    { _pInstanceId = p1
-    , _pAvailabilityZone = p2
-    , _pLifecycleState = p3
-    , _pHealthStatus = p4
-    , _pLaunchConfigurationName = p5
+    { _iInstanceId = p1
+    , _iAvailabilityZone = p2
+    , _iLifecycleState = p3
+    , _iHealthStatus = p4
+    , _iLaunchConfigurationName = p5
     }
 {-# INLINE mkInstance #-}
+
+-- | Specifies the ID of the Amazon EC2 instance.
+iInstanceId :: Lens' Instance Text
+iInstanceId = lens _iInstanceId (\s a -> s { _iInstanceId = a })
+{-# INLINE iInstanceId #-}
+
+-- | Availability Zones associated with this instance.
+iAvailabilityZone :: Lens' Instance Text
+iAvailabilityZone =
+    lens _iAvailabilityZone (\s a -> s { _iAvailabilityZone = a })
+{-# INLINE iAvailabilityZone #-}
+
+-- | Contains a description of the current lifecycle state. The Quarantined
+-- lifecycle state is currently not used.
+iLifecycleState :: Lens' Instance LifecycleState
+iLifecycleState = lens _iLifecycleState (\s a -> s { _iLifecycleState = a })
+{-# INLINE iLifecycleState #-}
+
+-- | The instance's health status.
+iHealthStatus :: Lens' Instance Text
+iHealthStatus = lens _iHealthStatus (\s a -> s { _iHealthStatus = a })
+{-# INLINE iHealthStatus #-}
+
+-- | The launch configuration associated with this instance.
+iLaunchConfigurationName :: Lens' Instance Text
+iLaunchConfigurationName =
+    lens _iLaunchConfigurationName
+         (\s a -> s { _iLaunchConfigurationName = a })
+{-# INLINE iLaunchConfigurationName #-}
 
 instance FromXML Instance where
     fromXMLOptions = xmlOptions
@@ -1160,148 +1217,158 @@ instance ToQuery Instance where
 
 -- | The LaunchConfiguration data type.
 data LaunchConfiguration = LaunchConfiguration
-    { _ldLaunchConfigurationName :: Text
-      -- ^ Specifies the name of the launch configuration.
-    , _ldLaunchConfigurationARN :: Maybe Text
-      -- ^ The launch configuration's Amazon Resource Name (ARN).
-    , _ldImageId :: Text
-      -- ^ Provides the unique ID of the Amazon Machine Image (AMI) that was
-      -- assigned during registration.
-    , _ldKeyName :: Maybe Text
-      -- ^ Provides the name of the Amazon EC2 key pair.
-    , _ldSecurityGroups :: [Text]
-      -- ^ A description of the security groups to associate with the Amazon
-      -- EC2 instances.
-    , _ldUserData :: Maybe Text
-      -- ^ The user data available to the launched Amazon EC2 instances.
-    , _ldInstanceType :: Text
-      -- ^ Specifies the instance type of the Amazon EC2 instance.
-    , _ldKernelId :: Maybe Text
-      -- ^ Provides the ID of the kernel associated with the Amazon EC2 AMI.
-    , _ldRamdiskId :: Maybe Text
-      -- ^ Provides ID of the RAM disk associated with the Amazon EC2 AMI.
-    , _ldBlockDeviceMappings :: [BlockDeviceMapping]
-      -- ^ Specifies how block devices are exposed to the instance. Each
-      -- mapping is made up of a virtualName and a deviceName.
-    , _ldInstanceMonitoring :: Maybe InstanceMonitoring
-      -- ^ Controls whether instances in this group are launched with
-      -- detailed monitoring or not.
-    , _ldSpotPrice :: Maybe Text
-      -- ^ Specifies the price to bid when launching Spot Instances.
-    , _ldIamInstanceProfile :: Maybe Text
-      -- ^ Provides the name or the Amazon Resource Name (ARN) of the
-      -- instance profile associated with the IAM role for the instance.
-      -- The instance profile contains the IAM role.
-    , _ldCreatedTime :: ISO8601
-      -- ^ Provides the creation date and time for this launch
-      -- configuration.
-    , _ldEbsOptimized :: Maybe Bool
-      -- ^ Specifies whether the instance is optimized for EBS I/O (true) or
-      -- not (false).
-    , _ldAssociatePublicIpAddress :: Maybe Bool
-      -- ^ Specifies whether the instance is associated with a public IP
-      -- address (true) or not (false).
-    , _ldPlacementTenancy :: Maybe Text
-      -- ^ Specifies the tenancy of the instance. It can be either default
-      -- or dedicated. An instance with dedicated tenancy runs in an
-      -- isolated, single-tenant hardware and it can only be launched in a
-      -- VPC.
+    { _lcLaunchConfigurationName :: Text
+    , _lcLaunchConfigurationARN :: Maybe Text
+    , _lcImageId :: Text
+    , _lcKeyName :: Maybe Text
+    , _lcSecurityGroups :: [Text]
+    , _lcUserData :: Maybe Text
+    , _lcInstanceType :: Text
+    , _lcKernelId :: Maybe Text
+    , _lcRamdiskId :: Maybe Text
+    , _lcBlockDeviceMappings :: [BlockDeviceMapping]
+    , _lcInstanceMonitoring :: Maybe InstanceMonitoring
+    , _lcSpotPrice :: Maybe Text
+    , _lcIamInstanceProfile :: Maybe Text
+    , _lcCreatedTime :: ISO8601
+    , _lcEbsOptimized :: Maybe Bool
+    , _lcAssociatePublicIpAddress :: Maybe Bool
+    , _lcPlacementTenancy :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LaunchConfiguration' data type to populate a request.
+mkLaunchConfiguration :: Text -- ^ 'lcLaunchConfigurationName'
+                      -> ISO8601 -- ^ 'lcCreatedTime'
+                      -> Text -- ^ 'lcImageId'
+                      -> Text -- ^ 'lcInstanceType'
+                      -> LaunchConfiguration
+mkLaunchConfiguration p1 p14 p3 p7 = LaunchConfiguration
+    { _lcLaunchConfigurationName = p1
+    , _lcLaunchConfigurationARN = Nothing
+    , _lcImageId = p3
+    , _lcKeyName = Nothing
+    , _lcSecurityGroups = mempty
+    , _lcUserData = Nothing
+    , _lcInstanceType = p7
+    , _lcKernelId = Nothing
+    , _lcRamdiskId = Nothing
+    , _lcBlockDeviceMappings = mempty
+    , _lcInstanceMonitoring = Nothing
+    , _lcSpotPrice = Nothing
+    , _lcIamInstanceProfile = Nothing
+    , _lcCreatedTime = p14
+    , _lcEbsOptimized = Nothing
+    , _lcAssociatePublicIpAddress = Nothing
+    , _lcPlacementTenancy = Nothing
+    }
+{-# INLINE mkLaunchConfiguration #-}
+
 -- | Specifies the name of the launch configuration.
-ldLaunchConfigurationName :: Lens' LaunchConfiguration (Text)
-ldLaunchConfigurationName = lens _ldLaunchConfigurationName (\s a -> s { _ldLaunchConfigurationName = a })
-{-# INLINE ldLaunchConfigurationName #-}
+lcLaunchConfigurationName :: Lens' LaunchConfiguration Text
+lcLaunchConfigurationName =
+    lens _lcLaunchConfigurationName
+         (\s a -> s { _lcLaunchConfigurationName = a })
+{-# INLINE lcLaunchConfigurationName #-}
 
 -- | The launch configuration's Amazon Resource Name (ARN).
-ldLaunchConfigurationARN :: Lens' LaunchConfiguration (Maybe Text)
-ldLaunchConfigurationARN = lens _ldLaunchConfigurationARN (\s a -> s { _ldLaunchConfigurationARN = a })
-{-# INLINE ldLaunchConfigurationARN #-}
+lcLaunchConfigurationARN :: Lens' LaunchConfiguration (Maybe Text)
+lcLaunchConfigurationARN =
+    lens _lcLaunchConfigurationARN
+         (\s a -> s { _lcLaunchConfigurationARN = a })
+{-# INLINE lcLaunchConfigurationARN #-}
 
 -- | Provides the unique ID of the Amazon Machine Image (AMI) that was assigned
 -- during registration.
-ldImageId :: Lens' LaunchConfiguration (Text)
-ldImageId = lens _ldImageId (\s a -> s { _ldImageId = a })
-{-# INLINE ldImageId #-}
+lcImageId :: Lens' LaunchConfiguration Text
+lcImageId = lens _lcImageId (\s a -> s { _lcImageId = a })
+{-# INLINE lcImageId #-}
 
 -- | Provides the name of the Amazon EC2 key pair.
-ldKeyName :: Lens' LaunchConfiguration (Maybe Text)
-ldKeyName = lens _ldKeyName (\s a -> s { _ldKeyName = a })
-{-# INLINE ldKeyName #-}
+lcKeyName :: Lens' LaunchConfiguration (Maybe Text)
+lcKeyName = lens _lcKeyName (\s a -> s { _lcKeyName = a })
+{-# INLINE lcKeyName #-}
 
 -- | A description of the security groups to associate with the Amazon EC2
 -- instances.
-ldSecurityGroups :: Lens' LaunchConfiguration ([Text])
-ldSecurityGroups = lens _ldSecurityGroups (\s a -> s { _ldSecurityGroups = a })
-{-# INLINE ldSecurityGroups #-}
+lcSecurityGroups :: Lens' LaunchConfiguration [Text]
+lcSecurityGroups =
+    lens _lcSecurityGroups (\s a -> s { _lcSecurityGroups = a })
+{-# INLINE lcSecurityGroups #-}
 
 -- | The user data available to the launched Amazon EC2 instances.
-ldUserData :: Lens' LaunchConfiguration (Maybe Text)
-ldUserData = lens _ldUserData (\s a -> s { _ldUserData = a })
-{-# INLINE ldUserData #-}
+lcUserData :: Lens' LaunchConfiguration (Maybe Text)
+lcUserData = lens _lcUserData (\s a -> s { _lcUserData = a })
+{-# INLINE lcUserData #-}
 
 -- | Specifies the instance type of the Amazon EC2 instance.
-ldInstanceType :: Lens' LaunchConfiguration (Text)
-ldInstanceType = lens _ldInstanceType (\s a -> s { _ldInstanceType = a })
-{-# INLINE ldInstanceType #-}
+lcInstanceType :: Lens' LaunchConfiguration Text
+lcInstanceType = lens _lcInstanceType (\s a -> s { _lcInstanceType = a })
+{-# INLINE lcInstanceType #-}
 
 -- | Provides the ID of the kernel associated with the Amazon EC2 AMI.
-ldKernelId :: Lens' LaunchConfiguration (Maybe Text)
-ldKernelId = lens _ldKernelId (\s a -> s { _ldKernelId = a })
-{-# INLINE ldKernelId #-}
+lcKernelId :: Lens' LaunchConfiguration (Maybe Text)
+lcKernelId = lens _lcKernelId (\s a -> s { _lcKernelId = a })
+{-# INLINE lcKernelId #-}
 
 -- | Provides ID of the RAM disk associated with the Amazon EC2 AMI.
-ldRamdiskId :: Lens' LaunchConfiguration (Maybe Text)
-ldRamdiskId = lens _ldRamdiskId (\s a -> s { _ldRamdiskId = a })
-{-# INLINE ldRamdiskId #-}
+lcRamdiskId :: Lens' LaunchConfiguration (Maybe Text)
+lcRamdiskId = lens _lcRamdiskId (\s a -> s { _lcRamdiskId = a })
+{-# INLINE lcRamdiskId #-}
 
 -- | Specifies how block devices are exposed to the instance. Each mapping is
 -- made up of a virtualName and a deviceName.
-ldBlockDeviceMappings :: Lens' LaunchConfiguration ([BlockDeviceMapping])
-ldBlockDeviceMappings = lens _ldBlockDeviceMappings (\s a -> s { _ldBlockDeviceMappings = a })
-{-# INLINE ldBlockDeviceMappings #-}
+lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
+lcBlockDeviceMappings =
+    lens _lcBlockDeviceMappings (\s a -> s { _lcBlockDeviceMappings = a })
+{-# INLINE lcBlockDeviceMappings #-}
 
 -- | Controls whether instances in this group are launched with detailed
 -- monitoring or not.
-ldInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
-ldInstanceMonitoring = lens _ldInstanceMonitoring (\s a -> s { _ldInstanceMonitoring = a })
-{-# INLINE ldInstanceMonitoring #-}
+lcInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
+lcInstanceMonitoring =
+    lens _lcInstanceMonitoring (\s a -> s { _lcInstanceMonitoring = a })
+{-# INLINE lcInstanceMonitoring #-}
 
 -- | Specifies the price to bid when launching Spot Instances.
-ldSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
-ldSpotPrice = lens _ldSpotPrice (\s a -> s { _ldSpotPrice = a })
-{-# INLINE ldSpotPrice #-}
+lcSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
+lcSpotPrice = lens _lcSpotPrice (\s a -> s { _lcSpotPrice = a })
+{-# INLINE lcSpotPrice #-}
 
 -- | Provides the name or the Amazon Resource Name (ARN) of the instance profile
 -- associated with the IAM role for the instance. The instance profile
 -- contains the IAM role.
-ldIamInstanceProfile :: Lens' LaunchConfiguration (Maybe Text)
-ldIamInstanceProfile = lens _ldIamInstanceProfile (\s a -> s { _ldIamInstanceProfile = a })
-{-# INLINE ldIamInstanceProfile #-}
+lcIamInstanceProfile :: Lens' LaunchConfiguration (Maybe Text)
+lcIamInstanceProfile =
+    lens _lcIamInstanceProfile (\s a -> s { _lcIamInstanceProfile = a })
+{-# INLINE lcIamInstanceProfile #-}
 
 -- | Provides the creation date and time for this launch configuration.
-ldCreatedTime :: Lens' LaunchConfiguration (ISO8601)
-ldCreatedTime = lens _ldCreatedTime (\s a -> s { _ldCreatedTime = a })
-{-# INLINE ldCreatedTime #-}
+lcCreatedTime :: Lens' LaunchConfiguration ISO8601
+lcCreatedTime = lens _lcCreatedTime (\s a -> s { _lcCreatedTime = a })
+{-# INLINE lcCreatedTime #-}
 
 -- | Specifies whether the instance is optimized for EBS I/O (true) or not
 -- (false).
-ldEbsOptimized :: Lens' LaunchConfiguration (Maybe Bool)
-ldEbsOptimized = lens _ldEbsOptimized (\s a -> s { _ldEbsOptimized = a })
-{-# INLINE ldEbsOptimized #-}
+lcEbsOptimized :: Lens' LaunchConfiguration (Maybe Bool)
+lcEbsOptimized = lens _lcEbsOptimized (\s a -> s { _lcEbsOptimized = a })
+{-# INLINE lcEbsOptimized #-}
 
 -- | Specifies whether the instance is associated with a public IP address
 -- (true) or not (false).
-ldAssociatePublicIpAddress :: Lens' LaunchConfiguration (Maybe Bool)
-ldAssociatePublicIpAddress = lens _ldAssociatePublicIpAddress (\s a -> s { _ldAssociatePublicIpAddress = a })
-{-# INLINE ldAssociatePublicIpAddress #-}
+lcAssociatePublicIpAddress :: Lens' LaunchConfiguration (Maybe Bool)
+lcAssociatePublicIpAddress =
+    lens _lcAssociatePublicIpAddress
+         (\s a -> s { _lcAssociatePublicIpAddress = a })
+{-# INLINE lcAssociatePublicIpAddress #-}
 
 -- | Specifies the tenancy of the instance. It can be either default or
 -- dedicated. An instance with dedicated tenancy runs in an isolated,
 -- single-tenant hardware and it can only be launched in a VPC.
-ldPlacementTenancy :: Lens' LaunchConfiguration (Maybe Text)
-ldPlacementTenancy = lens _ldPlacementTenancy (\s a -> s { _ldPlacementTenancy = a })
-{-# INLINE ldPlacementTenancy #-}
+lcPlacementTenancy :: Lens' LaunchConfiguration (Maybe Text)
+lcPlacementTenancy =
+    lens _lcPlacementTenancy (\s a -> s { _lcPlacementTenancy = a })
+{-# INLINE lcPlacementTenancy #-}
 
 instance FromXML LaunchConfiguration where
     fromXMLOptions = xmlOptions
@@ -1314,62 +1381,52 @@ instance FromXML LaunchConfiguration where
 -- terminates, but before it is fully terminated To learn more, see Auto
 -- Scaling Pending State and Auto Scaling Terminating State.
 data LifecycleHook = LifecycleHook
-    { _liLifecycleHookName :: Maybe Text
-      -- ^ The name of the lifecycle action hook.
-    , _liAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group to which the lifecycle action
-      -- belongs.
-    , _liLifecycleTransition :: Maybe Text
-      -- ^ The Amazon EC2 instance state to which you want to attach the
-      -- lifecycle hook. See DescribeLifecycleHooks for a list of
-      -- available lifecycle hook types.
-    , _liNotificationTargetARN :: Maybe Text
-      -- ^ The ARN of the notification target that Auto Scaling will use to
-      -- notify you when an instance is in the transition state for the
-      -- lifecycle hook. This ARN target can be either an SQS queue or an
-      -- SNS topic. The notification message sent to the target will
-      -- include: Lifecycle action token User account ID Name of the Auto
-      -- Scaling group Lifecycle hook name EC2 instance ID Lifecycle
-      -- transition Notification metadata.
-    , _liRoleARN :: Maybe Text
-      -- ^ The ARN of the Amazon IAM role that allows the Auto Scaling group
-      -- to publish to the specified notification target.
-    , _liNotificationMetadata :: Maybe Text
-      -- ^ Contains additional information that you want to include any time
-      -- Auto Scaling sends a message to the notification target.
-    , _liHeartbeatTimeout :: Maybe Integer
-      -- ^ Defines the amount of time that can elapse before the lifecycle
-      -- hook times out. When the lifecycle hook times out, Auto Scaling
-      -- performs the action defined in the DefaultResult parameter. You
-      -- can prevent the lifecycle hook from timing out by calling
-      -- RecordLifecycleActionHeartbeat.
-    , _liGlobalTimeout :: Maybe Integer
-      -- ^ The maximum length of time an instance can remain in a
-      -- Pending:Wait or Terminating:Wait state. Currently, this value is
-      -- set at 48 hours.
-    , _liDefaultResult :: Maybe Text
-      -- ^ Defines the action the Auto Scaling group should take when the
-      -- lifecycle hook timeout elapses or if an unexpected failure
-      -- occurs. The value for this parameter can be either CONTINUE or
-      -- ABANDON. The default value for this parameter is CONTINUE.
+    { _lhLifecycleHookName :: Maybe Text
+    , _lhAutoScalingGroupName :: Maybe Text
+    , _lhLifecycleTransition :: Maybe Text
+    , _lhNotificationTargetARN :: Maybe Text
+    , _lhRoleARN :: Maybe Text
+    , _lhNotificationMetadata :: Maybe Text
+    , _lhHeartbeatTimeout :: Maybe Integer
+    , _lhGlobalTimeout :: Maybe Integer
+    , _lhDefaultResult :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'LifecycleHook' data type to populate a request.
+mkLifecycleHook :: LifecycleHook
+mkLifecycleHook = LifecycleHook
+    { _lhLifecycleHookName = Nothing
+    , _lhAutoScalingGroupName = Nothing
+    , _lhLifecycleTransition = Nothing
+    , _lhNotificationTargetARN = Nothing
+    , _lhRoleARN = Nothing
+    , _lhNotificationMetadata = Nothing
+    , _lhHeartbeatTimeout = Nothing
+    , _lhGlobalTimeout = Nothing
+    , _lhDefaultResult = Nothing
+    }
+{-# INLINE mkLifecycleHook #-}
+
 -- | The name of the lifecycle action hook.
-liLifecycleHookName :: Lens' LifecycleHook (Maybe Text)
-liLifecycleHookName = lens _liLifecycleHookName (\s a -> s { _liLifecycleHookName = a })
-{-# INLINE liLifecycleHookName #-}
+lhLifecycleHookName :: Lens' LifecycleHook (Maybe Text)
+lhLifecycleHookName =
+    lens _lhLifecycleHookName (\s a -> s { _lhLifecycleHookName = a })
+{-# INLINE lhLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle action belongs.
-liAutoScalingGroupName :: Lens' LifecycleHook (Maybe Text)
-liAutoScalingGroupName = lens _liAutoScalingGroupName (\s a -> s { _liAutoScalingGroupName = a })
-{-# INLINE liAutoScalingGroupName #-}
+lhAutoScalingGroupName :: Lens' LifecycleHook (Maybe Text)
+lhAutoScalingGroupName =
+    lens _lhAutoScalingGroupName (\s a -> s { _lhAutoScalingGroupName = a })
+{-# INLINE lhAutoScalingGroupName #-}
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
 -- hook. See DescribeLifecycleHooks for a list of available lifecycle hook
 -- types.
-liLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
-liLifecycleTransition = lens _liLifecycleTransition (\s a -> s { _liLifecycleTransition = a })
-{-# INLINE liLifecycleTransition #-}
+lhLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
+lhLifecycleTransition =
+    lens _lhLifecycleTransition (\s a -> s { _lhLifecycleTransition = a })
+{-# INLINE lhLifecycleTransition #-}
 
 -- | The ARN of the notification target that Auto Scaling will use to notify you
 -- when an instance is in the transition state for the lifecycle hook. This
@@ -1377,43 +1434,47 @@ liLifecycleTransition = lens _liLifecycleTransition (\s a -> s { _liLifecycleTra
 -- message sent to the target will include: Lifecycle action token User
 -- account ID Name of the Auto Scaling group Lifecycle hook name EC2 instance
 -- ID Lifecycle transition Notification metadata.
-liNotificationTargetARN :: Lens' LifecycleHook (Maybe Text)
-liNotificationTargetARN = lens _liNotificationTargetARN (\s a -> s { _liNotificationTargetARN = a })
-{-# INLINE liNotificationTargetARN #-}
+lhNotificationTargetARN :: Lens' LifecycleHook (Maybe Text)
+lhNotificationTargetARN =
+    lens _lhNotificationTargetARN
+         (\s a -> s { _lhNotificationTargetARN = a })
+{-# INLINE lhNotificationTargetARN #-}
 
 -- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
 -- publish to the specified notification target.
-liRoleARN :: Lens' LifecycleHook (Maybe Text)
-liRoleARN = lens _liRoleARN (\s a -> s { _liRoleARN = a })
-{-# INLINE liRoleARN #-}
+lhRoleARN :: Lens' LifecycleHook (Maybe Text)
+lhRoleARN = lens _lhRoleARN (\s a -> s { _lhRoleARN = a })
+{-# INLINE lhRoleARN #-}
 
 -- | Contains additional information that you want to include any time Auto
 -- Scaling sends a message to the notification target.
-liNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
-liNotificationMetadata = lens _liNotificationMetadata (\s a -> s { _liNotificationMetadata = a })
-{-# INLINE liNotificationMetadata #-}
+lhNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
+lhNotificationMetadata =
+    lens _lhNotificationMetadata (\s a -> s { _lhNotificationMetadata = a })
+{-# INLINE lhNotificationMetadata #-}
 
 -- | Defines the amount of time that can elapse before the lifecycle hook times
 -- out. When the lifecycle hook times out, Auto Scaling performs the action
 -- defined in the DefaultResult parameter. You can prevent the lifecycle hook
 -- from timing out by calling RecordLifecycleActionHeartbeat.
-liHeartbeatTimeout :: Lens' LifecycleHook (Maybe Integer)
-liHeartbeatTimeout = lens _liHeartbeatTimeout (\s a -> s { _liHeartbeatTimeout = a })
-{-# INLINE liHeartbeatTimeout #-}
+lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Integer)
+lhHeartbeatTimeout =
+    lens _lhHeartbeatTimeout (\s a -> s { _lhHeartbeatTimeout = a })
+{-# INLINE lhHeartbeatTimeout #-}
 
 -- | The maximum length of time an instance can remain in a Pending:Wait or
 -- Terminating:Wait state. Currently, this value is set at 48 hours.
-liGlobalTimeout :: Lens' LifecycleHook (Maybe Integer)
-liGlobalTimeout = lens _liGlobalTimeout (\s a -> s { _liGlobalTimeout = a })
-{-# INLINE liGlobalTimeout #-}
+lhGlobalTimeout :: Lens' LifecycleHook (Maybe Integer)
+lhGlobalTimeout = lens _lhGlobalTimeout (\s a -> s { _lhGlobalTimeout = a })
+{-# INLINE lhGlobalTimeout #-}
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for this
 -- parameter can be either CONTINUE or ABANDON. The default value for this
 -- parameter is CONTINUE.
-liDefaultResult :: Lens' LifecycleHook (Maybe Text)
-liDefaultResult = lens _liDefaultResult (\s a -> s { _liDefaultResult = a })
-{-# INLINE liDefaultResult #-}
+lhDefaultResult :: Lens' LifecycleHook (Maybe Text)
+lhDefaultResult = lens _lhDefaultResult (\s a -> s { _lhDefaultResult = a })
+{-# INLINE lhDefaultResult #-}
 
 instance FromXML LifecycleHook where
     fromXMLOptions = xmlOptions
@@ -1421,30 +1482,38 @@ instance FromXML LifecycleHook where
 
 -- | The NotificationConfiguration data type.
 data NotificationConfiguration = NotificationConfiguration
-    { _nfAutoScalingGroupName :: Maybe Text
-      -- ^ Specifies the Auto Scaling group name.
-    , _nfTopicARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon Simple Notification
-      -- Service (SNS) topic.
-    , _nfNotificationType :: Maybe Text
-      -- ^ The types of events for an action to start.
+    { _ncAutoScalingGroupName :: Maybe Text
+    , _ncTopicARN :: Maybe Text
+    , _ncNotificationType :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'NotificationConfiguration' data type to populate a request.
+mkNotificationConfiguration :: NotificationConfiguration
+mkNotificationConfiguration = NotificationConfiguration
+    { _ncAutoScalingGroupName = Nothing
+    , _ncTopicARN = Nothing
+    , _ncNotificationType = Nothing
+    }
+{-# INLINE mkNotificationConfiguration #-}
+
 -- | Specifies the Auto Scaling group name.
-nfAutoScalingGroupName :: Lens' NotificationConfiguration (Maybe Text)
-nfAutoScalingGroupName = lens _nfAutoScalingGroupName (\s a -> s { _nfAutoScalingGroupName = a })
-{-# INLINE nfAutoScalingGroupName #-}
+ncAutoScalingGroupName :: Lens' NotificationConfiguration (Maybe Text)
+ncAutoScalingGroupName =
+    lens _ncAutoScalingGroupName (\s a -> s { _ncAutoScalingGroupName = a })
+{-# INLINE ncAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-nfTopicARN :: Lens' NotificationConfiguration (Maybe Text)
-nfTopicARN = lens _nfTopicARN (\s a -> s { _nfTopicARN = a })
-{-# INLINE nfTopicARN #-}
+ncTopicARN :: Lens' NotificationConfiguration (Maybe Text)
+ncTopicARN = lens _ncTopicARN (\s a -> s { _ncTopicARN = a })
+{-# INLINE ncTopicARN #-}
 
 -- | The types of events for an action to start.
-nfNotificationType :: Lens' NotificationConfiguration (Maybe Text)
-nfNotificationType = lens _nfNotificationType (\s a -> s { _nfNotificationType = a })
-{-# INLINE nfNotificationType #-}
+ncNotificationType :: Lens' NotificationConfiguration (Maybe Text)
+ncNotificationType =
+    lens _ncNotificationType (\s a -> s { _ncNotificationType = a })
+{-# INLINE ncNotificationType #-}
 
 instance FromXML NotificationConfiguration where
     fromXMLOptions = xmlOptions
@@ -1452,77 +1521,81 @@ instance FromXML NotificationConfiguration where
 
 -- | The ScalingPolicy data type.
 data ScalingPolicy = ScalingPolicy
-    { _suAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group associated with this scaling
-      -- policy.
-    , _suPolicyName :: Maybe Text
-      -- ^ The name of the scaling policy.
-    , _suScalingAdjustment :: Maybe Integer
-      -- ^ The number associated with the specified adjustment type. A
-      -- positive value adds to the current capacity and a negative value
-      -- removes from the current capacity.
-    , _suAdjustmentType :: Maybe Text
-      -- ^ Specifies whether the ScalingAdjustment is an absolute number or
-      -- a percentage of the current capacity. Valid values are
-      -- ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
-    , _suCooldown :: Maybe Integer
-      -- ^ The amount of time, in seconds, after a scaling activity
-      -- completes before any further trigger-related scaling activities
-      -- can start.
-    , _suPolicyARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the policy.
-    , _suAlarms :: [Alarm]
-      -- ^ A list of CloudWatch Alarms related to the policy.
-    , _suMinAdjustmentStep :: Maybe Integer
-      -- ^ Changes the DesiredCapacity of the Auto Scaling group by at least
-      -- the specified number of instances.
+    { _sprsAutoScalingGroupName :: Maybe Text
+    , _sprsPolicyName :: Maybe Text
+    , _sprsScalingAdjustment :: Maybe Integer
+    , _sprsAdjustmentType :: Maybe Text
+    , _sprsCooldown :: Maybe Integer
+    , _sprsPolicyARN :: Maybe Text
+    , _sprsAlarms :: [Alarm]
+    , _sprsMinAdjustmentStep :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ScalingPolicy' data type to populate a request.
+mkScalingPolicy :: ScalingPolicy
+mkScalingPolicy = ScalingPolicy
+    { _sprsAutoScalingGroupName = Nothing
+    , _sprsPolicyName = Nothing
+    , _sprsScalingAdjustment = Nothing
+    , _sprsAdjustmentType = Nothing
+    , _sprsCooldown = Nothing
+    , _sprsPolicyARN = Nothing
+    , _sprsAlarms = mempty
+    , _sprsMinAdjustmentStep = Nothing
+    }
+{-# INLINE mkScalingPolicy #-}
+
 -- | The name of the Auto Scaling group associated with this scaling policy.
-suAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
-suAutoScalingGroupName = lens _suAutoScalingGroupName (\s a -> s { _suAutoScalingGroupName = a })
-{-# INLINE suAutoScalingGroupName #-}
+sprsAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
+sprsAutoScalingGroupName =
+    lens _sprsAutoScalingGroupName
+         (\s a -> s { _sprsAutoScalingGroupName = a })
+{-# INLINE sprsAutoScalingGroupName #-}
 
 -- | The name of the scaling policy.
-suPolicyName :: Lens' ScalingPolicy (Maybe Text)
-suPolicyName = lens _suPolicyName (\s a -> s { _suPolicyName = a })
-{-# INLINE suPolicyName #-}
+sprsPolicyName :: Lens' ScalingPolicy (Maybe Text)
+sprsPolicyName = lens _sprsPolicyName (\s a -> s { _sprsPolicyName = a })
+{-# INLINE sprsPolicyName #-}
 
 -- | The number associated with the specified adjustment type. A positive value
 -- adds to the current capacity and a negative value removes from the current
 -- capacity.
-suScalingAdjustment :: Lens' ScalingPolicy (Maybe Integer)
-suScalingAdjustment = lens _suScalingAdjustment (\s a -> s { _suScalingAdjustment = a })
-{-# INLINE suScalingAdjustment #-}
+sprsScalingAdjustment :: Lens' ScalingPolicy (Maybe Integer)
+sprsScalingAdjustment =
+    lens _sprsScalingAdjustment (\s a -> s { _sprsScalingAdjustment = a })
+{-# INLINE sprsScalingAdjustment #-}
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity.
-suAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
-suAdjustmentType = lens _suAdjustmentType (\s a -> s { _suAdjustmentType = a })
-{-# INLINE suAdjustmentType #-}
+sprsAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
+sprsAdjustmentType =
+    lens _sprsAdjustmentType (\s a -> s { _sprsAdjustmentType = a })
+{-# INLINE sprsAdjustmentType #-}
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further trigger-related scaling activities can start.
-suCooldown :: Lens' ScalingPolicy (Maybe Integer)
-suCooldown = lens _suCooldown (\s a -> s { _suCooldown = a })
-{-# INLINE suCooldown #-}
+sprsCooldown :: Lens' ScalingPolicy (Maybe Integer)
+sprsCooldown = lens _sprsCooldown (\s a -> s { _sprsCooldown = a })
+{-# INLINE sprsCooldown #-}
 
 -- | The Amazon Resource Name (ARN) of the policy.
-suPolicyARN :: Lens' ScalingPolicy (Maybe Text)
-suPolicyARN = lens _suPolicyARN (\s a -> s { _suPolicyARN = a })
-{-# INLINE suPolicyARN #-}
+sprsPolicyARN :: Lens' ScalingPolicy (Maybe Text)
+sprsPolicyARN = lens _sprsPolicyARN (\s a -> s { _sprsPolicyARN = a })
+{-# INLINE sprsPolicyARN #-}
 
 -- | A list of CloudWatch Alarms related to the policy.
-suAlarms :: Lens' ScalingPolicy ([Alarm])
-suAlarms = lens _suAlarms (\s a -> s { _suAlarms = a })
-{-# INLINE suAlarms #-}
+sprsAlarms :: Lens' ScalingPolicy [Alarm]
+sprsAlarms = lens _sprsAlarms (\s a -> s { _sprsAlarms = a })
+{-# INLINE sprsAlarms #-}
 
 -- | Changes the DesiredCapacity of the Auto Scaling group by at least the
 -- specified number of instances.
-suMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Integer)
-suMinAdjustmentStep = lens _suMinAdjustmentStep (\s a -> s { _suMinAdjustmentStep = a })
-{-# INLINE suMinAdjustmentStep #-}
+sprsMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Integer)
+sprsMinAdjustmentStep =
+    lens _sprsMinAdjustmentStep (\s a -> s { _sprsMinAdjustmentStep = a })
+{-# INLINE sprsMinAdjustmentStep #-}
 
 instance FromXML ScalingPolicy where
     fromXMLOptions = xmlOptions
@@ -1531,88 +1604,95 @@ instance FromXML ScalingPolicy where
 -- | This data type stores information about a scheduled update to an Auto
 -- Scaling group.
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
-    { _sugbAutoScalingGroupName :: Maybe Text
-      -- ^ The name of the Auto Scaling group to be updated.
-    , _sugbScheduledActionName :: Maybe Text
-      -- ^ The name of this scheduled action.
-    , _sugbScheduledActionARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of this scheduled action.
-    , _sugbTime :: Maybe ISO8601
-      -- ^ Time is deprecated. The time that the action is scheduled to
-      -- begin. Time is an alias for StartTime.
-    , _sugbStartTime :: Maybe ISO8601
-      -- ^ The time that the action is scheduled to begin. This value can be
-      -- up to one month in the future. When StartTime and EndTime are
-      -- specified with Recurrence, they form the boundaries of when the
-      -- recurring action will start and stop.
-    , _sugbEndTime :: Maybe ISO8601
-      -- ^ The time that the action is scheduled to end. This value can be
-      -- up to one month in the future.
-    , _sugbRecurrence :: Maybe Text
-      -- ^ The regular schedule that an action occurs.
-    , _sugbMinSize :: Maybe Integer
-      -- ^ The minimum size of the Auto Scaling group.
-    , _sugbMaxSize :: Maybe Integer
-      -- ^ The maximum size of the Auto Scaling group.
-    , _sugbDesiredCapacity :: Maybe Integer
-      -- ^ The number of instances you prefer to maintain in your Auto
-      -- Scaling group.
+    { _sugaAutoScalingGroupName :: Maybe Text
+    , _sugaScheduledActionName :: Maybe Text
+    , _sugaScheduledActionARN :: Maybe Text
+    , _sugaTime :: Maybe ISO8601
+    , _sugaStartTime :: Maybe ISO8601
+    , _sugaEndTime :: Maybe ISO8601
+    , _sugaRecurrence :: Maybe Text
+    , _sugaMinSize :: Maybe Integer
+    , _sugaMaxSize :: Maybe Integer
+    , _sugaDesiredCapacity :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'ScheduledUpdateGroupAction' data type to populate a request.
+mkScheduledUpdateGroupAction :: ScheduledUpdateGroupAction
+mkScheduledUpdateGroupAction = ScheduledUpdateGroupAction
+    { _sugaAutoScalingGroupName = Nothing
+    , _sugaScheduledActionName = Nothing
+    , _sugaScheduledActionARN = Nothing
+    , _sugaTime = Nothing
+    , _sugaStartTime = Nothing
+    , _sugaEndTime = Nothing
+    , _sugaRecurrence = Nothing
+    , _sugaMinSize = Nothing
+    , _sugaMaxSize = Nothing
+    , _sugaDesiredCapacity = Nothing
+    }
+{-# INLINE mkScheduledUpdateGroupAction #-}
+
 -- | The name of the Auto Scaling group to be updated.
-sugbAutoScalingGroupName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
-sugbAutoScalingGroupName = lens _sugbAutoScalingGroupName (\s a -> s { _sugbAutoScalingGroupName = a })
-{-# INLINE sugbAutoScalingGroupName #-}
+sugaAutoScalingGroupName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaAutoScalingGroupName =
+    lens _sugaAutoScalingGroupName
+         (\s a -> s { _sugaAutoScalingGroupName = a })
+{-# INLINE sugaAutoScalingGroupName #-}
 
 -- | The name of this scheduled action.
-sugbScheduledActionName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
-sugbScheduledActionName = lens _sugbScheduledActionName (\s a -> s { _sugbScheduledActionName = a })
-{-# INLINE sugbScheduledActionName #-}
+sugaScheduledActionName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaScheduledActionName =
+    lens _sugaScheduledActionName
+         (\s a -> s { _sugaScheduledActionName = a })
+{-# INLINE sugaScheduledActionName #-}
 
 -- | The Amazon Resource Name (ARN) of this scheduled action.
-sugbScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
-sugbScheduledActionARN = lens _sugbScheduledActionARN (\s a -> s { _sugbScheduledActionARN = a })
-{-# INLINE sugbScheduledActionARN #-}
+sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaScheduledActionARN =
+    lens _sugaScheduledActionARN (\s a -> s { _sugaScheduledActionARN = a })
+{-# INLINE sugaScheduledActionARN #-}
 
 -- | Time is deprecated. The time that the action is scheduled to begin. Time is
 -- an alias for StartTime.
-sugbTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
-sugbTime = lens _sugbTime (\s a -> s { _sugbTime = a })
-{-# INLINE sugbTime #-}
+sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
+sugaTime = lens _sugaTime (\s a -> s { _sugaTime = a })
+{-# INLINE sugaTime #-}
 
 -- | The time that the action is scheduled to begin. This value can be up to one
 -- month in the future. When StartTime and EndTime are specified with
 -- Recurrence, they form the boundaries of when the recurring action will
 -- start and stop.
-sugbStartTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
-sugbStartTime = lens _sugbStartTime (\s a -> s { _sugbStartTime = a })
-{-# INLINE sugbStartTime #-}
+sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
+sugaStartTime = lens _sugaStartTime (\s a -> s { _sugaStartTime = a })
+{-# INLINE sugaStartTime #-}
 
 -- | The time that the action is scheduled to end. This value can be up to one
 -- month in the future.
-sugbEndTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
-sugbEndTime = lens _sugbEndTime (\s a -> s { _sugbEndTime = a })
-{-# INLINE sugbEndTime #-}
+sugaEndTime :: Lens' ScheduledUpdateGroupAction (Maybe ISO8601)
+sugaEndTime = lens _sugaEndTime (\s a -> s { _sugaEndTime = a })
+{-# INLINE sugaEndTime #-}
 
 -- | The regular schedule that an action occurs.
-sugbRecurrence :: Lens' ScheduledUpdateGroupAction (Maybe Text)
-sugbRecurrence = lens _sugbRecurrence (\s a -> s { _sugbRecurrence = a })
-{-# INLINE sugbRecurrence #-}
+sugaRecurrence :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaRecurrence = lens _sugaRecurrence (\s a -> s { _sugaRecurrence = a })
+{-# INLINE sugaRecurrence #-}
 
 -- | The minimum size of the Auto Scaling group.
-sugbMinSize :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
-sugbMinSize = lens _sugbMinSize (\s a -> s { _sugbMinSize = a })
-{-# INLINE sugbMinSize #-}
+sugaMinSize :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
+sugaMinSize = lens _sugaMinSize (\s a -> s { _sugaMinSize = a })
+{-# INLINE sugaMinSize #-}
 
 -- | The maximum size of the Auto Scaling group.
-sugbMaxSize :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
-sugbMaxSize = lens _sugbMaxSize (\s a -> s { _sugbMaxSize = a })
-{-# INLINE sugbMaxSize #-}
+sugaMaxSize :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
+sugaMaxSize = lens _sugaMaxSize (\s a -> s { _sugaMaxSize = a })
+{-# INLINE sugaMaxSize #-}
 
 -- | The number of instances you prefer to maintain in your Auto Scaling group.
-sugbDesiredCapacity :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
-sugbDesiredCapacity = lens _sugbDesiredCapacity (\s a -> s { _sugbDesiredCapacity = a })
-{-# INLINE sugbDesiredCapacity #-}
+sugaDesiredCapacity :: Lens' ScheduledUpdateGroupAction (Maybe Integer)
+sugaDesiredCapacity =
+    lens _sugaDesiredCapacity (\s a -> s { _sugaDesiredCapacity = a })
+{-# INLINE sugaDesiredCapacity #-}
 
 instance FromXML ScheduledUpdateGroupAction where
     fromXMLOptions = xmlOptions
@@ -1621,30 +1701,29 @@ instance FromXML ScheduledUpdateGroupAction where
 -- | An Auto Scaling process that has been suspended. For more information, see
 -- ProcessType.
 data SuspendedProcess = SuspendedProcess
-    { _srProcessName :: Maybe Text
-      -- ^ The name of the suspended process.
-    , _srSuspensionReason :: Maybe Text
-      -- ^ The reason that the process was suspended.
+    { _spProcessName :: Maybe Text
+    , _spSuspensionReason :: Maybe Text
     } deriving (Show, Generic)
-
--- | The name of the suspended process.
-srProcessName :: Lens' SuspendedProcess (Maybe Text)
-srProcessName = lens _srProcessName (\s a -> s { _srProcessName = a })
-{-# INLINE srProcessName #-}
-
--- | The reason that the process was suspended.
-srSuspensionReason :: Lens' SuspendedProcess (Maybe Text)
-srSuspensionReason = lens _srSuspensionReason (\s a -> s { _srSuspensionReason = a })
-{-# INLINE srSuspensionReason #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SuspendedProcess' data type to populate a request.
 mkSuspendedProcess :: SuspendedProcess
 mkSuspendedProcess = SuspendedProcess
-    { _srProcessName = Nothing
-    , _srSuspensionReason = Nothing
+    { _spProcessName = Nothing
+    , _spSuspensionReason = Nothing
     }
 {-# INLINE mkSuspendedProcess #-}
+
+-- | The name of the suspended process.
+spProcessName :: Lens' SuspendedProcess (Maybe Text)
+spProcessName = lens _spProcessName (\s a -> s { _spProcessName = a })
+{-# INLINE spProcessName #-}
+
+-- | The reason that the process was suspended.
+spSuspensionReason :: Lens' SuspendedProcess (Maybe Text)
+spSuspensionReason =
+    lens _spSuspensionReason (\s a -> s { _spSuspensionReason = a })
+{-# INLINE spSuspensionReason #-}
 
 instance FromXML SuspendedProcess where
     fromXMLOptions = xmlOptions
@@ -1655,125 +1734,79 @@ instance ToQuery SuspendedProcess where
 
 -- | The tag applied to an Auto Scaling group.
 data Tag = Tag
-    { _uResourceId :: Text
-      -- ^ The name of the Auto Scaling group.
-    , _uResourceType :: Text
-      -- ^ The kind of resource to which the tag is applied. Currently, Auto
-      -- Scaling supports the auto-scaling-group resource type.
-    , _uKey :: Text
-      -- ^ The key of the tag.
-    , _uValue :: Text
-      -- ^ The value of the tag.
-    , _uPropagateAtLaunch :: Bool
-      -- ^ Specifies whether the new tag will be applied to instances
-      -- launched after the tag is created. The same behavior applies to
-      -- updates: If you change a tag, the changed tag will be applied to
-      -- all instances launched after you made the change.
+    { _tResourceId :: Maybe Text
+    , _tResourceType :: Maybe Text
+    , _tKey :: Text
+    , _tValue :: Maybe Text
+    , _tPropagateAtLaunch :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Tag' data type to populate a request.
+mkTag :: Maybe Text -- ^ 'tResourceId'
+      -> Maybe Text -- ^ 'tResourceType'
+      -> Text -- ^ 'tKey'
+      -> Maybe Text -- ^ 'tValue'
+      -> Maybe Bool -- ^ 'tPropagateAtLaunch'
+      -> Tag
+mkTag p1 p2 p3 p4 p5 = Tag
+    { _tResourceId = p1
+    , _tResourceType = p2
+    , _tKey = p3
+    , _tValue = p4
+    , _tPropagateAtLaunch = p5
+    }
+{-# INLINE mkTag #-}
+
 -- | The name of the Auto Scaling group.
-uResourceId :: Lens' Tag (Text)
-uResourceId = lens _uResourceId (\s a -> s { _uResourceId = a })
-{-# INLINE uResourceId #-}
+tResourceId :: Lens' Tag (Maybe Text)
+tResourceId = lens _tResourceId (\s a -> s { _tResourceId = a })
+{-# INLINE tResourceId #-}
 
 -- | The kind of resource to which the tag is applied. Currently, Auto Scaling
 -- supports the auto-scaling-group resource type.
-uResourceType :: Lens' Tag (Text)
-uResourceType = lens _uResourceType (\s a -> s { _uResourceType = a })
-{-# INLINE uResourceType #-}
+tResourceType :: Lens' Tag (Maybe Text)
+tResourceType = lens _tResourceType (\s a -> s { _tResourceType = a })
+{-# INLINE tResourceType #-}
 
 -- | The key of the tag.
-uKey :: Lens' Tag (Text)
-uKey = lens _uKey (\s a -> s { _uKey = a })
-{-# INLINE uKey #-}
+tKey :: Lens' Tag Text
+tKey = lens _tKey (\s a -> s { _tKey = a })
+{-# INLINE tKey #-}
 
 -- | The value of the tag.
-uValue :: Lens' Tag (Text)
-uValue = lens _uValue (\s a -> s { _uValue = a })
-{-# INLINE uValue #-}
+tValue :: Lens' Tag (Maybe Text)
+tValue = lens _tValue (\s a -> s { _tValue = a })
+{-# INLINE tValue #-}
 
 -- | Specifies whether the new tag will be applied to instances launched after
 -- the tag is created. The same behavior applies to updates: If you change a
 -- tag, the changed tag will be applied to all instances launched after you
 -- made the change.
-uPropagateAtLaunch :: Lens' Tag (Bool)
-uPropagateAtLaunch = lens _uPropagateAtLaunch (\s a -> s { _uPropagateAtLaunch = a })
-{-# INLINE uPropagateAtLaunch #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Tag' data type to populate a request.
-mkTag :: Text -- ^ 'uResourceId'
-      -> Text -- ^ 'uResourceType'
-      -> Text -- ^ 'uKey'
-      -> Text -- ^ 'uValue'
-      -> Bool -- ^ 'uPropagateAtLaunch'
-      -> Tag
-mkTag p1 p2 p3 p4 p5 = Tag
-    { _uResourceId = p1
-    , _uResourceType = p2
-    , _uKey = p3
-    , _uValue = p4
-    , _uPropagateAtLaunch = p5
-    }
-{-# INLINE mkTag #-}
+tPropagateAtLaunch :: Lens' Tag (Maybe Bool)
+tPropagateAtLaunch =
+    lens _tPropagateAtLaunch (\s a -> s { _tPropagateAtLaunch = a })
+{-# INLINE tPropagateAtLaunch #-}
 
 instance ToQuery Tag where
     toQuery = genericQuery def
 
 -- | The tag applied to an Auto Scaling group.
 data TagDescription = TagDescription
-    { _tdResourceId :: Text
-      -- ^ The name of the Auto Scaling group.
-    , _tdResourceType :: Text
-      -- ^ The kind of resource to which the tag is applied. Currently, Auto
-      -- Scaling supports the auto-scaling-group resource type.
-    , _tdKey :: Text
-      -- ^ The key of the tag.
-    , _tdValue :: Text
-      -- ^ The value of the tag.
-    , _tdPropagateAtLaunch :: Bool
-      -- ^ Specifies whether the new tag will be applied to instances
-      -- launched after the tag is created. The same behavior applies to
-      -- updates: If you change a tag, the changed tag will be applied to
-      -- all instances launched after you made the change.
+    { _tdResourceId :: Maybe Text
+    , _tdResourceType :: Maybe Text
+    , _tdKey :: Maybe Text
+    , _tdValue :: Maybe Text
+    , _tdPropagateAtLaunch :: Maybe Bool
     } deriving (Show, Generic)
-
--- | The name of the Auto Scaling group.
-tdResourceId :: Lens' TagDescription (Text)
-tdResourceId = lens _tdResourceId (\s a -> s { _tdResourceId = a })
-{-# INLINE tdResourceId #-}
-
--- | The kind of resource to which the tag is applied. Currently, Auto Scaling
--- supports the auto-scaling-group resource type.
-tdResourceType :: Lens' TagDescription (Text)
-tdResourceType = lens _tdResourceType (\s a -> s { _tdResourceType = a })
-{-# INLINE tdResourceType #-}
-
--- | The key of the tag.
-tdKey :: Lens' TagDescription (Text)
-tdKey = lens _tdKey (\s a -> s { _tdKey = a })
-{-# INLINE tdKey #-}
-
--- | The value of the tag.
-tdValue :: Lens' TagDescription (Text)
-tdValue = lens _tdValue (\s a -> s { _tdValue = a })
-{-# INLINE tdValue #-}
-
--- | Specifies whether the new tag will be applied to instances launched after
--- the tag is created. The same behavior applies to updates: If you change a
--- tag, the changed tag will be applied to all instances launched after you
--- made the change.
-tdPropagateAtLaunch :: Lens' TagDescription (Bool)
-tdPropagateAtLaunch = lens _tdPropagateAtLaunch (\s a -> s { _tdPropagateAtLaunch = a })
-{-# INLINE tdPropagateAtLaunch #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagDescription' data type to populate a request.
-mkTagDescription :: Text -- ^ 'tdResourceId'
-                 -> Text -- ^ 'tdResourceType'
-                 -> Text -- ^ 'tdKey'
-                 -> Text -- ^ 'tdValue'
-                 -> Bool -- ^ 'tdPropagateAtLaunch'
+mkTagDescription :: Maybe Text -- ^ 'tdResourceId'
+                 -> Maybe Text -- ^ 'tdResourceType'
+                 -> Maybe Text -- ^ 'tdKey'
+                 -> Maybe Text -- ^ 'tdValue'
+                 -> Maybe Bool -- ^ 'tdPropagateAtLaunch'
                  -> TagDescription
 mkTagDescription p1 p2 p3 p4 p5 = TagDescription
     { _tdResourceId = p1
@@ -1783,6 +1816,36 @@ mkTagDescription p1 p2 p3 p4 p5 = TagDescription
     , _tdPropagateAtLaunch = p5
     }
 {-# INLINE mkTagDescription #-}
+
+-- | The name of the Auto Scaling group.
+tdResourceId :: Lens' TagDescription (Maybe Text)
+tdResourceId = lens _tdResourceId (\s a -> s { _tdResourceId = a })
+{-# INLINE tdResourceId #-}
+
+-- | The kind of resource to which the tag is applied. Currently, Auto Scaling
+-- supports the auto-scaling-group resource type.
+tdResourceType :: Lens' TagDescription (Maybe Text)
+tdResourceType = lens _tdResourceType (\s a -> s { _tdResourceType = a })
+{-# INLINE tdResourceType #-}
+
+-- | The key of the tag.
+tdKey :: Lens' TagDescription (Maybe Text)
+tdKey = lens _tdKey (\s a -> s { _tdKey = a })
+{-# INLINE tdKey #-}
+
+-- | The value of the tag.
+tdValue :: Lens' TagDescription (Maybe Text)
+tdValue = lens _tdValue (\s a -> s { _tdValue = a })
+{-# INLINE tdValue #-}
+
+-- | Specifies whether the new tag will be applied to instances launched after
+-- the tag is created. The same behavior applies to updates: If you change a
+-- tag, the changed tag will be applied to all instances launched after you
+-- made the change.
+tdPropagateAtLaunch :: Lens' TagDescription (Maybe Bool)
+tdPropagateAtLaunch =
+    lens _tdPropagateAtLaunch (\s a -> s { _tdPropagateAtLaunch = a })
+{-# INLINE tdPropagateAtLaunch #-}
 
 instance FromXML TagDescription where
     fromXMLOptions = xmlOptions

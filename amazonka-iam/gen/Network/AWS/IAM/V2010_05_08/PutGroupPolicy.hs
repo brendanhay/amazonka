@@ -35,11 +35,11 @@ module Network.AWS.IAM.V2010_05_08.PutGroupPolicy
     -- * Request
       PutGroupPolicy
     -- ** Request constructor
-    , mkPutGroupPolicyRequest
+    , mkPutGroupPolicy
     -- ** Request lenses
-    , pgprGroupName
-    , pgprPolicyName
-    , pgprPolicyDocument
+    , pgpGroupName
+    , pgpPolicyName
+    , pgpPolicyDocument
 
     -- * Response
     , PutGroupPolicyResponse
@@ -49,42 +49,41 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutGroupPolicy' request.
-mkPutGroupPolicyRequest :: Text -- ^ 'pgprGroupName'
-                        -> Text -- ^ 'pgprPolicyName'
-                        -> Text -- ^ 'pgprPolicyDocument'
-                        -> PutGroupPolicy
-mkPutGroupPolicyRequest p1 p2 p3 = PutGroupPolicy
-    { _pgprGroupName = p1
-    , _pgprPolicyName = p2
-    , _pgprPolicyDocument = p3
-    }
-{-# INLINE mkPutGroupPolicyRequest #-}
-
+-- | 
 data PutGroupPolicy = PutGroupPolicy
-    { _pgprGroupName :: Text
-      -- ^ Name of the group to associate the policy with.
-    , _pgprPolicyName :: Text
-      -- ^ Name of the policy document.
-    , _pgprPolicyDocument :: Text
-      -- ^ The policy document.
+    { _pgpGroupName :: Text
+    , _pgpPolicyName :: Text
+    , _pgpPolicyDocument :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutGroupPolicy' request.
+mkPutGroupPolicy :: Text -- ^ 'pgpGroupName'
+                 -> Text -- ^ 'pgpPolicyName'
+                 -> Text -- ^ 'pgpPolicyDocument'
+                 -> PutGroupPolicy
+mkPutGroupPolicy p1 p2 p3 = PutGroupPolicy
+    { _pgpGroupName = p1
+    , _pgpPolicyName = p2
+    , _pgpPolicyDocument = p3
+    }
+{-# INLINE mkPutGroupPolicy #-}
+
 -- | Name of the group to associate the policy with.
-pgprGroupName :: Lens' PutGroupPolicy (Text)
-pgprGroupName = lens _pgprGroupName (\s a -> s { _pgprGroupName = a })
-{-# INLINE pgprGroupName #-}
+pgpGroupName :: Lens' PutGroupPolicy Text
+pgpGroupName = lens _pgpGroupName (\s a -> s { _pgpGroupName = a })
+{-# INLINE pgpGroupName #-}
 
 -- | Name of the policy document.
-pgprPolicyName :: Lens' PutGroupPolicy (Text)
-pgprPolicyName = lens _pgprPolicyName (\s a -> s { _pgprPolicyName = a })
-{-# INLINE pgprPolicyName #-}
+pgpPolicyName :: Lens' PutGroupPolicy Text
+pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
+{-# INLINE pgpPolicyName #-}
 
 -- | The policy document.
-pgprPolicyDocument :: Lens' PutGroupPolicy (Text)
-pgprPolicyDocument = lens _pgprPolicyDocument (\s a -> s { _pgprPolicyDocument = a })
-{-# INLINE pgprPolicyDocument #-}
+pgpPolicyDocument :: Lens' PutGroupPolicy Text
+pgpPolicyDocument =
+    lens _pgpPolicyDocument (\s a -> s { _pgpPolicyDocument = a })
+{-# INLINE pgpPolicyDocument #-}
 
 instance ToQuery PutGroupPolicy where
     toQuery = genericQuery def

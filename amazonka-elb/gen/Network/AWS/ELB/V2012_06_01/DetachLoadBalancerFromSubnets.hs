@@ -32,63 +32,62 @@ module Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets
     -- * Request
       DetachLoadBalancerFromSubnets
     -- ** Request constructor
-    , mkDetachLoadBalancerFromSubnetsInput
+    , mkDetachLoadBalancerFromSubnets
     -- ** Request lenses
-    , dlbfsiLoadBalancerName
-    , dlbfsiSubnets
+    , dlbfsLoadBalancerName
+    , dlbfsSubnets
 
     -- * Response
     , DetachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
-    , dlbfsoSubnets
+    , dlbfsrsSubnets
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DetachLoadBalancerFromSubnets' request.
-mkDetachLoadBalancerFromSubnetsInput :: Text -- ^ 'dlbfsiLoadBalancerName'
-                                     -> [Text] -- ^ 'dlbfsiSubnets'
-                                     -> DetachLoadBalancerFromSubnets
-mkDetachLoadBalancerFromSubnetsInput p1 p2 = DetachLoadBalancerFromSubnets
-    { _dlbfsiLoadBalancerName = p1
-    , _dlbfsiSubnets = p2
-    }
-{-# INLINE mkDetachLoadBalancerFromSubnetsInput #-}
-
+-- | The input for the DetachLoadBalancerFromSubnets action.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
-    { _dlbfsiLoadBalancerName :: Text
-      -- ^ The name associated with the load balancer to be detached.
-    , _dlbfsiSubnets :: [Text]
-      -- ^ A list of subnet IDs to remove from the set of configured subnets
-      -- for the load balancer.
+    { _dlbfsLoadBalancerName :: Text
+    , _dlbfsSubnets :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachLoadBalancerFromSubnets' request.
+mkDetachLoadBalancerFromSubnets :: Text -- ^ 'dlbfsLoadBalancerName'
+                                -> [Text] -- ^ 'dlbfsSubnets'
+                                -> DetachLoadBalancerFromSubnets
+mkDetachLoadBalancerFromSubnets p1 p2 = DetachLoadBalancerFromSubnets
+    { _dlbfsLoadBalancerName = p1
+    , _dlbfsSubnets = p2
+    }
+{-# INLINE mkDetachLoadBalancerFromSubnets #-}
+
 -- | The name associated with the load balancer to be detached.
-dlbfsiLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets (Text)
-dlbfsiLoadBalancerName = lens _dlbfsiLoadBalancerName (\s a -> s { _dlbfsiLoadBalancerName = a })
-{-# INLINE dlbfsiLoadBalancerName #-}
+dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
+dlbfsLoadBalancerName =
+    lens _dlbfsLoadBalancerName (\s a -> s { _dlbfsLoadBalancerName = a })
+{-# INLINE dlbfsLoadBalancerName #-}
 
 -- | A list of subnet IDs to remove from the set of configured subnets for the
 -- load balancer.
-dlbfsiSubnets :: Lens' DetachLoadBalancerFromSubnets ([Text])
-dlbfsiSubnets = lens _dlbfsiSubnets (\s a -> s { _dlbfsiSubnets = a })
-{-# INLINE dlbfsiSubnets #-}
+dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
+dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a })
+{-# INLINE dlbfsSubnets #-}
 
 instance ToQuery DetachLoadBalancerFromSubnets where
     toQuery = genericQuery def
 
+-- | The output for the DetachLoadBalancerFromSubnets action.
 newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
-    { _dlbfsoSubnets :: [Text]
-      -- ^ A list of subnet IDs the load balancer is now attached to.
+    { _dlbfsrsSubnets :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of subnet IDs the load balancer is now attached to.
-dlbfsoSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse ([Text])
-dlbfsoSubnets = lens _dlbfsoSubnets (\s a -> s { _dlbfsoSubnets = a })
-{-# INLINE dlbfsoSubnets #-}
+dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
+dlbfsrsSubnets = lens _dlbfsrsSubnets (\s a -> s { _dlbfsrsSubnets = a })
+{-# INLINE dlbfsrsSubnets #-}
 
 instance FromXML DetachLoadBalancerFromSubnetsResponse where
     fromXMLOptions = xmlOptions

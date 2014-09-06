@@ -23,41 +23,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketLocation
     -- * Request
       GetBucketLocation
     -- ** Request constructor
-    , mkGetBucketLocationRequest
+    , mkGetBucketLocation
     -- ** Request lenses
-    , gblsBucket
+    , gbl1Bucket
 
     -- * Response
     , GetBucketLocationResponse
     -- ** Response lenses
-    , gblpLocationConstraint
+    , gblrsrsLocationConstraint
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketLocation = GetBucketLocation
+    { _gbl1Bucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLocation' request.
-mkGetBucketLocationRequest :: BucketName -- ^ 'gblsBucket'
-                           -> GetBucketLocation
-mkGetBucketLocationRequest p1 = GetBucketLocation
-    { _gblsBucket = p1
+mkGetBucketLocation :: BucketName -- ^ 'gbl1Bucket'
+                    -> GetBucketLocation
+mkGetBucketLocation p1 = GetBucketLocation
+    { _gbl1Bucket = p1
     }
-{-# INLINE mkGetBucketLocationRequest #-}
+{-# INLINE mkGetBucketLocation #-}
 
-newtype GetBucketLocation = GetBucketLocation
-    { _gblsBucket :: BucketName
-    } deriving (Show, Generic)
-
-gblsBucket :: Lens' GetBucketLocation (BucketName)
-gblsBucket = lens _gblsBucket (\s a -> s { _gblsBucket = a })
-{-# INLINE gblsBucket #-}
+gbl1Bucket :: Lens' GetBucketLocation BucketName
+gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
+{-# INLINE gbl1Bucket #-}
 
 instance ToPath GetBucketLocation where
     toPath GetBucketLocation{..} = mconcat
         [ "/"
-        , toBS _gblsBucket
+        , toBS _gbl1Bucket
         ]
 
 instance ToQuery GetBucketLocation where
@@ -70,12 +71,14 @@ instance ToHeaders GetBucketLocation
 instance ToBody GetBucketLocation
 
 newtype GetBucketLocationResponse = GetBucketLocationResponse
-    { _gblpLocationConstraint :: Maybe BucketLocationConstraint
+    { _gblrsrsLocationConstraint :: Maybe Region
     } deriving (Show, Generic)
 
-gblpLocationConstraint :: Lens' GetBucketLocationResponse (Maybe BucketLocationConstraint)
-gblpLocationConstraint = lens _gblpLocationConstraint (\s a -> s { _gblpLocationConstraint = a })
-{-# INLINE gblpLocationConstraint #-}
+gblrsrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
+gblrsrsLocationConstraint =
+    lens _gblrsrsLocationConstraint
+         (\s a -> s { _gblrsrsLocationConstraint = a })
+{-# INLINE gblrsrsLocationConstraint #-}
 
 instance FromXML GetBucketLocationResponse where
     fromXMLOptions = xmlOptions

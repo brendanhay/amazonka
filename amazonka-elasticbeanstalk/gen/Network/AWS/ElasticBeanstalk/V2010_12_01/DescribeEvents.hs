@@ -38,176 +38,152 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents
     -- * Request
       DescribeEvents
     -- ** Request constructor
-    , mkDescribeEventsMessage
+    , mkDescribeEvents
     -- ** Request lenses
-    , denApplicationName
-    , denVersionLabel
-    , denTemplateName
-    , denEnvironmentId
-    , denEnvironmentName
-    , denRequestId
-    , denSeverity
-    , denStartTime
-    , denEndTime
-    , denMaxRecords
-    , denNextToken
+    , de1ApplicationName
+    , de1VersionLabel
+    , de1TemplateName
+    , de1EnvironmentId
+    , de1EnvironmentName
+    , de1RequestId
+    , de1Severity
+    , de1StartTime
+    , de1EndTime
+    , de1MaxRecords
+    , de1NextToken
 
     -- * Response
     , DescribeEventsResponse
     -- ** Response lenses
-    , ednEvents
-    , ednNextToken
+    , dersrsEvents
+    , dersrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | This documentation target is not reported in the API reference.
+data DescribeEvents = DescribeEvents
+    { _de1ApplicationName :: Maybe Text
+    , _de1VersionLabel :: Maybe Text
+    , _de1TemplateName :: Maybe Text
+    , _de1EnvironmentId :: Maybe Text
+    , _de1EnvironmentName :: Maybe Text
+    , _de1RequestId :: Maybe Text
+    , _de1Severity :: Maybe EventSeverity
+    , _de1StartTime :: Maybe ISO8601
+    , _de1EndTime :: Maybe ISO8601
+    , _de1MaxRecords :: Maybe Integer
+    , _de1NextToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEvents' request.
-mkDescribeEventsMessage :: DescribeEvents
-mkDescribeEventsMessage = DescribeEvents
-    { _denApplicationName = Nothing
-    , _denVersionLabel = Nothing
-    , _denTemplateName = Nothing
-    , _denEnvironmentId = Nothing
-    , _denEnvironmentName = Nothing
-    , _denRequestId = Nothing
-    , _denSeverity = Nothing
-    , _denStartTime = Nothing
-    , _denEndTime = Nothing
-    , _denMaxRecords = Nothing
-    , _denNextToken = Nothing
+mkDescribeEvents :: DescribeEvents
+mkDescribeEvents = DescribeEvents
+    { _de1ApplicationName = Nothing
+    , _de1VersionLabel = Nothing
+    , _de1TemplateName = Nothing
+    , _de1EnvironmentId = Nothing
+    , _de1EnvironmentName = Nothing
+    , _de1RequestId = Nothing
+    , _de1Severity = Nothing
+    , _de1StartTime = Nothing
+    , _de1EndTime = Nothing
+    , _de1MaxRecords = Nothing
+    , _de1NextToken = Nothing
     }
-{-# INLINE mkDescribeEventsMessage #-}
-
-data DescribeEvents = DescribeEvents
-    { _denApplicationName :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to include only those associated with this
-      -- application.
-    , _denVersionLabel :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to those associated with this application version.
-    , _denTemplateName :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to those that are associated with this environment
-      -- configuration.
-    , _denEnvironmentId :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to those associated with this environment.
-    , _denEnvironmentName :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to those associated with this environment.
-    , _denRequestId :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the described
-      -- events to include only those associated with this request ID.
-    , _denSeverity :: Maybe EventSeverity
-      -- ^ If specified, limits the events returned from this call to
-      -- include only those with the specified severity or higher.
-    , _denStartTime :: Maybe ISO8601
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to those that occur on or after this time.
-    , _denEndTime :: Maybe ISO8601
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to those that occur up to, but not including, the
-      -- EndTime.
-    , _denMaxRecords :: Maybe Integer
-      -- ^ Specifies the maximum number of events that can be returned,
-      -- beginning with the most recent event.
-    , _denNextToken :: Maybe Text
-      -- ^ Pagination token. If specified, the events return the next batch
-      -- of results.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeEvents #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those associated with this application.
-denApplicationName :: Lens' DescribeEvents (Maybe Text)
-denApplicationName = lens _denApplicationName (\s a -> s { _denApplicationName = a })
-{-# INLINE denApplicationName #-}
+de1ApplicationName :: Lens' DescribeEvents (Maybe Text)
+de1ApplicationName =
+    lens _de1ApplicationName (\s a -> s { _de1ApplicationName = a })
+{-# INLINE de1ApplicationName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this application version.
-denVersionLabel :: Lens' DescribeEvents (Maybe Text)
-denVersionLabel = lens _denVersionLabel (\s a -> s { _denVersionLabel = a })
-{-# INLINE denVersionLabel #-}
+de1VersionLabel :: Lens' DescribeEvents (Maybe Text)
+de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
+{-# INLINE de1VersionLabel #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that are associated with this environment configuration.
-denTemplateName :: Lens' DescribeEvents (Maybe Text)
-denTemplateName = lens _denTemplateName (\s a -> s { _denTemplateName = a })
-{-# INLINE denTemplateName #-}
+de1TemplateName :: Lens' DescribeEvents (Maybe Text)
+de1TemplateName = lens _de1TemplateName (\s a -> s { _de1TemplateName = a })
+{-# INLINE de1TemplateName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this environment.
-denEnvironmentId :: Lens' DescribeEvents (Maybe Text)
-denEnvironmentId = lens _denEnvironmentId (\s a -> s { _denEnvironmentId = a })
-{-# INLINE denEnvironmentId #-}
+de1EnvironmentId :: Lens' DescribeEvents (Maybe Text)
+de1EnvironmentId =
+    lens _de1EnvironmentId (\s a -> s { _de1EnvironmentId = a })
+{-# INLINE de1EnvironmentId #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this environment.
-denEnvironmentName :: Lens' DescribeEvents (Maybe Text)
-denEnvironmentName = lens _denEnvironmentName (\s a -> s { _denEnvironmentName = a })
-{-# INLINE denEnvironmentName #-}
+de1EnvironmentName :: Lens' DescribeEvents (Maybe Text)
+de1EnvironmentName =
+    lens _de1EnvironmentName (\s a -> s { _de1EnvironmentName = a })
+{-# INLINE de1EnvironmentName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the described events to
 -- include only those associated with this request ID.
-denRequestId :: Lens' DescribeEvents (Maybe Text)
-denRequestId = lens _denRequestId (\s a -> s { _denRequestId = a })
-{-# INLINE denRequestId #-}
+de1RequestId :: Lens' DescribeEvents (Maybe Text)
+de1RequestId = lens _de1RequestId (\s a -> s { _de1RequestId = a })
+{-# INLINE de1RequestId #-}
 
 -- | If specified, limits the events returned from this call to include only
 -- those with the specified severity or higher.
-denSeverity :: Lens' DescribeEvents (Maybe EventSeverity)
-denSeverity = lens _denSeverity (\s a -> s { _denSeverity = a })
-{-# INLINE denSeverity #-}
+de1Severity :: Lens' DescribeEvents (Maybe EventSeverity)
+de1Severity = lens _de1Severity (\s a -> s { _de1Severity = a })
+{-# INLINE de1Severity #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that occur on or after this time.
-denStartTime :: Lens' DescribeEvents (Maybe ISO8601)
-denStartTime = lens _denStartTime (\s a -> s { _denStartTime = a })
-{-# INLINE denStartTime #-}
+de1StartTime :: Lens' DescribeEvents (Maybe ISO8601)
+de1StartTime = lens _de1StartTime (\s a -> s { _de1StartTime = a })
+{-# INLINE de1StartTime #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that occur up to, but not including, the EndTime.
-denEndTime :: Lens' DescribeEvents (Maybe ISO8601)
-denEndTime = lens _denEndTime (\s a -> s { _denEndTime = a })
-{-# INLINE denEndTime #-}
+de1EndTime :: Lens' DescribeEvents (Maybe ISO8601)
+de1EndTime = lens _de1EndTime (\s a -> s { _de1EndTime = a })
+{-# INLINE de1EndTime #-}
 
 -- | Specifies the maximum number of events that can be returned, beginning with
 -- the most recent event.
-denMaxRecords :: Lens' DescribeEvents (Maybe Integer)
-denMaxRecords = lens _denMaxRecords (\s a -> s { _denMaxRecords = a })
-{-# INLINE denMaxRecords #-}
+de1MaxRecords :: Lens' DescribeEvents (Maybe Integer)
+de1MaxRecords = lens _de1MaxRecords (\s a -> s { _de1MaxRecords = a })
+{-# INLINE de1MaxRecords #-}
 
 -- | Pagination token. If specified, the events return the next batch of
 -- results.
-denNextToken :: Lens' DescribeEvents (Maybe Text)
-denNextToken = lens _denNextToken (\s a -> s { _denNextToken = a })
-{-# INLINE denNextToken #-}
+de1NextToken :: Lens' DescribeEvents (Maybe Text)
+de1NextToken = lens _de1NextToken (\s a -> s { _de1NextToken = a })
+{-# INLINE de1NextToken #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
 
+-- | Result message wrapping a list of event descriptions.
 data DescribeEventsResponse = DescribeEventsResponse
-    { _ednEvents :: [EventDescription]
-      -- ^ A list of EventDescription.
-    , _ednNextToken :: Maybe Text
-      -- ^ If returned, this indicates that there are more results to
-      -- obtain. Use this token in the next DescribeEvents call to get the
-      -- next batch of events.
+    { _dersrsEvents :: [EventDescription]
+    , _dersrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of EventDescription.
-ednEvents :: Lens' DescribeEventsResponse ([EventDescription])
-ednEvents = lens _ednEvents (\s a -> s { _ednEvents = a })
-{-# INLINE ednEvents #-}
+dersrsEvents :: Lens' DescribeEventsResponse [EventDescription]
+dersrsEvents = lens _dersrsEvents (\s a -> s { _dersrsEvents = a })
+{-# INLINE dersrsEvents #-}
 
 -- | If returned, this indicates that there are more results to obtain. Use this
 -- token in the next DescribeEvents call to get the next batch of events.
-ednNextToken :: Lens' DescribeEventsResponse (Maybe Text)
-ednNextToken = lens _ednNextToken (\s a -> s { _ednNextToken = a })
-{-# INLINE ednNextToken #-}
+dersrsNextToken :: Lens' DescribeEventsResponse (Maybe Text)
+dersrsNextToken = lens _dersrsNextToken (\s a -> s { _dersrsNextToken = a })
+{-# INLINE dersrsNextToken #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -220,5 +196,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq { _denNextToken = Just x })
-        <$> (_ednNextToken rs)
+    next rq rs = (\x -> rq { _de1NextToken = Just x })
+        <$> (_dersrsNextToken rs)

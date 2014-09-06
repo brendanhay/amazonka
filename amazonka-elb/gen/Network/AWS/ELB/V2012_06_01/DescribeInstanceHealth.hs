@@ -46,60 +46,61 @@ module Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth
     -- * Request
       DescribeInstanceHealth
     -- ** Request constructor
-    , mkDescribeEndPointStateInput
+    , mkDescribeInstanceHealth
     -- ** Request lenses
-    , depsiLoadBalancerName
-    , depsiInstances
+    , dihLoadBalancerName
+    , dihInstances
 
     -- * Response
     , DescribeInstanceHealthResponse
     -- ** Response lenses
-    , depsoInstanceStates
+    , dihrsInstanceStates
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeInstanceHealth' request.
-mkDescribeEndPointStateInput :: Text -- ^ 'depsiLoadBalancerName'
-                             -> DescribeInstanceHealth
-mkDescribeEndPointStateInput p1 = DescribeInstanceHealth
-    { _depsiLoadBalancerName = p1
-    , _depsiInstances = mempty
-    }
-{-# INLINE mkDescribeEndPointStateInput #-}
-
+-- | The input for the DescribeEndPointState action.
 data DescribeInstanceHealth = DescribeInstanceHealth
-    { _depsiLoadBalancerName :: Text
-      -- ^ The name of the load balancer.
-    , _depsiInstances :: [Instance]
-      -- ^ A list of instance IDs whose states are being queried.
+    { _dihLoadBalancerName :: Text
+    , _dihInstances :: [Instance]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstanceHealth' request.
+mkDescribeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
+                         -> DescribeInstanceHealth
+mkDescribeInstanceHealth p1 = DescribeInstanceHealth
+    { _dihLoadBalancerName = p1
+    , _dihInstances = mempty
+    }
+{-# INLINE mkDescribeInstanceHealth #-}
+
 -- | The name of the load balancer.
-depsiLoadBalancerName :: Lens' DescribeInstanceHealth (Text)
-depsiLoadBalancerName = lens _depsiLoadBalancerName (\s a -> s { _depsiLoadBalancerName = a })
-{-# INLINE depsiLoadBalancerName #-}
+dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
+dihLoadBalancerName =
+    lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
+{-# INLINE dihLoadBalancerName #-}
 
 -- | A list of instance IDs whose states are being queried.
-depsiInstances :: Lens' DescribeInstanceHealth ([Instance])
-depsiInstances = lens _depsiInstances (\s a -> s { _depsiInstances = a })
-{-# INLINE depsiInstances #-}
+dihInstances :: Lens' DescribeInstanceHealth [Instance]
+dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a })
+{-# INLINE dihInstances #-}
 
 instance ToQuery DescribeInstanceHealth where
     toQuery = genericQuery def
 
+-- | The output for the DescribeInstanceHealth action.
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
-    { _depsoInstanceStates :: [InstanceState]
-      -- ^ A list containing health information for the specified instances.
+    { _dihrsInstanceStates :: [InstanceState]
     } deriving (Show, Generic)
 
 -- | A list containing health information for the specified instances.
-depsoInstanceStates :: Lens' DescribeInstanceHealthResponse ([InstanceState])
-depsoInstanceStates = lens _depsoInstanceStates (\s a -> s { _depsoInstanceStates = a })
-{-# INLINE depsoInstanceStates #-}
+dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
+dihrsInstanceStates =
+    lens _dihrsInstanceStates (\s a -> s { _dihrsInstanceStates = a })
+{-# INLINE dihrsInstanceStates #-}
 
 instance FromXML DescribeInstanceHealthResponse where
     fromXMLOptions = xmlOptions

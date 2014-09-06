@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary
     -- * Request
       DescribeStackSummary
     -- ** Request constructor
-    , mkDescribeStackSummaryRequest
+    , mkDescribeStackSummary
     -- ** Request lenses
-    , dssrStackId
+    , dssStackId
 
     -- * Response
     , DescribeStackSummaryResponse
     -- ** Response lenses
-    , dsssStackSummary
+    , dssrsStackSummary
     ) where
 
 import           Network.AWS.OpsWorks.V2013_02_18.Types
@@ -43,24 +43,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeStackSummary' request.
-mkDescribeStackSummaryRequest :: Text -- ^ 'dssrStackId'
-                              -> DescribeStackSummary
-mkDescribeStackSummaryRequest p1 = DescribeStackSummary
-    { _dssrStackId = p1
-    }
-{-# INLINE mkDescribeStackSummaryRequest #-}
-
 newtype DescribeStackSummary = DescribeStackSummary
-    { _dssrStackId :: Text
-      -- ^ The stack ID.
+    { _dssStackId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackSummary' request.
+mkDescribeStackSummary :: Text -- ^ 'dssStackId'
+                       -> DescribeStackSummary
+mkDescribeStackSummary p1 = DescribeStackSummary
+    { _dssStackId = p1
+    }
+{-# INLINE mkDescribeStackSummary #-}
+
 -- | The stack ID.
-dssrStackId :: Lens' DescribeStackSummary (Text)
-dssrStackId = lens _dssrStackId (\s a -> s { _dssrStackId = a })
-{-# INLINE dssrStackId #-}
+dssStackId :: Lens' DescribeStackSummary Text
+dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
+{-# INLINE dssStackId #-}
 
 instance ToPath DescribeStackSummary
 
@@ -70,15 +69,16 @@ instance ToHeaders DescribeStackSummary
 
 instance ToJSON DescribeStackSummary
 
+-- | Contains the response to a DescribeStackSummary request.
 newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
-    { _dsssStackSummary :: Maybe StackSummary
-      -- ^ A StackSummary object that contains the results.
+    { _dssrsStackSummary :: Maybe StackSummary
     } deriving (Show, Generic)
 
 -- | A StackSummary object that contains the results.
-dsssStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dsssStackSummary = lens _dsssStackSummary (\s a -> s { _dsssStackSummary = a })
-{-# INLINE dsssStackSummary #-}
+dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
+dssrsStackSummary =
+    lens _dssrsStackSummary (\s a -> s { _dssrsStackSummary = a })
+{-# INLINE dssrsStackSummary #-}
 
 instance FromJSON DescribeStackSummaryResponse
 

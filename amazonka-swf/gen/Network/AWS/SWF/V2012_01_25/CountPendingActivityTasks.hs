@@ -51,16 +51,16 @@ module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
     -- * Request
       CountPendingActivityTasks
     -- ** Request constructor
-    , mkCountPendingActivityTasksInput
+    , mkCountPendingActivityTasks
     -- ** Request lenses
-    , cpatiDomain
-    , cpatiTaskList
+    , cpatDomain
+    , cpatTaskList
 
     -- * Response
     , CountPendingActivityTasksResponse
     -- ** Response lenses
-    , ptcCount
-    , ptcTruncated
+    , cpatrsCount
+    , cpatrsTruncated
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -68,33 +68,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CountPendingActivityTasks' request.
-mkCountPendingActivityTasksInput :: Text -- ^ 'cpatiDomain'
-                                 -> TaskList -- ^ 'cpatiTaskList'
-                                 -> CountPendingActivityTasks
-mkCountPendingActivityTasksInput p1 p2 = CountPendingActivityTasks
-    { _cpatiDomain = p1
-    , _cpatiTaskList = p2
-    }
-{-# INLINE mkCountPendingActivityTasksInput #-}
-
 data CountPendingActivityTasks = CountPendingActivityTasks
-    { _cpatiDomain :: Text
-      -- ^ The name of the domain that contains the task list.
-    , _cpatiTaskList :: TaskList
-      -- ^ The name of the task list.
+    { _cpatDomain :: Text
+    , _cpatTaskList :: TaskList
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountPendingActivityTasks' request.
+mkCountPendingActivityTasks :: Text -- ^ 'cpatDomain'
+                            -> TaskList -- ^ 'cpatTaskList'
+                            -> CountPendingActivityTasks
+mkCountPendingActivityTasks p1 p2 = CountPendingActivityTasks
+    { _cpatDomain = p1
+    , _cpatTaskList = p2
+    }
+{-# INLINE mkCountPendingActivityTasks #-}
+
 -- | The name of the domain that contains the task list.
-cpatiDomain :: Lens' CountPendingActivityTasks (Text)
-cpatiDomain = lens _cpatiDomain (\s a -> s { _cpatiDomain = a })
-{-# INLINE cpatiDomain #-}
+cpatDomain :: Lens' CountPendingActivityTasks Text
+cpatDomain = lens _cpatDomain (\s a -> s { _cpatDomain = a })
+{-# INLINE cpatDomain #-}
 
 -- | The name of the task list.
-cpatiTaskList :: Lens' CountPendingActivityTasks (TaskList)
-cpatiTaskList = lens _cpatiTaskList (\s a -> s { _cpatiTaskList = a })
-{-# INLINE cpatiTaskList #-}
+cpatTaskList :: Lens' CountPendingActivityTasks TaskList
+cpatTaskList = lens _cpatTaskList (\s a -> s { _cpatTaskList = a })
+{-# INLINE cpatTaskList #-}
 
 instance ToPath CountPendingActivityTasks
 
@@ -104,25 +102,22 @@ instance ToHeaders CountPendingActivityTasks
 
 instance ToJSON CountPendingActivityTasks
 
+-- | Contains the count of tasks in a task list.
 data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
-    { _ptcCount :: Integer
-      -- ^ The number of tasks in the task list.
-    , _ptcTruncated :: Maybe Bool
-      -- ^ If set to true, indicates that the actual count was more than the
-      -- maximum supported by this API and the count returned is the
-      -- truncated value.
+    { _cpatrsCount :: Integer
+    , _cpatrsTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The number of tasks in the task list.
-ptcCount :: Lens' CountPendingActivityTasksResponse (Integer)
-ptcCount = lens _ptcCount (\s a -> s { _ptcCount = a })
-{-# INLINE ptcCount #-}
+cpatrsCount :: Lens' CountPendingActivityTasksResponse Integer
+cpatrsCount = lens _cpatrsCount (\s a -> s { _cpatrsCount = a })
+{-# INLINE cpatrsCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-ptcTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
-ptcTruncated = lens _ptcTruncated (\s a -> s { _ptcTruncated = a })
-{-# INLINE ptcTruncated #-}
+cpatrsTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
+cpatrsTruncated = lens _cpatrsTruncated (\s a -> s { _cpatrsTruncated = a })
+{-# INLINE cpatrsTruncated #-}
 
 instance FromJSON CountPendingActivityTasksResponse
 

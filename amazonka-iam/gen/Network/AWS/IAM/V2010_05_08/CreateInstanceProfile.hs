@@ -31,65 +31,64 @@ module Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
     -- * Request
       CreateInstanceProfile
     -- ** Request constructor
-    , mkCreateInstanceProfileRequest
+    , mkCreateInstanceProfile
     -- ** Request lenses
-    , ciprInstanceProfileName
-    , ciprPath
+    , cipInstanceProfileName
+    , cipPath
 
     -- * Response
     , CreateInstanceProfileResponse
     -- ** Response lenses
-    , cipsInstanceProfile
+    , ciprsInstanceProfile
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateInstanceProfile' request.
-mkCreateInstanceProfileRequest :: Text -- ^ 'ciprInstanceProfileName'
-                               -> CreateInstanceProfile
-mkCreateInstanceProfileRequest p1 = CreateInstanceProfile
-    { _ciprInstanceProfileName = p1
-    , _ciprPath = Nothing
-    }
-{-# INLINE mkCreateInstanceProfileRequest #-}
-
+-- | 
 data CreateInstanceProfile = CreateInstanceProfile
-    { _ciprInstanceProfileName :: Text
-      -- ^ Name of the instance profile to create.
-    , _ciprPath :: Maybe Text
-      -- ^ The path to the instance profile. For more information about
-      -- paths, see Identifiers for IAM Entities in the Using IAM guide.
-      -- This parameter is optional. If it is not included, it defaults to
-      -- a slash (/).
+    { _cipInstanceProfileName :: Text
+    , _cipPath :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInstanceProfile' request.
+mkCreateInstanceProfile :: Text -- ^ 'cipInstanceProfileName'
+                        -> CreateInstanceProfile
+mkCreateInstanceProfile p1 = CreateInstanceProfile
+    { _cipInstanceProfileName = p1
+    , _cipPath = Nothing
+    }
+{-# INLINE mkCreateInstanceProfile #-}
+
 -- | Name of the instance profile to create.
-ciprInstanceProfileName :: Lens' CreateInstanceProfile (Text)
-ciprInstanceProfileName = lens _ciprInstanceProfileName (\s a -> s { _ciprInstanceProfileName = a })
-{-# INLINE ciprInstanceProfileName #-}
+cipInstanceProfileName :: Lens' CreateInstanceProfile Text
+cipInstanceProfileName =
+    lens _cipInstanceProfileName (\s a -> s { _cipInstanceProfileName = a })
+{-# INLINE cipInstanceProfileName #-}
 
 -- | The path to the instance profile. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
-ciprPath :: Lens' CreateInstanceProfile (Maybe Text)
-ciprPath = lens _ciprPath (\s a -> s { _ciprPath = a })
-{-# INLINE ciprPath #-}
+cipPath :: Lens' CreateInstanceProfile (Maybe Text)
+cipPath = lens _cipPath (\s a -> s { _cipPath = a })
+{-# INLINE cipPath #-}
 
 instance ToQuery CreateInstanceProfile where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the CreateInstanceProfile
+-- action.
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
-    { _cipsInstanceProfile :: InstanceProfile
-      -- ^ Information about the instance profile.
+    { _ciprsInstanceProfile :: InstanceProfile
     } deriving (Show, Generic)
 
 -- | Information about the instance profile.
-cipsInstanceProfile :: Lens' CreateInstanceProfileResponse (InstanceProfile)
-cipsInstanceProfile = lens _cipsInstanceProfile (\s a -> s { _cipsInstanceProfile = a })
-{-# INLINE cipsInstanceProfile #-}
+ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
+ciprsInstanceProfile =
+    lens _ciprsInstanceProfile (\s a -> s { _ciprsInstanceProfile = a })
+{-# INLINE ciprsInstanceProfile #-}
 
 instance FromXML CreateInstanceProfileResponse where
     fromXMLOptions = xmlOptions

@@ -23,10 +23,10 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity
     -- * Request
       DeleteCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , mkDeleteCloudFrontOriginAccessIdentityRequest
+    , mkDeleteCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    , dcfoairId
-    , dcfoairIfMatch
+    , dcfoaiId
+    , dcfoaiIfMatch
 
     -- * Response
     , DeleteCloudFrontOriginAccessIdentityResponse
@@ -35,45 +35,47 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to delete a origin access identity.
+data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
+    { _dcfoaiId :: Text
+    , _dcfoaiIfMatch :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCloudFrontOriginAccessIdentity' request.
-mkDeleteCloudFrontOriginAccessIdentityRequest :: Text -- ^ 'dcfoairId'
-                                              -> DeleteCloudFrontOriginAccessIdentity
-mkDeleteCloudFrontOriginAccessIdentityRequest p1 = DeleteCloudFrontOriginAccessIdentity
-    { _dcfoairId = p1
-    , _dcfoairIfMatch = Nothing
+mkDeleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
+                                       -> DeleteCloudFrontOriginAccessIdentity
+mkDeleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
+    { _dcfoaiId = p1
+    , _dcfoaiIfMatch = Nothing
     }
-{-# INLINE mkDeleteCloudFrontOriginAccessIdentityRequest #-}
-
-data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
-    { _dcfoairId :: Text
-      -- ^ The origin access identity's id.
-    , _dcfoairIfMatch :: Maybe Text
-      -- ^ The value of the ETag header you received from a previous GET or
-      -- PUT request. For example: E2QWRUHAPOMQZL.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteCloudFrontOriginAccessIdentity #-}
 
 -- | The origin access identity's id.
-dcfoairId :: Lens' DeleteCloudFrontOriginAccessIdentity (Text)
-dcfoairId = lens _dcfoairId (\s a -> s { _dcfoairId = a })
-{-# INLINE dcfoairId #-}
+dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
+dcfoaiId = lens _dcfoaiId (\s a -> s { _dcfoaiId = a })
+{-# INLINE dcfoaiId #-}
 
 -- | The value of the ETag header you received from a previous GET or PUT
 -- request. For example: E2QWRUHAPOMQZL.
-dcfoairIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
-dcfoairIfMatch = lens _dcfoairIfMatch (\s a -> s { _dcfoairIfMatch = a })
-{-# INLINE dcfoairIfMatch #-}
+dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
+dcfoaiIfMatch = lens _dcfoaiIfMatch (\s a -> s { _dcfoaiIfMatch = a })
+{-# INLINE dcfoaiIfMatch #-}
 
 instance ToPath DeleteCloudFrontOriginAccessIdentity where
     toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
         [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toBS _dcfoairId
+        , toBS _dcfoaiId
         ]
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity
 
-instance ToHeaders DeleteCloudFrontOriginAccessIdentity
+instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
+    toHeaders DeleteCloudFrontOriginAccessIdentity{..} = concat
+        [ "If-Match" =: _dcfoaiIfMatch
+        ]
 
 instance ToXML DeleteCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions

@@ -45,14 +45,14 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
     -- * Request
       DescribeStorediSCSIVolumes
     -- ** Request constructor
-    , mkDescribeStorediSCSIVolumesInput
+    , mkDescribeStorediSCSIVolumes
     -- ** Request lenses
-    , dsscsiviVolumeARNs
+    , dsscsivVolumeARNs
 
     -- * Response
     , DescribeStorediSCSIVolumesResponse
     -- ** Response lenses
-    , dsscsivoStorediSCSIVolumes
+    , dsscsivrsStorediSCSIVolumes
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -60,29 +60,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON Object containing a list of
+-- DescribeStorediSCSIVolumesInput$VolumeARNs.
+newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
+    { _dsscsivVolumeARNs :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStorediSCSIVolumes' request.
-mkDescribeStorediSCSIVolumesInput :: [Text] -- ^ 'dsscsiviVolumeARNs'
-                                  -> DescribeStorediSCSIVolumes
-mkDescribeStorediSCSIVolumesInput p1 = DescribeStorediSCSIVolumes
-    { _dsscsiviVolumeARNs = p1
+mkDescribeStorediSCSIVolumes :: [Text] -- ^ 'dsscsivVolumeARNs'
+                             -> DescribeStorediSCSIVolumes
+mkDescribeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
+    { _dsscsivVolumeARNs = p1
     }
-{-# INLINE mkDescribeStorediSCSIVolumesInput #-}
-
-newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
-    { _dsscsiviVolumeARNs :: [Text]
-      -- ^ An array of strings where each string represents the Amazon
-      -- Resource Name (ARN) of a stored volume. All of the specified
-      -- stored volumes must from the same gateway. Use ListVolumes to get
-      -- volume ARNs for a gateway.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeStorediSCSIVolumes #-}
 
 -- | An array of strings where each string represents the Amazon Resource Name
 -- (ARN) of a stored volume. All of the specified stored volumes must from the
 -- same gateway. Use ListVolumes to get volume ARNs for a gateway.
-dsscsiviVolumeARNs :: Lens' DescribeStorediSCSIVolumes ([Text])
-dsscsiviVolumeARNs = lens _dsscsiviVolumeARNs (\s a -> s { _dsscsiviVolumeARNs = a })
-{-# INLINE dsscsiviVolumeARNs #-}
+dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
+dsscsivVolumeARNs =
+    lens _dsscsivVolumeARNs (\s a -> s { _dsscsivVolumeARNs = a })
+{-# INLINE dsscsivVolumeARNs #-}
 
 instance ToPath DescribeStorediSCSIVolumes
 
@@ -93,12 +92,14 @@ instance ToHeaders DescribeStorediSCSIVolumes
 instance ToJSON DescribeStorediSCSIVolumes
 
 newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
-    { _dsscsivoStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
+    { _dsscsivrsStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
     } deriving (Show, Generic)
 
-dsscsivoStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse ([StorediSCSIVolumeInformation])
-dsscsivoStorediSCSIVolumes = lens _dsscsivoStorediSCSIVolumes (\s a -> s { _dsscsivoStorediSCSIVolumes = a })
-{-# INLINE dsscsivoStorediSCSIVolumes #-}
+dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolumeInformation]
+dsscsivrsStorediSCSIVolumes =
+    lens _dsscsivrsStorediSCSIVolumes
+         (\s a -> s { _dsscsivrsStorediSCSIVolumes = a })
+{-# INLINE dsscsivrsStorediSCSIVolumes #-}
 
 instance FromJSON DescribeStorediSCSIVolumesResponse
 

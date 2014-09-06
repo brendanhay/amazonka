@@ -28,37 +28,40 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription
     -- * Request
       DescribeSpotDatafeedSubscription
     -- ** Request constructor
-    , mkDescribeSpotDatafeedSubscriptionRequest
+    , mkDescribeSpotDatafeedSubscription
     -- * Response
     , DescribeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
-    , dsdstSpotDatafeedSubscription
+    , dsdsrsSpotDatafeedSubscription
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
+-- | 
+    deriving (Eq, Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotDatafeedSubscription' request.
-mkDescribeSpotDatafeedSubscriptionRequest :: DescribeSpotDatafeedSubscription
-mkDescribeSpotDatafeedSubscriptionRequest = DescribeSpotDatafeedSubscription
-{-# INLINE mkDescribeSpotDatafeedSubscriptionRequest #-}
-
-    deriving (Eq, Show, Generic)
+mkDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
+mkDescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
+{-# INLINE mkDescribeSpotDatafeedSubscription #-}
 
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
-    { _dsdstSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-      -- ^ The Spot Instance datafeed subscription.
+    { _dsdsrsSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Show, Generic)
 
 -- | The Spot Instance datafeed subscription.
-dsdstSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-dsdstSpotDatafeedSubscription = lens _dsdstSpotDatafeedSubscription (\s a -> s { _dsdstSpotDatafeedSubscription = a })
-{-# INLINE dsdstSpotDatafeedSubscription #-}
+dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
+dsdsrsSpotDatafeedSubscription =
+    lens _dsdsrsSpotDatafeedSubscription
+         (\s a -> s { _dsdsrsSpotDatafeedSubscription = a })
+{-# INLINE dsdsrsSpotDatafeedSubscription #-}
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions

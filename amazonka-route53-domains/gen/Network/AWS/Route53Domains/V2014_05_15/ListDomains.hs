@@ -42,16 +42,16 @@ module Network.AWS.Route53Domains.V2014_05_15.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , mkListDomainsRequest
+    , mkListDomains
     -- ** Request lenses
-    , ldrMarker
-    , ldrMaxItems
+    , ldMarker
+    , ldMaxItems
 
     -- * Response
     , ListDomainsResponse
     -- ** Response lenses
-    , ldsDomains
-    , ldsNextPageMarker
+    , ldrsDomains
+    , ldrsNextPageMarker
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -59,30 +59,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The ListDomains request includes the following elements.
+data ListDomains = ListDomains
+    { _ldMarker :: Maybe Text
+    , _ldMaxItems :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
-mkListDomainsRequest :: ListDomains
-mkListDomainsRequest = ListDomains
-    { _ldrMarker = Nothing
-    , _ldrMaxItems = Nothing
+mkListDomains :: ListDomains
+mkListDomains = ListDomains
+    { _ldMarker = Nothing
+    , _ldMaxItems = Nothing
     }
-{-# INLINE mkListDomainsRequest #-}
-
-data ListDomains = ListDomains
-    { _ldrMarker :: Maybe Text
-      -- ^ For an initial request for a list of domains, omit this element.
-      -- If the number of domains that are associated with the current AWS
-      -- account is greater than the value that you specified for
-      -- MaxItems, you can use Marker to return additional domains. Get
-      -- the value of NextPageMarker from the previous response, and
-      -- submit another request that includes the value of NextPageMarker
-      -- in the Marker element. Type: String Default: None Constraints:
-      -- The marker must match the value specified in the previous
-      -- request. Required: No.
-    , _ldrMaxItems :: Maybe Integer
-      -- ^ Number of domains to be returned. Type: Integer Default: 20
-      -- Constraints: A numeral between 1 and 100. Required: No.
-    } deriving (Show, Generic)
+{-# INLINE mkListDomains #-}
 
 -- | For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current AWS account is
@@ -92,15 +82,15 @@ data ListDomains = ListDomains
 -- NextPageMarker in the Marker element. Type: String Default: None
 -- Constraints: The marker must match the value specified in the previous
 -- request. Required: No.
-ldrMarker :: Lens' ListDomains (Maybe Text)
-ldrMarker = lens _ldrMarker (\s a -> s { _ldrMarker = a })
-{-# INLINE ldrMarker #-}
+ldMarker :: Lens' ListDomains (Maybe Text)
+ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
+{-# INLINE ldMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- numeral between 1 and 100. Required: No.
-ldrMaxItems :: Lens' ListDomains (Maybe Integer)
-ldrMaxItems = lens _ldrMaxItems (\s a -> s { _ldrMaxItems = a })
-{-# INLINE ldrMaxItems #-}
+ldMaxItems :: Lens' ListDomains (Maybe Integer)
+ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
+{-# INLINE ldMaxItems #-}
 
 instance ToPath ListDomains
 
@@ -110,30 +100,25 @@ instance ToHeaders ListDomains
 
 instance ToJSON ListDomains
 
+-- | The ListDomains response includes the following elements.
 data ListDomainsResponse = ListDomainsResponse
-    { _ldsDomains :: [DomainSummary]
-      -- ^ A summary of domains. Type: Complex type containing a list of
-      -- domain summaries. Children: AutoRenew, DomainName, Expiry,
-      -- TransferLock.
-    , _ldsNextPageMarker :: Maybe Text
-      -- ^ If there are more domains than you specified for MaxItems in the
-      -- request, submit another request and include the value of
-      -- NextPageMarker in the value of Marker. Type: String Parent:
-      -- Operations.
+    { _ldrsDomains :: [DomainSummary]
+    , _ldrsNextPageMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A summary of domains. Type: Complex type containing a list of domain
 -- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.
-ldsDomains :: Lens' ListDomainsResponse ([DomainSummary])
-ldsDomains = lens _ldsDomains (\s a -> s { _ldsDomains = a })
-{-# INLINE ldsDomains #-}
+ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
+ldrsDomains = lens _ldrsDomains (\s a -> s { _ldrsDomains = a })
+{-# INLINE ldrsDomains #-}
 
 -- | If there are more domains than you specified for MaxItems in the request,
 -- submit another request and include the value of NextPageMarker in the value
 -- of Marker. Type: String Parent: Operations.
-ldsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
-ldsNextPageMarker = lens _ldsNextPageMarker (\s a -> s { _ldsNextPageMarker = a })
-{-# INLINE ldsNextPageMarker #-}
+ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
+ldrsNextPageMarker =
+    lens _ldrsNextPageMarker (\s a -> s { _ldrsNextPageMarker = a })
+{-# INLINE ldrsNextPageMarker #-}
 
 instance FromJSON ListDomainsResponse
 

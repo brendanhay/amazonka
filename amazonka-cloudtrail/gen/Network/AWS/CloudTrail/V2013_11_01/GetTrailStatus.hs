@@ -25,20 +25,20 @@ module Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus
     -- * Request
       GetTrailStatus
     -- ** Request constructor
-    , mkGetTrailStatusRequest
+    , mkGetTrailStatus
     -- ** Request lenses
-    , gtsrName
+    , gtsName
 
     -- * Response
     , GetTrailStatusResponse
     -- ** Response lenses
-    , gtssIsLogging
-    , gtssLatestDeliveryError
-    , gtssLatestNotificationError
-    , gtssLatestDeliveryTime
-    , gtssLatestNotificationTime
-    , gtssStartLoggingTime
-    , gtssStopLoggingTime
+    , gtsrsIsLogging
+    , gtsrsLatestDeliveryError
+    , gtsrsLatestNotificationError
+    , gtsrsLatestDeliveryTime
+    , gtsrsLatestNotificationTime
+    , gtsrsStartLoggingTime
+    , gtsrsStopLoggingTime
     ) where
 
 import           Network.AWS.CloudTrail.V2013_11_01.Types
@@ -46,25 +46,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetTrailStatus' request.
-mkGetTrailStatusRequest :: Text -- ^ 'gtsrName'
-                        -> GetTrailStatus
-mkGetTrailStatusRequest p1 = GetTrailStatus
-    { _gtsrName = p1
-    }
-{-# INLINE mkGetTrailStatusRequest #-}
-
+-- | The name of a trail about which you want the current status.
 newtype GetTrailStatus = GetTrailStatus
-    { _gtsrName :: Text
-      -- ^ The name of the trail for which you are requesting the current
-      -- status.
+    { _gtsName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetTrailStatus' request.
+mkGetTrailStatus :: Text -- ^ 'gtsName'
+                 -> GetTrailStatus
+mkGetTrailStatus p1 = GetTrailStatus
+    { _gtsName = p1
+    }
+{-# INLINE mkGetTrailStatus #-}
+
 -- | The name of the trail for which you are requesting the current status.
-gtsrName :: Lens' GetTrailStatus (Text)
-gtsrName = lens _gtsrName (\s a -> s { _gtsrName = a })
-{-# INLINE gtsrName #-}
+gtsName :: Lens' GetTrailStatus Text
+gtsName = lens _gtsName (\s a -> s { _gtsName = a })
+{-# INLINE gtsName #-}
 
 instance ToPath GetTrailStatus
 
@@ -74,75 +73,70 @@ instance ToHeaders GetTrailStatus
 
 instance ToJSON GetTrailStatus
 
+-- | Returns the objects or data listed below if successful. Otherwise, returns
+-- an error.
 data GetTrailStatusResponse = GetTrailStatusResponse
-    { _gtssIsLogging :: Maybe Bool
-      -- ^ Whether the CloudTrail is currently logging AWS API calls.
-    , _gtssLatestDeliveryError :: Maybe Text
-      -- ^ Displays any Amazon S3 error that CloudTrail encountered when
-      -- attempting to deliver log files to the designated bucket. For
-      -- more information see the topic Error Responses in the Amazon S3
-      -- API Reference.
-    , _gtssLatestNotificationError :: Maybe Text
-      -- ^ Displays any Amazon SNS error that CloudTrail encountered when
-      -- attempting to send a notification. For more information about
-      -- Amazon SNS errors, see the Amazon SNS Developer Guide.
-    , _gtssLatestDeliveryTime :: Maybe ISO8601
-      -- ^ Specifies the date and time that CloudTrail last delivered log
-      -- files to an account's Amazon S3 bucket.
-    , _gtssLatestNotificationTime :: Maybe ISO8601
-      -- ^ Specifies the date and time of the most recent Amazon SNS
-      -- notification that CloudTrail has written a new log file to an
-      -- account's Amazon S3 bucket.
-    , _gtssStartLoggingTime :: Maybe ISO8601
-      -- ^ Specifies the most recent date and time when CloudTrail started
-      -- recording API calls for an AWS account.
-    , _gtssStopLoggingTime :: Maybe ISO8601
-      -- ^ Specifies the most recent date and time when CloudTrail stopped
-      -- recording API calls for an AWS account.
+    { _gtsrsIsLogging :: Maybe Bool
+    , _gtsrsLatestDeliveryError :: Maybe Text
+    , _gtsrsLatestNotificationError :: Maybe Text
+    , _gtsrsLatestDeliveryTime :: Maybe ISO8601
+    , _gtsrsLatestNotificationTime :: Maybe ISO8601
+    , _gtsrsStartLoggingTime :: Maybe ISO8601
+    , _gtsrsStopLoggingTime :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Whether the CloudTrail is currently logging AWS API calls.
-gtssIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)
-gtssIsLogging = lens _gtssIsLogging (\s a -> s { _gtssIsLogging = a })
-{-# INLINE gtssIsLogging #-}
+gtsrsIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)
+gtsrsIsLogging = lens _gtsrsIsLogging (\s a -> s { _gtsrsIsLogging = a })
+{-# INLINE gtsrsIsLogging #-}
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting to
 -- deliver log files to the designated bucket. For more information see the
 -- topic Error Responses in the Amazon S3 API Reference.
-gtssLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
-gtssLatestDeliveryError = lens _gtssLatestDeliveryError (\s a -> s { _gtssLatestDeliveryError = a })
-{-# INLINE gtssLatestDeliveryError #-}
+gtsrsLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsLatestDeliveryError =
+    lens _gtsrsLatestDeliveryError
+         (\s a -> s { _gtsrsLatestDeliveryError = a })
+{-# INLINE gtsrsLatestDeliveryError #-}
 
 -- | Displays any Amazon SNS error that CloudTrail encountered when attempting
 -- to send a notification. For more information about Amazon SNS errors, see
 -- the Amazon SNS Developer Guide.
-gtssLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
-gtssLatestNotificationError = lens _gtssLatestNotificationError (\s a -> s { _gtssLatestNotificationError = a })
-{-# INLINE gtssLatestNotificationError #-}
+gtsrsLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsLatestNotificationError =
+    lens _gtsrsLatestNotificationError
+         (\s a -> s { _gtsrsLatestNotificationError = a })
+{-# INLINE gtsrsLatestNotificationError #-}
 
 -- | Specifies the date and time that CloudTrail last delivered log files to an
 -- account's Amazon S3 bucket.
-gtssLatestDeliveryTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtssLatestDeliveryTime = lens _gtssLatestDeliveryTime (\s a -> s { _gtssLatestDeliveryTime = a })
-{-# INLINE gtssLatestDeliveryTime #-}
+gtsrsLatestDeliveryTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrsLatestDeliveryTime =
+    lens _gtsrsLatestDeliveryTime
+         (\s a -> s { _gtsrsLatestDeliveryTime = a })
+{-# INLINE gtsrsLatestDeliveryTime #-}
 
 -- | Specifies the date and time of the most recent Amazon SNS notification that
 -- CloudTrail has written a new log file to an account's Amazon S3 bucket.
-gtssLatestNotificationTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtssLatestNotificationTime = lens _gtssLatestNotificationTime (\s a -> s { _gtssLatestNotificationTime = a })
-{-# INLINE gtssLatestNotificationTime #-}
+gtsrsLatestNotificationTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrsLatestNotificationTime =
+    lens _gtsrsLatestNotificationTime
+         (\s a -> s { _gtsrsLatestNotificationTime = a })
+{-# INLINE gtsrsLatestNotificationTime #-}
 
 -- | Specifies the most recent date and time when CloudTrail started recording
 -- API calls for an AWS account.
-gtssStartLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtssStartLoggingTime = lens _gtssStartLoggingTime (\s a -> s { _gtssStartLoggingTime = a })
-{-# INLINE gtssStartLoggingTime #-}
+gtsrsStartLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrsStartLoggingTime =
+    lens _gtsrsStartLoggingTime (\s a -> s { _gtsrsStartLoggingTime = a })
+{-# INLINE gtsrsStartLoggingTime #-}
 
 -- | Specifies the most recent date and time when CloudTrail stopped recording
 -- API calls for an AWS account.
-gtssStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtssStopLoggingTime = lens _gtssStopLoggingTime (\s a -> s { _gtssStopLoggingTime = a })
-{-# INLINE gtssStopLoggingTime #-}
+gtsrsStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrsStopLoggingTime =
+    lens _gtsrsStopLoggingTime (\s a -> s { _gtsrsStopLoggingTime = a })
+{-# INLINE gtsrsStopLoggingTime #-}
 
 instance FromJSON GetTrailStatusResponse
 

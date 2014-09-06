@@ -23,55 +23,53 @@ module Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey
     -- * Request
       RotateEncryptionKey
     -- ** Request constructor
-    , mkRotateEncryptionKeyMessage
+    , mkRotateEncryptionKey
     -- ** Request lenses
-    , rekmClusterIdentifier
+    , rekClusterIdentifier
 
     -- * Response
     , RotateEncryptionKeyResponse
     -- ** Response lenses
-    , cccrCluster
+    , rekrsCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype RotateEncryptionKey = RotateEncryptionKey
+    { _rekClusterIdentifier :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RotateEncryptionKey' request.
-mkRotateEncryptionKeyMessage :: Text -- ^ 'rekmClusterIdentifier'
-                             -> RotateEncryptionKey
-mkRotateEncryptionKeyMessage p1 = RotateEncryptionKey
-    { _rekmClusterIdentifier = p1
+mkRotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
+                      -> RotateEncryptionKey
+mkRotateEncryptionKey p1 = RotateEncryptionKey
+    { _rekClusterIdentifier = p1
     }
-{-# INLINE mkRotateEncryptionKeyMessage #-}
-
-newtype RotateEncryptionKey = RotateEncryptionKey
-    { _rekmClusterIdentifier :: Text
-      -- ^ The unique identifier of the cluster that you want to rotate the
-      -- encryption keys for. Constraints: Must be the name of valid
-      -- cluster that has encryption enabled.
-    } deriving (Show, Generic)
+{-# INLINE mkRotateEncryptionKey #-}
 
 -- | The unique identifier of the cluster that you want to rotate the encryption
 -- keys for. Constraints: Must be the name of valid cluster that has
 -- encryption enabled.
-rekmClusterIdentifier :: Lens' RotateEncryptionKey (Text)
-rekmClusterIdentifier = lens _rekmClusterIdentifier (\s a -> s { _rekmClusterIdentifier = a })
-{-# INLINE rekmClusterIdentifier #-}
+rekClusterIdentifier :: Lens' RotateEncryptionKey Text
+rekClusterIdentifier =
+    lens _rekClusterIdentifier (\s a -> s { _rekClusterIdentifier = a })
+{-# INLINE rekClusterIdentifier #-}
 
 instance ToQuery RotateEncryptionKey where
     toQuery = genericQuery def
 
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
-    { _cccrCluster :: Maybe Cluster
-      -- ^ Describes a cluster.
+    { _rekrsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-cccrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-cccrCluster = lens _cccrCluster (\s a -> s { _cccrCluster = a })
-{-# INLINE cccrCluster #-}
+rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
+rekrsCluster = lens _rekrsCluster (\s a -> s { _rekrsCluster = a })
+{-# INLINE rekrsCluster #-}
 
 instance FromXML RotateEncryptionKeyResponse where
     fromXMLOptions = xmlOptions

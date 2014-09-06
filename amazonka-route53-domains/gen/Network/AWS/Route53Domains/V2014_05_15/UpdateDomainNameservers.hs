@@ -43,15 +43,15 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers
     -- * Request
       UpdateDomainNameservers
     -- ** Request constructor
-    , mkUpdateDomainNameserversRequest
+    , mkUpdateDomainNameservers
     -- ** Request lenses
-    , udnrDomainName
-    , udnrNameservers
+    , udnDomainName
+    , udnNameservers
 
     -- * Response
     , UpdateDomainNameserversResponse
     -- ** Response lenses
-    , udnsOperationId
+    , udnrsOperationId
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -59,41 +59,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The UpdateDomainNameserver request includes the following elements.
+data UpdateDomainNameservers = UpdateDomainNameservers
+    { _udnDomainName :: Text
+    , _udnNameservers :: [Nameserver]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainNameservers' request.
-mkUpdateDomainNameserversRequest :: Text -- ^ 'udnrDomainName'
-                                 -> [Nameserver] -- ^ 'udnrNameservers'
-                                 -> UpdateDomainNameservers
-mkUpdateDomainNameserversRequest p1 p2 = UpdateDomainNameservers
-    { _udnrDomainName = p1
-    , _udnrNameservers = p2
+mkUpdateDomainNameservers :: Text -- ^ 'udnDomainName'
+                          -> [Nameserver] -- ^ 'udnNameservers'
+                          -> UpdateDomainNameservers
+mkUpdateDomainNameservers p1 p2 = UpdateDomainNameservers
+    { _udnDomainName = p1
+    , _udnNameservers = p2
     }
-{-# INLINE mkUpdateDomainNameserversRequest #-}
-
-data UpdateDomainNameservers = UpdateDomainNameservers
-    { _udnrDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    , _udnrNameservers :: [Nameserver]
-      -- ^ A list of new name servers for the domain. Type: Complex
-      -- Children: Name, GlueIps Required: Yes.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateDomainNameservers #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-udnrDomainName :: Lens' UpdateDomainNameservers (Text)
-udnrDomainName = lens _udnrDomainName (\s a -> s { _udnrDomainName = a })
-{-# INLINE udnrDomainName #-}
+udnDomainName :: Lens' UpdateDomainNameservers Text
+udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
+{-# INLINE udnDomainName #-}
 
 -- | A list of new name servers for the domain. Type: Complex Children: Name,
 -- GlueIps Required: Yes.
-udnrNameservers :: Lens' UpdateDomainNameservers ([Nameserver])
-udnrNameservers = lens _udnrNameservers (\s a -> s { _udnrNameservers = a })
-{-# INLINE udnrNameservers #-}
+udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
+udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a })
+{-# INLINE udnNameservers #-}
 
 instance ToPath UpdateDomainNameservers
 
@@ -103,19 +98,18 @@ instance ToHeaders UpdateDomainNameservers
 
 instance ToJSON UpdateDomainNameservers
 
+-- | The UpdateDomainNameservers response includes the following element.
 newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
-    { _udnsOperationId :: Text
-      -- ^ Identifier for tracking the progress of the request. To use this
-      -- ID to query the operation status, use GetOperationDetail. Type:
-      -- String Default: None Constraints: Maximum 255 characters.
+    { _udnrsOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udnsOperationId :: Lens' UpdateDomainNameserversResponse (Text)
-udnsOperationId = lens _udnsOperationId (\s a -> s { _udnsOperationId = a })
-{-# INLINE udnsOperationId #-}
+udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
+udnrsOperationId =
+    lens _udnrsOperationId (\s a -> s { _udnrsOperationId = a })
+{-# INLINE udnrsOperationId #-}
 
 instance FromJSON UpdateDomainNameserversResponse
 

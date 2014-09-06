@@ -54,21 +54,21 @@ module Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
     -- * Request
       CountClosedWorkflowExecutions
     -- ** Request constructor
-    , mkCountClosedWorkflowExecutionsInput
+    , mkCountClosedWorkflowExecutions
     -- ** Request lenses
-    , ccweiDomain
-    , ccweiStartTimeFilter
-    , ccweiCloseTimeFilter
-    , ccweiExecutionFilter
-    , ccweiTypeFilter
-    , ccweiTagFilter
-    , ccweiCloseStatusFilter
+    , ccweDomain
+    , ccweStartTimeFilter
+    , ccweCloseTimeFilter
+    , ccweExecutionFilter
+    , ccweTypeFilter
+    , ccweTagFilter
+    , ccweCloseStatusFilter
 
     -- * Response
     , CountClosedWorkflowExecutionsResponse
     -- ** Response lenses
-    , wecCount
-    , wecTruncated
+    , ccwersCount
+    , ccwersTruncated
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -76,106 +76,83 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CountClosedWorkflowExecutions' request.
-mkCountClosedWorkflowExecutionsInput :: Text -- ^ 'ccweiDomain'
-                                     -> CountClosedWorkflowExecutions
-mkCountClosedWorkflowExecutionsInput p1 = CountClosedWorkflowExecutions
-    { _ccweiDomain = p1
-    , _ccweiStartTimeFilter = Nothing
-    , _ccweiCloseTimeFilter = Nothing
-    , _ccweiExecutionFilter = Nothing
-    , _ccweiTypeFilter = Nothing
-    , _ccweiTagFilter = Nothing
-    , _ccweiCloseStatusFilter = Nothing
-    }
-{-# INLINE mkCountClosedWorkflowExecutionsInput #-}
-
 data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
-    { _ccweiDomain :: Text
-      -- ^ The name of the domain containing the workflow executions to
-      -- count.
-    , _ccweiStartTimeFilter :: Maybe ExecutionTimeFilter
-      -- ^ If specified, only workflow executions that meet the start time
-      -- criteria of the filter are counted. startTimeFilter and
-      -- closeTimeFilter are mutually exclusive. You must specify one of
-      -- these in a request but not both.
-    , _ccweiCloseTimeFilter :: Maybe ExecutionTimeFilter
-      -- ^ If specified, only workflow executions that meet the close time
-      -- criteria of the filter are counted. startTimeFilter and
-      -- closeTimeFilter are mutually exclusive. You must specify one of
-      -- these in a request but not both.
-    , _ccweiExecutionFilter :: Maybe WorkflowExecutionFilter
-      -- ^ If specified, only workflow executions matching the WorkflowId in
-      -- the filter are counted. closeStatusFilter, executionFilter,
-      -- typeFilter and tagFilter are mutually exclusive. You can specify
-      -- at most one of these in a request.
-    , _ccweiTypeFilter :: Maybe WorkflowTypeFilter
-      -- ^ If specified, indicates the type of the workflow executions to be
-      -- counted. closeStatusFilter, executionFilter, typeFilter and
-      -- tagFilter are mutually exclusive. You can specify at most one of
-      -- these in a request.
-    , _ccweiTagFilter :: Maybe TagFilter
-      -- ^ If specified, only executions that have a tag that matches the
-      -- filter are counted. closeStatusFilter, executionFilter,
-      -- typeFilter and tagFilter are mutually exclusive. You can specify
-      -- at most one of these in a request.
-    , _ccweiCloseStatusFilter :: Maybe CloseStatusFilter
-      -- ^ If specified, only workflow executions that match this close
-      -- status are counted. This filter has an affect only if
-      -- executionStatus is specified as CLOSED. closeStatusFilter,
-      -- executionFilter, typeFilter and tagFilter are mutually exclusive.
-      -- You can specify at most one of these in a request.
+    { _ccweDomain :: Text
+    , _ccweStartTimeFilter :: Maybe ExecutionTimeFilter
+    , _ccweCloseTimeFilter :: Maybe ExecutionTimeFilter
+    , _ccweExecutionFilter :: Maybe WorkflowExecutionFilter
+    , _ccweTypeFilter :: Maybe WorkflowTypeFilter
+    , _ccweTagFilter :: Maybe TagFilter
+    , _ccweCloseStatusFilter :: Maybe CloseStatusFilter
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountClosedWorkflowExecutions' request.
+mkCountClosedWorkflowExecutions :: Text -- ^ 'ccweDomain'
+                                -> CountClosedWorkflowExecutions
+mkCountClosedWorkflowExecutions p1 = CountClosedWorkflowExecutions
+    { _ccweDomain = p1
+    , _ccweStartTimeFilter = Nothing
+    , _ccweCloseTimeFilter = Nothing
+    , _ccweExecutionFilter = Nothing
+    , _ccweTypeFilter = Nothing
+    , _ccweTagFilter = Nothing
+    , _ccweCloseStatusFilter = Nothing
+    }
+{-# INLINE mkCountClosedWorkflowExecutions #-}
+
 -- | The name of the domain containing the workflow executions to count.
-ccweiDomain :: Lens' CountClosedWorkflowExecutions (Text)
-ccweiDomain = lens _ccweiDomain (\s a -> s { _ccweiDomain = a })
-{-# INLINE ccweiDomain #-}
+ccweDomain :: Lens' CountClosedWorkflowExecutions Text
+ccweDomain = lens _ccweDomain (\s a -> s { _ccweDomain = a })
+{-# INLINE ccweDomain #-}
 
 -- | If specified, only workflow executions that meet the start time criteria of
 -- the filter are counted. startTimeFilter and closeTimeFilter are mutually
 -- exclusive. You must specify one of these in a request but not both.
-ccweiStartTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-ccweiStartTimeFilter = lens _ccweiStartTimeFilter (\s a -> s { _ccweiStartTimeFilter = a })
-{-# INLINE ccweiStartTimeFilter #-}
+ccweStartTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
+ccweStartTimeFilter =
+    lens _ccweStartTimeFilter (\s a -> s { _ccweStartTimeFilter = a })
+{-# INLINE ccweStartTimeFilter #-}
 
 -- | If specified, only workflow executions that meet the close time criteria of
 -- the filter are counted. startTimeFilter and closeTimeFilter are mutually
 -- exclusive. You must specify one of these in a request but not both.
-ccweiCloseTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-ccweiCloseTimeFilter = lens _ccweiCloseTimeFilter (\s a -> s { _ccweiCloseTimeFilter = a })
-{-# INLINE ccweiCloseTimeFilter #-}
+ccweCloseTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
+ccweCloseTimeFilter =
+    lens _ccweCloseTimeFilter (\s a -> s { _ccweCloseTimeFilter = a })
+{-# INLINE ccweCloseTimeFilter #-}
 
 -- | If specified, only workflow executions matching the WorkflowId in the
 -- filter are counted. closeStatusFilter, executionFilter, typeFilter and
 -- tagFilter are mutually exclusive. You can specify at most one of these in a
 -- request.
-ccweiExecutionFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
-ccweiExecutionFilter = lens _ccweiExecutionFilter (\s a -> s { _ccweiExecutionFilter = a })
-{-# INLINE ccweiExecutionFilter #-}
+ccweExecutionFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
+ccweExecutionFilter =
+    lens _ccweExecutionFilter (\s a -> s { _ccweExecutionFilter = a })
+{-# INLINE ccweExecutionFilter #-}
 
 -- | If specified, indicates the type of the workflow executions to be counted.
 -- closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 -- exclusive. You can specify at most one of these in a request.
-ccweiTypeFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
-ccweiTypeFilter = lens _ccweiTypeFilter (\s a -> s { _ccweiTypeFilter = a })
-{-# INLINE ccweiTypeFilter #-}
+ccweTypeFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
+ccweTypeFilter = lens _ccweTypeFilter (\s a -> s { _ccweTypeFilter = a })
+{-# INLINE ccweTypeFilter #-}
 
 -- | If specified, only executions that have a tag that matches the filter are
 -- counted. closeStatusFilter, executionFilter, typeFilter and tagFilter are
 -- mutually exclusive. You can specify at most one of these in a request.
-ccweiTagFilter :: Lens' CountClosedWorkflowExecutions (Maybe TagFilter)
-ccweiTagFilter = lens _ccweiTagFilter (\s a -> s { _ccweiTagFilter = a })
-{-# INLINE ccweiTagFilter #-}
+ccweTagFilter :: Lens' CountClosedWorkflowExecutions (Maybe TagFilter)
+ccweTagFilter = lens _ccweTagFilter (\s a -> s { _ccweTagFilter = a })
+{-# INLINE ccweTagFilter #-}
 
 -- | If specified, only workflow executions that match this close status are
 -- counted. This filter has an affect only if executionStatus is specified as
 -- CLOSED. closeStatusFilter, executionFilter, typeFilter and tagFilter are
 -- mutually exclusive. You can specify at most one of these in a request.
-ccweiCloseStatusFilter :: Lens' CountClosedWorkflowExecutions (Maybe CloseStatusFilter)
-ccweiCloseStatusFilter = lens _ccweiCloseStatusFilter (\s a -> s { _ccweiCloseStatusFilter = a })
-{-# INLINE ccweiCloseStatusFilter #-}
+ccweCloseStatusFilter :: Lens' CountClosedWorkflowExecutions (Maybe CloseStatusFilter)
+ccweCloseStatusFilter =
+    lens _ccweCloseStatusFilter (\s a -> s { _ccweCloseStatusFilter = a })
+{-# INLINE ccweCloseStatusFilter #-}
 
 instance ToPath CountClosedWorkflowExecutions
 
@@ -185,25 +162,23 @@ instance ToHeaders CountClosedWorkflowExecutions
 
 instance ToJSON CountClosedWorkflowExecutions
 
+-- | Contains the count of workflow executions returned from
+-- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions.
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
-    { _wecCount :: Integer
-      -- ^ The number of workflow executions.
-    , _wecTruncated :: Maybe Bool
-      -- ^ If set to true, indicates that the actual count was more than the
-      -- maximum supported by this API and the count returned is the
-      -- truncated value.
+    { _ccwersCount :: Integer
+    , _ccwersTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The number of workflow executions.
-wecCount :: Lens' CountClosedWorkflowExecutionsResponse (Integer)
-wecCount = lens _wecCount (\s a -> s { _wecCount = a })
-{-# INLINE wecCount #-}
+ccwersCount :: Lens' CountClosedWorkflowExecutionsResponse Integer
+ccwersCount = lens _ccwersCount (\s a -> s { _ccwersCount = a })
+{-# INLINE ccwersCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-wecTruncated :: Lens' CountClosedWorkflowExecutionsResponse (Maybe Bool)
-wecTruncated = lens _wecTruncated (\s a -> s { _wecTruncated = a })
-{-# INLINE wecTruncated #-}
+ccwersTruncated :: Lens' CountClosedWorkflowExecutionsResponse (Maybe Bool)
+ccwersTruncated = lens _ccwersTruncated (\s a -> s { _ccwersTruncated = a })
+{-# INLINE ccwersTruncated #-}
 
 instance FromJSON CountClosedWorkflowExecutionsResponse
 

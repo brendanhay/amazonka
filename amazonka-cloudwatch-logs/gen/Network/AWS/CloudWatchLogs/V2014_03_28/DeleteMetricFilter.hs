@@ -33,10 +33,10 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter
     -- * Request
       DeleteMetricFilter
     -- ** Request constructor
-    , mkDeleteMetricFilterRequest
+    , mkDeleteMetricFilter
     -- ** Request lenses
-    , dmfrLogGroupName
-    , dmfrFilterName
+    , dmfLogGroupName
+    , dmfFilterName
 
     -- * Response
     , DeleteMetricFilterResponse
@@ -47,31 +47,30 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteMetricFilter' request.
-mkDeleteMetricFilterRequest :: Text -- ^ 'dmfrLogGroupName'
-                            -> Text -- ^ 'dmfrFilterName'
-                            -> DeleteMetricFilter
-mkDeleteMetricFilterRequest p1 p2 = DeleteMetricFilter
-    { _dmfrLogGroupName = p1
-    , _dmfrFilterName = p2
-    }
-{-# INLINE mkDeleteMetricFilterRequest #-}
-
 data DeleteMetricFilter = DeleteMetricFilter
-    { _dmfrLogGroupName :: Text
-    , _dmfrFilterName :: Text
-      -- ^ The name of the metric filter.
+    { _dmfLogGroupName :: Text
+    , _dmfFilterName :: Text
     } deriving (Show, Generic)
 
-dmfrLogGroupName :: Lens' DeleteMetricFilter (Text)
-dmfrLogGroupName = lens _dmfrLogGroupName (\s a -> s { _dmfrLogGroupName = a })
-{-# INLINE dmfrLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMetricFilter' request.
+mkDeleteMetricFilter :: Text -- ^ 'dmfLogGroupName'
+                     -> Text -- ^ 'dmfFilterName'
+                     -> DeleteMetricFilter
+mkDeleteMetricFilter p1 p2 = DeleteMetricFilter
+    { _dmfLogGroupName = p1
+    , _dmfFilterName = p2
+    }
+{-# INLINE mkDeleteMetricFilter #-}
+
+dmfLogGroupName :: Lens' DeleteMetricFilter Text
+dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
+{-# INLINE dmfLogGroupName #-}
 
 -- | The name of the metric filter.
-dmfrFilterName :: Lens' DeleteMetricFilter (Text)
-dmfrFilterName = lens _dmfrFilterName (\s a -> s { _dmfrFilterName = a })
-{-# INLINE dmfrFilterName #-}
+dmfFilterName :: Lens' DeleteMetricFilter Text
+dmfFilterName = lens _dmfFilterName (\s a -> s { _dmfFilterName = a })
+{-# INLINE dmfFilterName #-}
 
 instance ToPath DeleteMetricFilter
 

@@ -43,50 +43,54 @@ module Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
     -- * Request
       AcceptVpcPeeringConnection
     -- ** Request constructor
-    , mkAcceptVpcPeeringConnectionRequest
+    , mkAcceptVpcPeeringConnection
     -- ** Request lenses
-    , avpcrVpcPeeringConnectionId
+    , avpcVpcPeeringConnectionId
 
     -- * Response
     , AcceptVpcPeeringConnectionResponse
     -- ** Response lenses
-    , avpcsVpcPeeringConnection
+    , avpcrsVpcPeeringConnection
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'AcceptVpcPeeringConnection' request.
-mkAcceptVpcPeeringConnectionRequest :: AcceptVpcPeeringConnection
-mkAcceptVpcPeeringConnectionRequest = AcceptVpcPeeringConnection
-    { _avpcrVpcPeeringConnectionId = Nothing
-    }
-{-# INLINE mkAcceptVpcPeeringConnectionRequest #-}
-
+-- | 
 newtype AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
-    { _avpcrVpcPeeringConnectionId :: Maybe Text
-      -- ^ The ID of the VPC peering connection.
+    { _avpcVpcPeeringConnectionId :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AcceptVpcPeeringConnection' request.
+mkAcceptVpcPeeringConnection :: AcceptVpcPeeringConnection
+mkAcceptVpcPeeringConnection = AcceptVpcPeeringConnection
+    { _avpcVpcPeeringConnectionId = Nothing
+    }
+{-# INLINE mkAcceptVpcPeeringConnection #-}
+
 -- | The ID of the VPC peering connection.
-avpcrVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
-avpcrVpcPeeringConnectionId = lens _avpcrVpcPeeringConnectionId (\s a -> s { _avpcrVpcPeeringConnectionId = a })
-{-# INLINE avpcrVpcPeeringConnectionId #-}
+avpcVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
+avpcVpcPeeringConnectionId =
+    lens _avpcVpcPeeringConnectionId
+         (\s a -> s { _avpcVpcPeeringConnectionId = a })
+{-# INLINE avpcVpcPeeringConnectionId #-}
 
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery = genericQuery def
 
+-- | 
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
-    { _avpcsVpcPeeringConnection :: Maybe VpcPeeringConnection
-      -- ^ Information about the VPC peering connection.
+    { _avpcrsVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connection.
-avpcsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
-avpcsVpcPeeringConnection = lens _avpcsVpcPeeringConnection (\s a -> s { _avpcsVpcPeeringConnection = a })
-{-# INLINE avpcsVpcPeeringConnection #-}
+avpcrsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
+avpcrsVpcPeeringConnection =
+    lens _avpcrsVpcPeeringConnection
+         (\s a -> s { _avpcrsVpcPeeringConnection = a })
+{-# INLINE avpcrsVpcPeeringConnection #-}
 
 instance FromXML AcceptVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

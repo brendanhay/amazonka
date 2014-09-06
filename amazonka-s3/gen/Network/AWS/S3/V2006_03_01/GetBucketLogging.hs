@@ -24,41 +24,42 @@ module Network.AWS.S3.V2006_03_01.GetBucketLogging
     -- * Request
       GetBucketLogging
     -- ** Request constructor
-    , mkGetBucketLoggingRequest
+    , mkGetBucketLogging
     -- ** Request lenses
-    , gbltBucket
+    , gbl2Bucket
 
     -- * Response
     , GetBucketLoggingResponse
     -- ** Response lenses
-    , gblqLoggingEnabled
+    , gblrs1LoggingEnabled
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype GetBucketLogging = GetBucketLogging
+    { _gbl2Bucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLogging' request.
-mkGetBucketLoggingRequest :: BucketName -- ^ 'gbltBucket'
-                          -> GetBucketLogging
-mkGetBucketLoggingRequest p1 = GetBucketLogging
-    { _gbltBucket = p1
+mkGetBucketLogging :: BucketName -- ^ 'gbl2Bucket'
+                   -> GetBucketLogging
+mkGetBucketLogging p1 = GetBucketLogging
+    { _gbl2Bucket = p1
     }
-{-# INLINE mkGetBucketLoggingRequest #-}
+{-# INLINE mkGetBucketLogging #-}
 
-newtype GetBucketLogging = GetBucketLogging
-    { _gbltBucket :: BucketName
-    } deriving (Show, Generic)
-
-gbltBucket :: Lens' GetBucketLogging (BucketName)
-gbltBucket = lens _gbltBucket (\s a -> s { _gbltBucket = a })
-{-# INLINE gbltBucket #-}
+gbl2Bucket :: Lens' GetBucketLogging BucketName
+gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
+{-# INLINE gbl2Bucket #-}
 
 instance ToPath GetBucketLogging where
     toPath GetBucketLogging{..} = mconcat
         [ "/"
-        , toBS _gbltBucket
+        , toBS _gbl2Bucket
         ]
 
 instance ToQuery GetBucketLogging where
@@ -71,12 +72,13 @@ instance ToHeaders GetBucketLogging
 instance ToBody GetBucketLogging
 
 newtype GetBucketLoggingResponse = GetBucketLoggingResponse
-    { _gblqLoggingEnabled :: Maybe LoggingEnabled
+    { _gblrs1LoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
-gblqLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblqLoggingEnabled = lens _gblqLoggingEnabled (\s a -> s { _gblqLoggingEnabled = a })
-{-# INLINE gblqLoggingEnabled #-}
+gblrs1LoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+gblrs1LoggingEnabled =
+    lens _gblrs1LoggingEnabled (\s a -> s { _gblrs1LoggingEnabled = a })
+{-# INLINE gblrs1LoggingEnabled #-}
 
 instance FromXML GetBucketLoggingResponse where
     fromXMLOptions = xmlOptions

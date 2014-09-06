@@ -28,9 +28,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp
     -- * Request
       DeregisterElasticIp
     -- ** Request constructor
-    , mkDeregisterElasticIpRequest
+    , mkDeregisterElasticIp
     -- ** Request lenses
-    , deirElasticIp
+    , deiElasticIp
 
     -- * Response
     , DeregisterElasticIpResponse
@@ -41,24 +41,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeregisterElasticIp' request.
-mkDeregisterElasticIpRequest :: Text -- ^ 'deirElasticIp'
-                             -> DeregisterElasticIp
-mkDeregisterElasticIpRequest p1 = DeregisterElasticIp
-    { _deirElasticIp = p1
-    }
-{-# INLINE mkDeregisterElasticIpRequest #-}
-
 newtype DeregisterElasticIp = DeregisterElasticIp
-    { _deirElasticIp :: Text
-      -- ^ The Elastic IP address.
+    { _deiElasticIp :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterElasticIp' request.
+mkDeregisterElasticIp :: Text -- ^ 'deiElasticIp'
+                      -> DeregisterElasticIp
+mkDeregisterElasticIp p1 = DeregisterElasticIp
+    { _deiElasticIp = p1
+    }
+{-# INLINE mkDeregisterElasticIp #-}
+
 -- | The Elastic IP address.
-deirElasticIp :: Lens' DeregisterElasticIp (Text)
-deirElasticIp = lens _deirElasticIp (\s a -> s { _deirElasticIp = a })
-{-# INLINE deirElasticIp #-}
+deiElasticIp :: Lens' DeregisterElasticIp Text
+deiElasticIp = lens _deiElasticIp (\s a -> s { _deiElasticIp = a })
+{-# INLINE deiElasticIp #-}
 
 instance ToPath DeregisterElasticIp
 

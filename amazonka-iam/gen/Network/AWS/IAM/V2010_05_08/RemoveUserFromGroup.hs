@@ -25,10 +25,10 @@ module Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup
     -- * Request
       RemoveUserFromGroup
     -- ** Request constructor
-    , mkRemoveUserFromGroupRequest
+    , mkRemoveUserFromGroup
     -- ** Request lenses
-    , rufgrGroupName
-    , rufgrUserName
+    , rufgGroupName
+    , rufgUserName
 
     -- * Response
     , RemoveUserFromGroupResponse
@@ -38,33 +38,32 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RemoveUserFromGroup' request.
-mkRemoveUserFromGroupRequest :: Text -- ^ 'rufgrGroupName'
-                             -> Text -- ^ 'rufgrUserName'
-                             -> RemoveUserFromGroup
-mkRemoveUserFromGroupRequest p1 p2 = RemoveUserFromGroup
-    { _rufgrGroupName = p1
-    , _rufgrUserName = p2
-    }
-{-# INLINE mkRemoveUserFromGroupRequest #-}
-
+-- | 
 data RemoveUserFromGroup = RemoveUserFromGroup
-    { _rufgrGroupName :: Text
-      -- ^ Name of the group to update.
-    , _rufgrUserName :: Text
-      -- ^ Name of the user to remove.
+    { _rufgGroupName :: Text
+    , _rufgUserName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveUserFromGroup' request.
+mkRemoveUserFromGroup :: Text -- ^ 'rufgGroupName'
+                      -> Text -- ^ 'rufgUserName'
+                      -> RemoveUserFromGroup
+mkRemoveUserFromGroup p1 p2 = RemoveUserFromGroup
+    { _rufgGroupName = p1
+    , _rufgUserName = p2
+    }
+{-# INLINE mkRemoveUserFromGroup #-}
+
 -- | Name of the group to update.
-rufgrGroupName :: Lens' RemoveUserFromGroup (Text)
-rufgrGroupName = lens _rufgrGroupName (\s a -> s { _rufgrGroupName = a })
-{-# INLINE rufgrGroupName #-}
+rufgGroupName :: Lens' RemoveUserFromGroup Text
+rufgGroupName = lens _rufgGroupName (\s a -> s { _rufgGroupName = a })
+{-# INLINE rufgGroupName #-}
 
 -- | Name of the user to remove.
-rufgrUserName :: Lens' RemoveUserFromGroup (Text)
-rufgrUserName = lens _rufgrUserName (\s a -> s { _rufgrUserName = a })
-{-# INLINE rufgrUserName #-}
+rufgUserName :: Lens' RemoveUserFromGroup Text
+rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
+{-# INLINE rufgUserName #-}
 
 instance ToQuery RemoveUserFromGroup where
     toQuery = genericQuery def

@@ -23,51 +23,52 @@ module Network.AWS.S3.V2006_03_01.GetObjectTorrent
     -- * Request
       GetObjectTorrent
     -- ** Request constructor
-    , mkGetObjectTorrentRequest
+    , mkGetObjectTorrent
     -- ** Request lenses
-    , gotrBucket
-    , gotrKey
+    , gotBucket
+    , gotKey
 
     -- * Response
     , GetObjectTorrentResponse
     -- ** Response lenses
-    , gotoBody
+    , gotrsBody
     ) where
 
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data GetObjectTorrent = GetObjectTorrent
+    { _gotBucket :: BucketName
+    , _gotKey :: ObjectKey
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObjectTorrent' request.
-mkGetObjectTorrentRequest :: BucketName -- ^ 'gotrBucket'
-                          -> ObjectKey -- ^ 'gotrKey'
-                          -> GetObjectTorrent
-mkGetObjectTorrentRequest p1 p2 = GetObjectTorrent
-    { _gotrBucket = p1
-    , _gotrKey = p2
+mkGetObjectTorrent :: BucketName -- ^ 'gotBucket'
+                   -> ObjectKey -- ^ 'gotKey'
+                   -> GetObjectTorrent
+mkGetObjectTorrent p1 p2 = GetObjectTorrent
+    { _gotBucket = p1
+    , _gotKey = p2
     }
-{-# INLINE mkGetObjectTorrentRequest #-}
+{-# INLINE mkGetObjectTorrent #-}
 
-data GetObjectTorrent = GetObjectTorrent
-    { _gotrBucket :: BucketName
-    , _gotrKey :: ObjectKey
-    } deriving (Show, Generic)
+gotBucket :: Lens' GetObjectTorrent BucketName
+gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
+{-# INLINE gotBucket #-}
 
-gotrBucket :: Lens' GetObjectTorrent (BucketName)
-gotrBucket = lens _gotrBucket (\s a -> s { _gotrBucket = a })
-{-# INLINE gotrBucket #-}
-
-gotrKey :: Lens' GetObjectTorrent (ObjectKey)
-gotrKey = lens _gotrKey (\s a -> s { _gotrKey = a })
-{-# INLINE gotrKey #-}
+gotKey :: Lens' GetObjectTorrent ObjectKey
+gotKey = lens _gotKey (\s a -> s { _gotKey = a })
+{-# INLINE gotKey #-}
 
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
         [ "/"
-        , toBS _gotrBucket
+        , toBS _gotBucket
         , "/"
-        , toBS _gotrKey
+        , toBS _gotKey
         ]
 
 instance ToQuery GetObjectTorrent where
@@ -80,12 +81,12 @@ instance ToHeaders GetObjectTorrent
 instance ToBody GetObjectTorrent
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotoBody :: RsBody
+    { _gotrsBody :: RsBody
     } deriving (Show, Generic)
 
-gotoBody :: Lens' GetObjectTorrentResponse (RsBody)
-gotoBody = lens _gotoBody (\s a -> s { _gotoBody = a })
-{-# INLINE gotoBody #-}
+gotrsBody :: Lens' GetObjectTorrentResponse RsBody
+gotrsBody = lens _gotrsBody (\s a -> s { _gotrsBody = a })
+{-# INLINE gotrsBody #-}
 
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3

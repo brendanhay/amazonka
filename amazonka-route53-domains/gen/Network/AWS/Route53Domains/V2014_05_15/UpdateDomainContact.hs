@@ -56,17 +56,17 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact
     -- * Request
       UpdateDomainContact
     -- ** Request constructor
-    , mkUpdateDomainContactRequest
+    , mkUpdateDomainContact
     -- ** Request lenses
-    , udcrDomainName
-    , udcrAdminContact
-    , udcrRegistrantContact
-    , udcrTechContact
+    , udcDomainName
+    , udcAdminContact
+    , udcRegistrantContact
+    , udcTechContact
 
     -- * Response
     , UpdateDomainContactResponse
     -- ** Response lenses
-    , udcsOperationId
+    , udcrsOperationId
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -74,72 +74,58 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The UpdateDomainContact request includes the following elements.
+data UpdateDomainContact = UpdateDomainContact
+    { _udcDomainName :: Text
+    , _udcAdminContact :: Maybe ContactDetail
+    , _udcRegistrantContact :: Maybe ContactDetail
+    , _udcTechContact :: Maybe ContactDetail
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContact' request.
-mkUpdateDomainContactRequest :: Text -- ^ 'udcrDomainName'
-                             -> UpdateDomainContact
-mkUpdateDomainContactRequest p1 = UpdateDomainContact
-    { _udcrDomainName = p1
-    , _udcrAdminContact = Nothing
-    , _udcrRegistrantContact = Nothing
-    , _udcrTechContact = Nothing
+mkUpdateDomainContact :: Text -- ^ 'udcDomainName'
+                      -> UpdateDomainContact
+mkUpdateDomainContact p1 = UpdateDomainContact
+    { _udcDomainName = p1
+    , _udcAdminContact = Nothing
+    , _udcRegistrantContact = Nothing
+    , _udcTechContact = Nothing
     }
-{-# INLINE mkUpdateDomainContactRequest #-}
-
-data UpdateDomainContact = UpdateDomainContact
-    { _udcrDomainName :: Text
-      -- ^ The name of a domain. Type: String Default: None Constraints: The
-      -- domain name can contain only the letters a through z, the numbers
-      -- 0 through 9, and hyphen (-). Internationalized Domain Names are
-      -- not supported. Required: Yes.
-    , _udcrAdminContact :: Maybe ContactDetail
-      -- ^ Provides detailed contact information. Type: Complex Children:
-      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
-      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
-      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _udcrRegistrantContact :: Maybe ContactDetail
-      -- ^ Provides detailed contact information. Type: Complex Children:
-      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
-      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
-      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    , _udcrTechContact :: Maybe ContactDetail
-      -- ^ Provides detailed contact information. Type: Complex Children:
-      -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
-      -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
-      -- PhoneNumber, Email, Fax, ExtraParams Required: Yes.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateDomainContact #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
 -- hyphen (-). Internationalized Domain Names are not supported. Required:
 -- Yes.
-udcrDomainName :: Lens' UpdateDomainContact (Text)
-udcrDomainName = lens _udcrDomainName (\s a -> s { _udcrDomainName = a })
-{-# INLINE udcrDomainName #-}
+udcDomainName :: Lens' UpdateDomainContact Text
+udcDomainName = lens _udcDomainName (\s a -> s { _udcDomainName = a })
+{-# INLINE udcDomainName #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-udcrAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrAdminContact = lens _udcrAdminContact (\s a -> s { _udcrAdminContact = a })
-{-# INLINE udcrAdminContact #-}
+udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcAdminContact = lens _udcAdminContact (\s a -> s { _udcAdminContact = a })
+{-# INLINE udcAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-udcrRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrRegistrantContact = lens _udcrRegistrantContact (\s a -> s { _udcrRegistrantContact = a })
-{-# INLINE udcrRegistrantContact #-}
+udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcRegistrantContact =
+    lens _udcRegistrantContact (\s a -> s { _udcRegistrantContact = a })
+{-# INLINE udcRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
 -- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
 -- ExtraParams Required: Yes.
-udcrTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrTechContact = lens _udcrTechContact (\s a -> s { _udcrTechContact = a })
-{-# INLINE udcrTechContact #-}
+udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcTechContact = lens _udcTechContact (\s a -> s { _udcTechContact = a })
+{-# INLINE udcTechContact #-}
 
 instance ToPath UpdateDomainContact
 
@@ -149,19 +135,18 @@ instance ToHeaders UpdateDomainContact
 
 instance ToJSON UpdateDomainContact
 
+-- | The UpdateDomainContact response includes the following element.
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
-    { _udcsOperationId :: Text
-      -- ^ Identifier for tracking the progress of the request. To use this
-      -- ID to query the operation status, use GetOperationDetail. Type:
-      -- String Default: None Constraints: Maximum 255 characters.
+    { _udcrsOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udcsOperationId :: Lens' UpdateDomainContactResponse (Text)
-udcsOperationId = lens _udcsOperationId (\s a -> s { _udcsOperationId = a })
-{-# INLINE udcsOperationId #-}
+udcrsOperationId :: Lens' UpdateDomainContactResponse Text
+udcrsOperationId =
+    lens _udcrsOperationId (\s a -> s { _udcrsOperationId = a })
+{-# INLINE udcrsOperationId #-}
 
 instance FromJSON UpdateDomainContactResponse
 

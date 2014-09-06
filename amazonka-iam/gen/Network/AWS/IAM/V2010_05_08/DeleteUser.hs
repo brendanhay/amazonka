@@ -26,9 +26,9 @@ module Network.AWS.IAM.V2010_05_08.DeleteUser
     -- * Request
       DeleteUser
     -- ** Request constructor
-    , mkDeleteUserRequest
+    , mkDeleteUser
     -- ** Request lenses
-    , durUserName
+    , duUserName
 
     -- * Response
     , DeleteUserResponse
@@ -38,24 +38,24 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteUser' request.
-mkDeleteUserRequest :: Text -- ^ 'durUserName'
-                    -> DeleteUser
-mkDeleteUserRequest p1 = DeleteUser
-    { _durUserName = p1
-    }
-{-# INLINE mkDeleteUserRequest #-}
-
+-- | 
 newtype DeleteUser = DeleteUser
-    { _durUserName :: Text
-      -- ^ Name of the user to delete.
+    { _duUserName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteUser' request.
+mkDeleteUser :: Text -- ^ 'duUserName'
+             -> DeleteUser
+mkDeleteUser p1 = DeleteUser
+    { _duUserName = p1
+    }
+{-# INLINE mkDeleteUser #-}
+
 -- | Name of the user to delete.
-durUserName :: Lens' DeleteUser (Text)
-durUserName = lens _durUserName (\s a -> s { _durUserName = a })
-{-# INLINE durUserName #-}
+duUserName :: Lens' DeleteUser Text
+duUserName = lens _duUserName (\s a -> s { _duUserName = a })
+{-# INLINE duUserName #-}
 
 instance ToQuery DeleteUser where
     toQuery = genericQuery def

@@ -46,14 +46,14 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
     -- * Request
       DescribePipelines
     -- ** Request constructor
-    , mkDescribePipelinesInput
+    , mkDescribePipelines
     -- ** Request lenses
-    , dpjPipelineIds
+    , dp1PipelineIds
 
     -- * Response
     , DescribePipelinesResponse
     -- ** Response lenses
-    , dpoPipelineDescriptionList
+    , dprsPipelineDescriptionList
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -61,28 +61,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The input to the DescribePipelines action.
+newtype DescribePipelines = DescribePipelines
+    { _dp1PipelineIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePipelines' request.
-mkDescribePipelinesInput :: [Text] -- ^ 'dpjPipelineIds'
-                         -> DescribePipelines
-mkDescribePipelinesInput p1 = DescribePipelines
-    { _dpjPipelineIds = p1
+mkDescribePipelines :: [Text] -- ^ 'dp1PipelineIds'
+                    -> DescribePipelines
+mkDescribePipelines p1 = DescribePipelines
+    { _dp1PipelineIds = p1
     }
-{-# INLINE mkDescribePipelinesInput #-}
-
-newtype DescribePipelines = DescribePipelines
-    { _dpjPipelineIds :: [Text]
-      -- ^ Identifiers of the pipelines to describe. You can pass as many as
-      -- 25 identifiers in a single call to DescribePipelines. You can
-      -- obtain pipeline identifiers by calling ListPipelines.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribePipelines #-}
 
 -- | Identifiers of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call to DescribePipelines. You can obtain pipeline
 -- identifiers by calling ListPipelines.
-dpjPipelineIds :: Lens' DescribePipelines ([Text])
-dpjPipelineIds = lens _dpjPipelineIds (\s a -> s { _dpjPipelineIds = a })
-{-# INLINE dpjPipelineIds #-}
+dp1PipelineIds :: Lens' DescribePipelines [Text]
+dp1PipelineIds = lens _dp1PipelineIds (\s a -> s { _dp1PipelineIds = a })
+{-# INLINE dp1PipelineIds #-}
 
 instance ToPath DescribePipelines
 
@@ -92,15 +90,17 @@ instance ToHeaders DescribePipelines
 
 instance ToJSON DescribePipelines
 
+-- | Contains the output from the DescribePipelines action.
 newtype DescribePipelinesResponse = DescribePipelinesResponse
-    { _dpoPipelineDescriptionList :: [PipelineDescription]
-      -- ^ An array of descriptions returned for the specified pipelines.
+    { _dprsPipelineDescriptionList :: [PipelineDescription]
     } deriving (Show, Generic)
 
 -- | An array of descriptions returned for the specified pipelines.
-dpoPipelineDescriptionList :: Lens' DescribePipelinesResponse ([PipelineDescription])
-dpoPipelineDescriptionList = lens _dpoPipelineDescriptionList (\s a -> s { _dpoPipelineDescriptionList = a })
-{-# INLINE dpoPipelineDescriptionList #-}
+dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
+dprsPipelineDescriptionList =
+    lens _dprsPipelineDescriptionList
+         (\s a -> s { _dprsPipelineDescriptionList = a })
+{-# INLINE dprsPipelineDescriptionList #-}
 
 instance FromJSON DescribePipelinesResponse
 

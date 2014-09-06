@@ -35,11 +35,11 @@ module Network.AWS.IAM.V2010_05_08.PutUserPolicy
     -- * Request
       PutUserPolicy
     -- ** Request constructor
-    , mkPutUserPolicyRequest
+    , mkPutUserPolicy
     -- ** Request lenses
-    , puprUserName
-    , puprPolicyName
-    , puprPolicyDocument
+    , pupUserName
+    , pupPolicyName
+    , pupPolicyDocument
 
     -- * Response
     , PutUserPolicyResponse
@@ -49,42 +49,41 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutUserPolicy' request.
-mkPutUserPolicyRequest :: Text -- ^ 'puprUserName'
-                       -> Text -- ^ 'puprPolicyName'
-                       -> Text -- ^ 'puprPolicyDocument'
-                       -> PutUserPolicy
-mkPutUserPolicyRequest p1 p2 p3 = PutUserPolicy
-    { _puprUserName = p1
-    , _puprPolicyName = p2
-    , _puprPolicyDocument = p3
-    }
-{-# INLINE mkPutUserPolicyRequest #-}
-
+-- | 
 data PutUserPolicy = PutUserPolicy
-    { _puprUserName :: Text
-      -- ^ Name of the user to associate the policy with.
-    , _puprPolicyName :: Text
-      -- ^ Name of the policy document.
-    , _puprPolicyDocument :: Text
-      -- ^ The policy document.
+    { _pupUserName :: Text
+    , _pupPolicyName :: Text
+    , _pupPolicyDocument :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutUserPolicy' request.
+mkPutUserPolicy :: Text -- ^ 'pupUserName'
+                -> Text -- ^ 'pupPolicyName'
+                -> Text -- ^ 'pupPolicyDocument'
+                -> PutUserPolicy
+mkPutUserPolicy p1 p2 p3 = PutUserPolicy
+    { _pupUserName = p1
+    , _pupPolicyName = p2
+    , _pupPolicyDocument = p3
+    }
+{-# INLINE mkPutUserPolicy #-}
+
 -- | Name of the user to associate the policy with.
-puprUserName :: Lens' PutUserPolicy (Text)
-puprUserName = lens _puprUserName (\s a -> s { _puprUserName = a })
-{-# INLINE puprUserName #-}
+pupUserName :: Lens' PutUserPolicy Text
+pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
+{-# INLINE pupUserName #-}
 
 -- | Name of the policy document.
-puprPolicyName :: Lens' PutUserPolicy (Text)
-puprPolicyName = lens _puprPolicyName (\s a -> s { _puprPolicyName = a })
-{-# INLINE puprPolicyName #-}
+pupPolicyName :: Lens' PutUserPolicy Text
+pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
+{-# INLINE pupPolicyName #-}
 
 -- | The policy document.
-puprPolicyDocument :: Lens' PutUserPolicy (Text)
-puprPolicyDocument = lens _puprPolicyDocument (\s a -> s { _puprPolicyDocument = a })
-{-# INLINE puprPolicyDocument #-}
+pupPolicyDocument :: Lens' PutUserPolicy Text
+pupPolicyDocument =
+    lens _pupPolicyDocument (\s a -> s { _pupPolicyDocument = a })
+{-# INLINE pupPolicyDocument #-}
 
 instance ToQuery PutUserPolicy where
     toQuery = genericQuery def

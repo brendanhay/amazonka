@@ -39,10 +39,10 @@ module Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
     -- * Request
       SetEndpointAttributes
     -- ** Request constructor
-    , mkSetEndpointAttributesInput
+    , mkSetEndpointAttributes
     -- ** Request lenses
-    , seaiEndpointArn
-    , seaiAttributes
+    , seaEndpointArn
+    , seaAttributes
 
     -- * Response
     , SetEndpointAttributesResponse
@@ -52,38 +52,27 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'SetEndpointAttributes' request.
-mkSetEndpointAttributesInput :: Text -- ^ 'seaiEndpointArn'
-                             -> Map Text Text -- ^ 'seaiAttributes'
-                             -> SetEndpointAttributes
-mkSetEndpointAttributesInput p1 p2 = SetEndpointAttributes
-    { _seaiEndpointArn = p1
-    , _seaiAttributes = p2
-    }
-{-# INLINE mkSetEndpointAttributesInput #-}
-
+-- | Input for SetEndpointAttributes action.
 data SetEndpointAttributes = SetEndpointAttributes
-    { _seaiEndpointArn :: Text
-      -- ^ EndpointArn used for SetEndpointAttributes action.
-    , _seaiAttributes :: Map Text Text
-      -- ^ A map of the endpoint attributes. Attributes in this map include
-      -- the following: CustomUserData -- arbitrary user data to associate
-      -- with the endpoint. Amazon SNS does not use this data. The data
-      -- must be in UTF-8 format and less than 2KB. Enabled -- flag that
-      -- enables/disables delivery to the endpoint. Amazon SNS will set
-      -- this to false when a notification service indicates to Amazon SNS
-      -- that the endpoint is invalid. Users can set it back to true,
-      -- typically after updating Token. Token -- device token, also
-      -- referred to as a registration id, for an app and mobile device.
-      -- This is returned from the notification service when an app and
-      -- mobile device are registered with the notification service.
+    { _seaEndpointArn :: Text
+    , _seaAttributes :: Map Text Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetEndpointAttributes' request.
+mkSetEndpointAttributes :: Text -- ^ 'seaEndpointArn'
+                        -> Map Text Text -- ^ 'seaAttributes'
+                        -> SetEndpointAttributes
+mkSetEndpointAttributes p1 p2 = SetEndpointAttributes
+    { _seaEndpointArn = p1
+    , _seaAttributes = p2
+    }
+{-# INLINE mkSetEndpointAttributes #-}
+
 -- | EndpointArn used for SetEndpointAttributes action.
-seaiEndpointArn :: Lens' SetEndpointAttributes (Text)
-seaiEndpointArn = lens _seaiEndpointArn (\s a -> s { _seaiEndpointArn = a })
-{-# INLINE seaiEndpointArn #-}
+seaEndpointArn :: Lens' SetEndpointAttributes Text
+seaEndpointArn = lens _seaEndpointArn (\s a -> s { _seaEndpointArn = a })
+{-# INLINE seaEndpointArn #-}
 
 -- | A map of the endpoint attributes. Attributes in this map include the
 -- following: CustomUserData -- arbitrary user data to associate with the
@@ -95,9 +84,9 @@ seaiEndpointArn = lens _seaiEndpointArn (\s a -> s { _seaiEndpointArn = a })
 -- referred to as a registration id, for an app and mobile device. This is
 -- returned from the notification service when an app and mobile device are
 -- registered with the notification service.
-seaiAttributes :: Lens' SetEndpointAttributes (Map Text Text)
-seaiAttributes = lens _seaiAttributes (\s a -> s { _seaiAttributes = a })
-{-# INLINE seaiAttributes #-}
+seaAttributes :: Lens' SetEndpointAttributes (Map Text Text)
+seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a })
+{-# INLINE seaAttributes #-}
 
 instance ToQuery SetEndpointAttributes where
     toQuery = genericQuery def

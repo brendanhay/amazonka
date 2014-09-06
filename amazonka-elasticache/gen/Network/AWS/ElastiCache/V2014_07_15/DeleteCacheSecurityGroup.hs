@@ -29,9 +29,9 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup
     -- * Request
       DeleteCacheSecurityGroup
     -- ** Request constructor
-    , mkDeleteCacheSecurityGroupMessage
+    , mkDeleteCacheSecurityGroup
     -- ** Request lenses
-    , dcsgmCacheSecurityGroupName
+    , dcsgCacheSecurityGroupName
 
     -- * Response
     , DeleteCacheSecurityGroupResponse
@@ -41,26 +41,27 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DeleteCacheSecurityGroup operation.
+newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
+    { _dcsgCacheSecurityGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSecurityGroup' request.
-mkDeleteCacheSecurityGroupMessage :: Text -- ^ 'dcsgmCacheSecurityGroupName'
-                                  -> DeleteCacheSecurityGroup
-mkDeleteCacheSecurityGroupMessage p1 = DeleteCacheSecurityGroup
-    { _dcsgmCacheSecurityGroupName = p1
+mkDeleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
+                           -> DeleteCacheSecurityGroup
+mkDeleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
+    { _dcsgCacheSecurityGroupName = p1
     }
-{-# INLINE mkDeleteCacheSecurityGroupMessage #-}
-
-newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
-    { _dcsgmCacheSecurityGroupName :: Text
-      -- ^ The name of the cache security group to delete. You cannot delete
-      -- the default security group.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteCacheSecurityGroup #-}
 
 -- | The name of the cache security group to delete. You cannot delete the
 -- default security group.
-dcsgmCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup (Text)
-dcsgmCacheSecurityGroupName = lens _dcsgmCacheSecurityGroupName (\s a -> s { _dcsgmCacheSecurityGroupName = a })
-{-# INLINE dcsgmCacheSecurityGroupName #-}
+dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
+dcsgCacheSecurityGroupName =
+    lens _dcsgCacheSecurityGroupName
+         (\s a -> s { _dcsgCacheSecurityGroupName = a })
+{-# INLINE dcsgCacheSecurityGroupName #-}
 
 instance ToQuery DeleteCacheSecurityGroup where
     toQuery = genericQuery def

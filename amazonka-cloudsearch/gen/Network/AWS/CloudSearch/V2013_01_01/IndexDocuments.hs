@@ -25,58 +25,56 @@ module Network.AWS.CloudSearch.V2013_01_01.IndexDocuments
     -- * Request
       IndexDocuments
     -- ** Request constructor
-    , mkIndexDocumentsRequest
+    , mkIndexDocuments
     -- ** Request lenses
-    , idrDomainName
+    , idDomainName
 
     -- * Response
     , IndexDocumentsResponse
     -- ** Response lenses
-    , idsFieldNames
+    , idrsFieldNames
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the IndexDocuments operation. Specifies the
+-- name of the domain you want to re-index.
+newtype IndexDocuments = IndexDocuments
+    { _idDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'IndexDocuments' request.
-mkIndexDocumentsRequest :: Text -- ^ 'idrDomainName'
-                        -> IndexDocuments
-mkIndexDocumentsRequest p1 = IndexDocuments
-    { _idrDomainName = p1
+mkIndexDocuments :: Text -- ^ 'idDomainName'
+                 -> IndexDocuments
+mkIndexDocuments p1 = IndexDocuments
+    { _idDomainName = p1
     }
-{-# INLINE mkIndexDocumentsRequest #-}
-
-newtype IndexDocuments = IndexDocuments
-    { _idrDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    } deriving (Show, Generic)
+{-# INLINE mkIndexDocuments #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-idrDomainName :: Lens' IndexDocuments (Text)
-idrDomainName = lens _idrDomainName (\s a -> s { _idrDomainName = a })
-{-# INLINE idrDomainName #-}
+idDomainName :: Lens' IndexDocuments Text
+idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
+{-# INLINE idDomainName #-}
 
 instance ToQuery IndexDocuments where
     toQuery = genericQuery def
 
+-- | The result of an IndexDocuments request. Contains the status of the
+-- indexing operation, including the fields being indexed.
 newtype IndexDocumentsResponse = IndexDocumentsResponse
-    { _idsFieldNames :: [Text]
-      -- ^ The names of the fields that are currently being indexed.
+    { _idrsFieldNames :: [Text]
     } deriving (Show, Generic)
 
 -- | The names of the fields that are currently being indexed.
-idsFieldNames :: Lens' IndexDocumentsResponse ([Text])
-idsFieldNames = lens _idsFieldNames (\s a -> s { _idsFieldNames = a })
-{-# INLINE idsFieldNames #-}
+idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
+idrsFieldNames = lens _idrsFieldNames (\s a -> s { _idrsFieldNames = a })
+{-# INLINE idrsFieldNames #-}
 
 instance FromXML IndexDocumentsResponse where
     fromXMLOptions = xmlOptions

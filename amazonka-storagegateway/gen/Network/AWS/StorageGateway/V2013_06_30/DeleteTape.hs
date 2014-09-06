@@ -22,15 +22,15 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteTape
     -- * Request
       DeleteTape
     -- ** Request constructor
-    , mkDeleteTapeInput
+    , mkDeleteTape
     -- ** Request lenses
-    , dtiGatewayARN
-    , dtiTapeARN
+    , dtGatewayARN
+    , dtTapeARN
 
     -- * Response
     , DeleteTapeResponse
     -- ** Response lenses
-    , dtoTapeARN
+    , dtrsTapeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -38,34 +38,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data DeleteTape = DeleteTape
+    { _dtGatewayARN :: Text
+    , _dtTapeARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTape' request.
-mkDeleteTapeInput :: Text -- ^ 'dtiGatewayARN'
-                  -> Text -- ^ 'dtiTapeARN'
-                  -> DeleteTape
-mkDeleteTapeInput p1 p2 = DeleteTape
-    { _dtiGatewayARN = p1
-    , _dtiTapeARN = p2
+mkDeleteTape :: Text -- ^ 'dtGatewayARN'
+             -> Text -- ^ 'dtTapeARN'
+             -> DeleteTape
+mkDeleteTape p1 p2 = DeleteTape
+    { _dtGatewayARN = p1
+    , _dtTapeARN = p2
     }
-{-# INLINE mkDeleteTapeInput #-}
-
-data DeleteTape = DeleteTape
-    { _dtiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dtiTapeARN :: Text
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteTape #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dtiGatewayARN :: Lens' DeleteTape (Text)
-dtiGatewayARN = lens _dtiGatewayARN (\s a -> s { _dtiGatewayARN = a })
-{-# INLINE dtiGatewayARN #-}
+dtGatewayARN :: Lens' DeleteTape Text
+dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
+{-# INLINE dtGatewayARN #-}
 
-dtiTapeARN :: Lens' DeleteTape (Text)
-dtiTapeARN = lens _dtiTapeARN (\s a -> s { _dtiTapeARN = a })
-{-# INLINE dtiTapeARN #-}
+dtTapeARN :: Lens' DeleteTape Text
+dtTapeARN = lens _dtTapeARN (\s a -> s { _dtTapeARN = a })
+{-# INLINE dtTapeARN #-}
 
 instance ToPath DeleteTape
 
@@ -76,12 +73,12 @@ instance ToHeaders DeleteTape
 instance ToJSON DeleteTape
 
 newtype DeleteTapeResponse = DeleteTapeResponse
-    { _dtoTapeARN :: Maybe Text
+    { _dtrsTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dtoTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
-dtoTapeARN = lens _dtoTapeARN (\s a -> s { _dtoTapeARN = a })
-{-# INLINE dtoTapeARN #-}
+dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
+dtrsTapeARN = lens _dtrsTapeARN (\s a -> s { _dtrsTapeARN = a })
+{-# INLINE dtrsTapeARN #-}
 
 instance FromJSON DeleteTapeResponse
 

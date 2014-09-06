@@ -30,77 +30,75 @@ module Network.AWS.IAM.V2010_05_08.GetRolePolicy
     -- * Request
       GetRolePolicy
     -- ** Request constructor
-    , mkGetRolePolicyRequest
+    , mkGetRolePolicy
     -- ** Request lenses
-    , grprRoleName
-    , grprPolicyName
+    , grpRoleName
+    , grpPolicyName
 
     -- * Response
     , GetRolePolicyResponse
     -- ** Response lenses
-    , grpsRoleName
-    , grpsPolicyName
-    , grpsPolicyDocument
+    , grprsRoleName
+    , grprsPolicyName
+    , grprsPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetRolePolicy' request.
-mkGetRolePolicyRequest :: Text -- ^ 'grprRoleName'
-                       -> Text -- ^ 'grprPolicyName'
-                       -> GetRolePolicy
-mkGetRolePolicyRequest p1 p2 = GetRolePolicy
-    { _grprRoleName = p1
-    , _grprPolicyName = p2
-    }
-{-# INLINE mkGetRolePolicyRequest #-}
-
+-- | 
 data GetRolePolicy = GetRolePolicy
-    { _grprRoleName :: Text
-      -- ^ Name of the role associated with the policy.
-    , _grprPolicyName :: Text
-      -- ^ Name of the policy document to get.
+    { _grpRoleName :: Text
+    , _grpPolicyName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRolePolicy' request.
+mkGetRolePolicy :: Text -- ^ 'grpRoleName'
+                -> Text -- ^ 'grpPolicyName'
+                -> GetRolePolicy
+mkGetRolePolicy p1 p2 = GetRolePolicy
+    { _grpRoleName = p1
+    , _grpPolicyName = p2
+    }
+{-# INLINE mkGetRolePolicy #-}
+
 -- | Name of the role associated with the policy.
-grprRoleName :: Lens' GetRolePolicy (Text)
-grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
-{-# INLINE grprRoleName #-}
+grpRoleName :: Lens' GetRolePolicy Text
+grpRoleName = lens _grpRoleName (\s a -> s { _grpRoleName = a })
+{-# INLINE grpRoleName #-}
 
 -- | Name of the policy document to get.
-grprPolicyName :: Lens' GetRolePolicy (Text)
-grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
-{-# INLINE grprPolicyName #-}
+grpPolicyName :: Lens' GetRolePolicy Text
+grpPolicyName = lens _grpPolicyName (\s a -> s { _grpPolicyName = a })
+{-# INLINE grpPolicyName #-}
 
 instance ToQuery GetRolePolicy where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the GetRolePolicy action.
 data GetRolePolicyResponse = GetRolePolicyResponse
-    { _grpsRoleName :: Text
-      -- ^ The role the policy is associated with.
-    , _grpsPolicyName :: Text
-      -- ^ The name of the policy.
-    , _grpsPolicyDocument :: Text
-      -- ^ The policy document.
+    { _grprsRoleName :: Text
+    , _grprsPolicyName :: Text
+    , _grprsPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | The role the policy is associated with.
-grpsRoleName :: Lens' GetRolePolicyResponse (Text)
-grpsRoleName = lens _grpsRoleName (\s a -> s { _grpsRoleName = a })
-{-# INLINE grpsRoleName #-}
+grprsRoleName :: Lens' GetRolePolicyResponse Text
+grprsRoleName = lens _grprsRoleName (\s a -> s { _grprsRoleName = a })
+{-# INLINE grprsRoleName #-}
 
 -- | The name of the policy.
-grpsPolicyName :: Lens' GetRolePolicyResponse (Text)
-grpsPolicyName = lens _grpsPolicyName (\s a -> s { _grpsPolicyName = a })
-{-# INLINE grpsPolicyName #-}
+grprsPolicyName :: Lens' GetRolePolicyResponse Text
+grprsPolicyName = lens _grprsPolicyName (\s a -> s { _grprsPolicyName = a })
+{-# INLINE grprsPolicyName #-}
 
 -- | The policy document.
-grpsPolicyDocument :: Lens' GetRolePolicyResponse (Text)
-grpsPolicyDocument = lens _grpsPolicyDocument (\s a -> s { _grpsPolicyDocument = a })
-{-# INLINE grpsPolicyDocument #-}
+grprsPolicyDocument :: Lens' GetRolePolicyResponse Text
+grprsPolicyDocument =
+    lens _grprsPolicyDocument (\s a -> s { _grprsPolicyDocument = a })
+{-# INLINE grprsPolicyDocument #-}
 
 instance FromXML GetRolePolicyResponse where
     fromXMLOptions = xmlOptions

@@ -35,20 +35,20 @@ module Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
     -- * Request
       UpdateIdentityPool
     -- ** Request constructor
-    , mkIdentityPool
+    , mkUpdateIdentityPool
     -- ** Request lenses
-    , iuIdentityPoolId
-    , iuIdentityPoolName
-    , iuAllowUnauthenticatedIdentities
-    , iuSupportedLoginProviders
+    , uipIdentityPoolId
+    , uipIdentityPoolName
+    , uipAllowUnauthenticatedIdentities
+    , uipSupportedLoginProviders
 
     -- * Response
     , UpdateIdentityPoolResponse
     -- ** Response lenses
-    , iwIdentityPoolId
-    , iwIdentityPoolName
-    , iwAllowUnauthenticatedIdentities
-    , iwSupportedLoginProviders
+    , uiprsIdentityPoolId
+    , uiprsIdentityPoolName
+    , uiprsAllowUnauthenticatedIdentities
+    , uiprsSupportedLoginProviders
     ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -56,51 +56,53 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdateIdentityPool' request.
-mkIdentityPool :: Text -- ^ 'iuIdentityPoolId'
-               -> Text -- ^ 'iuIdentityPoolName'
-               -> Bool -- ^ 'iuAllowUnauthenticatedIdentities'
-               -> UpdateIdentityPool
-mkIdentityPool p1 p2 p3 = UpdateIdentityPool
-    { _iuIdentityPoolId = p1
-    , _iuIdentityPoolName = p2
-    , _iuAllowUnauthenticatedIdentities = p3
-    , _iuSupportedLoginProviders = mempty
-    }
-{-# INLINE mkIdentityPool #-}
-
+-- | An object representing a Cognito identity pool.
 data UpdateIdentityPool = UpdateIdentityPool
-    { _iuIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _iuIdentityPoolName :: Text
-      -- ^ A string that you provide.
-    , _iuAllowUnauthenticatedIdentities :: Bool
-      -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _iuSupportedLoginProviders :: Map Text Text
-      -- ^ Optional key:value pairs mapping provider names to provider app
-      -- IDs.
+    { _uipIdentityPoolId :: Text
+    , _uipIdentityPoolName :: Text
+    , _uipAllowUnauthenticatedIdentities :: Bool
+    , _uipSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateIdentityPool' request.
+mkUpdateIdentityPool :: Text -- ^ 'uipIdentityPoolId'
+                     -> Text -- ^ 'uipIdentityPoolName'
+                     -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
+                     -> UpdateIdentityPool
+mkUpdateIdentityPool p1 p2 p3 = UpdateIdentityPool
+    { _uipIdentityPoolId = p1
+    , _uipIdentityPoolName = p2
+    , _uipAllowUnauthenticatedIdentities = p3
+    , _uipSupportedLoginProviders = mempty
+    }
+{-# INLINE mkUpdateIdentityPool #-}
+
 -- | An identity pool ID in the format REGION:GUID.
-iuIdentityPoolId :: Lens' UpdateIdentityPool (Text)
-iuIdentityPoolId = lens _iuIdentityPoolId (\s a -> s { _iuIdentityPoolId = a })
-{-# INLINE iuIdentityPoolId #-}
+uipIdentityPoolId :: Lens' UpdateIdentityPool Text
+uipIdentityPoolId =
+    lens _uipIdentityPoolId (\s a -> s { _uipIdentityPoolId = a })
+{-# INLINE uipIdentityPoolId #-}
 
 -- | A string that you provide.
-iuIdentityPoolName :: Lens' UpdateIdentityPool (Text)
-iuIdentityPoolName = lens _iuIdentityPoolName (\s a -> s { _iuIdentityPoolName = a })
-{-# INLINE iuIdentityPoolName #-}
+uipIdentityPoolName :: Lens' UpdateIdentityPool Text
+uipIdentityPoolName =
+    lens _uipIdentityPoolName (\s a -> s { _uipIdentityPoolName = a })
+{-# INLINE uipIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-iuAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool (Bool)
-iuAllowUnauthenticatedIdentities = lens _iuAllowUnauthenticatedIdentities (\s a -> s { _iuAllowUnauthenticatedIdentities = a })
-{-# INLINE iuAllowUnauthenticatedIdentities #-}
+uipAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool Bool
+uipAllowUnauthenticatedIdentities =
+    lens _uipAllowUnauthenticatedIdentities
+         (\s a -> s { _uipAllowUnauthenticatedIdentities = a })
+{-# INLINE uipAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-iuSupportedLoginProviders :: Lens' UpdateIdentityPool (Map Text Text)
-iuSupportedLoginProviders = lens _iuSupportedLoginProviders (\s a -> s { _iuSupportedLoginProviders = a })
-{-# INLINE iuSupportedLoginProviders #-}
+uipSupportedLoginProviders :: Lens' UpdateIdentityPool (Map Text Text)
+uipSupportedLoginProviders =
+    lens _uipSupportedLoginProviders
+         (\s a -> s { _uipSupportedLoginProviders = a })
+{-# INLINE uipSupportedLoginProviders #-}
 
 instance ToPath UpdateIdentityPool
 
@@ -110,37 +112,39 @@ instance ToHeaders UpdateIdentityPool
 
 instance ToJSON UpdateIdentityPool
 
+-- | An object representing a Cognito identity pool.
 data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
-    { _iwIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _iwIdentityPoolName :: Text
-      -- ^ A string that you provide.
-    , _iwAllowUnauthenticatedIdentities :: Bool
-      -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _iwSupportedLoginProviders :: Map Text Text
-      -- ^ Optional key:value pairs mapping provider names to provider app
-      -- IDs.
+    { _uiprsIdentityPoolId :: Text
+    , _uiprsIdentityPoolName :: Text
+    , _uiprsAllowUnauthenticatedIdentities :: Bool
+    , _uiprsSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-iwIdentityPoolId :: Lens' UpdateIdentityPoolResponse (Text)
-iwIdentityPoolId = lens _iwIdentityPoolId (\s a -> s { _iwIdentityPoolId = a })
-{-# INLINE iwIdentityPoolId #-}
+uiprsIdentityPoolId :: Lens' UpdateIdentityPoolResponse Text
+uiprsIdentityPoolId =
+    lens _uiprsIdentityPoolId (\s a -> s { _uiprsIdentityPoolId = a })
+{-# INLINE uiprsIdentityPoolId #-}
 
 -- | A string that you provide.
-iwIdentityPoolName :: Lens' UpdateIdentityPoolResponse (Text)
-iwIdentityPoolName = lens _iwIdentityPoolName (\s a -> s { _iwIdentityPoolName = a })
-{-# INLINE iwIdentityPoolName #-}
+uiprsIdentityPoolName :: Lens' UpdateIdentityPoolResponse Text
+uiprsIdentityPoolName =
+    lens _uiprsIdentityPoolName (\s a -> s { _uiprsIdentityPoolName = a })
+{-# INLINE uiprsIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-iwAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPoolResponse (Bool)
-iwAllowUnauthenticatedIdentities = lens _iwAllowUnauthenticatedIdentities (\s a -> s { _iwAllowUnauthenticatedIdentities = a })
-{-# INLINE iwAllowUnauthenticatedIdentities #-}
+uiprsAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPoolResponse Bool
+uiprsAllowUnauthenticatedIdentities =
+    lens _uiprsAllowUnauthenticatedIdentities
+         (\s a -> s { _uiprsAllowUnauthenticatedIdentities = a })
+{-# INLINE uiprsAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-iwSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (Map Text Text)
-iwSupportedLoginProviders = lens _iwSupportedLoginProviders (\s a -> s { _iwSupportedLoginProviders = a })
-{-# INLINE iwSupportedLoginProviders #-}
+uiprsSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (Map Text Text)
+uiprsSupportedLoginProviders =
+    lens _uiprsSupportedLoginProviders
+         (\s a -> s { _uiprsSupportedLoginProviders = a })
+{-# INLINE uiprsSupportedLoginProviders #-}
 
 instance FromJSON UpdateIdentityPoolResponse
 

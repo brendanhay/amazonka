@@ -32,73 +32,59 @@ module Network.AWS.RDS.V2013_09_09.PromoteReadReplica
     -- * Request
       PromoteReadReplica
     -- ** Request constructor
-    , mkPromoteReadReplicaMessage
+    , mkPromoteReadReplica
     -- ** Request lenses
-    , prrmDBInstanceIdentifier
-    , prrmBackupRetentionPeriod
-    , prrmPreferredBackupWindow
+    , prrDBInstanceIdentifier
+    , prrBackupRetentionPeriod
+    , prrPreferredBackupWindow
 
     -- * Response
     , PromoteReadReplicaResponse
     -- ** Response lenses
-    , dbidrDBInstance
+    , prrrsDBInstance
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data PromoteReadReplica = PromoteReadReplica
+    { _prrDBInstanceIdentifier :: Text
+    , _prrBackupRetentionPeriod :: Maybe Integer
+    , _prrPreferredBackupWindow :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PromoteReadReplica' request.
-mkPromoteReadReplicaMessage :: Text -- ^ 'prrmDBInstanceIdentifier'
-                            -> PromoteReadReplica
-mkPromoteReadReplicaMessage p1 = PromoteReadReplica
-    { _prrmDBInstanceIdentifier = p1
-    , _prrmBackupRetentionPeriod = Nothing
-    , _prrmPreferredBackupWindow = Nothing
+mkPromoteReadReplica :: Text -- ^ 'prrDBInstanceIdentifier'
+                     -> PromoteReadReplica
+mkPromoteReadReplica p1 = PromoteReadReplica
+    { _prrDBInstanceIdentifier = p1
+    , _prrBackupRetentionPeriod = Nothing
+    , _prrPreferredBackupWindow = Nothing
     }
-{-# INLINE mkPromoteReadReplicaMessage #-}
-
-data PromoteReadReplica = PromoteReadReplica
-    { _prrmDBInstanceIdentifier :: Text
-      -- ^ The DB instance identifier. This value is stored as a lowercase
-      -- string. Constraints: Must be the identifier for an existing read
-      -- replica DB instance Must contain from 1 to 63 alphanumeric
-      -- characters or hyphens First character must be a letter Cannot end
-      -- with a hyphen or contain two consecutive hyphens Example:
-      -- mydbinstance.
-    , _prrmBackupRetentionPeriod :: Maybe Integer
-      -- ^ The number of days to retain automated backups. Setting this
-      -- parameter to a positive number enables backups. Setting this
-      -- parameter to 0 disables automated backups. Default: 1
-      -- Constraints: Must be a value from 0 to 8.
-    , _prrmPreferredBackupWindow :: Maybe Text
-      -- ^ The daily time range during which automated backups are created
-      -- if automated backups are enabled, using the BackupRetentionPeriod
-      -- parameter. Default: A 30-minute window selected at random from an
-      -- 8-hour block of time per region. See the Amazon RDS User Guide
-      -- for the time blocks for each region from which the default backup
-      -- windows are assigned. Constraints: Must be in the format
-      -- hh24:mi-hh24:mi. Times should be Universal Time Coordinated
-      -- (UTC). Must not conflict with the preferred maintenance window.
-      -- Must be at least 30 minutes.
-    } deriving (Show, Generic)
+{-# INLINE mkPromoteReadReplica #-}
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 -- Constraints: Must be the identifier for an existing read replica DB
 -- instance Must contain from 1 to 63 alphanumeric characters or hyphens First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: mydbinstance.
-prrmDBInstanceIdentifier :: Lens' PromoteReadReplica (Text)
-prrmDBInstanceIdentifier = lens _prrmDBInstanceIdentifier (\s a -> s { _prrmDBInstanceIdentifier = a })
-{-# INLINE prrmDBInstanceIdentifier #-}
+prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
+prrDBInstanceIdentifier =
+    lens _prrDBInstanceIdentifier
+         (\s a -> s { _prrDBInstanceIdentifier = a })
+{-# INLINE prrDBInstanceIdentifier #-}
 
 -- | The number of days to retain automated backups. Setting this parameter to a
 -- positive number enables backups. Setting this parameter to 0 disables
 -- automated backups. Default: 1 Constraints: Must be a value from 0 to 8.
-prrmBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Integer)
-prrmBackupRetentionPeriod = lens _prrmBackupRetentionPeriod (\s a -> s { _prrmBackupRetentionPeriod = a })
-{-# INLINE prrmBackupRetentionPeriod #-}
+prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Integer)
+prrBackupRetentionPeriod =
+    lens _prrBackupRetentionPeriod
+         (\s a -> s { _prrBackupRetentionPeriod = a })
+{-# INLINE prrBackupRetentionPeriod #-}
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the BackupRetentionPeriod parameter.
@@ -108,27 +94,25 @@ prrmBackupRetentionPeriod = lens _prrmBackupRetentionPeriod (\s a -> s { _prrmBa
 -- Must be in the format hh24:mi-hh24:mi. Times should be Universal Time
 -- Coordinated (UTC). Must not conflict with the preferred maintenance window.
 -- Must be at least 30 minutes.
-prrmPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
-prrmPreferredBackupWindow = lens _prrmPreferredBackupWindow (\s a -> s { _prrmPreferredBackupWindow = a })
-{-# INLINE prrmPreferredBackupWindow #-}
+prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
+prrPreferredBackupWindow =
+    lens _prrPreferredBackupWindow
+         (\s a -> s { _prrPreferredBackupWindow = a })
+{-# INLINE prrPreferredBackupWindow #-}
 
 instance ToQuery PromoteReadReplica where
     toQuery = genericQuery def
 
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
-    { _dbidrDBInstance :: Maybe DBInstance
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBInstance DeleteDBInstance ModifyDBInstance This
-      -- data type is used as a response element in the
-      -- DescribeDBInstances action.
+    { _prrrsDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-dbidrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
-dbidrDBInstance = lens _dbidrDBInstance (\s a -> s { _dbidrDBInstance = a })
-{-# INLINE dbidrDBInstance #-}
+prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
+prrrsDBInstance = lens _prrrsDBInstance (\s a -> s { _prrrsDBInstance = a })
+{-# INLINE prrrsDBInstance #-}
 
 instance FromXML PromoteReadReplicaResponse where
     fromXMLOptions = xmlOptions

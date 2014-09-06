@@ -40,20 +40,20 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation
     -- * Request
       DescribeGatewayInformation
     -- ** Request constructor
-    , mkDescribeGatewayInformationInput
+    , mkDescribeGatewayInformation
     -- ** Request lenses
-    , dgiiGatewayARN
+    , dgiGatewayARN
 
     -- * Response
     , DescribeGatewayInformationResponse
     -- ** Response lenses
-    , dgioGatewayARN
-    , dgioGatewayId
-    , dgioGatewayTimezone
-    , dgioGatewayState
-    , dgioGatewayNetworkInterfaces
-    , dgioGatewayType
-    , dgioNextUpdateAvailabilityDate
+    , dgirsGatewayARN
+    , dgirsGatewayId
+    , dgirsGatewayTimezone
+    , dgirsGatewayState
+    , dgirsGatewayNetworkInterfaces
+    , dgirsGatewayType
+    , dgirsNextUpdateAvailabilityDate
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -61,27 +61,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the of the gateway.
+newtype DescribeGatewayInformation = DescribeGatewayInformation
+    { _dgiGatewayARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeGatewayInformation' request.
-mkDescribeGatewayInformationInput :: Text -- ^ 'dgiiGatewayARN'
-                                  -> DescribeGatewayInformation
-mkDescribeGatewayInformationInput p1 = DescribeGatewayInformation
-    { _dgiiGatewayARN = p1
+mkDescribeGatewayInformation :: Text -- ^ 'dgiGatewayARN'
+                             -> DescribeGatewayInformation
+mkDescribeGatewayInformation p1 = DescribeGatewayInformation
+    { _dgiGatewayARN = p1
     }
-{-# INLINE mkDescribeGatewayInformationInput #-}
-
-newtype DescribeGatewayInformation = DescribeGatewayInformation
-    { _dgiiGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeGatewayInformation #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgiiGatewayARN :: Lens' DescribeGatewayInformation (Text)
-dgiiGatewayARN = lens _dgiiGatewayARN (\s a -> s { _dgiiGatewayARN = a })
-{-# INLINE dgiiGatewayARN #-}
+dgiGatewayARN :: Lens' DescribeGatewayInformation Text
+dgiGatewayARN = lens _dgiGatewayARN (\s a -> s { _dgiGatewayARN = a })
+{-# INLINE dgiGatewayARN #-}
 
 instance ToPath DescribeGatewayInformation
 
@@ -91,69 +89,62 @@ instance ToHeaders DescribeGatewayInformation
 
 instance ToJSON DescribeGatewayInformation
 
+-- | A JSON object containing the following fields:.
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
-    { _dgioGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _dgioGatewayId :: Maybe Text
-      -- ^ The gateway ID.
-    , _dgioGatewayTimezone :: Maybe Text
-      -- ^ One of the values that indicates the time zone configured for the
-      -- gateway.
-    , _dgioGatewayState :: Maybe Text
-      -- ^ One of the values that indicates the operating state of the
-      -- gateway.
-    , _dgioGatewayNetworkInterfaces :: [NetworkInterface]
-      -- ^ A NetworkInterface array that contains descriptions of the
-      -- gateway network interfaces.
-    , _dgioGatewayType :: Maybe Text
-      -- ^ TBD.
-    , _dgioNextUpdateAvailabilityDate :: Maybe Text
-      -- ^ The date at which an update to the gateway is available. This
-      -- date is in the time zone of the gateway. If the gateway is not
-      -- available for an update this field is not returned in the
-      -- response. response example. -->.
+    { _dgirsGatewayARN :: Maybe Text
+    , _dgirsGatewayId :: Maybe Text
+    , _dgirsGatewayTimezone :: Maybe Text
+    , _dgirsGatewayState :: Maybe Text
+    , _dgirsGatewayNetworkInterfaces :: [NetworkInterface]
+    , _dgirsGatewayType :: Maybe Text
+    , _dgirsNextUpdateAvailabilityDate :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgioGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgioGatewayARN = lens _dgioGatewayARN (\s a -> s { _dgioGatewayARN = a })
-{-# INLINE dgioGatewayARN #-}
+dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
+dgirsGatewayARN = lens _dgirsGatewayARN (\s a -> s { _dgirsGatewayARN = a })
+{-# INLINE dgirsGatewayARN #-}
 
 -- | The gateway ID.
-dgioGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgioGatewayId = lens _dgioGatewayId (\s a -> s { _dgioGatewayId = a })
-{-# INLINE dgioGatewayId #-}
+dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
+dgirsGatewayId = lens _dgirsGatewayId (\s a -> s { _dgirsGatewayId = a })
+{-# INLINE dgirsGatewayId #-}
 
 -- | One of the values that indicates the time zone configured for the gateway.
-dgioGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgioGatewayTimezone = lens _dgioGatewayTimezone (\s a -> s { _dgioGatewayTimezone = a })
-{-# INLINE dgioGatewayTimezone #-}
+dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
+dgirsGatewayTimezone =
+    lens _dgirsGatewayTimezone (\s a -> s { _dgirsGatewayTimezone = a })
+{-# INLINE dgirsGatewayTimezone #-}
 
 -- | One of the values that indicates the operating state of the gateway.
-dgioGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgioGatewayState = lens _dgioGatewayState (\s a -> s { _dgioGatewayState = a })
-{-# INLINE dgioGatewayState #-}
+dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
+dgirsGatewayState =
+    lens _dgirsGatewayState (\s a -> s { _dgirsGatewayState = a })
+{-# INLINE dgirsGatewayState #-}
 
 -- | A NetworkInterface array that contains descriptions of the gateway network
 -- interfaces.
-dgioGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse ([NetworkInterface])
-dgioGatewayNetworkInterfaces = lens _dgioGatewayNetworkInterfaces (\s a -> s { _dgioGatewayNetworkInterfaces = a })
-{-# INLINE dgioGatewayNetworkInterfaces #-}
+dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
+dgirsGatewayNetworkInterfaces =
+    lens _dgirsGatewayNetworkInterfaces
+         (\s a -> s { _dgirsGatewayNetworkInterfaces = a })
+{-# INLINE dgirsGatewayNetworkInterfaces #-}
 
 -- | TBD.
-dgioGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgioGatewayType = lens _dgioGatewayType (\s a -> s { _dgioGatewayType = a })
-{-# INLINE dgioGatewayType #-}
+dgirsGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
+dgirsGatewayType =
+    lens _dgirsGatewayType (\s a -> s { _dgirsGatewayType = a })
+{-# INLINE dgirsGatewayType #-}
 
 -- | The date at which an update to the gateway is available. This date is in
 -- the time zone of the gateway. If the gateway is not available for an update
 -- this field is not returned in the response. response example. -->.
-dgioNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgioNextUpdateAvailabilityDate = lens _dgioNextUpdateAvailabilityDate (\s a -> s { _dgioNextUpdateAvailabilityDate = a })
-{-# INLINE dgioNextUpdateAvailabilityDate #-}
+dgirsNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
+dgirsNextUpdateAvailabilityDate =
+    lens _dgirsNextUpdateAvailabilityDate
+         (\s a -> s { _dgirsNextUpdateAvailabilityDate = a })
+{-# INLINE dgirsNextUpdateAvailabilityDate #-}
 
 instance FromJSON DescribeGatewayInformationResponse
 

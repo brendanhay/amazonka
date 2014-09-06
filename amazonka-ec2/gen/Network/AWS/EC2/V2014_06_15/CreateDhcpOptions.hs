@@ -63,51 +63,53 @@ module Network.AWS.EC2.V2014_06_15.CreateDhcpOptions
     -- * Request
       CreateDhcpOptions
     -- ** Request constructor
-    , mkCreateDhcpOptionsRequest
+    , mkCreateDhcpOptions
     -- ** Request lenses
-    , cdorDhcpConfigurations
+    , cdoDhcpConfigurations
 
     -- * Response
     , CreateDhcpOptionsResponse
     -- ** Response lenses
-    , cdosDhcpOptions
+    , cdorsDhcpOptions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateDhcpOptions' request.
-mkCreateDhcpOptionsRequest :: [DhcpConfiguration] -- ^ 'cdorDhcpConfigurations'
-                           -> CreateDhcpOptions
-mkCreateDhcpOptionsRequest p1 = CreateDhcpOptions
-    { _cdorDhcpConfigurations = p1
-    }
-{-# INLINE mkCreateDhcpOptionsRequest #-}
-
+-- | 
 newtype CreateDhcpOptions = CreateDhcpOptions
-    { _cdorDhcpConfigurations :: [DhcpConfiguration]
-      -- ^ A DHCP configuration option.
+    { _cdoDhcpConfigurations :: [DhcpConfiguration]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDhcpOptions' request.
+mkCreateDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
+                    -> CreateDhcpOptions
+mkCreateDhcpOptions p1 = CreateDhcpOptions
+    { _cdoDhcpConfigurations = p1
+    }
+{-# INLINE mkCreateDhcpOptions #-}
+
 -- | A DHCP configuration option.
-cdorDhcpConfigurations :: Lens' CreateDhcpOptions ([DhcpConfiguration])
-cdorDhcpConfigurations = lens _cdorDhcpConfigurations (\s a -> s { _cdorDhcpConfigurations = a })
-{-# INLINE cdorDhcpConfigurations #-}
+cdoDhcpConfigurations :: Lens' CreateDhcpOptions [DhcpConfiguration]
+cdoDhcpConfigurations =
+    lens _cdoDhcpConfigurations (\s a -> s { _cdoDhcpConfigurations = a })
+{-# INLINE cdoDhcpConfigurations #-}
 
 instance ToQuery CreateDhcpOptions where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
-    { _cdosDhcpOptions :: Maybe DhcpOptions
-      -- ^ A set of DHCP options.
+    { _cdorsDhcpOptions :: Maybe DhcpOptions
     } deriving (Show, Generic)
 
 -- | A set of DHCP options.
-cdosDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
-cdosDhcpOptions = lens _cdosDhcpOptions (\s a -> s { _cdosDhcpOptions = a })
-{-# INLINE cdosDhcpOptions #-}
+cdorsDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
+cdorsDhcpOptions =
+    lens _cdorsDhcpOptions (\s a -> s { _cdorsDhcpOptions = a })
+{-# INLINE cdorsDhcpOptions #-}
 
 instance FromXML CreateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions

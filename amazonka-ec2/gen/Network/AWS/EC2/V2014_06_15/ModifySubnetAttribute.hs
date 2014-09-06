@@ -28,10 +28,10 @@ module Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute
     -- * Request
       ModifySubnetAttribute
     -- ** Request constructor
-    , mkModifySubnetAttributeRequest
+    , mkModifySubnetAttribute
     -- ** Request lenses
-    , msasSubnetId
-    , msasMapPublicIpOnLaunch
+    , msa1SubnetId
+    , msa1MapPublicIpOnLaunch
 
     -- * Response
     , ModifySubnetAttributeResponse
@@ -41,32 +41,33 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifySubnetAttribute' request.
-mkModifySubnetAttributeRequest :: Text -- ^ 'msasSubnetId'
-                               -> ModifySubnetAttribute
-mkModifySubnetAttributeRequest p1 = ModifySubnetAttribute
-    { _msasSubnetId = p1
-    , _msasMapPublicIpOnLaunch = Nothing
-    }
-{-# INLINE mkModifySubnetAttributeRequest #-}
-
+-- | 
 data ModifySubnetAttribute = ModifySubnetAttribute
-    { _msasSubnetId :: Text
-      -- ^ The ID of the subnet.
-    , _msasMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
-      -- ^ 
+    { _msa1SubnetId :: Text
+    , _msa1MapPublicIpOnLaunch :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifySubnetAttribute' request.
+mkModifySubnetAttribute :: Text -- ^ 'msa1SubnetId'
+                        -> ModifySubnetAttribute
+mkModifySubnetAttribute p1 = ModifySubnetAttribute
+    { _msa1SubnetId = p1
+    , _msa1MapPublicIpOnLaunch = Nothing
+    }
+{-# INLINE mkModifySubnetAttribute #-}
+
 -- | The ID of the subnet.
-msasSubnetId :: Lens' ModifySubnetAttribute (Text)
-msasSubnetId = lens _msasSubnetId (\s a -> s { _msasSubnetId = a })
-{-# INLINE msasSubnetId #-}
+msa1SubnetId :: Lens' ModifySubnetAttribute Text
+msa1SubnetId = lens _msa1SubnetId (\s a -> s { _msa1SubnetId = a })
+{-# INLINE msa1SubnetId #-}
 
 -- | 
-msasMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msasMapPublicIpOnLaunch = lens _msasMapPublicIpOnLaunch (\s a -> s { _msasMapPublicIpOnLaunch = a })
-{-# INLINE msasMapPublicIpOnLaunch #-}
+msa1MapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
+msa1MapPublicIpOnLaunch =
+    lens _msa1MapPublicIpOnLaunch
+         (\s a -> s { _msa1MapPublicIpOnLaunch = a })
+{-# INLINE msa1MapPublicIpOnLaunch #-}
 
 instance ToQuery ModifySubnetAttribute where
     toQuery = genericQuery def

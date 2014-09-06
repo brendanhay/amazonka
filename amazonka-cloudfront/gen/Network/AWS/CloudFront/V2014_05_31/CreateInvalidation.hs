@@ -23,54 +23,56 @@ module Network.AWS.CloudFront.V2014_05_31.CreateInvalidation
     -- * Request
       CreateInvalidation
     -- ** Request constructor
-    , mkCreateInvalidationRequest
+    , mkCreateInvalidation
     -- ** Request lenses
-    , cirDistributionId
-    , cirInvalidationBatch
+    , ciDistributionId
+    , ciInvalidationBatch
 
     -- * Response
     , CreateInvalidationResponse
     -- ** Response lenses
-    , cisLocation
-    , cisInvalidation
+    , cirsLocation
+    , cirsInvalidation
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to create an invalidation.
+data CreateInvalidation = CreateInvalidation
+    { _ciDistributionId :: Text
+    , _ciInvalidationBatch :: InvalidationBatch
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInvalidation' request.
-mkCreateInvalidationRequest :: Text -- ^ 'cirDistributionId'
-                            -> InvalidationBatch -- ^ 'cirInvalidationBatch'
-                            -> CreateInvalidation
-mkCreateInvalidationRequest p1 p2 = CreateInvalidation
-    { _cirDistributionId = p1
-    , _cirInvalidationBatch = p2
+mkCreateInvalidation :: Text -- ^ 'ciDistributionId'
+                     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
+                     -> CreateInvalidation
+mkCreateInvalidation p1 p2 = CreateInvalidation
+    { _ciDistributionId = p1
+    , _ciInvalidationBatch = p2
     }
-{-# INLINE mkCreateInvalidationRequest #-}
-
-data CreateInvalidation = CreateInvalidation
-    { _cirDistributionId :: Text
-      -- ^ The distribution's id.
-    , _cirInvalidationBatch :: InvalidationBatch
-      -- ^ The batch information for the invalidation.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateInvalidation #-}
 
 -- | The distribution's id.
-cirDistributionId :: Lens' CreateInvalidation (Text)
-cirDistributionId = lens _cirDistributionId (\s a -> s { _cirDistributionId = a })
-{-# INLINE cirDistributionId #-}
+ciDistributionId :: Lens' CreateInvalidation Text
+ciDistributionId =
+    lens _ciDistributionId (\s a -> s { _ciDistributionId = a })
+{-# INLINE ciDistributionId #-}
 
 -- | The batch information for the invalidation.
-cirInvalidationBatch :: Lens' CreateInvalidation (InvalidationBatch)
-cirInvalidationBatch = lens _cirInvalidationBatch (\s a -> s { _cirInvalidationBatch = a })
-{-# INLINE cirInvalidationBatch #-}
+ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
+ciInvalidationBatch =
+    lens _ciInvalidationBatch (\s a -> s { _ciInvalidationBatch = a })
+{-# INLINE ciInvalidationBatch #-}
 
 instance ToPath CreateInvalidation where
     toPath CreateInvalidation{..} = mconcat
         [ "/2014-05-31/distribution/"
-        , toBS _cirDistributionId
+        , toBS _ciDistributionId
         , "/invalidation"
         ]
 
@@ -82,24 +84,23 @@ instance ToXML CreateInvalidation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateInvalidationRequest"
 
+-- | The returned result of the corresponding request.
 data CreateInvalidationResponse = CreateInvalidationResponse
-    { _cisLocation :: Maybe Text
-      -- ^ The fully qualified URI of the distribution and invalidation
-      -- batch request, including the Invalidation ID.
-    , _cisInvalidation :: Maybe Invalidation
-      -- ^ The invalidation's information.
+    { _cirsLocation :: Maybe Text
+    , _cirsInvalidation :: Maybe Invalidation
     } deriving (Show, Generic)
 
 -- | The fully qualified URI of the distribution and invalidation batch request,
 -- including the Invalidation ID.
-cisLocation :: Lens' CreateInvalidationResponse (Maybe Text)
-cisLocation = lens _cisLocation (\s a -> s { _cisLocation = a })
-{-# INLINE cisLocation #-}
+cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
+cirsLocation = lens _cirsLocation (\s a -> s { _cirsLocation = a })
+{-# INLINE cirsLocation #-}
 
 -- | The invalidation's information.
-cisInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
-cisInvalidation = lens _cisInvalidation (\s a -> s { _cisInvalidation = a })
-{-# INLINE cisInvalidation #-}
+cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
+cirsInvalidation =
+    lens _cirsInvalidation (\s a -> s { _cirsInvalidation = a })
+{-# INLINE cirsInvalidation #-}
 
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront

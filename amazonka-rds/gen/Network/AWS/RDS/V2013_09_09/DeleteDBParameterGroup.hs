@@ -30,9 +30,9 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup
     -- * Request
       DeleteDBParameterGroup
     -- ** Request constructor
-    , mkDeleteDBParameterGroupMessage
+    , mkDeleteDBParameterGroup
     -- ** Request lenses
-    , ddbpgmDBParameterGroupName
+    , ddbpgDBParameterGroupName
 
     -- * Response
     , DeleteDBParameterGroupResponse
@@ -42,28 +42,28 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DeleteDBParameterGroup = DeleteDBParameterGroup
+    { _ddbpgDBParameterGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBParameterGroup' request.
-mkDeleteDBParameterGroupMessage :: Text -- ^ 'ddbpgmDBParameterGroupName'
-                                -> DeleteDBParameterGroup
-mkDeleteDBParameterGroupMessage p1 = DeleteDBParameterGroup
-    { _ddbpgmDBParameterGroupName = p1
+mkDeleteDBParameterGroup :: Text -- ^ 'ddbpgDBParameterGroupName'
+                         -> DeleteDBParameterGroup
+mkDeleteDBParameterGroup p1 = DeleteDBParameterGroup
+    { _ddbpgDBParameterGroupName = p1
     }
-{-# INLINE mkDeleteDBParameterGroupMessage #-}
-
-newtype DeleteDBParameterGroup = DeleteDBParameterGroup
-    { _ddbpgmDBParameterGroupName :: Text
-      -- ^ The name of the DB parameter group. Constraints: Must be the name
-      -- of an existing DB parameter group You cannot delete a default DB
-      -- parameter group Cannot be associated with any DB instances.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group You cannot delete a default DB parameter group
 -- Cannot be associated with any DB instances.
-ddbpgmDBParameterGroupName :: Lens' DeleteDBParameterGroup (Text)
-ddbpgmDBParameterGroupName = lens _ddbpgmDBParameterGroupName (\s a -> s { _ddbpgmDBParameterGroupName = a })
-{-# INLINE ddbpgmDBParameterGroupName #-}
+ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
+ddbpgDBParameterGroupName =
+    lens _ddbpgDBParameterGroupName
+         (\s a -> s { _ddbpgDBParameterGroupName = a })
+{-# INLINE ddbpgDBParameterGroupName #-}
 
 instance ToQuery DeleteDBParameterGroup where
     toQuery = genericQuery def

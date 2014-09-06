@@ -24,68 +24,68 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme
     -- * Request
       DeleteAnalysisScheme
     -- ** Request constructor
-    , mkDeleteAnalysisSchemeRequest
+    , mkDeleteAnalysisScheme
     -- ** Request lenses
-    , dastDomainName
-    , dastAnalysisSchemeName
+    , das1DomainName
+    , das1AnalysisSchemeName
 
     -- * Response
     , DeleteAnalysisSchemeResponse
     -- ** Response lenses
-    , dasuAnalysisScheme
+    , dasrsrsAnalysisScheme
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the DeleteAnalysisScheme operation.
+-- Specifies the name of the domain you want to update and the analysis scheme
+-- you want to delete.
+data DeleteAnalysisScheme = DeleteAnalysisScheme
+    { _das1DomainName :: Text
+    , _das1AnalysisSchemeName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAnalysisScheme' request.
-mkDeleteAnalysisSchemeRequest :: Text -- ^ 'dastDomainName'
-                              -> Text -- ^ 'dastAnalysisSchemeName'
-                              -> DeleteAnalysisScheme
-mkDeleteAnalysisSchemeRequest p1 p2 = DeleteAnalysisScheme
-    { _dastDomainName = p1
-    , _dastAnalysisSchemeName = p2
+mkDeleteAnalysisScheme :: Text -- ^ 'das1DomainName'
+                       -> Text -- ^ 'das1AnalysisSchemeName'
+                       -> DeleteAnalysisScheme
+mkDeleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
+    { _das1DomainName = p1
+    , _das1AnalysisSchemeName = p2
     }
-{-# INLINE mkDeleteAnalysisSchemeRequest #-}
-
-data DeleteAnalysisScheme = DeleteAnalysisScheme
-    { _dastDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    , _dastAnalysisSchemeName :: Text
-      -- ^ The name of the analysis scheme you want to delete.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteAnalysisScheme #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-dastDomainName :: Lens' DeleteAnalysisScheme (Text)
-dastDomainName = lens _dastDomainName (\s a -> s { _dastDomainName = a })
-{-# INLINE dastDomainName #-}
+das1DomainName :: Lens' DeleteAnalysisScheme Text
+das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
+{-# INLINE das1DomainName #-}
 
 -- | The name of the analysis scheme you want to delete.
-dastAnalysisSchemeName :: Lens' DeleteAnalysisScheme (Text)
-dastAnalysisSchemeName = lens _dastAnalysisSchemeName (\s a -> s { _dastAnalysisSchemeName = a })
-{-# INLINE dastAnalysisSchemeName #-}
+das1AnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
+das1AnalysisSchemeName =
+    lens _das1AnalysisSchemeName (\s a -> s { _das1AnalysisSchemeName = a })
+{-# INLINE das1AnalysisSchemeName #-}
 
 instance ToQuery DeleteAnalysisScheme where
     toQuery = genericQuery def
 
+-- | The result of a DeleteAnalysisScheme request. Contains the status of the
+-- deleted analysis scheme.
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
-    { _dasuAnalysisScheme :: AnalysisSchemeStatus
-      -- ^ The status of the analysis scheme being deleted.
+    { _dasrsrsAnalysisScheme :: AnalysisSchemeStatus
     } deriving (Show, Generic)
 
 -- | The status of the analysis scheme being deleted.
-dasuAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse (AnalysisSchemeStatus)
-dasuAnalysisScheme = lens _dasuAnalysisScheme (\s a -> s { _dasuAnalysisScheme = a })
-{-# INLINE dasuAnalysisScheme #-}
+dasrsrsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
+dasrsrsAnalysisScheme =
+    lens _dasrsrsAnalysisScheme (\s a -> s { _dasrsrsAnalysisScheme = a })
+{-# INLINE dasrsrsAnalysisScheme #-}
 
 instance FromXML DeleteAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions

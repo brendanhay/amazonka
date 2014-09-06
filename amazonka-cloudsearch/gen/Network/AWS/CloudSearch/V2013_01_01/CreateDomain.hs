@@ -24,56 +24,56 @@ module Network.AWS.CloudSearch.V2013_01_01.CreateDomain
     -- * Request
       CreateDomain
     -- ** Request constructor
-    , mkCreateDomainRequest
+    , mkCreateDomain
     -- ** Request lenses
-    , cdrDomainName
+    , cdDomainName
 
     -- * Response
     , CreateDomainResponse
     -- ** Response lenses
-    , cdsDomainStatus
+    , cdrsDomainStatus
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the CreateDomain operation. Specifies a
+-- name for the new search domain.
+newtype CreateDomain = CreateDomain
+    { _cdDomainName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomain' request.
-mkCreateDomainRequest :: Text -- ^ 'cdrDomainName'
-                      -> CreateDomain
-mkCreateDomainRequest p1 = CreateDomain
-    { _cdrDomainName = p1
+mkCreateDomain :: Text -- ^ 'cdDomainName'
+               -> CreateDomain
+mkCreateDomain p1 = CreateDomain
+    { _cdDomainName = p1
     }
-{-# INLINE mkCreateDomainRequest #-}
-
-newtype CreateDomain = CreateDomain
-    { _cdrDomainName :: Text
-      -- ^ A name for the domain you are creating. Allowed characters are
-      -- a-z (lower-case letters), 0-9, and hyphen (-). Domain names must
-      -- start with a letter or number and be at least 3 and no more than
-      -- 28 characters long.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateDomain #-}
 
 -- | A name for the domain you are creating. Allowed characters are a-z
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with a
 -- letter or number and be at least 3 and no more than 28 characters long.
-cdrDomainName :: Lens' CreateDomain (Text)
-cdrDomainName = lens _cdrDomainName (\s a -> s { _cdrDomainName = a })
-{-# INLINE cdrDomainName #-}
+cdDomainName :: Lens' CreateDomain Text
+cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
+{-# INLINE cdDomainName #-}
 
 instance ToQuery CreateDomain where
     toQuery = genericQuery def
 
+-- | The result of a CreateDomainRequest. Contains the status of a newly created
+-- domain.
 newtype CreateDomainResponse = CreateDomainResponse
-    { _cdsDomainStatus :: Maybe DomainStatus
-      -- ^ The current status of the search domain.
+    { _cdrsDomainStatus :: Maybe DomainStatus
     } deriving (Show, Generic)
 
 -- | The current status of the search domain.
-cdsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
-cdsDomainStatus = lens _cdsDomainStatus (\s a -> s { _cdsDomainStatus = a })
-{-# INLINE cdsDomainStatus #-}
+cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
+cdrsDomainStatus =
+    lens _cdrsDomainStatus (\s a -> s { _cdrsDomainStatus = a })
+{-# INLINE cdrsDomainStatus #-}
 
 instance FromXML CreateDomainResponse where
     fromXMLOptions = xmlOptions

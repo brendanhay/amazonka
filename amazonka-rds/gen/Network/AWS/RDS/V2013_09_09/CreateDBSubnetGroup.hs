@@ -31,91 +31,86 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup
     -- * Request
       CreateDBSubnetGroup
     -- ** Request constructor
-    , mkCreateDBSubnetGroupMessage
+    , mkCreateDBSubnetGroup
     -- ** Request lenses
-    , cdbsgnDBSubnetGroupName
-    , cdbsgnDBSubnetGroupDescription
-    , cdbsgnSubnetIds
-    , cdbsgnTags
+    , cdbsg1DBSubnetGroupName
+    , cdbsg1DBSubnetGroupDescription
+    , cdbsg1SubnetIds
+    , cdbsg1Tags
 
     -- * Response
     , CreateDBSubnetGroupResponse
     -- ** Response lenses
-    , dbsgyDBSubnetGroup
+    , cdbsgrsrsDBSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateDBSubnetGroup = CreateDBSubnetGroup
+    { _cdbsg1DBSubnetGroupName :: Text
+    , _cdbsg1DBSubnetGroupDescription :: Text
+    , _cdbsg1SubnetIds :: [Text]
+    , _cdbsg1Tags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSubnetGroup' request.
-mkCreateDBSubnetGroupMessage :: Text -- ^ 'cdbsgnDBSubnetGroupName'
-                             -> Text -- ^ 'cdbsgnDBSubnetGroupDescription'
-                             -> [Text] -- ^ 'cdbsgnSubnetIds'
-                             -> CreateDBSubnetGroup
-mkCreateDBSubnetGroupMessage p1 p2 p3 = CreateDBSubnetGroup
-    { _cdbsgnDBSubnetGroupName = p1
-    , _cdbsgnDBSubnetGroupDescription = p2
-    , _cdbsgnSubnetIds = p3
-    , _cdbsgnTags = mempty
+mkCreateDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
+                      -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
+                      -> [Text] -- ^ 'cdbsg1SubnetIds'
+                      -> CreateDBSubnetGroup
+mkCreateDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
+    { _cdbsg1DBSubnetGroupName = p1
+    , _cdbsg1DBSubnetGroupDescription = p2
+    , _cdbsg1SubnetIds = p3
+    , _cdbsg1Tags = mempty
     }
-{-# INLINE mkCreateDBSubnetGroupMessage #-}
-
-data CreateDBSubnetGroup = CreateDBSubnetGroup
-    { _cdbsgnDBSubnetGroupName :: Text
-      -- ^ The name for the DB subnet group. This value is stored as a
-      -- lowercase string. Constraints: Must contain no more than 255
-      -- alphanumeric characters or hyphens. Must not be "Default".
-      -- Example: mySubnetgroup.
-    , _cdbsgnDBSubnetGroupDescription :: Text
-      -- ^ The description for the DB subnet group.
-    , _cdbsgnSubnetIds :: [Text]
-      -- ^ The EC2 Subnet IDs for the DB subnet group.
-    , _cdbsgnTags :: [Tag]
-      -- ^ A list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateDBSubnetGroup #-}
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Must not be "Default". Example: mySubnetgroup.
-cdbsgnDBSubnetGroupName :: Lens' CreateDBSubnetGroup (Text)
-cdbsgnDBSubnetGroupName = lens _cdbsgnDBSubnetGroupName (\s a -> s { _cdbsgnDBSubnetGroupName = a })
-{-# INLINE cdbsgnDBSubnetGroupName #-}
+cdbsg1DBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
+cdbsg1DBSubnetGroupName =
+    lens _cdbsg1DBSubnetGroupName
+         (\s a -> s { _cdbsg1DBSubnetGroupName = a })
+{-# INLINE cdbsg1DBSubnetGroupName #-}
 
 -- | The description for the DB subnet group.
-cdbsgnDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup (Text)
-cdbsgnDBSubnetGroupDescription = lens _cdbsgnDBSubnetGroupDescription (\s a -> s { _cdbsgnDBSubnetGroupDescription = a })
-{-# INLINE cdbsgnDBSubnetGroupDescription #-}
+cdbsg1DBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
+cdbsg1DBSubnetGroupDescription =
+    lens _cdbsg1DBSubnetGroupDescription
+         (\s a -> s { _cdbsg1DBSubnetGroupDescription = a })
+{-# INLINE cdbsg1DBSubnetGroupDescription #-}
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-cdbsgnSubnetIds :: Lens' CreateDBSubnetGroup ([Text])
-cdbsgnSubnetIds = lens _cdbsgnSubnetIds (\s a -> s { _cdbsgnSubnetIds = a })
-{-# INLINE cdbsgnSubnetIds #-}
+cdbsg1SubnetIds :: Lens' CreateDBSubnetGroup [Text]
+cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a })
+{-# INLINE cdbsg1SubnetIds #-}
 
 -- | A list of tags.
-cdbsgnTags :: Lens' CreateDBSubnetGroup ([Tag])
-cdbsgnTags = lens _cdbsgnTags (\s a -> s { _cdbsgnTags = a })
-{-# INLINE cdbsgnTags #-}
+cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
+cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a })
+{-# INLINE cdbsg1Tags #-}
 
 instance ToQuery CreateDBSubnetGroup where
     toQuery = genericQuery def
 
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
-    { _dbsgyDBSubnetGroup :: Maybe DBSubnetGroup
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBSubnetGroup ModifyDBSubnetGroup
-      -- DescribeDBSubnetGroups DeleteDBSubnetGroup This data type is used
-      -- as a response element in the DescribeDBSubnetGroups action.
+    { _cdbsgrsrsDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
 -- DeleteDBSubnetGroup This data type is used as a response element in the
 -- DescribeDBSubnetGroups action.
-dbsgyDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
-dbsgyDBSubnetGroup = lens _dbsgyDBSubnetGroup (\s a -> s { _dbsgyDBSubnetGroup = a })
-{-# INLINE dbsgyDBSubnetGroup #-}
+cdbsgrsrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
+cdbsgrsrsDBSubnetGroup =
+    lens _cdbsgrsrsDBSubnetGroup (\s a -> s { _cdbsgrsrsDBSubnetGroup = a })
+{-# INLINE cdbsgrsrsDBSubnetGroup #-}
 
 instance FromXML CreateDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions

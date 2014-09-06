@@ -43,16 +43,16 @@ module Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupEgress
     -- * Request
       RevokeSecurityGroupEgress
     -- ** Request constructor
-    , mkRevokeSecurityGroupEgressRequest
+    , mkRevokeSecurityGroupEgress
     -- ** Request lenses
-    , rsgerGroupId
-    , rsgerSourceSecurityGroupName
-    , rsgerSourceSecurityGroupOwnerId
-    , rsgerIpProtocol
-    , rsgerFromPort
-    , rsgerToPort
-    , rsgerCidrIp
-    , rsgerIpPermissions
+    , rsgeGroupId
+    , rsgeSourceSecurityGroupName
+    , rsgeSourceSecurityGroupOwnerId
+    , rsgeIpProtocol
+    , rsgeFromPort
+    , rsgeToPort
+    , rsgeCidrIp
+    , rsgeIpPermissions
 
     -- * Response
     , RevokeSecurityGroupEgressResponse
@@ -62,96 +62,85 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RevokeSecurityGroupEgress' request.
-mkRevokeSecurityGroupEgressRequest :: Text -- ^ 'rsgerGroupId'
-                                   -> RevokeSecurityGroupEgress
-mkRevokeSecurityGroupEgressRequest p1 = RevokeSecurityGroupEgress
-    { _rsgerGroupId = p1
-    , _rsgerSourceSecurityGroupName = Nothing
-    , _rsgerSourceSecurityGroupOwnerId = Nothing
-    , _rsgerIpProtocol = Nothing
-    , _rsgerFromPort = Nothing
-    , _rsgerToPort = Nothing
-    , _rsgerCidrIp = Nothing
-    , _rsgerIpPermissions = mempty
-    }
-{-# INLINE mkRevokeSecurityGroupEgressRequest #-}
-
+-- | 
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
-    { _rsgerGroupId :: Text
-      -- ^ The ID of the security group.
-    , _rsgerSourceSecurityGroupName :: Maybe Text
-      -- ^ [EC2-Classic, default VPC] The name of the source security group.
-      -- You can't specify a source security group and a CIDR IP address
-      -- range.
-    , _rsgerSourceSecurityGroupOwnerId :: Maybe Text
-      -- ^ The ID of the source security group. You can't specify a source
-      -- security group and a CIDR IP address range.
-    , _rsgerIpProtocol :: Maybe Text
-      -- ^ The IP protocol name (tcp, udp, icmp) or number (see Protocol
-      -- Numbers). Use -1 to specify all.
-    , _rsgerFromPort :: Maybe Integer
-      -- ^ The start of port range for the TCP and UDP protocols, or an ICMP
-      -- type number. For the ICMP type number, use -1 to specify all ICMP
-      -- types.
-    , _rsgerToPort :: Maybe Integer
-      -- ^ The end of port range for the TCP and UDP protocols, or an ICMP
-      -- code number. For the ICMP code number, use -1 to specify all ICMP
-      -- codes for the ICMP type.
-    , _rsgerCidrIp :: Maybe Text
-      -- ^ The CIDR IP address range. You can't specify this parameter when
-      -- specifying a source security group.
-    , _rsgerIpPermissions :: [IpPermission]
-      -- ^ 
+    { _rsgeGroupId :: Text
+    , _rsgeSourceSecurityGroupName :: Maybe Text
+    , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
+    , _rsgeIpProtocol :: Maybe Text
+    , _rsgeFromPort :: Maybe Integer
+    , _rsgeToPort :: Maybe Integer
+    , _rsgeCidrIp :: Maybe Text
+    , _rsgeIpPermissions :: [IpPermission]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeSecurityGroupEgress' request.
+mkRevokeSecurityGroupEgress :: Text -- ^ 'rsgeGroupId'
+                            -> RevokeSecurityGroupEgress
+mkRevokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
+    { _rsgeGroupId = p1
+    , _rsgeSourceSecurityGroupName = Nothing
+    , _rsgeSourceSecurityGroupOwnerId = Nothing
+    , _rsgeIpProtocol = Nothing
+    , _rsgeFromPort = Nothing
+    , _rsgeToPort = Nothing
+    , _rsgeCidrIp = Nothing
+    , _rsgeIpPermissions = mempty
+    }
+{-# INLINE mkRevokeSecurityGroupEgress #-}
+
 -- | The ID of the security group.
-rsgerGroupId :: Lens' RevokeSecurityGroupEgress (Text)
-rsgerGroupId = lens _rsgerGroupId (\s a -> s { _rsgerGroupId = a })
-{-# INLINE rsgerGroupId #-}
+rsgeGroupId :: Lens' RevokeSecurityGroupEgress Text
+rsgeGroupId = lens _rsgeGroupId (\s a -> s { _rsgeGroupId = a })
+{-# INLINE rsgeGroupId #-}
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
-rsgerSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgerSourceSecurityGroupName = lens _rsgerSourceSecurityGroupName (\s a -> s { _rsgerSourceSecurityGroupName = a })
-{-# INLINE rsgerSourceSecurityGroupName #-}
+rsgeSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+rsgeSourceSecurityGroupName =
+    lens _rsgeSourceSecurityGroupName
+         (\s a -> s { _rsgeSourceSecurityGroupName = a })
+{-# INLINE rsgeSourceSecurityGroupName #-}
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
-rsgerSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgerSourceSecurityGroupOwnerId = lens _rsgerSourceSecurityGroupOwnerId (\s a -> s { _rsgerSourceSecurityGroupOwnerId = a })
-{-# INLINE rsgerSourceSecurityGroupOwnerId #-}
+rsgeSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+rsgeSourceSecurityGroupOwnerId =
+    lens _rsgeSourceSecurityGroupOwnerId
+         (\s a -> s { _rsgeSourceSecurityGroupOwnerId = a })
+{-# INLINE rsgeSourceSecurityGroupOwnerId #-}
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
 -- -1 to specify all.
-rsgerIpProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgerIpProtocol = lens _rsgerIpProtocol (\s a -> s { _rsgerIpProtocol = a })
-{-# INLINE rsgerIpProtocol #-}
+rsgeIpProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+rsgeIpProtocol = lens _rsgeIpProtocol (\s a -> s { _rsgeIpProtocol = a })
+{-# INLINE rsgeIpProtocol #-}
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
-rsgerFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Integer)
-rsgerFromPort = lens _rsgerFromPort (\s a -> s { _rsgerFromPort = a })
-{-# INLINE rsgerFromPort #-}
+rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Integer)
+rsgeFromPort = lens _rsgeFromPort (\s a -> s { _rsgeFromPort = a })
+{-# INLINE rsgeFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use -1 to specify all ICMP codes for the
 -- ICMP type.
-rsgerToPort :: Lens' RevokeSecurityGroupEgress (Maybe Integer)
-rsgerToPort = lens _rsgerToPort (\s a -> s { _rsgerToPort = a })
-{-# INLINE rsgerToPort #-}
+rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Integer)
+rsgeToPort = lens _rsgeToPort (\s a -> s { _rsgeToPort = a })
+{-# INLINE rsgeToPort #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
-rsgerCidrIp :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgerCidrIp = lens _rsgerCidrIp (\s a -> s { _rsgerCidrIp = a })
-{-# INLINE rsgerCidrIp #-}
+rsgeCidrIp :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+rsgeCidrIp = lens _rsgeCidrIp (\s a -> s { _rsgeCidrIp = a })
+{-# INLINE rsgeCidrIp #-}
 
 -- | 
-rsgerIpPermissions :: Lens' RevokeSecurityGroupEgress ([IpPermission])
-rsgerIpPermissions = lens _rsgerIpPermissions (\s a -> s { _rsgerIpPermissions = a })
-{-# INLINE rsgerIpPermissions #-}
+rsgeIpPermissions :: Lens' RevokeSecurityGroupEgress [IpPermission]
+rsgeIpPermissions =
+    lens _rsgeIpPermissions (\s a -> s { _rsgeIpPermissions = a })
+{-# INLINE rsgeIpPermissions #-}
 
 instance ToQuery RevokeSecurityGroupEgress where
     toQuery = genericQuery def

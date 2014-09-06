@@ -26,14 +26,14 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
     -- * Request
       DescribeTrustedAdvisorCheckSummaries
     -- ** Request constructor
-    , mkDescribeTrustedAdvisorCheckSummariesRequest
+    , mkDescribeTrustedAdvisorCheckSummaries
     -- ** Request lenses
-    , dtacsrCheckIds
+    , dtacsCheckIds
 
     -- * Response
     , DescribeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
-    , dtacssSummaries
+    , dtacsrsSummaries
     ) where
 
 import           Network.AWS.Support.V2013_04_15.Types
@@ -41,24 +41,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeTrustedAdvisorCheckSummaries' request.
-mkDescribeTrustedAdvisorCheckSummariesRequest :: [Text] -- ^ 'dtacsrCheckIds'
-                                              -> DescribeTrustedAdvisorCheckSummaries
-mkDescribeTrustedAdvisorCheckSummariesRequest p1 = DescribeTrustedAdvisorCheckSummaries
-    { _dtacsrCheckIds = p1
-    }
-{-# INLINE mkDescribeTrustedAdvisorCheckSummariesRequest #-}
-
+-- | 
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
-    { _dtacsrCheckIds :: [Text]
-      -- ^ The IDs of the Trusted Advisor checks.
+    { _dtacsCheckIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrustedAdvisorCheckSummaries' request.
+mkDescribeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsCheckIds'
+                                       -> DescribeTrustedAdvisorCheckSummaries
+mkDescribeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
+    { _dtacsCheckIds = p1
+    }
+{-# INLINE mkDescribeTrustedAdvisorCheckSummaries #-}
+
 -- | The IDs of the Trusted Advisor checks.
-dtacsrCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries ([Text])
-dtacsrCheckIds = lens _dtacsrCheckIds (\s a -> s { _dtacsrCheckIds = a })
-{-# INLINE dtacsrCheckIds #-}
+dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
+dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a })
+{-# INLINE dtacsCheckIds #-}
 
 instance ToPath DescribeTrustedAdvisorCheckSummaries
 
@@ -68,15 +68,17 @@ instance ToHeaders DescribeTrustedAdvisorCheckSummaries
 
 instance ToJSON DescribeTrustedAdvisorCheckSummaries
 
+-- | The summaries of the Trusted Advisor checks returned by the
+-- DescribeTrustedAdvisorCheckSummaries operation.
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
-    { _dtacssSummaries :: [TrustedAdvisorCheckSummary]
-      -- ^ The summary information for the requested Trusted Advisor checks.
+    { _dtacsrsSummaries :: [TrustedAdvisorCheckSummary]
     } deriving (Show, Generic)
 
 -- | The summary information for the requested Trusted Advisor checks.
-dtacssSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse ([TrustedAdvisorCheckSummary])
-dtacssSummaries = lens _dtacssSummaries (\s a -> s { _dtacssSummaries = a })
-{-# INLINE dtacssSummaries #-}
+dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
+dtacsrsSummaries =
+    lens _dtacsrsSummaries (\s a -> s { _dtacsrsSummaries = a })
+{-# INLINE dtacsrsSummaries #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse
 

@@ -41,11 +41,11 @@ module Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic
     -- * Request
       SetIdentityNotificationTopic
     -- ** Request constructor
-    , mkSetIdentityNotificationTopicRequest
+    , mkSetIdentityNotificationTopic
     -- ** Request lenses
-    , sintrIdentity
-    , sintrNotificationType
-    , sintrSnsTopic
+    , sintIdentity
+    , sintNotificationType
+    , sintSnsTopic
 
     -- * Response
     , SetIdentityNotificationTopicResponse
@@ -55,53 +55,50 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Represents a request to set or clear an identity's notification topic.
+data SetIdentityNotificationTopic = SetIdentityNotificationTopic
+    { _sintIdentity :: Text
+    , _sintNotificationType :: NotificationType
+    , _sintSnsTopic :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityNotificationTopic' request.
-mkSetIdentityNotificationTopicRequest :: Text -- ^ 'sintrIdentity'
-                                      -> NotificationType -- ^ 'sintrNotificationType'
-                                      -> SetIdentityNotificationTopic
-mkSetIdentityNotificationTopicRequest p1 p2 = SetIdentityNotificationTopic
-    { _sintrIdentity = p1
-    , _sintrNotificationType = p2
-    , _sintrSnsTopic = Nothing
+mkSetIdentityNotificationTopic :: Text -- ^ 'sintIdentity'
+                               -> NotificationType -- ^ 'sintNotificationType'
+                               -> SetIdentityNotificationTopic
+mkSetIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
+    { _sintIdentity = p1
+    , _sintNotificationType = p2
+    , _sintSnsTopic = Nothing
     }
-{-# INLINE mkSetIdentityNotificationTopicRequest #-}
-
-data SetIdentityNotificationTopic = SetIdentityNotificationTopic
-    { _sintrIdentity :: Text
-      -- ^ The identity for which the Amazon SNS topic will be set.
-      -- Examples: user@example.com, example.com.
-    , _sintrNotificationType :: NotificationType
-      -- ^ The type of notifications that will be published to the specified
-      -- Amazon SNS topic.
-    , _sintrSnsTopic :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic. If the
-      -- parameter is omitted from the request or a null value is passed,
-      -- SnsTopic is cleared and publishing is disabled.
-    } deriving (Show, Generic)
+{-# INLINE mkSetIdentityNotificationTopic #-}
 
 -- | The identity for which the Amazon SNS topic will be set. Examples:
 -- user@example.com, example.com.
-sintrIdentity :: Lens' SetIdentityNotificationTopic (Text)
-sintrIdentity = lens _sintrIdentity (\s a -> s { _sintrIdentity = a })
-{-# INLINE sintrIdentity #-}
+sintIdentity :: Lens' SetIdentityNotificationTopic Text
+sintIdentity = lens _sintIdentity (\s a -> s { _sintIdentity = a })
+{-# INLINE sintIdentity #-}
 
 -- | The type of notifications that will be published to the specified Amazon
 -- SNS topic.
-sintrNotificationType :: Lens' SetIdentityNotificationTopic (NotificationType)
-sintrNotificationType = lens _sintrNotificationType (\s a -> s { _sintrNotificationType = a })
-{-# INLINE sintrNotificationType #-}
+sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
+sintNotificationType =
+    lens _sintNotificationType (\s a -> s { _sintNotificationType = a })
+{-# INLINE sintNotificationType #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is
 -- omitted from the request or a null value is passed, SnsTopic is cleared and
 -- publishing is disabled.
-sintrSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
-sintrSnsTopic = lens _sintrSnsTopic (\s a -> s { _sintrSnsTopic = a })
-{-# INLINE sintrSnsTopic #-}
+sintSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
+sintSnsTopic = lens _sintSnsTopic (\s a -> s { _sintSnsTopic = a })
+{-# INLINE sintSnsTopic #-}
 
 instance ToQuery SetIdentityNotificationTopic where
     toQuery = genericQuery def
 
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
     deriving (Eq, Show, Generic)
 
 instance AWSRequest SetIdentityNotificationTopic where

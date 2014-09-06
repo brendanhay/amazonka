@@ -37,17 +37,17 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     -- * Clip
     , Clip
     , mkClip
-    , dTimeSpan
+    , cTimeSpan
 
     -- * Artwork
     , Artwork
     , mkArtwork
-    , bInputKey
-    , bMaxWidth
-    , bMaxHeight
-    , bSizingPolicy
-    , bPaddingPolicy
-    , bAlbumArtFormat
+    , aInputKey
+    , aMaxWidth
+    , aMaxHeight
+    , aSizingPolicy
+    , aPaddingPolicy
+    , aAlbumArtFormat
 
     -- * AudioParameters
     , AudioParameters
@@ -61,23 +61,23 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     -- * CaptionFormat
     , CaptionFormat
     , mkCaptionFormat
-    , cgFormat
-    , cgPattern
+    , cfFormat
+    , cfPattern
 
     -- * CaptionSource
     , CaptionSource
     , mkCaptionSource
-    , ctKey
-    , ctLanguage
-    , ctTimeOffset
-    , ctLabel
+    , csKey
+    , csLanguage
+    , csTimeOffset
+    , csLabel
 
     -- * Captions
     , Captions
     , mkCaptions
-    , eMergePolicy
-    , eCaptionSources
-    , eCaptionFormats
+    , c1MergePolicy
+    , c1CaptionSources
+    , c1CaptionFormats
 
     -- * CreateJobOutput
     , CreateJobOutput
@@ -95,21 +95,22 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     -- * CreateJobPlaylist
     , CreateJobPlaylist
     , mkCreateJobPlaylist
-    , cjvName
-    , cjvFormat
-    , cjvOutputKeys
+    , cjpName
+    , cjpFormat
+    , cjpOutputKeys
 
     -- * Job
     , Job
-    , jbId
-    , jbArn
-    , jbPipelineId
-    , jbInput
-    , jbOutput
-    , jbOutputs
-    , jbOutputKeyPrefix
-    , jbPlaylists
-    , jbStatus
+    , mkJob
+    , jId
+    , jArn
+    , jPipelineId
+    , jInput
+    , jOutput
+    , jOutputs
+    , jOutputKeyPrefix
+    , jPlaylists
+    , jStatus
 
     -- * JobAlbumArt
     , JobAlbumArt
@@ -149,36 +150,37 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     -- * JobWatermark
     , JobWatermark
     , mkJobWatermark
-    , jxPresetWatermarkId
-    , jxInputKey
+    , jwPresetWatermarkId
+    , jwInputKey
 
     -- * Notifications
     , Notifications
     , mkNotifications
-    , nsProgressing
-    , nsCompleted
-    , nsWarning
-    , nsError
+    , nProgressing
+    , nCompleted
+    , nWarning
+    , nError
 
     -- * Permission
     , Permission
     , mkPermission
-    , pnGranteeType
-    , pnGrantee
-    , pnAccess
+    , p1GranteeType
+    , p1Grantee
+    , p1Access
 
     -- * Pipeline
     , Pipeline
-    , peId
-    , peArn
-    , peName
-    , peStatus
-    , peInputBucket
-    , peOutputBucket
-    , peRole
-    , peNotifications
-    , peContentConfig
-    , peThumbnailConfig
+    , mkPipeline
+    , prsId
+    , prsArn
+    , prsName
+    , prsStatus
+    , prsInputBucket
+    , prsOutputBucket
+    , prsRole
+    , prsNotifications
+    , prsContentConfig
+    , prsThumbnailConfig
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -190,49 +192,50 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     -- * Playlist
     , Playlist
     , mkPlaylist
-    , puName
-    , puFormat
-    , puOutputKeys
-    , puStatus
-    , puStatusDetail
+    , pName
+    , pFormat
+    , pOutputKeys
+    , pStatus
+    , pStatusDetail
 
     -- * Preset
     , Preset
-    , ppuId
-    , ppuArn
-    , ppuName
-    , ppuDescription
-    , ppuContainer
-    , ppuAudio
-    , ppuVideo
-    , ppuThumbnails
-    , ppuType
+    , mkPreset
+    , p1rsId
+    , p1rsArn
+    , p1rsName
+    , p1rsDescription
+    , p1rsContainer
+    , p1rsAudio
+    , p1rsVideo
+    , p1rsThumbnails
+    , p1rsType
 
     -- * PresetWatermark
     , PresetWatermark
     , mkPresetWatermark
-    , ppkId
-    , ppkMaxWidth
-    , ppkMaxHeight
-    , ppkSizingPolicy
-    , ppkHorizontalAlign
-    , ppkHorizontalOffset
-    , ppkVerticalAlign
-    , ppkVerticalOffset
-    , ppkOpacity
-    , ppkTarget
+    , pwId
+    , pwMaxWidth
+    , pwMaxHeight
+    , pwSizingPolicy
+    , pwHorizontalAlign
+    , pwHorizontalOffset
+    , pwVerticalAlign
+    , pwVerticalOffset
+    , pwOpacity
+    , pwTarget
 
     -- * Thumbnails
     , Thumbnails
     , mkThumbnails
-    , ttsFormat
-    , ttsInterval
-    , ttsResolution
-    , ttsAspectRatio
-    , ttsMaxWidth
-    , ttsMaxHeight
-    , ttsSizingPolicy
-    , ttsPaddingPolicy
+    , tFormat
+    , tInterval
+    , tResolution
+    , tAspectRatio
+    , tMaxWidth
+    , tMaxHeight
+    , tSizingPolicy
+    , tPaddingPolicy
 
     -- * TimeSpan
     , TimeSpan
@@ -307,19 +310,15 @@ instance Exception (Er ElasticTranscoder)
 -- output file.
 newtype AudioCodecOptions = AudioCodecOptions
     { _acoProfile :: Maybe Text
-      -- ^ You can only choose an audio profile when you specify AAC for the
-      -- value of Audio:Codec. Specify the AAC profile for the output
-      -- file. Elastic Transcoder supports the following profiles: auto:
-      -- If you specify auto, Elastic Transcoder will select the profile
-      -- based on the bit rate selected for the output file. AAC-LC: The
-      -- most common AAC profile. Use for bitrates larger than 64 kbps.
-      -- HE-AAC: Not supported on some older players and devices. Use for
-      -- bitrates between 40 and 80 kbps. HE-AACv2: Not supported on some
-      -- players and devices. Use for bitrates less than 48 kbps. If you
-      -- created any presets before AAC profiles were added, Elastic
-      -- Transcoder automatically updated your presets to use AAC-LC. You
-      -- can change the value as required.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AudioCodecOptions' data type to populate a request.
+mkAudioCodecOptions :: AudioCodecOptions
+mkAudioCodecOptions = AudioCodecOptions
+    { _acoProfile = Nothing
+    }
+{-# INLINE mkAudioCodecOptions #-}
 
 -- | You can only choose an audio profile when you specify AAC for the value of
 -- Audio:Codec. Specify the AAC profile for the output file. Elastic
@@ -336,14 +335,6 @@ acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
 {-# INLINE acoProfile #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'AudioCodecOptions' data type to populate a request.
-mkAudioCodecOptions :: AudioCodecOptions
-mkAudioCodecOptions = AudioCodecOptions
-    { _acoProfile = Nothing
-    }
-{-# INLINE mkAudioCodecOptions #-}
-
 instance FromJSON AudioCodecOptions
 
 instance ToJSON AudioCodecOptions
@@ -351,22 +342,21 @@ instance ToJSON AudioCodecOptions
 -- | Settings for one clip in a composition. All jobs in a playlist must have
 -- the same clip settings.
 newtype Clip = Clip
-    { _dTimeSpan :: Maybe TimeSpan
-      -- ^ Settings that determine when a clip begins and how long it lasts.
+    { _cTimeSpan :: Maybe TimeSpan
     } deriving (Show, Generic)
-
--- | Settings that determine when a clip begins and how long it lasts.
-dTimeSpan :: Lens' Clip (Maybe TimeSpan)
-dTimeSpan = lens _dTimeSpan (\s a -> s { _dTimeSpan = a })
-{-# INLINE dTimeSpan #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Clip' data type to populate a request.
 mkClip :: Clip
 mkClip = Clip
-    { _dTimeSpan = Nothing
+    { _cTimeSpan = Nothing
     }
 {-# INLINE mkClip #-}
+
+-- | Settings that determine when a clip begins and how long it lasts.
+cTimeSpan :: Lens' Clip (Maybe TimeSpan)
+cTimeSpan = lens _cTimeSpan (\s a -> s { _cTimeSpan = a })
+{-# INLINE cTimeSpan #-}
 
 instance FromJSON Clip
 
@@ -379,57 +369,26 @@ instance ToJSON Clip
 -- artwork unchanged, set the Merge Policy to "Prepend", "Append", or
 -- "Fallback", and use an empty Artwork array.
 data Artwork = Artwork
-    { _bInputKey :: Maybe Text
-      -- ^ The name of the file to be used as album art. To determine which
-      -- Amazon S3 bucket contains the specified file, Elastic Transcoder
-      -- checks the pipeline specified by PipelineId; the InputBucket
-      -- object in that pipeline identifies the bucket. If the file name
-      -- includes a prefix, for example, cooking/pie.jpg, include the
-      -- prefix in the key. If the file isn't in the specified bucket,
-      -- Elastic Transcoder returns an error.
-    , _bMaxWidth :: Maybe Text
-      -- ^ The maximum width of the output album art in pixels. If you
-      -- specify auto, Elastic Transcoder uses 600 as the default value.
-      -- If you specify a numeric value, enter an even integer between 32
-      -- and 4096, inclusive.
-    , _bMaxHeight :: Maybe Text
-      -- ^ The maximum height of the output album art in pixels. If you
-      -- specify auto, Elastic Transcoder uses 600 as the default value.
-      -- If you specify a numeric value, enter an even integer between 32
-      -- and 3072, inclusive.
-    , _bSizingPolicy :: Maybe Text
-      -- ^ Specify one of the following values to control scaling of the
-      -- output album art: Fit: Elastic Transcoder scales the output art
-      -- so it matches the value that you specified in either MaxWidth or
-      -- MaxHeight without exceeding the other value. Fill: Elastic
-      -- Transcoder scales the output art so it matches the value that you
-      -- specified in either MaxWidth or MaxHeight and matches or exceeds
-      -- the other value. Elastic Transcoder centers the output art and
-      -- then crops it in the dimension (if any) that exceeds the maximum
-      -- value. Stretch: Elastic Transcoder stretches the output art to
-      -- match the values that you specified for MaxWidth and MaxHeight.
-      -- If the relative proportions of the input art and the output art
-      -- are different, the output art will be distorted. Keep: Elastic
-      -- Transcoder does not scale the output art. If either dimension of
-      -- the input art exceeds the values that you specified for MaxWidth
-      -- and MaxHeight, Elastic Transcoder crops the output art.
-      -- ShrinkToFit: Elastic Transcoder scales the output art down so
-      -- that its dimensions match the values that you specified for at
-      -- least one of MaxWidth and MaxHeight without exceeding either
-      -- value. If you specify this option, Elastic Transcoder does not
-      -- scale the art up. ShrinkToFill Elastic Transcoder scales the
-      -- output art down so that its dimensions match the values that you
-      -- specified for at least one of MaxWidth and MaxHeight without
-      -- dropping below either value. If you specify this option, Elastic
-      -- Transcoder does not scale the art up.
-    , _bPaddingPolicy :: Maybe Text
-      -- ^ When you set PaddingPolicy to Pad, Elastic Transcoder may add
-      -- white bars to the top and bottom and/or left and right sides of
-      -- the output album art to make the total size of the output art
-      -- match the values that you specified for MaxWidth and MaxHeight.
-    , _bAlbumArtFormat :: Maybe Text
-      -- ^ The format of album art, if any. Valid formats are .jpg and .png.
+    { _aInputKey :: Maybe Text
+    , _aMaxWidth :: Maybe Text
+    , _aMaxHeight :: Maybe Text
+    , _aSizingPolicy :: Maybe Text
+    , _aPaddingPolicy :: Maybe Text
+    , _aAlbumArtFormat :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Artwork' data type to populate a request.
+mkArtwork :: Artwork
+mkArtwork = Artwork
+    { _aInputKey = Nothing
+    , _aMaxWidth = Nothing
+    , _aMaxHeight = Nothing
+    , _aSizingPolicy = Nothing
+    , _aPaddingPolicy = Nothing
+    , _aAlbumArtFormat = Nothing
+    }
+{-# INLINE mkArtwork #-}
 
 -- | The name of the file to be used as album art. To determine which Amazon S3
 -- bucket contains the specified file, Elastic Transcoder checks the pipeline
@@ -437,23 +396,23 @@ data Artwork = Artwork
 -- the bucket. If the file name includes a prefix, for example,
 -- cooking/pie.jpg, include the prefix in the key. If the file isn't in the
 -- specified bucket, Elastic Transcoder returns an error.
-bInputKey :: Lens' Artwork (Maybe Text)
-bInputKey = lens _bInputKey (\s a -> s { _bInputKey = a })
-{-# INLINE bInputKey #-}
+aInputKey :: Lens' Artwork (Maybe Text)
+aInputKey = lens _aInputKey (\s a -> s { _aInputKey = a })
+{-# INLINE aInputKey #-}
 
 -- | The maximum width of the output album art in pixels. If you specify auto,
 -- Elastic Transcoder uses 600 as the default value. If you specify a numeric
 -- value, enter an even integer between 32 and 4096, inclusive.
-bMaxWidth :: Lens' Artwork (Maybe Text)
-bMaxWidth = lens _bMaxWidth (\s a -> s { _bMaxWidth = a })
-{-# INLINE bMaxWidth #-}
+aMaxWidth :: Lens' Artwork (Maybe Text)
+aMaxWidth = lens _aMaxWidth (\s a -> s { _aMaxWidth = a })
+{-# INLINE aMaxWidth #-}
 
 -- | The maximum height of the output album art in pixels. If you specify auto,
 -- Elastic Transcoder uses 600 as the default value. If you specify a numeric
 -- value, enter an even integer between 32 and 3072, inclusive.
-bMaxHeight :: Lens' Artwork (Maybe Text)
-bMaxHeight = lens _bMaxHeight (\s a -> s { _bMaxHeight = a })
-{-# INLINE bMaxHeight #-}
+aMaxHeight :: Lens' Artwork (Maybe Text)
+aMaxHeight = lens _aMaxHeight (\s a -> s { _aMaxHeight = a })
+{-# INLINE aMaxHeight #-}
 
 -- | Specify one of the following values to control scaling of the output album
 -- art: Fit: Elastic Transcoder scales the output art so it matches the value
@@ -476,35 +435,22 @@ bMaxHeight = lens _bMaxHeight (\s a -> s { _bMaxHeight = a })
 -- values that you specified for at least one of MaxWidth and MaxHeight
 -- without dropping below either value. If you specify this option, Elastic
 -- Transcoder does not scale the art up.
-bSizingPolicy :: Lens' Artwork (Maybe Text)
-bSizingPolicy = lens _bSizingPolicy (\s a -> s { _bSizingPolicy = a })
-{-# INLINE bSizingPolicy #-}
+aSizingPolicy :: Lens' Artwork (Maybe Text)
+aSizingPolicy = lens _aSizingPolicy (\s a -> s { _aSizingPolicy = a })
+{-# INLINE aSizingPolicy #-}
 
 -- | When you set PaddingPolicy to Pad, Elastic Transcoder may add white bars to
 -- the top and bottom and/or left and right sides of the output album art to
 -- make the total size of the output art match the values that you specified
 -- for MaxWidth and MaxHeight.
-bPaddingPolicy :: Lens' Artwork (Maybe Text)
-bPaddingPolicy = lens _bPaddingPolicy (\s a -> s { _bPaddingPolicy = a })
-{-# INLINE bPaddingPolicy #-}
+aPaddingPolicy :: Lens' Artwork (Maybe Text)
+aPaddingPolicy = lens _aPaddingPolicy (\s a -> s { _aPaddingPolicy = a })
+{-# INLINE aPaddingPolicy #-}
 
 -- | The format of album art, if any. Valid formats are .jpg and .png.
-bAlbumArtFormat :: Lens' Artwork (Maybe Text)
-bAlbumArtFormat = lens _bAlbumArtFormat (\s a -> s { _bAlbumArtFormat = a })
-{-# INLINE bAlbumArtFormat #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Artwork' data type to populate a request.
-mkArtwork :: Artwork
-mkArtwork = Artwork
-    { _bInputKey = Nothing
-    , _bMaxWidth = Nothing
-    , _bMaxHeight = Nothing
-    , _bSizingPolicy = Nothing
-    , _bPaddingPolicy = Nothing
-    , _bAlbumArtFormat = Nothing
-    }
-{-# INLINE mkArtwork #-}
+aAlbumArtFormat :: Lens' Artwork (Maybe Text)
+aAlbumArtFormat = lens _aAlbumArtFormat (\s a -> s { _aAlbumArtFormat = a })
+{-# INLINE aAlbumArtFormat #-}
 
 instance FromJSON Artwork
 
@@ -513,26 +459,23 @@ instance ToJSON Artwork
 -- | A section of the request body that specifies the audio parameters.
 data AudioParameters = AudioParameters
     { _apCodec :: Maybe Text
-      -- ^ The audio codec for the output file. Valid values include aac,
-      -- mp3, and vorbis.
     , _apSampleRate :: Maybe Text
-      -- ^ The sample rate of the audio stream in the output file, in Hertz.
-      -- Valid values include: auto, 22050, 32000, 44100, 48000, 96000 If
-      -- you specify auto, Elastic Transcoder automatically detects the
-      -- sample rate.
     , _apBitRate :: Maybe Text
-      -- ^ The bit rate of the audio stream in the output file, in
-      -- kilobits/second. Enter an integer between 64 and 320, inclusive.
     , _apChannels :: Maybe Text
-      -- ^ The number of audio channels in the output file. Valid values
-      -- include: auto, 0, 1, 2 If you specify auto, Elastic Transcoder
-      -- automatically detects the number of channels in the input file.
     , _apCodecOptions :: Maybe AudioCodecOptions
-      -- ^ If you specified AAC for Audio:Codec, this is the AAC compression
-      -- profile to use. Valid values include: auto, AAC-LC, HE-AAC,
-      -- HE-AACv2 If you specify auto, Elastic Transcoder chooses a
-      -- profile based on the bit rate of the output file.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'AudioParameters' data type to populate a request.
+mkAudioParameters :: AudioParameters
+mkAudioParameters = AudioParameters
+    { _apCodec = Nothing
+    , _apSampleRate = Nothing
+    , _apBitRate = Nothing
+    , _apChannels = Nothing
+    , _apCodecOptions = Nothing
+    }
+{-# INLINE mkAudioParameters #-}
 
 -- | The audio codec for the output file. Valid values include aac, mp3, and
 -- vorbis.
@@ -568,18 +511,6 @@ apCodecOptions :: Lens' AudioParameters (Maybe AudioCodecOptions)
 apCodecOptions = lens _apCodecOptions (\s a -> s { _apCodecOptions = a })
 {-# INLINE apCodecOptions #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'AudioParameters' data type to populate a request.
-mkAudioParameters :: AudioParameters
-mkAudioParameters = AudioParameters
-    { _apCodec = Nothing
-    , _apSampleRate = Nothing
-    , _apBitRate = Nothing
-    , _apChannels = Nothing
-    , _apCodecOptions = Nothing
-    }
-{-# INLINE mkAudioParameters #-}
-
 instance FromJSON AudioParameters
 
 instance ToJSON AudioParameters
@@ -587,30 +518,18 @@ instance ToJSON AudioParameters
 -- | The file format of the output captions. If you leave this value blank,
 -- Elastic Transcoder returns an error.
 data CaptionFormat = CaptionFormat
-    { _cgFormat :: Maybe Text
-      -- ^ The format you specify determines whether Elastic Transcoder
-      -- generates an embedded or sidecar caption for this output. Valid
-      -- Embedded Caption Formats: For MP3: None For MP4: mov-text For
-      -- MPEG-TS: None For ogg: None For webm: None Valid Sidecar Caption
-      -- Formats: Elastic Transcoder supports dfxp (first div element
-      -- only), scc, srt, and webvtt. There are no container restrictions
-      -- on sidecar captions. If you want ttml or smpte-tt compatible
-      -- captions, specify dfxp as your output format.
-    , _cgPattern :: Maybe Text
-      -- ^ The prefix for caption filenames, in the form
-      -- description-{language}, where: description is a description of
-      -- the video. {language} is a literal value that Elastic Transcoder
-      -- replaces with the two- or three-letter code for the language of
-      -- the caption in the output file names. If you don't include
-      -- {language} in the file name pattern, Elastic Transcoder
-      -- automatically appends "{language}" to the value that you specify
-      -- for the description. In addition, Elastic Transcoder
-      -- automatically appends the count to the end of the segment files.
-      -- For example, suppose you're transcoding into srt format. When you
-      -- enter "Sydney-{language}-sunrise", and the language of the
-      -- captions is English (en), the name of the first caption file will
-      -- be Sydney-en-sunrise00000.srt.
+    { _cfFormat :: Maybe Text
+    , _cfPattern :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CaptionFormat' data type to populate a request.
+mkCaptionFormat :: CaptionFormat
+mkCaptionFormat = CaptionFormat
+    { _cfFormat = Nothing
+    , _cfPattern = Nothing
+    }
+{-# INLINE mkCaptionFormat #-}
 
 -- | The format you specify determines whether Elastic Transcoder generates an
 -- embedded or sidecar caption for this output. Valid Embedded Caption
@@ -619,9 +538,9 @@ data CaptionFormat = CaptionFormat
 -- dfxp (first div element only), scc, srt, and webvtt. There are no container
 -- restrictions on sidecar captions. If you want ttml or smpte-tt compatible
 -- captions, specify dfxp as your output format.
-cgFormat :: Lens' CaptionFormat (Maybe Text)
-cgFormat = lens _cgFormat (\s a -> s { _cgFormat = a })
-{-# INLINE cgFormat #-}
+cfFormat :: Lens' CaptionFormat (Maybe Text)
+cfFormat = lens _cfFormat (\s a -> s { _cfFormat = a })
+{-# INLINE cfFormat #-}
 
 -- | The prefix for caption filenames, in the form description-{language},
 -- where: description is a description of the video. {language} is a literal
@@ -634,18 +553,9 @@ cgFormat = lens _cgFormat (\s a -> s { _cgFormat = a })
 -- transcoding into srt format. When you enter "Sydney-{language}-sunrise",
 -- and the language of the captions is English (en), the name of the first
 -- caption file will be Sydney-en-sunrise00000.srt.
-cgPattern :: Lens' CaptionFormat (Maybe Text)
-cgPattern = lens _cgPattern (\s a -> s { _cgPattern = a })
-{-# INLINE cgPattern #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'CaptionFormat' data type to populate a request.
-mkCaptionFormat :: CaptionFormat
-mkCaptionFormat = CaptionFormat
-    { _cgFormat = Nothing
-    , _cgPattern = Nothing
-    }
-{-# INLINE mkCaptionFormat #-}
+cfPattern :: Lens' CaptionFormat (Maybe Text)
+cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
+{-# INLINE cfPattern #-}
 
 instance FromJSON CaptionFormat
 
@@ -654,65 +564,51 @@ instance ToJSON CaptionFormat
 -- | A source file for the input sidecar captions used during the transcoding
 -- process.
 data CaptionSource = CaptionSource
-    { _ctKey :: Maybe Text
-      -- ^ The name of the sidecar caption file that you want Elastic
-      -- Transcoder to include in the output file.
-    , _ctLanguage :: Maybe Text
-      -- ^ A string that specifies the language of the caption. Specify this
-      -- as one of: 2-character ISO 639-1 code 3-character ISO 639-2 code
-      -- For more information on ISO language codes and language names,
-      -- see the List of ISO 639-1 codes.
-    , _ctTimeOffset :: Maybe Text
-      -- ^ For clip generation or captions that do not start at the same
-      -- time as the associated video file, the TimeOffset tells Elastic
-      -- Transcoder how much of the video to encode before including
-      -- captions. Specify the TimeOffset in the form [+-]SS.sss or
-      -- [+-]HH:mm:SS.ss.
-    , _ctLabel :: Maybe Text
-      -- ^ The label of the caption shown in the player when choosing a
-      -- language. We recommend that you put the caption language name
-      -- here, in the language of the captions.
+    { _csKey :: Maybe Text
+    , _csLanguage :: Maybe Text
+    , _csTimeOffset :: Maybe Text
+    , _csLabel :: Maybe Text
     } deriving (Show, Generic)
-
--- | The name of the sidecar caption file that you want Elastic Transcoder to
--- include in the output file.
-ctKey :: Lens' CaptionSource (Maybe Text)
-ctKey = lens _ctKey (\s a -> s { _ctKey = a })
-{-# INLINE ctKey #-}
-
--- | A string that specifies the language of the caption. Specify this as one
--- of: 2-character ISO 639-1 code 3-character ISO 639-2 code For more
--- information on ISO language codes and language names, see the List of ISO
--- 639-1 codes.
-ctLanguage :: Lens' CaptionSource (Maybe Text)
-ctLanguage = lens _ctLanguage (\s a -> s { _ctLanguage = a })
-{-# INLINE ctLanguage #-}
-
--- | For clip generation or captions that do not start at the same time as the
--- associated video file, the TimeOffset tells Elastic Transcoder how much of
--- the video to encode before including captions. Specify the TimeOffset in
--- the form [+-]SS.sss or [+-]HH:mm:SS.ss.
-ctTimeOffset :: Lens' CaptionSource (Maybe Text)
-ctTimeOffset = lens _ctTimeOffset (\s a -> s { _ctTimeOffset = a })
-{-# INLINE ctTimeOffset #-}
-
--- | The label of the caption shown in the player when choosing a language. We
--- recommend that you put the caption language name here, in the language of
--- the captions.
-ctLabel :: Lens' CaptionSource (Maybe Text)
-ctLabel = lens _ctLabel (\s a -> s { _ctLabel = a })
-{-# INLINE ctLabel #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CaptionSource' data type to populate a request.
 mkCaptionSource :: CaptionSource
 mkCaptionSource = CaptionSource
-    { _ctKey = Nothing
-    , _ctLanguage = Nothing
-    , _ctTimeOffset = Nothing
-    , _ctLabel = Nothing
+    { _csKey = Nothing
+    , _csLanguage = Nothing
+    , _csTimeOffset = Nothing
+    , _csLabel = Nothing
     }
 {-# INLINE mkCaptionSource #-}
+
+-- | The name of the sidecar caption file that you want Elastic Transcoder to
+-- include in the output file.
+csKey :: Lens' CaptionSource (Maybe Text)
+csKey = lens _csKey (\s a -> s { _csKey = a })
+{-# INLINE csKey #-}
+
+-- | A string that specifies the language of the caption. Specify this as one
+-- of: 2-character ISO 639-1 code 3-character ISO 639-2 code For more
+-- information on ISO language codes and language names, see the List of ISO
+-- 639-1 codes.
+csLanguage :: Lens' CaptionSource (Maybe Text)
+csLanguage = lens _csLanguage (\s a -> s { _csLanguage = a })
+{-# INLINE csLanguage #-}
+
+-- | For clip generation or captions that do not start at the same time as the
+-- associated video file, the TimeOffset tells Elastic Transcoder how much of
+-- the video to encode before including captions. Specify the TimeOffset in
+-- the form [+-]SS.sss or [+-]HH:mm:SS.ss.
+csTimeOffset :: Lens' CaptionSource (Maybe Text)
+csTimeOffset = lens _csTimeOffset (\s a -> s { _csTimeOffset = a })
+{-# INLINE csTimeOffset #-}
+
+-- | The label of the caption shown in the player when choosing a language. We
+-- recommend that you put the caption language name here, in the language of
+-- the captions.
+csLabel :: Lens' CaptionSource (Maybe Text)
+csLabel = lens _csLabel (\s a -> s { _csLabel = a })
+{-# INLINE csLabel #-}
 
 instance FromJSON CaptionSource
 
@@ -746,30 +642,20 @@ instance ToJSON CaptionSource
 -- more information on sidecar files, see the Extensible Metadata Platform and
 -- Sidecar file Wikipedia pages.
 data Captions = Captions
-    { _eMergePolicy :: Maybe Text
-      -- ^ A policy that determines how Elastic Transcoder handles the
-      -- existence of multiple captions. MergeOverride: Elastic Transcoder
-      -- transcodes both embedded and sidecar captions into outputs. If
-      -- captions for a language are embedded in the input file and also
-      -- appear in a sidecar file, Elastic Transcoder uses the sidecar
-      -- captions and ignores the embedded captions for that language.
-      -- MergeRetain: Elastic Transcoder transcodes both embedded and
-      -- sidecar captions into outputs. If captions for a language are
-      -- embedded in the input file and also appear in a sidecar file,
-      -- Elastic Transcoder uses the embedded captions and ignores the
-      -- sidecar captions for that language. If CaptionSources is empty,
-      -- Elastic Transcoder omits all sidecar captions from the output
-      -- files. Override: Elastic Transcoder transcodes only the sidecar
-      -- captions that you specify in CaptionSources. MergePolicy cannot
-      -- be null.
-    , _eCaptionSources :: [CaptionSource]
-      -- ^ Source files for the input sidecar captions used during the
-      -- transcoding process. To omit all sidecar captions, leave
-      -- CaptionSources blank.
-    , _eCaptionFormats :: [CaptionFormat]
-      -- ^ The array of file formats for the output captions. If you leave
-      -- this value blank, Elastic Transcoder returns an error.
+    { _c1MergePolicy :: Maybe Text
+    , _c1CaptionSources :: [CaptionSource]
+    , _c1CaptionFormats :: [CaptionFormat]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Captions' data type to populate a request.
+mkCaptions :: Captions
+mkCaptions = Captions
+    { _c1MergePolicy = Nothing
+    , _c1CaptionSources = mempty
+    , _c1CaptionFormats = mempty
+    }
+{-# INLINE mkCaptions #-}
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions. MergeOverride: Elastic Transcoder transcodes both
@@ -784,31 +670,23 @@ data Captions = Captions
 -- from the output files. Override: Elastic Transcoder transcodes only the
 -- sidecar captions that you specify in CaptionSources. MergePolicy cannot be
 -- null.
-eMergePolicy :: Lens' Captions (Maybe Text)
-eMergePolicy = lens _eMergePolicy (\s a -> s { _eMergePolicy = a })
-{-# INLINE eMergePolicy #-}
+c1MergePolicy :: Lens' Captions (Maybe Text)
+c1MergePolicy = lens _c1MergePolicy (\s a -> s { _c1MergePolicy = a })
+{-# INLINE c1MergePolicy #-}
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave CaptionSources blank.
-eCaptionSources :: Lens' Captions ([CaptionSource])
-eCaptionSources = lens _eCaptionSources (\s a -> s { _eCaptionSources = a })
-{-# INLINE eCaptionSources #-}
+c1CaptionSources :: Lens' Captions [CaptionSource]
+c1CaptionSources =
+    lens _c1CaptionSources (\s a -> s { _c1CaptionSources = a })
+{-# INLINE c1CaptionSources #-}
 
 -- | The array of file formats for the output captions. If you leave this value
 -- blank, Elastic Transcoder returns an error.
-eCaptionFormats :: Lens' Captions ([CaptionFormat])
-eCaptionFormats = lens _eCaptionFormats (\s a -> s { _eCaptionFormats = a })
-{-# INLINE eCaptionFormats #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Captions' data type to populate a request.
-mkCaptions :: Captions
-mkCaptions = Captions
-    { _eMergePolicy = Nothing
-    , _eCaptionSources = mempty
-    , _eCaptionFormats = mempty
-    }
-{-# INLINE mkCaptions #-}
+c1CaptionFormats :: Lens' Captions [CaptionFormat]
+c1CaptionFormats =
+    lens _c1CaptionFormats (\s a -> s { _c1CaptionFormats = a })
+{-# INLINE c1CaptionFormats #-}
 
 instance FromJSON Captions
 
@@ -817,102 +695,31 @@ instance ToJSON Captions
 -- | The CreateJobOutput structure.
 data CreateJobOutput = CreateJobOutput
     { _cjoKey :: Maybe Text
-      -- ^ The name to assign to the transcoded file. Elastic Transcoder
-      -- saves the file in the Amazon S3 bucket specified by the
-      -- OutputBucket object in the pipeline that is specified by the
-      -- pipeline ID. If a file with the specified name already exists in
-      -- the output bucket, the job fails.
     , _cjoThumbnailPattern :: Maybe Text
-      -- ^ Whether you want Elastic Transcoder to create thumbnails for your
-      -- videos and, if so, how you want Elastic Transcoder to name the
-      -- files. If you don't want Elastic Transcoder to create thumbnails,
-      -- specify "". If you do want Elastic Transcoder to create
-      -- thumbnails, specify the information that you want to include in
-      -- the file name for each thumbnail. You can specify the following
-      -- values in any sequence: {count} (Required): If you want to create
-      -- thumbnails, you must include {count} in the ThumbnailPattern
-      -- object. Wherever you specify {count}, Elastic Transcoder adds a
-      -- five-digit sequence number (beginning with 00001) to thumbnail
-      -- file names. The number indicates where a given thumbnail appears
-      -- in the sequence of thumbnails for a transcoded file. If you
-      -- specify a literal value and/or {resolution} but you omit {count},
-      -- Elastic Transcoder returns a validation error and does not create
-      -- the job. Literal values (Optional): You can specify literal
-      -- values anywhere in the ThumbnailPattern object. For example, you
-      -- can include them as a file name prefix or as a delimiter between
-      -- {resolution} and {count}. {resolution} (Optional): If you want
-      -- Elastic Transcoder to include the resolution in the file name,
-      -- include {resolution} in the ThumbnailPattern object. When
-      -- creating thumbnails, Elastic Transcoder automatically saves the
-      -- files in the format (.jpg or .png) that appears in the preset
-      -- that you specified in the PresetID value of CreateJobOutput.
-      -- Elastic Transcoder also appends the applicable file name
-      -- extension.
     , _cjoRotate :: Maybe Text
-      -- ^ The number of degrees clockwise by which you want Elastic
-      -- Transcoder to rotate the output relative to the input. Enter one
-      -- of the following values: auto, 0, 90, 180, 270. The value auto
-      -- generally works only if the file that you're transcoding contains
-      -- rotation metadata.
     , _cjoPresetId :: Maybe Text
-      -- ^ The Id of the preset to use for this job. The preset determines
-      -- the audio, video, and thumbnail settings that Elastic Transcoder
-      -- uses for transcoding.
     , _cjoSegmentDuration :: Maybe Text
-      -- ^ If you specify a preset in PresetId for which the value of
-      -- Container is ts (MPEG-TS), SegmentDuration is the duration of
-      -- each .ts file in seconds. The range of valid values is 1 to 60
-      -- seconds.
     , _cjoWatermarks :: [JobWatermark]
-      -- ^ Information about the watermarks that you want Elastic Transcoder
-      -- to add to the video during transcoding. You can specify up to
-      -- four watermarks for each output. Settings for each watermark must
-      -- be defined in the preset for the current output.
     , _cjoAlbumArt :: Maybe JobAlbumArt
-      -- ^ Information about the album art that you want Elastic Transcoder
-      -- to add to the file during transcoding. You can specify up to
-      -- twenty album artworks for each output. Settings for each artwork
-      -- must be defined in the job for the current output.
     , _cjoComposition :: [Clip]
-      -- ^ You can create an output file that contains an excerpt from the
-      -- input file. This excerpt, called a clip, can come from the
-      -- beginning, middle, or end of the file. The Composition object
-      -- contains settings for the clips that make up an output file. For
-      -- the current release, you can only specify settings for a single
-      -- clip per output file. The Composition object cannot be null.
     , _cjoCaptions :: Maybe Captions
-      -- ^ You can configure Elastic Transcoder to transcode captions, or
-      -- subtitles, from one format to another. All captions must be in
-      -- UTF-8. Elastic Transcoder supports two types of captions:
-      -- Embedded: Embedded captions are included in the same file as the
-      -- audio and video. Elastic Transcoder supports only one embedded
-      -- caption per language, to a maximum of 300 embedded captions per
-      -- file. Valid input values include: CEA-608 (EIA-608, first
-      -- non-empty channel only), CEA-708 (EIA-708, first non-empty
-      -- channel only), and mov-text Valid outputs include: mov-text
-      -- Elastic Transcoder supports a maximum of one embedded format per
-      -- output. Sidecar: Sidecar captions are kept in a separate metadata
-      -- file from the audio and video data. Sidecar captions require a
-      -- player that is capable of understanding the relationship between
-      -- the video file and the sidecar file. Elastic Transcoder supports
-      -- only one sidecar caption per language, to a maximum of 20 sidecar
-      -- captions per file. Valid input values include: dfxp (first div
-      -- element only), ebu-tt, scc, smpt, srt, ttml (first div element
-      -- only), and webvtt Valid outputs include: dfxp (first div element
-      -- only), scc, srt, and webvtt. If you want ttml or smpte-tt
-      -- compatible captions, specify dfxp as your output format. Elastic
-      -- Transcoder does not support OCR (Optical Character Recognition),
-      -- does not accept pictures as a valid input for captions, and is
-      -- not available for audio-only transcoding. Elastic Transcoder does
-      -- not preserve text formatting (for example, italics) during the
-      -- transcoding process. To remove captions or leave the captions
-      -- empty, set Captions to null. To pass through existing captions
-      -- unchanged, set the MergePolicy to MergeRetain, and pass in a null
-      -- CaptionSources array. For more information on embedded files, see
-      -- the Subtitles Wikipedia page. For more information on sidecar
-      -- files, see the Extensible Metadata Platform and Sidecar file
-      -- Wikipedia pages.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CreateJobOutput' data type to populate a request.
+mkCreateJobOutput :: CreateJobOutput
+mkCreateJobOutput = CreateJobOutput
+    { _cjoKey = Nothing
+    , _cjoThumbnailPattern = Nothing
+    , _cjoRotate = Nothing
+    , _cjoPresetId = Nothing
+    , _cjoSegmentDuration = Nothing
+    , _cjoWatermarks = mempty
+    , _cjoAlbumArt = Nothing
+    , _cjoComposition = mempty
+    , _cjoCaptions = Nothing
+    }
+{-# INLINE mkCreateJobOutput #-}
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
 -- file in the Amazon S3 bucket specified by the OutputBucket object in the
@@ -944,7 +751,8 @@ cjoKey = lens _cjoKey (\s a -> s { _cjoKey = a })
 -- specified in the PresetID value of CreateJobOutput. Elastic Transcoder also
 -- appends the applicable file name extension.
 cjoThumbnailPattern :: Lens' CreateJobOutput (Maybe Text)
-cjoThumbnailPattern = lens _cjoThumbnailPattern (\s a -> s { _cjoThumbnailPattern = a })
+cjoThumbnailPattern =
+    lens _cjoThumbnailPattern (\s a -> s { _cjoThumbnailPattern = a })
 {-# INLINE cjoThumbnailPattern #-}
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
@@ -965,14 +773,15 @@ cjoPresetId = lens _cjoPresetId (\s a -> s { _cjoPresetId = a })
 -- (MPEG-TS), SegmentDuration is the duration of each .ts file in seconds. The
 -- range of valid values is 1 to 60 seconds.
 cjoSegmentDuration :: Lens' CreateJobOutput (Maybe Text)
-cjoSegmentDuration = lens _cjoSegmentDuration (\s a -> s { _cjoSegmentDuration = a })
+cjoSegmentDuration =
+    lens _cjoSegmentDuration (\s a -> s { _cjoSegmentDuration = a })
 {-# INLINE cjoSegmentDuration #-}
 
 -- | Information about the watermarks that you want Elastic Transcoder to add to
 -- the video during transcoding. You can specify up to four watermarks for
 -- each output. Settings for each watermark must be defined in the preset for
 -- the current output.
-cjoWatermarks :: Lens' CreateJobOutput ([JobWatermark])
+cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
 cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a })
 {-# INLINE cjoWatermarks #-}
 
@@ -989,7 +798,7 @@ cjoAlbumArt = lens _cjoAlbumArt (\s a -> s { _cjoAlbumArt = a })
 -- the file. The Composition object contains settings for the clips that make
 -- up an output file. For the current release, you can only specify settings
 -- for a single clip per output file. The Composition object cannot be null.
-cjoComposition :: Lens' CreateJobOutput ([Clip])
+cjoComposition :: Lens' CreateJobOutput [Clip]
 cjoComposition = lens _cjoComposition (\s a -> s { _cjoComposition = a })
 {-# INLINE cjoComposition #-}
 
@@ -1024,42 +833,24 @@ cjoCaptions :: Lens' CreateJobOutput (Maybe Captions)
 cjoCaptions = lens _cjoCaptions (\s a -> s { _cjoCaptions = a })
 {-# INLINE cjoCaptions #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'CreateJobOutput' data type to populate a request.
-mkCreateJobOutput :: CreateJobOutput
-mkCreateJobOutput = CreateJobOutput
-    { _cjoKey = Nothing
-    , _cjoThumbnailPattern = Nothing
-    , _cjoRotate = Nothing
-    , _cjoPresetId = Nothing
-    , _cjoSegmentDuration = Nothing
-    , _cjoWatermarks = mempty
-    , _cjoAlbumArt = Nothing
-    , _cjoComposition = mempty
-    , _cjoCaptions = Nothing
-    }
-{-# INLINE mkCreateJobOutput #-}
-
 instance ToJSON CreateJobOutput
 
 -- | Information about the master playlist.
 data CreateJobPlaylist = CreateJobPlaylist
-    { _cjvName :: Maybe Text
-      -- ^ The name that you want Elastic Transcoder to assign to the master
-      -- playlist, for example, nyc-vacation.m3u8. The name cannot include
-      -- a / character. If you create more than one master playlist (not
-      -- recommended), the values of all Name objects must be unique.
-      -- Elastic Transcoder automatically appends .m3u8 to the file name.
-      -- If you include .m3u8 in Name, it will appear twice in the file
-      -- name.
-    , _cjvFormat :: Maybe Text
-      -- ^ This value must currently be HLSv3.
-    , _cjvOutputKeys :: [Text]
-      -- ^ For each output in this job that you want to include in a master
-      -- playlist, the value of the Outputs:Key object. If you include
-      -- more than one output in a playlist, the value of SegmentDuration
-      -- for all of the outputs must be the same.
+    { _cjpName :: Maybe Text
+    , _cjpFormat :: Maybe Text
+    , _cjpOutputKeys :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'CreateJobPlaylist' data type to populate a request.
+mkCreateJobPlaylist :: CreateJobPlaylist
+mkCreateJobPlaylist = CreateJobPlaylist
+    { _cjpName = Nothing
+    , _cjpFormat = Nothing
+    , _cjpOutputKeys = mempty
+    }
+{-# INLINE mkCreateJobPlaylist #-}
 
 -- | The name that you want Elastic Transcoder to assign to the master playlist,
 -- for example, nyc-vacation.m3u8. The name cannot include a / character. If
@@ -1067,109 +858,79 @@ data CreateJobPlaylist = CreateJobPlaylist
 -- all Name objects must be unique. Elastic Transcoder automatically appends
 -- .m3u8 to the file name. If you include .m3u8 in Name, it will appear twice
 -- in the file name.
-cjvName :: Lens' CreateJobPlaylist (Maybe Text)
-cjvName = lens _cjvName (\s a -> s { _cjvName = a })
-{-# INLINE cjvName #-}
+cjpName :: Lens' CreateJobPlaylist (Maybe Text)
+cjpName = lens _cjpName (\s a -> s { _cjpName = a })
+{-# INLINE cjpName #-}
 
 -- | This value must currently be HLSv3.
-cjvFormat :: Lens' CreateJobPlaylist (Maybe Text)
-cjvFormat = lens _cjvFormat (\s a -> s { _cjvFormat = a })
-{-# INLINE cjvFormat #-}
+cjpFormat :: Lens' CreateJobPlaylist (Maybe Text)
+cjpFormat = lens _cjpFormat (\s a -> s { _cjpFormat = a })
+{-# INLINE cjpFormat #-}
 
 -- | For each output in this job that you want to include in a master playlist,
 -- the value of the Outputs:Key object. If you include more than one output in
 -- a playlist, the value of SegmentDuration for all of the outputs must be the
 -- same.
-cjvOutputKeys :: Lens' CreateJobPlaylist ([Text])
-cjvOutputKeys = lens _cjvOutputKeys (\s a -> s { _cjvOutputKeys = a })
-{-# INLINE cjvOutputKeys #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'CreateJobPlaylist' data type to populate a request.
-mkCreateJobPlaylist :: CreateJobPlaylist
-mkCreateJobPlaylist = CreateJobPlaylist
-    { _cjvName = Nothing
-    , _cjvFormat = Nothing
-    , _cjvOutputKeys = mempty
-    }
-{-# INLINE mkCreateJobPlaylist #-}
+cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
+cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a })
+{-# INLINE cjpOutputKeys #-}
 
 instance ToJSON CreateJobPlaylist
 
 -- | A section of the response body that provides information about the job that
 -- is created.
 data Job = Job
-    { _jbId :: Maybe Text
-      -- ^ The identifier that Elastic Transcoder assigned to the job. You
-      -- use this value to get settings for the job or to delete the job.
-    , _jbArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) for the job.
-    , _jbPipelineId :: Maybe Text
-      -- ^ The Id of the pipeline that you want Elastic Transcoder to use
-      -- for transcoding. The pipeline determines several settings,
-      -- including the Amazon S3 bucket from which Elastic Transcoder gets
-      -- the files to transcode and the bucket into which Elastic
-      -- Transcoder puts the transcoded files.
-    , _jbInput :: Maybe JobInput
-      -- ^ A section of the request or response body that provides
-      -- information about the file that is being transcoded.
-    , _jbOutput :: Maybe JobOutput
-      -- ^ If you specified one output for a job, information about that
-      -- output. If you specified multiple outputs for a job, the Output
-      -- object lists information about the first output. This duplicates
-      -- the information that is listed for the first output in the
-      -- Outputs object. Outputs recommended instead. A section of the
-      -- request or response body that provides information about the
-      -- transcoded (target) file.
-    , _jbOutputs :: [JobOutput]
-      -- ^ Information about the output files. We recommend that you use the
-      -- Outputs syntax for all jobs, even when you want Elastic
-      -- Transcoder to transcode a file into only one format. Do not use
-      -- both the Outputs and Output syntaxes in the same request. You can
-      -- create a maximum of 30 outputs per job. If you specify more than
-      -- one output for a job, Elastic Transcoder creates the files for
-      -- each output in the order in which you specify them in the job.
-    , _jbOutputKeyPrefix :: Maybe Text
-      -- ^ The value, if any, that you want Elastic Transcoder to prepend to
-      -- the names of all files that this job creates, including output
-      -- files, thumbnails, and playlists. We recommend that you add a /
-      -- or some other delimiter to the end of the OutputKeyPrefix.
-    , _jbPlaylists :: [Playlist]
-      -- ^ Outputs in MPEG-TS format only.If you specify a preset in
-      -- PresetId for which the value of Container is ts (MPEG-TS),
-      -- Playlists contains information about the master playlists that
-      -- you want Elastic Transcoder to create. We recommend that you
-      -- create only one master playlist. The maximum number of master
-      -- playlists in a job is 30.
-    , _jbStatus :: Maybe Text
-      -- ^ The status of the job: Submitted, Progressing, Complete,
-      -- Canceled, or Error.
+    { _jId :: Maybe Text
+    , _jArn :: Maybe Text
+    , _jPipelineId :: Maybe Text
+    , _jInput :: Maybe JobInput
+    , _jOutput :: Maybe JobOutput
+    , _jOutputs :: [JobOutput]
+    , _jOutputKeyPrefix :: Maybe Text
+    , _jPlaylists :: [Playlist]
+    , _jStatus :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Job' data type to populate a request.
+mkJob :: Job
+mkJob = Job
+    { _jId = Nothing
+    , _jArn = Nothing
+    , _jPipelineId = Nothing
+    , _jInput = Nothing
+    , _jOutput = Nothing
+    , _jOutputs = mempty
+    , _jOutputKeyPrefix = Nothing
+    , _jPlaylists = mempty
+    , _jStatus = Nothing
+    }
+{-# INLINE mkJob #-}
 
 -- | The identifier that Elastic Transcoder assigned to the job. You use this
 -- value to get settings for the job or to delete the job.
-jbId :: Lens' Job (Maybe Text)
-jbId = lens _jbId (\s a -> s { _jbId = a })
-{-# INLINE jbId #-}
+jId :: Lens' Job (Maybe Text)
+jId = lens _jId (\s a -> s { _jId = a })
+{-# INLINE jId #-}
 
 -- | The Amazon Resource Name (ARN) for the job.
-jbArn :: Lens' Job (Maybe Text)
-jbArn = lens _jbArn (\s a -> s { _jbArn = a })
-{-# INLINE jbArn #-}
+jArn :: Lens' Job (Maybe Text)
+jArn = lens _jArn (\s a -> s { _jArn = a })
+{-# INLINE jArn #-}
 
 -- | The Id of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the Amazon
 -- S3 bucket from which Elastic Transcoder gets the files to transcode and the
 -- bucket into which Elastic Transcoder puts the transcoded files.
-jbPipelineId :: Lens' Job (Maybe Text)
-jbPipelineId = lens _jbPipelineId (\s a -> s { _jbPipelineId = a })
-{-# INLINE jbPipelineId #-}
+jPipelineId :: Lens' Job (Maybe Text)
+jPipelineId = lens _jPipelineId (\s a -> s { _jPipelineId = a })
+{-# INLINE jPipelineId #-}
 
 -- | A section of the request or response body that provides information about
 -- the file that is being transcoded.
-jbInput :: Lens' Job (Maybe JobInput)
-jbInput = lens _jbInput (\s a -> s { _jbInput = a })
-{-# INLINE jbInput #-}
+jInput :: Lens' Job (Maybe JobInput)
+jInput = lens _jInput (\s a -> s { _jInput = a })
+{-# INLINE jInput #-}
 
 -- | If you specified one output for a job, information about that output. If
 -- you specified multiple outputs for a job, the Output object lists
@@ -1177,9 +938,9 @@ jbInput = lens _jbInput (\s a -> s { _jbInput = a })
 -- listed for the first output in the Outputs object. Outputs recommended
 -- instead. A section of the request or response body that provides
 -- information about the transcoded (target) file.
-jbOutput :: Lens' Job (Maybe JobOutput)
-jbOutput = lens _jbOutput (\s a -> s { _jbOutput = a })
-{-# INLINE jbOutput #-}
+jOutput :: Lens' Job (Maybe JobOutput)
+jOutput = lens _jOutput (\s a -> s { _jOutput = a })
+{-# INLINE jOutput #-}
 
 -- | Information about the output files. We recommend that you use the Outputs
 -- syntax for all jobs, even when you want Elastic Transcoder to transcode a
@@ -1187,32 +948,33 @@ jbOutput = lens _jbOutput (\s a -> s { _jbOutput = a })
 -- in the same request. You can create a maximum of 30 outputs per job. If you
 -- specify more than one output for a job, Elastic Transcoder creates the
 -- files for each output in the order in which you specify them in the job.
-jbOutputs :: Lens' Job ([JobOutput])
-jbOutputs = lens _jbOutputs (\s a -> s { _jbOutputs = a })
-{-# INLINE jbOutputs #-}
+jOutputs :: Lens' Job [JobOutput]
+jOutputs = lens _jOutputs (\s a -> s { _jOutputs = a })
+{-# INLINE jOutputs #-}
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the names
 -- of all files that this job creates, including output files, thumbnails, and
 -- playlists. We recommend that you add a / or some other delimiter to the end
 -- of the OutputKeyPrefix.
-jbOutputKeyPrefix :: Lens' Job (Maybe Text)
-jbOutputKeyPrefix = lens _jbOutputKeyPrefix (\s a -> s { _jbOutputKeyPrefix = a })
-{-# INLINE jbOutputKeyPrefix #-}
+jOutputKeyPrefix :: Lens' Job (Maybe Text)
+jOutputKeyPrefix =
+    lens _jOutputKeyPrefix (\s a -> s { _jOutputKeyPrefix = a })
+{-# INLINE jOutputKeyPrefix #-}
 
 -- | Outputs in MPEG-TS format only.If you specify a preset in PresetId for
 -- which the value of Container is ts (MPEG-TS), Playlists contains
 -- information about the master playlists that you want Elastic Transcoder to
 -- create. We recommend that you create only one master playlist. The maximum
 -- number of master playlists in a job is 30.
-jbPlaylists :: Lens' Job ([Playlist])
-jbPlaylists = lens _jbPlaylists (\s a -> s { _jbPlaylists = a })
-{-# INLINE jbPlaylists #-}
+jPlaylists :: Lens' Job [Playlist]
+jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a })
+{-# INLINE jPlaylists #-}
 
 -- | The status of the job: Submitted, Progressing, Complete, Canceled, or
 -- Error.
-jbStatus :: Lens' Job (Maybe Text)
-jbStatus = lens _jbStatus (\s a -> s { _jbStatus = a })
-{-# INLINE jbStatus #-}
+jStatus :: Lens' Job (Maybe Text)
+jStatus = lens _jStatus (\s a -> s { _jStatus = a })
+{-# INLINE jStatus #-}
 
 instance FromJSON Job
 
@@ -1222,20 +984,17 @@ instance FromJSON Job
 -- the current output.
 data JobAlbumArt = JobAlbumArt
     { _jaaMergePolicy :: Maybe Text
-      -- ^ A policy that determines how Elastic Transcoder will handle the
-      -- existence of multiple album artwork files. Replace: The specified
-      -- album art will replace any existing album art. Prepend: The
-      -- specified album art will be placed in front of any existing album
-      -- art. Append: The specified album art will be placed after any
-      -- existing album art. Fallback: If the original input file contains
-      -- artwork, Elastic Transcoder will use that artwork for the output.
-      -- If the original input does not contain artwork, Elastic
-      -- Transcoder will use the specified album art file.
     , _jaaArtwork :: [Artwork]
-      -- ^ The file to be used as album art. There can be multiple artworks
-      -- associated with an audio file, to a maximum of 20. Valid formats
-      -- are .jpg and .png.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'JobAlbumArt' data type to populate a request.
+mkJobAlbumArt :: JobAlbumArt
+mkJobAlbumArt = JobAlbumArt
+    { _jaaMergePolicy = Nothing
+    , _jaaArtwork = mempty
+    }
+{-# INLINE mkJobAlbumArt #-}
 
 -- | A policy that determines how Elastic Transcoder will handle the existence
 -- of multiple album artwork files. Replace: The specified album art will
@@ -1251,18 +1010,9 @@ jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 
 -- | The file to be used as album art. There can be multiple artworks associated
 -- with an audio file, to a maximum of 20. Valid formats are .jpg and .png.
-jaaArtwork :: Lens' JobAlbumArt ([Artwork])
+jaaArtwork :: Lens' JobAlbumArt [Artwork]
 jaaArtwork = lens _jaaArtwork (\s a -> s { _jaaArtwork = a })
 {-# INLINE jaaArtwork #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'JobAlbumArt' data type to populate a request.
-mkJobAlbumArt :: JobAlbumArt
-mkJobAlbumArt = JobAlbumArt
-    { _jaaMergePolicy = Nothing
-    , _jaaArtwork = mempty
-    }
-{-# INLINE mkJobAlbumArt #-}
 
 instance FromJSON JobAlbumArt
 
@@ -1272,45 +1022,25 @@ instance ToJSON JobAlbumArt
 -- is being transcoded.
 data JobInput = JobInput
     { _jiKey :: Maybe Text
-      -- ^ The name of the file to transcode. Elsewhere in the body of the
-      -- JSON block is the the ID of the pipeline to use for processing
-      -- the job. The InputBucket object in that pipeline tells Elastic
-      -- Transcoder which Amazon S3 bucket to get the file from. If the
-      -- file name includes a prefix, such as cooking/lasagna.mpg, include
-      -- the prefix in the key. If the file isn't in the specified bucket,
-      -- Elastic Transcoder returns an error.
     , _jiFrameRate :: Maybe Text
-      -- ^ The frame rate of the input file. If you want Elastic Transcoder
-      -- to automatically detect the frame rate of the input file, specify
-      -- auto. If you want to specify the frame rate for the input file,
-      -- enter one of the following values: 10, 15, 23.97, 24, 25, 29.97,
-      -- 30, 60 If you specify a value other than auto, Elastic Transcoder
-      -- disables automatic detection of the frame rate.
     , _jiResolution :: Maybe Text
-      -- ^ This value must be auto, which causes Elastic Transcoder to
-      -- automatically detect the resolution of the input file.
     , _jiAspectRatio :: Maybe Text
-      -- ^ The aspect ratio of the input file. If you want Elastic
-      -- Transcoder to automatically detect the aspect ratio of the input
-      -- file, specify auto. If you want to specify the aspect ratio for
-      -- the output file, enter one of the following values: 1:1, 4:3,
-      -- 3:2, 16:9 If you specify a value other than auto, Elastic
-      -- Transcoder disables automatic detection of the aspect ratio.
     , _jiInterlaced :: Maybe Text
-      -- ^ Whether the input file is interlaced. If you want Elastic
-      -- Transcoder to automatically detect whether the input file is
-      -- interlaced, specify auto. If you want to specify whether the
-      -- input file is interlaced, enter one of the following values:
-      -- true, false If you specify a value other than auto, Elastic
-      -- Transcoder disables automatic detection of interlacing.
     , _jiContainer :: Maybe Text
-      -- ^ The container type for the input file. If you want Elastic
-      -- Transcoder to automatically detect the container type of the
-      -- input file, specify auto. If you want to specify the container
-      -- type for the input file, enter one of the following values: 3gp,
-      -- aac, asf, avi, divx, flv, m4a, mkv, mov, mp3, mp4, mpeg, mpeg-ps,
-      -- mpeg-ts, mxf, ogg, vob, wav, webm.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'JobInput' data type to populate a request.
+mkJobInput :: JobInput
+mkJobInput = JobInput
+    { _jiKey = Nothing
+    , _jiFrameRate = Nothing
+    , _jiResolution = Nothing
+    , _jiAspectRatio = Nothing
+    , _jiInterlaced = Nothing
+    , _jiContainer = Nothing
+    }
+{-# INLINE mkJobInput #-}
 
 -- | The name of the file to transcode. Elsewhere in the body of the JSON block
 -- is the the ID of the pipeline to use for processing the job. The
@@ -1365,19 +1095,6 @@ jiContainer :: Lens' JobInput (Maybe Text)
 jiContainer = lens _jiContainer (\s a -> s { _jiContainer = a })
 {-# INLINE jiContainer #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'JobInput' data type to populate a request.
-mkJobInput :: JobInput
-mkJobInput = JobInput
-    { _jiKey = Nothing
-    , _jiFrameRate = Nothing
-    , _jiResolution = Nothing
-    , _jiAspectRatio = Nothing
-    , _jiInterlaced = Nothing
-    , _jiContainer = Nothing
-    }
-{-# INLINE mkJobInput #-}
-
 instance FromJSON JobInput
 
 instance ToJSON JobInput
@@ -1390,146 +1107,43 @@ instance ToJSON JobInput
 -- information about the transcoded (target) file.
 data JobOutput = JobOutput
     { _joId :: Maybe Text
-      -- ^ A sequential counter, starting with 1, that identifies an output
-      -- among the outputs from the current job. In the Output syntax,
-      -- this value is always 1.
     , _joKey :: Maybe Text
-      -- ^ The name to assign to the transcoded file. Elastic Transcoder
-      -- saves the file in the Amazon S3 bucket specified by the
-      -- OutputBucket object in the pipeline that is specified by the
-      -- pipeline ID.
     , _joThumbnailPattern :: Maybe Text
-      -- ^ Whether you want Elastic Transcoder to create thumbnails for your
-      -- videos and, if so, how you want Elastic Transcoder to name the
-      -- files. If you don't want Elastic Transcoder to create thumbnails,
-      -- specify "". If you do want Elastic Transcoder to create
-      -- thumbnails, specify the information that you want to include in
-      -- the file name for each thumbnail. You can specify the following
-      -- values in any sequence: {count} (Required): If you want to create
-      -- thumbnails, you must include {count} in the ThumbnailPattern
-      -- object. Wherever you specify {count}, Elastic Transcoder adds a
-      -- five-digit sequence number (beginning with 00001) to thumbnail
-      -- file names. The number indicates where a given thumbnail appears
-      -- in the sequence of thumbnails for a transcoded file. If you
-      -- specify a literal value and/or {resolution} but you omit {count},
-      -- Elastic Transcoder returns a validation error and does not create
-      -- the job. Literal values (Optional): You can specify literal
-      -- values anywhere in the ThumbnailPattern object. For example, you
-      -- can include them as a file name prefix or as a delimiter between
-      -- {resolution} and {count}. {resolution} (Optional): If you want
-      -- Elastic Transcoder to include the resolution in the file name,
-      -- include {resolution} in the ThumbnailPattern object. When
-      -- creating thumbnails, Elastic Transcoder automatically saves the
-      -- files in the format (.jpg or .png) that appears in the preset
-      -- that you specified in the PresetID value of CreateJobOutput.
-      -- Elastic Transcoder also appends the applicable file name
-      -- extension.
     , _joRotate :: Maybe Text
-      -- ^ The number of degrees clockwise by which you want Elastic
-      -- Transcoder to rotate the output relative to the input. Enter one
-      -- of the following values: auto, 0, 90, 180, 270 The value auto
-      -- generally works only if the file that you're transcoding contains
-      -- rotation metadata.
     , _joPresetId :: Maybe Text
-      -- ^ The value of the Id object for the preset that you want to use
-      -- for this job. The preset determines the audio, video, and
-      -- thumbnail settings that Elastic Transcoder uses for transcoding.
-      -- To use a preset that you created, specify the preset ID that
-      -- Elastic Transcoder returned in the response when you created the
-      -- preset. You can also use the Elastic Transcoder system presets,
-      -- which you can get with ListPresets.
     , _joSegmentDuration :: Maybe Text
-      -- ^ (Outputs in MPEG-TS format only.If you specify a preset in
-      -- PresetId for which the value of Containeris ts (MPEG-TS),
-      -- SegmentDuration is the maximum duration of each .ts file in
-      -- seconds. The range of valid values is 1 to 60 seconds. If the
-      -- duration of the video is not evenly divisible by SegmentDuration,
-      -- the duration of the last segment is the remainder of total
-      -- length/SegmentDuration. Elastic Transcoder creates an
-      -- output-specific playlist for each output that you specify in
-      -- OutputKeys. To add an output to the master playlist for this job,
-      -- include it in OutputKeys.
     , _joStatus :: Maybe Text
-      -- ^ The status of one output in a job. If you specified only one
-      -- output for the job, Outputs:Status is always the same as
-      -- Job:Status. If you specified more than one output: Job:Status and
-      -- Outputs:Status for all of the outputs is Submitted until Elastic
-      -- Transcoder starts to process the first output. When Elastic
-      -- Transcoder starts to process the first output, Outputs:Status for
-      -- that output and Job:Status both change to Progressing. For each
-      -- output, the value of Outputs:Status remains Submitted until
-      -- Elastic Transcoder starts to process the output. Job:Status
-      -- remains Progressing until all of the outputs reach a terminal
-      -- status, either Complete or Error. When all of the outputs reach a
-      -- terminal status, Job:Status changes to Complete only if
-      -- Outputs:Status for all of the outputs is Complete. If
-      -- Outputs:Status for one or more outputs is Error, the terminal
-      -- status for Job:Status is also Error. The value of Status is one
-      -- of the following: Submitted, Progressing, Complete, Canceled, or
-      -- Error.
     , _joStatusDetail :: Maybe Text
-      -- ^ Information that further explains Status.
     , _joDuration :: Maybe Integer
-      -- ^ Duration of the output file, in seconds.
     , _joWidth :: Maybe Integer
-      -- ^ Specifies the width of the output file in pixels.
     , _joHeight :: Maybe Integer
-      -- ^ Height of the output file, in pixels.
     , _joWatermarks :: [JobWatermark]
-      -- ^ Information about the watermarks that you want Elastic Transcoder
-      -- to add to the video during transcoding. You can specify up to
-      -- four watermarks for each output. Settings for each watermark must
-      -- be defined in the preset that you specify in Preset for the
-      -- current output. Watermarks are added to the output video in the
-      -- sequence in which you list them in the job output&#x2014;the
-      -- first watermark in the list is added to the output video first,
-      -- the second watermark in the list is added next, and so on. As a
-      -- result, if the settings in a preset cause Elastic Transcoder to
-      -- place all watermarks in the same location, the second watermark
-      -- that you add will cover the first one, the third one will cover
-      -- the second, and the fourth one will cover the third.
     , _joAlbumArt :: Maybe JobAlbumArt
-      -- ^ The album art to be associated with the output file, if any.
     , _joComposition :: [Clip]
-      -- ^ You can create an output file that contains an excerpt from the
-      -- input file. This excerpt, called a clip, can come from the
-      -- beginning, middle, or end of the file. The Composition object
-      -- contains settings for the clips that make up an output file. For
-      -- the current release, you can only specify settings for a single
-      -- clip per output file. The Composition object cannot be null.
     , _joCaptions :: Maybe Captions
-      -- ^ You can configure Elastic Transcoder to transcode captions, or
-      -- subtitles, from one format to another. All captions must be in
-      -- UTF-8. Elastic Transcoder supports two types of captions:
-      -- Embedded: Embedded captions are included in the same file as the
-      -- audio and video. Elastic Transcoder supports only one embedded
-      -- caption per language, to a maximum of 300 embedded captions per
-      -- file. Valid input values include: CEA-608 (EIA-608, first
-      -- non-empty channel only), CEA-708 (EIA-708, first non-empty
-      -- channel only), and mov-text Valid outputs include: mov-text
-      -- Elastic Transcoder supports a maximum of one embedded format per
-      -- output. Sidecar: Sidecar captions are kept in a separate metadata
-      -- file from the audio and video data. Sidecar captions require a
-      -- player that is capable of understanding the relationship between
-      -- the video file and the sidecar file. Elastic Transcoder supports
-      -- only one sidecar caption per language, to a maximum of 20 sidecar
-      -- captions per file. Valid input values include: dfxp (first div
-      -- element only), ebu-tt, scc, smpt, srt, ttml (first div element
-      -- only), and webvtt Valid outputs include: dfxp (first div element
-      -- only), scc, srt, and webvtt. If you want ttml or smpte-tt
-      -- compatible captions, specify dfxp as your output format. Elastic
-      -- Transcoder does not support OCR (Optical Character Recognition),
-      -- does not accept pictures as a valid input for captions, and is
-      -- not available for audio-only transcoding. Elastic Transcoder does
-      -- not preserve text formatting (for example, italics) during the
-      -- transcoding process. To remove captions or leave the captions
-      -- empty, set Captions to null. To pass through existing captions
-      -- unchanged, set the MergePolicy to MergeRetain, and pass in a null
-      -- CaptionSources array. For more information on embedded files, see
-      -- the Subtitles Wikipedia page. For more information on sidecar
-      -- files, see the Extensible Metadata Platform and Sidecar file
-      -- Wikipedia pages.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'JobOutput' data type to populate a request.
+mkJobOutput :: JobOutput
+mkJobOutput = JobOutput
+    { _joId = Nothing
+    , _joKey = Nothing
+    , _joThumbnailPattern = Nothing
+    , _joRotate = Nothing
+    , _joPresetId = Nothing
+    , _joSegmentDuration = Nothing
+    , _joStatus = Nothing
+    , _joStatusDetail = Nothing
+    , _joDuration = Nothing
+    , _joWidth = Nothing
+    , _joHeight = Nothing
+    , _joWatermarks = mempty
+    , _joAlbumArt = Nothing
+    , _joComposition = mempty
+    , _joCaptions = Nothing
+    }
+{-# INLINE mkJobOutput #-}
 
 -- | A sequential counter, starting with 1, that identifies an output among the
 -- outputs from the current job. In the Output syntax, this value is always 1.
@@ -1566,7 +1180,8 @@ joKey = lens _joKey (\s a -> s { _joKey = a })
 -- specified in the PresetID value of CreateJobOutput. Elastic Transcoder also
 -- appends the applicable file name extension.
 joThumbnailPattern :: Lens' JobOutput (Maybe Text)
-joThumbnailPattern = lens _joThumbnailPattern (\s a -> s { _joThumbnailPattern = a })
+joThumbnailPattern =
+    lens _joThumbnailPattern (\s a -> s { _joThumbnailPattern = a })
 {-# INLINE joThumbnailPattern #-}
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
@@ -1596,7 +1211,8 @@ joPresetId = lens _joPresetId (\s a -> s { _joPresetId = a })
 -- playlist for each output that you specify in OutputKeys. To add an output
 -- to the master playlist for this job, include it in OutputKeys.
 joSegmentDuration :: Lens' JobOutput (Maybe Text)
-joSegmentDuration = lens _joSegmentDuration (\s a -> s { _joSegmentDuration = a })
+joSegmentDuration =
+    lens _joSegmentDuration (\s a -> s { _joSegmentDuration = a })
 {-# INLINE joSegmentDuration #-}
 
 -- | The status of one output in a job. If you specified only one output for the
@@ -1648,7 +1264,7 @@ joHeight = lens _joHeight (\s a -> s { _joHeight = a })
 -- watermarks in the same location, the second watermark that you add will
 -- cover the first one, the third one will cover the second, and the fourth
 -- one will cover the third.
-joWatermarks :: Lens' JobOutput ([JobWatermark])
+joWatermarks :: Lens' JobOutput [JobWatermark]
 joWatermarks = lens _joWatermarks (\s a -> s { _joWatermarks = a })
 {-# INLINE joWatermarks #-}
 
@@ -1662,7 +1278,7 @@ joAlbumArt = lens _joAlbumArt (\s a -> s { _joAlbumArt = a })
 -- the file. The Composition object contains settings for the clips that make
 -- up an output file. For the current release, you can only specify settings
 -- for a single clip per output file. The Composition object cannot be null.
-joComposition :: Lens' JobOutput ([Clip])
+joComposition :: Lens' JobOutput [Clip]
 joComposition = lens _joComposition (\s a -> s { _joComposition = a })
 {-# INLINE joComposition #-}
 
@@ -1697,28 +1313,6 @@ joCaptions :: Lens' JobOutput (Maybe Captions)
 joCaptions = lens _joCaptions (\s a -> s { _joCaptions = a })
 {-# INLINE joCaptions #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'JobOutput' data type to populate a request.
-mkJobOutput :: JobOutput
-mkJobOutput = JobOutput
-    { _joId = Nothing
-    , _joKey = Nothing
-    , _joThumbnailPattern = Nothing
-    , _joRotate = Nothing
-    , _joPresetId = Nothing
-    , _joSegmentDuration = Nothing
-    , _joStatus = Nothing
-    , _joStatusDetail = Nothing
-    , _joDuration = Nothing
-    , _joWidth = Nothing
-    , _joHeight = Nothing
-    , _joWatermarks = mempty
-    , _joAlbumArt = Nothing
-    , _joComposition = mempty
-    , _joCaptions = Nothing
-    }
-{-# INLINE mkJobOutput #-}
-
 instance FromJSON JobOutput
 
 instance ToJSON JobOutput
@@ -1727,30 +1321,27 @@ instance ToJSON JobOutput
 -- watermark that is not rectangular, use the .png format, which supports
 -- transparency.
 data JobWatermark = JobWatermark
-    { _jxPresetWatermarkId :: Maybe Text
-      -- ^ The ID of the watermark settings that Elastic Transcoder uses to
-      -- add watermarks to the video during transcoding. The settings are
-      -- in the preset specified by Preset for the current output. In that
-      -- preset, the value of Watermarks Id tells Elastic Transcoder which
-      -- settings to use.
-    , _jxInputKey :: Maybe Text
-      -- ^ The name of the .png or .jpg file that you want to use for the
-      -- watermark. To determine which Amazon S3 bucket contains the
-      -- specified file, Elastic Transcoder checks the pipeline specified
-      -- by Pipeline; the Input Bucket object in that pipeline identifies
-      -- the bucket. If the file name includes a prefix, for example,
-      -- logos/128x64.png, include the prefix in the key. If the file
-      -- isn't in the specified bucket, Elastic Transcoder returns an
-      -- error.
+    { _jwPresetWatermarkId :: Maybe Text
+    , _jwInputKey :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'JobWatermark' data type to populate a request.
+mkJobWatermark :: JobWatermark
+mkJobWatermark = JobWatermark
+    { _jwPresetWatermarkId = Nothing
+    , _jwInputKey = Nothing
+    }
+{-# INLINE mkJobWatermark #-}
 
 -- | The ID of the watermark settings that Elastic Transcoder uses to add
 -- watermarks to the video during transcoding. The settings are in the preset
 -- specified by Preset for the current output. In that preset, the value of
 -- Watermarks Id tells Elastic Transcoder which settings to use.
-jxPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
-jxPresetWatermarkId = lens _jxPresetWatermarkId (\s a -> s { _jxPresetWatermarkId = a })
-{-# INLINE jxPresetWatermarkId #-}
+jwPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
+jwPresetWatermarkId =
+    lens _jwPresetWatermarkId (\s a -> s { _jwPresetWatermarkId = a })
+{-# INLINE jwPresetWatermarkId #-}
 
 -- | The name of the .png or .jpg file that you want to use for the watermark.
 -- To determine which Amazon S3 bucket contains the specified file, Elastic
@@ -1759,18 +1350,9 @@ jxPresetWatermarkId = lens _jxPresetWatermarkId (\s a -> s { _jxPresetWatermarkI
 -- prefix, for example, logos/128x64.png, include the prefix in the key. If
 -- the file isn't in the specified bucket, Elastic Transcoder returns an
 -- error.
-jxInputKey :: Lens' JobWatermark (Maybe Text)
-jxInputKey = lens _jxInputKey (\s a -> s { _jxInputKey = a })
-{-# INLINE jxInputKey #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'JobWatermark' data type to populate a request.
-mkJobWatermark :: JobWatermark
-mkJobWatermark = JobWatermark
-    { _jxPresetWatermarkId = Nothing
-    , _jxInputKey = Nothing
-    }
-{-# INLINE mkJobWatermark #-}
+jwInputKey :: Lens' JobWatermark (Maybe Text)
+jwInputKey = lens _jwInputKey (\s a -> s { _jwInputKey = a })
+{-# INLINE jwInputKey #-}
 
 instance FromJSON JobWatermark
 
@@ -1794,55 +1376,46 @@ instance ToJSON JobWatermark
 -- encounters an error condition while processing a job in this pipeline. This
 -- is the ARN that Amazon SNS returned when you created the topic.
 data Notifications = Notifications
-    { _nsProgressing :: Maybe Text
-      -- ^ The Amazon Simple Notification Service (Amazon SNS) topic that
-      -- you want to notify when Elastic Transcoder has started to process
-      -- the job.
-    , _nsCompleted :: Maybe Text
-      -- ^ The Amazon SNS topic that you want to notify when Elastic
-      -- Transcoder has finished processing the job.
-    , _nsWarning :: Maybe Text
-      -- ^ The Amazon SNS topic that you want to notify when Elastic
-      -- Transcoder encounters a warning condition.
-    , _nsError :: Maybe Text
-      -- ^ The Amazon SNS topic that you want to notify when Elastic
-      -- Transcoder encounters an error condition.
+    { _nProgressing :: Maybe Text
+    , _nCompleted :: Maybe Text
+    , _nWarning :: Maybe Text
+    , _nError :: Maybe Text
     } deriving (Show, Generic)
-
--- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
--- notify when Elastic Transcoder has started to process the job.
-nsProgressing :: Lens' Notifications (Maybe Text)
-nsProgressing = lens _nsProgressing (\s a -> s { _nsProgressing = a })
-{-# INLINE nsProgressing #-}
-
--- | The Amazon SNS topic that you want to notify when Elastic Transcoder has
--- finished processing the job.
-nsCompleted :: Lens' Notifications (Maybe Text)
-nsCompleted = lens _nsCompleted (\s a -> s { _nsCompleted = a })
-{-# INLINE nsCompleted #-}
-
--- | The Amazon SNS topic that you want to notify when Elastic Transcoder
--- encounters a warning condition.
-nsWarning :: Lens' Notifications (Maybe Text)
-nsWarning = lens _nsWarning (\s a -> s { _nsWarning = a })
-{-# INLINE nsWarning #-}
-
--- | The Amazon SNS topic that you want to notify when Elastic Transcoder
--- encounters an error condition.
-nsError :: Lens' Notifications (Maybe Text)
-nsError = lens _nsError (\s a -> s { _nsError = a })
-{-# INLINE nsError #-}
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Notifications' data type to populate a request.
 mkNotifications :: Notifications
 mkNotifications = Notifications
-    { _nsProgressing = Nothing
-    , _nsCompleted = Nothing
-    , _nsWarning = Nothing
-    , _nsError = Nothing
+    { _nProgressing = Nothing
+    , _nCompleted = Nothing
+    , _nWarning = Nothing
+    , _nError = Nothing
     }
 {-# INLINE mkNotifications #-}
+
+-- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
+-- notify when Elastic Transcoder has started to process the job.
+nProgressing :: Lens' Notifications (Maybe Text)
+nProgressing = lens _nProgressing (\s a -> s { _nProgressing = a })
+{-# INLINE nProgressing #-}
+
+-- | The Amazon SNS topic that you want to notify when Elastic Transcoder has
+-- finished processing the job.
+nCompleted :: Lens' Notifications (Maybe Text)
+nCompleted = lens _nCompleted (\s a -> s { _nCompleted = a })
+{-# INLINE nCompleted #-}
+
+-- | The Amazon SNS topic that you want to notify when Elastic Transcoder
+-- encounters a warning condition.
+nWarning :: Lens' Notifications (Maybe Text)
+nWarning = lens _nWarning (\s a -> s { _nWarning = a })
+{-# INLINE nWarning #-}
+
+-- | The Amazon SNS topic that you want to notify when Elastic Transcoder
+-- encounters an error condition.
+nError :: Lens' Notifications (Maybe Text)
+nError = lens _nError (\s a -> s { _nError = a })
+{-# INLINE nError #-}
 
 instance FromJSON Notifications
 
@@ -1850,32 +1423,20 @@ instance ToJSON Notifications
 
 -- | The Permission structure.
 data Permission = Permission
-    { _pnGranteeType :: Maybe Text
-      -- ^ The type of value that appears in the Grantee object: Canonical:
-      -- Either the canonical user ID for an AWS account or an origin
-      -- access identity for an Amazon CloudFront distribution. A
-      -- canonical user ID is not the same as an AWS account number.
-      -- Email: The registered email address of an AWS account. Group: One
-      -- of the following predefined Amazon S3 groups: AllUsers,
-      -- AuthenticatedUsers, or LogDelivery.
-    , _pnGrantee :: Maybe Text
-      -- ^ The AWS user or group that you want to have access to transcoded
-      -- files and playlists. To identify the user or group, you can
-      -- specify the canonical user ID for an AWS account, an origin
-      -- access identity for a CloudFront distribution, the registered
-      -- email address of an AWS account, or a predefined Amazon S3 group.
-    , _pnAccess :: [Text]
-      -- ^ The permission that you want to give to the AWS user that is
-      -- listed in Grantee. Valid values include: READ: The grantee can
-      -- read the thumbnails and metadata for thumbnails that Elastic
-      -- Transcoder adds to the Amazon S3 bucket. READ_ACP: The grantee
-      -- can read the object ACL for thumbnails that Elastic Transcoder
-      -- adds to the Amazon S3 bucket. WRITE_ACP: The grantee can write
-      -- the ACL for the thumbnails that Elastic Transcoder adds to the
-      -- Amazon S3 bucket. FULL_CONTROL: The grantee has READ, READ_ACP,
-      -- and WRITE_ACP permissions for the thumbnails that Elastic
-      -- Transcoder adds to the Amazon S3 bucket.
+    { _p1GranteeType :: Maybe Text
+    , _p1Grantee :: Maybe Text
+    , _p1Access :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Permission' data type to populate a request.
+mkPermission :: Permission
+mkPermission = Permission
+    { _p1GranteeType = Nothing
+    , _p1Grantee = Nothing
+    , _p1Access = mempty
+    }
+{-# INLINE mkPermission #-}
 
 -- | The type of value that appears in the Grantee object: Canonical: Either the
 -- canonical user ID for an AWS account or an origin access identity for an
@@ -1883,18 +1444,18 @@ data Permission = Permission
 -- AWS account number. Email: The registered email address of an AWS account.
 -- Group: One of the following predefined Amazon S3 groups: AllUsers,
 -- AuthenticatedUsers, or LogDelivery.
-pnGranteeType :: Lens' Permission (Maybe Text)
-pnGranteeType = lens _pnGranteeType (\s a -> s { _pnGranteeType = a })
-{-# INLINE pnGranteeType #-}
+p1GranteeType :: Lens' Permission (Maybe Text)
+p1GranteeType = lens _p1GranteeType (\s a -> s { _p1GranteeType = a })
+{-# INLINE p1GranteeType #-}
 
 -- | The AWS user or group that you want to have access to transcoded files and
 -- playlists. To identify the user or group, you can specify the canonical
 -- user ID for an AWS account, an origin access identity for a CloudFront
 -- distribution, the registered email address of an AWS account, or a
 -- predefined Amazon S3 group.
-pnGrantee :: Lens' Permission (Maybe Text)
-pnGrantee = lens _pnGrantee (\s a -> s { _pnGrantee = a })
-{-# INLINE pnGrantee #-}
+p1Grantee :: Lens' Permission (Maybe Text)
+p1Grantee = lens _p1Grantee (\s a -> s { _p1Grantee = a })
+{-# INLINE p1Grantee #-}
 
 -- | The permission that you want to give to the AWS user that is listed in
 -- Grantee. Valid values include: READ: The grantee can read the thumbnails
@@ -1905,19 +1466,9 @@ pnGrantee = lens _pnGrantee (\s a -> s { _pnGrantee = a })
 -- S3 bucket. FULL_CONTROL: The grantee has READ, READ_ACP, and WRITE_ACP
 -- permissions for the thumbnails that Elastic Transcoder adds to the Amazon
 -- S3 bucket.
-pnAccess :: Lens' Permission ([Text])
-pnAccess = lens _pnAccess (\s a -> s { _pnAccess = a })
-{-# INLINE pnAccess #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Permission' data type to populate a request.
-mkPermission :: Permission
-mkPermission = Permission
-    { _pnGranteeType = Nothing
-    , _pnGrantee = Nothing
-    , _pnAccess = mempty
-    }
-{-# INLINE mkPermission #-}
+p1Access :: Lens' Permission [Text]
+p1Access = lens _p1Access (\s a -> s { _p1Access = a })
+{-# INLINE p1Access #-}
 
 instance FromJSON Permission
 
@@ -1926,149 +1477,79 @@ instance ToJSON Permission
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
 data Pipeline = Pipeline
-    { _peId :: Maybe Text
-      -- ^ The identifier for the pipeline. You use this value to identify
-      -- the pipeline in which you want to perform a variety of
-      -- operations, such as creating a job or a preset.
-    , _peArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) for the pipeline.
-    , _peName :: Maybe Text
-      -- ^ The name of the pipeline. We recommend that the name be unique
-      -- within the AWS account, but uniqueness is not enforced.
-      -- Constraints: Maximum 40 characters.
-    , _peStatus :: Maybe Text
-      -- ^ The current status of the pipeline: Active: The pipeline is
-      -- processing jobs. Paused: The pipeline is not currently processing
-      -- jobs.
-    , _peInputBucket :: Maybe Text
-      -- ^ The Amazon S3 bucket from which Elastic Transcoder gets media
-      -- files for transcoding and the graphics files, if any, that you
-      -- want to use for watermarks.
-    , _peOutputBucket :: Maybe Text
-      -- ^ The Amazon S3 bucket in which you want Elastic Transcoder to save
-      -- transcoded files, thumbnails, and playlists. Either you specify
-      -- this value, or you specify both ContentConfig and
-      -- ThumbnailConfig.
-    , _peRole :: Maybe Text
-      -- ^ The IAM Amazon Resource Name (ARN) for the role that Elastic
-      -- Transcoder uses to transcode jobs for this pipeline.
-    , _peNotifications :: Maybe Notifications
-      -- ^ The Amazon Simple Notification Service (Amazon SNS) topic that
-      -- you want to notify to report job status. To receive
-      -- notifications, you must also subscribe to the new topic in the
-      -- Amazon SNS console. Progressing (optional): The Amazon Simple
-      -- Notification Service (Amazon SNS) topic that you want to notify
-      -- when Elastic Transcoder has started to process the job. Completed
-      -- (optional): The Amazon SNS topic that you want to notify when
-      -- Elastic Transcoder has finished processing the job. Warning
-      -- (optional): The Amazon SNS topic that you want to notify when
-      -- Elastic Transcoder encounters a warning condition. Error
-      -- (optional): The Amazon SNS topic that you want to notify when
-      -- Elastic Transcoder encounters an error condition.
-    , _peContentConfig :: Maybe PipelineOutputConfig
-      -- ^ Information about the Amazon S3 bucket in which you want Elastic
-      -- Transcoder to save transcoded files and playlists. Either you
-      -- specify both ContentConfig and ThumbnailConfig, or you specify
-      -- OutputBucket. Bucket: The Amazon S3 bucket in which you want
-      -- Elastic Transcoder to save transcoded files and playlists.
-      -- Permissions: A list of the users and/or predefined Amazon S3
-      -- groups you want to have access to transcoded files and playlists,
-      -- and the type of access that you want them to have. GranteeType:
-      -- The type of value that appears in the Grantee object: Canonical:
-      -- Either the canonical user ID for an AWS account or an origin
-      -- access identity for an Amazon CloudFront distribution. Email: The
-      -- registered email address of an AWS account. Group: One of the
-      -- following predefined Amazon S3 groups: AllUsers,
-      -- AuthenticatedUsers, or LogDelivery. Grantee: The AWS user or
-      -- group that you want to have access to transcoded files and
-      -- playlists. Access: The permission that you want to give to the
-      -- AWS user that is listed in Grantee. Valid values include: READ:
-      -- The grantee can read the objects and metadata for objects that
-      -- Elastic Transcoder adds to the Amazon S3 bucket. READ_ACP: The
-      -- grantee can read the object ACL for objects that Elastic
-      -- Transcoder adds to the Amazon S3 bucket. WRITE_ACP: The grantee
-      -- can write the ACL for the objects that Elastic Transcoder adds to
-      -- the Amazon S3 bucket. FULL_CONTROL: The grantee has READ,
-      -- READ_ACP, and WRITE_ACP permissions for the objects that Elastic
-      -- Transcoder adds to the Amazon S3 bucket. StorageClass: The Amazon
-      -- S3 storage class, Standard or ReducedRedundancy, that you want
-      -- Elastic Transcoder to assign to the video files and playlists
-      -- that it stores in your Amazon S3 bucket.
-    , _peThumbnailConfig :: Maybe PipelineOutputConfig
-      -- ^ Information about the Amazon S3 bucket in which you want Elastic
-      -- Transcoder to save thumbnail files. Either you specify both
-      -- ContentConfig and ThumbnailConfig, or you specify OutputBucket.
-      -- Bucket: The Amazon S3 bucket in which you want Elastic Transcoder
-      -- to save thumbnail files. Permissions: A list of the users and/or
-      -- predefined Amazon S3 groups you want to have access to thumbnail
-      -- files, and the type of access that you want them to have.
-      -- GranteeType: The type of value that appears in the Grantee
-      -- object: Canonical: Either the canonical user ID for an AWS
-      -- account or an origin access identity for an Amazon CloudFront
-      -- distribution. A canonical user ID is not the same as an AWS
-      -- account number. Email: The registered email address of an AWS
-      -- account. Group: One of the following predefined Amazon S3 groups:
-      -- AllUsers, AuthenticatedUsers, or LogDelivery. Grantee: The AWS
-      -- user or group that you want to have access to thumbnail files.
-      -- Access: The permission that you want to give to the AWS user that
-      -- is listed in Grantee. Valid values include: READ: The grantee can
-      -- read the thumbnails and metadata for thumbnails that Elastic
-      -- Transcoder adds to the Amazon S3 bucket. READ_ACP: The grantee
-      -- can read the object ACL for thumbnails that Elastic Transcoder
-      -- adds to the Amazon S3 bucket. WRITE_ACP: The grantee can write
-      -- the ACL for the thumbnails that Elastic Transcoder adds to the
-      -- Amazon S3 bucket. FULL_CONTROL: The grantee has READ, READ_ACP,
-      -- and WRITE_ACP permissions for the thumbnails that Elastic
-      -- Transcoder adds to the Amazon S3 bucket. StorageClass: The Amazon
-      -- S3 storage class, Standard or ReducedRedundancy, that you want
-      -- Elastic Transcoder to assign to the thumbnails that it stores in
-      -- your Amazon S3 bucket.
+    { _prsId :: Maybe Text
+    , _prsArn :: Maybe Text
+    , _prsName :: Maybe Text
+    , _prsStatus :: Maybe Text
+    , _prsInputBucket :: Maybe Text
+    , _prsOutputBucket :: Maybe Text
+    , _prsRole :: Maybe Text
+    , _prsNotifications :: Maybe Notifications
+    , _prsContentConfig :: Maybe PipelineOutputConfig
+    , _prsThumbnailConfig :: Maybe PipelineOutputConfig
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Pipeline' data type to populate a request.
+mkPipeline :: Pipeline
+mkPipeline = Pipeline
+    { _prsId = Nothing
+    , _prsArn = Nothing
+    , _prsName = Nothing
+    , _prsStatus = Nothing
+    , _prsInputBucket = Nothing
+    , _prsOutputBucket = Nothing
+    , _prsRole = Nothing
+    , _prsNotifications = Nothing
+    , _prsContentConfig = Nothing
+    , _prsThumbnailConfig = Nothing
+    }
+{-# INLINE mkPipeline #-}
 
 -- | The identifier for the pipeline. You use this value to identify the
 -- pipeline in which you want to perform a variety of operations, such as
 -- creating a job or a preset.
-peId :: Lens' Pipeline (Maybe Text)
-peId = lens _peId (\s a -> s { _peId = a })
-{-# INLINE peId #-}
+prsId :: Lens' Pipeline (Maybe Text)
+prsId = lens _prsId (\s a -> s { _prsId = a })
+{-# INLINE prsId #-}
 
 -- | The Amazon Resource Name (ARN) for the pipeline.
-peArn :: Lens' Pipeline (Maybe Text)
-peArn = lens _peArn (\s a -> s { _peArn = a })
-{-# INLINE peArn #-}
+prsArn :: Lens' Pipeline (Maybe Text)
+prsArn = lens _prsArn (\s a -> s { _prsArn = a })
+{-# INLINE prsArn #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
-peName :: Lens' Pipeline (Maybe Text)
-peName = lens _peName (\s a -> s { _peName = a })
-{-# INLINE peName #-}
+prsName :: Lens' Pipeline (Maybe Text)
+prsName = lens _prsName (\s a -> s { _prsName = a })
+{-# INLINE prsName #-}
 
 -- | The current status of the pipeline: Active: The pipeline is processing
 -- jobs. Paused: The pipeline is not currently processing jobs.
-peStatus :: Lens' Pipeline (Maybe Text)
-peStatus = lens _peStatus (\s a -> s { _peStatus = a })
-{-# INLINE peStatus #-}
+prsStatus :: Lens' Pipeline (Maybe Text)
+prsStatus = lens _prsStatus (\s a -> s { _prsStatus = a })
+{-# INLINE prsStatus #-}
 
 -- | The Amazon S3 bucket from which Elastic Transcoder gets media files for
 -- transcoding and the graphics files, if any, that you want to use for
 -- watermarks.
-peInputBucket :: Lens' Pipeline (Maybe Text)
-peInputBucket = lens _peInputBucket (\s a -> s { _peInputBucket = a })
-{-# INLINE peInputBucket #-}
+prsInputBucket :: Lens' Pipeline (Maybe Text)
+prsInputBucket = lens _prsInputBucket (\s a -> s { _prsInputBucket = a })
+{-# INLINE prsInputBucket #-}
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save
 -- transcoded files, thumbnails, and playlists. Either you specify this value,
 -- or you specify both ContentConfig and ThumbnailConfig.
-peOutputBucket :: Lens' Pipeline (Maybe Text)
-peOutputBucket = lens _peOutputBucket (\s a -> s { _peOutputBucket = a })
-{-# INLINE peOutputBucket #-}
+prsOutputBucket :: Lens' Pipeline (Maybe Text)
+prsOutputBucket = lens _prsOutputBucket (\s a -> s { _prsOutputBucket = a })
+{-# INLINE prsOutputBucket #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that Elastic Transcoder
 -- uses to transcode jobs for this pipeline.
-peRole :: Lens' Pipeline (Maybe Text)
-peRole = lens _peRole (\s a -> s { _peRole = a })
-{-# INLINE peRole #-}
+prsRole :: Lens' Pipeline (Maybe Text)
+prsRole = lens _prsRole (\s a -> s { _prsRole = a })
+{-# INLINE prsRole #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
 -- notify to report job status. To receive notifications, you must also
@@ -2080,9 +1561,10 @@ peRole = lens _peRole (\s a -> s { _peRole = a })
 -- Amazon SNS topic that you want to notify when Elastic Transcoder encounters
 -- a warning condition. Error (optional): The Amazon SNS topic that you want
 -- to notify when Elastic Transcoder encounters an error condition.
-peNotifications :: Lens' Pipeline (Maybe Notifications)
-peNotifications = lens _peNotifications (\s a -> s { _peNotifications = a })
-{-# INLINE peNotifications #-}
+prsNotifications :: Lens' Pipeline (Maybe Notifications)
+prsNotifications =
+    lens _prsNotifications (\s a -> s { _prsNotifications = a })
+{-# INLINE prsNotifications #-}
 
 -- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
 -- to save transcoded files and playlists. Either you specify both
@@ -2108,9 +1590,10 @@ peNotifications = lens _peNotifications (\s a -> s { _peNotifications = a })
 -- StorageClass: The Amazon S3 storage class, Standard or ReducedRedundancy,
 -- that you want Elastic Transcoder to assign to the video files and playlists
 -- that it stores in your Amazon S3 bucket.
-peContentConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
-peContentConfig = lens _peContentConfig (\s a -> s { _peContentConfig = a })
-{-# INLINE peContentConfig #-}
+prsContentConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
+prsContentConfig =
+    lens _prsContentConfig (\s a -> s { _prsContentConfig = a })
+{-# INLINE prsContentConfig #-}
 
 -- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
 -- to save thumbnail files. Either you specify both ContentConfig and
@@ -2136,9 +1619,10 @@ peContentConfig = lens _peContentConfig (\s a -> s { _peContentConfig = a })
 -- S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the
 -- thumbnails that it stores in your Amazon S3 bucket.
-peThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
-peThumbnailConfig = lens _peThumbnailConfig (\s a -> s { _peThumbnailConfig = a })
-{-# INLINE peThumbnailConfig #-}
+prsThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
+prsThumbnailConfig =
+    lens _prsThumbnailConfig (\s a -> s { _prsThumbnailConfig = a })
+{-# INLINE prsThumbnailConfig #-}
 
 instance FromJSON Pipeline
 
@@ -2185,39 +1669,19 @@ instance FromJSON Pipeline
 -- files and playlists that it stores in your Amazon S3 bucket.
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket :: Maybe Text
-      -- ^ The Amazon S3 bucket in which you want Elastic Transcoder to save
-      -- the transcoded files. Specify this value when all of the
-      -- following are true: You want to save transcoded files, thumbnails
-      -- (if any), and playlists (if any) together in one bucket. You do
-      -- not want to specify the users or groups who have access to the
-      -- transcoded files, thumbnails, and playlists. You do not want to
-      -- specify the permissions that Elastic Transcoder grants to the
-      -- files. You want to associate the transcoded files and thumbnails
-      -- with the Amazon S3 Standard storage class. If you want to save
-      -- transcoded files and playlists in one bucket and thumbnails in
-      -- another bucket, specify which users can access the transcoded
-      -- files or the permissions the users have, or change the Amazon S3
-      -- storage class, omit OutputBucket and specify values for
-      -- ContentConfig and ThumbnailConfig instead.
     , _pocStorageClass :: Maybe Text
-      -- ^ The Amazon S3 storage class, Standard or ReducedRedundancy, that
-      -- you want Elastic Transcoder to assign to the video files and
-      -- playlists that it stores in your Amazon S3 bucket.
     , _pocPermissions :: [Permission]
-      -- ^ Optional. The Permissions object specifies which users and/or
-      -- predefined Amazon S3 groups you want to have access to transcoded
-      -- files and playlists, and the type of access you want them to
-      -- have. You can grant permissions to a maximum of 30 users and/or
-      -- predefined Amazon S3 groups. If you include Permissions, Elastic
-      -- Transcoder grants only the permissions that you specify. It does
-      -- not grant full permissions to the owner of the role specified by
-      -- Role. If you want that user to have full control, you must
-      -- explicitly grant full control to the user. If you omit
-      -- Permissions, Elastic Transcoder grants full control over the
-      -- transcoded files and playlists to the owner of the role specified
-      -- by Role, and grants no other permissions to any other user or
-      -- group.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PipelineOutputConfig' data type to populate a request.
+mkPipelineOutputConfig :: PipelineOutputConfig
+mkPipelineOutputConfig = PipelineOutputConfig
+    { _pocBucket = Nothing
+    , _pocStorageClass = Nothing
+    , _pocPermissions = mempty
+    }
+{-# INLINE mkPipelineOutputConfig #-}
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
 -- transcoded files. Specify this value when all of the following are true:
@@ -2253,19 +1717,9 @@ pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 -- Transcoder grants full control over the transcoded files and playlists to
 -- the owner of the role specified by Role, and grants no other permissions to
 -- any other user or group.
-pocPermissions :: Lens' PipelineOutputConfig ([Permission])
+pocPermissions :: Lens' PipelineOutputConfig [Permission]
 pocPermissions = lens _pocPermissions (\s a -> s { _pocPermissions = a })
 {-# INLINE pocPermissions #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'PipelineOutputConfig' data type to populate a request.
-mkPipelineOutputConfig :: PipelineOutputConfig
-mkPipelineOutputConfig = PipelineOutputConfig
-    { _pocBucket = Nothing
-    , _pocStorageClass = Nothing
-    , _pocPermissions = mempty
-    }
-{-# INLINE mkPipelineOutputConfig #-}
 
 instance FromJSON PipelineOutputConfig
 
@@ -2277,26 +1731,24 @@ instance ToJSON PipelineOutputConfig
 -- that you create only one master playlist. The maximum number of master
 -- playlists in a job is 30.
 data Playlist = Playlist
-    { _puName :: Maybe Text
-      -- ^ The name that you want Elastic Transcoder to assign to the master
-      -- playlist, for example, nyc-vacation.m3u8. The name cannot include
-      -- a / character. If you create more than one master playlist (not
-      -- recommended), the values of all Name objects must be unique.
-      -- Note: Elastic Transcoder automatically appends .m3u8 to the file
-      -- name. If you include .m3u8 in Name, it will appear twice in the
-      -- file name.
-    , _puFormat :: Maybe Text
-      -- ^ This value must currently be HLSv3.
-    , _puOutputKeys :: [Text]
-      -- ^ For each output in this job that you want to include in a master
-      -- playlist, the value of the Outputs:Key object. If you include
-      -- more than one output in a playlist, the value of SegmentDuration
-      -- for all of the outputs must be the same.
-    , _puStatus :: Maybe Text
-      -- ^ The status of the job with which the playlist is associated.
-    , _puStatusDetail :: Maybe Text
-      -- ^ Information that further explains the status.
+    { _pName :: Maybe Text
+    , _pFormat :: Maybe Text
+    , _pOutputKeys :: [Text]
+    , _pStatus :: Maybe Text
+    , _pStatusDetail :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Playlist' data type to populate a request.
+mkPlaylist :: Playlist
+mkPlaylist = Playlist
+    { _pName = Nothing
+    , _pFormat = Nothing
+    , _pOutputKeys = mempty
+    , _pStatus = Nothing
+    , _pStatusDetail = Nothing
+    }
+{-# INLINE mkPlaylist #-}
 
 -- | The name that you want Elastic Transcoder to assign to the master playlist,
 -- for example, nyc-vacation.m3u8. The name cannot include a / character. If
@@ -2304,44 +1756,32 @@ data Playlist = Playlist
 -- all Name objects must be unique. Note: Elastic Transcoder automatically
 -- appends .m3u8 to the file name. If you include .m3u8 in Name, it will
 -- appear twice in the file name.
-puName :: Lens' Playlist (Maybe Text)
-puName = lens _puName (\s a -> s { _puName = a })
-{-# INLINE puName #-}
+pName :: Lens' Playlist (Maybe Text)
+pName = lens _pName (\s a -> s { _pName = a })
+{-# INLINE pName #-}
 
 -- | This value must currently be HLSv3.
-puFormat :: Lens' Playlist (Maybe Text)
-puFormat = lens _puFormat (\s a -> s { _puFormat = a })
-{-# INLINE puFormat #-}
+pFormat :: Lens' Playlist (Maybe Text)
+pFormat = lens _pFormat (\s a -> s { _pFormat = a })
+{-# INLINE pFormat #-}
 
 -- | For each output in this job that you want to include in a master playlist,
 -- the value of the Outputs:Key object. If you include more than one output in
 -- a playlist, the value of SegmentDuration for all of the outputs must be the
 -- same.
-puOutputKeys :: Lens' Playlist ([Text])
-puOutputKeys = lens _puOutputKeys (\s a -> s { _puOutputKeys = a })
-{-# INLINE puOutputKeys #-}
+pOutputKeys :: Lens' Playlist [Text]
+pOutputKeys = lens _pOutputKeys (\s a -> s { _pOutputKeys = a })
+{-# INLINE pOutputKeys #-}
 
 -- | The status of the job with which the playlist is associated.
-puStatus :: Lens' Playlist (Maybe Text)
-puStatus = lens _puStatus (\s a -> s { _puStatus = a })
-{-# INLINE puStatus #-}
+pStatus :: Lens' Playlist (Maybe Text)
+pStatus = lens _pStatus (\s a -> s { _pStatus = a })
+{-# INLINE pStatus #-}
 
 -- | Information that further explains the status.
-puStatusDetail :: Lens' Playlist (Maybe Text)
-puStatusDetail = lens _puStatusDetail (\s a -> s { _puStatusDetail = a })
-{-# INLINE puStatusDetail #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Playlist' data type to populate a request.
-mkPlaylist :: Playlist
-mkPlaylist = Playlist
-    { _puName = Nothing
-    , _puFormat = Nothing
-    , _puOutputKeys = mempty
-    , _puStatus = Nothing
-    , _puStatusDetail = Nothing
-    }
-{-# INLINE mkPlaylist #-}
+pStatusDetail :: Lens' Playlist (Maybe Text)
+pStatusDetail = lens _pStatusDetail (\s a -> s { _pStatusDetail = a })
+{-# INLINE pStatusDetail #-}
 
 instance FromJSON Playlist
 
@@ -2350,82 +1790,83 @@ instance ToJSON Playlist
 -- | A section of the response body that provides information about the preset
 -- that is created.
 data Preset = Preset
-    { _ppuId :: Maybe Text
-      -- ^ Identifier for the new preset. You use this value to get settings
-      -- for the preset or to delete it.
-    , _ppuArn :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) for the preset.
-    , _ppuName :: Maybe Text
-      -- ^ The name of the preset.
-    , _ppuDescription :: Maybe Text
-      -- ^ A description of the preset.
-    , _ppuContainer :: Maybe Text
-      -- ^ The container type for the output file. Valid values include mp3,
-      -- mp4, ogg, ts, and webm.
-    , _ppuAudio :: Maybe AudioParameters
-      -- ^ A section of the response body that provides information about
-      -- the audio preset values.
-    , _ppuVideo :: Maybe VideoParameters
-      -- ^ A section of the response body that provides information about
-      -- the video preset values.
-    , _ppuThumbnails :: Maybe Thumbnails
-      -- ^ A section of the response body that provides information about
-      -- the thumbnail preset values, if any.
-    , _ppuType :: Maybe Text
-      -- ^ Whether the preset is a default preset provided by Elastic
-      -- Transcoder (System) or a preset that you have defined (Custom).
+    { _p1rsId :: Maybe Text
+    , _p1rsArn :: Maybe Text
+    , _p1rsName :: Maybe Text
+    , _p1rsDescription :: Maybe Text
+    , _p1rsContainer :: Maybe Text
+    , _p1rsAudio :: Maybe AudioParameters
+    , _p1rsVideo :: Maybe VideoParameters
+    , _p1rsThumbnails :: Maybe Thumbnails
+    , _p1rsType :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Preset' data type to populate a request.
+mkPreset :: Preset
+mkPreset = Preset
+    { _p1rsId = Nothing
+    , _p1rsArn = Nothing
+    , _p1rsName = Nothing
+    , _p1rsDescription = Nothing
+    , _p1rsContainer = Nothing
+    , _p1rsAudio = Nothing
+    , _p1rsVideo = Nothing
+    , _p1rsThumbnails = Nothing
+    , _p1rsType = Nothing
+    }
+{-# INLINE mkPreset #-}
 
 -- | Identifier for the new preset. You use this value to get settings for the
 -- preset or to delete it.
-ppuId :: Lens' Preset (Maybe Text)
-ppuId = lens _ppuId (\s a -> s { _ppuId = a })
-{-# INLINE ppuId #-}
+p1rsId :: Lens' Preset (Maybe Text)
+p1rsId = lens _p1rsId (\s a -> s { _p1rsId = a })
+{-# INLINE p1rsId #-}
 
 -- | The Amazon Resource Name (ARN) for the preset.
-ppuArn :: Lens' Preset (Maybe Text)
-ppuArn = lens _ppuArn (\s a -> s { _ppuArn = a })
-{-# INLINE ppuArn #-}
+p1rsArn :: Lens' Preset (Maybe Text)
+p1rsArn = lens _p1rsArn (\s a -> s { _p1rsArn = a })
+{-# INLINE p1rsArn #-}
 
 -- | The name of the preset.
-ppuName :: Lens' Preset (Maybe Text)
-ppuName = lens _ppuName (\s a -> s { _ppuName = a })
-{-# INLINE ppuName #-}
+p1rsName :: Lens' Preset (Maybe Text)
+p1rsName = lens _p1rsName (\s a -> s { _p1rsName = a })
+{-# INLINE p1rsName #-}
 
 -- | A description of the preset.
-ppuDescription :: Lens' Preset (Maybe Text)
-ppuDescription = lens _ppuDescription (\s a -> s { _ppuDescription = a })
-{-# INLINE ppuDescription #-}
+p1rsDescription :: Lens' Preset (Maybe Text)
+p1rsDescription = lens _p1rsDescription (\s a -> s { _p1rsDescription = a })
+{-# INLINE p1rsDescription #-}
 
 -- | The container type for the output file. Valid values include mp3, mp4, ogg,
 -- ts, and webm.
-ppuContainer :: Lens' Preset (Maybe Text)
-ppuContainer = lens _ppuContainer (\s a -> s { _ppuContainer = a })
-{-# INLINE ppuContainer #-}
+p1rsContainer :: Lens' Preset (Maybe Text)
+p1rsContainer = lens _p1rsContainer (\s a -> s { _p1rsContainer = a })
+{-# INLINE p1rsContainer #-}
 
 -- | A section of the response body that provides information about the audio
 -- preset values.
-ppuAudio :: Lens' Preset (Maybe AudioParameters)
-ppuAudio = lens _ppuAudio (\s a -> s { _ppuAudio = a })
-{-# INLINE ppuAudio #-}
+p1rsAudio :: Lens' Preset (Maybe AudioParameters)
+p1rsAudio = lens _p1rsAudio (\s a -> s { _p1rsAudio = a })
+{-# INLINE p1rsAudio #-}
 
 -- | A section of the response body that provides information about the video
 -- preset values.
-ppuVideo :: Lens' Preset (Maybe VideoParameters)
-ppuVideo = lens _ppuVideo (\s a -> s { _ppuVideo = a })
-{-# INLINE ppuVideo #-}
+p1rsVideo :: Lens' Preset (Maybe VideoParameters)
+p1rsVideo = lens _p1rsVideo (\s a -> s { _p1rsVideo = a })
+{-# INLINE p1rsVideo #-}
 
 -- | A section of the response body that provides information about the
 -- thumbnail preset values, if any.
-ppuThumbnails :: Lens' Preset (Maybe Thumbnails)
-ppuThumbnails = lens _ppuThumbnails (\s a -> s { _ppuThumbnails = a })
-{-# INLINE ppuThumbnails #-}
+p1rsThumbnails :: Lens' Preset (Maybe Thumbnails)
+p1rsThumbnails = lens _p1rsThumbnails (\s a -> s { _p1rsThumbnails = a })
+{-# INLINE p1rsThumbnails #-}
 
 -- | Whether the preset is a default preset provided by Elastic Transcoder
 -- (System) or a preset that you have defined (Custom).
-ppuType :: Lens' Preset (Maybe Text)
-ppuType = lens _ppuType (\s a -> s { _ppuType = a })
-{-# INLINE ppuType #-}
+p1rsType :: Lens' Preset (Maybe Text)
+p1rsType = lens _p1rsType (\s a -> s { _p1rsType = a })
+{-# INLINE p1rsType #-}
 
 instance FromJSON Preset
 
@@ -2442,122 +1883,40 @@ instance FromJSON Preset
 -- which allows you to use the same preset for up to four watermarks that have
 -- different dimensions.
 data PresetWatermark = PresetWatermark
-    { _ppkId :: Maybe Text
-      -- ^ A unique identifier for the settings for one watermark. The value
-      -- of Id can be up to 40 characters long.
-    , _ppkMaxWidth :: Maybe Text
-      -- ^ The maximum width of the watermark in one of the following
-      -- formats: number of pixels (px): The minimum value is 16 pixels,
-      -- and the maximum value is the value of MaxWidth. integer
-      -- percentage (%): The range of valid values is 0 to 100. Use the
-      -- value of Target to specify whether you want Elastic Transcoder to
-      -- include the black bars that are added by Elastic Transcoder, if
-      -- any, in the calculation. If you specify the value in pixels, it
-      -- must be less than or equal to the value of MaxWidth.
-    , _ppkMaxHeight :: Maybe Text
-      -- ^ The maximum height of the watermark in one of the following
-      -- formats: number of pixels (px): The minimum value is 16 pixels,
-      -- and the maximum value is the value of MaxHeight. integer
-      -- percentage (%): The range of valid values is 0 to 100. Use the
-      -- value of Target to specify whether you want Elastic Transcoder to
-      -- include the black bars that are added by Elastic Transcoder, if
-      -- any, in the calculation. If you specify the value in pixels, it
-      -- must be less than or equal to the value of MaxHeight.
-    , _ppkSizingPolicy :: Maybe Text
-      -- ^ A value that controls scaling of the watermark: Fit: Elastic
-      -- Transcoder scales the watermark so it matches the value that you
-      -- specified in either MaxWidth or MaxHeight without exceeding the
-      -- other value. Stretch: Elastic Transcoder stretches the watermark
-      -- to match the values that you specified for MaxWidth and
-      -- MaxHeight. If the relative proportions of the watermark and the
-      -- values of MaxWidth and MaxHeight are different, the watermark
-      -- will be distorted. ShrinkToFit: Elastic Transcoder scales the
-      -- watermark down so that its dimensions match the values that you
-      -- specified for at least one of MaxWidth and MaxHeight without
-      -- exceeding either value. If you specify this option, Elastic
-      -- Transcoder does not scale the watermark up.
-    , _ppkHorizontalAlign :: Maybe Text
-      -- ^ The horizontal position of the watermark unless you specify a
-      -- non-zero value for HorizontalOffset: Left: The left edge of the
-      -- watermark is aligned with the left border of the video. Right:
-      -- The right edge of the watermark is aligned with the right border
-      -- of the video. Center: The watermark is centered between the left
-      -- and right borders.
-    , _ppkHorizontalOffset :: Maybe Text
-      -- ^ The amount by which you want the horizontal position of the
-      -- watermark to be offset from the position specified by
-      -- HorizontalAlign: number of pixels (px): The minimum value is 0
-      -- pixels, and the maximum value is the value of MaxWidth. integer
-      -- percentage (%): The range of valid values is 0 to 100. For
-      -- example, if you specify Left for HorizontalAlign and 5px for
-      -- HorizontalOffset, the left side of the watermark appears 5 pixels
-      -- from the left border of the output video. HorizontalOffset is
-      -- only valid when the value of HorizontalAlign is Left or Right. If
-      -- you specify an offset that causes the watermark to extend beyond
-      -- the left or right border and Elastic Transcoder has not added
-      -- black bars, the watermark is cropped. If Elastic Transcoder has
-      -- added black bars, the watermark extends into the black bars. If
-      -- the watermark extends beyond the black bars, it is cropped. Use
-      -- the value of Target to specify whether you want to include the
-      -- black bars that are added by Elastic Transcoder, if any, in the
-      -- offset calculation.
-    , _ppkVerticalAlign :: Maybe Text
-      -- ^ The vertical position of the watermark unless you specify a
-      -- non-zero value for VerticalOffset: Top: The top edge of the
-      -- watermark is aligned with the top border of the video. Bottom:
-      -- The bottom edge of the watermark is aligned with the bottom
-      -- border of the video. Center: The watermark is centered between
-      -- the top and bottom borders.
-    , _ppkVerticalOffset :: Maybe Text
-      -- ^ VerticalOffset The amount by which you want the vertical position
-      -- of the watermark to be offset from the position specified by
-      -- VerticalAlign: number of pixels (px): The minimum value is 0
-      -- pixels, and the maximum value is the value of MaxHeight. integer
-      -- percentage (%): The range of valid values is 0 to 100. For
-      -- example, if you specify Top for VerticalAlign and 5px for
-      -- VerticalOffset, the top of the watermark appears 5 pixels from
-      -- the top border of the output video. VerticalOffset is only valid
-      -- when the value of VerticalAlign is Top or Bottom. If you specify
-      -- an offset that causes the watermark to extend beyond the top or
-      -- bottom border and Elastic Transcoder has not added black bars,
-      -- the watermark is cropped. If Elastic Transcoder has added black
-      -- bars, the watermark extends into the black bars. If the watermark
-      -- extends beyond the black bars, it is cropped. Use the value of
-      -- Target to specify whether you want Elastic Transcoder to include
-      -- the black bars that are added by Elastic Transcoder, if any, in
-      -- the offset calculation.
-    , _ppkOpacity :: Maybe Text
-      -- ^ A percentage that indicates how much you want a watermark to
-      -- obscure the video in the location where it appears. Valid values
-      -- are 0 (the watermark is invisible) to 100 (the watermark
-      -- completely obscures the video in the specified location). The
-      -- datatype of Opacity is float. Elastic Transcoder supports
-      -- transparent .png graphics. If you use a transparent .png, the
-      -- transparent portion of the video appears as if you had specified
-      -- a value of 0 for Opacity. The .jpg file format doesn't support
-      -- transparency.
-    , _ppkTarget :: Maybe Text
-      -- ^ A value that determines how Elastic Transcoder interprets values
-      -- that you specified for HorizontalOffset, VerticalOffset,
-      -- MaxWidth, and MaxHeight: Content: HorizontalOffset and
-      -- VerticalOffset values are calculated based on the borders of the
-      -- video excluding black bars added by Elastic Transcoder, if any.
-      -- In addition, MaxWidth and MaxHeight, if specified as a
-      -- percentage, are calculated based on the borders of the video
-      -- excluding black bars added by Elastic Transcoder, if any. Frame:
-      -- HorizontalOffset and VerticalOffset values are calculated based
-      -- on the borders of the video including black bars added by Elastic
-      -- Transcoder, if any. In addition, MaxWidth and MaxHeight, if
-      -- specified as a percentage, are calculated based on the borders of
-      -- the video including black bars added by Elastic Transcoder, if
-      -- any.
+    { _pwId :: Maybe Text
+    , _pwMaxWidth :: Maybe Text
+    , _pwMaxHeight :: Maybe Text
+    , _pwSizingPolicy :: Maybe Text
+    , _pwHorizontalAlign :: Maybe Text
+    , _pwHorizontalOffset :: Maybe Text
+    , _pwVerticalAlign :: Maybe Text
+    , _pwVerticalOffset :: Maybe Text
+    , _pwOpacity :: Maybe Text
+    , _pwTarget :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'PresetWatermark' data type to populate a request.
+mkPresetWatermark :: PresetWatermark
+mkPresetWatermark = PresetWatermark
+    { _pwId = Nothing
+    , _pwMaxWidth = Nothing
+    , _pwMaxHeight = Nothing
+    , _pwSizingPolicy = Nothing
+    , _pwHorizontalAlign = Nothing
+    , _pwHorizontalOffset = Nothing
+    , _pwVerticalAlign = Nothing
+    , _pwVerticalOffset = Nothing
+    , _pwOpacity = Nothing
+    , _pwTarget = Nothing
+    }
+{-# INLINE mkPresetWatermark #-}
 
 -- | A unique identifier for the settings for one watermark. The value of Id can
 -- be up to 40 characters long.
-ppkId :: Lens' PresetWatermark (Maybe Text)
-ppkId = lens _ppkId (\s a -> s { _ppkId = a })
-{-# INLINE ppkId #-}
+pwId :: Lens' PresetWatermark (Maybe Text)
+pwId = lens _pwId (\s a -> s { _pwId = a })
+{-# INLINE pwId #-}
 
 -- | The maximum width of the watermark in one of the following formats: number
 -- of pixels (px): The minimum value is 16 pixels, and the maximum value is
@@ -2566,9 +1925,9 @@ ppkId = lens _ppkId (\s a -> s { _ppkId = a })
 -- Transcoder to include the black bars that are added by Elastic Transcoder,
 -- if any, in the calculation. If you specify the value in pixels, it must be
 -- less than or equal to the value of MaxWidth.
-ppkMaxWidth :: Lens' PresetWatermark (Maybe Text)
-ppkMaxWidth = lens _ppkMaxWidth (\s a -> s { _ppkMaxWidth = a })
-{-# INLINE ppkMaxWidth #-}
+pwMaxWidth :: Lens' PresetWatermark (Maybe Text)
+pwMaxWidth = lens _pwMaxWidth (\s a -> s { _pwMaxWidth = a })
+{-# INLINE pwMaxWidth #-}
 
 -- | The maximum height of the watermark in one of the following formats: number
 -- of pixels (px): The minimum value is 16 pixels, and the maximum value is
@@ -2577,9 +1936,9 @@ ppkMaxWidth = lens _ppkMaxWidth (\s a -> s { _ppkMaxWidth = a })
 -- Transcoder to include the black bars that are added by Elastic Transcoder,
 -- if any, in the calculation. If you specify the value in pixels, it must be
 -- less than or equal to the value of MaxHeight.
-ppkMaxHeight :: Lens' PresetWatermark (Maybe Text)
-ppkMaxHeight = lens _ppkMaxHeight (\s a -> s { _ppkMaxHeight = a })
-{-# INLINE ppkMaxHeight #-}
+pwMaxHeight :: Lens' PresetWatermark (Maybe Text)
+pwMaxHeight = lens _pwMaxHeight (\s a -> s { _pwMaxHeight = a })
+{-# INLINE pwMaxHeight #-}
 
 -- | A value that controls scaling of the watermark: Fit: Elastic Transcoder
 -- scales the watermark so it matches the value that you specified in either
@@ -2591,18 +1950,19 @@ ppkMaxHeight = lens _ppkMaxHeight (\s a -> s { _ppkMaxHeight = a })
 -- that its dimensions match the values that you specified for at least one of
 -- MaxWidth and MaxHeight without exceeding either value. If you specify this
 -- option, Elastic Transcoder does not scale the watermark up.
-ppkSizingPolicy :: Lens' PresetWatermark (Maybe Text)
-ppkSizingPolicy = lens _ppkSizingPolicy (\s a -> s { _ppkSizingPolicy = a })
-{-# INLINE ppkSizingPolicy #-}
+pwSizingPolicy :: Lens' PresetWatermark (Maybe Text)
+pwSizingPolicy = lens _pwSizingPolicy (\s a -> s { _pwSizingPolicy = a })
+{-# INLINE pwSizingPolicy #-}
 
 -- | The horizontal position of the watermark unless you specify a non-zero
 -- value for HorizontalOffset: Left: The left edge of the watermark is aligned
 -- with the left border of the video. Right: The right edge of the watermark
 -- is aligned with the right border of the video. Center: The watermark is
 -- centered between the left and right borders.
-ppkHorizontalAlign :: Lens' PresetWatermark (Maybe Text)
-ppkHorizontalAlign = lens _ppkHorizontalAlign (\s a -> s { _ppkHorizontalAlign = a })
-{-# INLINE ppkHorizontalAlign #-}
+pwHorizontalAlign :: Lens' PresetWatermark (Maybe Text)
+pwHorizontalAlign =
+    lens _pwHorizontalAlign (\s a -> s { _pwHorizontalAlign = a })
+{-# INLINE pwHorizontalAlign #-}
 
 -- | The amount by which you want the horizontal position of the watermark to be
 -- offset from the position specified by HorizontalAlign: number of pixels
@@ -2618,18 +1978,19 @@ ppkHorizontalAlign = lens _ppkHorizontalAlign (\s a -> s { _ppkHorizontalAlign =
 -- If the watermark extends beyond the black bars, it is cropped. Use the
 -- value of Target to specify whether you want to include the black bars that
 -- are added by Elastic Transcoder, if any, in the offset calculation.
-ppkHorizontalOffset :: Lens' PresetWatermark (Maybe Text)
-ppkHorizontalOffset = lens _ppkHorizontalOffset (\s a -> s { _ppkHorizontalOffset = a })
-{-# INLINE ppkHorizontalOffset #-}
+pwHorizontalOffset :: Lens' PresetWatermark (Maybe Text)
+pwHorizontalOffset =
+    lens _pwHorizontalOffset (\s a -> s { _pwHorizontalOffset = a })
+{-# INLINE pwHorizontalOffset #-}
 
 -- | The vertical position of the watermark unless you specify a non-zero value
 -- for VerticalOffset: Top: The top edge of the watermark is aligned with the
 -- top border of the video. Bottom: The bottom edge of the watermark is
 -- aligned with the bottom border of the video. Center: The watermark is
 -- centered between the top and bottom borders.
-ppkVerticalAlign :: Lens' PresetWatermark (Maybe Text)
-ppkVerticalAlign = lens _ppkVerticalAlign (\s a -> s { _ppkVerticalAlign = a })
-{-# INLINE ppkVerticalAlign #-}
+pwVerticalAlign :: Lens' PresetWatermark (Maybe Text)
+pwVerticalAlign = lens _pwVerticalAlign (\s a -> s { _pwVerticalAlign = a })
+{-# INLINE pwVerticalAlign #-}
 
 -- | VerticalOffset The amount by which you want the vertical position of the
 -- watermark to be offset from the position specified by VerticalAlign: number
@@ -2646,9 +2007,10 @@ ppkVerticalAlign = lens _ppkVerticalAlign (\s a -> s { _ppkVerticalAlign = a })
 -- Target to specify whether you want Elastic Transcoder to include the black
 -- bars that are added by Elastic Transcoder, if any, in the offset
 -- calculation.
-ppkVerticalOffset :: Lens' PresetWatermark (Maybe Text)
-ppkVerticalOffset = lens _ppkVerticalOffset (\s a -> s { _ppkVerticalOffset = a })
-{-# INLINE ppkVerticalOffset #-}
+pwVerticalOffset :: Lens' PresetWatermark (Maybe Text)
+pwVerticalOffset =
+    lens _pwVerticalOffset (\s a -> s { _pwVerticalOffset = a })
+{-# INLINE pwVerticalOffset #-}
 
 -- | A percentage that indicates how much you want a watermark to obscure the
 -- video in the location where it appears. Valid values are 0 (the watermark
@@ -2657,9 +2019,9 @@ ppkVerticalOffset = lens _ppkVerticalOffset (\s a -> s { _ppkVerticalOffset = a 
 -- supports transparent .png graphics. If you use a transparent .png, the
 -- transparent portion of the video appears as if you had specified a value of
 -- 0 for Opacity. The .jpg file format doesn't support transparency.
-ppkOpacity :: Lens' PresetWatermark (Maybe Text)
-ppkOpacity = lens _ppkOpacity (\s a -> s { _ppkOpacity = a })
-{-# INLINE ppkOpacity #-}
+pwOpacity :: Lens' PresetWatermark (Maybe Text)
+pwOpacity = lens _pwOpacity (\s a -> s { _pwOpacity = a })
+{-# INLINE pwOpacity #-}
 
 -- | A value that determines how Elastic Transcoder interprets values that you
 -- specified for HorizontalOffset, VerticalOffset, MaxWidth, and MaxHeight:
@@ -2673,26 +2035,9 @@ ppkOpacity = lens _ppkOpacity (\s a -> s { _ppkOpacity = a })
 -- MaxHeight, if specified as a percentage, are calculated based on the
 -- borders of the video including black bars added by Elastic Transcoder, if
 -- any.
-ppkTarget :: Lens' PresetWatermark (Maybe Text)
-ppkTarget = lens _ppkTarget (\s a -> s { _ppkTarget = a })
-{-# INLINE ppkTarget #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'PresetWatermark' data type to populate a request.
-mkPresetWatermark :: PresetWatermark
-mkPresetWatermark = PresetWatermark
-    { _ppkId = Nothing
-    , _ppkMaxWidth = Nothing
-    , _ppkMaxHeight = Nothing
-    , _ppkSizingPolicy = Nothing
-    , _ppkHorizontalAlign = Nothing
-    , _ppkHorizontalOffset = Nothing
-    , _ppkVerticalAlign = Nothing
-    , _ppkVerticalOffset = Nothing
-    , _ppkOpacity = Nothing
-    , _ppkTarget = Nothing
-    }
-{-# INLINE mkPresetWatermark #-}
+pwTarget :: Lens' PresetWatermark (Maybe Text)
+pwTarget = lens _pwTarget (\s a -> s { _pwTarget = a })
+{-# INLINE pwTarget #-}
 
 instance FromJSON PresetWatermark
 
@@ -2701,86 +2046,42 @@ instance ToJSON PresetWatermark
 -- | A section of the request body that specifies the thumbnail parameters, if
 -- any.
 data Thumbnails = Thumbnails
-    { _ttsFormat :: Maybe Text
-      -- ^ The format of thumbnails, if any. Valid values are jpg and png.
-      -- You specify whether you want Elastic Transcoder to create
-      -- thumbnails when you create a job.
-    , _ttsInterval :: Maybe Text
-      -- ^ The number of seconds between thumbnails. Specify an integer
-      -- value.
-    , _ttsResolution :: Maybe Text
-      -- ^ To better control resolution and aspect ratio of thumbnails, we
-      -- recommend that you use the values MaxWidth, MaxHeight,
-      -- SizingPolicy, and PaddingPolicy instead of Resolution and
-      -- AspectRatio. The two groups of settings are mutually exclusive.
-      -- Do not use them together. The width and height of thumbnail files
-      -- in pixels. Specify a value in the format width x height where
-      -- both values are even integers. The values cannot exceed the width
-      -- and height that you specified in the Video:Resolution object.
-    , _ttsAspectRatio :: Maybe Text
-      -- ^ To better control resolution and aspect ratio of thumbnails, we
-      -- recommend that you use the values MaxWidth, MaxHeight,
-      -- SizingPolicy, and PaddingPolicy instead of Resolution and
-      -- AspectRatio. The two groups of settings are mutually exclusive.
-      -- Do not use them together. The aspect ratio of thumbnails. Valid
-      -- values include: auto, 1:1, 4:3, 3:2, 16:9 If you specify auto,
-      -- Elastic Transcoder tries to preserve the aspect ratio of the
-      -- video in the output file.
-    , _ttsMaxWidth :: Maybe Text
-      -- ^ The maximum width of thumbnails in pixels. If you specify auto,
-      -- Elastic Transcoder uses 1920 (Full HD) as the default value. If
-      -- you specify a numeric value, enter an even integer between 32 and
-      -- 4096.
-    , _ttsMaxHeight :: Maybe Text
-      -- ^ The maximum height of thumbnails in pixels. If you specify auto,
-      -- Elastic Transcoder uses 1080 (Full HD) as the default value. If
-      -- you specify a numeric value, enter an even integer between 32 and
-      -- 3072.
-    , _ttsSizingPolicy :: Maybe Text
-      -- ^ Specify one of the following values to control scaling of
-      -- thumbnails: Fit: Elastic Transcoder scales thumbnails so they
-      -- match the value that you specified in thumbnail MaxWidth or
-      -- MaxHeight settings without exceeding the other value. Fill:
-      -- Elastic Transcoder scales thumbnails so they match the value that
-      -- you specified in thumbnail MaxWidth or MaxHeight settings and
-      -- matches or exceeds the other value. Elastic Transcoder centers
-      -- the image in thumbnails and then crops in the dimension (if any)
-      -- that exceeds the maximum value. Stretch: Elastic Transcoder
-      -- stretches thumbnails to match the values that you specified for
-      -- thumbnail MaxWidth and MaxHeight settings. If the relative
-      -- proportions of the input video and thumbnails are different, the
-      -- thumbnails will be distorted. Keep: Elastic Transcoder does not
-      -- scale thumbnails. If either dimension of the input video exceeds
-      -- the values that you specified for thumbnail MaxWidth and
-      -- MaxHeight settings, Elastic Transcoder crops the thumbnails.
-      -- ShrinkToFit: Elastic Transcoder scales thumbnails down so that
-      -- their dimensions match the values that you specified for at least
-      -- one of thumbnail MaxWidth and MaxHeight without exceeding either
-      -- value. If you specify this option, Elastic Transcoder does not
-      -- scale thumbnails up. ShrinkToFill: Elastic Transcoder scales
-      -- thumbnails down so that their dimensions match the values that
-      -- you specified for at least one of MaxWidth and MaxHeight without
-      -- dropping below either value. If you specify this option, Elastic
-      -- Transcoder does not scale thumbnails up.
-    , _ttsPaddingPolicy :: Maybe Text
-      -- ^ When you set PaddingPolicy to Pad, Elastic Transcoder may add
-      -- black bars to the top and bottom and/or left and right sides of
-      -- thumbnails to make the total size of the thumbnails match the
-      -- values that you specified for thumbnail MaxWidth and MaxHeight
-      -- settings.
+    { _tFormat :: Maybe Text
+    , _tInterval :: Maybe Text
+    , _tResolution :: Maybe Text
+    , _tAspectRatio :: Maybe Text
+    , _tMaxWidth :: Maybe Text
+    , _tMaxHeight :: Maybe Text
+    , _tSizingPolicy :: Maybe Text
+    , _tPaddingPolicy :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Thumbnails' data type to populate a request.
+mkThumbnails :: Thumbnails
+mkThumbnails = Thumbnails
+    { _tFormat = Nothing
+    , _tInterval = Nothing
+    , _tResolution = Nothing
+    , _tAspectRatio = Nothing
+    , _tMaxWidth = Nothing
+    , _tMaxHeight = Nothing
+    , _tSizingPolicy = Nothing
+    , _tPaddingPolicy = Nothing
+    }
+{-# INLINE mkThumbnails #-}
 
 -- | The format of thumbnails, if any. Valid values are jpg and png. You specify
 -- whether you want Elastic Transcoder to create thumbnails when you create a
 -- job.
-ttsFormat :: Lens' Thumbnails (Maybe Text)
-ttsFormat = lens _ttsFormat (\s a -> s { _ttsFormat = a })
-{-# INLINE ttsFormat #-}
+tFormat :: Lens' Thumbnails (Maybe Text)
+tFormat = lens _tFormat (\s a -> s { _tFormat = a })
+{-# INLINE tFormat #-}
 
 -- | The number of seconds between thumbnails. Specify an integer value.
-ttsInterval :: Lens' Thumbnails (Maybe Text)
-ttsInterval = lens _ttsInterval (\s a -> s { _ttsInterval = a })
-{-# INLINE ttsInterval #-}
+tInterval :: Lens' Thumbnails (Maybe Text)
+tInterval = lens _tInterval (\s a -> s { _tInterval = a })
+{-# INLINE tInterval #-}
 
 -- | To better control resolution and aspect ratio of thumbnails, we recommend
 -- that you use the values MaxWidth, MaxHeight, SizingPolicy, and
@@ -2789,9 +2090,9 @@ ttsInterval = lens _ttsInterval (\s a -> s { _ttsInterval = a })
 -- height of thumbnail files in pixels. Specify a value in the format width x
 -- height where both values are even integers. The values cannot exceed the
 -- width and height that you specified in the Video:Resolution object.
-ttsResolution :: Lens' Thumbnails (Maybe Text)
-ttsResolution = lens _ttsResolution (\s a -> s { _ttsResolution = a })
-{-# INLINE ttsResolution #-}
+tResolution :: Lens' Thumbnails (Maybe Text)
+tResolution = lens _tResolution (\s a -> s { _tResolution = a })
+{-# INLINE tResolution #-}
 
 -- | To better control resolution and aspect ratio of thumbnails, we recommend
 -- that you use the values MaxWidth, MaxHeight, SizingPolicy, and
@@ -2800,23 +2101,23 @@ ttsResolution = lens _ttsResolution (\s a -> s { _ttsResolution = a })
 -- of thumbnails. Valid values include: auto, 1:1, 4:3, 3:2, 16:9 If you
 -- specify auto, Elastic Transcoder tries to preserve the aspect ratio of the
 -- video in the output file.
-ttsAspectRatio :: Lens' Thumbnails (Maybe Text)
-ttsAspectRatio = lens _ttsAspectRatio (\s a -> s { _ttsAspectRatio = a })
-{-# INLINE ttsAspectRatio #-}
+tAspectRatio :: Lens' Thumbnails (Maybe Text)
+tAspectRatio = lens _tAspectRatio (\s a -> s { _tAspectRatio = a })
+{-# INLINE tAspectRatio #-}
 
 -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 4096.
-ttsMaxWidth :: Lens' Thumbnails (Maybe Text)
-ttsMaxWidth = lens _ttsMaxWidth (\s a -> s { _ttsMaxWidth = a })
-{-# INLINE ttsMaxWidth #-}
+tMaxWidth :: Lens' Thumbnails (Maybe Text)
+tMaxWidth = lens _tMaxWidth (\s a -> s { _tMaxWidth = a })
+{-# INLINE tMaxWidth #-}
 
 -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1080 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 3072.
-ttsMaxHeight :: Lens' Thumbnails (Maybe Text)
-ttsMaxHeight = lens _ttsMaxHeight (\s a -> s { _ttsMaxHeight = a })
-{-# INLINE ttsMaxHeight #-}
+tMaxHeight :: Lens' Thumbnails (Maybe Text)
+tMaxHeight = lens _tMaxHeight (\s a -> s { _tMaxHeight = a })
+{-# INLINE tMaxHeight #-}
 
 -- | Specify one of the following values to control scaling of thumbnails: Fit:
 -- Elastic Transcoder scales thumbnails so they match the value that you
@@ -2839,32 +2140,17 @@ ttsMaxHeight = lens _ttsMaxHeight (\s a -> s { _ttsMaxHeight = a })
 -- down so that their dimensions match the values that you specified for at
 -- least one of MaxWidth and MaxHeight without dropping below either value. If
 -- you specify this option, Elastic Transcoder does not scale thumbnails up.
-ttsSizingPolicy :: Lens' Thumbnails (Maybe Text)
-ttsSizingPolicy = lens _ttsSizingPolicy (\s a -> s { _ttsSizingPolicy = a })
-{-# INLINE ttsSizingPolicy #-}
+tSizingPolicy :: Lens' Thumbnails (Maybe Text)
+tSizingPolicy = lens _tSizingPolicy (\s a -> s { _tSizingPolicy = a })
+{-# INLINE tSizingPolicy #-}
 
 -- | When you set PaddingPolicy to Pad, Elastic Transcoder may add black bars to
 -- the top and bottom and/or left and right sides of thumbnails to make the
 -- total size of the thumbnails match the values that you specified for
 -- thumbnail MaxWidth and MaxHeight settings.
-ttsPaddingPolicy :: Lens' Thumbnails (Maybe Text)
-ttsPaddingPolicy = lens _ttsPaddingPolicy (\s a -> s { _ttsPaddingPolicy = a })
-{-# INLINE ttsPaddingPolicy #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'Thumbnails' data type to populate a request.
-mkThumbnails :: Thumbnails
-mkThumbnails = Thumbnails
-    { _ttsFormat = Nothing
-    , _ttsInterval = Nothing
-    , _ttsResolution = Nothing
-    , _ttsAspectRatio = Nothing
-    , _ttsMaxWidth = Nothing
-    , _ttsMaxHeight = Nothing
-    , _ttsSizingPolicy = Nothing
-    , _ttsPaddingPolicy = Nothing
-    }
-{-# INLINE mkThumbnails #-}
+tPaddingPolicy :: Lens' Thumbnails (Maybe Text)
+tPaddingPolicy = lens _tPaddingPolicy (\s a -> s { _tPaddingPolicy = a })
+{-# INLINE tPaddingPolicy #-}
 
 instance FromJSON Thumbnails
 
@@ -2873,20 +2159,17 @@ instance ToJSON Thumbnails
 -- | Settings that determine when a clip begins and how long it lasts.
 data TimeSpan = TimeSpan
     { _tsStartTime :: Maybe Text
-      -- ^ The place in the input file where you want a clip to start. The
-      -- format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999;
-      -- SSS is thousandths of a second) or sssss.SSS (maximum value:
-      -- 86399.999). If you don't specify a value, Elastic Transcoder
-      -- starts at the beginning of the input file.
     , _tsDuration :: Maybe Text
-      -- ^ The duration of the clip. The format can be either HH:mm:ss.SSS
-      -- (maximum value: 23:59:59.999; SSS is thousandths of a second) or
-      -- sssss.SSS (maximum value: 86399.999). If you don't specify a
-      -- value, Elastic Transcoder creates an output file from StartTime
-      -- to the end of the file. If you specify a value longer than the
-      -- duration of the input file, Elastic Transcoder transcodes the
-      -- file and returns a warning message.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'TimeSpan' data type to populate a request.
+mkTimeSpan :: TimeSpan
+mkTimeSpan = TimeSpan
+    { _tsStartTime = Nothing
+    , _tsDuration = Nothing
+    }
+{-# INLINE mkTimeSpan #-}
 
 -- | The place in the input file where you want a clip to start. The format can
 -- be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of
@@ -2906,15 +2189,6 @@ tsDuration :: Lens' TimeSpan (Maybe Text)
 tsDuration = lens _tsDuration (\s a -> s { _tsDuration = a })
 {-# INLINE tsDuration #-}
 
--- | Smart constructor for the minimum required fields to construct
--- a valid 'TimeSpan' data type to populate a request.
-mkTimeSpan :: TimeSpan
-mkTimeSpan = TimeSpan
-    { _tsStartTime = Nothing
-    , _tsDuration = Nothing
-    }
-{-# INLINE mkTimeSpan #-}
-
 instance FromJSON TimeSpan
 
 instance ToJSON TimeSpan
@@ -2922,191 +2196,43 @@ instance ToJSON TimeSpan
 -- | A section of the request body that specifies the video parameters.
 data VideoParameters = VideoParameters
     { _vpCodec :: Maybe Text
-      -- ^ The video codec for the output file. Valid values include H.264
-      -- and vp8. You can only specify vp8 when the container type is
-      -- webm.
     , _vpCodecOptions :: Map Text Text
-      -- ^ Profile The H.264 profile that you want to use for the output
-      -- file. Elastic Transcoder supports the following profiles:
-      -- baseline: The profile most commonly used for videoconferencing
-      -- and for mobile applications. main: The profile used for
-      -- standard-definition digital TV broadcasts. high: The profile used
-      -- for high-definition digital TV broadcasts and for Blu-ray discs.
-      -- Level (H.264 Only) The H.264 level that you want to use for the
-      -- output file. Elastic Transcoder supports the following levels: 1,
-      -- 1b, 1.1, 1.2, 1.3, 2, 2.1, 2.2, 3, 3.1, 3.2, 4, 4.1
-      -- MaxReferenceFrames (H.264 Only) Applicable only when the value of
-      -- Video:Codec is H.264. The maximum number of previously decoded
-      -- frames to use as a reference for decoding future frames. Valid
-      -- values are integers 0 through 16, but we recommend that you not
-      -- use a value greater than the following: Min(Floor(Maximum decoded
-      -- picture buffer in macroblocks * 256 / (Width in pixels * Height
-      -- in pixels)), 16) where Width in pixels and Height in pixels
-      -- represent either MaxWidth and MaxHeight, or Resolution. Maximum
-      -- decoded picture buffer in macroblocks depends on the value of the
-      -- Level object. See the list below. (A macroblock is a block of
-      -- pixels measuring 16x16.) 1 - 396 1b - 396 1.1 - 900 1.2 - 2376
-      -- 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 - 8100 3 - 8100 3.1 - 18000
-      -- 3.2 - 20480 4 - 32768 4.1 - 32768 MaxBitRate The maximum number
-      -- of bits per second in a video buffer; the size of the buffer is
-      -- specified by BufferSize. Specify a value between 16 and 62,500.
-      -- You can reduce the bandwidth required to stream a video by
-      -- reducing the maximum bit rate, but this also reduces the quality
-      -- of the video. BufferSize The maximum number of bits in any x
-      -- seconds of the output video. This window is commonly 10 seconds,
-      -- the standard segment duration when you're using MPEG-TS for the
-      -- container type of the output video. Specify an integer greater
-      -- than 0. If you specify MaxBitRate and omit BufferSize, Elastic
-      -- Transcoder sets BufferSize to 10 times the value of MaxBitRate.
     , _vpKeyframesMaxDist :: Maybe Text
-      -- ^ The maximum number of frames between key frames. Key frames are
-      -- fully encoded frames; the frames between key frames are encoded
-      -- based, in part, on the content of the key frames. The value is an
-      -- integer formatted as a string; valid values are between 1 (every
-      -- frame is a key frame) and 100000, inclusive. A higher value
-      -- results in higher compression but may also discernibly decrease
-      -- video quality.
     , _vpFixedGOP :: Maybe Text
-      -- ^ Whether to use a fixed value for FixedGOP. Valid values are true
-      -- and false: true: Elastic Transcoder uses the value of
-      -- KeyframesMaxDist for the distance between key frames (the number
-      -- of frames in a group of pictures, or GOP). false: The distance
-      -- between key frames can vary.
     , _vpBitRate :: Maybe Text
-      -- ^ The bit rate of the video stream in the output file, in
-      -- kilobits/second. Valid values depend on the values of Level and
-      -- Profile. If you specify auto, Elastic Transcoder uses the
-      -- detected bit rate of the input source. If you specify a value
-      -- other than auto, we recommend that you specify a value less than
-      -- or equal to the maximum H.264-compliant value listed for your
-      -- level and profile: Level - Maximum video bit rate in
-      -- kilobits/second (baseline and main Profile) : maximum video bit
-      -- rate in kilobits/second (high Profile) 1 - 64 : 80 1b - 128 : 160
-      -- 1.1 - 192 : 240 1.2 - 384 : 480 1.3 - 768 : 960 2 - 2000 : 2500 3
-      -- - 10000 : 12500 3.1 - 14000 : 17500 3.2 - 20000 : 25000 4 - 20000
-      -- : 25000 4.1 - 50000 : 62500.
     , _vpFrameRate :: Maybe Text
-      -- ^ The frames per second for the video stream in the output file.
-      -- Valid values include: auto, 10, 15, 23.97, 24, 25, 29.97, 30, 60
-      -- If you specify auto, Elastic Transcoder uses the detected frame
-      -- rate of the input source. If you specify a frame rate, we
-      -- recommend that you perform the following calculation: Frame rate
-      -- = maximum recommended decoding speed in luma samples/second /
-      -- (width in pixels * height in pixels) where: width in pixels and
-      -- height in pixels represent the Resolution of the output video.
-      -- maximum recommended decoding speed in Luma samples/second is less
-      -- than or equal to the maximum value listed in the following table,
-      -- based on the value that you specified for Level. The maximum
-      -- recommended decoding speed in Luma samples/second for each level
-      -- is described in the following list (Level - Decoding speed): 1 -
-      -- 380160 1b - 380160 1.1 - 76800 1.2 - 1536000 1.3 - 3041280 2 -
-      -- 3041280 2.1 - 5068800 2.2 - 5184000 3 - 10368000 3.1 - 27648000
-      -- 3.2 - 55296000 4 - 62914560 4.1 - 62914560.
     , _vpMaxFrameRate :: Maybe Text
-      -- ^ If you specify auto for FrameRate, Elastic Transcoder uses the
-      -- frame rate of the input video for the frame rate of the output
-      -- video. Specify the maximum frame rate that you want Elastic
-      -- Transcoder to use when the frame rate of the input video is
-      -- greater than the desired maximum frame rate of the output video.
-      -- Valid values include: 10, 15, 23.97, 24, 25, 29.97, 30, 60.
     , _vpResolution :: Maybe Text
-      -- ^ To better control resolution and aspect ratio of output videos,
-      -- we recommend that you use the values MaxWidth, MaxHeight,
-      -- SizingPolicy, PaddingPolicy, and DisplayAspectRatio instead of
-      -- Resolution and AspectRatio. The two groups of settings are
-      -- mutually exclusive. Do not use them together. The width and
-      -- height of the video in the output file, in pixels. Valid values
-      -- are auto and width x height: auto: Elastic Transcoder attempts to
-      -- preserve the width and height of the input file, subject to the
-      -- following rules. width x height: The width and height of the
-      -- output video in pixels. Note the following about specifying the
-      -- width and height: The width must be an even integer between 128
-      -- and 4096, inclusive. The height must be an even integer between
-      -- 96 and 3072, inclusive. If you specify a resolution that is less
-      -- than the resolution of the input file, Elastic Transcoder
-      -- rescales the output file to the lower resolution. If you specify
-      -- a resolution that is greater than the resolution of the input
-      -- file, Elastic Transcoder rescales the output to the higher
-      -- resolution. We recommend that you specify a resolution for which
-      -- the product of width and height is less than or equal to the
-      -- applicable value in the following list (List - Max width x height
-      -- value): 1 - 25344 1b - 25344 1.1 - 101376 1.2 - 101376 1.3 -
-      -- 101376 2 - 101376 2.1 - 202752 2.2 - 404720 3 - 404720 3.1 -
-      -- 921600 3.2 - 1310720 4 - 2097152 4.1 - 2097152.
     , _vpAspectRatio :: Maybe Text
-      -- ^ To better control resolution and aspect ratio of output videos,
-      -- we recommend that you use the values MaxWidth, MaxHeight,
-      -- SizingPolicy, PaddingPolicy, and DisplayAspectRatio instead of
-      -- Resolution and AspectRatio. The two groups of settings are
-      -- mutually exclusive. Do not use them together. The display aspect
-      -- ratio of the video in the output file. Valid values include:
-      -- auto, 1:1, 4:3, 3:2, 16:9 If you specify auto, Elastic Transcoder
-      -- tries to preserve the aspect ratio of the input file. If you
-      -- specify an aspect ratio for the output file that differs from
-      -- aspect ratio of the input file, Elastic Transcoder adds
-      -- pillarboxing (black bars on the sides) or letterboxing (black
-      -- bars on the top and bottom) to maintain the aspect ratio of the
-      -- active region of the video.
     , _vpMaxWidth :: Maybe Text
-      -- ^ The maximum width of the output video in pixels. If you specify
-      -- auto, Elastic Transcoder uses 1920 (Full HD) as the default
-      -- value. If you specify a numeric value, enter an even integer
-      -- between 128 and 4096.
     , _vpMaxHeight :: Maybe Text
-      -- ^ The maximum height of the output video in pixels. If you specify
-      -- auto, Elastic Transcoder uses 1080 (Full HD) as the default
-      -- value. If you specify a numeric value, enter an even integer
-      -- between 96 and 3072.
     , _vpDisplayAspectRatio :: Maybe Text
-      -- ^ The value that Elastic Transcoder adds to the metadata in the
-      -- output file.
     , _vpSizingPolicy :: Maybe Text
-      -- ^ Specify one of the following values to control scaling of the
-      -- output video: Fit: Elastic Transcoder scales the output video so
-      -- it matches the value that you specified in either MaxWidth or
-      -- MaxHeight without exceeding the other value. Fill: Elastic
-      -- Transcoder scales the output video so it matches the value that
-      -- you specified in either MaxWidth or MaxHeight and matches or
-      -- exceeds the other value. Elastic Transcoder centers the output
-      -- video and then crops it in the dimension (if any) that exceeds
-      -- the maximum value. Stretch: Elastic Transcoder stretches the
-      -- output video to match the values that you specified for MaxWidth
-      -- and MaxHeight. If the relative proportions of the input video and
-      -- the output video are different, the output video will be
-      -- distorted. Keep: Elastic Transcoder does not scale the output
-      -- video. If either dimension of the input video exceeds the values
-      -- that you specified for MaxWidth and MaxHeight, Elastic Transcoder
-      -- crops the output video. ShrinkToFit: Elastic Transcoder scales
-      -- the output video down so that its dimensions match the values
-      -- that you specified for at least one of MaxWidth and MaxHeight
-      -- without exceeding either value. If you specify this option,
-      -- Elastic Transcoder does not scale the video up. ShrinkToFill:
-      -- Elastic Transcoder scales the output video down so that its
-      -- dimensions match the values that you specified for at least one
-      -- of MaxWidth and MaxHeight without dropping below either value. If
-      -- you specify this option, Elastic Transcoder does not scale the
-      -- video up.
     , _vpPaddingPolicy :: Maybe Text
-      -- ^ When you set PaddingPolicy to Pad, Elastic Transcoder may add
-      -- black bars to the top and bottom and/or left and right sides of
-      -- the output video to make the total size of the output video match
-      -- the values that you specified for MaxWidth and MaxHeight.
     , _vpWatermarks :: [PresetWatermark]
-      -- ^ Settings for the size, location, and opacity of graphics that you
-      -- want Elastic Transcoder to overlay over videos that are
-      -- transcoded using this preset. You can specify settings for up to
-      -- four watermarks. Watermarks appear in the specified size and
-      -- location, and with the specified opacity for the duration of the
-      -- transcoded video. Watermarks can be in .png or .jpg format. If
-      -- you want to display a watermark that is not rectangular, use the
-      -- .png format, which supports transparency. When you create a job
-      -- that uses this preset, you specify the .png or .jpg graphics that
-      -- you want Elastic Transcoder to include in the transcoded videos.
-      -- You can specify fewer graphics in the job than you specify
-      -- watermark settings in the preset, which allows you to use the
-      -- same preset for up to four watermarks that have different
-      -- dimensions.
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'VideoParameters' data type to populate a request.
+mkVideoParameters :: VideoParameters
+mkVideoParameters = VideoParameters
+    { _vpCodec = Nothing
+    , _vpCodecOptions = mempty
+    , _vpKeyframesMaxDist = Nothing
+    , _vpFixedGOP = Nothing
+    , _vpBitRate = Nothing
+    , _vpFrameRate = Nothing
+    , _vpMaxFrameRate = Nothing
+    , _vpResolution = Nothing
+    , _vpAspectRatio = Nothing
+    , _vpMaxWidth = Nothing
+    , _vpMaxHeight = Nothing
+    , _vpDisplayAspectRatio = Nothing
+    , _vpSizingPolicy = Nothing
+    , _vpPaddingPolicy = Nothing
+    , _vpWatermarks = mempty
+    }
+{-# INLINE mkVideoParameters #-}
 
 -- | The video codec for the output file. Valid values include H.264 and vp8.
 -- You can only specify vp8 when the container type is webm.
@@ -3153,7 +2279,8 @@ vpCodecOptions = lens _vpCodecOptions (\s a -> s { _vpCodecOptions = a })
 -- inclusive. A higher value results in higher compression but may also
 -- discernibly decrease video quality.
 vpKeyframesMaxDist :: Lens' VideoParameters (Maybe Text)
-vpKeyframesMaxDist = lens _vpKeyframesMaxDist (\s a -> s { _vpKeyframesMaxDist = a })
+vpKeyframesMaxDist =
+    lens _vpKeyframesMaxDist (\s a -> s { _vpKeyframesMaxDist = a })
 {-# INLINE vpKeyframesMaxDist #-}
 
 -- | Whether to use a fixed value for FixedGOP. Valid values are true and false:
@@ -3261,7 +2388,8 @@ vpMaxHeight = lens _vpMaxHeight (\s a -> s { _vpMaxHeight = a })
 
 -- | The value that Elastic Transcoder adds to the metadata in the output file.
 vpDisplayAspectRatio :: Lens' VideoParameters (Maybe Text)
-vpDisplayAspectRatio = lens _vpDisplayAspectRatio (\s a -> s { _vpDisplayAspectRatio = a })
+vpDisplayAspectRatio =
+    lens _vpDisplayAspectRatio (\s a -> s { _vpDisplayAspectRatio = a })
 {-# INLINE vpDisplayAspectRatio #-}
 
 -- | Specify one of the following values to control scaling of the output video:
@@ -3309,31 +2437,9 @@ vpPaddingPolicy = lens _vpPaddingPolicy (\s a -> s { _vpPaddingPolicy = a })
 -- graphics in the job than you specify watermark settings in the preset,
 -- which allows you to use the same preset for up to four watermarks that have
 -- different dimensions.
-vpWatermarks :: Lens' VideoParameters ([PresetWatermark])
+vpWatermarks :: Lens' VideoParameters [PresetWatermark]
 vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a })
 {-# INLINE vpWatermarks #-}
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'VideoParameters' data type to populate a request.
-mkVideoParameters :: VideoParameters
-mkVideoParameters = VideoParameters
-    { _vpCodec = Nothing
-    , _vpCodecOptions = mempty
-    , _vpKeyframesMaxDist = Nothing
-    , _vpFixedGOP = Nothing
-    , _vpBitRate = Nothing
-    , _vpFrameRate = Nothing
-    , _vpMaxFrameRate = Nothing
-    , _vpResolution = Nothing
-    , _vpAspectRatio = Nothing
-    , _vpMaxWidth = Nothing
-    , _vpMaxHeight = Nothing
-    , _vpDisplayAspectRatio = Nothing
-    , _vpSizingPolicy = Nothing
-    , _vpPaddingPolicy = Nothing
-    , _vpWatermarks = mempty
-    }
-{-# INLINE mkVideoParameters #-}
 
 instance FromJSON VideoParameters
 

@@ -31,75 +31,74 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup
     -- * Request
       ModifyCacheSubnetGroup
     -- ** Request constructor
-    , mkModifyCacheSubnetGroupMessage
+    , mkModifyCacheSubnetGroup
     -- ** Request lenses
-    , mcsgmCacheSubnetGroupName
-    , mcsgmCacheSubnetGroupDescription
-    , mcsgmSubnetIds
+    , mcsgCacheSubnetGroupName
+    , mcsgCacheSubnetGroupDescription
+    , mcsgSubnetIds
 
     -- * Response
     , ModifyCacheSubnetGroupResponse
     -- ** Response lenses
-    , csgzCacheSubnetGroup
+    , mcsgrsCacheSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a ModifyCacheSubnetGroup operation.
+data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
+    { _mcsgCacheSubnetGroupName :: Text
+    , _mcsgCacheSubnetGroupDescription :: Maybe Text
+    , _mcsgSubnetIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheSubnetGroup' request.
-mkModifyCacheSubnetGroupMessage :: Text -- ^ 'mcsgmCacheSubnetGroupName'
-                                -> ModifyCacheSubnetGroup
-mkModifyCacheSubnetGroupMessage p1 = ModifyCacheSubnetGroup
-    { _mcsgmCacheSubnetGroupName = p1
-    , _mcsgmCacheSubnetGroupDescription = Nothing
-    , _mcsgmSubnetIds = mempty
+mkModifyCacheSubnetGroup :: Text -- ^ 'mcsgCacheSubnetGroupName'
+                         -> ModifyCacheSubnetGroup
+mkModifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
+    { _mcsgCacheSubnetGroupName = p1
+    , _mcsgCacheSubnetGroupDescription = Nothing
+    , _mcsgSubnetIds = mempty
     }
-{-# INLINE mkModifyCacheSubnetGroupMessage #-}
-
-data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
-    { _mcsgmCacheSubnetGroupName :: Text
-      -- ^ The name for the cache subnet group. This value is stored as a
-      -- lowercase string. Constraints: Must contain no more than 255
-      -- alphanumeric characters or hyphens. Example: mysubnetgroup.
-    , _mcsgmCacheSubnetGroupDescription :: Maybe Text
-      -- ^ A description for the cache subnet group.
-    , _mcsgmSubnetIds :: [Text]
-      -- ^ The EC2 subnet IDs for the cache subnet group.
-    } deriving (Show, Generic)
+{-# INLINE mkModifyCacheSubnetGroup #-}
 
 -- | The name for the cache subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Example: mysubnetgroup.
-mcsgmCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup (Text)
-mcsgmCacheSubnetGroupName = lens _mcsgmCacheSubnetGroupName (\s a -> s { _mcsgmCacheSubnetGroupName = a })
-{-# INLINE mcsgmCacheSubnetGroupName #-}
+mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
+mcsgCacheSubnetGroupName =
+    lens _mcsgCacheSubnetGroupName
+         (\s a -> s { _mcsgCacheSubnetGroupName = a })
+{-# INLINE mcsgCacheSubnetGroupName #-}
 
 -- | A description for the cache subnet group.
-mcsgmCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
-mcsgmCacheSubnetGroupDescription = lens _mcsgmCacheSubnetGroupDescription (\s a -> s { _mcsgmCacheSubnetGroupDescription = a })
-{-# INLINE mcsgmCacheSubnetGroupDescription #-}
+mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
+mcsgCacheSubnetGroupDescription =
+    lens _mcsgCacheSubnetGroupDescription
+         (\s a -> s { _mcsgCacheSubnetGroupDescription = a })
+{-# INLINE mcsgCacheSubnetGroupDescription #-}
 
 -- | The EC2 subnet IDs for the cache subnet group.
-mcsgmSubnetIds :: Lens' ModifyCacheSubnetGroup ([Text])
-mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
-{-# INLINE mcsgmSubnetIds #-}
+mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
+mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
+{-# INLINE mcsgSubnetIds #-}
 
 instance ToQuery ModifyCacheSubnetGroup where
     toQuery = genericQuery def
 
 newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
-    { _csgzCacheSubnetGroup :: Maybe CacheSubnetGroup
-      -- ^ Represents the output of one of the following operations:
-      -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
+    { _mcsgrsCacheSubnetGroup :: Maybe CacheSubnetGroup
     } deriving (Show, Generic)
 
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
-csgzCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-csgzCacheSubnetGroup = lens _csgzCacheSubnetGroup (\s a -> s { _csgzCacheSubnetGroup = a })
-{-# INLINE csgzCacheSubnetGroup #-}
+mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
+mcsgrsCacheSubnetGroup =
+    lens _mcsgrsCacheSubnetGroup (\s a -> s { _mcsgrsCacheSubnetGroup = a })
+{-# INLINE mcsgrsCacheSubnetGroup #-}
 
 instance FromXML ModifyCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions

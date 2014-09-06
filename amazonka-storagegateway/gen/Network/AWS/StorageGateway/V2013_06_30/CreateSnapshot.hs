@@ -50,16 +50,16 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , mkCreateSnapshotInput
+    , mkCreateSnapshot
     -- ** Request lenses
-    , csiVolumeARN
-    , csiSnapshotDescription
+    , csVolumeARN
+    , csSnapshotDescription
 
     -- * Response
     , CreateSnapshotResponse
     -- ** Response lenses
-    , csoVolumeARN
-    , csoSnapshotId
+    , csrsVolumeARN
+    , csrsSnapshotId
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -67,40 +67,37 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing one or more of the following fields:
+-- CreateSnapshotInput$SnapshotDescription CreateSnapshotInput$VolumeARN.
+data CreateSnapshot = CreateSnapshot
+    { _csVolumeARN :: Text
+    , _csSnapshotDescription :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshot' request.
-mkCreateSnapshotInput :: Text -- ^ 'csiVolumeARN'
-                      -> Text -- ^ 'csiSnapshotDescription'
-                      -> CreateSnapshot
-mkCreateSnapshotInput p1 p2 = CreateSnapshot
-    { _csiVolumeARN = p1
-    , _csiSnapshotDescription = p2
+mkCreateSnapshot :: Text -- ^ 'csVolumeARN'
+                 -> Text -- ^ 'csSnapshotDescription'
+                 -> CreateSnapshot
+mkCreateSnapshot p1 p2 = CreateSnapshot
+    { _csVolumeARN = p1
+    , _csSnapshotDescription = p2
     }
-{-# INLINE mkCreateSnapshotInput #-}
-
-data CreateSnapshot = CreateSnapshot
-    { _csiVolumeARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
-      -- operation to return a list of gateway volumes.
-    , _csiSnapshotDescription :: Text
-      -- ^ Textual description of the snapshot that appears in the Amazon
-      -- EC2 console, Elastic Block Store snapshots panel in the
-      -- Description field, and in the AWS Storage Gateway snapshot
-      -- Details pane, Description field.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateSnapshot #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-csiVolumeARN :: Lens' CreateSnapshot (Text)
-csiVolumeARN = lens _csiVolumeARN (\s a -> s { _csiVolumeARN = a })
-{-# INLINE csiVolumeARN #-}
+csVolumeARN :: Lens' CreateSnapshot Text
+csVolumeARN = lens _csVolumeARN (\s a -> s { _csVolumeARN = a })
+{-# INLINE csVolumeARN #-}
 
 -- | Textual description of the snapshot that appears in the Amazon EC2 console,
 -- Elastic Block Store snapshots panel in the Description field, and in the
 -- AWS Storage Gateway snapshot Details pane, Description field.
-csiSnapshotDescription :: Lens' CreateSnapshot (Text)
-csiSnapshotDescription = lens _csiSnapshotDescription (\s a -> s { _csiSnapshotDescription = a })
-{-# INLINE csiSnapshotDescription #-}
+csSnapshotDescription :: Lens' CreateSnapshot Text
+csSnapshotDescription =
+    lens _csSnapshotDescription (\s a -> s { _csSnapshotDescription = a })
+{-# INLINE csSnapshotDescription #-}
 
 instance ToPath CreateSnapshot
 
@@ -110,30 +107,25 @@ instance ToHeaders CreateSnapshot
 
 instance ToJSON CreateSnapshot
 
+-- | A JSON object containing the following fields:.
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _csoVolumeARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the volume of which the
-      -- snapshot was taken.
-    , _csoSnapshotId :: Maybe Text
-      -- ^ The snapshot ID that is used to refer to the snapshot in future
-      -- operations such as describing snapshots (Amazon Elastic Compute
-      -- Cloud API DescribeSnapshots) or creating a volume from a snapshot
-      -- (CreateStorediSCSIVolume).
+    { _csrsVolumeARN :: Maybe Text
+    , _csrsSnapshotId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.
-csoVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
-csoVolumeARN = lens _csoVolumeARN (\s a -> s { _csoVolumeARN = a })
-{-# INLINE csoVolumeARN #-}
+csrsVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsVolumeARN = lens _csrsVolumeARN (\s a -> s { _csrsVolumeARN = a })
+{-# INLINE csrsVolumeARN #-}
 
 -- | The snapshot ID that is used to refer to the snapshot in future operations
 -- such as describing snapshots (Amazon Elastic Compute Cloud API
 -- DescribeSnapshots) or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume).
-csoSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-csoSnapshotId = lens _csoSnapshotId (\s a -> s { _csoSnapshotId = a })
-{-# INLINE csoSnapshotId #-}
+csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsSnapshotId = lens _csrsSnapshotId (\s a -> s { _csrsSnapshotId = a })
+{-# INLINE csrsSnapshotId #-}
 
 instance FromJSON CreateSnapshotResponse
 

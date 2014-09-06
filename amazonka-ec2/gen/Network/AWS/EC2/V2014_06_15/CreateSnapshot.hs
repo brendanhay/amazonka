@@ -56,134 +56,127 @@ module Network.AWS.EC2.V2014_06_15.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , mkCreateSnapshotRequest
+    , mkCreateSnapshot
     -- ** Request lenses
-    , cstVolumeId
-    , cstDescription
+    , cs1VolumeId
+    , cs1Description
 
     -- * Response
     , CreateSnapshotResponse
     -- ** Response lenses
-    , svSnapshotId
-    , svVolumeId
-    , svState
-    , svStartTime
-    , svProgress
-    , svOwnerId
-    , svDescription
-    , svVolumeSize
-    , svOwnerAlias
-    , svEncrypted
+    , csrsrsSnapshotId
+    , csrsrsVolumeId
+    , csrsrsState
+    , csrsrsStartTime
+    , csrsrsProgress
+    , csrsrsOwnerId
+    , csrsrsDescription
+    , csrsrsVolumeSize
+    , csrsrsOwnerAlias
+    , csrsrsEncrypted
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateSnapshot' request.
-mkCreateSnapshotRequest :: Text -- ^ 'cstVolumeId'
-                        -> CreateSnapshot
-mkCreateSnapshotRequest p1 = CreateSnapshot
-    { _cstVolumeId = p1
-    , _cstDescription = Nothing
-    }
-{-# INLINE mkCreateSnapshotRequest #-}
-
+-- | 
 data CreateSnapshot = CreateSnapshot
-    { _cstVolumeId :: Text
-      -- ^ The ID of the Amazon EBS volume.
-    , _cstDescription :: Maybe Text
-      -- ^ A description for the snapshot.
+    { _cs1VolumeId :: Text
+    , _cs1Description :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSnapshot' request.
+mkCreateSnapshot :: Text -- ^ 'cs1VolumeId'
+                 -> CreateSnapshot
+mkCreateSnapshot p1 = CreateSnapshot
+    { _cs1VolumeId = p1
+    , _cs1Description = Nothing
+    }
+{-# INLINE mkCreateSnapshot #-}
+
 -- | The ID of the Amazon EBS volume.
-cstVolumeId :: Lens' CreateSnapshot (Text)
-cstVolumeId = lens _cstVolumeId (\s a -> s { _cstVolumeId = a })
-{-# INLINE cstVolumeId #-}
+cs1VolumeId :: Lens' CreateSnapshot Text
+cs1VolumeId = lens _cs1VolumeId (\s a -> s { _cs1VolumeId = a })
+{-# INLINE cs1VolumeId #-}
 
 -- | A description for the snapshot.
-cstDescription :: Lens' CreateSnapshot (Maybe Text)
-cstDescription = lens _cstDescription (\s a -> s { _cstDescription = a })
-{-# INLINE cstDescription #-}
+cs1Description :: Lens' CreateSnapshot (Maybe Text)
+cs1Description = lens _cs1Description (\s a -> s { _cs1Description = a })
+{-# INLINE cs1Description #-}
 
 instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
+-- | 
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _svSnapshotId :: Maybe Text
-      -- ^ The ID of the snapshot.
-    , _svVolumeId :: Maybe Text
-      -- ^ The ID of the volume.
-    , _svState :: Maybe SnapshotState
-      -- ^ The snapshot state.
-    , _svStartTime :: Maybe ISO8601
-      -- ^ The time stamp when the snapshot was initiated.
-    , _svProgress :: Maybe Text
-      -- ^ The progress of the snapshot, as a percentage.
-    , _svOwnerId :: Maybe Text
-      -- ^ The AWS account ID of the Amazon EBS snapshot owner.
-    , _svDescription :: Maybe Text
-      -- ^ The description for the snapshot.
-    , _svVolumeSize :: Maybe Integer
-      -- ^ The size of the volume, in GiB.
-    , _svOwnerAlias :: Maybe Text
-      -- ^ The AWS account alias (for example, amazon, self) or AWS account
-      -- ID that owns the snapshot.
-    , _svEncrypted :: Maybe Bool
-      -- ^ Indicates whether the snapshot is encrypted.
+    { _csrsrsSnapshotId :: Maybe Text
+    , _csrsrsVolumeId :: Maybe Text
+    , _csrsrsState :: Maybe SnapshotState
+    , _csrsrsStartTime :: Maybe ISO8601
+    , _csrsrsProgress :: Maybe Text
+    , _csrsrsOwnerId :: Maybe Text
+    , _csrsrsDescription :: Maybe Text
+    , _csrsrsVolumeSize :: Maybe Integer
+    , _csrsrsOwnerAlias :: Maybe Text
+    , _csrsrsEncrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The ID of the snapshot.
-svSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-svSnapshotId = lens _svSnapshotId (\s a -> s { _svSnapshotId = a })
-{-# INLINE svSnapshotId #-}
+csrsrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsrsSnapshotId =
+    lens _csrsrsSnapshotId (\s a -> s { _csrsrsSnapshotId = a })
+{-# INLINE csrsrsSnapshotId #-}
 
 -- | The ID of the volume.
-svVolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
-svVolumeId = lens _svVolumeId (\s a -> s { _svVolumeId = a })
-{-# INLINE svVolumeId #-}
+csrsrsVolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsrsVolumeId = lens _csrsrsVolumeId (\s a -> s { _csrsrsVolumeId = a })
+{-# INLINE csrsrsVolumeId #-}
 
 -- | The snapshot state.
-svState :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
-svState = lens _svState (\s a -> s { _svState = a })
-{-# INLINE svState #-}
+csrsrsState :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
+csrsrsState = lens _csrsrsState (\s a -> s { _csrsrsState = a })
+{-# INLINE csrsrsState #-}
 
 -- | The time stamp when the snapshot was initiated.
-svStartTime :: Lens' CreateSnapshotResponse (Maybe ISO8601)
-svStartTime = lens _svStartTime (\s a -> s { _svStartTime = a })
-{-# INLINE svStartTime #-}
+csrsrsStartTime :: Lens' CreateSnapshotResponse (Maybe ISO8601)
+csrsrsStartTime = lens _csrsrsStartTime (\s a -> s { _csrsrsStartTime = a })
+{-# INLINE csrsrsStartTime #-}
 
 -- | The progress of the snapshot, as a percentage.
-svProgress :: Lens' CreateSnapshotResponse (Maybe Text)
-svProgress = lens _svProgress (\s a -> s { _svProgress = a })
-{-# INLINE svProgress #-}
+csrsrsProgress :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsrsProgress = lens _csrsrsProgress (\s a -> s { _csrsrsProgress = a })
+{-# INLINE csrsrsProgress #-}
 
 -- | The AWS account ID of the Amazon EBS snapshot owner.
-svOwnerId :: Lens' CreateSnapshotResponse (Maybe Text)
-svOwnerId = lens _svOwnerId (\s a -> s { _svOwnerId = a })
-{-# INLINE svOwnerId #-}
+csrsrsOwnerId :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsrsOwnerId = lens _csrsrsOwnerId (\s a -> s { _csrsrsOwnerId = a })
+{-# INLINE csrsrsOwnerId #-}
 
 -- | The description for the snapshot.
-svDescription :: Lens' CreateSnapshotResponse (Maybe Text)
-svDescription = lens _svDescription (\s a -> s { _svDescription = a })
-{-# INLINE svDescription #-}
+csrsrsDescription :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsrsDescription =
+    lens _csrsrsDescription (\s a -> s { _csrsrsDescription = a })
+{-# INLINE csrsrsDescription #-}
 
 -- | The size of the volume, in GiB.
-svVolumeSize :: Lens' CreateSnapshotResponse (Maybe Integer)
-svVolumeSize = lens _svVolumeSize (\s a -> s { _svVolumeSize = a })
-{-# INLINE svVolumeSize #-}
+csrsrsVolumeSize :: Lens' CreateSnapshotResponse (Maybe Integer)
+csrsrsVolumeSize =
+    lens _csrsrsVolumeSize (\s a -> s { _csrsrsVolumeSize = a })
+{-# INLINE csrsrsVolumeSize #-}
 
 -- | The AWS account alias (for example, amazon, self) or AWS account ID that
 -- owns the snapshot.
-svOwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)
-svOwnerAlias = lens _svOwnerAlias (\s a -> s { _svOwnerAlias = a })
-{-# INLINE svOwnerAlias #-}
+csrsrsOwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsrsOwnerAlias =
+    lens _csrsrsOwnerAlias (\s a -> s { _csrsrsOwnerAlias = a })
+{-# INLINE csrsrsOwnerAlias #-}
 
 -- | Indicates whether the snapshot is encrypted.
-svEncrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
-svEncrypted = lens _svEncrypted (\s a -> s { _svEncrypted = a })
-{-# INLINE svEncrypted #-}
+csrsrsEncrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
+csrsrsEncrypted = lens _csrsrsEncrypted (\s a -> s { _csrsrsEncrypted = a })
+{-# INLINE csrsrsEncrypted #-}
 
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions

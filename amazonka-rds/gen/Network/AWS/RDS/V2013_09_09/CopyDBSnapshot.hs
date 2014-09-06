@@ -31,54 +31,40 @@ module Network.AWS.RDS.V2013_09_09.CopyDBSnapshot
     -- * Request
       CopyDBSnapshot
     -- ** Request constructor
-    , mkCopyDBSnapshotMessage
+    , mkCopyDBSnapshot
     -- ** Request lenses
-    , cdbsmSourceDBSnapshotIdentifier
-    , cdbsmTargetDBSnapshotIdentifier
-    , cdbsmTags
+    , cdbsSourceDBSnapshotIdentifier
+    , cdbsTargetDBSnapshotIdentifier
+    , cdbsTags
 
     -- * Response
     , CopyDBSnapshotResponse
     -- ** Response lenses
-    , dbswDBSnapshot
+    , cdbsrsDBSnapshot
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data CopyDBSnapshot = CopyDBSnapshot
+    { _cdbsSourceDBSnapshotIdentifier :: Text
+    , _cdbsTargetDBSnapshotIdentifier :: Text
+    , _cdbsTags :: [Tag]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyDBSnapshot' request.
-mkCopyDBSnapshotMessage :: Text -- ^ 'cdbsmSourceDBSnapshotIdentifier'
-                        -> Text -- ^ 'cdbsmTargetDBSnapshotIdentifier'
-                        -> CopyDBSnapshot
-mkCopyDBSnapshotMessage p1 p2 = CopyDBSnapshot
-    { _cdbsmSourceDBSnapshotIdentifier = p1
-    , _cdbsmTargetDBSnapshotIdentifier = p2
-    , _cdbsmTags = mempty
+mkCopyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
+                 -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
+                 -> CopyDBSnapshot
+mkCopyDBSnapshot p1 p2 = CopyDBSnapshot
+    { _cdbsSourceDBSnapshotIdentifier = p1
+    , _cdbsTargetDBSnapshotIdentifier = p2
+    , _cdbsTags = mempty
     }
-{-# INLINE mkCopyDBSnapshotMessage #-}
-
-data CopyDBSnapshot = CopyDBSnapshot
-    { _cdbsmSourceDBSnapshotIdentifier :: Text
-      -- ^ The identifier for the source DB snapshot. Constraints: Must
-      -- specify a valid system snapshot in the "available" state. If the
-      -- source snapshot is in the same region as the copy, specify a
-      -- valid DB snapshot identifier. If the source snapshot is in a
-      -- different region than the copy, specify valid DB snapshot ARN.
-      -- For more information, go to Copying a DB Snapshot. Example:
-      -- rds:mydb-2012-04-02-00-01 Example:
-      -- arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805.
-      -- 
-    , _cdbsmTargetDBSnapshotIdentifier :: Text
-      -- ^ The identifier for the copied snapshot. Constraints: Cannot be
-      -- null, empty, or blank Must contain from 1 to 255 alphanumeric
-      -- characters or hyphens First character must be a letter Cannot end
-      -- with a hyphen or contain two consecutive hyphens Example:
-      -- my-db-snapshot.
-    , _cdbsmTags :: [Tag]
-      -- ^ A list of tags.
-    } deriving (Show, Generic)
+{-# INLINE mkCopyDBSnapshot #-}
 
 -- | The identifier for the source DB snapshot. Constraints: Must specify a
 -- valid system snapshot in the "available" state. If the source snapshot is
@@ -88,39 +74,41 @@ data CopyDBSnapshot = CopyDBSnapshot
 -- Example: rds:mydb-2012-04-02-00-01 Example:
 -- arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805.
 -- 
-cdbsmSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot (Text)
-cdbsmSourceDBSnapshotIdentifier = lens _cdbsmSourceDBSnapshotIdentifier (\s a -> s { _cdbsmSourceDBSnapshotIdentifier = a })
-{-# INLINE cdbsmSourceDBSnapshotIdentifier #-}
+cdbsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
+cdbsSourceDBSnapshotIdentifier =
+    lens _cdbsSourceDBSnapshotIdentifier
+         (\s a -> s { _cdbsSourceDBSnapshotIdentifier = a })
+{-# INLINE cdbsSourceDBSnapshotIdentifier #-}
 
 -- | The identifier for the copied snapshot. Constraints: Cannot be null, empty,
 -- or blank Must contain from 1 to 255 alphanumeric characters or hyphens
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: my-db-snapshot.
-cdbsmTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot (Text)
-cdbsmTargetDBSnapshotIdentifier = lens _cdbsmTargetDBSnapshotIdentifier (\s a -> s { _cdbsmTargetDBSnapshotIdentifier = a })
-{-# INLINE cdbsmTargetDBSnapshotIdentifier #-}
+cdbsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
+cdbsTargetDBSnapshotIdentifier =
+    lens _cdbsTargetDBSnapshotIdentifier
+         (\s a -> s { _cdbsTargetDBSnapshotIdentifier = a })
+{-# INLINE cdbsTargetDBSnapshotIdentifier #-}
 
 -- | A list of tags.
-cdbsmTags :: Lens' CopyDBSnapshot ([Tag])
-cdbsmTags = lens _cdbsmTags (\s a -> s { _cdbsmTags = a })
-{-# INLINE cdbsmTags #-}
+cdbsTags :: Lens' CopyDBSnapshot [Tag]
+cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a })
+{-# INLINE cdbsTags #-}
 
 instance ToQuery CopyDBSnapshot where
     toQuery = genericQuery def
 
 newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
-    { _dbswDBSnapshot :: Maybe DBSnapshot
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBSnapshot DeleteDBSnapshot This data type is used
-      -- as a response element in the DescribeDBSnapshots action.
+    { _cdbsrsDBSnapshot :: Maybe DBSnapshot
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
-dbswDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
-dbswDBSnapshot = lens _dbswDBSnapshot (\s a -> s { _dbswDBSnapshot = a })
-{-# INLINE dbswDBSnapshot #-}
+cdbsrsDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
+cdbsrsDBSnapshot =
+    lens _cdbsrsDBSnapshot (\s a -> s { _cdbsrsDBSnapshot = a })
+{-# INLINE cdbsrsDBSnapshot #-}
 
 instance FromXML CopyDBSnapshotResponse where
     fromXMLOptions = xmlOptions

@@ -26,71 +26,67 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineExpression
     -- * Request
       DefineExpression
     -- ** Request constructor
-    , mkDefineExpressionRequest
+    , mkDefineExpression
     -- ** Request lenses
-    , derDomainName
-    , derExpression
+    , deDomainName
+    , deExpression
 
     -- * Response
     , DefineExpressionResponse
     -- ** Response lenses
-    , desExpression
+    , dersExpression
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
+-- | Container for the parameters to the DefineExpression operation. Specifies
+-- the name of the domain you want to update and the expression you want to
+-- configure.
+data DefineExpression = DefineExpression
+    { _deDomainName :: Text
+    , _deExpression :: Expression
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineExpression' request.
-mkDefineExpressionRequest :: Text -- ^ 'derDomainName'
-                          -> Expression -- ^ 'derExpression'
-                          -> DefineExpression
-mkDefineExpressionRequest p1 p2 = DefineExpression
-    { _derDomainName = p1
-    , _derExpression = p2
+mkDefineExpression :: Text -- ^ 'deDomainName'
+                   -> Expression -- ^ 'deExpression'
+                   -> DefineExpression
+mkDefineExpression p1 p2 = DefineExpression
+    { _deDomainName = p1
+    , _deExpression = p2
     }
-{-# INLINE mkDefineExpressionRequest #-}
-
-data DefineExpression = DefineExpression
-    { _derDomainName :: Text
-      -- ^ A string that represents the name of a domain. Domain names are
-      -- unique across the domains owned by an account within an AWS
-      -- region. Domain names start with a letter or number and can
-      -- contain the following characters: a-z (lowercase), 0-9, and -
-      -- (hyphen).
-    , _derExpression :: Expression
-      -- ^ A named expression that can be evaluated at search time. Can be
-      -- used for sorting and filtering search results and constructing
-      -- other expressions.
-    } deriving (Show, Generic)
+{-# INLINE mkDefineExpression #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
 -- start with a letter or number and can contain the following characters: a-z
 -- (lowercase), 0-9, and - (hyphen).
-derDomainName :: Lens' DefineExpression (Text)
-derDomainName = lens _derDomainName (\s a -> s { _derDomainName = a })
-{-# INLINE derDomainName #-}
+deDomainName :: Lens' DefineExpression Text
+deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
+{-# INLINE deDomainName #-}
 
 -- | A named expression that can be evaluated at search time. Can be used for
 -- sorting and filtering search results and constructing other expressions.
-derExpression :: Lens' DefineExpression (Expression)
-derExpression = lens _derExpression (\s a -> s { _derExpression = a })
-{-# INLINE derExpression #-}
+deExpression :: Lens' DefineExpression Expression
+deExpression = lens _deExpression (\s a -> s { _deExpression = a })
+{-# INLINE deExpression #-}
 
 instance ToQuery DefineExpression where
     toQuery = genericQuery def
 
+-- | The result of a DefineExpression request. Contains the status of the
+-- newly-configured expression.
 newtype DefineExpressionResponse = DefineExpressionResponse
-    { _desExpression :: ExpressionStatus
-      -- ^ The value of an Expression and its current status.
+    { _dersExpression :: ExpressionStatus
     } deriving (Show, Generic)
 
 -- | The value of an Expression and its current status.
-desExpression :: Lens' DefineExpressionResponse (ExpressionStatus)
-desExpression = lens _desExpression (\s a -> s { _desExpression = a })
-{-# INLINE desExpression #-}
+dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
+dersExpression = lens _dersExpression (\s a -> s { _dersExpression = a })
+{-# INLINE dersExpression #-}
 
 instance FromXML DefineExpressionResponse where
     fromXMLOptions = xmlOptions

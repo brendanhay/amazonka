@@ -32,9 +32,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteDhcpOptions
     -- * Request
       DeleteDhcpOptions
     -- ** Request constructor
-    , mkDeleteDhcpOptionsRequest
+    , mkDeleteDhcpOptions
     -- ** Request lenses
-    , ddorDhcpOptionsId
+    , ddoDhcpOptionsId
 
     -- * Response
     , DeleteDhcpOptionsResponse
@@ -44,24 +44,25 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteDhcpOptions' request.
-mkDeleteDhcpOptionsRequest :: Text -- ^ 'ddorDhcpOptionsId'
-                           -> DeleteDhcpOptions
-mkDeleteDhcpOptionsRequest p1 = DeleteDhcpOptions
-    { _ddorDhcpOptionsId = p1
-    }
-{-# INLINE mkDeleteDhcpOptionsRequest #-}
-
+-- | 
 newtype DeleteDhcpOptions = DeleteDhcpOptions
-    { _ddorDhcpOptionsId :: Text
-      -- ^ The ID of the DHCP options set.
+    { _ddoDhcpOptionsId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDhcpOptions' request.
+mkDeleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
+                    -> DeleteDhcpOptions
+mkDeleteDhcpOptions p1 = DeleteDhcpOptions
+    { _ddoDhcpOptionsId = p1
+    }
+{-# INLINE mkDeleteDhcpOptions #-}
+
 -- | The ID of the DHCP options set.
-ddorDhcpOptionsId :: Lens' DeleteDhcpOptions (Text)
-ddorDhcpOptionsId = lens _ddorDhcpOptionsId (\s a -> s { _ddorDhcpOptionsId = a })
-{-# INLINE ddorDhcpOptionsId #-}
+ddoDhcpOptionsId :: Lens' DeleteDhcpOptions Text
+ddoDhcpOptionsId =
+    lens _ddoDhcpOptionsId (\s a -> s { _ddoDhcpOptionsId = a })
+{-# INLINE ddoDhcpOptionsId #-}
 
 instance ToQuery DeleteDhcpOptions where
     toQuery = genericQuery def

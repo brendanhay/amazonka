@@ -36,10 +36,10 @@ module Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute
     -- * Request
       ResetInstanceAttribute
     -- ** Request constructor
-    , mkResetInstanceAttributeRequest
+    , mkResetInstanceAttribute
     -- ** Request lenses
-    , riasInstanceId
-    , riasAttribute
+    , ria1InstanceId
+    , ria1Attribute
 
     -- * Response
     , ResetInstanceAttributeResponse
@@ -49,33 +49,32 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetInstanceAttribute' request.
-mkResetInstanceAttributeRequest :: Text -- ^ 'riasInstanceId'
-                                -> InstanceAttributeName -- ^ 'riasAttribute'
-                                -> ResetInstanceAttribute
-mkResetInstanceAttributeRequest p1 p2 = ResetInstanceAttribute
-    { _riasInstanceId = p1
-    , _riasAttribute = p2
-    }
-{-# INLINE mkResetInstanceAttributeRequest #-}
-
+-- | 
 data ResetInstanceAttribute = ResetInstanceAttribute
-    { _riasInstanceId :: Text
-      -- ^ The ID of the instance.
-    , _riasAttribute :: InstanceAttributeName
-      -- ^ The attribute to reset.
+    { _ria1InstanceId :: Text
+    , _ria1Attribute :: InstanceAttributeName
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetInstanceAttribute' request.
+mkResetInstanceAttribute :: Text -- ^ 'ria1InstanceId'
+                         -> InstanceAttributeName -- ^ 'ria1Attribute'
+                         -> ResetInstanceAttribute
+mkResetInstanceAttribute p1 p2 = ResetInstanceAttribute
+    { _ria1InstanceId = p1
+    , _ria1Attribute = p2
+    }
+{-# INLINE mkResetInstanceAttribute #-}
+
 -- | The ID of the instance.
-riasInstanceId :: Lens' ResetInstanceAttribute (Text)
-riasInstanceId = lens _riasInstanceId (\s a -> s { _riasInstanceId = a })
-{-# INLINE riasInstanceId #-}
+ria1InstanceId :: Lens' ResetInstanceAttribute Text
+ria1InstanceId = lens _ria1InstanceId (\s a -> s { _ria1InstanceId = a })
+{-# INLINE ria1InstanceId #-}
 
 -- | The attribute to reset.
-riasAttribute :: Lens' ResetInstanceAttribute (InstanceAttributeName)
-riasAttribute = lens _riasAttribute (\s a -> s { _riasAttribute = a })
-{-# INLINE riasAttribute #-}
+ria1Attribute :: Lens' ResetInstanceAttribute InstanceAttributeName
+ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
+{-# INLINE ria1Attribute #-}
 
 instance ToQuery ResetInstanceAttribute where
     toQuery = genericQuery def

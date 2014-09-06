@@ -34,65 +34,64 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster
     -- * Request
       DeleteCacheCluster
     -- ** Request constructor
-    , mkDeleteCacheClusterMessage
+    , mkDeleteCacheCluster
     -- ** Request lenses
-    , dccmCacheClusterId
-    , dccmFinalSnapshotIdentifier
+    , dccCacheClusterId
+    , dccFinalSnapshotIdentifier
 
     -- * Response
     , DeleteCacheClusterResponse
     -- ** Response lenses
-    , ccxCacheCluster
+    , dccrsCacheCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DeleteCacheCluster operation.
+data DeleteCacheCluster = DeleteCacheCluster
+    { _dccCacheClusterId :: Text
+    , _dccFinalSnapshotIdentifier :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheCluster' request.
-mkDeleteCacheClusterMessage :: Text -- ^ 'dccmCacheClusterId'
-                            -> DeleteCacheCluster
-mkDeleteCacheClusterMessage p1 = DeleteCacheCluster
-    { _dccmCacheClusterId = p1
-    , _dccmFinalSnapshotIdentifier = Nothing
+mkDeleteCacheCluster :: Text -- ^ 'dccCacheClusterId'
+                     -> DeleteCacheCluster
+mkDeleteCacheCluster p1 = DeleteCacheCluster
+    { _dccCacheClusterId = p1
+    , _dccFinalSnapshotIdentifier = Nothing
     }
-{-# INLINE mkDeleteCacheClusterMessage #-}
-
-data DeleteCacheCluster = DeleteCacheCluster
-    { _dccmCacheClusterId :: Text
-      -- ^ The cache cluster identifier for the cluster to be deleted. This
-      -- parameter is not case sensitive.
-    , _dccmFinalSnapshotIdentifier :: Maybe Text
-      -- ^ The name of a final cache cluster snapshot. ElastiCache creates
-      -- the snapshot, and then deletes the cache cluster immediately
-      -- afterward.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteCacheCluster #-}
 
 -- | The cache cluster identifier for the cluster to be deleted. This parameter
 -- is not case sensitive.
-dccmCacheClusterId :: Lens' DeleteCacheCluster (Text)
-dccmCacheClusterId = lens _dccmCacheClusterId (\s a -> s { _dccmCacheClusterId = a })
-{-# INLINE dccmCacheClusterId #-}
+dccCacheClusterId :: Lens' DeleteCacheCluster Text
+dccCacheClusterId =
+    lens _dccCacheClusterId (\s a -> s { _dccCacheClusterId = a })
+{-# INLINE dccCacheClusterId #-}
 
 -- | The name of a final cache cluster snapshot. ElastiCache creates the
 -- snapshot, and then deletes the cache cluster immediately afterward.
-dccmFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
-dccmFinalSnapshotIdentifier = lens _dccmFinalSnapshotIdentifier (\s a -> s { _dccmFinalSnapshotIdentifier = a })
-{-# INLINE dccmFinalSnapshotIdentifier #-}
+dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
+dccFinalSnapshotIdentifier =
+    lens _dccFinalSnapshotIdentifier
+         (\s a -> s { _dccFinalSnapshotIdentifier = a })
+{-# INLINE dccFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteCacheCluster where
     toQuery = genericQuery def
 
 newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
-    { _ccxCacheCluster :: Maybe CacheCluster
-      -- ^ Contains all of the attributes of a specific cache cluster.
+    { _dccrsCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-ccxCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
-ccxCacheCluster = lens _ccxCacheCluster (\s a -> s { _ccxCacheCluster = a })
-{-# INLINE ccxCacheCluster #-}
+dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
+dccrsCacheCluster =
+    lens _dccrsCacheCluster (\s a -> s { _dccrsCacheCluster = a })
+{-# INLINE dccrsCacheCluster #-}
 
 instance FromXML DeleteCacheClusterResponse where
     fromXMLOptions = xmlOptions

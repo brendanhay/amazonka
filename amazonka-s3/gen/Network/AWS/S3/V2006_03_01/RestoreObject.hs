@@ -25,12 +25,12 @@ module Network.AWS.S3.V2006_03_01.RestoreObject
     -- ** Request alias
     , PostObjectRestore
     -- ** Request constructor
-    , mkRestoreObjectRequest
+    , mkRestoreObject
     -- ** Request lenses
-    , rorBucket
-    , rorKey
-    , rorVersionId
-    , rorRestoreRequest
+    , roBucket
+    , roKey
+    , roVersionId
+    , roRestoreRequest
 
     -- * Response
     , RestoreObjectResponse
@@ -39,61 +39,64 @@ module Network.AWS.S3.V2006_03_01.RestoreObject
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
 
 type PostObjectRestore = RestoreObject
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RestoreObject' request.
-mkRestoreObjectRequest :: BucketName -- ^ 'rorBucket'
-                       -> ObjectKey -- ^ 'rorKey'
-                       -> RestoreObject
-mkRestoreObjectRequest p1 p2 = RestoreObject
-    { _rorBucket = p1
-    , _rorKey = p2
-    , _rorVersionId = Nothing
-    , _rorRestoreRequest = Nothing
-    }
-{-# INLINE mkRestoreObjectRequest #-}
-
 data RestoreObject = RestoreObject
-    { _rorBucket :: BucketName
-    , _rorKey :: ObjectKey
-    , _rorVersionId :: Maybe ObjectVersionId
-    , _rorRestoreRequest :: Maybe RestoreRequest
+    { _roBucket :: BucketName
+    , _roKey :: ObjectKey
+    , _roVersionId :: Maybe ObjectVersionId
+    , _roRestoreRequest :: Maybe RestoreRequest
     } deriving (Show, Generic)
 
-rorBucket :: Lens' RestoreObject (BucketName)
-rorBucket = lens _rorBucket (\s a -> s { _rorBucket = a })
-{-# INLINE rorBucket #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestoreObject' request.
+mkRestoreObject :: BucketName -- ^ 'roBucket'
+                -> ObjectKey -- ^ 'roKey'
+                -> RestoreObject
+mkRestoreObject p1 p2 = RestoreObject
+    { _roBucket = p1
+    , _roKey = p2
+    , _roVersionId = Nothing
+    , _roRestoreRequest = Nothing
+    }
+{-# INLINE mkRestoreObject #-}
 
-rorKey :: Lens' RestoreObject (ObjectKey)
-rorKey = lens _rorKey (\s a -> s { _rorKey = a })
-{-# INLINE rorKey #-}
+roBucket :: Lens' RestoreObject BucketName
+roBucket = lens _roBucket (\s a -> s { _roBucket = a })
+{-# INLINE roBucket #-}
 
-rorVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
-rorVersionId = lens _rorVersionId (\s a -> s { _rorVersionId = a })
-{-# INLINE rorVersionId #-}
+roKey :: Lens' RestoreObject ObjectKey
+roKey = lens _roKey (\s a -> s { _roKey = a })
+{-# INLINE roKey #-}
 
-rorRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
-rorRestoreRequest = lens _rorRestoreRequest (\s a -> s { _rorRestoreRequest = a })
-{-# INLINE rorRestoreRequest #-}
+roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
+roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
+{-# INLINE roVersionId #-}
+
+roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
+roRestoreRequest =
+    lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
+{-# INLINE roRestoreRequest #-}
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
         [ "/"
-        , toBS _rorBucket
+        , toBS _roBucket
         , "/"
-        , toBS _rorKey
+        , toBS _roKey
         ]
 
 instance ToQuery RestoreObject where
     toQuery RestoreObject{..} = mconcat
-        [ "restore&versionId" =? _rorVersionId
+        [ "restore&versionId" =? _roVersionId
         ]
 
 instance ToHeaders RestoreObject
 
-instance ToBody RestoreObject
+instance ToBody RestoreObject where
+    toBody = toBody . encodeXML . _roRestoreRequest
 
 data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Show, Generic)

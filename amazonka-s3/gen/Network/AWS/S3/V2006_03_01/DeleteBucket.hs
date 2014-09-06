@@ -25,9 +25,9 @@ module Network.AWS.S3.V2006_03_01.DeleteBucket
     -- * Request
       DeleteBucket
     -- ** Request constructor
-    , mkDeleteBucketRequest
+    , mkDeleteBucket
     -- ** Request lenses
-    , dbrBucket
+    , dbBucket
 
     -- * Response
     , DeleteBucketResponse
@@ -36,28 +36,29 @@ module Network.AWS.S3.V2006_03_01.DeleteBucket
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+newtype DeleteBucket = DeleteBucket
+    { _dbBucket :: BucketName
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucket' request.
-mkDeleteBucketRequest :: BucketName -- ^ 'dbrBucket'
-                      -> DeleteBucket
-mkDeleteBucketRequest p1 = DeleteBucket
-    { _dbrBucket = p1
+mkDeleteBucket :: BucketName -- ^ 'dbBucket'
+               -> DeleteBucket
+mkDeleteBucket p1 = DeleteBucket
+    { _dbBucket = p1
     }
-{-# INLINE mkDeleteBucketRequest #-}
+{-# INLINE mkDeleteBucket #-}
 
-newtype DeleteBucket = DeleteBucket
-    { _dbrBucket :: BucketName
-    } deriving (Show, Generic)
-
-dbrBucket :: Lens' DeleteBucket (BucketName)
-dbrBucket = lens _dbrBucket (\s a -> s { _dbrBucket = a })
-{-# INLINE dbrBucket #-}
+dbBucket :: Lens' DeleteBucket BucketName
+dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
+{-# INLINE dbBucket #-}
 
 instance ToPath DeleteBucket where
     toPath DeleteBucket{..} = mconcat
         [ "/"
-        , toBS _dbrBucket
+        , toBS _dbBucket
         ]
 
 instance ToQuery DeleteBucket

@@ -57,16 +57,16 @@ module Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
     -- * Request
       RegisterWorkflowType
     -- ** Request constructor
-    , mkRegisterWorkflowTypeInput
+    , mkRegisterWorkflowType
     -- ** Request lenses
-    , rwtiDomain
-    , rwtiName
-    , rwtiVersion
-    , rwtiDescription
-    , rwtiDefaultTaskStartToCloseTimeout
-    , rwtiDefaultExecutionStartToCloseTimeout
-    , rwtiDefaultTaskList
-    , rwtiDefaultChildPolicy
+    , rwtDomain
+    , rwtName
+    , rwtVersion
+    , rwtDescription
+    , rwtDefaultTaskStartToCloseTimeout
+    , rwtDefaultExecutionStartToCloseTimeout
+    , rwtDefaultTaskList
+    , rwtDefaultChildPolicy
 
     -- * Response
     , RegisterWorkflowTypeResponse
@@ -77,97 +77,47 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RegisterWorkflowType' request.
-mkRegisterWorkflowTypeInput :: Text -- ^ 'rwtiDomain'
-                            -> Text -- ^ 'rwtiName'
-                            -> Text -- ^ 'rwtiVersion'
-                            -> RegisterWorkflowType
-mkRegisterWorkflowTypeInput p1 p2 p3 = RegisterWorkflowType
-    { _rwtiDomain = p1
-    , _rwtiName = p2
-    , _rwtiVersion = p3
-    , _rwtiDescription = Nothing
-    , _rwtiDefaultTaskStartToCloseTimeout = Nothing
-    , _rwtiDefaultExecutionStartToCloseTimeout = Nothing
-    , _rwtiDefaultTaskList = Nothing
-    , _rwtiDefaultChildPolicy = Nothing
-    }
-{-# INLINE mkRegisterWorkflowTypeInput #-}
-
 data RegisterWorkflowType = RegisterWorkflowType
-    { _rwtiDomain :: Text
-      -- ^ The name of the domain in which to register the workflow type.
-    , _rwtiName :: Text
-      -- ^ The name of the workflow type. The specified string must not
-      -- start or end with whitespace. It must not contain a : (colon), /
-      -- (slash), | (vertical bar), or any control characters
-      -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the
-      -- literal string &quot;arn&quot;.
-    , _rwtiVersion :: Text
-      -- ^ The version of the workflow type. The workflow type consists of
-      -- the name and version, the combination of which must be unique
-      -- within the domain. To get a list of all currently registered
-      -- workflow types, use the ListWorkflowTypes action. The specified
-      -- string must not start or end with whitespace. It must not contain
-      -- a : (colon), / (slash), | (vertical bar), or any control
-      -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not
-      -- contain the literal string &quot;arn&quot;.
-    , _rwtiDescription :: Maybe Text
-      -- ^ Textual description of the workflow type.
-    , _rwtiDefaultTaskStartToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration of decision tasks
-      -- for this workflow type. This default can be overridden when
-      -- starting a workflow execution using the StartWorkflowExecution
-      -- action or the StartChildWorkflowExecution Decision. The valid
-      -- values are integers greater than or equal to 0. An integer value
-      -- can be used to specify the duration in seconds while NONE can be
-      -- used to specify unlimited duration.
-    , _rwtiDefaultExecutionStartToCloseTimeout :: Maybe Text
-      -- ^ If set, specifies the default maximum duration for executions of
-      -- this workflow type. You can override this default when starting
-      -- an execution through the StartWorkflowExecution Action or
-      -- StartChildWorkflowExecution Decision. The duration is specified
-      -- in seconds. The valid values are integers greater than or equal
-      -- to 0. Unlike some of the other timeout parameters in Amazon SWF,
-      -- you cannot specify a value of "NONE" for
-      -- defaultExecutionStartToCloseTimeout; there is a one-year max
-      -- limit on the time that a workflow execution can run. Exceeding
-      -- this limit will always cause the workflow execution to time out.
-    , _rwtiDefaultTaskList :: Maybe TaskList
-      -- ^ If set, specifies the default task list to use for scheduling
-      -- decision tasks for executions of this workflow type. This default
-      -- is used only if a task list is not provided when starting the
-      -- execution through the StartWorkflowExecution Action or
-      -- StartChildWorkflowExecution Decision.
-    , _rwtiDefaultChildPolicy :: Maybe ChildPolicy
-      -- ^ If set, specifies the default policy to use for the child
-      -- workflow executions when a workflow execution of this type is
-      -- terminated, by calling the TerminateWorkflowExecution action
-      -- explicitly or due to an expired timeout. This default can be
-      -- overridden when starting a workflow execution using the
-      -- StartWorkflowExecution action or the StartChildWorkflowExecution
-      -- Decision. The supported child policies are: TERMINATE: the child
-      -- executions will be terminated. REQUEST_CANCEL: a request to
-      -- cancel will be attempted for each child execution by recording a
-      -- WorkflowExecutionCancelRequested event in its history. It is up
-      -- to the decider to take appropriate actions when it receives an
-      -- execution history with this event. ABANDON: no action will be
-      -- taken. The child executions will continue to run.
+    { _rwtDomain :: Text
+    , _rwtName :: Text
+    , _rwtVersion :: Text
+    , _rwtDescription :: Maybe Text
+    , _rwtDefaultTaskStartToCloseTimeout :: Maybe Text
+    , _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text
+    , _rwtDefaultTaskList :: Maybe TaskList
+    , _rwtDefaultChildPolicy :: Maybe ChildPolicy
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterWorkflowType' request.
+mkRegisterWorkflowType :: Text -- ^ 'rwtDomain'
+                       -> Text -- ^ 'rwtName'
+                       -> Text -- ^ 'rwtVersion'
+                       -> RegisterWorkflowType
+mkRegisterWorkflowType p1 p2 p3 = RegisterWorkflowType
+    { _rwtDomain = p1
+    , _rwtName = p2
+    , _rwtVersion = p3
+    , _rwtDescription = Nothing
+    , _rwtDefaultTaskStartToCloseTimeout = Nothing
+    , _rwtDefaultExecutionStartToCloseTimeout = Nothing
+    , _rwtDefaultTaskList = Nothing
+    , _rwtDefaultChildPolicy = Nothing
+    }
+{-# INLINE mkRegisterWorkflowType #-}
+
 -- | The name of the domain in which to register the workflow type.
-rwtiDomain :: Lens' RegisterWorkflowType (Text)
-rwtiDomain = lens _rwtiDomain (\s a -> s { _rwtiDomain = a })
-{-# INLINE rwtiDomain #-}
+rwtDomain :: Lens' RegisterWorkflowType Text
+rwtDomain = lens _rwtDomain (\s a -> s { _rwtDomain = a })
+{-# INLINE rwtDomain #-}
 
 -- | The name of the workflow type. The specified string must not start or end
 -- with whitespace. It must not contain a : (colon), / (slash), | (vertical
 -- bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it
 -- must not contain the literal string &quot;arn&quot;.
-rwtiName :: Lens' RegisterWorkflowType (Text)
-rwtiName = lens _rwtiName (\s a -> s { _rwtiName = a })
-{-# INLINE rwtiName #-}
+rwtName :: Lens' RegisterWorkflowType Text
+rwtName = lens _rwtName (\s a -> s { _rwtName = a })
+{-# INLINE rwtName #-}
 
 -- | The version of the workflow type. The workflow type consists of the name
 -- and version, the combination of which must be unique within the domain. To
@@ -176,14 +126,14 @@ rwtiName = lens _rwtiName (\s a -> s { _rwtiName = a })
 -- whitespace. It must not contain a : (colon), / (slash), | (vertical bar),
 -- or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must
 -- not contain the literal string &quot;arn&quot;.
-rwtiVersion :: Lens' RegisterWorkflowType (Text)
-rwtiVersion = lens _rwtiVersion (\s a -> s { _rwtiVersion = a })
-{-# INLINE rwtiVersion #-}
+rwtVersion :: Lens' RegisterWorkflowType Text
+rwtVersion = lens _rwtVersion (\s a -> s { _rwtVersion = a })
+{-# INLINE rwtVersion #-}
 
 -- | Textual description of the workflow type.
-rwtiDescription :: Lens' RegisterWorkflowType (Maybe Text)
-rwtiDescription = lens _rwtiDescription (\s a -> s { _rwtiDescription = a })
-{-# INLINE rwtiDescription #-}
+rwtDescription :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDescription = lens _rwtDescription (\s a -> s { _rwtDescription = a })
+{-# INLINE rwtDescription #-}
 
 -- | If set, specifies the default maximum duration of decision tasks for this
 -- workflow type. This default can be overridden when starting a workflow
@@ -191,9 +141,11 @@ rwtiDescription = lens _rwtiDescription (\s a -> s { _rwtiDescription = a })
 -- StartChildWorkflowExecution Decision. The valid values are integers greater
 -- than or equal to 0. An integer value can be used to specify the duration in
 -- seconds while NONE can be used to specify unlimited duration.
-rwtiDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
-rwtiDefaultTaskStartToCloseTimeout = lens _rwtiDefaultTaskStartToCloseTimeout (\s a -> s { _rwtiDefaultTaskStartToCloseTimeout = a })
-{-# INLINE rwtiDefaultTaskStartToCloseTimeout #-}
+rwtDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDefaultTaskStartToCloseTimeout =
+    lens _rwtDefaultTaskStartToCloseTimeout
+         (\s a -> s { _rwtDefaultTaskStartToCloseTimeout = a })
+{-# INLINE rwtDefaultTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the default maximum duration for executions of this
 -- workflow type. You can override this default when starting an execution
@@ -204,17 +156,20 @@ rwtiDefaultTaskStartToCloseTimeout = lens _rwtiDefaultTaskStartToCloseTimeout (\
 -- defaultExecutionStartToCloseTimeout; there is a one-year max limit on the
 -- time that a workflow execution can run. Exceeding this limit will always
 -- cause the workflow execution to time out.
-rwtiDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
-rwtiDefaultExecutionStartToCloseTimeout = lens _rwtiDefaultExecutionStartToCloseTimeout (\s a -> s { _rwtiDefaultExecutionStartToCloseTimeout = a })
-{-# INLINE rwtiDefaultExecutionStartToCloseTimeout #-}
+rwtDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDefaultExecutionStartToCloseTimeout =
+    lens _rwtDefaultExecutionStartToCloseTimeout
+         (\s a -> s { _rwtDefaultExecutionStartToCloseTimeout = a })
+{-# INLINE rwtDefaultExecutionStartToCloseTimeout #-}
 
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if a
 -- task list is not provided when starting the execution through the
 -- StartWorkflowExecution Action or StartChildWorkflowExecution Decision.
-rwtiDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
-rwtiDefaultTaskList = lens _rwtiDefaultTaskList (\s a -> s { _rwtiDefaultTaskList = a })
-{-# INLINE rwtiDefaultTaskList #-}
+rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
+rwtDefaultTaskList =
+    lens _rwtDefaultTaskList (\s a -> s { _rwtDefaultTaskList = a })
+{-# INLINE rwtDefaultTaskList #-}
 
 -- | If set, specifies the default policy to use for the child workflow
 -- executions when a workflow execution of this type is terminated, by calling
@@ -227,9 +182,10 @@ rwtiDefaultTaskList = lens _rwtiDefaultTaskList (\s a -> s { _rwtiDefaultTaskLis
 -- event in its history. It is up to the decider to take appropriate actions
 -- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
-rwtiDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
-rwtiDefaultChildPolicy = lens _rwtiDefaultChildPolicy (\s a -> s { _rwtiDefaultChildPolicy = a })
-{-# INLINE rwtiDefaultChildPolicy #-}
+rwtDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
+rwtDefaultChildPolicy =
+    lens _rwtDefaultChildPolicy (\s a -> s { _rwtDefaultChildPolicy = a })
+{-# INLINE rwtDefaultChildPolicy #-}
 
 instance ToPath RegisterWorkflowType
 

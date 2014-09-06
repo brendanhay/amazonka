@@ -23,94 +23,96 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution
     -- * Request
       UpdateStreamingDistribution
     -- ** Request constructor
-    , mkUpdateStreamingDistributionRequest
+    , mkUpdateStreamingDistribution
     -- ** Request lenses
-    , usdrStreamingDistributionConfig
-    , usdrId
-    , usdrIfMatch
+    , usdStreamingDistributionConfig
+    , usdId
+    , usdIfMatch
 
     -- * Response
     , UpdateStreamingDistributionResponse
     -- ** Response lenses
-    , usdsStreamingDistribution
-    , usdsETag
+    , usdrsStreamingDistribution
+    , usdrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to update a streaming distribution.
+data UpdateStreamingDistribution = UpdateStreamingDistribution
+    { _usdStreamingDistributionConfig :: StreamingDistributionConfig
+    , _usdId :: Text
+    , _usdIfMatch :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStreamingDistribution' request.
-mkUpdateStreamingDistributionRequest :: StreamingDistributionConfig -- ^ 'usdrStreamingDistributionConfig'
-                                     -> Text -- ^ 'usdrId'
-                                     -> UpdateStreamingDistribution
-mkUpdateStreamingDistributionRequest p1 p2 = UpdateStreamingDistribution
-    { _usdrStreamingDistributionConfig = p1
-    , _usdrId = p2
-    , _usdrIfMatch = Nothing
+mkUpdateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
+                              -> Text -- ^ 'usdId'
+                              -> UpdateStreamingDistribution
+mkUpdateStreamingDistribution p1 p2 = UpdateStreamingDistribution
+    { _usdStreamingDistributionConfig = p1
+    , _usdId = p2
+    , _usdIfMatch = Nothing
     }
-{-# INLINE mkUpdateStreamingDistributionRequest #-}
-
-data UpdateStreamingDistribution = UpdateStreamingDistribution
-    { _usdrStreamingDistributionConfig :: StreamingDistributionConfig
-      -- ^ The streaming distribution's configuration information.
-    , _usdrId :: Text
-      -- ^ The streaming distribution's id.
-    , _usdrIfMatch :: Maybe Text
-      -- ^ The value of the ETag header you received when retrieving the
-      -- streaming distribution's configuration. For example:
-      -- E2QWRUHAPOMQZL.
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateStreamingDistribution #-}
 
 -- | The streaming distribution's configuration information.
-usdrStreamingDistributionConfig :: Lens' UpdateStreamingDistribution (StreamingDistributionConfig)
-usdrStreamingDistributionConfig = lens _usdrStreamingDistributionConfig (\s a -> s { _usdrStreamingDistributionConfig = a })
-{-# INLINE usdrStreamingDistributionConfig #-}
+usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
+usdStreamingDistributionConfig =
+    lens _usdStreamingDistributionConfig
+         (\s a -> s { _usdStreamingDistributionConfig = a })
+{-# INLINE usdStreamingDistributionConfig #-}
 
 -- | The streaming distribution's id.
-usdrId :: Lens' UpdateStreamingDistribution (Text)
-usdrId = lens _usdrId (\s a -> s { _usdrId = a })
-{-# INLINE usdrId #-}
+usdId :: Lens' UpdateStreamingDistribution Text
+usdId = lens _usdId (\s a -> s { _usdId = a })
+{-# INLINE usdId #-}
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
-usdrIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
-usdrIfMatch = lens _usdrIfMatch (\s a -> s { _usdrIfMatch = a })
-{-# INLINE usdrIfMatch #-}
+usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
+usdIfMatch = lens _usdIfMatch (\s a -> s { _usdIfMatch = a })
+{-# INLINE usdIfMatch #-}
 
 instance ToPath UpdateStreamingDistribution where
     toPath UpdateStreamingDistribution{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
-        , toBS _usdrId
+        , toBS _usdId
         , "/config"
         ]
 
 instance ToQuery UpdateStreamingDistribution
 
-instance ToHeaders UpdateStreamingDistribution
+instance ToHeaders UpdateStreamingDistribution where
+    toHeaders UpdateStreamingDistribution{..} = concat
+        [ "If-Match" =: _usdIfMatch
+        ]
 
 instance ToXML UpdateStreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UpdateStreamingDistributionRequest"
 
+-- | The returned result of the corresponding request.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
-    { _usdsStreamingDistribution :: Maybe StreamingDistribution
-      -- ^ The streaming distribution's information.
-    , _usdsETag :: Maybe Text
-      -- ^ The current version of the configuration. For example:
-      -- E2QWRUHAPOMQZL.
+    { _usdrsStreamingDistribution :: Maybe StreamingDistribution
+    , _usdrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-usdsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
-usdsStreamingDistribution = lens _usdsStreamingDistribution (\s a -> s { _usdsStreamingDistribution = a })
-{-# INLINE usdsStreamingDistribution #-}
+usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
+usdrsStreamingDistribution =
+    lens _usdrsStreamingDistribution
+         (\s a -> s { _usdrsStreamingDistribution = a })
+{-# INLINE usdrsStreamingDistribution #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-usdsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
-usdsETag = lens _usdsETag (\s a -> s { _usdsETag = a })
-{-# INLINE usdsETag #-}
+usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
+usdrsETag = lens _usdrsETag (\s a -> s { _usdrsETag = a })
+{-# INLINE usdrsETag #-}
 
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront

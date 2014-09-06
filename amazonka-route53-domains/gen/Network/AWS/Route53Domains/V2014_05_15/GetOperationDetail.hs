@@ -40,19 +40,19 @@ module Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail
     -- * Request
       GetOperationDetail
     -- ** Request constructor
-    , mkGetOperationDetailRequest
+    , mkGetOperationDetail
     -- ** Request lenses
-    , godrOperationId
+    , godOperationId
 
     -- * Response
     , GetOperationDetailResponse
     -- ** Response lenses
-    , godsOperationId
-    , godsStatus
-    , godsMessage
-    , godsDomainName
-    , godsType
-    , godsSubmittedDate
+    , godrsOperationId
+    , godrsStatus
+    , godrsMessage
+    , godrsDomainName
+    , godrsType
+    , godrsSubmittedDate
     ) where
 
 import           Network.AWS.Route53Domains.V2014_05_15.Types
@@ -60,29 +60,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | The GetOperationDetail request includes the following element.
+newtype GetOperationDetail = GetOperationDetail
+    { _godOperationId :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOperationDetail' request.
-mkGetOperationDetailRequest :: Text -- ^ 'godrOperationId'
-                            -> GetOperationDetail
-mkGetOperationDetailRequest p1 = GetOperationDetail
-    { _godrOperationId = p1
+mkGetOperationDetail :: Text -- ^ 'godOperationId'
+                     -> GetOperationDetail
+mkGetOperationDetail p1 = GetOperationDetail
+    { _godOperationId = p1
     }
-{-# INLINE mkGetOperationDetailRequest #-}
-
-newtype GetOperationDetail = GetOperationDetail
-    { _godrOperationId :: Text
-      -- ^ The identifier for the operation for which you want to get the
-      -- status. Amazon Route 53 returned the identifier in the response
-      -- to the original request. Type: String Default: None Required:
-      -- Yes.
-    } deriving (Show, Generic)
+{-# INLINE mkGetOperationDetail #-}
 
 -- | The identifier for the operation for which you want to get the status.
 -- Amazon Route 53 returned the identifier in the response to the original
 -- request. Type: String Default: None Required: Yes.
-godrOperationId :: Lens' GetOperationDetail (Text)
-godrOperationId = lens _godrOperationId (\s a -> s { _godrOperationId = a })
-{-# INLINE godrOperationId #-}
+godOperationId :: Lens' GetOperationDetail Text
+godOperationId = lens _godOperationId (\s a -> s { _godOperationId = a })
+{-# INLINE godOperationId #-}
 
 instance ToPath GetOperationDetail
 
@@ -92,52 +89,47 @@ instance ToHeaders GetOperationDetail
 
 instance ToJSON GetOperationDetail
 
+-- | The GetOperationDetail response includes the following elements.
 data GetOperationDetailResponse = GetOperationDetailResponse
-    { _godsOperationId :: Maybe Text
-      -- ^ The identifier for the operation. Type: String.
-    , _godsStatus :: Maybe OperationStatus
-      -- ^ The current status of the requested operation in the system.
-      -- Type: String.
-    , _godsMessage :: Maybe Text
-      -- ^ Detailed information on the status including possible errors.
-      -- Type: String.
-    , _godsDomainName :: Maybe Text
-      -- ^ The name of a domain. Type: String.
-    , _godsType :: Maybe OperationType
-      -- ^ The type of operation that was requested. Type: String.
-    , _godsSubmittedDate :: Maybe ISO8601
-      -- ^ The date when the request was submitted.
+    { _godrsOperationId :: Maybe Text
+    , _godrsStatus :: Maybe OperationStatus
+    , _godrsMessage :: Maybe Text
+    , _godrsDomainName :: Maybe Text
+    , _godrsType :: Maybe OperationType
+    , _godrsSubmittedDate :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | The identifier for the operation. Type: String.
-godsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
-godsOperationId = lens _godsOperationId (\s a -> s { _godsOperationId = a })
-{-# INLINE godsOperationId #-}
+godrsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
+godrsOperationId =
+    lens _godrsOperationId (\s a -> s { _godrsOperationId = a })
+{-# INLINE godrsOperationId #-}
 
 -- | The current status of the requested operation in the system. Type: String.
-godsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
-godsStatus = lens _godsStatus (\s a -> s { _godsStatus = a })
-{-# INLINE godsStatus #-}
+godrsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
+godrsStatus = lens _godrsStatus (\s a -> s { _godrsStatus = a })
+{-# INLINE godrsStatus #-}
 
 -- | Detailed information on the status including possible errors. Type: String.
-godsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
-godsMessage = lens _godsMessage (\s a -> s { _godsMessage = a })
-{-# INLINE godsMessage #-}
+godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
+godrsMessage = lens _godrsMessage (\s a -> s { _godrsMessage = a })
+{-# INLINE godrsMessage #-}
 
 -- | The name of a domain. Type: String.
-godsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
-godsDomainName = lens _godsDomainName (\s a -> s { _godsDomainName = a })
-{-# INLINE godsDomainName #-}
+godrsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
+godrsDomainName = lens _godrsDomainName (\s a -> s { _godrsDomainName = a })
+{-# INLINE godrsDomainName #-}
 
 -- | The type of operation that was requested. Type: String.
-godsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
-godsType = lens _godsType (\s a -> s { _godsType = a })
-{-# INLINE godsType #-}
+godrsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
+godrsType = lens _godrsType (\s a -> s { _godrsType = a })
+{-# INLINE godrsType #-}
 
 -- | The date when the request was submitted.
-godsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe ISO8601)
-godsSubmittedDate = lens _godsSubmittedDate (\s a -> s { _godsSubmittedDate = a })
-{-# INLINE godsSubmittedDate #-}
+godrsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe ISO8601)
+godrsSubmittedDate =
+    lens _godrsSubmittedDate (\s a -> s { _godrsSubmittedDate = a })
+{-# INLINE godrsSubmittedDate #-}
 
 instance FromJSON GetOperationDetailResponse
 

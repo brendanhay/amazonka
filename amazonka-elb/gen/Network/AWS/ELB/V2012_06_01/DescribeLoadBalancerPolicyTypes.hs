@@ -40,59 +40,57 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes
     -- * Request
       DescribeLoadBalancerPolicyTypes
     -- ** Request constructor
-    , mkDescribeLoadBalancerPolicyTypesInput
+    , mkDescribeLoadBalancerPolicyTypes
     -- ** Request lenses
-    , dlbptiPolicyTypeNames
+    , dlbptPolicyTypeNames
 
     -- * Response
     , DescribeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
-    , dlbptoPolicyTypeDescriptions
+    , dlbptrsPolicyTypeDescriptions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
+    { _dlbptPolicyTypeNames :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerPolicyTypes' request.
-mkDescribeLoadBalancerPolicyTypesInput :: DescribeLoadBalancerPolicyTypes
-mkDescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypes
-    { _dlbptiPolicyTypeNames = mempty
+mkDescribeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
+mkDescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
+    { _dlbptPolicyTypeNames = mempty
     }
-{-# INLINE mkDescribeLoadBalancerPolicyTypesInput #-}
-
-newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
-    { _dlbptiPolicyTypeNames :: [Text]
-      -- ^ Specifies the name of the policy types. If no names are
-      -- specified, returns the description of all the policy types
-      -- defined by Elastic Load Balancing service.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeLoadBalancerPolicyTypes #-}
 
 -- | Specifies the name of the policy types. If no names are specified, returns
 -- the description of all the policy types defined by Elastic Load Balancing
 -- service.
-dlbptiPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes ([Text])
-dlbptiPolicyTypeNames = lens _dlbptiPolicyTypeNames (\s a -> s { _dlbptiPolicyTypeNames = a })
-{-# INLINE dlbptiPolicyTypeNames #-}
+dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
+dlbptPolicyTypeNames =
+    lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
+{-# INLINE dlbptPolicyTypeNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicyTypes where
     toQuery = genericQuery def
 
+-- | The output for the DescribeLoadBalancerPolicyTypes action.
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
-    { _dlbptoPolicyTypeDescriptions :: [PolicyTypeDescription]
-      -- ^ List of policy type description structures of the specified
-      -- policy type. If no policy type names are specified, returns the
-      -- description of all the policy types defined by Elastic Load
-      -- Balancing service.
+    { _dlbptrsPolicyTypeDescriptions :: [PolicyTypeDescription]
     } deriving (Show, Generic)
 
 -- | List of policy type description structures of the specified policy type. If
 -- no policy type names are specified, returns the description of all the
 -- policy types defined by Elastic Load Balancing service.
-dlbptoPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse ([PolicyTypeDescription])
-dlbptoPolicyTypeDescriptions = lens _dlbptoPolicyTypeDescriptions (\s a -> s { _dlbptoPolicyTypeDescriptions = a })
-{-# INLINE dlbptoPolicyTypeDescriptions #-}
+dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
+dlbptrsPolicyTypeDescriptions =
+    lens _dlbptrsPolicyTypeDescriptions
+         (\s a -> s { _dlbptrsPolicyTypeDescriptions = a })
+{-# INLINE dlbptrsPolicyTypeDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
     fromXMLOptions = xmlOptions

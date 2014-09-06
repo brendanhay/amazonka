@@ -23,10 +23,10 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution
     -- * Request
       DeleteStreamingDistribution
     -- ** Request constructor
-    , mkDeleteStreamingDistributionRequest
+    , mkDeleteStreamingDistribution
     -- ** Request lenses
-    , dsdrId
-    , dsdrIfMatch
+    , dsdId
+    , dsdIfMatch
 
     -- * Response
     , DeleteStreamingDistributionResponse
@@ -35,45 +35,47 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to delete a streaming distribution.
+data DeleteStreamingDistribution = DeleteStreamingDistribution
+    { _dsdId :: Text
+    , _dsdIfMatch :: Maybe Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStreamingDistribution' request.
-mkDeleteStreamingDistributionRequest :: Text -- ^ 'dsdrId'
-                                     -> DeleteStreamingDistribution
-mkDeleteStreamingDistributionRequest p1 = DeleteStreamingDistribution
-    { _dsdrId = p1
-    , _dsdrIfMatch = Nothing
+mkDeleteStreamingDistribution :: Text -- ^ 'dsdId'
+                              -> DeleteStreamingDistribution
+mkDeleteStreamingDistribution p1 = DeleteStreamingDistribution
+    { _dsdId = p1
+    , _dsdIfMatch = Nothing
     }
-{-# INLINE mkDeleteStreamingDistributionRequest #-}
-
-data DeleteStreamingDistribution = DeleteStreamingDistribution
-    { _dsdrId :: Text
-      -- ^ The distribution id.
-    , _dsdrIfMatch :: Maybe Text
-      -- ^ The value of the ETag header you received when you disabled the
-      -- streaming distribution. For example: E2QWRUHAPOMQZL.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteStreamingDistribution #-}
 
 -- | The distribution id.
-dsdrId :: Lens' DeleteStreamingDistribution (Text)
-dsdrId = lens _dsdrId (\s a -> s { _dsdrId = a })
-{-# INLINE dsdrId #-}
+dsdId :: Lens' DeleteStreamingDistribution Text
+dsdId = lens _dsdId (\s a -> s { _dsdId = a })
+{-# INLINE dsdId #-}
 
 -- | The value of the ETag header you received when you disabled the streaming
 -- distribution. For example: E2QWRUHAPOMQZL.
-dsdrIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
-dsdrIfMatch = lens _dsdrIfMatch (\s a -> s { _dsdrIfMatch = a })
-{-# INLINE dsdrIfMatch #-}
+dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
+dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
+{-# INLINE dsdIfMatch #-}
 
 instance ToPath DeleteStreamingDistribution where
     toPath DeleteStreamingDistribution{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
-        , toBS _dsdrId
+        , toBS _dsdId
         ]
 
 instance ToQuery DeleteStreamingDistribution
 
-instance ToHeaders DeleteStreamingDistribution
+instance ToHeaders DeleteStreamingDistribution where
+    toHeaders DeleteStreamingDistribution{..} = concat
+        [ "If-Match" =: _dsdIfMatch
+        ]
 
 instance ToXML DeleteStreamingDistribution where
     toXMLOptions = xmlOptions

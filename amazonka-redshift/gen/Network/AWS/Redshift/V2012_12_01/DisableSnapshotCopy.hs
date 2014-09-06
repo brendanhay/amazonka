@@ -24,57 +24,54 @@ module Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy
     -- * Request
       DisableSnapshotCopy
     -- ** Request constructor
-    , mkDisableSnapshotCopyMessage
+    , mkDisableSnapshotCopy
     -- ** Request lenses
-    , dscmClusterIdentifier
+    , dscClusterIdentifier
 
     -- * Response
     , DisableSnapshotCopyResponse
     -- ** Response lenses
-    , cyCluster
+    , dscrsCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DisableSnapshotCopy = DisableSnapshotCopy
+    { _dscClusterIdentifier :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableSnapshotCopy' request.
-mkDisableSnapshotCopyMessage :: Text -- ^ 'dscmClusterIdentifier'
-                             -> DisableSnapshotCopy
-mkDisableSnapshotCopyMessage p1 = DisableSnapshotCopy
-    { _dscmClusterIdentifier = p1
+mkDisableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
+                      -> DisableSnapshotCopy
+mkDisableSnapshotCopy p1 = DisableSnapshotCopy
+    { _dscClusterIdentifier = p1
     }
-{-# INLINE mkDisableSnapshotCopyMessage #-}
-
-newtype DisableSnapshotCopy = DisableSnapshotCopy
-    { _dscmClusterIdentifier :: Text
-      -- ^ The unique identifier of the source cluster that you want to
-      -- disable copying of snapshots to a destination region.
-      -- Constraints: Must be the valid name of an existing cluster that
-      -- has cross-region snapshot copy enabled.
-    } deriving (Show, Generic)
+{-# INLINE mkDisableSnapshotCopy #-}
 
 -- | The unique identifier of the source cluster that you want to disable
 -- copying of snapshots to a destination region. Constraints: Must be the
 -- valid name of an existing cluster that has cross-region snapshot copy
 -- enabled.
-dscmClusterIdentifier :: Lens' DisableSnapshotCopy (Text)
-dscmClusterIdentifier = lens _dscmClusterIdentifier (\s a -> s { _dscmClusterIdentifier = a })
-{-# INLINE dscmClusterIdentifier #-}
+dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
+dscClusterIdentifier =
+    lens _dscClusterIdentifier (\s a -> s { _dscClusterIdentifier = a })
+{-# INLINE dscClusterIdentifier #-}
 
 instance ToQuery DisableSnapshotCopy where
     toQuery = genericQuery def
 
 newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
-    { _cyCluster :: Maybe Cluster
-      -- ^ Describes a cluster.
+    { _dscrsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-cyCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
-cyCluster = lens _cyCluster (\s a -> s { _cyCluster = a })
-{-# INLINE cyCluster #-}
+dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
+dscrsCluster = lens _dscrsCluster (\s a -> s { _dscrsCluster = a })
+{-# INLINE dscrsCluster #-}
 
 instance FromXML DisableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

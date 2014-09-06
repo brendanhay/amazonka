@@ -41,15 +41,15 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineStatus
     -- * Request
       UpdatePipelineStatus
     -- ** Request constructor
-    , mkUpdatePipelineStatusRequest
+    , mkUpdatePipelineStatus
     -- ** Request lenses
-    , upsrId
-    , upsrStatus
+    , upsId
+    , upsStatus
 
     -- * Response
     , UpdatePipelineStatusResponse
     -- ** Response lenses
-    , upssPipeline
+    , upsrsPipeline
     ) where
 
 import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -57,41 +57,38 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'UpdatePipelineStatus' request.
-mkUpdatePipelineStatusRequest :: Text -- ^ 'upsrId'
-                              -> Text -- ^ 'upsrStatus'
-                              -> UpdatePipelineStatus
-mkUpdatePipelineStatusRequest p1 p2 = UpdatePipelineStatus
-    { _upsrId = p1
-    , _upsrStatus = p2
-    }
-{-# INLINE mkUpdatePipelineStatusRequest #-}
-
+-- | The UpdatePipelineStatusRequest structure.
 data UpdatePipelineStatus = UpdatePipelineStatus
-    { _upsrId :: Text
-      -- ^ The identifier of the pipeline to update.
-    , _upsrStatus :: Text
-      -- ^ The desired status of the pipeline: Active: The pipeline is
-      -- processing jobs. Paused: The pipeline is not currently processing
-      -- jobs.
+    { _upsId :: Text
+    , _upsStatus :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdatePipelineStatus' request.
+mkUpdatePipelineStatus :: Text -- ^ 'upsId'
+                       -> Text -- ^ 'upsStatus'
+                       -> UpdatePipelineStatus
+mkUpdatePipelineStatus p1 p2 = UpdatePipelineStatus
+    { _upsId = p1
+    , _upsStatus = p2
+    }
+{-# INLINE mkUpdatePipelineStatus #-}
+
 -- | The identifier of the pipeline to update.
-upsrId :: Lens' UpdatePipelineStatus (Text)
-upsrId = lens _upsrId (\s a -> s { _upsrId = a })
-{-# INLINE upsrId #-}
+upsId :: Lens' UpdatePipelineStatus Text
+upsId = lens _upsId (\s a -> s { _upsId = a })
+{-# INLINE upsId #-}
 
 -- | The desired status of the pipeline: Active: The pipeline is processing
 -- jobs. Paused: The pipeline is not currently processing jobs.
-upsrStatus :: Lens' UpdatePipelineStatus (Text)
-upsrStatus = lens _upsrStatus (\s a -> s { _upsrStatus = a })
-{-# INLINE upsrStatus #-}
+upsStatus :: Lens' UpdatePipelineStatus Text
+upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
+{-# INLINE upsStatus #-}
 
 instance ToPath UpdatePipelineStatus where
     toPath UpdatePipelineStatus{..} = mconcat
         [ "/2012-09-25/pipelines/"
-        , toBS _upsrId
+        , toBS _upsId
         , "/status"
         ]
 
@@ -101,17 +98,17 @@ instance ToHeaders UpdatePipelineStatus
 
 instance ToJSON UpdatePipelineStatus
 
+-- | When you update status for a pipeline, Elastic Transcoder returns the
+-- values that you specified in the request.
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
-    { _upssPipeline :: Maybe Pipeline
-      -- ^ A section of the response body that provides information about
-      -- the pipeline.
+    { _upsrsPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upssPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
-upssPipeline = lens _upssPipeline (\s a -> s { _upssPipeline = a })
-{-# INLINE upssPipeline #-}
+upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
+upsrsPipeline = lens _upsrsPipeline (\s a -> s { _upsrsPipeline = a })
+{-# INLINE upsrsPipeline #-}
 
 instance FromJSON UpdatePipelineStatusResponse
 

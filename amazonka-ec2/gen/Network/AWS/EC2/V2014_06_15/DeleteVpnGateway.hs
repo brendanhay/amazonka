@@ -32,9 +32,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnGateway
     -- * Request
       DeleteVpnGateway
     -- ** Request constructor
-    , mkDeleteVpnGatewayRequest
+    , mkDeleteVpnGateway
     -- ** Request lenses
-    , dvgrVpnGatewayId
+    , dvgVpnGatewayId
 
     -- * Response
     , DeleteVpnGatewayResponse
@@ -44,24 +44,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteVpnGateway' request.
-mkDeleteVpnGatewayRequest :: Text -- ^ 'dvgrVpnGatewayId'
-                          -> DeleteVpnGateway
-mkDeleteVpnGatewayRequest p1 = DeleteVpnGateway
-    { _dvgrVpnGatewayId = p1
-    }
-{-# INLINE mkDeleteVpnGatewayRequest #-}
-
+-- | 
 newtype DeleteVpnGateway = DeleteVpnGateway
-    { _dvgrVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
+    { _dvgVpnGatewayId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpnGateway' request.
+mkDeleteVpnGateway :: Text -- ^ 'dvgVpnGatewayId'
+                   -> DeleteVpnGateway
+mkDeleteVpnGateway p1 = DeleteVpnGateway
+    { _dvgVpnGatewayId = p1
+    }
+{-# INLINE mkDeleteVpnGateway #-}
+
 -- | The ID of the virtual private gateway.
-dvgrVpnGatewayId :: Lens' DeleteVpnGateway (Text)
-dvgrVpnGatewayId = lens _dvgrVpnGatewayId (\s a -> s { _dvgrVpnGatewayId = a })
-{-# INLINE dvgrVpnGatewayId #-}
+dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
+dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
+{-# INLINE dvgVpnGatewayId #-}
 
 instance ToQuery DeleteVpnGateway where
     toQuery = genericQuery def

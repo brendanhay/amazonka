@@ -23,55 +23,56 @@ module Network.AWS.CloudFront.V2014_05_31.GetInvalidation
     -- * Request
       GetInvalidation
     -- ** Request constructor
-    , mkGetInvalidationRequest
+    , mkGetInvalidation
     -- ** Request lenses
-    , girDistributionId
-    , girId
+    , giDistributionId
+    , giId
 
     -- * Response
     , GetInvalidationResponse
     -- ** Response lenses
-    , gisInvalidation
+    , girsInvalidation
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to get an invalidation's information.
+data GetInvalidation = GetInvalidation
+    { _giDistributionId :: Text
+    , _giId :: Text
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInvalidation' request.
-mkGetInvalidationRequest :: Text -- ^ 'girDistributionId'
-                         -> Text -- ^ 'girId'
-                         -> GetInvalidation
-mkGetInvalidationRequest p1 p2 = GetInvalidation
-    { _girDistributionId = p1
-    , _girId = p2
+mkGetInvalidation :: Text -- ^ 'giDistributionId'
+                  -> Text -- ^ 'giId'
+                  -> GetInvalidation
+mkGetInvalidation p1 p2 = GetInvalidation
+    { _giDistributionId = p1
+    , _giId = p2
     }
-{-# INLINE mkGetInvalidationRequest #-}
-
-data GetInvalidation = GetInvalidation
-    { _girDistributionId :: Text
-      -- ^ The distribution's id.
-    , _girId :: Text
-      -- ^ The invalidation's id.
-    } deriving (Show, Generic)
+{-# INLINE mkGetInvalidation #-}
 
 -- | The distribution's id.
-girDistributionId :: Lens' GetInvalidation (Text)
-girDistributionId = lens _girDistributionId (\s a -> s { _girDistributionId = a })
-{-# INLINE girDistributionId #-}
+giDistributionId :: Lens' GetInvalidation Text
+giDistributionId =
+    lens _giDistributionId (\s a -> s { _giDistributionId = a })
+{-# INLINE giDistributionId #-}
 
 -- | The invalidation's id.
-girId :: Lens' GetInvalidation (Text)
-girId = lens _girId (\s a -> s { _girId = a })
-{-# INLINE girId #-}
+giId :: Lens' GetInvalidation Text
+giId = lens _giId (\s a -> s { _giId = a })
+{-# INLINE giId #-}
 
 instance ToPath GetInvalidation where
     toPath GetInvalidation{..} = mconcat
         [ "/2014-05-31/distribution/"
-        , toBS _girDistributionId
+        , toBS _giDistributionId
         , "/invalidation/"
-        , toBS _girId
+        , toBS _giId
         ]
 
 instance ToQuery GetInvalidation
@@ -82,15 +83,16 @@ instance ToXML GetInvalidation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetInvalidationRequest"
 
+-- | The returned result of the corresponding request.
 newtype GetInvalidationResponse = GetInvalidationResponse
-    { _gisInvalidation :: Maybe Invalidation
-      -- ^ The invalidation's information.
+    { _girsInvalidation :: Maybe Invalidation
     } deriving (Show, Generic)
 
 -- | The invalidation's information.
-gisInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
-gisInvalidation = lens _gisInvalidation (\s a -> s { _gisInvalidation = a })
-{-# INLINE gisInvalidation #-}
+girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
+girsInvalidation =
+    lens _girsInvalidation (\s a -> s { _girsInvalidation = a })
+{-# INLINE girsInvalidation #-}
 
 instance FromXML GetInvalidationResponse where
     fromXMLOptions = xmlOptions

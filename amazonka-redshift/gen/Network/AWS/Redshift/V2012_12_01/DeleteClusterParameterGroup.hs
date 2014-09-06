@@ -31,9 +31,9 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup
     -- * Request
       DeleteClusterParameterGroup
     -- ** Request constructor
-    , mkDeleteClusterParameterGroupMessage
+    , mkDeleteClusterParameterGroup
     -- ** Request lenses
-    , dcpgmParameterGroupName
+    , dcpgParameterGroupName
 
     -- * Response
     , DeleteClusterParameterGroupResponse
@@ -43,28 +43,27 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
+    { _dcpgParameterGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterParameterGroup' request.
-mkDeleteClusterParameterGroupMessage :: Text -- ^ 'dcpgmParameterGroupName'
-                                     -> DeleteClusterParameterGroup
-mkDeleteClusterParameterGroupMessage p1 = DeleteClusterParameterGroup
-    { _dcpgmParameterGroupName = p1
+mkDeleteClusterParameterGroup :: Text -- ^ 'dcpgParameterGroupName'
+                              -> DeleteClusterParameterGroup
+mkDeleteClusterParameterGroup p1 = DeleteClusterParameterGroup
+    { _dcpgParameterGroupName = p1
     }
-{-# INLINE mkDeleteClusterParameterGroupMessage #-}
-
-newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
-    { _dcpgmParameterGroupName :: Text
-      -- ^ The name of the parameter group to be deleted. Constraints: Must
-      -- be the name of an existing cluster parameter group. Cannot delete
-      -- a default cluster parameter group.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteClusterParameterGroup #-}
 
 -- | The name of the parameter group to be deleted. Constraints: Must be the
 -- name of an existing cluster parameter group. Cannot delete a default
 -- cluster parameter group.
-dcpgmParameterGroupName :: Lens' DeleteClusterParameterGroup (Text)
-dcpgmParameterGroupName = lens _dcpgmParameterGroupName (\s a -> s { _dcpgmParameterGroupName = a })
-{-# INLINE dcpgmParameterGroupName #-}
+dcpgParameterGroupName :: Lens' DeleteClusterParameterGroup Text
+dcpgParameterGroupName =
+    lens _dcpgParameterGroupName (\s a -> s { _dcpgParameterGroupName = a })
+{-# INLINE dcpgParameterGroupName #-}
 
 instance ToQuery DeleteClusterParameterGroup where
     toQuery = genericQuery def

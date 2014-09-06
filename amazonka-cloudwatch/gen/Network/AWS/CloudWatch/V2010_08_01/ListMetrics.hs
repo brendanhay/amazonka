@@ -29,88 +29,82 @@ module Network.AWS.CloudWatch.V2010_08_01.ListMetrics
     -- * Request
       ListMetrics
     -- ** Request constructor
-    , mkListMetricsInput
+    , mkListMetrics
     -- ** Request lenses
-    , lmiNamespace
-    , lmiMetricName
-    , lmiDimensions
-    , lmiNextToken
+    , lmNamespace
+    , lmMetricName
+    , lmDimensions
+    , lmNextToken
 
     -- * Response
     , ListMetricsResponse
     -- ** Response lenses
-    , lmoMetrics
-    , lmoNextToken
+    , lmrsMetrics
+    , lmrsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListMetrics' request.
-mkListMetricsInput :: ListMetrics
-mkListMetricsInput = ListMetrics
-    { _lmiNamespace = Nothing
-    , _lmiMetricName = Nothing
-    , _lmiDimensions = mempty
-    , _lmiNextToken = Nothing
-    }
-{-# INLINE mkListMetricsInput #-}
-
+-- | 
 data ListMetrics = ListMetrics
-    { _lmiNamespace :: Maybe Text
-      -- ^ The namespace to filter against.
-    , _lmiMetricName :: Maybe Text
-      -- ^ The name of the metric to filter against.
-    , _lmiDimensions :: [DimensionFilter]
-      -- ^ A list of dimensions to filter against.
-    , _lmiNextToken :: Maybe Text
-      -- ^ The token returned by a previous call to indicate that there is
-      -- more data available.
+    { _lmNamespace :: Maybe Text
+    , _lmMetricName :: Maybe Text
+    , _lmDimensions :: [DimensionFilter]
+    , _lmNextToken :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListMetrics' request.
+mkListMetrics :: ListMetrics
+mkListMetrics = ListMetrics
+    { _lmNamespace = Nothing
+    , _lmMetricName = Nothing
+    , _lmDimensions = mempty
+    , _lmNextToken = Nothing
+    }
+{-# INLINE mkListMetrics #-}
+
 -- | The namespace to filter against.
-lmiNamespace :: Lens' ListMetrics (Maybe Text)
-lmiNamespace = lens _lmiNamespace (\s a -> s { _lmiNamespace = a })
-{-# INLINE lmiNamespace #-}
+lmNamespace :: Lens' ListMetrics (Maybe Text)
+lmNamespace = lens _lmNamespace (\s a -> s { _lmNamespace = a })
+{-# INLINE lmNamespace #-}
 
 -- | The name of the metric to filter against.
-lmiMetricName :: Lens' ListMetrics (Maybe Text)
-lmiMetricName = lens _lmiMetricName (\s a -> s { _lmiMetricName = a })
-{-# INLINE lmiMetricName #-}
+lmMetricName :: Lens' ListMetrics (Maybe Text)
+lmMetricName = lens _lmMetricName (\s a -> s { _lmMetricName = a })
+{-# INLINE lmMetricName #-}
 
 -- | A list of dimensions to filter against.
-lmiDimensions :: Lens' ListMetrics ([DimensionFilter])
-lmiDimensions = lens _lmiDimensions (\s a -> s { _lmiDimensions = a })
-{-# INLINE lmiDimensions #-}
+lmDimensions :: Lens' ListMetrics [DimensionFilter]
+lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a })
+{-# INLINE lmDimensions #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-lmiNextToken :: Lens' ListMetrics (Maybe Text)
-lmiNextToken = lens _lmiNextToken (\s a -> s { _lmiNextToken = a })
-{-# INLINE lmiNextToken #-}
+lmNextToken :: Lens' ListMetrics (Maybe Text)
+lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
+{-# INLINE lmNextToken #-}
 
 instance ToQuery ListMetrics where
     toQuery = genericQuery def
 
+-- | The output for the ListMetrics action.
 data ListMetricsResponse = ListMetricsResponse
-    { _lmoMetrics :: [Metric]
-      -- ^ A list of metrics used to generate statistics for an AWS account.
-    , _lmoNextToken :: Maybe Text
-      -- ^ A string that marks the start of the next batch of returned
-      -- results.
+    { _lmrsMetrics :: [Metric]
+    , _lmrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of metrics used to generate statistics for an AWS account.
-lmoMetrics :: Lens' ListMetricsResponse ([Metric])
-lmoMetrics = lens _lmoMetrics (\s a -> s { _lmoMetrics = a })
-{-# INLINE lmoMetrics #-}
+lmrsMetrics :: Lens' ListMetricsResponse [Metric]
+lmrsMetrics = lens _lmrsMetrics (\s a -> s { _lmrsMetrics = a })
+{-# INLINE lmrsMetrics #-}
 
 -- | A string that marks the start of the next batch of returned results.
-lmoNextToken :: Lens' ListMetricsResponse (Maybe Text)
-lmoNextToken = lens _lmoNextToken (\s a -> s { _lmoNextToken = a })
-{-# INLINE lmoNextToken #-}
+lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
+lmrsNextToken = lens _lmrsNextToken (\s a -> s { _lmrsNextToken = a })
+{-# INLINE lmrsNextToken #-}
 
 instance FromXML ListMetricsResponse where
     fromXMLOptions = xmlOptions
@@ -123,5 +117,5 @@ instance AWSRequest ListMetrics where
     response _ = xmlResponse
 
 instance AWSPager ListMetrics where
-    next rq rs = (\x -> rq { _lmiNextToken = Just x })
-        <$> (_lmoNextToken rs)
+    next rq rs = (\x -> rq { _lmNextToken = Just x })
+        <$> (_lmrsNextToken rs)

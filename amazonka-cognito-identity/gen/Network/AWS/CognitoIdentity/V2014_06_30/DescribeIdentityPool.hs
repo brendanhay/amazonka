@@ -32,17 +32,17 @@ module Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
     -- * Request
       DescribeIdentityPool
     -- ** Request constructor
-    , mkDescribeIdentityPoolInput
+    , mkDescribeIdentityPool
     -- ** Request lenses
-    , dipjIdentityPoolId
+    , dip1IdentityPoolId
 
     -- * Response
     , DescribeIdentityPoolResponse
     -- ** Response lenses
-    , isIdentityPoolId
-    , isIdentityPoolName
-    , isAllowUnauthenticatedIdentities
-    , isSupportedLoginProviders
+    , diprsIdentityPoolId
+    , diprsIdentityPoolName
+    , diprsAllowUnauthenticatedIdentities
+    , diprsSupportedLoginProviders
     ) where
 
 import           Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -50,24 +50,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeIdentityPool' request.
-mkDescribeIdentityPoolInput :: Text -- ^ 'dipjIdentityPoolId'
-                            -> DescribeIdentityPool
-mkDescribeIdentityPoolInput p1 = DescribeIdentityPool
-    { _dipjIdentityPoolId = p1
-    }
-{-# INLINE mkDescribeIdentityPoolInput #-}
-
+-- | Input to the DescribeIdentityPool action.
 newtype DescribeIdentityPool = DescribeIdentityPool
-    { _dipjIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
+    { _dip1IdentityPoolId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeIdentityPool' request.
+mkDescribeIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
+                       -> DescribeIdentityPool
+mkDescribeIdentityPool p1 = DescribeIdentityPool
+    { _dip1IdentityPoolId = p1
+    }
+{-# INLINE mkDescribeIdentityPool #-}
+
 -- | An identity pool ID in the format REGION:GUID.
-dipjIdentityPoolId :: Lens' DescribeIdentityPool (Text)
-dipjIdentityPoolId = lens _dipjIdentityPoolId (\s a -> s { _dipjIdentityPoolId = a })
-{-# INLINE dipjIdentityPoolId #-}
+dip1IdentityPoolId :: Lens' DescribeIdentityPool Text
+dip1IdentityPoolId =
+    lens _dip1IdentityPoolId (\s a -> s { _dip1IdentityPoolId = a })
+{-# INLINE dip1IdentityPoolId #-}
 
 instance ToPath DescribeIdentityPool
 
@@ -77,37 +78,39 @@ instance ToHeaders DescribeIdentityPool
 
 instance ToJSON DescribeIdentityPool
 
+-- | An object representing a Cognito identity pool.
 data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
-    { _isIdentityPoolId :: Text
-      -- ^ An identity pool ID in the format REGION:GUID.
-    , _isIdentityPoolName :: Text
-      -- ^ A string that you provide.
-    , _isAllowUnauthenticatedIdentities :: Bool
-      -- ^ TRUE if the identity pool supports unauthenticated logins.
-    , _isSupportedLoginProviders :: Map Text Text
-      -- ^ Optional key:value pairs mapping provider names to provider app
-      -- IDs.
+    { _diprsIdentityPoolId :: Text
+    , _diprsIdentityPoolName :: Text
+    , _diprsAllowUnauthenticatedIdentities :: Bool
+    , _diprsSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-isIdentityPoolId :: Lens' DescribeIdentityPoolResponse (Text)
-isIdentityPoolId = lens _isIdentityPoolId (\s a -> s { _isIdentityPoolId = a })
-{-# INLINE isIdentityPoolId #-}
+diprsIdentityPoolId :: Lens' DescribeIdentityPoolResponse Text
+diprsIdentityPoolId =
+    lens _diprsIdentityPoolId (\s a -> s { _diprsIdentityPoolId = a })
+{-# INLINE diprsIdentityPoolId #-}
 
 -- | A string that you provide.
-isIdentityPoolName :: Lens' DescribeIdentityPoolResponse (Text)
-isIdentityPoolName = lens _isIdentityPoolName (\s a -> s { _isIdentityPoolName = a })
-{-# INLINE isIdentityPoolName #-}
+diprsIdentityPoolName :: Lens' DescribeIdentityPoolResponse Text
+diprsIdentityPoolName =
+    lens _diprsIdentityPoolName (\s a -> s { _diprsIdentityPoolName = a })
+{-# INLINE diprsIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-isAllowUnauthenticatedIdentities :: Lens' DescribeIdentityPoolResponse (Bool)
-isAllowUnauthenticatedIdentities = lens _isAllowUnauthenticatedIdentities (\s a -> s { _isAllowUnauthenticatedIdentities = a })
-{-# INLINE isAllowUnauthenticatedIdentities #-}
+diprsAllowUnauthenticatedIdentities :: Lens' DescribeIdentityPoolResponse Bool
+diprsAllowUnauthenticatedIdentities =
+    lens _diprsAllowUnauthenticatedIdentities
+         (\s a -> s { _diprsAllowUnauthenticatedIdentities = a })
+{-# INLINE diprsAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-isSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (Map Text Text)
-isSupportedLoginProviders = lens _isSupportedLoginProviders (\s a -> s { _isSupportedLoginProviders = a })
-{-# INLINE isSupportedLoginProviders #-}
+diprsSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (Map Text Text)
+diprsSupportedLoginProviders =
+    lens _diprsSupportedLoginProviders
+         (\s a -> s { _diprsSupportedLoginProviders = a })
+{-# INLINE diprsSupportedLoginProviders #-}
 
 instance FromJSON DescribeIdentityPoolResponse
 

@@ -31,64 +31,62 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication
     -- * Request
       CreateApplication
     -- ** Request constructor
-    , mkCreateApplicationMessage
+    , mkCreateApplication
     -- ** Request lenses
-    , camApplicationName
-    , camDescription
+    , caApplicationName
+    , caDescription
 
     -- * Response
     , CreateApplicationResponse
     -- ** Response lenses
-    , admApplication
+    , carsApplication
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | This documentation target is not reported in the API reference.
+data CreateApplication = CreateApplication
+    { _caApplicationName :: Text
+    , _caDescription :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplication' request.
-mkCreateApplicationMessage :: Text -- ^ 'camApplicationName'
-                           -> CreateApplication
-mkCreateApplicationMessage p1 = CreateApplication
-    { _camApplicationName = p1
-    , _camDescription = Nothing
+mkCreateApplication :: Text -- ^ 'caApplicationName'
+                    -> CreateApplication
+mkCreateApplication p1 = CreateApplication
+    { _caApplicationName = p1
+    , _caDescription = Nothing
     }
-{-# INLINE mkCreateApplicationMessage #-}
-
-data CreateApplication = CreateApplication
-    { _camApplicationName :: Text
-      -- ^ The name of the application. Constraint: This name must be unique
-      -- within your account. If the specified name already exists, the
-      -- action returns an InvalidParameterValue error.
-    , _camDescription :: Maybe Text
-      -- ^ Describes the application.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateApplication #-}
 
 -- | The name of the application. Constraint: This name must be unique within
 -- your account. If the specified name already exists, the action returns an
 -- InvalidParameterValue error.
-camApplicationName :: Lens' CreateApplication (Text)
-camApplicationName = lens _camApplicationName (\s a -> s { _camApplicationName = a })
-{-# INLINE camApplicationName #-}
+caApplicationName :: Lens' CreateApplication Text
+caApplicationName =
+    lens _caApplicationName (\s a -> s { _caApplicationName = a })
+{-# INLINE caApplicationName #-}
 
 -- | Describes the application.
-camDescription :: Lens' CreateApplication (Maybe Text)
-camDescription = lens _camDescription (\s a -> s { _camDescription = a })
-{-# INLINE camDescription #-}
+caDescription :: Lens' CreateApplication (Maybe Text)
+caDescription = lens _caDescription (\s a -> s { _caDescription = a })
+{-# INLINE caDescription #-}
 
 instance ToQuery CreateApplication where
     toQuery = genericQuery def
 
+-- | Result message containing a single description of an application.
 newtype CreateApplicationResponse = CreateApplicationResponse
-    { _admApplication :: Maybe ApplicationDescription
-      -- ^ The ApplicationDescription of the application.
+    { _carsApplication :: Maybe ApplicationDescription
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
-admApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
-admApplication = lens _admApplication (\s a -> s { _admApplication = a })
-{-# INLINE admApplication #-}
+carsApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
+carsApplication = lens _carsApplication (\s a -> s { _carsApplication = a })
+{-# INLINE carsApplication #-}
 
 instance FromXML CreateApplicationResponse where
     fromXMLOptions = xmlOptions

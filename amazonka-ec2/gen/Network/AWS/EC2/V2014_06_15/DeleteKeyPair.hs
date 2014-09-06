@@ -29,9 +29,9 @@ module Network.AWS.EC2.V2014_06_15.DeleteKeyPair
     -- * Request
       DeleteKeyPair
     -- ** Request constructor
-    , mkDeleteKeyPairRequest
+    , mkDeleteKeyPair
     -- ** Request lenses
-    , dkprKeyName
+    , dkpKeyName
 
     -- * Response
     , DeleteKeyPairResponse
@@ -41,24 +41,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteKeyPair' request.
-mkDeleteKeyPairRequest :: Text -- ^ 'dkprKeyName'
-                       -> DeleteKeyPair
-mkDeleteKeyPairRequest p1 = DeleteKeyPair
-    { _dkprKeyName = p1
-    }
-{-# INLINE mkDeleteKeyPairRequest #-}
-
+-- | 
 newtype DeleteKeyPair = DeleteKeyPair
-    { _dkprKeyName :: Text
-      -- ^ The name of the key pair.
+    { _dkpKeyName :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteKeyPair' request.
+mkDeleteKeyPair :: Text -- ^ 'dkpKeyName'
+                -> DeleteKeyPair
+mkDeleteKeyPair p1 = DeleteKeyPair
+    { _dkpKeyName = p1
+    }
+{-# INLINE mkDeleteKeyPair #-}
+
 -- | The name of the key pair.
-dkprKeyName :: Lens' DeleteKeyPair (Text)
-dkprKeyName = lens _dkprKeyName (\s a -> s { _dkprKeyName = a })
-{-# INLINE dkprKeyName #-}
+dkpKeyName :: Lens' DeleteKeyPair Text
+dkpKeyName = lens _dkpKeyName (\s a -> s { _dkpKeyName = a })
+{-# INLINE dkpKeyName #-}
 
 instance ToQuery DeleteKeyPair where
     toQuery = genericQuery def

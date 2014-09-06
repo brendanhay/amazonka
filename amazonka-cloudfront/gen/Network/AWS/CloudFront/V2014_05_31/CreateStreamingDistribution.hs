@@ -23,40 +23,43 @@ module Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution
     -- * Request
       CreateStreamingDistribution
     -- ** Request constructor
-    , mkCreateStreamingDistributionRequest
+    , mkCreateStreamingDistribution
     -- ** Request lenses
-    , csdrStreamingDistributionConfig
+    , csdStreamingDistributionConfig
 
     -- * Response
     , CreateStreamingDistributionResponse
     -- ** Response lenses
-    , csdsStreamingDistribution
-    , csdsLocation
-    , csdsETag
+    , csdrsStreamingDistribution
+    , csdrsLocation
+    , csdrsETag
     ) where
 
 import Network.AWS.Request.RestXML
 import Network.AWS.CloudFront.V2014_05_31.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+-- | The request to create a new streaming distribution.
+newtype CreateStreamingDistribution = CreateStreamingDistribution
+    { _csdStreamingDistributionConfig :: StreamingDistributionConfig
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStreamingDistribution' request.
-mkCreateStreamingDistributionRequest :: StreamingDistributionConfig -- ^ 'csdrStreamingDistributionConfig'
-                                     -> CreateStreamingDistribution
-mkCreateStreamingDistributionRequest p1 = CreateStreamingDistribution
-    { _csdrStreamingDistributionConfig = p1
+mkCreateStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
+                              -> CreateStreamingDistribution
+mkCreateStreamingDistribution p1 = CreateStreamingDistribution
+    { _csdStreamingDistributionConfig = p1
     }
-{-# INLINE mkCreateStreamingDistributionRequest #-}
-
-newtype CreateStreamingDistribution = CreateStreamingDistribution
-    { _csdrStreamingDistributionConfig :: StreamingDistributionConfig
-      -- ^ The streaming distribution's configuration information.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateStreamingDistribution #-}
 
 -- | The streaming distribution's configuration information.
-csdrStreamingDistributionConfig :: Lens' CreateStreamingDistribution (StreamingDistributionConfig)
-csdrStreamingDistributionConfig = lens _csdrStreamingDistributionConfig (\s a -> s { _csdrStreamingDistributionConfig = a })
-{-# INLINE csdrStreamingDistributionConfig #-}
+csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
+csdStreamingDistributionConfig =
+    lens _csdStreamingDistributionConfig
+         (\s a -> s { _csdStreamingDistributionConfig = a })
+{-# INLINE csdStreamingDistributionConfig #-}
 
 instance ToPath CreateStreamingDistribution where
     toPath = const "/2014-05-31/streaming-distribution"
@@ -69,35 +72,32 @@ instance ToXML CreateStreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateStreamingDistributionRequest"
 
+-- | The returned result of the corresponding request.
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
-    { _csdsStreamingDistribution :: Maybe StreamingDistribution
-      -- ^ The streaming distribution's information.
-    , _csdsLocation :: Maybe Text
-      -- ^ The fully qualified URI of the new streaming distribution
-      -- resource just created. For example:
-      -- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
-      -- 
-    , _csdsETag :: Maybe Text
-      -- ^ The current version of the streaming distribution created.
+    { _csdrsStreamingDistribution :: Maybe StreamingDistribution
+    , _csdrsLocation :: Maybe Text
+    , _csdrsETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-csdsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
-csdsStreamingDistribution = lens _csdsStreamingDistribution (\s a -> s { _csdsStreamingDistribution = a })
-{-# INLINE csdsStreamingDistribution #-}
+csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
+csdrsStreamingDistribution =
+    lens _csdrsStreamingDistribution
+         (\s a -> s { _csdrsStreamingDistribution = a })
+{-# INLINE csdrsStreamingDistribution #-}
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created. For example:
 -- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
 -- 
-csdsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdsLocation = lens _csdsLocation (\s a -> s { _csdsLocation = a })
-{-# INLINE csdsLocation #-}
+csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
+csdrsLocation = lens _csdrsLocation (\s a -> s { _csdrsLocation = a })
+{-# INLINE csdrsLocation #-}
 
 -- | The current version of the streaming distribution created.
-csdsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdsETag = lens _csdsETag (\s a -> s { _csdsETag = a })
-{-# INLINE csdsETag #-}
+csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
+csdrsETag = lens _csdrsETag (\s a -> s { _csdrsETag = a })
+{-# INLINE csdrsETag #-}
 
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront

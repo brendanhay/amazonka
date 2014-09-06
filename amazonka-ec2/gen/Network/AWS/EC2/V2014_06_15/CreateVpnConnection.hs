@@ -74,84 +74,81 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnection
     -- * Request
       CreateVpnConnection
     -- ** Request constructor
-    , mkCreateVpnConnectionRequest
+    , mkCreateVpnConnection
     -- ** Request lenses
-    , cvcrType
-    , cvcrCustomerGatewayId
-    , cvcrVpnGatewayId
-    , cvcrOptions
+    , cvcType
+    , cvcCustomerGatewayId
+    , cvcVpnGatewayId
+    , cvcOptions
 
     -- * Response
     , CreateVpnConnectionResponse
     -- ** Response lenses
-    , cvcsVpnConnection
+    , cvcrsVpnConnection
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateVpnConnection' request.
-mkCreateVpnConnectionRequest :: Text -- ^ 'cvcrType'
-                             -> Text -- ^ 'cvcrCustomerGatewayId'
-                             -> Text -- ^ 'cvcrVpnGatewayId'
-                             -> CreateVpnConnection
-mkCreateVpnConnectionRequest p1 p2 p3 = CreateVpnConnection
-    { _cvcrType = p1
-    , _cvcrCustomerGatewayId = p2
-    , _cvcrVpnGatewayId = p3
-    , _cvcrOptions = Nothing
-    }
-{-# INLINE mkCreateVpnConnectionRequest #-}
-
+-- | 
 data CreateVpnConnection = CreateVpnConnection
-    { _cvcrType :: Text
-      -- ^ The type of VPN connection.
-    , _cvcrCustomerGatewayId :: Text
-      -- ^ The ID of the customer gateway.
-    , _cvcrVpnGatewayId :: Text
-      -- ^ The ID of the virtual private gateway.
-    , _cvcrOptions :: Maybe VpnConnectionOptionsSpecification
-      -- ^ Indicates whether the VPN connection requires static routes. If
-      -- you are creating a VPN connection for a device that does not
-      -- support BGP, you must specify true. Default: false.
+    { _cvcType :: Text
+    , _cvcCustomerGatewayId :: Text
+    , _cvcVpnGatewayId :: Text
+    , _cvcOptions :: Maybe VpnConnectionOptionsSpecification
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpnConnection' request.
+mkCreateVpnConnection :: Text -- ^ 'cvcType'
+                      -> Text -- ^ 'cvcCustomerGatewayId'
+                      -> Text -- ^ 'cvcVpnGatewayId'
+                      -> CreateVpnConnection
+mkCreateVpnConnection p1 p2 p3 = CreateVpnConnection
+    { _cvcType = p1
+    , _cvcCustomerGatewayId = p2
+    , _cvcVpnGatewayId = p3
+    , _cvcOptions = Nothing
+    }
+{-# INLINE mkCreateVpnConnection #-}
+
 -- | The type of VPN connection.
-cvcrType :: Lens' CreateVpnConnection (Text)
-cvcrType = lens _cvcrType (\s a -> s { _cvcrType = a })
-{-# INLINE cvcrType #-}
+cvcType :: Lens' CreateVpnConnection Text
+cvcType = lens _cvcType (\s a -> s { _cvcType = a })
+{-# INLINE cvcType #-}
 
 -- | The ID of the customer gateway.
-cvcrCustomerGatewayId :: Lens' CreateVpnConnection (Text)
-cvcrCustomerGatewayId = lens _cvcrCustomerGatewayId (\s a -> s { _cvcrCustomerGatewayId = a })
-{-# INLINE cvcrCustomerGatewayId #-}
+cvcCustomerGatewayId :: Lens' CreateVpnConnection Text
+cvcCustomerGatewayId =
+    lens _cvcCustomerGatewayId (\s a -> s { _cvcCustomerGatewayId = a })
+{-# INLINE cvcCustomerGatewayId #-}
 
 -- | The ID of the virtual private gateway.
-cvcrVpnGatewayId :: Lens' CreateVpnConnection (Text)
-cvcrVpnGatewayId = lens _cvcrVpnGatewayId (\s a -> s { _cvcrVpnGatewayId = a })
-{-# INLINE cvcrVpnGatewayId #-}
+cvcVpnGatewayId :: Lens' CreateVpnConnection Text
+cvcVpnGatewayId = lens _cvcVpnGatewayId (\s a -> s { _cvcVpnGatewayId = a })
+{-# INLINE cvcVpnGatewayId #-}
 
 -- | Indicates whether the VPN connection requires static routes. If you are
 -- creating a VPN connection for a device that does not support BGP, you must
 -- specify true. Default: false.
-cvcrOptions :: Lens' CreateVpnConnection (Maybe VpnConnectionOptionsSpecification)
-cvcrOptions = lens _cvcrOptions (\s a -> s { _cvcrOptions = a })
-{-# INLINE cvcrOptions #-}
+cvcOptions :: Lens' CreateVpnConnection (Maybe VpnConnectionOptionsSpecification)
+cvcOptions = lens _cvcOptions (\s a -> s { _cvcOptions = a })
+{-# INLINE cvcOptions #-}
 
 instance ToQuery CreateVpnConnection where
     toQuery = genericQuery def
 
+-- | 
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
-    { _cvcsVpnConnection :: Maybe VpnConnection
-      -- ^ Information about the VPN connection.
+    { _cvcrsVpnConnection :: Maybe VpnConnection
     } deriving (Show, Generic)
 
 -- | Information about the VPN connection.
-cvcsVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
-cvcsVpnConnection = lens _cvcsVpnConnection (\s a -> s { _cvcsVpnConnection = a })
-{-# INLINE cvcsVpnConnection #-}
+cvcrsVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
+cvcrsVpnConnection =
+    lens _cvcrsVpnConnection (\s a -> s { _cvcrsVpnConnection = a })
+{-# INLINE cvcrsVpnConnection #-}
 
 instance FromXML CreateVpnConnectionResponse where
     fromXMLOptions = xmlOptions

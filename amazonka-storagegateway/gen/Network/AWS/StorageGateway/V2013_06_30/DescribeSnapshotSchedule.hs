@@ -39,18 +39,18 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule
     -- * Request
       DescribeSnapshotSchedule
     -- ** Request constructor
-    , mkDescribeSnapshotScheduleInput
+    , mkDescribeSnapshotSchedule
     -- ** Request lenses
-    , dssjVolumeARN
+    , dss1VolumeARN
 
     -- * Response
     , DescribeSnapshotScheduleResponse
     -- ** Response lenses
-    , dsspVolumeARN
-    , dsspStartAt
-    , dsspRecurrenceInHours
-    , dsspDescription
-    , dsspTimezone
+    , dssrsrsVolumeARN
+    , dssrsrsStartAt
+    , dssrsrsRecurrenceInHours
+    , dssrsrsDescription
+    , dssrsrsTimezone
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -58,26 +58,26 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the DescribeSnapshotScheduleInput$VolumeARN of the
+-- volume.
+newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
+    { _dss1VolumeARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotSchedule' request.
-mkDescribeSnapshotScheduleInput :: Text -- ^ 'dssjVolumeARN'
-                                -> DescribeSnapshotSchedule
-mkDescribeSnapshotScheduleInput p1 = DescribeSnapshotSchedule
-    { _dssjVolumeARN = p1
+mkDescribeSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
+                           -> DescribeSnapshotSchedule
+mkDescribeSnapshotSchedule p1 = DescribeSnapshotSchedule
+    { _dss1VolumeARN = p1
     }
-{-# INLINE mkDescribeSnapshotScheduleInput #-}
-
-newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
-    { _dssjVolumeARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
-      -- operation to return a list of gateway volumes.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeSnapshotSchedule #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-dssjVolumeARN :: Lens' DescribeSnapshotSchedule (Text)
-dssjVolumeARN = lens _dssjVolumeARN (\s a -> s { _dssjVolumeARN = a })
-{-# INLINE dssjVolumeARN #-}
+dss1VolumeARN :: Lens' DescribeSnapshotSchedule Text
+dss1VolumeARN = lens _dss1VolumeARN (\s a -> s { _dss1VolumeARN = a })
+{-# INLINE dss1VolumeARN #-}
 
 instance ToPath DescribeSnapshotSchedule
 
@@ -88,32 +88,36 @@ instance ToHeaders DescribeSnapshotSchedule
 instance ToJSON DescribeSnapshotSchedule
 
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dsspVolumeARN :: Maybe Text
-    , _dsspStartAt :: Maybe Integer
-    , _dsspRecurrenceInHours :: Maybe Integer
-    , _dsspDescription :: Maybe Text
-    , _dsspTimezone :: Maybe Text
+    { _dssrsrsVolumeARN :: Maybe Text
+    , _dssrsrsStartAt :: Maybe Integer
+    , _dssrsrsRecurrenceInHours :: Maybe Integer
+    , _dssrsrsDescription :: Maybe Text
+    , _dssrsrsTimezone :: Maybe Text
     } deriving (Show, Generic)
 
-dsspVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dsspVolumeARN = lens _dsspVolumeARN (\s a -> s { _dsspVolumeARN = a })
-{-# INLINE dsspVolumeARN #-}
+dssrsrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsrsVolumeARN =
+    lens _dssrsrsVolumeARN (\s a -> s { _dssrsrsVolumeARN = a })
+{-# INLINE dssrsrsVolumeARN #-}
 
-dsspStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
-dsspStartAt = lens _dsspStartAt (\s a -> s { _dsspStartAt = a })
-{-# INLINE dsspStartAt #-}
+dssrsrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
+dssrsrsStartAt = lens _dssrsrsStartAt (\s a -> s { _dssrsrsStartAt = a })
+{-# INLINE dssrsrsStartAt #-}
 
-dsspRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
-dsspRecurrenceInHours = lens _dsspRecurrenceInHours (\s a -> s { _dsspRecurrenceInHours = a })
-{-# INLINE dsspRecurrenceInHours #-}
+dssrsrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
+dssrsrsRecurrenceInHours =
+    lens _dssrsrsRecurrenceInHours
+         (\s a -> s { _dssrsrsRecurrenceInHours = a })
+{-# INLINE dssrsrsRecurrenceInHours #-}
 
-dsspDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dsspDescription = lens _dsspDescription (\s a -> s { _dsspDescription = a })
-{-# INLINE dsspDescription #-}
+dssrsrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsrsDescription =
+    lens _dssrsrsDescription (\s a -> s { _dssrsrsDescription = a })
+{-# INLINE dssrsrsDescription #-}
 
-dsspTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dsspTimezone = lens _dsspTimezone (\s a -> s { _dsspTimezone = a })
-{-# INLINE dsspTimezone #-}
+dssrsrsTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsrsTimezone = lens _dssrsrsTimezone (\s a -> s { _dssrsrsTimezone = a })
+{-# INLINE dssrsrsTimezone #-}
 
 instance FromJSON DescribeSnapshotScheduleResponse
 

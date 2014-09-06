@@ -26,9 +26,9 @@ module Network.AWS.OpsWorks.V2013_02_18.StartStack
     -- * Request
       StartStack
     -- ** Request constructor
-    , mkStartStackRequest
+    , mkStartStack
     -- ** Request lenses
-    , ssssssssssssssssssssxStackId
+    , ss1StackId
 
     -- * Response
     , StartStackResponse
@@ -39,24 +39,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'StartStack' request.
-mkStartStackRequest :: Text -- ^ 'ssssssssssssssssssssxStackId'
-                    -> StartStack
-mkStartStackRequest p1 = StartStack
-    { _ssssssssssssssssssssxStackId = p1
-    }
-{-# INLINE mkStartStackRequest #-}
-
 newtype StartStack = StartStack
-    { _ssssssssssssssssssssxStackId :: Text
-      -- ^ The stack ID.
+    { _ss1StackId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartStack' request.
+mkStartStack :: Text -- ^ 'ss1StackId'
+             -> StartStack
+mkStartStack p1 = StartStack
+    { _ss1StackId = p1
+    }
+{-# INLINE mkStartStack #-}
+
 -- | The stack ID.
-ssssssssssssssssssssxStackId :: Lens' StartStack (Text)
-ssssssssssssssssssssxStackId = lens _ssssssssssssssssssssxStackId (\s a -> s { _ssssssssssssssssssssxStackId = a })
-{-# INLINE ssssssssssssssssssssxStackId #-}
+ss1StackId :: Lens' StartStack Text
+ss1StackId = lens _ss1StackId (\s a -> s { _ss1StackId = a })
+{-# INLINE ss1StackId #-}
 
 instance ToPath StartStack
 

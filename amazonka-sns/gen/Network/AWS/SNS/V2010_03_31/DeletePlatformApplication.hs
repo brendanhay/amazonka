@@ -37,9 +37,9 @@ module Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
     -- * Request
       DeletePlatformApplication
     -- ** Request constructor
-    , mkDeletePlatformApplicationInput
+    , mkDeletePlatformApplication
     -- ** Request lenses
-    , dpaiPlatformApplicationArn
+    , dpaPlatformApplicationArn
 
     -- * Response
     , DeletePlatformApplicationResponse
@@ -49,24 +49,26 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeletePlatformApplication' request.
-mkDeletePlatformApplicationInput :: Text -- ^ 'dpaiPlatformApplicationArn'
-                                 -> DeletePlatformApplication
-mkDeletePlatformApplicationInput p1 = DeletePlatformApplication
-    { _dpaiPlatformApplicationArn = p1
-    }
-{-# INLINE mkDeletePlatformApplicationInput #-}
-
+-- | Input for DeletePlatformApplication action.
 newtype DeletePlatformApplication = DeletePlatformApplication
-    { _dpaiPlatformApplicationArn :: Text
-      -- ^ PlatformApplicationArn of platform application object to delete.
+    { _dpaPlatformApplicationArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePlatformApplication' request.
+mkDeletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
+                            -> DeletePlatformApplication
+mkDeletePlatformApplication p1 = DeletePlatformApplication
+    { _dpaPlatformApplicationArn = p1
+    }
+{-# INLINE mkDeletePlatformApplication #-}
+
 -- | PlatformApplicationArn of platform application object to delete.
-dpaiPlatformApplicationArn :: Lens' DeletePlatformApplication (Text)
-dpaiPlatformApplicationArn = lens _dpaiPlatformApplicationArn (\s a -> s { _dpaiPlatformApplicationArn = a })
-{-# INLINE dpaiPlatformApplicationArn #-}
+dpaPlatformApplicationArn :: Lens' DeletePlatformApplication Text
+dpaPlatformApplicationArn =
+    lens _dpaPlatformApplicationArn
+         (\s a -> s { _dpaPlatformApplicationArn = a })
+{-# INLINE dpaPlatformApplicationArn #-}
 
 instance ToQuery DeletePlatformApplication where
     toQuery = genericQuery def

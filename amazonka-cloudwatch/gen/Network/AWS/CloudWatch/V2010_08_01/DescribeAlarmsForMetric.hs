@@ -24,97 +24,93 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
     -- * Request
       DescribeAlarmsForMetric
     -- ** Request constructor
-    , mkDescribeAlarmsForMetricInput
+    , mkDescribeAlarmsForMetric
     -- ** Request lenses
-    , dafmiMetricName
-    , dafmiNamespace
-    , dafmiStatistic
-    , dafmiDimensions
-    , dafmiPeriod
-    , dafmiUnit
+    , dafmMetricName
+    , dafmNamespace
+    , dafmStatistic
+    , dafmDimensions
+    , dafmPeriod
+    , dafmUnit
 
     -- * Response
     , DescribeAlarmsForMetricResponse
     -- ** Response lenses
-    , dafmoMetricAlarms
+    , dafmrsMetricAlarms
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAlarmsForMetric' request.
-mkDescribeAlarmsForMetricInput :: Text -- ^ 'dafmiMetricName'
-                               -> Text -- ^ 'dafmiNamespace'
-                               -> DescribeAlarmsForMetric
-mkDescribeAlarmsForMetricInput p1 p2 = DescribeAlarmsForMetric
-    { _dafmiMetricName = p1
-    , _dafmiNamespace = p2
-    , _dafmiStatistic = Nothing
-    , _dafmiDimensions = mempty
-    , _dafmiPeriod = Nothing
-    , _dafmiUnit = Nothing
-    }
-{-# INLINE mkDescribeAlarmsForMetricInput #-}
-
+-- | 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
-    { _dafmiMetricName :: Text
-      -- ^ The name of the metric.
-    , _dafmiNamespace :: Text
-      -- ^ The namespace of the metric.
-    , _dafmiStatistic :: Maybe Statistic
-      -- ^ The statistic for the metric.
-    , _dafmiDimensions :: [Dimension]
-      -- ^ The list of dimensions associated with the metric.
-    , _dafmiPeriod :: Maybe Integer
-      -- ^ The period in seconds over which the statistic is applied.
-    , _dafmiUnit :: Maybe StandardUnit
-      -- ^ The unit for the metric.
+    { _dafmMetricName :: Text
+    , _dafmNamespace :: Text
+    , _dafmStatistic :: Maybe Statistic
+    , _dafmDimensions :: [Dimension]
+    , _dafmPeriod :: Maybe Integer
+    , _dafmUnit :: Maybe StandardUnit
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAlarmsForMetric' request.
+mkDescribeAlarmsForMetric :: Text -- ^ 'dafmMetricName'
+                          -> Text -- ^ 'dafmNamespace'
+                          -> DescribeAlarmsForMetric
+mkDescribeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
+    { _dafmMetricName = p1
+    , _dafmNamespace = p2
+    , _dafmStatistic = Nothing
+    , _dafmDimensions = mempty
+    , _dafmPeriod = Nothing
+    , _dafmUnit = Nothing
+    }
+{-# INLINE mkDescribeAlarmsForMetric #-}
+
 -- | The name of the metric.
-dafmiMetricName :: Lens' DescribeAlarmsForMetric (Text)
-dafmiMetricName = lens _dafmiMetricName (\s a -> s { _dafmiMetricName = a })
-{-# INLINE dafmiMetricName #-}
+dafmMetricName :: Lens' DescribeAlarmsForMetric Text
+dafmMetricName = lens _dafmMetricName (\s a -> s { _dafmMetricName = a })
+{-# INLINE dafmMetricName #-}
 
 -- | The namespace of the metric.
-dafmiNamespace :: Lens' DescribeAlarmsForMetric (Text)
-dafmiNamespace = lens _dafmiNamespace (\s a -> s { _dafmiNamespace = a })
-{-# INLINE dafmiNamespace #-}
+dafmNamespace :: Lens' DescribeAlarmsForMetric Text
+dafmNamespace = lens _dafmNamespace (\s a -> s { _dafmNamespace = a })
+{-# INLINE dafmNamespace #-}
 
 -- | The statistic for the metric.
-dafmiStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
-dafmiStatistic = lens _dafmiStatistic (\s a -> s { _dafmiStatistic = a })
-{-# INLINE dafmiStatistic #-}
+dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
+dafmStatistic = lens _dafmStatistic (\s a -> s { _dafmStatistic = a })
+{-# INLINE dafmStatistic #-}
 
 -- | The list of dimensions associated with the metric.
-dafmiDimensions :: Lens' DescribeAlarmsForMetric ([Dimension])
-dafmiDimensions = lens _dafmiDimensions (\s a -> s { _dafmiDimensions = a })
-{-# INLINE dafmiDimensions #-}
+dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
+dafmDimensions = lens _dafmDimensions (\s a -> s { _dafmDimensions = a })
+{-# INLINE dafmDimensions #-}
 
 -- | The period in seconds over which the statistic is applied.
-dafmiPeriod :: Lens' DescribeAlarmsForMetric (Maybe Integer)
-dafmiPeriod = lens _dafmiPeriod (\s a -> s { _dafmiPeriod = a })
-{-# INLINE dafmiPeriod #-}
+dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Integer)
+dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a })
+{-# INLINE dafmPeriod #-}
 
 -- | The unit for the metric.
-dafmiUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
-dafmiUnit = lens _dafmiUnit (\s a -> s { _dafmiUnit = a })
-{-# INLINE dafmiUnit #-}
+dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
+dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
+{-# INLINE dafmUnit #-}
 
 instance ToQuery DescribeAlarmsForMetric where
     toQuery = genericQuery def
 
+-- | The output for the DescribeAlarmsForMetric action.
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
-    { _dafmoMetricAlarms :: [MetricAlarm]
-      -- ^ A list of information for each alarm with the specified metric.
+    { _dafmrsMetricAlarms :: [MetricAlarm]
     } deriving (Show, Generic)
 
 -- | A list of information for each alarm with the specified metric.
-dafmoMetricAlarms :: Lens' DescribeAlarmsForMetricResponse ([MetricAlarm])
-dafmoMetricAlarms = lens _dafmoMetricAlarms (\s a -> s { _dafmoMetricAlarms = a })
-{-# INLINE dafmoMetricAlarms #-}
+dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
+dafmrsMetricAlarms =
+    lens _dafmrsMetricAlarms (\s a -> s { _dafmrsMetricAlarms = a })
+{-# INLINE dafmrsMetricAlarms #-}
 
 instance FromXML DescribeAlarmsForMetricResponse where
     fromXMLOptions = xmlOptions

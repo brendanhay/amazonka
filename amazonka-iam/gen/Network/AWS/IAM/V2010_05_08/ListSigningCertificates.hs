@@ -49,106 +49,93 @@ module Network.AWS.IAM.V2010_05_08.ListSigningCertificates
     -- * Request
       ListSigningCertificates
     -- ** Request constructor
-    , mkListSigningCertificatesRequest
+    , mkListSigningCertificates
     -- ** Request lenses
-    , lsctUserName
-    , lsctMarker
-    , lsctMaxItems
+    , lsc1UserName
+    , lsc1Marker
+    , lsc1MaxItems
 
     -- * Response
     , ListSigningCertificatesResponse
     -- ** Response lenses
-    , lscuCertificates
-    , lscuIsTruncated
-    , lscuMarker
+    , lscrsrsCertificates
+    , lscrsrsIsTruncated
+    , lscrsrsMarker
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListSigningCertificates' request.
-mkListSigningCertificatesRequest :: ListSigningCertificates
-mkListSigningCertificatesRequest = ListSigningCertificates
-    { _lsctUserName = Nothing
-    , _lsctMarker = Nothing
-    , _lsctMaxItems = Nothing
-    }
-{-# INLINE mkListSigningCertificatesRequest #-}
-
+-- | 
 data ListSigningCertificates = ListSigningCertificates
-    { _lsctUserName :: Maybe Text
-      -- ^ The name of the user.
-    , _lsctMarker :: Maybe Text
-      -- ^ Use this only when paginating results, and only in a subsequent
-      -- request after you've received a response where the results are
-      -- truncated. Set it to the value of the Marker element in the
-      -- response you just received.
-    , _lsctMaxItems :: Maybe Integer
-      -- ^ Use this only when paginating results to indicate the maximum
-      -- number of certificate IDs you want in the response. If there are
-      -- additional certificate IDs beyond the maximum you specify, the
-      -- IsTruncated response element is true. This parameter is optional.
-      -- If you do not include it, it defaults to 100.
+    { _lsc1UserName :: Maybe Text
+    , _lsc1Marker :: Maybe Text
+    , _lsc1MaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSigningCertificates' request.
+mkListSigningCertificates :: ListSigningCertificates
+mkListSigningCertificates = ListSigningCertificates
+    { _lsc1UserName = Nothing
+    , _lsc1Marker = Nothing
+    , _lsc1MaxItems = Nothing
+    }
+{-# INLINE mkListSigningCertificates #-}
+
 -- | The name of the user.
-lsctUserName :: Lens' ListSigningCertificates (Maybe Text)
-lsctUserName = lens _lsctUserName (\s a -> s { _lsctUserName = a })
-{-# INLINE lsctUserName #-}
+lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
+lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
+{-# INLINE lsc1UserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-lsctMarker :: Lens' ListSigningCertificates (Maybe Text)
-lsctMarker = lens _lsctMarker (\s a -> s { _lsctMarker = a })
-{-# INLINE lsctMarker #-}
+lsc1Marker :: Lens' ListSigningCertificates (Maybe Text)
+lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
+{-# INLINE lsc1Marker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- certificate IDs you want in the response. If there are additional
 -- certificate IDs beyond the maximum you specify, the IsTruncated response
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lsctMaxItems :: Lens' ListSigningCertificates (Maybe Integer)
-lsctMaxItems = lens _lsctMaxItems (\s a -> s { _lsctMaxItems = a })
-{-# INLINE lsctMaxItems #-}
+lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Integer)
+lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
+{-# INLINE lsc1MaxItems #-}
 
 instance ToQuery ListSigningCertificates where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the
+-- ListSigningCertificates action.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
-    { _lscuCertificates :: [SigningCertificate]
-      -- ^ A list of the user's signing certificate information.
-    , _lscuIsTruncated :: Bool
-      -- ^ A flag that indicates whether there are more certificate IDs to
-      -- list. If your results were truncated, you can make a subsequent
-      -- pagination request using the Marker request parameter to retrieve
-      -- more certificates in the list.
-    , _lscuMarker :: Maybe Text
-      -- ^ If IsTruncated is true, this element is present and contains the
-      -- value to use for the Marker parameter in a subsequent pagination
-      -- request.
+    { _lscrsrsCertificates :: [SigningCertificate]
+    , _lscrsrsIsTruncated :: Maybe Bool
+    , _lscrsrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of the user's signing certificate information.
-lscuCertificates :: Lens' ListSigningCertificatesResponse ([SigningCertificate])
-lscuCertificates = lens _lscuCertificates (\s a -> s { _lscuCertificates = a })
-{-# INLINE lscuCertificates #-}
+lscrsrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
+lscrsrsCertificates =
+    lens _lscrsrsCertificates (\s a -> s { _lscrsrsCertificates = a })
+{-# INLINE lscrsrsCertificates #-}
 
 -- | A flag that indicates whether there are more certificate IDs to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more certificates in the
 -- list.
-lscuIsTruncated :: Lens' ListSigningCertificatesResponse (Bool)
-lscuIsTruncated = lens _lscuIsTruncated (\s a -> s { _lscuIsTruncated = a })
-{-# INLINE lscuIsTruncated #-}
+lscrsrsIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
+lscrsrsIsTruncated =
+    lens _lscrsrsIsTruncated (\s a -> s { _lscrsrsIsTruncated = a })
+{-# INLINE lscrsrsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lscuMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
-lscuMarker = lens _lscuMarker (\s a -> s { _lscuMarker = a })
-{-# INLINE lscuMarker #-}
+lscrsrsMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
+lscrsrsMarker = lens _lscrsrsMarker (\s a -> s { _lscrsrsMarker = a })
+{-# INLINE lscrsrsMarker #-}
 
 instance FromXML ListSigningCertificatesResponse where
     fromXMLOptions = xmlOptions
@@ -162,7 +149,7 @@ instance AWSRequest ListSigningCertificates where
 
 instance AWSPager ListSigningCertificates where
     next rq rs
-        | not (_lscuIsTruncated rs) = Nothing
+        | not (_lscrsrsIsTruncated rs) = Nothing
         | otherwise = Just $ rq
-            { _lsctMarker = _lscuMarker rs
+            { _lsc1Marker = _lscrsrsMarker rs
             }

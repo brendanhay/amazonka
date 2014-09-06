@@ -36,50 +36,44 @@ module Network.AWS.Redshift.V2012_12_01.ModifyClusterParameterGroup
     -- * Request
       ModifyClusterParameterGroup
     -- ** Request constructor
-    , mkModifyClusterParameterGroupMessage
+    , mkModifyClusterParameterGroup
     -- ** Request lenses
-    , mcpgmParameterGroupName
-    , mcpgmParameters
+    , mcpgParameterGroupName
+    , mcpgParameters
 
     -- * Response
     , ModifyClusterParameterGroupResponse
     -- ** Response lenses
-    , cpgnmParameterGroupName
-    , cpgnmParameterGroupStatus
+    , mcpgrsParameterGroupName
+    , mcpgrsParameterGroupStatus
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ModifyClusterParameterGroup' request.
-mkModifyClusterParameterGroupMessage :: Text -- ^ 'mcpgmParameterGroupName'
-                                     -> [Parameter] -- ^ 'mcpgmParameters'
-                                     -> ModifyClusterParameterGroup
-mkModifyClusterParameterGroupMessage p1 p2 = ModifyClusterParameterGroup
-    { _mcpgmParameterGroupName = p1
-    , _mcpgmParameters = p2
-    }
-{-# INLINE mkModifyClusterParameterGroupMessage #-}
-
+-- | 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
-    { _mcpgmParameterGroupName :: Text
-      -- ^ The name of the parameter group to be modified.
-    , _mcpgmParameters :: [Parameter]
-      -- ^ An array of parameters to be modified. A maximum of 20 parameters
-      -- can be modified in a single request. For each parameter to be
-      -- modified, you must supply at least the parameter name and
-      -- parameter value; other name-value pairs of the parameter are
-      -- optional. For the workload management (WLM) configuration, you
-      -- must supply all the name-value pairs in the
-      -- wlm_json_configuration parameter.
+    { _mcpgParameterGroupName :: Text
+    , _mcpgParameters :: [Parameter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyClusterParameterGroup' request.
+mkModifyClusterParameterGroup :: Text -- ^ 'mcpgParameterGroupName'
+                              -> [Parameter] -- ^ 'mcpgParameters'
+                              -> ModifyClusterParameterGroup
+mkModifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
+    { _mcpgParameterGroupName = p1
+    , _mcpgParameters = p2
+    }
+{-# INLINE mkModifyClusterParameterGroup #-}
+
 -- | The name of the parameter group to be modified.
-mcpgmParameterGroupName :: Lens' ModifyClusterParameterGroup (Text)
-mcpgmParameterGroupName = lens _mcpgmParameterGroupName (\s a -> s { _mcpgmParameterGroupName = a })
-{-# INLINE mcpgmParameterGroupName #-}
+mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
+mcpgParameterGroupName =
+    lens _mcpgParameterGroupName (\s a -> s { _mcpgParameterGroupName = a })
+{-# INLINE mcpgParameterGroupName #-}
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be
 -- modified in a single request. For each parameter to be modified, you must
@@ -87,33 +81,36 @@ mcpgmParameterGroupName = lens _mcpgmParameterGroupName (\s a -> s { _mcpgmParam
 -- pairs of the parameter are optional. For the workload management (WLM)
 -- configuration, you must supply all the name-value pairs in the
 -- wlm_json_configuration parameter.
-mcpgmParameters :: Lens' ModifyClusterParameterGroup ([Parameter])
-mcpgmParameters = lens _mcpgmParameters (\s a -> s { _mcpgmParameters = a })
-{-# INLINE mcpgmParameters #-}
+mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
+mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a })
+{-# INLINE mcpgParameters #-}
 
 instance ToQuery ModifyClusterParameterGroup where
     toQuery = genericQuery def
 
+-- | Contains the output from the ModifyClusterParameterGroup and
+-- ResetClusterParameterGroup actions and indicate the parameter group
+-- involved and the status of the operation on the parameter group.
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
-    { _cpgnmParameterGroupName :: Maybe Text
-      -- ^ The name of the cluster parameter group.
-    , _cpgnmParameterGroupStatus :: Maybe Text
-      -- ^ The status of the parameter group. For example, if you made a
-      -- change to a parameter group name-value pair, then the change
-      -- could be pending a reboot of an associated cluster.
+    { _mcpgrsParameterGroupName :: Maybe Text
+    , _mcpgrsParameterGroupStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the cluster parameter group.
-cpgnmParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
-cpgnmParameterGroupName = lens _cpgnmParameterGroupName (\s a -> s { _cpgnmParameterGroupName = a })
-{-# INLINE cpgnmParameterGroupName #-}
+mcpgrsParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
+mcpgrsParameterGroupName =
+    lens _mcpgrsParameterGroupName
+         (\s a -> s { _mcpgrsParameterGroupName = a })
+{-# INLINE mcpgrsParameterGroupName #-}
 
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot
 -- of an associated cluster.
-cpgnmParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
-cpgnmParameterGroupStatus = lens _cpgnmParameterGroupStatus (\s a -> s { _cpgnmParameterGroupStatus = a })
-{-# INLINE cpgnmParameterGroupStatus #-}
+mcpgrsParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
+mcpgrsParameterGroupStatus =
+    lens _mcpgrsParameterGroupStatus
+         (\s a -> s { _mcpgrsParameterGroupStatus = a })
+{-# INLINE mcpgrsParameterGroupStatus #-}
 
 instance FromXML ModifyClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

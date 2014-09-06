@@ -37,65 +37,56 @@ module Network.AWS.RDS.V2013_09_09.ResetDBParameterGroup
     -- * Request
       ResetDBParameterGroup
     -- ** Request constructor
-    , mkResetDBParameterGroupMessage
+    , mkResetDBParameterGroup
     -- ** Request lenses
-    , rdbpgmDBParameterGroupName
-    , rdbpgmResetAllParameters
-    , rdbpgmParameters
+    , rdbpgDBParameterGroupName
+    , rdbpgResetAllParameters
+    , rdbpgParameters
 
     -- * Response
     , ResetDBParameterGroupResponse
     -- ** Response lenses
-    , dbpgnnDBParameterGroupName
+    , rdbpgrsDBParameterGroupName
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data ResetDBParameterGroup = ResetDBParameterGroup
+    { _rdbpgDBParameterGroupName :: Text
+    , _rdbpgResetAllParameters :: Maybe Bool
+    , _rdbpgParameters :: [Parameter]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetDBParameterGroup' request.
-mkResetDBParameterGroupMessage :: Text -- ^ 'rdbpgmDBParameterGroupName'
-                               -> ResetDBParameterGroup
-mkResetDBParameterGroupMessage p1 = ResetDBParameterGroup
-    { _rdbpgmDBParameterGroupName = p1
-    , _rdbpgmResetAllParameters = Nothing
-    , _rdbpgmParameters = mempty
+mkResetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
+                        -> ResetDBParameterGroup
+mkResetDBParameterGroup p1 = ResetDBParameterGroup
+    { _rdbpgDBParameterGroupName = p1
+    , _rdbpgResetAllParameters = Nothing
+    , _rdbpgParameters = mempty
     }
-{-# INLINE mkResetDBParameterGroupMessage #-}
-
-data ResetDBParameterGroup = ResetDBParameterGroup
-    { _rdbpgmDBParameterGroupName :: Text
-      -- ^ The name of the DB parameter group. Constraints: Must be 1 to 255
-      -- alphanumeric characters First character must be a letter Cannot
-      -- end with a hyphen or contain two consecutive hyphens.
-    , _rdbpgmResetAllParameters :: Maybe Bool
-      -- ^ Specifies whether (true) or not (false) to reset all parameters
-      -- in the DB parameter group to default values. Default: true.
-    , _rdbpgmParameters :: [Parameter]
-      -- ^ An array of parameter names, values, and the apply method for the
-      -- parameter update. At least one parameter name, value, and apply
-      -- method must be supplied; subsequent arguments are optional. A
-      -- maximum of 20 parameters may be modified in a single request.
-      -- MySQL Valid Values (for Apply method): immediate | pending-reboot
-      -- You can use the immediate value with dynamic parameters only. You
-      -- can use the pending-reboot value for both dynamic and static
-      -- parameters, and changes are applied when DB instance reboots.
-      -- Oracle Valid Values (for Apply method): pending-reboot.
-    } deriving (Show, Generic)
+{-# INLINE mkResetDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-rdbpgmDBParameterGroupName :: Lens' ResetDBParameterGroup (Text)
-rdbpgmDBParameterGroupName = lens _rdbpgmDBParameterGroupName (\s a -> s { _rdbpgmDBParameterGroupName = a })
-{-# INLINE rdbpgmDBParameterGroupName #-}
+rdbpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
+rdbpgDBParameterGroupName =
+    lens _rdbpgDBParameterGroupName
+         (\s a -> s { _rdbpgDBParameterGroupName = a })
+{-# INLINE rdbpgDBParameterGroupName #-}
 
 -- | Specifies whether (true) or not (false) to reset all parameters in the DB
 -- parameter group to default values. Default: true.
-rdbpgmResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
-rdbpgmResetAllParameters = lens _rdbpgmResetAllParameters (\s a -> s { _rdbpgmResetAllParameters = a })
-{-# INLINE rdbpgmResetAllParameters #-}
+rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
+rdbpgResetAllParameters =
+    lens _rdbpgResetAllParameters
+         (\s a -> s { _rdbpgResetAllParameters = a })
+{-# INLINE rdbpgResetAllParameters #-}
 
 -- | An array of parameter names, values, and the apply method for the parameter
 -- update. At least one parameter name, value, and apply method must be
@@ -105,22 +96,25 @@ rdbpgmResetAllParameters = lens _rdbpgmResetAllParameters (\s a -> s { _rdbpgmRe
 -- parameters only. You can use the pending-reboot value for both dynamic and
 -- static parameters, and changes are applied when DB instance reboots. Oracle
 -- Valid Values (for Apply method): pending-reboot.
-rdbpgmParameters :: Lens' ResetDBParameterGroup ([Parameter])
-rdbpgmParameters = lens _rdbpgmParameters (\s a -> s { _rdbpgmParameters = a })
-{-# INLINE rdbpgmParameters #-}
+rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a })
+{-# INLINE rdbpgParameters #-}
 
 instance ToQuery ResetDBParameterGroup where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the
+-- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
-    { _dbpgnnDBParameterGroupName :: Maybe Text
-      -- ^ The name of the DB parameter group.
+    { _rdbpgrsDBParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the DB parameter group.
-dbpgnnDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
-dbpgnnDBParameterGroupName = lens _dbpgnnDBParameterGroupName (\s a -> s { _dbpgnnDBParameterGroupName = a })
-{-# INLINE dbpgnnDBParameterGroupName #-}
+rdbpgrsDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
+rdbpgrsDBParameterGroupName =
+    lens _rdbpgrsDBParameterGroupName
+         (\s a -> s { _rdbpgrsDBParameterGroupName = a })
+{-# INLINE rdbpgrsDBParameterGroupName #-}
 
 instance FromXML ResetDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

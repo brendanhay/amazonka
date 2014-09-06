@@ -27,64 +27,64 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions
     -- * Request
       DescribeApplicationVersions
     -- ** Request constructor
-    , mkDescribeApplicationVersionsMessage
+    , mkDescribeApplicationVersions
     -- ** Request lenses
-    , davnApplicationName
-    , davnVersionLabels
+    , dav1ApplicationName
+    , dav1VersionLabels
 
     -- * Response
     , DescribeApplicationVersionsResponse
     -- ** Response lenses
-    , avdnApplicationVersions
+    , davrsApplicationVersions
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Result message containing a list of configuration descriptions.
+data DescribeApplicationVersions = DescribeApplicationVersions
+    { _dav1ApplicationName :: Maybe Text
+    , _dav1VersionLabels :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApplicationVersions' request.
-mkDescribeApplicationVersionsMessage :: DescribeApplicationVersions
-mkDescribeApplicationVersionsMessage = DescribeApplicationVersions
-    { _davnApplicationName = Nothing
-    , _davnVersionLabels = mempty
+mkDescribeApplicationVersions :: DescribeApplicationVersions
+mkDescribeApplicationVersions = DescribeApplicationVersions
+    { _dav1ApplicationName = Nothing
+    , _dav1VersionLabels = mempty
     }
-{-# INLINE mkDescribeApplicationVersionsMessage #-}
-
-data DescribeApplicationVersions = DescribeApplicationVersions
-    { _davnApplicationName :: Maybe Text
-      -- ^ If specified, AWS Elastic Beanstalk restricts the returned
-      -- descriptions to only include ones that are associated with the
-      -- specified application.
-    , _davnVersionLabels :: [Text]
-      -- ^ If specified, restricts the returned descriptions to only include
-      -- ones that have the specified version labels.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeApplicationVersions #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- only include ones that are associated with the specified application.
-davnApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
-davnApplicationName = lens _davnApplicationName (\s a -> s { _davnApplicationName = a })
-{-# INLINE davnApplicationName #-}
+dav1ApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
+dav1ApplicationName =
+    lens _dav1ApplicationName (\s a -> s { _dav1ApplicationName = a })
+{-# INLINE dav1ApplicationName #-}
 
 -- | If specified, restricts the returned descriptions to only include ones that
 -- have the specified version labels.
-davnVersionLabels :: Lens' DescribeApplicationVersions ([Text])
-davnVersionLabels = lens _davnVersionLabels (\s a -> s { _davnVersionLabels = a })
-{-# INLINE davnVersionLabels #-}
+dav1VersionLabels :: Lens' DescribeApplicationVersions [Text]
+dav1VersionLabels =
+    lens _dav1VersionLabels (\s a -> s { _dav1VersionLabels = a })
+{-# INLINE dav1VersionLabels #-}
 
 instance ToQuery DescribeApplicationVersions where
     toQuery = genericQuery def
 
+-- | Result message wrapping a list of application version descriptions.
 newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
-    { _avdnApplicationVersions :: [ApplicationVersionDescription]
-      -- ^ A list of ApplicationVersionDescription .
+    { _davrsApplicationVersions :: [ApplicationVersionDescription]
     } deriving (Show, Generic)
 
 -- | A list of ApplicationVersionDescription .
-avdnApplicationVersions :: Lens' DescribeApplicationVersionsResponse ([ApplicationVersionDescription])
-avdnApplicationVersions = lens _avdnApplicationVersions (\s a -> s { _avdnApplicationVersions = a })
-{-# INLINE avdnApplicationVersions #-}
+davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davrsApplicationVersions =
+    lens _davrsApplicationVersions
+         (\s a -> s { _davrsApplicationVersions = a })
+{-# INLINE davrsApplicationVersions #-}
 
 instance FromXML DescribeApplicationVersionsResponse where
     fromXMLOptions = xmlOptions

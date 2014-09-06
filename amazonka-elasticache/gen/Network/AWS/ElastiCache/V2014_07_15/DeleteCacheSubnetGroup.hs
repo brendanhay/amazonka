@@ -28,9 +28,9 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup
     -- * Request
       DeleteCacheSubnetGroup
     -- ** Request constructor
-    , mkDeleteCacheSubnetGroupMessage
+    , mkDeleteCacheSubnetGroup
     -- ** Request lenses
-    , dcsgnCacheSubnetGroupName
+    , dcsg1CacheSubnetGroupName
 
     -- * Response
     , DeleteCacheSubnetGroupResponse
@@ -40,26 +40,27 @@ import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.V2014_07_15.Types
 import Network.AWS.Prelude
 
+-- | Represents the input of a DeleteCacheSubnetGroup operation.
+newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
+    { _dcsg1CacheSubnetGroupName :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSubnetGroup' request.
-mkDeleteCacheSubnetGroupMessage :: Text -- ^ 'dcsgnCacheSubnetGroupName'
-                                -> DeleteCacheSubnetGroup
-mkDeleteCacheSubnetGroupMessage p1 = DeleteCacheSubnetGroup
-    { _dcsgnCacheSubnetGroupName = p1
+mkDeleteCacheSubnetGroup :: Text -- ^ 'dcsg1CacheSubnetGroupName'
+                         -> DeleteCacheSubnetGroup
+mkDeleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
+    { _dcsg1CacheSubnetGroupName = p1
     }
-{-# INLINE mkDeleteCacheSubnetGroupMessage #-}
-
-newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
-    { _dcsgnCacheSubnetGroupName :: Text
-      -- ^ The name of the cache subnet group to delete. Constraints: Must
-      -- contain no more than 255 alphanumeric characters or hyphens.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteCacheSubnetGroup #-}
 
 -- | The name of the cache subnet group to delete. Constraints: Must contain no
 -- more than 255 alphanumeric characters or hyphens.
-dcsgnCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup (Text)
-dcsgnCacheSubnetGroupName = lens _dcsgnCacheSubnetGroupName (\s a -> s { _dcsgnCacheSubnetGroupName = a })
-{-# INLINE dcsgnCacheSubnetGroupName #-}
+dcsg1CacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
+dcsg1CacheSubnetGroupName =
+    lens _dcsg1CacheSubnetGroupName
+         (\s a -> s { _dcsg1CacheSubnetGroupName = a })
+{-# INLINE dcsg1CacheSubnetGroupName #-}
 
 instance ToQuery DeleteCacheSubnetGroup where
     toQuery = genericQuery def

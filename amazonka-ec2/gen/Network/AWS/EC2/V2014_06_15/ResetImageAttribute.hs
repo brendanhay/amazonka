@@ -30,10 +30,10 @@ module Network.AWS.EC2.V2014_06_15.ResetImageAttribute
     -- * Request
       ResetImageAttribute
     -- ** Request constructor
-    , mkResetImageAttributeRequest
+    , mkResetImageAttribute
     -- ** Request lenses
-    , riarImageId
-    , riarAttribute
+    , riaImageId
+    , riaAttribute
 
     -- * Response
     , ResetImageAttributeResponse
@@ -43,35 +43,33 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ResetImageAttribute' request.
-mkResetImageAttributeRequest :: Text -- ^ 'riarImageId'
-                             -> ResetImageAttributeName -- ^ 'riarAttribute'
-                             -> ResetImageAttribute
-mkResetImageAttributeRequest p1 p2 = ResetImageAttribute
-    { _riarImageId = p1
-    , _riarAttribute = p2
-    }
-{-# INLINE mkResetImageAttributeRequest #-}
-
+-- | 
 data ResetImageAttribute = ResetImageAttribute
-    { _riarImageId :: Text
-      -- ^ The ID of the AMI.
-    , _riarAttribute :: ResetImageAttributeName
-      -- ^ The attribute to reset (currently you can only reset the launch
-      -- permission attribute).
+    { _riaImageId :: Text
+    , _riaAttribute :: ResetImageAttributeName
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetImageAttribute' request.
+mkResetImageAttribute :: Text -- ^ 'riaImageId'
+                      -> ResetImageAttributeName -- ^ 'riaAttribute'
+                      -> ResetImageAttribute
+mkResetImageAttribute p1 p2 = ResetImageAttribute
+    { _riaImageId = p1
+    , _riaAttribute = p2
+    }
+{-# INLINE mkResetImageAttribute #-}
+
 -- | The ID of the AMI.
-riarImageId :: Lens' ResetImageAttribute (Text)
-riarImageId = lens _riarImageId (\s a -> s { _riarImageId = a })
-{-# INLINE riarImageId #-}
+riaImageId :: Lens' ResetImageAttribute Text
+riaImageId = lens _riaImageId (\s a -> s { _riaImageId = a })
+{-# INLINE riaImageId #-}
 
 -- | The attribute to reset (currently you can only reset the launch permission
 -- attribute).
-riarAttribute :: Lens' ResetImageAttribute (ResetImageAttributeName)
-riarAttribute = lens _riarAttribute (\s a -> s { _riarAttribute = a })
-{-# INLINE riarAttribute #-}
+riaAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
+riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
+{-# INLINE riaAttribute #-}
 
 instance ToQuery ResetImageAttribute where
     toQuery = genericQuery def

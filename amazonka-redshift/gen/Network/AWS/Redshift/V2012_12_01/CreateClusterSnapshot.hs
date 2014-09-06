@@ -34,43 +34,37 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot
     -- * Request
       CreateClusterSnapshot
     -- ** Request constructor
-    , mkCreateClusterSnapshotMessage
+    , mkCreateClusterSnapshot
     -- ** Request lenses
-    , ccsnSnapshotIdentifier
-    , ccsnClusterIdentifier
+    , ccs1SnapshotIdentifier
+    , ccs1ClusterIdentifier
 
     -- * Response
     , CreateClusterSnapshotResponse
     -- ** Response lenses
-    , ssssssrSnapshot
+    , ccsrsrsSnapshot
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data CreateClusterSnapshot = CreateClusterSnapshot
+    { _ccs1SnapshotIdentifier :: Text
+    , _ccs1ClusterIdentifier :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSnapshot' request.
-mkCreateClusterSnapshotMessage :: Text -- ^ 'ccsnSnapshotIdentifier'
-                               -> Text -- ^ 'ccsnClusterIdentifier'
-                               -> CreateClusterSnapshot
-mkCreateClusterSnapshotMessage p1 p2 = CreateClusterSnapshot
-    { _ccsnSnapshotIdentifier = p1
-    , _ccsnClusterIdentifier = p2
+mkCreateClusterSnapshot :: Text -- ^ 'ccs1SnapshotIdentifier'
+                        -> Text -- ^ 'ccs1ClusterIdentifier'
+                        -> CreateClusterSnapshot
+mkCreateClusterSnapshot p1 p2 = CreateClusterSnapshot
+    { _ccs1SnapshotIdentifier = p1
+    , _ccs1ClusterIdentifier = p2
     }
-{-# INLINE mkCreateClusterSnapshotMessage #-}
-
-data CreateClusterSnapshot = CreateClusterSnapshot
-    { _ccsnSnapshotIdentifier :: Text
-      -- ^ A unique identifier for the snapshot that you are requesting.
-      -- This identifier must be unique for all snapshots within the AWS
-      -- account. Constraints: Cannot be null, empty, or blank Must
-      -- contain from 1 to 255 alphanumeric characters or hyphens First
-      -- character must be a letter Cannot end with a hyphen or contain
-      -- two consecutive hyphens Example: my-snapshot-id.
-    , _ccsnClusterIdentifier :: Text
-      -- ^ The cluster identifier for which you want a snapshot.
-    } deriving (Show, Generic)
+{-# INLINE mkCreateClusterSnapshot #-}
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
@@ -78,27 +72,28 @@ data CreateClusterSnapshot = CreateClusterSnapshot
 -- alphanumeric characters or hyphens First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens Example:
 -- my-snapshot-id.
-ccsnSnapshotIdentifier :: Lens' CreateClusterSnapshot (Text)
-ccsnSnapshotIdentifier = lens _ccsnSnapshotIdentifier (\s a -> s { _ccsnSnapshotIdentifier = a })
-{-# INLINE ccsnSnapshotIdentifier #-}
+ccs1SnapshotIdentifier :: Lens' CreateClusterSnapshot Text
+ccs1SnapshotIdentifier =
+    lens _ccs1SnapshotIdentifier (\s a -> s { _ccs1SnapshotIdentifier = a })
+{-# INLINE ccs1SnapshotIdentifier #-}
 
 -- | The cluster identifier for which you want a snapshot.
-ccsnClusterIdentifier :: Lens' CreateClusterSnapshot (Text)
-ccsnClusterIdentifier = lens _ccsnClusterIdentifier (\s a -> s { _ccsnClusterIdentifier = a })
-{-# INLINE ccsnClusterIdentifier #-}
+ccs1ClusterIdentifier :: Lens' CreateClusterSnapshot Text
+ccs1ClusterIdentifier =
+    lens _ccs1ClusterIdentifier (\s a -> s { _ccs1ClusterIdentifier = a })
+{-# INLINE ccs1ClusterIdentifier #-}
 
 instance ToQuery CreateClusterSnapshot where
     toQuery = genericQuery def
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
-    { _ssssssrSnapshot :: Maybe Snapshot
-      -- ^ Describes a snapshot.
+    { _ccsrsrsSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-ssssssrSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-ssssssrSnapshot = lens _ssssssrSnapshot (\s a -> s { _ssssssrSnapshot = a })
-{-# INLINE ssssssrSnapshot #-}
+ccsrsrsSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
+ccsrsrsSnapshot = lens _ccsrsrsSnapshot (\s a -> s { _ccsrsrsSnapshot = a })
+{-# INLINE ccsrsrsSnapshot #-}
 
 instance FromXML CreateClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

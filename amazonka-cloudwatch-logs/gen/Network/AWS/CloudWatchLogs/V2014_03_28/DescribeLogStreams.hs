@@ -49,18 +49,18 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams
     -- * Request
       DescribeLogStreams
     -- ** Request constructor
-    , mkDescribeLogStreamsRequest
+    , mkDescribeLogStreams
     -- ** Request lenses
-    , dlssLogGroupName
-    , dlssLogStreamNamePrefix
-    , dlssNextToken
-    , dlssLimit
+    , dls1LogGroupName
+    , dls1LogStreamNamePrefix
+    , dls1NextToken
+    , dls1Limit
 
     -- * Response
     , DescribeLogStreamsResponse
     -- ** Response lenses
-    , dlstLogStreams
-    , dlstNextToken
+    , dlsrsLogStreams
+    , dlsrsNextToken
     ) where
 
 import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -68,50 +68,48 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLogStreams' request.
-mkDescribeLogStreamsRequest :: Text -- ^ 'dlssLogGroupName'
-                            -> DescribeLogStreams
-mkDescribeLogStreamsRequest p1 = DescribeLogStreams
-    { _dlssLogGroupName = p1
-    , _dlssLogStreamNamePrefix = Nothing
-    , _dlssNextToken = Nothing
-    , _dlssLimit = Nothing
-    }
-{-# INLINE mkDescribeLogStreamsRequest #-}
-
 data DescribeLogStreams = DescribeLogStreams
-    { _dlssLogGroupName :: Text
-    , _dlssLogStreamNamePrefix :: Maybe Text
-    , _dlssNextToken :: Maybe Text
-      -- ^ A string token used for pagination that points to the next page
-      -- of results. It must be a value obtained from the response of the
-      -- previous DescribeLogStreams request.
-    , _dlssLimit :: Maybe Integer
-      -- ^ The maximum number of items returned in the response. If you
-      -- don't specify a value, the request would return up to 50 items.
+    { _dls1LogGroupName :: Text
+    , _dls1LogStreamNamePrefix :: Maybe Text
+    , _dls1NextToken :: Maybe Text
+    , _dls1Limit :: Maybe Integer
     } deriving (Show, Generic)
 
-dlssLogGroupName :: Lens' DescribeLogStreams (Text)
-dlssLogGroupName = lens _dlssLogGroupName (\s a -> s { _dlssLogGroupName = a })
-{-# INLINE dlssLogGroupName #-}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLogStreams' request.
+mkDescribeLogStreams :: Text -- ^ 'dls1LogGroupName'
+                     -> DescribeLogStreams
+mkDescribeLogStreams p1 = DescribeLogStreams
+    { _dls1LogGroupName = p1
+    , _dls1LogStreamNamePrefix = Nothing
+    , _dls1NextToken = Nothing
+    , _dls1Limit = Nothing
+    }
+{-# INLINE mkDescribeLogStreams #-}
 
-dlssLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
-dlssLogStreamNamePrefix = lens _dlssLogStreamNamePrefix (\s a -> s { _dlssLogStreamNamePrefix = a })
-{-# INLINE dlssLogStreamNamePrefix #-}
+dls1LogGroupName :: Lens' DescribeLogStreams Text
+dls1LogGroupName =
+    lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })
+{-# INLINE dls1LogGroupName #-}
+
+dls1LogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
+dls1LogStreamNamePrefix =
+    lens _dls1LogStreamNamePrefix
+         (\s a -> s { _dls1LogStreamNamePrefix = a })
+{-# INLINE dls1LogStreamNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeLogStreams request.
-dlssNextToken :: Lens' DescribeLogStreams (Maybe Text)
-dlssNextToken = lens _dlssNextToken (\s a -> s { _dlssNextToken = a })
-{-# INLINE dlssNextToken #-}
+dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
+dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
+{-# INLINE dls1NextToken #-}
 
 -- | The maximum number of items returned in the response. If you don't specify
 -- a value, the request would return up to 50 items.
-dlssLimit :: Lens' DescribeLogStreams (Maybe Integer)
-dlssLimit = lens _dlssLimit (\s a -> s { _dlssLimit = a })
-{-# INLINE dlssLimit #-}
+dls1Limit :: Lens' DescribeLogStreams (Maybe Integer)
+dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a })
+{-# INLINE dls1Limit #-}
 
 instance ToPath DescribeLogStreams
 
@@ -122,25 +120,21 @@ instance ToHeaders DescribeLogStreams
 instance ToJSON DescribeLogStreams
 
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
-    { _dlstLogStreams :: [LogStream]
-      -- ^ A list of log streams.
-    , _dlstNextToken :: Maybe Text
-      -- ^ A string token used for pagination that points to the next page
-      -- of results. It must be a value obtained from the response of the
-      -- previous request. The token expires after 24 hours.
+    { _dlsrsLogStreams :: [LogStream]
+    , _dlsrsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of log streams.
-dlstLogStreams :: Lens' DescribeLogStreamsResponse ([LogStream])
-dlstLogStreams = lens _dlstLogStreams (\s a -> s { _dlstLogStreams = a })
-{-# INLINE dlstLogStreams #-}
+dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
+dlsrsLogStreams = lens _dlsrsLogStreams (\s a -> s { _dlsrsLogStreams = a })
+{-# INLINE dlsrsLogStreams #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dlstNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
-dlstNextToken = lens _dlstNextToken (\s a -> s { _dlstNextToken = a })
-{-# INLINE dlstNextToken #-}
+dlsrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
+dlsrsNextToken = lens _dlsrsNextToken (\s a -> s { _dlsrsNextToken = a })
+{-# INLINE dlsrsNextToken #-}
 
 instance FromJSON DescribeLogStreamsResponse
 
@@ -152,5 +146,5 @@ instance AWSRequest DescribeLogStreams where
     response _ = jsonResponse
 
 instance AWSPager DescribeLogStreams where
-    next rq rs = (\x -> rq { _dlssNextToken = Just x })
-        <$> (_dlstNextToken rs)
+    next rq rs = (\x -> rq { _dls1NextToken = Just x })
+        <$> (_dlsrsNextToken rs)

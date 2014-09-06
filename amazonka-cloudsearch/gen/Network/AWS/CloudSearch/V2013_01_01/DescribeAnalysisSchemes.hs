@@ -29,71 +29,76 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeAnalysisSchemes
     -- * Request
       DescribeAnalysisSchemes
     -- ** Request constructor
-    , mkDescribeAnalysisSchemesRequest
+    , mkDescribeAnalysisSchemes
     -- ** Request lenses
-    , dasvDomainName
-    , dasvAnalysisSchemeNames
-    , dasvDeployed
+    , das2DomainName
+    , das2AnalysisSchemeNames
+    , das2Deployed
 
     -- * Response
     , DescribeAnalysisSchemesResponse
     -- ** Response lenses
-    , daswAnalysisSchemes
+    , dasrs1AnalysisSchemes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeAnalysisSchemes' request.
-mkDescribeAnalysisSchemesRequest :: Text -- ^ 'dasvDomainName'
-                                 -> DescribeAnalysisSchemes
-mkDescribeAnalysisSchemesRequest p1 = DescribeAnalysisSchemes
-    { _dasvDomainName = p1
-    , _dasvAnalysisSchemeNames = mempty
-    , _dasvDeployed = Nothing
-    }
-{-# INLINE mkDescribeAnalysisSchemesRequest #-}
-
+-- | Container for the parameters to the DescribeAnalysisSchemes operation.
+-- Specifies the name of the domain you want to describe. To limit the
+-- response to particular analysis schemes, specify the names of the analysis
+-- schemes you want to describe. To show the active configuration and exclude
+-- any pending changes, set the Deployed option to true.
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes
-    { _dasvDomainName :: Text
-      -- ^ The name of the domain you want to describe.
-    , _dasvAnalysisSchemeNames :: [Text]
-      -- ^ The analysis schemes you want to describe.
-    , _dasvDeployed :: Maybe Bool
-      -- ^ Whether to display the deployed configuration (true) or include
-      -- any pending changes (false). Defaults to false.
+    { _das2DomainName :: Text
+    , _das2AnalysisSchemeNames :: [Text]
+    , _das2Deployed :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAnalysisSchemes' request.
+mkDescribeAnalysisSchemes :: Text -- ^ 'das2DomainName'
+                          -> DescribeAnalysisSchemes
+mkDescribeAnalysisSchemes p1 = DescribeAnalysisSchemes
+    { _das2DomainName = p1
+    , _das2AnalysisSchemeNames = mempty
+    , _das2Deployed = Nothing
+    }
+{-# INLINE mkDescribeAnalysisSchemes #-}
+
 -- | The name of the domain you want to describe.
-dasvDomainName :: Lens' DescribeAnalysisSchemes (Text)
-dasvDomainName = lens _dasvDomainName (\s a -> s { _dasvDomainName = a })
-{-# INLINE dasvDomainName #-}
+das2DomainName :: Lens' DescribeAnalysisSchemes Text
+das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
+{-# INLINE das2DomainName #-}
 
 -- | The analysis schemes you want to describe.
-dasvAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes ([Text])
-dasvAnalysisSchemeNames = lens _dasvAnalysisSchemeNames (\s a -> s { _dasvAnalysisSchemeNames = a })
-{-# INLINE dasvAnalysisSchemeNames #-}
+das2AnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
+das2AnalysisSchemeNames =
+    lens _das2AnalysisSchemeNames
+         (\s a -> s { _das2AnalysisSchemeNames = a })
+{-# INLINE das2AnalysisSchemeNames #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-dasvDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
-dasvDeployed = lens _dasvDeployed (\s a -> s { _dasvDeployed = a })
-{-# INLINE dasvDeployed #-}
+das2Deployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
+das2Deployed = lens _das2Deployed (\s a -> s { _das2Deployed = a })
+{-# INLINE das2Deployed #-}
 
 instance ToQuery DescribeAnalysisSchemes where
     toQuery = genericQuery def
 
+-- | The result of a DescribeAnalysisSchemes request. Contains the analysis
+-- schemes configured for the domain specified in the request.
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
-    { _daswAnalysisSchemes :: [AnalysisSchemeStatus]
-      -- ^ The analysis scheme descriptions.
+    { _dasrs1AnalysisSchemes :: [AnalysisSchemeStatus]
     } deriving (Show, Generic)
 
 -- | The analysis scheme descriptions.
-daswAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse ([AnalysisSchemeStatus])
-daswAnalysisSchemes = lens _daswAnalysisSchemes (\s a -> s { _daswAnalysisSchemes = a })
-{-# INLINE daswAnalysisSchemes #-}
+dasrs1AnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
+dasrs1AnalysisSchemes =
+    lens _dasrs1AnalysisSchemes (\s a -> s { _dasrs1AnalysisSchemes = a })
+{-# INLINE dasrs1AnalysisSchemes #-}
 
 instance FromXML DescribeAnalysisSchemesResponse where
     fromXMLOptions = xmlOptions

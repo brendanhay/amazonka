@@ -33,10 +33,10 @@ module Network.AWS.CloudWatch.V2010_08_01.PutMetricData
     -- * Request
       PutMetricData
     -- ** Request constructor
-    , mkPutMetricDataInput
+    , mkPutMetricData
     -- ** Request lenses
-    , pmdiNamespace
-    , pmdiMetricData
+    , pmdNamespace
+    , pmdMetricData
 
     -- * Response
     , PutMetricDataResponse
@@ -46,33 +46,32 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'PutMetricData' request.
-mkPutMetricDataInput :: Text -- ^ 'pmdiNamespace'
-                     -> [MetricDatum] -- ^ 'pmdiMetricData'
-                     -> PutMetricData
-mkPutMetricDataInput p1 p2 = PutMetricData
-    { _pmdiNamespace = p1
-    , _pmdiMetricData = p2
-    }
-{-# INLINE mkPutMetricDataInput #-}
-
+-- | 
 data PutMetricData = PutMetricData
-    { _pmdiNamespace :: Text
-      -- ^ The namespace for the metric data.
-    , _pmdiMetricData :: [MetricDatum]
-      -- ^ A list of data describing the metric.
+    { _pmdNamespace :: Text
+    , _pmdMetricData :: [MetricDatum]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutMetricData' request.
+mkPutMetricData :: Text -- ^ 'pmdNamespace'
+                -> [MetricDatum] -- ^ 'pmdMetricData'
+                -> PutMetricData
+mkPutMetricData p1 p2 = PutMetricData
+    { _pmdNamespace = p1
+    , _pmdMetricData = p2
+    }
+{-# INLINE mkPutMetricData #-}
+
 -- | The namespace for the metric data.
-pmdiNamespace :: Lens' PutMetricData (Text)
-pmdiNamespace = lens _pmdiNamespace (\s a -> s { _pmdiNamespace = a })
-{-# INLINE pmdiNamespace #-}
+pmdNamespace :: Lens' PutMetricData Text
+pmdNamespace = lens _pmdNamespace (\s a -> s { _pmdNamespace = a })
+{-# INLINE pmdNamespace #-}
 
 -- | A list of data describing the metric.
-pmdiMetricData :: Lens' PutMetricData ([MetricDatum])
-pmdiMetricData = lens _pmdiMetricData (\s a -> s { _pmdiMetricData = a })
-{-# INLINE pmdiMetricData #-}
+pmdMetricData :: Lens' PutMetricData [MetricDatum]
+pmdMetricData = lens _pmdMetricData (\s a -> s { _pmdMetricData = a })
+{-# INLINE pmdMetricData #-}
 
 instance ToQuery PutMetricData where
     toQuery = genericQuery def

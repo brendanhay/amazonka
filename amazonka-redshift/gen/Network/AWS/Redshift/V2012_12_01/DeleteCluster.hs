@@ -40,94 +40,82 @@ module Network.AWS.Redshift.V2012_12_01.DeleteCluster
     -- * Request
       DeleteCluster
     -- ** Request constructor
-    , mkDeleteClusterMessage
+    , mkDeleteCluster
     -- ** Request lenses
-    , dcmClusterIdentifier
-    , dcmSkipFinalClusterSnapshot
-    , dcmFinalClusterSnapshotIdentifier
+    , dcClusterIdentifier
+    , dcSkipFinalClusterSnapshot
+    , dcFinalClusterSnapshotIdentifier
 
     -- * Response
     , DeleteClusterResponse
     -- ** Response lenses
-    , cxCluster
+    , dcrsCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data DeleteCluster = DeleteCluster
+    { _dcClusterIdentifier :: Text
+    , _dcSkipFinalClusterSnapshot :: Maybe Bool
+    , _dcFinalClusterSnapshotIdentifier :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCluster' request.
-mkDeleteClusterMessage :: Text -- ^ 'dcmClusterIdentifier'
-                       -> DeleteCluster
-mkDeleteClusterMessage p1 = DeleteCluster
-    { _dcmClusterIdentifier = p1
-    , _dcmSkipFinalClusterSnapshot = Nothing
-    , _dcmFinalClusterSnapshotIdentifier = Nothing
+mkDeleteCluster :: Text -- ^ 'dcClusterIdentifier'
+                -> DeleteCluster
+mkDeleteCluster p1 = DeleteCluster
+    { _dcClusterIdentifier = p1
+    , _dcSkipFinalClusterSnapshot = Nothing
+    , _dcFinalClusterSnapshotIdentifier = Nothing
     }
-{-# INLINE mkDeleteClusterMessage #-}
-
-data DeleteCluster = DeleteCluster
-    { _dcmClusterIdentifier :: Text
-      -- ^ The identifier of the cluster to be deleted. Constraints: Must
-      -- contain lowercase characters. Must contain from 1 to 63
-      -- alphanumeric characters or hyphens. First character must be a
-      -- letter. Cannot end with a hyphen or contain two consecutive
-      -- hyphens.
-    , _dcmSkipFinalClusterSnapshot :: Maybe Bool
-      -- ^ Determines whether a final snapshot of the cluster is created
-      -- before Amazon Redshift deletes the cluster. If true, a final
-      -- cluster snapshot is not created. If false, a final cluster
-      -- snapshot is created before the cluster is deleted. The
-      -- FinalClusterSnapshotIdentifier parameter must be specified if
-      -- SkipFinalClusterSnapshot is false. Default: false.
-    , _dcmFinalClusterSnapshotIdentifier :: Maybe Text
-      -- ^ The identifier of the final snapshot that is to be created
-      -- immediately before deleting the cluster. If this parameter is
-      -- provided, SkipFinalClusterSnapshot must be false. Constraints:
-      -- Must be 1 to 255 alphanumeric characters. First character must be
-      -- a letter. Cannot end with a hyphen or contain two consecutive
-      -- hyphens.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteCluster #-}
 
 -- | The identifier of the cluster to be deleted. Constraints: Must contain
 -- lowercase characters. Must contain from 1 to 63 alphanumeric characters or
 -- hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-dcmClusterIdentifier :: Lens' DeleteCluster (Text)
-dcmClusterIdentifier = lens _dcmClusterIdentifier (\s a -> s { _dcmClusterIdentifier = a })
-{-# INLINE dcmClusterIdentifier #-}
+dcClusterIdentifier :: Lens' DeleteCluster Text
+dcClusterIdentifier =
+    lens _dcClusterIdentifier (\s a -> s { _dcClusterIdentifier = a })
+{-# INLINE dcClusterIdentifier #-}
 
 -- | Determines whether a final snapshot of the cluster is created before Amazon
 -- Redshift deletes the cluster. If true, a final cluster snapshot is not
 -- created. If false, a final cluster snapshot is created before the cluster
 -- is deleted. The FinalClusterSnapshotIdentifier parameter must be specified
 -- if SkipFinalClusterSnapshot is false. Default: false.
-dcmSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
-dcmSkipFinalClusterSnapshot = lens _dcmSkipFinalClusterSnapshot (\s a -> s { _dcmSkipFinalClusterSnapshot = a })
-{-# INLINE dcmSkipFinalClusterSnapshot #-}
+dcSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
+dcSkipFinalClusterSnapshot =
+    lens _dcSkipFinalClusterSnapshot
+         (\s a -> s { _dcSkipFinalClusterSnapshot = a })
+{-# INLINE dcSkipFinalClusterSnapshot #-}
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
 -- SkipFinalClusterSnapshot must be false. Constraints: Must be 1 to 255
 -- alphanumeric characters. First character must be a letter. Cannot end with
 -- a hyphen or contain two consecutive hyphens.
-dcmFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
-dcmFinalClusterSnapshotIdentifier = lens _dcmFinalClusterSnapshotIdentifier (\s a -> s { _dcmFinalClusterSnapshotIdentifier = a })
-{-# INLINE dcmFinalClusterSnapshotIdentifier #-}
+dcFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
+dcFinalClusterSnapshotIdentifier =
+    lens _dcFinalClusterSnapshotIdentifier
+         (\s a -> s { _dcFinalClusterSnapshotIdentifier = a })
+{-# INLINE dcFinalClusterSnapshotIdentifier #-}
 
 instance ToQuery DeleteCluster where
     toQuery = genericQuery def
 
 newtype DeleteClusterResponse = DeleteClusterResponse
-    { _cxCluster :: Maybe Cluster
-      -- ^ Describes a cluster.
+    { _dcrsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-cxCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-cxCluster = lens _cxCluster (\s a -> s { _cxCluster = a })
-{-# INLINE cxCluster #-}
+dcrsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
+dcrsCluster = lens _dcrsCluster (\s a -> s { _dcrsCluster = a })
+{-# INLINE dcrsCluster #-}
 
 instance FromXML DeleteClusterResponse where
     fromXMLOptions = xmlOptions

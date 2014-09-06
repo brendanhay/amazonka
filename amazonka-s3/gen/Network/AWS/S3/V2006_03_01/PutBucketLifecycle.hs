@@ -24,11 +24,11 @@ module Network.AWS.S3.V2006_03_01.PutBucketLifecycle
     -- * Request
       PutBucketLifecycle
     -- ** Request constructor
-    , mkPutBucketLifecycleRequest
+    , mkPutBucketLifecycle
     -- ** Request lenses
-    , pblrBucket
-    , pblrContentMD5
-    , pblrLifecycleConfiguration
+    , pblBucket
+    , pblContentMD5
+    , pblLifecycleConfiguration
 
     -- * Response
     , PutBucketLifecycleResponse
@@ -37,40 +37,43 @@ module Network.AWS.S3.V2006_03_01.PutBucketLifecycle
 import Network.AWS.Request.RestS3
 import Network.AWS.S3.V2006_03_01.Types
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+
+data PutBucketLifecycle = PutBucketLifecycle
+    { _pblBucket :: BucketName
+    , _pblContentMD5 :: Maybe Text
+    , _pblLifecycleConfiguration :: Maybe LifecycleConfiguration
+    } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketLifecycle' request.
-mkPutBucketLifecycleRequest :: BucketName -- ^ 'pblrBucket'
-                            -> PutBucketLifecycle
-mkPutBucketLifecycleRequest p1 = PutBucketLifecycle
-    { _pblrBucket = p1
-    , _pblrContentMD5 = Nothing
-    , _pblrLifecycleConfiguration = Nothing
+mkPutBucketLifecycle :: BucketName -- ^ 'pblBucket'
+                     -> PutBucketLifecycle
+mkPutBucketLifecycle p1 = PutBucketLifecycle
+    { _pblBucket = p1
+    , _pblContentMD5 = Nothing
+    , _pblLifecycleConfiguration = Nothing
     }
-{-# INLINE mkPutBucketLifecycleRequest #-}
+{-# INLINE mkPutBucketLifecycle #-}
 
-data PutBucketLifecycle = PutBucketLifecycle
-    { _pblrBucket :: BucketName
-    , _pblrContentMD5 :: Maybe Text
-    , _pblrLifecycleConfiguration :: Maybe LifecycleConfiguration
-    } deriving (Show, Generic)
+pblBucket :: Lens' PutBucketLifecycle BucketName
+pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
+{-# INLINE pblBucket #-}
 
-pblrBucket :: Lens' PutBucketLifecycle (BucketName)
-pblrBucket = lens _pblrBucket (\s a -> s { _pblrBucket = a })
-{-# INLINE pblrBucket #-}
+pblContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
+pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
+{-# INLINE pblContentMD5 #-}
 
-pblrContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
-pblrContentMD5 = lens _pblrContentMD5 (\s a -> s { _pblrContentMD5 = a })
-{-# INLINE pblrContentMD5 #-}
-
-pblrLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
-pblrLifecycleConfiguration = lens _pblrLifecycleConfiguration (\s a -> s { _pblrLifecycleConfiguration = a })
-{-# INLINE pblrLifecycleConfiguration #-}
+pblLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
+pblLifecycleConfiguration =
+    lens _pblLifecycleConfiguration
+         (\s a -> s { _pblLifecycleConfiguration = a })
+{-# INLINE pblLifecycleConfiguration #-}
 
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat
         [ "/"
-        , toBS _pblrBucket
+        , toBS _pblBucket
         ]
 
 instance ToQuery PutBucketLifecycle where
@@ -78,9 +81,13 @@ instance ToQuery PutBucketLifecycle where
         [ "lifecycle"
         ]
 
-instance ToHeaders PutBucketLifecycle
+instance ToHeaders PutBucketLifecycle where
+    toHeaders PutBucketLifecycle{..} = concat
+        [ "Content-MD5" =: _pblContentMD5
+        ]
 
-instance ToBody PutBucketLifecycle
+instance ToBody PutBucketLifecycle where
+    toBody = toBody . encodeXML . _pblLifecycleConfiguration
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
     deriving (Eq, Show, Generic)

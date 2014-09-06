@@ -35,38 +35,40 @@ module Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses
     -- * Request
       ListVerifiedEmailAddresses
     -- ** Request constructor
-    , mkUnknown
+    , mkListVerifiedEmailAddresses
     -- * Response
     , ListVerifiedEmailAddressesResponse
     -- ** Response lenses
-    , lvearVerifiedEmailAddresses
+    , lvearsVerifiedEmailAddresses
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListVerifiedEmailAddresses' request.
-mkUnknown :: ListVerifiedEmailAddresses
-mkUnknown = ListVerifiedEmailAddresses
-{-# INLINE mkUnknown #-}
-
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVerifiedEmailAddresses' request.
+mkListVerifiedEmailAddresses :: ListVerifiedEmailAddresses
+mkListVerifiedEmailAddresses = ListVerifiedEmailAddresses
+{-# INLINE mkListVerifiedEmailAddresses #-}
 
 instance ToQuery ListVerifiedEmailAddresses where
     toQuery = genericQuery def
 
+-- | Represents a list of all the email addresses verified for the current user.
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
-    { _lvearVerifiedEmailAddresses :: [Text]
-      -- ^ A list of email addresses that have been verified.
+    { _lvearsVerifiedEmailAddresses :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of email addresses that have been verified.
-lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse ([Text])
-lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\s a -> s { _lvearVerifiedEmailAddresses = a })
-{-# INLINE lvearVerifiedEmailAddresses #-}
+lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
+lvearsVerifiedEmailAddresses =
+    lens _lvearsVerifiedEmailAddresses
+         (\s a -> s { _lvearsVerifiedEmailAddresses = a })
+{-# INLINE lvearsVerifiedEmailAddresses #-}
 
 instance FromXML ListVerifiedEmailAddressesResponse where
     fromXMLOptions = xmlOptions

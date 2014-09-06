@@ -43,18 +43,18 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials
     -- * Request
       UpdateChapCredentials
     -- ** Request constructor
-    , mkUpdateChapCredentialsInput
+    , mkUpdateChapCredentials
     -- ** Request lenses
-    , ucciTargetARN
-    , ucciSecretToAuthenticateInitiator
-    , ucciInitiatorName
-    , ucciSecretToAuthenticateTarget
+    , uccTargetARN
+    , uccSecretToAuthenticateInitiator
+    , uccInitiatorName
+    , uccSecretToAuthenticateTarget
 
     -- * Response
     , UpdateChapCredentialsResponse
     -- ** Response lenses
-    , uccoTargetARN
-    , uccoInitiatorName
+    , uccrsTargetARN
+    , uccrsInitiatorName
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -62,58 +62,60 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing one or more of the following fields:
+-- UpdateChapCredentialsInput$InitiatorName
+-- UpdateChapCredentialsInput$SecretToAuthenticateInitiator
+-- UpdateChapCredentialsInput$SecretToAuthenticateTarget
+-- UpdateChapCredentialsInput$TargetARN.
+data UpdateChapCredentials = UpdateChapCredentials
+    { _uccTargetARN :: Text
+    , _uccSecretToAuthenticateInitiator :: Text
+    , _uccInitiatorName :: Text
+    , _uccSecretToAuthenticateTarget :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateChapCredentials' request.
-mkUpdateChapCredentialsInput :: Text -- ^ 'ucciTargetARN'
-                             -> Text -- ^ 'ucciSecretToAuthenticateInitiator'
-                             -> Text -- ^ 'ucciInitiatorName'
-                             -> UpdateChapCredentials
-mkUpdateChapCredentialsInput p1 p2 p3 = UpdateChapCredentials
-    { _ucciTargetARN = p1
-    , _ucciSecretToAuthenticateInitiator = p2
-    , _ucciInitiatorName = p3
-    , _ucciSecretToAuthenticateTarget = Nothing
+mkUpdateChapCredentials :: Text -- ^ 'uccTargetARN'
+                        -> Text -- ^ 'uccSecretToAuthenticateInitiator'
+                        -> Text -- ^ 'uccInitiatorName'
+                        -> UpdateChapCredentials
+mkUpdateChapCredentials p1 p2 p3 = UpdateChapCredentials
+    { _uccTargetARN = p1
+    , _uccSecretToAuthenticateInitiator = p2
+    , _uccInitiatorName = p3
+    , _uccSecretToAuthenticateTarget = Nothing
     }
-{-# INLINE mkUpdateChapCredentialsInput #-}
-
-data UpdateChapCredentials = UpdateChapCredentials
-    { _ucciTargetARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the iSCSI volume target. Use
-      -- the DescribeStorediSCSIVolumes operation to return to retrieve
-      -- the TargetARN for specified VolumeARN.
-    , _ucciSecretToAuthenticateInitiator :: Text
-      -- ^ The secret key that the initiator (e.g. Windows client) must
-      -- provide to participate in mutual CHAP with the target.
-    , _ucciInitiatorName :: Text
-      -- ^ The iSCSI initiator that connects to the target.
-    , _ucciSecretToAuthenticateTarget :: Maybe Text
-      -- ^ The secret key that the target must provide to participate in
-      -- mutual CHAP with the initiator (e.g. Windows client).
-    } deriving (Show, Generic)
+{-# INLINE mkUpdateChapCredentials #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-ucciTargetARN :: Lens' UpdateChapCredentials (Text)
-ucciTargetARN = lens _ucciTargetARN (\s a -> s { _ucciTargetARN = a })
-{-# INLINE ucciTargetARN #-}
+uccTargetARN :: Lens' UpdateChapCredentials Text
+uccTargetARN = lens _uccTargetARN (\s a -> s { _uccTargetARN = a })
+{-# INLINE uccTargetARN #-}
 
 -- | The secret key that the initiator (e.g. Windows client) must provide to
 -- participate in mutual CHAP with the target.
-ucciSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials (Text)
-ucciSecretToAuthenticateInitiator = lens _ucciSecretToAuthenticateInitiator (\s a -> s { _ucciSecretToAuthenticateInitiator = a })
-{-# INLINE ucciSecretToAuthenticateInitiator #-}
+uccSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials Text
+uccSecretToAuthenticateInitiator =
+    lens _uccSecretToAuthenticateInitiator
+         (\s a -> s { _uccSecretToAuthenticateInitiator = a })
+{-# INLINE uccSecretToAuthenticateInitiator #-}
 
 -- | The iSCSI initiator that connects to the target.
-ucciInitiatorName :: Lens' UpdateChapCredentials (Text)
-ucciInitiatorName = lens _ucciInitiatorName (\s a -> s { _ucciInitiatorName = a })
-{-# INLINE ucciInitiatorName #-}
+uccInitiatorName :: Lens' UpdateChapCredentials Text
+uccInitiatorName =
+    lens _uccInitiatorName (\s a -> s { _uccInitiatorName = a })
+{-# INLINE uccInitiatorName #-}
 
 -- | The secret key that the target must provide to participate in mutual CHAP
 -- with the initiator (e.g. Windows client).
-ucciSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
-ucciSecretToAuthenticateTarget = lens _ucciSecretToAuthenticateTarget (\s a -> s { _ucciSecretToAuthenticateTarget = a })
-{-# INLINE ucciSecretToAuthenticateTarget #-}
+uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
+uccSecretToAuthenticateTarget =
+    lens _uccSecretToAuthenticateTarget
+         (\s a -> s { _uccSecretToAuthenticateTarget = a })
+{-# INLINE uccSecretToAuthenticateTarget #-}
 
 instance ToPath UpdateChapCredentials
 
@@ -123,26 +125,24 @@ instance ToHeaders UpdateChapCredentials
 
 instance ToJSON UpdateChapCredentials
 
+-- | A JSON object containing the following fields:.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
-    { _uccoTargetARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the target. This is the same
-      -- target specified in the request.
-    , _uccoInitiatorName :: Maybe Text
-      -- ^ The iSCSI initiator that connects to the target. This is the same
-      -- initiator name specified in the request.
+    { _uccrsTargetARN :: Maybe Text
+    , _uccrsInitiatorName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.
-uccoTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
-uccoTargetARN = lens _uccoTargetARN (\s a -> s { _uccoTargetARN = a })
-{-# INLINE uccoTargetARN #-}
+uccrsTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
+uccrsTargetARN = lens _uccrsTargetARN (\s a -> s { _uccrsTargetARN = a })
+{-# INLINE uccrsTargetARN #-}
 
 -- | The iSCSI initiator that connects to the target. This is the same initiator
 -- name specified in the request.
-uccoInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
-uccoInitiatorName = lens _uccoInitiatorName (\s a -> s { _uccoInitiatorName = a })
-{-# INLINE uccoInitiatorName #-}
+uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
+uccrsInitiatorName =
+    lens _uccrsInitiatorName (\s a -> s { _uccrsInitiatorName = a })
+{-# INLINE uccrsInitiatorName #-}
 
 instance FromJSON UpdateChapCredentialsResponse
 

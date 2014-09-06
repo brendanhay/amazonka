@@ -32,81 +32,76 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBSubnetGroup
     -- * Request
       ModifyDBSubnetGroup
     -- ** Request constructor
-    , mkModifyDBSubnetGroupMessage
+    , mkModifyDBSubnetGroup
     -- ** Request lenses
-    , mdbsgmDBSubnetGroupName
-    , mdbsgmDBSubnetGroupDescription
-    , mdbsgmSubnetIds
+    , mdbsgDBSubnetGroupName
+    , mdbsgDBSubnetGroupDescription
+    , mdbsgSubnetIds
 
     -- * Response
     , ModifyDBSubnetGroupResponse
     -- ** Response lenses
-    , dbsgzDBSubnetGroup
+    , mdbsgrsDBSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
+-- | 
+data ModifyDBSubnetGroup = ModifyDBSubnetGroup
+    { _mdbsgDBSubnetGroupName :: Text
+    , _mdbsgDBSubnetGroupDescription :: Maybe Text
+    , _mdbsgSubnetIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBSubnetGroup' request.
-mkModifyDBSubnetGroupMessage :: Text -- ^ 'mdbsgmDBSubnetGroupName'
-                             -> [Text] -- ^ 'mdbsgmSubnetIds'
-                             -> ModifyDBSubnetGroup
-mkModifyDBSubnetGroupMessage p1 p2 = ModifyDBSubnetGroup
-    { _mdbsgmDBSubnetGroupName = p1
-    , _mdbsgmDBSubnetGroupDescription = Nothing
-    , _mdbsgmSubnetIds = p3
+mkModifyDBSubnetGroup :: Text -- ^ 'mdbsgDBSubnetGroupName'
+                      -> [Text] -- ^ 'mdbsgSubnetIds'
+                      -> ModifyDBSubnetGroup
+mkModifyDBSubnetGroup p1 p3 = ModifyDBSubnetGroup
+    { _mdbsgDBSubnetGroupName = p1
+    , _mdbsgDBSubnetGroupDescription = Nothing
+    , _mdbsgSubnetIds = p3
     }
-{-# INLINE mkModifyDBSubnetGroupMessage #-}
-
-data ModifyDBSubnetGroup = ModifyDBSubnetGroup
-    { _mdbsgmDBSubnetGroupName :: Text
-      -- ^ The name for the DB subnet group. This value is stored as a
-      -- lowercase string. Constraints: Must contain no more than 255
-      -- alphanumeric characters or hyphens. Must not be "Default".
-      -- Example: mySubnetgroup.
-    , _mdbsgmDBSubnetGroupDescription :: Maybe Text
-      -- ^ The description for the DB subnet group.
-    , _mdbsgmSubnetIds :: [Text]
-      -- ^ The EC2 subnet IDs for the DB subnet group.
-    } deriving (Show, Generic)
+{-# INLINE mkModifyDBSubnetGroup #-}
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
 -- or hyphens. Must not be "Default". Example: mySubnetgroup.
-mdbsgmDBSubnetGroupName :: Lens' ModifyDBSubnetGroup (Text)
-mdbsgmDBSubnetGroupName = lens _mdbsgmDBSubnetGroupName (\s a -> s { _mdbsgmDBSubnetGroupName = a })
-{-# INLINE mdbsgmDBSubnetGroupName #-}
+mdbsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
+mdbsgDBSubnetGroupName =
+    lens _mdbsgDBSubnetGroupName (\s a -> s { _mdbsgDBSubnetGroupName = a })
+{-# INLINE mdbsgDBSubnetGroupName #-}
 
 -- | The description for the DB subnet group.
-mdbsgmDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
-mdbsgmDBSubnetGroupDescription = lens _mdbsgmDBSubnetGroupDescription (\s a -> s { _mdbsgmDBSubnetGroupDescription = a })
-{-# INLINE mdbsgmDBSubnetGroupDescription #-}
+mdbsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
+mdbsgDBSubnetGroupDescription =
+    lens _mdbsgDBSubnetGroupDescription
+         (\s a -> s { _mdbsgDBSubnetGroupDescription = a })
+{-# INLINE mdbsgDBSubnetGroupDescription #-}
 
 -- | The EC2 subnet IDs for the DB subnet group.
-mdbsgmSubnetIds :: Lens' ModifyDBSubnetGroup ([Text])
-mdbsgmSubnetIds = lens _mdbsgmSubnetIds (\s a -> s { _mdbsgmSubnetIds = a })
-{-# INLINE mdbsgmSubnetIds #-}
+mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
+mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a })
+{-# INLINE mdbsgSubnetIds #-}
 
 instance ToQuery ModifyDBSubnetGroup where
     toQuery = genericQuery def
 
 newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
-    { _dbsgzDBSubnetGroup :: Maybe DBSubnetGroup
-      -- ^ Contains the result of a successful invocation of the following
-      -- actions: CreateDBSubnetGroup ModifyDBSubnetGroup
-      -- DescribeDBSubnetGroups DeleteDBSubnetGroup This data type is used
-      -- as a response element in the DescribeDBSubnetGroups action.
+    { _mdbsgrsDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
 -- DeleteDBSubnetGroup This data type is used as a response element in the
 -- DescribeDBSubnetGroups action.
-dbsgzDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
-dbsgzDBSubnetGroup = lens _dbsgzDBSubnetGroup (\s a -> s { _dbsgzDBSubnetGroup = a })
-{-# INLINE dbsgzDBSubnetGroup #-}
+mdbsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
+mdbsgrsDBSubnetGroup =
+    lens _mdbsgrsDBSubnetGroup (\s a -> s { _mdbsgrsDBSubnetGroup = a })
+{-# INLINE mdbsgrsDBSubnetGroup #-}
 
 instance FromXML ModifyDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions

@@ -41,15 +41,15 @@ module Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
     -- * Request
       GetPipelineDefinition
     -- ** Request constructor
-    , mkGetPipelineDefinitionInput
+    , mkGetPipelineDefinition
     -- ** Request lenses
-    , gpdiPipelineId
-    , gpdiVersion
+    , gpdPipelineId
+    , gpdVersion
 
     -- * Response
     , GetPipelineDefinitionResponse
     -- ** Response lenses
-    , gpdoPipelineObjects
+    , gpdrsPipelineObjects
     ) where
 
 import           Network.AWS.DataPipeline.V2012_10_29.Types
@@ -57,39 +57,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'GetPipelineDefinition' request.
-mkGetPipelineDefinitionInput :: Text -- ^ 'gpdiPipelineId'
-                             -> GetPipelineDefinition
-mkGetPipelineDefinitionInput p1 = GetPipelineDefinition
-    { _gpdiPipelineId = p1
-    , _gpdiVersion = Nothing
-    }
-{-# INLINE mkGetPipelineDefinitionInput #-}
-
+-- | The input for the GetPipelineDefinition action.
 data GetPipelineDefinition = GetPipelineDefinition
-    { _gpdiPipelineId :: Text
-      -- ^ The identifier of the pipeline.
-    , _gpdiVersion :: Maybe Text
-      -- ^ The version of the pipeline definition to retrieve. This
-      -- parameter accepts the values latest (default) and active. Where
-      -- latest indicates the last definition saved to the pipeline and
-      -- active indicates the last definition of the pipeline that was
-      -- activated.
+    { _gpdPipelineId :: Text
+    , _gpdVersion :: Maybe Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetPipelineDefinition' request.
+mkGetPipelineDefinition :: Text -- ^ 'gpdPipelineId'
+                        -> GetPipelineDefinition
+mkGetPipelineDefinition p1 = GetPipelineDefinition
+    { _gpdPipelineId = p1
+    , _gpdVersion = Nothing
+    }
+{-# INLINE mkGetPipelineDefinition #-}
+
 -- | The identifier of the pipeline.
-gpdiPipelineId :: Lens' GetPipelineDefinition (Text)
-gpdiPipelineId = lens _gpdiPipelineId (\s a -> s { _gpdiPipelineId = a })
-{-# INLINE gpdiPipelineId #-}
+gpdPipelineId :: Lens' GetPipelineDefinition Text
+gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
+{-# INLINE gpdPipelineId #-}
 
 -- | The version of the pipeline definition to retrieve. This parameter accepts
 -- the values latest (default) and active. Where latest indicates the last
 -- definition saved to the pipeline and active indicates the last definition
 -- of the pipeline that was activated.
-gpdiVersion :: Lens' GetPipelineDefinition (Maybe Text)
-gpdiVersion = lens _gpdiVersion (\s a -> s { _gpdiVersion = a })
-{-# INLINE gpdiVersion #-}
+gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
+gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
+{-# INLINE gpdVersion #-}
 
 instance ToPath GetPipelineDefinition
 
@@ -99,15 +94,16 @@ instance ToHeaders GetPipelineDefinition
 
 instance ToJSON GetPipelineDefinition
 
+-- | Contains the output from the GetPipelineDefinition action.
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
-    { _gpdoPipelineObjects :: [PipelineObject]
-      -- ^ An array of objects defined in the pipeline.
+    { _gpdrsPipelineObjects :: [PipelineObject]
     } deriving (Show, Generic)
 
 -- | An array of objects defined in the pipeline.
-gpdoPipelineObjects :: Lens' GetPipelineDefinitionResponse ([PipelineObject])
-gpdoPipelineObjects = lens _gpdoPipelineObjects (\s a -> s { _gpdoPipelineObjects = a })
-{-# INLINE gpdoPipelineObjects #-}
+gpdrsPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
+gpdrsPipelineObjects =
+    lens _gpdrsPipelineObjects (\s a -> s { _gpdrsPipelineObjects = a })
+{-# INLINE gpdrsPipelineObjects #-}
 
 instance FromJSON GetPipelineDefinitionResponse
 

@@ -23,42 +23,42 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes
     -- * Request
       DescribeLifecycleHookTypes
     -- ** Request constructor
-    , mkUnknown
+    , mkDescribeLifecycleHookTypes
     -- * Response
     , DescribeLifecycleHookTypesResponse
     -- ** Response lenses
-    , dlhtaLifecycleHookTypes
+    , dlhtrsLifecycleHookTypes
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLifecycleHookTypes' request.
-mkUnknown :: DescribeLifecycleHookTypes
-mkUnknown = DescribeLifecycleHookTypes
-{-# INLINE mkUnknown #-}
-
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLifecycleHookTypes' request.
+mkDescribeLifecycleHookTypes :: DescribeLifecycleHookTypes
+mkDescribeLifecycleHookTypes = DescribeLifecycleHookTypes
+{-# INLINE mkDescribeLifecycleHookTypes #-}
 
 instance ToQuery DescribeLifecycleHookTypes where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
-    { _dlhtaLifecycleHookTypes :: [Text]
-      -- ^ Returns a list of all notification types supported by Auto
-      -- Scaling. They are: autoscaling:EC2_INSTANCE_LAUNCHING
-      -- autoscaling:EC2_INSTANCE_TERMINATING.
+    { _dlhtrsLifecycleHookTypes :: [Text]
     } deriving (Show, Generic)
 
 -- | Returns a list of all notification types supported by Auto Scaling. They
 -- are: autoscaling:EC2_INSTANCE_LAUNCHING
 -- autoscaling:EC2_INSTANCE_TERMINATING.
-dlhtaLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse ([Text])
-dlhtaLifecycleHookTypes = lens _dlhtaLifecycleHookTypes (\s a -> s { _dlhtaLifecycleHookTypes = a })
-{-# INLINE dlhtaLifecycleHookTypes #-}
+dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
+dlhtrsLifecycleHookTypes =
+    lens _dlhtrsLifecycleHookTypes
+         (\s a -> s { _dlhtrsLifecycleHookTypes = a })
+{-# INLINE dlhtrsLifecycleHookTypes #-}
 
 instance FromXML DescribeLifecycleHookTypesResponse where
     fromXMLOptions = xmlOptions

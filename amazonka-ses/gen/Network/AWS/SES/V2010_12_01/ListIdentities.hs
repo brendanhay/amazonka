@@ -33,81 +33,76 @@ module Network.AWS.SES.V2010_12_01.ListIdentities
     -- * Request
       ListIdentities
     -- ** Request constructor
-    , mkListIdentitiesRequest
+    , mkListIdentities
     -- ** Request lenses
-    , lirIdentityType
-    , lirNextToken
-    , lirMaxItems
+    , liIdentityType
+    , liNextToken
+    , liMaxItems
 
     -- * Response
     , ListIdentitiesResponse
     -- ** Response lenses
-    , lisIdentities
-    , lisNextToken
+    , lirsIdentities
+    , lirsNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
+-- | Represents a request instructing the service to list all identities for the
+-- AWS Account.
+data ListIdentities = ListIdentities
+    { _liIdentityType :: Maybe IdentityType
+    , _liNextToken :: Maybe Text
+    , _liMaxItems :: Maybe Integer
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentities' request.
-mkListIdentitiesRequest :: ListIdentities
-mkListIdentitiesRequest = ListIdentities
-    { _lirIdentityType = Nothing
-    , _lirNextToken = Nothing
-    , _lirMaxItems = Nothing
+mkListIdentities :: ListIdentities
+mkListIdentities = ListIdentities
+    { _liIdentityType = Nothing
+    , _liNextToken = Nothing
+    , _liMaxItems = Nothing
     }
-{-# INLINE mkListIdentitiesRequest #-}
-
-data ListIdentities = ListIdentities
-    { _lirIdentityType :: Maybe IdentityType
-      -- ^ The type of the identities to list. Possible values are
-      -- "EmailAddress" and "Domain". If this parameter is omitted, then
-      -- all identities will be listed.
-    , _lirNextToken :: Maybe Text
-      -- ^ The token to use for pagination.
-    , _lirMaxItems :: Maybe Integer
-      -- ^ The maximum number of identities per page. Possible values are
-      -- 1-100 inclusive.
-    } deriving (Show, Generic)
+{-# INLINE mkListIdentities #-}
 
 -- | The type of the identities to list. Possible values are "EmailAddress" and
 -- "Domain". If this parameter is omitted, then all identities will be listed.
-lirIdentityType :: Lens' ListIdentities (Maybe IdentityType)
-lirIdentityType = lens _lirIdentityType (\s a -> s { _lirIdentityType = a })
-{-# INLINE lirIdentityType #-}
+liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
+liIdentityType = lens _liIdentityType (\s a -> s { _liIdentityType = a })
+{-# INLINE liIdentityType #-}
 
 -- | The token to use for pagination.
-lirNextToken :: Lens' ListIdentities (Maybe Text)
-lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
-{-# INLINE lirNextToken #-}
+liNextToken :: Lens' ListIdentities (Maybe Text)
+liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
+{-# INLINE liNextToken #-}
 
 -- | The maximum number of identities per page. Possible values are 1-100
 -- inclusive.
-lirMaxItems :: Lens' ListIdentities (Maybe Integer)
-lirMaxItems = lens _lirMaxItems (\s a -> s { _lirMaxItems = a })
-{-# INLINE lirMaxItems #-}
+liMaxItems :: Lens' ListIdentities (Maybe Integer)
+liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
+{-# INLINE liMaxItems #-}
 
 instance ToQuery ListIdentities where
     toQuery = genericQuery def
 
+-- | Represents a list of all verified identities for the AWS Account.
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lisIdentities :: [Text]
-      -- ^ A list of identities.
-    , _lisNextToken :: Maybe Text
-      -- ^ The token used for pagination.
+    { _lirsIdentities :: [Text]
+    , _lirsNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of identities.
-lisIdentities :: Lens' ListIdentitiesResponse ([Text])
-lisIdentities = lens _lisIdentities (\s a -> s { _lisIdentities = a })
-{-# INLINE lisIdentities #-}
+lirsIdentities :: Lens' ListIdentitiesResponse [Text]
+lirsIdentities = lens _lirsIdentities (\s a -> s { _lirsIdentities = a })
+{-# INLINE lirsIdentities #-}
 
 -- | The token used for pagination.
-lisNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lisNextToken = lens _lisNextToken (\s a -> s { _lisNextToken = a })
-{-# INLINE lisNextToken #-}
+lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsNextToken = lens _lirsNextToken (\s a -> s { _lirsNextToken = a })
+{-# INLINE lirsNextToken #-}
 
 instance FromXML ListIdentitiesResponse where
     fromXMLOptions = xmlOptions
@@ -120,5 +115,5 @@ instance AWSRequest ListIdentities where
     response _ = xmlResponse
 
 instance AWSPager ListIdentities where
-    next rq rs = (\x -> rq { _lirNextToken = Just x })
-        <$> (_lisNextToken rs)
+    next rq rs = (\x -> rq { _liNextToken = Just x })
+        <$> (_lirsNextToken rs)

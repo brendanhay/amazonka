@@ -30,112 +30,107 @@ module Network.AWS.Redshift.V2012_12_01.CreateHsmConfiguration
     -- * Request
       CreateHsmConfiguration
     -- ** Request constructor
-    , mkCreateHsmConfigurationMessage
+    , mkCreateHsmConfiguration
     -- ** Request lenses
-    , chcmHsmConfigurationIdentifier
-    , chcmDescription
-    , chcmHsmIpAddress
-    , chcmHsmPartitionName
-    , chcmHsmPartitionPassword
-    , chcmHsmServerPublicCertificate
+    , chcHsmConfigurationIdentifier
+    , chcDescription
+    , chcHsmIpAddress
+    , chcHsmPartitionName
+    , chcHsmPartitionPassword
+    , chcHsmServerPublicCertificate
 
     -- * Response
     , CreateHsmConfigurationResponse
     -- ** Response lenses
-    , hcwHsmConfiguration
+    , chcrsHsmConfiguration
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateHsmConfiguration' request.
-mkCreateHsmConfigurationMessage :: Text -- ^ 'chcmHsmConfigurationIdentifier'
-                                -> Text -- ^ 'chcmDescription'
-                                -> Text -- ^ 'chcmHsmIpAddress'
-                                -> Text -- ^ 'chcmHsmPartitionName'
-                                -> Text -- ^ 'chcmHsmPartitionPassword'
-                                -> Text -- ^ 'chcmHsmServerPublicCertificate'
-                                -> CreateHsmConfiguration
-mkCreateHsmConfigurationMessage p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
-    { _chcmHsmConfigurationIdentifier = p1
-    , _chcmDescription = p2
-    , _chcmHsmIpAddress = p3
-    , _chcmHsmPartitionName = p4
-    , _chcmHsmPartitionPassword = p5
-    , _chcmHsmServerPublicCertificate = p6
-    }
-{-# INLINE mkCreateHsmConfigurationMessage #-}
-
+-- | 
 data CreateHsmConfiguration = CreateHsmConfiguration
-    { _chcmHsmConfigurationIdentifier :: Text
-      -- ^ The identifier to be assigned to the new Amazon Redshift HSM
-      -- configuration.
-    , _chcmDescription :: Text
-      -- ^ A text description of the HSM configuration to be created.
-    , _chcmHsmIpAddress :: Text
-      -- ^ The IP address that the Amazon Redshift cluster must use to
-      -- access the HSM.
-    , _chcmHsmPartitionName :: Text
-      -- ^ The name of the partition in the HSM where the Amazon Redshift
-      -- clusters will store their database encryption keys.
-    , _chcmHsmPartitionPassword :: Text
-      -- ^ The password required to access the HSM partition.
-    , _chcmHsmServerPublicCertificate :: Text
-      -- ^ The HSMs public certificate file. When using Cloud HSM, the file
-      -- name is server.pem.
+    { _chcHsmConfigurationIdentifier :: Text
+    , _chcDescription :: Text
+    , _chcHsmIpAddress :: Text
+    , _chcHsmPartitionName :: Text
+    , _chcHsmPartitionPassword :: Text
+    , _chcHsmServerPublicCertificate :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateHsmConfiguration' request.
+mkCreateHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
+                         -> Text -- ^ 'chcDescription'
+                         -> Text -- ^ 'chcHsmIpAddress'
+                         -> Text -- ^ 'chcHsmPartitionName'
+                         -> Text -- ^ 'chcHsmPartitionPassword'
+                         -> Text -- ^ 'chcHsmServerPublicCertificate'
+                         -> CreateHsmConfiguration
+mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
+    { _chcHsmConfigurationIdentifier = p1
+    , _chcDescription = p2
+    , _chcHsmIpAddress = p3
+    , _chcHsmPartitionName = p4
+    , _chcHsmPartitionPassword = p5
+    , _chcHsmServerPublicCertificate = p6
+    }
+{-# INLINE mkCreateHsmConfiguration #-}
+
 -- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
-chcmHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration (Text)
-chcmHsmConfigurationIdentifier = lens _chcmHsmConfigurationIdentifier (\s a -> s { _chcmHsmConfigurationIdentifier = a })
-{-# INLINE chcmHsmConfigurationIdentifier #-}
+chcHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration Text
+chcHsmConfigurationIdentifier =
+    lens _chcHsmConfigurationIdentifier
+         (\s a -> s { _chcHsmConfigurationIdentifier = a })
+{-# INLINE chcHsmConfigurationIdentifier #-}
 
 -- | A text description of the HSM configuration to be created.
-chcmDescription :: Lens' CreateHsmConfiguration (Text)
-chcmDescription = lens _chcmDescription (\s a -> s { _chcmDescription = a })
-{-# INLINE chcmDescription #-}
+chcDescription :: Lens' CreateHsmConfiguration Text
+chcDescription = lens _chcDescription (\s a -> s { _chcDescription = a })
+{-# INLINE chcDescription #-}
 
 -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
-chcmHsmIpAddress :: Lens' CreateHsmConfiguration (Text)
-chcmHsmIpAddress = lens _chcmHsmIpAddress (\s a -> s { _chcmHsmIpAddress = a })
-{-# INLINE chcmHsmIpAddress #-}
+chcHsmIpAddress :: Lens' CreateHsmConfiguration Text
+chcHsmIpAddress = lens _chcHsmIpAddress (\s a -> s { _chcHsmIpAddress = a })
+{-# INLINE chcHsmIpAddress #-}
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
-chcmHsmPartitionName :: Lens' CreateHsmConfiguration (Text)
-chcmHsmPartitionName = lens _chcmHsmPartitionName (\s a -> s { _chcmHsmPartitionName = a })
-{-# INLINE chcmHsmPartitionName #-}
+chcHsmPartitionName :: Lens' CreateHsmConfiguration Text
+chcHsmPartitionName =
+    lens _chcHsmPartitionName (\s a -> s { _chcHsmPartitionName = a })
+{-# INLINE chcHsmPartitionName #-}
 
 -- | The password required to access the HSM partition.
-chcmHsmPartitionPassword :: Lens' CreateHsmConfiguration (Text)
-chcmHsmPartitionPassword = lens _chcmHsmPartitionPassword (\s a -> s { _chcmHsmPartitionPassword = a })
-{-# INLINE chcmHsmPartitionPassword #-}
+chcHsmPartitionPassword :: Lens' CreateHsmConfiguration Text
+chcHsmPartitionPassword =
+    lens _chcHsmPartitionPassword
+         (\s a -> s { _chcHsmPartitionPassword = a })
+{-# INLINE chcHsmPartitionPassword #-}
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
-chcmHsmServerPublicCertificate :: Lens' CreateHsmConfiguration (Text)
-chcmHsmServerPublicCertificate = lens _chcmHsmServerPublicCertificate (\s a -> s { _chcmHsmServerPublicCertificate = a })
-{-# INLINE chcmHsmServerPublicCertificate #-}
+chcHsmServerPublicCertificate :: Lens' CreateHsmConfiguration Text
+chcHsmServerPublicCertificate =
+    lens _chcHsmServerPublicCertificate
+         (\s a -> s { _chcHsmServerPublicCertificate = a })
+{-# INLINE chcHsmServerPublicCertificate #-}
 
 instance ToQuery CreateHsmConfiguration where
     toQuery = genericQuery def
 
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
-    { _hcwHsmConfiguration :: Maybe HsmConfiguration
-      -- ^ Returns information about an HSM configuration, which is an
-      -- object that describes to Amazon Redshift clusters the information
-      -- they require to connect to an HSM where they can store database
-      -- encryption keys.
+    { _chcrsHsmConfiguration :: Maybe HsmConfiguration
     } deriving (Show, Generic)
 
 -- | Returns information about an HSM configuration, which is an object that
 -- describes to Amazon Redshift clusters the information they require to
 -- connect to an HSM where they can store database encryption keys.
-hcwHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
-hcwHsmConfiguration = lens _hcwHsmConfiguration (\s a -> s { _hcwHsmConfiguration = a })
-{-# INLINE hcwHsmConfiguration #-}
+chcrsHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
+chcrsHsmConfiguration =
+    lens _chcrsHsmConfiguration (\s a -> s { _chcrsHsmConfiguration = a })
+{-# INLINE chcrsHsmConfiguration #-}
 
 instance FromXML CreateHsmConfigurationResponse where
     fromXMLOptions = xmlOptions

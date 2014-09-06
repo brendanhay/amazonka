@@ -39,79 +39,72 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
     -- * Request
       DescribeStackEvents
     -- ** Request constructor
-    , mkDescribeStackEventsInput
+    , mkDescribeStackEvents
     -- ** Request lenses
-    , dseiStackName
-    , dseiNextToken
+    , dseStackName
+    , dseNextToken
 
     -- * Response
     , DescribeStackEventsResponse
     -- ** Response lenses
-    , dseoStackEvents
-    , dseoNextToken
+    , dsersStackEvents
+    , dsersNextToken
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
+-- | The input for DescribeStackEvents action.
+data DescribeStackEvents = DescribeStackEvents
+    { _dseStackName :: Text
+    , _dseNextToken :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackEvents' request.
-mkDescribeStackEventsInput :: Text -- ^ 'dseiStackName'
-                           -> DescribeStackEvents
-mkDescribeStackEventsInput p1 = DescribeStackEvents
-    { _dseiStackName = p1
-    , _dseiNextToken = Nothing
+mkDescribeStackEvents :: Text -- ^ 'dseStackName'
+                      -> DescribeStackEvents
+mkDescribeStackEvents p1 = DescribeStackEvents
+    { _dseStackName = p1
+    , _dseNextToken = Nothing
     }
-{-# INLINE mkDescribeStackEventsInput #-}
-
-data DescribeStackEvents = DescribeStackEvents
-    { _dseiStackName :: Text
-      -- ^ The name or the unique identifier associated with the stack,
-      -- which are not always interchangeable: Running stacks: You can
-      -- specify either the stack's name or its unique stack ID. Deleted
-      -- stacks: You must specify the unique stack ID. Default: There is
-      -- no default value.
-    , _dseiNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of events, if
-      -- there is one. Default: There is no default value.
-    } deriving (Show, Generic)
+{-# INLINE mkDescribeStackEvents #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
 -- name or its unique stack ID. Deleted stacks: You must specify the unique
 -- stack ID. Default: There is no default value.
-dseiStackName :: Lens' DescribeStackEvents (Text)
-dseiStackName = lens _dseiStackName (\s a -> s { _dseiStackName = a })
-{-# INLINE dseiStackName #-}
+dseStackName :: Lens' DescribeStackEvents Text
+dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
+{-# INLINE dseStackName #-}
 
 -- | String that identifies the start of the next list of events, if there is
 -- one. Default: There is no default value.
-dseiNextToken :: Lens' DescribeStackEvents (Maybe Text)
-dseiNextToken = lens _dseiNextToken (\s a -> s { _dseiNextToken = a })
-{-# INLINE dseiNextToken #-}
+dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
+dseNextToken = lens _dseNextToken (\s a -> s { _dseNextToken = a })
+{-# INLINE dseNextToken #-}
 
 instance ToQuery DescribeStackEvents where
     toQuery = genericQuery def
 
+-- | The output for a DescribeStackEvents action.
 data DescribeStackEventsResponse = DescribeStackEventsResponse
-    { _dseoStackEvents :: [StackEvent]
-      -- ^ A list of StackEvents structures.
-    , _dseoNextToken :: Maybe Text
-      -- ^ String that identifies the start of the next list of events, if
-      -- there is one.
+    { _dsersStackEvents :: [StackEvent]
+    , _dsersNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of StackEvents structures.
-dseoStackEvents :: Lens' DescribeStackEventsResponse ([StackEvent])
-dseoStackEvents = lens _dseoStackEvents (\s a -> s { _dseoStackEvents = a })
-{-# INLINE dseoStackEvents #-}
+dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
+dsersStackEvents =
+    lens _dsersStackEvents (\s a -> s { _dsersStackEvents = a })
+{-# INLINE dsersStackEvents #-}
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
-dseoNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
-dseoNextToken = lens _dseoNextToken (\s a -> s { _dseoNextToken = a })
-{-# INLINE dseoNextToken #-}
+dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
+dsersNextToken = lens _dsersNextToken (\s a -> s { _dsersNextToken = a })
+{-# INLINE dsersNextToken #-}
 
 instance FromXML DescribeStackEventsResponse where
     fromXMLOptions = xmlOptions
@@ -124,5 +117,5 @@ instance AWSRequest DescribeStackEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeStackEvents where
-    next rq rs = (\x -> rq { _dseiNextToken = Just x })
-        <$> (_dseoNextToken rs)
+    next rq rs = (\x -> rq { _dseNextToken = Just x })
+        <$> (_dsersNextToken rs)

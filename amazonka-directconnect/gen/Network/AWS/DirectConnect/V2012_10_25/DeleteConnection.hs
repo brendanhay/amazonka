@@ -26,22 +26,22 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
     -- * Request
       DeleteConnection
     -- ** Request constructor
-    , mkDeleteConnectionRequest
+    , mkDeleteConnection
     -- ** Request lenses
-    , dcrConnectionId
+    , dcConnectionId
 
     -- * Response
     , DeleteConnectionResponse
     -- ** Response lenses
-    , kOwnerAccount
-    , kConnectionId
-    , kConnectionName
-    , kConnectionState
-    , kRegion
-    , kLocation
-    , kBandwidth
-    , kVlan
-    , kPartnerName
+    , dcrsOwnerAccount
+    , dcrsConnectionId
+    , dcrsConnectionName
+    , dcrsConnectionState
+    , dcrsRegion
+    , dcrsLocation
+    , dcrsBandwidth
+    , dcrsVlan
+    , dcrsPartnerName
     ) where
 
 import           Network.AWS.DirectConnect.V2012_10_25.Types
@@ -49,24 +49,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteConnection' request.
-mkDeleteConnectionRequest :: Text -- ^ 'dcrConnectionId'
-                          -> DeleteConnection
-mkDeleteConnectionRequest p1 = DeleteConnection
-    { _dcrConnectionId = p1
-    }
-{-# INLINE mkDeleteConnectionRequest #-}
-
+-- | Container for the parameters to the DeleteConnection operation.
 newtype DeleteConnection = DeleteConnection
-    { _dcrConnectionId :: Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
+    { _dcConnectionId :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteConnection' request.
+mkDeleteConnection :: Text -- ^ 'dcConnectionId'
+                   -> DeleteConnection
+mkDeleteConnection p1 = DeleteConnection
+    { _dcConnectionId = p1
+    }
+{-# INLINE mkDeleteConnection #-}
+
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dcrConnectionId :: Lens' DeleteConnection (Text)
-dcrConnectionId = lens _dcrConnectionId (\s a -> s { _dcrConnectionId = a })
-{-# INLINE dcrConnectionId #-}
+dcConnectionId :: Lens' DeleteConnection Text
+dcConnectionId = lens _dcConnectionId (\s a -> s { _dcConnectionId = a })
+{-# INLINE dcConnectionId #-}
 
 instance ToPath DeleteConnection
 
@@ -76,51 +76,36 @@ instance ToHeaders DeleteConnection
 
 instance ToJSON DeleteConnection
 
+-- | A connection represents the physical network connection between the AWS
+-- Direct Connect location and the customer.
 data DeleteConnectionResponse = DeleteConnectionResponse
-    { _kOwnerAccount :: Maybe Text
-    , _kConnectionId :: Maybe Text
-      -- ^ ID of the connection. Example: dxcon-fg5678gh Default: None.
-    , _kConnectionName :: Maybe Text
-      -- ^ The name of the connection. Example: "1G Connection to AWS"
-      -- Default: None.
-    , _kConnectionState :: Maybe ConnectionState
-      -- ^ State of the connection. Ordering: The initial state of a hosted
-      -- connection provisioned on an interconnect. The connection stays
-      -- in the ordering state until the owner of the hosted connection
-      -- confirms or declines the connection order. Requested: The initial
-      -- state of a standard connection. The connection stays in the
-      -- requested state until the Letter of Authorization (LOA) is sent
-      -- to the customer. Pending: The connection has been approved, and
-      -- is being initialized. Available: The network link is up, and the
-      -- connection is ready for use. Down: The network link is down.
-      -- Deleted: The connection has been deleted. Rejected: A hosted
-      -- connection in the 'Ordering' state will enter the 'Rejected'
-      -- state if it is deleted by the end customer.
-    , _kRegion :: Maybe Text
-      -- ^ The AWS region where the connection is located. Example:
-      -- us-east-1 Default: None.
-    , _kLocation :: Maybe Text
-      -- ^ Where the connection is located. Example: EqSV5 Default: None.
-    , _kBandwidth :: Maybe Text
-      -- ^ Bandwidth of the connection. Example: 1Gbps Default: None.
-    , _kVlan :: Maybe Integer
-      -- ^ The VLAN ID. Example: 101.
-    , _kPartnerName :: Maybe Text
+    { _dcrsOwnerAccount :: Maybe Text
+    , _dcrsConnectionId :: Maybe Text
+    , _dcrsConnectionName :: Maybe Text
+    , _dcrsConnectionState :: Maybe ConnectionState
+    , _dcrsRegion :: Maybe Text
+    , _dcrsLocation :: Maybe Text
+    , _dcrsBandwidth :: Maybe Text
+    , _dcrsVlan :: Maybe Integer
+    , _dcrsPartnerName :: Maybe Text
     } deriving (Show, Generic)
 
-kOwnerAccount :: Lens' DeleteConnectionResponse (Maybe Text)
-kOwnerAccount = lens _kOwnerAccount (\s a -> s { _kOwnerAccount = a })
-{-# INLINE kOwnerAccount #-}
+dcrsOwnerAccount :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrsOwnerAccount =
+    lens _dcrsOwnerAccount (\s a -> s { _dcrsOwnerAccount = a })
+{-# INLINE dcrsOwnerAccount #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-kConnectionId :: Lens' DeleteConnectionResponse (Maybe Text)
-kConnectionId = lens _kConnectionId (\s a -> s { _kConnectionId = a })
-{-# INLINE kConnectionId #-}
+dcrsConnectionId :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrsConnectionId =
+    lens _dcrsConnectionId (\s a -> s { _dcrsConnectionId = a })
+{-# INLINE dcrsConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-kConnectionName :: Lens' DeleteConnectionResponse (Maybe Text)
-kConnectionName = lens _kConnectionName (\s a -> s { _kConnectionName = a })
-{-# INLINE kConnectionName #-}
+dcrsConnectionName :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrsConnectionName =
+    lens _dcrsConnectionName (\s a -> s { _dcrsConnectionName = a })
+{-# INLINE dcrsConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state
@@ -133,34 +118,35 @@ kConnectionName = lens _kConnectionName (\s a -> s { _kConnectionName = a })
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-kConnectionState :: Lens' DeleteConnectionResponse (Maybe ConnectionState)
-kConnectionState = lens _kConnectionState (\s a -> s { _kConnectionState = a })
-{-# INLINE kConnectionState #-}
+dcrsConnectionState :: Lens' DeleteConnectionResponse (Maybe ConnectionState)
+dcrsConnectionState =
+    lens _dcrsConnectionState (\s a -> s { _dcrsConnectionState = a })
+{-# INLINE dcrsConnectionState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-kRegion :: Lens' DeleteConnectionResponse (Maybe Text)
-kRegion = lens _kRegion (\s a -> s { _kRegion = a })
-{-# INLINE kRegion #-}
+dcrsRegion :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrsRegion = lens _dcrsRegion (\s a -> s { _dcrsRegion = a })
+{-# INLINE dcrsRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-kLocation :: Lens' DeleteConnectionResponse (Maybe Text)
-kLocation = lens _kLocation (\s a -> s { _kLocation = a })
-{-# INLINE kLocation #-}
+dcrsLocation :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrsLocation = lens _dcrsLocation (\s a -> s { _dcrsLocation = a })
+{-# INLINE dcrsLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-kBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
-kBandwidth = lens _kBandwidth (\s a -> s { _kBandwidth = a })
-{-# INLINE kBandwidth #-}
+dcrsBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrsBandwidth = lens _dcrsBandwidth (\s a -> s { _dcrsBandwidth = a })
+{-# INLINE dcrsBandwidth #-}
 
 -- | The VLAN ID. Example: 101.
-kVlan :: Lens' DeleteConnectionResponse (Maybe Integer)
-kVlan = lens _kVlan (\s a -> s { _kVlan = a })
-{-# INLINE kVlan #-}
+dcrsVlan :: Lens' DeleteConnectionResponse (Maybe Integer)
+dcrsVlan = lens _dcrsVlan (\s a -> s { _dcrsVlan = a })
+{-# INLINE dcrsVlan #-}
 
-kPartnerName :: Lens' DeleteConnectionResponse (Maybe Text)
-kPartnerName = lens _kPartnerName (\s a -> s { _kPartnerName = a })
-{-# INLINE kPartnerName #-}
+dcrsPartnerName :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrsPartnerName = lens _dcrsPartnerName (\s a -> s { _dcrsPartnerName = a })
+{-# INLINE dcrsPartnerName #-}
 
 instance FromJSON DeleteConnectionResponse
 

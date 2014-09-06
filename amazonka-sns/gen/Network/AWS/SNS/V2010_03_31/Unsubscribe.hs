@@ -39,9 +39,9 @@ module Network.AWS.SNS.V2010_03_31.Unsubscribe
     -- * Request
       Unsubscribe
     -- ** Request constructor
-    , mkUnsubscribeInput
+    , mkUnsubscribe
     -- ** Request lenses
-    , uiSubscriptionArn
+    , uSubscriptionArn
 
     -- * Response
     , UnsubscribeResponse
@@ -51,24 +51,25 @@ import Network.AWS.Request.Query
 import Network.AWS.SNS.V2010_03_31.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'Unsubscribe' request.
-mkUnsubscribeInput :: Text -- ^ 'uiSubscriptionArn'
-                   -> Unsubscribe
-mkUnsubscribeInput p1 = Unsubscribe
-    { _uiSubscriptionArn = p1
-    }
-{-# INLINE mkUnsubscribeInput #-}
-
+-- | Input for Unsubscribe action.
 newtype Unsubscribe = Unsubscribe
-    { _uiSubscriptionArn :: Text
-      -- ^ The ARN of the subscription to be deleted.
+    { _uSubscriptionArn :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'Unsubscribe' request.
+mkUnsubscribe :: Text -- ^ 'uSubscriptionArn'
+              -> Unsubscribe
+mkUnsubscribe p1 = Unsubscribe
+    { _uSubscriptionArn = p1
+    }
+{-# INLINE mkUnsubscribe #-}
+
 -- | The ARN of the subscription to be deleted.
-uiSubscriptionArn :: Lens' Unsubscribe (Text)
-uiSubscriptionArn = lens _uiSubscriptionArn (\s a -> s { _uiSubscriptionArn = a })
-{-# INLINE uiSubscriptionArn #-}
+uSubscriptionArn :: Lens' Unsubscribe Text
+uSubscriptionArn =
+    lens _uSubscriptionArn (\s a -> s { _uSubscriptionArn = a })
+{-# INLINE uSubscriptionArn #-}
 
 instance ToQuery Unsubscribe where
     toQuery = genericQuery def

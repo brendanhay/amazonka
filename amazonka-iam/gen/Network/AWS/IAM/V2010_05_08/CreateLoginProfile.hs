@@ -28,72 +28,73 @@ module Network.AWS.IAM.V2010_05_08.CreateLoginProfile
     -- * Request
       CreateLoginProfile
     -- ** Request constructor
-    , mkCreateLoginProfileRequest
+    , mkCreateLoginProfile
     -- ** Request lenses
-    , clprUserName
-    , clprPassword
-    , clprPasswordResetRequired
+    , clpUserName
+    , clpPassword
+    , clpPasswordResetRequired
 
     -- * Response
     , CreateLoginProfileResponse
     -- ** Response lenses
-    , clpsLoginProfile
+    , clprsLoginProfile
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'CreateLoginProfile' request.
-mkCreateLoginProfileRequest :: Text -- ^ 'clprUserName'
-                            -> Text -- ^ 'clprPassword'
-                            -> CreateLoginProfile
-mkCreateLoginProfileRequest p1 p2 = CreateLoginProfile
-    { _clprUserName = p1
-    , _clprPassword = p2
-    , _clprPasswordResetRequired = Nothing
-    }
-{-# INLINE mkCreateLoginProfileRequest #-}
-
+-- | 
 data CreateLoginProfile = CreateLoginProfile
-    { _clprUserName :: Text
-      -- ^ Name of the user to create a password for.
-    , _clprPassword :: Text
-      -- ^ The new password for the user.
-    , _clprPasswordResetRequired :: Maybe Bool
-      -- ^ Specifies whether the user is required to set a new password on
-      -- next sign-in.
+    { _clpUserName :: Text
+    , _clpPassword :: Text
+    , _clpPasswordResetRequired :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoginProfile' request.
+mkCreateLoginProfile :: Text -- ^ 'clpUserName'
+                     -> Text -- ^ 'clpPassword'
+                     -> CreateLoginProfile
+mkCreateLoginProfile p1 p2 = CreateLoginProfile
+    { _clpUserName = p1
+    , _clpPassword = p2
+    , _clpPasswordResetRequired = Nothing
+    }
+{-# INLINE mkCreateLoginProfile #-}
+
 -- | Name of the user to create a password for.
-clprUserName :: Lens' CreateLoginProfile (Text)
-clprUserName = lens _clprUserName (\s a -> s { _clprUserName = a })
-{-# INLINE clprUserName #-}
+clpUserName :: Lens' CreateLoginProfile Text
+clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
+{-# INLINE clpUserName #-}
 
 -- | The new password for the user.
-clprPassword :: Lens' CreateLoginProfile (Text)
-clprPassword = lens _clprPassword (\s a -> s { _clprPassword = a })
-{-# INLINE clprPassword #-}
+clpPassword :: Lens' CreateLoginProfile Text
+clpPassword = lens _clpPassword (\s a -> s { _clpPassword = a })
+{-# INLINE clpPassword #-}
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
-clprPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
-clprPasswordResetRequired = lens _clprPasswordResetRequired (\s a -> s { _clprPasswordResetRequired = a })
-{-# INLINE clprPasswordResetRequired #-}
+clpPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
+clpPasswordResetRequired =
+    lens _clpPasswordResetRequired
+         (\s a -> s { _clpPasswordResetRequired = a })
+{-# INLINE clpPasswordResetRequired #-}
 
 instance ToQuery CreateLoginProfile where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful invocation of the CreateLoginProfile
+-- action.
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
-    { _clpsLoginProfile :: LoginProfile
-      -- ^ The user name and password create date.
+    { _clprsLoginProfile :: LoginProfile
     } deriving (Show, Generic)
 
 -- | The user name and password create date.
-clpsLoginProfile :: Lens' CreateLoginProfileResponse (LoginProfile)
-clpsLoginProfile = lens _clpsLoginProfile (\s a -> s { _clpsLoginProfile = a })
-{-# INLINE clpsLoginProfile #-}
+clprsLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
+clprsLoginProfile =
+    lens _clprsLoginProfile (\s a -> s { _clprsLoginProfile = a })
+{-# INLINE clprsLoginProfile #-}
 
 instance FromXML CreateLoginProfileResponse where
     fromXMLOptions = xmlOptions

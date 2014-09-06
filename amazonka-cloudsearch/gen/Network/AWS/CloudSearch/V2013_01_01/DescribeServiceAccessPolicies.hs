@@ -28,63 +28,64 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies
     -- * Request
       DescribeServiceAccessPolicies
     -- ** Request constructor
-    , mkDescribeServiceAccessPoliciesRequest
+    , mkDescribeServiceAccessPolicies
     -- ** Request lenses
-    , dsaprDomainName
-    , dsaprDeployed
+    , dsapDomainName
+    , dsapDeployed
 
     -- * Response
     , DescribeServiceAccessPoliciesResponse
     -- ** Response lenses
-    , dsapsAccessPolicies
+    , dsaprsAccessPolicies
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.V2013_01_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeServiceAccessPolicies' request.
-mkDescribeServiceAccessPoliciesRequest :: Text -- ^ 'dsaprDomainName'
-                                       -> DescribeServiceAccessPolicies
-mkDescribeServiceAccessPoliciesRequest p1 = DescribeServiceAccessPolicies
-    { _dsaprDomainName = p1
-    , _dsaprDeployed = Nothing
-    }
-{-# INLINE mkDescribeServiceAccessPoliciesRequest #-}
-
+-- | Container for the parameters to the DescribeServiceAccessPolicies
+-- operation. Specifies the name of the domain you want to describe. To show
+-- the active configuration and exclude any pending changes, set the Deployed
+-- option to true.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
-    { _dsaprDomainName :: Text
-      -- ^ The name of the domain you want to describe.
-    , _dsaprDeployed :: Maybe Bool
-      -- ^ Whether to display the deployed configuration (true) or include
-      -- any pending changes (false). Defaults to false.
+    { _dsapDomainName :: Text
+    , _dsapDeployed :: Maybe Bool
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeServiceAccessPolicies' request.
+mkDescribeServiceAccessPolicies :: Text -- ^ 'dsapDomainName'
+                                -> DescribeServiceAccessPolicies
+mkDescribeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
+    { _dsapDomainName = p1
+    , _dsapDeployed = Nothing
+    }
+{-# INLINE mkDescribeServiceAccessPolicies #-}
+
 -- | The name of the domain you want to describe.
-dsaprDomainName :: Lens' DescribeServiceAccessPolicies (Text)
-dsaprDomainName = lens _dsaprDomainName (\s a -> s { _dsaprDomainName = a })
-{-# INLINE dsaprDomainName #-}
+dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
+dsapDomainName = lens _dsapDomainName (\s a -> s { _dsapDomainName = a })
+{-# INLINE dsapDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
-dsaprDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
-dsaprDeployed = lens _dsaprDeployed (\s a -> s { _dsaprDeployed = a })
-{-# INLINE dsaprDeployed #-}
+dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
+dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
+{-# INLINE dsapDeployed #-}
 
 instance ToQuery DescribeServiceAccessPolicies where
     toQuery = genericQuery def
 
+-- | The result of a DescribeServiceAccessPolicies request.
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
-    { _dsapsAccessPolicies :: AccessPoliciesStatus
-      -- ^ The access rules configured for the domain specified in the
-      -- request.
+    { _dsaprsAccessPolicies :: AccessPoliciesStatus
     } deriving (Show, Generic)
 
 -- | The access rules configured for the domain specified in the request.
-dsapsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse (AccessPoliciesStatus)
-dsapsAccessPolicies = lens _dsapsAccessPolicies (\s a -> s { _dsapsAccessPolicies = a })
-{-# INLINE dsapsAccessPolicies #-}
+dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
+dsaprsAccessPolicies =
+    lens _dsaprsAccessPolicies (\s a -> s { _dsaprsAccessPolicies = a })
+{-# INLINE dsaprsAccessPolicies #-}
 
 instance FromXML DescribeServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions

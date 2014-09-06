@@ -46,179 +46,82 @@ module Network.AWS.Redshift.V2012_12_01.ModifyCluster
     -- * Request
       ModifyCluster
     -- ** Request constructor
-    , mkModifyClusterMessage
+    , mkModifyCluster
     -- ** Request lenses
-    , mcmClusterIdentifier
-    , mcmClusterType
-    , mcmNodeType
-    , mcmNumberOfNodes
-    , mcmClusterSecurityGroups
-    , mcmVpcSecurityGroupIds
-    , mcmMasterUserPassword
-    , mcmClusterParameterGroupName
-    , mcmAutomatedSnapshotRetentionPeriod
-    , mcmPreferredMaintenanceWindow
-    , mcmClusterVersion
-    , mcmAllowVersionUpgrade
-    , mcmHsmClientCertificateIdentifier
-    , mcmHsmConfigurationIdentifier
-    , mcmNewClusterIdentifier
+    , mcClusterIdentifier
+    , mcClusterType
+    , mcNodeType
+    , mcNumberOfNodes
+    , mcClusterSecurityGroups
+    , mcVpcSecurityGroupIds
+    , mcMasterUserPassword
+    , mcClusterParameterGroupName
+    , mcAutomatedSnapshotRetentionPeriod
+    , mcPreferredMaintenanceWindow
+    , mcClusterVersion
+    , mcAllowVersionUpgrade
+    , mcHsmClientCertificateIdentifier
+    , mcHsmConfigurationIdentifier
+    , mcNewClusterIdentifier
 
     -- * Response
     , ModifyClusterResponse
     -- ** Response lenses
-    , ccsCluster
+    , mcrsCluster
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
+-- | 
+data ModifyCluster = ModifyCluster
+    { _mcClusterIdentifier :: Text
+    , _mcClusterType :: Maybe Text
+    , _mcNodeType :: Maybe Text
+    , _mcNumberOfNodes :: Maybe Integer
+    , _mcClusterSecurityGroups :: [Text]
+    , _mcVpcSecurityGroupIds :: [Text]
+    , _mcMasterUserPassword :: Maybe Text
+    , _mcClusterParameterGroupName :: Maybe Text
+    , _mcAutomatedSnapshotRetentionPeriod :: Maybe Integer
+    , _mcPreferredMaintenanceWindow :: Maybe Text
+    , _mcClusterVersion :: Maybe Text
+    , _mcAllowVersionUpgrade :: Maybe Bool
+    , _mcHsmClientCertificateIdentifier :: Maybe Text
+    , _mcHsmConfigurationIdentifier :: Maybe Text
+    , _mcNewClusterIdentifier :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCluster' request.
-mkModifyClusterMessage :: Text -- ^ 'mcmClusterIdentifier'
-                       -> ModifyCluster
-mkModifyClusterMessage p1 = ModifyCluster
-    { _mcmClusterIdentifier = p1
-    , _mcmClusterType = Nothing
-    , _mcmNodeType = Nothing
-    , _mcmNumberOfNodes = Nothing
-    , _mcmClusterSecurityGroups = mempty
-    , _mcmVpcSecurityGroupIds = mempty
-    , _mcmMasterUserPassword = Nothing
-    , _mcmClusterParameterGroupName = Nothing
-    , _mcmAutomatedSnapshotRetentionPeriod = Nothing
-    , _mcmPreferredMaintenanceWindow = Nothing
-    , _mcmClusterVersion = Nothing
-    , _mcmAllowVersionUpgrade = Nothing
-    , _mcmHsmClientCertificateIdentifier = Nothing
-    , _mcmHsmConfigurationIdentifier = Nothing
-    , _mcmNewClusterIdentifier = Nothing
+mkModifyCluster :: Text -- ^ 'mcClusterIdentifier'
+                -> ModifyCluster
+mkModifyCluster p1 = ModifyCluster
+    { _mcClusterIdentifier = p1
+    , _mcClusterType = Nothing
+    , _mcNodeType = Nothing
+    , _mcNumberOfNodes = Nothing
+    , _mcClusterSecurityGroups = mempty
+    , _mcVpcSecurityGroupIds = mempty
+    , _mcMasterUserPassword = Nothing
+    , _mcClusterParameterGroupName = Nothing
+    , _mcAutomatedSnapshotRetentionPeriod = Nothing
+    , _mcPreferredMaintenanceWindow = Nothing
+    , _mcClusterVersion = Nothing
+    , _mcAllowVersionUpgrade = Nothing
+    , _mcHsmClientCertificateIdentifier = Nothing
+    , _mcHsmConfigurationIdentifier = Nothing
+    , _mcNewClusterIdentifier = Nothing
     }
-{-# INLINE mkModifyClusterMessage #-}
-
-data ModifyCluster = ModifyCluster
-    { _mcmClusterIdentifier :: Text
-      -- ^ The unique identifier of the cluster to be modified. Example:
-      -- examplecluster.
-    , _mcmClusterType :: Maybe Text
-      -- ^ The new cluster type. When you submit your cluster resize
-      -- request, your existing cluster goes into a read-only mode. After
-      -- Amazon Redshift provisions a new cluster based on your resize
-      -- requirements, there will be outage for a period while the old
-      -- cluster is deleted and your connection is switched to the new
-      -- cluster. You can use DescribeResize to track the progress of the
-      -- resize request. Valid Values: multi-node | single-node.
-    , _mcmNodeType :: Maybe Text
-      -- ^ The new node type of the cluster. If you specify a new node type,
-      -- you must also specify the number of nodes parameter also. When
-      -- you submit your request to resize a cluster, Amazon Redshift sets
-      -- access permissions for the cluster to read-only. After Amazon
-      -- Redshift provisions a new cluster according to your resize
-      -- requirements, there will be a temporary outage while the old
-      -- cluster is deleted and your connection is switched to the new
-      -- cluster. When the new connection is complete, the original access
-      -- permissions for the cluster are restored. You can use the
-      -- DescribeResize to track the progress of the resize request. Valid
-      -- Values: dw1.xlarge | dw1.8xlarge | dw2.large | dw2.8xlarge.
-    , _mcmNumberOfNodes :: Maybe Integer
-      -- ^ The new number of nodes of the cluster. If you specify a new
-      -- number of nodes, you must also specify the node type parameter
-      -- also. When you submit your request to resize a cluster, Amazon
-      -- Redshift sets access permissions for the cluster to read-only.
-      -- After Amazon Redshift provisions a new cluster according to your
-      -- resize requirements, there will be a temporary outage while the
-      -- old cluster is deleted and your connection is switched to the new
-      -- cluster. When the new connection is complete, the original access
-      -- permissions for the cluster are restored. You can use
-      -- DescribeResize to track the progress of the resize request. Valid
-      -- Values: Integer greater than 0.
-    , _mcmClusterSecurityGroups :: [Text]
-      -- ^ A list of cluster security groups to be authorized on this
-      -- cluster. This change is asynchronously applied as soon as
-      -- possible. Security groups currently associated with the cluster,
-      -- and not in the list of groups to apply, will be revoked from the
-      -- cluster. Constraints: Must be 1 to 255 alphanumeric characters or
-      -- hyphens First character must be a letter Cannot end with a hyphen
-      -- or contain two consecutive hyphens.
-    , _mcmVpcSecurityGroupIds :: [Text]
-      -- ^ A list of virtual private cloud (VPC) security groups to be
-      -- associated with the cluster.
-    , _mcmMasterUserPassword :: Maybe Text
-      -- ^ The new password for the cluster master user. This change is
-      -- asynchronously applied as soon as possible. Between the time of
-      -- the request and the completion of the request, the
-      -- MasterUserPassword element exists in the PendingModifiedValues
-      -- element of the operation response. Operations never return the
-      -- password, so this operation provides a way to regain access to
-      -- the master user account for a cluster if the password is lost.
-      -- Default: Uses existing setting. Constraints: Must be between 8
-      -- and 64 characters in length. Must contain at least one uppercase
-      -- letter. Must contain at least one lowercase letter. Must contain
-      -- one number. Can be any printable ASCII character (ASCII code 33
-      -- to 126) except ' (single quote), " (double quote), \, /, @, or
-      -- space.
-    , _mcmClusterParameterGroupName :: Maybe Text
-      -- ^ The name of the cluster parameter group to apply to this cluster.
-      -- This change is applied only after the cluster is rebooted. To
-      -- reboot a cluster use RebootCluster. Default: Uses existing
-      -- setting. Constraints: The cluster parameter group must be in the
-      -- same parameter group family that matches the cluster version.
-    , _mcmAutomatedSnapshotRetentionPeriod :: Maybe Integer
-      -- ^ The number of days that automated snapshots are retained. If the
-      -- value is 0, automated snapshots are disabled. Even if automated
-      -- snapshots are disabled, you can still create manual snapshots
-      -- when you want with CreateClusterSnapshot. If you decrease the
-      -- automated snapshot retention period from its current value,
-      -- existing automated snapshots that fall outside of the new
-      -- retention period will be immediately deleted. Default: Uses
-      -- existing setting. Constraints: Must be a value from 0 to 35.
-    , _mcmPreferredMaintenanceWindow :: Maybe Text
-      -- ^ The weekly time range (in UTC) during which system maintenance
-      -- can occur, if necessary. If system maintenance is necessary
-      -- during the window, it may result in an outage. This maintenance
-      -- window change is made immediately. If the new maintenance window
-      -- indicates the current time, there must be at least 120 minutes
-      -- between the current time and end of the window in order to ensure
-      -- that pending changes are applied. Default: Uses existing setting.
-      -- Format: ddd:hh24:mi-ddd:hh24:mi, for example wed:07:30-wed:08:00.
-      -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints:
-      -- Must be at least 30 minutes.
-    , _mcmClusterVersion :: Maybe Text
-      -- ^ The new version number of the Amazon Redshift engine to upgrade
-      -- to. For major version upgrades, if a non-default cluster
-      -- parameter group is currently in use, a new cluster parameter
-      -- group in the cluster parameter group family for the new version
-      -- must be specified. The new cluster parameter group can be the
-      -- default for that cluster parameter group family. For more
-      -- information about managing parameter groups, go to Amazon
-      -- Redshift Parameter Groups in the Amazon Redshift Management
-      -- Guide. Example: 1.0.
-    , _mcmAllowVersionUpgrade :: Maybe Bool
-      -- ^ If true, upgrades will be applied automatically to the cluster
-      -- during the maintenance window. Default: false.
-    , _mcmHsmClientCertificateIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM client certificate the Amazon
-      -- Redshift cluster uses to retrieve the data encryption keys stored
-      -- in an HSM.
-    , _mcmHsmConfigurationIdentifier :: Maybe Text
-      -- ^ Specifies the name of the HSM configuration that contains the
-      -- information the Amazon Redshift cluster can use to retrieve and
-      -- store keys in an HSM.
-    , _mcmNewClusterIdentifier :: Maybe Text
-      -- ^ The new identifier for the cluster. Constraints: Must contain
-      -- from 1 to 63 alphanumeric characters or hyphens. Alphabetic
-      -- characters must be lowercase. First character must be a letter.
-      -- Cannot end with a hyphen or contain two consecutive hyphens. Must
-      -- be unique for all clusters within an AWS account. Example:
-      -- examplecluster.
-    } deriving (Show, Generic)
+{-# INLINE mkModifyCluster #-}
 
 -- | The unique identifier of the cluster to be modified. Example:
 -- examplecluster.
-mcmClusterIdentifier :: Lens' ModifyCluster (Text)
-mcmClusterIdentifier = lens _mcmClusterIdentifier (\s a -> s { _mcmClusterIdentifier = a })
-{-# INLINE mcmClusterIdentifier #-}
+mcClusterIdentifier :: Lens' ModifyCluster Text
+mcClusterIdentifier =
+    lens _mcClusterIdentifier (\s a -> s { _mcClusterIdentifier = a })
+{-# INLINE mcClusterIdentifier #-}
 
 -- | The new cluster type. When you submit your cluster resize request, your
 -- existing cluster goes into a read-only mode. After Amazon Redshift
@@ -226,9 +129,9 @@ mcmClusterIdentifier = lens _mcmClusterIdentifier (\s a -> s { _mcmClusterIdenti
 -- outage for a period while the old cluster is deleted and your connection is
 -- switched to the new cluster. You can use DescribeResize to track the
 -- progress of the resize request. Valid Values: multi-node | single-node.
-mcmClusterType :: Lens' ModifyCluster (Maybe Text)
-mcmClusterType = lens _mcmClusterType (\s a -> s { _mcmClusterType = a })
-{-# INLINE mcmClusterType #-}
+mcClusterType :: Lens' ModifyCluster (Maybe Text)
+mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
+{-# INLINE mcClusterType #-}
 
 -- | The new node type of the cluster. If you specify a new node type, you must
 -- also specify the number of nodes parameter also. When you submit your
@@ -240,9 +143,9 @@ mcmClusterType = lens _mcmClusterType (\s a -> s { _mcmClusterType = a })
 -- permissions for the cluster are restored. You can use the DescribeResize to
 -- track the progress of the resize request. Valid Values: dw1.xlarge |
 -- dw1.8xlarge | dw2.large | dw2.8xlarge.
-mcmNodeType :: Lens' ModifyCluster (Maybe Text)
-mcmNodeType = lens _mcmNodeType (\s a -> s { _mcmNodeType = a })
-{-# INLINE mcmNodeType #-}
+mcNodeType :: Lens' ModifyCluster (Maybe Text)
+mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
+{-# INLINE mcNodeType #-}
 
 -- | The new number of nodes of the cluster. If you specify a new number of
 -- nodes, you must also specify the node type parameter also. When you submit
@@ -254,9 +157,9 @@ mcmNodeType = lens _mcmNodeType (\s a -> s { _mcmNodeType = a })
 -- permissions for the cluster are restored. You can use DescribeResize to
 -- track the progress of the resize request. Valid Values: Integer greater
 -- than 0.
-mcmNumberOfNodes :: Lens' ModifyCluster (Maybe Integer)
-mcmNumberOfNodes = lens _mcmNumberOfNodes (\s a -> s { _mcmNumberOfNodes = a })
-{-# INLINE mcmNumberOfNodes #-}
+mcNumberOfNodes :: Lens' ModifyCluster (Maybe Integer)
+mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
+{-# INLINE mcNumberOfNodes #-}
 
 -- | A list of cluster security groups to be authorized on this cluster. This
 -- change is asynchronously applied as soon as possible. Security groups
@@ -264,15 +167,18 @@ mcmNumberOfNodes = lens _mcmNumberOfNodes (\s a -> s { _mcmNumberOfNodes = a })
 -- apply, will be revoked from the cluster. Constraints: Must be 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
-mcmClusterSecurityGroups :: Lens' ModifyCluster ([Text])
-mcmClusterSecurityGroups = lens _mcmClusterSecurityGroups (\s a -> s { _mcmClusterSecurityGroups = a })
-{-# INLINE mcmClusterSecurityGroups #-}
+mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
+mcClusterSecurityGroups =
+    lens _mcClusterSecurityGroups
+         (\s a -> s { _mcClusterSecurityGroups = a })
+{-# INLINE mcClusterSecurityGroups #-}
 
 -- | A list of virtual private cloud (VPC) security groups to be associated with
 -- the cluster.
-mcmVpcSecurityGroupIds :: Lens' ModifyCluster ([Text])
-mcmVpcSecurityGroupIds = lens _mcmVpcSecurityGroupIds (\s a -> s { _mcmVpcSecurityGroupIds = a })
-{-# INLINE mcmVpcSecurityGroupIds #-}
+mcVpcSecurityGroupIds :: Lens' ModifyCluster [Text]
+mcVpcSecurityGroupIds =
+    lens _mcVpcSecurityGroupIds (\s a -> s { _mcVpcSecurityGroupIds = a })
+{-# INLINE mcVpcSecurityGroupIds #-}
 
 -- | The new password for the cluster master user. This change is asynchronously
 -- applied as soon as possible. Between the time of the request and the
@@ -285,18 +191,21 @@ mcmVpcSecurityGroupIds = lens _mcmVpcSecurityGroupIds (\s a -> s { _mcmVpcSecuri
 -- one lowercase letter. Must contain one number. Can be any printable ASCII
 -- character (ASCII code 33 to 126) except ' (single quote), " (double quote),
 -- \, /, @, or space.
-mcmMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
-mcmMasterUserPassword = lens _mcmMasterUserPassword (\s a -> s { _mcmMasterUserPassword = a })
-{-# INLINE mcmMasterUserPassword #-}
+mcMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
+mcMasterUserPassword =
+    lens _mcMasterUserPassword (\s a -> s { _mcMasterUserPassword = a })
+{-# INLINE mcMasterUserPassword #-}
 
 -- | The name of the cluster parameter group to apply to this cluster. This
 -- change is applied only after the cluster is rebooted. To reboot a cluster
 -- use RebootCluster. Default: Uses existing setting. Constraints: The cluster
 -- parameter group must be in the same parameter group family that matches the
 -- cluster version.
-mcmClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
-mcmClusterParameterGroupName = lens _mcmClusterParameterGroupName (\s a -> s { _mcmClusterParameterGroupName = a })
-{-# INLINE mcmClusterParameterGroupName #-}
+mcClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
+mcClusterParameterGroupName =
+    lens _mcClusterParameterGroupName
+         (\s a -> s { _mcClusterParameterGroupName = a })
+{-# INLINE mcClusterParameterGroupName #-}
 
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
@@ -305,9 +214,11 @@ mcmClusterParameterGroupName = lens _mcmClusterParameterGroupName (\s a -> s { _
 -- period from its current value, existing automated snapshots that fall
 -- outside of the new retention period will be immediately deleted. Default:
 -- Uses existing setting. Constraints: Must be a value from 0 to 35.
-mcmAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Integer)
-mcmAutomatedSnapshotRetentionPeriod = lens _mcmAutomatedSnapshotRetentionPeriod (\s a -> s { _mcmAutomatedSnapshotRetentionPeriod = a })
-{-# INLINE mcmAutomatedSnapshotRetentionPeriod #-}
+mcAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Integer)
+mcAutomatedSnapshotRetentionPeriod =
+    lens _mcAutomatedSnapshotRetentionPeriod
+         (\s a -> s { _mcAutomatedSnapshotRetentionPeriod = a })
+{-# INLINE mcAutomatedSnapshotRetentionPeriod #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur,
 -- if necessary. If system maintenance is necessary during the window, it may
@@ -318,9 +229,11 @@ mcmAutomatedSnapshotRetentionPeriod = lens _mcmAutomatedSnapshotRetentionPeriod 
 -- Format: ddd:hh24:mi-ddd:hh24:mi, for example wed:07:30-wed:08:00. Valid
 -- Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Must be at least
 -- 30 minutes.
-mcmPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
-mcmPreferredMaintenanceWindow = lens _mcmPreferredMaintenanceWindow (\s a -> s { _mcmPreferredMaintenanceWindow = a })
-{-# INLINE mcmPreferredMaintenanceWindow #-}
+mcPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
+mcPreferredMaintenanceWindow =
+    lens _mcPreferredMaintenanceWindow
+         (\s a -> s { _mcPreferredMaintenanceWindow = a })
+{-# INLINE mcPreferredMaintenanceWindow #-}
 
 -- | The new version number of the Amazon Redshift engine to upgrade to. For
 -- major version upgrades, if a non-default cluster parameter group is
@@ -329,49 +242,55 @@ mcmPreferredMaintenanceWindow = lens _mcmPreferredMaintenanceWindow (\s a -> s {
 -- parameter group can be the default for that cluster parameter group family.
 -- For more information about managing parameter groups, go to Amazon Redshift
 -- Parameter Groups in the Amazon Redshift Management Guide. Example: 1.0.
-mcmClusterVersion :: Lens' ModifyCluster (Maybe Text)
-mcmClusterVersion = lens _mcmClusterVersion (\s a -> s { _mcmClusterVersion = a })
-{-# INLINE mcmClusterVersion #-}
+mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
+mcClusterVersion =
+    lens _mcClusterVersion (\s a -> s { _mcClusterVersion = a })
+{-# INLINE mcClusterVersion #-}
 
 -- | If true, upgrades will be applied automatically to the cluster during the
 -- maintenance window. Default: false.
-mcmAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
-mcmAllowVersionUpgrade = lens _mcmAllowVersionUpgrade (\s a -> s { _mcmAllowVersionUpgrade = a })
-{-# INLINE mcmAllowVersionUpgrade #-}
+mcAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
+mcAllowVersionUpgrade =
+    lens _mcAllowVersionUpgrade (\s a -> s { _mcAllowVersionUpgrade = a })
+{-# INLINE mcAllowVersionUpgrade #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-mcmHsmClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
-mcmHsmClientCertificateIdentifier = lens _mcmHsmClientCertificateIdentifier (\s a -> s { _mcmHsmClientCertificateIdentifier = a })
-{-# INLINE mcmHsmClientCertificateIdentifier #-}
+mcHsmClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcHsmClientCertificateIdentifier =
+    lens _mcHsmClientCertificateIdentifier
+         (\s a -> s { _mcHsmClientCertificateIdentifier = a })
+{-# INLINE mcHsmClientCertificateIdentifier #-}
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-mcmHsmConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
-mcmHsmConfigurationIdentifier = lens _mcmHsmConfigurationIdentifier (\s a -> s { _mcmHsmConfigurationIdentifier = a })
-{-# INLINE mcmHsmConfigurationIdentifier #-}
+mcHsmConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcHsmConfigurationIdentifier =
+    lens _mcHsmConfigurationIdentifier
+         (\s a -> s { _mcHsmConfigurationIdentifier = a })
+{-# INLINE mcHsmConfigurationIdentifier #-}
 
 -- | The new identifier for the cluster. Constraints: Must contain from 1 to 63
 -- alphanumeric characters or hyphens. Alphabetic characters must be
 -- lowercase. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens. Must be unique for all clusters within an
 -- AWS account. Example: examplecluster.
-mcmNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
-mcmNewClusterIdentifier = lens _mcmNewClusterIdentifier (\s a -> s { _mcmNewClusterIdentifier = a })
-{-# INLINE mcmNewClusterIdentifier #-}
+mcNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcNewClusterIdentifier =
+    lens _mcNewClusterIdentifier (\s a -> s { _mcNewClusterIdentifier = a })
+{-# INLINE mcNewClusterIdentifier #-}
 
 instance ToQuery ModifyCluster where
     toQuery = genericQuery def
 
 newtype ModifyClusterResponse = ModifyClusterResponse
-    { _ccsCluster :: Maybe Cluster
-      -- ^ Describes a cluster.
+    { _mcrsCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
-ccsCluster = lens _ccsCluster (\s a -> s { _ccsCluster = a })
-{-# INLINE ccsCluster #-}
+mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
+mcrsCluster = lens _mcrsCluster (\s a -> s { _mcrsCluster = a })
+{-# INLINE mcrsCluster #-}
 
 instance FromXML ModifyClusterResponse where
     fromXMLOptions = xmlOptions

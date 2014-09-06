@@ -61,22 +61,22 @@ module Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
     -- * Request
       ListOpenWorkflowExecutions
     -- ** Request constructor
-    , mkListOpenWorkflowExecutionsInput
+    , mkListOpenWorkflowExecutions
     -- ** Request lenses
-    , loweiDomain
-    , loweiStartTimeFilter
-    , loweiTypeFilter
-    , loweiTagFilter
-    , loweiNextPageToken
-    , loweiMaximumPageSize
-    , loweiReverseOrder
-    , loweiExecutionFilter
+    , loweDomain
+    , loweStartTimeFilter
+    , loweTypeFilter
+    , loweTagFilter
+    , loweNextPageToken
+    , loweMaximumPageSize
+    , loweReverseOrder
+    , loweExecutionFilter
 
     -- * Response
     , ListOpenWorkflowExecutionsResponse
     -- ** Response lenses
-    , wenExecutionInfos
-    , wenNextPageToken
+    , lowersExecutionInfos
+    , lowersNextPageToken
     ) where
 
 import           Network.AWS.SWF.V2012_01_25.Types
@@ -84,94 +84,67 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'ListOpenWorkflowExecutions' request.
-mkListOpenWorkflowExecutionsInput :: Text -- ^ 'loweiDomain'
-                                  -> ExecutionTimeFilter -- ^ 'loweiStartTimeFilter'
-                                  -> ListOpenWorkflowExecutions
-mkListOpenWorkflowExecutionsInput p1 p2 = ListOpenWorkflowExecutions
-    { _loweiDomain = p1
-    , _loweiStartTimeFilter = p2
-    , _loweiTypeFilter = Nothing
-    , _loweiTagFilter = Nothing
-    , _loweiNextPageToken = Nothing
-    , _loweiMaximumPageSize = Nothing
-    , _loweiReverseOrder = Nothing
-    , _loweiExecutionFilter = Nothing
-    }
-{-# INLINE mkListOpenWorkflowExecutionsInput #-}
-
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
-    { _loweiDomain :: Text
-      -- ^ The name of the domain that contains the workflow executions to
-      -- list.
-    , _loweiStartTimeFilter :: ExecutionTimeFilter
-      -- ^ Workflow executions are included in the returned results based on
-      -- whether their start times are within the range specified by this
-      -- filter.
-    , _loweiTypeFilter :: Maybe WorkflowTypeFilter
-      -- ^ If specified, only executions of the type specified in the filter
-      -- are returned. executionFilter, typeFilter and tagFilter are
-      -- mutually exclusive. You can specify at most one of these in a
-      -- request.
-    , _loweiTagFilter :: Maybe TagFilter
-      -- ^ If specified, only executions that have the matching tag are
-      -- listed. executionFilter, typeFilter and tagFilter are mutually
-      -- exclusive. You can specify at most one of these in a request.
-    , _loweiNextPageToken :: Maybe Text
-      -- ^ If on a previous call to this method a NextPageToken was
-      -- returned, the results are being paginated. To get the next page
-      -- of results, repeat the call with the returned token and all other
-      -- arguments unchanged.
-    , _loweiMaximumPageSize :: Maybe Integer
-      -- ^ The maximum number of results returned in each page. The default
-      -- is 100, but the caller can override this value to a page size
-      -- smaller than the default. You cannot specify a page size greater
-      -- than 100. Note that the number of executions may be less than the
-      -- maxiumum page size, in which case, the returned page will have
-      -- fewer results than the maximumPageSize specified.
-    , _loweiReverseOrder :: Maybe Bool
-      -- ^ When set to true, returns the results in reverse order. By
-      -- default the results are returned in descending order of the start
-      -- time of the executions.
-    , _loweiExecutionFilter :: Maybe WorkflowExecutionFilter
-      -- ^ If specified, only workflow executions matching the workflow id
-      -- specified in the filter are returned. executionFilter, typeFilter
-      -- and tagFilter are mutually exclusive. You can specify at most one
-      -- of these in a request.
+    { _loweDomain :: Text
+    , _loweStartTimeFilter :: ExecutionTimeFilter
+    , _loweTypeFilter :: Maybe WorkflowTypeFilter
+    , _loweTagFilter :: Maybe TagFilter
+    , _loweNextPageToken :: Maybe Text
+    , _loweMaximumPageSize :: Maybe Integer
+    , _loweReverseOrder :: Maybe Bool
+    , _loweExecutionFilter :: Maybe WorkflowExecutionFilter
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListOpenWorkflowExecutions' request.
+mkListOpenWorkflowExecutions :: Text -- ^ 'loweDomain'
+                             -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
+                             -> ListOpenWorkflowExecutions
+mkListOpenWorkflowExecutions p1 p2 = ListOpenWorkflowExecutions
+    { _loweDomain = p1
+    , _loweStartTimeFilter = p2
+    , _loweTypeFilter = Nothing
+    , _loweTagFilter = Nothing
+    , _loweNextPageToken = Nothing
+    , _loweMaximumPageSize = Nothing
+    , _loweReverseOrder = Nothing
+    , _loweExecutionFilter = Nothing
+    }
+{-# INLINE mkListOpenWorkflowExecutions #-}
+
 -- | The name of the domain that contains the workflow executions to list.
-loweiDomain :: Lens' ListOpenWorkflowExecutions (Text)
-loweiDomain = lens _loweiDomain (\s a -> s { _loweiDomain = a })
-{-# INLINE loweiDomain #-}
+loweDomain :: Lens' ListOpenWorkflowExecutions Text
+loweDomain = lens _loweDomain (\s a -> s { _loweDomain = a })
+{-# INLINE loweDomain #-}
 
 -- | Workflow executions are included in the returned results based on whether
 -- their start times are within the range specified by this filter.
-loweiStartTimeFilter :: Lens' ListOpenWorkflowExecutions (ExecutionTimeFilter)
-loweiStartTimeFilter = lens _loweiStartTimeFilter (\s a -> s { _loweiStartTimeFilter = a })
-{-# INLINE loweiStartTimeFilter #-}
+loweStartTimeFilter :: Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
+loweStartTimeFilter =
+    lens _loweStartTimeFilter (\s a -> s { _loweStartTimeFilter = a })
+{-# INLINE loweStartTimeFilter #-}
 
 -- | If specified, only executions of the type specified in the filter are
 -- returned. executionFilter, typeFilter and tagFilter are mutually exclusive.
 -- You can specify at most one of these in a request.
-loweiTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
-loweiTypeFilter = lens _loweiTypeFilter (\s a -> s { _loweiTypeFilter = a })
-{-# INLINE loweiTypeFilter #-}
+loweTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
+loweTypeFilter = lens _loweTypeFilter (\s a -> s { _loweTypeFilter = a })
+{-# INLINE loweTypeFilter #-}
 
 -- | If specified, only executions that have the matching tag are listed.
 -- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 -- specify at most one of these in a request.
-loweiTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
-loweiTagFilter = lens _loweiTagFilter (\s a -> s { _loweiTagFilter = a })
-{-# INLINE loweiTagFilter #-}
+loweTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
+loweTagFilter = lens _loweTagFilter (\s a -> s { _loweTagFilter = a })
+{-# INLINE loweTagFilter #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
-loweiNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
-loweiNextPageToken = lens _loweiNextPageToken (\s a -> s { _loweiNextPageToken = a })
-{-# INLINE loweiNextPageToken #-}
+loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
+loweNextPageToken =
+    lens _loweNextPageToken (\s a -> s { _loweNextPageToken = a })
+{-# INLINE loweNextPageToken #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
@@ -179,23 +152,26 @@ loweiNextPageToken = lens _loweiNextPageToken (\s a -> s { _loweiNextPageToken =
 -- number of executions may be less than the maxiumum page size, in which
 -- case, the returned page will have fewer results than the maximumPageSize
 -- specified.
-loweiMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Integer)
-loweiMaximumPageSize = lens _loweiMaximumPageSize (\s a -> s { _loweiMaximumPageSize = a })
-{-# INLINE loweiMaximumPageSize #-}
+loweMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Integer)
+loweMaximumPageSize =
+    lens _loweMaximumPageSize (\s a -> s { _loweMaximumPageSize = a })
+{-# INLINE loweMaximumPageSize #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in descending order of the start time of the
 -- executions.
-loweiReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)
-loweiReverseOrder = lens _loweiReverseOrder (\s a -> s { _loweiReverseOrder = a })
-{-# INLINE loweiReverseOrder #-}
+loweReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)
+loweReverseOrder =
+    lens _loweReverseOrder (\s a -> s { _loweReverseOrder = a })
+{-# INLINE loweReverseOrder #-}
 
 -- | If specified, only workflow executions matching the workflow id specified
 -- in the filter are returned. executionFilter, typeFilter and tagFilter are
 -- mutually exclusive. You can specify at most one of these in a request.
-loweiExecutionFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
-loweiExecutionFilter = lens _loweiExecutionFilter (\s a -> s { _loweiExecutionFilter = a })
-{-# INLINE loweiExecutionFilter #-}
+loweExecutionFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
+loweExecutionFilter =
+    lens _loweExecutionFilter (\s a -> s { _loweExecutionFilter = a })
+{-# INLINE loweExecutionFilter #-}
 
 instance ToPath ListOpenWorkflowExecutions
 
@@ -205,27 +181,25 @@ instance ToHeaders ListOpenWorkflowExecutions
 
 instance ToJSON ListOpenWorkflowExecutions
 
+-- | Contains a paginated list of information about workflow executions.
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
-    { _wenExecutionInfos :: [WorkflowExecutionInfo]
-      -- ^ The list of workflow information structures.
-    , _wenNextPageToken :: Maybe Text
-      -- ^ The token of the next page in the result. If set, the results
-      -- have more than one page. The next page can be retrieved by
-      -- repeating the request with this token and all other arguments
-      -- unchanged.
+    { _lowersExecutionInfos :: [WorkflowExecutionInfo]
+    , _lowersNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of workflow information structures.
-wenExecutionInfos :: Lens' ListOpenWorkflowExecutionsResponse ([WorkflowExecutionInfo])
-wenExecutionInfos = lens _wenExecutionInfos (\s a -> s { _wenExecutionInfos = a })
-{-# INLINE wenExecutionInfos #-}
+lowersExecutionInfos :: Lens' ListOpenWorkflowExecutionsResponse [WorkflowExecutionInfo]
+lowersExecutionInfos =
+    lens _lowersExecutionInfos (\s a -> s { _lowersExecutionInfos = a })
+{-# INLINE lowersExecutionInfos #-}
 
 -- | The token of the next page in the result. If set, the results have more
 -- than one page. The next page can be retrieved by repeating the request with
 -- this token and all other arguments unchanged.
-wenNextPageToken :: Lens' ListOpenWorkflowExecutionsResponse (Maybe Text)
-wenNextPageToken = lens _wenNextPageToken (\s a -> s { _wenNextPageToken = a })
-{-# INLINE wenNextPageToken #-}
+lowersNextPageToken :: Lens' ListOpenWorkflowExecutionsResponse (Maybe Text)
+lowersNextPageToken =
+    lens _lowersNextPageToken (\s a -> s { _lowersNextPageToken = a })
+{-# INLINE lowersNextPageToken #-}
 
 instance FromJSON ListOpenWorkflowExecutionsResponse
 
@@ -237,5 +211,5 @@ instance AWSRequest ListOpenWorkflowExecutions where
     response _ = jsonResponse
 
 instance AWSPager ListOpenWorkflowExecutions where
-    next rq rs = (\x -> rq { _loweiNextPageToken = Just x })
-        <$> (_wenNextPageToken rs)
+    next rq rs = (\x -> rq { _loweNextPageToken = Just x })
+        <$> (_lowersNextPageToken rs)

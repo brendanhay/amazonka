@@ -50,10 +50,10 @@ module Network.AWS.SQS.V2012_11_05.DeleteMessage
     -- * Request
       DeleteMessage
     -- ** Request constructor
-    , mkDeleteMessageRequest
+    , mkDeleteMessage
     -- ** Request lenses
-    , dmrQueueUrl
-    , dmrReceiptHandle
+    , dmQueueUrl
+    , dmReceiptHandle
 
     -- * Response
     , DeleteMessageResponse
@@ -63,33 +63,32 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DeleteMessage' request.
-mkDeleteMessageRequest :: Text -- ^ 'dmrQueueUrl'
-                       -> Text -- ^ 'dmrReceiptHandle'
-                       -> DeleteMessage
-mkDeleteMessageRequest p1 p2 = DeleteMessage
-    { _dmrQueueUrl = p1
-    , _dmrReceiptHandle = p2
-    }
-{-# INLINE mkDeleteMessageRequest #-}
-
+-- | 
 data DeleteMessage = DeleteMessage
-    { _dmrQueueUrl :: Text
-      -- ^ The URL of the Amazon SQS queue to take action on.
-    , _dmrReceiptHandle :: Text
-      -- ^ The receipt handle associated with the message to delete.
+    { _dmQueueUrl :: Text
+    , _dmReceiptHandle :: Text
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMessage' request.
+mkDeleteMessage :: Text -- ^ 'dmQueueUrl'
+                -> Text -- ^ 'dmReceiptHandle'
+                -> DeleteMessage
+mkDeleteMessage p1 p2 = DeleteMessage
+    { _dmQueueUrl = p1
+    , _dmReceiptHandle = p2
+    }
+{-# INLINE mkDeleteMessage #-}
+
 -- | The URL of the Amazon SQS queue to take action on.
-dmrQueueUrl :: Lens' DeleteMessage (Text)
-dmrQueueUrl = lens _dmrQueueUrl (\s a -> s { _dmrQueueUrl = a })
-{-# INLINE dmrQueueUrl #-}
+dmQueueUrl :: Lens' DeleteMessage Text
+dmQueueUrl = lens _dmQueueUrl (\s a -> s { _dmQueueUrl = a })
+{-# INLINE dmQueueUrl #-}
 
 -- | The receipt handle associated with the message to delete.
-dmrReceiptHandle :: Lens' DeleteMessage (Text)
-dmrReceiptHandle = lens _dmrReceiptHandle (\s a -> s { _dmrReceiptHandle = a })
-{-# INLINE dmrReceiptHandle #-}
+dmReceiptHandle :: Lens' DeleteMessage Text
+dmReceiptHandle = lens _dmReceiptHandle (\s a -> s { _dmReceiptHandle = a })
+{-# INLINE dmReceiptHandle #-}
 
 instance ToQuery DeleteMessage where
     toQuery = genericQuery def

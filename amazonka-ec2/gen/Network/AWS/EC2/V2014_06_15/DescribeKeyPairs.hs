@@ -32,62 +32,59 @@ module Network.AWS.EC2.V2014_06_15.DescribeKeyPairs
     -- * Request
       DescribeKeyPairs
     -- ** Request constructor
-    , mkDescribeKeyPairsRequest
+    , mkDescribeKeyPairs
     -- ** Request lenses
-    , dkpsKeyNames
-    , dkpsFilters
+    , dkp1KeyNames
+    , dkp1Filters
 
     -- * Response
     , DescribeKeyPairsResponse
     -- ** Response lenses
-    , dkptKeyPairs
+    , dkprsKeyPairs
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeKeyPairs' request.
-mkDescribeKeyPairsRequest :: DescribeKeyPairs
-mkDescribeKeyPairsRequest = DescribeKeyPairs
-    { _dkpsKeyNames = mempty
-    , _dkpsFilters = mempty
-    }
-{-# INLINE mkDescribeKeyPairsRequest #-}
-
+-- | 
 data DescribeKeyPairs = DescribeKeyPairs
-    { _dkpsKeyNames :: [Text]
-      -- ^ One or more key pair names. Default: Describes all your key
-      -- pairs.
-    , _dkpsFilters :: [Filter]
-      -- ^ One or more filters. fingerprint - The fingerprint of the key
-      -- pair. key-name - The name of the key pair.
+    { _dkp1KeyNames :: [Text]
+    , _dkp1Filters :: [Filter]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeKeyPairs' request.
+mkDescribeKeyPairs :: DescribeKeyPairs
+mkDescribeKeyPairs = DescribeKeyPairs
+    { _dkp1KeyNames = mempty
+    , _dkp1Filters = mempty
+    }
+{-# INLINE mkDescribeKeyPairs #-}
+
 -- | One or more key pair names. Default: Describes all your key pairs.
-dkpsKeyNames :: Lens' DescribeKeyPairs ([Text])
-dkpsKeyNames = lens _dkpsKeyNames (\s a -> s { _dkpsKeyNames = a })
-{-# INLINE dkpsKeyNames #-}
+dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
+dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a })
+{-# INLINE dkp1KeyNames #-}
 
 -- | One or more filters. fingerprint - The fingerprint of the key pair.
 -- key-name - The name of the key pair.
-dkpsFilters :: Lens' DescribeKeyPairs ([Filter])
-dkpsFilters = lens _dkpsFilters (\s a -> s { _dkpsFilters = a })
-{-# INLINE dkpsFilters #-}
+dkp1Filters :: Lens' DescribeKeyPairs [Filter]
+dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a })
+{-# INLINE dkp1Filters #-}
 
 instance ToQuery DescribeKeyPairs where
     toQuery = genericQuery def
 
+-- | 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
-    { _dkptKeyPairs :: [KeyPairInfo]
-      -- ^ Information about one or more key pairs.
+    { _dkprsKeyPairs :: [KeyPairInfo]
     } deriving (Show, Generic)
 
 -- | Information about one or more key pairs.
-dkptKeyPairs :: Lens' DescribeKeyPairsResponse ([KeyPairInfo])
-dkptKeyPairs = lens _dkptKeyPairs (\s a -> s { _dkptKeyPairs = a })
-{-# INLINE dkptKeyPairs #-}
+dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkprsKeyPairs = lens _dkprsKeyPairs (\s a -> s { _dkprsKeyPairs = a })
+{-# INLINE dkprsKeyPairs #-}
 
 instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions

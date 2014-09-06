@@ -36,9 +36,9 @@ module Network.AWS.EC2.V2014_06_15.RebootInstances
     -- * Request
       RebootInstances
     -- ** Request constructor
-    , mkRebootInstancesRequest
+    , mkRebootInstances
     -- ** Request lenses
-    , riuInstanceIds
+    , ri1InstanceIds
 
     -- * Response
     , RebootInstancesResponse
@@ -48,24 +48,24 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'RebootInstances' request.
-mkRebootInstancesRequest :: [Text] -- ^ 'riuInstanceIds'
-                         -> RebootInstances
-mkRebootInstancesRequest p1 = RebootInstances
-    { _riuInstanceIds = p1
-    }
-{-# INLINE mkRebootInstancesRequest #-}
-
+-- | 
 newtype RebootInstances = RebootInstances
-    { _riuInstanceIds :: [Text]
-      -- ^ One or more instance IDs.
+    { _ri1InstanceIds :: [Text]
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootInstances' request.
+mkRebootInstances :: [Text] -- ^ 'ri1InstanceIds'
+                  -> RebootInstances
+mkRebootInstances p1 = RebootInstances
+    { _ri1InstanceIds = p1
+    }
+{-# INLINE mkRebootInstances #-}
+
 -- | One or more instance IDs.
-riuInstanceIds :: Lens' RebootInstances ([Text])
-riuInstanceIds = lens _riuInstanceIds (\s a -> s { _riuInstanceIds = a })
-{-# INLINE riuInstanceIds #-}
+ri1InstanceIds :: Lens' RebootInstances [Text]
+ri1InstanceIds = lens _ri1InstanceIds (\s a -> s { _ri1InstanceIds = a })
+{-# INLINE ri1InstanceIds #-}
 
 instance ToQuery RebootInstances where
     toQuery = genericQuery def

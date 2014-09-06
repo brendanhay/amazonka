@@ -42,15 +42,15 @@ module Network.AWS.StorageGateway.V2013_06_30.AddCache
     -- * Request
       AddCache
     -- ** Request constructor
-    , mkAddCacheInput
+    , mkAddCache
     -- ** Request lenses
-    , aciGatewayARN
-    , aciDiskIds
+    , acGatewayARN
+    , acDiskIds
 
     -- * Response
     , AddCacheResponse
     -- ** Response lenses
-    , acoGatewayARN
+    , acrsGatewayARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -58,34 +58,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+data AddCache = AddCache
+    { _acGatewayARN :: Text
+    , _acDiskIds :: [Text]
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCache' request.
-mkAddCacheInput :: Text -- ^ 'aciGatewayARN'
-                -> [Text] -- ^ 'aciDiskIds'
-                -> AddCache
-mkAddCacheInput p1 p2 = AddCache
-    { _aciGatewayARN = p1
-    , _aciDiskIds = p2
+mkAddCache :: Text -- ^ 'acGatewayARN'
+           -> [Text] -- ^ 'acDiskIds'
+           -> AddCache
+mkAddCache p1 p2 = AddCache
+    { _acGatewayARN = p1
+    , _acDiskIds = p2
     }
-{-# INLINE mkAddCacheInput #-}
-
-data AddCache = AddCache
-    { _aciGatewayARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
-    , _aciDiskIds :: [Text]
-    } deriving (Show, Generic)
+{-# INLINE mkAddCache #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-aciGatewayARN :: Lens' AddCache (Text)
-aciGatewayARN = lens _aciGatewayARN (\s a -> s { _aciGatewayARN = a })
-{-# INLINE aciGatewayARN #-}
+acGatewayARN :: Lens' AddCache Text
+acGatewayARN = lens _acGatewayARN (\s a -> s { _acGatewayARN = a })
+{-# INLINE acGatewayARN #-}
 
-aciDiskIds :: Lens' AddCache ([Text])
-aciDiskIds = lens _aciDiskIds (\s a -> s { _aciDiskIds = a })
-{-# INLINE aciDiskIds #-}
+acDiskIds :: Lens' AddCache [Text]
+acDiskIds = lens _acDiskIds (\s a -> s { _acDiskIds = a })
+{-# INLINE acDiskIds #-}
 
 instance ToPath AddCache
 
@@ -96,17 +93,14 @@ instance ToHeaders AddCache
 instance ToJSON AddCache
 
 newtype AddCacheResponse = AddCacheResponse
-    { _acoGatewayARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the gateway. Use the
-      -- ListGateways operation to return a list of gateways for your
-      -- account and region.
+    { _acrsGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-acoGatewayARN :: Lens' AddCacheResponse (Maybe Text)
-acoGatewayARN = lens _acoGatewayARN (\s a -> s { _acoGatewayARN = a })
-{-# INLINE acoGatewayARN #-}
+acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
+acrsGatewayARN = lens _acrsGatewayARN (\s a -> s { _acrsGatewayARN = a })
+{-# INLINE acrsGatewayARN #-}
 
 instance FromJSON AddCacheResponse
 

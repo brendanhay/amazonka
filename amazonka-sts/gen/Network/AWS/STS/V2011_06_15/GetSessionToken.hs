@@ -57,59 +57,37 @@ module Network.AWS.STS.V2011_06_15.GetSessionToken
     -- * Request
       GetSessionToken
     -- ** Request constructor
-    , mkGetSessionTokenRequest
+    , mkGetSessionToken
     -- ** Request lenses
-    , gstrDurationSeconds
-    , gstrSerialNumber
-    , gstrTokenCode
+    , gstDurationSeconds
+    , gstSerialNumber
+    , gstTokenCode
 
     -- * Response
     , GetSessionTokenResponse
     -- ** Response lenses
-    , gstsCredentials
+    , gstrsCredentials
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.STS.V2011_06_15.Types
 import Network.AWS.Prelude
 
+data GetSessionToken = GetSessionToken
+    { _gstDurationSeconds :: Maybe Integer
+    , _gstSerialNumber :: Maybe Text
+    , _gstTokenCode :: Maybe Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSessionToken' request.
-mkGetSessionTokenRequest :: GetSessionToken
-mkGetSessionTokenRequest = GetSessionToken
-    { _gstrDurationSeconds = Nothing
-    , _gstrSerialNumber = Nothing
-    , _gstrTokenCode = Nothing
+mkGetSessionToken :: GetSessionToken
+mkGetSessionToken = GetSessionToken
+    { _gstDurationSeconds = Nothing
+    , _gstSerialNumber = Nothing
+    , _gstTokenCode = Nothing
     }
-{-# INLINE mkGetSessionTokenRequest #-}
-
-data GetSessionToken = GetSessionToken
-    { _gstrDurationSeconds :: Maybe Integer
-      -- ^ The duration, in seconds, that the credentials should remain
-      -- valid. Acceptable durations for IAM user sessions range from 900
-      -- seconds (15 minutes) to 129600 seconds (36 hours), with 43200
-      -- seconds (12 hours) as the default. Sessions for AWS account
-      -- owners are restricted to a maximum of 3600 seconds (one hour). If
-      -- the duration is longer than one hour, the session for AWS account
-      -- owners defaults to one hour.
-    , _gstrSerialNumber :: Maybe Text
-      -- ^ The identification number of the MFA device that is associated
-      -- with the IAM user who is making the GetSessionToken call. Specify
-      -- this value if the IAM user has a policy that requires MFA
-      -- authentication. The value is either the serial number for a
-      -- hardware device (such as GAHT12345678) or an Amazon Resource Name
-      -- (ARN) for a virtual device (such as
-      -- arn:aws:iam::123456789012:mfa/user). You can find the device for
-      -- an IAM user by going to the AWS Management Console and viewing
-      -- the user's security credentials.
-    , _gstrTokenCode :: Maybe Text
-      -- ^ The value provided by the MFA device, if MFA is required. If any
-      -- policy requires the IAM user to submit an MFA code, specify this
-      -- value. If MFA authentication is required, and the user does not
-      -- provide a code when requesting a set of temporary security
-      -- credentials, the user will receive an "access denied" response
-      -- when requesting resources that require MFA authentication.
-    } deriving (Show, Generic)
+{-# INLINE mkGetSessionToken #-}
 
 -- | The duration, in seconds, that the credentials should remain valid.
 -- Acceptable durations for IAM user sessions range from 900 seconds (15
@@ -117,9 +95,10 @@ data GetSessionToken = GetSessionToken
 -- default. Sessions for AWS account owners are restricted to a maximum of
 -- 3600 seconds (one hour). If the duration is longer than one hour, the
 -- session for AWS account owners defaults to one hour.
-gstrDurationSeconds :: Lens' GetSessionToken (Maybe Integer)
-gstrDurationSeconds = lens _gstrDurationSeconds (\s a -> s { _gstrDurationSeconds = a })
-{-# INLINE gstrDurationSeconds #-}
+gstDurationSeconds :: Lens' GetSessionToken (Maybe Integer)
+gstDurationSeconds =
+    lens _gstDurationSeconds (\s a -> s { _gstDurationSeconds = a })
+{-# INLINE gstDurationSeconds #-}
 
 -- | The identification number of the MFA device that is associated with the IAM
 -- user who is making the GetSessionToken call. Specify this value if the IAM
@@ -129,9 +108,9 @@ gstrDurationSeconds = lens _gstrDurationSeconds (\s a -> s { _gstrDurationSecond
 -- arn:aws:iam::123456789012:mfa/user). You can find the device for an IAM
 -- user by going to the AWS Management Console and viewing the user's security
 -- credentials.
-gstrSerialNumber :: Lens' GetSessionToken (Maybe Text)
-gstrSerialNumber = lens _gstrSerialNumber (\s a -> s { _gstrSerialNumber = a })
-{-# INLINE gstrSerialNumber #-}
+gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
+gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
+{-# INLINE gstSerialNumber #-}
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
 -- requires the IAM user to submit an MFA code, specify this value. If MFA
@@ -139,22 +118,24 @@ gstrSerialNumber = lens _gstrSerialNumber (\s a -> s { _gstrSerialNumber = a })
 -- requesting a set of temporary security credentials, the user will receive
 -- an "access denied" response when requesting resources that require MFA
 -- authentication.
-gstrTokenCode :: Lens' GetSessionToken (Maybe Text)
-gstrTokenCode = lens _gstrTokenCode (\s a -> s { _gstrTokenCode = a })
-{-# INLINE gstrTokenCode #-}
+gstTokenCode :: Lens' GetSessionToken (Maybe Text)
+gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
+{-# INLINE gstTokenCode #-}
 
 instance ToQuery GetSessionToken where
     toQuery = genericQuery def
 
+-- | Contains the result of a successful call to the GetSessionToken action,
+-- including temporary AWS credentials that can be used to make AWS requests.
 newtype GetSessionTokenResponse = GetSessionTokenResponse
-    { _gstsCredentials :: Maybe Credentials
-      -- ^ The session credentials for API authentication.
+    { _gstrsCredentials :: Maybe Credentials
     } deriving (Show, Generic)
 
 -- | The session credentials for API authentication.
-gstsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
-gstsCredentials = lens _gstsCredentials (\s a -> s { _gstsCredentials = a })
-{-# INLINE gstsCredentials #-}
+gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
+gstrsCredentials =
+    lens _gstrsCredentials (\s a -> s { _gstrsCredentials = a })
+{-# INLINE gstrsCredentials #-}
 
 instance FromXML GetSessionTokenResponse where
     fromXMLOptions = xmlOptions

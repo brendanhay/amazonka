@@ -36,83 +36,80 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers
     -- * Request
       DescribeLoadBalancers
     -- ** Request constructor
-    , mkDescribeAccessPointsInput
+    , mkDescribeLoadBalancers
     -- ** Request lenses
-    , dapjLoadBalancerNames
-    , dapjMarker
-    , dapjPageSize
+    , dlb1LoadBalancerNames
+    , dlb1Marker
+    , dlb1PageSize
 
     -- * Response
     , DescribeLoadBalancersResponse
     -- ** Response lenses
-    , dappLoadBalancerDescriptions
-    , dappNextMarker
+    , dlbrsrsLoadBalancerDescriptions
+    , dlbrsrsNextMarker
     ) where
 
 import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | Smart constructor for the minimum required parameters to construct
--- a valid 'DescribeLoadBalancers' request.
-mkDescribeAccessPointsInput :: DescribeLoadBalancers
-mkDescribeAccessPointsInput = DescribeLoadBalancers
-    { _dapjLoadBalancerNames = mempty
-    , _dapjMarker = Nothing
-    , _dapjPageSize = Nothing
-    }
-{-# INLINE mkDescribeAccessPointsInput #-}
-
+-- | The input for the DescribeLoadBalancers action.
 data DescribeLoadBalancers = DescribeLoadBalancers
-    { _dapjLoadBalancerNames :: [Text]
-      -- ^ A list of load balancer names associated with the account.
-    , _dapjMarker :: Maybe Text
-      -- ^ An optional parameter used for pagination of results from this
-      -- call. If specified, the response includes only records beyond the
-      -- marker.
-    , _dapjPageSize :: Maybe Integer
-      -- ^ The number of results returned in each page. The default is 400.
-      -- You cannot specify a page size greater than 400 or less than 1.
+    { _dlb1LoadBalancerNames :: [Text]
+    , _dlb1Marker :: Maybe Text
+    , _dlb1PageSize :: Maybe Integer
     } deriving (Show, Generic)
 
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancers' request.
+mkDescribeLoadBalancers :: DescribeLoadBalancers
+mkDescribeLoadBalancers = DescribeLoadBalancers
+    { _dlb1LoadBalancerNames = mempty
+    , _dlb1Marker = Nothing
+    , _dlb1PageSize = Nothing
+    }
+{-# INLINE mkDescribeLoadBalancers #-}
+
 -- | A list of load balancer names associated with the account.
-dapjLoadBalancerNames :: Lens' DescribeLoadBalancers ([Text])
-dapjLoadBalancerNames = lens _dapjLoadBalancerNames (\s a -> s { _dapjLoadBalancerNames = a })
-{-# INLINE dapjLoadBalancerNames #-}
+dlb1LoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
+dlb1LoadBalancerNames =
+    lens _dlb1LoadBalancerNames (\s a -> s { _dlb1LoadBalancerNames = a })
+{-# INLINE dlb1LoadBalancerNames #-}
 
 -- | An optional parameter used for pagination of results from this call. If
 -- specified, the response includes only records beyond the marker.
-dapjMarker :: Lens' DescribeLoadBalancers (Maybe Text)
-dapjMarker = lens _dapjMarker (\s a -> s { _dapjMarker = a })
-{-# INLINE dapjMarker #-}
+dlb1Marker :: Lens' DescribeLoadBalancers (Maybe Text)
+dlb1Marker = lens _dlb1Marker (\s a -> s { _dlb1Marker = a })
+{-# INLINE dlb1Marker #-}
 
 -- | The number of results returned in each page. The default is 400. You cannot
 -- specify a page size greater than 400 or less than 1.
-dapjPageSize :: Lens' DescribeLoadBalancers (Maybe Integer)
-dapjPageSize = lens _dapjPageSize (\s a -> s { _dapjPageSize = a })
-{-# INLINE dapjPageSize #-}
+dlb1PageSize :: Lens' DescribeLoadBalancers (Maybe Integer)
+dlb1PageSize = lens _dlb1PageSize (\s a -> s { _dlb1PageSize = a })
+{-# INLINE dlb1PageSize #-}
 
 instance ToQuery DescribeLoadBalancers where
     toQuery = genericQuery def
 
+-- | The output for the DescribeLoadBalancers action.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
-    { _dappLoadBalancerDescriptions :: [LoadBalancerDescription]
-      -- ^ A list of load balancer description structures.
-    , _dappNextMarker :: Maybe Text
-      -- ^ Specifies the value of next marker if the request returned more
-      -- than one page of results.
+    { _dlbrsrsLoadBalancerDescriptions :: [LoadBalancerDescription]
+    , _dlbrsrsNextMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of load balancer description structures.
-dappLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse ([LoadBalancerDescription])
-dappLoadBalancerDescriptions = lens _dappLoadBalancerDescriptions (\s a -> s { _dappLoadBalancerDescriptions = a })
-{-# INLINE dappLoadBalancerDescriptions #-}
+dlbrsrsLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
+dlbrsrsLoadBalancerDescriptions =
+    lens _dlbrsrsLoadBalancerDescriptions
+         (\s a -> s { _dlbrsrsLoadBalancerDescriptions = a })
+{-# INLINE dlbrsrsLoadBalancerDescriptions #-}
 
 -- | Specifies the value of next marker if the request returned more than one
 -- page of results.
-dappNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dappNextMarker = lens _dappNextMarker (\s a -> s { _dappNextMarker = a })
-{-# INLINE dappNextMarker #-}
+dlbrsrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
+dlbrsrsNextMarker =
+    lens _dlbrsrsNextMarker (\s a -> s { _dlbrsrsNextMarker = a })
+{-# INLINE dlbrsrsNextMarker #-}
 
 instance FromXML DescribeLoadBalancersResponse where
     fromXMLOptions = xmlOptions
@@ -125,5 +122,5 @@ instance AWSRequest DescribeLoadBalancers where
     response _ = xmlResponse
 
 instance AWSPager DescribeLoadBalancers where
-    next rq rs = (\x -> rq { _dapjMarker = Just x })
-        <$> (_dappNextMarker rs)
+    next rq rs = (\x -> rq { _dlb1Marker = Just x })
+        <$> (_dlbrsrsNextMarker rs)

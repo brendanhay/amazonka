@@ -46,14 +46,14 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
     -- * Request
       DeleteVolume
     -- ** Request constructor
-    , mkDeleteVolumeInput
+    , mkDeleteVolume
     -- ** Request lenses
-    , dviVolumeARN
+    , dvVolumeARN
 
     -- * Response
     , DeleteVolumeResponse
     -- ** Response lenses
-    , dvoVolumeARN
+    , dvrsVolumeARN
     ) where
 
 import           Network.AWS.StorageGateway.V2013_06_30.Types
@@ -61,26 +61,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request.JSON
 import qualified Network.AWS.Types.Map    as Map
 
+-- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.
+newtype DeleteVolume = DeleteVolume
+    { _dvVolumeARN :: Text
+    } deriving (Show, Generic)
+
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVolume' request.
-mkDeleteVolumeInput :: Text -- ^ 'dviVolumeARN'
-                    -> DeleteVolume
-mkDeleteVolumeInput p1 = DeleteVolume
-    { _dviVolumeARN = p1
+mkDeleteVolume :: Text -- ^ 'dvVolumeARN'
+               -> DeleteVolume
+mkDeleteVolume p1 = DeleteVolume
+    { _dvVolumeARN = p1
     }
-{-# INLINE mkDeleteVolumeInput #-}
-
-newtype DeleteVolume = DeleteVolume
-    { _dviVolumeARN :: Text
-      -- ^ The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
-      -- operation to return a list of gateway volumes.
-    } deriving (Show, Generic)
+{-# INLINE mkDeleteVolume #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
-dviVolumeARN :: Lens' DeleteVolume (Text)
-dviVolumeARN = lens _dviVolumeARN (\s a -> s { _dviVolumeARN = a })
-{-# INLINE dviVolumeARN #-}
+dvVolumeARN :: Lens' DeleteVolume Text
+dvVolumeARN = lens _dvVolumeARN (\s a -> s { _dvVolumeARN = a })
+{-# INLINE dvVolumeARN #-}
 
 instance ToPath DeleteVolume
 
@@ -90,17 +89,16 @@ instance ToHeaders DeleteVolume
 
 instance ToJSON DeleteVolume
 
+-- | A JSON object containing the of the storage volume that was deleted.
 newtype DeleteVolumeResponse = DeleteVolumeResponse
-    { _dvoVolumeARN :: Maybe Text
-      -- ^ The Amazon Resource Name (ARN) of the storage volume that was
-      -- deleted. It is the same ARN you provided in the request.
+    { _dvrsVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It
 -- is the same ARN you provided in the request.
-dvoVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
-dvoVolumeARN = lens _dvoVolumeARN (\s a -> s { _dvoVolumeARN = a })
-{-# INLINE dvoVolumeARN #-}
+dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
+dvrsVolumeARN = lens _dvrsVolumeARN (\s a -> s { _dvrsVolumeARN = a })
+{-# INLINE dvrsVolumeARN #-}
 
 instance FromJSON DeleteVolumeResponse
 

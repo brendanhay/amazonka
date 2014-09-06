@@ -48,23 +48,24 @@ module Network.AWS.Prelude
     , lens
     ) where
 
-import Control.Applicative   as Export
-import Control.Exception     (Exception)
-import Control.Lens          ((<&>), Lens', lens)
-import Data.Aeson            (FromJSON(..), ToJSON(..))
-import Data.Bifunctor        as Export
-import Data.ByteString       (ByteString)
-import Data.Default          as Export
-import Data.Hashable         as Export
-import Data.Maybe            as Export
-import Data.Monoid           as Export
-import Data.Tagged           as Export
-import Data.Text             (Text)
-import Data.Typeable         (Typeable)
-import GHC.Generics          (Generic)
-import Network.AWS.Data      as Export hiding (Query)
-import Network.AWS.Response  as Export
+import Control.Applicative    as Export
+import Control.Exception      (Exception)
+import Control.Lens           ((<&>), Lens', lens)
+import Control.Monad.Identity as Export
+import Data.Aeson             (FromJSON(..), ToJSON(..))
+import Data.Bifunctor         as Export
+import Data.ByteString        (ByteString)
+import Data.Default           as Export
+import Data.Hashable          as Export
+import Data.Maybe             as Export
+import Data.Monoid            as Export
+import Data.Tagged            as Export
+import Data.Text              (Text)
+import Data.Typeable          (Typeable)
+import GHC.Generics           (Generic)
+import Network.AWS.Data       as Export hiding (Query)
+import Network.AWS.Response   as Export
 import Network.AWS.Types
-import Network.AWS.Types.Map (Map(..))
-import Network.HTTP.Client   (HttpException, RequestBody, Response)
-import Prelude               as Export hiding (head, error)
+import Network.AWS.Types.Map  (Map(..))
+import Network.HTTP.Client    (HttpException, RequestBody, Response)
+import Prelude                as Export hiding (head, error)

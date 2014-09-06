@@ -19,15 +19,24 @@ import           Data.String.CaseConversion
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 
-prefix :: Text -> Text
-prefix t = Text.toLower go
+firstAcronym :: Text -> Maybe Text
+firstAcronym t
+    | Text.length x > 1 = Just x
+    | otherwise         = Nothing
   where
-    go | Text.length upper > 1 = Text.init upper
-       | otherwise             = cased
+    x = Text.init . Text.toLower $ Text.takeWhile isUpper t
 
-    first = Text.pack . head . splitBy isUpper $ Text.unpack t
-    upper = Text.takeWhile isUpper t
-    cased = Text.filter isUpper t
+firstWord :: Text -> Text
+firstWord = Text.toLower . Text.pack . head . splitBy isUpper . Text.unpack
+
+casedChars :: Text -> Text
+casedChars = Text.toLower . Text.filter isUpper
+
+numericSuffix :: Text -> Text
+numericSuffix t
+    | Text.null t                 = Text.singleton '1'
+    | x <- Text.last t, isDigit x = Text.init t `Text.snoc` succ x
+    | otherwise                   = t `Text.snoc` '1'
 
 indent :: Int -> Text -> Text
 indent n = Text.intercalate "\n"
@@ -79,15 +88,3 @@ stripTags t
         case Text.head t of
             '<' -> stripTags . Text.drop 1 . Text.dropWhile (/= '>') $ Text.tail t
             _   -> Text.cons (Text.head t) . stripTags $ Text.tail t
-
-lowerFirst :: Text -> Text
-lowerFirst t = f (Text.uncons t)
-  where
-    f Nothing        = t
-    f (Just (x, xs)) = toLower x `Text.cons` xs
-
-upperFirst :: Text -> Text
-upperFirst t = f (Text.uncons t)
-  where
-    f Nothing        = t
-    f (Just (x, xs)) = toUpper x `Text.cons` xs

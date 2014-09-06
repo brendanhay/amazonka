@@ -15,6 +15,7 @@ class Has{{ scope.name }} a where
 {% endfor %}
 
 instance Has{{ scope.name }} {{ scope.name }} where
+    {{ scope.name | classy }} = id
 {% for field in scope.fields %}
 {% if field.value.length > 16 %}
   {% if field.value.length > 18 %}

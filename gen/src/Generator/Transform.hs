@@ -394,11 +394,15 @@ isClassy :: Service -> Shape -> Bool
 isClassy svc s
     | (s ^. cmnName) `elem` _svcClassy svc = True
     | otherwise = case s of
-        SStruct {} -> True
+        SStruct {} -> s ^. cmnRequired
         SList   {} -> False -- Traversals?
         SMap    {} -> False -- Traversals?
-        SSum    {} -> True
+        SSum    {} -> False
         SPrim   {} -> False
+
+isPrim :: Shape -> Bool
+isPrim (SPrim _) = True
+isPrim _         = False
 
 setDirection :: Direction -> Shape -> Shape
 setDirection d s =

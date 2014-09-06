@@ -257,10 +257,6 @@ instance Ord Shape where
             (_,      SSum{}) -> GT
             _                -> on compare (view cmnName) a b
 
-isPrim :: Shape -> Bool
-isPrim (SPrim _) = True
-isPrim _         = False
-
 data Ctor
     = CWitness
     | CSwitch

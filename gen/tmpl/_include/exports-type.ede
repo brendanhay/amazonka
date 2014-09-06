@@ -13,44 +13,8 @@
 {% if scope.documentation %}
 {{ scope.documentation | above76 }}
 {% endif %}
-module {{ scope.types_namespace }}
-    (
-    -- * Service
-      {{ scope.name }}
-    -- ** Errors
-    , Er (..)
-{% case scope.type %}
-{% when "json" %}
-{% when "restjson" %}
-{% else %}
-    -- ** XML
-    , xmlOptions
-
-{% endcase %}
-{% for data in scope.types %}
-    -- * {{ data.value.name }}
-  {% case data.value.ctor %}
-  {% when "sum" %}
-    , {{ data.value.name }} (..)
-  {% when "newtype" %}
-    , {{ data.value.name }}
-    , {{ data.value.smart_ctor }}
-    {% for field in data.value.fields %}
-    , {{ field.value.prefixed | lens }}
-    {% endfor %}
-  {% when "data" %}
-    , {{ data.value.name }}
-    , {{ data.value.smart_ctor }}
-    {% for field in data.value.fields %}
-    , {{ field.value.prefixed | lens }}
-    {% endfor %}
-  {% else %}
-    , {{ data.value.name }}
-  {% endcase %}
-  {% if !data.last %}
-
-  {% endif %}
-{% endfor %}
+module {{ scope.types_namespace }} (
+      module {{ scope.types_namespace }}
 {% for module in scope.static %}
   {% if module.first %}
 

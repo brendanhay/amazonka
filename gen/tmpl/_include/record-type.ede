@@ -1,3 +1,2 @@
 {% include "record.ede" with scope %}
-{% include "constructor-type.ede" with scope %}
-{% include "lens-type.ede" with scope %}
+{% include "classy-type.ede" with scope %}

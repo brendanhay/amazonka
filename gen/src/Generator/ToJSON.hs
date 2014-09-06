@@ -75,6 +75,12 @@ instance ToJSON Library where
 instance ToJSON Cabal where
     toJSON = toField (recase Camel Under . drop 4)
 
+instance ToJSON TypeOverride where
+    toJSON = const Null
+
+instance ToJSON FieldOverride where
+    toJSON = const Null
+
 instance ToJSON Service where
     toJSON s = Object (x <> y)
       where

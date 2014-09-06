@@ -135,6 +135,18 @@ instance FromJSON (Text -> Doc -> Cabal) where
 instance FromJSON Library where
     parseJSON = fmap library . parseJSON
 
+instance FromJSON TypeOverride where
+    parseJSON = withObject "type_overrides" $ \o -> TypeOverride
+        <$> o .:? "ignored"    .!= mempty
+        <*> o .:? "required"   .!= mempty
+        <*> o .:? "existing"   .!= mempty
+        <*> o .:? "rename"     .!= mempty
+        <*> o .:? "unprefixed" .!= mempty
+
+instance FromJSON FieldOverride where
+    parseJSON = withObject "field_overrides" $ \o -> FieldOverride
+        <$> o .:? "required" .!= mempty
+
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
         n   <- o .:  "service_full_name"
@@ -168,13 +180,9 @@ instance FromJSON Service where
             <*> pure ops
             <*> pure def
             <*> pure (cbl n d)
-            <*> o .:? "ignored"    .!= mempty
-            <*> o .:? "required"   .!= mempty
-            <*> o .:? "existing"   .!= mempty
-            <*> o .:? "rename"     .!= mempty
-            <*> o .:? "unprefixed" .!= mempty
-            <*> o .:? "static"     .!= mempty
-            <*> o .:? "classy"     .!= mempty
+            <*> o .:! "static"
+            <*> o .:! "type_overrides"
+            <*> o .:! "field_overrides"
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $

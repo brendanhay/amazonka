@@ -275,14 +275,13 @@ data Ann = Ann
    , _anRaw'     :: !Text
    , _anWrapped  :: !Text
    , _anCtor     :: !Ctor
-   , _anClassy   :: !Bool
    , _anMonoid   :: !Bool
    , _anDefault  :: !Bool
    , _anRequired :: !Bool
    } deriving (Eq, Show, Generic)
 
 instance Default Ann where
-    def = Ann "Default" "Default" "Default" def False False False False
+    def = Ann "Default" "Default" "Default" def False False False
 
 data Field = Field
     { _fldAnn      :: !Ann
@@ -423,6 +422,24 @@ data Cabal = Cabal
 cabal :: Version -> Maybe Text -> Maybe Doc -> Text -> Doc -> Cabal
 cabal v ms md s d = Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
 
+data TypeOverride = TypeOverride
+    { _tIgnored    :: [Text]
+    , _tRequired   :: HashMap Text [CI Text]
+    , _tExisting   :: HashMap Text Text
+    , _tRename     :: HashMap Text Text
+    , _tUnprefixed :: [Text]
+    } deriving (Show, Generic)
+
+instance Default TypeOverride where
+    def = TypeOverride mempty mempty mempty mempty mempty
+
+newtype FieldOverride = FieldOverride
+    { _fRequired :: [Text]
+    } deriving (Show, Generic)
+
+instance Default FieldOverride where
+    def = FieldOverride mempty
+
 data Service = Service
     { _svcName             :: Abbrev
     , _svcLibrary          :: Library
@@ -447,13 +464,9 @@ data Service = Service
     , _svcOperations       :: [Operation]
     , _svcTypes            :: [Type']
     , _svcCabal            :: Cabal
-    , _svcIgnored          :: [Text]
-    , _svcRequired         :: HashMap Text [CI Text]
-    , _svcExist            :: HashMap Text Text
-    , _svcRename           :: HashMap Text Text
-    , _svcUnprefixed       :: [Text]
     , _svcStatic           :: [NS]
-    , _svcClassy           :: [Text]
+    , _svcTypeOverride     :: TypeOverride
+    , _svcFieldOverride    :: FieldOverride
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -493,13 +506,9 @@ defaultService a = Service
     , _svcOperations       = mempty
     , _svcTypes            = mempty
     , _svcCabal            = Cabal cabalVersion (unAbbrev a) def
-    , _svcIgnored          = mempty
-    , _svcRequired         = mempty
-    , _svcExist            = mempty
-    , _svcRename           = mempty
-    , _svcUnprefixed       = mempty
     , _svcStatic           = mempty
-    , _svcClassy           = mempty
+    , _svcTypeOverride     = def
+    , _svcFieldOverride    = def
     }
 
 makeLenses ''Request
@@ -518,6 +527,15 @@ makeLenses ''Map
 makeLenses ''Sum
 makeLenses ''Prim
 makeLenses ''QueryPart
+
+makeClassy ''TypeOverride
+makeClassy ''FieldOverride
+
+instance HasTypeOverride Service where
+    typeOverride = svcTypeOverride
+
+instance HasFieldOverride Service where
+    fieldOverride = svcFieldOverride
 
 instance HasCommon Shape where
     common f x = case x of

@@ -5,24 +5,31 @@
     "static": [
         "Network.AWS.S3.Internal.Types"
     ],
-    "required": {
-        "ListObjectsResponse": [
-            "Name"
-        ],
-        "Object": [
-            "ETag",
-            "Size",
-            "Owner",
-            "Key",
-            "StorageClass",
-            "LastModified"
-        ]
+    "type_overrides": {
+        "required": {
+            "ListObjectsResponse": [
+                "Name"
+            ],
+            "Object": [
+                "ETag",
+                "Size",
+                "Owner",
+                "Key",
+                "StorageClass",
+                "LastModified"
+            ]
+        },
+        "existing": {
+            "BucketName": "BucketName",
+            "ObjectKey": "ObjectKey",
+            "ObjectVersionId": "ObjectVersionId",
+            "ETag": "ETag",
+            "Delimiter": "Char"
+        }
     },
-    "existing": {
-        "BucketName": "BucketName",
-        "ObjectKey": "ObjectKey",
-        "ObjectVersionId": "ObjectVersionId",
-        "ETag": "ETag",
-        "Delimiter": "Char"
+    "field_overrides": {
+        "required": [
+            "IsTruncated"
+        ]
     }
 }

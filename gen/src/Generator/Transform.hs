@@ -266,10 +266,8 @@ fields rq svc s = case s of
   where
     f :: (Text, Shape) -> Field
     f (k, v) =
-        let fld = Field (annOf rq svc v) k (prefixed s k) (v ^. common)
-         in if k == "IsTruncated"
-                then fld & cmnRequired .~ True
-                else fld
+        let x = if k `elem` (svc ^. fRequired) then v & cmnRequired .~ True else v
+         in Field (annOf rq svc x) k (prefixed s k) (x ^. common)
 
 prefixed :: HasCommon a => a -> Text -> Text
 prefixed p = accessor . mappend (p ^. cmnPrefix) . upperFirst
@@ -287,17 +285,17 @@ shapeType rq svc@Service{..} s = Type
     hs  = filter ((== LHeader) . view cmnLocation) fs
     fs  = map (requireField overrides . upd) (fields rq svc shape)
 
-    overrides = fromMaybe [] (Map.lookup name _svcRequired)
+    overrides = fromMaybe [] $ Map.lookup name (svc ^. tRequired)
 
     upd f | f ^. cmnLocation == LBody
           , f ^. cmnStreaming = f & cmnRequired .~ True & fldAnn.anRequired .~ True
           | otherwise         = f
 
-    shape = ignoreFields _svcIgnored s
+    shape = ignoreFields (svc ^. tIgnored) s
     name  = s ^. cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
-annOf rq svc s = Ann typ raw wtyp (ctorOf s) classy' monoid' default' req
+annOf rq svc s = Ann typ raw wtyp (ctorOf s) monoid' default' req
   where
     (wtyp, typ)
         | monoid'   = (parens wrap raw, raw)
@@ -309,7 +307,6 @@ annOf rq svc s = Ann typ raw wtyp (ctorOf s) classy' monoid' default' req
 
     monoid'  = isMonoid s
     default' = isDefault s
-    classy'  = isClassy svc s
 
     (raw, wrap) = case s of
         _ | Just x <- renameType   svc s -> (x, False)
@@ -339,10 +336,10 @@ isBody :: HasCommon a => a -> Bool
 isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming
 
 existingType :: HasCommon a => Service -> a -> Maybe Text
-existingType s x = Map.lookup (x ^. cmnName) (_svcExist s)
+existingType svc x = Map.lookup (x ^. cmnName) (svc ^. tExisting)
 
 renameType :: HasCommon a => Service -> a -> Maybe Text
-renameType s x = Map.lookup (x ^. cmnName) (_svcRename s)
+renameType svc x = Map.lookup (x ^. cmnName) (svc ^. tRename)
 
 formatPrim :: Service -> Prim -> Text
 formatPrim Service{..} Prim{..} = Text.pack $
@@ -390,20 +387,6 @@ isMonoid s =
         SSum    {} -> False
         SPrim   {} -> False
 
-isClassy :: Service -> Shape -> Bool
-isClassy svc s
-    | (s ^. cmnName) `elem` _svcClassy svc = True
-    | otherwise = case s of
-        SStruct {} -> s ^. cmnRequired
-        SList   {} -> False -- Traversals?
-        SMap    {} -> False -- Traversals?
-        SSum    {} -> False
-        SPrim   {} -> False
-
-isPrim :: Shape -> Bool
-isPrim (SPrim _) = True
-isPrim _         = False
-
 setDirection :: Direction -> Shape -> Shape
 setDirection d s =
     case s of
@@ -434,7 +417,8 @@ serviceTypes svc@Service{..} = map override
         | null candidates = t
         | otherwise       = t & typFields %~ map (requireField candidates)
       where
-        candidates = fromMaybe [] (Map.lookup (t ^. cmnName) _svcRequired)
+        candidates = fromMaybe [] $
+            Map.lookup (t ^. cmnName) (svc ^. tRequired)
 
     exclude :: (a, Shape) -> Maybe (a, Shape)
     exclude x = maybe (Just x) (const Nothing) (existingType svc (snd x))
@@ -472,13 +456,14 @@ serviceTypes svc@Service{..} = map override
         f (_, v)         = ("Disabled", v)
 
 enumPairs :: Service -> Text -> [Text] -> HashMap Text Text
-enumPairs Service{..} n = Map.fromList . map trans . filter (not . Text.null)
+enumPairs svc@Service{..} n =
+    Map.fromList . map trans . filter (not . Text.null)
   where
     trans = first (mappend (reserve n) . rules) . join (,)
 
     reserve x
-        | x `elem` _svcUnprefixed = ""
-        | otherwise               = x
+        | x `elem` (svc ^. tUnprefixed) = ""
+        | otherwise                     = x
 
     rules x =
         let y  = Text.replace ":" ""

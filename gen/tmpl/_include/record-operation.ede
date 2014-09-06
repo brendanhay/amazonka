@@ -2,4 +2,4 @@
 {% if !scope.style %}
 {% include "constructor-operation.ede" with scope %}
 {% endif %}
-{% include "lens-operation.ede" with scope %}
+{% include "record-lenses.ede" with scope %}

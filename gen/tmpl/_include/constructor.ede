@@ -10,7 +10,7 @@
 {% else %}
 {{ scope.smart_ctor }} :: {{ scope.name }}
 {% endfor %}
-{{ scope.smart_ctor }} {% for param in scope.params -%} p{{ param.index }} {% endfor -%} = {{ scope.name }}
+{{ scope.smart_ctor }} {% for param in scope.params -%} p{{ param.key }} {% endfor -%} = {{ scope.name }}
 {% for field in scope.fields %}
   {% if field.value.required %}
     {% if field.first %}

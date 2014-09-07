@@ -161,37 +161,41 @@ instance ToQuery JobType where
 
 -- | Representation of a job returned by the ListJobs operation.
 data Job = Job
-    { _jJobId :: Maybe Text
-    , _jCreationDate :: Maybe ISO8601
-    , _jIsCanceled :: Maybe Bool
-    , _jJobType :: Maybe JobType
+    { _jJobId :: Text
+    , _jCreationDate :: ISO8601
+    , _jIsCanceled :: Bool
+    , _jJobType :: JobType
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Job' data type to populate a request.
-mkJob :: Job
-mkJob = Job
-    { _jJobId = Nothing
-    , _jCreationDate = Nothing
-    , _jIsCanceled = Nothing
-    , _jJobType = Nothing
+mkJob :: Text -- ^ 'jJobId'
+      -> ISO8601 -- ^ 'jCreationDate'
+      -> Bool -- ^ 'jIsCanceled'
+      -> JobType -- ^ 'jJobType'
+      -> Job
+mkJob p1 p2 p3 p4 = Job
+    { _jJobId = p1
+    , _jCreationDate = p2
+    , _jIsCanceled = p3
+    , _jJobType = p4
     }
 
 -- | A unique identifier which refers to a particular job.
-jJobId :: Lens' Job (Maybe Text)
+jJobId :: Lens' Job Text
 jJobId = lens _jJobId (\s a -> s { _jJobId = a })
 
 -- | Timestamp of the CreateJob request in ISO8601 date format. For example
 -- "2010-03-28T20:27:35Z".
-jCreationDate :: Lens' Job (Maybe ISO8601)
+jCreationDate :: Lens' Job ISO8601
 jCreationDate = lens _jCreationDate (\s a -> s { _jCreationDate = a })
 
 -- | Indicates whether the job was canceled.
-jIsCanceled :: Lens' Job (Maybe Bool)
+jIsCanceled :: Lens' Job Bool
 jIsCanceled = lens _jIsCanceled (\s a -> s { _jIsCanceled = a })
 
 -- | Specifies whether the job to initiate is an import or export job.
-jJobType :: Lens' Job (Maybe JobType)
+jJobType :: Lens' Job JobType
 jJobType = lens _jJobType (\s a -> s { _jJobType = a })
 
 instance FromXML Job where

@@ -192,4 +192,5 @@ instance AWSRequest ListObjects where
 instance AWSPager ListObjects where
     next rq rs
         | not (rs ^. lorsIsTruncated) = Nothing
-        | otherwise = Just (rq & loMarker .~ rs ^. lorsNextMarker)
+        | otherwise = Just $
+            rq & loMarker .~ rs ^. lorsNextMarker

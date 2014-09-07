@@ -161,5 +161,5 @@ instance AWSRequest DescribeCases where
     response _ = jsonResponse
 
 instance AWSPager DescribeCases where
-    next rq rs = (\x -> rq & dcNextToken ?~ x) <$> (rs ^. dcrsNextToken)
-
+    next rq rs = (\x -> rq & dcNextToken ?~ x)
+        <$> (rs ^. dcrsNextToken)

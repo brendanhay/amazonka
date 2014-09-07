@@ -113,5 +113,5 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq & dedpMarker ?~ x) <$> (rs ^. dedprsEngineDefaults . edMarker)
-
+    next rq rs = (\x -> rq & dedpMarker ?~ x)
+        <$> (rs ^. dedprsEngineDefaults . edMarker)

@@ -146,5 +146,5 @@ instance AWSRequest ListPipelines where
     response _ = jsonResponse
 
 instance AWSPager ListPipelines where
-    next rq rs = (\x -> rq & lpPageToken ?~ x) <$> (rs ^. lprsNextPageToken)
-
+    next rq rs = (\x -> rq & lpPageToken ?~ x)
+        <$> (rs ^. lprsNextPageToken)

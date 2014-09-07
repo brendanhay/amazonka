@@ -96,5 +96,5 @@ instance AWSRequest ListInstanceGroups where
     response _ = jsonResponse
 
 instance AWSPager ListInstanceGroups where
-    next rq rs = (\x -> rq & ligMarker ?~ x) <$> (rs ^. ligrsMarker)
-
+    next rq rs = (\x -> rq & ligMarker ?~ x)
+        <$> (rs ^. ligrsMarker)

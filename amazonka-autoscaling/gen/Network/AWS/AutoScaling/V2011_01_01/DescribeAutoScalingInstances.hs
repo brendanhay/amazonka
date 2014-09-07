@@ -113,5 +113,5 @@ instance AWSRequest DescribeAutoScalingInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeAutoScalingInstances where
-    next rq rs = (\x -> rq & dasiNextToken ?~ x) <$> (rs ^. dasirsNextToken)
-
+    next rq rs = (\x -> rq & dasiNextToken ?~ x)
+        <$> (rs ^. dasirsNextToken)

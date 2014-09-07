@@ -129,5 +129,5 @@ instance AWSRequest ListEndpointsByPlatformApplication where
     response _ = xmlResponse
 
 instance AWSPager ListEndpointsByPlatformApplication where
-    next rq rs = (\x -> rq & lebpaNextToken ?~ x) <$> (rs ^. lebparsNextToken)
-
+    next rq rs = (\x -> rq & lebpaNextToken ?~ x)
+        <$> (rs ^. lebparsNextToken)

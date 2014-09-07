@@ -157,5 +157,5 @@ instance AWSRequest ListActivityTypes where
     response _ = jsonResponse
 
 instance AWSPager ListActivityTypes where
-    next rq rs = (\x -> rq & latNextPageToken ?~ x) <$> (rs ^. latrsNextPageToken)
-
+    next rq rs = (\x -> rq & latNextPageToken ?~ x)
+        <$> (rs ^. latrsNextPageToken)

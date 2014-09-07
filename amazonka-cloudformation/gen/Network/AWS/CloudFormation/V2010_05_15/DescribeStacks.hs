@@ -102,5 +102,5 @@ instance AWSRequest DescribeStacks where
     response _ = xmlResponse
 
 instance AWSPager DescribeStacks where
-    next rq rs = (\x -> rq & ds1NextToken ?~ x) <$> (rs ^. dsrsNextToken)
-
+    next rq rs = (\x -> rq & ds1NextToken ?~ x)
+        <$> (rs ^. dsrsNextToken)

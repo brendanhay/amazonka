@@ -188,4 +188,5 @@ instance AWSRequest ListParts where
 instance AWSPager ListParts where
     next rq rs
         | not (rs ^. lprsIsTruncated) = Nothing
-        | otherwise = Just (rq & lpPartNumberMarker .~ rs ^. lprsNextPartNumberMarker)
+        | otherwise = Just $
+            rq & lpPartNumberMarker .~ rs ^. lprsNextPartNumberMarker

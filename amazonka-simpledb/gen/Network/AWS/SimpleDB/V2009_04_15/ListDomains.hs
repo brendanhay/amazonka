@@ -96,5 +96,5 @@ instance AWSRequest ListDomains where
     response _ = xmlResponse
 
 instance AWSPager ListDomains where
-    next rq rs = (\x -> rq & ldNextToken ?~ x) <$> (rs ^. ldrsNextToken)
-
+    next rq rs = (\x -> rq & ldNextToken ?~ x)
+        <$> (rs ^. ldrsNextToken)

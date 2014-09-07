@@ -124,5 +124,5 @@ instance AWSRequest DescribePolicies where
     response _ = xmlResponse
 
 instance AWSPager DescribePolicies where
-    next rq rs = (\x -> rq & dp1NextToken ?~ x) <$> (rs ^. dprsNextToken)
-
+    next rq rs = (\x -> rq & dp1NextToken ?~ x)
+        <$> (rs ^. dprsNextToken)

@@ -127,5 +127,5 @@ instance AWSRequest ListPresets where
     response _ = jsonResponse
 
 instance AWSPager ListPresets where
-    next rq rs = (\x -> rq & lp1PageToken ?~ x) <$> (rs ^. lprsrsNextPageToken)
-
+    next rq rs = (\x -> rq & lp1PageToken ?~ x)
+        <$> (rs ^. lprsrsNextPageToken)

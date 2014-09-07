@@ -102,5 +102,5 @@ instance AWSRequest ListSteps where
     response _ = jsonResponse
 
 instance AWSPager ListSteps where
-    next rq rs = (\x -> rq & lsMarker ?~ x) <$> (rs ^. lsrsMarker)
-
+    next rq rs = (\x -> rq & lsMarker ?~ x)
+        <$> (rs ^. lsrsMarker)

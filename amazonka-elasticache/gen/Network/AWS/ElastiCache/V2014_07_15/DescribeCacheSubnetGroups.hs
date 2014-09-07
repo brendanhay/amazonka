@@ -115,5 +115,5 @@ instance AWSRequest DescribeCacheSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheSubnetGroups where
-    next rq rs = (\x -> rq & dcsg3Marker ?~ x) <$> (rs ^. dcsgrsrsMarker)
-
+    next rq rs = (\x -> rq & dcsg3Marker ?~ x)
+        <$> (rs ^. dcsgrsrsMarker)

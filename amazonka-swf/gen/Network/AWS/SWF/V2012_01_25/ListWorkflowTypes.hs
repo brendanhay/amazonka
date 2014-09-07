@@ -166,5 +166,5 @@ instance AWSRequest ListWorkflowTypes where
     response _ = jsonResponse
 
 instance AWSPager ListWorkflowTypes where
-    next rq rs = (\x -> rq & lwtNextPageToken ?~ x) <$> (rs ^. lwtrsNextPageToken)
-
+    next rq rs = (\x -> rq & lwtNextPageToken ?~ x)
+        <$> (rs ^. lwtrsNextPageToken)

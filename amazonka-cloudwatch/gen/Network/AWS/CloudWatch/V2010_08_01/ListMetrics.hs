@@ -110,5 +110,5 @@ instance AWSRequest ListMetrics where
     response _ = xmlResponse
 
 instance AWSPager ListMetrics where
-    next rq rs = (\x -> rq & lmNextToken ?~ x) <$> (rs ^. lmrsNextToken)
-
+    next rq rs = (\x -> rq & lmNextToken ?~ x)
+        <$> (rs ^. lmrsNextToken)

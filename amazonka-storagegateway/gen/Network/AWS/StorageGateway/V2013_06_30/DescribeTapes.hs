@@ -102,5 +102,5 @@ instance AWSRequest DescribeTapes where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapes where
-    next rq rs = (\x -> rq & dt1Marker ?~ x) <$> (rs ^. dtrsrsMarker)
-
+    next rq rs = (\x -> rq & dt1Marker ?~ x)
+        <$> (rs ^. dtrsrsMarker)

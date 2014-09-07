@@ -198,5 +198,5 @@ instance AWSRequest DescribeInstanceStatus where
     response _ = xmlResponse
 
 instance AWSPager DescribeInstanceStatus where
-    next rq rs = (\x -> rq & disNextToken ?~ x) <$> (rs ^. disrsNextToken)
-
+    next rq rs = (\x -> rq & disNextToken ?~ x)
+        <$> (rs ^. disrsNextToken)

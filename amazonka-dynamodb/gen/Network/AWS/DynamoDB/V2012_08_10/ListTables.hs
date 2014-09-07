@@ -109,5 +109,5 @@ instance AWSRequest ListTables where
     response _ = jsonResponse
 
 instance AWSPager ListTables where
-    next rq rs = (\x -> rq & ltExclusiveStartTableName ?~ x) <$> (rs ^. ltrsLastEvaluatedTableName)
-
+    next rq rs = (\x -> rq & ltExclusiveStartTableName ?~ x)
+        <$> (rs ^. ltrsLastEvaluatedTableName)

@@ -173,5 +173,5 @@ instance AWSRequest DescribeDBEngineVersions where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBEngineVersions where
-    next rq rs = (\x -> rq & ddbevMarker ?~ x) <$> (rs ^. ddbevrsMarker)
-
+    next rq rs = (\x -> rq & ddbevMarker ?~ x)
+        <$> (rs ^. ddbevrsMarker)

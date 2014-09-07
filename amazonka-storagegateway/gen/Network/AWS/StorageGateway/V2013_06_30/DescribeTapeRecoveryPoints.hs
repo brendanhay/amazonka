@@ -106,5 +106,5 @@ instance AWSRequest DescribeTapeRecoveryPoints where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapeRecoveryPoints where
-    next rq rs = (\x -> rq & dtrpMarker ?~ x) <$> (rs ^. dtrprsMarker)
-
+    next rq rs = (\x -> rq & dtrpMarker ?~ x)
+        <$> (rs ^. dtrprsMarker)

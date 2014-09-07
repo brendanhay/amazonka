@@ -118,4 +118,5 @@ instance AWSRequest ListInvalidations where
 instance AWSPager ListInvalidations where
     next rq rs
         | not (rs ^. lirsInvalidationList . ilIsTruncated) = Nothing
-        | otherwise = Just (rq & liMarker .~ rs ^. lirsInvalidationList . ilNextMarker)
+        | otherwise = Just $
+            rq & liMarker .~ rs ^. lirsInvalidationList . ilNextMarker

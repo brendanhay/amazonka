@@ -229,6 +229,6 @@ instance AWSPager ListResourceRecordSets where
             & lrrsStartRecordType .~ p2
             & lrrsStartRecordIdentifier .~ p3
       where
-       p1 = rs ^. lrrsrsNextRecordName
-       p2 = rs ^. lrrsrsNextRecordType
-       p3 = rs ^. lrrsrsNextRecordIdentifier
+        p1 = lrrsrsNextRecordName rs
+        p2 = lrrsrsNextRecordType rs
+        p3 = lrrsrsNextRecordIdentifier rs

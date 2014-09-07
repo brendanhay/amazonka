@@ -94,5 +94,5 @@ instance AWSRequest DescribeTapeArchives where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapeArchives where
-    next rq rs = (\x -> rq & dta1Marker ?~ x) <$> (rs ^. dtarsrsMarker)
-
+    next rq rs = (\x -> rq & dta1Marker ?~ x)
+        <$> (rs ^. dtarsrsMarker)

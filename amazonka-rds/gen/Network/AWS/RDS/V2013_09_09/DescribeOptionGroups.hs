@@ -130,5 +130,5 @@ instance AWSRequest DescribeOptionGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeOptionGroups where
-    next rq rs = (\x -> rq & dog1Marker ?~ x) <$> (rs ^. dogrsMarker)
-
+    next rq rs = (\x -> rq & dog1Marker ?~ x)
+        <$> (rs ^. dogrsMarker)

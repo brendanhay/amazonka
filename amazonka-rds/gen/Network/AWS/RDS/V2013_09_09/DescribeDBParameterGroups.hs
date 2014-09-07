@@ -120,5 +120,5 @@ instance AWSRequest DescribeDBParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBParameterGroups where
-    next rq rs = (\x -> rq & ddbpg1Marker ?~ x) <$> (rs ^. ddbpgrsMarker)
-
+    next rq rs = (\x -> rq & ddbpg1Marker ?~ x)
+        <$> (rs ^. ddbpgrsMarker)

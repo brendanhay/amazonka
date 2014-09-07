@@ -134,4 +134,5 @@ instance AWSRequest ListVirtualMFADevices where
 instance AWSPager ListVirtualMFADevices where
     next rq rs
         | not (rs ^. lvmfadrsIsTruncated) = Nothing
-        | otherwise = Just (rq & lvmfadMarker .~ rs ^. lvmfadrsMarker)
+        | otherwise = Just $
+            rq & lvmfadMarker .~ rs ^. lvmfadrsMarker

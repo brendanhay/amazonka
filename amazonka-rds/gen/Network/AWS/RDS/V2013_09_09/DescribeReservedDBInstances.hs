@@ -173,5 +173,5 @@ instance AWSRequest DescribeReservedDBInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedDBInstances where
-    next rq rs = (\x -> rq & drdbiMarker ?~ x) <$> (rs ^. drdbirsMarker)
-
+    next rq rs = (\x -> rq & drdbiMarker ?~ x)
+        <$> (rs ^. drdbirsMarker)

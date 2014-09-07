@@ -112,5 +112,5 @@ instance AWSRequest DescribeAutoScalingGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeAutoScalingGroups where
-    next rq rs = (\x -> rq & dasg1NextToken ?~ x) <$> (rs ^. dasgrsNextToken)
-
+    next rq rs = (\x -> rq & dasg1NextToken ?~ x)
+        <$> (rs ^. dasgrsNextToken)

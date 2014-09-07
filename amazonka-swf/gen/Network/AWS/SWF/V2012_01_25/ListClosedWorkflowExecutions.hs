@@ -241,5 +241,5 @@ instance AWSRequest ListClosedWorkflowExecutions where
     response _ = jsonResponse
 
 instance AWSPager ListClosedWorkflowExecutions where
-    next rq rs = (\x -> rq & lcweNextPageToken ?~ x) <$> (rs ^. lcwersNextPageToken)
-
+    next rq rs = (\x -> rq & lcweNextPageToken ?~ x)
+        <$> (rs ^. lcwersNextPageToken)

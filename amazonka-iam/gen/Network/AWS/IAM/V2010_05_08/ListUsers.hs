@@ -128,4 +128,5 @@ instance AWSRequest ListUsers where
 instance AWSPager ListUsers where
     next rq rs
         | not (rs ^. lursIsTruncated) = Nothing
-        | otherwise = Just (rq & luMarker .~ rs ^. lursMarker)
+        | otherwise = Just $
+            rq & luMarker .~ rs ^. lursMarker

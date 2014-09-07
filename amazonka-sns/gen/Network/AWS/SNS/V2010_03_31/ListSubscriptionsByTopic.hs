@@ -113,5 +113,5 @@ instance AWSRequest ListSubscriptionsByTopic where
     response _ = xmlResponse
 
 instance AWSPager ListSubscriptionsByTopic where
-    next rq rs = (\x -> rq & lsbtNextToken ?~ x) <$> (rs ^. lsbtrsNextToken)
-
+    next rq rs = (\x -> rq & lsbtNextToken ?~ x)
+        <$> (rs ^. lsbtrsNextToken)

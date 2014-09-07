@@ -240,5 +240,5 @@ instance AWSRequest DescribeReservedInstancesOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedInstancesOfferings where
-    next rq rs = (\x -> rq & drioNextToken ?~ x) <$> (rs ^. driorsNextToken)
-
+    next rq rs = (\x -> rq & drioNextToken ?~ x)
+        <$> (rs ^. driorsNextToken)

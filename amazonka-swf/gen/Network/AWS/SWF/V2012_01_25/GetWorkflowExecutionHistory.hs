@@ -200,5 +200,5 @@ instance AWSRequest GetWorkflowExecutionHistory where
     response _ = jsonResponse
 
 instance AWSPager GetWorkflowExecutionHistory where
-    next rq rs = (\x -> rq & gwehNextPageToken ?~ x) <$> (rs ^. gwehrsNextPageToken)
-
+    next rq rs = (\x -> rq & gwehNextPageToken ?~ x)
+        <$> (rs ^. gwehrsNextPageToken)

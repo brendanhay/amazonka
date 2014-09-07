@@ -112,5 +112,5 @@ instance AWSRequest DescribeStackEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeStackEvents where
-    next rq rs = (\x -> rq & dseNextToken ?~ x) <$> (rs ^. dsersNextToken)
-
+    next rq rs = (\x -> rq & dseNextToken ?~ x)
+        <$> (rs ^. dsersNextToken)

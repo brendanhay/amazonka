@@ -123,4 +123,5 @@ instance AWSRequest ListStreams where
 instance AWSPager ListStreams where
     next rq rs
         | not (rs ^. lsrsHasMoreStreams) = Nothing
-        | otherwise = Just (rq & lsExclusiveStartStreamName .~ rs ^. index id lsrsStreamNames)
+        | otherwise = Just $
+            rq & lsExclusiveStartStreamName .~ index lsrsStreamNames (to id) rs

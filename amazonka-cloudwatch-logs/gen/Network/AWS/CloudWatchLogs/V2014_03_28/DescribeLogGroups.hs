@@ -124,5 +124,5 @@ instance AWSRequest DescribeLogGroups where
     response _ = jsonResponse
 
 instance AWSPager DescribeLogGroups where
-    next rq rs = (\x -> rq & dlg1NextToken ?~ x) <$> (rs ^. dlgrsNextToken)
-
+    next rq rs = (\x -> rq & dlg1NextToken ?~ x)
+        <$> (rs ^. dlgrsNextToken)

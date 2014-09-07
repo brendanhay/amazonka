@@ -116,4 +116,5 @@ instance AWSRequest ListAccountAliases where
 instance AWSPager ListAccountAliases where
     next rq rs
         | not (rs ^. laarsIsTruncated) = Nothing
-        | otherwise = Just (rq & laaMarker .~ rs ^. laarsMarker)
+        | otherwise = Just $
+            rq & laaMarker .~ rs ^. laarsMarker

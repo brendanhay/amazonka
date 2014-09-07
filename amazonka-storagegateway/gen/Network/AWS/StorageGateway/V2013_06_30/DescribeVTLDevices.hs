@@ -112,5 +112,5 @@ instance AWSRequest DescribeVTLDevices where
     response _ = jsonResponse
 
 instance AWSPager DescribeVTLDevices where
-    next rq rs = (\x -> rq & dvtldMarker ?~ x) <$> (rs ^. dvtldrsMarker)
-
+    next rq rs = (\x -> rq & dvtldMarker ?~ x)
+        <$> (rs ^. dvtldrsMarker)

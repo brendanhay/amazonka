@@ -139,5 +139,5 @@ instance AWSRequest DescribeLogStreams where
     response _ = jsonResponse
 
 instance AWSPager DescribeLogStreams where
-    next rq rs = (\x -> rq & dls1NextToken ?~ x) <$> (rs ^. dlsrsNextToken)
-
+    next rq rs = (\x -> rq & dls1NextToken ?~ x)
+        <$> (rs ^. dlsrsNextToken)

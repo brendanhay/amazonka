@@ -115,5 +115,5 @@ instance AWSRequest ListGateways where
     response _ = jsonResponse
 
 instance AWSPager ListGateways where
-    next rq rs = (\x -> rq & lgMarker ?~ x) <$> (rs ^. lgrsMarker)
-
+    next rq rs = (\x -> rq & lgMarker ?~ x)
+        <$> (rs ^. lgrsMarker)

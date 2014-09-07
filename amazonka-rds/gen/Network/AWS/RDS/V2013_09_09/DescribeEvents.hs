@@ -168,5 +168,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq & deMarker ?~ x) <$> (rs ^. dersMarker)
-
+    next rq rs = (\x -> rq & deMarker ?~ x)
+        <$> (rs ^. dersMarker)

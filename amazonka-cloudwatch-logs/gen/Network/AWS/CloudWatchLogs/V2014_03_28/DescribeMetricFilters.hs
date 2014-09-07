@@ -132,5 +132,5 @@ instance AWSRequest DescribeMetricFilters where
     response _ = jsonResponse
 
 instance AWSPager DescribeMetricFilters where
-    next rq rs = (\x -> rq & dmf1NextToken ?~ x) <$> (rs ^. dmfrsNextToken)
-
+    next rq rs = (\x -> rq & dmf1NextToken ?~ x)
+        <$> (rs ^. dmfrsNextToken)

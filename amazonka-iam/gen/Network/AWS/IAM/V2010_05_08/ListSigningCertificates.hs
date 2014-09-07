@@ -143,4 +143,5 @@ instance AWSRequest ListSigningCertificates where
 instance AWSPager ListSigningCertificates where
     next rq rs
         | not (rs ^. lscrsrsIsTruncated) = Nothing
-        | otherwise = Just (rq & lsc1Marker .~ rs ^. lscrsrsMarker)
+        | otherwise = Just $
+            rq & lsc1Marker .~ rs ^. lscrsrsMarker

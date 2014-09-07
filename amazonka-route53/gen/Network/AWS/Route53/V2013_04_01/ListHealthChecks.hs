@@ -155,4 +155,5 @@ instance AWSRequest ListHealthChecks where
 instance AWSPager ListHealthChecks where
     next rq rs
         | not (rs ^. lhcrsIsTruncated) = Nothing
-        | otherwise = Just (rq & lhcMarker .~ rs ^. lhcrsNextMarker)
+        | otherwise = Just $
+            rq & lhcMarker .~ rs ^. lhcrsNextMarker

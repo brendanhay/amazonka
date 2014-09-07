@@ -128,4 +128,5 @@ instance AWSRequest GetGroup where
 instance AWSPager GetGroup where
     next rq rs
         | not (rs ^. ggrsIsTruncated) = Nothing
-        | otherwise = Just (rq & ggMarker .~ rs ^. ggrsMarker)
+        | otherwise = Just $
+            rq & ggMarker .~ rs ^. ggrsMarker

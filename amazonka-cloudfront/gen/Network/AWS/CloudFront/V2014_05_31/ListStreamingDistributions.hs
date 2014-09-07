@@ -105,4 +105,5 @@ instance AWSRequest ListStreamingDistributions where
 instance AWSPager ListStreamingDistributions where
     next rq rs
         | not (rs ^. lsdrsStreamingDistributionList . sdlIsTruncated) = Nothing
-        | otherwise = Just (rq & lsdMarker .~ rs ^. lsdrsStreamingDistributionList . sdlNextMarker)
+        | otherwise = Just $
+            rq & lsdMarker .~ rs ^. lsdrsStreamingDistributionList . sdlNextMarker

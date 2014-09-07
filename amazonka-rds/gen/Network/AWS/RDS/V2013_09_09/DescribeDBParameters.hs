@@ -127,5 +127,5 @@ instance AWSRequest DescribeDBParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBParameters where
-    next rq rs = (\x -> rq & ddbpMarker ?~ x) <$> (rs ^. ddbprsMarker)
-
+    next rq rs = (\x -> rq & ddbpMarker ?~ x)
+        <$> (rs ^. ddbprsMarker)

@@ -108,5 +108,5 @@ instance AWSRequest DescribeLaunchConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeLaunchConfigurations where
-    next rq rs = (\x -> rq & dlc1NextToken ?~ x) <$> (rs ^. dlcrsNextToken)
-
+    next rq rs = (\x -> rq & dlc1NextToken ?~ x)
+        <$> (rs ^. dlcrsNextToken)

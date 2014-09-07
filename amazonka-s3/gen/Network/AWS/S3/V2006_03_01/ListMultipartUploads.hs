@@ -225,5 +225,5 @@ instance AWSPager ListMultipartUploads where
             & lmuKeyMarker .~ p1
             & lmuUploadIdMarker .~ p2
       where
-       p1 = rs ^. lmursNextKeyMarker
-       p2 = rs ^. lmursNextUploadIdMarker
+        p1 = lmursNextKeyMarker rs
+        p2 = lmursNextUploadIdMarker rs

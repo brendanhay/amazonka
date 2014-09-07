@@ -115,4 +115,5 @@ instance AWSRequest ListPipelines where
 instance AWSPager ListPipelines where
     next rq rs
         | not (rs ^. lprsHasMoreResults) = Nothing
-        | otherwise = Just (rq & lpMarker .~ rs ^. lprsMarker)
+        | otherwise = Just $
+            rq & lpMarker .~ rs ^. lprsMarker

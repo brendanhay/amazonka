@@ -133,4 +133,5 @@ instance AWSRequest ListInstanceProfiles where
 instance AWSPager ListInstanceProfiles where
     next rq rs
         | not (rs ^. liprsIsTruncated) = Nothing
-        | otherwise = Just (rq & lipMarker .~ rs ^. liprsMarker)
+        | otherwise = Just $
+            rq & lipMarker .~ rs ^. liprsMarker

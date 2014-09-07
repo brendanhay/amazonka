@@ -120,5 +120,5 @@ instance AWSRequest DescribeDBInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBInstances where
-    next rq rs = (\x -> rq & ddbi1Marker ?~ x) <$> (rs ^. ddbirsrsMarker)
-
+    next rq rs = (\x -> rq & ddbi1Marker ?~ x)
+        <$> (rs ^. ddbirsrsMarker)

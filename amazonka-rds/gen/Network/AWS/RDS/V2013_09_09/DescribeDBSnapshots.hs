@@ -147,5 +147,5 @@ instance AWSRequest DescribeDBSnapshots where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSnapshots where
-    next rq rs = (\x -> rq & ddbs1Marker ?~ x) <$> (rs ^. ddbsrsrsMarker)
-
+    next rq rs = (\x -> rq & ddbs1Marker ?~ x)
+        <$> (rs ^. ddbsrsrsMarker)

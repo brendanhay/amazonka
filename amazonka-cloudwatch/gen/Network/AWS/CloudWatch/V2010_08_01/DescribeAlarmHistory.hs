@@ -123,5 +123,5 @@ instance AWSRequest DescribeAlarmHistory where
     response _ = xmlResponse
 
 instance AWSPager DescribeAlarmHistory where
-    next rq rs = (\x -> rq & dahNextToken ?~ x) <$> (rs ^. dahrsNextToken)
-
+    next rq rs = (\x -> rq & dahNextToken ?~ x)
+        <$> (rs ^. dahrsNextToken)

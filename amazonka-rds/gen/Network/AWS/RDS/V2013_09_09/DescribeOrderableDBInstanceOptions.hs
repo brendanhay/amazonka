@@ -158,5 +158,5 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
-    next rq rs = (\x -> rq & dodbioMarker ?~ x) <$> (rs ^. dodbiorsMarker)
-
+    next rq rs = (\x -> rq & dodbioMarker ?~ x)
+        <$> (rs ^. dodbiorsMarker)

@@ -95,5 +95,5 @@ instance AWSRequest ListTopics where
     response _ = xmlResponse
 
 instance AWSPager ListTopics where
-    next rq rs = (\x -> rq & ltNextToken ?~ x) <$> (rs ^. ltrsNextToken)
-
+    next rq rs = (\x -> rq & ltNextToken ?~ x)
+        <$> (rs ^. ltrsNextToken)

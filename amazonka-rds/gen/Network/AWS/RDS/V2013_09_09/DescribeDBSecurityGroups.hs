@@ -119,5 +119,5 @@ instance AWSRequest DescribeDBSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSecurityGroups where
-    next rq rs = (\x -> rq & ddbsg2Marker ?~ x) <$> (rs ^. ddbsgrsMarker)
-
+    next rq rs = (\x -> rq & ddbsg2Marker ?~ x)
+        <$> (rs ^. ddbsgrsMarker)

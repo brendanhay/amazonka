@@ -126,5 +126,5 @@ instance AWSRequest DescribeClusters where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusters where
-    next rq rs = (\x -> rq & dc1Marker ?~ x) <$> (rs ^. dcrsrsMarker)
-
+    next rq rs = (\x -> rq & dc1Marker ?~ x)
+        <$> (rs ^. dcrsrsMarker)

@@ -108,5 +108,5 @@ instance AWSRequest DescribeTags where
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq & dt1NextToken ?~ x) <$> (rs ^. dtrsNextToken)
-
+    next rq rs = (\x -> rq & dt1NextToken ?~ x)
+        <$> (rs ^. dtrsNextToken)

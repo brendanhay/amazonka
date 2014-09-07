@@ -114,5 +114,5 @@ instance AWSRequest ListStackResources where
     response _ = xmlResponse
 
 instance AWSPager ListStackResources where
-    next rq rs = (\x -> rq & lsrNextToken ?~ x) <$> (rs ^. lsrrsNextToken)
-
+    next rq rs = (\x -> rq & lsrNextToken ?~ x)
+        <$> (rs ^. lsrrsNextToken)

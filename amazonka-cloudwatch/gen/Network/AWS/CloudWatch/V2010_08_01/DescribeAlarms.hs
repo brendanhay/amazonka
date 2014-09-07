@@ -123,5 +123,5 @@ instance AWSRequest DescribeAlarms where
     response _ = xmlResponse
 
 instance AWSPager DescribeAlarms where
-    next rq rs = (\x -> rq & da1NextToken ?~ x) <$> (rs ^. darsNextToken)
-
+    next rq rs = (\x -> rq & da1NextToken ?~ x)
+        <$> (rs ^. darsNextToken)

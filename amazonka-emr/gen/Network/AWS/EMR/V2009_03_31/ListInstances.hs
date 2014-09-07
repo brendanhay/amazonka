@@ -115,5 +115,5 @@ instance AWSRequest ListInstances where
     response _ = jsonResponse
 
 instance AWSPager ListInstances where
-    next rq rs = (\x -> rq & liMarker ?~ x) <$> (rs ^. lirsMarker)
-
+    next rq rs = (\x -> rq & liMarker ?~ x)
+        <$> (rs ^. lirsMarker)

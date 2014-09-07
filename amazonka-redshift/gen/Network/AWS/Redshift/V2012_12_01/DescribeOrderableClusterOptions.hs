@@ -140,5 +140,5 @@ instance AWSRequest DescribeOrderableClusterOptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeOrderableClusterOptions where
-    next rq rs = (\x -> rq & docoMarker ?~ x) <$> (rs ^. docorsMarker)
-
+    next rq rs = (\x -> rq & docoMarker ?~ x)
+        <$> (rs ^. docorsMarker)

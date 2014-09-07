@@ -137,4 +137,5 @@ instance AWSRequest DownloadDBLogFilePortion where
 instance AWSPager DownloadDBLogFilePortion where
     next rq rs
         | not (rs ^. ddblfprsAdditionalDataPending) = Nothing
-        | otherwise = Just (rq & ddblfpMarker .~ rs ^. ddblfprsMarker)
+        | otherwise = Just $
+            rq & ddblfpMarker .~ rs ^. ddblfprsMarker

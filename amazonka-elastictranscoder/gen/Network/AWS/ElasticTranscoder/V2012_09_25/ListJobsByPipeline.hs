@@ -160,5 +160,5 @@ instance AWSRequest ListJobsByPipeline where
     response _ = jsonResponse
 
 instance AWSPager ListJobsByPipeline where
-    next rq rs = (\x -> rq & ljbpPageToken ?~ x) <$> (rs ^. ljbprsNextPageToken)
-
+    next rq rs = (\x -> rq & ljbpPageToken ?~ x)
+        <$> (rs ^. ljbprsNextPageToken)

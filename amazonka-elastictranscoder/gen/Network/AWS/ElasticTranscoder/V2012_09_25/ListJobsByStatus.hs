@@ -164,5 +164,5 @@ instance AWSRequest ListJobsByStatus where
     response _ = jsonResponse
 
 instance AWSPager ListJobsByStatus where
-    next rq rs = (\x -> rq & ljbsPageToken ?~ x) <$> (rs ^. ljbsrsNextPageToken)
-
+    next rq rs = (\x -> rq & ljbsPageToken ?~ x)
+        <$> (rs ^. ljbsrsNextPageToken)

@@ -200,5 +200,5 @@ instance AWSRequest ListOpenWorkflowExecutions where
     response _ = jsonResponse
 
 instance AWSPager ListOpenWorkflowExecutions where
-    next rq rs = (\x -> rq & loweNextPageToken ?~ x) <$> (rs ^. lowersNextPageToken)
-
+    next rq rs = (\x -> rq & loweNextPageToken ?~ x)
+        <$> (rs ^. lowersNextPageToken)

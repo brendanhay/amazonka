@@ -148,5 +148,5 @@ instance AWSRequest DescribeClusterParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterParameters where
-    next rq rs = (\x -> rq & dcpMarker ?~ x) <$> (rs ^. dcprsMarker)
-
+    next rq rs = (\x -> rq & dcpMarker ?~ x)
+        <$> (rs ^. dcprsMarker)

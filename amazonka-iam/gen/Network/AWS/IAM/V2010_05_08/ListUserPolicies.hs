@@ -121,4 +121,5 @@ instance AWSRequest ListUserPolicies where
 instance AWSPager ListUserPolicies where
     next rq rs
         | not (rs ^. luprsIsTruncated) = Nothing
-        | otherwise = Just (rq & lupMarker .~ rs ^. luprsMarker)
+        | otherwise = Just $
+            rq & lupMarker .~ rs ^. luprsMarker

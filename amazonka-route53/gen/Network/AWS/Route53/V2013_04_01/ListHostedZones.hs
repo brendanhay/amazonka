@@ -156,4 +156,5 @@ instance AWSRequest ListHostedZones where
 instance AWSPager ListHostedZones where
     next rq rs
         | not (rs ^. lhzrsIsTruncated) = Nothing
-        | otherwise = Just (rq & lhzMarker .~ rs ^. lhzrsNextMarker)
+        | otherwise = Just $
+            rq & lhzMarker .~ rs ^. lhzrsNextMarker

@@ -116,5 +116,5 @@ instance AWSRequest DescribeHsmConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmConfigurations where
-    next rq rs = (\x -> rq & dhc1Marker ?~ x) <$> (rs ^. dhcrsMarker)
-
+    next rq rs = (\x -> rq & dhc1Marker ?~ x)
+        <$> (rs ^. dhcrsMarker)

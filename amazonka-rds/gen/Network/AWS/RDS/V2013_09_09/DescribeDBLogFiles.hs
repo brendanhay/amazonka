@@ -146,5 +146,5 @@ instance AWSRequest DescribeDBLogFiles where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBLogFiles where
-    next rq rs = (\x -> rq & ddblfMarker ?~ x) <$> (rs ^. ddblfrsMarker)
-
+    next rq rs = (\x -> rq & ddblfMarker ?~ x)
+        <$> (rs ^. ddblfrsMarker)

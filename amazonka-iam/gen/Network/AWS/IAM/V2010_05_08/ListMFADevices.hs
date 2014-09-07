@@ -121,4 +121,5 @@ instance AWSRequest ListMFADevices where
 instance AWSPager ListMFADevices where
     next rq rs
         | not (rs ^. lmfadrsIsTruncated) = Nothing
-        | otherwise = Just (rq & lmfadMarker .~ rs ^. lmfadrsMarker)
+        | otherwise = Just $
+            rq & lmfadMarker .~ rs ^. lmfadrsMarker

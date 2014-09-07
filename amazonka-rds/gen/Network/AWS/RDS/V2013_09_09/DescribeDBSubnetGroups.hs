@@ -119,5 +119,5 @@ instance AWSRequest DescribeDBSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSubnetGroups where
-    next rq rs = (\x -> rq & ddbsg3Marker ?~ x) <$> (rs ^. ddbsgrsrsMarker)
-
+    next rq rs = (\x -> rq & ddbsg3Marker ?~ x)
+        <$> (rs ^. ddbsgrsrsMarker)

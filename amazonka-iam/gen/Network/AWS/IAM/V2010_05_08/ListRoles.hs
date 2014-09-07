@@ -133,4 +133,5 @@ instance AWSRequest ListRoles where
 instance AWSPager ListRoles where
     next rq rs
         | not (rs ^. lrrsIsTruncated) = Nothing
-        | otherwise = Just (rq & lrMarker .~ rs ^. lrrsMarker)
+        | otherwise = Just $
+            rq & lrMarker .~ rs ^. lrrsMarker

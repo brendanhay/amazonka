@@ -137,5 +137,5 @@ instance AWSRequest ListVolumes where
     response _ = jsonResponse
 
 instance AWSPager ListVolumes where
-    next rq rs = (\x -> rq & lvMarker ?~ x) <$> (rs ^. lvrsMarker)
-
+    next rq rs = (\x -> rq & lvMarker ?~ x)
+        <$> (rs ^. lvrsMarker)

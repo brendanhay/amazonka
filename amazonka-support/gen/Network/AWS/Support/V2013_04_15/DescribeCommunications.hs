@@ -128,5 +128,5 @@ instance AWSRequest DescribeCommunications where
     response _ = jsonResponse
 
 instance AWSPager DescribeCommunications where
-    next rq rs = (\x -> rq & dc1NextToken ?~ x) <$> (rs ^. dcrsrsNextToken)
-
+    next rq rs = (\x -> rq & dc1NextToken ?~ x)
+        <$> (rs ^. dcrsrsNextToken)

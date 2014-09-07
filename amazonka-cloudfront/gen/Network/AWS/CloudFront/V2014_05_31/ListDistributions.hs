@@ -103,4 +103,5 @@ instance AWSRequest ListDistributions where
 instance AWSPager ListDistributions where
     next rq rs
         | not (rs ^. ldrsDistributionList . dlIsTruncated) = Nothing
-        | otherwise = Just (rq & ldMarker .~ rs ^. ldrsDistributionList . dlNextMarker)
+        | otherwise = Just $
+            rq & ldMarker .~ rs ^. ldrsDistributionList . dlNextMarker

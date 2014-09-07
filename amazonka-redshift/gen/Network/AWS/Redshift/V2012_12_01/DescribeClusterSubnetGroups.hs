@@ -123,5 +123,5 @@ instance AWSRequest DescribeClusterSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSubnetGroups where
-    next rq rs = (\x -> rq & dcsg3Marker ?~ x) <$> (rs ^. dcsgrsrsMarker)
-
+    next rq rs = (\x -> rq & dcsg3Marker ?~ x)
+        <$> (rs ^. dcsgrsrsMarker)

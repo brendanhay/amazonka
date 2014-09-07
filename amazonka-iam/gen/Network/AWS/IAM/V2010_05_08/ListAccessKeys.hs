@@ -128,4 +128,5 @@ instance AWSRequest ListAccessKeys where
 instance AWSPager ListAccessKeys where
     next rq rs
         | not (rs ^. lakrsIsTruncated) = Nothing
-        | otherwise = Just (rq & lakMarker .~ rs ^. lakrsMarker)
+        | otherwise = Just $
+            rq & lakMarker .~ rs ^. lakrsMarker

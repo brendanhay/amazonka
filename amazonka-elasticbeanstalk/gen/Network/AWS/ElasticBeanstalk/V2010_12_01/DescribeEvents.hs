@@ -182,5 +182,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq & de1NextToken ?~ x) <$> (rs ^. dersrsNextToken)
-
+    next rq rs = (\x -> rq & de1NextToken ?~ x)
+        <$> (rs ^. dersrsNextToken)

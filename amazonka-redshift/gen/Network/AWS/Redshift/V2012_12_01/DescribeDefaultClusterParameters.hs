@@ -123,5 +123,5 @@ instance AWSRequest DescribeDefaultClusterParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeDefaultClusterParameters where
-    next rq rs = (\x -> rq & ddcpMarker ?~ x) <$> (rs ^. ddcprsDefaultClusterParameters . dcp1Marker)
-
+    next rq rs = (\x -> rq & ddcpMarker ?~ x)
+        <$> (rs ^. ddcprsDefaultClusterParameters . dcp1Marker)

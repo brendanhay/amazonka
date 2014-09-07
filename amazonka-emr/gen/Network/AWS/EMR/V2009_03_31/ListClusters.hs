@@ -114,5 +114,5 @@ instance AWSRequest ListClusters where
     response _ = jsonResponse
 
 instance AWSPager ListClusters where
-    next rq rs = (\x -> rq & lcMarker ?~ x) <$> (rs ^. lcrsMarker)
-
+    next rq rs = (\x -> rq & lcMarker ?~ x)
+        <$> (rs ^. lcrsMarker)

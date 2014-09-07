@@ -118,5 +118,5 @@ instance AWSRequest ListPlatformApplications where
     response _ = xmlResponse
 
 instance AWSPager ListPlatformApplications where
-    next rq rs = (\x -> rq & lpaNextToken ?~ x) <$> (rs ^. lparsNextToken)
-
+    next rq rs = (\x -> rq & lpaNextToken ?~ x)
+        <$> (rs ^. lparsNextToken)

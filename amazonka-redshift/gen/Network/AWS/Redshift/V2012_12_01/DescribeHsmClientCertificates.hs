@@ -119,5 +119,5 @@ instance AWSRequest DescribeHsmClientCertificates where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmClientCertificates where
-    next rq rs = (\x -> rq & dhcc1Marker ?~ x) <$> (rs ^. dhccrsMarker)
-
+    next rq rs = (\x -> rq & dhcc1Marker ?~ x)
+        <$> (rs ^. dhccrsMarker)

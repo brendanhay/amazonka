@@ -255,5 +255,5 @@ instance AWSRequest PollForDecisionTask where
     response _ = jsonResponse
 
 instance AWSPager PollForDecisionTask where
-    next rq rs = (\x -> rq & pfdtNextPageToken ?~ x) <$> (rs ^. pfdtrsNextPageToken)
-
+    next rq rs = (\x -> rq & pfdtNextPageToken ?~ x)
+        <$> (rs ^. pfdtrsNextPageToken)

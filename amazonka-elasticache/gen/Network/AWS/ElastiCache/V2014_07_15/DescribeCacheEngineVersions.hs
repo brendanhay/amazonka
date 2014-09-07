@@ -139,5 +139,5 @@ instance AWSRequest DescribeCacheEngineVersions where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheEngineVersions where
-    next rq rs = (\x -> rq & dcevMarker ?~ x) <$> (rs ^. dcevrsMarker)
-
+    next rq rs = (\x -> rq & dcevMarker ?~ x)
+        <$> (rs ^. dcevrsMarker)

@@ -141,5 +141,5 @@ instance AWSRequest DescribeCacheClusters where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheClusters where
-    next rq rs = (\x -> rq & dcc1Marker ?~ x) <$> (rs ^. dccrsrsMarker)
-
+    next rq rs = (\x -> rq & dcc1Marker ?~ x)
+        <$> (rs ^. dccrsrsMarker)

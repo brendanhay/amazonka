@@ -101,4 +101,5 @@ instance AWSRequest ListJobs where
 instance AWSPager ListJobs where
     next rq rs
         | not (rs ^. ljrsIsTruncated) = Nothing
-        | otherwise = Just (rq & ljMarker .~ rs ^. index jJobId ljrsJobs)
+        | otherwise = Just $
+            rq & ljMarker .~ index ljrsJobs jJobId rs

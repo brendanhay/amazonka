@@ -96,5 +96,5 @@ instance AWSRequest ListBootstrapActions where
     response _ = jsonResponse
 
 instance AWSPager ListBootstrapActions where
-    next rq rs = (\x -> rq & lbaMarker ?~ x) <$> (rs ^. lbarsMarker)
-
+    next rq rs = (\x -> rq & lbaMarker ?~ x)
+        <$> (rs ^. lbarsMarker)

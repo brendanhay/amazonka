@@ -148,4 +148,5 @@ instance AWSRequest DescribeObjects where
 instance AWSPager DescribeObjects where
     next rq rs
         | not (rs ^. dorsHasMoreResults) = Nothing
-        | otherwise = Just (rq & doMarker .~ rs ^. dorsMarker)
+        | otherwise = Just $
+            rq & doMarker .~ rs ^. dorsMarker

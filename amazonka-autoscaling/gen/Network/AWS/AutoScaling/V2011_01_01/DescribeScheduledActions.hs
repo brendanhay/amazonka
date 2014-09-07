@@ -135,5 +135,5 @@ instance AWSRequest DescribeScheduledActions where
     response _ = xmlResponse
 
 instance AWSPager DescribeScheduledActions where
-    next rq rs = (\x -> rq & dsa2NextToken ?~ x) <$> (rs ^. dsarsrsNextToken)
-
+    next rq rs = (\x -> rq & dsa2NextToken ?~ x)
+        <$> (rs ^. dsarsrsNextToken)

@@ -151,4 +151,5 @@ instance AWSRequest QueryObjects where
 instance AWSPager QueryObjects where
     next rq rs
         | not (rs ^. qorsHasMoreResults) = Nothing
-        | otherwise = Just (rq & qoMarker .~ rs ^. qorsMarker)
+        | otherwise = Just $
+            rq & qoMarker .~ rs ^. qorsMarker

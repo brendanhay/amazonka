@@ -116,5 +116,5 @@ instance AWSRequest DescribeLoadBalancers where
     response _ = xmlResponse
 
 instance AWSPager DescribeLoadBalancers where
-    next rq rs = (\x -> rq & dlb1Marker ?~ x) <$> (rs ^. dlbrsrsNextMarker)
-
+    next rq rs = (\x -> rq & dlb1Marker ?~ x)
+        <$> (rs ^. dlbrsrsNextMarker)

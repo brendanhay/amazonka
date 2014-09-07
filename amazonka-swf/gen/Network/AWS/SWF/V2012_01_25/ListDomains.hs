@@ -160,5 +160,5 @@ instance AWSRequest ListDomains where
     response _ = jsonResponse
 
 instance AWSPager ListDomains where
-    next rq rs = (\x -> rq & ldNextPageToken ?~ x) <$> (rs ^. ldrsNextPageToken)
-
+    next rq rs = (\x -> rq & ldNextPageToken ?~ x)
+        <$> (rs ^. ldrsNextPageToken)

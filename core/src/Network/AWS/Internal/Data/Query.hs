@@ -55,7 +55,6 @@ import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Monoid
 import           Data.String
 import           Data.Text                            (Text)
-import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Internal.Data.ByteString
 import           Network.AWS.Internal.Data.Text
@@ -148,8 +147,8 @@ class ToQuery a where
 instance ToQuery Query where
     toQuery = id
 
-instance (ToByteString k, ToByteString v) => ToQuery (k, v) where
-    toQuery (k, v) = Pair (toBS k) . Value $ Just (toBS v)
+instance (ToByteString k, ToQuery v) => ToQuery (k, v) where
+    toQuery (k, v) = Pair (toBS k) (toQuery v)
 
 instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
     toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v

@@ -50,7 +50,6 @@ instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
     parseJSON = withObject "HashMap" f
       where
         f = fmap (Map . Map.fromList) . mapM g . Map.toList
-
         g (k, v) = (,)
             <$> either fail return (fromText k)
             <*> parseJSON v
@@ -71,6 +70,5 @@ instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
     fromXMLRoot = fromRoot "Map"
     fromXML o   = fmap Map . fromXML (retag o)
 
--- FIXME: implement this shizzle
--- instance (ToText k, ToQuery v) => ToQuery (Map k v) where
---     toQuery = undefined
+instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
+    toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap

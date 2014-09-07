@@ -20,7 +20,6 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Monad
 import           Data.Aeson
-import           Data.Char           (isUpper)
 import qualified Data.Foldable       as Fold
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
@@ -160,20 +159,10 @@ filters = EDE.defaultFilters
       ++ funN "below"   (wrap "^ ") [66, 76]
       ++ funN "haddock" haddock     [74]
 
-    gs = [ ("lens",   Fun TText TText lens)
-         , ("iso",    Fun TText TText iso)
-         , ("classy", Fun TText TText classy)
-         , ("field",  Fun TText TText field)
+    gs = [ ("lens",   Fun TText TText lensPrefix)
+         , ("iso",    Fun TText TText isoPrefix)
+         , ("field",  Fun TText TText fieldPrefix)
          ]
-
-    lens t = reserved $ fromMaybe t (Text.stripPrefix "_" t)
-    iso    = mappend "_" . reserved
-    classy = reserved . lowerFirst
-    field  = reserved . Text.dropWhile (not . isUpper)
-
-    reserved x
-        | x `elem` ["type", "instance", "class", "id"] = x <> "'"
-        | otherwise = x
 
     haddock n t =
         case normalise n t of

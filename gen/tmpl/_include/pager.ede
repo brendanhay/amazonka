@@ -3,32 +3,23 @@
 instance AWSPager {{ scope.request.name }} where
   {% case scope.pagination.type %}
   {% when "next" %}
-    next rq rs = (\x -> rq { {{ scope.pagination.token.input }} = Just x })
-        <$> ({{ scope.pagination.token.output }} rs)
+    next rq rs = (\x -> rq & {{ scope.pagination.token.input }} ?~ x) <$> (rs ^. {{ scope.pagination.token.output }})
+
   {% when "one" %}
     next rq rs
-        | not ({{ scope.pagination.more }} rs) = Nothing
-        | otherwise = Just $ rq
-            { {{ scope.pagination.token.input }} = {{ scope.pagination.token.output }} rs
-            }
+        | not (rs ^. {{ scope.pagination.more }}) = Nothing
+        | otherwise = Just (rq & {{ scope.pagination.token.input }} .~ rs ^. {{ scope.pagination.token.output }})
   {% when "many" %}
     next rq rs
-        | not ({{ scope.pagination.more }} rs) = Nothing
+        | not (rs ^. {{ scope.pagination.more }}) = Nothing
         | {{ scope.pagination.negate }} = Nothing
         | otherwise = Just $ rq
     {% for token in scope.pagination.tokens %}
-      {% if token.first %}
-            { {{ token.value.input }} = {{ token.key }}
-      {% else %}
-            , {{ token.value.input }} = {{ token.key }}
-      {% endif %}
-      {% if token.last %}
-            }
-      {% endif %}
+            & {{ token.value.input }} .~ {{ token.key}}
     {% endfor %}
       where
     {% for token in scope.pagination.tokens %}
-        {{ token.key }} = {{ token.value.output }} rs
-    {% endfor %}
+       {{ token.key }} = rs ^. {{ token.value.output }}
+   {% endfor %}
   {% endcase %}
 {% endif %}

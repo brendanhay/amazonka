@@ -43,6 +43,16 @@ numericSuffix t
     | x <- Text.last t, isDigit x = Text.init t `Text.snoc` succ x
     | otherwise                   = t `Text.snoc` '1'
 
+lensPrefix, isoPrefix, fieldPrefix :: Text -> Text
+lensPrefix t = reserved $ fromMaybe t (Text.stripPrefix "_" t)
+isoPrefix    = mappend "_" . reserved
+fieldPrefix  = reserved . Text.dropWhile (not . isUpper)
+
+reserved :: Text -> Text
+reserved x
+    | x `elem` ["type", "instance", "class", "id"] = x <> "'"
+    | otherwise = x
+
 indent :: Int -> Text -> Text
 indent n = Text.intercalate "\n"
     . map (Text.replicate n " " <>)

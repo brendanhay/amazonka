@@ -220,9 +220,9 @@ instance ToJSON Python where
       where
         go p = case p of
             Empty      -> "id"
-            Keyed    k -> k
-            Index  x y -> "keyed " <> go y <> " " <> x
-            Apply  x y -> go y <> " $ " <> x
+            Keyed    k -> lensPrefix k
+            Index  x y -> "keyed " <> go y <> " " <> lensPrefix x
+            Apply  x y -> lensPrefix x <> " . " <> go y
             Choice x y -> "choice (" <> go x <> ") (" <> go y <> ")"
 
 instance ToJSON Token where
@@ -247,8 +247,7 @@ instance ToJSON Pagination where
             More k ts ->
                 let f x = (Text.pack ('p' : show x),)
                     m   = Map.fromList (zipWith f [1..length ts] ts)
-                    fn  = ", isNothing "
-                    pre = "and [isNothing " <> Text.intercalate fn (Map.keys m) <> "]"
+                    pre = "isNothing " <> Text.intercalate " && isNothing " (Map.keys m)
                  in [ "type"   .= ("many" :: Text)
                     , "more"   .= k
                     , "tokens" .= m

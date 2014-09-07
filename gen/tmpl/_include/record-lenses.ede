@@ -18,7 +18,6 @@
 {% else %}
 {{ field.value.prefixed | lens }} = lens {{ field.value.prefixed }} (\s a -> s { {{ field.value.prefixed }} = a })
 {% endif %}
-{-# INLINE {{ field.value.prefixed | lens }} #-}
   {% if !field.last %}
 
   {% endif %}

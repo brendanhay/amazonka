@@ -117,7 +117,7 @@ instance ToJSON DescribeObjects
 data DescribeObjectsResponse = DescribeObjectsResponse
     { _dorsPipelineObjects :: [PipelineObject]
     , _dorsMarker :: Maybe Text
-    , _dorsHasMoreResults :: Maybe Bool
+    , _dorsHasMoreResults :: Bool
     } deriving (Show, Generic)
 
 -- | An array of object definitions that are returned by the call to
@@ -132,7 +132,7 @@ dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorsMarker = lens _dorsMarker (\s a -> s { _dorsMarker = a })
 
 -- | If True, there are more pages of results to return.
-dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
+dorsHasMoreResults :: Lens' DescribeObjectsResponse Bool
 dorsHasMoreResults =
     lens _dorsHasMoreResults (\s a -> s { _dorsHasMoreResults = a })
 

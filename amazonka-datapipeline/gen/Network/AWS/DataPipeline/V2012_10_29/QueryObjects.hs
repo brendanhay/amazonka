@@ -120,7 +120,7 @@ instance ToJSON QueryObjects
 data QueryObjectsResponse = QueryObjectsResponse
     { _qorsIds :: [Text]
     , _qorsMarker :: Maybe Text
-    , _qorsHasMoreResults :: Maybe Bool
+    , _qorsHasMoreResults :: Bool
     } deriving (Show, Generic)
 
 -- | A list of identifiers that match the query selectors.
@@ -135,7 +135,7 @@ qorsMarker = lens _qorsMarker (\s a -> s { _qorsMarker = a })
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to QueryObjects.
-qorsHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
+qorsHasMoreResults :: Lens' QueryObjectsResponse Bool
 qorsHasMoreResults =
     lens _qorsHasMoreResults (\s a -> s { _qorsHasMoreResults = a })
 

@@ -81,7 +81,7 @@ instance ToJSON ListPipelines
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprsPipelineIdList :: [PipelineIdName]
     , _lprsMarker :: Maybe Text
-    , _lprsHasMoreResults :: Maybe Bool
+    , _lprsHasMoreResults :: Bool
     } deriving (Show, Generic)
 
 -- | A list of all the pipeline identifiers that your account has permission to
@@ -99,7 +99,7 @@ lprsMarker = lens _lprsMarker (\s a -> s { _lprsMarker = a })
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to ListPipelines.
-lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
+lprsHasMoreResults :: Lens' ListPipelinesResponse Bool
 lprsHasMoreResults =
     lens _lprsHasMoreResults (\s a -> s { _lprsHasMoreResults = a })
 

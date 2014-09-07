@@ -350,7 +350,7 @@ instance AWSRequest Query where
 
 instance AWSPager Query where
     next rq rs
-        | Map.null k = Nothing
+        | nullMap k = Nothing
         | otherwise  = Just (rq & qExclusiveStartKey .~ k)
       where
         k = rs ^. qrsLastEvaluatedKey

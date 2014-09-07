@@ -338,7 +338,7 @@ instance AWSRequest Scan where
 
 instance AWSPager Scan where
     next rq rs
-        | Map.null k = Nothing
+        | nullMap k = Nothing
         | otherwise  = Just (rq & sExclusiveStartKey .~ k)
       where
         k = rs ^. srsLastEvaluatedKey

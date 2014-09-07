@@ -48,7 +48,7 @@ module Network.AWS.Prelude
 
 import Control.Applicative    as Export
 import Control.Exception      (Exception)
-import Control.Lens           as Lens ((<&>), (&), (^.), (.~), (?~), Lens', lens)
+import Control.Lens           as Lens ((<&>), (&), (^.), (.~), (?~), Lens', lens, to)
 import Control.Monad.Identity as Export
 import Data.Aeson             (FromJSON(..), ToJSON(..))
 import Data.Bifunctor         as Export

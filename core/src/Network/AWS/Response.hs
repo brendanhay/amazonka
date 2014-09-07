@@ -42,8 +42,8 @@ import           Network.HTTP.Types
 import qualified Text.XML            as XML
 import           Text.XML.Cursor
 
-index :: ToText c => Getting c b c -> Getting [b] a [b] -> a -> Maybe Text
-index f g = fmap (toText . view f) . lastMay . view g
+index :: ToText c => Getting [b] a [b] -> Getting c b c -> a -> Maybe Text
+index g f = fmap (toText . view f) . lastMay . view g
 
 choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
 choice f g x = f x <|> g x

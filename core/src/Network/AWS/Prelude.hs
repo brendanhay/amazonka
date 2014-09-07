@@ -43,14 +43,12 @@ module Network.AWS.Prelude
     , Switch          (..)
 
     -- * Lenses
-    , (<&>)
-    , Lens'
-    , lens
+    , module Lens
     ) where
 
 import Control.Applicative    as Export
 import Control.Exception      (Exception)
-import Control.Lens           ((<&>), Lens', lens)
+import Control.Lens           as Lens ((<&>), (&), (^.), (.~), (?~), Lens', lens)
 import Control.Monad.Identity as Export
 import Data.Aeson             (FromJSON(..), ToJSON(..))
 import Data.Bifunctor         as Export

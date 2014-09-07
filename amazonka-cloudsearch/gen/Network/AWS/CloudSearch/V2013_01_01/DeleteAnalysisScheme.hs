@@ -56,7 +56,6 @@ mkDeleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
     { _das1DomainName = p1
     , _das1AnalysisSchemeName = p2
     }
-{-# INLINE mkDeleteAnalysisScheme #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -64,13 +63,11 @@ mkDeleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
 -- (lowercase), 0-9, and - (hyphen).
 das1DomainName :: Lens' DeleteAnalysisScheme Text
 das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
-{-# INLINE das1DomainName #-}
 
 -- | The name of the analysis scheme you want to delete.
 das1AnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
 das1AnalysisSchemeName =
     lens _das1AnalysisSchemeName (\s a -> s { _das1AnalysisSchemeName = a })
-{-# INLINE das1AnalysisSchemeName #-}
 
 instance ToQuery DeleteAnalysisScheme where
     toQuery = genericQuery def
@@ -85,7 +82,6 @@ newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
 dasrsrsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasrsrsAnalysisScheme =
     lens _dasrsrsAnalysisScheme (\s a -> s { _dasrsrsAnalysisScheme = a })
-{-# INLINE dasrsrsAnalysisScheme #-}
 
 instance FromXML DeleteAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions

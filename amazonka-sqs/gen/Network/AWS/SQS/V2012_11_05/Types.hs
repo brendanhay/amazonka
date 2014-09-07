@@ -228,13 +228,11 @@ mkChangeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrersId'
 mkChangeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultEntry
     { _cmvbrersId = p1
     }
-{-# INLINE mkChangeMessageVisibilityBatchResultEntry #-}
 
 -- | Represents a message whose visibility timeout has been changed
 -- successfully.
 cmvbrersId :: Lens' ChangeMessageVisibilityBatchResultEntry Text
 cmvbrersId = lens _cmvbrersId (\s a -> s { _cmvbrersId = a })
-{-# INLINE cmvbrersId #-}
 
 instance FromXML ChangeMessageVisibilityBatchResultEntry where
     fromXMLOptions = xmlOptions
@@ -252,12 +250,10 @@ mkDeleteMessageBatchResultEntry :: Text -- ^ 'dmbrersId'
 mkDeleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
     { _dmbrersId = p1
     }
-{-# INLINE mkDeleteMessageBatchResultEntry #-}
 
 -- | Represents a successfully deleted message.
 dmbrersId :: Lens' DeleteMessageBatchResultEntry Text
 dmbrersId = lens _dmbrersId (\s a -> s { _dmbrersId = a })
-{-# INLINE dmbrersId #-}
 
 instance FromXML DeleteMessageBatchResultEntry where
     fromXMLOptions = xmlOptions
@@ -284,27 +280,22 @@ mkBatchResultErrorEntry p1 p2 p3 = BatchResultErrorEntry
     , _breeCode = p3
     , _breeMessage = Nothing
     }
-{-# INLINE mkBatchResultErrorEntry #-}
 
 -- | The id of an entry in a batch request.
 breeId :: Lens' BatchResultErrorEntry Text
 breeId = lens _breeId (\s a -> s { _breeId = a })
-{-# INLINE breeId #-}
 
 -- | Whether the error happened due to the sender's fault.
 breeSenderFault :: Lens' BatchResultErrorEntry Bool
 breeSenderFault = lens _breeSenderFault (\s a -> s { _breeSenderFault = a })
-{-# INLINE breeSenderFault #-}
 
 -- | An error code representing why the action failed on this entry.
 breeCode :: Lens' BatchResultErrorEntry Text
 breeCode = lens _breeCode (\s a -> s { _breeCode = a })
-{-# INLINE breeCode #-}
 
 -- | A message explaining why the action failed on this entry.
 breeMessage :: Lens' BatchResultErrorEntry (Maybe Text)
 breeMessage = lens _breeMessage (\s a -> s { _breeMessage = a })
-{-# INLINE breeMessage #-}
 
 instance FromXML BatchResultErrorEntry where
     fromXMLOptions = xmlOptions
@@ -335,27 +326,23 @@ mkChangeMessageVisibilityBatchRequestEntry p1 p2 = ChangeMessageVisibilityBatchR
     , _cmvbreReceiptHandle = p2
     , _cmvbreVisibilityTimeout = Nothing
     }
-{-# INLINE mkChangeMessageVisibilityBatchRequestEntry #-}
 
 -- | An identifier for this particular receipt handle. This is used to
 -- communicate the result. Note that the Ids of a batch request need to be
 -- unique within the request.
 cmvbreId :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cmvbreId = lens _cmvbreId (\s a -> s { _cmvbreId = a })
-{-# INLINE cmvbreId #-}
 
 -- | A receipt handle.
 cmvbreReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cmvbreReceiptHandle =
     lens _cmvbreReceiptHandle (\s a -> s { _cmvbreReceiptHandle = a })
-{-# INLINE cmvbreReceiptHandle #-}
 
 -- | The new value (in seconds) for the message's visibility timeout.
 cmvbreVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Integer)
 cmvbreVisibilityTimeout =
     lens _cmvbreVisibilityTimeout
          (\s a -> s { _cmvbreVisibilityTimeout = a })
-{-# INLINE cmvbreVisibilityTimeout #-}
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
     toQuery = genericQuery def
@@ -375,20 +362,17 @@ mkDeleteMessageBatchRequestEntry p1 p2 = DeleteMessageBatchRequestEntry
     { _dmbreId = p1
     , _dmbreReceiptHandle = p2
     }
-{-# INLINE mkDeleteMessageBatchRequestEntry #-}
 
 -- | An identifier for this particular receipt handle. This is used to
 -- communicate the result. Note that the Ids of a batch request need to be
 -- unique within the request.
 dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreId = lens _dmbreId (\s a -> s { _dmbreId = a })
-{-# INLINE dmbreId #-}
 
 -- | A receipt handle.
 dmbreReceiptHandle :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreReceiptHandle =
     lens _dmbreReceiptHandle (\s a -> s { _dmbreReceiptHandle = a })
-{-# INLINE dmbreReceiptHandle #-}
 
 instance ToQuery DeleteMessageBatchRequestEntry where
     toQuery = genericQuery def
@@ -416,13 +400,11 @@ mkMessage = Message
     , _mMD5OfMessageAttributes = Nothing
     , _mMessageAttributes = mempty
     }
-{-# INLINE mkMessage #-}
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
 mMessageId :: Lens' Message (Maybe Text)
 mMessageId = lens _mMessageId (\s a -> s { _mMessageId = a })
-{-# INLINE mMessageId #-}
 
 -- | An identifier associated with the act of receiving the message. A new
 -- receipt handle is returned every time you receive a message. When deleting
@@ -430,17 +412,14 @@ mMessageId = lens _mMessageId (\s a -> s { _mMessageId = a })
 -- message.
 mReceiptHandle :: Lens' Message (Maybe Text)
 mReceiptHandle = lens _mReceiptHandle (\s a -> s { _mReceiptHandle = a })
-{-# INLINE mReceiptHandle #-}
 
 -- | An MD5 digest of the non-URL-encoded message body string.
 mMD5OfBody :: Lens' Message (Maybe Text)
 mMD5OfBody = lens _mMD5OfBody (\s a -> s { _mMD5OfBody = a })
-{-# INLINE mMD5OfBody #-}
 
 -- | The message's contents (not URL-encoded).
 mBody :: Lens' Message (Maybe Text)
 mBody = lens _mBody (\s a -> s { _mBody = a })
-{-# INLINE mBody #-}
 
 -- | SenderId, SentTimestamp, ApproximateReceiveCount, and/or
 -- ApproximateFirstReceiveTimestamp. SentTimestamp and
@@ -448,7 +427,6 @@ mBody = lens _mBody (\s a -> s { _mBody = a })
 -- representing the epoch time in milliseconds.
 mAttributes :: Lens' Message (Map QueueAttributeName Text)
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a })
-{-# INLINE mAttributes #-}
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can be
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
@@ -458,14 +436,12 @@ mMD5OfMessageAttributes :: Lens' Message (Maybe Text)
 mMD5OfMessageAttributes =
     lens _mMD5OfMessageAttributes
          (\s a -> s { _mMD5OfMessageAttributes = a })
-{-# INLINE mMD5OfMessageAttributes #-}
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
 mMessageAttributes :: Lens' Message (Map Text MessageAttributeValue)
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
-{-# INLINE mMessageAttributes #-}
 
 instance FromXML Message where
     fromXMLOptions = xmlOptions
@@ -497,38 +473,32 @@ mkMessageAttributeValue p5 = MessageAttributeValue
     , _mavBinaryListValues = mempty
     , _mavDataType = p5
     }
-{-# INLINE mkMessageAttributeValue #-}
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
 -- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
-{-# INLINE mavStringValue #-}
 
 -- | Binary type attributes can store any binary data, for example, compressed
 -- data, encrypted data, or images.
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
-{-# INLINE mavBinaryValue #-}
 
 -- | Not implemented. Reserved for future use.
 mavStringListValues :: Lens' MessageAttributeValue [Text]
 mavStringListValues =
     lens _mavStringListValues (\s a -> s { _mavStringListValues = a })
-{-# INLINE mavStringListValues #-}
 
 -- | Not implemented. Reserved for future use.
 mavBinaryListValues :: Lens' MessageAttributeValue [ByteString]
 mavBinaryListValues =
     lens _mavBinaryListValues (\s a -> s { _mavBinaryListValues = a })
-{-# INLINE mavBinaryListValues #-}
 
 -- | Amazon SQS supports the following logical data types: String, Number, and
 -- Binary. In addition, you can append your own custom labels. For more
 -- information, see Message Attribute Data Types.
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
-{-# INLINE mavDataType #-}
 
 instance FromXML MessageAttributeValue where
     fromXMLOptions = xmlOptions
@@ -556,33 +526,28 @@ mkSendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
     , _smbreDelaySeconds = Nothing
     , _smbreMessageAttributes = mempty
     }
-{-# INLINE mkSendMessageBatchRequestEntry #-}
 
 -- | An identifier for the message in this batch. This is used to communicate
 -- the result. Note that the Ids of a batch request need to be unique within
 -- the request.
 smbreId :: Lens' SendMessageBatchRequestEntry Text
 smbreId = lens _smbreId (\s a -> s { _smbreId = a })
-{-# INLINE smbreId #-}
 
 -- | Body of the message.
 smbreMessageBody :: Lens' SendMessageBatchRequestEntry Text
 smbreMessageBody =
     lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
-{-# INLINE smbreMessageBody #-}
 
 -- | The number of seconds for which the message has to be delayed.
 smbreDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Integer)
 smbreDelaySeconds =
     lens _smbreDelaySeconds (\s a -> s { _smbreDelaySeconds = a })
-{-# INLINE smbreDelaySeconds #-}
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
 smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry (Map Text MessageAttributeValue)
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
-{-# INLINE smbreMessageAttributes #-}
 
 instance ToQuery SendMessageBatchRequestEntry where
     toQuery = genericQuery def
@@ -608,18 +573,15 @@ mkSendMessageBatchResultEntry p1 p2 p3 = SendMessageBatchResultEntry
     , _smbrersMD5OfMessageBody = p3
     , _smbrersMD5OfMessageAttributes = Nothing
     }
-{-# INLINE mkSendMessageBatchResultEntry #-}
 
 -- | An identifier for the message in this batch.
 smbrersId :: Lens' SendMessageBatchResultEntry Text
 smbrersId = lens _smbrersId (\s a -> s { _smbrersId = a })
-{-# INLINE smbrersId #-}
 
 -- | An identifier for the message.
 smbrersMessageId :: Lens' SendMessageBatchResultEntry Text
 smbrersMessageId =
     lens _smbrersMessageId (\s a -> s { _smbrersMessageId = a })
-{-# INLINE smbrersMessageId #-}
 
 -- | An MD5 digest of the non-URL-encoded message body string. This can be used
 -- to verify that Amazon SQS received the message correctly. Amazon SQS first
@@ -629,7 +591,6 @@ smbrersMD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
 smbrersMD5OfMessageBody =
     lens _smbrersMD5OfMessageBody
          (\s a -> s { _smbrersMD5OfMessageBody = a })
-{-# INLINE smbrersMD5OfMessageBody #-}
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can be
 -- used to verify that Amazon SQS received the message batch correctly. Amazon
@@ -639,7 +600,6 @@ smbrersMD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
 smbrersMD5OfMessageAttributes =
     lens _smbrersMD5OfMessageAttributes
          (\s a -> s { _smbrersMD5OfMessageAttributes = a })
-{-# INLINE smbrersMD5OfMessageAttributes #-}
 
 instance FromXML SendMessageBatchResultEntry where
     fromXMLOptions = xmlOptions

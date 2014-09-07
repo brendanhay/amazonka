@@ -47,12 +47,10 @@ mkEnableAlarmActions :: [Text] -- ^ 'eaaAlarmNames'
 mkEnableAlarmActions p1 = EnableAlarmActions
     { _eaaAlarmNames = p1
     }
-{-# INLINE mkEnableAlarmActions #-}
 
 -- | The names of the alarms to enable actions for.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
 eaaAlarmNames = lens _eaaAlarmNames (\s a -> s { _eaaAlarmNames = a })
-{-# INLINE eaaAlarmNames #-}
 
 instance ToQuery EnableAlarmActions where
     toQuery = genericQuery def

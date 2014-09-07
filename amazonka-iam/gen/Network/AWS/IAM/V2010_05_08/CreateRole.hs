@@ -70,26 +70,22 @@ mkCreateRole p2 p3 = CreateRole
     , _crRoleName = p2
     , _crAssumeRolePolicyDocument = p3
     }
-{-# INLINE mkCreateRole #-}
 
 -- | The path to the role. For more information about paths, see Identifiers for
 -- IAM Entities in the Using IAM guide. This parameter is optional. If it is
 -- not included, it defaults to a slash (/).
 crPath :: Lens' CreateRole (Maybe Text)
 crPath = lens _crPath (\s a -> s { _crPath = a })
-{-# INLINE crPath #-}
 
 -- | Name of the role to create.
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
-{-# INLINE crRoleName #-}
 
 -- | The policy that grants an entity permission to assume the role.
 crAssumeRolePolicyDocument :: Lens' CreateRole Text
 crAssumeRolePolicyDocument =
     lens _crAssumeRolePolicyDocument
          (\s a -> s { _crAssumeRolePolicyDocument = a })
-{-# INLINE crAssumeRolePolicyDocument #-}
 
 instance ToQuery CreateRole where
     toQuery = genericQuery def
@@ -102,7 +98,6 @@ newtype CreateRoleResponse = CreateRoleResponse
 -- | Information about the role.
 crrsRole :: Lens' CreateRoleResponse Role
 crrsRole = lens _crrsRole (\s a -> s { _crrsRole = a })
-{-# INLINE crrsRole #-}
 
 instance FromXML CreateRoleResponse where
     fromXMLOptions = xmlOptions

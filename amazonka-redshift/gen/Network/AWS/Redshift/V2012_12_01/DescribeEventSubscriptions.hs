@@ -57,14 +57,12 @@ mkDescribeEventSubscriptions = DescribeEventSubscriptions
     , _des1MaxRecords = Nothing
     , _des1Marker = Nothing
     }
-{-# INLINE mkDescribeEventSubscriptions #-}
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
 des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
-{-# INLINE des1SubscriptionName #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -73,7 +71,6 @@ des1SubscriptionName =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Integer)
 des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
-{-# INLINE des1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeEventSubscriptions request
@@ -83,7 +80,6 @@ des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
 -- the request.
 des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
-{-# INLINE des1Marker #-}
 
 instance ToQuery DescribeEventSubscriptions where
     toQuery = genericQuery def
@@ -101,14 +97,12 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
 -- is empty, all response records have been retrieved for the request.
 desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrsMarker = lens _desrsMarker (\s a -> s { _desrsMarker = a })
-{-# INLINE desrsMarker #-}
 
 -- | A list of event subscriptions.
 desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
 desrsEventSubscriptionsList =
     lens _desrsEventSubscriptionsList
          (\s a -> s { _desrsEventSubscriptionsList = a })
-{-# INLINE desrsEventSubscriptionsList #-}
 
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions
@@ -121,5 +115,5 @@ instance AWSRequest DescribeEventSubscriptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeEventSubscriptions where
-    next rq rs = (\x -> rq { _des1Marker = Just x })
-        <$> (_desrsMarker rs)
+    next rq rs = (\x -> rq & des1Marker ?~ x) <$> (rs ^. desrsMarker)
+

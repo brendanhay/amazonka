@@ -52,11 +52,9 @@ mkGetBucketWebsite :: BucketName -- ^ 'gbwBucket'
 mkGetBucketWebsite p1 = GetBucketWebsite
     { _gbwBucket = p1
     }
-{-# INLINE mkGetBucketWebsite #-}
 
 gbwBucket :: Lens' GetBucketWebsite BucketName
 gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
-{-# INLINE gbwBucket #-}
 
 instance ToPath GetBucketWebsite where
     toPath GetBucketWebsite{..} = mconcat
@@ -84,22 +82,18 @@ gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllR
 gbwrsRedirectAllRequestsTo =
     lens _gbwrsRedirectAllRequestsTo
          (\s a -> s { _gbwrsRedirectAllRequestsTo = a })
-{-# INLINE gbwrsRedirectAllRequestsTo #-}
 
 gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrsIndexDocument =
     lens _gbwrsIndexDocument (\s a -> s { _gbwrsIndexDocument = a })
-{-# INLINE gbwrsIndexDocument #-}
 
 gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrsErrorDocument =
     lens _gbwrsErrorDocument (\s a -> s { _gbwrsErrorDocument = a })
-{-# INLINE gbwrsErrorDocument #-}
 
 gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrsRoutingRules =
     lens _gbwrsRoutingRules (\s a -> s { _gbwrsRoutingRules = a })
-{-# INLINE gbwrsRoutingRules #-}
 
 instance FromXML GetBucketWebsiteResponse where
     fromXMLOptions = xmlOptions

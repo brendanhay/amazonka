@@ -73,20 +73,17 @@ mkDeleteChapCredentials p1 p2 = DeleteChapCredentials
     { _dccTargetARN = p1
     , _dccInitiatorName = p2
     }
-{-# INLINE mkDeleteChapCredentials #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
 dccTargetARN :: Lens' DeleteChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
-{-# INLINE dccTargetARN #-}
 
 -- | The iSCSI initiator that connects to the target.
 dccInitiatorName :: Lens' DeleteChapCredentials Text
 dccInitiatorName =
     lens _dccInitiatorName (\s a -> s { _dccInitiatorName = a })
-{-# INLINE dccInitiatorName #-}
 
 instance ToPath DeleteChapCredentials
 
@@ -105,13 +102,11 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
 -- | The Amazon Resource Name (ARN) of the target.
 dccrsTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccrsTargetARN = lens _dccrsTargetARN (\s a -> s { _dccrsTargetARN = a })
-{-# INLINE dccrsTargetARN #-}
 
 -- | The iSCSI initiator that connects to the target.
 dccrsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccrsInitiatorName =
     lens _dccrsInitiatorName (\s a -> s { _dccrsInitiatorName = a })
-{-# INLINE dccrsInitiatorName #-}
 
 instance FromJSON DeleteChapCredentialsResponse
 

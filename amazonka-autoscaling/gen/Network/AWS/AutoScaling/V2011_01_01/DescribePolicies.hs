@@ -71,14 +71,12 @@ mkDescribePolicies = DescribePolicies
     , _dp1NextToken = Nothing
     , _dp1MaxRecords = Nothing
     }
-{-# INLINE mkDescribePolicies #-}
 
 -- | The name of the Auto Scaling group.
 dp1AutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dp1AutoScalingGroupName =
     lens _dp1AutoScalingGroupName
          (\s a -> s { _dp1AutoScalingGroupName = a })
-{-# INLINE dp1AutoScalingGroupName #-}
 
 -- | A list of policy names or policy ARNs to be described. If this list is
 -- omitted, all policy names are described. If an auto scaling group name is
@@ -87,18 +85,15 @@ dp1AutoScalingGroupName =
 -- requested, they are ignored with no error.
 dp1PolicyNames :: Lens' DescribePolicies [Text]
 dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a })
-{-# INLINE dp1PolicyNames #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
 dp1NextToken :: Lens' DescribePolicies (Maybe Text)
 dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
-{-# INLINE dp1NextToken #-}
 
 -- | The maximum number of policies that will be described with each call.
 dp1MaxRecords :: Lens' DescribePolicies (Maybe Integer)
 dp1MaxRecords = lens _dp1MaxRecords (\s a -> s { _dp1MaxRecords = a })
-{-# INLINE dp1MaxRecords #-}
 
 instance ToQuery DescribePolicies where
     toQuery = genericQuery def
@@ -113,12 +108,10 @@ data DescribePoliciesResponse = DescribePoliciesResponse
 dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprsScalingPolicies =
     lens _dprsScalingPolicies (\s a -> s { _dprsScalingPolicies = a })
-{-# INLINE dprsScalingPolicies #-}
 
 -- | A string that marks the start of the next batch of returned results.
 dprsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
 dprsNextToken = lens _dprsNextToken (\s a -> s { _dprsNextToken = a })
-{-# INLINE dprsNextToken #-}
 
 instance FromXML DescribePoliciesResponse where
     fromXMLOptions = xmlOptions
@@ -131,5 +124,5 @@ instance AWSRequest DescribePolicies where
     response _ = xmlResponse
 
 instance AWSPager DescribePolicies where
-    next rq rs = (\x -> rq { _dp1NextToken = Just x })
-        <$> (_dprsNextToken rs)
+    next rq rs = (\x -> rq & dp1NextToken ?~ x) <$> (rs ^. dprsNextToken)
+

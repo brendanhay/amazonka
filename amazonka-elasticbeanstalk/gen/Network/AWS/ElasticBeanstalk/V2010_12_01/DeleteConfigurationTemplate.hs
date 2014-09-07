@@ -57,18 +57,15 @@ mkDeleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
     { _dctApplicationName = p1
     , _dctTemplateName = p2
     }
-{-# INLINE mkDeleteConfigurationTemplate #-}
 
 -- | The name of the application to delete the configuration template from.
 dctApplicationName :: Lens' DeleteConfigurationTemplate Text
 dctApplicationName =
     lens _dctApplicationName (\s a -> s { _dctApplicationName = a })
-{-# INLINE dctApplicationName #-}
 
 -- | The name of the configuration template to delete.
 dctTemplateName :: Lens' DeleteConfigurationTemplate Text
 dctTemplateName = lens _dctTemplateName (\s a -> s { _dctTemplateName = a })
-{-# INLINE dctTemplateName #-}
 
 instance ToQuery DeleteConfigurationTemplate where
     toQuery = genericQuery def

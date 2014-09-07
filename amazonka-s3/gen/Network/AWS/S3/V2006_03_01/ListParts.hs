@@ -73,32 +73,26 @@ mkListParts p1 p2 p5 = ListParts
     , _lpPartNumberMarker = Nothing
     , _lpUploadId = p5
     }
-{-# INLINE mkListParts #-}
 
 lpBucket :: Lens' ListParts BucketName
 lpBucket = lens _lpBucket (\s a -> s { _lpBucket = a })
-{-# INLINE lpBucket #-}
 
 lpKey :: Lens' ListParts ObjectKey
 lpKey = lens _lpKey (\s a -> s { _lpKey = a })
-{-# INLINE lpKey #-}
 
 -- | Sets the maximum number of parts to return.
 lpMaxParts :: Lens' ListParts (Maybe Integer)
 lpMaxParts = lens _lpMaxParts (\s a -> s { _lpMaxParts = a })
-{-# INLINE lpMaxParts #-}
 
 -- | Specifies the part after which listing should begin. Only parts with higher
 -- part numbers will be listed.
 lpPartNumberMarker :: Lens' ListParts (Maybe Integer)
 lpPartNumberMarker =
     lens _lpPartNumberMarker (\s a -> s { _lpPartNumberMarker = a })
-{-# INLINE lpPartNumberMarker #-}
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 lpUploadId :: Lens' ListParts Text
 lpUploadId = lens _lpUploadId (\s a -> s { _lpUploadId = a })
-{-# INLINE lpUploadId #-}
 
 instance ToPath ListParts where
     toPath ListParts{..} = mconcat
@@ -136,23 +130,19 @@ data ListPartsResponse = ListPartsResponse
 -- | Name of the bucket to which the multipart upload was initiated.
 lprsBucket :: Lens' ListPartsResponse (Maybe BucketName)
 lprsBucket = lens _lprsBucket (\s a -> s { _lprsBucket = a })
-{-# INLINE lprsBucket #-}
 
 -- | Object key for which the multipart upload was initiated.
 lprsKey :: Lens' ListPartsResponse (Maybe ObjectKey)
 lprsKey = lens _lprsKey (\s a -> s { _lprsKey = a })
-{-# INLINE lprsKey #-}
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 lprsUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsUploadId = lens _lprsUploadId (\s a -> s { _lprsUploadId = a })
-{-# INLINE lprsUploadId #-}
 
 -- | Part number after which listing begins.
 lprsPartNumberMarker :: Lens' ListPartsResponse (Maybe Integer)
 lprsPartNumberMarker =
     lens _lprsPartNumberMarker (\s a -> s { _lprsPartNumberMarker = a })
-{-# INLINE lprsPartNumberMarker #-}
 
 -- | When a list is truncated, this element specifies the last part in the list,
 -- as well as the value to use for the part-number-marker request parameter in
@@ -161,36 +151,29 @@ lprsNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Integer)
 lprsNextPartNumberMarker =
     lens _lprsNextPartNumberMarker
          (\s a -> s { _lprsNextPartNumberMarker = a })
-{-# INLINE lprsNextPartNumberMarker #-}
 
 -- | Maximum number of parts that were allowed in the response.
 lprsMaxParts :: Lens' ListPartsResponse (Maybe Integer)
 lprsMaxParts = lens _lprsMaxParts (\s a -> s { _lprsMaxParts = a })
-{-# INLINE lprsMaxParts #-}
 
 -- | Indicates whether the returned list of parts is truncated.
 lprsIsTruncated :: Lens' ListPartsResponse Bool
 lprsIsTruncated = lens _lprsIsTruncated (\s a -> s { _lprsIsTruncated = a })
-{-# INLINE lprsIsTruncated #-}
 
 lprsParts :: Lens' ListPartsResponse [Part]
 lprsParts = lens _lprsParts (\s a -> s { _lprsParts = a })
-{-# INLINE lprsParts #-}
 
 -- | Identifies who initiated the multipart upload.
 lprsInitiator :: Lens' ListPartsResponse (Maybe Initiator)
 lprsInitiator = lens _lprsInitiator (\s a -> s { _lprsInitiator = a })
-{-# INLINE lprsInitiator #-}
 
 lprsOwner :: Lens' ListPartsResponse (Maybe Owner)
 lprsOwner = lens _lprsOwner (\s a -> s { _lprsOwner = a })
-{-# INLINE lprsOwner #-}
 
 -- | The class of storage used to store the object.
 lprsStorageClass :: Lens' ListPartsResponse (Maybe StorageClass)
 lprsStorageClass =
     lens _lprsStorageClass (\s a -> s { _lprsStorageClass = a })
-{-# INLINE lprsStorageClass #-}
 
 instance FromXML ListPartsResponse where
     fromXMLOptions = xmlOptions
@@ -204,7 +187,5 @@ instance AWSRequest ListParts where
 
 instance AWSPager ListParts where
     next rq rs
-        | not (_lprsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lpPartNumberMarker = _lprsNextPartNumberMarker rs
-            }
+        | not (rs ^. lprsIsTruncated) = Nothing
+        | otherwise = Just (rq & lpPartNumberMarker .~ rs ^. lprsNextPartNumberMarker)

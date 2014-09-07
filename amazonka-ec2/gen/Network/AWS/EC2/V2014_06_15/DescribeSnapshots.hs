@@ -95,25 +95,21 @@ mkDescribeSnapshots = DescribeSnapshots
     , _ds2RestorableByUserIds = mempty
     , _ds2Filters = mempty
     }
-{-# INLINE mkDescribeSnapshots #-}
 
 -- | One or more snapshot IDs. Default: Describes snapshots for which you have
 -- launch permissions.
 ds2SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds2SnapshotIds = lens _ds2SnapshotIds (\s a -> s { _ds2SnapshotIds = a })
-{-# INLINE ds2SnapshotIds #-}
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
 ds2OwnerIds :: Lens' DescribeSnapshots [Text]
 ds2OwnerIds = lens _ds2OwnerIds (\s a -> s { _ds2OwnerIds = a })
-{-# INLINE ds2OwnerIds #-}
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
 ds2RestorableByUserIds :: Lens' DescribeSnapshots [Text]
 ds2RestorableByUserIds =
     lens _ds2RestorableByUserIds (\s a -> s { _ds2RestorableByUserIds = a })
-{-# INLINE ds2RestorableByUserIds #-}
 
 -- | One or more filters. description - A description of the snapshot.
 -- owner-alias - The AWS account alias (for example, amazon) that owns the
@@ -134,7 +130,6 @@ ds2RestorableByUserIds =
 -- in GiB.
 ds2Filters :: Lens' DescribeSnapshots [Filter]
 ds2Filters = lens _ds2Filters (\s a -> s { _ds2Filters = a })
-{-# INLINE ds2Filters #-}
 
 instance ToQuery DescribeSnapshots where
     toQuery = genericQuery def
@@ -147,7 +142,6 @@ newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
 -- | 
 dsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrsSnapshots = lens _dsrsSnapshots (\s a -> s { _dsrsSnapshots = a })
-{-# INLINE dsrsSnapshots #-}
 
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions

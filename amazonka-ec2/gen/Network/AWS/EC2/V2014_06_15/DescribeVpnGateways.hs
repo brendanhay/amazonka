@@ -73,14 +73,12 @@ mkDescribeVpnGateways = DescribeVpnGateways
     { _dvg1VpnGatewayIds = mempty
     , _dvg1Filters = mempty
     }
-{-# INLINE mkDescribeVpnGateways #-}
 
 -- | One or more virtual private gateway IDs. Default: Describes all your
 -- virtual private gateways.
 dvg1VpnGatewayIds :: Lens' DescribeVpnGateways [Text]
 dvg1VpnGatewayIds =
     lens _dvg1VpnGatewayIds (\s a -> s { _dvg1VpnGatewayIds = a })
-{-# INLINE dvg1VpnGatewayIds #-}
 
 -- | One or more filters. attachment.state - The current state of the attachment
 -- between the gateway and the VPC (attaching | attached | detaching |
@@ -100,7 +98,6 @@ dvg1VpnGatewayIds =
 -- vpn-gateway-id - The ID of the virtual private gateway.
 dvg1Filters :: Lens' DescribeVpnGateways [Filter]
 dvg1Filters = lens _dvg1Filters (\s a -> s { _dvg1Filters = a })
-{-# INLINE dvg1Filters #-}
 
 instance ToQuery DescribeVpnGateways where
     toQuery = genericQuery def
@@ -114,7 +111,6 @@ newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 dvgrsVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
 dvgrsVpnGateways =
     lens _dvgrsVpnGateways (\s a -> s { _dvgrsVpnGateways = a })
-{-# INLINE dvgrsVpnGateways #-}
 
 instance FromXML DescribeVpnGatewaysResponse where
     fromXMLOptions = xmlOptions

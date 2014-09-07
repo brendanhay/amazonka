@@ -58,26 +58,22 @@ mkDescribeCommands = DescribeCommands
     , _dc1InstanceId = Nothing
     , _dc1CommandIds = mempty
     }
-{-# INLINE mkDescribeCommands #-}
 
 -- | The deployment ID. If you include this parameter, DescribeCommands returns
 -- a description of the commands associated with the specified deployment.
 dc1DeploymentId :: Lens' DescribeCommands (Maybe Text)
 dc1DeploymentId = lens _dc1DeploymentId (\s a -> s { _dc1DeploymentId = a })
-{-# INLINE dc1DeploymentId #-}
 
 -- | The instance ID. If you include this parameter, DescribeCommands returns a
 -- description of the commands associated with the specified instance.
 dc1InstanceId :: Lens' DescribeCommands (Maybe Text)
 dc1InstanceId = lens _dc1InstanceId (\s a -> s { _dc1InstanceId = a })
-{-# INLINE dc1InstanceId #-}
 
 -- | An array of command IDs. If you include this parameter, DescribeCommands
 -- returns a description of the specified commands. Otherwise, it returns a
 -- description of every command.
 dc1CommandIds :: Lens' DescribeCommands [Text]
 dc1CommandIds = lens _dc1CommandIds (\s a -> s { _dc1CommandIds = a })
-{-# INLINE dc1CommandIds #-}
 
 instance ToPath DescribeCommands
 
@@ -95,7 +91,6 @@ newtype DescribeCommandsResponse = DescribeCommandsResponse
 -- | An array of Command objects that describe each of the specified commands.
 dcrsCommands :: Lens' DescribeCommandsResponse [Command]
 dcrsCommands = lens _dcrsCommands (\s a -> s { _dcrsCommands = a })
-{-# INLINE dcrsCommands #-}
 
 instance FromJSON DescribeCommandsResponse
 

@@ -63,20 +63,17 @@ mkDeleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     { _dvcrVpnConnectionId = p1
     , _dvcrDestinationCidrBlock = p2
     }
-{-# INLINE mkDeleteVpnConnectionRoute #-}
 
 -- | The ID of the VPN connection.
 dvcrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
 dvcrVpnConnectionId =
     lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })
-{-# INLINE dvcrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
 dvcrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute Text
 dvcrDestinationCidrBlock =
     lens _dvcrDestinationCidrBlock
          (\s a -> s { _dvcrDestinationCidrBlock = a })
-{-# INLINE dvcrDestinationCidrBlock #-}
 
 instance ToQuery DeleteVpnConnectionRoute where
     toQuery = genericQuery def

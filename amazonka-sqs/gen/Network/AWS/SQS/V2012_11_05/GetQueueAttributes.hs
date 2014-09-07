@@ -100,18 +100,15 @@ mkGetQueueAttributes p1 = GetQueueAttributes
     { _gqaQueueUrl = p1
     , _gqaAttributeNames = mempty
     }
-{-# INLINE mkGetQueueAttributes #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
-{-# INLINE gqaQueueUrl #-}
 
 -- | A list of attributes to retrieve information for.
 gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
 gqaAttributeNames =
     lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
-{-# INLINE gqaAttributeNames #-}
 
 instance ToQuery GetQueueAttributes where
     toQuery = genericQuery def
@@ -124,7 +121,6 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 -- | A map of attributes to the respective values.
 gqarsAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
 gqarsAttributes = lens _gqarsAttributes (\s a -> s { _gqarsAttributes = a })
-{-# INLINE gqarsAttributes #-}
 
 instance FromXML GetQueueAttributesResponse where
     fromXMLOptions = xmlOptions

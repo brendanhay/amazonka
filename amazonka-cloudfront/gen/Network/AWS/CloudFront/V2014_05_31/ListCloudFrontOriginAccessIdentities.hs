@@ -52,7 +52,6 @@ mkListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker = Nothing
     , _lcfoaiMaxItems = Nothing
     }
-{-# INLINE mkListCloudFrontOriginAccessIdentities #-}
 
 -- | Use this when paginating results to indicate where to begin in your list of
 -- origin access identities. The results include identities in the list that
@@ -61,13 +60,11 @@ mkListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 -- the ID of the last identity on that page).
 lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\s a -> s { _lcfoaiMarker = a })
-{-# INLINE lcfoaiMarker #-}
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
 lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
-{-# INLINE lcfoaiMaxItems #-}
 
 instance ToPath ListCloudFrontOriginAccessIdentities where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
@@ -86,15 +83,14 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
 
 -- | The returned result of the corresponding request.
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoairsCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
+    { _lcfoairsCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
     } deriving (Show, Generic)
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse (Maybe CloudFrontOriginAccessIdentityList)
+lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
 lcfoairsCloudFrontOriginAccessIdentityList =
     lens _lcfoairsCloudFrontOriginAccessIdentityList
          (\s a -> s { _lcfoairsCloudFrontOriginAccessIdentityList = a })
-{-# INLINE lcfoairsCloudFrontOriginAccessIdentityList #-}
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     fromXMLOptions = xmlOptions
@@ -108,7 +104,5 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs
-        | not (_cfoailIsTruncated $ _lcfoairsCloudFrontOriginAccessIdentityList rs) = Nothing
-        | otherwise = Just $ rq
-            { _lcfoaiMarker = _cfoailNextMarker $ _lcfoairsCloudFrontOriginAccessIdentityList rs
-            }
+        | not (rs ^. lcfoairsCloudFrontOriginAccessIdentityList . cfoailIsTruncated) = Nothing
+        | otherwise = Just (rq & lcfoaiMarker .~ rs ^. lcfoairsCloudFrontOriginAccessIdentityList . cfoailNextMarker)

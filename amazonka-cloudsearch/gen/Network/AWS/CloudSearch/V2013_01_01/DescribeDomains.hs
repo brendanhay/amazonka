@@ -56,12 +56,10 @@ mkDescribeDomains :: DescribeDomains
 mkDescribeDomains = DescribeDomains
     { _dd1DomainNames = mempty
     }
-{-# INLINE mkDescribeDomains #-}
 
 -- | The names of the domains you want to include in the response.
 dd1DomainNames :: Lens' DescribeDomains [Text]
 dd1DomainNames = lens _dd1DomainNames (\s a -> s { _dd1DomainNames = a })
-{-# INLINE dd1DomainNames #-}
 
 instance ToQuery DescribeDomains where
     toQuery = genericQuery def
@@ -76,7 +74,6 @@ newtype DescribeDomainsResponse = DescribeDomainsResponse
 ddrsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddrsrsDomainStatusList =
     lens _ddrsrsDomainStatusList (\s a -> s { _ddrsrsDomainStatusList = a })
-{-# INLINE ddrsrsDomainStatusList #-}
 
 instance FromXML DescribeDomainsResponse where
     fromXMLOptions = xmlOptions

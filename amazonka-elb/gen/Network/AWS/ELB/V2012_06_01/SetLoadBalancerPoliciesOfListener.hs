@@ -62,26 +62,22 @@ mkSetLoadBalancerPoliciesOfListener p1 p2 p3 = SetLoadBalancerPoliciesOfListener
     , _slbpolLoadBalancerPort = p2
     , _slbpolPolicyNames = p3
     }
-{-# INLINE mkSetLoadBalancerPoliciesOfListener #-}
 
 -- | The name of the load balancer.
 slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
 slbpolLoadBalancerName =
     lens _slbpolLoadBalancerName (\s a -> s { _slbpolLoadBalancerName = a })
-{-# INLINE slbpolLoadBalancerName #-}
 
 -- | The external port of the load balancer to associate the policy.
 slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Integer
 slbpolLoadBalancerPort =
     lens _slbpolLoadBalancerPort (\s a -> s { _slbpolLoadBalancerPort = a })
-{-# INLINE slbpolLoadBalancerPort #-}
 
 -- | List of policies to be associated with the listener. If the list is empty,
 -- the current policy is removed from the listener.
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames =
     lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })
-{-# INLINE slbpolPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesOfListener where
     toQuery = genericQuery def

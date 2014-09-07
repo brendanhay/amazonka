@@ -58,17 +58,14 @@ mkAddUploadBuffer p1 p2 = AddUploadBuffer
     { _aubGatewayARN = p1
     , _aubDiskIds = p2
     }
-{-# INLINE mkAddUploadBuffer #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 aubGatewayARN :: Lens' AddUploadBuffer Text
 aubGatewayARN = lens _aubGatewayARN (\s a -> s { _aubGatewayARN = a })
-{-# INLINE aubGatewayARN #-}
 
 aubDiskIds :: Lens' AddUploadBuffer [Text]
 aubDiskIds = lens _aubDiskIds (\s a -> s { _aubDiskIds = a })
-{-# INLINE aubDiskIds #-}
 
 instance ToPath AddUploadBuffer
 
@@ -86,7 +83,6 @@ newtype AddUploadBufferResponse = AddUploadBufferResponse
 -- operation to return a list of gateways for your account and region.
 aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrsGatewayARN = lens _aubrsGatewayARN (\s a -> s { _aubrsGatewayARN = a })
-{-# INLINE aubrsGatewayARN #-}
 
 instance FromJSON AddUploadBufferResponse
 

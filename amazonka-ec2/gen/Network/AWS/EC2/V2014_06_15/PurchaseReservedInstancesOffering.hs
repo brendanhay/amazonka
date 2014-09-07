@@ -77,27 +77,23 @@ mkPurchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     , _prioInstanceCount = p2
     , _prioLimitPrice = Nothing
     }
-{-# INLINE mkPurchaseReservedInstancesOffering #-}
 
 -- | The ID of the Reserved Instance offering to purchase.
 prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
 prioReservedInstancesOfferingId =
     lens _prioReservedInstancesOfferingId
          (\s a -> s { _prioReservedInstancesOfferingId = a })
-{-# INLINE prioReservedInstancesOfferingId #-}
 
 -- | The number of Reserved Instances to purchase.
 prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Integer
 prioInstanceCount =
     lens _prioInstanceCount (\s a -> s { _prioInstanceCount = a })
-{-# INLINE prioInstanceCount #-}
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 prioLimitPrice = lens _prioLimitPrice (\s a -> s { _prioLimitPrice = a })
-{-# INLINE prioLimitPrice #-}
 
 instance ToQuery PurchaseReservedInstancesOffering where
     toQuery = genericQuery def
@@ -112,7 +108,6 @@ priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Ma
 priorsReservedInstancesId =
     lens _priorsReservedInstancesId
          (\s a -> s { _priorsReservedInstancesId = a })
-{-# INLINE priorsReservedInstancesId #-}
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where
     fromXMLOptions = xmlOptions

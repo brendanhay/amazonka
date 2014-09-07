@@ -71,12 +71,10 @@ mkVerifyDomainDkim :: Text -- ^ 'vddDomain'
 mkVerifyDomainDkim p1 = VerifyDomainDkim
     { _vddDomain = p1
     }
-{-# INLINE mkVerifyDomainDkim #-}
 
 -- | The name of the domain to be verified for Easy DKIM signing.
 vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
-{-# INLINE vddDomain #-}
 
 instance ToQuery VerifyDomainDkim where
     toQuery = genericQuery def
@@ -98,7 +96,6 @@ newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
 -- SES Developer Guide.
 vddrsDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrsDkimTokens = lens _vddrsDkimTokens (\s a -> s { _vddrsDkimTokens = a })
-{-# INLINE vddrsDkimTokens #-}
 
 instance FromXML VerifyDomainDkimResponse where
     fromXMLOptions = xmlOptions

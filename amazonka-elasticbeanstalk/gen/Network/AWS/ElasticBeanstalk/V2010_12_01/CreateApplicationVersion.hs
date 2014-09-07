@@ -73,14 +73,12 @@ mkCreateApplicationVersion p1 p2 = CreateApplicationVersion
     , _cavSourceBundle = Nothing
     , _cavAutoCreateApplication = Nothing
     }
-{-# INLINE mkCreateApplicationVersion #-}
 
 -- | The name of the application. If no application is found with this name, and
 -- AutoCreateApplication is false, returns an InvalidParameterValue error.
 cavApplicationName :: Lens' CreateApplicationVersion Text
 cavApplicationName =
     lens _cavApplicationName (\s a -> s { _cavApplicationName = a })
-{-# INLINE cavApplicationName #-}
 
 -- | A label identifying this version. Constraint: Must be unique per
 -- application. If an application version already exists with this label for
@@ -88,12 +86,10 @@ cavApplicationName =
 -- InvalidParameterValue error.
 cavVersionLabel :: Lens' CreateApplicationVersion Text
 cavVersionLabel = lens _cavVersionLabel (\s a -> s { _cavVersionLabel = a })
-{-# INLINE cavVersionLabel #-}
 
 -- | Describes this version.
 cavDescription :: Lens' CreateApplicationVersion (Maybe Text)
 cavDescription = lens _cavDescription (\s a -> s { _cavDescription = a })
-{-# INLINE cavDescription #-}
 
 -- | The Amazon S3 bucket and key that identify the location of the source
 -- bundle for this version. If data found at the Amazon S3 location exceeds
@@ -105,7 +101,6 @@ cavDescription = lens _cavDescription (\s a -> s { _cavDescription = a })
 -- returns an InvalidParameterCombination error.
 cavSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
 cavSourceBundle = lens _cavSourceBundle (\s a -> s { _cavSourceBundle = a })
-{-# INLINE cavSourceBundle #-}
 
 -- | Determines how the system behaves if the specified application for this
 -- version does not already exist: true: Automatically creates the specified
@@ -119,7 +114,6 @@ cavAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
 cavAutoCreateApplication =
     lens _cavAutoCreateApplication
          (\s a -> s { _cavAutoCreateApplication = a })
-{-# INLINE cavAutoCreateApplication #-}
 
 instance ToQuery CreateApplicationVersion where
     toQuery = genericQuery def
@@ -134,7 +128,6 @@ cavrsApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe Applica
 cavrsApplicationVersion =
     lens _cavrsApplicationVersion
          (\s a -> s { _cavrsApplicationVersion = a })
-{-# INLINE cavrsApplicationVersion #-}
 
 instance FromXML CreateApplicationVersionResponse where
     fromXMLOptions = xmlOptions

@@ -57,7 +57,6 @@ mkDescribeHsmConfigurations = DescribeHsmConfigurations
     , _dhc1MaxRecords = Nothing
     , _dhc1Marker = Nothing
     }
-{-# INLINE mkDescribeHsmConfigurations #-}
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for all
@@ -66,7 +65,6 @@ dhc1HsmConfigurationIdentifier :: Lens' DescribeHsmConfigurations (Maybe Text)
 dhc1HsmConfigurationIdentifier =
     lens _dhc1HsmConfigurationIdentifier
          (\s a -> s { _dhc1HsmConfigurationIdentifier = a })
-{-# INLINE dhc1HsmConfigurationIdentifier #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -75,7 +73,6 @@ dhc1HsmConfigurationIdentifier =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhc1MaxRecords :: Lens' DescribeHsmConfigurations (Maybe Integer)
 dhc1MaxRecords = lens _dhc1MaxRecords (\s a -> s { _dhc1MaxRecords = a })
-{-# INLINE dhc1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeHsmConfigurations request
@@ -85,7 +82,6 @@ dhc1MaxRecords = lens _dhc1MaxRecords (\s a -> s { _dhc1MaxRecords = a })
 -- the request.
 dhc1Marker :: Lens' DescribeHsmConfigurations (Maybe Text)
 dhc1Marker = lens _dhc1Marker (\s a -> s { _dhc1Marker = a })
-{-# INLINE dhc1Marker #-}
 
 instance ToQuery DescribeHsmConfigurations where
     toQuery = genericQuery def
@@ -103,13 +99,11 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
 -- is empty, all response records have been retrieved for the request.
 dhcrsMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
 dhcrsMarker = lens _dhcrsMarker (\s a -> s { _dhcrsMarker = a })
-{-# INLINE dhcrsMarker #-}
 
 -- | A list of Amazon Redshift HSM configurations.
 dhcrsHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse [HsmConfiguration]
 dhcrsHsmConfigurations =
     lens _dhcrsHsmConfigurations (\s a -> s { _dhcrsHsmConfigurations = a })
-{-# INLINE dhcrsHsmConfigurations #-}
 
 instance FromXML DescribeHsmConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -122,5 +116,5 @@ instance AWSRequest DescribeHsmConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmConfigurations where
-    next rq rs = (\x -> rq { _dhc1Marker = Just x })
-        <$> (_dhcrsMarker rs)
+    next rq rs = (\x -> rq & dhc1Marker ?~ x) <$> (rs ^. dhcrsMarker)
+

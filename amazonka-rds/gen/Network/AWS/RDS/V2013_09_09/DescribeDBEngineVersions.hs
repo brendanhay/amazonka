@@ -95,18 +95,15 @@ mkDescribeDBEngineVersions = DescribeDBEngineVersions
     , _ddbevDefaultOnly = Nothing
     , _ddbevListSupportedCharacterSets = Nothing
     }
-{-# INLINE mkDescribeDBEngineVersions #-}
 
 -- | The database engine to return.
 ddbevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevEngine = lens _ddbevEngine (\s a -> s { _ddbevEngine = a })
-{-# INLINE ddbevEngine #-}
 
 -- | The database engine version to return. Example: 5.1.49.
 ddbevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevEngineVersion =
     lens _ddbevEngineVersion (\s a -> s { _ddbevEngineVersion = a })
-{-# INLINE ddbevEngineVersion #-}
 
 -- | The name of a specific DB parameter group family to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
@@ -115,7 +112,6 @@ ddbevDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevDBParameterGroupFamily =
     lens _ddbevDBParameterGroupFamily
          (\s a -> s { _ddbevDBParameterGroupFamily = a })
-{-# INLINE ddbevDBParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more than the
 -- MaxRecords value is available, a pagination token called a marker is
@@ -123,21 +119,18 @@ ddbevDBParameterGroupFamily =
 -- Default: 100 Constraints: minimum 20, maximum 100.
 ddbevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Integer)
 ddbevMaxRecords = lens _ddbevMaxRecords (\s a -> s { _ddbevMaxRecords = a })
-{-# INLINE ddbevMaxRecords #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 ddbevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevMarker = lens _ddbevMarker (\s a -> s { _ddbevMarker = a })
-{-# INLINE ddbevMarker #-}
 
 -- | Indicates that only the default version of the specified engine or engine
 -- and major version combination is returned.
 ddbevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddbevDefaultOnly =
     lens _ddbevDefaultOnly (\s a -> s { _ddbevDefaultOnly = a })
-{-# INLINE ddbevDefaultOnly #-}
 
 -- | If this parameter is specified, and if the requested engine supports the
 -- CharacterSetName parameter for CreateDBInstance, the response includes a
@@ -146,7 +139,6 @@ ddbevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddbevListSupportedCharacterSets =
     lens _ddbevListSupportedCharacterSets
          (\s a -> s { _ddbevListSupportedCharacterSets = a })
-{-# INLINE ddbevListSupportedCharacterSets #-}
 
 instance ToQuery DescribeDBEngineVersions where
     toQuery = genericQuery def
@@ -163,14 +155,12 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
 -- marker, up to the value specified by MaxRecords.
 ddbevrsMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddbevrsMarker = lens _ddbevrsMarker (\s a -> s { _ddbevrsMarker = a })
-{-# INLINE ddbevrsMarker #-}
 
 -- | A list of DBEngineVersion elements.
 ddbevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
 ddbevrsDBEngineVersions =
     lens _ddbevrsDBEngineVersions
          (\s a -> s { _ddbevrsDBEngineVersions = a })
-{-# INLINE ddbevrsDBEngineVersions #-}
 
 instance FromXML DescribeDBEngineVersionsResponse where
     fromXMLOptions = xmlOptions
@@ -183,5 +173,5 @@ instance AWSRequest DescribeDBEngineVersions where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBEngineVersions where
-    next rq rs = (\x -> rq { _ddbevMarker = Just x })
-        <$> (_ddbevrsMarker rs)
+    next rq rs = (\x -> rq & ddbevMarker ?~ x) <$> (rs ^. ddbevrsMarker)
+

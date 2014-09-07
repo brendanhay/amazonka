@@ -71,53 +71,43 @@ mkPutBucketAcl p3 = PutBucketAcl
     , _pbaGrantWrite = Nothing
     , _pbaGrantWriteACP = Nothing
     }
-{-# INLINE mkPutBucketAcl #-}
 
 -- | The canned ACL to apply to the bucket.
 pbaACL :: Lens' PutBucketAcl (Maybe BucketCannedACL)
 pbaACL = lens _pbaACL (\s a -> s { _pbaACL = a })
-{-# INLINE pbaACL #-}
 
 pbaAccessControlPolicy :: Lens' PutBucketAcl (Maybe AccessControlPolicy)
 pbaAccessControlPolicy =
     lens _pbaAccessControlPolicy (\s a -> s { _pbaAccessControlPolicy = a })
-{-# INLINE pbaAccessControlPolicy #-}
 
 pbaBucket :: Lens' PutBucketAcl BucketName
 pbaBucket = lens _pbaBucket (\s a -> s { _pbaBucket = a })
-{-# INLINE pbaBucket #-}
 
 pbaContentMD5 :: Lens' PutBucketAcl (Maybe Text)
 pbaContentMD5 = lens _pbaContentMD5 (\s a -> s { _pbaContentMD5 = a })
-{-# INLINE pbaContentMD5 #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
 pbaGrantFullControl :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantFullControl =
     lens _pbaGrantFullControl (\s a -> s { _pbaGrantFullControl = a })
-{-# INLINE pbaGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
 pbaGrantRead :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantRead = lens _pbaGrantRead (\s a -> s { _pbaGrantRead = a })
-{-# INLINE pbaGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
 pbaGrantReadACP :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantReadACP = lens _pbaGrantReadACP (\s a -> s { _pbaGrantReadACP = a })
-{-# INLINE pbaGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
 pbaGrantWrite :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantWrite = lens _pbaGrantWrite (\s a -> s { _pbaGrantWrite = a })
-{-# INLINE pbaGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 pbaGrantWriteACP :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantWriteACP =
     lens _pbaGrantWriteACP (\s a -> s { _pbaGrantWriteACP = a })
-{-# INLINE pbaGrantWriteACP #-}
 
 instance ToPath PutBucketAcl where
     toPath PutBucketAcl{..} = mconcat

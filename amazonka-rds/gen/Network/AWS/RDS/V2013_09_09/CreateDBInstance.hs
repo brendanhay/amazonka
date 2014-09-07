@@ -137,7 +137,6 @@ mkCreateDBInstance p2 p3 p4 p5 p6 p7 = CreateDBInstance
     , _cdbiPubliclyAccessible = Nothing
     , _cdbiTags = mempty
     }
-{-# INLINE mkCreateDBInstance #-}
 
 -- | The meaning of this parameter differs according to the database engine you
 -- use. MySQL The name of the database to create when the DB instance is
@@ -149,7 +148,6 @@ mkCreateDBInstance p2 p3 p4 p5 p6 p7 = CreateDBInstance
 -- Must be null.
 cdbiDBName :: Lens' CreateDBInstance (Maybe Text)
 cdbiDBName = lens _cdbiDBName (\s a -> s { _cdbiDBName = a })
-{-# INLINE cdbiDBName #-}
 
 -- | The DB instance identifier. This parameter is stored as a lowercase string.
 -- Constraints: Must contain from 1 to 63 alphanumeric characters or hyphens
@@ -159,7 +157,6 @@ cdbiDBInstanceIdentifier :: Lens' CreateDBInstance Text
 cdbiDBInstanceIdentifier =
     lens _cdbiDBInstanceIdentifier
          (\s a -> s { _cdbiDBInstanceIdentifier = a })
-{-# INLINE cdbiDBInstanceIdentifier #-}
 
 -- | The amount of storage (in gigabytes) to be initially allocated for the
 -- database instance. MySQL Constraints: Must be an integer from 5 to 1024.
@@ -170,7 +167,6 @@ cdbiDBInstanceIdentifier =
 cdbiAllocatedStorage :: Lens' CreateDBInstance Integer
 cdbiAllocatedStorage =
     lens _cdbiAllocatedStorage (\s a -> s { _cdbiAllocatedStorage = a })
-{-# INLINE cdbiAllocatedStorage #-}
 
 -- | The compute and memory capacity of the DB instance. Valid Values:
 -- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
@@ -178,14 +174,12 @@ cdbiAllocatedStorage =
 cdbiDBInstanceClass :: Lens' CreateDBInstance Text
 cdbiDBInstanceClass =
     lens _cdbiDBInstanceClass (\s a -> s { _cdbiDBInstanceClass = a })
-{-# INLINE cdbiDBInstanceClass #-}
 
 -- | The name of the database engine to be used for this instance. Valid Values:
 -- MySQL | oracle-se1 | oracle-se | oracle-ee | sqlserver-ee | sqlserver-se |
 -- sqlserver-ex | sqlserver-web.
 cdbiEngine :: Lens' CreateDBInstance Text
 cdbiEngine = lens _cdbiEngine (\s a -> s { _cdbiEngine = a })
-{-# INLINE cdbiEngine #-}
 
 -- | The name of master user for the client DB instance. MySQL Constraints: Must
 -- be 1 to 16 alphanumeric characters. First character must be a letter.
@@ -198,7 +192,6 @@ cdbiEngine = lens _cdbiEngine (\s a -> s { _cdbiEngine = a })
 cdbiMasterUsername :: Lens' CreateDBInstance Text
 cdbiMasterUsername =
     lens _cdbiMasterUsername (\s a -> s { _cdbiMasterUsername = a })
-{-# INLINE cdbiMasterUsername #-}
 
 -- | The password for the master database user. Can be any printable ASCII
 -- character except "/", """, or "@". Type: String MySQL Constraints: Must
@@ -208,14 +201,12 @@ cdbiMasterUsername =
 cdbiMasterUserPassword :: Lens' CreateDBInstance Text
 cdbiMasterUserPassword =
     lens _cdbiMasterUserPassword (\s a -> s { _cdbiMasterUserPassword = a })
-{-# INLINE cdbiMasterUserPassword #-}
 
 -- | A list of DB security groups to associate with this DB instance. Default:
 -- The default DB security group for the database engine.
 cdbiDBSecurityGroups :: Lens' CreateDBInstance [Text]
 cdbiDBSecurityGroups =
     lens _cdbiDBSecurityGroups (\s a -> s { _cdbiDBSecurityGroups = a })
-{-# INLINE cdbiDBSecurityGroups #-}
 
 -- | A list of EC2 VPC security groups to associate with this DB instance.
 -- Default: The default EC2 VPC security group for the DB subnet group's VPC.
@@ -223,7 +214,6 @@ cdbiVpcSecurityGroupIds :: Lens' CreateDBInstance [Text]
 cdbiVpcSecurityGroupIds =
     lens _cdbiVpcSecurityGroupIds
          (\s a -> s { _cdbiVpcSecurityGroupIds = a })
-{-# INLINE cdbiVpcSecurityGroupIds #-}
 
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone in the endpoint's
@@ -233,14 +223,12 @@ cdbiVpcSecurityGroupIds =
 cdbiAvailabilityZone :: Lens' CreateDBInstance (Maybe Text)
 cdbiAvailabilityZone =
     lens _cdbiAvailabilityZone (\s a -> s { _cdbiAvailabilityZone = a })
-{-# INLINE cdbiAvailabilityZone #-}
 
 -- | A DB subnet group to associate with this DB instance. If there is no DB
 -- subnet group, then it is a non-VPC DB instance.
 cdbiDBSubnetGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdbiDBSubnetGroupName =
     lens _cdbiDBSubnetGroupName (\s a -> s { _cdbiDBSubnetGroupName = a })
-{-# INLINE cdbiDBSubnetGroupName #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute window selected at
@@ -252,7 +240,6 @@ cdbiPreferredMaintenanceWindow :: Lens' CreateDBInstance (Maybe Text)
 cdbiPreferredMaintenanceWindow =
     lens _cdbiPreferredMaintenanceWindow
          (\s a -> s { _cdbiPreferredMaintenanceWindow = a })
-{-# INLINE cdbiPreferredMaintenanceWindow #-}
 
 -- | The name of the DB parameter group to associate with this DB instance. If
 -- this argument is omitted, the default DBParameterGroup for the specified
@@ -263,7 +250,6 @@ cdbiDBParameterGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdbiDBParameterGroupName =
     lens _cdbiDBParameterGroupName
          (\s a -> s { _cdbiDBParameterGroupName = a })
-{-# INLINE cdbiDBParameterGroupName #-}
 
 -- | The number of days for which automated backups are retained. Setting this
 -- parameter to a positive number enables backups. Setting this parameter to 0
@@ -273,7 +259,6 @@ cdbiBackupRetentionPeriod :: Lens' CreateDBInstance (Maybe Integer)
 cdbiBackupRetentionPeriod =
     lens _cdbiBackupRetentionPeriod
          (\s a -> s { _cdbiBackupRetentionPeriod = a })
-{-# INLINE cdbiBackupRetentionPeriod #-}
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the BackupRetentionPeriod parameter.
@@ -287,7 +272,6 @@ cdbiPreferredBackupWindow :: Lens' CreateDBInstance (Maybe Text)
 cdbiPreferredBackupWindow =
     lens _cdbiPreferredBackupWindow
          (\s a -> s { _cdbiPreferredBackupWindow = a })
-{-# INLINE cdbiPreferredBackupWindow #-}
 
 -- | The port number on which the database accepts connections. MySQL Default:
 -- 3306 Valid Values: 1150-65535 Type: Integer Oracle Default: 1521 Valid
@@ -295,13 +279,11 @@ cdbiPreferredBackupWindow =
 -- for 1434 and 3389.
 cdbiPort :: Lens' CreateDBInstance (Maybe Integer)
 cdbiPort = lens _cdbiPort (\s a -> s { _cdbiPort = a })
-{-# INLINE cdbiPort #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. You cannot set the
 -- AvailabilityZone parameter if the MultiAZ parameter is set to true.
 cdbiMultiAZ :: Lens' CreateDBInstance (Maybe Bool)
 cdbiMultiAZ = lens _cdbiMultiAZ (\s a -> s { _cdbiMultiAZ = a })
-{-# INLINE cdbiMultiAZ #-}
 
 -- | The version number of the database engine to use. MySQL Example: 5.1.42
 -- Type: String Oracle Example: 11.2.0.2.v2 Type: String SQL Server Example:
@@ -309,7 +291,6 @@ cdbiMultiAZ = lens _cdbiMultiAZ (\s a -> s { _cdbiMultiAZ = a })
 cdbiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdbiEngineVersion =
     lens _cdbiEngineVersion (\s a -> s { _cdbiEngineVersion = a })
-{-# INLINE cdbiEngineVersion #-}
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
 -- DB instance during the maintenance window. Default: true.
@@ -317,21 +298,18 @@ cdbiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
 cdbiAutoMinorVersionUpgrade =
     lens _cdbiAutoMinorVersionUpgrade
          (\s a -> s { _cdbiAutoMinorVersionUpgrade = a })
-{-# INLINE cdbiAutoMinorVersionUpgrade #-}
 
 -- | License model information for this DB instance. Valid values:
 -- license-included | bring-your-own-license | general-public-license.
 cdbiLicenseModel :: Lens' CreateDBInstance (Maybe Text)
 cdbiLicenseModel =
     lens _cdbiLicenseModel (\s a -> s { _cdbiLicenseModel = a })
-{-# INLINE cdbiLicenseModel #-}
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be
 -- initially allocated for the DB instance. Constraints: Must be an integer
 -- greater than 1000.
 cdbiIops :: Lens' CreateDBInstance (Maybe Integer)
 cdbiIops = lens _cdbiIops (\s a -> s { _cdbiIops = a })
-{-# INLINE cdbiIops #-}
 
 -- | Indicates that the DB instance should be associated with the specified
 -- option group. cannot be removed from an option group while DB instances are
@@ -342,14 +320,12 @@ cdbiIops = lens _cdbiIops (\s a -> s { _cdbiIops = a })
 cdbiOptionGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdbiOptionGroupName =
     lens _cdbiOptionGroupName (\s a -> s { _cdbiOptionGroupName = a })
-{-# INLINE cdbiOptionGroupName #-}
 
 -- | For supported engines, indicates that the DB instance should be associated
 -- with the specified CharacterSet.
 cdbiCharacterSetName :: Lens' CreateDBInstance (Maybe Text)
 cdbiCharacterSetName =
     lens _cdbiCharacterSetName (\s a -> s { _cdbiCharacterSetName = a })
-{-# INLINE cdbiCharacterSetName #-}
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS name,
@@ -365,12 +341,10 @@ cdbiCharacterSetName =
 cdbiPubliclyAccessible :: Lens' CreateDBInstance (Maybe Bool)
 cdbiPubliclyAccessible =
     lens _cdbiPubliclyAccessible (\s a -> s { _cdbiPubliclyAccessible = a })
-{-# INLINE cdbiPubliclyAccessible #-}
 
 -- | A list of tags.
 cdbiTags :: Lens' CreateDBInstance [Tag]
 cdbiTags = lens _cdbiTags (\s a -> s { _cdbiTags = a })
-{-# INLINE cdbiTags #-}
 
 instance ToQuery CreateDBInstance where
     toQuery = genericQuery def
@@ -385,7 +359,6 @@ newtype CreateDBInstanceResponse = CreateDBInstanceResponse
 cdbirsDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdbirsDBInstance =
     lens _cdbirsDBInstance (\s a -> s { _cdbirsDBInstance = a })
-{-# INLINE cdbirsDBInstance #-}
 
 instance FromXML CreateDBInstanceResponse where
     fromXMLOptions = xmlOptions

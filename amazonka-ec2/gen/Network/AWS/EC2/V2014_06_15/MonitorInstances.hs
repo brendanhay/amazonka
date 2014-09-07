@@ -63,12 +63,10 @@ mkMonitorInstances :: [Text] -- ^ 'miInstanceIds'
 mkMonitorInstances p1 = MonitorInstances
     { _miInstanceIds = p1
     }
-{-# INLINE mkMonitorInstances #-}
 
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
-{-# INLINE miInstanceIds #-}
 
 instance ToQuery MonitorInstances where
     toQuery = genericQuery def
@@ -83,7 +81,6 @@ mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirsInstanceMonitorings =
     lens _mirsInstanceMonitorings
          (\s a -> s { _mirsInstanceMonitorings = a })
-{-# INLINE mirsInstanceMonitorings #-}
 
 instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions

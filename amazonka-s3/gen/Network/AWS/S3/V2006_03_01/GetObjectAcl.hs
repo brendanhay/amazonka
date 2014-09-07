@@ -57,20 +57,16 @@ mkGetObjectAcl p1 p2 = GetObjectAcl
     , _goaKey = p2
     , _goaVersionId = Nothing
     }
-{-# INLINE mkGetObjectAcl #-}
 
 goaBucket :: Lens' GetObjectAcl BucketName
 goaBucket = lens _goaBucket (\s a -> s { _goaBucket = a })
-{-# INLINE goaBucket #-}
 
 goaKey :: Lens' GetObjectAcl ObjectKey
 goaKey = lens _goaKey (\s a -> s { _goaKey = a })
-{-# INLINE goaKey #-}
 
 -- | VersionId used to reference a specific version of the object.
 goaVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
-{-# INLINE goaVersionId #-}
 
 instance ToPath GetObjectAcl where
     toPath GetObjectAcl{..} = mconcat
@@ -96,12 +92,10 @@ data GetObjectAclResponse = GetObjectAclResponse
 
 goarsOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarsOwner = lens _goarsOwner (\s a -> s { _goarsOwner = a })
-{-# INLINE goarsOwner #-}
 
 -- | A list of grants.
 goarsGrants :: Lens' GetObjectAclResponse [Grant]
 goarsGrants = lens _goarsGrants (\s a -> s { _goarsGrants = a })
-{-# INLINE goarsGrants #-}
 
 instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions

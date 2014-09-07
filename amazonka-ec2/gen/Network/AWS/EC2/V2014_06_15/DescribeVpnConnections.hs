@@ -77,13 +77,11 @@ mkDescribeVpnConnections = DescribeVpnConnections
     { _dvc1VpnConnectionIds = mempty
     , _dvc1Filters = mempty
     }
-{-# INLINE mkDescribeVpnConnections #-}
 
 -- | One or more VPN connection IDs. Default: Describes your VPN connections.
 dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
 dvc1VpnConnectionIds =
     lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
-{-# INLINE dvc1VpnConnectionIds #-}
 
 -- | One or more filters. customer-gateway-configuration - The configuration
 -- information for the customer gateway. customer-gateway-id - The ID of a
@@ -108,7 +106,6 @@ dvc1VpnConnectionIds =
 -- associated with the VPN connection.
 dvc1Filters :: Lens' DescribeVpnConnections [Filter]
 dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
-{-# INLINE dvc1Filters #-}
 
 instance ToQuery DescribeVpnConnections where
     toQuery = genericQuery def
@@ -122,7 +119,6 @@ newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
 dvcrsVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
 dvcrsVpnConnections =
     lens _dvcrsVpnConnections (\s a -> s { _dvcrsVpnConnections = a })
-{-# INLINE dvcrsVpnConnections #-}
 
 instance FromXML DescribeVpnConnectionsResponse where
     fromXMLOptions = xmlOptions

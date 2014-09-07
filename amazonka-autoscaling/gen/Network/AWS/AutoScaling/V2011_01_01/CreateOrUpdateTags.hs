@@ -57,7 +57,6 @@ mkCreateOrUpdateTags :: [Tag] -- ^ 'coutTags'
 mkCreateOrUpdateTags p1 = CreateOrUpdateTags
     { _coutTags = p1
     }
-{-# INLINE mkCreateOrUpdateTags #-}
 
 -- | The tag to be created or updated. Each tag should be defined by its
 -- resource type, resource ID, key, value, and a propagate flag. The resource
@@ -75,7 +74,6 @@ mkCreateOrUpdateTags p1 = CreateOrUpdateTags
 -- but you will not get an error message.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
 coutTags = lens _coutTags (\s a -> s { _coutTags = a })
-{-# INLINE coutTags #-}
 
 instance ToQuery CreateOrUpdateTags where
     toQuery = genericQuery def

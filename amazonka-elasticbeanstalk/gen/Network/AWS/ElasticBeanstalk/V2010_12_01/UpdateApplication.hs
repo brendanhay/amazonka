@@ -58,20 +58,17 @@ mkUpdateApplication p1 = UpdateApplication
     { _uaApplicationName = p1
     , _uaDescription = Nothing
     }
-{-# INLINE mkUpdateApplication #-}
 
 -- | The name of the application to update. If no such application is found,
 -- UpdateApplication returns an InvalidParameterValue error.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName =
     lens _uaApplicationName (\s a -> s { _uaApplicationName = a })
-{-# INLINE uaApplicationName #-}
 
 -- | A new description for the application. Default: If not specified, AWS
 -- Elastic Beanstalk does not update the description.
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
-{-# INLINE uaDescription #-}
 
 instance ToQuery UpdateApplication where
     toQuery = genericQuery def
@@ -84,7 +81,6 @@ newtype UpdateApplicationResponse = UpdateApplicationResponse
 -- | The ApplicationDescription of the application.
 uarsApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
 uarsApplication = lens _uarsApplication (\s a -> s { _uarsApplication = a })
-{-# INLINE uarsApplication #-}
 
 instance FromXML UpdateApplicationResponse where
     fromXMLOptions = xmlOptions

@@ -67,19 +67,16 @@ mkDetachInstances p2 p3 = DetachInstances
     , _diAutoScalingGroupName = p2
     , _diShouldDecrementDesiredCapacity = p3
     }
-{-# INLINE mkDetachInstances #-}
 
 -- | A list of instances to detach from the Auto Scaling group. You must specify
 -- at least one instance ID.
 diInstanceIds :: Lens' DetachInstances [Text]
 diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a })
-{-# INLINE diInstanceIds #-}
 
 -- | The name of the Auto Scaling group from which to detach instances.
 diAutoScalingGroupName :: Lens' DetachInstances Text
 diAutoScalingGroupName =
     lens _diAutoScalingGroupName (\s a -> s { _diAutoScalingGroupName = a })
-{-# INLINE diAutoScalingGroupName #-}
 
 -- | Specifies if the detached instance should decrement the desired capacity
 -- value for the Auto Scaling group. If set to True, the Auto Scaling group
@@ -88,7 +85,6 @@ diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity =
     lens _diShouldDecrementDesiredCapacity
          (\s a -> s { _diShouldDecrementDesiredCapacity = a })
-{-# INLINE diShouldDecrementDesiredCapacity #-}
 
 instance ToQuery DetachInstances where
     toQuery = genericQuery def
@@ -102,7 +98,6 @@ newtype DetachInstancesResponse = DetachInstancesResponse
 -- the Auto Scaling group.
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
 dirsActivities = lens _dirsActivities (\s a -> s { _dirsActivities = a })
-{-# INLINE dirsActivities #-}
 
 instance FromXML DetachInstancesResponse where
     fromXMLOptions = xmlOptions

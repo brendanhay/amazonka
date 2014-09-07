@@ -176,28 +176,23 @@ mkJob = Job
     , _jIsCanceled = Nothing
     , _jJobType = Nothing
     }
-{-# INLINE mkJob #-}
 
 -- | A unique identifier which refers to a particular job.
 jJobId :: Lens' Job (Maybe Text)
 jJobId = lens _jJobId (\s a -> s { _jJobId = a })
-{-# INLINE jJobId #-}
 
 -- | Timestamp of the CreateJob request in ISO8601 date format. For example
 -- "2010-03-28T20:27:35Z".
 jCreationDate :: Lens' Job (Maybe ISO8601)
 jCreationDate = lens _jCreationDate (\s a -> s { _jCreationDate = a })
-{-# INLINE jCreationDate #-}
 
 -- | Indicates whether the job was canceled.
 jIsCanceled :: Lens' Job (Maybe Bool)
 jIsCanceled = lens _jIsCanceled (\s a -> s { _jIsCanceled = a })
-{-# INLINE jIsCanceled #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
 jJobType :: Lens' Job (Maybe JobType)
 jJobType = lens _jJobType (\s a -> s { _jJobType = a })
-{-# INLINE jJobType #-}
 
 instance FromXML Job where
     fromXMLOptions = xmlOptions

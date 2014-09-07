@@ -63,7 +63,6 @@ mkDescribeStackResource p1 p2 = DescribeStackResource
     { _dsrStackName = p1
     , _dsrLogicalResourceId = p2
     }
-{-# INLINE mkDescribeStackResource #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
@@ -71,14 +70,12 @@ mkDescribeStackResource p1 p2 = DescribeStackResource
 -- stack ID. Default: There is no default value.
 dsrStackName :: Lens' DescribeStackResource Text
 dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
-{-# INLINE dsrStackName #-}
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
 dsrLogicalResourceId :: Lens' DescribeStackResource Text
 dsrLogicalResourceId =
     lens _dsrLogicalResourceId (\s a -> s { _dsrLogicalResourceId = a })
-{-# INLINE dsrLogicalResourceId #-}
 
 instance ToQuery DescribeStackResource where
     toQuery = genericQuery def
@@ -94,7 +91,6 @@ dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackReso
 dsrrsStackResourceDetail =
     lens _dsrrsStackResourceDetail
          (\s a -> s { _dsrrsStackResourceDetail = a })
-{-# INLINE dsrrsStackResourceDetail #-}
 
 instance FromXML DescribeStackResourceResponse where
     fromXMLOptions = xmlOptions

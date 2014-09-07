@@ -63,7 +63,6 @@ mkCreateClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
     { _ccsgClusterSecurityGroupName = p1
     , _ccsgDescription = p2
     }
-{-# INLINE mkCreateClusterSecurityGroup #-}
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string. Constraints: Must contain no more than 255 alphanumeric
@@ -74,12 +73,10 @@ ccsgClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
 ccsgClusterSecurityGroupName =
     lens _ccsgClusterSecurityGroupName
          (\s a -> s { _ccsgClusterSecurityGroupName = a })
-{-# INLINE ccsgClusterSecurityGroupName #-}
 
 -- | A description for the security group.
 ccsgDescription :: Lens' CreateClusterSecurityGroup Text
 ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
-{-# INLINE ccsgDescription #-}
 
 instance ToQuery CreateClusterSecurityGroup where
     toQuery = genericQuery def
@@ -93,7 +90,6 @@ ccsgrsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe Cl
 ccsgrsClusterSecurityGroup =
     lens _ccsgrsClusterSecurityGroup
          (\s a -> s { _ccsgrsClusterSecurityGroup = a })
-{-# INLINE ccsgrsClusterSecurityGroup #-}
 
 instance FromXML CreateClusterSecurityGroupResponse where
     fromXMLOptions = xmlOptions

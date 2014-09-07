@@ -69,14 +69,12 @@ mkRebootCacheCluster p1 p2 = RebootCacheCluster
     { _rccCacheClusterId = p1
     , _rccCacheNodeIdsToReboot = p2
     }
-{-# INLINE mkRebootCacheCluster #-}
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string.
 rccCacheClusterId :: Lens' RebootCacheCluster Text
 rccCacheClusterId =
     lens _rccCacheClusterId (\s a -> s { _rccCacheClusterId = a })
-{-# INLINE rccCacheClusterId #-}
 
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
 -- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the
@@ -85,7 +83,6 @@ rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot =
     lens _rccCacheNodeIdsToReboot
          (\s a -> s { _rccCacheNodeIdsToReboot = a })
-{-# INLINE rccCacheNodeIdsToReboot #-}
 
 instance ToQuery RebootCacheCluster where
     toQuery = genericQuery def
@@ -98,7 +95,6 @@ newtype RebootCacheClusterResponse = RebootCacheClusterResponse
 rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrsCacheCluster =
     lens _rccrsCacheCluster (\s a -> s { _rccrsCacheCluster = a })
-{-# INLINE rccrsCacheCluster #-}
 
 instance FromXML RebootCacheClusterResponse where
     fromXMLOptions = xmlOptions

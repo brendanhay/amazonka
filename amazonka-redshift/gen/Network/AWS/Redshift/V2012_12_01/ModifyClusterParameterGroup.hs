@@ -67,13 +67,11 @@ mkModifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
     { _mcpgParameterGroupName = p1
     , _mcpgParameters = p2
     }
-{-# INLINE mkModifyClusterParameterGroup #-}
 
 -- | The name of the parameter group to be modified.
 mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
 mcpgParameterGroupName =
     lens _mcpgParameterGroupName (\s a -> s { _mcpgParameterGroupName = a })
-{-# INLINE mcpgParameterGroupName #-}
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be
 -- modified in a single request. For each parameter to be modified, you must
@@ -83,7 +81,6 @@ mcpgParameterGroupName =
 -- wlm_json_configuration parameter.
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
 mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a })
-{-# INLINE mcpgParameters #-}
 
 instance ToQuery ModifyClusterParameterGroup where
     toQuery = genericQuery def
@@ -101,7 +98,6 @@ mcpgrsParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Tex
 mcpgrsParameterGroupName =
     lens _mcpgrsParameterGroupName
          (\s a -> s { _mcpgrsParameterGroupName = a })
-{-# INLINE mcpgrsParameterGroupName #-}
 
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot
@@ -110,7 +106,6 @@ mcpgrsParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe T
 mcpgrsParameterGroupStatus =
     lens _mcpgrsParameterGroupStatus
          (\s a -> s { _mcpgrsParameterGroupStatus = a })
-{-# INLINE mcpgrsParameterGroupStatus #-}
 
 instance FromXML ModifyClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

@@ -73,58 +73,48 @@ mkModifyImageAttribute p1 = ModifyImageAttribute
     , _miaLaunchPermission = Nothing
     , _miaDescription = Nothing
     }
-{-# INLINE mkModifyImageAttribute #-}
 
 -- | The ID of the AMI.
 miaImageId :: Lens' ModifyImageAttribute Text
 miaImageId = lens _miaImageId (\s a -> s { _miaImageId = a })
-{-# INLINE miaImageId #-}
 
 -- | The name of the attribute to modify.
 miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
 miaAttribute = lens _miaAttribute (\s a -> s { _miaAttribute = a })
-{-# INLINE miaAttribute #-}
 
 -- | The operation type.
 miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
 miaOperationType =
     lens _miaOperationType (\s a -> s { _miaOperationType = a })
-{-# INLINE miaOperationType #-}
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- launchPermission attribute.
 miaUserIds :: Lens' ModifyImageAttribute [Text]
 miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
-{-# INLINE miaUserIds #-}
 
 -- | One or more user groups. This is only valid when modifying the
 -- launchPermission attribute.
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
 miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a })
-{-# INLINE miaUserGroups #-}
 
 -- | One or more product codes. After you add a product code to an AMI, it can't
 -- be removed. This is only valid when modifying the productCodes attribute.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
 miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a })
-{-# INLINE miaProductCodes #-}
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the description attribute.
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\s a -> s { _miaValue = a })
-{-# INLINE miaValue #-}
 
 -- | 
 miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
 miaLaunchPermission =
     lens _miaLaunchPermission (\s a -> s { _miaLaunchPermission = a })
-{-# INLINE miaLaunchPermission #-}
 
 -- | A description for the AMI.
 miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
 miaDescription = lens _miaDescription (\s a -> s { _miaDescription = a })
-{-# INLINE miaDescription #-}
 
 instance ToQuery ModifyImageAttribute where
     toQuery = genericQuery def

@@ -55,13 +55,11 @@ mkDeleteCustomerGateway :: Text -- ^ 'dcgCustomerGatewayId'
 mkDeleteCustomerGateway p1 = DeleteCustomerGateway
     { _dcgCustomerGatewayId = p1
     }
-{-# INLINE mkDeleteCustomerGateway #-}
 
 -- | The ID of the customer gateway.
 dcgCustomerGatewayId :: Lens' DeleteCustomerGateway Text
 dcgCustomerGatewayId =
     lens _dcgCustomerGatewayId (\s a -> s { _dcgCustomerGatewayId = a })
-{-# INLINE dcgCustomerGatewayId #-}
 
 instance ToQuery DeleteCustomerGateway where
     toQuery = genericQuery def

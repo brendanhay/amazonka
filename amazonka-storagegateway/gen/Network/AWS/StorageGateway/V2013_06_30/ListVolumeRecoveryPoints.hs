@@ -74,13 +74,11 @@ mkListVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
 mkListVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
     { _lvrpGatewayARN = p1
     }
-{-# INLINE mkListVolumeRecoveryPoints #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
 lvrpGatewayARN = lens _lvrpGatewayARN (\s a -> s { _lvrpGatewayARN = a })
-{-# INLINE lvrpGatewayARN #-}
 
 instance ToPath ListVolumeRecoveryPoints
 
@@ -100,13 +98,11 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
 lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprsGatewayARN =
     lens _lvrprsGatewayARN (\s a -> s { _lvrprsGatewayARN = a })
-{-# INLINE lvrprsGatewayARN #-}
 
 lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
 lvrprsVolumeRecoveryPointInfos =
     lens _lvrprsVolumeRecoveryPointInfos
          (\s a -> s { _lvrprsVolumeRecoveryPointInfos = a })
-{-# INLINE lvrprsVolumeRecoveryPointInfos #-}
 
 instance FromJSON ListVolumeRecoveryPointsResponse
 

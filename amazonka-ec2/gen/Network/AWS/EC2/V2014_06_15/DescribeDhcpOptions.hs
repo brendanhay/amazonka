@@ -75,14 +75,12 @@ mkDescribeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds = mempty
     , _ddo1Filters = mempty
     }
-{-# INLINE mkDescribeDhcpOptions #-}
 
 -- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP
 -- options sets.
 ddo1DhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
 ddo1DhcpOptionsIds =
     lens _ddo1DhcpOptionsIds (\s a -> s { _ddo1DhcpOptionsIds = a })
-{-# INLINE ddo1DhcpOptionsIds #-}
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options. key
 -- - The key for one of the options (for example, domain-name). value - The
@@ -97,7 +95,6 @@ ddo1DhcpOptionsIds =
 -- resource. This filter is independent of the tag-key filter.
 ddo1Filters :: Lens' DescribeDhcpOptions [Filter]
 ddo1Filters = lens _ddo1Filters (\s a -> s { _ddo1Filters = a })
-{-# INLINE ddo1Filters #-}
 
 instance ToQuery DescribeDhcpOptions where
     toQuery = genericQuery def
@@ -111,7 +108,6 @@ newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 ddorsDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
 ddorsDhcpOptions =
     lens _ddorsDhcpOptions (\s a -> s { _ddorsDhcpOptions = a })
-{-# INLINE ddorsDhcpOptions #-}
 
 instance FromXML DescribeDhcpOptionsResponse where
     fromXMLOptions = xmlOptions

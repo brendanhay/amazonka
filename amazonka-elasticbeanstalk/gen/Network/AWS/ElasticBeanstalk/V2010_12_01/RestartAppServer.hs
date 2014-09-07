@@ -53,7 +53,6 @@ mkRestartAppServer = RestartAppServer
     { _rasEnvironmentId = Nothing
     , _rasEnvironmentName = Nothing
     }
-{-# INLINE mkRestartAppServer #-}
 
 -- | The ID of the environment to restart the server for. Condition: You must
 -- specify either this or an EnvironmentName, or both. If you do not specify
@@ -61,7 +60,6 @@ mkRestartAppServer = RestartAppServer
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentId =
     lens _rasEnvironmentId (\s a -> s { _rasEnvironmentId = a })
-{-# INLINE rasEnvironmentId #-}
 
 -- | The name of the environment to restart the server for. Condition: You must
 -- specify either this or an EnvironmentId, or both. If you do not specify
@@ -69,7 +67,6 @@ rasEnvironmentId =
 rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentName =
     lens _rasEnvironmentName (\s a -> s { _rasEnvironmentName = a })
-{-# INLINE rasEnvironmentName #-}
 
 instance ToQuery RestartAppServer where
     toQuery = genericQuery def

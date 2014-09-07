@@ -54,12 +54,10 @@ mkDescribeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasLayerIds'
 mkDescribeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
     { _dlbasLayerIds = p1
     }
-{-# INLINE mkDescribeLoadBasedAutoScaling #-}
 
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
 dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a })
-{-# INLINE dlbasLayerIds #-}
 
 instance ToPath DescribeLoadBasedAutoScaling
 
@@ -80,7 +78,6 @@ dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingR
 dlbasrsLoadBasedAutoScalingConfigurations =
     lens _dlbasrsLoadBasedAutoScalingConfigurations
          (\s a -> s { _dlbasrsLoadBasedAutoScalingConfigurations = a })
-{-# INLINE dlbasrsLoadBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse
 

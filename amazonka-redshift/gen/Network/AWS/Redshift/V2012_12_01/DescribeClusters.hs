@@ -68,7 +68,6 @@ mkDescribeClusters = DescribeClusters
     , _dc1MaxRecords = Nothing
     , _dc1Marker = Nothing
     }
-{-# INLINE mkDescribeClusters #-}
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive. The default is that all clusters defined
@@ -76,7 +75,6 @@ mkDescribeClusters = DescribeClusters
 dc1ClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
 dc1ClusterIdentifier =
     lens _dc1ClusterIdentifier (\s a -> s { _dc1ClusterIdentifier = a })
-{-# INLINE dc1ClusterIdentifier #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -85,7 +83,6 @@ dc1ClusterIdentifier =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dc1MaxRecords :: Lens' DescribeClusters (Maybe Integer)
 dc1MaxRecords = lens _dc1MaxRecords (\s a -> s { _dc1MaxRecords = a })
-{-# INLINE dc1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusters request exceed the
@@ -96,7 +93,6 @@ dc1MaxRecords = lens _dc1MaxRecords (\s a -> s { _dc1MaxRecords = a })
 -- parameter or the Marker parameter, but not both.
 dc1Marker :: Lens' DescribeClusters (Maybe Text)
 dc1Marker = lens _dc1Marker (\s a -> s { _dc1Marker = a })
-{-# INLINE dc1Marker #-}
 
 instance ToQuery DescribeClusters where
     toQuery = genericQuery def
@@ -114,12 +110,10 @@ data DescribeClustersResponse = DescribeClustersResponse
 -- is empty, all response records have been retrieved for the request.
 dcrsrsMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrsrsMarker = lens _dcrsrsMarker (\s a -> s { _dcrsrsMarker = a })
-{-# INLINE dcrsrsMarker #-}
 
 -- | A list of Cluster objects, where each object describes one cluster.
 dcrsrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsrsClusters = lens _dcrsrsClusters (\s a -> s { _dcrsrsClusters = a })
-{-# INLINE dcrsrsClusters #-}
 
 instance FromXML DescribeClustersResponse where
     fromXMLOptions = xmlOptions
@@ -132,5 +126,5 @@ instance AWSRequest DescribeClusters where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusters where
-    next rq rs = (\x -> rq { _dc1Marker = Just x })
-        <$> (_dcrsrsMarker rs)
+    next rq rs = (\x -> rq & dc1Marker ?~ x) <$> (rs ^. dcrsrsMarker)
+

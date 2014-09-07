@@ -95,30 +95,25 @@ mkDescribeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphMaxResults = Nothing
     , _dsphNextToken = Nothing
     }
-{-# INLINE mkDescribeSpotPriceHistory #-}
 
 -- | The start date and time of the Spot Price history data.
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
 dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a })
-{-# INLINE dsphStartTime #-}
 
 -- | The end date and time of the Spot Price history data.
 dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
 dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a })
-{-# INLINE dsphEndTime #-}
 
 -- | One or more instance types.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
 dsphInstanceTypes =
     lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
-{-# INLINE dsphInstanceTypes #-}
 
 -- | One or more basic product descriptions.
 dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
 dsphProductDescriptions =
     lens _dsphProductDescriptions
          (\s a -> s { _dsphProductDescriptions = a })
-{-# INLINE dsphProductDescriptions #-}
 
 -- | One or more filters. availability-zone - The Availability Zone for which
 -- prices should be returned. instance-type - The type of instance (for
@@ -131,23 +126,19 @@ dsphProductDescriptions =
 -- wildcards (* and ?). Greater than or less than comparison is not supported.
 dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
 dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a })
-{-# INLINE dsphFilters #-}
 
 -- | The Availability Zone.
 dsphAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphAvailabilityZone =
     lens _dsphAvailabilityZone (\s a -> s { _dsphAvailabilityZone = a })
-{-# INLINE dsphAvailabilityZone #-}
 
 -- | The number of rows to return.
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Integer)
 dsphMaxResults = lens _dsphMaxResults (\s a -> s { _dsphMaxResults = a })
-{-# INLINE dsphMaxResults #-}
 
 -- | The next set of rows to return.
 dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphNextToken = lens _dsphNextToken (\s a -> s { _dsphNextToken = a })
-{-# INLINE dsphNextToken #-}
 
 instance ToQuery DescribeSpotPriceHistory where
     toQuery = genericQuery def
@@ -162,13 +153,11 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrsSpotPriceHistory =
     lens _dsphrsSpotPriceHistory (\s a -> s { _dsphrsSpotPriceHistory = a })
-{-# INLINE dsphrsSpotPriceHistory #-}
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.
 dsphrsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrsNextToken = lens _dsphrsNextToken (\s a -> s { _dsphrsNextToken = a })
-{-# INLINE dsphrsNextToken #-}
 
 instance FromXML DescribeSpotPriceHistoryResponse where
     fromXMLOptions = xmlOptions
@@ -181,5 +170,5 @@ instance AWSRequest DescribeSpotPriceHistory where
     response _ = xmlResponse
 
 instance AWSPager DescribeSpotPriceHistory where
-    next rq rs = (\x -> rq { _dsphNextToken = Just x })
-        <$> (_dsphrsNextToken rs)
+    next rq rs = (\x -> rq & dsphNextToken ?~ x) <$> (rs ^. dsphrsNextToken)
+

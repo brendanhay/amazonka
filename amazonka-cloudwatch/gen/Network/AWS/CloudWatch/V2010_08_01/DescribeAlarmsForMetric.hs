@@ -66,37 +66,30 @@ mkDescribeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
     , _dafmPeriod = Nothing
     , _dafmUnit = Nothing
     }
-{-# INLINE mkDescribeAlarmsForMetric #-}
 
 -- | The name of the metric.
 dafmMetricName :: Lens' DescribeAlarmsForMetric Text
 dafmMetricName = lens _dafmMetricName (\s a -> s { _dafmMetricName = a })
-{-# INLINE dafmMetricName #-}
 
 -- | The namespace of the metric.
 dafmNamespace :: Lens' DescribeAlarmsForMetric Text
 dafmNamespace = lens _dafmNamespace (\s a -> s { _dafmNamespace = a })
-{-# INLINE dafmNamespace #-}
 
 -- | The statistic for the metric.
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
 dafmStatistic = lens _dafmStatistic (\s a -> s { _dafmStatistic = a })
-{-# INLINE dafmStatistic #-}
 
 -- | The list of dimensions associated with the metric.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
 dafmDimensions = lens _dafmDimensions (\s a -> s { _dafmDimensions = a })
-{-# INLINE dafmDimensions #-}
 
 -- | The period in seconds over which the statistic is applied.
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Integer)
 dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a })
-{-# INLINE dafmPeriod #-}
 
 -- | The unit for the metric.
 dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
 dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
-{-# INLINE dafmUnit #-}
 
 instance ToQuery DescribeAlarmsForMetric where
     toQuery = genericQuery def
@@ -110,7 +103,6 @@ newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrsMetricAlarms =
     lens _dafmrsMetricAlarms (\s a -> s { _dafmrsMetricAlarms = a })
-{-# INLINE dafmrsMetricAlarms #-}
 
 instance FromXML DescribeAlarmsForMetricResponse where
     fromXMLOptions = xmlOptions

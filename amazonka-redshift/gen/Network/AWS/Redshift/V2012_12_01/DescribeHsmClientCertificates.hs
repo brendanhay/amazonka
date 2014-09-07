@@ -57,7 +57,6 @@ mkDescribeHsmClientCertificates = DescribeHsmClientCertificates
     , _dhcc1MaxRecords = Nothing
     , _dhcc1Marker = Nothing
     }
-{-# INLINE mkDescribeHsmClientCertificates #-}
 
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for all
@@ -66,7 +65,6 @@ dhcc1HsmClientCertificateIdentifier :: Lens' DescribeHsmClientCertificates (Mayb
 dhcc1HsmClientCertificateIdentifier =
     lens _dhcc1HsmClientCertificateIdentifier
          (\s a -> s { _dhcc1HsmClientCertificateIdentifier = a })
-{-# INLINE dhcc1HsmClientCertificateIdentifier #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -75,7 +73,6 @@ dhcc1HsmClientCertificateIdentifier =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhcc1MaxRecords :: Lens' DescribeHsmClientCertificates (Maybe Integer)
 dhcc1MaxRecords = lens _dhcc1MaxRecords (\s a -> s { _dhcc1MaxRecords = a })
-{-# INLINE dhcc1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeHsmClientCertificates
@@ -85,7 +82,6 @@ dhcc1MaxRecords = lens _dhcc1MaxRecords (\s a -> s { _dhcc1MaxRecords = a })
 -- retrying the request.
 dhcc1Marker :: Lens' DescribeHsmClientCertificates (Maybe Text)
 dhcc1Marker = lens _dhcc1Marker (\s a -> s { _dhcc1Marker = a })
-{-# INLINE dhcc1Marker #-}
 
 instance ToQuery DescribeHsmClientCertificates where
     toQuery = genericQuery def
@@ -103,7 +99,6 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
 -- is empty, all response records have been retrieved for the request.
 dhccrsMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
 dhccrsMarker = lens _dhccrsMarker (\s a -> s { _dhccrsMarker = a })
-{-# INLINE dhccrsMarker #-}
 
 -- | A list of the identifiers for one or more HSM client certificates used by
 -- Amazon Redshift clusters to store and retrieve database encryption keys in
@@ -112,7 +107,6 @@ dhccrsHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse [HsmC
 dhccrsHsmClientCertificates =
     lens _dhccrsHsmClientCertificates
          (\s a -> s { _dhccrsHsmClientCertificates = a })
-{-# INLINE dhccrsHsmClientCertificates #-}
 
 instance FromXML DescribeHsmClientCertificatesResponse where
     fromXMLOptions = xmlOptions
@@ -125,5 +119,5 @@ instance AWSRequest DescribeHsmClientCertificates where
     response _ = xmlResponse
 
 instance AWSPager DescribeHsmClientCertificates where
-    next rq rs = (\x -> rq { _dhcc1Marker = Just x })
-        <$> (_dhccrsMarker rs)
+    next rq rs = (\x -> rq & dhcc1Marker ?~ x) <$> (rs ^. dhccrsMarker)
+

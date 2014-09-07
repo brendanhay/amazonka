@@ -64,14 +64,12 @@ mkCreateTopic :: Text -- ^ 'ctName'
 mkCreateTopic p1 = CreateTopic
     { _ctName = p1
     }
-{-# INLINE mkCreateTopic #-}
 
 -- | The name of the topic you want to create. Constraints: Topic names must be
 -- made up of only uppercase and lowercase ASCII letters, numbers,
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
 ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\s a -> s { _ctName = a })
-{-# INLINE ctName #-}
 
 instance ToQuery CreateTopic where
     toQuery = genericQuery def
@@ -84,7 +82,6 @@ newtype CreateTopicResponse = CreateTopicResponse
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrsTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrsTopicArn = lens _ctrsTopicArn (\s a -> s { _ctrsTopicArn = a })
-{-# INLINE ctrsTopicArn #-}
 
 instance FromXML CreateTopicResponse where
     fromXMLOptions = xmlOptions

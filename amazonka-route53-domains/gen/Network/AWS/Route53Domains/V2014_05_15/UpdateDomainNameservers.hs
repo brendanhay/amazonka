@@ -74,7 +74,6 @@ mkUpdateDomainNameservers p1 p2 = UpdateDomainNameservers
     { _udnDomainName = p1
     , _udnNameservers = p2
     }
-{-# INLINE mkUpdateDomainNameservers #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -82,13 +81,11 @@ mkUpdateDomainNameservers p1 p2 = UpdateDomainNameservers
 -- Yes.
 udnDomainName :: Lens' UpdateDomainNameservers Text
 udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
-{-# INLINE udnDomainName #-}
 
 -- | A list of new name servers for the domain. Type: Complex Children: Name,
 -- GlueIps Required: Yes.
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a })
-{-# INLINE udnNameservers #-}
 
 instance ToPath UpdateDomainNameservers
 
@@ -109,7 +106,6 @@ newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
 udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrsOperationId =
     lens _udnrsOperationId (\s a -> s { _udnrsOperationId = a })
-{-# INLINE udnrsOperationId #-}
 
 instance FromJSON UpdateDomainNameserversResponse
 

@@ -60,20 +60,17 @@ mkConfigureHealthCheck p1 p2 = ConfigureHealthCheck
     { _chcLoadBalancerName = p1
     , _chcHealthCheck = p2
     }
-{-# INLINE mkConfigureHealthCheck #-}
 
 -- | The mnemonic name associated with the load balancer. The name must be
 -- unique within the set of load balancers associated with your AWS account.
 chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
 chcLoadBalancerName =
     lens _chcLoadBalancerName (\s a -> s { _chcLoadBalancerName = a })
-{-# INLINE chcLoadBalancerName #-}
 
 -- | A structure containing the configuration information for the new
 -- healthcheck.
 chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
 chcHealthCheck = lens _chcHealthCheck (\s a -> s { _chcHealthCheck = a })
-{-# INLINE chcHealthCheck #-}
 
 instance ToQuery ConfigureHealthCheck where
     toQuery = genericQuery def
@@ -87,7 +84,6 @@ newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
 chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrsHealthCheck =
     lens _chcrsHealthCheck (\s a -> s { _chcrsHealthCheck = a })
-{-# INLINE chcrsHealthCheck #-}
 
 instance FromXML ConfigureHealthCheckResponse where
     fromXMLOptions = xmlOptions

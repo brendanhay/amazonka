@@ -62,14 +62,12 @@ mkDescribeCacheSecurityGroups = DescribeCacheSecurityGroups
     , _dcsg2MaxRecords = Nothing
     , _dcsg2Marker = Nothing
     }
-{-# INLINE mkDescribeCacheSecurityGroups #-}
 
 -- | The name of the cache security group to return details for.
 dcsg2CacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg2CacheSecurityGroupName =
     lens _dcsg2CacheSecurityGroupName
          (\s a -> s { _dcsg2CacheSecurityGroupName = a })
-{-# INLINE dcsg2CacheSecurityGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -77,7 +75,6 @@ dcsg2CacheSecurityGroupName =
 -- Constraints: minimum 20; maximum 100.
 dcsg2MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Integer)
 dcsg2MaxRecords = lens _dcsg2MaxRecords (\s a -> s { _dcsg2MaxRecords = a })
-{-# INLINE dcsg2MaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -85,7 +82,6 @@ dcsg2MaxRecords = lens _dcsg2MaxRecords (\s a -> s { _dcsg2MaxRecords = a })
 -- specified by MaxRecords.
 dcsg2Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg2Marker = lens _dcsg2Marker (\s a -> s { _dcsg2Marker = a })
-{-# INLINE dcsg2Marker #-}
 
 instance ToQuery DescribeCacheSecurityGroups where
     toQuery = genericQuery def
@@ -99,7 +95,6 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgrsMarker = lens _dcsgrsMarker (\s a -> s { _dcsgrsMarker = a })
-{-# INLINE dcsgrsMarker #-}
 
 -- | A list of cache security groups. Each element in the list contains detailed
 -- information about one group.
@@ -107,7 +102,6 @@ dcsgrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSec
 dcsgrsCacheSecurityGroups =
     lens _dcsgrsCacheSecurityGroups
          (\s a -> s { _dcsgrsCacheSecurityGroups = a })
-{-# INLINE dcsgrsCacheSecurityGroups #-}
 
 instance FromXML DescribeCacheSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -120,5 +114,5 @@ instance AWSRequest DescribeCacheSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheSecurityGroups where
-    next rq rs = (\x -> rq { _dcsg2Marker = Just x })
-        <$> (_dcsgrsMarker rs)
+    next rq rs = (\x -> rq & dcsg2Marker ?~ x) <$> (rs ^. dcsgrsMarker)
+

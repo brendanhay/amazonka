@@ -88,17 +88,14 @@ mkRevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     , _rsgiCidrIp = Nothing
     , _rsgiIpPermissions = mempty
     }
-{-# INLINE mkRevokeSecurityGroupIngress #-}
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupName = lens _rsgiGroupName (\s a -> s { _rsgiGroupName = a })
-{-# INLINE rsgiGroupName #-}
 
 -- | The ID of the security group.
 rsgiGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupId = lens _rsgiGroupId (\s a -> s { _rsgiGroupId = a })
-{-# INLINE rsgiGroupId #-}
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
@@ -106,7 +103,6 @@ rsgiSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupName =
     lens _rsgiSourceSecurityGroupName
          (\s a -> s { _rsgiSourceSecurityGroupName = a })
-{-# INLINE rsgiSourceSecurityGroupName #-}
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
@@ -114,38 +110,32 @@ rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupOwnerId =
     lens _rsgiSourceSecurityGroupOwnerId
          (\s a -> s { _rsgiSourceSecurityGroupOwnerId = a })
-{-# INLINE rsgiSourceSecurityGroupOwnerId #-}
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
 -- -1 to specify all.
 rsgiIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiIpProtocol = lens _rsgiIpProtocol (\s a -> s { _rsgiIpProtocol = a })
-{-# INLINE rsgiIpProtocol #-}
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
 rsgiFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
 rsgiFromPort = lens _rsgiFromPort (\s a -> s { _rsgiFromPort = a })
-{-# INLINE rsgiFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use -1 to specify all ICMP codes for the
 -- ICMP type.
 rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Integer)
 rsgiToPort = lens _rsgiToPort (\s a -> s { _rsgiToPort = a })
-{-# INLINE rsgiToPort #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
 rsgiCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiCidrIp = lens _rsgiCidrIp (\s a -> s { _rsgiCidrIp = a })
-{-# INLINE rsgiCidrIp #-}
 
 -- | 
 rsgiIpPermissions :: Lens' RevokeSecurityGroupIngress [IpPermission]
 rsgiIpPermissions =
     lens _rsgiIpPermissions (\s a -> s { _rsgiIpPermissions = a })
-{-# INLINE rsgiIpPermissions #-}
 
 instance ToQuery RevokeSecurityGroupIngress where
     toQuery = genericQuery def

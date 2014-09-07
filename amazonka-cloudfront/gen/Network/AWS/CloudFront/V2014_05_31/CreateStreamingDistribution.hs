@@ -52,14 +52,12 @@ mkCreateStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingD
 mkCreateStreamingDistribution p1 = CreateStreamingDistribution
     { _csdStreamingDistributionConfig = p1
     }
-{-# INLINE mkCreateStreamingDistribution #-}
 
 -- | The streaming distribution's configuration information.
 csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
 csdStreamingDistributionConfig =
     lens _csdStreamingDistributionConfig
          (\s a -> s { _csdStreamingDistributionConfig = a })
-{-# INLINE csdStreamingDistributionConfig #-}
 
 instance ToPath CreateStreamingDistribution where
     toPath = const "/2014-05-31/streaming-distribution"
@@ -84,7 +82,6 @@ csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe S
 csdrsStreamingDistribution =
     lens _csdrsStreamingDistribution
          (\s a -> s { _csdrsStreamingDistribution = a })
-{-# INLINE csdrsStreamingDistribution #-}
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created. For example:
@@ -92,12 +89,10 @@ csdrsStreamingDistribution =
 -- 
 csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
 csdrsLocation = lens _csdrsLocation (\s a -> s { _csdrsLocation = a })
-{-# INLINE csdrsLocation #-}
 
 -- | The current version of the streaming distribution created.
 csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
 csdrsETag = lens _csdrsETag (\s a -> s { _csdrsETag = a })
-{-# INLINE csdrsETag #-}
 
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront

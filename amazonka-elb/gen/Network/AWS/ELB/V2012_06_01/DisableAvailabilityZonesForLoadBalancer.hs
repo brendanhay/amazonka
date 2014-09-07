@@ -67,13 +67,11 @@ mkDisableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoa
     { _dazflbLoadBalancerName = p1
     , _dazflbAvailabilityZones = p2
     }
-{-# INLINE mkDisableAvailabilityZonesForLoadBalancer #-}
 
 -- | The name associated with the load balancer.
 dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
 dazflbLoadBalancerName =
     lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
-{-# INLINE dazflbLoadBalancerName #-}
 
 -- | A list of Availability Zones to be removed from the load balancer. There
 -- must be at least one Availability Zone registered with a load balancer at
@@ -82,7 +80,6 @@ dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
 dazflbAvailabilityZones =
     lens _dazflbAvailabilityZones
          (\s a -> s { _dazflbAvailabilityZones = a })
-{-# INLINE dazflbAvailabilityZones #-}
 
 instance ToQuery DisableAvailabilityZonesForLoadBalancer where
     toQuery = genericQuery def
@@ -97,7 +94,6 @@ dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerRespon
 dazflbrsAvailabilityZones =
     lens _dazflbrsAvailabilityZones
          (\s a -> s { _dazflbrsAvailabilityZones = a })
-{-# INLINE dazflbrsAvailabilityZones #-}
 
 instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions

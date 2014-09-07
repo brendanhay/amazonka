@@ -93,7 +93,6 @@ mkCreateStack p1 = CreateStack
     , _csStackPolicyURL = Nothing
     , _csTags = mempty
     }
-{-# INLINE mkCreateStack #-}
 
 -- | The name associated with the stack. The name must be unique within your AWS
 -- account. Must contain only alphanumeric characters (case sensitive) and
@@ -101,7 +100,6 @@ mkCreateStack p1 = CreateStack
 -- characters.
 csStackName :: Lens' CreateStack Text
 csStackName = lens _csStackName (\s a -> s { _csStackName = a })
-{-# INLINE csStackName #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. For more information, go to Template
@@ -109,7 +107,6 @@ csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 -- either the TemplateBody or the TemplateURL parameter, but not both.
 csTemplateBody :: Lens' CreateStack (Maybe Text)
 csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
-{-# INLINE csTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 307,200 bytes) located in an S3 bucket in the same
@@ -118,12 +115,10 @@ csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 -- TemplateBody or the TemplateURL parameter, but not both.
 csTemplateURL :: Lens' CreateStack (Maybe Text)
 csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
-{-# INLINE csTemplateURL #-}
 
 -- | A list of Parameter structures that specify input parameters for the stack.
 csParameters :: Lens' CreateStack [Parameter]
 csParameters = lens _csParameters (\s a -> s { _csParameters = a })
-{-# INLINE csParameters #-}
 
 -- | Set to true to disable rollback of the stack if stack creation failed. You
 -- can specify either DisableRollback or OnFailure, but not both. Default:
@@ -131,7 +126,6 @@ csParameters = lens _csParameters (\s a -> s { _csParameters = a })
 csDisableRollback :: Lens' CreateStack (Maybe Bool)
 csDisableRollback =
     lens _csDisableRollback (\s a -> s { _csDisableRollback = a })
-{-# INLINE csDisableRollback #-}
 
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if DisableRollback is not set or is set to false, the stack
@@ -139,7 +133,6 @@ csDisableRollback =
 csTimeoutInMinutes :: Lens' CreateStack (Maybe Integer)
 csTimeoutInMinutes =
     lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
-{-# INLINE csTimeoutInMinutes #-}
 
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack related
 -- events. You can find your SNS topic ARNs using the SNS console or your
@@ -147,7 +140,6 @@ csTimeoutInMinutes =
 csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs =
     lens _csNotificationARNs (\s a -> s { _csNotificationARNs = a })
-{-# INLINE csNotificationARNs #-}
 
 -- | The list of capabilities that you want to allow in the stack. If your
 -- template contains certain resources, you must specify the CAPABILITY_IAM
@@ -159,14 +151,12 @@ csNotificationARNs =
 -- AWS::IAM::UserToGroupAddition.
 csCapabilities :: Lens' CreateStack [Capability]
 csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a })
-{-# INLINE csCapabilities #-}
 
 -- | Determines what action will be taken if stack creation fails. This must be
 -- one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either OnFailure
 -- or DisableRollback, but not both. Default: ROLLBACK.
 csOnFailure :: Lens' CreateStack (Maybe OnFailure)
 csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
-{-# INLINE csOnFailure #-}
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
@@ -175,7 +165,6 @@ csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
 csStackPolicyBody :: Lens' CreateStack (Maybe Text)
 csStackPolicyBody =
     lens _csStackPolicyBody (\s a -> s { _csStackPolicyBody = a })
-{-# INLINE csStackPolicyBody #-}
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
@@ -184,7 +173,6 @@ csStackPolicyBody =
 csStackPolicyURL :: Lens' CreateStack (Maybe Text)
 csStackPolicyURL =
     lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
-{-# INLINE csStackPolicyURL #-}
 
 -- | A set of user-defined Tags to associate with this stack, represented by
 -- key/value pairs. Tags defined for the stack are propagated to EC2 resources
@@ -192,7 +180,6 @@ csStackPolicyURL =
 -- specified.
 csTags :: Lens' CreateStack [Tag]
 csTags = lens _csTags (\s a -> s { _csTags = a })
-{-# INLINE csTags #-}
 
 instance ToQuery CreateStack where
     toQuery = genericQuery def
@@ -205,7 +192,6 @@ newtype CreateStackResponse = CreateStackResponse
 -- | Unique identifier of the stack.
 csrsStackId :: Lens' CreateStackResponse (Maybe Text)
 csrsStackId = lens _csrsStackId (\s a -> s { _csrsStackId = a })
-{-# INLINE csrsStackId #-}
 
 instance FromXML CreateStackResponse where
     fromXMLOptions = xmlOptions

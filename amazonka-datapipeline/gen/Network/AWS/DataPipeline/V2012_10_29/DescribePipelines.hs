@@ -73,14 +73,12 @@ mkDescribePipelines :: [Text] -- ^ 'dp1PipelineIds'
 mkDescribePipelines p1 = DescribePipelines
     { _dp1PipelineIds = p1
     }
-{-# INLINE mkDescribePipelines #-}
 
 -- | Identifiers of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call to DescribePipelines. You can obtain pipeline
 -- identifiers by calling ListPipelines.
 dp1PipelineIds :: Lens' DescribePipelines [Text]
 dp1PipelineIds = lens _dp1PipelineIds (\s a -> s { _dp1PipelineIds = a })
-{-# INLINE dp1PipelineIds #-}
 
 instance ToPath DescribePipelines
 
@@ -100,7 +98,6 @@ dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescript
 dprsPipelineDescriptionList =
     lens _dprsPipelineDescriptionList
          (\s a -> s { _dprsPipelineDescriptionList = a })
-{-# INLINE dprsPipelineDescriptionList #-}
 
 instance FromJSON DescribePipelinesResponse
 

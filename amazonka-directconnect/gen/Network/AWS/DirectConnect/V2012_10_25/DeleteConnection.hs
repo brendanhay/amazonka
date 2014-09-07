@@ -61,12 +61,10 @@ mkDeleteConnection :: Text -- ^ 'dcConnectionId'
 mkDeleteConnection p1 = DeleteConnection
     { _dcConnectionId = p1
     }
-{-# INLINE mkDeleteConnection #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 dcConnectionId :: Lens' DeleteConnection Text
 dcConnectionId = lens _dcConnectionId (\s a -> s { _dcConnectionId = a })
-{-# INLINE dcConnectionId #-}
 
 instance ToPath DeleteConnection
 
@@ -93,19 +91,16 @@ data DeleteConnectionResponse = DeleteConnectionResponse
 dcrsOwnerAccount :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrsOwnerAccount =
     lens _dcrsOwnerAccount (\s a -> s { _dcrsOwnerAccount = a })
-{-# INLINE dcrsOwnerAccount #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 dcrsConnectionId :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrsConnectionId =
     lens _dcrsConnectionId (\s a -> s { _dcrsConnectionId = a })
-{-# INLINE dcrsConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
 dcrsConnectionName :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrsConnectionName =
     lens _dcrsConnectionName (\s a -> s { _dcrsConnectionName = a })
-{-# INLINE dcrsConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state
@@ -121,32 +116,26 @@ dcrsConnectionName =
 dcrsConnectionState :: Lens' DeleteConnectionResponse (Maybe ConnectionState)
 dcrsConnectionState =
     lens _dcrsConnectionState (\s a -> s { _dcrsConnectionState = a })
-{-# INLINE dcrsConnectionState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
 dcrsRegion :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrsRegion = lens _dcrsRegion (\s a -> s { _dcrsRegion = a })
-{-# INLINE dcrsRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 dcrsLocation :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrsLocation = lens _dcrsLocation (\s a -> s { _dcrsLocation = a })
-{-# INLINE dcrsLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 dcrsBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrsBandwidth = lens _dcrsBandwidth (\s a -> s { _dcrsBandwidth = a })
-{-# INLINE dcrsBandwidth #-}
 
 -- | The VLAN ID. Example: 101.
 dcrsVlan :: Lens' DeleteConnectionResponse (Maybe Integer)
 dcrsVlan = lens _dcrsVlan (\s a -> s { _dcrsVlan = a })
-{-# INLINE dcrsVlan #-}
 
 dcrsPartnerName :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrsPartnerName = lens _dcrsPartnerName (\s a -> s { _dcrsPartnerName = a })
-{-# INLINE dcrsPartnerName #-}
 
 instance FromJSON DeleteConnectionResponse
 

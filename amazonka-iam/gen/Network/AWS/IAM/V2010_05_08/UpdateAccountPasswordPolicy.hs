@@ -77,14 +77,12 @@ mkUpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uappPasswordReusePrevention = Nothing
     , _uappHardExpiry = Nothing
     }
-{-# INLINE mkUpdateAccountPasswordPolicy #-}
 
 -- | The minimum number of characters allowed in an IAM user password.
 uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uappMinimumPasswordLength =
     lens _uappMinimumPasswordLength
          (\s a -> s { _uappMinimumPasswordLength = a })
-{-# INLINE uappMinimumPasswordLength #-}
 
 -- | Specifies whether IAM user passwords must contain at least one of the
 -- following non-alphanumeric characters: ! @ # $ % ^ &amp; * ( ) _ + - = [ ]
@@ -92,14 +90,12 @@ uappMinimumPasswordLength =
 uappRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireSymbols =
     lens _uappRequireSymbols (\s a -> s { _uappRequireSymbols = a })
-{-# INLINE uappRequireSymbols #-}
 
 -- | Specifies whether IAM user passwords must contain at least one numeric
 -- character (0 to 9).
 uappRequireNumbers :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireNumbers =
     lens _uappRequireNumbers (\s a -> s { _uappRequireNumbers = a })
-{-# INLINE uappRequireNumbers #-}
 
 -- | Specifies whether IAM user passwords must contain at least one uppercase
 -- character from the ISO basic Latin alphabet (A to Z).
@@ -107,7 +103,6 @@ uappRequireUppercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireUppercaseCharacters =
     lens _uappRequireUppercaseCharacters
          (\s a -> s { _uappRequireUppercaseCharacters = a })
-{-# INLINE uappRequireUppercaseCharacters #-}
 
 -- | Specifies whether IAM user passwords must contain at least one lowercase
 -- character from the ISO basic Latin alphabet (a to z).
@@ -115,7 +110,6 @@ uappRequireLowercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireLowercaseCharacters =
     lens _uappRequireLowercaseCharacters
          (\s a -> s { _uappRequireLowercaseCharacters = a })
-{-# INLINE uappRequireLowercaseCharacters #-}
 
 -- | Allows all IAM users in your account to use the AWS Management Console to
 -- change their own passwords. For more information, see Letting IAM Users
@@ -124,13 +118,11 @@ uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappAllowUsersToChangePassword =
     lens _uappAllowUsersToChangePassword
          (\s a -> s { _uappAllowUsersToChangePassword = a })
-{-# INLINE uappAllowUsersToChangePassword #-}
 
 -- | The number of days that an IAM user password is valid.
 uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uappMaxPasswordAge =
     lens _uappMaxPasswordAge (\s a -> s { _uappMaxPasswordAge = a })
-{-# INLINE uappMaxPasswordAge #-}
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
@@ -138,13 +130,11 @@ uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uappPasswordReusePrevention =
     lens _uappPasswordReusePrevention
          (\s a -> s { _uappPasswordReusePrevention = a })
-{-# INLINE uappPasswordReusePrevention #-}
 
 -- | Prevents IAM users from setting a new password after their password has
 -- expired.
 uappHardExpiry :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappHardExpiry = lens _uappHardExpiry (\s a -> s { _uappHardExpiry = a })
-{-# INLINE uappHardExpiry #-}
 
 instance ToQuery UpdateAccountPasswordPolicy where
     toQuery = genericQuery def

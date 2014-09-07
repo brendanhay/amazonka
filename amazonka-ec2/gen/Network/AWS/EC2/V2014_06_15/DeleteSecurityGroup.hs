@@ -64,17 +64,14 @@ mkDeleteSecurityGroup = DeleteSecurityGroup
     { _dsgGroupName = Nothing
     , _dsgGroupId = Nothing
     }
-{-# INLINE mkDeleteSecurityGroup #-}
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
-{-# INLINE dsgGroupName #-}
 
 -- | The ID of the security group.
 dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupId = lens _dsgGroupId (\s a -> s { _dsgGroupId = a })
-{-# INLINE dsgGroupId #-}
 
 instance ToQuery DeleteSecurityGroup where
     toQuery = genericQuery def

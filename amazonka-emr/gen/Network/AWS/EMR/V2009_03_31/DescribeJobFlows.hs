@@ -112,29 +112,24 @@ mkDescribeJobFlows = DescribeJobFlows
     , _djfJobFlowIds = mempty
     , _djfJobFlowStates = mempty
     }
-{-# INLINE mkDescribeJobFlows #-}
 
 -- | Return only job flows created after this date and time.
 djfCreatedAfter :: Lens' DescribeJobFlows (Maybe POSIX)
 djfCreatedAfter = lens _djfCreatedAfter (\s a -> s { _djfCreatedAfter = a })
-{-# INLINE djfCreatedAfter #-}
 
 -- | Return only job flows created before this date and time.
 djfCreatedBefore :: Lens' DescribeJobFlows (Maybe POSIX)
 djfCreatedBefore =
     lens _djfCreatedBefore (\s a -> s { _djfCreatedBefore = a })
-{-# INLINE djfCreatedBefore #-}
 
 -- | Return only job flows whose job flow ID is contained in this list.
 djfJobFlowIds :: Lens' DescribeJobFlows [Text]
 djfJobFlowIds = lens _djfJobFlowIds (\s a -> s { _djfJobFlowIds = a })
-{-# INLINE djfJobFlowIds #-}
 
 -- | Return only job flows whose state is contained in this list.
 djfJobFlowStates :: Lens' DescribeJobFlows [JobFlowExecutionState]
 djfJobFlowStates =
     lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a })
-{-# INLINE djfJobFlowStates #-}
 
 instance ToPath DescribeJobFlows
 
@@ -152,7 +147,6 @@ newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
 -- | A list of job flows matching the parameters supplied.
 djfrsJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
 djfrsJobFlows = lens _djfrsJobFlows (\s a -> s { _djfrsJobFlows = a })
-{-# INLINE djfrsJobFlows #-}
 
 instance FromJSON DescribeJobFlowsResponse
 

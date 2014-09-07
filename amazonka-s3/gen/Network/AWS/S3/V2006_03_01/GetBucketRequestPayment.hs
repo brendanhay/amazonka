@@ -49,11 +49,9 @@ mkGetBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
 mkGetBucketRequestPayment p1 = GetBucketRequestPayment
     { _gbrpBucket = p1
     }
-{-# INLINE mkGetBucketRequestPayment #-}
 
 gbrpBucket :: Lens' GetBucketRequestPayment BucketName
 gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
-{-# INLINE gbrpBucket #-}
 
 instance ToPath GetBucketRequestPayment where
     toPath GetBucketRequestPayment{..} = mconcat
@@ -77,7 +75,6 @@ newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
 -- | Specifies who pays for the download and request fees.
 gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprsPayer = lens _gbrprsPayer (\s a -> s { _gbrprsPayer = a })
-{-# INLINE gbrprsPayer #-}
 
 instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions

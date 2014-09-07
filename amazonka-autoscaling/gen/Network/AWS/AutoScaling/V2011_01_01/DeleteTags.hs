@@ -47,7 +47,6 @@ mkDeleteTags :: [Tag] -- ^ 'dtTags'
 mkDeleteTags p1 = DeleteTags
     { _dtTags = p1
     }
-{-# INLINE mkDeleteTags #-}
 
 -- | Each tag should be defined by its resource type, resource ID, key, value,
 -- and a propagate flag. Valid values are: Resource type = auto-scaling-group,
@@ -55,7 +54,6 @@ mkDeleteTags p1 = DeleteTags
 -- or false.
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\s a -> s { _dtTags = a })
-{-# INLINE dtTags #-}
 
 instance ToQuery DeleteTags where
     toQuery = genericQuery def

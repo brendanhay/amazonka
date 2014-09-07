@@ -67,14 +67,12 @@ mkDescribeChapCredentials :: Text -- ^ 'dcc1TargetARN'
 mkDescribeChapCredentials p1 = DescribeChapCredentials
     { _dcc1TargetARN = p1
     }
-{-# INLINE mkDescribeChapCredentials #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
 dcc1TargetARN :: Lens' DescribeChapCredentials Text
 dcc1TargetARN = lens _dcc1TargetARN (\s a -> s { _dcc1TargetARN = a })
-{-# INLINE dcc1TargetARN #-}
 
 instance ToPath DescribeChapCredentials
 
@@ -102,7 +100,6 @@ newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
 dccrsrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrsrsChapCredentials =
     lens _dccrsrsChapCredentials (\s a -> s { _dccrsrsChapCredentials = a })
-{-# INLINE dccrsrsChapCredentials #-}
 
 instance FromJSON DescribeChapCredentialsResponse
 

@@ -65,25 +65,21 @@ mkDescribeAnalysisSchemes p1 = DescribeAnalysisSchemes
     , _das2AnalysisSchemeNames = mempty
     , _das2Deployed = Nothing
     }
-{-# INLINE mkDescribeAnalysisSchemes #-}
 
 -- | The name of the domain you want to describe.
 das2DomainName :: Lens' DescribeAnalysisSchemes Text
 das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
-{-# INLINE das2DomainName #-}
 
 -- | The analysis schemes you want to describe.
 das2AnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
 das2AnalysisSchemeNames =
     lens _das2AnalysisSchemeNames
          (\s a -> s { _das2AnalysisSchemeNames = a })
-{-# INLINE das2AnalysisSchemeNames #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 das2Deployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
 das2Deployed = lens _das2Deployed (\s a -> s { _das2Deployed = a })
-{-# INLINE das2Deployed #-}
 
 instance ToQuery DescribeAnalysisSchemes where
     toQuery = genericQuery def
@@ -98,7 +94,6 @@ newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 dasrs1AnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrs1AnalysisSchemes =
     lens _dasrs1AnalysisSchemes (\s a -> s { _dasrs1AnalysisSchemes = a })
-{-# INLINE dasrs1AnalysisSchemes #-}
 
 instance FromXML DescribeAnalysisSchemesResponse where
     fromXMLOptions = xmlOptions

@@ -55,19 +55,16 @@ mkDescribeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbStackId = Nothing
     , _delbLayerIds = mempty
     }
-{-# INLINE mkDescribeElasticLoadBalancers #-}
 
 -- | A stack ID. The action describes the stack's Elastic Load Balancing
 -- instances.
 delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
 delbStackId = lens _delbStackId (\s a -> s { _delbStackId = a })
-{-# INLINE delbStackId #-}
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
 delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
 delbLayerIds = lens _delbLayerIds (\s a -> s { _delbLayerIds = a })
-{-# INLINE delbLayerIds #-}
 
 instance ToPath DescribeElasticLoadBalancers
 
@@ -88,7 +85,6 @@ delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [Elasti
 delbrsElasticLoadBalancers =
     lens _delbrsElasticLoadBalancers
          (\s a -> s { _delbrsElasticLoadBalancers = a })
-{-# INLINE delbrsElasticLoadBalancers #-}
 
 instance FromJSON DescribeElasticLoadBalancersResponse
 

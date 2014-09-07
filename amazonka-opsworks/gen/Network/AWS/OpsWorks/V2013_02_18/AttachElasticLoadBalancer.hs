@@ -58,20 +58,17 @@ mkAttachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
     { _aelbElasticLoadBalancerName = p1
     , _aelbLayerId = p2
     }
-{-# INLINE mkAttachElasticLoadBalancer #-}
 
 -- | The Elastic Load Balancing instance's name.
 aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
 aelbElasticLoadBalancerName =
     lens _aelbElasticLoadBalancerName
          (\s a -> s { _aelbElasticLoadBalancerName = a })
-{-# INLINE aelbElasticLoadBalancerName #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is to be
 -- attached to.
 aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\s a -> s { _aelbLayerId = a })
-{-# INLINE aelbLayerId #-}
 
 instance ToPath AttachElasticLoadBalancer
 

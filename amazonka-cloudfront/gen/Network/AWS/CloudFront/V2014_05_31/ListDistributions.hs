@@ -52,7 +52,6 @@ mkListDistributions = ListDistributions
     { _ldMarker = Nothing
     , _ldMaxItems = Nothing
     }
-{-# INLINE mkListDistributions #-}
 
 -- | Use this when paginating results to indicate where to begin in your list of
 -- distributions. The results include distributions in the list that occur
@@ -61,12 +60,10 @@ mkListDistributions = ListDistributions
 -- ID of the last distribution on that page).
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
-{-# INLINE ldMarker #-}
 
 -- | The maximum number of distributions you want in the response body.
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
-{-# INLINE ldMaxItems #-}
 
 instance ToPath ListDistributions where
     toPath = const "/2014-05-31/distribution"
@@ -85,14 +82,13 @@ instance ToXML ListDistributions where
 
 -- | The returned result of the corresponding request.
 newtype ListDistributionsResponse = ListDistributionsResponse
-    { _ldrsDistributionList :: Maybe DistributionList
+    { _ldrsDistributionList :: DistributionList
     } deriving (Show, Generic)
 
 -- | The DistributionList type.
-ldrsDistributionList :: Lens' ListDistributionsResponse (Maybe DistributionList)
+ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrsDistributionList =
     lens _ldrsDistributionList (\s a -> s { _ldrsDistributionList = a })
-{-# INLINE ldrsDistributionList #-}
 
 instance FromXML ListDistributionsResponse where
     fromXMLOptions = xmlOptions
@@ -106,7 +102,5 @@ instance AWSRequest ListDistributions where
 
 instance AWSPager ListDistributions where
     next rq rs
-        | not (_dlIsTruncated $ _ldrsDistributionList rs) = Nothing
-        | otherwise = Just $ rq
-            { _ldMarker = _dlNextMarker $ _ldrsDistributionList rs
-            }
+        | not (rs ^. ldrsDistributionList . dlIsTruncated) = Nothing
+        | otherwise = Just (rq & ldMarker .~ rs ^. ldrsDistributionList . dlNextMarker)

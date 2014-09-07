@@ -75,13 +75,11 @@ mkDescribeCache :: Text -- ^ 'dcGatewayARN'
 mkDescribeCache p1 = DescribeCache
     { _dcGatewayARN = p1
     }
-{-# INLINE mkDescribeCache #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dcGatewayARN :: Lens' DescribeCache Text
 dcGatewayARN = lens _dcGatewayARN (\s a -> s { _dcGatewayARN = a })
-{-# INLINE dcGatewayARN #-}
 
 instance ToPath DescribeCache
 
@@ -105,40 +103,33 @@ data DescribeCacheResponse = DescribeCacheResponse
 -- operation to return a list of gateways for your account and region.
 dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
 dcrsGatewayARN = lens _dcrsGatewayARN (\s a -> s { _dcrsGatewayARN = a })
-{-# INLINE dcrsGatewayARN #-}
 
 dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
 dcrsDiskIds = lens _dcrsDiskIds (\s a -> s { _dcrsDiskIds = a })
-{-# INLINE dcrsDiskIds #-}
 
 dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
 dcrsCacheAllocatedInBytes =
     lens _dcrsCacheAllocatedInBytes
          (\s a -> s { _dcrsCacheAllocatedInBytes = a })
-{-# INLINE dcrsCacheAllocatedInBytes #-}
 
 dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheUsedPercentage =
     lens _dcrsCacheUsedPercentage
          (\s a -> s { _dcrsCacheUsedPercentage = a })
-{-# INLINE dcrsCacheUsedPercentage #-}
 
 dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheDirtyPercentage =
     lens _dcrsCacheDirtyPercentage
          (\s a -> s { _dcrsCacheDirtyPercentage = a })
-{-# INLINE dcrsCacheDirtyPercentage #-}
 
 dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheHitPercentage =
     lens _dcrsCacheHitPercentage (\s a -> s { _dcrsCacheHitPercentage = a })
-{-# INLINE dcrsCacheHitPercentage #-}
 
 dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheMissPercentage =
     lens _dcrsCacheMissPercentage
          (\s a -> s { _dcrsCacheMissPercentage = a })
-{-# INLINE dcrsCacheMissPercentage #-}
 
 instance FromJSON DescribeCacheResponse
 

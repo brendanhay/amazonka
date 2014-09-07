@@ -103,17 +103,14 @@ mkPublish p3 = Publish
     , _pMessageStructure = Nothing
     , _pMessageAttributes = mempty
     }
-{-# INLINE mkPublish #-}
 
 -- | The topic you want to publish to.
 pTopicArn :: Lens' Publish (Maybe Text)
 pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
-{-# INLINE pTopicArn #-}
 
 -- | Either TopicArn or EndpointArn, but not both.
 pTargetArn :: Lens' Publish (Maybe Text)
 pTargetArn = lens _pTargetArn (\s a -> s { _pTargetArn = a })
-{-# INLINE pTargetArn #-}
 
 -- | The message you want to send to the topic. If you want to send the same
 -- message to all transport protocols, include the text of the message as a
@@ -136,7 +133,6 @@ pTargetArn = lens _pTargetArn (\s a -> s { _pTargetArn = a })
 -- partial delivery).
 pMessage :: Lens' Publish Text
 pMessage = lens _pMessage (\s a -> s { _pMessage = a })
-{-# INLINE pMessage #-}
 
 -- | Optional parameter to be used as the "Subject" line when the message is
 -- delivered to email endpoints. This field will also be included, if present,
@@ -146,7 +142,6 @@ pMessage = lens _pMessage (\s a -> s { _pMessage = a })
 -- must be less than 100 characters long.
 pSubject :: Lens' Publish (Maybe Text)
 pSubject = lens _pSubject (\s a -> s { _pSubject = a })
-{-# INLINE pSubject #-}
 
 -- | Set MessageStructure to json if you want to send a different message for
 -- each protocol. For example, using one publish action, you can send a short
@@ -162,13 +157,11 @@ pSubject = lens _pSubject (\s a -> s { _pSubject = a })
 pMessageStructure :: Lens' Publish (Maybe Text)
 pMessageStructure =
     lens _pMessageStructure (\s a -> s { _pMessageStructure = a })
-{-# INLINE pMessageStructure #-}
 
 -- | Message attributes for Publish action.
 pMessageAttributes :: Lens' Publish (Map Text MessageAttributeValue)
 pMessageAttributes =
     lens _pMessageAttributes (\s a -> s { _pMessageAttributes = a })
-{-# INLINE pMessageAttributes #-}
 
 instance ToQuery Publish where
     toQuery = genericQuery def
@@ -182,7 +175,6 @@ newtype PublishResponse = PublishResponse
 -- Maximum 100 characters.
 prsMessageId :: Lens' PublishResponse (Maybe Text)
 prsMessageId = lens _prsMessageId (\s a -> s { _prsMessageId = a })
-{-# INLINE prsMessageId #-}
 
 instance FromXML PublishResponse where
     fromXMLOptions = xmlOptions

@@ -84,27 +84,23 @@ mkDescribeClusterSnapshots = DescribeClusterSnapshots
     , _dcs1Marker = Nothing
     , _dcs1OwnerAccount = Nothing
     }
-{-# INLINE mkDescribeClusterSnapshots #-}
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
 dcs1ClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1ClusterIdentifier =
     lens _dcs1ClusterIdentifier (\s a -> s { _dcs1ClusterIdentifier = a })
-{-# INLINE dcs1ClusterIdentifier #-}
 
 -- | The snapshot identifier of the snapshot about which to return information.
 dcs1SnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1SnapshotIdentifier =
     lens _dcs1SnapshotIdentifier (\s a -> s { _dcs1SnapshotIdentifier = a })
-{-# INLINE dcs1SnapshotIdentifier #-}
 
 -- | The type of snapshots for which you are requesting information. By default,
 -- snapshots of all types are returned. Valid Values: automated | manual.
 dcs1SnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1SnapshotType =
     lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
-{-# INLINE dcs1SnapshotType #-}
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more information
@@ -112,7 +108,6 @@ dcs1SnapshotType =
 -- 2012-07-16T18:00:00Z.
 dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
 dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a })
-{-# INLINE dcs1StartTime #-}
 
 -- | A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
@@ -120,7 +115,6 @@ dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a })
 -- 2012-07-16T18:00:00Z.
 dcs1EndTime :: Lens' DescribeClusterSnapshots (Maybe ISO8601)
 dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a })
-{-# INLINE dcs1EndTime #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -129,7 +123,6 @@ dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a })
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcs1MaxRecords :: Lens' DescribeClusterSnapshots (Maybe Integer)
 dcs1MaxRecords = lens _dcs1MaxRecords (\s a -> s { _dcs1MaxRecords = a })
-{-# INLINE dcs1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterSnapshots request
@@ -139,7 +132,6 @@ dcs1MaxRecords = lens _dcs1MaxRecords (\s a -> s { _dcs1MaxRecords = a })
 -- the request.
 dcs1Marker :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1Marker = lens _dcs1Marker (\s a -> s { _dcs1Marker = a })
-{-# INLINE dcs1Marker #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Use this
 -- field to filter the results to snapshots owned by a particular account. To
@@ -148,7 +140,6 @@ dcs1Marker = lens _dcs1Marker (\s a -> s { _dcs1Marker = a })
 dcs1OwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1OwnerAccount =
     lens _dcs1OwnerAccount (\s a -> s { _dcs1OwnerAccount = a })
-{-# INLINE dcs1OwnerAccount #-}
 
 instance ToQuery DescribeClusterSnapshots where
     toQuery = genericQuery def
@@ -166,13 +157,11 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 -- is empty, all response records have been retrieved for the request.
 dcsrsrsMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 dcsrsrsMarker = lens _dcsrsrsMarker (\s a -> s { _dcsrsrsMarker = a })
-{-# INLINE dcsrsrsMarker #-}
 
 -- | A list of Snapshot instances.
 dcsrsrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
 dcsrsrsSnapshots =
     lens _dcsrsrsSnapshots (\s a -> s { _dcsrsrsSnapshots = a })
-{-# INLINE dcsrsrsSnapshots #-}
 
 instance FromXML DescribeClusterSnapshotsResponse where
     fromXMLOptions = xmlOptions
@@ -185,5 +174,5 @@ instance AWSRequest DescribeClusterSnapshots where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSnapshots where
-    next rq rs = (\x -> rq { _dcs1Marker = Just x })
-        <$> (_dcsrsrsMarker rs)
+    next rq rs = (\x -> rq & dcs1Marker ?~ x) <$> (rs ^. dcsrsrsMarker)
+

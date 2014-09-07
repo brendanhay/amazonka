@@ -73,7 +73,6 @@ mkCreateClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
     , _ccpgParameterGroupFamily = p2
     , _ccpgDescription = p3
     }
-{-# INLINE mkCreateClusterParameterGroup #-}
 
 -- | The name of the cluster parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter. Cannot
@@ -82,7 +81,6 @@ mkCreateClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
 ccpgParameterGroupName :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupName =
     lens _ccpgParameterGroupName (\s a -> s { _ccpgParameterGroupName = a })
-{-# INLINE ccpgParameterGroupName #-}
 
 -- | The Amazon Redshift engine version to which the cluster parameter group
 -- applies. The cluster engine version determines the set of parameters. To
@@ -97,12 +95,10 @@ ccpgParameterGroupFamily :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupFamily =
     lens _ccpgParameterGroupFamily
          (\s a -> s { _ccpgParameterGroupFamily = a })
-{-# INLINE ccpgParameterGroupFamily #-}
 
 -- | A description of the parameter group.
 ccpgDescription :: Lens' CreateClusterParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
-{-# INLINE ccpgDescription #-}
 
 instance ToQuery CreateClusterParameterGroup where
     toQuery = genericQuery def
@@ -116,7 +112,6 @@ ccpgrsClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe 
 ccpgrsClusterParameterGroup =
     lens _ccpgrsClusterParameterGroup
          (\s a -> s { _ccpgrsClusterParameterGroup = a })
-{-# INLINE ccpgrsClusterParameterGroup #-}
 
 instance FromXML CreateClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

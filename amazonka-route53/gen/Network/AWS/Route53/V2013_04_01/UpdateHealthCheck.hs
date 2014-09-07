@@ -77,13 +77,11 @@ mkUpdateHealthCheck p1 = UpdateHealthCheck
     , _uhcSearchString = Nothing
     , _uhcFailureThreshold = Nothing
     }
-{-# INLINE mkUpdateHealthCheck #-}
 
 -- | The ID of the health check to update.
 uhcHealthCheckId :: Lens' UpdateHealthCheck Text
 uhcHealthCheckId =
     lens _uhcHealthCheckId (\s a -> s { _uhcHealthCheckId = a })
-{-# INLINE uhcHealthCheckId #-}
 
 -- | Optional. When you specify a health check version, Route 53 compares this
 -- value with the current value in the health check, which prevents you from
@@ -93,19 +91,16 @@ uhcHealthCheckId =
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Integer)
 uhcHealthCheckVersion =
     lens _uhcHealthCheckVersion (\s a -> s { _uhcHealthCheckVersion = a })
-{-# INLINE uhcHealthCheckVersion #-}
 
 -- | The IP address of the resource that you want to check. Specify this value
 -- only if you want to change it.
 uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
-{-# INLINE uhcIPAddress #-}
 
 -- | The port on which you want Route 53 to open a connection to perform health
 -- checks. Specify this value only if you want to change it.
 uhcPort :: Lens' UpdateHealthCheck (Maybe Integer)
 uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a })
-{-# INLINE uhcPort #-}
 
 -- | The path that you want Amazon Route 53 to request when performing health
 -- checks. The path can be any value for which your endpoint will return an
@@ -114,7 +109,6 @@ uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a })
 -- want to change it.
 uhcResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcResourcePath = lens _uhcResourcePath (\s a -> s { _uhcResourcePath = a })
-{-# INLINE uhcResourcePath #-}
 
 -- | Fully qualified domain name of the instance to be health checked. Specify
 -- this value only if you want to change it.
@@ -122,7 +116,6 @@ uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
 uhcFullyQualifiedDomainName =
     lens _uhcFullyQualifiedDomainName
          (\s a -> s { _uhcFullyQualifiedDomainName = a })
-{-# INLINE uhcFullyQualifiedDomainName #-}
 
 -- | If the value of Type is HTTP_STR_MATCH or HTTP_STR_MATCH, the string that
 -- you want Route 53 to search for in the response body from the specified
@@ -130,7 +123,6 @@ uhcFullyQualifiedDomainName =
 -- the resource healthy. Specify this value only if you want to change it.
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
-{-# INLINE uhcSearchString #-}
 
 -- | The number of consecutive health checks that an endpoint must pass or fail
 -- for Route 53 to change the current status of the endpoint from unhealthy to
@@ -141,7 +133,6 @@ uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
 uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Integer)
 uhcFailureThreshold =
     lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
-{-# INLINE uhcFailureThreshold #-}
 
 instance ToPath UpdateHealthCheck where
     toPath UpdateHealthCheck{..} = mconcat
@@ -166,7 +157,6 @@ newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
 uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrsHealthCheck =
     lens _uhcrsHealthCheck (\s a -> s { _uhcrsHealthCheck = a })
-{-# INLINE uhcrsHealthCheck #-}
 
 instance FromXML UpdateHealthCheckResponse where
     fromXMLOptions = xmlOptions

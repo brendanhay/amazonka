@@ -70,13 +70,11 @@ mkStartGateway :: Text -- ^ 'sg1GatewayARN'
 mkStartGateway p1 = StartGateway
     { _sg1GatewayARN = p1
     }
-{-# INLINE mkStartGateway #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 sg1GatewayARN :: Lens' StartGateway Text
 sg1GatewayARN = lens _sg1GatewayARN (\s a -> s { _sg1GatewayARN = a })
-{-# INLINE sg1GatewayARN #-}
 
 instance ToPath StartGateway
 
@@ -96,7 +94,6 @@ newtype StartGatewayResponse = StartGatewayResponse
 sgrsrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 sgrsrsGatewayARN =
     lens _sgrsrsGatewayARN (\s a -> s { _sgrsrsGatewayARN = a })
-{-# INLINE sgrsrsGatewayARN #-}
 
 instance FromJSON StartGatewayResponse
 

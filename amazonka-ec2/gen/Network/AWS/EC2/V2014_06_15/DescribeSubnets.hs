@@ -83,12 +83,10 @@ mkDescribeSubnets = DescribeSubnets
     { _ds3SubnetIds = mempty
     , _ds3Filters = mempty
     }
-{-# INLINE mkDescribeSubnets #-}
 
 -- | One or more subnet IDs. Default: Describes all your subnets.
 ds3SubnetIds :: Lens' DescribeSubnets [Text]
 ds3SubnetIds = lens _ds3SubnetIds (\s a -> s { _ds3SubnetIds = a })
-{-# INLINE ds3SubnetIds #-}
 
 -- | One or more filters. availabilityZone - The Availability Zone for the
 -- subnet. You can also use availability-zone as the filter name.
@@ -111,7 +109,6 @@ ds3SubnetIds = lens _ds3SubnetIds (\s a -> s { _ds3SubnetIds = a })
 -- the subnet.
 ds3Filters :: Lens' DescribeSubnets [Filter]
 ds3Filters = lens _ds3Filters (\s a -> s { _ds3Filters = a })
-{-# INLINE ds3Filters #-}
 
 instance ToQuery DescribeSubnets where
     toQuery = genericQuery def
@@ -124,7 +121,6 @@ newtype DescribeSubnetsResponse = DescribeSubnetsResponse
 -- | Information about one or more subnets.
 dsrsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrsrsSubnets = lens _dsrsrsSubnets (\s a -> s { _dsrsrsSubnets = a })
-{-# INLINE dsrsrsSubnets #-}
 
 instance FromXML DescribeSubnetsResponse where
     fromXMLOptions = xmlOptions

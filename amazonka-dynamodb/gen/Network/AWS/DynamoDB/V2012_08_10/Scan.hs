@@ -102,12 +102,10 @@ mkScan p1 = Scan
     , _sTotalSegments = Nothing
     , _sSegment = Nothing
     }
-{-# INLINE mkScan #-}
 
 -- | The name of the table containing the requested items.
 sTableName :: Lens' Scan Text
 sTableName = lens _sTableName (\s a -> s { _sTableName = a })
-{-# INLINE sTableName #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
@@ -115,7 +113,6 @@ sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 sAttributesToGet :: Lens' Scan (Maybe [Text])
 sAttributesToGet =
     lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a })
-{-# INLINE sAttributesToGet #-}
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the limit
@@ -130,7 +127,6 @@ sAttributesToGet =
 -- >Query and Scan in the Amazon DynamoDB Developer Guide.
 sLimit :: Lens' Scan (Maybe Integer)
 sLimit = lens _sLimit (\s a -> s { _sLimit = a })
-{-# INLINE sLimit #-}
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, or the count of matching items.
@@ -145,7 +141,6 @@ sLimit = lens _sLimit (\s a -> s { _sLimit = a })
 -- AttributesToGet without any value for Select.).
 sSelect :: Lens' Scan (Maybe Select)
 sSelect = lens _sSelect (\s a -> s { _sSelect = a })
-{-# INLINE sSelect #-}
 
 -- | Evaluates the scan results and returns only the desired values. Multiple
 -- conditions are treated as "AND" operations: all conditions must be met to
@@ -230,12 +225,10 @@ sSelect = lens _sSelect (\s a -> s { _sSelect = a })
 -- to {"NS":["6", "2", "1"]}.
 sScanFilter :: Lens' Scan (Map Text Condition)
 sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a })
-{-# INLINE sScanFilter #-}
 
 sConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
 sConditionalOperator =
     lens _sConditionalOperator (\s a -> s { _sConditionalOperator = a })
-{-# INLINE sConditionalOperator #-}
 
 -- | The primary key of the first item that this operation will evalute. Use the
 -- value that was returned for LastEvaluatedKey in the previous operation. The
@@ -246,7 +239,6 @@ sConditionalOperator =
 sExclusiveStartKey :: Lens' Scan (Map Text AttributeValue)
 sExclusiveStartKey =
     lens _sExclusiveStartKey (\s a -> s { _sExclusiveStartKey = a })
-{-# INLINE sExclusiveStartKey #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -256,7 +248,6 @@ sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
 sReturnConsumedCapacity =
     lens _sReturnConsumedCapacity
          (\s a -> s { _sReturnConsumedCapacity = a })
-{-# INLINE sReturnConsumedCapacity #-}
 
 -- | For a parallel Scan request, TotalSegments represents the total number of
 -- segments into which the Scan operation will be divided. The value of
@@ -269,7 +260,6 @@ sReturnConsumedCapacity =
 -- also specify Segment.
 sTotalSegments :: Lens' Scan (Maybe Integer)
 sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a })
-{-# INLINE sTotalSegments #-}
 
 -- | For a parallel Scan request, Segment identifies an individual segment to be
 -- scanned by an application worker. Segment IDs are zero-based, so the first
@@ -283,7 +273,6 @@ sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a })
 -- TotalSegments.
 sSegment :: Lens' Scan (Maybe Integer)
 sSegment = lens _sSegment (\s a -> s { _sSegment = a })
-{-# INLINE sSegment #-}
 
 instance ToPath Scan
 
@@ -306,12 +295,10 @@ data ScanResponse = ScanResponse
 -- this array consists of an attribute name and the value for that attribute.
 srsItems :: Lens' ScanResponse [Map Text AttributeValue]
 srsItems = lens _srsItems (\s a -> s { _srsItems = a })
-{-# INLINE srsItems #-}
 
 -- | The number of items in the response.
 srsCount :: Lens' ScanResponse (Maybe Integer)
 srsCount = lens _srsCount (\s a -> s { _srsCount = a })
-{-# INLINE srsCount #-}
 
 -- | The number of items in the complete scan, before any filters are applied. A
 -- high ScannedCount value with few, or no, Count results indicates an
@@ -319,7 +306,6 @@ srsCount = lens _srsCount (\s a -> s { _srsCount = a })
 -- ScannedCount in the Amazon DynamoDB Developer Guide.
 srsScannedCount :: Lens' ScanResponse (Maybe Integer)
 srsScannedCount = lens _srsScannedCount (\s a -> s { _srsScannedCount = a })
-{-# INLINE srsScannedCount #-}
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -332,7 +318,6 @@ srsScannedCount = lens _srsScannedCount (\s a -> s { _srsScannedCount = a })
 srsLastEvaluatedKey :: Lens' ScanResponse (Map Text AttributeValue)
 srsLastEvaluatedKey =
     lens _srsLastEvaluatedKey (\s a -> s { _srsLastEvaluatedKey = a })
-{-# INLINE srsLastEvaluatedKey #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
@@ -342,7 +327,6 @@ srsLastEvaluatedKey =
 srsConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 srsConsumedCapacity =
     lens _srsConsumedCapacity (\s a -> s { _srsConsumedCapacity = a })
-{-# INLINE srsConsumedCapacity #-}
 
 instance FromJSON ScanResponse
 
@@ -356,6 +340,6 @@ instance AWSRequest Scan where
 instance AWSPager Scan where
     next rq rs
         | Map.null k = Nothing
-        | otherwise  = Just (rq { _sExclusiveStartKey = k })
+        | otherwise  = Just (rq & sExclusiveStartKey .~ k)
       where
-        k = _srsLastEvaluatedKey rs
+        k = rs ^. srsLastEvaluatedKey

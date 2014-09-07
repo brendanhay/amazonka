@@ -54,12 +54,10 @@ mkDeleteRouteTable :: Text -- ^ 'drtRouteTableId'
 mkDeleteRouteTable p1 = DeleteRouteTable
     { _drtRouteTableId = p1
     }
-{-# INLINE mkDeleteRouteTable #-}
 
 -- | The ID of the route table.
 drtRouteTableId :: Lens' DeleteRouteTable Text
 drtRouteTableId = lens _drtRouteTableId (\s a -> s { _drtRouteTableId = a })
-{-# INLINE drtRouteTableId #-}
 
 instance ToQuery DeleteRouteTable where
     toQuery = genericQuery def

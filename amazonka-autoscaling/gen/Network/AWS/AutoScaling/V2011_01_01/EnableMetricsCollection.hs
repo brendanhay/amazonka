@@ -58,14 +58,12 @@ mkEnableMetricsCollection p1 p3 = EnableMetricsCollection
     , _emcMetrics = mempty
     , _emcGranularity = p3
     }
-{-# INLINE mkEnableMetricsCollection #-}
 
 -- | The name or ARN of the Auto Scaling group.
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
 emcAutoScalingGroupName =
     lens _emcAutoScalingGroupName
          (\s a -> s { _emcAutoScalingGroupName = a })
-{-# INLINE emcAutoScalingGroupName #-}
 
 -- | The list of metrics to collect. If no metrics are specified, all metrics
 -- are enabled. The following metrics are supported: GroupMinSize GroupMaxSize
@@ -75,13 +73,11 @@ emcAutoScalingGroupName =
 -- explicitly request it when calling EnableMetricsCollection.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a })
-{-# INLINE emcMetrics #-}
 
 -- | The granularity to associate with the metrics to collect. Currently, the
 -- only legal granularity is "1Minute".
 emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
-{-# INLINE emcGranularity #-}
 
 instance ToQuery EnableMetricsCollection where
     toQuery = genericQuery def

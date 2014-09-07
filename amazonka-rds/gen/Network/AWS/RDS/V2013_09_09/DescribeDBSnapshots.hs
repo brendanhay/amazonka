@@ -73,7 +73,6 @@ mkDescribeDBSnapshots = DescribeDBSnapshots
     , _ddbs1MaxRecords = Nothing
     , _ddbs1Marker = Nothing
     }
-{-# INLINE mkDescribeDBSnapshots #-}
 
 -- | A DB instance identifier to retrieve the list of DB snapshots for. Cannot
 -- be used in conjunction with DBSnapshotIdentifier. This parameter is not
@@ -84,7 +83,6 @@ ddbs1DBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbs1DBInstanceIdentifier =
     lens _ddbs1DBInstanceIdentifier
          (\s a -> s { _ddbs1DBInstanceIdentifier = a })
-{-# INLINE ddbs1DBInstanceIdentifier #-}
 
 -- | A specific DB snapshot identifier to describe. Cannot be used in
 -- conjunction with DBInstanceIdentifier. This value is stored as a lowercase
@@ -96,7 +94,6 @@ ddbs1DBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbs1DBSnapshotIdentifier =
     lens _ddbs1DBSnapshotIdentifier
          (\s a -> s { _ddbs1DBSnapshotIdentifier = a })
-{-# INLINE ddbs1DBSnapshotIdentifier #-}
 
 -- | The type of snapshots that will be returned. Values can be "automated" or
 -- "manual." If not specified, the returned results will include all snapshots
@@ -104,7 +101,6 @@ ddbs1DBSnapshotIdentifier =
 ddbs1SnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbs1SnapshotType =
     lens _ddbs1SnapshotType (\s a -> s { _ddbs1SnapshotType = a })
-{-# INLINE ddbs1SnapshotType #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -112,14 +108,12 @@ ddbs1SnapshotType =
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbs1MaxRecords :: Lens' DescribeDBSnapshots (Maybe Integer)
 ddbs1MaxRecords = lens _ddbs1MaxRecords (\s a -> s { _ddbs1MaxRecords = a })
-{-# INLINE ddbs1MaxRecords #-}
 
 -- | An optional pagination token provided by a previous DescribeDBSnapshots
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
 ddbs1Marker :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbs1Marker = lens _ddbs1Marker (\s a -> s { _ddbs1Marker = a })
-{-# INLINE ddbs1Marker #-}
 
 instance ToQuery DescribeDBSnapshots where
     toQuery = genericQuery def
@@ -136,13 +130,11 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
 -- marker, up to the value specified by MaxRecords.
 ddbsrsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddbsrsrsMarker = lens _ddbsrsrsMarker (\s a -> s { _ddbsrsrsMarker = a })
-{-# INLINE ddbsrsrsMarker #-}
 
 -- | A list of DBSnapshot instances.
 ddbsrsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddbsrsrsDBSnapshots =
     lens _ddbsrsrsDBSnapshots (\s a -> s { _ddbsrsrsDBSnapshots = a })
-{-# INLINE ddbsrsrsDBSnapshots #-}
 
 instance FromXML DescribeDBSnapshotsResponse where
     fromXMLOptions = xmlOptions
@@ -155,5 +147,5 @@ instance AWSRequest DescribeDBSnapshots where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSnapshots where
-    next rq rs = (\x -> rq { _ddbs1Marker = Just x })
-        <$> (_ddbsrsrsMarker rs)
+    next rq rs = (\x -> rq & ddbs1Marker ?~ x) <$> (rs ^. ddbsrsrsMarker)
+

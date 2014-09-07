@@ -65,16 +65,13 @@ mkCreateLogStream p1 p2 = CreateLogStream
     { _clsLogGroupName = p1
     , _clsLogStreamName = p2
     }
-{-# INLINE mkCreateLogStream #-}
 
 clsLogGroupName :: Lens' CreateLogStream Text
 clsLogGroupName = lens _clsLogGroupName (\s a -> s { _clsLogGroupName = a })
-{-# INLINE clsLogGroupName #-}
 
 clsLogStreamName :: Lens' CreateLogStream Text
 clsLogStreamName =
     lens _clsLogStreamName (\s a -> s { _clsLogStreamName = a })
-{-# INLINE clsLogStreamName #-}
 
 instance ToPath CreateLogStream
 

@@ -90,26 +90,22 @@ mkChangeMessageVisibility p1 p2 p3 = ChangeMessageVisibility
     , _cmvReceiptHandle = p2
     , _cmvVisibilityTimeout = p3
     }
-{-# INLINE mkChangeMessageVisibility #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvQueueUrl :: Lens' ChangeMessageVisibility Text
 cmvQueueUrl = lens _cmvQueueUrl (\s a -> s { _cmvQueueUrl = a })
-{-# INLINE cmvQueueUrl #-}
 
 -- | The receipt handle associated with the message whose visibility timeout
 -- should be changed. This parameter is returned by the ReceiveMessage action.
 cmvReceiptHandle :: Lens' ChangeMessageVisibility Text
 cmvReceiptHandle =
     lens _cmvReceiptHandle (\s a -> s { _cmvReceiptHandle = a })
-{-# INLINE cmvReceiptHandle #-}
 
 -- | The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the
 -- message's visibility timeout.
 cmvVisibilityTimeout :: Lens' ChangeMessageVisibility Integer
 cmvVisibilityTimeout =
     lens _cmvVisibilityTimeout (\s a -> s { _cmvVisibilityTimeout = a })
-{-# INLINE cmvVisibilityTimeout #-}
 
 instance ToQuery ChangeMessageVisibility where
     toQuery = genericQuery def

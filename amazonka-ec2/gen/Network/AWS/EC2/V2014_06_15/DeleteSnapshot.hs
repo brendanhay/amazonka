@@ -62,12 +62,10 @@ mkDeleteSnapshot :: Text -- ^ 'dsSnapshotId'
 mkDeleteSnapshot p1 = DeleteSnapshot
     { _dsSnapshotId = p1
     }
-{-# INLINE mkDeleteSnapshot #-}
 
 -- | The ID of the Amazon EBS snapshot.
 dsSnapshotId :: Lens' DeleteSnapshot Text
 dsSnapshotId = lens _dsSnapshotId (\s a -> s { _dsSnapshotId = a })
-{-# INLINE dsSnapshotId #-}
 
 instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def

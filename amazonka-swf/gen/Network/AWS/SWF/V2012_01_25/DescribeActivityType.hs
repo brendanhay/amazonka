@@ -89,18 +89,15 @@ mkDescribeActivityType p1 p2 = DescribeActivityType
     { _dat1Domain = p1
     , _dat1ActivityType = p2
     }
-{-# INLINE mkDescribeActivityType #-}
 
 -- | The name of the domain in which the activity type is registered.
 dat1Domain :: Lens' DescribeActivityType Text
 dat1Domain = lens _dat1Domain (\s a -> s { _dat1Domain = a })
-{-# INLINE dat1Domain #-}
 
 -- | The activity type to describe.
 dat1ActivityType :: Lens' DescribeActivityType ActivityType
 dat1ActivityType =
     lens _dat1ActivityType (\s a -> s { _dat1ActivityType = a })
-{-# INLINE dat1ActivityType #-}
 
 instance ToPath DescribeActivityType
 
@@ -124,13 +121,11 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
 -- supporting this type running. You cannot create new tasks of this type.
 datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrsTypeInfo = lens _datrsTypeInfo (\s a -> s { _datrsTypeInfo = a })
-{-# INLINE datrsTypeInfo #-}
 
 -- | The configuration settings registered with the activity type.
 datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 datrsConfiguration =
     lens _datrsConfiguration (\s a -> s { _datrsConfiguration = a })
-{-# INLINE datrsConfiguration #-}
 
 instance FromJSON DescribeActivityTypeResponse
 

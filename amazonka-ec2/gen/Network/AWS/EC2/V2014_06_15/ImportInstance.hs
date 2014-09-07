@@ -73,28 +73,23 @@ mkImportInstance p4 = ImportInstance
     , _iiDiskImages = mempty
     , _iiPlatform = p4
     }
-{-# INLINE mkImportInstance #-}
 
 -- | A description for the instance being imported.
 iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\s a -> s { _iiDescription = a })
-{-# INLINE iiDescription #-}
 
 -- | 
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
 iiLaunchSpecification =
     lens _iiLaunchSpecification (\s a -> s { _iiLaunchSpecification = a })
-{-# INLINE iiLaunchSpecification #-}
 
 -- | 
 iiDiskImages :: Lens' ImportInstance [DiskImage]
 iiDiskImages = lens _iiDiskImages (\s a -> s { _iiDiskImages = a })
-{-# INLINE iiDiskImages #-}
 
 -- | The instance operating system.
 iiPlatform :: Lens' ImportInstance PlatformValues
 iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
-{-# INLINE iiPlatform #-}
 
 instance ToQuery ImportInstance where
     toQuery = genericQuery def
@@ -108,7 +103,6 @@ newtype ImportInstanceResponse = ImportInstanceResponse
 iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirsConversionTask =
     lens _iirsConversionTask (\s a -> s { _iirsConversionTask = a })
-{-# INLINE iirsConversionTask #-}
 
 instance FromXML ImportInstanceResponse where
     fromXMLOptions = xmlOptions

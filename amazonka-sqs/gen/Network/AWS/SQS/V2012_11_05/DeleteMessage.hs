@@ -78,17 +78,14 @@ mkDeleteMessage p1 p2 = DeleteMessage
     { _dmQueueUrl = p1
     , _dmReceiptHandle = p2
     }
-{-# INLINE mkDeleteMessage #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 dmQueueUrl :: Lens' DeleteMessage Text
 dmQueueUrl = lens _dmQueueUrl (\s a -> s { _dmQueueUrl = a })
-{-# INLINE dmQueueUrl #-}
 
 -- | The receipt handle associated with the message to delete.
 dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\s a -> s { _dmReceiptHandle = a })
-{-# INLINE dmReceiptHandle #-}
 
 instance ToQuery DeleteMessage where
     toQuery = genericQuery def

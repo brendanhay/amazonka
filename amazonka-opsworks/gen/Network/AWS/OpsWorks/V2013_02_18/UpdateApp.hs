@@ -77,60 +77,49 @@ mkUpdateApp p1 = UpdateApp
     , _uaSslConfiguration = Nothing
     , _uaAttributes = mempty
     }
-{-# INLINE mkUpdateApp #-}
 
 -- | The app ID.
 uaAppId :: Lens' UpdateApp Text
 uaAppId = lens _uaAppId (\s a -> s { _uaAppId = a })
-{-# INLINE uaAppId #-}
 
 -- | The app name.
 uaName :: Lens' UpdateApp (Maybe Text)
 uaName = lens _uaName (\s a -> s { _uaName = a })
-{-# INLINE uaName #-}
 
 -- | A description of the app.
 uaDescription :: Lens' UpdateApp (Maybe Text)
 uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
-{-# INLINE uaDescription #-}
 
 -- | The app's data sources.
 uaDataSources :: Lens' UpdateApp [DataSource]
 uaDataSources = lens _uaDataSources (\s a -> s { _uaDataSources = a })
-{-# INLINE uaDataSources #-}
 
 -- | The app type.
 uaType :: Lens' UpdateApp (Maybe AppType)
 uaType = lens _uaType (\s a -> s { _uaType = a })
-{-# INLINE uaType #-}
 
 -- | A Source object that specifies the app repository.
 uaAppSource :: Lens' UpdateApp (Maybe Source)
 uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
-{-# INLINE uaAppSource #-}
 
 -- | The app's virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
 uaDomains :: Lens' UpdateApp [Text]
 uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a })
-{-# INLINE uaDomains #-}
 
 -- | Whether SSL is enabled for the app.
 uaEnableSsl :: Lens' UpdateApp (Maybe Bool)
 uaEnableSsl = lens _uaEnableSsl (\s a -> s { _uaEnableSsl = a })
-{-# INLINE uaEnableSsl #-}
 
 -- | An SslConfiguration object with the SSL configuration.
 uaSslConfiguration :: Lens' UpdateApp (Maybe SslConfiguration)
 uaSslConfiguration =
     lens _uaSslConfiguration (\s a -> s { _uaSslConfiguration = a })
-{-# INLINE uaSslConfiguration #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 uaAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
 uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a })
-{-# INLINE uaAttributes #-}
 
 instance ToPath UpdateApp
 

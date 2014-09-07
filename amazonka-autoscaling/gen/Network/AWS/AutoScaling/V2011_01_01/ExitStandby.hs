@@ -61,13 +61,11 @@ mkExitStandby p2 = ExitStandby
     { _es1InstanceIds = mempty
     , _es1AutoScalingGroupName = p2
     }
-{-# INLINE mkExitStandby #-}
 
 -- | A list of instances to move out of Standby mode. You must specify at least
 -- one instance ID.
 es1InstanceIds :: Lens' ExitStandby [Text]
 es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a })
-{-# INLINE es1InstanceIds #-}
 
 -- | The name of the Auto Scaling group from which to move instances out of
 -- Standby mode.
@@ -75,7 +73,6 @@ es1AutoScalingGroupName :: Lens' ExitStandby Text
 es1AutoScalingGroupName =
     lens _es1AutoScalingGroupName
          (\s a -> s { _es1AutoScalingGroupName = a })
-{-# INLINE es1AutoScalingGroupName #-}
 
 instance ToQuery ExitStandby where
     toQuery = genericQuery def
@@ -90,7 +87,6 @@ newtype ExitStandbyResponse = ExitStandbyResponse
 esrsrsActivities :: Lens' ExitStandbyResponse [Activity]
 esrsrsActivities =
     lens _esrsrsActivities (\s a -> s { _esrsrsActivities = a })
-{-# INLINE esrsrsActivities #-}
 
 instance FromXML ExitStandbyResponse where
     fromXMLOptions = xmlOptions

@@ -52,12 +52,10 @@ mkDeregisterElasticIp :: Text -- ^ 'deiElasticIp'
 mkDeregisterElasticIp p1 = DeregisterElasticIp
     { _deiElasticIp = p1
     }
-{-# INLINE mkDeregisterElasticIp #-}
 
 -- | The Elastic IP address.
 deiElasticIp :: Lens' DeregisterElasticIp Text
 deiElasticIp = lens _deiElasticIp (\s a -> s { _deiElasticIp = a })
-{-# INLINE deiElasticIp #-}
 
 instance ToPath DeregisterElasticIp
 

@@ -98,41 +98,34 @@ mkCreateCachediSCSIVolume p1 p2 p4 p5 p6 = CreateCachediSCSIVolume
     , _ccscsivNetworkInterfaceId = p5
     , _ccscsivClientToken = p6
     }
-{-# INLINE mkCreateCachediSCSIVolume #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 ccscsivGatewayARN :: Lens' CreateCachediSCSIVolume Text
 ccscsivGatewayARN =
     lens _ccscsivGatewayARN (\s a -> s { _ccscsivGatewayARN = a })
-{-# INLINE ccscsivGatewayARN #-}
 
 ccscsivVolumeSizeInBytes :: Lens' CreateCachediSCSIVolume Integer
 ccscsivVolumeSizeInBytes =
     lens _ccscsivVolumeSizeInBytes
          (\s a -> s { _ccscsivVolumeSizeInBytes = a })
-{-# INLINE ccscsivVolumeSizeInBytes #-}
 
 ccscsivSnapshotId :: Lens' CreateCachediSCSIVolume (Maybe Text)
 ccscsivSnapshotId =
     lens _ccscsivSnapshotId (\s a -> s { _ccscsivSnapshotId = a })
-{-# INLINE ccscsivSnapshotId #-}
 
 ccscsivTargetName :: Lens' CreateCachediSCSIVolume Text
 ccscsivTargetName =
     lens _ccscsivTargetName (\s a -> s { _ccscsivTargetName = a })
-{-# INLINE ccscsivTargetName #-}
 
 ccscsivNetworkInterfaceId :: Lens' CreateCachediSCSIVolume Text
 ccscsivNetworkInterfaceId =
     lens _ccscsivNetworkInterfaceId
          (\s a -> s { _ccscsivNetworkInterfaceId = a })
-{-# INLINE ccscsivNetworkInterfaceId #-}
 
 ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
 ccscsivClientToken =
     lens _ccscsivClientToken (\s a -> s { _ccscsivClientToken = a })
-{-# INLINE ccscsivClientToken #-}
 
 instance ToPath CreateCachediSCSIVolume
 
@@ -150,12 +143,10 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
 ccscsivrsVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrsVolumeARN =
     lens _ccscsivrsVolumeARN (\s a -> s { _ccscsivrsVolumeARN = a })
-{-# INLINE ccscsivrsVolumeARN #-}
 
 ccscsivrsTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrsTargetARN =
     lens _ccscsivrsTargetARN (\s a -> s { _ccscsivrsTargetARN = a })
-{-# INLINE ccscsivrsTargetARN #-}
 
 instance FromJSON CreateCachediSCSIVolumeResponse
 

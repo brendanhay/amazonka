@@ -109,37 +109,31 @@ mkUpdateAutoScalingGroup p1 = UpdateAutoScalingGroup
     , _uasgVPCZoneIdentifier = Nothing
     , _uasgTerminationPolicies = mempty
     }
-{-# INLINE mkUpdateAutoScalingGroup #-}
 
 -- | The name of the Auto Scaling group.
 uasgAutoScalingGroupName :: Lens' UpdateAutoScalingGroup Text
 uasgAutoScalingGroupName =
     lens _uasgAutoScalingGroupName
          (\s a -> s { _uasgAutoScalingGroupName = a })
-{-# INLINE uasgAutoScalingGroupName #-}
 
 -- | The name of the launch configuration.
 uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgLaunchConfigurationName =
     lens _uasgLaunchConfigurationName
          (\s a -> s { _uasgLaunchConfigurationName = a })
-{-# INLINE uasgLaunchConfigurationName #-}
 
 -- | The minimum size of the Auto Scaling group.
 uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgMinSize = lens _uasgMinSize (\s a -> s { _uasgMinSize = a })
-{-# INLINE uasgMinSize #-}
 
 -- | The maximum size of the Auto Scaling group.
 uasgMaxSize :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgMaxSize = lens _uasgMaxSize (\s a -> s { _uasgMaxSize = a })
-{-# INLINE uasgMaxSize #-}
 
 -- | The desired capacity for the Auto Scaling group.
 uasgDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgDesiredCapacity =
     lens _uasgDesiredCapacity (\s a -> s { _uasgDesiredCapacity = a })
-{-# INLINE uasgDesiredCapacity #-}
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further scaling activities can start. For more information, see
@@ -147,13 +141,11 @@ uasgDesiredCapacity =
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgDefaultCooldown =
     lens _uasgDefaultCooldown (\s a -> s { _uasgDefaultCooldown = a })
-{-# INLINE uasgDefaultCooldown #-}
 
 -- | Availability Zones for the group.
 uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe [Text])
 uasgAvailabilityZones =
     lens _uasgAvailabilityZones (\s a -> s { _uasgAvailabilityZones = a })
-{-# INLINE uasgAvailabilityZones #-}
 
 -- | The type of health check for the instances in the Auto Scaling group. The
 -- health check type can either be EC2 for Amazon EC2 or ELB for Elastic Load
@@ -161,7 +153,6 @@ uasgAvailabilityZones =
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType =
     lens _uasgHealthCheckType (\s a -> s { _uasgHealthCheckType = a })
-{-# INLINE uasgHealthCheckType #-}
 
 -- | The length of time that Auto Scaling waits before checking an instance's
 -- health status. The grace period begins when the instance passes System
@@ -171,14 +162,12 @@ uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Integer)
 uasgHealthCheckGracePeriod =
     lens _uasgHealthCheckGracePeriod
          (\s a -> s { _uasgHealthCheckGracePeriod = a })
-{-# INLINE uasgHealthCheckGracePeriod #-}
 
 -- | The name of the cluster placement group, if applicable. For more
 -- information, go to Using Cluster Instances in the Amazon EC2 User Guide.
 uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgPlacementGroup =
     lens _uasgPlacementGroup (\s a -> s { _uasgPlacementGroup = a })
-{-# INLINE uasgPlacementGroup #-}
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You can
 -- specify several subnets in a comma-separated list. When you specify
@@ -190,7 +179,6 @@ uasgPlacementGroup =
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier =
     lens _uasgVPCZoneIdentifier (\s a -> s { _uasgVPCZoneIdentifier = a })
-{-# INLINE uasgVPCZoneIdentifier #-}
 
 -- | A standalone termination policy or a list of termination policies used to
 -- select the instance to terminate. The policies are executed in the order
@@ -201,7 +189,6 @@ uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies =
     lens _uasgTerminationPolicies
          (\s a -> s { _uasgTerminationPolicies = a })
-{-# INLINE uasgTerminationPolicies #-}
 
 instance ToQuery UpdateAutoScalingGroup where
     toQuery = genericQuery def

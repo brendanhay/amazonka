@@ -45,7 +45,6 @@ data GetCredentialReport = GetCredentialReport
 -- a valid 'GetCredentialReport' request.
 mkGetCredentialReport :: GetCredentialReport
 mkGetCredentialReport = GetCredentialReport
-{-# INLINE mkGetCredentialReport #-}
 
 instance ToQuery GetCredentialReport where
     toQuery = genericQuery def
@@ -61,20 +60,17 @@ data GetCredentialReportResponse = GetCredentialReportResponse
 -- | Contains the credential report. The report is Base64-encoded.
 gcrrsrsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
 gcrrsrsContent = lens _gcrrsrsContent (\s a -> s { _gcrrsrsContent = a })
-{-# INLINE gcrrsrsContent #-}
 
 -- | The format (MIME type) of the credential report.
 gcrrsrsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 gcrrsrsReportFormat =
     lens _gcrrsrsReportFormat (\s a -> s { _gcrrsrsReportFormat = a })
-{-# INLINE gcrrsrsReportFormat #-}
 
 -- | The time and date when the credential report was created, in ISO 8601
 -- date-time format.
 gcrrsrsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe ISO8601)
 gcrrsrsGeneratedTime =
     lens _gcrrsrsGeneratedTime (\s a -> s { _gcrrsrsGeneratedTime = a })
-{-# INLINE gcrrsrsGeneratedTime #-}
 
 instance FromXML GetCredentialReportResponse where
     fromXMLOptions = xmlOptions

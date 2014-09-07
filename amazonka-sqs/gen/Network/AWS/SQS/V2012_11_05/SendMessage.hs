@@ -87,18 +87,15 @@ mkSendMessage p1 p2 = SendMessage
     , _smDelaySeconds = Nothing
     , _smMessageAttributes = mempty
     }
-{-# INLINE mkSendMessage #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 smQueueUrl :: Lens' SendMessage Text
 smQueueUrl = lens _smQueueUrl (\s a -> s { _smQueueUrl = a })
-{-# INLINE smQueueUrl #-}
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.
 smMessageBody :: Lens' SendMessage Text
 smMessageBody = lens _smMessageBody (\s a -> s { _smMessageBody = a })
-{-# INLINE smMessageBody #-}
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.
 -- Messages with a positive DelaySeconds value become available for processing
@@ -106,14 +103,12 @@ smMessageBody = lens _smMessageBody (\s a -> s { _smMessageBody = a })
 -- value for the queue applies.
 smDelaySeconds :: Lens' SendMessage (Maybe Integer)
 smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
-{-# INLINE smDelaySeconds #-}
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
 smMessageAttributes :: Lens' SendMessage (Map Text MessageAttributeValue)
 smMessageAttributes =
     lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
-{-# INLINE smMessageAttributes #-}
 
 instance ToQuery SendMessage where
     toQuery = genericQuery def
@@ -132,7 +127,6 @@ data SendMessageResponse = SendMessageResponse
 smrsMD5OfMessageBody :: Lens' SendMessageResponse (Maybe Text)
 smrsMD5OfMessageBody =
     lens _smrsMD5OfMessageBody (\s a -> s { _smrsMD5OfMessageBody = a })
-{-# INLINE smrsMD5OfMessageBody #-}
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can be
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
@@ -142,14 +136,12 @@ smrsMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrsMD5OfMessageAttributes =
     lens _smrsMD5OfMessageAttributes
          (\s a -> s { _smrsMD5OfMessageAttributes = a })
-{-# INLINE smrsMD5OfMessageAttributes #-}
 
 -- | An element containing the message ID of the message sent to the queue. For
 -- more information, see Queue and Message Identifiers in the Amazon SQS
 -- Developer Guide.
 smrsMessageId :: Lens' SendMessageResponse (Maybe Text)
 smrsMessageId = lens _smrsMessageId (\s a -> s { _smrsMessageId = a })
-{-# INLINE smrsMessageId #-}
 
 instance FromXML SendMessageResponse where
     fromXMLOptions = xmlOptions

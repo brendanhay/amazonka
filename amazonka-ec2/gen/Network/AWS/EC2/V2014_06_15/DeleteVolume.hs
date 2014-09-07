@@ -56,12 +56,10 @@ mkDeleteVolume :: Text -- ^ 'dvVolumeId'
 mkDeleteVolume p1 = DeleteVolume
     { _dvVolumeId = p1
     }
-{-# INLINE mkDeleteVolume #-}
 
 -- | The ID of the volume.
 dvVolumeId :: Lens' DeleteVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
-{-# INLINE dvVolumeId #-}
 
 instance ToQuery DeleteVolume where
     toQuery = genericQuery def

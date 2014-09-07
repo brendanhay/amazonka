@@ -48,12 +48,10 @@ mkStartLogging :: Text -- ^ 'slName'
 mkStartLogging p1 = StartLogging
     { _slName = p1
     }
-{-# INLINE mkStartLogging #-}
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
 slName :: Lens' StartLogging Text
 slName = lens _slName (\s a -> s { _slName = a })
-{-# INLINE slName #-}
 
 instance ToPath StartLogging
 

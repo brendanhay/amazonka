@@ -66,7 +66,6 @@ mkCreateCacheSubnetGroup p1 p2 p3 = CreateCacheSubnetGroup
     , _ccsg1CacheSubnetGroupDescription = p2
     , _ccsg1SubnetIds = p3
     }
-{-# INLINE mkCreateCacheSubnetGroup #-}
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
@@ -75,19 +74,16 @@ ccsg1CacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
 ccsg1CacheSubnetGroupName =
     lens _ccsg1CacheSubnetGroupName
          (\s a -> s { _ccsg1CacheSubnetGroupName = a })
-{-# INLINE ccsg1CacheSubnetGroupName #-}
 
 -- | A description for the cache subnet group.
 ccsg1CacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup Text
 ccsg1CacheSubnetGroupDescription =
     lens _ccsg1CacheSubnetGroupDescription
          (\s a -> s { _ccsg1CacheSubnetGroupDescription = a })
-{-# INLINE ccsg1CacheSubnetGroupDescription #-}
 
 -- | A list of VPC subnet IDs for the cache subnet group.
 ccsg1SubnetIds :: Lens' CreateCacheSubnetGroup [Text]
 ccsg1SubnetIds = lens _ccsg1SubnetIds (\s a -> s { _ccsg1SubnetIds = a })
-{-# INLINE ccsg1SubnetIds #-}
 
 instance ToQuery CreateCacheSubnetGroup where
     toQuery = genericQuery def
@@ -102,7 +98,6 @@ ccsgrsrsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSub
 ccsgrsrsCacheSubnetGroup =
     lens _ccsgrsrsCacheSubnetGroup
          (\s a -> s { _ccsgrsrsCacheSubnetGroup = a })
-{-# INLINE ccsgrsrsCacheSubnetGroup #-}
 
 instance FromXML CreateCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions

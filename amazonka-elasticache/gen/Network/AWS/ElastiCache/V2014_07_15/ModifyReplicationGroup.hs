@@ -104,20 +104,17 @@ mkModifyReplicationGroup p1 = ModifyReplicationGroup
     , _mrgSnapshotWindow = Nothing
     , _mrgSnapshottingClusterId = Nothing
     }
-{-# INLINE mkModifyReplicationGroup #-}
 
 -- | The identifier of the replication group to modify.
 mrgReplicationGroupId :: Lens' ModifyReplicationGroup Text
 mrgReplicationGroupId =
     lens _mrgReplicationGroupId (\s a -> s { _mrgReplicationGroupId = a })
-{-# INLINE mrgReplicationGroupId #-}
 
 -- | A description for the replication group. Maximum length is 255 characters.
 mrgReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgReplicationGroupDescription =
     lens _mrgReplicationGroupDescription
          (\s a -> s { _mrgReplicationGroupDescription = a })
-{-# INLINE mrgReplicationGroupDescription #-}
 
 -- | A list of cache security group names to authorize for the clusters in this
 -- replication group. This change is asynchronously applied as soon as
@@ -129,7 +126,6 @@ mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
 mrgCacheSecurityGroupNames =
     lens _mrgCacheSecurityGroupNames
          (\s a -> s { _mrgCacheSecurityGroupNames = a })
-{-# INLINE mrgCacheSecurityGroupNames #-}
 
 -- | Specifies the VPC Security Groups associated with the cache clusters in the
 -- replication group. This parameter can be used only with replication groups
@@ -137,7 +133,6 @@ mrgCacheSecurityGroupNames =
 mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
 mrgSecurityGroupIds =
     lens _mrgSecurityGroupIds (\s a -> s { _mrgSecurityGroupIds = a })
-{-# INLINE mrgSecurityGroupIds #-}
 
 -- | The weekly time range (in UTC) during which replication group system
 -- maintenance can occur. Note that system maintenance may result in an
@@ -148,7 +143,6 @@ mrgPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgPreferredMaintenanceWindow =
     lens _mrgPreferredMaintenanceWindow
          (\s a -> s { _mrgPreferredMaintenanceWindow = a })
-{-# INLINE mrgPreferredMaintenanceWindow #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent. The Amazon SNS topic owner must be same as the
@@ -157,7 +151,6 @@ mrgNotificationTopicArn :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicArn =
     lens _mrgNotificationTopicArn
          (\s a -> s { _mrgNotificationTopicArn = a })
-{-# INLINE mrgNotificationTopicArn #-}
 
 -- | The name of the cache parameter group to apply to all of the cache nodes in
 -- this replication group. This change is asynchronously applied as soon as
@@ -167,7 +160,6 @@ mrgCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgCacheParameterGroupName =
     lens _mrgCacheParameterGroupName
          (\s a -> s { _mrgCacheParameterGroupName = a })
-{-# INLINE mrgCacheParameterGroupName #-}
 
 -- | The status of the Amazon SNS notification topic for the replication group.
 -- Notifications are sent only if the status is active. Valid values: active |
@@ -176,7 +168,6 @@ mrgNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicStatus =
     lens _mrgNotificationTopicStatus
          (\s a -> s { _mrgNotificationTopicStatus = a })
-{-# INLINE mrgNotificationTopicStatus #-}
 
 -- | If true, this parameter causes the modifications in this request and any
 -- pending modifications to be applied, asynchronously and as soon as
@@ -187,14 +178,12 @@ mrgNotificationTopicStatus =
 mrgApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgApplyImmediately =
     lens _mrgApplyImmediately (\s a -> s { _mrgApplyImmediately = a })
-{-# INLINE mrgApplyImmediately #-}
 
 -- | The upgraded version of the cache engine to be run on the nodes in the
 -- replication group..
 mrgEngineVersion :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgEngineVersion =
     lens _mrgEngineVersion (\s a -> s { _mrgEngineVersion = a })
-{-# INLINE mrgEngineVersion #-}
 
 -- | Determines whether minor engine upgrades will be applied automatically to
 -- all of the cache nodes in the replication group during the maintenance
@@ -204,7 +193,6 @@ mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutoMinorVersionUpgrade =
     lens _mrgAutoMinorVersionUpgrade
          (\s a -> s { _mrgAutoMinorVersionUpgrade = a })
-{-# INLINE mrgAutoMinorVersionUpgrade #-}
 
 -- | If this parameter is specified, ElastiCache will promote each of the nodes
 -- in the specified cache cluster to the primary role. The nodes of all other
@@ -212,7 +200,6 @@ mrgAutoMinorVersionUpgrade =
 mrgPrimaryClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgPrimaryClusterId =
     lens _mrgPrimaryClusterId (\s a -> s { _mrgPrimaryClusterId = a })
-{-# INLINE mrgPrimaryClusterId #-}
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
@@ -223,7 +210,6 @@ mrgSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Integer)
 mrgSnapshotRetentionLimit =
     lens _mrgSnapshotRetentionLimit
          (\s a -> s { _mrgSnapshotRetentionLimit = a })
-{-# INLINE mrgSnapshotRetentionLimit #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of the cache cluster specified by SnapshottingClusterId.
@@ -232,7 +218,6 @@ mrgSnapshotRetentionLimit =
 mrgSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgSnapshotWindow =
     lens _mrgSnapshotWindow (\s a -> s { _mrgSnapshotWindow = a })
-{-# INLINE mrgSnapshotWindow #-}
 
 -- | The cache cluster ID that will be used as the daily snapshot source for the
 -- replication group.
@@ -240,7 +225,6 @@ mrgSnapshottingClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgSnapshottingClusterId =
     lens _mrgSnapshottingClusterId
          (\s a -> s { _mrgSnapshottingClusterId = a })
-{-# INLINE mrgSnapshottingClusterId #-}
 
 instance ToQuery ModifyReplicationGroup where
     toQuery = genericQuery def
@@ -253,7 +237,6 @@ newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
 mrgrsReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
 mrgrsReplicationGroup =
     lens _mrgrsReplicationGroup (\s a -> s { _mrgrsReplicationGroup = a })
-{-# INLINE mrgrsReplicationGroup #-}
 
 instance FromXML ModifyReplicationGroupResponse where
     fromXMLOptions = xmlOptions

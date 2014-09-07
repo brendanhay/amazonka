@@ -87,26 +87,22 @@ mkCreatePlatformApplication p1 p2 p3 = CreatePlatformApplication
     , _cpaPlatform = p2
     , _cpaAttributes = p3
     }
-{-# INLINE mkCreatePlatformApplication #-}
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between 1
 -- and 256 characters long.
 cpaName :: Lens' CreatePlatformApplication Text
 cpaName = lens _cpaName (\s a -> s { _cpaName = a })
-{-# INLINE cpaName #-}
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS
 -- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud
 -- Messaging).
 cpaPlatform :: Lens' CreatePlatformApplication Text
 cpaPlatform = lens _cpaPlatform (\s a -> s { _cpaPlatform = a })
-{-# INLINE cpaPlatform #-}
 
 -- | For a list of attributes, see SetPlatformApplicationAttributes.
 cpaAttributes :: Lens' CreatePlatformApplication (Map Text Text)
 cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a })
-{-# INLINE cpaAttributes #-}
 
 instance ToQuery CreatePlatformApplication where
     toQuery = genericQuery def
@@ -121,7 +117,6 @@ cparsPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Te
 cparsPlatformApplicationArn =
     lens _cparsPlatformApplicationArn
          (\s a -> s { _cparsPlatformApplicationArn = a })
-{-# INLINE cparsPlatformApplicationArn #-}
 
 instance FromXML CreatePlatformApplicationResponse where
     fromXMLOptions = xmlOptions

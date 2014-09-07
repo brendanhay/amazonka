@@ -72,14 +72,12 @@ mkGetOperationDetail :: Text -- ^ 'godOperationId'
 mkGetOperationDetail p1 = GetOperationDetail
     { _godOperationId = p1
     }
-{-# INLINE mkGetOperationDetail #-}
 
 -- | The identifier for the operation for which you want to get the status.
 -- Amazon Route 53 returned the identifier in the response to the original
 -- request. Type: String Default: None Required: Yes.
 godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\s a -> s { _godOperationId = a })
-{-# INLINE godOperationId #-}
 
 instance ToPath GetOperationDetail
 
@@ -103,33 +101,27 @@ data GetOperationDetailResponse = GetOperationDetailResponse
 godrsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsOperationId =
     lens _godrsOperationId (\s a -> s { _godrsOperationId = a })
-{-# INLINE godrsOperationId #-}
 
 -- | The current status of the requested operation in the system. Type: String.
 godrsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
 godrsStatus = lens _godrsStatus (\s a -> s { _godrsStatus = a })
-{-# INLINE godrsStatus #-}
 
 -- | Detailed information on the status including possible errors. Type: String.
 godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsMessage = lens _godrsMessage (\s a -> s { _godrsMessage = a })
-{-# INLINE godrsMessage #-}
 
 -- | The name of a domain. Type: String.
 godrsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsDomainName = lens _godrsDomainName (\s a -> s { _godrsDomainName = a })
-{-# INLINE godrsDomainName #-}
 
 -- | The type of operation that was requested. Type: String.
 godrsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
 godrsType = lens _godrsType (\s a -> s { _godrsType = a })
-{-# INLINE godrsType #-}
 
 -- | The date when the request was submitted.
 godrsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe ISO8601)
 godrsSubmittedDate =
     lens _godrsSubmittedDate (\s a -> s { _godrsSubmittedDate = a })
-{-# INLINE godrsSubmittedDate #-}
 
 instance FromJSON GetOperationDetailResponse
 

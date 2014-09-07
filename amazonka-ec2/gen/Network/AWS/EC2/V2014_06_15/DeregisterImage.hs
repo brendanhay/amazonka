@@ -54,12 +54,10 @@ mkDeregisterImage :: Text -- ^ 'diImageId'
 mkDeregisterImage p1 = DeregisterImage
     { _diImageId = p1
     }
-{-# INLINE mkDeregisterImage #-}
 
 -- | The ID of the AMI.
 diImageId :: Lens' DeregisterImage Text
 diImageId = lens _diImageId (\s a -> s { _diImageId = a })
-{-# INLINE diImageId #-}
 
 instance ToQuery DeregisterImage where
     toQuery = genericQuery def

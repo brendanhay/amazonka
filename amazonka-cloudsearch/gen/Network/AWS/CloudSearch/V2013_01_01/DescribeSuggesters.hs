@@ -65,24 +65,20 @@ mkDescribeSuggesters p1 = DescribeSuggesters
     , _ds3SuggesterNames = mempty
     , _ds3Deployed = Nothing
     }
-{-# INLINE mkDescribeSuggesters #-}
 
 -- | The name of the domain you want to describe.
 ds3DomainName :: Lens' DescribeSuggesters Text
 ds3DomainName = lens _ds3DomainName (\s a -> s { _ds3DomainName = a })
-{-# INLINE ds3DomainName #-}
 
 -- | The suggesters you want to describe.
 ds3SuggesterNames :: Lens' DescribeSuggesters [Text]
 ds3SuggesterNames =
     lens _ds3SuggesterNames (\s a -> s { _ds3SuggesterNames = a })
-{-# INLINE ds3SuggesterNames #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 ds3Deployed :: Lens' DescribeSuggesters (Maybe Bool)
 ds3Deployed = lens _ds3Deployed (\s a -> s { _ds3Deployed = a })
-{-# INLINE ds3Deployed #-}
 
 instance ToQuery DescribeSuggesters where
     toQuery = genericQuery def
@@ -95,7 +91,6 @@ newtype DescribeSuggestersResponse = DescribeSuggestersResponse
 -- | The suggesters configured for the domain specified in the request.
 dsrs1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsrs1Suggesters = lens _dsrs1Suggesters (\s a -> s { _dsrs1Suggesters = a })
-{-# INLINE dsrs1Suggesters #-}
 
 instance FromXML DescribeSuggestersResponse where
     fromXMLOptions = xmlOptions

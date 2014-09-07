@@ -73,18 +73,15 @@ mkAddInstanceGroups p1 p2 = AddInstanceGroups
     { _aigInstanceGroups = p1
     , _aigJobFlowId = p2
     }
-{-# INLINE mkAddInstanceGroups #-}
 
 -- | Instance Groups to add.
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
 aigInstanceGroups =
     lens _aigInstanceGroups (\s a -> s { _aigInstanceGroups = a })
-{-# INLINE aigInstanceGroups #-}
 
 -- | Job flow in which to add the instance groups.
 aigJobFlowId :: Lens' AddInstanceGroups Text
 aigJobFlowId = lens _aigJobFlowId (\s a -> s { _aigJobFlowId = a })
-{-# INLINE aigJobFlowId #-}
 
 instance ToPath AddInstanceGroups
 
@@ -103,13 +100,11 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse
 -- | The job flow ID in which the instance groups are added.
 aigrsJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
 aigrsJobFlowId = lens _aigrsJobFlowId (\s a -> s { _aigrsJobFlowId = a })
-{-# INLINE aigrsJobFlowId #-}
 
 -- | Instance group IDs of the newly created instance groups.
 aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrsInstanceGroupIds =
     lens _aigrsInstanceGroupIds (\s a -> s { _aigrsInstanceGroupIds = a })
-{-# INLINE aigrsInstanceGroupIds #-}
 
 instance FromJSON AddInstanceGroupsResponse
 

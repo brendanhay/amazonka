@@ -48,12 +48,10 @@ mkDeleteAlarms :: [Text] -- ^ 'daAlarmNames'
 mkDeleteAlarms p1 = DeleteAlarms
     { _daAlarmNames = p1
     }
-{-# INLINE mkDeleteAlarms #-}
 
 -- | A list of alarms to be deleted.
 daAlarmNames :: Lens' DeleteAlarms [Text]
 daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a })
-{-# INLINE daAlarmNames #-}
 
 instance ToQuery DeleteAlarms where
     toQuery = genericQuery def

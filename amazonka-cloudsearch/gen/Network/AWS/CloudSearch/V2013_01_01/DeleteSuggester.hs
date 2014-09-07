@@ -56,7 +56,6 @@ mkDeleteSuggester p1 p2 = DeleteSuggester
     { _ds2DomainName = p1
     , _ds2SuggesterName = p2
     }
-{-# INLINE mkDeleteSuggester #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -64,13 +63,11 @@ mkDeleteSuggester p1 p2 = DeleteSuggester
 -- (lowercase), 0-9, and - (hyphen).
 ds2DomainName :: Lens' DeleteSuggester Text
 ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
-{-# INLINE ds2DomainName #-}
 
 -- | Specifies the name of the suggester you want to delete.
 ds2SuggesterName :: Lens' DeleteSuggester Text
 ds2SuggesterName =
     lens _ds2SuggesterName (\s a -> s { _ds2SuggesterName = a })
-{-# INLINE ds2SuggesterName #-}
 
 instance ToQuery DeleteSuggester where
     toQuery = genericQuery def
@@ -84,7 +81,6 @@ newtype DeleteSuggesterResponse = DeleteSuggesterResponse
 -- | The status of the suggester being deleted.
 dsrsrsSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
 dsrsrsSuggester = lens _dsrsrsSuggester (\s a -> s { _dsrsrsSuggester = a })
-{-# INLINE dsrsrsSuggester #-}
 
 instance FromXML DeleteSuggesterResponse where
     fromXMLOptions = xmlOptions

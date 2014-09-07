@@ -220,17 +220,14 @@ mkTestMetricFilter p1 p2 = TestMetricFilter
     { _tmfFilterPattern = p1
     , _tmfLogEventMessages = p2
     }
-{-# INLINE mkTestMetricFilter #-}
 
 tmfFilterPattern :: Lens' TestMetricFilter Text
 tmfFilterPattern =
     lens _tmfFilterPattern (\s a -> s { _tmfFilterPattern = a })
-{-# INLINE tmfFilterPattern #-}
 
 tmfLogEventMessages :: Lens' TestMetricFilter [Text]
 tmfLogEventMessages =
     lens _tmfLogEventMessages (\s a -> s { _tmfLogEventMessages = a })
-{-# INLINE tmfLogEventMessages #-}
 
 instance ToPath TestMetricFilter
 
@@ -246,7 +243,6 @@ newtype TestMetricFilterResponse = TestMetricFilterResponse
 
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrsMatches = lens _tmfrsMatches (\s a -> s { _tmfrsMatches = a })
-{-# INLINE tmfrsMatches #-}
 
 instance FromJSON TestMetricFilterResponse
 

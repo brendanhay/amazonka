@@ -53,18 +53,15 @@ mkExecutePolicy p2 = ExecutePolicy
     , _epPolicyName = p2
     , _epHonorCooldown = Nothing
     }
-{-# INLINE mkExecutePolicy #-}
 
 -- | The name or the Amazon Resource Name (ARN) of the Auto Scaling group.
 epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
 epAutoScalingGroupName =
     lens _epAutoScalingGroupName (\s a -> s { _epAutoScalingGroupName = a })
-{-# INLINE epAutoScalingGroupName #-}
 
 -- | The name or ARN of the policy you want to run.
 epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\s a -> s { _epPolicyName = a })
-{-# INLINE epPolicyName #-}
 
 -- | Set to True if you want Auto Scaling to wait for the cooldown period
 -- associated with the Auto Scaling group to complete before executing the
@@ -74,7 +71,6 @@ epPolicyName = lens _epPolicyName (\s a -> s { _epPolicyName = a })
 -- Cooldown Period in the Auto Scaling Developer Guide.
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\s a -> s { _epHonorCooldown = a })
-{-# INLINE epHonorCooldown #-}
 
 instance ToQuery ExecutePolicy where
     toQuery = genericQuery def

@@ -58,19 +58,16 @@ mkDeleteRoute p1 p2 = DeleteRoute
     { _drRouteTableId = p1
     , _drDestinationCidrBlock = p2
     }
-{-# INLINE mkDeleteRoute #-}
 
 -- | The ID of the route table.
 drRouteTableId :: Lens' DeleteRoute Text
 drRouteTableId = lens _drRouteTableId (\s a -> s { _drRouteTableId = a })
-{-# INLINE drRouteTableId #-}
 
 -- | The CIDR range for the route. The value you specify must match the CIDR for
 -- the route exactly.
 drDestinationCidrBlock :: Lens' DeleteRoute Text
 drDestinationCidrBlock =
     lens _drDestinationCidrBlock (\s a -> s { _drDestinationCidrBlock = a })
-{-# INLINE drDestinationCidrBlock #-}
 
 instance ToQuery DeleteRoute where
     toQuery = genericQuery def

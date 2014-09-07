@@ -54,12 +54,10 @@ mkStopInstance :: Text -- ^ 'si1InstanceId'
 mkStopInstance p1 = StopInstance
     { _si1InstanceId = p1
     }
-{-# INLINE mkStopInstance #-}
 
 -- | The instance ID.
 si1InstanceId :: Lens' StopInstance Text
 si1InstanceId = lens _si1InstanceId (\s a -> s { _si1InstanceId = a })
-{-# INLINE si1InstanceId #-}
 
 instance ToPath StopInstance
 

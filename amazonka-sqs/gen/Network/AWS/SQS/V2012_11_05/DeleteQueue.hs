@@ -63,12 +63,10 @@ mkDeleteQueue :: Text -- ^ 'dqQueueUrl'
 mkDeleteQueue p1 = DeleteQueue
     { _dqQueueUrl = p1
     }
-{-# INLINE mkDeleteQueue #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
-{-# INLINE dqQueueUrl #-}
 
 instance ToQuery DeleteQueue where
     toQuery = genericQuery def

@@ -75,14 +75,12 @@ mkDescribeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
     , _ddcpMaxRecords = Nothing
     , _ddcpMarker = Nothing
     }
-{-# INLINE mkDescribeDefaultClusterParameters #-}
 
 -- | The name of the cluster parameter group family.
 ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
 ddcpParameterGroupFamily =
     lens _ddcpParameterGroupFamily
          (\s a -> s { _ddcpParameterGroupFamily = a })
-{-# INLINE ddcpParameterGroupFamily #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -91,7 +89,6 @@ ddcpParameterGroupFamily =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Integer)
 ddcpMaxRecords = lens _ddcpMaxRecords (\s a -> s { _ddcpMaxRecords = a })
-{-# INLINE ddcpMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeDefaultClusterParameters
@@ -101,21 +98,19 @@ ddcpMaxRecords = lens _ddcpMaxRecords (\s a -> s { _ddcpMaxRecords = a })
 -- retrying the request.
 ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
 ddcpMarker = lens _ddcpMarker (\s a -> s { _ddcpMarker = a })
-{-# INLINE ddcpMarker #-}
 
 instance ToQuery DescribeDefaultClusterParameters where
     toQuery = genericQuery def
 
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
-    { _ddcprsDefaultClusterParameters :: Maybe DefaultClusterParameters
+    { _ddcprsDefaultClusterParameters :: DefaultClusterParameters
     } deriving (Show, Generic)
 
 -- | Describes the default cluster parameters for a parameter group family.
-ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse (Maybe DefaultClusterParameters)
+ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
 ddcprsDefaultClusterParameters =
     lens _ddcprsDefaultClusterParameters
          (\s a -> s { _ddcprsDefaultClusterParameters = a })
-{-# INLINE ddcprsDefaultClusterParameters #-}
 
 instance FromXML DescribeDefaultClusterParametersResponse where
     fromXMLOptions = xmlOptions
@@ -128,5 +123,5 @@ instance AWSRequest DescribeDefaultClusterParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeDefaultClusterParameters where
-    next rq rs = (\x -> rq { _ddcpMarker = Just x })
-        <$> (_dcp1Marker $ _ddcprsDefaultClusterParameters rs)
+    next rq rs = (\x -> rq & ddcpMarker ?~ x) <$> (rs ^. ddcprsDefaultClusterParameters . dcp1Marker)
+

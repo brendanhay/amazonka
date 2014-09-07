@@ -92,24 +92,20 @@ mkRequestSpotInstances p1 = RequestSpotInstances
     , _rsiAvailabilityZoneGroup = Nothing
     , _rsiLaunchSpecification = Nothing
     }
-{-# INLINE mkRequestSpotInstances #-}
 
 -- | The maximum hourly price for any Spot Instance launched to fulfill the
 -- request.
 rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\s a -> s { _rsiSpotPrice = a })
-{-# INLINE rsiSpotPrice #-}
 
 -- | The maximum number of Spot Instances to launch. Default: 1.
 rsiInstanceCount :: Lens' RequestSpotInstances (Maybe Integer)
 rsiInstanceCount =
     lens _rsiInstanceCount (\s a -> s { _rsiInstanceCount = a })
-{-# INLINE rsiInstanceCount #-}
 
 -- | The Spot Instance request type. Default: one-time.
 rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
 rsiType = lens _rsiType (\s a -> s { _rsiType = a })
-{-# INLINE rsiType #-}
 
 -- | The start date of the request. If this is a one-time request, the request
 -- becomes active at this date and time and remains active until all instances
@@ -119,7 +115,6 @@ rsiType = lens _rsiType (\s a -> s { _rsiType = a })
 -- indefinitely.
 rsiValidFrom :: Lens' RequestSpotInstances (Maybe ISO8601)
 rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a })
-{-# INLINE rsiValidFrom #-}
 
 -- | The end date of the request. If this is a one-time request, the request
 -- remains active until all instances launch, the request is canceled, or this
@@ -128,14 +123,12 @@ rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a })
 -- effective indefinitely.
 rsiValidUntil :: Lens' RequestSpotInstances (Maybe ISO8601)
 rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a })
-{-# INLINE rsiValidUntil #-}
 
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together. Default: Instances are launched and
 -- terminated individually.
 rsiLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiLaunchGroup = lens _rsiLaunchGroup (\s a -> s { _rsiLaunchGroup = a })
-{-# INLINE rsiLaunchGroup #-}
 
 -- | The user-specified name for a logical grouping of bids. When you specify an
 -- Availability Zone group in a Spot Instance request, all Spot Instances in
@@ -157,13 +150,11 @@ rsiAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiAvailabilityZoneGroup =
     lens _rsiAvailabilityZoneGroup
          (\s a -> s { _rsiAvailabilityZoneGroup = a })
-{-# INLINE rsiAvailabilityZoneGroup #-}
 
 -- | The launch specification.
 rsiLaunchSpecification :: Lens' RequestSpotInstances (Maybe LaunchSpecification)
 rsiLaunchSpecification =
     lens _rsiLaunchSpecification (\s a -> s { _rsiLaunchSpecification = a })
-{-# INLINE rsiLaunchSpecification #-}
 
 instance ToQuery RequestSpotInstances where
     toQuery = genericQuery def
@@ -178,7 +169,6 @@ rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceReq
 rsirsSpotInstanceRequests =
     lens _rsirsSpotInstanceRequests
          (\s a -> s { _rsirsSpotInstanceRequests = a })
-{-# INLINE rsirsSpotInstanceRequests #-}
 
 instance FromXML RequestSpotInstancesResponse where
     fromXMLOptions = xmlOptions

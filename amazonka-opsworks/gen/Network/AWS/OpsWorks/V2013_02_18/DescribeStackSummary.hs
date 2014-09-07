@@ -54,12 +54,10 @@ mkDescribeStackSummary :: Text -- ^ 'dssStackId'
 mkDescribeStackSummary p1 = DescribeStackSummary
     { _dssStackId = p1
     }
-{-# INLINE mkDescribeStackSummary #-}
 
 -- | The stack ID.
 dssStackId :: Lens' DescribeStackSummary Text
 dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
-{-# INLINE dssStackId #-}
 
 instance ToPath DescribeStackSummary
 
@@ -78,7 +76,6 @@ newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
 dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrsStackSummary =
     lens _dssrsStackSummary (\s a -> s { _dssrsStackSummary = a })
-{-# INLINE dssrsStackSummary #-}
 
 instance FromJSON DescribeStackSummaryResponse
 

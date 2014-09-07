@@ -57,12 +57,10 @@ mkModifyVpcAttribute p1 = ModifyVpcAttribute
     , _mva1EnableDnsSupport = Nothing
     , _mva1EnableDnsHostnames = Nothing
     }
-{-# INLINE mkModifyVpcAttribute #-}
 
 -- | The ID of the VPC.
 mva1VpcId :: Lens' ModifyVpcAttribute Text
 mva1VpcId = lens _mva1VpcId (\s a -> s { _mva1VpcId = a })
-{-# INLINE mva1VpcId #-}
 
 -- | Indicates whether the DNS resolution is supported for the VPC. If this
 -- attribute is false, the Amazon provided DNS service in the VPC that
@@ -73,7 +71,6 @@ mva1VpcId = lens _mva1VpcId (\s a -> s { _mva1VpcId = a })
 mva1EnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mva1EnableDnsSupport =
     lens _mva1EnableDnsSupport (\s a -> s { _mva1EnableDnsSupport = a })
-{-# INLINE mva1EnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
@@ -82,7 +79,6 @@ mva1EnableDnsSupport =
 mva1EnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mva1EnableDnsHostnames =
     lens _mva1EnableDnsHostnames (\s a -> s { _mva1EnableDnsHostnames = a })
-{-# INLINE mva1EnableDnsHostnames #-}
 
 instance ToQuery ModifyVpcAttribute where
     toQuery = genericQuery def

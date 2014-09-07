@@ -50,13 +50,11 @@ mkDeleteVirtualInterface :: Text -- ^ 'dviVirtualInterfaceId'
 mkDeleteVirtualInterface p1 = DeleteVirtualInterface
     { _dviVirtualInterfaceId = p1
     }
-{-# INLINE mkDeleteVirtualInterface #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 dviVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
 dviVirtualInterfaceId =
     lens _dviVirtualInterfaceId (\s a -> s { _dviVirtualInterfaceId = a })
-{-# INLINE dviVirtualInterfaceId #-}
 
 instance ToPath DeleteVirtualInterface
 
@@ -91,7 +89,6 @@ dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe Virtua
 dvirsVirtualInterfaceState =
     lens _dvirsVirtualInterfaceState
          (\s a -> s { _dvirsVirtualInterfaceState = a })
-{-# INLINE dvirsVirtualInterfaceState #-}
 
 instance FromJSON DeleteVirtualInterfaceResponse
 

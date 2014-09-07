@@ -63,14 +63,12 @@ mkDescribeCacheSubnetGroups = DescribeCacheSubnetGroups
     , _dcsg3MaxRecords = Nothing
     , _dcsg3Marker = Nothing
     }
-{-# INLINE mkDescribeCacheSubnetGroups #-}
 
 -- | The name of the cache subnet group to return details for.
 dcsg3CacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsg3CacheSubnetGroupName =
     lens _dcsg3CacheSubnetGroupName
          (\s a -> s { _dcsg3CacheSubnetGroupName = a })
-{-# INLINE dcsg3CacheSubnetGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -78,7 +76,6 @@ dcsg3CacheSubnetGroupName =
 -- Constraints: minimum 20; maximum 100.
 dcsg3MaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Integer)
 dcsg3MaxRecords = lens _dcsg3MaxRecords (\s a -> s { _dcsg3MaxRecords = a })
-{-# INLINE dcsg3MaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -86,7 +83,6 @@ dcsg3MaxRecords = lens _dcsg3MaxRecords (\s a -> s { _dcsg3MaxRecords = a })
 -- specified by MaxRecords.
 dcsg3Marker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsg3Marker = lens _dcsg3Marker (\s a -> s { _dcsg3Marker = a })
-{-# INLINE dcsg3Marker #-}
 
 instance ToQuery DescribeCacheSubnetGroups where
     toQuery = genericQuery def
@@ -100,7 +96,6 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrsrsMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
 dcsgrsrsMarker = lens _dcsgrsrsMarker (\s a -> s { _dcsgrsrsMarker = a })
-{-# INLINE dcsgrsrsMarker #-}
 
 -- | A list of cache subnet groups. Each element in the list contains detailed
 -- information about one group.
@@ -108,7 +103,6 @@ dcsgrsrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubne
 dcsgrsrsCacheSubnetGroups =
     lens _dcsgrsrsCacheSubnetGroups
          (\s a -> s { _dcsgrsrsCacheSubnetGroups = a })
-{-# INLINE dcsgrsrsCacheSubnetGroups #-}
 
 instance FromXML DescribeCacheSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -121,5 +115,5 @@ instance AWSRequest DescribeCacheSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheSubnetGroups where
-    next rq rs = (\x -> rq { _dcsg3Marker = Just x })
-        <$> (_dcsgrsrsMarker rs)
+    next rq rs = (\x -> rq & dcsg3Marker ?~ x) <$> (rs ^. dcsgrsrsMarker)
+

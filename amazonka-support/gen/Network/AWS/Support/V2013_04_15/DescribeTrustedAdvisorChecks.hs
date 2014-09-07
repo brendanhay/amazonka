@@ -53,14 +53,12 @@ mkDescribeTrustedAdvisorChecks :: Text -- ^ 'dtacLanguage'
 mkDescribeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
     { _dtacLanguage = p1
     }
-{-# INLINE mkDescribeTrustedAdvisorChecks #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
 dtacLanguage = lens _dtacLanguage (\s a -> s { _dtacLanguage = a })
-{-# INLINE dtacLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorChecks
 
@@ -79,7 +77,6 @@ newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksRespo
 -- | Information about all available Trusted Advisor checks.
 dtacrs1Checks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
 dtacrs1Checks = lens _dtacrs1Checks (\s a -> s { _dtacrs1Checks = a })
-{-# INLINE dtacrs1Checks #-}
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse
 

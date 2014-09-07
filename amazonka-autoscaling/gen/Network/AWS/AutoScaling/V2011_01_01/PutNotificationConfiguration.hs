@@ -60,20 +60,17 @@ mkPutNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
     , _pncTopicARN = p2
     , _pncNotificationTypes = p3
     }
-{-# INLINE mkPutNotificationConfiguration #-}
 
 -- | The name of the Auto Scaling group.
 pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
 pncAutoScalingGroupName =
     lens _pncAutoScalingGroupName
          (\s a -> s { _pncAutoScalingGroupName = a })
-{-# INLINE pncAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
 pncTopicARN :: Lens' PutNotificationConfiguration Text
 pncTopicARN = lens _pncTopicARN (\s a -> s { _pncTopicARN = a })
-{-# INLINE pncTopicARN #-}
 
 -- | The type of event that will cause the notification to be sent. For details
 -- about notification types supported by Auto Scaling, see
@@ -81,7 +78,6 @@ pncTopicARN = lens _pncTopicARN (\s a -> s { _pncTopicARN = a })
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
 pncNotificationTypes =
     lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })
-{-# INLINE pncNotificationTypes #-}
 
 instance ToQuery PutNotificationConfiguration where
     toQuery = genericQuery def

@@ -58,13 +58,11 @@ mkConfirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
     { _cpviVirtualInterfaceId = p1
     , _cpviVirtualGatewayId = p2
     }
-{-# INLINE mkConfirmPrivateVirtualInterface #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualInterfaceId =
     lens _cpviVirtualInterfaceId (\s a -> s { _cpviVirtualInterfaceId = a })
-{-# INLINE cpviVirtualInterfaceId #-}
 
 -- | ID of the virtual private gateway that will be attached to the virtual
 -- interface. A virtual private gateway can be managed via the Amazon Virtual
@@ -73,7 +71,6 @@ cpviVirtualInterfaceId =
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualGatewayId =
     lens _cpviVirtualGatewayId (\s a -> s { _cpviVirtualGatewayId = a })
-{-# INLINE cpviVirtualGatewayId #-}
 
 instance ToPath ConfirmPrivateVirtualInterface
 
@@ -108,7 +105,6 @@ cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (May
 cpvirsVirtualInterfaceState =
     lens _cpvirsVirtualInterfaceState
          (\s a -> s { _cpvirsVirtualInterfaceState = a })
-{-# INLINE cpvirsVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse
 

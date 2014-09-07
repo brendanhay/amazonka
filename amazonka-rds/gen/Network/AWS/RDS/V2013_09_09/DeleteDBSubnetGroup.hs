@@ -52,7 +52,6 @@ mkDeleteDBSubnetGroup :: Text -- ^ 'ddbsg1DBSubnetGroupName'
 mkDeleteDBSubnetGroup p1 = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName = p1
     }
-{-# INLINE mkDeleteDBSubnetGroup #-}
 
 -- | The name of the database subnet group to delete. You cannot delete the
 -- default subnet group. Constraints: Must be 1 to 255 alphanumeric characters
@@ -62,7 +61,6 @@ ddbsg1DBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsg1DBSubnetGroupName =
     lens _ddbsg1DBSubnetGroupName
          (\s a -> s { _ddbsg1DBSubnetGroupName = a })
-{-# INLINE ddbsg1DBSubnetGroupName #-}
 
 instance ToQuery DeleteDBSubnetGroup where
     toQuery = genericQuery def

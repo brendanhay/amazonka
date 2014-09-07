@@ -115,18 +115,15 @@ mkIdentityDescription = IdentityDescription
     { _idIdentityId = Nothing
     , _idLogins = mempty
     }
-{-# INLINE mkIdentityDescription #-}
 
 -- | A unique identifier in the format REGION:GUID.
 idIdentityId :: Lens' IdentityDescription (Maybe Text)
 idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
-{-# INLINE idIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
 idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\s a -> s { _idLogins = a })
-{-# INLINE idLogins #-}
 
 instance FromJSON IdentityDescription
 
@@ -143,18 +140,15 @@ mkIdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId = Nothing
     , _ipsdIdentityPoolName = Nothing
     }
-{-# INLINE mkIdentityPoolShortDescription #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolId =
     lens _ipsdIdentityPoolId (\s a -> s { _ipsdIdentityPoolId = a })
-{-# INLINE ipsdIdentityPoolId #-}
 
 -- | A string that you provide.
 ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolName =
     lens _ipsdIdentityPoolName (\s a -> s { _ipsdIdentityPoolName = a })
-{-# INLINE ipsdIdentityPoolName #-}
 
 instance FromJSON IdentityPoolShortDescription

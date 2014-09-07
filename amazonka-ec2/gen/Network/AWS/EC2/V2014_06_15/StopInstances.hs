@@ -84,12 +84,10 @@ mkStopInstances p1 = StopInstances
     { _si1InstanceIds = p1
     , _si1Force = Nothing
     }
-{-# INLINE mkStopInstances #-}
 
 -- | One or more instance IDs.
 si1InstanceIds :: Lens' StopInstances [Text]
 si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
-{-# INLINE si1InstanceIds #-}
 
 -- | Forces the instances to stop. The instances do not have an opportunity to
 -- flush file system caches or file system metadata. If you use this option,
@@ -97,7 +95,6 @@ si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
 -- not recommended for Windows instances. Default: false.
 si1Force :: Lens' StopInstances (Maybe Bool)
 si1Force = lens _si1Force (\s a -> s { _si1Force = a })
-{-# INLINE si1Force #-}
 
 instance ToQuery StopInstances where
     toQuery = genericQuery def
@@ -112,7 +109,6 @@ sirsrsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirsrsStoppingInstances =
     lens _sirsrsStoppingInstances
          (\s a -> s { _sirsrsStoppingInstances = a })
-{-# INLINE sirsrsStoppingInstances #-}
 
 instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions

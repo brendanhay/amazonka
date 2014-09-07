@@ -82,17 +82,14 @@ mkDeprecateWorkflowType p1 p2 = DeprecateWorkflowType
     { _dwtDomain = p1
     , _dwtWorkflowType = p2
     }
-{-# INLINE mkDeprecateWorkflowType #-}
 
 -- | The name of the domain in which the workflow type is registered.
 dwtDomain :: Lens' DeprecateWorkflowType Text
 dwtDomain = lens _dwtDomain (\s a -> s { _dwtDomain = a })
-{-# INLINE dwtDomain #-}
 
 -- | The workflow type to deprecate.
 dwtWorkflowType :: Lens' DeprecateWorkflowType WorkflowType
 dwtWorkflowType = lens _dwtWorkflowType (\s a -> s { _dwtWorkflowType = a })
-{-# INLINE dwtWorkflowType #-}
 
 instance ToPath DeprecateWorkflowType
 

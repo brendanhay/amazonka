@@ -70,30 +70,25 @@ mkUpdateTrail p1 = UpdateTrail
     , _utSnsTopicName = Nothing
     , _utIncludeGlobalServiceEvents = Nothing
     }
-{-# INLINE mkUpdateTrail #-}
 
 -- | Specifies the name of the trail.
 utName :: Lens' UpdateTrail Text
 utName = lens _utName (\s a -> s { _utName = a })
-{-# INLINE utName #-}
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
 utS3BucketName :: Lens' UpdateTrail (Maybe Text)
 utS3BucketName = lens _utS3BucketName (\s a -> s { _utS3BucketName = a })
-{-# INLINE utS3BucketName #-}
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
 utS3KeyPrefix :: Lens' UpdateTrail (Maybe Text)
 utS3KeyPrefix = lens _utS3KeyPrefix (\s a -> s { _utS3KeyPrefix = a })
-{-# INLINE utS3KeyPrefix #-}
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
 utSnsTopicName :: Lens' UpdateTrail (Maybe Text)
 utSnsTopicName = lens _utSnsTopicName (\s a -> s { _utSnsTopicName = a })
-{-# INLINE utSnsTopicName #-}
 
 -- | Specifies whether the trail is publishing events from global services such
 -- as IAM to the log files.
@@ -101,7 +96,6 @@ utIncludeGlobalServiceEvents :: Lens' UpdateTrail (Maybe Bool)
 utIncludeGlobalServiceEvents =
     lens _utIncludeGlobalServiceEvents
          (\s a -> s { _utIncludeGlobalServiceEvents = a })
-{-# INLINE utIncludeGlobalServiceEvents #-}
 
 instance ToPath UpdateTrail
 
@@ -124,27 +118,23 @@ data UpdateTrailResponse = UpdateTrailResponse
 -- | Specifies the name of the trail.
 utrsName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsName = lens _utrsName (\s a -> s { _utrsName = a })
-{-# INLINE utrsName #-}
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
 utrsS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3BucketName =
     lens _utrsS3BucketName (\s a -> s { _utrsS3BucketName = a })
-{-# INLINE utrsS3BucketName #-}
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
 utrsS3KeyPrefix :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3KeyPrefix = lens _utrsS3KeyPrefix (\s a -> s { _utrsS3KeyPrefix = a })
-{-# INLINE utrsS3KeyPrefix #-}
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
 utrsSnsTopicName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsSnsTopicName =
     lens _utrsSnsTopicName (\s a -> s { _utrsSnsTopicName = a })
-{-# INLINE utrsSnsTopicName #-}
 
 -- | Specifies whether the trail is publishing events from global services such
 -- as IAM to the log files.
@@ -152,7 +142,6 @@ utrsIncludeGlobalServiceEvents :: Lens' UpdateTrailResponse (Maybe Bool)
 utrsIncludeGlobalServiceEvents =
     lens _utrsIncludeGlobalServiceEvents
          (\s a -> s { _utrsIncludeGlobalServiceEvents = a })
-{-# INLINE utrsIncludeGlobalServiceEvents #-}
 
 instance FromJSON UpdateTrailResponse
 

@@ -59,12 +59,10 @@ mkActivatePipeline :: Text -- ^ 'apPipelineId'
 mkActivatePipeline p1 = ActivatePipeline
     { _apPipelineId = p1
     }
-{-# INLINE mkActivatePipeline #-}
 
 -- | The identifier of the pipeline to activate.
 apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
-{-# INLINE apPipelineId #-}
 
 instance ToPath ActivatePipeline
 

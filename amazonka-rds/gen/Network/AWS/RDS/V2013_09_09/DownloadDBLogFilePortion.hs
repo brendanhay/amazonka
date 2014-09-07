@@ -72,7 +72,6 @@ mkDownloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
     , _ddblfpMarker = Nothing
     , _ddblfpNumberOfLines = Nothing
     }
-{-# INLINE mkDownloadDBLogFilePortion #-}
 
 -- | The customer-assigned name of the DB instance that contains the log files
 -- you want to list. Constraints: Must contain from 1 to 63 alphanumeric
@@ -82,26 +81,22 @@ ddblfpDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion Text
 ddblfpDBInstanceIdentifier =
     lens _ddblfpDBInstanceIdentifier
          (\s a -> s { _ddblfpDBInstanceIdentifier = a })
-{-# INLINE ddblfpDBInstanceIdentifier #-}
 
 -- | The name of the log file to be downloaded.
 ddblfpLogFileName :: Lens' DownloadDBLogFilePortion Text
 ddblfpLogFileName =
     lens _ddblfpLogFileName (\s a -> s { _ddblfpLogFileName = a })
-{-# INLINE ddblfpLogFileName #-}
 
 -- | The pagination token provided in the previous request. If this parameter is
 -- specified the response includes only records beyond the marker, up to
 -- MaxRecords.
 ddblfpMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
 ddblfpMarker = lens _ddblfpMarker (\s a -> s { _ddblfpMarker = a })
-{-# INLINE ddblfpMarker #-}
 
 -- | The number of lines remaining to be downloaded.
 ddblfpNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Integer)
 ddblfpNumberOfLines =
     lens _ddblfpNumberOfLines (\s a -> s { _ddblfpNumberOfLines = a })
-{-# INLINE ddblfpNumberOfLines #-}
 
 instance ToQuery DownloadDBLogFilePortion where
     toQuery = genericQuery def
@@ -118,19 +113,16 @@ ddblfprsAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse Bool
 ddblfprsAdditionalDataPending =
     lens _ddblfprsAdditionalDataPending
          (\s a -> s { _ddblfprsAdditionalDataPending = a })
-{-# INLINE ddblfprsAdditionalDataPending #-}
 
 -- | Entries from the specified log file.
 ddblfprsLogFileData :: Lens' DownloadDBLogFilePortionResponse ByteString
 ddblfprsLogFileData =
     lens _ddblfprsLogFileData (\s a -> s { _ddblfprsLogFileData = a })
-{-# INLINE ddblfprsLogFileData #-}
 
 -- | An optional pagination token provided by a previous
 -- DownloadDBLogFilePortion request.
 ddblfprsMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddblfprsMarker = lens _ddblfprsMarker (\s a -> s { _ddblfprsMarker = a })
-{-# INLINE ddblfprsMarker #-}
 
 instance FromXML DownloadDBLogFilePortionResponse where
     fromXMLOptions = xmlOptions
@@ -144,7 +136,5 @@ instance AWSRequest DownloadDBLogFilePortion where
 
 instance AWSPager DownloadDBLogFilePortion where
     next rq rs
-        | not (_ddblfprsAdditionalDataPending rs) = Nothing
-        | otherwise = Just $ rq
-            { _ddblfpMarker = _ddblfprsMarker rs
-            }
+        | not (rs ^. ddblfprsAdditionalDataPending) = Nothing
+        | otherwise = Just (rq & ddblfpMarker .~ rs ^. ddblfprsMarker)

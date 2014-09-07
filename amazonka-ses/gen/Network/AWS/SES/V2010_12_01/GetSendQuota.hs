@@ -52,7 +52,6 @@ data GetSendQuota = GetSendQuota
 -- a valid 'GetSendQuota' request.
 mkGetSendQuota :: GetSendQuota
 mkGetSendQuota = GetSendQuota
-{-# INLINE mkGetSendQuota #-}
 
 instance ToQuery GetSendQuota where
     toQuery = genericQuery def
@@ -70,19 +69,16 @@ data GetSendQuotaResponse = GetSendQuotaResponse
 gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsMax24HourSend =
     lens _gsqrsMax24HourSend (\s a -> s { _gsqrsMax24HourSend = a })
-{-# INLINE gsqrsMax24HourSend #-}
 
 -- | The maximum number of emails the user is allowed to send per second.
 gsqrsMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsMaxSendRate =
     lens _gsqrsMaxSendRate (\s a -> s { _gsqrsMaxSendRate = a })
-{-# INLINE gsqrsMaxSendRate #-}
 
 -- | The number of emails sent during the previous 24 hours.
 gsqrsSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsSentLast24Hours =
     lens _gsqrsSentLast24Hours (\s a -> s { _gsqrsSentLast24Hours = a })
-{-# INLINE gsqrsSentLast24Hours #-}
 
 instance FromXML GetSendQuotaResponse where
     fromXMLOptions = xmlOptions

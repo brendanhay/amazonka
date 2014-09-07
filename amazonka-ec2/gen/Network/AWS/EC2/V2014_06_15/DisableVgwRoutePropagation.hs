@@ -61,18 +61,15 @@ mkDisableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
     { _dvrpRouteTableId = p1
     , _dvrpGatewayId = p2
     }
-{-# INLINE mkDisableVgwRoutePropagation #-}
 
 -- | The ID of the routing table.
 dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
 dvrpRouteTableId =
     lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
-{-# INLINE dvrpRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
 dvrpGatewayId :: Lens' DisableVgwRoutePropagation Text
 dvrpGatewayId = lens _dvrpGatewayId (\s a -> s { _dvrpGatewayId = a })
-{-# INLINE dvrpGatewayId #-}
 
 instance ToQuery DisableVgwRoutePropagation where
     toQuery = genericQuery def

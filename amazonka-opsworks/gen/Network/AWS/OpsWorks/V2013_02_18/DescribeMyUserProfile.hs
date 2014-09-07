@@ -45,7 +45,6 @@ data DescribeMyUserProfile = DescribeMyUserProfile
 -- a valid 'DescribeMyUserProfile' request.
 mkDescribeMyUserProfile :: DescribeMyUserProfile
 mkDescribeMyUserProfile = DescribeMyUserProfile
-{-# INLINE mkDescribeMyUserProfile #-}
 
 instance ToPath DescribeMyUserProfile
 
@@ -64,7 +63,6 @@ newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
 dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprsUserProfile =
     lens _dmuprsUserProfile (\s a -> s { _dmuprsUserProfile = a })
-{-# INLINE dmuprsUserProfile #-}
 
 instance FromJSON DescribeMyUserProfileResponse
 

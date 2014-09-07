@@ -54,17 +54,14 @@ mkListInstanceGroups p1 = ListInstanceGroups
     { _ligClusterId = p1
     , _ligMarker = Nothing
     }
-{-# INLINE mkListInstanceGroups #-}
 
 -- | The identifier of the cluster for which to list the instance groups.
 ligClusterId :: Lens' ListInstanceGroups Text
 ligClusterId = lens _ligClusterId (\s a -> s { _ligClusterId = a })
-{-# INLINE ligClusterId #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligMarker :: Lens' ListInstanceGroups (Maybe Text)
 ligMarker = lens _ligMarker (\s a -> s { _ligMarker = a })
-{-# INLINE ligMarker #-}
 
 instance ToPath ListInstanceGroups
 
@@ -84,12 +81,10 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse
 ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrsInstanceGroups =
     lens _ligrsInstanceGroups (\s a -> s { _ligrsInstanceGroups = a })
-{-# INLINE ligrsInstanceGroups #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
 ligrsMarker = lens _ligrsMarker (\s a -> s { _ligrsMarker = a })
-{-# INLINE ligrsMarker #-}
 
 instance FromJSON ListInstanceGroupsResponse
 
@@ -101,5 +96,5 @@ instance AWSRequest ListInstanceGroups where
     response _ = jsonResponse
 
 instance AWSPager ListInstanceGroups where
-    next rq rs = (\x -> rq { _ligMarker = Just x })
-        <$> (_ligrsMarker rs)
+    next rq rs = (\x -> rq & ligMarker ?~ x) <$> (rs ^. ligrsMarker)
+

@@ -47,11 +47,9 @@ mkDeleteBucketCors :: BucketName -- ^ 'dbcBucket'
 mkDeleteBucketCors p1 = DeleteBucketCors
     { _dbcBucket = p1
     }
-{-# INLINE mkDeleteBucketCors #-}
 
 dbcBucket :: Lens' DeleteBucketCors BucketName
 dbcBucket = lens _dbcBucket (\s a -> s { _dbcBucket = a })
-{-# INLINE dbcBucket #-}
 
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat

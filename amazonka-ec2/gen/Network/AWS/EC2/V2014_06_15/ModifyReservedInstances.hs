@@ -68,27 +68,23 @@ mkModifyReservedInstances p2 p3 = ModifyReservedInstances
     , _mriReservedInstancesIds = p2
     , _mriTargetConfigurations = p3
     }
-{-# INLINE mkModifyReservedInstances #-}
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request.
 mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
 mriClientToken = lens _mriClientToken (\s a -> s { _mriClientToken = a })
-{-# INLINE mriClientToken #-}
 
 -- | The IDs of the Reserved Instances to modify.
 mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
 mriReservedInstancesIds =
     lens _mriReservedInstancesIds
          (\s a -> s { _mriReservedInstancesIds = a })
-{-# INLINE mriReservedInstancesIds #-}
 
 -- | The configuration settings for the Reserved Instances to modify.
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations =
     lens _mriTargetConfigurations
          (\s a -> s { _mriTargetConfigurations = a })
-{-# INLINE mriTargetConfigurations #-}
 
 instance ToQuery ModifyReservedInstances where
     toQuery = genericQuery def
@@ -103,7 +99,6 @@ mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (M
 mrirsReservedInstancesModificationId =
     lens _mrirsReservedInstancesModificationId
          (\s a -> s { _mrirsReservedInstancesModificationId = a })
-{-# INLINE mrirsReservedInstancesModificationId #-}
 
 instance FromXML ModifyReservedInstancesResponse where
     fromXMLOptions = xmlOptions

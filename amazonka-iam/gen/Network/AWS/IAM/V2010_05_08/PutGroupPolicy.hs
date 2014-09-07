@@ -67,23 +67,19 @@ mkPutGroupPolicy p1 p2 p3 = PutGroupPolicy
     , _pgpPolicyName = p2
     , _pgpPolicyDocument = p3
     }
-{-# INLINE mkPutGroupPolicy #-}
 
 -- | Name of the group to associate the policy with.
 pgpGroupName :: Lens' PutGroupPolicy Text
 pgpGroupName = lens _pgpGroupName (\s a -> s { _pgpGroupName = a })
-{-# INLINE pgpGroupName #-}
 
 -- | Name of the policy document.
 pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
-{-# INLINE pgpPolicyName #-}
 
 -- | The policy document.
 pgpPolicyDocument :: Lens' PutGroupPolicy Text
 pgpPolicyDocument =
     lens _pgpPolicyDocument (\s a -> s { _pgpPolicyDocument = a })
-{-# INLINE pgpPolicyDocument #-}
 
 instance ToQuery PutGroupPolicy where
     toQuery = genericQuery def

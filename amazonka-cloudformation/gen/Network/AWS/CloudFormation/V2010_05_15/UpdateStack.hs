@@ -94,14 +94,12 @@ mkUpdateStack p1 = UpdateStack
     , _usStackPolicyURL = Nothing
     , _usNotificationARNs = mempty
     }
-{-# INLINE mkUpdateStack #-}
 
 -- | The name or stack ID of the stack to update. Must contain only alphanumeric
 -- characters (case sensitive) and start with an alpha character. Maximum
 -- length of the name is 255 characters.
 usStackName :: Lens' UpdateStack Text
 usStackName = lens _usStackName (\s a -> s { _usStackName = a })
-{-# INLINE usStackName #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. (For more information, go to Template
@@ -109,7 +107,6 @@ usStackName = lens _usStackName (\s a -> s { _usStackName = a })
 -- specify either the TemplateBody or the TemplateURL parameter, but not both.
 usTemplateBody :: Lens' UpdateStack (Maybe Text)
 usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
-{-# INLINE usTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For more
@@ -118,14 +115,12 @@ usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
 -- parameter, but not both.
 usTemplateURL :: Lens' UpdateStack (Maybe Text)
 usTemplateURL = lens _usTemplateURL (\s a -> s { _usTemplateURL = a })
-{-# INLINE usTemplateURL #-}
 
 -- | Reuse the existing template that is associated with the stack that you are
 -- updating.
 usUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
 usUsePreviousTemplate =
     lens _usUsePreviousTemplate (\s a -> s { _usUsePreviousTemplate = a })
-{-# INLINE usUsePreviousTemplate #-}
 
 -- | Structure containing the temporary overriding stack policy body. You can
 -- specify either the StackPolicyDuringUpdateBody or the
@@ -137,7 +132,6 @@ usStackPolicyDuringUpdateBody :: Lens' UpdateStack (Maybe Text)
 usStackPolicyDuringUpdateBody =
     lens _usStackPolicyDuringUpdateBody
          (\s a -> s { _usStackPolicyDuringUpdateBody = a })
-{-# INLINE usStackPolicyDuringUpdateBody #-}
 
 -- | Location of a file containing the temporary overriding stack policy. The
 -- URL must point to a policy (max size: 16KB) located in an S3 bucket in the
@@ -151,12 +145,10 @@ usStackPolicyDuringUpdateURL :: Lens' UpdateStack (Maybe Text)
 usStackPolicyDuringUpdateURL =
     lens _usStackPolicyDuringUpdateURL
          (\s a -> s { _usStackPolicyDuringUpdateURL = a })
-{-# INLINE usStackPolicyDuringUpdateURL #-}
 
 -- | A list of Parameter structures that specify input parameters for the stack.
 usParameters :: Lens' UpdateStack [Parameter]
 usParameters = lens _usParameters (\s a -> s { _usParameters = a })
-{-# INLINE usParameters #-}
 
 -- | The list of capabilities that you want to allow in the stack. If your stack
 -- contains IAM resources, you must specify the CAPABILITY_IAM value for this
@@ -166,7 +158,6 @@ usParameters = lens _usParameters (\s a -> s { _usParameters = a })
 -- AWS::IAM::UserToGroupAddition.
 usCapabilities :: Lens' UpdateStack [Capability]
 usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a })
-{-# INLINE usCapabilities #-}
 
 -- | Structure containing a new stack policy body. You can specify either the
 -- StackPolicyBody or the StackPolicyURL parameter, but not both. You might
@@ -176,7 +167,6 @@ usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a })
 usStackPolicyBody :: Lens' UpdateStack (Maybe Text)
 usStackPolicyBody =
     lens _usStackPolicyBody (\s a -> s { _usStackPolicyBody = a })
-{-# INLINE usStackPolicyBody #-}
 
 -- | Location of a file containing the updated stack policy. The URL must point
 -- to a policy (max size: 16KB) located in an S3 bucket in the same region as
@@ -188,14 +178,12 @@ usStackPolicyBody =
 usStackPolicyURL :: Lens' UpdateStack (Maybe Text)
 usStackPolicyURL =
     lens _usStackPolicyURL (\s a -> s { _usStackPolicyURL = a })
-{-# INLINE usStackPolicyURL #-}
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
 usNotificationARNs :: Lens' UpdateStack [Text]
 usNotificationARNs =
     lens _usNotificationARNs (\s a -> s { _usNotificationARNs = a })
-{-# INLINE usNotificationARNs #-}
 
 instance ToQuery UpdateStack where
     toQuery = genericQuery def
@@ -208,7 +196,6 @@ newtype UpdateStackResponse = UpdateStackResponse
 -- | Unique identifier of the stack.
 usrsStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrsStackId = lens _usrsStackId (\s a -> s { _usrsStackId = a })
-{-# INLINE usrsStackId #-}
 
 instance FromXML UpdateStackResponse where
     fromXMLOptions = xmlOptions

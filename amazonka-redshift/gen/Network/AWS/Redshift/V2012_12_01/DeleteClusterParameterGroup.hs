@@ -55,7 +55,6 @@ mkDeleteClusterParameterGroup :: Text -- ^ 'dcpgParameterGroupName'
 mkDeleteClusterParameterGroup p1 = DeleteClusterParameterGroup
     { _dcpgParameterGroupName = p1
     }
-{-# INLINE mkDeleteClusterParameterGroup #-}
 
 -- | The name of the parameter group to be deleted. Constraints: Must be the
 -- name of an existing cluster parameter group. Cannot delete a default
@@ -63,7 +62,6 @@ mkDeleteClusterParameterGroup p1 = DeleteClusterParameterGroup
 dcpgParameterGroupName :: Lens' DeleteClusterParameterGroup Text
 dcpgParameterGroupName =
     lens _dcpgParameterGroupName (\s a -> s { _dcpgParameterGroupName = a })
-{-# INLINE dcpgParameterGroupName #-}
 
 instance ToQuery DeleteClusterParameterGroup where
     toQuery = genericQuery def

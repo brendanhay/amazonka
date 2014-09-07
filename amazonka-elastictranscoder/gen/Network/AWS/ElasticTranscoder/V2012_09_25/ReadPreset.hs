@@ -76,13 +76,11 @@ mkReadPreset :: Text -- ^ 'rp1Id'
 mkReadPreset p1 = ReadPreset
     { _rp1Id = p1
     }
-{-# INLINE mkReadPreset #-}
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
 rp1Id :: Lens' ReadPreset Text
 rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
-{-# INLINE rp1Id #-}
 
 instance ToPath ReadPreset where
     toPath ReadPreset{..} = mconcat
@@ -104,7 +102,6 @@ newtype ReadPresetResponse = ReadPresetResponse
 -- | A section of the response body that provides information about the preset.
 rprsrsPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprsrsPreset = lens _rprsrsPreset (\s a -> s { _rprsrsPreset = a })
-{-# INLINE rprsrsPreset #-}
 
 instance FromJSON ReadPresetResponse
 

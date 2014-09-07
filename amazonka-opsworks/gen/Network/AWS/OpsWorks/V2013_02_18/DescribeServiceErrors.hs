@@ -57,19 +57,16 @@ mkDescribeServiceErrors = DescribeServiceErrors
     , _dseInstanceId = Nothing
     , _dseServiceErrorIds = mempty
     }
-{-# INLINE mkDescribeServiceErrors #-}
 
 -- | The stack ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified stack.
 dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
-{-# INLINE dseStackId #-}
 
 -- | The instance ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified instance.
 dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
 dseInstanceId = lens _dseInstanceId (\s a -> s { _dseInstanceId = a })
-{-# INLINE dseInstanceId #-}
 
 -- | An array of service error IDs. If you use this parameter,
 -- DescribeServiceErrors returns descriptions of the specified errors.
@@ -77,7 +74,6 @@ dseInstanceId = lens _dseInstanceId (\s a -> s { _dseInstanceId = a })
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
 dseServiceErrorIds =
     lens _dseServiceErrorIds (\s a -> s { _dseServiceErrorIds = a })
-{-# INLINE dseServiceErrorIds #-}
 
 instance ToPath DescribeServiceErrors
 
@@ -97,7 +93,6 @@ newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
 dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError]
 dsersServiceErrors =
     lens _dsersServiceErrors (\s a -> s { _dsersServiceErrors = a })
-{-# INLINE dsersServiceErrors #-}
 
 instance FromJSON DescribeServiceErrorsResponse
 

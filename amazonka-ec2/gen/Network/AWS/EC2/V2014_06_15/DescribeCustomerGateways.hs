@@ -72,14 +72,12 @@ mkDescribeCustomerGateways = DescribeCustomerGateways
     { _dcg1CustomerGatewayIds = mempty
     , _dcg1Filters = mempty
     }
-{-# INLINE mkDescribeCustomerGateways #-}
 
 -- | One or more customer gateway IDs. Default: Describes all your customer
 -- gateways.
 dcg1CustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
 dcg1CustomerGatewayIds =
     lens _dcg1CustomerGatewayIds (\s a -> s { _dcg1CustomerGatewayIds = a })
-{-# INLINE dcg1CustomerGatewayIds #-}
 
 -- | One or more filters. bgp-asn - The customer gateway's Border Gateway
 -- Protocol (BGP) Autonomous System Number (ASN). customer-gateway-id - The ID
@@ -98,7 +96,6 @@ dcg1CustomerGatewayIds =
 -- filter is independent of the tag-key filter.
 dcg1Filters :: Lens' DescribeCustomerGateways [Filter]
 dcg1Filters = lens _dcg1Filters (\s a -> s { _dcg1Filters = a })
-{-# INLINE dcg1Filters #-}
 
 instance ToQuery DescribeCustomerGateways where
     toQuery = genericQuery def
@@ -112,7 +109,6 @@ newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrsCustomerGateways =
     lens _dcgrsCustomerGateways (\s a -> s { _dcgrsCustomerGateways = a })
-{-# INLINE dcgrsCustomerGateways #-}
 
 instance FromXML DescribeCustomerGatewaysResponse where
     fromXMLOptions = xmlOptions

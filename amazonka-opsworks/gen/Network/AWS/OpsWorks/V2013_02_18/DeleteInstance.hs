@@ -58,23 +58,19 @@ mkDeleteInstance p1 = DeleteInstance
     , _diDeleteElasticIp = Nothing
     , _diDeleteVolumes = Nothing
     }
-{-# INLINE mkDeleteInstance #-}
 
 -- | The instance ID.
 diInstanceId :: Lens' DeleteInstance Text
 diInstanceId = lens _diInstanceId (\s a -> s { _diInstanceId = a })
-{-# INLINE diInstanceId #-}
 
 -- | Whether to delete the instance Elastic IP address.
 diDeleteElasticIp :: Lens' DeleteInstance (Maybe Bool)
 diDeleteElasticIp =
     lens _diDeleteElasticIp (\s a -> s { _diDeleteElasticIp = a })
-{-# INLINE diDeleteElasticIp #-}
 
 -- | Whether to delete the instance's Amazon EBS volumes.
 diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
 diDeleteVolumes = lens _diDeleteVolumes (\s a -> s { _diDeleteVolumes = a })
-{-# INLINE diDeleteVolumes #-}
 
 instance ToPath DeleteInstance
 

@@ -52,13 +52,11 @@ mkCreateDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
 mkCreateDistribution p1 = CreateDistribution
     { _cdDistributionConfig = p1
     }
-{-# INLINE mkCreateDistribution #-}
 
 -- | The distribution's configuration information.
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig =
     lens _cdDistributionConfig (\s a -> s { _cdDistributionConfig = a })
-{-# INLINE cdDistributionConfig #-}
 
 instance ToPath CreateDistribution where
     toPath = const "/2014-05-31/distribution"
@@ -82,19 +80,16 @@ data CreateDistributionResponse = CreateDistributionResponse
 cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
 cdrsDistribution =
     lens _cdrsDistribution (\s a -> s { _cdrsDistribution = a })
-{-# INLINE cdrsDistribution #-}
 
 -- | The fully qualified URI of the new distribution resource just created. For
 -- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\s a -> s { _cdrsLocation = a })
-{-# INLINE cdrsLocation #-}
 
 -- | The current version of the distribution created.
 cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsETag = lens _cdrsETag (\s a -> s { _cdrsETag = a })
-{-# INLINE cdrsETag #-}
 
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront

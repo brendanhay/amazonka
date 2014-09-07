@@ -87,7 +87,6 @@ mkCreatePlatformEndpoint p1 p2 = CreatePlatformEndpoint
     , _cpeCustomUserData = Nothing
     , _cpeAttributes = mempty
     }
-{-# INLINE mkCreatePlatformEndpoint #-}
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used to
 -- create a an endpoint.
@@ -95,7 +94,6 @@ cpePlatformApplicationArn :: Lens' CreatePlatformEndpoint Text
 cpePlatformApplicationArn =
     lens _cpePlatformApplicationArn
          (\s a -> s { _cpePlatformApplicationArn = a })
-{-# INLINE cpePlatformApplicationArn #-}
 
 -- | Unique identifier created by the notification service for an app on a
 -- device. The specific name for Token will vary, depending on which
@@ -104,19 +102,16 @@ cpePlatformApplicationArn =
 -- GCM or ADM, the device token equivalent is called the registration ID.
 cpeToken :: Lens' CreatePlatformEndpoint Text
 cpeToken = lens _cpeToken (\s a -> s { _cpeToken = a })
-{-# INLINE cpeToken #-}
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use
 -- this data. The data must be in UTF-8 format and less than 2KB.
 cpeCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
 cpeCustomUserData =
     lens _cpeCustomUserData (\s a -> s { _cpeCustomUserData = a })
-{-# INLINE cpeCustomUserData #-}
 
 -- | For a list of attributes, see SetEndpointAttributes.
 cpeAttributes :: Lens' CreatePlatformEndpoint (Map Text Text)
 cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a })
-{-# INLINE cpeAttributes #-}
 
 instance ToQuery CreatePlatformEndpoint where
     toQuery = genericQuery def
@@ -130,7 +125,6 @@ newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
 cpersEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cpersEndpointArn =
     lens _cpersEndpointArn (\s a -> s { _cpersEndpointArn = a })
-{-# INLINE cpersEndpointArn #-}
 
 instance FromXML CreatePlatformEndpointResponse where
     fromXMLOptions = xmlOptions

@@ -61,24 +61,19 @@ mkRestoreObject p1 p2 = RestoreObject
     , _roVersionId = Nothing
     , _roRestoreRequest = Nothing
     }
-{-# INLINE mkRestoreObject #-}
 
 roBucket :: Lens' RestoreObject BucketName
 roBucket = lens _roBucket (\s a -> s { _roBucket = a })
-{-# INLINE roBucket #-}
 
 roKey :: Lens' RestoreObject ObjectKey
 roKey = lens _roKey (\s a -> s { _roKey = a })
-{-# INLINE roKey #-}
 
 roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
 roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
-{-# INLINE roVersionId #-}
 
 roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
 roRestoreRequest =
     lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
-{-# INLINE roRestoreRequest #-}
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat

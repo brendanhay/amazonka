@@ -89,7 +89,6 @@ mkCreateStream p1 p2 = CreateStream
     { _csStreamName = p1
     , _csShardCount = p2
     }
-{-# INLINE mkCreateStream #-}
 
 -- | A name to identify the stream. The stream name is scoped to the AWS account
 -- used by the application that creates the stream. It is also scoped by
@@ -98,7 +97,6 @@ mkCreateStream p1 p2 = CreateStream
 -- regions, can have the same name.
 csStreamName :: Lens' CreateStream Text
 csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
-{-# INLINE csStreamName #-}
 
 -- | The number of shards that the stream will use. The throughput of the stream
 -- is a function of the number of shards; more shards are required for greater
@@ -107,7 +105,6 @@ csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
 -- contact AWS Support to increase the limit on your account.
 csShardCount :: Lens' CreateStream Integer
 csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a })
-{-# INLINE csShardCount #-}
 
 instance ToPath CreateStream
 

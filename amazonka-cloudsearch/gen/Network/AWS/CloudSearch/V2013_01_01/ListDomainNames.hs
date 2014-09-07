@@ -41,7 +41,6 @@ data ListDomainNames = ListDomainNames
 -- a valid 'ListDomainNames' request.
 mkListDomainNames :: ListDomainNames
 mkListDomainNames = ListDomainNames
-{-# INLINE mkListDomainNames #-}
 
 instance ToQuery ListDomainNames where
     toQuery = genericQuery def
@@ -56,7 +55,6 @@ newtype ListDomainNamesResponse = ListDomainNamesResponse
 ldnrsDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
 ldnrsDomainNames =
     lens _ldnrsDomainNames (\s a -> s { _ldnrsDomainNames = a })
-{-# INLINE ldnrsDomainNames #-}
 
 instance FromXML ListDomainNamesResponse where
     fromXMLOptions = xmlOptions

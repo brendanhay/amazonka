@@ -90,31 +90,26 @@ mkTestRole p1 p2 p3 p4 = TestRole
     , _trOutputBucket = p3
     , _trTopics = p4
     }
-{-# INLINE mkTestRole #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to test.
 trRole :: Lens' TestRole Text
 trRole = lens _trRole (\s a -> s { _trRole = a })
-{-# INLINE trRole #-}
 
 -- | The Amazon S3 bucket that contains media files to be transcoded. The action
 -- attempts to read from this bucket.
 trInputBucket :: Lens' TestRole Text
 trInputBucket = lens _trInputBucket (\s a -> s { _trInputBucket = a })
-{-# INLINE trInputBucket #-}
 
 -- | The Amazon S3 bucket that Elastic Transcoder will write transcoded media
 -- files to. The action attempts to read from this bucket.
 trOutputBucket :: Lens' TestRole Text
 trOutputBucket = lens _trOutputBucket (\s a -> s { _trOutputBucket = a })
-{-# INLINE trOutputBucket #-}
 
 -- | The ARNs of one or more Amazon Simple Notification Service (Amazon SNS)
 -- topics that you want the action to send a test notification to.
 trTopics :: Lens' TestRole [Text]
 trTopics = lens _trTopics (\s a -> s { _trTopics = a })
-{-# INLINE trTopics #-}
 
 instance ToPath TestRole where
     toPath = const "/2012-09-25/roleTests"
@@ -135,13 +130,11 @@ data TestRoleResponse = TestRoleResponse
 -- false.
 trrsSuccess :: Lens' TestRoleResponse (Maybe Text)
 trrsSuccess = lens _trrsSuccess (\s a -> s { _trrsSuccess = a })
-{-# INLINE trrsSuccess #-}
 
 -- | If the Success element contains false, this value is an array of one or
 -- more error messages that were generated during the test process.
 trrsMessages :: Lens' TestRoleResponse [Text]
 trrsMessages = lens _trrsMessages (\s a -> s { _trrsMessages = a })
-{-# INLINE trrsMessages #-}
 
 instance FromJSON TestRoleResponse
 

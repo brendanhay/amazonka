@@ -63,19 +63,16 @@ mkCreateTags p1 p2 = CreateTags
     { _ctResources = p1
     , _ctTags = p2
     }
-{-# INLINE mkCreateTags #-}
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
 ctResources :: Lens' CreateTags [Text]
 ctResources = lens _ctResources (\s a -> s { _ctResources = a })
-{-# INLINE ctResources #-}
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a })
-{-# INLINE ctTags #-}
 
 instance ToQuery CreateTags where
     toQuery = genericQuery def

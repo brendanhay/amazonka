@@ -49,7 +49,6 @@ mkRotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
 mkRotateEncryptionKey p1 = RotateEncryptionKey
     { _rekClusterIdentifier = p1
     }
-{-# INLINE mkRotateEncryptionKey #-}
 
 -- | The unique identifier of the cluster that you want to rotate the encryption
 -- keys for. Constraints: Must be the name of valid cluster that has
@@ -57,7 +56,6 @@ mkRotateEncryptionKey p1 = RotateEncryptionKey
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
 rekClusterIdentifier =
     lens _rekClusterIdentifier (\s a -> s { _rekClusterIdentifier = a })
-{-# INLINE rekClusterIdentifier #-}
 
 instance ToQuery RotateEncryptionKey where
     toQuery = genericQuery def
@@ -69,7 +67,6 @@ newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
 -- | Describes a cluster.
 rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrsCluster = lens _rekrsCluster (\s a -> s { _rekrsCluster = a })
-{-# INLINE rekrsCluster #-}
 
 instance FromXML RotateEncryptionKeyResponse where
     fromXMLOptions = xmlOptions

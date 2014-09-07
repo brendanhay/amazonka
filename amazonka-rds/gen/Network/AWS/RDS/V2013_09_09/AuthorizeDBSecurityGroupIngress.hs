@@ -78,19 +78,16 @@ mkAuthorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
     , _adbsgiEC2SecurityGroupId = Nothing
     , _adbsgiEC2SecurityGroupOwnerId = Nothing
     }
-{-# INLINE mkAuthorizeDBSecurityGroupIngress #-}
 
 -- | The name of the DB security group to add authorization to.
 adbsgiDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
 adbsgiDBSecurityGroupName =
     lens _adbsgiDBSecurityGroupName
          (\s a -> s { _adbsgiDBSecurityGroupName = a })
-{-# INLINE adbsgiDBSecurityGroupName #-}
 
 -- | The IP range to authorize.
 adbsgiCIDRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiCIDRIP = lens _adbsgiCIDRIP (\s a -> s { _adbsgiCIDRIP = a })
-{-# INLINE adbsgiCIDRIP #-}
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
 -- EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
@@ -99,7 +96,6 @@ adbsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupName =
     lens _adbsgiEC2SecurityGroupName
          (\s a -> s { _adbsgiEC2SecurityGroupName = a })
-{-# INLINE adbsgiEC2SecurityGroupName #-}
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
 -- EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
@@ -108,7 +104,6 @@ adbsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupId =
     lens _adbsgiEC2SecurityGroupId
          (\s a -> s { _adbsgiEC2SecurityGroupId = a })
-{-# INLINE adbsgiEC2SecurityGroupId #-}
 
 -- | AWS Account Number of the owner of the EC2 security group specified in the
 -- EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
@@ -119,7 +114,6 @@ adbsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Te
 adbsgiEC2SecurityGroupOwnerId =
     lens _adbsgiEC2SecurityGroupOwnerId
          (\s a -> s { _adbsgiEC2SecurityGroupOwnerId = a })
-{-# INLINE adbsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeDBSecurityGroupIngress where
     toQuery = genericQuery def
@@ -136,7 +130,6 @@ adbsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe 
 adbsgirsDBSecurityGroup =
     lens _adbsgirsDBSecurityGroup
          (\s a -> s { _adbsgirsDBSecurityGroup = a })
-{-# INLINE adbsgirsDBSecurityGroup #-}
 
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

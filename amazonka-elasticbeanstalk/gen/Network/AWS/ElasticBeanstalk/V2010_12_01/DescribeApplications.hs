@@ -52,14 +52,12 @@ mkDescribeApplications :: DescribeApplications
 mkDescribeApplications = DescribeApplications
     { _da1ApplicationNames = mempty
     }
-{-# INLINE mkDescribeApplications #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- only include those with the specified names.
 da1ApplicationNames :: Lens' DescribeApplications [Text]
 da1ApplicationNames =
     lens _da1ApplicationNames (\s a -> s { _da1ApplicationNames = a })
-{-# INLINE da1ApplicationNames #-}
 
 instance ToQuery DescribeApplications where
     toQuery = genericQuery def
@@ -73,7 +71,6 @@ newtype DescribeApplicationsResponse = DescribeApplicationsResponse
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications =
     lens _darsApplications (\s a -> s { _darsApplications = a })
-{-# INLINE darsApplications #-}
 
 instance FromXML DescribeApplicationsResponse where
     fromXMLOptions = xmlOptions

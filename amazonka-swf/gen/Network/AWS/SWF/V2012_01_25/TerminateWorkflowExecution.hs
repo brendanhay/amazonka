@@ -98,32 +98,26 @@ mkTerminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
     , _tweDetails = Nothing
     , _tweChildPolicy = Nothing
     }
-{-# INLINE mkTerminateWorkflowExecution #-}
 
 -- | The domain of the workflow execution to terminate.
 tweDomain :: Lens' TerminateWorkflowExecution Text
 tweDomain = lens _tweDomain (\s a -> s { _tweDomain = a })
-{-# INLINE tweDomain #-}
 
 -- | The workflowId of the workflow execution to terminate.
 tweWorkflowId :: Lens' TerminateWorkflowExecution Text
 tweWorkflowId = lens _tweWorkflowId (\s a -> s { _tweWorkflowId = a })
-{-# INLINE tweWorkflowId #-}
 
 -- | The runId of the workflow execution to terminate.
 tweRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweRunId = lens _tweRunId (\s a -> s { _tweRunId = a })
-{-# INLINE tweRunId #-}
 
 -- | An optional descriptive reason for terminating the workflow execution.
 tweReason :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweReason = lens _tweReason (\s a -> s { _tweReason = a })
-{-# INLINE tweReason #-}
 
 -- | Optional details for terminating the workflow execution.
 tweDetails :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweDetails = lens _tweDetails (\s a -> s { _tweDetails = a })
-{-# INLINE tweDetails #-}
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- the workflow execution being terminated. This policy overrides the child
@@ -140,7 +134,6 @@ tweDetails = lens _tweDetails (\s a -> s { _tweDetails = a })
 -- specified at registration time, a fault will be returned.
 tweChildPolicy :: Lens' TerminateWorkflowExecution (Maybe ChildPolicy)
 tweChildPolicy = lens _tweChildPolicy (\s a -> s { _tweChildPolicy = a })
-{-# INLINE tweChildPolicy #-}
 
 instance ToPath TerminateWorkflowExecution
 

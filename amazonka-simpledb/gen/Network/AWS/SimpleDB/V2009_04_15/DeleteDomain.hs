@@ -50,12 +50,10 @@ mkDeleteDomain :: Text -- ^ 'ddDomainName'
 mkDeleteDomain p1 = DeleteDomain
     { _ddDomainName = p1
     }
-{-# INLINE mkDeleteDomain #-}
 
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
-{-# INLINE ddDomainName #-}
 
 instance ToQuery DeleteDomain where
     toQuery = genericQuery def

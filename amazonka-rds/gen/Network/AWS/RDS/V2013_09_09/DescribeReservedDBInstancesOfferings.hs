@@ -76,7 +76,6 @@ mkDescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     , _drdbioMaxRecords = Nothing
     , _drdbioMarker = Nothing
     }
-{-# INLINE mkDescribeReservedDBInstancesOfferings #-}
 
 -- | The offering identifier filter value. Specify this parameter to show only
 -- the available offering that matches the specified reservation identifier.
@@ -85,21 +84,18 @@ drdbioReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOffering
 drdbioReservedDBInstancesOfferingId =
     lens _drdbioReservedDBInstancesOfferingId
          (\s a -> s { _drdbioReservedDBInstancesOfferingId = a })
-{-# INLINE drdbioReservedDBInstancesOfferingId #-}
 
 -- | The DB instance class filter value. Specify this parameter to show only the
 -- available offerings matching the specified DB instance class.
 drdbioDBInstanceClass :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioDBInstanceClass =
     lens _drdbioDBInstanceClass (\s a -> s { _drdbioDBInstanceClass = a })
-{-# INLINE drdbioDBInstanceClass #-}
 
 -- | Duration filter value, specified in years or seconds. Specify this
 -- parameter to show only reservations for this duration. Valid Values: 1 | 3
 -- | 31536000 | 94608000.
 drdbioDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioDuration = lens _drdbioDuration (\s a -> s { _drdbioDuration = a })
-{-# INLINE drdbioDuration #-}
 
 -- | Product description filter value. Specify this parameter to show only the
 -- available offerings matching the specified product description.
@@ -107,7 +103,6 @@ drdbioProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Te
 drdbioProductDescription =
     lens _drdbioProductDescription
          (\s a -> s { _drdbioProductDescription = a })
-{-# INLINE drdbioProductDescription #-}
 
 -- | The offering type filter value. Specify this parameter to show only the
 -- available offerings matching the specified offering type. Valid Values:
@@ -115,13 +110,11 @@ drdbioProductDescription =
 drdbioOfferingType :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioOfferingType =
     lens _drdbioOfferingType (\s a -> s { _drdbioOfferingType = a })
-{-# INLINE drdbioOfferingType #-}
 
 -- | The Multi-AZ filter value. Specify this parameter to show only the
 -- available offerings matching the specified Multi-AZ parameter.
 drdbioMultiAZ :: Lens' DescribeReservedDBInstancesOfferings (Maybe Bool)
 drdbioMultiAZ = lens _drdbioMultiAZ (\s a -> s { _drdbioMultiAZ = a })
-{-# INLINE drdbioMultiAZ #-}
 
 -- | The maximum number of records to include in the response. If more than the
 -- MaxRecords value is available, a pagination token called a marker is
@@ -130,14 +123,12 @@ drdbioMultiAZ = lens _drdbioMultiAZ (\s a -> s { _drdbioMultiAZ = a })
 drdbioMaxRecords :: Lens' DescribeReservedDBInstancesOfferings (Maybe Integer)
 drdbioMaxRecords =
     lens _drdbioMaxRecords (\s a -> s { _drdbioMaxRecords = a })
-{-# INLINE drdbioMaxRecords #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 drdbioMarker :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioMarker = lens _drdbioMarker (\s a -> s { _drdbioMarker = a })
-{-# INLINE drdbioMarker #-}
 
 instance ToQuery DescribeReservedDBInstancesOfferings where
     toQuery = genericQuery def
@@ -154,14 +145,12 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
 -- marker, up to the value specified by MaxRecords.
 drdbiorsMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
 drdbiorsMarker = lens _drdbiorsMarker (\s a -> s { _drdbiorsMarker = a })
-{-# INLINE drdbiorsMarker #-}
 
 -- | A list of reserved DB instance offerings.
 drdbiorsReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
 drdbiorsReservedDBInstancesOfferings =
     lens _drdbiorsReservedDBInstancesOfferings
          (\s a -> s { _drdbiorsReservedDBInstancesOfferings = a })
-{-# INLINE drdbiorsReservedDBInstancesOfferings #-}
 
 instance FromXML DescribeReservedDBInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -174,5 +163,5 @@ instance AWSRequest DescribeReservedDBInstancesOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedDBInstancesOfferings where
-    next rq rs = (\x -> rq { _drdbioMarker = Just x })
-        <$> (_drdbiorsMarker rs)
+    next rq rs = (\x -> rq & drdbioMarker ?~ x) <$> (rs ^. drdbiorsMarker)
+

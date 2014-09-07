@@ -64,12 +64,10 @@ mkGetIdentityVerificationAttributes :: [Text] -- ^ 'givaIdentities'
 mkGetIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
     { _givaIdentities = p1
     }
-{-# INLINE mkGetIdentityVerificationAttributes #-}
 
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
 givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a })
-{-# INLINE givaIdentities #-}
 
 instance ToQuery GetIdentityVerificationAttributes where
     toQuery = genericQuery def
@@ -84,7 +82,6 @@ givarsVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse 
 givarsVerificationAttributes =
     lens _givarsVerificationAttributes
          (\s a -> s { _givarsVerificationAttributes = a })
-{-# INLINE givarsVerificationAttributes #-}
 
 instance FromXML GetIdentityVerificationAttributesResponse where
     fromXMLOptions = xmlOptions

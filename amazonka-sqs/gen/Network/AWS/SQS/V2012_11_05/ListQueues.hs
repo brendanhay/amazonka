@@ -58,14 +58,12 @@ mkListQueues :: ListQueues
 mkListQueues = ListQueues
     { _lqQueueNamePrefix = Nothing
     }
-{-# INLINE mkListQueues #-}
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix =
     lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
-{-# INLINE lqQueueNamePrefix #-}
 
 instance ToQuery ListQueues where
     toQuery = genericQuery def
@@ -78,7 +76,6 @@ newtype ListQueuesResponse = ListQueuesResponse
 -- | A list of queue URLs, up to 1000 entries.
 lqrsQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrsQueueUrls = lens _lqrsQueueUrls (\s a -> s { _lqrsQueueUrls = a })
-{-# INLINE lqrsQueueUrls #-}
 
 instance FromXML ListQueuesResponse where
     fromXMLOptions = xmlOptions

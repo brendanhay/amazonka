@@ -66,7 +66,6 @@ mkDescribeReplicationGroups = DescribeReplicationGroups
     , _drg1MaxRecords = Nothing
     , _drg1Marker = Nothing
     }
-{-# INLINE mkDescribeReplicationGroups #-}
 
 -- | The identifier for the replication group to be described. This parameter is
 -- not case sensitive. If you do not specify this parameter, information about
@@ -74,7 +73,6 @@ mkDescribeReplicationGroups = DescribeReplicationGroups
 drg1ReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
 drg1ReplicationGroupId =
     lens _drg1ReplicationGroupId (\s a -> s { _drg1ReplicationGroupId = a })
-{-# INLINE drg1ReplicationGroupId #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -82,7 +80,6 @@ drg1ReplicationGroupId =
 -- Constraints: minimum 20; maximum 100.
 drg1MaxRecords :: Lens' DescribeReplicationGroups (Maybe Integer)
 drg1MaxRecords = lens _drg1MaxRecords (\s a -> s { _drg1MaxRecords = a })
-{-# INLINE drg1MaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -90,7 +87,6 @@ drg1MaxRecords = lens _drg1MaxRecords (\s a -> s { _drg1MaxRecords = a })
 -- specified by MaxRecords.
 drg1Marker :: Lens' DescribeReplicationGroups (Maybe Text)
 drg1Marker = lens _drg1Marker (\s a -> s { _drg1Marker = a })
-{-# INLINE drg1Marker #-}
 
 instance ToQuery DescribeReplicationGroups where
     toQuery = genericQuery def
@@ -104,7 +100,6 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
 -- | Provides an identifier to allow retrieval of paginated results.
 drgrsrsMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
 drgrsrsMarker = lens _drgrsrsMarker (\s a -> s { _drgrsrsMarker = a })
-{-# INLINE drgrsrsMarker #-}
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
@@ -112,7 +107,6 @@ drgrsrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [Replication
 drgrsrsReplicationGroups =
     lens _drgrsrsReplicationGroups
          (\s a -> s { _drgrsrsReplicationGroups = a })
-{-# INLINE drgrsrsReplicationGroups #-}
 
 instance FromXML DescribeReplicationGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -125,5 +119,5 @@ instance AWSRequest DescribeReplicationGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeReplicationGroups where
-    next rq rs = (\x -> rq { _drg1Marker = Just x })
-        <$> (_drgrsrsMarker rs)
+    next rq rs = (\x -> rq & drg1Marker ?~ x) <$> (rs ^. drgrsrsMarker)
+

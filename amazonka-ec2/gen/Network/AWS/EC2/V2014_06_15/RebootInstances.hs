@@ -60,12 +60,10 @@ mkRebootInstances :: [Text] -- ^ 'ri1InstanceIds'
 mkRebootInstances p1 = RebootInstances
     { _ri1InstanceIds = p1
     }
-{-# INLINE mkRebootInstances #-}
 
 -- | One or more instance IDs.
 ri1InstanceIds :: Lens' RebootInstances [Text]
 ri1InstanceIds = lens _ri1InstanceIds (\s a -> s { _ri1InstanceIds = a })
-{-# INLINE ri1InstanceIds #-}
 
 instance ToQuery RebootInstances where
     toQuery = genericQuery def

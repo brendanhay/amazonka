@@ -69,7 +69,6 @@ mkListServerCertificates = ListServerCertificates
     , _lscMarker = Nothing
     , _lscMaxItems = Nothing
     }
-{-# INLINE mkListServerCertificates #-}
 
 -- | The path prefix for filtering the results. For example:
 -- /company/servercerts would get all server certificates for which the path
@@ -77,14 +76,12 @@ mkListServerCertificates = ListServerCertificates
 -- included, it defaults to a slash (/), listing all server certificates.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
-{-# INLINE lscPathPrefix #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 lscMarker :: Lens' ListServerCertificates (Maybe Text)
 lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
-{-# INLINE lscMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- server certificates you want in the response. If there are additional
@@ -93,7 +90,6 @@ lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
 -- not include it, it defaults to 100.
 lscMaxItems :: Lens' ListServerCertificates (Maybe Integer)
 lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a })
-{-# INLINE lscMaxItems #-}
 
 instance ToQuery ListServerCertificates where
     toQuery = genericQuery def
@@ -102,7 +98,7 @@ instance ToQuery ListServerCertificates where
 -- ListServerCertificates action.
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrsServerCertificateMetadataList :: [ServerCertificateMetadata]
-    , _lscrsIsTruncated :: Maybe Bool
+    , _lscrsIsTruncated :: Bool
     , _lscrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
@@ -111,22 +107,19 @@ lscrsServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [Serv
 lscrsServerCertificateMetadataList =
     lens _lscrsServerCertificateMetadataList
          (\s a -> s { _lscrsServerCertificateMetadataList = a })
-{-# INLINE lscrsServerCertificateMetadataList #-}
 
 -- | A flag that indicates whether there are more server certificates to list.
 -- If your results were truncated, you can make a subsequent pagination
 -- request using the Marker request parameter to retrieve more server
 -- certificates in the list.
-lscrsIsTruncated :: Lens' ListServerCertificatesResponse (Maybe Bool)
+lscrsIsTruncated :: Lens' ListServerCertificatesResponse Bool
 lscrsIsTruncated =
     lens _lscrsIsTruncated (\s a -> s { _lscrsIsTruncated = a })
-{-# INLINE lscrsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lscrsMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
 lscrsMarker = lens _lscrsMarker (\s a -> s { _lscrsMarker = a })
-{-# INLINE lscrsMarker #-}
 
 instance FromXML ListServerCertificatesResponse where
     fromXMLOptions = xmlOptions
@@ -140,7 +133,5 @@ instance AWSRequest ListServerCertificates where
 
 instance AWSPager ListServerCertificates where
     next rq rs
-        | not (_lscrsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lscMarker = _lscrsMarker rs
-            }
+        | not (rs ^. lscrsIsTruncated) = Nothing
+        | otherwise = Just (rq & lscMarker .~ rs ^. lscrsMarker)

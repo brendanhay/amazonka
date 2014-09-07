@@ -66,12 +66,10 @@ mkDescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds = mempty
     , _dbtFilters = mempty
     }
-{-# INLINE mkDescribeBundleTasks #-}
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
 dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
-{-# INLINE dbtBundleIds #-}
 
 -- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
 -- the task failed, the error code returned. error-message - If the task
@@ -84,7 +82,6 @@ dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
 -- failed). update-time - The time of the most recent update for the task.
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
 dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
-{-# INLINE dbtFilters #-}
 
 instance ToQuery DescribeBundleTasks where
     toQuery = genericQuery def
@@ -98,7 +95,6 @@ newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
 dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrsBundleTasks =
     lens _dbtrsBundleTasks (\s a -> s { _dbtrsBundleTasks = a })
-{-# INLINE dbtrsBundleTasks #-}
 
 instance FromXML DescribeBundleTasksResponse where
     fromXMLOptions = xmlOptions

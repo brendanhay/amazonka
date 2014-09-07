@@ -56,13 +56,11 @@ mkListInvalidations p1 = ListInvalidations
     , _liMarker = Nothing
     , _liMaxItems = Nothing
     }
-{-# INLINE mkListInvalidations #-}
 
 -- | The distribution's id.
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId =
     lens _liDistributionId (\s a -> s { _liDistributionId = a })
-{-# INLINE liDistributionId #-}
 
 -- | Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
@@ -73,12 +71,10 @@ liDistributionId =
 -- last invalidation batch on that page.
 liMarker :: Lens' ListInvalidations (Maybe Text)
 liMarker = lens _liMarker (\s a -> s { _liMarker = a })
-{-# INLINE liMarker #-}
 
 -- | The maximum number of invalidation batches you want in the response body.
 liMaxItems :: Lens' ListInvalidations (Maybe Text)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
-{-# INLINE liMaxItems #-}
 
 instance ToPath ListInvalidations where
     toPath ListInvalidations{..} = mconcat
@@ -101,14 +97,13 @@ instance ToXML ListInvalidations where
 
 -- | The returned result of the corresponding request.
 newtype ListInvalidationsResponse = ListInvalidationsResponse
-    { _lirsInvalidationList :: Maybe InvalidationList
+    { _lirsInvalidationList :: InvalidationList
     } deriving (Show, Generic)
 
 -- | Information about invalidation batches.
-lirsInvalidationList :: Lens' ListInvalidationsResponse (Maybe InvalidationList)
+lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirsInvalidationList =
     lens _lirsInvalidationList (\s a -> s { _lirsInvalidationList = a })
-{-# INLINE lirsInvalidationList #-}
 
 instance FromXML ListInvalidationsResponse where
     fromXMLOptions = xmlOptions
@@ -122,7 +117,5 @@ instance AWSRequest ListInvalidations where
 
 instance AWSPager ListInvalidations where
     next rq rs
-        | not (_ilIsTruncated $ _lirsInvalidationList rs) = Nothing
-        | otherwise = Just $ rq
-            { _liMarker = _ilNextMarker $ _lirsInvalidationList rs
-            }
+        | not (rs ^. lirsInvalidationList . ilIsTruncated) = Nothing
+        | otherwise = Just (rq & liMarker .~ rs ^. lirsInvalidationList . ilNextMarker)

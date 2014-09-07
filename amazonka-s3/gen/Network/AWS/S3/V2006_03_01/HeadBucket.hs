@@ -48,11 +48,9 @@ mkHeadBucket :: BucketName -- ^ 'hbBucket'
 mkHeadBucket p1 = HeadBucket
     { _hbBucket = p1
     }
-{-# INLINE mkHeadBucket #-}
 
 hbBucket :: Lens' HeadBucket BucketName
 hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
-{-# INLINE hbBucket #-}
 
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat

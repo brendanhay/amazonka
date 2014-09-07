@@ -74,19 +74,16 @@ mkAssociateDhcpOptions p1 p2 = AssociateDhcpOptions
     { _adoDhcpOptionsId = p1
     , _adoVpcId = p2
     }
-{-# INLINE mkAssociateDhcpOptions #-}
 
 -- | The ID of the DHCP options set, or default to associate no DHCP options
 -- with the VPC.
 adoDhcpOptionsId :: Lens' AssociateDhcpOptions Text
 adoDhcpOptionsId =
     lens _adoDhcpOptionsId (\s a -> s { _adoDhcpOptionsId = a })
-{-# INLINE adoDhcpOptionsId #-}
 
 -- | The ID of the VPC.
 adoVpcId :: Lens' AssociateDhcpOptions Text
 adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
-{-# INLINE adoVpcId #-}
 
 instance ToQuery AssociateDhcpOptions where
     toQuery = genericQuery def

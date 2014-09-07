@@ -66,17 +66,14 @@ mkReleaseAddress = ReleaseAddress
     { _raPublicIp = Nothing
     , _raAllocationId = Nothing
     }
-{-# INLINE mkReleaseAddress #-}
 
 -- | [EC2-Classic] The Elastic IP address.
 raPublicIp :: Lens' ReleaseAddress (Maybe Text)
 raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
-{-# INLINE raPublicIp #-}
 
 -- | [EC2-VPC] The allocation ID.
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
 raAllocationId = lens _raAllocationId (\s a -> s { _raAllocationId = a })
-{-# INLINE raAllocationId #-}
 
 instance ToQuery ReleaseAddress where
     toQuery = genericQuery def

@@ -61,17 +61,14 @@ mkCreatePlacementGroup p1 p2 = CreatePlacementGroup
     { _cpgGroupName = p1
     , _cpgStrategy = p2
     }
-{-# INLINE mkCreatePlacementGroup #-}
 
 -- | A name for the placement group. Constraints: Up to 255 ASCII characters.
 cpgGroupName :: Lens' CreatePlacementGroup Text
 cpgGroupName = lens _cpgGroupName (\s a -> s { _cpgGroupName = a })
-{-# INLINE cpgGroupName #-}
 
 -- | The placement strategy.
 cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
 cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
-{-# INLINE cpgStrategy #-}
 
 instance ToQuery CreatePlacementGroup where
     toQuery = genericQuery def

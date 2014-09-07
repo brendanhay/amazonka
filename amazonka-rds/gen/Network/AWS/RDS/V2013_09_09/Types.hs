@@ -561,19 +561,16 @@ mkAvailabilityZone = AvailabilityZone
     { _azName = Nothing
     , _azProvisionedIopsCapable = Nothing
     }
-{-# INLINE mkAvailabilityZone #-}
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
 azName = lens _azName (\s a -> s { _azName = a })
-{-# INLINE azName #-}
 
 -- | True indicates the availability zone is capable of provisioned IOPs.
 azProvisionedIopsCapable :: Lens' AvailabilityZone (Maybe Bool)
 azProvisionedIopsCapable =
     lens _azProvisionedIopsCapable
          (\s a -> s { _azProvisionedIopsCapable = a })
-{-# INLINE azProvisionedIopsCapable #-}
 
 instance FromXML AvailabilityZone where
     fromXMLOptions = xmlOptions
@@ -596,20 +593,17 @@ mkCharacterSet = CharacterSet
     { _csCharacterSetName = Nothing
     , _csCharacterSetDescription = Nothing
     }
-{-# INLINE mkCharacterSet #-}
 
 -- | The name of the character set.
 csCharacterSetName :: Lens' CharacterSet (Maybe Text)
 csCharacterSetName =
     lens _csCharacterSetName (\s a -> s { _csCharacterSetName = a })
-{-# INLINE csCharacterSetName #-}
 
 -- | The description of the character set.
 csCharacterSetDescription :: Lens' CharacterSet (Maybe Text)
 csCharacterSetDescription =
     lens _csCharacterSetDescription
          (\s a -> s { _csCharacterSetDescription = a })
-{-# INLINE csCharacterSetDescription #-}
 
 instance FromXML CharacterSet where
     fromXMLOptions = xmlOptions
@@ -642,39 +636,33 @@ mkDBEngineVersion = DBEngineVersion
     , _dbevDefaultCharacterSet = Nothing
     , _dbevSupportedCharacterSets = mempty
     }
-{-# INLINE mkDBEngineVersion #-}
 
 -- | The name of the database engine.
 dbevEngine :: Lens' DBEngineVersion (Maybe Text)
 dbevEngine = lens _dbevEngine (\s a -> s { _dbevEngine = a })
-{-# INLINE dbevEngine #-}
 
 -- | The version number of the database engine.
 dbevEngineVersion :: Lens' DBEngineVersion (Maybe Text)
 dbevEngineVersion =
     lens _dbevEngineVersion (\s a -> s { _dbevEngineVersion = a })
-{-# INLINE dbevEngineVersion #-}
 
 -- | The name of the DB parameter group family for the database engine.
 dbevDBParameterGroupFamily :: Lens' DBEngineVersion (Maybe Text)
 dbevDBParameterGroupFamily =
     lens _dbevDBParameterGroupFamily
          (\s a -> s { _dbevDBParameterGroupFamily = a })
-{-# INLINE dbevDBParameterGroupFamily #-}
 
 -- | The description of the database engine.
 dbevDBEngineDescription :: Lens' DBEngineVersion (Maybe Text)
 dbevDBEngineDescription =
     lens _dbevDBEngineDescription
          (\s a -> s { _dbevDBEngineDescription = a })
-{-# INLINE dbevDBEngineDescription #-}
 
 -- | The description of the database engine version.
 dbevDBEngineVersionDescription :: Lens' DBEngineVersion (Maybe Text)
 dbevDBEngineVersionDescription =
     lens _dbevDBEngineVersionDescription
          (\s a -> s { _dbevDBEngineVersionDescription = a })
-{-# INLINE dbevDBEngineVersionDescription #-}
 
 -- | The default character set for new instances of this engine version, if the
 -- CharacterSetName parameter of the CreateDBInstance API is not specified.
@@ -682,7 +670,6 @@ dbevDefaultCharacterSet :: Lens' DBEngineVersion (Maybe CharacterSet)
 dbevDefaultCharacterSet =
     lens _dbevDefaultCharacterSet
          (\s a -> s { _dbevDefaultCharacterSet = a })
-{-# INLINE dbevDefaultCharacterSet #-}
 
 -- | A list of the character sets supported by this engine for the
 -- CharacterSetName parameter of the CreateDBInstance API.
@@ -690,7 +677,6 @@ dbevSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
 dbevSupportedCharacterSets =
     lens _dbevSupportedCharacterSets
          (\s a -> s { _dbevSupportedCharacterSets = a })
-{-# INLINE dbevSupportedCharacterSets #-}
 
 instance FromXML DBEngineVersion where
     fromXMLOptions = xmlOptions
@@ -769,7 +755,6 @@ mkDBInstance = DBInstance
     , _dbiPubliclyAccessible = Nothing
     , _dbiStatusInfos = mempty
     }
-{-# INLINE mkDBInstance #-}
 
 -- | Contains a user-supplied database identifier. This is the unique key that
 -- identifies a DB instance.
@@ -777,31 +762,26 @@ dbiDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
 dbiDBInstanceIdentifier =
     lens _dbiDBInstanceIdentifier
          (\s a -> s { _dbiDBInstanceIdentifier = a })
-{-# INLINE dbiDBInstanceIdentifier #-}
 
 -- | Contains the name of the compute and memory capacity class of the DB
 -- instance.
 dbiDBInstanceClass :: Lens' DBInstance (Maybe Text)
 dbiDBInstanceClass =
     lens _dbiDBInstanceClass (\s a -> s { _dbiDBInstanceClass = a })
-{-# INLINE dbiDBInstanceClass #-}
 
 -- | Provides the name of the database engine to be used for this DB instance.
 dbiEngine :: Lens' DBInstance (Maybe Text)
 dbiEngine = lens _dbiEngine (\s a -> s { _dbiEngine = a })
-{-# INLINE dbiEngine #-}
 
 -- | Specifies the current state of this database.
 dbiDBInstanceStatus :: Lens' DBInstance (Maybe Text)
 dbiDBInstanceStatus =
     lens _dbiDBInstanceStatus (\s a -> s { _dbiDBInstanceStatus = a })
-{-# INLINE dbiDBInstanceStatus #-}
 
 -- | Contains the master username for the DB instance.
 dbiMasterUsername :: Lens' DBInstance (Maybe Text)
 dbiMasterUsername =
     lens _dbiMasterUsername (\s a -> s { _dbiMasterUsername = a })
-{-# INLINE dbiMasterUsername #-}
 
 -- | The meaning of this parameter differs according to the database engine you
 -- use. For example, this value returns only MySQL information when returning
@@ -814,24 +794,20 @@ dbiMasterUsername =
 -- an Oracle DB instance.
 dbiDBName :: Lens' DBInstance (Maybe Text)
 dbiDBName = lens _dbiDBName (\s a -> s { _dbiDBName = a })
-{-# INLINE dbiDBName #-}
 
 -- | Specifies the connection endpoint.
 dbiEndpoint :: Lens' DBInstance (Maybe Endpoint)
 dbiEndpoint = lens _dbiEndpoint (\s a -> s { _dbiEndpoint = a })
-{-# INLINE dbiEndpoint #-}
 
 -- | Specifies the allocated storage size specified in gigabytes.
 dbiAllocatedStorage :: Lens' DBInstance (Maybe Integer)
 dbiAllocatedStorage =
     lens _dbiAllocatedStorage (\s a -> s { _dbiAllocatedStorage = a })
-{-# INLINE dbiAllocatedStorage #-}
 
 -- | Provides the date and time the DB instance was created.
 dbiInstanceCreateTime :: Lens' DBInstance (Maybe ISO8601)
 dbiInstanceCreateTime =
     lens _dbiInstanceCreateTime (\s a -> s { _dbiInstanceCreateTime = a })
-{-# INLINE dbiInstanceCreateTime #-}
 
 -- | Specifies the daily time range during which automated backups are created
 -- if automated backups are enabled, as determined by the
@@ -840,47 +816,40 @@ dbiPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
 dbiPreferredBackupWindow =
     lens _dbiPreferredBackupWindow
          (\s a -> s { _dbiPreferredBackupWindow = a })
-{-# INLINE dbiPreferredBackupWindow #-}
 
 -- | Specifies the number of days for which automatic DB snapshots are retained.
 dbiBackupRetentionPeriod :: Lens' DBInstance (Maybe Integer)
 dbiBackupRetentionPeriod =
     lens _dbiBackupRetentionPeriod
          (\s a -> s { _dbiBackupRetentionPeriod = a })
-{-# INLINE dbiBackupRetentionPeriod #-}
 
 -- | Provides List of DB security group elements containing only
 -- DBSecurityGroup.Name and DBSecurityGroup.Status subelements.
 dbiDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
 dbiDBSecurityGroups =
     lens _dbiDBSecurityGroups (\s a -> s { _dbiDBSecurityGroups = a })
-{-# INLINE dbiDBSecurityGroups #-}
 
 -- | Provides List of VPC security group elements that the DB instance belongs
 -- to.
 dbiVpcSecurityGroups :: Lens' DBInstance [VpcSecurityGroupMembership]
 dbiVpcSecurityGroups =
     lens _dbiVpcSecurityGroups (\s a -> s { _dbiVpcSecurityGroups = a })
-{-# INLINE dbiVpcSecurityGroups #-}
 
 -- | Provides the list of DB parameter groups applied to this DB instance.
 dbiDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
 dbiDBParameterGroups =
     lens _dbiDBParameterGroups (\s a -> s { _dbiDBParameterGroups = a })
-{-# INLINE dbiDBParameterGroups #-}
 
 -- | Specifies the name of the Availability Zone the DB instance is located in.
 dbiAvailabilityZone :: Lens' DBInstance (Maybe Text)
 dbiAvailabilityZone =
     lens _dbiAvailabilityZone (\s a -> s { _dbiAvailabilityZone = a })
-{-# INLINE dbiAvailabilityZone #-}
 
 -- | Specifies information on the subnet group associated with the DB instance,
 -- including the name, description, and subnets in the subnet group.
 dbiDBSubnetGroup :: Lens' DBInstance (Maybe DBSubnetGroup)
 dbiDBSubnetGroup =
     lens _dbiDBSubnetGroup (\s a -> s { _dbiDBSubnetGroup = a })
-{-# INLINE dbiDBSubnetGroup #-}
 
 -- | Specifies the weekly time range (in UTC) during which system maintenance
 -- can occur.
@@ -888,7 +857,6 @@ dbiPreferredMaintenanceWindow :: Lens' DBInstance (Maybe Text)
 dbiPreferredMaintenanceWindow =
     lens _dbiPreferredMaintenanceWindow
          (\s a -> s { _dbiPreferredMaintenanceWindow = a })
-{-# INLINE dbiPreferredMaintenanceWindow #-}
 
 -- | Specifies that changes to the DB instance are pending. This element is only
 -- included when changes are pending. Specific changes are identified by
@@ -897,7 +865,6 @@ dbiPendingModifiedValues :: Lens' DBInstance (Maybe PendingModifiedValues)
 dbiPendingModifiedValues =
     lens _dbiPendingModifiedValues
          (\s a -> s { _dbiPendingModifiedValues = a })
-{-# INLINE dbiPendingModifiedValues #-}
 
 -- | Specifies the latest time to which a database can be restored with
 -- point-in-time restore.
@@ -905,25 +872,21 @@ dbiLatestRestorableTime :: Lens' DBInstance (Maybe ISO8601)
 dbiLatestRestorableTime =
     lens _dbiLatestRestorableTime
          (\s a -> s { _dbiLatestRestorableTime = a })
-{-# INLINE dbiLatestRestorableTime #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment.
 dbiMultiAZ :: Lens' DBInstance (Maybe Bool)
 dbiMultiAZ = lens _dbiMultiAZ (\s a -> s { _dbiMultiAZ = a })
-{-# INLINE dbiMultiAZ #-}
 
 -- | Indicates the database engine version.
 dbiEngineVersion :: Lens' DBInstance (Maybe Text)
 dbiEngineVersion =
     lens _dbiEngineVersion (\s a -> s { _dbiEngineVersion = a })
-{-# INLINE dbiEngineVersion #-}
 
 -- | Indicates that minor version patches are applied automatically.
 dbiAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe Bool)
 dbiAutoMinorVersionUpgrade =
     lens _dbiAutoMinorVersionUpgrade
          (\s a -> s { _dbiAutoMinorVersionUpgrade = a })
-{-# INLINE dbiAutoMinorVersionUpgrade #-}
 
 -- | Contains the identifier of the source DB instance if this DB instance is a
 -- read replica.
@@ -931,7 +894,6 @@ dbiReadReplicaSourceDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
 dbiReadReplicaSourceDBInstanceIdentifier =
     lens _dbiReadReplicaSourceDBInstanceIdentifier
          (\s a -> s { _dbiReadReplicaSourceDBInstanceIdentifier = a })
-{-# INLINE dbiReadReplicaSourceDBInstanceIdentifier #-}
 
 -- | Contains one or more identifiers of the read replicas associated with this
 -- DB instance.
@@ -939,31 +901,26 @@ dbiReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
 dbiReadReplicaDBInstanceIdentifiers =
     lens _dbiReadReplicaDBInstanceIdentifiers
          (\s a -> s { _dbiReadReplicaDBInstanceIdentifiers = a })
-{-# INLINE dbiReadReplicaDBInstanceIdentifiers #-}
 
 -- | License model information for this DB instance.
 dbiLicenseModel :: Lens' DBInstance (Maybe Text)
 dbiLicenseModel = lens _dbiLicenseModel (\s a -> s { _dbiLicenseModel = a })
-{-# INLINE dbiLicenseModel #-}
 
 -- | Specifies the Provisioned IOPS (I/O operations per second) value.
 dbiIops :: Lens' DBInstance (Maybe Integer)
 dbiIops = lens _dbiIops (\s a -> s { _dbiIops = a })
-{-# INLINE dbiIops #-}
 
 -- | Provides the list of option group memberships for this DB instance.
 dbiOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
 dbiOptionGroupMemberships =
     lens _dbiOptionGroupMemberships
          (\s a -> s { _dbiOptionGroupMemberships = a })
-{-# INLINE dbiOptionGroupMemberships #-}
 
 -- | If present, specifies the name of the character set that this instance is
 -- associated with.
 dbiCharacterSetName :: Lens' DBInstance (Maybe Text)
 dbiCharacterSetName =
     lens _dbiCharacterSetName (\s a -> s { _dbiCharacterSetName = a })
-{-# INLINE dbiCharacterSetName #-}
 
 -- | If present, specifies the name of the secondary Availability Zone for a DB
 -- instance with multi-AZ support.
@@ -971,7 +928,6 @@ dbiSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
 dbiSecondaryAvailabilityZone =
     lens _dbiSecondaryAvailabilityZone
          (\s a -> s { _dbiSecondaryAvailabilityZone = a })
-{-# INLINE dbiSecondaryAvailabilityZone #-}
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS name,
@@ -987,13 +943,11 @@ dbiSecondaryAvailabilityZone =
 dbiPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
 dbiPubliclyAccessible =
     lens _dbiPubliclyAccessible (\s a -> s { _dbiPubliclyAccessible = a })
-{-# INLINE dbiPubliclyAccessible #-}
 
 -- | The status of a read replica. If the instance is not a read replica, this
 -- will be blank.
 dbiStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 dbiStatusInfos = lens _dbiStatusInfos (\s a -> s { _dbiStatusInfos = a })
-{-# INLINE dbiStatusInfos #-}
 
 instance FromXML DBInstance where
     fromXMLOptions = xmlOptions
@@ -1016,30 +970,25 @@ mkDBInstanceStatusInfo = DBInstanceStatusInfo
     , _dbisiStatus = Nothing
     , _dbisiMessage = Nothing
     }
-{-# INLINE mkDBInstanceStatusInfo #-}
 
 -- | This value is currently "read replication.".
 dbisiStatusType :: Lens' DBInstanceStatusInfo (Maybe Text)
 dbisiStatusType = lens _dbisiStatusType (\s a -> s { _dbisiStatusType = a })
-{-# INLINE dbisiStatusType #-}
 
 -- | Boolean value that is true if the instance is operating normally, or false
 -- if the instance is in an error state.
 dbisiNormal :: Lens' DBInstanceStatusInfo (Maybe Bool)
 dbisiNormal = lens _dbisiNormal (\s a -> s { _dbisiNormal = a })
-{-# INLINE dbisiNormal #-}
 
 -- | Status of the DB instance. For a StatusType of read replica, the values can
 -- be replicating, error, stopped, or terminated.
 dbisiStatus :: Lens' DBInstanceStatusInfo (Maybe Text)
 dbisiStatus = lens _dbisiStatus (\s a -> s { _dbisiStatus = a })
-{-# INLINE dbisiStatus #-}
 
 -- | Details of the error if there is an error for the instance. If the instance
 -- is not in an error state, this value is blank.
 dbisiMessage :: Lens' DBInstanceStatusInfo (Maybe Text)
 dbisiMessage = lens _dbisiMessage (\s a -> s { _dbisiMessage = a })
-{-# INLINE dbisiMessage #-}
 
 instance FromXML DBInstanceStatusInfo where
     fromXMLOptions = xmlOptions
@@ -1066,14 +1015,12 @@ mkDBParameterGroup = DBParameterGroup
     , _dbpgDBParameterGroupFamily = Nothing
     , _dbpgDescription = Nothing
     }
-{-# INLINE mkDBParameterGroup #-}
 
 -- | Provides the name of the DB parameter group.
 dbpgDBParameterGroupName :: Lens' DBParameterGroup (Maybe Text)
 dbpgDBParameterGroupName =
     lens _dbpgDBParameterGroupName
          (\s a -> s { _dbpgDBParameterGroupName = a })
-{-# INLINE dbpgDBParameterGroupName #-}
 
 -- | Provides the name of the DB parameter group family that this DB parameter
 -- group is compatible with.
@@ -1081,12 +1028,10 @@ dbpgDBParameterGroupFamily :: Lens' DBParameterGroup (Maybe Text)
 dbpgDBParameterGroupFamily =
     lens _dbpgDBParameterGroupFamily
          (\s a -> s { _dbpgDBParameterGroupFamily = a })
-{-# INLINE dbpgDBParameterGroupFamily #-}
 
 -- | Provides the customer-specified description for this DB parameter group.
 dbpgDescription :: Lens' DBParameterGroup (Maybe Text)
 dbpgDescription = lens _dbpgDescription (\s a -> s { _dbpgDescription = a })
-{-# INLINE dbpgDescription #-}
 
 instance FromXML DBParameterGroup where
     fromXMLOptions = xmlOptions
@@ -1108,21 +1053,18 @@ mkDBParameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName = Nothing
     , _dbpgsParameterApplyStatus = Nothing
     }
-{-# INLINE mkDBParameterGroupStatus #-}
 
 -- | The name of the DP parameter group.
 dbpgsDBParameterGroupName :: Lens' DBParameterGroupStatus (Maybe Text)
 dbpgsDBParameterGroupName =
     lens _dbpgsDBParameterGroupName
          (\s a -> s { _dbpgsDBParameterGroupName = a })
-{-# INLINE dbpgsDBParameterGroupName #-}
 
 -- | The status of parameter updates.
 dbpgsParameterApplyStatus :: Lens' DBParameterGroupStatus (Maybe Text)
 dbpgsParameterApplyStatus =
     lens _dbpgsParameterApplyStatus
          (\s a -> s { _dbpgsParameterApplyStatus = a })
-{-# INLINE dbpgsParameterApplyStatus #-}
 
 instance FromXML DBParameterGroupStatus where
     fromXMLOptions = xmlOptions
@@ -1155,42 +1097,35 @@ mkDBSecurityGroup = DBSecurityGroup
     , _dbsgEC2SecurityGroups = mempty
     , _dbsgIPRanges = mempty
     }
-{-# INLINE mkDBSecurityGroup #-}
 
 -- | Provides the AWS ID of the owner of a specific DB security group.
 dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
 dbsgOwnerId = lens _dbsgOwnerId (\s a -> s { _dbsgOwnerId = a })
-{-# INLINE dbsgOwnerId #-}
 
 -- | Specifies the name of the DB security group.
 dbsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
 dbsgDBSecurityGroupName =
     lens _dbsgDBSecurityGroupName
          (\s a -> s { _dbsgDBSecurityGroupName = a })
-{-# INLINE dbsgDBSecurityGroupName #-}
 
 -- | Provides the description of the DB security group.
 dbsgDBSecurityGroupDescription :: Lens' DBSecurityGroup (Maybe Text)
 dbsgDBSecurityGroupDescription =
     lens _dbsgDBSecurityGroupDescription
          (\s a -> s { _dbsgDBSecurityGroupDescription = a })
-{-# INLINE dbsgDBSecurityGroupDescription #-}
 
 -- | Provides the VpcId of the DB security group.
 dbsgVpcId :: Lens' DBSecurityGroup (Maybe Text)
 dbsgVpcId = lens _dbsgVpcId (\s a -> s { _dbsgVpcId = a })
-{-# INLINE dbsgVpcId #-}
 
 -- | Contains a list of EC2SecurityGroup elements.
 dbsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
 dbsgEC2SecurityGroups =
     lens _dbsgEC2SecurityGroups (\s a -> s { _dbsgEC2SecurityGroups = a })
-{-# INLINE dbsgEC2SecurityGroups #-}
 
 -- | Contains a list of IPRange elements.
 dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
 dbsgIPRanges = lens _dbsgIPRanges (\s a -> s { _dbsgIPRanges = a })
-{-# INLINE dbsgIPRanges #-}
 
 instance FromXML DBSecurityGroup where
     fromXMLOptions = xmlOptions
@@ -1211,19 +1146,16 @@ mkDBSecurityGroupMembership = DBSecurityGroupMembership
     { _dbsgmDBSecurityGroupName = Nothing
     , _dbsgmStatus = Nothing
     }
-{-# INLINE mkDBSecurityGroupMembership #-}
 
 -- | The name of the DB security group.
 dbsgmDBSecurityGroupName :: Lens' DBSecurityGroupMembership (Maybe Text)
 dbsgmDBSecurityGroupName =
     lens _dbsgmDBSecurityGroupName
          (\s a -> s { _dbsgmDBSecurityGroupName = a })
-{-# INLINE dbsgmDBSecurityGroupName #-}
 
 -- | The status of the DB security group.
 dbsgmStatus :: Lens' DBSecurityGroupMembership (Maybe Text)
 dbsgmStatus = lens _dbsgmStatus (\s a -> s { _dbsgmStatus = a })
-{-# INLINE dbsgmStatus #-}
 
 instance FromXML DBSecurityGroupMembership where
     fromXMLOptions = xmlOptions
@@ -1279,14 +1211,12 @@ mkDBSnapshot = DBSnapshot
     , _dbsPercentProgress = Nothing
     , _dbsSourceRegion = Nothing
     }
-{-# INLINE mkDBSnapshot #-}
 
 -- | Specifies the identifier for the DB snapshot.
 dbsDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
 dbsDBSnapshotIdentifier =
     lens _dbsDBSnapshotIdentifier
          (\s a -> s { _dbsDBSnapshotIdentifier = a })
-{-# INLINE dbsDBSnapshotIdentifier #-}
 
 -- | Specifies the DB instance identifier of the DB instance this DB snapshot
 -- was created from.
@@ -1294,98 +1224,81 @@ dbsDBInstanceIdentifier :: Lens' DBSnapshot (Maybe Text)
 dbsDBInstanceIdentifier =
     lens _dbsDBInstanceIdentifier
          (\s a -> s { _dbsDBInstanceIdentifier = a })
-{-# INLINE dbsDBInstanceIdentifier #-}
 
 -- | Provides the time (UTC) when the snapshot was taken.
 dbsSnapshotCreateTime :: Lens' DBSnapshot (Maybe ISO8601)
 dbsSnapshotCreateTime =
     lens _dbsSnapshotCreateTime (\s a -> s { _dbsSnapshotCreateTime = a })
-{-# INLINE dbsSnapshotCreateTime #-}
 
 -- | Specifies the name of the database engine.
 dbsEngine :: Lens' DBSnapshot (Maybe Text)
 dbsEngine = lens _dbsEngine (\s a -> s { _dbsEngine = a })
-{-# INLINE dbsEngine #-}
 
 -- | Specifies the allocated storage size in gigabytes (GB).
 dbsAllocatedStorage :: Lens' DBSnapshot (Maybe Integer)
 dbsAllocatedStorage =
     lens _dbsAllocatedStorage (\s a -> s { _dbsAllocatedStorage = a })
-{-# INLINE dbsAllocatedStorage #-}
 
 -- | Specifies the status of this DB snapshot.
 dbsStatus :: Lens' DBSnapshot (Maybe Text)
 dbsStatus = lens _dbsStatus (\s a -> s { _dbsStatus = a })
-{-# INLINE dbsStatus #-}
 
 -- | Specifies the port that the database engine was listening on at the time of
 -- the snapshot.
 dbsPort :: Lens' DBSnapshot (Maybe Integer)
 dbsPort = lens _dbsPort (\s a -> s { _dbsPort = a })
-{-# INLINE dbsPort #-}
 
 -- | Specifies the name of the Availability Zone the DB instance was located in
 -- at the time of the DB snapshot.
 dbsAvailabilityZone :: Lens' DBSnapshot (Maybe Text)
 dbsAvailabilityZone =
     lens _dbsAvailabilityZone (\s a -> s { _dbsAvailabilityZone = a })
-{-# INLINE dbsAvailabilityZone #-}
 
 -- | Provides the Vpc Id associated with the DB snapshot.
 dbsVpcId :: Lens' DBSnapshot (Maybe Text)
 dbsVpcId = lens _dbsVpcId (\s a -> s { _dbsVpcId = a })
-{-# INLINE dbsVpcId #-}
 
 -- | Specifies the time (UTC) when the snapshot was taken.
 dbsInstanceCreateTime :: Lens' DBSnapshot (Maybe ISO8601)
 dbsInstanceCreateTime =
     lens _dbsInstanceCreateTime (\s a -> s { _dbsInstanceCreateTime = a })
-{-# INLINE dbsInstanceCreateTime #-}
 
 -- | Provides the master username for the DB snapshot.
 dbsMasterUsername :: Lens' DBSnapshot (Maybe Text)
 dbsMasterUsername =
     lens _dbsMasterUsername (\s a -> s { _dbsMasterUsername = a })
-{-# INLINE dbsMasterUsername #-}
 
 -- | Specifies the version of the database engine.
 dbsEngineVersion :: Lens' DBSnapshot (Maybe Text)
 dbsEngineVersion =
     lens _dbsEngineVersion (\s a -> s { _dbsEngineVersion = a })
-{-# INLINE dbsEngineVersion #-}
 
 -- | License model information for the restored DB instance.
 dbsLicenseModel :: Lens' DBSnapshot (Maybe Text)
 dbsLicenseModel = lens _dbsLicenseModel (\s a -> s { _dbsLicenseModel = a })
-{-# INLINE dbsLicenseModel #-}
 
 -- | Provides the type of the DB snapshot.
 dbsSnapshotType :: Lens' DBSnapshot (Maybe Text)
 dbsSnapshotType = lens _dbsSnapshotType (\s a -> s { _dbsSnapshotType = a })
-{-# INLINE dbsSnapshotType #-}
 
 -- | Specifies the Provisioned IOPS (I/O operations per second) value of the DB
 -- instance at the time of the snapshot.
 dbsIops :: Lens' DBSnapshot (Maybe Integer)
 dbsIops = lens _dbsIops (\s a -> s { _dbsIops = a })
-{-# INLINE dbsIops #-}
 
 -- | Provides the option group name for the DB snapshot.
 dbsOptionGroupName :: Lens' DBSnapshot (Maybe Text)
 dbsOptionGroupName =
     lens _dbsOptionGroupName (\s a -> s { _dbsOptionGroupName = a })
-{-# INLINE dbsOptionGroupName #-}
 
 -- | The percentage of the estimated data that has been transferred.
 dbsPercentProgress :: Lens' DBSnapshot (Maybe Integer)
 dbsPercentProgress =
     lens _dbsPercentProgress (\s a -> s { _dbsPercentProgress = a })
-{-# INLINE dbsPercentProgress #-}
 
 -- | The region that the DB snapshot was created in or copied from.
 dbsSourceRegion :: Lens' DBSnapshot (Maybe Text)
 dbsSourceRegion = lens _dbsSourceRegion (\s a -> s { _dbsSourceRegion = a })
-{-# INLINE dbsSourceRegion #-}
 
 instance FromXML DBSnapshot where
     fromXMLOptions = xmlOptions
@@ -1411,38 +1324,32 @@ mkDBSubnetGroup = DBSubnetGroup
     , _dbsgrsSubnetGroupStatus = Nothing
     , _dbsgrsSubnets = mempty
     }
-{-# INLINE mkDBSubnetGroup #-}
 
 -- | Specifies the name of the DB subnet group.
 dbsgrsDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
 dbsgrsDBSubnetGroupName =
     lens _dbsgrsDBSubnetGroupName
          (\s a -> s { _dbsgrsDBSubnetGroupName = a })
-{-# INLINE dbsgrsDBSubnetGroupName #-}
 
 -- | Provides the description of the DB subnet group.
 dbsgrsDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
 dbsgrsDBSubnetGroupDescription =
     lens _dbsgrsDBSubnetGroupDescription
          (\s a -> s { _dbsgrsDBSubnetGroupDescription = a })
-{-# INLINE dbsgrsDBSubnetGroupDescription #-}
 
 -- | Provides the VpcId of the DB subnet group.
 dbsgrsVpcId :: Lens' DBSubnetGroup (Maybe Text)
 dbsgrsVpcId = lens _dbsgrsVpcId (\s a -> s { _dbsgrsVpcId = a })
-{-# INLINE dbsgrsVpcId #-}
 
 -- | Provides the status of the DB subnet group.
 dbsgrsSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
 dbsgrsSubnetGroupStatus =
     lens _dbsgrsSubnetGroupStatus
          (\s a -> s { _dbsgrsSubnetGroupStatus = a })
-{-# INLINE dbsgrsSubnetGroupStatus #-}
 
 -- | Contains a list of Subnet elements.
 dbsgrsSubnets :: Lens' DBSubnetGroup [Subnet]
 dbsgrsSubnets = lens _dbsgrsSubnets (\s a -> s { _dbsgrsSubnets = a })
-{-# INLINE dbsgrsSubnets #-}
 
 instance FromXML DBSubnetGroup where
     fromXMLOptions = xmlOptions
@@ -1466,24 +1373,20 @@ mkDescribeDBLogFilesDetails = DescribeDBLogFilesDetails
     , _ddblfdLastWritten = Nothing
     , _ddblfdSize = Nothing
     }
-{-# INLINE mkDescribeDBLogFilesDetails #-}
 
 -- | The name of the log file for the specified DB instance.
 ddblfdLogFileName :: Lens' DescribeDBLogFilesDetails (Maybe Text)
 ddblfdLogFileName =
     lens _ddblfdLogFileName (\s a -> s { _ddblfdLogFileName = a })
-{-# INLINE ddblfdLogFileName #-}
 
 -- | A POSIX timestamp when the last log entry was written.
 ddblfdLastWritten :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
 ddblfdLastWritten =
     lens _ddblfdLastWritten (\s a -> s { _ddblfdLastWritten = a })
-{-# INLINE ddblfdLastWritten #-}
 
 -- | The size, in bytes, of the log file for the specified DB instance.
 ddblfdSize :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
 ddblfdSize = lens _ddblfdSize (\s a -> s { _ddblfdSize = a })
-{-# INLINE ddblfdSize #-}
 
 instance FromXML DescribeDBLogFilesDetails where
     fromXMLOptions = xmlOptions
@@ -1508,26 +1411,22 @@ mkEC2SecurityGroup = EC2SecurityGroup
     , _ecsgEC2SecurityGroupId = Nothing
     , _ecsgEC2SecurityGroupOwnerId = Nothing
     }
-{-# INLINE mkEC2SecurityGroup #-}
 
 -- | Provides the status of the EC2 security group. Status can be "authorizing",
 -- "authorized", "revoking", and "revoked".
 ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
-{-# INLINE ecsgStatus #-}
 
 -- | Specifies the name of the EC2 security group.
 ecsgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupName =
     lens _ecsgEC2SecurityGroupName
          (\s a -> s { _ecsgEC2SecurityGroupName = a })
-{-# INLINE ecsgEC2SecurityGroupName #-}
 
 -- | Specifies the id of the EC2 security group.
 ecsgEC2SecurityGroupId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupId =
     lens _ecsgEC2SecurityGroupId (\s a -> s { _ecsgEC2SecurityGroupId = a })
-{-# INLINE ecsgEC2SecurityGroupId #-}
 
 -- | Specifies the AWS ID of the owner of the EC2 security group specified in
 -- the EC2SecurityGroupName field.
@@ -1535,7 +1434,6 @@ ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupOwnerId =
     lens _ecsgEC2SecurityGroupOwnerId
          (\s a -> s { _ecsgEC2SecurityGroupOwnerId = a })
-{-# INLINE ecsgEC2SecurityGroupOwnerId #-}
 
 instance FromXML EC2SecurityGroup where
     fromXMLOptions = xmlOptions
@@ -1557,17 +1455,14 @@ mkEndpoint = Endpoint
     { _eAddress = Nothing
     , _ePort = Nothing
     }
-{-# INLINE mkEndpoint #-}
 
 -- | Specifies the DNS address of the DB instance.
 eAddress :: Lens' Endpoint (Maybe Text)
 eAddress = lens _eAddress (\s a -> s { _eAddress = a })
-{-# INLINE eAddress #-}
 
 -- | Specifies the port that the database engine is listening on.
 ePort :: Lens' Endpoint (Maybe Integer)
 ePort = lens _ePort (\s a -> s { _ePort = a })
-{-# INLINE ePort #-}
 
 instance FromXML Endpoint where
     fromXMLOptions = xmlOptions
@@ -1592,7 +1487,6 @@ mkEngineDefaults = EngineDefaults
     , _edMarker = Nothing
     , _edParameters = mempty
     }
-{-# INLINE mkEngineDefaults #-}
 
 -- | Specifies the name of the DB parameter group family which the engine
 -- default parameters apply to.
@@ -1600,19 +1494,16 @@ edDBParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edDBParameterGroupFamily =
     lens _edDBParameterGroupFamily
          (\s a -> s { _edDBParameterGroupFamily = a })
-{-# INLINE edDBParameterGroupFamily #-}
 
 -- | An optional pagination token provided by a previous EngineDefaults request.
 -- If this parameter is specified, the response includes only records beyond
 -- the marker, up to the value specified by MaxRecords .
 edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker = lens _edMarker (\s a -> s { _edMarker = a })
-{-# INLINE edMarker #-}
 
 -- | Contains a list of engine default parameters.
 edParameters :: Lens' EngineDefaults [Parameter]
 edParameters = lens _edParameters (\s a -> s { _edParameters = a })
-{-# INLINE edParameters #-}
 
 instance FromXML EngineDefaults where
     fromXMLOptions = xmlOptions
@@ -1637,34 +1528,28 @@ mkEvent = Event
     , _ersEventCategories = mempty
     , _ersDate = Nothing
     }
-{-# INLINE mkEvent #-}
 
 -- | Provides the identifier for the source of the event.
 ersSourceIdentifier :: Lens' Event (Maybe Text)
 ersSourceIdentifier =
     lens _ersSourceIdentifier (\s a -> s { _ersSourceIdentifier = a })
-{-# INLINE ersSourceIdentifier #-}
 
 -- | Specifies the source type for this event.
 ersSourceType :: Lens' Event (Maybe SourceType)
 ersSourceType = lens _ersSourceType (\s a -> s { _ersSourceType = a })
-{-# INLINE ersSourceType #-}
 
 -- | Provides the text of this event.
 ersMessage :: Lens' Event (Maybe Text)
 ersMessage = lens _ersMessage (\s a -> s { _ersMessage = a })
-{-# INLINE ersMessage #-}
 
 -- | Specifies the category for the event.
 ersEventCategories :: Lens' Event [Text]
 ersEventCategories =
     lens _ersEventCategories (\s a -> s { _ersEventCategories = a })
-{-# INLINE ersEventCategories #-}
 
 -- | Specifies the date and time of the event.
 ersDate :: Lens' Event (Maybe ISO8601)
 ersDate = lens _ersDate (\s a -> s { _ersDate = a })
-{-# INLINE ersDate #-}
 
 instance FromXML Event where
     fromXMLOptions = xmlOptions
@@ -1684,18 +1569,15 @@ mkEventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
     , _ecmEventCategories = mempty
     }
-{-# INLINE mkEventCategoriesMap #-}
 
 -- | The source type that the returned categories belong to.
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
-{-# INLINE ecmSourceType #-}
 
 -- | The event categories for the specified source type.
 ecmEventCategories :: Lens' EventCategoriesMap [Text]
 ecmEventCategories =
     lens _ecmEventCategories (\s a -> s { _ecmEventCategories = a })
-{-# INLINE ecmEventCategories #-}
 
 instance FromXML EventCategoriesMap where
     fromXMLOptions = xmlOptions
@@ -1729,24 +1611,20 @@ mkEventSubscription = EventSubscription
     , _esEventCategoriesList = mempty
     , _esEnabled = Nothing
     }
-{-# INLINE mkEventSubscription #-}
 
 -- | The AWS customer account associated with the RDS event notification
 -- subscription.
 esCustomerAwsId :: Lens' EventSubscription (Maybe Text)
 esCustomerAwsId = lens _esCustomerAwsId (\s a -> s { _esCustomerAwsId = a })
-{-# INLINE esCustomerAwsId #-}
 
 -- | The RDS event notification subscription Id.
 esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
 esCustSubscriptionId =
     lens _esCustSubscriptionId (\s a -> s { _esCustSubscriptionId = a })
-{-# INLINE esCustSubscriptionId #-}
 
 -- | The topic ARN of the RDS event notification subscription.
 esSnsTopicArn :: Lens' EventSubscription (Maybe Text)
 esSnsTopicArn = lens _esSnsTopicArn (\s a -> s { _esSnsTopicArn = a })
-{-# INLINE esSnsTopicArn #-}
 
 -- | The status of the RDS event notification subscription. Constraints: Can be
 -- one of the following: creating | modifying | deleting | active |
@@ -1756,36 +1634,30 @@ esSnsTopicArn = lens _esSnsTopicArn (\s a -> s { _esSnsTopicArn = a })
 -- subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
 esStatus = lens _esStatus (\s a -> s { _esStatus = a })
-{-# INLINE esStatus #-}
 
 -- | The time the RDS event notification subscription was created.
 esSubscriptionCreationTime :: Lens' EventSubscription (Maybe Text)
 esSubscriptionCreationTime =
     lens _esSubscriptionCreationTime
          (\s a -> s { _esSubscriptionCreationTime = a })
-{-# INLINE esSubscriptionCreationTime #-}
 
 -- | The source type for the RDS event notification subscription.
 esSourceType :: Lens' EventSubscription (Maybe Text)
 esSourceType = lens _esSourceType (\s a -> s { _esSourceType = a })
-{-# INLINE esSourceType #-}
 
 -- | A list of source Ids for the RDS event notification subscription.
 esSourceIdsList :: Lens' EventSubscription [Text]
 esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
-{-# INLINE esSourceIdsList #-}
 
 -- | A list of event categories for the RDS event notification subscription.
 esEventCategoriesList :: Lens' EventSubscription [Text]
 esEventCategoriesList =
     lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
-{-# INLINE esEventCategoriesList #-}
 
 -- | A Boolean value indicating if the subscription is enabled. True indicates
 -- the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\s a -> s { _esEnabled = a })
-{-# INLINE esEnabled #-}
 
 instance FromXML EventSubscription where
     fromXMLOptions = xmlOptions
@@ -1805,18 +1677,15 @@ mkIPRange = IPRange
     { _iprStatus = Nothing
     , _iprCIDRIP = Nothing
     }
-{-# INLINE mkIPRange #-}
 
 -- | Specifies the status of the IP range. Status can be "authorizing",
 -- "authorized", "revoking", and "revoked".
 iprStatus :: Lens' IPRange (Maybe Text)
 iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
-{-# INLINE iprStatus #-}
 
 -- | Specifies the IP range.
 iprCIDRIP :: Lens' IPRange (Maybe Text)
 iprCIDRIP = lens _iprCIDRIP (\s a -> s { _iprCIDRIP = a })
-{-# INLINE iprCIDRIP #-}
 
 instance FromXML IPRange where
     fromXMLOptions = xmlOptions
@@ -1850,38 +1719,31 @@ mkOption = Option
     , _oDBSecurityGroupMemberships = mempty
     , _oVpcSecurityGroupMemberships = mempty
     }
-{-# INLINE mkOption #-}
 
 -- | The name of the option.
 oOptionName :: Lens' Option (Maybe Text)
 oOptionName = lens _oOptionName (\s a -> s { _oOptionName = a })
-{-# INLINE oOptionName #-}
 
 -- | The description of the option.
 oOptionDescription :: Lens' Option (Maybe Text)
 oOptionDescription =
     lens _oOptionDescription (\s a -> s { _oOptionDescription = a })
-{-# INLINE oOptionDescription #-}
 
 -- | Indicate if this option is persistent.
 oPersistent :: Lens' Option (Maybe Bool)
 oPersistent = lens _oPersistent (\s a -> s { _oPersistent = a })
-{-# INLINE oPersistent #-}
 
 -- | Indicate if this option is permanent.
 oPermanent :: Lens' Option (Maybe Bool)
 oPermanent = lens _oPermanent (\s a -> s { _oPermanent = a })
-{-# INLINE oPermanent #-}
 
 -- | If required, the port configured for this option to use.
 oPort :: Lens' Option (Maybe Integer)
 oPort = lens _oPort (\s a -> s { _oPort = a })
-{-# INLINE oPort #-}
 
 -- | The option settings for this option.
 oOptionSettings :: Lens' Option [OptionSetting]
 oOptionSettings = lens _oOptionSettings (\s a -> s { _oOptionSettings = a })
-{-# INLINE oOptionSettings #-}
 
 -- | If the option requires access to a port, then this DB security group allows
 -- access to the port.
@@ -1889,7 +1751,6 @@ oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
 oDBSecurityGroupMemberships =
     lens _oDBSecurityGroupMemberships
          (\s a -> s { _oDBSecurityGroupMemberships = a })
-{-# INLINE oDBSecurityGroupMemberships #-}
 
 -- | If the option requires access to a port, then this VPC security group
 -- allows access to the port.
@@ -1897,7 +1758,6 @@ oVpcSecurityGroupMemberships :: Lens' Option [VpcSecurityGroupMembership]
 oVpcSecurityGroupMemberships =
     lens _oVpcSecurityGroupMemberships
          (\s a -> s { _oVpcSecurityGroupMemberships = a })
-{-# INLINE oVpcSecurityGroupMemberships #-}
 
 instance FromXML Option where
     fromXMLOptions = xmlOptions
@@ -1926,37 +1786,31 @@ mkOptionConfiguration p1 = OptionConfiguration
     , _ocVpcSecurityGroupMemberships = mempty
     , _ocOptionSettings = mempty
     }
-{-# INLINE mkOptionConfiguration #-}
 
 -- | The configuration of options to include in a group.
 ocOptionName :: Lens' OptionConfiguration Text
 ocOptionName = lens _ocOptionName (\s a -> s { _ocOptionName = a })
-{-# INLINE ocOptionName #-}
 
 -- | The optional port for the option.
 ocPort :: Lens' OptionConfiguration (Maybe Integer)
 ocPort = lens _ocPort (\s a -> s { _ocPort = a })
-{-# INLINE ocPort #-}
 
 -- | A list of DBSecurityGroupMemebrship name strings used for this option.
 ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
 ocDBSecurityGroupMemberships =
     lens _ocDBSecurityGroupMemberships
          (\s a -> s { _ocDBSecurityGroupMemberships = a })
-{-# INLINE ocDBSecurityGroupMemberships #-}
 
 -- | A list of VpcSecurityGroupMemebrship name strings used for this option.
 ocVpcSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
 ocVpcSecurityGroupMemberships =
     lens _ocVpcSecurityGroupMemberships
          (\s a -> s { _ocVpcSecurityGroupMemberships = a })
-{-# INLINE ocVpcSecurityGroupMemberships #-}
 
 -- | The option settings to include in an option group.
 ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
 ocOptionSettings =
     lens _ocOptionSettings (\s a -> s { _ocOptionSettings = a })
-{-# INLINE ocOptionSettings #-}
 
 instance ToQuery OptionConfiguration where
     toQuery = genericQuery def
@@ -1984,36 +1838,30 @@ mkOptionGroup = OptionGroup
     , _ogAllowsVpcAndNonVpcInstanceMemberships = Nothing
     , _ogVpcId = Nothing
     }
-{-# INLINE mkOptionGroup #-}
 
 -- | Specifies the name of the option group.
 ogOptionGroupName :: Lens' OptionGroup (Maybe Text)
 ogOptionGroupName =
     lens _ogOptionGroupName (\s a -> s { _ogOptionGroupName = a })
-{-# INLINE ogOptionGroupName #-}
 
 -- | Provides the description of the option group.
 ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
 ogOptionGroupDescription =
     lens _ogOptionGroupDescription
          (\s a -> s { _ogOptionGroupDescription = a })
-{-# INLINE ogOptionGroupDescription #-}
 
 -- | Engine name that this option group can be applied to.
 ogEngineName :: Lens' OptionGroup (Maybe Text)
 ogEngineName = lens _ogEngineName (\s a -> s { _ogEngineName = a })
-{-# INLINE ogEngineName #-}
 
 -- | Indicates the major engine version associated with this option group.
 ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
 ogMajorEngineVersion =
     lens _ogMajorEngineVersion (\s a -> s { _ogMajorEngineVersion = a })
-{-# INLINE ogMajorEngineVersion #-}
 
 -- | Indicates what options are available in the option group.
 ogOptions :: Lens' OptionGroup [Option]
 ogOptions = lens _ogOptions (\s a -> s { _ogOptions = a })
-{-# INLINE ogOptions #-}
 
 -- | Indicates whether this option group can be applied to both VPC and non-VPC
 -- instances. The value 'true' indicates the option group can be applied to
@@ -2022,7 +1870,6 @@ ogAllowsVpcAndNonVpcInstanceMemberships :: Lens' OptionGroup (Maybe Bool)
 ogAllowsVpcAndNonVpcInstanceMemberships =
     lens _ogAllowsVpcAndNonVpcInstanceMemberships
          (\s a -> s { _ogAllowsVpcAndNonVpcInstanceMemberships = a })
-{-# INLINE ogAllowsVpcAndNonVpcInstanceMemberships #-}
 
 -- | If AllowsVpcAndNonVpcInstanceMemberships is 'false', this field is blank.
 -- If AllowsVpcAndNonVpcInstanceMemberships is 'true' and this field is blank,
@@ -2031,7 +1878,6 @@ ogAllowsVpcAndNonVpcInstanceMemberships =
 -- instances that are in the VPC indicated by this field.
 ogVpcId :: Lens' OptionGroup (Maybe Text)
 ogVpcId = lens _ogVpcId (\s a -> s { _ogVpcId = a })
-{-# INLINE ogVpcId #-}
 
 instance FromXML OptionGroup where
     fromXMLOptions = xmlOptions
@@ -2050,19 +1896,16 @@ mkOptionGroupMembership = OptionGroupMembership
     { _ogmOptionGroupName = Nothing
     , _ogmStatus = Nothing
     }
-{-# INLINE mkOptionGroupMembership #-}
 
 -- | The name of the option group that the instance belongs to.
 ogmOptionGroupName :: Lens' OptionGroupMembership (Maybe Text)
 ogmOptionGroupName =
     lens _ogmOptionGroupName (\s a -> s { _ogmOptionGroupName = a })
-{-# INLINE ogmOptionGroupName #-}
 
 -- | The status of the DB instance's option group membership (e.g. in-sync,
 -- pending, pending-maintenance, applying).
 ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
 ogmStatus = lens _ogmStatus (\s a -> s { _ogmStatus = a })
-{-# INLINE ogmStatus #-}
 
 instance FromXML OptionGroupMembership where
     fromXMLOptions = xmlOptions
@@ -2102,51 +1945,42 @@ mkOptionGroupOption = OptionGroupOption
     , _ogoPermanent = Nothing
     , _ogoOptionGroupOptionSettings = mempty
     }
-{-# INLINE mkOptionGroupOption #-}
 
 -- | The name of the option.
 ogoName :: Lens' OptionGroupOption (Maybe Text)
 ogoName = lens _ogoName (\s a -> s { _ogoName = a })
-{-# INLINE ogoName #-}
 
 -- | The description of the option.
 ogoDescription :: Lens' OptionGroupOption (Maybe Text)
 ogoDescription = lens _ogoDescription (\s a -> s { _ogoDescription = a })
-{-# INLINE ogoDescription #-}
 
 -- | Engine name that this option can be applied to.
 ogoEngineName :: Lens' OptionGroupOption (Maybe Text)
 ogoEngineName = lens _ogoEngineName (\s a -> s { _ogoEngineName = a })
-{-# INLINE ogoEngineName #-}
 
 -- | Indicates the major engine version that the option is available for.
 ogoMajorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
 ogoMajorEngineVersion =
     lens _ogoMajorEngineVersion (\s a -> s { _ogoMajorEngineVersion = a })
-{-# INLINE ogoMajorEngineVersion #-}
 
 -- | The minimum required engine version for the option to be applied.
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
 ogoMinimumRequiredMinorEngineVersion =
     lens _ogoMinimumRequiredMinorEngineVersion
          (\s a -> s { _ogoMinimumRequiredMinorEngineVersion = a })
-{-# INLINE ogoMinimumRequiredMinorEngineVersion #-}
 
 -- | Specifies whether the option requires a port.
 ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
 ogoPortRequired = lens _ogoPortRequired (\s a -> s { _ogoPortRequired = a })
-{-# INLINE ogoPortRequired #-}
 
 -- | If the option requires a port, specifies the default port for the option.
 ogoDefaultPort :: Lens' OptionGroupOption (Maybe Integer)
 ogoDefaultPort = lens _ogoDefaultPort (\s a -> s { _ogoDefaultPort = a })
-{-# INLINE ogoDefaultPort #-}
 
 -- | List of all options that are prerequisites for this option.
 ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
 ogoOptionsDependedOn =
     lens _ogoOptionsDependedOn (\s a -> s { _ogoOptionsDependedOn = a })
-{-# INLINE ogoOptionsDependedOn #-}
 
 -- | A persistent option cannot be removed from the option group once the option
 -- group is used, but this option can be removed from the db instance while
@@ -2154,14 +1988,12 @@ ogoOptionsDependedOn =
 -- option.
 ogoPersistent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPersistent = lens _ogoPersistent (\s a -> s { _ogoPersistent = a })
-{-# INLINE ogoPersistent #-}
 
 -- | A permanent option cannot be removed from the option group once the option
 -- group is used, and it cannot be removed from the db instance after
 -- assigning an option group with this permanent option.
 ogoPermanent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPermanent = lens _ogoPermanent (\s a -> s { _ogoPermanent = a })
-{-# INLINE ogoPermanent #-}
 
 -- | Specifies the option settings that are available (and the default value)
 -- for each option in an option group.
@@ -2169,7 +2001,6 @@ ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSettin
 ogoOptionGroupOptionSettings =
     lens _ogoOptionGroupOptionSettings
          (\s a -> s { _ogoOptionGroupOptionSettings = a })
-{-# INLINE ogoOptionGroupOptionSettings #-}
 
 instance FromXML OptionGroupOption where
     fromXMLOptions = xmlOptions
@@ -2198,42 +2029,35 @@ mkOptionGroupOptionSetting = OptionGroupOptionSetting
     , _ogosAllowedValues = Nothing
     , _ogosIsModifiable = Nothing
     }
-{-# INLINE mkOptionGroupOptionSetting #-}
 
 -- | The name of the option group option.
 ogosSettingName :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosSettingName = lens _ogosSettingName (\s a -> s { _ogosSettingName = a })
-{-# INLINE ogosSettingName #-}
 
 -- | The description of the option group option.
 ogosSettingDescription :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosSettingDescription =
     lens _ogosSettingDescription (\s a -> s { _ogosSettingDescription = a })
-{-# INLINE ogosSettingDescription #-}
 
 -- | The default value for the option group option.
 ogosDefaultValue :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosDefaultValue =
     lens _ogosDefaultValue (\s a -> s { _ogosDefaultValue = a })
-{-# INLINE ogosDefaultValue #-}
 
 -- | The DB engine specific parameter type for the option group option.
 ogosApplyType :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosApplyType = lens _ogosApplyType (\s a -> s { _ogosApplyType = a })
-{-# INLINE ogosApplyType #-}
 
 -- | Indicates the acceptable values for the option group option.
 ogosAllowedValues :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosAllowedValues =
     lens _ogosAllowedValues (\s a -> s { _ogosAllowedValues = a })
-{-# INLINE ogosAllowedValues #-}
 
 -- | Boolean value where true indicates that this option group option can be
 -- changed from the default value.
 ogosIsModifiable :: Lens' OptionGroupOptionSetting (Maybe Bool)
 ogosIsModifiable =
     lens _ogosIsModifiable (\s a -> s { _ogosIsModifiable = a })
-{-# INLINE ogosIsModifiable #-}
 
 instance FromXML OptionGroupOptionSetting where
     fromXMLOptions = xmlOptions
@@ -2272,53 +2096,43 @@ mkOptionSetting = OptionSetting
     , _osIsModifiable = Nothing
     , _osIsCollection = Nothing
     }
-{-# INLINE mkOptionSetting #-}
 
 -- | The name of the option that has settings that you can set.
 osName :: Lens' OptionSetting (Maybe Text)
 osName = lens _osName (\s a -> s { _osName = a })
-{-# INLINE osName #-}
 
 -- | The current value of the option setting.
 osValue :: Lens' OptionSetting (Maybe Text)
 osValue = lens _osValue (\s a -> s { _osValue = a })
-{-# INLINE osValue #-}
 
 -- | The default value of the option setting.
 osDefaultValue :: Lens' OptionSetting (Maybe Text)
 osDefaultValue = lens _osDefaultValue (\s a -> s { _osDefaultValue = a })
-{-# INLINE osDefaultValue #-}
 
 -- | The description of the option setting.
 osDescription :: Lens' OptionSetting (Maybe Text)
 osDescription = lens _osDescription (\s a -> s { _osDescription = a })
-{-# INLINE osDescription #-}
 
 -- | The DB engine specific parameter type.
 osApplyType :: Lens' OptionSetting (Maybe Text)
 osApplyType = lens _osApplyType (\s a -> s { _osApplyType = a })
-{-# INLINE osApplyType #-}
 
 -- | The data type of the option setting.
 osDataType :: Lens' OptionSetting (Maybe Text)
 osDataType = lens _osDataType (\s a -> s { _osDataType = a })
-{-# INLINE osDataType #-}
 
 -- | The allowed values of the option setting.
 osAllowedValues :: Lens' OptionSetting (Maybe Text)
 osAllowedValues = lens _osAllowedValues (\s a -> s { _osAllowedValues = a })
-{-# INLINE osAllowedValues #-}
 
 -- | A Boolean value that, when true, indicates the option setting can be
 -- modified from the default.
 osIsModifiable :: Lens' OptionSetting (Maybe Bool)
 osIsModifiable = lens _osIsModifiable (\s a -> s { _osIsModifiable = a })
-{-# INLINE osIsModifiable #-}
 
 -- | Indicates if the option setting is part of a collection.
 osIsCollection :: Lens' OptionSetting (Maybe Bool)
 osIsCollection = lens _osIsCollection (\s a -> s { _osIsCollection = a })
-{-# INLINE osIsCollection #-}
 
 instance FromXML OptionSetting where
     fromXMLOptions = xmlOptions
@@ -2354,54 +2168,45 @@ mkOrderableDBInstanceOption = OrderableDBInstanceOption
     , _odbioReadReplicaCapable = Nothing
     , _odbioVpc = Nothing
     }
-{-# INLINE mkOrderableDBInstanceOption #-}
 
 -- | The engine type of the orderable DB instance.
 odbioEngine :: Lens' OrderableDBInstanceOption (Maybe Text)
 odbioEngine = lens _odbioEngine (\s a -> s { _odbioEngine = a })
-{-# INLINE odbioEngine #-}
 
 -- | The engine version of the orderable DB instance.
 odbioEngineVersion :: Lens' OrderableDBInstanceOption (Maybe Text)
 odbioEngineVersion =
     lens _odbioEngineVersion (\s a -> s { _odbioEngineVersion = a })
-{-# INLINE odbioEngineVersion #-}
 
 -- | The DB instance Class for the orderable DB instance.
 odbioDBInstanceClass :: Lens' OrderableDBInstanceOption (Maybe Text)
 odbioDBInstanceClass =
     lens _odbioDBInstanceClass (\s a -> s { _odbioDBInstanceClass = a })
-{-# INLINE odbioDBInstanceClass #-}
 
 -- | The license model for the orderable DB instance.
 odbioLicenseModel :: Lens' OrderableDBInstanceOption (Maybe Text)
 odbioLicenseModel =
     lens _odbioLicenseModel (\s a -> s { _odbioLicenseModel = a })
-{-# INLINE odbioLicenseModel #-}
 
 -- | A list of availability zones for the orderable DB instance.
 odbioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
 odbioAvailabilityZones =
     lens _odbioAvailabilityZones (\s a -> s { _odbioAvailabilityZones = a })
-{-# INLINE odbioAvailabilityZones #-}
 
 -- | Indicates whether this orderable DB instance is multi-AZ capable.
 odbioMultiAZCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioMultiAZCapable =
     lens _odbioMultiAZCapable (\s a -> s { _odbioMultiAZCapable = a })
-{-# INLINE odbioMultiAZCapable #-}
 
 -- | Indicates whether this orderable DB instance can have a read replica.
 odbioReadReplicaCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioReadReplicaCapable =
     lens _odbioReadReplicaCapable
          (\s a -> s { _odbioReadReplicaCapable = a })
-{-# INLINE odbioReadReplicaCapable #-}
 
 -- | Indicates whether this is a VPC orderable DB instance.
 odbioVpc :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioVpc = lens _odbioVpc (\s a -> s { _odbioVpc = a })
-{-# INLINE odbioVpc #-}
 
 instance FromXML OrderableDBInstanceOption where
     fromXMLOptions = xmlOptions
@@ -2439,60 +2244,49 @@ mkParameter = Parameter
     , _pMinimumEngineVersion = Nothing
     , _pApplyMethod = Nothing
     }
-{-# INLINE mkParameter #-}
 
 -- | Specifies the name of the parameter.
 pParameterName :: Lens' Parameter (Maybe Text)
 pParameterName = lens _pParameterName (\s a -> s { _pParameterName = a })
-{-# INLINE pParameterName #-}
 
 -- | Specifies the value of the parameter.
 pParameterValue :: Lens' Parameter (Maybe Text)
 pParameterValue = lens _pParameterValue (\s a -> s { _pParameterValue = a })
-{-# INLINE pParameterValue #-}
 
 -- | Provides a description of the parameter.
 pDescription :: Lens' Parameter (Maybe Text)
 pDescription = lens _pDescription (\s a -> s { _pDescription = a })
-{-# INLINE pDescription #-}
 
 -- | Indicates the source of the parameter value.
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\s a -> s { _pSource = a })
-{-# INLINE pSource #-}
 
 -- | Specifies the engine specific parameters type.
 pApplyType :: Lens' Parameter (Maybe Text)
 pApplyType = lens _pApplyType (\s a -> s { _pApplyType = a })
-{-# INLINE pApplyType #-}
 
 -- | Specifies the valid data type for the parameter.
 pDataType :: Lens' Parameter (Maybe Text)
 pDataType = lens _pDataType (\s a -> s { _pDataType = a })
-{-# INLINE pDataType #-}
 
 -- | Specifies the valid range of values for the parameter.
 pAllowedValues :: Lens' Parameter (Maybe Text)
 pAllowedValues = lens _pAllowedValues (\s a -> s { _pAllowedValues = a })
-{-# INLINE pAllowedValues #-}
 
 -- | Indicates whether (true) or not (false) the parameter can be modified. Some
 -- parameters have security or operational implications that prevent them from
 -- being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\s a -> s { _pIsModifiable = a })
-{-# INLINE pIsModifiable #-}
 
 -- | The earliest engine version to which the parameter can apply.
 pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
 pMinimumEngineVersion =
     lens _pMinimumEngineVersion (\s a -> s { _pMinimumEngineVersion = a })
-{-# INLINE pMinimumEngineVersion #-}
 
 -- | Indicates when to apply parameter updates.
 pApplyMethod :: Lens' Parameter (Maybe ApplyMethod)
 pApplyMethod = lens _pApplyMethod (\s a -> s { _pApplyMethod = a })
-{-# INLINE pApplyMethod #-}
 
 instance FromXML Parameter where
     fromXMLOptions = xmlOptions
@@ -2530,33 +2324,28 @@ mkPendingModifiedValues = PendingModifiedValues
     , _pmvIops = Nothing
     , _pmvDBInstanceIdentifier = Nothing
     }
-{-# INLINE mkPendingModifiedValues #-}
 
 -- | Contains the new DBInstanceClass for the DB instance that will be applied
 -- or is in progress.
 pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceClass =
     lens _pmvDBInstanceClass (\s a -> s { _pmvDBInstanceClass = a })
-{-# INLINE pmvDBInstanceClass #-}
 
 -- | Contains the new AllocatedStorage size for the DB instance that will be
 -- applied or is in progress.
 pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Integer)
 pmvAllocatedStorage =
     lens _pmvAllocatedStorage (\s a -> s { _pmvAllocatedStorage = a })
-{-# INLINE pmvAllocatedStorage #-}
 
 -- | Contains the pending or in-progress change of the master credentials for
 -- the DB instance.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
 pmvMasterUserPassword =
     lens _pmvMasterUserPassword (\s a -> s { _pmvMasterUserPassword = a })
-{-# INLINE pmvMasterUserPassword #-}
 
 -- | Specifies the pending port for the DB instance.
 pmvPort :: Lens' PendingModifiedValues (Maybe Integer)
 pmvPort = lens _pmvPort (\s a -> s { _pmvPort = a })
-{-# INLINE pmvPort #-}
 
 -- | Specifies the pending number of days for which automated backups are
 -- retained.
@@ -2564,25 +2353,21 @@ pmvBackupRetentionPeriod :: Lens' PendingModifiedValues (Maybe Integer)
 pmvBackupRetentionPeriod =
     lens _pmvBackupRetentionPeriod
          (\s a -> s { _pmvBackupRetentionPeriod = a })
-{-# INLINE pmvBackupRetentionPeriod #-}
 
 -- | Indicates that the Single-AZ DB instance is to change to a Multi-AZ
 -- deployment.
 pmvMultiAZ :: Lens' PendingModifiedValues (Maybe Bool)
 pmvMultiAZ = lens _pmvMultiAZ (\s a -> s { _pmvMultiAZ = a })
-{-# INLINE pmvMultiAZ #-}
 
 -- | Indicates the database engine version.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion =
     lens _pmvEngineVersion (\s a -> s { _pmvEngineVersion = a })
-{-# INLINE pmvEngineVersion #-}
 
 -- | Specifies the new Provisioned IOPS value for the DB instance that will be
 -- applied or is being applied.
 pmvIops :: Lens' PendingModifiedValues (Maybe Integer)
 pmvIops = lens _pmvIops (\s a -> s { _pmvIops = a })
-{-# INLINE pmvIops #-}
 
 -- | Contains the new DBInstanceIdentifier for the DB instance that will be
 -- applied or is in progress.
@@ -2590,7 +2375,6 @@ pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceIdentifier =
     lens _pmvDBInstanceIdentifier
          (\s a -> s { _pmvDBInstanceIdentifier = a })
-{-# INLINE pmvDBInstanceIdentifier #-}
 
 instance FromXML PendingModifiedValues where
     fromXMLOptions = xmlOptions
@@ -2614,21 +2398,18 @@ mkRecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount = Nothing
     , _rcRecurringChargeFrequency = Nothing
     }
-{-# INLINE mkRecurringCharge #-}
 
 -- | The amount of the recurring charge.
 rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
 rcRecurringChargeAmount =
     lens _rcRecurringChargeAmount
          (\s a -> s { _rcRecurringChargeAmount = a })
-{-# INLINE rcRecurringChargeAmount #-}
 
 -- | The frequency of the recurring charge.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
 rcRecurringChargeFrequency =
     lens _rcRecurringChargeFrequency
          (\s a -> s { _rcRecurringChargeFrequency = a })
-{-# INLINE rcRecurringChargeFrequency #-}
 
 instance FromXML RecurringCharge where
     fromXMLOptions = xmlOptions
@@ -2676,87 +2457,72 @@ mkReservedDBInstance = ReservedDBInstance
     , _rdbiState = Nothing
     , _rdbiRecurringCharges = mempty
     }
-{-# INLINE mkReservedDBInstance #-}
 
 -- | The unique identifier for the reservation.
 rdbiReservedDBInstanceId :: Lens' ReservedDBInstance (Maybe Text)
 rdbiReservedDBInstanceId =
     lens _rdbiReservedDBInstanceId
          (\s a -> s { _rdbiReservedDBInstanceId = a })
-{-# INLINE rdbiReservedDBInstanceId #-}
 
 -- | The offering identifier.
 rdbiReservedDBInstancesOfferingId :: Lens' ReservedDBInstance (Maybe Text)
 rdbiReservedDBInstancesOfferingId =
     lens _rdbiReservedDBInstancesOfferingId
          (\s a -> s { _rdbiReservedDBInstancesOfferingId = a })
-{-# INLINE rdbiReservedDBInstancesOfferingId #-}
 
 -- | The DB instance class for the reserved DB instance.
 rdbiDBInstanceClass :: Lens' ReservedDBInstance (Maybe Text)
 rdbiDBInstanceClass =
     lens _rdbiDBInstanceClass (\s a -> s { _rdbiDBInstanceClass = a })
-{-# INLINE rdbiDBInstanceClass #-}
 
 -- | The time the reservation started.
 rdbiStartTime :: Lens' ReservedDBInstance (Maybe ISO8601)
 rdbiStartTime = lens _rdbiStartTime (\s a -> s { _rdbiStartTime = a })
-{-# INLINE rdbiStartTime #-}
 
 -- | The duration of the reservation in seconds.
 rdbiDuration :: Lens' ReservedDBInstance (Maybe Integer)
 rdbiDuration = lens _rdbiDuration (\s a -> s { _rdbiDuration = a })
-{-# INLINE rdbiDuration #-}
 
 -- | The fixed price charged for this reserved DB instance.
 rdbiFixedPrice :: Lens' ReservedDBInstance (Maybe Double)
 rdbiFixedPrice = lens _rdbiFixedPrice (\s a -> s { _rdbiFixedPrice = a })
-{-# INLINE rdbiFixedPrice #-}
 
 -- | The hourly price charged for this reserved DB instance.
 rdbiUsagePrice :: Lens' ReservedDBInstance (Maybe Double)
 rdbiUsagePrice = lens _rdbiUsagePrice (\s a -> s { _rdbiUsagePrice = a })
-{-# INLINE rdbiUsagePrice #-}
 
 -- | The currency code for the reserved DB instance.
 rdbiCurrencyCode :: Lens' ReservedDBInstance (Maybe Text)
 rdbiCurrencyCode =
     lens _rdbiCurrencyCode (\s a -> s { _rdbiCurrencyCode = a })
-{-# INLINE rdbiCurrencyCode #-}
 
 -- | The number of reserved DB instances.
 rdbiDBInstanceCount :: Lens' ReservedDBInstance (Maybe Integer)
 rdbiDBInstanceCount =
     lens _rdbiDBInstanceCount (\s a -> s { _rdbiDBInstanceCount = a })
-{-# INLINE rdbiDBInstanceCount #-}
 
 -- | The description of the reserved DB instance.
 rdbiProductDescription :: Lens' ReservedDBInstance (Maybe Text)
 rdbiProductDescription =
     lens _rdbiProductDescription (\s a -> s { _rdbiProductDescription = a })
-{-# INLINE rdbiProductDescription #-}
 
 -- | The offering type of this reserved DB instance.
 rdbiOfferingType :: Lens' ReservedDBInstance (Maybe Text)
 rdbiOfferingType =
     lens _rdbiOfferingType (\s a -> s { _rdbiOfferingType = a })
-{-# INLINE rdbiOfferingType #-}
 
 -- | Indicates if the reservation applies to Multi-AZ deployments.
 rdbiMultiAZ :: Lens' ReservedDBInstance (Maybe Bool)
 rdbiMultiAZ = lens _rdbiMultiAZ (\s a -> s { _rdbiMultiAZ = a })
-{-# INLINE rdbiMultiAZ #-}
 
 -- | The state of the reserved DB instance.
 rdbiState :: Lens' ReservedDBInstance (Maybe Text)
 rdbiState = lens _rdbiState (\s a -> s { _rdbiState = a })
-{-# INLINE rdbiState #-}
 
 -- | The recurring price charged to run this reserved DB instance.
 rdbiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
 rdbiRecurringCharges =
     lens _rdbiRecurringCharges (\s a -> s { _rdbiRecurringCharges = a })
-{-# INLINE rdbiRecurringCharges #-}
 
 instance FromXML ReservedDBInstance where
     fromXMLOptions = xmlOptions
@@ -2792,65 +2558,54 @@ mkReservedDBInstancesOffering = ReservedDBInstancesOffering
     , _rdbioMultiAZ = Nothing
     , _rdbioRecurringCharges = mempty
     }
-{-# INLINE mkReservedDBInstancesOffering #-}
 
 -- | The offering identifier.
 rdbioReservedDBInstancesOfferingId :: Lens' ReservedDBInstancesOffering (Maybe Text)
 rdbioReservedDBInstancesOfferingId =
     lens _rdbioReservedDBInstancesOfferingId
          (\s a -> s { _rdbioReservedDBInstancesOfferingId = a })
-{-# INLINE rdbioReservedDBInstancesOfferingId #-}
 
 -- | The DB instance class for the reserved DB instance.
 rdbioDBInstanceClass :: Lens' ReservedDBInstancesOffering (Maybe Text)
 rdbioDBInstanceClass =
     lens _rdbioDBInstanceClass (\s a -> s { _rdbioDBInstanceClass = a })
-{-# INLINE rdbioDBInstanceClass #-}
 
 -- | The duration of the offering in seconds.
 rdbioDuration :: Lens' ReservedDBInstancesOffering (Maybe Integer)
 rdbioDuration = lens _rdbioDuration (\s a -> s { _rdbioDuration = a })
-{-# INLINE rdbioDuration #-}
 
 -- | The fixed price charged for this offering.
 rdbioFixedPrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
 rdbioFixedPrice = lens _rdbioFixedPrice (\s a -> s { _rdbioFixedPrice = a })
-{-# INLINE rdbioFixedPrice #-}
 
 -- | The hourly price charged for this offering.
 rdbioUsagePrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
 rdbioUsagePrice = lens _rdbioUsagePrice (\s a -> s { _rdbioUsagePrice = a })
-{-# INLINE rdbioUsagePrice #-}
 
 -- | The currency code for the reserved DB instance offering.
 rdbioCurrencyCode :: Lens' ReservedDBInstancesOffering (Maybe Text)
 rdbioCurrencyCode =
     lens _rdbioCurrencyCode (\s a -> s { _rdbioCurrencyCode = a })
-{-# INLINE rdbioCurrencyCode #-}
 
 -- | The database engine used by the offering.
 rdbioProductDescription :: Lens' ReservedDBInstancesOffering (Maybe Text)
 rdbioProductDescription =
     lens _rdbioProductDescription
          (\s a -> s { _rdbioProductDescription = a })
-{-# INLINE rdbioProductDescription #-}
 
 -- | The offering type.
 rdbioOfferingType :: Lens' ReservedDBInstancesOffering (Maybe Text)
 rdbioOfferingType =
     lens _rdbioOfferingType (\s a -> s { _rdbioOfferingType = a })
-{-# INLINE rdbioOfferingType #-}
 
 -- | Indicates if the offering applies to Multi-AZ deployments.
 rdbioMultiAZ :: Lens' ReservedDBInstancesOffering (Maybe Bool)
 rdbioMultiAZ = lens _rdbioMultiAZ (\s a -> s { _rdbioMultiAZ = a })
-{-# INLINE rdbioMultiAZ #-}
 
 -- | The recurring price charged to run this reserved DB instance.
 rdbioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
 rdbioRecurringCharges =
     lens _rdbioRecurringCharges (\s a -> s { _rdbioRecurringCharges = a })
-{-# INLINE rdbioRecurringCharges #-}
 
 instance FromXML ReservedDBInstancesOffering where
     fromXMLOptions = xmlOptions
@@ -2872,13 +2627,11 @@ mkSubnet = Subnet
     , _sSubnetAvailabilityZone = Nothing
     , _sSubnetStatus = Nothing
     }
-{-# INLINE mkSubnet #-}
 
 -- | Specifies the identifier of the subnet.
 sSubnetIdentifier :: Lens' Subnet (Maybe Text)
 sSubnetIdentifier =
     lens _sSubnetIdentifier (\s a -> s { _sSubnetIdentifier = a })
-{-# INLINE sSubnetIdentifier #-}
 
 -- | Contains Availability Zone information. This data type is used as an
 -- element in the following data type: OrderableDBInstanceOption.
@@ -2886,12 +2639,10 @@ sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
 sSubnetAvailabilityZone =
     lens _sSubnetAvailabilityZone
          (\s a -> s { _sSubnetAvailabilityZone = a })
-{-# INLINE sSubnetAvailabilityZone #-}
 
 -- | Specifies the status of the subnet.
 sSubnetStatus :: Lens' Subnet (Maybe Text)
 sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
-{-# INLINE sSubnetStatus #-}
 
 instance FromXML Subnet where
     fromXMLOptions = xmlOptions
@@ -2913,7 +2664,6 @@ mkTag = Tag
     { _tKey = Nothing
     , _tValue = Nothing
     }
-{-# INLINE mkTag #-}
 
 -- | A key is the required name of the tag. The string value can be from 1 to
 -- 128 Unicode characters in length and cannot be prefixed with "aws:" or
@@ -2922,7 +2672,6 @@ mkTag = Tag
 -- "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tKey :: Lens' Tag (Maybe Text)
 tKey = lens _tKey (\s a -> s { _tKey = a })
-{-# INLINE tKey #-}
 
 -- | A value is the optional value of the tag. The string value can be from 1 to
 -- 256 Unicode characters in length and cannot be prefixed with "aws:" or
@@ -2931,7 +2680,6 @@ tKey = lens _tKey (\s a -> s { _tKey = a })
 -- "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tValue :: Lens' Tag (Maybe Text)
 tValue = lens _tValue (\s a -> s { _tValue = a })
-{-# INLINE tValue #-}
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
@@ -2954,18 +2702,15 @@ mkVpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmVpcSecurityGroupId = Nothing
     , _vsgmStatus = Nothing
     }
-{-# INLINE mkVpcSecurityGroupMembership #-}
 
 -- | The name of the VPC security group.
 vsgmVpcSecurityGroupId :: Lens' VpcSecurityGroupMembership (Maybe Text)
 vsgmVpcSecurityGroupId =
     lens _vsgmVpcSecurityGroupId (\s a -> s { _vsgmVpcSecurityGroupId = a })
-{-# INLINE vsgmVpcSecurityGroupId #-}
 
 -- | The status of the VPC security group.
 vsgmStatus :: Lens' VpcSecurityGroupMembership (Maybe Text)
 vsgmStatus = lens _vsgmStatus (\s a -> s { _vsgmStatus = a })
-{-# INLINE vsgmStatus #-}
 
 instance FromXML VpcSecurityGroupMembership where
     fromXMLOptions = xmlOptions

@@ -70,7 +70,6 @@ mkModifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName = p1
     , _mdbpgParameters = p2
     }
-{-# INLINE mkModifyDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group Must be 1 to 255 alphanumeric characters First
@@ -80,7 +79,6 @@ mdbpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
 mdbpgDBParameterGroupName =
     lens _mdbpgDBParameterGroupName
          (\s a -> s { _mdbpgDBParameterGroupName = a })
-{-# INLINE mdbpgDBParameterGroupName #-}
 
 -- | An array of parameter names, values, and the apply method for the parameter
 -- update. At least one parameter name, value, and apply method must be
@@ -91,7 +89,6 @@ mdbpgDBParameterGroupName =
 -- static parameters, and changes are applied when DB instance reboots.
 mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
 mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a })
-{-# INLINE mdbpgParameters #-}
 
 instance ToQuery ModifyDBParameterGroup where
     toQuery = genericQuery def
@@ -107,7 +104,6 @@ mdbpgrsDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
 mdbpgrsDBParameterGroupName =
     lens _mdbpgrsDBParameterGroupName
          (\s a -> s { _mdbpgrsDBParameterGroupName = a })
-{-# INLINE mdbpgrsDBParameterGroupName #-}
 
 instance FromXML ModifyDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

@@ -53,7 +53,6 @@ mkDescribeScalingParameters :: Text -- ^ 'dspDomainName'
 mkDescribeScalingParameters p1 = DescribeScalingParameters
     { _dspDomainName = p1
     }
-{-# INLINE mkDescribeScalingParameters #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -61,7 +60,6 @@ mkDescribeScalingParameters p1 = DescribeScalingParameters
 -- (lowercase), 0-9, and - (hyphen).
 dspDomainName :: Lens' DescribeScalingParameters Text
 dspDomainName = lens _dspDomainName (\s a -> s { _dspDomainName = a })
-{-# INLINE dspDomainName #-}
 
 instance ToQuery DescribeScalingParameters where
     toQuery = genericQuery def
@@ -76,7 +74,6 @@ newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
 dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
 dsprsScalingParameters =
     lens _dsprsScalingParameters (\s a -> s { _dsprsScalingParameters = a })
-{-# INLINE dsprsScalingParameters #-}
 
 instance FromXML DescribeScalingParametersResponse where
     fromXMLOptions = xmlOptions

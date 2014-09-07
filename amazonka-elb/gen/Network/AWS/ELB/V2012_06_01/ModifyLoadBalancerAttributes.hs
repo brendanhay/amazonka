@@ -82,20 +82,17 @@ mkModifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
     { _mlbaLoadBalancerName = p1
     , _mlbaLoadBalancerAttributes = p2
     }
-{-# INLINE mkModifyLoadBalancerAttributes #-}
 
 -- | The name of the load balancer.
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
 mlbaLoadBalancerName =
     lens _mlbaLoadBalancerName (\s a -> s { _mlbaLoadBalancerName = a })
-{-# INLINE mlbaLoadBalancerName #-}
 
 -- | Attributes of the load balancer.
 mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
 mlbaLoadBalancerAttributes =
     lens _mlbaLoadBalancerAttributes
          (\s a -> s { _mlbaLoadBalancerAttributes = a })
-{-# INLINE mlbaLoadBalancerAttributes #-}
 
 instance ToQuery ModifyLoadBalancerAttributes where
     toQuery = genericQuery def
@@ -110,14 +107,12 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarsLoadBalancerName =
     lens _mlbarsLoadBalancerName (\s a -> s { _mlbarsLoadBalancerName = a })
-{-# INLINE mlbarsLoadBalancerName #-}
 
 -- | The LoadBalancerAttributes data type.
 mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 mlbarsLoadBalancerAttributes =
     lens _mlbarsLoadBalancerAttributes
          (\s a -> s { _mlbarsLoadBalancerAttributes = a })
-{-# INLINE mlbarsLoadBalancerAttributes #-}
 
 instance FromXML ModifyLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions

@@ -57,11 +57,9 @@ mkDeleteLogGroup :: Text -- ^ 'dlgLogGroupName'
 mkDeleteLogGroup p1 = DeleteLogGroup
     { _dlgLogGroupName = p1
     }
-{-# INLINE mkDeleteLogGroup #-}
 
 dlgLogGroupName :: Lens' DeleteLogGroup Text
 dlgLogGroupName = lens _dlgLogGroupName (\s a -> s { _dlgLogGroupName = a })
-{-# INLINE dlgLogGroupName #-}
 
 instance ToPath DeleteLogGroup
 

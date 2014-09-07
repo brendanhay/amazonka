@@ -74,7 +74,6 @@ mkCopyClusterSnapshot p1 p3 = CopyClusterSnapshot
     , _ccsSourceSnapshotClusterIdentifier = Nothing
     , _ccsTargetSnapshotIdentifier = p3
     }
-{-# INLINE mkCopyClusterSnapshot #-}
 
 -- | The identifier for the source snapshot. Constraints: Must be the identifier
 -- for a valid automated snapshot whose state is available.
@@ -82,7 +81,6 @@ ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsSourceSnapshotIdentifier =
     lens _ccsSourceSnapshotIdentifier
          (\s a -> s { _ccsSourceSnapshotIdentifier = a })
-{-# INLINE ccsSourceSnapshotIdentifier #-}
 
 -- | The identifier of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
@@ -92,7 +90,6 @@ ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
 ccsSourceSnapshotClusterIdentifier =
     lens _ccsSourceSnapshotClusterIdentifier
          (\s a -> s { _ccsSourceSnapshotClusterIdentifier = a })
-{-# INLINE ccsSourceSnapshotClusterIdentifier #-}
 
 -- | The identifier given to the new manual snapshot. Constraints: Cannot be
 -- null, empty, or blank. Must contain from 1 to 255 alphanumeric characters
@@ -103,7 +100,6 @@ ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsTargetSnapshotIdentifier =
     lens _ccsTargetSnapshotIdentifier
          (\s a -> s { _ccsTargetSnapshotIdentifier = a })
-{-# INLINE ccsTargetSnapshotIdentifier #-}
 
 instance ToQuery CopyClusterSnapshot where
     toQuery = genericQuery def
@@ -115,7 +111,6 @@ newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
 -- | Describes a snapshot.
 ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrsSnapshot = lens _ccsrsSnapshot (\s a -> s { _ccsrsSnapshot = a })
-{-# INLINE ccsrsSnapshot #-}
 
 instance FromXML CopyClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

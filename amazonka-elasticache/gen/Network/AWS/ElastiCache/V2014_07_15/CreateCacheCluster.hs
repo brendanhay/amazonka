@@ -125,7 +125,6 @@ mkCreateCacheCluster p1 = CreateCacheCluster
     , _cccSnapshotRetentionLimit = Nothing
     , _cccSnapshotWindow = Nothing
     }
-{-# INLINE mkCreateCacheCluster #-}
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string. Constraints: Must contain from 1 to 20 alphanumeric characters or
@@ -134,7 +133,6 @@ mkCreateCacheCluster p1 = CreateCacheCluster
 cccCacheClusterId :: Lens' CreateCacheCluster Text
 cccCacheClusterId =
     lens _cccCacheClusterId (\s a -> s { _cccCacheClusterId = a })
-{-# INLINE cccCacheClusterId #-}
 
 -- | The replication group to which this cache cluster should belong. If this
 -- parameter is specified, the cache cluster will be added to the specified
@@ -143,7 +141,6 @@ cccCacheClusterId =
 cccReplicationGroupId :: Lens' CreateCacheCluster (Maybe Text)
 cccReplicationGroupId =
     lens _cccReplicationGroupId (\s a -> s { _cccReplicationGroupId = a })
-{-# INLINE cccReplicationGroupId #-}
 
 -- | The initial number of cache nodes that the cache cluster will have. For a
 -- Memcached cluster, valid values are between 1 and 20. If you need to exceed
@@ -153,7 +150,6 @@ cccReplicationGroupId =
 cccNumCacheNodes :: Lens' CreateCacheCluster (Maybe Integer)
 cccNumCacheNodes =
     lens _cccNumCacheNodes (\s a -> s { _cccNumCacheNodes = a })
-{-# INLINE cccNumCacheNodes #-}
 
 -- | The compute and memory capacity of the nodes in the cache cluster. Valid
 -- cache types Microcache.t1.micro | cache.m1.small General Purpose Current
@@ -169,13 +165,11 @@ cccNumCacheNodes =
 cccCacheNodeType :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheNodeType =
     lens _cccCacheNodeType (\s a -> s { _cccCacheNodeType = a })
-{-# INLINE cccCacheNodeType #-}
 
 -- | The name of the cache engine to be used for this cache cluster. Valid
 -- values for this parameter are: memcached | redis.
 cccEngine :: Lens' CreateCacheCluster (Maybe Text)
 cccEngine = lens _cccEngine (\s a -> s { _cccEngine = a })
-{-# INLINE cccEngine #-}
 
 -- | The version number of the cache engine to be used for this cluster. To view
 -- the supported cache engine versions, use the DescribeCacheEngineVersions
@@ -183,7 +177,6 @@ cccEngine = lens _cccEngine (\s a -> s { _cccEngine = a })
 cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
 cccEngineVersion =
     lens _cccEngineVersion (\s a -> s { _cccEngineVersion = a })
-{-# INLINE cccEngineVersion #-}
 
 -- | The name of the cache parameter group to associate with this cache cluster.
 -- If this argument is omitted, the default cache parameter group for the
@@ -192,7 +185,6 @@ cccCacheParameterGroupName :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheParameterGroupName =
     lens _cccCacheParameterGroupName
          (\s a -> s { _cccCacheParameterGroupName = a })
-{-# INLINE cccCacheParameterGroupName #-}
 
 -- | The name of the cache subnet group to be used for the cache cluster. Use
 -- this parameter only when you are creating a cluster in an Amazon Virtual
@@ -201,7 +193,6 @@ cccCacheSubnetGroupName :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheSubnetGroupName =
     lens _cccCacheSubnetGroupName
          (\s a -> s { _cccCacheSubnetGroupName = a })
-{-# INLINE cccCacheSubnetGroupName #-}
 
 -- | A list of cache security group names to associate with this cache cluster.
 -- Use this parameter only when you are creating a cluster outside of an
@@ -210,7 +201,6 @@ cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
 cccCacheSecurityGroupNames =
     lens _cccCacheSecurityGroupNames
          (\s a -> s { _cccCacheSecurityGroupNames = a })
-{-# INLINE cccCacheSecurityGroupNames #-}
 
 -- | One or more VPC security groups associated with the cache cluster. Use this
 -- parameter only when you are creating a cluster in an Amazon Virtual Private
@@ -218,7 +208,6 @@ cccCacheSecurityGroupNames =
 cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
 cccSecurityGroupIds =
     lens _cccSecurityGroupIds (\s a -> s { _cccSecurityGroupIds = a })
-{-# INLINE cccSecurityGroupIds #-}
 
 -- | A single-element string list containing an Amazon Resource Name (ARN) that
 -- uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The
@@ -229,14 +218,12 @@ cccSecurityGroupIds =
 -- the Engine parameter is redis.
 cccSnapshotArns :: Lens' CreateCacheCluster [Text]
 cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a })
-{-# INLINE cccSnapshotArns #-}
 
 -- | The name of a snapshot from which to restore data into the new cache
 -- cluster. The snapshot's status changes to restoring while the new cache
 -- cluster is being created.
 cccSnapshotName :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotName = lens _cccSnapshotName (\s a -> s { _cccSnapshotName = a })
-{-# INLINE cccSnapshotName #-}
 
 -- | Specifies whether the nodes in this Memcached cache cluster are created in
 -- a single Availability Zone or created across multiple Availability Zones.
@@ -245,7 +232,6 @@ cccSnapshotName = lens _cccSnapshotName (\s a -> s { _cccSnapshotName = a })
 -- single-az mode. Valid values: single-az | cross-az.
 cccAZMode :: Lens' CreateCacheCluster (Maybe Text)
 cccAZMode = lens _cccAZMode (\s a -> s { _cccAZMode = a })
-{-# INLINE cccAZMode #-}
 
 -- | The EC2 Availability Zone in which the cache cluster will be created. All
 -- cache nodes belonging to this Memcached cache cluster are placed in the
@@ -256,7 +242,6 @@ cccPreferredAvailabilityZone :: Lens' CreateCacheCluster (Maybe Text)
 cccPreferredAvailabilityZone =
     lens _cccPreferredAvailabilityZone
          (\s a -> s { _cccPreferredAvailabilityZone = a })
-{-# INLINE cccPreferredAvailabilityZone #-}
 
 -- | A list of the Availability Zones in which nodes will be created. The order
 -- of the zones in the list is not important. This option is only supported on
@@ -276,7 +261,6 @@ cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
 cccPreferredAvailabilityZones =
     lens _cccPreferredAvailabilityZones
          (\s a -> s { _cccPreferredAvailabilityZones = a })
-{-# INLINE cccPreferredAvailabilityZones #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Example: sun:05:00-sun:09:00.
@@ -284,12 +268,10 @@ cccPreferredMaintenanceWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccPreferredMaintenanceWindow =
     lens _cccPreferredMaintenanceWindow
          (\s a -> s { _cccPreferredMaintenanceWindow = a })
-{-# INLINE cccPreferredMaintenanceWindow #-}
 
 -- | The port number on which each of the cache nodes will accept connections.
 cccPort :: Lens' CreateCacheCluster (Maybe Integer)
 cccPort = lens _cccPort (\s a -> s { _cccPort = a })
-{-# INLINE cccPort #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent. The Amazon SNS topic owner
@@ -298,7 +280,6 @@ cccNotificationTopicArn :: Lens' CreateCacheCluster (Maybe Text)
 cccNotificationTopicArn =
     lens _cccNotificationTopicArn
          (\s a -> s { _cccNotificationTopicArn = a })
-{-# INLINE cccNotificationTopicArn #-}
 
 -- | Determines whether minor engine upgrades will be applied automatically to
 -- the cache cluster during the maintenance window. A value of true allows
@@ -307,7 +288,6 @@ cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
 cccAutoMinorVersionUpgrade =
     lens _cccAutoMinorVersionUpgrade
          (\s a -> s { _cccAutoMinorVersionUpgrade = a })
-{-# INLINE cccAutoMinorVersionUpgrade #-}
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
@@ -319,7 +299,6 @@ cccSnapshotRetentionLimit :: Lens' CreateCacheCluster (Maybe Integer)
 cccSnapshotRetentionLimit =
     lens _cccSnapshotRetentionLimit
          (\s a -> s { _cccSnapshotRetentionLimit = a })
-{-# INLINE cccSnapshotRetentionLimit #-}
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of your cache cluster. Example: 05:00-09:00 If you do not
@@ -328,7 +307,6 @@ cccSnapshotRetentionLimit =
 cccSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotWindow =
     lens _cccSnapshotWindow (\s a -> s { _cccSnapshotWindow = a })
-{-# INLINE cccSnapshotWindow #-}
 
 instance ToQuery CreateCacheCluster where
     toQuery = genericQuery def
@@ -341,7 +319,6 @@ newtype CreateCacheClusterResponse = CreateCacheClusterResponse
 cccrsCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrsCacheCluster =
     lens _cccrsCacheCluster (\s a -> s { _cccrsCacheCluster = a })
-{-# INLINE cccrsCacheCluster #-}
 
 instance FromXML CreateCacheClusterResponse where
     fromXMLOptions = xmlOptions

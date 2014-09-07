@@ -67,7 +67,6 @@ mkEnableDomainTransferLock :: Text -- ^ 'edtlDomainName'
 mkEnableDomainTransferLock p1 = EnableDomainTransferLock
     { _edtlDomainName = p1
     }
-{-# INLINE mkEnableDomainTransferLock #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -75,7 +74,6 @@ mkEnableDomainTransferLock p1 = EnableDomainTransferLock
 -- Yes.
 edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\s a -> s { _edtlDomainName = a })
-{-# INLINE edtlDomainName #-}
 
 instance ToPath EnableDomainTransferLock
 
@@ -96,7 +94,6 @@ newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
 edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrsOperationId =
     lens _edtlrsOperationId (\s a -> s { _edtlrsOperationId = a })
-{-# INLINE edtlrsOperationId #-}
 
 instance FromJSON EnableDomainTransferLockResponse
 

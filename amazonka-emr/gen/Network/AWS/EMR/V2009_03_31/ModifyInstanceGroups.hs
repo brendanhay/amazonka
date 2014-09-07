@@ -66,13 +66,11 @@ mkModifyInstanceGroups :: ModifyInstanceGroups
 mkModifyInstanceGroups = ModifyInstanceGroups
     { _migInstanceGroups = mempty
     }
-{-# INLINE mkModifyInstanceGroups #-}
 
 -- | Instance groups to change.
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
 migInstanceGroups =
     lens _migInstanceGroups (\s a -> s { _migInstanceGroups = a })
-{-# INLINE migInstanceGroups #-}
 
 instance ToPath ModifyInstanceGroups
 

@@ -95,7 +95,6 @@ mkPollForTask p1 = PollForTask
     , _pftHostname = Nothing
     , _pftInstanceIdentity = Nothing
     }
-{-# INLINE mkPollForTask #-}
 
 -- | Indicates the type of task the task runner is configured to accept and
 -- process. The worker group is set as a field on objects in the pipeline when
@@ -104,12 +103,10 @@ mkPollForTask p1 = PollForTask
 -- workerGroup, the string must be an exact, case-sensitive, match.
 pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\s a -> s { _pftWorkerGroup = a })
-{-# INLINE pftWorkerGroup #-}
 
 -- | The public DNS name of the calling task runner.
 pftHostname :: Lens' PollForTask (Maybe Text)
 pftHostname = lens _pftHostname (\s a -> s { _pftHostname = a })
-{-# INLINE pftHostname #-}
 
 -- | Identity information for the Amazon EC2 instance that is hosting the task
 -- runner. You can get this value by calling the URI,
@@ -121,7 +118,6 @@ pftHostname = lens _pftHostname (\s a -> s { _pftHostname = a })
 pftInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
 pftInstanceIdentity =
     lens _pftInstanceIdentity (\s a -> s { _pftInstanceIdentity = a })
-{-# INLINE pftInstanceIdentity #-}
 
 instance ToPath PollForTask
 
@@ -144,7 +140,6 @@ newtype PollForTaskResponse = PollForTaskResponse
 -- ReportTaskProgress and SetTaskStatus.
 pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrsTaskObject = lens _pftrsTaskObject (\s a -> s { _pftrsTaskObject = a })
-{-# INLINE pftrsTaskObject #-}
 
 instance FromJSON PollForTaskResponse
 

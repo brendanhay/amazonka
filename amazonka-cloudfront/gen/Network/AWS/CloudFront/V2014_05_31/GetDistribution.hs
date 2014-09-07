@@ -51,12 +51,10 @@ mkGetDistribution :: Text -- ^ 'gdId'
 mkGetDistribution p1 = GetDistribution
     { _gdId = p1
     }
-{-# INLINE mkGetDistribution #-}
 
 -- | The distribution's id.
 gdId :: Lens' GetDistribution Text
 gdId = lens _gdId (\s a -> s { _gdId = a })
-{-# INLINE gdId #-}
 
 instance ToPath GetDistribution where
     toPath GetDistribution{..} = mconcat
@@ -82,13 +80,11 @@ data GetDistributionResponse = GetDistributionResponse
 gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrsDistribution =
     lens _gdrsDistribution (\s a -> s { _gdrsDistribution = a })
-{-# INLINE gdrsDistribution #-}
 
 -- | The current version of the distribution's information. For example:
 -- E2QWRUHAPOMQZL.
 gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
 gdrsETag = lens _gdrsETag (\s a -> s { _gdrsETag = a })
-{-# INLINE gdrsETag #-}
 
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront

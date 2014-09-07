@@ -83,12 +83,10 @@ mkCreateKeyPair :: Text -- ^ 'ckpKeyName'
 mkCreateKeyPair p1 = CreateKeyPair
     { _ckpKeyName = p1
     }
-{-# INLINE mkCreateKeyPair #-}
 
 -- | A unique name for the key pair.
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
-{-# INLINE ckpKeyName #-}
 
 instance ToQuery CreateKeyPair where
     toQuery = genericQuery def
@@ -103,19 +101,16 @@ data CreateKeyPairResponse = CreateKeyPairResponse
 -- | The name of the key pair.
 ckprsKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
 ckprsKeyName = lens _ckprsKeyName (\s a -> s { _ckprsKeyName = a })
-{-# INLINE ckprsKeyName #-}
 
 -- | The SHA-1 digest of the DER encoded private key.
 ckprsKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
 ckprsKeyFingerprint =
     lens _ckprsKeyFingerprint (\s a -> s { _ckprsKeyFingerprint = a })
-{-# INLINE ckprsKeyFingerprint #-}
 
 -- | An unencrypted PEM encoded RSA private key.
 ckprsKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
 ckprsKeyMaterial =
     lens _ckprsKeyMaterial (\s a -> s { _ckprsKeyMaterial = a })
-{-# INLINE ckprsKeyMaterial #-}
 
 instance FromXML CreateKeyPairResponse where
     fromXMLOptions = xmlOptions

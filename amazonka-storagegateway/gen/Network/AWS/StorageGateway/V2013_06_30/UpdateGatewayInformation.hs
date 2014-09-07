@@ -69,25 +69,21 @@ mkUpdateGatewayInformation p1 = UpdateGatewayInformation
     , _ugiGatewayName = Nothing
     , _ugiGatewayTimezone = Nothing
     }
-{-# INLINE mkUpdateGatewayInformation #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 ugiGatewayARN :: Lens' UpdateGatewayInformation Text
 ugiGatewayARN = lens _ugiGatewayARN (\s a -> s { _ugiGatewayARN = a })
-{-# INLINE ugiGatewayARN #-}
 
 -- | A unique identifier for your gateway. This name becomes part of the gateway
 -- Amazon Resources Name (ARN) which is what you use as an input to other
 -- operations.
 ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayName = lens _ugiGatewayName (\s a -> s { _ugiGatewayName = a })
-{-# INLINE ugiGatewayName #-}
 
 ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayTimezone =
     lens _ugiGatewayTimezone (\s a -> s { _ugiGatewayTimezone = a })
-{-# INLINE ugiGatewayTimezone #-}
 
 instance ToPath UpdateGatewayInformation
 
@@ -106,7 +102,6 @@ newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
 -- operation to return a list of gateways for your account and region.
 ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayARN = lens _ugirsGatewayARN (\s a -> s { _ugirsGatewayARN = a })
-{-# INLINE ugirsGatewayARN #-}
 
 instance FromJSON UpdateGatewayInformationResponse
 

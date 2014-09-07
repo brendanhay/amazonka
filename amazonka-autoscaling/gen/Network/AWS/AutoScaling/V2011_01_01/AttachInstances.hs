@@ -53,20 +53,17 @@ mkAttachInstances p2 = AttachInstances
     { _aiInstanceIds = mempty
     , _aiAutoScalingGroupName = p2
     }
-{-# INLINE mkAttachInstances #-}
 
 -- | One or more IDs of the Amazon EC2 instances to attach to the specified Auto
 -- Scaling group. You must specify at least one instance ID.
 aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
-{-# INLINE aiInstanceIds #-}
 
 -- | The name of the Auto Scaling group to which to attach the specified
 -- instance(s).
 aiAutoScalingGroupName :: Lens' AttachInstances Text
 aiAutoScalingGroupName =
     lens _aiAutoScalingGroupName (\s a -> s { _aiAutoScalingGroupName = a })
-{-# INLINE aiAutoScalingGroupName #-}
 
 instance ToQuery AttachInstances where
     toQuery = genericQuery def

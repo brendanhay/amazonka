@@ -62,18 +62,15 @@ mkGetOpenIdToken p1 = GetOpenIdToken
     { _goitIdentityId = p1
     , _goitLogins = mempty
     }
-{-# INLINE mkGetOpenIdToken #-}
 
 -- | A unique identifier in the format REGION:GUID.
 goitIdentityId :: Lens' GetOpenIdToken Text
 goitIdentityId = lens _goitIdentityId (\s a -> s { _goitIdentityId = a })
-{-# INLINE goitIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
 goitLogins :: Lens' GetOpenIdToken (Map Text Text)
 goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a })
-{-# INLINE goitLogins #-}
 
 instance ToPath GetOpenIdToken
 
@@ -94,12 +91,10 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse
 goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrsIdentityId =
     lens _goitrsIdentityId (\s a -> s { _goitrsIdentityId = a })
-{-# INLINE goitrsIdentityId #-}
 
 -- | An OpenID token.
 goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrsToken = lens _goitrsToken (\s a -> s { _goitrsToken = a })
-{-# INLINE goitrsToken #-}
 
 instance FromJSON GetOpenIdTokenResponse
 

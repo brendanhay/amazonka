@@ -67,12 +67,10 @@ mkReadPipeline :: Text -- ^ 'rpId'
 mkReadPipeline p1 = ReadPipeline
     { _rpId = p1
     }
-{-# INLINE mkReadPipeline #-}
 
 -- | The identifier of the pipeline to read.
 rpId :: Lens' ReadPipeline Text
 rpId = lens _rpId (\s a -> s { _rpId = a })
-{-# INLINE rpId #-}
 
 instance ToPath ReadPipeline where
     toPath ReadPipeline{..} = mconcat
@@ -95,7 +93,6 @@ newtype ReadPipelineResponse = ReadPipelineResponse
 -- pipeline.
 rprsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rprsPipeline = lens _rprsPipeline (\s a -> s { _rprsPipeline = a })
-{-# INLINE rprsPipeline #-}
 
 instance FromJSON ReadPipelineResponse
 

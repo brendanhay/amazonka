@@ -64,7 +64,6 @@ mkRetrieveDomainAuthCode :: Text -- ^ 'rdacDomainName'
 mkRetrieveDomainAuthCode p1 = RetrieveDomainAuthCode
     { _rdacDomainName = p1
     }
-{-# INLINE mkRetrieveDomainAuthCode #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -72,7 +71,6 @@ mkRetrieveDomainAuthCode p1 = RetrieveDomainAuthCode
 -- Yes.
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\s a -> s { _rdacDomainName = a })
-{-# INLINE rdacDomainName #-}
 
 instance ToPath RetrieveDomainAuthCode
 
@@ -90,7 +88,6 @@ newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
 -- | The authorization code for the domain. Type: String.
 rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrsAuthCode = lens _rdacrsAuthCode (\s a -> s { _rdacrsAuthCode = a })
-{-# INLINE rdacrsAuthCode #-}
 
 instance FromJSON RetrieveDomainAuthCodeResponse
 

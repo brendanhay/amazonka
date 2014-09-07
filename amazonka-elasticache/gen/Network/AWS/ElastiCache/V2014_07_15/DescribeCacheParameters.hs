@@ -71,20 +71,17 @@ mkDescribeCacheParameters p1 = DescribeCacheParameters
     , _dcpMaxRecords = Nothing
     , _dcpMarker = Nothing
     }
-{-# INLINE mkDescribeCacheParameters #-}
 
 -- | The name of a specific cache parameter group to return details for.
 dcpCacheParameterGroupName :: Lens' DescribeCacheParameters Text
 dcpCacheParameterGroupName =
     lens _dcpCacheParameterGroupName
          (\s a -> s { _dcpCacheParameterGroupName = a })
-{-# INLINE dcpCacheParameterGroupName #-}
 
 -- | The parameter types to return. Valid values: user | system |
 -- engine-default.
 dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
-{-# INLINE dcpSource #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -92,7 +89,6 @@ dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
 -- Constraints: minimum 20; maximum 100.
 dcpMaxRecords :: Lens' DescribeCacheParameters (Maybe Integer)
 dcpMaxRecords = lens _dcpMaxRecords (\s a -> s { _dcpMaxRecords = a })
-{-# INLINE dcpMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -100,7 +96,6 @@ dcpMaxRecords = lens _dcpMaxRecords (\s a -> s { _dcpMaxRecords = a })
 -- specified by MaxRecords.
 dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
-{-# INLINE dcpMarker #-}
 
 instance ToQuery DescribeCacheParameters where
     toQuery = genericQuery def
@@ -115,12 +110,10 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
 -- | Provides an identifier to allow retrieval of paginated results.
 dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\s a -> s { _dcprsMarker = a })
-{-# INLINE dcprsMarker #-}
 
 -- | A list of Parameter instances.
 dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprsParameters = lens _dcprsParameters (\s a -> s { _dcprsParameters = a })
-{-# INLINE dcprsParameters #-}
 
 -- | A list of parameters specific to a particular cache node type. Each element
 -- in the list contains detailed information about one parameter.
@@ -128,7 +121,6 @@ dcprsCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [C
 dcprsCacheNodeTypeSpecificParameters =
     lens _dcprsCacheNodeTypeSpecificParameters
          (\s a -> s { _dcprsCacheNodeTypeSpecificParameters = a })
-{-# INLINE dcprsCacheNodeTypeSpecificParameters #-}
 
 instance FromXML DescribeCacheParametersResponse where
     fromXMLOptions = xmlOptions
@@ -141,5 +133,5 @@ instance AWSRequest DescribeCacheParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheParameters where
-    next rq rs = (\x -> rq { _dcpMarker = Just x })
-        <$> (_dcprsMarker rs)
+    next rq rs = (\x -> rq & dcpMarker ?~ x) <$> (rs ^. dcprsMarker)
+

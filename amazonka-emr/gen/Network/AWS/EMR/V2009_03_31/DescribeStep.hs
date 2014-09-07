@@ -54,17 +54,14 @@ mkDescribeStep p1 p2 = DescribeStep
     { _dsClusterId = p1
     , _dsStepId = p2
     }
-{-# INLINE mkDescribeStep #-}
 
 -- | The identifier of the cluster with steps to describe.
 dsClusterId :: Lens' DescribeStep Text
 dsClusterId = lens _dsClusterId (\s a -> s { _dsClusterId = a })
-{-# INLINE dsClusterId #-}
 
 -- | The identifier of the step to describe.
 dsStepId :: Lens' DescribeStep Text
 dsStepId = lens _dsStepId (\s a -> s { _dsStepId = a })
-{-# INLINE dsStepId #-}
 
 instance ToPath DescribeStep
 
@@ -82,7 +79,6 @@ newtype DescribeStepResponse = DescribeStepResponse
 -- | The step details for the requested step identifier.
 dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrsStep = lens _dsrsStep (\s a -> s { _dsrsStep = a })
-{-# INLINE dsrsStep #-}
 
 instance FromJSON DescribeStepResponse
 

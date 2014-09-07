@@ -60,17 +60,14 @@ mkListIdentityPools p1 = ListIdentityPools
     { _lipMaxResults = p1
     , _lipNextToken = Nothing
     }
-{-# INLINE mkListIdentityPools #-}
 
 -- | The maximum number of identities to return.
 lipMaxResults :: Lens' ListIdentityPools Integer
 lipMaxResults = lens _lipMaxResults (\s a -> s { _lipMaxResults = a })
-{-# INLINE lipMaxResults #-}
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)
 lipNextToken = lens _lipNextToken (\s a -> s { _lipNextToken = a })
-{-# INLINE lipNextToken #-}
 
 instance ToPath ListIdentityPools
 
@@ -90,12 +87,10 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse
 liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
 liprsIdentityPools =
     lens _liprsIdentityPools (\s a -> s { _liprsIdentityPools = a })
-{-# INLINE liprsIdentityPools #-}
 
 -- | A pagination token.
 liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprsNextToken = lens _liprsNextToken (\s a -> s { _liprsNextToken = a })
-{-# INLINE liprsNextToken #-}
 
 instance FromJSON ListIdentityPoolsResponse
 

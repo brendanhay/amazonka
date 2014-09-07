@@ -72,18 +72,15 @@ mkUpdatePipelineStatus p1 p2 = UpdatePipelineStatus
     { _upsId = p1
     , _upsStatus = p2
     }
-{-# INLINE mkUpdatePipelineStatus #-}
 
 -- | The identifier of the pipeline to update.
 upsId :: Lens' UpdatePipelineStatus Text
 upsId = lens _upsId (\s a -> s { _upsId = a })
-{-# INLINE upsId #-}
 
 -- | The desired status of the pipeline: Active: The pipeline is processing
 -- jobs. Paused: The pipeline is not currently processing jobs.
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
-{-# INLINE upsStatus #-}
 
 instance ToPath UpdatePipelineStatus where
     toPath UpdatePipelineStatus{..} = mconcat
@@ -108,7 +105,6 @@ newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
 -- pipeline.
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrsPipeline = lens _upsrsPipeline (\s a -> s { _upsrsPipeline = a })
-{-# INLINE upsrsPipeline #-}
 
 instance FromJSON UpdatePipelineStatusResponse
 

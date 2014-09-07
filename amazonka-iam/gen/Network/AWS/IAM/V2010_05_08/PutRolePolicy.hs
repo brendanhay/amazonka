@@ -67,23 +67,19 @@ mkPutRolePolicy p1 p2 p3 = PutRolePolicy
     , _prpPolicyName = p2
     , _prpPolicyDocument = p3
     }
-{-# INLINE mkPutRolePolicy #-}
 
 -- | Name of the role to associate the policy with.
 prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
-{-# INLINE prpRoleName #-}
 
 -- | Name of the policy document.
 prpPolicyName :: Lens' PutRolePolicy Text
 prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
-{-# INLINE prpPolicyName #-}
 
 -- | The policy document.
 prpPolicyDocument :: Lens' PutRolePolicy Text
 prpPolicyDocument =
     lens _prpPolicyDocument (\s a -> s { _prpPolicyDocument = a })
-{-# INLINE prpPolicyDocument #-}
 
 instance ToQuery PutRolePolicy where
     toQuery = genericQuery def

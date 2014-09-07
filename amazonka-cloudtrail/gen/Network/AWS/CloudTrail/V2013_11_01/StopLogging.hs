@@ -52,13 +52,11 @@ mkStopLogging :: Text -- ^ 'sl1Name'
 mkStopLogging p1 = StopLogging
     { _sl1Name = p1
     }
-{-# INLINE mkStopLogging #-}
 
 -- | Communicates to CloudTrail the name of the trail for which to stop logging
 -- AWS API calls.
 sl1Name :: Lens' StopLogging Text
 sl1Name = lens _sl1Name (\s a -> s { _sl1Name = a })
-{-# INLINE sl1Name #-}
 
 instance ToPath StopLogging
 

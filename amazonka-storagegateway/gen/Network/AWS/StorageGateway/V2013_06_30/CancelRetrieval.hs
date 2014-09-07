@@ -52,17 +52,14 @@ mkCancelRetrieval p1 p2 = CancelRetrieval
     { _crGatewayARN = p1
     , _crTapeARN = p2
     }
-{-# INLINE mkCancelRetrieval #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 crGatewayARN :: Lens' CancelRetrieval Text
 crGatewayARN = lens _crGatewayARN (\s a -> s { _crGatewayARN = a })
-{-# INLINE crGatewayARN #-}
 
 crTapeARN :: Lens' CancelRetrieval Text
 crTapeARN = lens _crTapeARN (\s a -> s { _crTapeARN = a })
-{-# INLINE crTapeARN #-}
 
 instance ToPath CancelRetrieval
 
@@ -78,7 +75,6 @@ newtype CancelRetrievalResponse = CancelRetrievalResponse
 
 crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrsTapeARN = lens _crrsTapeARN (\s a -> s { _crrsTapeARN = a })
-{-# INLINE crrsTapeARN #-}
 
 instance FromJSON CancelRetrievalResponse
 

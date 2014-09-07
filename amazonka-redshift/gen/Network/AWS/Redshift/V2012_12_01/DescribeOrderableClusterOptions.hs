@@ -74,7 +74,6 @@ mkDescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     , _docoMaxRecords = Nothing
     , _docoMarker = Nothing
     }
-{-# INLINE mkDescribeOrderableClusterOptions #-}
 
 -- | The version filter value. Specify this parameter to show only the available
 -- offerings matching the specified version. Default: All versions.
@@ -83,13 +82,11 @@ mkDescribeOrderableClusterOptions = DescribeOrderableClusterOptions
 docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoClusterVersion =
     lens _docoClusterVersion (\s a -> s { _docoClusterVersion = a })
-{-# INLINE docoClusterVersion #-}
 
 -- | The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
 docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
-{-# INLINE docoNodeType #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -98,7 +95,6 @@ docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Integer)
 docoMaxRecords = lens _docoMaxRecords (\s a -> s { _docoMaxRecords = a })
-{-# INLINE docoMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeOrderableClusterOptions
@@ -108,7 +104,6 @@ docoMaxRecords = lens _docoMaxRecords (\s a -> s { _docoMaxRecords = a })
 -- retrying the request.
 docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoMarker = lens _docoMarker (\s a -> s { _docoMarker = a })
-{-# INLINE docoMarker #-}
 
 instance ToQuery DescribeOrderableClusterOptions where
     toQuery = genericQuery def
@@ -125,7 +120,6 @@ docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [
 docorsOrderableClusterOptions =
     lens _docorsOrderableClusterOptions
          (\s a -> s { _docorsOrderableClusterOptions = a })
-{-# INLINE docorsOrderableClusterOptions #-}
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you
@@ -134,7 +128,6 @@ docorsOrderableClusterOptions =
 -- is empty, all response records have been retrieved for the request.
 docorsMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
 docorsMarker = lens _docorsMarker (\s a -> s { _docorsMarker = a })
-{-# INLINE docorsMarker #-}
 
 instance FromXML DescribeOrderableClusterOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -147,5 +140,5 @@ instance AWSRequest DescribeOrderableClusterOptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeOrderableClusterOptions where
-    next rq rs = (\x -> rq { _docoMarker = Just x })
-        <$> (_docorsMarker rs)
+    next rq rs = (\x -> rq & docoMarker ?~ x) <$> (rs ^. docorsMarker)
+

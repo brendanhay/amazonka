@@ -54,14 +54,12 @@ mkDeleteClusterSubnetGroup :: Text -- ^ 'dcsg1ClusterSubnetGroupName'
 mkDeleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
     { _dcsg1ClusterSubnetGroupName = p1
     }
-{-# INLINE mkDeleteClusterSubnetGroup #-}
 
 -- | The name of the cluster subnet group name to be deleted.
 dcsg1ClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
 dcsg1ClusterSubnetGroupName =
     lens _dcsg1ClusterSubnetGroupName
          (\s a -> s { _dcsg1ClusterSubnetGroupName = a })
-{-# INLINE dcsg1ClusterSubnetGroupName #-}
 
 instance ToQuery DeleteClusterSubnetGroup where
     toQuery = genericQuery def

@@ -56,12 +56,10 @@ mkDeletePlacementGroup :: Text -- ^ 'dpgGroupName'
 mkDeletePlacementGroup p1 = DeletePlacementGroup
     { _dpgGroupName = p1
     }
-{-# INLINE mkDeletePlacementGroup #-}
 
 -- | The name of the placement group.
 dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
-{-# INLINE dpgGroupName #-}
 
 instance ToQuery DeletePlacementGroup where
     toQuery = genericQuery def

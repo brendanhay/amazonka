@@ -238,7 +238,6 @@ mkRawMessage :: ByteString -- ^ 'rmData'
 mkRawMessage p1 = RawMessage
     { _rmData = p1
     }
-{-# INLINE mkRawMessage #-}
 
 -- | The raw data of the message. The client must ensure that the message format
 -- complies with Internet email standards regarding email header fields, MIME
@@ -247,7 +246,6 @@ mkRawMessage p1 = RawMessage
 -- information, go to the Amazon SES Developer Guide.
 rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\s a -> s { _rmData = a })
-{-# INLINE rmData #-}
 
 instance ToQuery RawMessage where
     toQuery = genericQuery def
@@ -265,20 +263,17 @@ mkBody = Body
     { _bText = Nothing
     , _bHtml = Nothing
     }
-{-# INLINE mkBody #-}
 
 -- | The content of the message, in text format. Use this for text-based email
 -- clients, or clients on high-latency networks (such as mobile devices).
 bText :: Lens' Body (Maybe Content)
 bText = lens _bText (\s a -> s { _bText = a })
-{-# INLINE bText #-}
 
 -- | The content of the message, in HTML format. Use this for email clients that
 -- can process HTML. You can include clickable links, formatted text, and much
 -- more in an HTML message.
 bHtml :: Lens' Body (Maybe Content)
 bHtml = lens _bHtml (\s a -> s { _bHtml = a })
-{-# INLINE bHtml #-}
 
 instance ToQuery Body where
     toQuery = genericQuery def
@@ -298,17 +293,14 @@ mkContent p1 = Content
     { _cData = p1
     , _cCharset = Nothing
     }
-{-# INLINE mkContent #-}
 
 -- | The textual data of the content.
 cData :: Lens' Content Text
 cData = lens _cData (\s a -> s { _cData = a })
-{-# INLINE cData #-}
 
 -- | The character set of the content.
 cCharset :: Lens' Content (Maybe Text)
 cCharset = lens _cCharset (\s a -> s { _cCharset = a })
-{-# INLINE cCharset #-}
 
 instance ToQuery Content where
     toQuery = genericQuery def
@@ -328,22 +320,18 @@ mkDestination = Destination
     , _dCcAddresses = mempty
     , _dBccAddresses = mempty
     }
-{-# INLINE mkDestination #-}
 
 -- | The To: field(s) of the message.
 dToAddresses :: Lens' Destination [Text]
 dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a })
-{-# INLINE dToAddresses #-}
 
 -- | The CC: field(s) of the message.
 dCcAddresses :: Lens' Destination [Text]
 dCcAddresses = lens _dCcAddresses (\s a -> s { _dCcAddresses = a })
-{-# INLINE dCcAddresses #-}
 
 -- | The BCC: field(s) of the message.
 dBccAddresses :: Lens' Destination [Text]
 dBccAddresses = lens _dBccAddresses (\s a -> s { _dBccAddresses = a })
-{-# INLINE dBccAddresses #-}
 
 instance ToQuery Destination where
     toQuery = genericQuery def
@@ -365,13 +353,11 @@ mkIdentityDkimAttributes p1 p2 = IdentityDkimAttributes
     , _idaDkimVerificationStatus = p2
     , _idaDkimTokens = mempty
     }
-{-# INLINE mkIdentityDkimAttributes #-}
 
 -- | True if DKIM signing is enabled for email sent from the identity; false
 -- otherwise.
 idaDkimEnabled :: Lens' IdentityDkimAttributes Bool
 idaDkimEnabled = lens _idaDkimEnabled (\s a -> s { _idaDkimEnabled = a })
-{-# INLINE idaDkimEnabled #-}
 
 -- | Describes whether Amazon SES has successfully verified the DKIM DNS records
 -- (tokens) published in the domain name's DNS. (This only applies to domain
@@ -380,7 +366,6 @@ idaDkimVerificationStatus :: Lens' IdentityDkimAttributes VerificationStatus
 idaDkimVerificationStatus =
     lens _idaDkimVerificationStatus
          (\s a -> s { _idaDkimVerificationStatus = a })
-{-# INLINE idaDkimVerificationStatus #-}
 
 -- | A set of character strings that represent the domain's identity. Using
 -- these tokens, you will need to create DNS CNAME records that point to DKIM
@@ -393,7 +378,6 @@ idaDkimVerificationStatus =
 -- Guide.
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
 idaDkimTokens = lens _idaDkimTokens (\s a -> s { _idaDkimTokens = a })
-{-# INLINE idaDkimTokens #-}
 
 instance FromXML IdentityDkimAttributes where
     fromXMLOptions = xmlOptions
@@ -423,27 +407,23 @@ mkIdentityNotificationAttributes p1 p2 p3 p4 = IdentityNotificationAttributes
     , _inaDeliveryTopic = p3
     , _inaForwardingEnabled = p4
     }
-{-# INLINE mkIdentityNotificationAttributes #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish bounce notifications.
 inaBounceTopic :: Lens' IdentityNotificationAttributes Text
 inaBounceTopic = lens _inaBounceTopic (\s a -> s { _inaBounceTopic = a })
-{-# INLINE inaBounceTopic #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish complaint notifications.
 inaComplaintTopic :: Lens' IdentityNotificationAttributes Text
 inaComplaintTopic =
     lens _inaComplaintTopic (\s a -> s { _inaComplaintTopic = a })
-{-# INLINE inaComplaintTopic #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish delivery notifications.
 inaDeliveryTopic :: Lens' IdentityNotificationAttributes Text
 inaDeliveryTopic =
     lens _inaDeliveryTopic (\s a -> s { _inaDeliveryTopic = a })
-{-# INLINE inaDeliveryTopic #-}
 
 -- | Describes whether Amazon SES will forward bounce and complaint
 -- notifications as email. true indicates that Amazon SES will forward bounce
@@ -453,7 +433,6 @@ inaDeliveryTopic =
 inaForwardingEnabled :: Lens' IdentityNotificationAttributes Bool
 inaForwardingEnabled =
     lens _inaForwardingEnabled (\s a -> s { _inaForwardingEnabled = a })
-{-# INLINE inaForwardingEnabled #-}
 
 instance FromXML IdentityNotificationAttributes where
     fromXMLOptions = xmlOptions
@@ -473,21 +452,18 @@ mkIdentityVerificationAttributes p1 = IdentityVerificationAttributes
     { _ivaVerificationStatus = p1
     , _ivaVerificationToken = Nothing
     }
-{-# INLINE mkIdentityVerificationAttributes #-}
 
 -- | The verification status of the identity: "Pending", "Success", "Failed", or
 -- "TemporaryFailure".
 ivaVerificationStatus :: Lens' IdentityVerificationAttributes VerificationStatus
 ivaVerificationStatus =
     lens _ivaVerificationStatus (\s a -> s { _ivaVerificationStatus = a })
-{-# INLINE ivaVerificationStatus #-}
 
 -- | The verification token for a domain identity. Null for email address
 -- identities.
 ivaVerificationToken :: Lens' IdentityVerificationAttributes (Maybe Text)
 ivaVerificationToken =
     lens _ivaVerificationToken (\s a -> s { _ivaVerificationToken = a })
-{-# INLINE ivaVerificationToken #-}
 
 instance FromXML IdentityVerificationAttributes where
     fromXMLOptions = xmlOptions
@@ -508,18 +484,15 @@ mkMessage p1 p2 = Message
     { _mSubject = p1
     , _mBody = p2
     }
-{-# INLINE mkMessage #-}
 
 -- | The subject of the message: A short summary of the content, which will
 -- appear in the recipient's inbox.
 mSubject :: Lens' Message Content
 mSubject = lens _mSubject (\s a -> s { _mSubject = a })
-{-# INLINE mSubject #-}
 
 -- | The message body.
 mBody :: Lens' Message Body
 mBody = lens _mBody (\s a -> s { _mBody = a })
-{-# INLINE mBody #-}
 
 instance ToQuery Message where
     toQuery = genericQuery def
@@ -544,33 +517,27 @@ mkSendDataPoint = SendDataPoint
     , _sdpComplaints = Nothing
     , _sdpRejects = Nothing
     }
-{-# INLINE mkSendDataPoint #-}
 
 -- | Time of the data point.
 sdpTimestamp :: Lens' SendDataPoint (Maybe ISO8601)
 sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a })
-{-# INLINE sdpTimestamp #-}
 
 -- | Number of emails that have been enqueued for sending.
 sdpDeliveryAttempts :: Lens' SendDataPoint (Maybe Integer)
 sdpDeliveryAttempts =
     lens _sdpDeliveryAttempts (\s a -> s { _sdpDeliveryAttempts = a })
-{-# INLINE sdpDeliveryAttempts #-}
 
 -- | Number of emails that have bounced.
 sdpBounces :: Lens' SendDataPoint (Maybe Integer)
 sdpBounces = lens _sdpBounces (\s a -> s { _sdpBounces = a })
-{-# INLINE sdpBounces #-}
 
 -- | Number of unwanted emails that were rejected by recipients.
 sdpComplaints :: Lens' SendDataPoint (Maybe Integer)
 sdpComplaints = lens _sdpComplaints (\s a -> s { _sdpComplaints = a })
-{-# INLINE sdpComplaints #-}
 
 -- | Number of emails rejected by Amazon SES.
 sdpRejects :: Lens' SendDataPoint (Maybe Integer)
 sdpRejects = lens _sdpRejects (\s a -> s { _sdpRejects = a })
-{-# INLINE sdpRejects #-}
 
 instance FromXML SendDataPoint where
     fromXMLOptions = xmlOptions

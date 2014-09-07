@@ -62,26 +62,21 @@ mkDeleteObject p1 p2 = DeleteObject
     , _doMFA = Nothing
     , _doVersionId = Nothing
     }
-{-# INLINE mkDeleteObject #-}
 
 doBucket :: Lens' DeleteObject BucketName
 doBucket = lens _doBucket (\s a -> s { _doBucket = a })
-{-# INLINE doBucket #-}
 
 doKey :: Lens' DeleteObject ObjectKey
 doKey = lens _doKey (\s a -> s { _doKey = a })
-{-# INLINE doKey #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
 doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\s a -> s { _doMFA = a })
-{-# INLINE doMFA #-}
 
 -- | VersionId used to reference a specific version of the object.
 doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
 doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
-{-# INLINE doVersionId #-}
 
 instance ToPath DeleteObject where
     toPath DeleteObject{..} = mconcat
@@ -113,13 +108,11 @@ data DeleteObjectResponse = DeleteObjectResponse
 dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorsDeleteMarker =
     lens _dorsDeleteMarker (\s a -> s { _dorsDeleteMarker = a })
-{-# INLINE dorsDeleteMarker #-}
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
 dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
 dorsVersionId = lens _dorsVersionId (\s a -> s { _dorsVersionId = a })
-{-# INLINE dorsVersionId #-}
 
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3

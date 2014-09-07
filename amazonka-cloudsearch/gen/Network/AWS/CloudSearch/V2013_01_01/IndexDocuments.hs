@@ -52,7 +52,6 @@ mkIndexDocuments :: Text -- ^ 'idDomainName'
 mkIndexDocuments p1 = IndexDocuments
     { _idDomainName = p1
     }
-{-# INLINE mkIndexDocuments #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -60,7 +59,6 @@ mkIndexDocuments p1 = IndexDocuments
 -- (lowercase), 0-9, and - (hyphen).
 idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
-{-# INLINE idDomainName #-}
 
 instance ToQuery IndexDocuments where
     toQuery = genericQuery def
@@ -74,7 +72,6 @@ newtype IndexDocumentsResponse = IndexDocumentsResponse
 -- | The names of the fields that are currently being indexed.
 idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrsFieldNames = lens _idrsFieldNames (\s a -> s { _idrsFieldNames = a })
-{-# INLINE idrsFieldNames #-}
 
 instance FromXML IndexDocumentsResponse where
     fromXMLOptions = xmlOptions

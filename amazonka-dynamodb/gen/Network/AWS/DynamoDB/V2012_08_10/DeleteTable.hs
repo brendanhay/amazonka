@@ -64,12 +64,10 @@ mkDeleteTable :: Text -- ^ 'dtTableName'
 mkDeleteTable p1 = DeleteTable
     { _dtTableName = p1
     }
-{-# INLINE mkDeleteTable #-}
 
 -- | The name of the table to delete.
 dtTableName :: Lens' DeleteTable Text
 dtTableName = lens _dtTableName (\s a -> s { _dtTableName = a })
-{-# INLINE dtTableName #-}
 
 instance ToPath DeleteTable
 
@@ -88,7 +86,6 @@ newtype DeleteTableResponse = DeleteTableResponse
 dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrsTableDescription =
     lens _dtrsTableDescription (\s a -> s { _dtrsTableDescription = a })
-{-# INLINE dtrsTableDescription #-}
 
 instance FromJSON DeleteTableResponse
 

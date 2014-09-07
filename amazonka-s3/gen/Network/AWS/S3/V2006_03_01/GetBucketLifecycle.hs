@@ -49,11 +49,9 @@ mkGetBucketLifecycle :: BucketName -- ^ 'gblBucket'
 mkGetBucketLifecycle p1 = GetBucketLifecycle
     { _gblBucket = p1
     }
-{-# INLINE mkGetBucketLifecycle #-}
 
 gblBucket :: Lens' GetBucketLifecycle BucketName
 gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
-{-# INLINE gblBucket #-}
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
@@ -76,7 +74,6 @@ newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
 
 gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrsRules = lens _gblrsRules (\s a -> s { _gblrsRules = a })
-{-# INLINE gblrsRules #-}
 
 instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions

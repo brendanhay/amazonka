@@ -53,13 +53,11 @@ mkDeleteSAMLProvider :: Text -- ^ 'dsamlpSAMLProviderArn'
 mkDeleteSAMLProvider p1 = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn = p1
     }
-{-# INLINE mkDeleteSAMLProvider #-}
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
 dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })
-{-# INLINE dsamlpSAMLProviderArn #-}
 
 instance ToQuery DeleteSAMLProvider where
     toQuery = genericQuery def

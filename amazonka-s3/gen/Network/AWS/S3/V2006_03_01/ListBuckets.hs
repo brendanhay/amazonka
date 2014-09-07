@@ -48,7 +48,6 @@ data ListBuckets = ListBuckets
 -- a valid 'ListBuckets' request.
 mkListBuckets :: ListBuckets
 mkListBuckets = ListBuckets
-{-# INLINE mkListBuckets #-}
 
 instance ToPath ListBuckets where
     toPath = const "/"
@@ -66,11 +65,9 @@ data ListBucketsResponse = ListBucketsResponse
 
 lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
 lbrsBuckets = lens _lbrsBuckets (\s a -> s { _lbrsBuckets = a })
-{-# INLINE lbrsBuckets #-}
 
 lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrsOwner = lens _lbrsOwner (\s a -> s { _lbrsOwner = a })
-{-# INLINE lbrsOwner #-}
 
 instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions

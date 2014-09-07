@@ -210,19 +210,16 @@ mkHashKeyRange p1 p2 = HashKeyRange
     { _hkrStartingHashKey = p1
     , _hkrEndingHashKey = p2
     }
-{-# INLINE mkHashKeyRange #-}
 
 -- | The starting hash key of the hash key range.
 hkrStartingHashKey :: Lens' HashKeyRange Text
 hkrStartingHashKey =
     lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
-{-# INLINE hkrStartingHashKey #-}
 
 -- | The ending hash key of the hash key range.
 hkrEndingHashKey :: Lens' HashKeyRange Text
 hkrEndingHashKey =
     lens _hkrEndingHashKey (\s a -> s { _hkrEndingHashKey = a })
-{-# INLINE hkrEndingHashKey #-}
 
 instance FromJSON HashKeyRange
 
@@ -247,12 +244,10 @@ mkRecord p1 p2 p3 = Record
     , _rData = p2
     , _rPartitionKey = p3
     }
-{-# INLINE mkRecord #-}
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
 rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
-{-# INLINE rSequenceNumber #-}
 
 -- | The data blob. The data in the blob is both opaque and immutable to the
 -- Amazon Kinesis service, which does not inspect, interpret, or change the
@@ -260,12 +255,10 @@ rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 -- after Base64-decoding) is 50 kilobytes (KB).
 rData :: Lens' Record Base64
 rData = lens _rData (\s a -> s { _rData = a })
-{-# INLINE rData #-}
 
 -- | Identifies which shard in the stream the data record is assigned to.
 rPartitionKey :: Lens' Record Text
 rPartitionKey = lens _rPartitionKey (\s a -> s { _rPartitionKey = a })
-{-# INLINE rPartitionKey #-}
 
 instance FromJSON Record
 
@@ -283,14 +276,12 @@ mkSequenceNumberRange p1 = SequenceNumberRange
     { _snrStartingSequenceNumber = p1
     , _snrEndingSequenceNumber = Nothing
     }
-{-# INLINE mkSequenceNumberRange #-}
 
 -- | The starting sequence number for the range.
 snrStartingSequenceNumber :: Lens' SequenceNumberRange Text
 snrStartingSequenceNumber =
     lens _snrStartingSequenceNumber
          (\s a -> s { _snrStartingSequenceNumber = a })
-{-# INLINE snrStartingSequenceNumber #-}
 
 -- | The ending sequence number for the range. Shards that are in the OPEN state
 -- have an ending sequence number of null.
@@ -298,7 +289,6 @@ snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
 snrEndingSequenceNumber =
     lens _snrEndingSequenceNumber
          (\s a -> s { _snrEndingSequenceNumber = a })
-{-# INLINE snrEndingSequenceNumber #-}
 
 instance FromJSON SequenceNumberRange
 
@@ -326,35 +316,29 @@ mkShard p1 p4 p5 = Shard
     , _sHashKeyRange = p4
     , _sSequenceNumberRange = p5
     }
-{-# INLINE mkShard #-}
 
 -- | The unique identifier of the shard within the Amazon Kinesis stream.
 sShardId :: Lens' Shard Text
 sShardId = lens _sShardId (\s a -> s { _sShardId = a })
-{-# INLINE sShardId #-}
 
 -- | The shard Id of the shard's parent.
 sParentShardId :: Lens' Shard (Maybe Text)
 sParentShardId = lens _sParentShardId (\s a -> s { _sParentShardId = a })
-{-# INLINE sParentShardId #-}
 
 -- | The shard Id of the shard adjacent to the shard's parent.
 sAdjacentParentShardId :: Lens' Shard (Maybe Text)
 sAdjacentParentShardId =
     lens _sAdjacentParentShardId (\s a -> s { _sAdjacentParentShardId = a })
-{-# INLINE sAdjacentParentShardId #-}
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
 sHashKeyRange :: Lens' Shard HashKeyRange
 sHashKeyRange = lens _sHashKeyRange (\s a -> s { _sHashKeyRange = a })
-{-# INLINE sHashKeyRange #-}
 
 -- | The range of possible sequence numbers for the shard.
 sSequenceNumberRange :: Lens' Shard SequenceNumberRange
 sSequenceNumberRange =
     lens _sSequenceNumberRange (\s a -> s { _sSequenceNumberRange = a })
-{-# INLINE sSequenceNumberRange #-}
 
 instance FromJSON Shard
 
@@ -384,17 +368,14 @@ mkStreamDescription p1 p2 p3 p4 p5 = StreamDescription
     , _sdShards = p4
     , _sdHasMoreShards = p5
     }
-{-# INLINE mkStreamDescription #-}
 
 -- | The name of the stream being described.
 sdStreamName :: Lens' StreamDescription Text
 sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
-{-# INLINE sdStreamName #-}
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
 sdStreamARN :: Lens' StreamDescription Text
 sdStreamARN = lens _sdStreamARN (\s a -> s { _sdStreamARN = a })
-{-# INLINE sdStreamARN #-}
 
 -- | The current status of the stream being described. The stream status is one
 -- of the following states: CREATING - The stream is being created. Upon
@@ -408,16 +389,13 @@ sdStreamARN = lens _sdStreamARN (\s a -> s { _sdStreamARN = a })
 -- work while the stream is in the UPDATING state.
 sdStreamStatus :: Lens' StreamDescription StreamStatus
 sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
-{-# INLINE sdStreamStatus #-}
 
 -- | The shards that comprise the stream.
 sdShards :: Lens' StreamDescription [Shard]
 sdShards = lens _sdShards (\s a -> s { _sdShards = a })
-{-# INLINE sdShards #-}
 
 -- | If set to true there are more shards in the stream available to describe.
 sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\s a -> s { _sdHasMoreShards = a })
-{-# INLINE sdHasMoreShards #-}
 
 instance FromJSON StreamDescription

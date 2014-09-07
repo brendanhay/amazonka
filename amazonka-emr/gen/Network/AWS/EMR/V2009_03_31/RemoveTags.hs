@@ -67,18 +67,15 @@ mkRemoveTags p1 p2 = RemoveTags
     { _rtResourceId = p1
     , _rtTagKeys = p2
     }
-{-# INLINE mkRemoveTags #-}
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
 rtResourceId :: Lens' RemoveTags Text
 rtResourceId = lens _rtResourceId (\s a -> s { _rtResourceId = a })
-{-# INLINE rtResourceId #-}
 
 -- | A list of tag keys to remove from a resource.
 rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a })
-{-# INLINE rtTagKeys #-}
 
 instance ToPath RemoveTags
 

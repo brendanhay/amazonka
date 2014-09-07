@@ -67,13 +67,11 @@ mkSetIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnab
     { _siffeIdentity = p1
     , _siffeForwardingEnabled = p2
     }
-{-# INLINE mkSetIdentityFeedbackForwardingEnabled #-}
 
 -- | The identity for which to set bounce and complaint notification forwarding.
 -- Examples: user@example.com, example.com.
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
 siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
-{-# INLINE siffeIdentity #-}
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications as
 -- email. true specifies that Amazon SES will forward bounce and complaint
@@ -85,7 +83,6 @@ siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
 siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
 siffeForwardingEnabled =
     lens _siffeForwardingEnabled (\s a -> s { _siffeForwardingEnabled = a })
-{-# INLINE siffeForwardingEnabled #-}
 
 instance ToQuery SetIdentityFeedbackForwardingEnabled where
     toQuery = genericQuery def

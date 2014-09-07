@@ -47,7 +47,6 @@ data CreateInternetGateway = CreateInternetGateway
 -- a valid 'CreateInternetGateway' request.
 mkCreateInternetGateway :: CreateInternetGateway
 mkCreateInternetGateway = CreateInternetGateway
-{-# INLINE mkCreateInternetGateway #-}
 
 instance ToQuery CreateInternetGateway where
     toQuery = genericQuery def
@@ -61,7 +60,6 @@ newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
 cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrsInternetGateway =
     lens _cigrsInternetGateway (\s a -> s { _cigrsInternetGateway = a })
-{-# INLINE cigrsInternetGateway #-}
 
 instance FromXML CreateInternetGatewayResponse where
     fromXMLOptions = xmlOptions

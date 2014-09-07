@@ -61,18 +61,15 @@ mkAttachInternetGateway p1 p2 = AttachInternetGateway
     { _aigInternetGatewayId = p1
     , _aigVpcId = p2
     }
-{-# INLINE mkAttachInternetGateway #-}
 
 -- | The ID of the Internet gateway.
 aigInternetGatewayId :: Lens' AttachInternetGateway Text
 aigInternetGatewayId =
     lens _aigInternetGatewayId (\s a -> s { _aigInternetGatewayId = a })
-{-# INLINE aigInternetGatewayId #-}
 
 -- | The ID of the VPC.
 aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
-{-# INLINE aigVpcId #-}
 
 instance ToQuery AttachInternetGateway where
     toQuery = genericQuery def

@@ -58,18 +58,15 @@ mkResetImageAttribute p1 p2 = ResetImageAttribute
     { _riaImageId = p1
     , _riaAttribute = p2
     }
-{-# INLINE mkResetImageAttribute #-}
 
 -- | The ID of the AMI.
 riaImageId :: Lens' ResetImageAttribute Text
 riaImageId = lens _riaImageId (\s a -> s { _riaImageId = a })
-{-# INLINE riaImageId #-}
 
 -- | The attribute to reset (currently you can only reset the launch permission
 -- attribute).
 riaAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
 riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
-{-# INLINE riaAttribute #-}
 
 instance ToQuery ResetImageAttribute where
     toQuery = genericQuery def

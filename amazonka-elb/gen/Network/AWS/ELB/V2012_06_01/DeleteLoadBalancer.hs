@@ -55,13 +55,11 @@ mkDeleteLoadBalancer :: Text -- ^ 'dlbLoadBalancerName'
 mkDeleteLoadBalancer p1 = DeleteLoadBalancer
     { _dlbLoadBalancerName = p1
     }
-{-# INLINE mkDeleteLoadBalancer #-}
 
 -- | The name associated with the load balancer.
 dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
 dlbLoadBalancerName =
     lens _dlbLoadBalancerName (\s a -> s { _dlbLoadBalancerName = a })
-{-# INLINE dlbLoadBalancerName #-}
 
 instance ToQuery DeleteLoadBalancer where
     toQuery = genericQuery def

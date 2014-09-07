@@ -80,12 +80,10 @@ mkSetTopicAttributes p1 p2 = SetTopicAttributes
     , _staAttributeName = p2
     , _staAttributeValue = Nothing
     }
-{-# INLINE mkSetTopicAttributes #-}
 
 -- | The ARN of the topic to modify.
 staTopicArn :: Lens' SetTopicAttributes Text
 staTopicArn = lens _staTopicArn (\s a -> s { _staTopicArn = a })
-{-# INLINE staTopicArn #-}
 
 -- | The name of the attribute you want to set. Only a subset of the topic's
 -- attributes are mutable. Valid values: Policy | DisplayName |
@@ -93,13 +91,11 @@ staTopicArn = lens _staTopicArn (\s a -> s { _staTopicArn = a })
 staAttributeName :: Lens' SetTopicAttributes Text
 staAttributeName =
     lens _staAttributeName (\s a -> s { _staAttributeName = a })
-{-# INLINE staAttributeName #-}
 
 -- | The new value for the attribute.
 staAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
 staAttributeValue =
     lens _staAttributeValue (\s a -> s { _staAttributeValue = a })
-{-# INLINE staAttributeValue #-}
 
 instance ToQuery SetTopicAttributes where
     toQuery = genericQuery def

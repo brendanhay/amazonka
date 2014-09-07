@@ -44,7 +44,6 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 -- a valid 'DescribeAdjustmentTypes' request.
 mkDescribeAdjustmentTypes :: DescribeAdjustmentTypes
 mkDescribeAdjustmentTypes = DescribeAdjustmentTypes
-{-# INLINE mkDescribeAdjustmentTypes #-}
 
 instance ToQuery DescribeAdjustmentTypes where
     toQuery = genericQuery def
@@ -58,7 +57,6 @@ newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
 datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrsAdjustmentTypes =
     lens _datrsAdjustmentTypes (\s a -> s { _datrsAdjustmentTypes = a })
-{-# INLINE datrsAdjustmentTypes #-}
 
 instance FromXML DescribeAdjustmentTypesResponse where
     fromXMLOptions = xmlOptions

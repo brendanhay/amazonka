@@ -55,14 +55,12 @@ mkDescribeLoggingStatus :: Text -- ^ 'dlsClusterIdentifier'
 mkDescribeLoggingStatus p1 = DescribeLoggingStatus
     { _dlsClusterIdentifier = p1
     }
-{-# INLINE mkDescribeLoggingStatus #-}
 
 -- | The identifier of the cluster to get the logging status from. Example:
 -- examplecluster.
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier =
     lens _dlsClusterIdentifier (\s a -> s { _dlsClusterIdentifier = a })
-{-# INLINE dlsClusterIdentifier #-}
 
 instance ToQuery DescribeLoggingStatus where
     toQuery = genericQuery def
@@ -81,38 +79,32 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
 dlsrsLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)
 dlsrsLoggingEnabled =
     lens _dlsrsLoggingEnabled (\s a -> s { _dlsrsLoggingEnabled = a })
-{-# INLINE dlsrsLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
 dlsrsBucketName :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrsBucketName = lens _dlsrsBucketName (\s a -> s { _dlsrsBucketName = a })
-{-# INLINE dlsrsBucketName #-}
 
 -- | The prefix applied to the log file names.
 dlsrsS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrsS3KeyPrefix =
     lens _dlsrsS3KeyPrefix (\s a -> s { _dlsrsS3KeyPrefix = a })
-{-# INLINE dlsrsS3KeyPrefix #-}
 
 -- | The last time when logs were delivered.
 dlsrsLastSuccessfulDeliveryTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
 dlsrsLastSuccessfulDeliveryTime =
     lens _dlsrsLastSuccessfulDeliveryTime
          (\s a -> s { _dlsrsLastSuccessfulDeliveryTime = a })
-{-# INLINE dlsrsLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
 dlsrsLastFailureTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
 dlsrsLastFailureTime =
     lens _dlsrsLastFailureTime (\s a -> s { _dlsrsLastFailureTime = a })
-{-# INLINE dlsrsLastFailureTime #-}
 
 -- | The message indicating that logs failed to be delivered.
 dlsrsLastFailureMessage :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrsLastFailureMessage =
     lens _dlsrsLastFailureMessage
          (\s a -> s { _dlsrsLastFailureMessage = a })
-{-# INLINE dlsrsLastFailureMessage #-}
 
 instance FromXML DescribeLoggingStatusResponse where
     fromXMLOptions = xmlOptions

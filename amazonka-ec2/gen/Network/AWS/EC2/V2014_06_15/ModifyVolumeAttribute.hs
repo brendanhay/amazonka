@@ -63,17 +63,14 @@ mkModifyVolumeAttribute p1 = ModifyVolumeAttribute
     { _mvaVolumeId = p1
     , _mvaAutoEnableIO = Nothing
     }
-{-# INLINE mkModifyVolumeAttribute #-}
 
 -- | The ID of the volume.
 mvaVolumeId :: Lens' ModifyVolumeAttribute Text
 mvaVolumeId = lens _mvaVolumeId (\s a -> s { _mvaVolumeId = a })
-{-# INLINE mvaVolumeId #-}
 
 -- | Indicates whether the volume should be auto-enabled for I/O operations.
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
 mvaAutoEnableIO = lens _mvaAutoEnableIO (\s a -> s { _mvaAutoEnableIO = a })
-{-# INLINE mvaAutoEnableIO #-}
 
 instance ToQuery ModifyVolumeAttribute where
     toQuery = genericQuery def

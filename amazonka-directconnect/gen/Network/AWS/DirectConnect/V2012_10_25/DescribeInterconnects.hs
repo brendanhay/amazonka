@@ -51,13 +51,11 @@ mkDescribeInterconnects :: DescribeInterconnects
 mkDescribeInterconnects = DescribeInterconnects
     { _di1InterconnectId = Nothing
     }
-{-# INLINE mkDescribeInterconnects #-}
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
 di1InterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 di1InterconnectId =
     lens _di1InterconnectId (\s a -> s { _di1InterconnectId = a })
-{-# INLINE di1InterconnectId #-}
 
 instance ToPath DescribeInterconnects
 
@@ -76,7 +74,6 @@ newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
 dirsrsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirsrsInterconnects =
     lens _dirsrsInterconnects (\s a -> s { _dirsrsInterconnects = a })
-{-# INLINE dirsrsInterconnects #-}
 
 instance FromJSON DescribeInterconnectsResponse
 

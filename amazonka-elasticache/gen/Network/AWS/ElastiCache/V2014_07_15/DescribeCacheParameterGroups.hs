@@ -65,14 +65,12 @@ mkDescribeCacheParameterGroups = DescribeCacheParameterGroups
     , _dcpg1MaxRecords = Nothing
     , _dcpg1Marker = Nothing
     }
-{-# INLINE mkDescribeCacheParameterGroups #-}
 
 -- | The name of a specific cache parameter group to return details for.
 dcpg1CacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpg1CacheParameterGroupName =
     lens _dcpg1CacheParameterGroupName
          (\s a -> s { _dcpg1CacheParameterGroupName = a })
-{-# INLINE dcpg1CacheParameterGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -80,7 +78,6 @@ dcpg1CacheParameterGroupName =
 -- Constraints: minimum 20; maximum 100.
 dcpg1MaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Integer)
 dcpg1MaxRecords = lens _dcpg1MaxRecords (\s a -> s { _dcpg1MaxRecords = a })
-{-# INLINE dcpg1MaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -88,7 +85,6 @@ dcpg1MaxRecords = lens _dcpg1MaxRecords (\s a -> s { _dcpg1MaxRecords = a })
 -- specified by MaxRecords.
 dcpg1Marker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpg1Marker = lens _dcpg1Marker (\s a -> s { _dcpg1Marker = a })
-{-# INLINE dcpg1Marker #-}
 
 instance ToQuery DescribeCacheParameterGroups where
     toQuery = genericQuery def
@@ -102,7 +98,6 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 -- | Provides an identifier to allow retrieval of paginated results.
 dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\s a -> s { _dcpgrsMarker = a })
-{-# INLINE dcpgrsMarker #-}
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
@@ -110,7 +105,6 @@ dcpgrsCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheP
 dcpgrsCacheParameterGroups =
     lens _dcpgrsCacheParameterGroups
          (\s a -> s { _dcpgrsCacheParameterGroups = a })
-{-# INLINE dcpgrsCacheParameterGroups #-}
 
 instance FromXML DescribeCacheParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -123,5 +117,5 @@ instance AWSRequest DescribeCacheParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheParameterGroups where
-    next rq rs = (\x -> rq { _dcpg1Marker = Just x })
-        <$> (_dcpgrsMarker rs)
+    next rq rs = (\x -> rq & dcpg1Marker ?~ x) <$> (rs ^. dcpgrsMarker)
+

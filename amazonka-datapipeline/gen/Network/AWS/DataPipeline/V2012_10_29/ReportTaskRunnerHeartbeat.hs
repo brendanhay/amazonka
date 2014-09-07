@@ -68,7 +68,6 @@ mkReportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
     , _rtrhWorkerGroup = Nothing
     , _rtrhHostname = Nothing
     }
-{-# INLINE mkReportTaskRunnerHeartbeat #-}
 
 -- | The identifier of the task runner. This value should be unique across your
 -- AWS account. In the case of AWS Data Pipeline Task Runner launched on a
@@ -78,7 +77,6 @@ mkReportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
 rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
 rtrhTaskrunnerId =
     lens _rtrhTaskrunnerId (\s a -> s { _rtrhTaskrunnerId = a })
-{-# INLINE rtrhTaskrunnerId #-}
 
 -- | Indicates the type of task the task runner is configured to accept and
 -- process. The worker group is set as a field on objects in the pipeline when
@@ -88,12 +86,10 @@ rtrhTaskrunnerId =
 -- match.
 rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhWorkerGroup = lens _rtrhWorkerGroup (\s a -> s { _rtrhWorkerGroup = a })
-{-# INLINE rtrhWorkerGroup #-}
 
 -- | The public DNS name of the calling task runner.
 rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhHostname = lens _rtrhHostname (\s a -> s { _rtrhHostname = a })
-{-# INLINE rtrhHostname #-}
 
 instance ToPath ReportTaskRunnerHeartbeat
 
@@ -112,7 +108,6 @@ newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
 -- task runner that called ReportTaskRunnerHeartbeat should terminate.
 rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrsTerminate = lens _rtrhrsTerminate (\s a -> s { _rtrhrsTerminate = a })
-{-# INLINE rtrhrsTerminate #-}
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse
 

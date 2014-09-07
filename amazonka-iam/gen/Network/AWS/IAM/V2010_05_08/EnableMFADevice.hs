@@ -64,33 +64,28 @@ mkEnableMFADevice p1 p2 p3 p4 = EnableMFADevice
     , _emfadAuthenticationCode1 = p3
     , _emfadAuthenticationCode2 = p4
     }
-{-# INLINE mkEnableMFADevice #-}
 
 -- | Name of the user for whom you want to enable the MFA device.
 emfadUserName :: Lens' EnableMFADevice Text
 emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
-{-# INLINE emfadUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
 emfadSerialNumber :: Lens' EnableMFADevice Text
 emfadSerialNumber =
     lens _emfadSerialNumber (\s a -> s { _emfadSerialNumber = a })
-{-# INLINE emfadSerialNumber #-}
 
 -- | An authentication code emitted by the device.
 emfadAuthenticationCode1 :: Lens' EnableMFADevice Text
 emfadAuthenticationCode1 =
     lens _emfadAuthenticationCode1
          (\s a -> s { _emfadAuthenticationCode1 = a })
-{-# INLINE emfadAuthenticationCode1 #-}
 
 -- | A subsequent authentication code emitted by the device.
 emfadAuthenticationCode2 :: Lens' EnableMFADevice Text
 emfadAuthenticationCode2 =
     lens _emfadAuthenticationCode2
          (\s a -> s { _emfadAuthenticationCode2 = a })
-{-# INLINE emfadAuthenticationCode2 #-}
 
 instance ToQuery EnableMFADevice where
     toQuery = genericQuery def

@@ -52,12 +52,10 @@ mkDescribeCluster :: Text -- ^ 'dcClusterId'
 mkDescribeCluster p1 = DescribeCluster
     { _dcClusterId = p1
     }
-{-# INLINE mkDescribeCluster #-}
 
 -- | The identifier of the cluster to describe.
 dcClusterId :: Lens' DescribeCluster Text
 dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
-{-# INLINE dcClusterId #-}
 
 instance ToPath DescribeCluster
 
@@ -75,7 +73,6 @@ newtype DescribeClusterResponse = DescribeClusterResponse
 -- | This output contains the details for the requested cluster.
 dcrsCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
 dcrsCluster = lens _dcrsCluster (\s a -> s { _dcrsCluster = a })
-{-# INLINE dcrsCluster #-}
 
 instance FromJSON DescribeClusterResponse
 

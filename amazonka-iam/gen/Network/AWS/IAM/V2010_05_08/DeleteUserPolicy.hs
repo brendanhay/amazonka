@@ -54,17 +54,14 @@ mkDeleteUserPolicy p1 p2 = DeleteUserPolicy
     { _dupUserName = p1
     , _dupPolicyName = p2
     }
-{-# INLINE mkDeleteUserPolicy #-}
 
 -- | Name of the user the policy is associated with.
 dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
-{-# INLINE dupUserName #-}
 
 -- | Name of the policy document to delete.
 dupPolicyName :: Lens' DeleteUserPolicy Text
 dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
-{-# INLINE dupPolicyName #-}
 
 instance ToQuery DeleteUserPolicy where
     toQuery = genericQuery def

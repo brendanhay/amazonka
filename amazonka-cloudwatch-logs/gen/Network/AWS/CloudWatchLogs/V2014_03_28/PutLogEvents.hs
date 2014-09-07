@@ -84,28 +84,23 @@ mkPutLogEvents p1 p2 p3 = PutLogEvents
     , _pleLogEvents = p3
     , _pleSequenceToken = Nothing
     }
-{-# INLINE mkPutLogEvents #-}
 
 pleLogGroupName :: Lens' PutLogEvents Text
 pleLogGroupName = lens _pleLogGroupName (\s a -> s { _pleLogGroupName = a })
-{-# INLINE pleLogGroupName #-}
 
 pleLogStreamName :: Lens' PutLogEvents Text
 pleLogStreamName =
     lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
-{-# INLINE pleLogStreamName #-}
 
 -- | A list of events belonging to a log stream.
 pleLogEvents :: Lens' PutLogEvents [InputLogEvent]
 pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a })
-{-# INLINE pleLogEvents #-}
 
 -- | A string token that must be obtained from the response of the previous
 -- PutLogEvents request.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken =
     lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
-{-# INLINE pleSequenceToken #-}
 
 instance ToPath PutLogEvents
 
@@ -125,7 +120,6 @@ newtype PutLogEventsResponse = PutLogEventsResponse
 plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plersNextSequenceToken =
     lens _plersNextSequenceToken (\s a -> s { _plersNextSequenceToken = a })
-{-# INLINE plersNextSequenceToken #-}
 
 instance FromJSON PutLogEventsResponse
 

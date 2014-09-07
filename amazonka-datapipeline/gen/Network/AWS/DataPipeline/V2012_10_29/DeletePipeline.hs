@@ -61,12 +61,10 @@ mkDeletePipeline :: Text -- ^ 'dpPipelineId'
 mkDeletePipeline p1 = DeletePipeline
     { _dpPipelineId = p1
     }
-{-# INLINE mkDeletePipeline #-}
 
 -- | The identifier of the pipeline to be deleted.
 dpPipelineId :: Lens' DeletePipeline Text
 dpPipelineId = lens _dpPipelineId (\s a -> s { _dpPipelineId = a })
-{-# INLINE dpPipelineId #-}
 
 instance ToPath DeletePipeline
 

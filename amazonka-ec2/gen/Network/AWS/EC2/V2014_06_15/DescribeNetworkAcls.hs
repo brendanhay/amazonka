@@ -61,13 +61,11 @@ mkDescribeNetworkAcls = DescribeNetworkAcls
     { _dna1NetworkAclIds = mempty
     , _dna1Filters = mempty
     }
-{-# INLINE mkDescribeNetworkAcls #-}
 
 -- | One or more network ACL IDs. Default: Describes all your network ACLs.
 dna1NetworkAclIds :: Lens' DescribeNetworkAcls [Text]
 dna1NetworkAclIds =
     lens _dna1NetworkAclIds (\s a -> s { _dna1NetworkAclIds = a })
-{-# INLINE dna1NetworkAclIds #-}
 
 -- | One or more filters. association.association-id - The ID of an association
 -- ID for the ACL. association.network-acl-id - The ID of the network ACL
@@ -95,7 +93,6 @@ dna1NetworkAclIds =
 -- the network ACL.
 dna1Filters :: Lens' DescribeNetworkAcls [Filter]
 dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a })
-{-# INLINE dna1Filters #-}
 
 instance ToQuery DescribeNetworkAcls where
     toQuery = genericQuery def
@@ -109,7 +106,6 @@ newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
 dnarsNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
 dnarsNetworkAcls =
     lens _dnarsNetworkAcls (\s a -> s { _dnarsNetworkAcls = a })
-{-# INLINE dnarsNetworkAcls #-}
 
 instance FromXML DescribeNetworkAclsResponse where
     fromXMLOptions = xmlOptions

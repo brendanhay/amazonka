@@ -49,11 +49,9 @@ mkGetBucketPolicy :: BucketName -- ^ 'gbpBucket'
 mkGetBucketPolicy p1 = GetBucketPolicy
     { _gbpBucket = p1
     }
-{-# INLINE mkGetBucketPolicy #-}
 
 gbpBucket :: Lens' GetBucketPolicy BucketName
 gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
-{-# INLINE gbpBucket #-}
 
 instance ToPath GetBucketPolicy where
     toPath GetBucketPolicy{..} = mconcat
@@ -77,7 +75,6 @@ newtype GetBucketPolicyResponse = GetBucketPolicyResponse
 -- | The bucket policy as a JSON document.
 gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprsPolicy = lens _gbprsPolicy (\s a -> s { _gbprsPolicy = a })
-{-# INLINE gbprsPolicy #-}
 
 instance FromXML GetBucketPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -77,27 +77,22 @@ mkReportInstanceStatus p1 p2 p5 = ReportInstanceStatus
     , _risReasonCodes = p5
     , _risDescription = Nothing
     }
-{-# INLINE mkReportInstanceStatus #-}
 
 -- | One or more instances.
 risInstances :: Lens' ReportInstanceStatus [Text]
 risInstances = lens _risInstances (\s a -> s { _risInstances = a })
-{-# INLINE risInstances #-}
 
 -- | The status of all instances listed.
 risStatus :: Lens' ReportInstanceStatus ReportStatusType
 risStatus = lens _risStatus (\s a -> s { _risStatus = a })
-{-# INLINE risStatus #-}
 
 -- | The time at which the reported instance health state began.
 risStartTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
 risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a })
-{-# INLINE risStartTime #-}
 
 -- | The time at which the reported instance health state ended.
 risEndTime :: Lens' ReportInstanceStatus (Maybe ISO8601)
 risEndTime = lens _risEndTime (\s a -> s { _risEndTime = a })
-{-# INLINE risEndTime #-}
 
 -- | One or more reason codes that describes the health state of your instance.
 -- instance-stuck-in-state: My instance is stuck in a state. unresponsive: My
@@ -113,12 +108,10 @@ risEndTime = lens _risEndTime (\s a -> s { _risEndTime = a })
 -- description parameter].
 risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a })
-{-# INLINE risReasonCodes #-}
 
 -- | Descriptive text about the health state of your instance.
 risDescription :: Lens' ReportInstanceStatus (Maybe Text)
 risDescription = lens _risDescription (\s a -> s { _risDescription = a })
-{-# INLINE risDescription #-}
 
 instance ToQuery ReportInstanceStatus where
     toQuery = genericQuery def

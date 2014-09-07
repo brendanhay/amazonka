@@ -59,13 +59,11 @@ mkDeleteVerifiedEmailAddress :: Text -- ^ 'dveaEmailAddress'
 mkDeleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
     { _dveaEmailAddress = p1
     }
-{-# INLINE mkDeleteVerifiedEmailAddress #-}
 
 -- | An email address to be removed from the list of verified addresses.
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress =
     lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
-{-# INLINE dveaEmailAddress #-}
 
 instance ToQuery DeleteVerifiedEmailAddress where
     toQuery = genericQuery def

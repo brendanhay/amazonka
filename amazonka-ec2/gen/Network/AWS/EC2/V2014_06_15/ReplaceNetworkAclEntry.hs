@@ -85,50 +85,41 @@ mkReplaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     , _rnaeIcmpTypeCode = Nothing
     , _rnaePortRange = Nothing
     }
-{-# INLINE mkReplaceNetworkAclEntry #-}
 
 -- | The ID of the ACL.
 rnaeNetworkAclId :: Lens' ReplaceNetworkAclEntry Text
 rnaeNetworkAclId =
     lens _rnaeNetworkAclId (\s a -> s { _rnaeNetworkAclId = a })
-{-# INLINE rnaeNetworkAclId #-}
 
 -- | The rule number of the entry to replace.
 rnaeRuleNumber :: Lens' ReplaceNetworkAclEntry Integer
 rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s { _rnaeRuleNumber = a })
-{-# INLINE rnaeRuleNumber #-}
 
 -- | The IP protocol. You can specify all or -1 to mean all protocols.
 rnaeProtocol :: Lens' ReplaceNetworkAclEntry Text
 rnaeProtocol = lens _rnaeProtocol (\s a -> s { _rnaeProtocol = a })
-{-# INLINE rnaeProtocol #-}
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
 rnaeRuleAction :: Lens' ReplaceNetworkAclEntry RuleAction
 rnaeRuleAction = lens _rnaeRuleAction (\s a -> s { _rnaeRuleAction = a })
-{-# INLINE rnaeRuleAction #-}
 
 -- | Indicates whether to replace the egress rule. Default: If no value is
 -- specified, we replace the ingress rule.
 rnaeEgress :: Lens' ReplaceNetworkAclEntry Bool
 rnaeEgress = lens _rnaeEgress (\s a -> s { _rnaeEgress = a })
-{-# INLINE rnaeEgress #-}
 
 -- | The network range to allow or deny, in CIDR notation.
 rnaeCidrBlock :: Lens' ReplaceNetworkAclEntry Text
 rnaeCidrBlock = lens _rnaeCidrBlock (\s a -> s { _rnaeCidrBlock = a })
-{-# INLINE rnaeCidrBlock #-}
 
 -- | ICMP protocol: The ICMP type and code.
 rnaeIcmpTypeCode :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
 rnaeIcmpTypeCode =
     lens _rnaeIcmpTypeCode (\s a -> s { _rnaeIcmpTypeCode = a })
-{-# INLINE rnaeIcmpTypeCode #-}
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 rnaePortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)
 rnaePortRange = lens _rnaePortRange (\s a -> s { _rnaePortRange = a })
-{-# INLINE rnaePortRange #-}
 
 instance ToQuery ReplaceNetworkAclEntry where
     toQuery = genericQuery def

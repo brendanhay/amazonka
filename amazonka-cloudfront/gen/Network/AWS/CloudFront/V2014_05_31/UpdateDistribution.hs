@@ -58,24 +58,20 @@ mkUpdateDistribution p1 p2 = UpdateDistribution
     , _udId = p2
     , _udIfMatch = Nothing
     }
-{-# INLINE mkUpdateDistribution #-}
 
 -- | The distribution's configuration information.
 udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
 udDistributionConfig =
     lens _udDistributionConfig (\s a -> s { _udDistributionConfig = a })
-{-# INLINE udDistributionConfig #-}
 
 -- | The distribution's id.
 udId :: Lens' UpdateDistribution Text
 udId = lens _udId (\s a -> s { _udId = a })
-{-# INLINE udId #-}
 
 -- | The value of the ETag header you received when retrieving the
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
-{-# INLINE udIfMatch #-}
 
 instance ToPath UpdateDistribution where
     toPath UpdateDistribution{..} = mconcat
@@ -105,12 +101,10 @@ data UpdateDistributionResponse = UpdateDistributionResponse
 udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrsDistribution =
     lens _udrsDistribution (\s a -> s { _udrsDistribution = a })
-{-# INLINE udrsDistribution #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
 udrsETag = lens _udrsETag (\s a -> s { _udrsETag = a })
-{-# INLINE udrsETag #-}
 
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront

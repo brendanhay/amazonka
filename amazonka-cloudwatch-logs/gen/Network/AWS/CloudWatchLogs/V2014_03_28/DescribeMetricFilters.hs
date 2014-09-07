@@ -78,31 +78,26 @@ mkDescribeMetricFilters p1 = DescribeMetricFilters
     , _dmf1NextToken = Nothing
     , _dmf1Limit = Nothing
     }
-{-# INLINE mkDescribeMetricFilters #-}
 
 dmf1LogGroupName :: Lens' DescribeMetricFilters Text
 dmf1LogGroupName =
     lens _dmf1LogGroupName (\s a -> s { _dmf1LogGroupName = a })
-{-# INLINE dmf1LogGroupName #-}
 
 -- | The name of the metric filter.
 dmf1FilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
 dmf1FilterNamePrefix =
     lens _dmf1FilterNamePrefix (\s a -> s { _dmf1FilterNamePrefix = a })
-{-# INLINE dmf1FilterNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeMetricFilters request.
 dmf1NextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmf1NextToken = lens _dmf1NextToken (\s a -> s { _dmf1NextToken = a })
-{-# INLINE dmf1NextToken #-}
 
 -- | The maximum number of items returned in the response. If you don't specify
 -- a value, the request would return up to 50 items.
 dmf1Limit :: Lens' DescribeMetricFilters (Maybe Integer)
 dmf1Limit = lens _dmf1Limit (\s a -> s { _dmf1Limit = a })
-{-# INLINE dmf1Limit #-}
 
 instance ToPath DescribeMetricFilters
 
@@ -120,14 +115,12 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
 dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrsMetricFilters =
     lens _dmfrsMetricFilters (\s a -> s { _dmfrsMetricFilters = a })
-{-# INLINE dmfrsMetricFilters #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
 dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrsNextToken = lens _dmfrsNextToken (\s a -> s { _dmfrsNextToken = a })
-{-# INLINE dmfrsNextToken #-}
 
 instance FromJSON DescribeMetricFiltersResponse
 
@@ -139,5 +132,5 @@ instance AWSRequest DescribeMetricFilters where
     response _ = jsonResponse
 
 instance AWSPager DescribeMetricFilters where
-    next rq rs = (\x -> rq { _dmf1NextToken = Just x })
-        <$> (_dmfrsNextToken rs)
+    next rq rs = (\x -> rq & dmf1NextToken ?~ x) <$> (rs ^. dmfrsNextToken)
+

@@ -1386,21 +1386,18 @@ mkContactDetail = ContactDetail
     , _cdFax = Nothing
     , _cdExtraParams = mempty
     }
-{-# INLINE mkContactDetail #-}
 
 -- | First name of contact. Type: String Default: None Constraints: Maximum 255
 -- characters. Parents: RegistrantContact, AdminContact, TechContact Required:
 -- Yes.
 cdFirstName :: Lens' ContactDetail (Maybe Text)
 cdFirstName = lens _cdFirstName (\s a -> s { _cdFirstName = a })
-{-# INLINE cdFirstName #-}
 
 -- | Last name of contact. Type: String Default: None Constraints: Maximum 255
 -- characters. Parents: RegistrantContact, AdminContact, TechContact Required:
 -- Yes.
 cdLastName :: Lens' ContactDetail (Maybe Text)
 cdLastName = lens _cdLastName (\s a -> s { _cdLastName = a })
-{-# INLINE cdLastName #-}
 
 -- | Indicates whether the contact is a person, company, association, or public
 -- organization. If you choose an option other than PERSON, you must enter an
@@ -1410,7 +1407,6 @@ cdLastName = lens _cdLastName (\s a -> s { _cdLastName = a })
 -- RegistrantContact, AdminContact, TechContact Required: Yes.
 cdContactType :: Lens' ContactDetail (Maybe ContactType)
 cdContactType = lens _cdContactType (\s a -> s { _cdContactType = a })
-{-# INLINE cdContactType #-}
 
 -- | Name of the organization for contact types other than PERSON. Type: String
 -- Default: None Constraints: Maximum 255 characters. Contact type must not be
@@ -1418,49 +1414,42 @@ cdContactType = lens _cdContactType (\s a -> s { _cdContactType = a })
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
 cdOrganizationName =
     lens _cdOrganizationName (\s a -> s { _cdOrganizationName = a })
-{-# INLINE cdOrganizationName #-}
 
 -- | First line of the contact's address. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: Yes.
 cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine1 = lens _cdAddressLine1 (\s a -> s { _cdAddressLine1 = a })
-{-# INLINE cdAddressLine1 #-}
 
 -- | Second line of contact's address, if any. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: No.
 cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine2 = lens _cdAddressLine2 (\s a -> s { _cdAddressLine2 = a })
-{-# INLINE cdAddressLine2 #-}
 
 -- | The city of the contact's address. Type: String Default: None Constraints:
 -- Maximum 255 characters. Parents: RegistrantContact, AdminContact,
 -- TechContact Required: Yes.
 cdCity :: Lens' ContactDetail (Maybe Text)
 cdCity = lens _cdCity (\s a -> s { _cdCity = a })
-{-# INLINE cdCity #-}
 
 -- | The state or province of the contact's city. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: No.
 cdState :: Lens' ContactDetail (Maybe Text)
 cdState = lens _cdState (\s a -> s { _cdState = a })
-{-# INLINE cdState #-}
 
 -- | Code for the country of the contact's address. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: Yes.
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
 cdCountryCode = lens _cdCountryCode (\s a -> s { _cdCountryCode = a })
-{-# INLINE cdCountryCode #-}
 
 -- | The zip or postal code of the contact's address. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: No.
 cdZipCode :: Lens' ContactDetail (Maybe Text)
 cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
-{-# INLINE cdZipCode #-}
 
 -- | The phone number of the contact. Type: String Default: None Constraints:
 -- Phone number must be specified in the format "+[country dialing
@@ -1469,14 +1458,12 @@ cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
 -- TechContact Required: Yes.
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
 cdPhoneNumber = lens _cdPhoneNumber (\s a -> s { _cdPhoneNumber = a })
-{-# INLINE cdPhoneNumber #-}
 
 -- | Email address of the contact. Type: String Default: None Constraints:
 -- Maximum 254 characters. Parents: RegistrantContact, AdminContact,
 -- TechContact Required: Yes.
 cdEmail :: Lens' ContactDetail (Maybe Text)
 cdEmail = lens _cdEmail (\s a -> s { _cdEmail = a })
-{-# INLINE cdEmail #-}
 
 -- | Fax number of the contact. Type: String Default: None Constraints: Phone
 -- number must be specified in the format "+[country dialing code].[number
@@ -1485,14 +1472,12 @@ cdEmail = lens _cdEmail (\s a -> s { _cdEmail = a })
 -- Required: No.
 cdFax :: Lens' ContactDetail (Maybe Text)
 cdFax = lens _cdFax (\s a -> s { _cdFax = a })
-{-# INLINE cdFax #-}
 
 -- | A list of name-value pairs for parameters required by certain top-level
 -- domains. Type: Complex Default: None Parents: RegistrantContact,
 -- AdminContact, TechContact Children: Name, Value Required: No.
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
 cdExtraParams = lens _cdExtraParams (\s a -> s { _cdExtraParams = a })
-{-# INLINE cdExtraParams #-}
 
 instance FromJSON ContactDetail
 
@@ -1515,30 +1500,25 @@ mkDomainSummary p1 = DomainSummary
     , _dsTransferLock = Nothing
     , _dsExpiry = Nothing
     }
-{-# INLINE mkDomainSummary #-}
 
 -- | The name of a domain. Type: String.
 dsDomainName :: Lens' DomainSummary Text
 dsDomainName = lens _dsDomainName (\s a -> s { _dsDomainName = a })
-{-# INLINE dsDomainName #-}
 
 -- | Indicates whether the domain is automatically renewed upon expiration.
 -- Type: Boolean Valid values: True | False.
 dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
 dsAutoRenew = lens _dsAutoRenew (\s a -> s { _dsAutoRenew = a })
-{-# INLINE dsAutoRenew #-}
 
 -- | Indicates whether a domain is locked from unauthorized transfer to another
 -- party. Type: Boolean Valid values: True | False.
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
-{-# INLINE dsTransferLock #-}
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC). Type:
 -- Long.
 dsExpiry :: Lens' DomainSummary (Maybe ISO8601)
 dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a })
-{-# INLINE dsExpiry #-}
 
 instance FromJSON DomainSummary
 
@@ -1557,7 +1537,6 @@ mkExtraParam p1 p2 = ExtraParam
     { _epName = p1
     , _epValue = p2
     }
-{-# INLINE mkExtraParam #-}
 
 -- | Name of the additional parameter required by the top-level domain. Type:
 -- String Default: None Valid values: DUNS_NUMBER | BRAND_NUMBER |
@@ -1567,14 +1546,12 @@ mkExtraParam p1 p2 = ExtraParam
 -- SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER Parent: ExtraParams Required: Yes.
 epName :: Lens' ExtraParam ExtraParamName
 epName = lens _epName (\s a -> s { _epName = a })
-{-# INLINE epName #-}
 
 -- | Values corresponding to the additional parameter names required by some
 -- top-level domains. Type: String Default: None Constraints: Maximum 2048
 -- characters. Parent: ExtraParams Required: Yes.
 epValue :: Lens' ExtraParam Text
 epValue = lens _epValue (\s a -> s { _epValue = a })
-{-# INLINE epValue #-}
 
 instance FromJSON ExtraParam
 
@@ -1594,13 +1571,11 @@ mkNameserver p1 = Nameserver
     { _nName = p1
     , _nGlueIps = mempty
     }
-{-# INLINE mkNameserver #-}
 
 -- | The fully qualified host name of the name server. Type: String Constraint:
 -- Maximum 255 characterss Parent: Nameservers.
 nName :: Lens' Nameserver Text
 nName = lens _nName (\s a -> s { _nName = a })
-{-# INLINE nName #-}
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required only
 -- when the name of the name server is a subdomain of the domain. For example,
@@ -1610,7 +1585,6 @@ nName = lens _nName (\s a -> s { _nName = a })
 -- and one IPv6 address. Parent: Nameservers.
 nGlueIps :: Lens' Nameserver [Text]
 nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a })
-{-# INLINE nGlueIps #-}
 
 instance FromJSON Nameserver
 
@@ -1637,28 +1611,23 @@ mkOperationSummary p1 p2 p3 p4 = OperationSummary
     , _osType = p3
     , _osSubmittedDate = p4
     }
-{-# INLINE mkOperationSummary #-}
 
 -- | Identifier returned to track the requested action. Type: String.
 osOperationId :: Lens' OperationSummary Text
 osOperationId = lens _osOperationId (\s a -> s { _osOperationId = a })
-{-# INLINE osOperationId #-}
 
 -- | The current status of the requested operation in the system. Type: String.
 osStatus :: Lens' OperationSummary OperationStatus
 osStatus = lens _osStatus (\s a -> s { _osStatus = a })
-{-# INLINE osStatus #-}
 
 -- | Type of the action requested. Type: String Valid values: REGISTER_DOMAIN |
 -- DELETE_DOMAIN | TRANSFER_IN_DOMAIN | UPDATE_DOMAIN_CONTACT |
 -- UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
 osType :: Lens' OperationSummary OperationType
 osType = lens _osType (\s a -> s { _osType = a })
-{-# INLINE osType #-}
 
 -- | The date when the request was submitted.
 osSubmittedDate :: Lens' OperationSummary ISO8601
 osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a })
-{-# INLINE osSubmittedDate #-}
 
 instance FromJSON OperationSummary

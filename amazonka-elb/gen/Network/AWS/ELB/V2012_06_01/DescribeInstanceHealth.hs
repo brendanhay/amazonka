@@ -75,18 +75,15 @@ mkDescribeInstanceHealth p1 = DescribeInstanceHealth
     { _dihLoadBalancerName = p1
     , _dihInstances = mempty
     }
-{-# INLINE mkDescribeInstanceHealth #-}
 
 -- | The name of the load balancer.
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
 dihLoadBalancerName =
     lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
-{-# INLINE dihLoadBalancerName #-}
 
 -- | A list of instance IDs whose states are being queried.
 dihInstances :: Lens' DescribeInstanceHealth [Instance]
 dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a })
-{-# INLINE dihInstances #-}
 
 instance ToQuery DescribeInstanceHealth where
     toQuery = genericQuery def
@@ -100,7 +97,6 @@ newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
 dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrsInstanceStates =
     lens _dihrsInstanceStates (\s a -> s { _dihrsInstanceStates = a })
-{-# INLINE dihrsInstanceStates #-}
 
 instance FromXML DescribeInstanceHealthResponse where
     fromXMLOptions = xmlOptions

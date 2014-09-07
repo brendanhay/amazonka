@@ -68,13 +68,11 @@ mkListStacks = ListStacks
     { _lsNextToken = Nothing
     , _lsStackStatusFilter = mempty
     }
-{-# INLINE mkListStacks #-}
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one. Default: There is no default value.
 lsNextToken :: Lens' ListStacks (Maybe Text)
 lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
-{-# INLINE lsNextToken #-}
 
 -- | Stack status to use as a filter. Specify one or more stack status codes to
 -- list only stacks with the specified status codes. For a complete list of
@@ -82,7 +80,6 @@ lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter =
     lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
-{-# INLINE lsStackStatusFilter #-}
 
 instance ToQuery ListStacks where
     toQuery = genericQuery def
@@ -98,13 +95,11 @@ data ListStacksResponse = ListStacksResponse
 lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsrsStackSummaries =
     lens _lsrsStackSummaries (\s a -> s { _lsrsStackSummaries = a })
-{-# INLINE lsrsStackSummaries #-}
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\s a -> s { _lsrsNextToken = a })
-{-# INLINE lsrsNextToken #-}
 
 instance FromXML ListStacksResponse where
     fromXMLOptions = xmlOptions
@@ -117,5 +112,5 @@ instance AWSRequest ListStacks where
     response _ = xmlResponse
 
 instance AWSPager ListStacks where
-    next rq rs = (\x -> rq { _lsNextToken = Just x })
-        <$> (_lsrsNextToken rs)
+    next rq rs = (\x -> rq & lsNextToken ?~ x) <$> (rs ^. lsrsNextToken)
+

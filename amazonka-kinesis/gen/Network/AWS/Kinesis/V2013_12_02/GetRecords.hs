@@ -91,19 +91,16 @@ mkGetRecords p1 = GetRecords
     { _grShardIterator = p1
     , _grLimit = Nothing
     }
-{-# INLINE mkGetRecords #-}
 
 -- | The position in the shard from which you want to start sequentially reading
 -- data records.
 grShardIterator :: Lens' GetRecords Text
 grShardIterator = lens _grShardIterator (\s a -> s { _grShardIterator = a })
-{-# INLINE grShardIterator #-}
 
 -- | The maximum number of records to return, which can be set to a value of up
 -- to 10,000.
 grLimit :: Lens' GetRecords (Maybe Integer)
 grLimit = lens _grLimit (\s a -> s { _grLimit = a })
-{-# INLINE grLimit #-}
 
 instance ToPath GetRecords
 
@@ -122,7 +119,6 @@ data GetRecordsResponse = GetRecordsResponse
 -- | The data records retrieved from the shard.
 grrsRecords :: Lens' GetRecordsResponse [Record]
 grrsRecords = lens _grrsRecords (\s a -> s { _grrsRecords = a })
-{-# INLINE grrsRecords #-}
 
 -- | The next position in the shard from which to start sequentially reading
 -- data records. If set to null, the shard has been closed and the requested
@@ -130,7 +126,6 @@ grrsRecords = lens _grrsRecords (\s a -> s { _grrsRecords = a })
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrsNextShardIterator =
     lens _grrsNextShardIterator (\s a -> s { _grrsNextShardIterator = a })
-{-# INLINE grrsNextShardIterator #-}
 
 instance FromJSON GetRecordsResponse
 

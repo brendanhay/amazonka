@@ -733,12 +733,10 @@ mkCapacity :: Capacity
 mkCapacity = Capacity
     { _cCapacityUnits = Nothing
     }
-{-# INLINE mkCapacity #-}
 
 -- | The total number of capacity units consumed on a table or an index.
 cCapacityUnits :: Lens' Capacity (Maybe Double)
 cCapacityUnits = lens _cCapacityUnits (\s a -> s { _cCapacityUnits = a })
-{-# INLINE cCapacityUnits #-}
 
 instance FromJSON Capacity
 
@@ -756,14 +754,12 @@ mkDeleteRequest :: Map Text AttributeValue -- ^ 'drKey'
 mkDeleteRequest p1 = DeleteRequest
     { _drKey = p1
     }
-{-# INLINE mkDeleteRequest #-}
 
 -- | A map of attribute name to attribute values, representing the primary key
 -- of the item to delete. All of the table's primary key attributes must be
 -- specified, and their data types must match those of the table's key schema.
 drKey :: Lens' DeleteRequest (Map Text AttributeValue)
 drKey = lens _drKey (\s a -> s { _drKey = a })
-{-# INLINE drKey #-}
 
 instance FromJSON DeleteRequest
 
@@ -781,13 +777,11 @@ mkGlobalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
 mkGlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate = Nothing
     }
-{-# INLINE mkGlobalSecondaryIndexUpdate #-}
 
 -- | The name of a global secondary index, along with the updated provisioned
 -- throughput settings that are to be applied to that index.
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
-{-# INLINE gsiuUpdate #-}
 
 instance ToJSON GlobalSecondaryIndexUpdate
 
@@ -803,7 +797,6 @@ mkPutRequest :: Map Text AttributeValue -- ^ 'prItem'
 mkPutRequest p1 = PutRequest
     { _prItem = p1
     }
-{-# INLINE mkPutRequest #-}
 
 -- | A map of attribute name to attribute values, representing the primary key
 -- of an item to be processed by PutItem. All of the table's primary key
@@ -813,7 +806,6 @@ mkPutRequest p1 = PutRequest
 -- key schema.
 prItem :: Lens' PutRequest (Map Text AttributeValue)
 prItem = lens _prItem (\s a -> s { _prItem = a })
-{-# INLINE prItem #-}
 
 instance FromJSON PutRequest
 
@@ -835,17 +827,14 @@ mkAttributeDefinition p1 p2 = AttributeDefinition
     { _adAttributeName = p1
     , _adAttributeType = p2
     }
-{-# INLINE mkAttributeDefinition #-}
 
 -- | A name for the attribute.
 adAttributeName :: Lens' AttributeDefinition Text
 adAttributeName = lens _adAttributeName (\s a -> s { _adAttributeName = a })
-{-# INLINE adAttributeName #-}
 
 -- | The data type for the attribute.
 adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
 adAttributeType = lens _adAttributeType (\s a -> s { _adAttributeType = a })
-{-# INLINE adAttributeType #-}
 
 instance FromJSON AttributeDefinition
 
@@ -873,37 +862,30 @@ mkAttributeValue = AttributeValue
     , _avNS = mempty
     , _avBS = mempty
     }
-{-# INLINE mkAttributeValue #-}
 
 -- | A String data type.
 avS :: Lens' AttributeValue (Maybe Text)
 avS = lens _avS (\s a -> s { _avS = a })
-{-# INLINE avS #-}
 
 -- | A Number data type.
 avN :: Lens' AttributeValue (Maybe Text)
 avN = lens _avN (\s a -> s { _avN = a })
-{-# INLINE avN #-}
 
 -- | A Binary data type.
 avB :: Lens' AttributeValue (Maybe Base64)
 avB = lens _avB (\s a -> s { _avB = a })
-{-# INLINE avB #-}
 
 -- | A String set data type.
 avSS :: Lens' AttributeValue [Text]
 avSS = lens _avSS (\s a -> s { _avSS = a })
-{-# INLINE avSS #-}
 
 -- | Number set data type.
 avNS :: Lens' AttributeValue [Text]
 avNS = lens _avNS (\s a -> s { _avNS = a })
-{-# INLINE avNS #-}
 
 -- | A Binary set data type.
 avBS :: Lens' AttributeValue [Base64]
 avBS = lens _avBS (\s a -> s { _avBS = a })
-{-# INLINE avBS #-}
 
 instance FromJSON AttributeValue
 
@@ -929,13 +911,11 @@ mkAttributeValueUpdate = AttributeValueUpdate
     { _avuValue = Nothing
     , _avuAction = Nothing
     }
-{-# INLINE mkAttributeValueUpdate #-}
 
 -- | Represents the data for an attribute. You can set one, and only one, of the
 -- elements.
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
 avuValue = lens _avuValue (\s a -> s { _avuValue = a })
-{-# INLINE avuValue #-}
 
 -- | Specifies how to perform the update. Valid values are PUT, DELETE, and ADD.
 -- The behavior depends on whether the specified primary key already exists in
@@ -981,7 +961,6 @@ avuValue = lens _avuValue (\s a -> s { _avuValue = a })
 -- other data types can be specified.
 avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
 avuAction = lens _avuAction (\s a -> s { _avuAction = a })
-{-# INLINE avuAction #-}
 
 instance ToJSON AttributeValueUpdate
 
@@ -1004,7 +983,6 @@ mkCondition p2 = Condition
     { _c1AttributeValueList = mempty
     , _c1ComparisonOperator = p2
     }
-{-# INLINE mkCondition #-}
 
 -- | One or more values to evaluate against the supplied attribute. This list
 -- contains exactly one value, except for a BETWEEN or IN comparison, in which
@@ -1018,7 +996,6 @@ mkCondition p2 = Condition
 c1AttributeValueList :: Lens' Condition [AttributeValue]
 c1AttributeValueList =
     lens _c1AttributeValueList (\s a -> s { _c1AttributeValueList = a })
-{-# INLINE c1AttributeValueList #-}
 
 -- | A comparator for evaluating attributes. For example, equals, greater than,
 -- less than, etc. Valid comparison operators for Query: EQ | LE | LT | GE |
@@ -1092,7 +1069,6 @@ c1AttributeValueList =
 c1ComparisonOperator :: Lens' Condition ComparisonOperator
 c1ComparisonOperator =
     lens _c1ComparisonOperator (\s a -> s { _c1ComparisonOperator = a })
-{-# INLINE c1ComparisonOperator #-}
 
 instance ToJSON Condition
 
@@ -1119,22 +1095,18 @@ mkConsumedCapacity = ConsumedCapacity
     , _ccLocalSecondaryIndexes = mempty
     , _ccGlobalSecondaryIndexes = mempty
     }
-{-# INLINE mkConsumedCapacity #-}
 
 -- | The name of the table that was affected by the operation.
 ccTableName :: Lens' ConsumedCapacity (Maybe Text)
 ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
-{-# INLINE ccTableName #-}
 
 -- | The total number of capacity units consumed by the operation.
 ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
 ccCapacityUnits = lens _ccCapacityUnits (\s a -> s { _ccCapacityUnits = a })
-{-# INLINE ccCapacityUnits #-}
 
 -- | The amount of throughput consumed on the table affected by the operation.
 ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
 ccTable = lens _ccTable (\s a -> s { _ccTable = a })
-{-# INLINE ccTable #-}
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
@@ -1142,7 +1114,6 @@ ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (Map Text Capacity)
 ccLocalSecondaryIndexes =
     lens _ccLocalSecondaryIndexes
          (\s a -> s { _ccLocalSecondaryIndexes = a })
-{-# INLINE ccLocalSecondaryIndexes #-}
 
 -- | The amount of throughput consumed on each global index affected by the
 -- operation.
@@ -1150,7 +1121,6 @@ ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (Map Text Capacity)
 ccGlobalSecondaryIndexes =
     lens _ccGlobalSecondaryIndexes
          (\s a -> s { _ccGlobalSecondaryIndexes = a })
-{-# INLINE ccGlobalSecondaryIndexes #-}
 
 instance FromJSON ConsumedCapacity
 
@@ -1174,13 +1144,11 @@ mkExpectedAttributeValue = ExpectedAttributeValue
     , _eavComparisonOperator = Nothing
     , _eavAttributeValueList = mempty
     }
-{-# INLINE mkExpectedAttributeValue #-}
 
 -- | Represents the data for an attribute. You can set one, and only one, of the
 -- elements.
 eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
 eavValue = lens _eavValue (\s a -> s { _eavValue = a })
-{-# INLINE eavValue #-}
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
 -- operation: If Exists is true, DynamoDB will check to see if that attribute
@@ -1202,17 +1170,14 @@ eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 -- together.) Otherwise, the conditional operation will fail.
 eavExists :: Lens' ExpectedAttributeValue (Maybe Bool)
 eavExists = lens _eavExists (\s a -> s { _eavExists = a })
-{-# INLINE eavExists #-}
 
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
 eavComparisonOperator =
     lens _eavComparisonOperator (\s a -> s { _eavComparisonOperator = a })
-{-# INLINE eavComparisonOperator #-}
 
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
 eavAttributeValueList =
     lens _eavAttributeValueList (\s a -> s { _eavAttributeValueList = a })
-{-# INLINE eavAttributeValueList #-}
 
 instance ToJSON ExpectedAttributeValue
 
@@ -1237,26 +1202,22 @@ mkGlobalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
     , _gsiProjection = p3
     , _gsiProvisionedThroughput = p4
     }
-{-# INLINE mkGlobalSecondaryIndex #-}
 
 -- | The name of the global secondary index. The name must be unique among all
 -- other indexes on this table.
 gsiIndexName :: Lens' GlobalSecondaryIndex Text
 gsiIndexName = lens _gsiIndexName (\s a -> s { _gsiIndexName = a })
-{-# INLINE gsiIndexName #-}
 
 -- | The complete key schema for a global secondary index, which consists of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
 gsiKeySchema :: Lens' GlobalSecondaryIndex [KeySchemaElement]
 gsiKeySchema = lens _gsiKeySchema (\s a -> s { _gsiKeySchema = a })
-{-# INLINE gsiKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 gsiProjection :: Lens' GlobalSecondaryIndex Projection
 gsiProjection = lens _gsiProjection (\s a -> s { _gsiProjection = a })
-{-# INLINE gsiProjection #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the UpdateTable operation. For
@@ -1266,7 +1227,6 @@ gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
 gsiProvisionedThroughput =
     lens _gsiProvisionedThroughput
          (\s a -> s { _gsiProvisionedThroughput = a })
-{-# INLINE gsiProvisionedThroughput #-}
 
 instance ToJSON GlobalSecondaryIndex
 
@@ -1293,25 +1253,21 @@ mkGlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     , _gsidIndexSizeBytes = Nothing
     , _gsidItemCount = Nothing
     }
-{-# INLINE mkGlobalSecondaryIndexDescription #-}
 
 -- | The name of the global secondary index.
 gsidIndexName :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
 gsidIndexName = lens _gsidIndexName (\s a -> s { _gsidIndexName = a })
-{-# INLINE gsidIndexName #-}
 
 -- | The complete key schema for the global secondary index, consisting of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe [KeySchemaElement])
 gsidKeySchema = lens _gsidKeySchema (\s a -> s { _gsidKeySchema = a })
-{-# INLINE gsidKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
 gsidProjection = lens _gsidProjection (\s a -> s { _gsidProjection = a })
-{-# INLINE gsidProjection #-}
 
 -- | The current state of the global secondary index: CREATING - The index is
 -- being created, as the result of a CreateTable or UpdateTable operation.
@@ -1320,7 +1276,6 @@ gsidProjection = lens _gsidProjection (\s a -> s { _gsidProjection = a })
 -- of a DeleteTable operation. ACTIVE - The index is ready for use.
 gsidIndexStatus :: Lens' GlobalSecondaryIndexDescription (Maybe IndexStatus)
 gsidIndexStatus = lens _gsidIndexStatus (\s a -> s { _gsidIndexStatus = a })
-{-# INLINE gsidIndexStatus #-}
 
 -- | Represents the provisioned throughput settings for the table, consisting of
 -- read and write capacity units, along with data about increases and
@@ -1329,7 +1284,6 @@ gsidProvisionedThroughput :: Lens' GlobalSecondaryIndexDescription (Maybe Provis
 gsidProvisionedThroughput =
     lens _gsidProvisionedThroughput
          (\s a -> s { _gsidProvisionedThroughput = a })
-{-# INLINE gsidProvisionedThroughput #-}
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be reflected
@@ -1337,14 +1291,12 @@ gsidProvisionedThroughput =
 gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidIndexSizeBytes =
     lens _gsidIndexSizeBytes (\s a -> s { _gsidIndexSizeBytes = a })
-{-# INLINE gsidIndexSizeBytes #-}
 
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 gsidItemCount :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidItemCount = lens _gsidItemCount (\s a -> s { _gsidItemCount = a })
-{-# INLINE gsidItemCount #-}
 
 instance FromJSON GlobalSecondaryIndexDescription
 
@@ -1364,14 +1316,12 @@ mkItemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey = mempty
     , _icmSizeEstimateRangeGB = mempty
     }
-{-# INLINE mkItemCollectionMetrics #-}
 
 -- | The hash key value of the item collection. This is the same as the hash key
 -- of the item.
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (Map Text AttributeValue)
 icmItemCollectionKey =
     lens _icmItemCollectionKey (\s a -> s { _icmItemCollectionKey = a })
-{-# INLINE icmItemCollectionKey #-}
 
 -- | An estimate of item collection size, measured in gigabytes. This is a
 -- two-element array containing a lower bound and an upper bound for the
@@ -1384,7 +1334,6 @@ icmItemCollectionKey =
 icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
 icmSizeEstimateRangeGB =
     lens _icmSizeEstimateRangeGB (\s a -> s { _icmSizeEstimateRangeGB = a })
-{-# INLINE icmSizeEstimateRangeGB #-}
 
 instance FromJSON ItemCollectionMetrics
 
@@ -1407,19 +1356,16 @@ mkKeySchemaElement p1 p2 = KeySchemaElement
     { _kseAttributeName = p1
     , _kseKeyType = p2
     }
-{-# INLINE mkKeySchemaElement #-}
 
 -- | The name of a key attribute.
 kseAttributeName :: Lens' KeySchemaElement Text
 kseAttributeName =
     lens _kseAttributeName (\s a -> s { _kseAttributeName = a })
-{-# INLINE kseAttributeName #-}
 
 -- | The attribute data, consisting of the data type and the attribute value
 -- itself.
 kseKeyType :: Lens' KeySchemaElement KeyType
 kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
-{-# INLINE kseKeyType #-}
 
 instance FromJSON KeySchemaElement
 
@@ -1442,13 +1388,11 @@ mkKeysAndAttributes p1 = KeysAndAttributes
     , _kaaAttributesToGet = Nothing
     , _kaaConsistentRead = Nothing
     }
-{-# INLINE mkKeysAndAttributes #-}
 
 -- | The primary key attribute values that define the items and the attributes
 -- associated with the items.
 kaaKeys :: Lens' KeysAndAttributes [Map Text AttributeValue]
 kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
-{-# INLINE kaaKeys #-}
 
 -- | One or more attributes to retrieve from the table or index. If no attribute
 -- names are specified then all attributes will be returned. If any of the
@@ -1456,14 +1400,12 @@ kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
 kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe [Text])
 kaaAttributesToGet =
     lens _kaaAttributesToGet (\s a -> s { _kaaAttributesToGet = a })
-{-# INLINE kaaAttributesToGet #-}
 
 -- | The consistency of a read operation. If set to true, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is used.
 kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
 kaaConsistentRead =
     lens _kaaConsistentRead (\s a -> s { _kaaConsistentRead = a })
-{-# INLINE kaaConsistentRead #-}
 
 instance FromJSON KeysAndAttributes
 
@@ -1487,26 +1429,22 @@ mkLocalSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
     , _lsiKeySchema = p2
     , _lsiProjection = p3
     }
-{-# INLINE mkLocalSecondaryIndex #-}
 
 -- | The name of the local secondary index. The name must be unique among all
 -- other indexes on this table.
 lsiIndexName :: Lens' LocalSecondaryIndex Text
 lsiIndexName = lens _lsiIndexName (\s a -> s { _lsiIndexName = a })
-{-# INLINE lsiIndexName #-}
 
 -- | The complete key schema for the local secondary index, consisting of one or
 -- more pairs of attribute names and key types (HASH or RANGE).
 lsiKeySchema :: Lens' LocalSecondaryIndex [KeySchemaElement]
 lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a })
-{-# INLINE lsiKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\s a -> s { _lsiProjection = a })
-{-# INLINE lsiProjection #-}
 
 instance ToJSON LocalSecondaryIndex
 
@@ -1529,25 +1467,21 @@ mkLocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     , _lsidIndexSizeBytes = Nothing
     , _lsidItemCount = Nothing
     }
-{-# INLINE mkLocalSecondaryIndexDescription #-}
 
 -- | Represents the name of the local secondary index.
 lsidIndexName :: Lens' LocalSecondaryIndexDescription (Maybe Text)
 lsidIndexName = lens _lsidIndexName (\s a -> s { _lsidIndexName = a })
-{-# INLINE lsidIndexName #-}
 
 -- | The complete index key schema, which consists of one or more pairs of
 -- attribute names and key types (HASH or RANGE).
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe [KeySchemaElement])
 lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a })
-{-# INLINE lsidKeySchema #-}
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
-{-# INLINE lsidProjection #-}
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be reflected
@@ -1555,14 +1489,12 @@ lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
 lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidIndexSizeBytes =
     lens _lsidIndexSizeBytes (\s a -> s { _lsidIndexSizeBytes = a })
-{-# INLINE lsidIndexSizeBytes #-}
 
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 lsidItemCount :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidItemCount = lens _lsidItemCount (\s a -> s { _lsidItemCount = a })
-{-# INLINE lsidItemCount #-}
 
 instance FromJSON LocalSecondaryIndexDescription
 
@@ -1581,7 +1513,6 @@ mkProjection = Projection
     { _pProjectionType = Nothing
     , _pNonKeyAttributes = Nothing
     }
-{-# INLINE mkProjection #-}
 
 -- | The set of attributes that are projected into the index: KEYS_ONLY - Only
 -- the index and primary keys are projected into the index. INCLUDE - Only the
@@ -1590,7 +1521,6 @@ mkProjection = Projection
 -- attributes are projected into the index.
 pProjectionType :: Lens' Projection (Maybe ProjectionType)
 pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
-{-# INLINE pProjectionType #-}
 
 -- | Represents the non-key attribute names which will be projected into the
 -- index. For local secondary indexes, the total count of NonKeyAttributes
@@ -1600,7 +1530,6 @@ pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 pNonKeyAttributes :: Lens' Projection (Maybe [Text])
 pNonKeyAttributes =
     lens _pNonKeyAttributes (\s a -> s { _pNonKeyAttributes = a })
-{-# INLINE pNonKeyAttributes #-}
 
 instance FromJSON Projection
 
@@ -1624,7 +1553,6 @@ mkProvisionedThroughput p1 p2 = ProvisionedThroughput
     { _ptReadCapacityUnits = p1
     , _ptWriteCapacityUnits = p2
     }
-{-# INLINE mkProvisionedThroughput #-}
 
 -- | The maximum number of strongly consistent reads consumed per second before
 -- DynamoDB returns a ThrottlingException. For more information, see
@@ -1633,7 +1561,6 @@ mkProvisionedThroughput p1 p2 = ProvisionedThroughput
 ptReadCapacityUnits :: Lens' ProvisionedThroughput Integer
 ptReadCapacityUnits =
     lens _ptReadCapacityUnits (\s a -> s { _ptReadCapacityUnits = a })
-{-# INLINE ptReadCapacityUnits #-}
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a
 -- ThrottlingException. For more information, see Specifying Read and Write
@@ -1641,7 +1568,6 @@ ptReadCapacityUnits =
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Integer
 ptWriteCapacityUnits =
     lens _ptWriteCapacityUnits (\s a -> s { _ptWriteCapacityUnits = a })
-{-# INLINE ptWriteCapacityUnits #-}
 
 instance FromJSON ProvisionedThroughput
 
@@ -1667,7 +1593,6 @@ mkProvisionedThroughputDescription = ProvisionedThroughputDescription
     , _ptdReadCapacityUnits = Nothing
     , _ptdWriteCapacityUnits = Nothing
     }
-{-# INLINE mkProvisionedThroughputDescription #-}
 
 -- | The date and time of the last provisioned throughput increase for this
 -- table.
@@ -1675,7 +1600,6 @@ ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe ISO8601
 ptdLastIncreaseDateTime =
     lens _ptdLastIncreaseDateTime
          (\s a -> s { _ptdLastIncreaseDateTime = a })
-{-# INLINE ptdLastIncreaseDateTime #-}
 
 -- | The date and time of the last provisioned throughput decrease for this
 -- table.
@@ -1683,7 +1607,6 @@ ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe ISO8601
 ptdLastDecreaseDateTime =
     lens _ptdLastDecreaseDateTime
          (\s a -> s { _ptdLastDecreaseDateTime = a })
-{-# INLINE ptdLastDecreaseDateTime #-}
 
 -- | The number of provisioned throughput decreases for this table during this
 -- UTC calendar day. For current maximums on provisioned throughput decreases,
@@ -1692,7 +1615,6 @@ ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Integ
 ptdNumberOfDecreasesToday =
     lens _ptdNumberOfDecreasesToday
          (\s a -> s { _ptdNumberOfDecreasesToday = a })
-{-# INLINE ptdNumberOfDecreasesToday #-}
 
 -- | The maximum number of strongly consistent reads consumed per second before
 -- DynamoDB returns a ThrottlingException. Eventually consistent reads require
@@ -1702,14 +1624,12 @@ ptdNumberOfDecreasesToday =
 ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Integer)
 ptdReadCapacityUnits =
     lens _ptdReadCapacityUnits (\s a -> s { _ptdReadCapacityUnits = a })
-{-# INLINE ptdReadCapacityUnits #-}
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a
 -- ThrottlingException.
 ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Integer)
 ptdWriteCapacityUnits =
     lens _ptdWriteCapacityUnits (\s a -> s { _ptdWriteCapacityUnits = a })
-{-# INLINE ptdWriteCapacityUnits #-}
 
 instance FromJSON ProvisionedThroughputDescription
 
@@ -1744,7 +1664,6 @@ mkTableDescription = TableDescription
     , _tdLocalSecondaryIndexes = mempty
     , _tdGlobalSecondaryIndexes = mempty
     }
-{-# INLINE mkTableDescription #-}
 
 -- | An array of AttributeDefinition objects. Each of these objects describes
 -- one attribute in the table and index key schema. Each AttributeDefinition
@@ -1753,12 +1672,10 @@ mkTableDescription = TableDescription
 tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
 tdAttributeDefinitions =
     lens _tdAttributeDefinitions (\s a -> s { _tdAttributeDefinitions = a })
-{-# INLINE tdAttributeDefinitions #-}
 
 -- | The name of the table.
 tdTableName :: Lens' TableDescription (Maybe Text)
 tdTableName = lens _tdTableName (\s a -> s { _tdTableName = a })
-{-# INLINE tdTableName #-}
 
 -- | The primary key structure for the table. Each KeySchemaElement consists of:
 -- AttributeName - The name of the attribute. KeyType - The key type for the
@@ -1766,7 +1683,6 @@ tdTableName = lens _tdTableName (\s a -> s { _tdTableName = a })
 -- keys, see Primary Key in the Amazon DynamoDB Developer Guide.
 tdKeySchema :: Lens' TableDescription (Maybe [KeySchemaElement])
 tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a })
-{-# INLINE tdKeySchema #-}
 
 -- | The current state of the table: CREATING - The table is being created, as
 -- the result of a CreateTable operation. UPDATING - The table is being
@@ -1775,13 +1691,11 @@ tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a })
 -- is ready for use.
 tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
 tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
-{-# INLINE tdTableStatus #-}
 
 -- | The date and time when the table was created, in UNIX epoch time format.
 tdCreationDateTime :: Lens' TableDescription (Maybe ISO8601)
 tdCreationDateTime =
     lens _tdCreationDateTime (\s a -> s { _tdCreationDateTime = a })
-{-# INLINE tdCreationDateTime #-}
 
 -- | The provisioned throughput settings for the table, consisting of read and
 -- write capacity units, along with data about increases and decreases.
@@ -1789,7 +1703,6 @@ tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDe
 tdProvisionedThroughput =
     lens _tdProvisionedThroughput
          (\s a -> s { _tdProvisionedThroughput = a })
-{-# INLINE tdProvisionedThroughput #-}
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be reflected
@@ -1797,14 +1710,12 @@ tdProvisionedThroughput =
 tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
 tdTableSizeBytes =
     lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
-{-# INLINE tdTableSizeBytes #-}
 
 -- | The number of items in the specified table. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 tdItemCount :: Lens' TableDescription (Maybe Integer)
 tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
-{-# INLINE tdItemCount #-}
 
 -- | Represents one or more local secondary indexes on the table. Each index is
 -- scoped to a given hash key value. Tables with one or more local secondary
@@ -1837,7 +1748,6 @@ tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescriptio
 tdLocalSecondaryIndexes =
     lens _tdLocalSecondaryIndexes
          (\s a -> s { _tdLocalSecondaryIndexes = a })
-{-# INLINE tdLocalSecondaryIndexes #-}
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped to
 -- a given hash key value. Each element is composed of: IndexName - The name
@@ -1873,7 +1783,6 @@ tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescript
 tdGlobalSecondaryIndexes =
     lens _tdGlobalSecondaryIndexes
          (\s a -> s { _tdGlobalSecondaryIndexes = a })
-{-# INLINE tdGlobalSecondaryIndexes #-}
 
 instance FromJSON TableDescription
 
@@ -1893,12 +1802,10 @@ mkUpdateGlobalSecondaryIndexAction p1 p2 = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName = p1
     , _ugsiaProvisionedThroughput = p2
     }
-{-# INLINE mkUpdateGlobalSecondaryIndexAction #-}
 
 -- | The name of the global secondary index to be updated.
 ugsiaIndexName :: Lens' UpdateGlobalSecondaryIndexAction Text
 ugsiaIndexName = lens _ugsiaIndexName (\s a -> s { _ugsiaIndexName = a })
-{-# INLINE ugsiaIndexName #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the UpdateTable operation. For
@@ -1908,7 +1815,6 @@ ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction Provisioned
 ugsiaProvisionedThroughput =
     lens _ugsiaProvisionedThroughput
          (\s a -> s { _ugsiaProvisionedThroughput = a })
-{-# INLINE ugsiaProvisionedThroughput #-}
 
 instance FromJSON UpdateGlobalSecondaryIndexAction
 
@@ -1930,17 +1836,14 @@ mkWriteRequest = WriteRequest
     { _wrPutRequest = Nothing
     , _wrDeleteRequest = Nothing
     }
-{-# INLINE mkWriteRequest #-}
 
 -- | A request to perform a PutItem operation.
 wrPutRequest :: Lens' WriteRequest (Maybe PutRequest)
 wrPutRequest = lens _wrPutRequest (\s a -> s { _wrPutRequest = a })
-{-# INLINE wrPutRequest #-}
 
 -- | A request to perform a DeleteItem operation.
 wrDeleteRequest :: Lens' WriteRequest (Maybe DeleteRequest)
 wrDeleteRequest = lens _wrDeleteRequest (\s a -> s { _wrDeleteRequest = a })
-{-# INLINE wrDeleteRequest #-}
 
 instance FromJSON WriteRequest
 

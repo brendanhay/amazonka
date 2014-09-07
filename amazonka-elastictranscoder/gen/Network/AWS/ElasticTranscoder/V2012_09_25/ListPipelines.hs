@@ -93,21 +93,18 @@ mkListPipelines = ListPipelines
     { _lpAscending = Nothing
     , _lpPageToken = Nothing
     }
-{-# INLINE mkListPipelines #-}
 
 -- | To list pipelines in chronological order by the date and time that they
 -- were created, enter true. To list pipelines in reverse chronological order,
 -- enter false.
 lpAscending :: Lens' ListPipelines (Maybe Text)
 lpAscending = lens _lpAscending (\s a -> s { _lpAscending = a })
-{-# INLINE lpAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\s a -> s { _lpPageToken = a })
-{-# INLINE lpPageToken #-}
 
 instance ToPath ListPipelines where
     toPath = const "/2012-09-25/pipelines"
@@ -131,7 +128,6 @@ data ListPipelinesResponse = ListPipelinesResponse
 -- | An array of Pipeline objects.
 lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprsPipelines = lens _lprsPipelines (\s a -> s { _lprsPipelines = a })
-{-# INLINE lprsPipelines #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the pipelines fit on one page or when you've reached the last
@@ -139,7 +135,6 @@ lprsPipelines = lens _lprsPipelines (\s a -> s { _lprsPipelines = a })
 lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextPageToken =
     lens _lprsNextPageToken (\s a -> s { _lprsNextPageToken = a })
-{-# INLINE lprsNextPageToken #-}
 
 instance FromJSON ListPipelinesResponse
 
@@ -151,5 +146,5 @@ instance AWSRequest ListPipelines where
     response _ = jsonResponse
 
 instance AWSPager ListPipelines where
-    next rq rs = (\x -> rq { _lpPageToken = Just x })
-        <$> (_lprsNextPageToken rs)
+    next rq rs = (\x -> rq & lpPageToken ?~ x) <$> (rs ^. lprsNextPageToken)
+

@@ -60,18 +60,15 @@ mkDetachInternetGateway p1 p2 = DetachInternetGateway
     { _dig2InternetGatewayId = p1
     , _dig2VpcId = p2
     }
-{-# INLINE mkDetachInternetGateway #-}
 
 -- | The ID of the Internet gateway.
 dig2InternetGatewayId :: Lens' DetachInternetGateway Text
 dig2InternetGatewayId =
     lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })
-{-# INLINE dig2InternetGatewayId #-}
 
 -- | The ID of the VPC.
 dig2VpcId :: Lens' DetachInternetGateway Text
 dig2VpcId = lens _dig2VpcId (\s a -> s { _dig2VpcId = a })
-{-# INLINE dig2VpcId #-}
 
 instance ToQuery DetachInternetGateway where
     toQuery = genericQuery def

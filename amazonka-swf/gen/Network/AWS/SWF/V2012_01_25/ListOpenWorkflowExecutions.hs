@@ -110,33 +110,28 @@ mkListOpenWorkflowExecutions p1 p2 = ListOpenWorkflowExecutions
     , _loweReverseOrder = Nothing
     , _loweExecutionFilter = Nothing
     }
-{-# INLINE mkListOpenWorkflowExecutions #-}
 
 -- | The name of the domain that contains the workflow executions to list.
 loweDomain :: Lens' ListOpenWorkflowExecutions Text
 loweDomain = lens _loweDomain (\s a -> s { _loweDomain = a })
-{-# INLINE loweDomain #-}
 
 -- | Workflow executions are included in the returned results based on whether
 -- their start times are within the range specified by this filter.
 loweStartTimeFilter :: Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
 loweStartTimeFilter =
     lens _loweStartTimeFilter (\s a -> s { _loweStartTimeFilter = a })
-{-# INLINE loweStartTimeFilter #-}
 
 -- | If specified, only executions of the type specified in the filter are
 -- returned. executionFilter, typeFilter and tagFilter are mutually exclusive.
 -- You can specify at most one of these in a request.
 loweTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
 loweTypeFilter = lens _loweTypeFilter (\s a -> s { _loweTypeFilter = a })
-{-# INLINE loweTypeFilter #-}
 
 -- | If specified, only executions that have the matching tag are listed.
 -- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 -- specify at most one of these in a request.
 loweTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
 loweTagFilter = lens _loweTagFilter (\s a -> s { _loweTagFilter = a })
-{-# INLINE loweTagFilter #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- results are being paginated. To get the next page of results, repeat the
@@ -144,7 +139,6 @@ loweTagFilter = lens _loweTagFilter (\s a -> s { _loweTagFilter = a })
 loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
 loweNextPageToken =
     lens _loweNextPageToken (\s a -> s { _loweNextPageToken = a })
-{-# INLINE loweNextPageToken #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
@@ -155,7 +149,6 @@ loweNextPageToken =
 loweMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Integer)
 loweMaximumPageSize =
     lens _loweMaximumPageSize (\s a -> s { _loweMaximumPageSize = a })
-{-# INLINE loweMaximumPageSize #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in descending order of the start time of the
@@ -163,7 +156,6 @@ loweMaximumPageSize =
 loweReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)
 loweReverseOrder =
     lens _loweReverseOrder (\s a -> s { _loweReverseOrder = a })
-{-# INLINE loweReverseOrder #-}
 
 -- | If specified, only workflow executions matching the workflow id specified
 -- in the filter are returned. executionFilter, typeFilter and tagFilter are
@@ -171,7 +163,6 @@ loweReverseOrder =
 loweExecutionFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
 loweExecutionFilter =
     lens _loweExecutionFilter (\s a -> s { _loweExecutionFilter = a })
-{-# INLINE loweExecutionFilter #-}
 
 instance ToPath ListOpenWorkflowExecutions
 
@@ -191,7 +182,6 @@ data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
 lowersExecutionInfos :: Lens' ListOpenWorkflowExecutionsResponse [WorkflowExecutionInfo]
 lowersExecutionInfos =
     lens _lowersExecutionInfos (\s a -> s { _lowersExecutionInfos = a })
-{-# INLINE lowersExecutionInfos #-}
 
 -- | The token of the next page in the result. If set, the results have more
 -- than one page. The next page can be retrieved by repeating the request with
@@ -199,7 +189,6 @@ lowersExecutionInfos =
 lowersNextPageToken :: Lens' ListOpenWorkflowExecutionsResponse (Maybe Text)
 lowersNextPageToken =
     lens _lowersNextPageToken (\s a -> s { _lowersNextPageToken = a })
-{-# INLINE lowersNextPageToken #-}
 
 instance FromJSON ListOpenWorkflowExecutionsResponse
 
@@ -211,5 +200,5 @@ instance AWSRequest ListOpenWorkflowExecutions where
     response _ = jsonResponse
 
 instance AWSPager ListOpenWorkflowExecutions where
-    next rq rs = (\x -> rq { _loweNextPageToken = Just x })
-        <$> (_lowersNextPageToken rs)
+    next rq rs = (\x -> rq & loweNextPageToken ?~ x) <$> (rs ^. lowersNextPageToken)
+

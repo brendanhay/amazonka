@@ -61,12 +61,10 @@ mkListTopics :: ListTopics
 mkListTopics = ListTopics
     { _ltNextToken = Nothing
     }
-{-# INLINE mkListTopics #-}
 
 -- | Token returned by the previous ListTopics request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
-{-# INLINE ltNextToken #-}
 
 instance ToQuery ListTopics where
     toQuery = genericQuery def
@@ -80,13 +78,11 @@ data ListTopicsResponse = ListTopicsResponse
 -- | A list of topic ARNs.
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
 ltrsTopics = lens _ltrsTopics (\s a -> s { _ltrsTopics = a })
-{-# INLINE ltrsTopics #-}
 
 -- | Token to pass along to the next ListTopics request. This element is
 -- returned if there are additional topics to retrieve.
 ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\s a -> s { _ltrsNextToken = a })
-{-# INLINE ltrsNextToken #-}
 
 instance FromXML ListTopicsResponse where
     fromXMLOptions = xmlOptions
@@ -99,5 +95,5 @@ instance AWSRequest ListTopics where
     response _ = xmlResponse
 
 instance AWSPager ListTopics where
-    next rq rs = (\x -> rq { _ltNextToken = Just x })
-        <$> (_ltrsNextToken rs)
+    next rq rs = (\x -> rq & ltNextToken ?~ x) <$> (rs ^. ltrsNextToken)
+

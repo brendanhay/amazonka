@@ -101,19 +101,16 @@ mkPutRecord p1 p2 p3 = PutRecord
     , _prExplicitHashKey = Nothing
     , _prSequenceNumberForOrdering = Nothing
     }
-{-# INLINE mkPutRecord #-}
 
 -- | The name of the stream to put the data record into.
 prStreamName :: Lens' PutRecord Text
 prStreamName = lens _prStreamName (\s a -> s { _prStreamName = a })
-{-# INLINE prStreamName #-}
 
 -- | The data blob to put into the record, which is Base64-encoded when the blob
 -- is serialized. The maximum size of the data blob (the payload after
 -- Base64-decoding) is 50 kilobytes (KB).
 prData :: Lens' PutRecord Base64
 prData = lens _prData (\s a -> s { _prData = a })
-{-# INLINE prData #-}
 
 -- | Determines which shard in the stream the data record is assigned to.
 -- Partition keys are Unicode strings with a maximum length limit of 256
@@ -125,14 +122,12 @@ prData = lens _prData (\s a -> s { _prData = a })
 -- map to the same shard within the stream.
 prPartitionKey :: Lens' PutRecord Text
 prPartitionKey = lens _prPartitionKey (\s a -> s { _prPartitionKey = a })
-{-# INLINE prPartitionKey #-}
 
 -- | The hash value used to explicitly determine the shard the data record is
 -- assigned to by overriding the partition key hash.
 prExplicitHashKey :: Lens' PutRecord (Maybe Text)
 prExplicitHashKey =
     lens _prExplicitHashKey (\s a -> s { _prExplicitHashKey = a })
-{-# INLINE prExplicitHashKey #-}
 
 -- | Guarantees strictly increasing sequence numbers, for puts from the same
 -- client and to the same partition key. Usage: set the
@@ -144,7 +139,6 @@ prSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)
 prSequenceNumberForOrdering =
     lens _prSequenceNumberForOrdering
          (\s a -> s { _prSequenceNumberForOrdering = a })
-{-# INLINE prSequenceNumberForOrdering #-}
 
 instance ToPath PutRecord
 
@@ -163,7 +157,6 @@ data PutRecordResponse = PutRecordResponse
 -- | The shard ID of the shard where the data record was placed.
 prrsShardId :: Lens' PutRecordResponse Text
 prrsShardId = lens _prrsShardId (\s a -> s { _prrsShardId = a })
-{-# INLINE prrsShardId #-}
 
 -- | The sequence number identifier that was assigned to the put data record.
 -- The sequence number for the record is unique across all records in the
@@ -172,7 +165,6 @@ prrsShardId = lens _prrsShardId (\s a -> s { _prrsShardId = a })
 prrsSequenceNumber :: Lens' PutRecordResponse Text
 prrsSequenceNumber =
     lens _prrsSequenceNumber (\s a -> s { _prrsSequenceNumber = a })
-{-# INLINE prrsSequenceNumber #-}
 
 instance FromJSON PutRecordResponse
 

@@ -95,17 +95,14 @@ mkDescribeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     { _dia1InstanceId = p1
     , _dia1Attribute = p2
     }
-{-# INLINE mkDescribeInstanceAttribute #-}
 
 -- | The ID of the instance.
 dia1InstanceId :: Lens' DescribeInstanceAttribute Text
 dia1InstanceId = lens _dia1InstanceId (\s a -> s { _dia1InstanceId = a })
-{-# INLINE dia1InstanceId #-}
 
 -- | The instance attribute.
 dia1Attribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
 dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
-{-# INLINE dia1Attribute #-}
 
 instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
@@ -131,29 +128,24 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 diarsrsInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
 diarsrsInstanceId =
     lens _diarsrsInstanceId (\s a -> s { _diarsrsInstanceId = a })
-{-# INLINE diarsrsInstanceId #-}
 
 -- | The instance type.
 diarsrsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diarsrsInstanceType =
     lens _diarsrsInstanceType (\s a -> s { _diarsrsInstanceType = a })
-{-# INLINE diarsrsInstanceType #-}
 
 -- | The kernel ID.
 diarsrsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diarsrsKernelId = lens _diarsrsKernelId (\s a -> s { _diarsrsKernelId = a })
-{-# INLINE diarsrsKernelId #-}
 
 -- | The RAM disk ID.
 diarsrsRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diarsrsRamdiskId =
     lens _diarsrsRamdiskId (\s a -> s { _diarsrsRamdiskId = a })
-{-# INLINE diarsrsRamdiskId #-}
 
 -- | The Base64-encoded MIME user data.
 diarsrsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diarsrsUserData = lens _diarsrsUserData (\s a -> s { _diarsrsUserData = a })
-{-# INLINE diarsrsUserData #-}
 
 -- | If the value is true, you can't terminate the instance through the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
@@ -161,7 +153,6 @@ diarsrsDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe A
 diarsrsDisableApiTermination =
     lens _diarsrsDisableApiTermination
          (\s a -> s { _diarsrsDisableApiTermination = a })
-{-# INLINE diarsrsDisableApiTermination #-}
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
@@ -170,38 +161,32 @@ diarsrsInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeRespo
 diarsrsInstanceInitiatedShutdownBehavior =
     lens _diarsrsInstanceInitiatedShutdownBehavior
          (\s a -> s { _diarsrsInstanceInitiatedShutdownBehavior = a })
-{-# INLINE diarsrsInstanceInitiatedShutdownBehavior #-}
 
 -- | The name of the root device (for example, /dev/sda1).
 diarsrsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diarsrsRootDeviceName =
     lens _diarsrsRootDeviceName (\s a -> s { _diarsrsRootDeviceName = a })
-{-# INLINE diarsrsRootDeviceName #-}
 
 -- | The block device mapping of the instance.
 diarsrsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
 diarsrsBlockDeviceMappings =
     lens _diarsrsBlockDeviceMappings
          (\s a -> s { _diarsrsBlockDeviceMappings = a })
-{-# INLINE diarsrsBlockDeviceMappings #-}
 
 -- | A list of product codes.
 diarsrsProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
 diarsrsProductCodes =
     lens _diarsrsProductCodes (\s a -> s { _diarsrsProductCodes = a })
-{-# INLINE diarsrsProductCodes #-}
 
 -- | Indicates whether the instance is optimized for EBS I/O.
 diarsrsEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 diarsrsEbsOptimized =
     lens _diarsrsEbsOptimized (\s a -> s { _diarsrsEbsOptimized = a })
-{-# INLINE diarsrsEbsOptimized #-}
 
 -- | 
 diarsrsSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diarsrsSriovNetSupport =
     lens _diarsrsSriovNetSupport (\s a -> s { _diarsrsSriovNetSupport = a })
-{-# INLINE diarsrsSriovNetSupport #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
@@ -209,7 +194,6 @@ diarsrsSriovNetSupport =
 diarsrsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 diarsrsSourceDestCheck =
     lens _diarsrsSourceDestCheck (\s a -> s { _diarsrsSourceDestCheck = a })
-{-# INLINE diarsrsSourceDestCheck #-}
 
 instance FromXML DescribeInstanceAttributeResponse where
     fromXMLOptions = xmlOptions

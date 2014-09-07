@@ -53,12 +53,10 @@ mkDeleteSubnet :: Text -- ^ 'ds1SubnetId'
 mkDeleteSubnet p1 = DeleteSubnet
     { _ds1SubnetId = p1
     }
-{-# INLINE mkDeleteSubnet #-}
 
 -- | The ID of the subnet.
 ds1SubnetId :: Lens' DeleteSubnet Text
 ds1SubnetId = lens _ds1SubnetId (\s a -> s { _ds1SubnetId = a })
-{-# INLINE ds1SubnetId #-}
 
 instance ToQuery DeleteSubnet where
     toQuery = genericQuery def

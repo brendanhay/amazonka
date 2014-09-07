@@ -53,17 +53,14 @@ mkDeleteGroupPolicy p1 p2 = DeleteGroupPolicy
     { _dgpGroupName = p1
     , _dgpPolicyName = p2
     }
-{-# INLINE mkDeleteGroupPolicy #-}
 
 -- | Name of the group the policy is associated with.
 dgpGroupName :: Lens' DeleteGroupPolicy Text
 dgpGroupName = lens _dgpGroupName (\s a -> s { _dgpGroupName = a })
-{-# INLINE dgpGroupName #-}
 
 -- | Name of the policy document to delete.
 dgpPolicyName :: Lens' DeleteGroupPolicy Text
 dgpPolicyName = lens _dgpPolicyName (\s a -> s { _dgpPolicyName = a })
-{-# INLINE dgpPolicyName #-}
 
 instance ToQuery DeleteGroupPolicy where
     toQuery = genericQuery def

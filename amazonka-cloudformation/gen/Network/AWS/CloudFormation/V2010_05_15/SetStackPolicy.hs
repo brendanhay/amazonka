@@ -58,12 +58,10 @@ mkSetStackPolicy p1 = SetStackPolicy
     , _sspStackPolicyBody = Nothing
     , _sspStackPolicyURL = Nothing
     }
-{-# INLINE mkSetStackPolicy #-}
 
 -- | The name or stack ID that you want to associate a policy with.
 sspStackName :: Lens' SetStackPolicy Text
 sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
-{-# INLINE sspStackName #-}
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
@@ -72,7 +70,6 @@ sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
 sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
 sspStackPolicyBody =
     lens _sspStackPolicyBody (\s a -> s { _sspStackPolicyBody = a })
-{-# INLINE sspStackPolicyBody #-}
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
@@ -81,7 +78,6 @@ sspStackPolicyBody =
 sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
 sspStackPolicyURL =
     lens _sspStackPolicyURL (\s a -> s { _sspStackPolicyURL = a })
-{-# INLINE sspStackPolicyURL #-}
 
 instance ToQuery SetStackPolicy where
     toQuery = genericQuery def

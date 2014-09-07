@@ -61,19 +61,16 @@ mkDescribeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
     { _dtacrCheckId = p1
     , _dtacrLanguage = Nothing
     }
-{-# INLINE mkDescribeTrustedAdvisorCheckResult #-}
 
 -- | The unique identifier for the Trusted Advisor check.
 dtacrCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
 dtacrCheckId = lens _dtacrCheckId (\s a -> s { _dtacrCheckId = a })
-{-# INLINE dtacrCheckId #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
 dtacrLanguage = lens _dtacrLanguage (\s a -> s { _dtacrLanguage = a })
-{-# INLINE dtacrLanguage #-}
 
 instance ToPath DescribeTrustedAdvisorCheckResult
 
@@ -92,7 +89,6 @@ newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckR
 -- | The detailed results of the Trusted Advisor check.
 dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrrsResult = lens _dtacrrsResult (\s a -> s { _dtacrrsResult = a })
-{-# INLINE dtacrrsResult #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckResultResponse
 

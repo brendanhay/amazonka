@@ -47,11 +47,9 @@ mkDeleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
 mkDeleteBucketLifecycle p1 = DeleteBucketLifecycle
     { _dblBucket = p1
     }
-{-# INLINE mkDeleteBucketLifecycle #-}
 
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
 dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
-{-# INLINE dblBucket #-}
 
 instance ToPath DeleteBucketLifecycle where
     toPath DeleteBucketLifecycle{..} = mconcat

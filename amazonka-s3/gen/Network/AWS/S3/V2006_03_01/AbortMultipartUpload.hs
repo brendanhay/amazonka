@@ -57,19 +57,15 @@ mkAbortMultipartUpload p1 p2 p3 = AbortMultipartUpload
     , _amuKey = p2
     , _amuUploadId = p3
     }
-{-# INLINE mkAbortMultipartUpload #-}
 
 amuBucket :: Lens' AbortMultipartUpload BucketName
 amuBucket = lens _amuBucket (\s a -> s { _amuBucket = a })
-{-# INLINE amuBucket #-}
 
 amuKey :: Lens' AbortMultipartUpload ObjectKey
 amuKey = lens _amuKey (\s a -> s { _amuKey = a })
-{-# INLINE amuKey #-}
 
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
-{-# INLINE amuUploadId #-}
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat

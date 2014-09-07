@@ -64,7 +64,6 @@ mkEstimateTemplateCost = EstimateTemplateCost
     , _etcTemplateURL = Nothing
     , _etcParameters = mempty
     }
-{-# INLINE mkEstimateTemplateCost #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and
 -- a maximum length of 51,200 bytes. (For more information, go to Template
@@ -72,7 +71,6 @@ mkEstimateTemplateCost = EstimateTemplateCost
 -- TemplateBody or TemplateURL. If both are passed, only TemplateBody is used.
 etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
-{-# INLINE etcTemplateBody #-}
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For more
@@ -81,12 +79,10 @@ etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 -- only TemplateBody is used.
 etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
-{-# INLINE etcTemplateURL #-}
 
 -- | A list of Parameter structures that specify input parameters.
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
 etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a })
-{-# INLINE etcParameters #-}
 
 instance ToQuery EstimateTemplateCost where
     toQuery = genericQuery def
@@ -100,7 +96,6 @@ newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
 -- resources required to run the template.
 etcrsUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrsUrl = lens _etcrsUrl (\s a -> s { _etcrsUrl = a })
-{-# INLINE etcrsUrl #-}
 
 instance FromXML EstimateTemplateCostResponse where
     fromXMLOptions = xmlOptions

@@ -84,21 +84,18 @@ mkListEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
     { _lebpaPlatformApplicationArn = p1
     , _lebpaNextToken = Nothing
     }
-{-# INLINE mkListEndpointsByPlatformApplication #-}
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 lebpaPlatformApplicationArn :: Lens' ListEndpointsByPlatformApplication Text
 lebpaPlatformApplicationArn =
     lens _lebpaPlatformApplicationArn
          (\s a -> s { _lebpaPlatformApplicationArn = a })
-{-# INLINE lebpaPlatformApplicationArn #-}
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication
 -- action to retrieve additional records that are available after the first
 -- page results.
 lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
 lebpaNextToken = lens _lebpaNextToken (\s a -> s { _lebpaNextToken = a })
-{-# INLINE lebpaNextToken #-}
 
 instance ToQuery ListEndpointsByPlatformApplication where
     toQuery = genericQuery def
@@ -113,7 +110,6 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparsEndpoints =
     lens _lebparsEndpoints (\s a -> s { _lebparsEndpoints = a })
-{-# INLINE lebparsEndpoints #-}
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
@@ -121,7 +117,6 @@ lebparsEndpoints =
 lebparsNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparsNextToken =
     lens _lebparsNextToken (\s a -> s { _lebparsNextToken = a })
-{-# INLINE lebparsNextToken #-}
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     fromXMLOptions = xmlOptions
@@ -134,5 +129,5 @@ instance AWSRequest ListEndpointsByPlatformApplication where
     response _ = xmlResponse
 
 instance AWSPager ListEndpointsByPlatformApplication where
-    next rq rs = (\x -> rq { _lebpaNextToken = Just x })
-        <$> (_lebparsNextToken rs)
+    next rq rs = (\x -> rq & lebpaNextToken ?~ x) <$> (rs ^. lebparsNextToken)
+

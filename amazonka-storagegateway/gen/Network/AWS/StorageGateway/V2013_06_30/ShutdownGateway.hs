@@ -76,13 +76,11 @@ mkShutdownGateway :: Text -- ^ 'sgGatewayARN'
 mkShutdownGateway p1 = ShutdownGateway
     { _sgGatewayARN = p1
     }
-{-# INLINE mkShutdownGateway #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 sgGatewayARN :: Lens' ShutdownGateway Text
 sgGatewayARN = lens _sgGatewayARN (\s a -> s { _sgGatewayARN = a })
-{-# INLINE sgGatewayARN #-}
 
 instance ToPath ShutdownGateway
 
@@ -101,7 +99,6 @@ newtype ShutdownGatewayResponse = ShutdownGatewayResponse
 -- operation to return a list of gateways for your account and region.
 sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgrsGatewayARN = lens _sgrsGatewayARN (\s a -> s { _sgrsGatewayARN = a })
-{-# INLINE sgrsGatewayARN #-}
 
 instance FromJSON ShutdownGatewayResponse
 

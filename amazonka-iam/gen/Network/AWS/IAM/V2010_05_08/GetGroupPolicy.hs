@@ -61,17 +61,14 @@ mkGetGroupPolicy p1 p2 = GetGroupPolicy
     { _ggpGroupName = p1
     , _ggpPolicyName = p2
     }
-{-# INLINE mkGetGroupPolicy #-}
 
 -- | Name of the group the policy is associated with.
 ggpGroupName :: Lens' GetGroupPolicy Text
 ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
-{-# INLINE ggpGroupName #-}
 
 -- | Name of the policy document to get.
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
-{-# INLINE ggpPolicyName #-}
 
 instance ToQuery GetGroupPolicy where
     toQuery = genericQuery def
@@ -87,18 +84,15 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
 -- | The group the policy is associated with.
 ggprsGroupName :: Lens' GetGroupPolicyResponse Text
 ggprsGroupName = lens _ggprsGroupName (\s a -> s { _ggprsGroupName = a })
-{-# INLINE ggprsGroupName #-}
 
 -- | The name of the policy.
 ggprsPolicyName :: Lens' GetGroupPolicyResponse Text
 ggprsPolicyName = lens _ggprsPolicyName (\s a -> s { _ggprsPolicyName = a })
-{-# INLINE ggprsPolicyName #-}
 
 -- | The policy document.
 ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
 ggprsPolicyDocument =
     lens _ggprsPolicyDocument (\s a -> s { _ggprsPolicyDocument = a })
-{-# INLINE ggprsPolicyDocument #-}
 
 instance FromXML GetGroupPolicyResponse where
     fromXMLOptions = xmlOptions

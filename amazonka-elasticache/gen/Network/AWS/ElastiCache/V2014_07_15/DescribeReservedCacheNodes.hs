@@ -78,7 +78,6 @@ mkDescribeReservedCacheNodes = DescribeReservedCacheNodes
     , _drcnMaxRecords = Nothing
     , _drcnMarker = Nothing
     }
-{-# INLINE mkDescribeReservedCacheNodes #-}
 
 -- | The reserved cache node identifier filter value. Use this parameter to show
 -- only the reservation that matches the specified reservation ID.
@@ -86,7 +85,6 @@ drcnReservedCacheNodeId :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnReservedCacheNodeId =
     lens _drcnReservedCacheNodeId
          (\s a -> s { _drcnReservedCacheNodeId = a })
-{-# INLINE drcnReservedCacheNodeId #-}
 
 -- | The offering identifier filter value. Use this parameter to show only
 -- purchased reservations matching the specified offering identifier.
@@ -94,28 +92,24 @@ drcnReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodes (Maybe Text
 drcnReservedCacheNodesOfferingId =
     lens _drcnReservedCacheNodesOfferingId
          (\s a -> s { _drcnReservedCacheNodesOfferingId = a })
-{-# INLINE drcnReservedCacheNodesOfferingId #-}
 
 -- | The cache node type filter value. Use this parameter to show only those
 -- reservations matching the specified cache node type.
 drcnCacheNodeType :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnCacheNodeType =
     lens _drcnCacheNodeType (\s a -> s { _drcnCacheNodeType = a })
-{-# INLINE drcnCacheNodeType #-}
 
 -- | The duration filter value, specified in years or seconds. Use this
 -- parameter to show only reservations for this duration. Valid Values: 1 | 3
 -- | 31536000 | 94608000.
 drcnDuration :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnDuration = lens _drcnDuration (\s a -> s { _drcnDuration = a })
-{-# INLINE drcnDuration #-}
 
 -- | The product description filter value. Use this parameter to show only those
 -- reservations matching the specified product description.
 drcnProductDescription :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnProductDescription =
     lens _drcnProductDescription (\s a -> s { _drcnProductDescription = a })
-{-# INLINE drcnProductDescription #-}
 
 -- | The offering type filter value. Use this parameter to show only the
 -- available offerings matching the specified offering type. Valid values:
@@ -123,7 +117,6 @@ drcnProductDescription =
 drcnOfferingType :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnOfferingType =
     lens _drcnOfferingType (\s a -> s { _drcnOfferingType = a })
-{-# INLINE drcnOfferingType #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -131,7 +124,6 @@ drcnOfferingType =
 -- Constraints: minimum 20; maximum 100.
 drcnMaxRecords :: Lens' DescribeReservedCacheNodes (Maybe Integer)
 drcnMaxRecords = lens _drcnMaxRecords (\s a -> s { _drcnMaxRecords = a })
-{-# INLINE drcnMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -139,7 +131,6 @@ drcnMaxRecords = lens _drcnMaxRecords (\s a -> s { _drcnMaxRecords = a })
 -- specified by MaxRecords.
 drcnMarker :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnMarker = lens _drcnMarker (\s a -> s { _drcnMarker = a })
-{-# INLINE drcnMarker #-}
 
 instance ToQuery DescribeReservedCacheNodes where
     toQuery = genericQuery def
@@ -153,7 +144,6 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnrsMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
 drcnrsMarker = lens _drcnrsMarker (\s a -> s { _drcnrsMarker = a })
-{-# INLINE drcnrsMarker #-}
 
 -- | A list of reserved cache nodes. Each element in the list contains detailed
 -- information about one node.
@@ -161,7 +151,6 @@ drcnrsReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCa
 drcnrsReservedCacheNodes =
     lens _drcnrsReservedCacheNodes
          (\s a -> s { _drcnrsReservedCacheNodes = a })
-{-# INLINE drcnrsReservedCacheNodes #-}
 
 instance FromXML DescribeReservedCacheNodesResponse where
     fromXMLOptions = xmlOptions
@@ -174,5 +163,5 @@ instance AWSRequest DescribeReservedCacheNodes where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedCacheNodes where
-    next rq rs = (\x -> rq { _drcnMarker = Just x })
-        <$> (_drcnrsMarker rs)
+    next rq rs = (\x -> rq & drcnMarker ?~ x) <$> (rs ^. drcnrsMarker)
+

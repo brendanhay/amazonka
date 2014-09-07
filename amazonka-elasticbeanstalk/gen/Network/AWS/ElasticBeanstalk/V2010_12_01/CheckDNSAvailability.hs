@@ -54,13 +54,11 @@ mkCheckDNSAvailability :: Text -- ^ 'cdnsaCNAMEPrefix'
 mkCheckDNSAvailability p1 = CheckDNSAvailability
     { _cdnsaCNAMEPrefix = p1
     }
-{-# INLINE mkCheckDNSAvailability #-}
 
 -- | The prefix used when this CNAME is reserved.
 cdnsaCNAMEPrefix :: Lens' CheckDNSAvailability Text
 cdnsaCNAMEPrefix =
     lens _cdnsaCNAMEPrefix (\s a -> s { _cdnsaCNAMEPrefix = a })
-{-# INLINE cdnsaCNAMEPrefix #-}
 
 instance ToQuery CheckDNSAvailability where
     toQuery = genericQuery def
@@ -77,7 +75,6 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
 cdnsarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdnsarsAvailable =
     lens _cdnsarsAvailable (\s a -> s { _cdnsarsAvailable = a })
-{-# INLINE cdnsarsAvailable #-}
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called with
 -- the provided prefix.
@@ -85,7 +82,6 @@ cdnsarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdnsarsFullyQualifiedCNAME =
     lens _cdnsarsFullyQualifiedCNAME
          (\s a -> s { _cdnsarsFullyQualifiedCNAME = a })
-{-# INLINE cdnsarsFullyQualifiedCNAME #-}
 
 instance FromXML CheckDNSAvailabilityResponse where
     fromXMLOptions = xmlOptions

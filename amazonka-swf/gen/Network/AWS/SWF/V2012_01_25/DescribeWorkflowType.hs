@@ -88,18 +88,15 @@ mkDescribeWorkflowType p1 p2 = DescribeWorkflowType
     { _dwt1Domain = p1
     , _dwt1WorkflowType = p2
     }
-{-# INLINE mkDescribeWorkflowType #-}
 
 -- | The name of the domain in which this workflow type is registered.
 dwt1Domain :: Lens' DescribeWorkflowType Text
 dwt1Domain = lens _dwt1Domain (\s a -> s { _dwt1Domain = a })
-{-# INLINE dwt1Domain #-}
 
 -- | The workflow type to describe.
 dwt1WorkflowType :: Lens' DescribeWorkflowType WorkflowType
 dwt1WorkflowType =
     lens _dwt1WorkflowType (\s a -> s { _dwt1WorkflowType = a })
-{-# INLINE dwt1WorkflowType #-}
 
 instance ToPath DescribeWorkflowType
 
@@ -124,14 +121,12 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
 -- this type.
 dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
 dwtrsTypeInfo = lens _dwtrsTypeInfo (\s a -> s { _dwtrsTypeInfo = a })
-{-# INLINE dwtrsTypeInfo #-}
 
 -- | Configuration settings of the workflow type registered through
 -- RegisterWorkflowType.
 dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrsConfiguration =
     lens _dwtrsConfiguration (\s a -> s { _dwtrsConfiguration = a })
-{-# INLINE dwtrsConfiguration #-}
 
 instance FromJSON DescribeWorkflowTypeResponse
 

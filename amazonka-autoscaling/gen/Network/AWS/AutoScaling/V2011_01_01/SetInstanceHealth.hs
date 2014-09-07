@@ -56,19 +56,16 @@ mkSetInstanceHealth p1 p2 = SetInstanceHealth
     , _sihHealthStatus = p2
     , _sihShouldRespectGracePeriod = Nothing
     }
-{-# INLINE mkSetInstanceHealth #-}
 
 -- | The identifier of the Amazon EC2 instance.
 sihInstanceId :: Lens' SetInstanceHealth Text
 sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
-{-# INLINE sihInstanceId #-}
 
 -- | The health status of the instance. Set to Healthy if you want the instance
 -- to remain in service. Set to Unhealthy if you want the instance to be out
 -- of service. Auto Scaling will terminate and replace the unhealthy instance.
 sihHealthStatus :: Lens' SetInstanceHealth Text
 sihHealthStatus = lens _sihHealthStatus (\s a -> s { _sihHealthStatus = a })
-{-# INLINE sihHealthStatus #-}
 
 -- | If the Auto Scaling group of the specified instance has a
 -- HealthCheckGracePeriod specified for the group, by default, this call will
@@ -80,7 +77,6 @@ sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod =
     lens _sihShouldRespectGracePeriod
          (\s a -> s { _sihShouldRespectGracePeriod = a })
-{-# INLINE sihShouldRespectGracePeriod #-}
 
 instance ToQuery SetInstanceHealth where
     toQuery = genericQuery def

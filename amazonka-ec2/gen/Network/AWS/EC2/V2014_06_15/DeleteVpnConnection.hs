@@ -56,13 +56,11 @@ mkDeleteVpnConnection :: Text -- ^ 'dvcVpnConnectionId'
 mkDeleteVpnConnection p1 = DeleteVpnConnection
     { _dvcVpnConnectionId = p1
     }
-{-# INLINE mkDeleteVpnConnection #-}
 
 -- | The ID of the VPN connection.
 dvcVpnConnectionId :: Lens' DeleteVpnConnection Text
 dvcVpnConnectionId =
     lens _dvcVpnConnectionId (\s a -> s { _dvcVpnConnectionId = a })
-{-# INLINE dvcVpnConnectionId #-}
 
 instance ToQuery DeleteVpnConnection where
     toQuery = genericQuery def

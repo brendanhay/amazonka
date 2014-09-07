@@ -56,18 +56,15 @@ mkUpdateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
     { _uarpRoleName = p1
     , _uarpPolicyDocument = p2
     }
-{-# INLINE mkUpdateAssumeRolePolicy #-}
 
 -- | Name of the role to update.
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
-{-# INLINE uarpRoleName #-}
 
 -- | The policy that grants an entity permission to assume the role.
 uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
 uarpPolicyDocument =
     lens _uarpPolicyDocument (\s a -> s { _uarpPolicyDocument = a })
-{-# INLINE uarpPolicyDocument #-}
 
 instance ToQuery UpdateAssumeRolePolicy where
     toQuery = genericQuery def

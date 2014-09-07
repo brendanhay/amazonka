@@ -62,20 +62,17 @@ mkDescribeOptionGroupOptions p1 = DescribeOptionGroupOptions
     , _dogoMaxRecords = Nothing
     , _dogoMarker = Nothing
     }
-{-# INLINE mkDescribeOptionGroupOptions #-}
 
 -- | A required parameter. Options available for the given Engine name will be
 -- described.
 dogoEngineName :: Lens' DescribeOptionGroupOptions Text
 dogoEngineName = lens _dogoEngineName (\s a -> s { _dogoEngineName = a })
-{-# INLINE dogoEngineName #-}
 
 -- | If specified, filters the results to include only options for the specified
 -- major engine version.
 dogoMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogoMajorEngineVersion =
     lens _dogoMajorEngineVersion (\s a -> s { _dogoMajorEngineVersion = a })
-{-# INLINE dogoMajorEngineVersion #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -83,14 +80,12 @@ dogoMajorEngineVersion =
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Integer)
 dogoMaxRecords = lens _dogoMaxRecords (\s a -> s { _dogoMaxRecords = a })
-{-# INLINE dogoMaxRecords #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogoMarker = lens _dogoMarker (\s a -> s { _dogoMarker = a })
-{-# INLINE dogoMarker #-}
 
 instance ToQuery DescribeOptionGroupOptions where
     toQuery = genericQuery def
@@ -106,14 +101,12 @@ dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGrou
 dogorsOptionGroupOptions =
     lens _dogorsOptionGroupOptions
          (\s a -> s { _dogorsOptionGroupOptions = a })
-{-# INLINE dogorsOptionGroupOptions #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 dogorsMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 dogorsMarker = lens _dogorsMarker (\s a -> s { _dogorsMarker = a })
-{-# INLINE dogorsMarker #-}
 
 instance FromXML DescribeOptionGroupOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -126,5 +119,5 @@ instance AWSRequest DescribeOptionGroupOptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeOptionGroupOptions where
-    next rq rs = (\x -> rq { _dogoMarker = Just x })
-        <$> (_dogorsMarker rs)
+    next rq rs = (\x -> rq & dogoMarker ?~ x) <$> (rs ^. dogorsMarker)
+

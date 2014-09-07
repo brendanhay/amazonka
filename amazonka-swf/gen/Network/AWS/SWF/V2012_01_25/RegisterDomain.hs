@@ -79,7 +79,6 @@ mkRegisterDomain p1 p3 = RegisterDomain
     , _rdDescription = Nothing
     , _rdWorkflowExecutionRetentionPeriodInDays = p3
     }
-{-# INLINE mkRegisterDomain #-}
 
 -- | Name of the domain to register. The name must be unique. The specified
 -- string must not start or end with whitespace. It must not contain a :
@@ -88,12 +87,10 @@ mkRegisterDomain p1 p3 = RegisterDomain
 -- string &quot;arn&quot;.
 rdName :: Lens' RegisterDomain Text
 rdName = lens _rdName (\s a -> s { _rdName = a })
-{-# INLINE rdName #-}
 
 -- | Textual description of the domain.
 rdDescription :: Lens' RegisterDomain (Maybe Text)
 rdDescription = lens _rdDescription (\s a -> s { _rdDescription = a })
-{-# INLINE rdDescription #-}
 
 -- | A duration (in days) for which the record (including the history) of
 -- workflow executions in this domain should be kept by the service. After the
@@ -105,7 +102,6 @@ rdWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
 rdWorkflowExecutionRetentionPeriodInDays =
     lens _rdWorkflowExecutionRetentionPeriodInDays
          (\s a -> s { _rdWorkflowExecutionRetentionPeriodInDays = a })
-{-# INLINE rdWorkflowExecutionRetentionPeriodInDays #-}
 
 instance ToPath RegisterDomain
 

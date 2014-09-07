@@ -61,18 +61,15 @@ mkResetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     { _rsaSnapshotId = p1
     , _rsaAttribute = p2
     }
-{-# INLINE mkResetSnapshotAttribute #-}
 
 -- | The ID of the snapshot.
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
-{-# INLINE rsaSnapshotId #-}
 
 -- | The attribute to reset (currently only the attribute for permission to
 -- create volumes can be reset).
 rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
 rsaAttribute = lens _rsaAttribute (\s a -> s { _rsaAttribute = a })
-{-# INLINE rsaAttribute #-}
 
 instance ToQuery ResetSnapshotAttribute where
     toQuery = genericQuery def

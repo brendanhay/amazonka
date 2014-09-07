@@ -117,7 +117,6 @@ mkGetFederationToken p1 = GetFederationToken
     , _gftPolicy = Nothing
     , _gftDurationSeconds = Nothing
     }
-{-# INLINE mkGetFederationToken #-}
 
 -- | The name of the federated user. The name is used as an identifier for the
 -- temporary security credentials (such as Bob). For example, you can
@@ -125,7 +124,6 @@ mkGetFederationToken p1 = GetFederationToken
 -- Amazon S3 bucket policy.
 gftName :: Lens' GetFederationToken Text
 gftName = lens _gftName (\s a -> s { _gftName = a })
-{-# INLINE gftName #-}
 
 -- | An IAM policy in JSON format that is passed with the GetFederationToken
 -- call and evaluated along with the policy or policies that are attached to
@@ -143,7 +141,6 @@ gftName = lens _gftName (\s a -> s { _gftName = a })
 -- Permissions for GetFederationToken in Using Temporary Security Credentials.
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\s a -> s { _gftPolicy = a })
-{-# INLINE gftPolicy #-}
 
 -- | The duration, in seconds, that the session should last. Acceptable
 -- durations for federation sessions range from 900 seconds (15 minutes) to
@@ -155,7 +152,6 @@ gftPolicy = lens _gftPolicy (\s a -> s { _gftPolicy = a })
 gftDurationSeconds :: Lens' GetFederationToken (Maybe Integer)
 gftDurationSeconds =
     lens _gftDurationSeconds (\s a -> s { _gftDurationSeconds = a })
-{-# INLINE gftDurationSeconds #-}
 
 instance ToQuery GetFederationToken where
     toQuery = genericQuery def
@@ -172,7 +168,6 @@ data GetFederationTokenResponse = GetFederationTokenResponse
 gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
 gftrsCredentials =
     lens _gftrsCredentials (\s a -> s { _gftrsCredentials = a })
-{-# INLINE gftrsCredentials #-}
 
 -- | Identifiers for the federated user associated with the credentials (such as
 -- arn:aws:sts::123456789012:federated-user/Bob or 123456789012:Bob). You can
@@ -181,7 +176,6 @@ gftrsCredentials =
 gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrsFederatedUser =
     lens _gftrsFederatedUser (\s a -> s { _gftrsFederatedUser = a })
-{-# INLINE gftrsFederatedUser #-}
 
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
@@ -189,7 +183,6 @@ gftrsFederatedUser =
 gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Integer)
 gftrsPackedPolicySize =
     lens _gftrsPackedPolicySize (\s a -> s { _gftrsPackedPolicySize = a })
-{-# INLINE gftrsPackedPolicySize #-}
 
 instance FromXML GetFederationTokenResponse where
     fromXMLOptions = xmlOptions

@@ -69,7 +69,6 @@ mkCheckDomainAvailability p1 = CheckDomainAvailability
     { _cdaDomainName = p1
     , _cdaIdnLangCode = Nothing
     }
-{-# INLINE mkCheckDomainAvailability #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -77,12 +76,10 @@ mkCheckDomainAvailability p1 = CheckDomainAvailability
 -- Yes.
 cdaDomainName :: Lens' CheckDomainAvailability Text
 cdaDomainName = lens _cdaDomainName (\s a -> s { _cdaDomainName = a })
-{-# INLINE cdaDomainName #-}
 
 -- | Reserved for future use.
 cdaIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
 cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
-{-# INLINE cdaIdnLangCode #-}
 
 instance ToPath CheckDomainAvailability
 
@@ -108,7 +105,6 @@ newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarsAvailability =
     lens _cdarsAvailability (\s a -> s { _cdarsAvailability = a })
-{-# INLINE cdarsAvailability #-}
 
 instance FromJSON CheckDomainAvailabilityResponse
 

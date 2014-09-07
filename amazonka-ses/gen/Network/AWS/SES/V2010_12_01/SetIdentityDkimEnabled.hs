@@ -71,18 +71,15 @@ mkSetIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
     { _sideIdentity = p1
     , _sideDkimEnabled = p2
     }
-{-# INLINE mkSetIdentityDkimEnabled #-}
 
 -- | The identity for which DKIM signing should be enabled or disabled.
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
-{-# INLINE sideIdentity #-}
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to true to enable
 -- DKIM signing for this identity; false to disable it.
 sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
 sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
-{-# INLINE sideDkimEnabled #-}
 
 instance ToQuery SetIdentityDkimEnabled where
     toQuery = genericQuery def

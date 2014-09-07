@@ -52,7 +52,6 @@ data GetSendStatistics = GetSendStatistics
 -- a valid 'GetSendStatistics' request.
 mkGetSendStatistics :: GetSendStatistics
 mkGetSendStatistics = GetSendStatistics
-{-# INLINE mkGetSendStatistics #-}
 
 instance ToQuery GetSendStatistics where
     toQuery = genericQuery def
@@ -68,7 +67,6 @@ newtype GetSendStatisticsResponse = GetSendStatisticsResponse
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrsSendDataPoints =
     lens _gssrsSendDataPoints (\s a -> s { _gssrsSendDataPoints = a })
-{-# INLINE gssrsSendDataPoints #-}
 
 instance FromXML GetSendStatisticsResponse where
     fromXMLOptions = xmlOptions

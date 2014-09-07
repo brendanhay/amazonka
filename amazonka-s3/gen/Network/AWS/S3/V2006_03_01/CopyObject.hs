@@ -144,27 +144,22 @@ mkCopyObject p18 p2 p8 = CopyObject
     , _coCopySourceSSECustomerKey = Nothing
     , _coCopySourceSSECustomerKeyMD5 = Nothing
     }
-{-# INLINE mkCopyObject #-}
 
 -- | The canned ACL to apply to the object.
 coACL :: Lens' CopyObject (Maybe ObjectCannedACL)
 coACL = lens _coACL (\s a -> s { _coACL = a })
-{-# INLINE coACL #-}
 
 coBucket :: Lens' CopyObject BucketName
 coBucket = lens _coBucket (\s a -> s { _coBucket = a })
-{-# INLINE coBucket #-}
 
 -- | Specifies caching behavior along the request/reply chain.
 coCacheControl :: Lens' CopyObject (Maybe Text)
 coCacheControl = lens _coCacheControl (\s a -> s { _coCacheControl = a })
-{-# INLINE coCacheControl #-}
 
 -- | Specifies presentational information for the object.
 coContentDisposition :: Lens' CopyObject (Maybe Text)
 coContentDisposition =
     lens _coContentDisposition (\s a -> s { _coContentDisposition = a })
-{-# INLINE coContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
@@ -172,37 +167,31 @@ coContentDisposition =
 coContentEncoding :: Lens' CopyObject (Maybe Text)
 coContentEncoding =
     lens _coContentEncoding (\s a -> s { _coContentEncoding = a })
-{-# INLINE coContentEncoding #-}
 
 -- | The language the content is in.
 coContentLanguage :: Lens' CopyObject (Maybe Text)
 coContentLanguage =
     lens _coContentLanguage (\s a -> s { _coContentLanguage = a })
-{-# INLINE coContentLanguage #-}
 
 -- | A standard MIME type describing the format of the object data.
 coContentType :: Lens' CopyObject (Maybe Text)
 coContentType = lens _coContentType (\s a -> s { _coContentType = a })
-{-# INLINE coContentType #-}
 
 -- | The name of the source bucket and key name of the source object, separated
 -- by a slash (/). Must be URL-encoded.
 coCopySource :: Lens' CopyObject Text
 coCopySource = lens _coCopySource (\s a -> s { _coCopySource = a })
-{-# INLINE coCopySource #-}
 
 -- | Copies the object if its entity tag (ETag) matches the specified tag.
 coCopySourceIfMatch :: Lens' CopyObject (Maybe Text)
 coCopySourceIfMatch =
     lens _coCopySourceIfMatch (\s a -> s { _coCopySourceIfMatch = a })
-{-# INLINE coCopySourceIfMatch #-}
 
 -- | Copies the object if it has been modified since the specified time.
 coCopySourceIfModifiedSince :: Lens' CopyObject (Maybe RFC822)
 coCopySourceIfModifiedSince =
     lens _coCopySourceIfModifiedSince
          (\s a -> s { _coCopySourceIfModifiedSince = a })
-{-# INLINE coCopySourceIfModifiedSince #-}
 
 -- | Copies the object if its entity tag (ETag) is different than the specified
 -- ETag.
@@ -210,67 +199,55 @@ coCopySourceIfNoneMatch :: Lens' CopyObject (Maybe Text)
 coCopySourceIfNoneMatch =
     lens _coCopySourceIfNoneMatch
          (\s a -> s { _coCopySourceIfNoneMatch = a })
-{-# INLINE coCopySourceIfNoneMatch #-}
 
 -- | Copies the object if it hasn't been modified since the specified time.
 coCopySourceIfUnmodifiedSince :: Lens' CopyObject (Maybe RFC822)
 coCopySourceIfUnmodifiedSince =
     lens _coCopySourceIfUnmodifiedSince
          (\s a -> s { _coCopySourceIfUnmodifiedSince = a })
-{-# INLINE coCopySourceIfUnmodifiedSince #-}
 
 -- | The date and time at which the object is no longer cacheable.
 coExpires :: Lens' CopyObject (Maybe RFC822)
 coExpires = lens _coExpires (\s a -> s { _coExpires = a })
-{-# INLINE coExpires #-}
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 coGrantFullControl :: Lens' CopyObject (Maybe Text)
 coGrantFullControl =
     lens _coGrantFullControl (\s a -> s { _coGrantFullControl = a })
-{-# INLINE coGrantFullControl #-}
 
 -- | Allows grantee to read the object data and its metadata.
 coGrantRead :: Lens' CopyObject (Maybe Text)
 coGrantRead = lens _coGrantRead (\s a -> s { _coGrantRead = a })
-{-# INLINE coGrantRead #-}
 
 -- | Allows grantee to read the object ACL.
 coGrantReadACP :: Lens' CopyObject (Maybe Text)
 coGrantReadACP = lens _coGrantReadACP (\s a -> s { _coGrantReadACP = a })
-{-# INLINE coGrantReadACP #-}
 
 -- | Allows grantee to write the ACL for the applicable object.
 coGrantWriteACP :: Lens' CopyObject (Maybe Text)
 coGrantWriteACP = lens _coGrantWriteACP (\s a -> s { _coGrantWriteACP = a })
-{-# INLINE coGrantWriteACP #-}
 
 coKey :: Lens' CopyObject ObjectKey
 coKey = lens _coKey (\s a -> s { _coKey = a })
-{-# INLINE coKey #-}
 
 -- | A map of metadata to store with the object in S3.
 coMetadata :: Lens' CopyObject (Map Text Text)
 coMetadata = lens _coMetadata (\s a -> s { _coMetadata = a })
-{-# INLINE coMetadata #-}
 
 -- | Specifies whether the metadata is copied from the source object or replaced
 -- with metadata provided in the request.
 coMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
 coMetadataDirective =
     lens _coMetadataDirective (\s a -> s { _coMetadataDirective = a })
-{-# INLINE coMetadataDirective #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 coServerSideEncryption :: Lens' CopyObject (Maybe ServerSideEncryption)
 coServerSideEncryption =
     lens _coServerSideEncryption (\s a -> s { _coServerSideEncryption = a })
-{-# INLINE coServerSideEncryption #-}
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
 coStorageClass :: Lens' CopyObject (Maybe StorageClass)
 coStorageClass = lens _coStorageClass (\s a -> s { _coStorageClass = a })
-{-# INLINE coStorageClass #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
@@ -279,14 +256,12 @@ coWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
 coWebsiteRedirectLocation =
     lens _coWebsiteRedirectLocation
          (\s a -> s { _coWebsiteRedirectLocation = a })
-{-# INLINE coWebsiteRedirectLocation #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
 coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 coSSECustomerAlgorithm =
     lens _coSSECustomerAlgorithm (\s a -> s { _coSSECustomerAlgorithm = a })
-{-# INLINE coSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -296,7 +271,6 @@ coSSECustomerAlgorithm =
 coSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coSSECustomerKey =
     lens _coSSECustomerKey (\s a -> s { _coSSECustomerKey = a })
-{-# INLINE coSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -304,7 +278,6 @@ coSSECustomerKey =
 coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coSSECustomerKeyMD5 =
     lens _coSSECustomerKeyMD5 (\s a -> s { _coSSECustomerKeyMD5 = a })
-{-# INLINE coSSECustomerKeyMD5 #-}
 
 -- | Specifies the algorithm to use when decrypting the source object (e.g.,
 -- AES256).
@@ -312,7 +285,6 @@ coCopySourceSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerAlgorithm =
     lens _coCopySourceSSECustomerAlgorithm
          (\s a -> s { _coCopySourceSSECustomerAlgorithm = a })
-{-# INLINE coCopySourceSSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
 -- decrypt the source object. The encryption key provided in this header must
@@ -321,7 +293,6 @@ coCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKey =
     lens _coCopySourceSSECustomerKey
          (\s a -> s { _coCopySourceSSECustomerKey = a })
-{-# INLINE coCopySourceSSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -330,7 +301,6 @@ coCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKeyMD5 =
     lens _coCopySourceSSECustomerKeyMD5
          (\s a -> s { _coCopySourceSSECustomerKeyMD5 = a })
-{-# INLINE coCopySourceSSECustomerKeyMD5 #-}
 
 instance ToPath CopyObject where
     toPath CopyObject{..} = mconcat
@@ -387,25 +357,21 @@ data CopyObjectResponse = CopyObjectResponse
 corsCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corsCopyObjectResult =
     lens _corsCopyObjectResult (\s a -> s { _corsCopyObjectResult = a })
-{-# INLINE corsCopyObjectResult #-}
 
 -- | If the object expiration is configured, the response includes this header.
 corsExpiration :: Lens' CopyObjectResponse (Maybe RFC822)
 corsExpiration = lens _corsExpiration (\s a -> s { _corsExpiration = a })
-{-# INLINE corsExpiration #-}
 
 corsCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
 corsCopySourceVersionId =
     lens _corsCopySourceVersionId
          (\s a -> s { _corsCopySourceVersionId = a })
-{-# INLINE corsCopySourceVersionId #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 corsServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
 corsServerSideEncryption =
     lens _corsServerSideEncryption
          (\s a -> s { _corsServerSideEncryption = a })
-{-# INLINE corsServerSideEncryption #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
@@ -414,7 +380,6 @@ corsSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
 corsSSECustomerAlgorithm =
     lens _corsSSECustomerAlgorithm
          (\s a -> s { _corsSSECustomerAlgorithm = a })
-{-# INLINE corsSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
@@ -422,7 +387,6 @@ corsSSECustomerAlgorithm =
 corsSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
 corsSSECustomerKeyMD5 =
     lens _corsSSECustomerKeyMD5 (\s a -> s { _corsSSECustomerKeyMD5 = a })
-{-# INLINE corsSSECustomerKeyMD5 #-}
 
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3

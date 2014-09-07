@@ -51,12 +51,10 @@ mkDeleteStack :: Text -- ^ 'ds1StackId'
 mkDeleteStack p1 = DeleteStack
     { _ds1StackId = p1
     }
-{-# INLINE mkDeleteStack #-}
 
 -- | The stack ID.
 ds1StackId :: Lens' DeleteStack Text
 ds1StackId = lens _ds1StackId (\s a -> s { _ds1StackId = a })
-{-# INLINE ds1StackId #-}
 
 instance ToPath DeleteStack
 

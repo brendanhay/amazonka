@@ -56,21 +56,17 @@ mkPutBucketLogging p1 p2 = PutBucketLogging
     , _pbl1BucketLoggingStatus = p2
     , _pbl1ContentMD5 = Nothing
     }
-{-# INLINE mkPutBucketLogging #-}
 
 pbl1Bucket :: Lens' PutBucketLogging BucketName
 pbl1Bucket = lens _pbl1Bucket (\s a -> s { _pbl1Bucket = a })
-{-# INLINE pbl1Bucket #-}
 
 pbl1BucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
 pbl1BucketLoggingStatus =
     lens _pbl1BucketLoggingStatus
          (\s a -> s { _pbl1BucketLoggingStatus = a })
-{-# INLINE pbl1BucketLoggingStatus #-}
 
 pbl1ContentMD5 :: Lens' PutBucketLogging (Maybe Text)
 pbl1ContentMD5 = lens _pbl1ContentMD5 (\s a -> s { _pbl1ContentMD5 = a })
-{-# INLINE pbl1ContentMD5 #-}
 
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat

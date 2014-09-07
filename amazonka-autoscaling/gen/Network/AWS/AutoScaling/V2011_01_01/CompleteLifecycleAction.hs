@@ -69,20 +69,17 @@ mkCompleteLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
     , _claLifecycleActionToken = p3
     , _claLifecycleActionResult = p4
     }
-{-# INLINE mkCompleteLifecycleAction #-}
 
 -- | The name of the lifecycle hook.
 claLifecycleHookName :: Lens' CompleteLifecycleAction Text
 claLifecycleHookName =
     lens _claLifecycleHookName (\s a -> s { _claLifecycleHookName = a })
-{-# INLINE claLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle hook belongs.
 claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
 claAutoScalingGroupName =
     lens _claAutoScalingGroupName
          (\s a -> s { _claAutoScalingGroupName = a })
-{-# INLINE claAutoScalingGroupName #-}
 
 -- | A universally unique identifier (UUID) that identifies a specific lifecycle
 -- action associated with an instance. Auto Scaling sends this token to the
@@ -91,7 +88,6 @@ claLifecycleActionToken :: Lens' CompleteLifecycleAction Text
 claLifecycleActionToken =
     lens _claLifecycleActionToken
          (\s a -> s { _claLifecycleActionToken = a })
-{-# INLINE claLifecycleActionToken #-}
 
 -- | The action the Auto Scaling group should take. The value for this parameter
 -- can be either CONTINUE or ABANDON.
@@ -99,7 +95,6 @@ claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult =
     lens _claLifecycleActionResult
          (\s a -> s { _claLifecycleActionResult = a })
-{-# INLINE claLifecycleActionResult #-}
 
 instance ToQuery CompleteLifecycleAction where
     toQuery = genericQuery def

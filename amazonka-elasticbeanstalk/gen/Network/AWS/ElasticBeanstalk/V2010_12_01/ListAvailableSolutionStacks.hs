@@ -46,7 +46,6 @@ data ListAvailableSolutionStacks = ListAvailableSolutionStacks
 -- a valid 'ListAvailableSolutionStacks' request.
 mkListAvailableSolutionStacks :: ListAvailableSolutionStacks
 mkListAvailableSolutionStacks = ListAvailableSolutionStacks
-{-# INLINE mkListAvailableSolutionStacks #-}
 
 instance ToQuery ListAvailableSolutionStacks where
     toQuery = genericQuery def
@@ -61,14 +60,12 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
 lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrsSolutionStacks =
     lens _lassrsSolutionStacks (\s a -> s { _lassrsSolutionStacks = a })
-{-# INLINE lassrsSolutionStacks #-}
 
 -- | A list of available solution stacks and their SolutionStackDescription.
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrsSolutionStackDetails =
     lens _lassrsSolutionStackDetails
          (\s a -> s { _lassrsSolutionStackDetails = a })
-{-# INLINE lassrsSolutionStackDetails #-}
 
 instance FromXML ListAvailableSolutionStacksResponse where
     fromXMLOptions = xmlOptions

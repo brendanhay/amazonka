@@ -55,19 +55,16 @@ mkRemoveTags p1 p2 = RemoveTags
     { _rtLoadBalancerNames = p1
     , _rtTags = p2
     }
-{-# INLINE mkRemoveTags #-}
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
 rtLoadBalancerNames :: Lens' RemoveTags [Text]
 rtLoadBalancerNames =
     lens _rtLoadBalancerNames (\s a -> s { _rtLoadBalancerNames = a })
-{-# INLINE rtLoadBalancerNames #-}
 
 -- | A list of tag keys to remove.
 rtTags :: Lens' RemoveTags [TagKeyOnly]
 rtTags = lens _rtTags (\s a -> s { _rtTags = a })
-{-# INLINE rtTags #-}
 
 instance ToQuery RemoveTags where
     toQuery = genericQuery def

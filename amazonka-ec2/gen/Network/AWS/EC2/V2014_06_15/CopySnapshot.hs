@@ -77,30 +77,25 @@ mkCopySnapshot p1 p2 = CopySnapshot
     , _csDestinationRegion = Nothing
     , _csPresignedUrl = Nothing
     }
-{-# INLINE mkCopySnapshot #-}
 
 -- | The ID of the region that contains the snapshot to be copied.
 csSourceRegion :: Lens' CopySnapshot Text
 csSourceRegion = lens _csSourceRegion (\s a -> s { _csSourceRegion = a })
-{-# INLINE csSourceRegion #-}
 
 -- | The ID of the Amazon EBS snapshot to copy.
 csSourceSnapshotId :: Lens' CopySnapshot Text
 csSourceSnapshotId =
     lens _csSourceSnapshotId (\s a -> s { _csSourceSnapshotId = a })
-{-# INLINE csSourceSnapshotId #-}
 
 -- | A description for the new Amazon EBS snapshot.
 csDescription :: Lens' CopySnapshot (Maybe Text)
 csDescription = lens _csDescription (\s a -> s { _csDescription = a })
-{-# INLINE csDescription #-}
 
 -- | The destination region of the snapshot copy operation. This parameter is
 -- required in the PresignedUrl.
 csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
 csDestinationRegion =
     lens _csDestinationRegion (\s a -> s { _csDestinationRegion = a })
-{-# INLINE csDestinationRegion #-}
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
 -- parameter is only required when copying an encrypted snapshot with the
@@ -116,7 +111,6 @@ csDestinationRegion =
 -- fail asynchronously, and the snapshot will move to an error state.
 csPresignedUrl :: Lens' CopySnapshot (Maybe Text)
 csPresignedUrl = lens _csPresignedUrl (\s a -> s { _csPresignedUrl = a })
-{-# INLINE csPresignedUrl #-}
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
@@ -129,7 +123,6 @@ newtype CopySnapshotResponse = CopySnapshotResponse
 -- | The ID of the new snapshot.
 csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\s a -> s { _csrsSnapshotId = a })
-{-# INLINE csrsSnapshotId #-}
 
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions

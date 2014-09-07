@@ -54,18 +54,15 @@ mkGetInvalidation p1 p2 = GetInvalidation
     { _giDistributionId = p1
     , _giId = p2
     }
-{-# INLINE mkGetInvalidation #-}
 
 -- | The distribution's id.
 giDistributionId :: Lens' GetInvalidation Text
 giDistributionId =
     lens _giDistributionId (\s a -> s { _giDistributionId = a })
-{-# INLINE giDistributionId #-}
 
 -- | The invalidation's id.
 giId :: Lens' GetInvalidation Text
 giId = lens _giId (\s a -> s { _giId = a })
-{-# INLINE giId #-}
 
 instance ToPath GetInvalidation where
     toPath GetInvalidation{..} = mconcat
@@ -92,7 +89,6 @@ newtype GetInvalidationResponse = GetInvalidationResponse
 girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girsInvalidation =
     lens _girsInvalidation (\s a -> s { _girsInvalidation = a })
-{-# INLINE girsInvalidation #-}
 
 instance FromXML GetInvalidationResponse where
     fromXMLOptions = xmlOptions

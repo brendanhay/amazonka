@@ -69,22 +69,18 @@ mkEvaluateExpression p1 p2 p3 = EvaluateExpression
     , _eeObjectId = p2
     , _eeExpression = p3
     }
-{-# INLINE mkEvaluateExpression #-}
 
 -- | The identifier of the pipeline.
 eePipelineId :: Lens' EvaluateExpression Text
 eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
-{-# INLINE eePipelineId #-}
 
 -- | The identifier of the object.
 eeObjectId :: Lens' EvaluateExpression Text
 eeObjectId = lens _eeObjectId (\s a -> s { _eeObjectId = a })
-{-# INLINE eeObjectId #-}
 
 -- | The expression to evaluate.
 eeExpression :: Lens' EvaluateExpression Text
 eeExpression = lens _eeExpression (\s a -> s { _eeExpression = a })
-{-# INLINE eeExpression #-}
 
 instance ToPath EvaluateExpression
 
@@ -104,7 +100,6 @@ eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eersEvaluatedExpression =
     lens _eersEvaluatedExpression
          (\s a -> s { _eersEvaluatedExpression = a })
-{-# INLINE eersEvaluatedExpression #-}
 
 instance FromJSON EvaluateExpressionResponse
 

@@ -71,7 +71,6 @@ mkCreateReplicationGroup p1 p2 p3 = CreateReplicationGroup
     , _crgPrimaryClusterId = p2
     , _crgReplicationGroupDescription = p3
     }
-{-# INLINE mkCreateReplicationGroup #-}
 
 -- | The replication group identifier. This parameter is stored as a lowercase
 -- string. Constraints: Must contain from 1 to 20 alphanumeric characters or
@@ -80,7 +79,6 @@ mkCreateReplicationGroup p1 p2 p3 = CreateReplicationGroup
 crgReplicationGroupId :: Lens' CreateReplicationGroup Text
 crgReplicationGroupId =
     lens _crgReplicationGroupId (\s a -> s { _crgReplicationGroupId = a })
-{-# INLINE crgReplicationGroupId #-}
 
 -- | The identifier of the cache cluster that will serve as the primary for this
 -- replication group. This cache cluster must already exist and have a status
@@ -88,14 +86,12 @@ crgReplicationGroupId =
 crgPrimaryClusterId :: Lens' CreateReplicationGroup Text
 crgPrimaryClusterId =
     lens _crgPrimaryClusterId (\s a -> s { _crgPrimaryClusterId = a })
-{-# INLINE crgPrimaryClusterId #-}
 
 -- | A user-specified description for the replication group.
 crgReplicationGroupDescription :: Lens' CreateReplicationGroup Text
 crgReplicationGroupDescription =
     lens _crgReplicationGroupDescription
          (\s a -> s { _crgReplicationGroupDescription = a })
-{-# INLINE crgReplicationGroupDescription #-}
 
 instance ToQuery CreateReplicationGroup where
     toQuery = genericQuery def
@@ -108,7 +104,6 @@ newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
 crgrsReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 crgrsReplicationGroup =
     lens _crgrsReplicationGroup (\s a -> s { _crgrsReplicationGroup = a })
-{-# INLINE crgrsReplicationGroup #-}
 
 instance FromXML CreateReplicationGroupResponse where
     fromXMLOptions = xmlOptions

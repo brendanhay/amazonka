@@ -63,14 +63,12 @@ mkModifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName = p1
     , _mcpgParameterNameValues = p2
     }
-{-# INLINE mkModifyCacheParameterGroup #-}
 
 -- | The name of the cache parameter group to modify.
 mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
 mcpgCacheParameterGroupName =
     lens _mcpgCacheParameterGroupName
          (\s a -> s { _mcpgCacheParameterGroupName = a })
-{-# INLINE mcpgCacheParameterGroupName #-}
 
 -- | An array of parameter names and values for the parameter update. You must
 -- supply at least one parameter name and value; subsequent arguments are
@@ -79,7 +77,6 @@ mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
 mcpgParameterNameValues =
     lens _mcpgParameterNameValues
          (\s a -> s { _mcpgParameterNameValues = a })
-{-# INLINE mcpgParameterNameValues #-}
 
 instance ToQuery ModifyCacheParameterGroup where
     toQuery = genericQuery def
@@ -95,7 +92,6 @@ mcpgrsCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe 
 mcpgrsCacheParameterGroupName =
     lens _mcpgrsCacheParameterGroupName
          (\s a -> s { _mcpgrsCacheParameterGroupName = a })
-{-# INLINE mcpgrsCacheParameterGroupName #-}
 
 instance FromXML ModifyCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions

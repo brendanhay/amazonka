@@ -55,14 +55,12 @@ mkDescribeInternetGateways = DescribeInternetGateways
     { _dig1InternetGatewayIds = mempty
     , _dig1Filters = mempty
     }
-{-# INLINE mkDescribeInternetGateways #-}
 
 -- | One or more Internet gateway IDs. Default: Describes all your Internet
 -- gateways.
 dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
 dig1InternetGatewayIds =
     lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
-{-# INLINE dig1InternetGatewayIds #-}
 
 -- | One or more filters. attachment.state - The current state of the attachment
 -- between the gateway and the VPC. Present only if a VPC is attached.
@@ -78,7 +76,6 @@ dig1InternetGatewayIds =
 -- resource. This filter is independent of the tag-key filter.
 dig1Filters :: Lens' DescribeInternetGateways [Filter]
 dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a })
-{-# INLINE dig1Filters #-}
 
 instance ToQuery DescribeInternetGateways where
     toQuery = genericQuery def
@@ -92,7 +89,6 @@ newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrsInternetGateways =
     lens _digrsInternetGateways (\s a -> s { _digrsInternetGateways = a })
-{-# INLINE digrsInternetGateways #-}
 
 instance FromXML DescribeInternetGatewaysResponse where
     fromXMLOptions = xmlOptions

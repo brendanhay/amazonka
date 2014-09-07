@@ -66,14 +66,12 @@ mkCreateVirtualMFADevice p2 = CreateVirtualMFADevice
     { _cvmfadPath = Nothing
     , _cvmfadVirtualMFADeviceName = p2
     }
-{-# INLINE mkCreateVirtualMFADevice #-}
 
 -- | The path for the virtual MFA device. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
 cvmfadPath :: Lens' CreateVirtualMFADevice (Maybe Text)
 cvmfadPath = lens _cvmfadPath (\s a -> s { _cvmfadPath = a })
-{-# INLINE cvmfadPath #-}
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
@@ -81,7 +79,6 @@ cvmfadVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
 cvmfadVirtualMFADeviceName =
     lens _cvmfadVirtualMFADeviceName
          (\s a -> s { _cvmfadVirtualMFADeviceName = a })
-{-# INLINE cvmfadVirtualMFADeviceName #-}
 
 instance ToQuery CreateVirtualMFADevice where
     toQuery = genericQuery def
@@ -97,7 +94,6 @@ cvmfadrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevic
 cvmfadrsVirtualMFADevice =
     lens _cvmfadrsVirtualMFADevice
          (\s a -> s { _cvmfadrsVirtualMFADevice = a })
-{-# INLINE cvmfadrsVirtualMFADevice #-}
 
 instance FromXML CreateVirtualMFADeviceResponse where
     fromXMLOptions = xmlOptions

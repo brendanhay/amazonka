@@ -80,26 +80,22 @@ mkDescribeObjects p1 p2 = DescribeObjects
     , _doEvaluateExpressions = Nothing
     , _doMarker = Nothing
     }
-{-# INLINE mkDescribeObjects #-}
 
 -- | Identifier of the pipeline that contains the object definitions.
 doPipelineId :: Lens' DescribeObjects Text
 doPipelineId = lens _doPipelineId (\s a -> s { _doPipelineId = a })
-{-# INLINE doPipelineId #-}
 
 -- | Identifiers of the pipeline objects that contain the definitions to be
 -- described. You can pass as many as 25 identifiers in a single call to
 -- DescribeObjects.
 doObjectIds :: Lens' DescribeObjects [Text]
 doObjectIds = lens _doObjectIds (\s a -> s { _doObjectIds = a })
-{-# INLINE doObjectIds #-}
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
 doEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
 doEvaluateExpressions =
     lens _doEvaluateExpressions (\s a -> s { _doEvaluateExpressions = a })
-{-# INLINE doEvaluateExpressions #-}
 
 -- | The starting point for the results to be returned. The first time you call
 -- DescribeObjects, this value should be empty. As long as the action returns
@@ -107,7 +103,6 @@ doEvaluateExpressions =
 -- marker value from the response to retrieve the next set of results.
 doMarker :: Lens' DescribeObjects (Maybe Text)
 doMarker = lens _doMarker (\s a -> s { _doMarker = a })
-{-# INLINE doMarker #-}
 
 instance ToPath DescribeObjects
 
@@ -130,19 +125,16 @@ data DescribeObjectsResponse = DescribeObjectsResponse
 dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorsPipelineObjects =
     lens _dorsPipelineObjects (\s a -> s { _dorsPipelineObjects = a })
-{-# INLINE dorsPipelineObjects #-}
 
 -- | The starting point for the next page of results. To view the next page of
 -- results, call DescribeObjects again with this marker value.
 dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorsMarker = lens _dorsMarker (\s a -> s { _dorsMarker = a })
-{-# INLINE dorsMarker #-}
 
 -- | If True, there are more pages of results to return.
 dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
 dorsHasMoreResults =
     lens _dorsHasMoreResults (\s a -> s { _dorsHasMoreResults = a })
-{-# INLINE dorsHasMoreResults #-}
 
 instance FromJSON DescribeObjectsResponse
 
@@ -155,7 +147,5 @@ instance AWSRequest DescribeObjects where
 
 instance AWSPager DescribeObjects where
     next rq rs
-        | not (_dorsHasMoreResults rs) = Nothing
-        | otherwise = Just $ rq
-            { _doMarker = _dorsMarker rs
-            }
+        | not (rs ^. dorsHasMoreResults) = Nothing
+        | otherwise = Just (rq & doMarker .~ rs ^. dorsMarker)

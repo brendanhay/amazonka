@@ -67,13 +67,11 @@ mkDescribeExportTasks :: DescribeExportTasks
 mkDescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds = mempty
     }
-{-# INLINE mkDescribeExportTasks #-}
 
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
 detExportTaskIds =
     lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
-{-# INLINE detExportTaskIds #-}
 
 instance ToQuery DescribeExportTasks where
     toQuery = genericQuery def
@@ -87,7 +85,6 @@ newtype DescribeExportTasksResponse = DescribeExportTasksResponse
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrsExportTasks =
     lens _detrsExportTasks (\s a -> s { _detrsExportTasks = a })
-{-# INLINE detrsExportTasks #-}
 
 instance FromXML DescribeExportTasksResponse where
     fromXMLOptions = xmlOptions

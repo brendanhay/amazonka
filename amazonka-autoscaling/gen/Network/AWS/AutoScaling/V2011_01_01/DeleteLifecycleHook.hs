@@ -53,20 +53,17 @@ mkDeleteLifecycleHook p1 p2 = DeleteLifecycleHook
     { _dlhLifecycleHookName = p1
     , _dlhAutoScalingGroupName = p2
     }
-{-# INLINE mkDeleteLifecycleHook #-}
 
 -- | The name of the lifecycle hook.
 dlhLifecycleHookName :: Lens' DeleteLifecycleHook Text
 dlhLifecycleHookName =
     lens _dlhLifecycleHookName (\s a -> s { _dlhLifecycleHookName = a })
-{-# INLINE dlhLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which the lifecycle hook belongs.
 dlhAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
 dlhAutoScalingGroupName =
     lens _dlhAutoScalingGroupName
          (\s a -> s { _dlhAutoScalingGroupName = a })
-{-# INLINE dlhAutoScalingGroupName #-}
 
 instance ToQuery DeleteLifecycleHook where
     toQuery = genericQuery def

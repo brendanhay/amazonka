@@ -60,12 +60,10 @@ mkCreateUserProfile p1 = CreateUserProfile
     , _cupSshPublicKey = Nothing
     , _cupAllowSelfManagement = Nothing
     }
-{-# INLINE mkCreateUserProfile #-}
 
 -- | The user's IAM ARN.
 cupIamUserArn :: Lens' CreateUserProfile Text
 cupIamUserArn = lens _cupIamUserArn (\s a -> s { _cupIamUserArn = a })
-{-# INLINE cupIamUserArn #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
 -- '-', and '_'. If the specified name includes other punctuation marks, AWS
@@ -74,19 +72,16 @@ cupIamUserArn = lens _cupIamUserArn (\s a -> s { _cupIamUserArn = a })
 -- IAM user name.
 cupSshUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSshUsername = lens _cupSshUsername (\s a -> s { _cupSshUsername = a })
-{-# INLINE cupSshUsername #-}
 
 -- | The user's public SSH key.
 cupSshPublicKey :: Lens' CreateUserProfile (Maybe Text)
 cupSshPublicKey = lens _cupSshPublicKey (\s a -> s { _cupSshPublicKey = a })
-{-# INLINE cupSshPublicKey #-}
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see Setting an IAM User's Public SSH Key.
 cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
 cupAllowSelfManagement =
     lens _cupAllowSelfManagement (\s a -> s { _cupAllowSelfManagement = a })
-{-# INLINE cupAllowSelfManagement #-}
 
 instance ToPath CreateUserProfile
 
@@ -104,7 +99,6 @@ newtype CreateUserProfileResponse = CreateUserProfileResponse
 -- | The user's IAM ARN.
 cuprsIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprsIamUserArn = lens _cuprsIamUserArn (\s a -> s { _cuprsIamUserArn = a })
-{-# INLINE cuprsIamUserArn #-}
 
 instance FromJSON CreateUserProfileResponse
 

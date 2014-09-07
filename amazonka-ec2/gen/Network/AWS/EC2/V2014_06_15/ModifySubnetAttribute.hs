@@ -55,19 +55,16 @@ mkModifySubnetAttribute p1 = ModifySubnetAttribute
     { _msa1SubnetId = p1
     , _msa1MapPublicIpOnLaunch = Nothing
     }
-{-# INLINE mkModifySubnetAttribute #-}
 
 -- | The ID of the subnet.
 msa1SubnetId :: Lens' ModifySubnetAttribute Text
 msa1SubnetId = lens _msa1SubnetId (\s a -> s { _msa1SubnetId = a })
-{-# INLINE msa1SubnetId #-}
 
 -- | 
 msa1MapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
 msa1MapPublicIpOnLaunch =
     lens _msa1MapPublicIpOnLaunch
          (\s a -> s { _msa1MapPublicIpOnLaunch = a })
-{-# INLINE msa1MapPublicIpOnLaunch #-}
 
 instance ToQuery ModifySubnetAttribute where
     toQuery = genericQuery def

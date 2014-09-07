@@ -57,12 +57,10 @@ mkDeleteVpc :: Text -- ^ 'dv1VpcId'
 mkDeleteVpc p1 = DeleteVpc
     { _dv1VpcId = p1
     }
-{-# INLINE mkDeleteVpc #-}
 
 -- | The ID of the VPC.
 dv1VpcId :: Lens' DeleteVpc Text
 dv1VpcId = lens _dv1VpcId (\s a -> s { _dv1VpcId = a })
-{-# INLINE dv1VpcId #-}
 
 instance ToQuery DeleteVpc where
     toQuery = genericQuery def

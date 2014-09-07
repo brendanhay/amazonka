@@ -72,7 +72,6 @@ mkDeleteDBInstance p1 = DeleteDBInstance
     , _ddbiSkipFinalSnapshot = Nothing
     , _ddbiFinalDBSnapshotIdentifier = Nothing
     }
-{-# INLINE mkDeleteDBInstance #-}
 
 -- | The DB instance identifier for the DB instance to be deleted. This
 -- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
@@ -82,7 +81,6 @@ ddbiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
 ddbiDBInstanceIdentifier =
     lens _ddbiDBInstanceIdentifier
          (\s a -> s { _ddbiDBInstanceIdentifier = a })
-{-# INLINE ddbiDBInstanceIdentifier #-}
 
 -- | Determines whether a final DB snapshot is created before the DB instance is
 -- deleted. If true is specified, no DBSnapshot is created. If false is
@@ -92,7 +90,6 @@ ddbiDBInstanceIdentifier =
 ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddbiSkipFinalSnapshot =
     lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })
-{-# INLINE ddbiSkipFinalSnapshot #-}
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
 -- SkipFinalSnapshot is set to false. Specifying this parameter and also
@@ -104,7 +101,6 @@ ddbiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddbiFinalDBSnapshotIdentifier =
     lens _ddbiFinalDBSnapshotIdentifier
          (\s a -> s { _ddbiFinalDBSnapshotIdentifier = a })
-{-# INLINE ddbiFinalDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBInstance where
     toQuery = genericQuery def
@@ -119,7 +115,6 @@ newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
 ddbirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddbirsDBInstance =
     lens _ddbirsDBInstance (\s a -> s { _ddbirsDBInstance = a })
-{-# INLINE ddbirsDBInstance #-}
 
 instance FromXML DeleteDBInstanceResponse where
     fromXMLOptions = xmlOptions

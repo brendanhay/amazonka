@@ -58,31 +58,26 @@ mkChangeTagsForResource p1 p2 = ChangeTagsForResource
     , _ctfrAddTags = Nothing
     , _ctfrRemoveTagKeys = Nothing
     }
-{-# INLINE mkChangeTagsForResource #-}
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
 ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType =
     lens _ctfrResourceType (\s a -> s { _ctfrResourceType = a })
-{-# INLINE ctfrResourceType #-}
 
 -- | The ID of the resource for which you want to add, change, or delete tags.
 ctfrResourceId :: Lens' ChangeTagsForResource Text
 ctfrResourceId = lens _ctfrResourceId (\s a -> s { _ctfrResourceId = a })
-{-# INLINE ctfrResourceId #-}
 
 -- | A complex type that contains a list of Tag elements. Each Tag element
 -- identifies a tag that you want to add or update for the specified resource.
 ctfrAddTags :: Lens' ChangeTagsForResource (Maybe [Tag])
 ctfrAddTags = lens _ctfrAddTags (\s a -> s { _ctfrAddTags = a })
-{-# INLINE ctfrAddTags #-}
 
 -- | A list of Tag keys that you want to remove from the specified resource.
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe [Text])
 ctfrRemoveTagKeys =
     lens _ctfrRemoveTagKeys (\s a -> s { _ctfrRemoveTagKeys = a })
-{-# INLINE ctfrRemoveTagKeys #-}
 
 instance ToPath ChangeTagsForResource where
     toPath ChangeTagsForResource{..} = mconcat

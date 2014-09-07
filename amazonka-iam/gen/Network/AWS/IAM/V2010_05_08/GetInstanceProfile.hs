@@ -62,13 +62,11 @@ mkGetInstanceProfile :: Text -- ^ 'gipInstanceProfileName'
 mkGetInstanceProfile p1 = GetInstanceProfile
     { _gipInstanceProfileName = p1
     }
-{-# INLINE mkGetInstanceProfile #-}
 
 -- | Name of the instance profile to get information about.
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName =
     lens _gipInstanceProfileName (\s a -> s { _gipInstanceProfileName = a })
-{-# INLINE gipInstanceProfileName #-}
 
 instance ToQuery GetInstanceProfile where
     toQuery = genericQuery def
@@ -83,7 +81,6 @@ newtype GetInstanceProfileResponse = GetInstanceProfileResponse
 giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprsInstanceProfile =
     lens _giprsInstanceProfile (\s a -> s { _giprsInstanceProfile = a })
-{-# INLINE giprsInstanceProfile #-}
 
 instance FromXML GetInstanceProfileResponse where
     fromXMLOptions = xmlOptions

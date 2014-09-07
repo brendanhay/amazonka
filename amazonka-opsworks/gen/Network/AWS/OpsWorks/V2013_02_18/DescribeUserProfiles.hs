@@ -50,12 +50,10 @@ mkDescribeUserProfiles :: DescribeUserProfiles
 mkDescribeUserProfiles = DescribeUserProfiles
     { _dup1IamUserArns = mempty
     }
-{-# INLINE mkDescribeUserProfiles #-}
 
 -- | An array of IAM user ARNs that identify the users to be described.
 dup1IamUserArns :: Lens' DescribeUserProfiles [Text]
 dup1IamUserArns = lens _dup1IamUserArns (\s a -> s { _dup1IamUserArns = a })
-{-# INLINE dup1IamUserArns #-}
 
 instance ToPath DescribeUserProfiles
 
@@ -74,7 +72,6 @@ newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
 duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprsUserProfiles =
     lens _duprsUserProfiles (\s a -> s { _duprsUserProfiles = a })
-{-# INLINE duprsUserProfiles #-}
 
 instance FromJSON DescribeUserProfilesResponse
 

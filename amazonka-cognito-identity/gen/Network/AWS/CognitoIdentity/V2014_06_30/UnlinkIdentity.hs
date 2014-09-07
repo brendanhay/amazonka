@@ -58,24 +58,20 @@ mkUnlinkIdentity p1 p2 p3 = UnlinkIdentity
     , _uiLogins = p2
     , _uiLoginsToRemove = p3
     }
-{-# INLINE mkUnlinkIdentity #-}
 
 -- | A unique identifier in the format REGION:GUID.
 uiIdentityId :: Lens' UnlinkIdentity Text
 uiIdentityId = lens _uiIdentityId (\s a -> s { _uiIdentityId = a })
-{-# INLINE uiIdentityId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
 uiLogins :: Lens' UnlinkIdentity (Map Text Text)
 uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a })
-{-# INLINE uiLogins #-}
 
 -- | Provider names to unlink from this identity.
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
 uiLoginsToRemove =
     lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a })
-{-# INLINE uiLoginsToRemove #-}
 
 instance ToPath UnlinkIdentity
 

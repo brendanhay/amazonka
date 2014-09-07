@@ -59,17 +59,14 @@ mkRegisterElasticIp p1 p2 = RegisterElasticIp
     { _reiElasticIp = p1
     , _reiStackId = p2
     }
-{-# INLINE mkRegisterElasticIp #-}
 
 -- | The Elastic IP address.
 reiElasticIp :: Lens' RegisterElasticIp Text
 reiElasticIp = lens _reiElasticIp (\s a -> s { _reiElasticIp = a })
-{-# INLINE reiElasticIp #-}
 
 -- | The stack ID.
 reiStackId :: Lens' RegisterElasticIp Text
 reiStackId = lens _reiStackId (\s a -> s { _reiStackId = a })
-{-# INLINE reiStackId #-}
 
 instance ToPath RegisterElasticIp
 
@@ -87,7 +84,6 @@ newtype RegisterElasticIpResponse = RegisterElasticIpResponse
 -- | The Elastic IP address.
 reirsElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
 reirsElasticIp = lens _reirsElasticIp (\s a -> s { _reirsElasticIp = a })
-{-# INLINE reirsElasticIp #-}
 
 instance FromJSON RegisterElasticIpResponse
 

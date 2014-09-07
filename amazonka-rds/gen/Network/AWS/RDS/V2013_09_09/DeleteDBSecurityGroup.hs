@@ -52,7 +52,6 @@ mkDeleteDBSecurityGroup :: Text -- ^ 'ddbsgDBSecurityGroupName'
 mkDeleteDBSecurityGroup p1 = DeleteDBSecurityGroup
     { _ddbsgDBSecurityGroupName = p1
     }
-{-# INLINE mkDeleteDBSecurityGroup #-}
 
 -- | The name of the DB security group to delete. You cannot delete the default
 -- DB security group. Constraints: Must be 1 to 255 alphanumeric characters
@@ -62,7 +61,6 @@ ddbsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
 ddbsgDBSecurityGroupName =
     lens _ddbsgDBSecurityGroupName
          (\s a -> s { _ddbsgDBSecurityGroupName = a })
-{-# INLINE ddbsgDBSecurityGroupName #-}
 
 instance ToQuery DeleteDBSecurityGroup where
     toQuery = genericQuery def

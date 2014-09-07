@@ -68,12 +68,10 @@ mkDeleteStream :: Text -- ^ 'dsStreamName'
 mkDeleteStream p1 = DeleteStream
     { _dsStreamName = p1
     }
-{-# INLINE mkDeleteStream #-}
 
 -- | The name of the stream to delete.
 dsStreamName :: Lens' DeleteStream Text
 dsStreamName = lens _dsStreamName (\s a -> s { _dsStreamName = a })
-{-# INLINE dsStreamName #-}
 
 instance ToPath DeleteStream
 

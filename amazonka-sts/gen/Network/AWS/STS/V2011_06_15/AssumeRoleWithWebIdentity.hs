@@ -131,12 +131,10 @@ mkAssumeRoleWithWebIdentity p1 p2 p3 = AssumeRoleWithWebIdentity
     , _arwwiPolicy = Nothing
     , _arwwiDurationSeconds = Nothing
     }
-{-# INLINE mkAssumeRoleWithWebIdentity #-}
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
 arwwiRoleArn :: Lens' AssumeRoleWithWebIdentity Text
 arwwiRoleArn = lens _arwwiRoleArn (\s a -> s { _arwwiRoleArn = a })
-{-# INLINE arwwiRoleArn #-}
 
 -- | An identifier for the assumed role session. Typically, you pass the name or
 -- identifier that is associated with the user who is using your application.
@@ -146,7 +144,6 @@ arwwiRoleArn = lens _arwwiRoleArn (\s a -> s { _arwwiRoleArn = a })
 arwwiRoleSessionName :: Lens' AssumeRoleWithWebIdentity Text
 arwwiRoleSessionName =
     lens _arwwiRoleSessionName (\s a -> s { _arwwiRoleSessionName = a })
-{-# INLINE arwwiRoleSessionName #-}
 
 -- | The OAuth 2.0 access token or OpenID Connect ID token that is provided by
 -- the identity provider. Your application must get this token by
@@ -155,7 +152,6 @@ arwwiRoleSessionName =
 arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
 arwwiWebIdentityToken =
     lens _arwwiWebIdentityToken (\s a -> s { _arwwiWebIdentityToken = a })
-{-# INLINE arwwiWebIdentityToken #-}
 
 -- | The fully-qualified host component of the domain name of the identity
 -- provider. Specify this value only for OAuth access tokens. Do not specify
@@ -164,7 +160,6 @@ arwwiWebIdentityToken =
 -- graph.facebook.com are supported.
 arwwiProviderId :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwiProviderId = lens _arwwiProviderId (\s a -> s { _arwwiProviderId = a })
-{-# INLINE arwwiProviderId #-}
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you pass
 -- a policy, the temporary security credentials that are returned by the
@@ -177,7 +172,6 @@ arwwiProviderId = lens _arwwiProviderId (\s a -> s { _arwwiProviderId = a })
 -- AssumeRoleWithWebIdentity in Using Temporary Security Credentials.
 arwwiPolicy :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwiPolicy = lens _arwwiPolicy (\s a -> s { _arwwiPolicy = a })
-{-# INLINE arwwiPolicy #-}
 
 -- | The duration, in seconds, of the role session. The value can range from 900
 -- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
@@ -185,7 +179,6 @@ arwwiPolicy = lens _arwwiPolicy (\s a -> s { _arwwiPolicy = a })
 arwwiDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Integer)
 arwwiDurationSeconds =
     lens _arwwiDurationSeconds (\s a -> s { _arwwiDurationSeconds = a })
-{-# INLINE arwwiDurationSeconds #-}
 
 instance ToQuery AssumeRoleWithWebIdentity where
     toQuery = genericQuery def
@@ -207,7 +200,6 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
 arwwirsCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
 arwwirsCredentials =
     lens _arwwirsCredentials (\s a -> s { _arwwirsCredentials = a })
-{-# INLINE arwwirsCredentials #-}
 
 -- | The unique user identifier that is returned by the identity provider. This
 -- identifier is associated with the WebIdentityToken that was submitted with
@@ -220,7 +212,6 @@ arwwirsSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (M
 arwwirsSubjectFromWebIdentityToken =
     lens _arwwirsSubjectFromWebIdentityToken
          (\s a -> s { _arwwirsSubjectFromWebIdentityToken = a })
-{-# INLINE arwwirsSubjectFromWebIdentityToken #-}
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
 -- identifiers that you can use to refer to the resulting temporary security
@@ -231,7 +222,6 @@ arwwirsSubjectFromWebIdentityToken =
 arwwirsAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedRoleUser)
 arwwirsAssumedRoleUser =
     lens _arwwirsAssumedRoleUser (\s a -> s { _arwwirsAssumedRoleUser = a })
-{-# INLINE arwwirsAssumedRoleUser #-}
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
@@ -240,7 +230,6 @@ arwwirsPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Intege
 arwwirsPackedPolicySize =
     lens _arwwirsPackedPolicySize
          (\s a -> s { _arwwirsPackedPolicySize = a })
-{-# INLINE arwwirsPackedPolicySize #-}
 
 -- | The issuing authority of the web identity token presented. For OpenID
 -- Connect ID Tokens this contains the value of the iss field. For OAuth 2.0
@@ -248,14 +237,12 @@ arwwirsPackedPolicySize =
 -- passed in the AssumeRoleWithWebIdentity request.
 arwwirsProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirsProvider = lens _arwwirsProvider (\s a -> s { _arwwirsProvider = a })
-{-# INLINE arwwirsProvider #-}
 
 -- | The intended audience of the web identity token. This is traditionally the
 -- client identifier issued to the application that requested the web identity
 -- token.
 arwwirsAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirsAudience = lens _arwwirsAudience (\s a -> s { _arwwirsAudience = a })
-{-# INLINE arwwirsAudience #-}
 
 instance FromXML AssumeRoleWithWebIdentityResponse where
     fromXMLOptions = xmlOptions

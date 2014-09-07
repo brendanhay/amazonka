@@ -82,17 +82,14 @@ mkCountPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
     { _cpdtDomain = p1
     , _cpdtTaskList = p2
     }
-{-# INLINE mkCountPendingDecisionTasks #-}
 
 -- | The name of the domain that contains the task list.
 cpdtDomain :: Lens' CountPendingDecisionTasks Text
 cpdtDomain = lens _cpdtDomain (\s a -> s { _cpdtDomain = a })
-{-# INLINE cpdtDomain #-}
 
 -- | The name of the task list.
 cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
 cpdtTaskList = lens _cpdtTaskList (\s a -> s { _cpdtTaskList = a })
-{-# INLINE cpdtTaskList #-}
 
 instance ToPath CountPendingDecisionTasks
 
@@ -111,13 +108,11 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
 -- | The number of tasks in the task list.
 cpdtrsCount :: Lens' CountPendingDecisionTasksResponse Integer
 cpdtrsCount = lens _cpdtrsCount (\s a -> s { _cpdtrsCount = a })
-{-# INLINE cpdtrsCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
 cpdtrsTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
 cpdtrsTruncated = lens _cpdtrsTruncated (\s a -> s { _cpdtrsTruncated = a })
-{-# INLINE cpdtrsTruncated #-}
 
 instance FromJSON CountPendingDecisionTasksResponse
 

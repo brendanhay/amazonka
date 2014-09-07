@@ -52,12 +52,10 @@ mkDeregisterVolume :: Text -- ^ 'dvVolumeId'
 mkDeregisterVolume p1 = DeregisterVolume
     { _dvVolumeId = p1
     }
-{-# INLINE mkDeregisterVolume #-}
 
 -- | The volume ID.
 dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
-{-# INLINE dvVolumeId #-}
 
 instance ToPath DeregisterVolume
 

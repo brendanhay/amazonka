@@ -57,7 +57,6 @@ mkEnableSnapshotCopy p1 p2 = EnableSnapshotCopy
     , _escDestinationRegion = p2
     , _escRetentionPeriod = Nothing
     }
-{-# INLINE mkEnableSnapshotCopy #-}
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 -- Constraints: Must be the valid name of an existing cluster that does not
@@ -65,7 +64,6 @@ mkEnableSnapshotCopy p1 p2 = EnableSnapshotCopy
 escClusterIdentifier :: Lens' EnableSnapshotCopy Text
 escClusterIdentifier =
     lens _escClusterIdentifier (\s a -> s { _escClusterIdentifier = a })
-{-# INLINE escClusterIdentifier #-}
 
 -- | The destination region that you want to copy snapshots to. Constraints:
 -- Must be the name of a valid region. For more information, see Regions and
@@ -73,7 +71,6 @@ escClusterIdentifier =
 escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion =
     lens _escDestinationRegion (\s a -> s { _escDestinationRegion = a })
-{-# INLINE escDestinationRegion #-}
 
 -- | The number of days to retain automated snapshots in the destination region
 -- after they are copied from the source region. Default: 7. Constraints: Must
@@ -81,7 +78,6 @@ escDestinationRegion =
 escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Integer)
 escRetentionPeriod =
     lens _escRetentionPeriod (\s a -> s { _escRetentionPeriod = a })
-{-# INLINE escRetentionPeriod #-}
 
 instance ToQuery EnableSnapshotCopy where
     toQuery = genericQuery def
@@ -93,7 +89,6 @@ newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
 -- | Describes a cluster.
 escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrsCluster = lens _escrsCluster (\s a -> s { _escrsCluster = a })
-{-# INLINE escrsCluster #-}
 
 instance FromXML EnableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

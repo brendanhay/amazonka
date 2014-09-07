@@ -55,13 +55,11 @@ mkTerminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGrou
     { _tiiasgInstanceId = p1
     , _tiiasgShouldDecrementDesiredCapacity = p2
     }
-{-# INLINE mkTerminateInstanceInAutoScalingGroup #-}
 
 -- | The ID of the Amazon EC2 instance to be terminated.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId =
     lens _tiiasgInstanceId (\s a -> s { _tiiasgInstanceId = a })
-{-# INLINE tiiasgInstanceId #-}
 
 -- | Specifies whether (true) or not (false) terminating this instance should
 -- also decrement the size of the AutoScalingGroup.
@@ -69,7 +67,6 @@ tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGrou
 tiiasgShouldDecrementDesiredCapacity =
     lens _tiiasgShouldDecrementDesiredCapacity
          (\s a -> s { _tiiasgShouldDecrementDesiredCapacity = a })
-{-# INLINE tiiasgShouldDecrementDesiredCapacity #-}
 
 instance ToQuery TerminateInstanceInAutoScalingGroup where
     toQuery = genericQuery def
@@ -83,7 +80,6 @@ newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoSca
 tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrsActivity =
     lens _tiiasgrsActivity (\s a -> s { _tiiasgrsActivity = a })
-{-# INLINE tiiasgrsActivity #-}
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions

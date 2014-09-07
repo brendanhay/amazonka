@@ -68,27 +68,23 @@ mkResetClusterParameterGroup p1 = ResetClusterParameterGroup
     , _rcpgResetAllParameters = Nothing
     , _rcpgParameters = mempty
     }
-{-# INLINE mkResetClusterParameterGroup #-}
 
 -- | The name of the cluster parameter group to be reset.
 rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
 rcpgParameterGroupName =
     lens _rcpgParameterGroupName (\s a -> s { _rcpgParameterGroupName = a })
-{-# INLINE rcpgParameterGroupName #-}
 
 -- | If true, all parameters in the specified parameter group will be reset to
 -- their default values. Default: true.
 rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
-{-# INLINE rcpgResetAllParameters #-}
 
 -- | An array of names of parameters to be reset. If ResetAllParameters option
 -- is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
 rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
 rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a })
-{-# INLINE rcpgParameters #-}
 
 instance ToQuery ResetClusterParameterGroup where
     toQuery = genericQuery def
@@ -106,7 +102,6 @@ rcpgrsParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text
 rcpgrsParameterGroupName =
     lens _rcpgrsParameterGroupName
          (\s a -> s { _rcpgrsParameterGroupName = a })
-{-# INLINE rcpgrsParameterGroupName #-}
 
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot
@@ -115,7 +110,6 @@ rcpgrsParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Te
 rcpgrsParameterGroupStatus =
     lens _rcpgrsParameterGroupStatus
          (\s a -> s { _rcpgrsParameterGroupStatus = a })
-{-# INLINE rcpgrsParameterGroupStatus #-}
 
 instance FromXML ResetClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

@@ -87,7 +87,6 @@ mkGetSessionToken = GetSessionToken
     , _gstSerialNumber = Nothing
     , _gstTokenCode = Nothing
     }
-{-# INLINE mkGetSessionToken #-}
 
 -- | The duration, in seconds, that the credentials should remain valid.
 -- Acceptable durations for IAM user sessions range from 900 seconds (15
@@ -98,7 +97,6 @@ mkGetSessionToken = GetSessionToken
 gstDurationSeconds :: Lens' GetSessionToken (Maybe Integer)
 gstDurationSeconds =
     lens _gstDurationSeconds (\s a -> s { _gstDurationSeconds = a })
-{-# INLINE gstDurationSeconds #-}
 
 -- | The identification number of the MFA device that is associated with the IAM
 -- user who is making the GetSessionToken call. Specify this value if the IAM
@@ -110,7 +108,6 @@ gstDurationSeconds =
 -- credentials.
 gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
 gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
-{-# INLINE gstSerialNumber #-}
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
 -- requires the IAM user to submit an MFA code, specify this value. If MFA
@@ -120,7 +117,6 @@ gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
 -- authentication.
 gstTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
-{-# INLINE gstTokenCode #-}
 
 instance ToQuery GetSessionToken where
     toQuery = genericQuery def
@@ -135,7 +131,6 @@ newtype GetSessionTokenResponse = GetSessionTokenResponse
 gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrsCredentials =
     lens _gstrsCredentials (\s a -> s { _gstrsCredentials = a })
-{-# INLINE gstrsCredentials #-}
 
 instance FromXML GetSessionTokenResponse where
     fromXMLOptions = xmlOptions

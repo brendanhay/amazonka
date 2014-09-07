@@ -61,14 +61,12 @@ mkDeletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
 mkDeletePlatformApplication p1 = DeletePlatformApplication
     { _dpaPlatformApplicationArn = p1
     }
-{-# INLINE mkDeletePlatformApplication #-}
 
 -- | PlatformApplicationArn of platform application object to delete.
 dpaPlatformApplicationArn :: Lens' DeletePlatformApplication Text
 dpaPlatformApplicationArn =
     lens _dpaPlatformApplicationArn
          (\s a -> s { _dpaPlatformApplicationArn = a })
-{-# INLINE dpaPlatformApplicationArn #-}
 
 instance ToQuery DeletePlatformApplication where
     toQuery = genericQuery def

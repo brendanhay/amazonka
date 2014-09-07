@@ -66,14 +66,12 @@ mkResetCacheParameterGroup p1 p3 = ResetCacheParameterGroup
     , _rcpgResetAllParameters = Nothing
     , _rcpgParameterNameValues = p3
     }
-{-# INLINE mkResetCacheParameterGroup #-}
 
 -- | The name of the cache parameter group to reset.
 rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
 rcpgCacheParameterGroupName =
     lens _rcpgCacheParameterGroupName
          (\s a -> s { _rcpgCacheParameterGroupName = a })
-{-# INLINE rcpgCacheParameterGroupName #-}
 
 -- | If true, all parameters in the cache parameter group will be reset to
 -- default values. If false, no such action occurs. Valid values: true |
@@ -81,7 +79,6 @@ rcpgCacheParameterGroupName =
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
-{-# INLINE rcpgResetAllParameters #-}
 
 -- | An array of parameter names to be reset. If you are not resetting the
 -- entire cache parameter group, you must specify at least one parameter name.
@@ -89,7 +86,6 @@ rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
 rcpgParameterNameValues =
     lens _rcpgParameterNameValues
          (\s a -> s { _rcpgParameterNameValues = a })
-{-# INLINE rcpgParameterNameValues #-}
 
 instance ToQuery ResetCacheParameterGroup where
     toQuery = genericQuery def
@@ -105,7 +101,6 @@ rcpgrsCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe T
 rcpgrsCacheParameterGroupName =
     lens _rcpgrsCacheParameterGroupName
          (\s a -> s { _rcpgrsCacheParameterGroupName = a })
-{-# INLINE rcpgrsCacheParameterGroupName #-}
 
 instance FromXML ResetCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions

@@ -82,14 +82,12 @@ mkCreateReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
     , _cril1PriceSchedules = p3
     , _cril1ClientToken = p4
     }
-{-# INLINE mkCreateReservedInstancesListing #-}
 
 -- | The ID of the active Reserved Instance.
 cril1ReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 cril1ReservedInstancesId =
     lens _cril1ReservedInstancesId
          (\s a -> s { _cril1ReservedInstancesId = a })
-{-# INLINE cril1ReservedInstancesId #-}
 
 -- | The number of instances that are a part of a Reserved Instance account to
 -- be listed in the Reserved Instance Marketplace. This number should be less
@@ -98,14 +96,12 @@ cril1ReservedInstancesId =
 cril1InstanceCount :: Lens' CreateReservedInstancesListing Integer
 cril1InstanceCount =
     lens _cril1InstanceCount (\s a -> s { _cril1InstanceCount = a })
-{-# INLINE cril1InstanceCount #-}
 
 -- | A list specifying the price of the Reserved Instance for each month
 -- remaining in the Reserved Instance term.
 cril1PriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
 cril1PriceSchedules =
     lens _cril1PriceSchedules (\s a -> s { _cril1PriceSchedules = a })
-{-# INLINE cril1PriceSchedules #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of your
 -- listings. This helps avoid duplicate listings. For more information, see
@@ -113,7 +109,6 @@ cril1PriceSchedules =
 cril1ClientToken :: Lens' CreateReservedInstancesListing Text
 cril1ClientToken =
     lens _cril1ClientToken (\s a -> s { _cril1ClientToken = a })
-{-# INLINE cril1ClientToken #-}
 
 instance ToQuery CreateReservedInstancesListing where
     toQuery = genericQuery def
@@ -128,7 +123,6 @@ crilrsrsReservedInstancesListings :: Lens' CreateReservedInstancesListingRespons
 crilrsrsReservedInstancesListings =
     lens _crilrsrsReservedInstancesListings
          (\s a -> s { _crilrsrsReservedInstancesListings = a })
-{-# INLINE crilrsrsReservedInstancesListings #-}
 
 instance FromXML CreateReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions

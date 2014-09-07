@@ -52,14 +52,12 @@ mkCreateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -
 mkCreateCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig = p1
     }
-{-# INLINE mkCreateCloudFrontOriginAccessIdentity #-}
 
 -- | The origin access identity's configuration information.
 ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
 ccfoaiCloudFrontOriginAccessIdentityConfig =
     lens _ccfoaiCloudFrontOriginAccessIdentityConfig
          (\s a -> s { _ccfoaiCloudFrontOriginAccessIdentityConfig = a })
-{-# INLINE ccfoaiCloudFrontOriginAccessIdentityConfig #-}
 
 instance ToPath CreateCloudFrontOriginAccessIdentity where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
@@ -84,7 +82,6 @@ ccfoairsCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIden
 ccfoairsCloudFrontOriginAccessIdentity =
     lens _ccfoairsCloudFrontOriginAccessIdentity
          (\s a -> s { _ccfoairsCloudFrontOriginAccessIdentity = a })
-{-# INLINE ccfoairsCloudFrontOriginAccessIdentity #-}
 
 -- | The fully qualified URI of the new origin access identity just created. For
 -- example:
@@ -93,12 +90,10 @@ ccfoairsCloudFrontOriginAccessIdentity =
 ccfoairsLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairsLocation =
     lens _ccfoairsLocation (\s a -> s { _ccfoairsLocation = a })
-{-# INLINE ccfoairsLocation #-}
 
 -- | The current version of the origin access identity created.
 ccfoairsETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairsETag = lens _ccfoairsETag (\s a -> s { _ccfoairsETag = a })
-{-# INLINE ccfoairsETag #-}
 
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront

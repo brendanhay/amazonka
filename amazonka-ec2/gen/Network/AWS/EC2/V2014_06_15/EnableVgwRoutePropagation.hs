@@ -59,18 +59,15 @@ mkEnableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     { _evrpRouteTableId = p1
     , _evrpGatewayId = p2
     }
-{-# INLINE mkEnableVgwRoutePropagation #-}
 
 -- | The ID of the routing table.
 evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrpRouteTableId =
     lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
-{-# INLINE evrpRouteTableId #-}
 
 -- | The ID of the virtual private gateway.
 evrpGatewayId :: Lens' EnableVgwRoutePropagation Text
 evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
-{-# INLINE evrpGatewayId #-}
 
 instance ToQuery EnableVgwRoutePropagation where
     toQuery = genericQuery def

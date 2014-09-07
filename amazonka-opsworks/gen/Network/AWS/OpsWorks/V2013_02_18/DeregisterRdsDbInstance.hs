@@ -47,13 +47,11 @@ mkDeregisterRdsDbInstance :: Text -- ^ 'drdiRdsDbInstanceArn'
 mkDeregisterRdsDbInstance p1 = DeregisterRdsDbInstance
     { _drdiRdsDbInstanceArn = p1
     }
-{-# INLINE mkDeregisterRdsDbInstance #-}
 
 -- | The Amazon RDS instance's ARN.
 drdiRdsDbInstanceArn :: Lens' DeregisterRdsDbInstance Text
 drdiRdsDbInstanceArn =
     lens _drdiRdsDbInstanceArn (\s a -> s { _drdiRdsDbInstanceArn = a })
-{-# INLINE drdiRdsDbInstanceArn #-}
 
 instance ToPath DeregisterRdsDbInstance
 

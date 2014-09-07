@@ -54,21 +54,17 @@ mkPutBucketNotification p1 p3 = PutBucketNotification
     , _pbnContentMD5 = Nothing
     , _pbnNotificationConfiguration = p3
     }
-{-# INLINE mkPutBucketNotification #-}
 
 pbnBucket :: Lens' PutBucketNotification BucketName
 pbnBucket = lens _pbnBucket (\s a -> s { _pbnBucket = a })
-{-# INLINE pbnBucket #-}
 
 pbnContentMD5 :: Lens' PutBucketNotification (Maybe Text)
 pbnContentMD5 = lens _pbnContentMD5 (\s a -> s { _pbnContentMD5 = a })
-{-# INLINE pbnContentMD5 #-}
 
 pbnNotificationConfiguration :: Lens' PutBucketNotification NotificationConfiguration
 pbnNotificationConfiguration =
     lens _pbnNotificationConfiguration
          (\s a -> s { _pbnNotificationConfiguration = a })
-{-# INLINE pbnNotificationConfiguration #-}
 
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat

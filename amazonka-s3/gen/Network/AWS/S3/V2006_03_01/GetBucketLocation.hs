@@ -49,11 +49,9 @@ mkGetBucketLocation :: BucketName -- ^ 'gbl1Bucket'
 mkGetBucketLocation p1 = GetBucketLocation
     { _gbl1Bucket = p1
     }
-{-# INLINE mkGetBucketLocation #-}
 
 gbl1Bucket :: Lens' GetBucketLocation BucketName
 gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
-{-# INLINE gbl1Bucket #-}
 
 instance ToPath GetBucketLocation where
     toPath GetBucketLocation{..} = mconcat
@@ -78,7 +76,6 @@ gblrsrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 gblrsrsLocationConstraint =
     lens _gblrsrsLocationConstraint
          (\s a -> s { _gblrsrsLocationConstraint = a })
-{-# INLINE gblrsrsLocationConstraint #-}
 
 instance FromXML GetBucketLocationResponse where
     fromXMLOptions = xmlOptions

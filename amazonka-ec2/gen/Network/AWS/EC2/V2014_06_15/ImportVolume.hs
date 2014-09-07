@@ -74,28 +74,23 @@ mkImportVolume p1 p2 p4 = ImportVolume
     , _ivDescription = Nothing
     , _ivVolume = p4
     }
-{-# INLINE mkImportVolume #-}
 
 -- | The Availability Zone for the resulting Amazon EBS volume.
 ivAvailabilityZone :: Lens' ImportVolume Text
 ivAvailabilityZone =
     lens _ivAvailabilityZone (\s a -> s { _ivAvailabilityZone = a })
-{-# INLINE ivAvailabilityZone #-}
 
 -- | 
 ivImage :: Lens' ImportVolume DiskImageDetail
 ivImage = lens _ivImage (\s a -> s { _ivImage = a })
-{-# INLINE ivImage #-}
 
 -- | An optional description for the volume being imported.
 ivDescription :: Lens' ImportVolume (Maybe Text)
 ivDescription = lens _ivDescription (\s a -> s { _ivDescription = a })
-{-# INLINE ivDescription #-}
 
 -- | 
 ivVolume :: Lens' ImportVolume VolumeDetail
 ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
-{-# INLINE ivVolume #-}
 
 instance ToQuery ImportVolume where
     toQuery = genericQuery def
@@ -109,7 +104,6 @@ newtype ImportVolumeResponse = ImportVolumeResponse
 ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrsConversionTask =
     lens _ivrsConversionTask (\s a -> s { _ivrsConversionTask = a })
-{-# INLINE ivrsConversionTask #-}
 
 instance FromXML ImportVolumeResponse where
     fromXMLOptions = xmlOptions

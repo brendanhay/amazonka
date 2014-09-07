@@ -47,7 +47,6 @@ data GetCheckerIpRanges = GetCheckerIpRanges
 -- a valid 'GetCheckerIpRanges' request.
 mkGetCheckerIpRanges :: GetCheckerIpRanges
 mkGetCheckerIpRanges = GetCheckerIpRanges
-{-# INLINE mkGetCheckerIpRanges #-}
 
 instance ToPath GetCheckerIpRanges where
     toPath = const "/2013-04-01/checkeripranges"
@@ -70,7 +69,6 @@ newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
 gcirrsCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
 gcirrsCheckerIpRanges =
     lens _gcirrsCheckerIpRanges (\s a -> s { _gcirrsCheckerIpRanges = a })
-{-# INLINE gcirrsCheckerIpRanges #-}
 
 instance FromXML GetCheckerIpRangesResponse where
     fromXMLOptions = xmlOptions

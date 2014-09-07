@@ -1,6 +1,5 @@
 # DEPS := $(wildcard amazonka-*)
-# DEPS := $(addprefix amazonka-,s3 autoscaling ec2 elb iam)
-DEPS := amazonka-s3
+DEPS := $(addprefix amazonka-,s3 autoscaling ec2 elb iam)
 
 .PHONY: install clean
 

@@ -70,36 +70,30 @@ mkDescribeCommunications p1 = DescribeCommunications
     , _dc1NextToken = Nothing
     , _dc1MaxResults = Nothing
     }
-{-# INLINE mkDescribeCommunications #-}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 dc1CaseId :: Lens' DescribeCommunications Text
 dc1CaseId = lens _dc1CaseId (\s a -> s { _dc1CaseId = a })
-{-# INLINE dc1CaseId #-}
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dc1BeforeTime :: Lens' DescribeCommunications (Maybe Text)
 dc1BeforeTime = lens _dc1BeforeTime (\s a -> s { _dc1BeforeTime = a })
-{-# INLINE dc1BeforeTime #-}
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dc1AfterTime :: Lens' DescribeCommunications (Maybe Text)
 dc1AfterTime = lens _dc1AfterTime (\s a -> s { _dc1AfterTime = a })
-{-# INLINE dc1AfterTime #-}
 
 -- | A resumption point for pagination.
 dc1NextToken :: Lens' DescribeCommunications (Maybe Text)
 dc1NextToken = lens _dc1NextToken (\s a -> s { _dc1NextToken = a })
-{-# INLINE dc1NextToken #-}
 
 -- | The maximum number of results to return before paginating.
 dc1MaxResults :: Lens' DescribeCommunications (Maybe Integer)
 dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a })
-{-# INLINE dc1MaxResults #-}
 
 instance ToPath DescribeCommunications
 
@@ -119,12 +113,10 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse
 dcrsrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrsrsCommunications =
     lens _dcrsrsCommunications (\s a -> s { _dcrsrsCommunications = a })
-{-# INLINE dcrsrsCommunications #-}
 
 -- | A resumption point for pagination.
 dcrsrsNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
 dcrsrsNextToken = lens _dcrsrsNextToken (\s a -> s { _dcrsrsNextToken = a })
-{-# INLINE dcrsrsNextToken #-}
 
 instance FromJSON DescribeCommunicationsResponse
 
@@ -136,5 +128,5 @@ instance AWSRequest DescribeCommunications where
     response _ = jsonResponse
 
 instance AWSPager DescribeCommunications where
-    next rq rs = (\x -> rq { _dc1NextToken = Just x })
-        <$> (_dcrsrsNextToken rs)
+    next rq rs = (\x -> rq & dc1NextToken ?~ x) <$> (rs ^. dcrsrsNextToken)
+

@@ -58,7 +58,6 @@ mkDescribeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId = Nothing
     , _derEnvironmentName = Nothing
     }
-{-# INLINE mkDescribeEnvironmentResources #-}
 
 -- | The ID of the environment to retrieve AWS resource usage data. Condition:
 -- You must specify either this or an EnvironmentName, or both. If you do not
@@ -67,7 +66,6 @@ mkDescribeEnvironmentResources = DescribeEnvironmentResources
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentId =
     lens _derEnvironmentId (\s a -> s { _derEnvironmentId = a })
-{-# INLINE derEnvironmentId #-}
 
 -- | The name of the environment to retrieve AWS resource usage data. Condition:
 -- You must specify either this or an EnvironmentId, or both. If you do not
@@ -76,7 +74,6 @@ derEnvironmentId =
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentName =
     lens _derEnvironmentName (\s a -> s { _derEnvironmentName = a })
-{-# INLINE derEnvironmentName #-}
 
 instance ToQuery DescribeEnvironmentResources where
     toQuery = genericQuery def
@@ -91,7 +88,6 @@ derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe E
 derrsEnvironmentResources =
     lens _derrsEnvironmentResources
          (\s a -> s { _derrsEnvironmentResources = a })
-{-# INLINE derrsEnvironmentResources #-}
 
 instance FromXML DescribeEnvironmentResourcesResponse where
     fromXMLOptions = xmlOptions

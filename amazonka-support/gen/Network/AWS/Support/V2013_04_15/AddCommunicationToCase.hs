@@ -65,34 +65,29 @@ mkAddCommunicationToCase p2 = AddCommunicationToCase
     , _actcCcEmailAddresses = mempty
     , _actcAttachmentSetId = Nothing
     }
-{-# INLINE mkAddCommunicationToCase #-}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
 actcCaseId = lens _actcCaseId (\s a -> s { _actcCaseId = a })
-{-# INLINE actcCaseId #-}
 
 -- | The body of an email communication to add to the support case.
 actcCommunicationBody :: Lens' AddCommunicationToCase Text
 actcCommunicationBody =
     lens _actcCommunicationBody (\s a -> s { _actcCommunicationBody = a })
-{-# INLINE actcCommunicationBody #-}
 
 -- | The email addresses in the CC line of an email to be added to the support
 -- case.
 actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
 actcCcEmailAddresses =
     lens _actcCcEmailAddresses (\s a -> s { _actcCcEmailAddresses = a })
-{-# INLINE actcCcEmailAddresses #-}
 
 -- | The ID of a set of one or more attachments for the communication to add to
 -- the case. Create the set by calling AddAttachmentsToSet.
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
 actcAttachmentSetId =
     lens _actcAttachmentSetId (\s a -> s { _actcAttachmentSetId = a })
-{-# INLINE actcAttachmentSetId #-}
 
 instance ToPath AddCommunicationToCase
 
@@ -110,7 +105,6 @@ newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
 actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrsResult = lens _actcrsResult (\s a -> s { _actcrsResult = a })
-{-# INLINE actcrsResult #-}
 
 instance FromJSON AddCommunicationToCaseResponse
 

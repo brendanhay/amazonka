@@ -70,14 +70,12 @@ mkReportTaskProgress :: Text -- ^ 'rtpTaskId'
 mkReportTaskProgress p1 = ReportTaskProgress
     { _rtpTaskId = p1
     }
-{-# INLINE mkReportTaskProgress #-}
 
 -- | Identifier of the task assigned to the task runner. This value is provided
 -- in the TaskObject that the service returns with the response for the
 -- PollForTask action.
 rtpTaskId :: Lens' ReportTaskProgress Text
 rtpTaskId = lens _rtpTaskId (\s a -> s { _rtpTaskId = a })
-{-# INLINE rtpTaskId #-}
 
 instance ToPath ReportTaskProgress
 
@@ -96,7 +94,6 @@ newtype ReportTaskProgressResponse = ReportTaskProgressResponse
 -- task runner does not need to call SetTaskStatus for canceled tasks.
 rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprsCanceled = lens _rtprsCanceled (\s a -> s { _rtprsCanceled = a })
-{-# INLINE rtprsCanceled #-}
 
 instance FromJSON ReportTaskProgressResponse
 

@@ -85,26 +85,22 @@ mkListVolumes p1 = ListVolumes
     , _lvMarker = Nothing
     , _lvLimit = Nothing
     }
-{-# INLINE mkListVolumes #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 lvGatewayARN :: Lens' ListVolumes Text
 lvGatewayARN = lens _lvGatewayARN (\s a -> s { _lvGatewayARN = a })
-{-# INLINE lvGatewayARN #-}
 
 -- | A string that indicates the position at which to begin the returned list of
 -- volumes. Obtain the marker from the response of a previous List iSCSI
 -- Volumes request.
 lvMarker :: Lens' ListVolumes (Maybe Text)
 lvMarker = lens _lvMarker (\s a -> s { _lvMarker = a })
-{-# INLINE lvMarker #-}
 
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
 lvLimit :: Lens' ListVolumes (Maybe Integer)
 lvLimit = lens _lvLimit (\s a -> s { _lvLimit = a })
-{-# INLINE lvLimit #-}
 
 instance ToPath ListVolumes
 
@@ -124,15 +120,12 @@ data ListVolumesResponse = ListVolumesResponse
 -- operation to return a list of gateways for your account and region.
 lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
 lvrsGatewayARN = lens _lvrsGatewayARN (\s a -> s { _lvrsGatewayARN = a })
-{-# INLINE lvrsGatewayARN #-}
 
 lvrsMarker :: Lens' ListVolumesResponse (Maybe Text)
 lvrsMarker = lens _lvrsMarker (\s a -> s { _lvrsMarker = a })
-{-# INLINE lvrsMarker #-}
 
 lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInformation]
 lvrsVolumeInfos = lens _lvrsVolumeInfos (\s a -> s { _lvrsVolumeInfos = a })
-{-# INLINE lvrsVolumeInfos #-}
 
 instance FromJSON ListVolumesResponse
 
@@ -144,5 +137,5 @@ instance AWSRequest ListVolumes where
     response _ = jsonResponse
 
 instance AWSPager ListVolumes where
-    next rq rs = (\x -> rq { _lvMarker = Just x })
-        <$> (_lvrsMarker rs)
+    next rq rs = (\x -> rq & lvMarker ?~ x) <$> (rs ^. lvrsMarker)
+

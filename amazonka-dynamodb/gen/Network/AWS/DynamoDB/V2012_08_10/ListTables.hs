@@ -57,7 +57,6 @@ mkListTables = ListTables
     { _ltExclusiveStartTableName = Nothing
     , _ltLimit = Nothing
     }
-{-# INLINE mkListTables #-}
 
 -- | The name of the table that starts the list. If you already ran a ListTables
 -- operation and received a LastEvaluatedTableName value in the response, use
@@ -66,12 +65,10 @@ ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
 ltExclusiveStartTableName =
     lens _ltExclusiveStartTableName
          (\s a -> s { _ltExclusiveStartTableName = a })
-{-# INLINE ltExclusiveStartTableName #-}
 
 -- | A maximum number of table names to return.
 ltLimit :: Lens' ListTables (Maybe Integer)
 ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a })
-{-# INLINE ltLimit #-}
 
 instance ToPath ListTables
 
@@ -91,7 +88,6 @@ data ListTablesResponse = ListTablesResponse
 -- endpoint.
 ltrsTableNames :: Lens' ListTablesResponse [Text]
 ltrsTableNames = lens _ltrsTableNames (\s a -> s { _ltrsTableNames = a })
-{-# INLINE ltrsTableNames #-}
 
 -- | The name of the last table in the current list, only if some tables for the
 -- account and endpoint have not been returned. This value does not exist in a
@@ -102,7 +98,6 @@ ltrsLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
 ltrsLastEvaluatedTableName =
     lens _ltrsLastEvaluatedTableName
          (\s a -> s { _ltrsLastEvaluatedTableName = a })
-{-# INLINE ltrsLastEvaluatedTableName #-}
 
 instance FromJSON ListTablesResponse
 
@@ -114,5 +109,5 @@ instance AWSRequest ListTables where
     response _ = jsonResponse
 
 instance AWSPager ListTables where
-    next rq rs = (\x -> rq { _ltExclusiveStartTableName = Just x })
-        <$> (_ltrsLastEvaluatedTableName rs)
+    next rq rs = (\x -> rq & ltExclusiveStartTableName ?~ x) <$> (rs ^. ltrsLastEvaluatedTableName)
+

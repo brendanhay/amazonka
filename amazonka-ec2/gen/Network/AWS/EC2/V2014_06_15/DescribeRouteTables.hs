@@ -61,13 +61,11 @@ mkDescribeRouteTables = DescribeRouteTables
     { _drt1RouteTableIds = mempty
     , _drt1Filters = mempty
     }
-{-# INLINE mkDescribeRouteTables #-}
 
 -- | One or more route table IDs. Default: Describes all your route tables.
 drt1RouteTableIds :: Lens' DescribeRouteTables [Text]
 drt1RouteTableIds =
     lens _drt1RouteTableIds (\s a -> s { _drt1RouteTableIds = a })
-{-# INLINE drt1RouteTableIds #-}
 
 -- | One or more filters. association.route-table-association-id - The ID of an
 -- association ID for the route table. association.route-table-id - The ID of
@@ -96,7 +94,6 @@ drt1RouteTableIds =
 -- filter. vpc-id - The ID of the VPC for the route table.
 drt1Filters :: Lens' DescribeRouteTables [Filter]
 drt1Filters = lens _drt1Filters (\s a -> s { _drt1Filters = a })
-{-# INLINE drt1Filters #-}
 
 instance ToQuery DescribeRouteTables where
     toQuery = genericQuery def
@@ -110,7 +107,6 @@ newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
 drtrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrsRouteTables =
     lens _drtrsRouteTables (\s a -> s { _drtrsRouteTables = a })
-{-# INLINE drtrsRouteTables #-}
 
 instance FromXML DescribeRouteTablesResponse where
     fromXMLOptions = xmlOptions

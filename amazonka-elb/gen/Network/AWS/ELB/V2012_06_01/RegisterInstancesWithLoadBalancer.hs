@@ -77,19 +77,16 @@ mkRegisterInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
     { _riwlbLoadBalancerName = p1
     , _riwlbInstances = p2
     }
-{-# INLINE mkRegisterInstancesWithLoadBalancer #-}
 
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers.
 riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
 riwlbLoadBalancerName =
     lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
-{-# INLINE riwlbLoadBalancerName #-}
 
 -- | A list of instance IDs that should be registered with the load balancer.
 riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
 riwlbInstances = lens _riwlbInstances (\s a -> s { _riwlbInstances = a })
-{-# INLINE riwlbInstances #-}
 
 instance ToQuery RegisterInstancesWithLoadBalancer where
     toQuery = genericQuery def
@@ -103,7 +100,6 @@ newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBal
 riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrsInstances =
     lens _riwlbrsInstances (\s a -> s { _riwlbrsInstances = a })
-{-# INLINE riwlbrsInstances #-}
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
     fromXMLOptions = xmlOptions

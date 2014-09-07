@@ -62,19 +62,16 @@ mkListUserPolicies p1 = ListUserPolicies
     , _lupMarker = Nothing
     , _lupMaxItems = Nothing
     }
-{-# INLINE mkListUserPolicies #-}
 
 -- | The name of the user to list policies for.
 lupUserName :: Lens' ListUserPolicies Text
 lupUserName = lens _lupUserName (\s a -> s { _lupUserName = a })
-{-# INLINE lupUserName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 lupMarker :: Lens' ListUserPolicies (Maybe Text)
 lupMarker = lens _lupMarker (\s a -> s { _lupMarker = a })
-{-# INLINE lupMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- policy names you want in the response. If there are additional policy names
@@ -82,7 +79,6 @@ lupMarker = lens _lupMarker (\s a -> s { _lupMarker = a })
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lupMaxItems :: Lens' ListUserPolicies (Maybe Integer)
 lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a })
-{-# INLINE lupMaxItems #-}
 
 instance ToQuery ListUserPolicies where
     toQuery = genericQuery def
@@ -91,7 +87,7 @@ instance ToQuery ListUserPolicies where
 -- action.
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprsPolicyNames :: [Text]
-    , _luprsIsTruncated :: Maybe Bool
+    , _luprsIsTruncated :: Bool
     , _luprsMarker :: Maybe Text
     } deriving (Show, Generic)
 
@@ -99,21 +95,18 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
 luprsPolicyNames :: Lens' ListUserPoliciesResponse [Text]
 luprsPolicyNames =
     lens _luprsPolicyNames (\s a -> s { _luprsPolicyNames = a })
-{-# INLINE luprsPolicyNames #-}
 
 -- | A flag that indicates whether there are more policy names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more policy names in the list.
-luprsIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
+luprsIsTruncated :: Lens' ListUserPoliciesResponse Bool
 luprsIsTruncated =
     lens _luprsIsTruncated (\s a -> s { _luprsIsTruncated = a })
-{-# INLINE luprsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 luprsMarker :: Lens' ListUserPoliciesResponse (Maybe Text)
 luprsMarker = lens _luprsMarker (\s a -> s { _luprsMarker = a })
-{-# INLINE luprsMarker #-}
 
 instance FromXML ListUserPoliciesResponse where
     fromXMLOptions = xmlOptions
@@ -127,7 +120,5 @@ instance AWSRequest ListUserPolicies where
 
 instance AWSPager ListUserPolicies where
     next rq rs
-        | not (_luprsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lupMarker = _luprsMarker rs
-            }
+        | not (rs ^. luprsIsTruncated) = Nothing
+        | otherwise = Just (rq & lupMarker .~ rs ^. luprsMarker)

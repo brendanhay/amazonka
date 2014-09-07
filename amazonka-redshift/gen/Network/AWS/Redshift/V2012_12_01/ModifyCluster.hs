@@ -114,14 +114,12 @@ mkModifyCluster p1 = ModifyCluster
     , _mcHsmConfigurationIdentifier = Nothing
     , _mcNewClusterIdentifier = Nothing
     }
-{-# INLINE mkModifyCluster #-}
 
 -- | The unique identifier of the cluster to be modified. Example:
 -- examplecluster.
 mcClusterIdentifier :: Lens' ModifyCluster Text
 mcClusterIdentifier =
     lens _mcClusterIdentifier (\s a -> s { _mcClusterIdentifier = a })
-{-# INLINE mcClusterIdentifier #-}
 
 -- | The new cluster type. When you submit your cluster resize request, your
 -- existing cluster goes into a read-only mode. After Amazon Redshift
@@ -131,7 +129,6 @@ mcClusterIdentifier =
 -- progress of the resize request. Valid Values: multi-node | single-node.
 mcClusterType :: Lens' ModifyCluster (Maybe Text)
 mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
-{-# INLINE mcClusterType #-}
 
 -- | The new node type of the cluster. If you specify a new node type, you must
 -- also specify the number of nodes parameter also. When you submit your
@@ -145,7 +142,6 @@ mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
 -- dw1.8xlarge | dw2.large | dw2.8xlarge.
 mcNodeType :: Lens' ModifyCluster (Maybe Text)
 mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
-{-# INLINE mcNodeType #-}
 
 -- | The new number of nodes of the cluster. If you specify a new number of
 -- nodes, you must also specify the node type parameter also. When you submit
@@ -159,7 +155,6 @@ mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
 -- than 0.
 mcNumberOfNodes :: Lens' ModifyCluster (Maybe Integer)
 mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
-{-# INLINE mcNumberOfNodes #-}
 
 -- | A list of cluster security groups to be authorized on this cluster. This
 -- change is asynchronously applied as soon as possible. Security groups
@@ -171,14 +166,12 @@ mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
 mcClusterSecurityGroups =
     lens _mcClusterSecurityGroups
          (\s a -> s { _mcClusterSecurityGroups = a })
-{-# INLINE mcClusterSecurityGroups #-}
 
 -- | A list of virtual private cloud (VPC) security groups to be associated with
 -- the cluster.
 mcVpcSecurityGroupIds :: Lens' ModifyCluster [Text]
 mcVpcSecurityGroupIds =
     lens _mcVpcSecurityGroupIds (\s a -> s { _mcVpcSecurityGroupIds = a })
-{-# INLINE mcVpcSecurityGroupIds #-}
 
 -- | The new password for the cluster master user. This change is asynchronously
 -- applied as soon as possible. Between the time of the request and the
@@ -194,7 +187,6 @@ mcVpcSecurityGroupIds =
 mcMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
 mcMasterUserPassword =
     lens _mcMasterUserPassword (\s a -> s { _mcMasterUserPassword = a })
-{-# INLINE mcMasterUserPassword #-}
 
 -- | The name of the cluster parameter group to apply to this cluster. This
 -- change is applied only after the cluster is rebooted. To reboot a cluster
@@ -205,7 +197,6 @@ mcClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
 mcClusterParameterGroupName =
     lens _mcClusterParameterGroupName
          (\s a -> s { _mcClusterParameterGroupName = a })
-{-# INLINE mcClusterParameterGroupName #-}
 
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
@@ -218,7 +209,6 @@ mcAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Integer)
 mcAutomatedSnapshotRetentionPeriod =
     lens _mcAutomatedSnapshotRetentionPeriod
          (\s a -> s { _mcAutomatedSnapshotRetentionPeriod = a })
-{-# INLINE mcAutomatedSnapshotRetentionPeriod #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur,
 -- if necessary. If system maintenance is necessary during the window, it may
@@ -233,7 +223,6 @@ mcPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
 mcPreferredMaintenanceWindow =
     lens _mcPreferredMaintenanceWindow
          (\s a -> s { _mcPreferredMaintenanceWindow = a })
-{-# INLINE mcPreferredMaintenanceWindow #-}
 
 -- | The new version number of the Amazon Redshift engine to upgrade to. For
 -- major version upgrades, if a non-default cluster parameter group is
@@ -245,14 +234,12 @@ mcPreferredMaintenanceWindow =
 mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
 mcClusterVersion =
     lens _mcClusterVersion (\s a -> s { _mcClusterVersion = a })
-{-# INLINE mcClusterVersion #-}
 
 -- | If true, upgrades will be applied automatically to the cluster during the
 -- maintenance window. Default: false.
 mcAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
 mcAllowVersionUpgrade =
     lens _mcAllowVersionUpgrade (\s a -> s { _mcAllowVersionUpgrade = a })
-{-# INLINE mcAllowVersionUpgrade #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
@@ -260,7 +247,6 @@ mcHsmClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcHsmClientCertificateIdentifier =
     lens _mcHsmClientCertificateIdentifier
          (\s a -> s { _mcHsmClientCertificateIdentifier = a })
-{-# INLINE mcHsmClientCertificateIdentifier #-}
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
@@ -268,7 +254,6 @@ mcHsmConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcHsmConfigurationIdentifier =
     lens _mcHsmConfigurationIdentifier
          (\s a -> s { _mcHsmConfigurationIdentifier = a })
-{-# INLINE mcHsmConfigurationIdentifier #-}
 
 -- | The new identifier for the cluster. Constraints: Must contain from 1 to 63
 -- alphanumeric characters or hyphens. Alphabetic characters must be
@@ -278,7 +263,6 @@ mcHsmConfigurationIdentifier =
 mcNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcNewClusterIdentifier =
     lens _mcNewClusterIdentifier (\s a -> s { _mcNewClusterIdentifier = a })
-{-# INLINE mcNewClusterIdentifier #-}
 
 instance ToQuery ModifyCluster where
     toQuery = genericQuery def
@@ -290,7 +274,6 @@ newtype ModifyClusterResponse = ModifyClusterResponse
 -- | Describes a cluster.
 mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrsCluster = lens _mcrsCluster (\s a -> s { _mcrsCluster = a })
-{-# INLINE mcrsCluster #-}
 
 instance FromXML ModifyClusterResponse where
     fromXMLOptions = xmlOptions

@@ -80,19 +80,16 @@ mkAddPermission p1 p2 p3 p4 = AddPermission
     , _apAWSAccountIds = p3
     , _apActions = p4
     }
-{-# INLINE mkAddPermission #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 apQueueUrl :: Lens' AddPermission Text
 apQueueUrl = lens _apQueueUrl (\s a -> s { _apQueueUrl = a })
-{-# INLINE apQueueUrl #-}
 
 -- | The unique identification of the permission you're setting (e.g.,
 -- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric
 -- characters, hyphens (-), and underscores (_) are allowed.
 apLabel :: Lens' AddPermission Text
 apLabel = lens _apLabel (\s a -> s { _apLabel = a })
-{-# INLINE apLabel #-}
 
 -- | The AWS account number of the principal who will be given permission. The
 -- principal must have an AWS account, but does not need to be signed up for
@@ -100,7 +97,6 @@ apLabel = lens _apLabel (\s a -> s { _apLabel = a })
 -- see Your AWS Identifiers in the Amazon SQS Developer Guide.
 apAWSAccountIds :: Lens' AddPermission [Text]
 apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
-{-# INLINE apAWSAccountIds #-}
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values: * | SendMessage | ReceiveMessage |
@@ -112,7 +108,6 @@ apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
 -- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\s a -> s { _apActions = a })
-{-# INLINE apActions #-}
 
 instance ToQuery AddPermission where
     toQuery = genericQuery def

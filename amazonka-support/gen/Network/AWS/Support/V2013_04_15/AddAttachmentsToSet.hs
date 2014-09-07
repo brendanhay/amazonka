@@ -62,7 +62,6 @@ mkAddAttachmentsToSet p2 = AddAttachmentsToSet
     { _aatsAttachmentSetId = Nothing
     , _aatsAttachments = p2
     }
-{-# INLINE mkAddAttachmentsToSet #-}
 
 -- | The ID of the attachment set. If an AttachmentSetId is not specified, a new
 -- attachment set is created, and the ID of the set is returned in the
@@ -71,13 +70,11 @@ mkAddAttachmentsToSet p2 = AddAttachmentsToSet
 aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
 aatsAttachmentSetId =
     lens _aatsAttachmentSetId (\s a -> s { _aatsAttachmentSetId = a })
-{-# INLINE aatsAttachmentSetId #-}
 
 -- | One or more attachments to add to the set. The limit is 3 attachments per
 -- set, and the size limit is 5 MB per attachment.
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
 aatsAttachments = lens _aatsAttachments (\s a -> s { _aatsAttachments = a })
-{-# INLINE aatsAttachments #-}
 
 instance ToPath AddAttachmentsToSet
 
@@ -101,13 +98,11 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
 aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrsAttachmentSetId =
     lens _aatsrsAttachmentSetId (\s a -> s { _aatsrsAttachmentSetId = a })
-{-# INLINE aatsrsAttachmentSetId #-}
 
 -- | The time and date when the attachment set expires.
 aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrsExpiryTime =
     lens _aatsrsExpiryTime (\s a -> s { _aatsrsExpiryTime = a })
-{-# INLINE aatsrsExpiryTime #-}
 
 instance FromJSON AddAttachmentsToSetResponse
 

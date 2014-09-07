@@ -50,12 +50,10 @@ mkDeleteGroup :: Text -- ^ 'dgGroupName'
 mkDeleteGroup p1 = DeleteGroup
     { _dgGroupName = p1
     }
-{-# INLINE mkDeleteGroup #-}
 
 -- | Name of the group to delete.
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\s a -> s { _dgGroupName = a })
-{-# INLINE dgGroupName #-}
 
 instance ToQuery DeleteGroup where
     toQuery = genericQuery def

@@ -59,18 +59,15 @@ mkDescribeAvailabilityOptions p1 = DescribeAvailabilityOptions
     { _dao2DomainName = p1
     , _dao2Deployed = Nothing
     }
-{-# INLINE mkDescribeAvailabilityOptions #-}
 
 -- | The name of the domain you want to describe.
 dao2DomainName :: Lens' DescribeAvailabilityOptions Text
 dao2DomainName = lens _dao2DomainName (\s a -> s { _dao2DomainName = a })
-{-# INLINE dao2DomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 dao2Deployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
 dao2Deployed = lens _dao2Deployed (\s a -> s { _dao2Deployed = a })
-{-# INLINE dao2Deployed #-}
 
 instance ToQuery DescribeAvailabilityOptions where
     toQuery = genericQuery def
@@ -87,7 +84,6 @@ daorsrsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe A
 daorsrsAvailabilityOptions =
     lens _daorsrsAvailabilityOptions
          (\s a -> s { _daorsrsAvailabilityOptions = a })
-{-# INLINE daorsrsAvailabilityOptions #-}
 
 instance FromXML DescribeAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions

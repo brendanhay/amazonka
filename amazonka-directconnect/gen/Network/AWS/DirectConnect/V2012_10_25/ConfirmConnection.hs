@@ -53,12 +53,10 @@ mkConfirmConnection :: Text -- ^ 'ccConnectionId'
 mkConfirmConnection p1 = ConfirmConnection
     { _ccConnectionId = p1
     }
-{-# INLINE mkConfirmConnection #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 ccConnectionId :: Lens' ConfirmConnection Text
 ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
-{-# INLINE ccConnectionId #-}
 
 instance ToPath ConfirmConnection
 
@@ -87,7 +85,6 @@ newtype ConfirmConnectionResponse = ConfirmConnectionResponse
 ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrsConnectionState =
     lens _ccrsConnectionState (\s a -> s { _ccrsConnectionState = a })
-{-# INLINE ccrsConnectionState #-}
 
 instance FromJSON ConfirmConnectionResponse
 

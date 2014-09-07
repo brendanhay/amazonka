@@ -41,7 +41,6 @@ data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
 -- a valid 'DescribeLifecycleHookTypes' request.
 mkDescribeLifecycleHookTypes :: DescribeLifecycleHookTypes
 mkDescribeLifecycleHookTypes = DescribeLifecycleHookTypes
-{-# INLINE mkDescribeLifecycleHookTypes #-}
 
 instance ToQuery DescribeLifecycleHookTypes where
     toQuery = genericQuery def
@@ -58,7 +57,6 @@ dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrsLifecycleHookTypes =
     lens _dlhtrsLifecycleHookTypes
          (\s a -> s { _dlhtrsLifecycleHookTypes = a })
-{-# INLINE dlhtrsLifecycleHookTypes #-}
 
 instance FromXML DescribeLifecycleHookTypesResponse where
     fromXMLOptions = xmlOptions

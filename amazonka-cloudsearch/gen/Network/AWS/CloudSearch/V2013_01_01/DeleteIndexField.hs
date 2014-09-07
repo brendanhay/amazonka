@@ -56,7 +56,6 @@ mkDeleteIndexField p1 p2 = DeleteIndexField
     { _dif1DomainName = p1
     , _dif1IndexFieldName = p2
     }
-{-# INLINE mkDeleteIndexField #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -64,14 +63,12 @@ mkDeleteIndexField p1 p2 = DeleteIndexField
 -- (lowercase), 0-9, and - (hyphen).
 dif1DomainName :: Lens' DeleteIndexField Text
 dif1DomainName = lens _dif1DomainName (\s a -> s { _dif1DomainName = a })
-{-# INLINE dif1DomainName #-}
 
 -- | The name of the index field your want to remove from the domain's indexing
 -- options.
 dif1IndexFieldName :: Lens' DeleteIndexField Text
 dif1IndexFieldName =
     lens _dif1IndexFieldName (\s a -> s { _dif1IndexFieldName = a })
-{-# INLINE dif1IndexFieldName #-}
 
 instance ToQuery DeleteIndexField where
     toQuery = genericQuery def
@@ -85,7 +82,6 @@ newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
 difrsrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrsrsIndexField =
     lens _difrsrsIndexField (\s a -> s { _difrsrsIndexField = a })
-{-# INLINE difrsrsIndexField #-}
 
 instance FromXML DeleteIndexFieldResponse where
     fromXMLOptions = xmlOptions

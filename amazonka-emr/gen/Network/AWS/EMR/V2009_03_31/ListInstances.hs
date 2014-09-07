@@ -64,29 +64,24 @@ mkListInstances p1 = ListInstances
     , _liInstanceGroupTypes = mempty
     , _liMarker = Nothing
     }
-{-# INLINE mkListInstances #-}
 
 -- | The identifier of the cluster for which to list the instances.
 liClusterId :: Lens' ListInstances Text
 liClusterId = lens _liClusterId (\s a -> s { _liClusterId = a })
-{-# INLINE liClusterId #-}
 
 -- | The identifier of the instance group for which to list the instances.
 liInstanceGroupId :: Lens' ListInstances (Maybe Text)
 liInstanceGroupId =
     lens _liInstanceGroupId (\s a -> s { _liInstanceGroupId = a })
-{-# INLINE liInstanceGroupId #-}
 
 -- | The type of instance group for which to list the instances.
 liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
 liInstanceGroupTypes =
     lens _liInstanceGroupTypes (\s a -> s { _liInstanceGroupTypes = a })
-{-# INLINE liInstanceGroupTypes #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 liMarker :: Lens' ListInstances (Maybe Text)
 liMarker = lens _liMarker (\s a -> s { _liMarker = a })
-{-# INLINE liMarker #-}
 
 instance ToPath ListInstances
 
@@ -105,12 +100,10 @@ data ListInstancesResponse = ListInstancesResponse
 -- | The list of instances for the cluster and given filters.
 lirsInstances :: Lens' ListInstancesResponse [Instance]
 lirsInstances = lens _lirsInstances (\s a -> s { _lirsInstances = a })
-{-# INLINE lirsInstances #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirsMarker = lens _lirsMarker (\s a -> s { _lirsMarker = a })
-{-# INLINE lirsMarker #-}
 
 instance FromJSON ListInstancesResponse
 
@@ -122,5 +115,5 @@ instance AWSRequest ListInstances where
     response _ = jsonResponse
 
 instance AWSPager ListInstances where
-    next rq rs = (\x -> rq { _liMarker = Just x })
-        <$> (_lirsMarker rs)
+    next rq rs = (\x -> rq & liMarker ?~ x) <$> (rs ^. lirsMarker)
+

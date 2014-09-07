@@ -60,19 +60,16 @@ mkCancelConversionTask p1 = CancelConversionTask
     { _cctConversionTaskId = p1
     , _cctReasonMessage = Nothing
     }
-{-# INLINE mkCancelConversionTask #-}
 
 -- | The ID of the conversion task.
 cctConversionTaskId :: Lens' CancelConversionTask Text
 cctConversionTaskId =
     lens _cctConversionTaskId (\s a -> s { _cctConversionTaskId = a })
-{-# INLINE cctConversionTaskId #-}
 
 -- | 
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 cctReasonMessage =
     lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
-{-# INLINE cctReasonMessage #-}
 
 instance ToQuery CancelConversionTask where
     toQuery = genericQuery def

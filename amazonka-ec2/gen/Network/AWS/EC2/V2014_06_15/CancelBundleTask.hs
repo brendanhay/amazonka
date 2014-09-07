@@ -63,12 +63,10 @@ mkCancelBundleTask :: Text -- ^ 'cbtBundleId'
 mkCancelBundleTask p1 = CancelBundleTask
     { _cbtBundleId = p1
     }
-{-# INLINE mkCancelBundleTask #-}
 
 -- | The ID of the bundle task.
 cbtBundleId :: Lens' CancelBundleTask Text
 cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
-{-# INLINE cbtBundleId #-}
 
 instance ToQuery CancelBundleTask where
     toQuery = genericQuery def
@@ -81,7 +79,6 @@ newtype CancelBundleTaskResponse = CancelBundleTaskResponse
 -- | The bundle task.
 cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrsBundleTask = lens _cbtrsBundleTask (\s a -> s { _cbtrsBundleTask = a })
-{-# INLINE cbtrsBundleTask #-}
 
 instance FromXML CancelBundleTaskResponse where
     fromXMLOptions = xmlOptions

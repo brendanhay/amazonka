@@ -69,33 +69,28 @@ mkValidateConfigurationSettings p1 p4 = ValidateConfigurationSettings
     , _vcsEnvironmentName = Nothing
     , _vcsOptionSettings = p4
     }
-{-# INLINE mkValidateConfigurationSettings #-}
 
 -- | The name of the application that the configuration template or environment
 -- belongs to.
 vcsApplicationName :: Lens' ValidateConfigurationSettings Text
 vcsApplicationName =
     lens _vcsApplicationName (\s a -> s { _vcsApplicationName = a })
-{-# INLINE vcsApplicationName #-}
 
 -- | The name of the configuration template to validate the settings against.
 -- Condition: You cannot specify both this and an environment name.
 vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
-{-# INLINE vcsTemplateName #-}
 
 -- | The name of the environment to validate the settings against. Condition:
 -- You cannot specify both this and a configuration template name.
 vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsEnvironmentName =
     lens _vcsEnvironmentName (\s a -> s { _vcsEnvironmentName = a })
-{-# INLINE vcsEnvironmentName #-}
 
 -- | A list of the options and desired values to evaluate.
 vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
 vcsOptionSettings =
     lens _vcsOptionSettings (\s a -> s { _vcsOptionSettings = a })
-{-# INLINE vcsOptionSettings #-}
 
 instance ToQuery ValidateConfigurationSettings where
     toQuery = genericQuery def
@@ -108,7 +103,6 @@ newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRes
 -- | A list of ValidationMessage.
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrsMessages = lens _vcsrsMessages (\s a -> s { _vcsrsMessages = a })
-{-# INLINE vcsrsMessages #-}
 
 instance FromXML ValidateConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions

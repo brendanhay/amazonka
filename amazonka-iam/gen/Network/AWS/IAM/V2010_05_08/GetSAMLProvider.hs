@@ -56,14 +56,12 @@ mkGetSAMLProvider :: Text -- ^ 'gsamlpSAMLProviderArn'
 mkGetSAMLProvider p1 = GetSAMLProvider
     { _gsamlpSAMLProviderArn = p1
     }
-{-# INLINE mkGetSAMLProvider #-}
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to get information
 -- about.
 gsamlpSAMLProviderArn :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderArn =
     lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
-{-# INLINE gsamlpSAMLProviderArn #-}
 
 instance ToQuery GetSAMLProvider where
     toQuery = genericQuery def
@@ -82,19 +80,16 @@ gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprsSAMLMetadataDocument =
     lens _gsamlprsSAMLMetadataDocument
          (\s a -> s { _gsamlprsSAMLMetadataDocument = a })
-{-# INLINE gsamlprsSAMLMetadataDocument #-}
 
 -- | The date and time when the SAML provider was created.
 gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
 gsamlprsCreateDate =
     lens _gsamlprsCreateDate (\s a -> s { _gsamlprsCreateDate = a })
-{-# INLINE gsamlprsCreateDate #-}
 
 -- | The expiration date and time for the SAML provider.
 gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
 gsamlprsValidUntil =
     lens _gsamlprsValidUntil (\s a -> s { _gsamlprsValidUntil = a })
-{-# INLINE gsamlprsValidUntil #-}
 
 instance FromXML GetSAMLProviderResponse where
     fromXMLOptions = xmlOptions

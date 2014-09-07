@@ -60,18 +60,15 @@ mkDescribeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
     { _dsapDomainName = p1
     , _dsapDeployed = Nothing
     }
-{-# INLINE mkDescribeServiceAccessPolicies #-}
 
 -- | The name of the domain you want to describe.
 dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
 dsapDomainName = lens _dsapDomainName (\s a -> s { _dsapDomainName = a })
-{-# INLINE dsapDomainName #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
 dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
-{-# INLINE dsapDeployed #-}
 
 instance ToQuery DescribeServiceAccessPolicies where
     toQuery = genericQuery def
@@ -85,7 +82,6 @@ newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRes
 dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
 dsaprsAccessPolicies =
     lens _dsaprsAccessPolicies (\s a -> s { _dsaprsAccessPolicies = a })
-{-# INLINE dsaprsAccessPolicies #-}
 
 instance FromXML DescribeServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions

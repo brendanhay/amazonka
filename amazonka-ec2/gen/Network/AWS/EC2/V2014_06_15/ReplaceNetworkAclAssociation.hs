@@ -67,20 +67,17 @@ mkReplaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     { _rnaaAssociationId = p1
     , _rnaaNetworkAclId = p2
     }
-{-# INLINE mkReplaceNetworkAclAssociation #-}
 
 -- | The ID of the current association between the original network ACL and the
 -- subnet.
 rnaaAssociationId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaAssociationId =
     lens _rnaaAssociationId (\s a -> s { _rnaaAssociationId = a })
-{-# INLINE rnaaAssociationId #-}
 
 -- | The ID of the new ACL to associate with the subnet.
 rnaaNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaNetworkAclId =
     lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
-{-# INLINE rnaaNetworkAclId #-}
 
 instance ToQuery ReplaceNetworkAclAssociation where
     toQuery = genericQuery def
@@ -94,7 +91,6 @@ newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationRespo
 rnaarsNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaarsNewAssociationId =
     lens _rnaarsNewAssociationId (\s a -> s { _rnaarsNewAssociationId = a })
-{-# INLINE rnaarsNewAssociationId #-}
 
 instance FromXML ReplaceNetworkAclAssociationResponse where
     fromXMLOptions = xmlOptions

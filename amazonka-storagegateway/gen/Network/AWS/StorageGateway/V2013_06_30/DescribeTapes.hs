@@ -58,25 +58,20 @@ mkDescribeTapes p1 = DescribeTapes
     , _dt1Marker = Nothing
     , _dt1Limit = Nothing
     }
-{-# INLINE mkDescribeTapes #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dt1GatewayARN :: Lens' DescribeTapes Text
 dt1GatewayARN = lens _dt1GatewayARN (\s a -> s { _dt1GatewayARN = a })
-{-# INLINE dt1GatewayARN #-}
 
 dt1TapeARNs :: Lens' DescribeTapes [Text]
 dt1TapeARNs = lens _dt1TapeARNs (\s a -> s { _dt1TapeARNs = a })
-{-# INLINE dt1TapeARNs #-}
 
 dt1Marker :: Lens' DescribeTapes (Maybe Text)
 dt1Marker = lens _dt1Marker (\s a -> s { _dt1Marker = a })
-{-# INLINE dt1Marker #-}
 
 dt1Limit :: Lens' DescribeTapes (Maybe Integer)
 dt1Limit = lens _dt1Limit (\s a -> s { _dt1Limit = a })
-{-# INLINE dt1Limit #-}
 
 instance ToPath DescribeTapes
 
@@ -93,11 +88,9 @@ data DescribeTapesResponse = DescribeTapesResponse
 
 dtrsrsTapes :: Lens' DescribeTapesResponse [Tape]
 dtrsrsTapes = lens _dtrsrsTapes (\s a -> s { _dtrsrsTapes = a })
-{-# INLINE dtrsrsTapes #-}
 
 dtrsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
 dtrsrsMarker = lens _dtrsrsMarker (\s a -> s { _dtrsrsMarker = a })
-{-# INLINE dtrsrsMarker #-}
 
 instance FromJSON DescribeTapesResponse
 
@@ -109,5 +102,5 @@ instance AWSRequest DescribeTapes where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapes where
-    next rq rs = (\x -> rq { _dt1Marker = Just x })
-        <$> (_dtrsrsMarker rs)
+    next rq rs = (\x -> rq & dt1Marker ?~ x) <$> (rs ^. dtrsrsMarker)
+

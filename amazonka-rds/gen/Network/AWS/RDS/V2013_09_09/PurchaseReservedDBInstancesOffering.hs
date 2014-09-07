@@ -66,7 +66,6 @@ mkPurchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     , _prdbioDBInstanceCount = Nothing
     , _prdbioTags = mempty
     }
-{-# INLINE mkPurchaseReservedDBInstancesOffering #-}
 
 -- | The ID of the Reserved DB instance offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
@@ -74,7 +73,6 @@ prdbioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering
 prdbioReservedDBInstancesOfferingId =
     lens _prdbioReservedDBInstancesOfferingId
          (\s a -> s { _prdbioReservedDBInstancesOfferingId = a })
-{-# INLINE prdbioReservedDBInstancesOfferingId #-}
 
 -- | Customer-specified identifier to track this reservation. Example:
 -- myreservationID.
@@ -82,18 +80,15 @@ prdbioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe T
 prdbioReservedDBInstanceId =
     lens _prdbioReservedDBInstanceId
          (\s a -> s { _prdbioReservedDBInstanceId = a })
-{-# INLINE prdbioReservedDBInstanceId #-}
 
 -- | The number of instances to reserve. Default: 1.
 prdbioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Integer)
 prdbioDBInstanceCount =
     lens _prdbioDBInstanceCount (\s a -> s { _prdbioDBInstanceCount = a })
-{-# INLINE prdbioDBInstanceCount #-}
 
 -- | A list of tags.
 prdbioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
 prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a })
-{-# INLINE prdbioTags #-}
 
 instance ToQuery PurchaseReservedDBInstancesOffering where
     toQuery = genericQuery def
@@ -109,7 +104,6 @@ prdbiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse 
 prdbiorsReservedDBInstance =
     lens _prdbiorsReservedDBInstance
          (\s a -> s { _prdbiorsReservedDBInstance = a })
-{-# INLINE prdbiorsReservedDBInstance #-}
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     fromXMLOptions = xmlOptions

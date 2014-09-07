@@ -76,12 +76,10 @@ mkDeprecateDomain :: Text -- ^ 'ddName'
 mkDeprecateDomain p1 = DeprecateDomain
     { _ddName = p1
     }
-{-# INLINE mkDeprecateDomain #-}
 
 -- | The name of the domain to deprecate.
 ddName :: Lens' DeprecateDomain Text
 ddName = lens _ddName (\s a -> s { _ddName = a })
-{-# INLINE ddName #-}
 
 instance ToPath DeprecateDomain
 

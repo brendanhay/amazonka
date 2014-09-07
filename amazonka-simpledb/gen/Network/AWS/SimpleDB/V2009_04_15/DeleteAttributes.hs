@@ -65,31 +65,26 @@ mkDeleteAttributes p1 p2 = DeleteAttributes
     , _daAttributes = mempty
     , _daExpected = Nothing
     }
-{-# INLINE mkDeleteAttributes #-}
 
 -- | The name of the domain in which to perform the operation.
 daDomainName :: Lens' DeleteAttributes Text
 daDomainName = lens _daDomainName (\s a -> s { _daDomainName = a })
-{-# INLINE daDomainName #-}
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent
 -- individual objects that contain one or more value-attribute pairs.
 daItemName :: Lens' DeleteAttributes Text
 daItemName = lens _daItemName (\s a -> s { _daItemName = a })
-{-# INLINE daItemName #-}
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
 daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a })
-{-# INLINE daAttributes #-}
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be deleted or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be deleted.
 daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
 daExpected = lens _daExpected (\s a -> s { _daExpected = a })
-{-# INLINE daExpected #-}
 
 instance ToQuery DeleteAttributes where
     toQuery = genericQuery def

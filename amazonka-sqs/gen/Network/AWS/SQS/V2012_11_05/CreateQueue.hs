@@ -76,12 +76,10 @@ mkCreateQueue p1 = CreateQueue
     { _cqQueueName = p1
     , _cqAttributes = mempty
     }
-{-# INLINE mkCreateQueue #-}
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
-{-# INLINE cqQueueName #-}
 
 -- | A map of attributes with their corresponding values. The following lists
 -- the names, descriptions, and values of the special request parameters the
@@ -106,7 +104,6 @@ cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
 -- Visibility Timeout in the Amazon SQS Developer Guide.
 cqAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
-{-# INLINE cqAttributes #-}
 
 instance ToQuery CreateQueue where
     toQuery = genericQuery def
@@ -119,7 +116,6 @@ newtype CreateQueueResponse = CreateQueueResponse
 -- | The URL for the created Amazon SQS queue.
 cqrsQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
 cqrsQueueUrl = lens _cqrsQueueUrl (\s a -> s { _cqrsQueueUrl = a })
-{-# INLINE cqrsQueueUrl #-}
 
 instance FromXML CreateQueueResponse where
     fromXMLOptions = xmlOptions

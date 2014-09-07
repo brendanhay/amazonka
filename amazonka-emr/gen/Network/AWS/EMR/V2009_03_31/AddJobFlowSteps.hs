@@ -92,18 +92,15 @@ mkAddJobFlowSteps p1 p2 = AddJobFlowSteps
     { _ajfsJobFlowId = p1
     , _ajfsSteps = p2
     }
-{-# INLINE mkAddJobFlowSteps #-}
 
 -- | A string that uniquely identifies the job flow. This identifier is returned
 -- by RunJobFlow and can also be obtained from ListClusters.
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
 ajfsJobFlowId = lens _ajfsJobFlowId (\s a -> s { _ajfsJobFlowId = a })
-{-# INLINE ajfsJobFlowId #-}
 
 -- | A list of StepConfig to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a })
-{-# INLINE ajfsSteps #-}
 
 instance ToPath AddJobFlowSteps
 
@@ -121,7 +118,6 @@ newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
 -- | The identifiers of the list of steps added to the job flow.
 ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrsStepIds = lens _ajfsrsStepIds (\s a -> s { _ajfsrsStepIds = a })
-{-# INLINE ajfsrsStepIds #-}
 
 instance FromJSON AddJobFlowStepsResponse
 

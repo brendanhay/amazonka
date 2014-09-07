@@ -57,18 +57,15 @@ mkDetachNetworkInterface p1 = DetachNetworkInterface
     { _dni2AttachmentId = p1
     , _dni2Force = Nothing
     }
-{-# INLINE mkDetachNetworkInterface #-}
 
 -- | The ID of the attachment.
 dni2AttachmentId :: Lens' DetachNetworkInterface Text
 dni2AttachmentId =
     lens _dni2AttachmentId (\s a -> s { _dni2AttachmentId = a })
-{-# INLINE dni2AttachmentId #-}
 
 -- | Specifies whether to force a detachment.
 dni2Force :: Lens' DetachNetworkInterface (Maybe Bool)
 dni2Force = lens _dni2Force (\s a -> s { _dni2Force = a })
-{-# INLINE dni2Force #-}
 
 instance ToQuery DetachNetworkInterface where
     toQuery = genericQuery def

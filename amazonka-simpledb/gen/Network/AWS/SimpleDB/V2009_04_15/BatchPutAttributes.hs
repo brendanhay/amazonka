@@ -84,17 +84,14 @@ mkBatchPutAttributes p1 p2 = BatchPutAttributes
     { _bpaDomainName = p1
     , _bpaItems = p2
     }
-{-# INLINE mkBatchPutAttributes #-}
 
 -- | The name of the domain in which the attributes are being stored.
 bpaDomainName :: Lens' BatchPutAttributes Text
 bpaDomainName = lens _bpaDomainName (\s a -> s { _bpaDomainName = a })
-{-# INLINE bpaDomainName #-}
 
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a })
-{-# INLINE bpaItems #-}
 
 instance ToQuery BatchPutAttributes where
     toQuery = genericQuery def

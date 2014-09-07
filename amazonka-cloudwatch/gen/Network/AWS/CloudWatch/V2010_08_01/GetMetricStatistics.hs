@@ -93,22 +93,18 @@ mkGetMetricStatistics p1 p2 p4 p5 p6 p7 = GetMetricStatistics
     , _gmsStatistics = p7
     , _gmsUnit = Nothing
     }
-{-# INLINE mkGetMetricStatistics #-}
 
 -- | The namespace of the metric.
 gmsNamespace :: Lens' GetMetricStatistics Text
 gmsNamespace = lens _gmsNamespace (\s a -> s { _gmsNamespace = a })
-{-# INLINE gmsNamespace #-}
 
 -- | The name of the metric.
 gmsMetricName :: Lens' GetMetricStatistics Text
 gmsMetricName = lens _gmsMetricName (\s a -> s { _gmsMetricName = a })
-{-# INLINE gmsMetricName #-}
 
 -- | A list of dimensions describing qualities of the metric.
 gmsDimensions :: Lens' GetMetricStatistics [Dimension]
 gmsDimensions = lens _gmsDimensions (\s a -> s { _gmsDimensions = a })
-{-# INLINE gmsDimensions #-}
 
 -- | The time stamp to use for determining the first datapoint to return. The
 -- value specified is inclusive; results include datapoints with the time
@@ -118,30 +114,25 @@ gmsDimensions = lens _gmsDimensions (\s a -> s { _gmsDimensions = a })
 -- return datapoints for metrics that are older than two weeks.
 gmsStartTime :: Lens' GetMetricStatistics ISO8601
 gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a })
-{-# INLINE gmsStartTime #-}
 
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the
 -- time stamp specified.
 gmsEndTime :: Lens' GetMetricStatistics ISO8601
 gmsEndTime = lens _gmsEndTime (\s a -> s { _gmsEndTime = a })
-{-# INLINE gmsEndTime #-}
 
 -- | The granularity, in seconds, of the returned datapoints. Period must be at
 -- least 60 seconds and must be a multiple of 60. The default value is 60.
 gmsPeriod :: Lens' GetMetricStatistics Integer
 gmsPeriod = lens _gmsPeriod (\s a -> s { _gmsPeriod = a })
-{-# INLINE gmsPeriod #-}
 
 -- | The metric statistics to return.
 gmsStatistics :: Lens' GetMetricStatistics [Statistic]
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a })
-{-# INLINE gmsStatistics #-}
 
 -- | The unit for the metric.
 gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
 gmsUnit = lens _gmsUnit (\s a -> s { _gmsUnit = a })
-{-# INLINE gmsUnit #-}
 
 instance ToQuery GetMetricStatistics where
     toQuery = genericQuery def
@@ -155,12 +146,10 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse
 -- | A label describing the specified metric.
 gmsrsLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrsLabel = lens _gmsrsLabel (\s a -> s { _gmsrsLabel = a })
-{-# INLINE gmsrsLabel #-}
 
 -- | The datapoints for the specified metric.
 gmsrsDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
 gmsrsDatapoints = lens _gmsrsDatapoints (\s a -> s { _gmsrsDatapoints = a })
-{-# INLINE gmsrsDatapoints #-}
 
 instance FromXML GetMetricStatisticsResponse where
     fromXMLOptions = xmlOptions

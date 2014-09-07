@@ -65,14 +65,12 @@ mkDescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     , _dcsg3MaxRecords = Nothing
     , _dcsg3Marker = Nothing
     }
-{-# INLINE mkDescribeClusterSubnetGroups #-}
 
 -- | The name of the cluster subnet group for which information is requested.
 dcsg3ClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsg3ClusterSubnetGroupName =
     lens _dcsg3ClusterSubnetGroupName
          (\s a -> s { _dcsg3ClusterSubnetGroupName = a })
-{-# INLINE dcsg3ClusterSubnetGroupName #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -81,7 +79,6 @@ dcsg3ClusterSubnetGroupName =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsg3MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Integer)
 dcsg3MaxRecords = lens _dcsg3MaxRecords (\s a -> s { _dcsg3MaxRecords = a })
-{-# INLINE dcsg3MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterSubnetGroups request
@@ -91,7 +88,6 @@ dcsg3MaxRecords = lens _dcsg3MaxRecords (\s a -> s { _dcsg3MaxRecords = a })
 -- the request.
 dcsg3Marker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsg3Marker = lens _dcsg3Marker (\s a -> s { _dcsg3Marker = a })
-{-# INLINE dcsg3Marker #-}
 
 instance ToQuery DescribeClusterSubnetGroups where
     toQuery = genericQuery def
@@ -109,14 +105,12 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
 -- is empty, all response records have been retrieved for the request.
 dcsgrsrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrsrsMarker = lens _dcsgrsrsMarker (\s a -> s { _dcsgrsrsMarker = a })
-{-# INLINE dcsgrsrsMarker #-}
 
 -- | A list of ClusterSubnetGroup instances.
 dcsgrsrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
 dcsgrsrsClusterSubnetGroups =
     lens _dcsgrsrsClusterSubnetGroups
          (\s a -> s { _dcsgrsrsClusterSubnetGroups = a })
-{-# INLINE dcsgrsrsClusterSubnetGroups #-}
 
 instance FromXML DescribeClusterSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -129,5 +123,5 @@ instance AWSRequest DescribeClusterSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSubnetGroups where
-    next rq rs = (\x -> rq { _dcsg3Marker = Just x })
-        <$> (_dcsgrsrsMarker rs)
+    next rq rs = (\x -> rq & dcsg3Marker ?~ x) <$> (rs ^. dcsgrsrsMarker)
+

@@ -78,13 +78,11 @@ mkGetIdentityDkimAttributes :: [Text] -- ^ 'gidaIdentities'
 mkGetIdentityDkimAttributes p1 = GetIdentityDkimAttributes
     { _gidaIdentities = p1
     }
-{-# INLINE mkGetIdentityDkimAttributes #-}
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a })
-{-# INLINE gidaIdentities #-}
 
 instance ToQuery GetIdentityDkimAttributes where
     toQuery = genericQuery def
@@ -98,7 +96,6 @@ newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
 gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
 gidarsDkimAttributes =
     lens _gidarsDkimAttributes (\s a -> s { _gidarsDkimAttributes = a })
-{-# INLINE gidarsDkimAttributes #-}
 
 instance FromXML GetIdentityDkimAttributesResponse where
     fromXMLOptions = xmlOptions

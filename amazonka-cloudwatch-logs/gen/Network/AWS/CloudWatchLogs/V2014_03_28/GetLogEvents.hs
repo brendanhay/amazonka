@@ -95,47 +95,39 @@ mkGetLogEvents p1 p2 = GetLogEvents
     , _gleLimit = Nothing
     , _gleStartFromHead = Nothing
     }
-{-# INLINE mkGetLogEvents #-}
 
 gleLogGroupName :: Lens' GetLogEvents Text
 gleLogGroupName = lens _gleLogGroupName (\s a -> s { _gleLogGroupName = a })
-{-# INLINE gleLogGroupName #-}
 
 gleLogStreamName :: Lens' GetLogEvents Text
 gleLogStreamName =
     lens _gleLogStreamName (\s a -> s { _gleLogStreamName = a })
-{-# INLINE gleLogStreamName #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 gleStartTime :: Lens' GetLogEvents (Maybe Integer)
 gleStartTime = lens _gleStartTime (\s a -> s { _gleStartTime = a })
-{-# INLINE gleStartTime #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 gleEndTime :: Lens' GetLogEvents (Maybe Integer)
 gleEndTime = lens _gleEndTime (\s a -> s { _gleEndTime = a })
-{-# INLINE gleEndTime #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the nextForwardToken or nextBackwardToken
 -- fields in the response of the previous GetLogEvents request.
 gleNextToken :: Lens' GetLogEvents (Maybe Text)
 gleNextToken = lens _gleNextToken (\s a -> s { _gleNextToken = a })
-{-# INLINE gleNextToken #-}
 
 -- | The maximum number of log events returned in the response. If you don't
 -- specify a value, the request would return as much log events as can fit in
 -- a response size of 1MB, up to 10,000 log events.
 gleLimit :: Lens' GetLogEvents (Maybe Integer)
 gleLimit = lens _gleLimit (\s a -> s { _gleLimit = a })
-{-# INLINE gleLimit #-}
 
 gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
 gleStartFromHead =
     lens _gleStartFromHead (\s a -> s { _gleStartFromHead = a })
-{-# INLINE gleStartFromHead #-}
 
 instance ToPath GetLogEvents
 
@@ -153,7 +145,6 @@ data GetLogEventsResponse = GetLogEventsResponse
 
 glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glersEvents = lens _glersEvents (\s a -> s { _glersEvents = a })
-{-# INLINE glersEvents #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
@@ -161,7 +152,6 @@ glersEvents = lens _glersEvents (\s a -> s { _glersEvents = a })
 glersNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextForwardToken =
     lens _glersNextForwardToken (\s a -> s { _glersNextForwardToken = a })
-{-# INLINE glersNextForwardToken #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
@@ -169,7 +159,6 @@ glersNextForwardToken =
 glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextBackwardToken =
     lens _glersNextBackwardToken (\s a -> s { _glersNextBackwardToken = a })
-{-# INLINE glersNextBackwardToken #-}
 
 instance FromJSON GetLogEventsResponse
 

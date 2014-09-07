@@ -85,31 +85,26 @@ mkDescribeLogStreams p1 = DescribeLogStreams
     , _dls1NextToken = Nothing
     , _dls1Limit = Nothing
     }
-{-# INLINE mkDescribeLogStreams #-}
 
 dls1LogGroupName :: Lens' DescribeLogStreams Text
 dls1LogGroupName =
     lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })
-{-# INLINE dls1LogGroupName #-}
 
 dls1LogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 dls1LogStreamNamePrefix =
     lens _dls1LogStreamNamePrefix
          (\s a -> s { _dls1LogStreamNamePrefix = a })
-{-# INLINE dls1LogStreamNamePrefix #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous
 -- DescribeLogStreams request.
 dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
 dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
-{-# INLINE dls1NextToken #-}
 
 -- | The maximum number of items returned in the response. If you don't specify
 -- a value, the request would return up to 50 items.
 dls1Limit :: Lens' DescribeLogStreams (Maybe Integer)
 dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a })
-{-# INLINE dls1Limit #-}
 
 instance ToPath DescribeLogStreams
 
@@ -127,14 +122,12 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse
 -- | A list of log streams.
 dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrsLogStreams = lens _dlsrsLogStreams (\s a -> s { _dlsrsLogStreams = a })
-{-# INLINE dlsrsLogStreams #-}
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
 dlsrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrsNextToken = lens _dlsrsNextToken (\s a -> s { _dlsrsNextToken = a })
-{-# INLINE dlsrsNextToken #-}
 
 instance FromJSON DescribeLogStreamsResponse
 
@@ -146,5 +139,5 @@ instance AWSRequest DescribeLogStreams where
     response _ = jsonResponse
 
 instance AWSPager DescribeLogStreams where
-    next rq rs = (\x -> rq { _dls1NextToken = Just x })
-        <$> (_dlsrsNextToken rs)
+    next rq rs = (\x -> rq & dls1NextToken ?~ x) <$> (rs ^. dlsrsNextToken)
+

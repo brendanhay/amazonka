@@ -56,19 +56,16 @@ mkAddRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
     { _artipInstanceProfileName = p1
     , _artipRoleName = p2
     }
-{-# INLINE mkAddRoleToInstanceProfile #-}
 
 -- | Name of the instance profile to update.
 artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
 artipInstanceProfileName =
     lens _artipInstanceProfileName
          (\s a -> s { _artipInstanceProfileName = a })
-{-# INLINE artipInstanceProfileName #-}
 
 -- | Name of the role to add.
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
-{-# INLINE artipRoleName #-}
 
 instance ToQuery AddRoleToInstanceProfile where
     toQuery = genericQuery def

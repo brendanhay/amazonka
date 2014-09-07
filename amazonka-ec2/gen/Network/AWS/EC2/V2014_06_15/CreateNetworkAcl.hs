@@ -61,12 +61,10 @@ mkCreateNetworkAcl :: Text -- ^ 'cnaVpcId'
 mkCreateNetworkAcl p1 = CreateNetworkAcl
     { _cnaVpcId = p1
     }
-{-# INLINE mkCreateNetworkAcl #-}
 
 -- | The ID of the VPC.
 cnaVpcId :: Lens' CreateNetworkAcl Text
 cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
-{-# INLINE cnaVpcId #-}
 
 instance ToQuery CreateNetworkAcl where
     toQuery = genericQuery def
@@ -79,7 +77,6 @@ newtype CreateNetworkAclResponse = CreateNetworkAclResponse
 -- | Information about the network ACL.
 cnarsNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnarsNetworkAcl = lens _cnarsNetworkAcl (\s a -> s { _cnarsNetworkAcl = a })
-{-# INLINE cnarsNetworkAcl #-}
 
 instance FromXML CreateNetworkAclResponse where
     fromXMLOptions = xmlOptions

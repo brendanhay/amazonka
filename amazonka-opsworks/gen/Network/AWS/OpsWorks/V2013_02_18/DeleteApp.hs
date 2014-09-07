@@ -50,12 +50,10 @@ mkDeleteApp :: Text -- ^ 'daAppId'
 mkDeleteApp p1 = DeleteApp
     { _daAppId = p1
     }
-{-# INLINE mkDeleteApp #-}
 
 -- | The app ID.
 daAppId :: Lens' DeleteApp Text
 daAppId = lens _daAppId (\s a -> s { _daAppId = a })
-{-# INLINE daAppId #-}
 
 instance ToPath DeleteApp
 

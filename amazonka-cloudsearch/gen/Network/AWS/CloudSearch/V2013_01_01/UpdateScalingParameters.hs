@@ -61,7 +61,6 @@ mkUpdateScalingParameters p1 p2 = UpdateScalingParameters
     { _uspDomainName = p1
     , _uspScalingParameters = p2
     }
-{-# INLINE mkUpdateScalingParameters #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -69,14 +68,12 @@ mkUpdateScalingParameters p1 p2 = UpdateScalingParameters
 -- (lowercase), 0-9, and - (hyphen).
 uspDomainName :: Lens' UpdateScalingParameters Text
 uspDomainName = lens _uspDomainName (\s a -> s { _uspDomainName = a })
-{-# INLINE uspDomainName #-}
 
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
 uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters =
     lens _uspScalingParameters (\s a -> s { _uspScalingParameters = a })
-{-# INLINE uspScalingParameters #-}
 
 instance ToQuery UpdateScalingParameters where
     toQuery = genericQuery def
@@ -91,7 +88,6 @@ newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
 usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprsScalingParameters =
     lens _usprsScalingParameters (\s a -> s { _usprsScalingParameters = a })
-{-# INLINE usprsScalingParameters #-}
 
 instance FromXML UpdateScalingParametersResponse where
     fromXMLOptions = xmlOptions

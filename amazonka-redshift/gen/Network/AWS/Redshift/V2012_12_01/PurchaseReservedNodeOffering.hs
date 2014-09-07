@@ -68,19 +68,16 @@ mkPurchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
     { _prnoReservedNodeOfferingId = p1
     , _prnoNodeCount = Nothing
     }
-{-# INLINE mkPurchaseReservedNodeOffering #-}
 
 -- | The unique identifier of the reserved node offering you want to purchase.
 prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
 prnoReservedNodeOfferingId =
     lens _prnoReservedNodeOfferingId
          (\s a -> s { _prnoReservedNodeOfferingId = a })
-{-# INLINE prnoReservedNodeOfferingId #-}
 
 -- | The number of reserved nodes you want to purchase. Default: 1.
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Integer)
 prnoNodeCount = lens _prnoNodeCount (\s a -> s { _prnoNodeCount = a })
-{-# INLINE prnoNodeCount #-}
 
 instance ToQuery PurchaseReservedNodeOffering where
     toQuery = genericQuery def
@@ -93,7 +90,6 @@ newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingRespo
 prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorsReservedNode =
     lens _prnorsReservedNode (\s a -> s { _prnorsReservedNode = a })
-{-# INLINE prnorsReservedNode #-}
 
 instance FromXML PurchaseReservedNodeOfferingResponse where
     fromXMLOptions = xmlOptions

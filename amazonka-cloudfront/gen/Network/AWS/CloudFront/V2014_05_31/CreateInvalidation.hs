@@ -55,19 +55,16 @@ mkCreateInvalidation p1 p2 = CreateInvalidation
     { _ciDistributionId = p1
     , _ciInvalidationBatch = p2
     }
-{-# INLINE mkCreateInvalidation #-}
 
 -- | The distribution's id.
 ciDistributionId :: Lens' CreateInvalidation Text
 ciDistributionId =
     lens _ciDistributionId (\s a -> s { _ciDistributionId = a })
-{-# INLINE ciDistributionId #-}
 
 -- | The batch information for the invalidation.
 ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
 ciInvalidationBatch =
     lens _ciInvalidationBatch (\s a -> s { _ciInvalidationBatch = a })
-{-# INLINE ciInvalidationBatch #-}
 
 instance ToPath CreateInvalidation where
     toPath CreateInvalidation{..} = mconcat
@@ -94,13 +91,11 @@ data CreateInvalidationResponse = CreateInvalidationResponse
 -- including the Invalidation ID.
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\s a -> s { _cirsLocation = a })
-{-# INLINE cirsLocation #-}
 
 -- | The invalidation's information.
 cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
 cirsInvalidation =
     lens _cirsInvalidation (\s a -> s { _cirsInvalidation = a })
-{-# INLINE cirsInvalidation #-}
 
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront

@@ -52,12 +52,10 @@ mkDeleteDomain :: Text -- ^ 'ddDomainName'
 mkDeleteDomain p1 = DeleteDomain
     { _ddDomainName = p1
     }
-{-# INLINE mkDeleteDomain #-}
 
 -- | The name of the domain you want to permanently delete.
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
-{-# INLINE ddDomainName #-}
 
 instance ToQuery DeleteDomain where
     toQuery = genericQuery def
@@ -73,7 +71,6 @@ newtype DeleteDomainResponse = DeleteDomainResponse
 ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrsDomainStatus =
     lens _ddrsDomainStatus (\s a -> s { _ddrsDomainStatus = a })
-{-# INLINE ddrsDomainStatus #-}
 
 instance FromXML DeleteDomainResponse where
     fromXMLOptions = xmlOptions

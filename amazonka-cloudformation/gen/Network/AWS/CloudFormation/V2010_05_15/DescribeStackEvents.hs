@@ -69,7 +69,6 @@ mkDescribeStackEvents p1 = DescribeStackEvents
     { _dseStackName = p1
     , _dseNextToken = Nothing
     }
-{-# INLINE mkDescribeStackEvents #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
@@ -77,13 +76,11 @@ mkDescribeStackEvents p1 = DescribeStackEvents
 -- stack ID. Default: There is no default value.
 dseStackName :: Lens' DescribeStackEvents Text
 dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
-{-# INLINE dseStackName #-}
 
 -- | String that identifies the start of the next list of events, if there is
 -- one. Default: There is no default value.
 dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
 dseNextToken = lens _dseNextToken (\s a -> s { _dseNextToken = a })
-{-# INLINE dseNextToken #-}
 
 instance ToQuery DescribeStackEvents where
     toQuery = genericQuery def
@@ -98,13 +95,11 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse
 dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dsersStackEvents =
     lens _dsersStackEvents (\s a -> s { _dsersStackEvents = a })
-{-# INLINE dsersStackEvents #-}
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
 dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dsersNextToken = lens _dsersNextToken (\s a -> s { _dsersNextToken = a })
-{-# INLINE dsersNextToken #-}
 
 instance FromXML DescribeStackEventsResponse where
     fromXMLOptions = xmlOptions
@@ -117,5 +112,5 @@ instance AWSRequest DescribeStackEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeStackEvents where
-    next rq rs = (\x -> rq { _dseNextToken = Just x })
-        <$> (_dsersNextToken rs)
+    next rq rs = (\x -> rq & dseNextToken ?~ x) <$> (rs ^. dsersNextToken)
+

@@ -125,7 +125,6 @@ mkCreateConfigurationTemplate p1 p2 = CreateConfigurationTemplate
     , _cctDescription = Nothing
     , _cctOptionSettings = mempty
     }
-{-# INLINE mkCreateConfigurationTemplate #-}
 
 -- | The name of the application to associate with this configuration template.
 -- If no application is found with this name, AWS Elastic Beanstalk returns an
@@ -133,7 +132,6 @@ mkCreateConfigurationTemplate p1 p2 = CreateConfigurationTemplate
 cctApplicationName :: Lens' CreateConfigurationTemplate Text
 cctApplicationName =
     lens _cctApplicationName (\s a -> s { _cctApplicationName = a })
-{-# INLINE cctApplicationName #-}
 
 -- | The name of the configuration template. Constraint: This name must be
 -- unique per application. Default: If a configuration template already exists
@@ -141,7 +139,6 @@ cctApplicationName =
 -- error.
 cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
-{-# INLINE cctTemplateName #-}
 
 -- | The name of the solution stack used by this configuration. The solution
 -- stack specifies the operating system, architecture, and application server
@@ -156,7 +153,6 @@ cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
 cctSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctSolutionStackName =
     lens _cctSolutionStackName (\s a -> s { _cctSolutionStackName = a })
-{-# INLINE cctSolutionStackName #-}
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from the
 -- specified configuration template to create a new configuration. Values
@@ -170,18 +166,15 @@ cctSolutionStackName =
 cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
 cctSourceConfiguration =
     lens _cctSourceConfiguration (\s a -> s { _cctSourceConfiguration = a })
-{-# INLINE cctSourceConfiguration #-}
 
 -- | The ID of the environment used with this configuration template.
 cctEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctEnvironmentId =
     lens _cctEnvironmentId (\s a -> s { _cctEnvironmentId = a })
-{-# INLINE cctEnvironmentId #-}
 
 -- | Describes this configuration.
 cctDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctDescription = lens _cctDescription (\s a -> s { _cctDescription = a })
-{-# INLINE cctDescription #-}
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration option
 -- to the requested value. The new value overrides the value obtained from the
@@ -189,7 +182,6 @@ cctDescription = lens _cctDescription (\s a -> s { _cctDescription = a })
 cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
 cctOptionSettings =
     lens _cctOptionSettings (\s a -> s { _cctOptionSettings = a })
-{-# INLINE cctOptionSettings #-}
 
 instance ToQuery CreateConfigurationTemplate where
     toQuery = genericQuery def
@@ -211,32 +203,27 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
 cctrsSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrsSolutionStackName =
     lens _cctrsSolutionStackName (\s a -> s { _cctrsSolutionStackName = a })
-{-# INLINE cctrsSolutionStackName #-}
 
 -- | The name of the application associated with this configuration set.
 cctrsApplicationName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrsApplicationName =
     lens _cctrsApplicationName (\s a -> s { _cctrsApplicationName = a })
-{-# INLINE cctrsApplicationName #-}
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
 cctrsTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrsTemplateName =
     lens _cctrsTemplateName (\s a -> s { _cctrsTemplateName = a })
-{-# INLINE cctrsTemplateName #-}
 
 -- | Describes this configuration set.
 cctrsDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrsDescription =
     lens _cctrsDescription (\s a -> s { _cctrsDescription = a })
-{-# INLINE cctrsDescription #-}
 
 -- | If not null, the name of the environment for this configuration set.
 cctrsEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrsEnvironmentName =
     lens _cctrsEnvironmentName (\s a -> s { _cctrsEnvironmentName = a })
-{-# INLINE cctrsEnvironmentName #-}
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -254,26 +241,22 @@ cctrsEnvironmentName =
 cctrsDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
 cctrsDeploymentStatus =
     lens _cctrsDeploymentStatus (\s a -> s { _cctrsDeploymentStatus = a })
-{-# INLINE cctrsDeploymentStatus #-}
 
 -- | The date (in UTC time) when this configuration set was created.
 cctrsDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
 cctrsDateCreated =
     lens _cctrsDateCreated (\s a -> s { _cctrsDateCreated = a })
-{-# INLINE cctrsDateCreated #-}
 
 -- | The date (in UTC time) when this configuration set was last modified.
 cctrsDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
 cctrsDateUpdated =
     lens _cctrsDateUpdated (\s a -> s { _cctrsDateUpdated = a })
-{-# INLINE cctrsDateUpdated #-}
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
 cctrsOptionSettings :: Lens' CreateConfigurationTemplateResponse [ConfigurationOptionSetting]
 cctrsOptionSettings =
     lens _cctrsOptionSettings (\s a -> s { _cctrsOptionSettings = a })
-{-# INLINE cctrsOptionSettings #-}
 
 instance FromXML CreateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions

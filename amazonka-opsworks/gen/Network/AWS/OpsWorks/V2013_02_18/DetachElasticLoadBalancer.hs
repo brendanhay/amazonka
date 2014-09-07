@@ -55,20 +55,17 @@ mkDetachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
     { _delb1ElasticLoadBalancerName = p1
     , _delb1LayerId = p2
     }
-{-# INLINE mkDetachElasticLoadBalancer #-}
 
 -- | The Elastic Load Balancing instance's name.
 delb1ElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
 delb1ElasticLoadBalancerName =
     lens _delb1ElasticLoadBalancerName
          (\s a -> s { _delb1ElasticLoadBalancerName = a })
-{-# INLINE delb1ElasticLoadBalancerName #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached
 -- to.
 delb1LayerId :: Lens' DetachElasticLoadBalancer Text
 delb1LayerId = lens _delb1LayerId (\s a -> s { _delb1LayerId = a })
-{-# INLINE delb1LayerId #-}
 
 instance ToPath DetachElasticLoadBalancer
 

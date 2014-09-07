@@ -61,21 +61,18 @@ mkRemoveSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubsc
     { _rsifsSubscriptionName = p1
     , _rsifsSourceIdentifier = p2
     }
-{-# INLINE mkRemoveSourceIdentifierFromSubscription #-}
 
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
 rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSubscriptionName =
     lens _rsifsSubscriptionName (\s a -> s { _rsifsSubscriptionName = a })
-{-# INLINE rsifsSubscriptionName #-}
 
 -- | The source identifier to be removed from the subscription, such as the DB
 -- instance identifier for a DB instance or the name of a security group.
 rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSourceIdentifier =
     lens _rsifsSourceIdentifier (\s a -> s { _rsifsSourceIdentifier = a })
-{-# INLINE rsifsSourceIdentifier #-}
 
 instance ToQuery RemoveSourceIdentifierFromSubscription where
     toQuery = genericQuery def
@@ -90,7 +87,6 @@ rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse
 rsifsrsEventSubscription =
     lens _rsifsrsEventSubscription
          (\s a -> s { _rsifsrsEventSubscription = a })
-{-# INLINE rsifsrsEventSubscription #-}
 
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
     fromXMLOptions = xmlOptions

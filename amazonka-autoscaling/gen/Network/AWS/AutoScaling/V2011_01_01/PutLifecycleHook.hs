@@ -87,13 +87,11 @@ mkPutLifecycleHook p1 p2 = PutLifecycleHook
     , _plhHeartbeatTimeout = Nothing
     , _plhDefaultResult = Nothing
     }
-{-# INLINE mkPutLifecycleHook #-}
 
 -- | The name of the lifecycle hook.
 plhLifecycleHookName :: Lens' PutLifecycleHook Text
 plhLifecycleHookName =
     lens _plhLifecycleHookName (\s a -> s { _plhLifecycleHookName = a })
-{-# INLINE plhLifecycleHookName #-}
 
 -- | The name of the Auto Scaling group to which you want to assign the
 -- lifecycle hook.
@@ -101,7 +99,6 @@ plhAutoScalingGroupName :: Lens' PutLifecycleHook Text
 plhAutoScalingGroupName =
     lens _plhAutoScalingGroupName
          (\s a -> s { _plhAutoScalingGroupName = a })
-{-# INLINE plhAutoScalingGroupName #-}
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
 -- hook. See DescribeLifecycleHookTypes for a list of available lifecycle hook
@@ -110,14 +107,12 @@ plhAutoScalingGroupName =
 plhLifecycleTransition :: Lens' PutLifecycleHook (Maybe Text)
 plhLifecycleTransition =
     lens _plhLifecycleTransition (\s a -> s { _plhLifecycleTransition = a })
-{-# INLINE plhLifecycleTransition #-}
 
 -- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
 -- publish to the specified notification target. This parameter is required
 -- for new lifecycle hooks, but optional when updating existing hooks.
 plhRoleARN :: Lens' PutLifecycleHook (Maybe Text)
 plhRoleARN = lens _plhRoleARN (\s a -> s { _plhRoleARN = a })
-{-# INLINE plhRoleARN #-}
 
 -- | The ARN of the notification target that Auto Scaling will use to notify you
 -- when an instance is in the transition state for the lifecycle hook. This
@@ -138,7 +133,6 @@ plhNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationTargetARN =
     lens _plhNotificationTargetARN
          (\s a -> s { _plhNotificationTargetARN = a })
-{-# INLINE plhNotificationTargetARN #-}
 
 -- | Contains additional information that you want to include any time Auto
 -- Scaling sends a message to the notification target.
@@ -146,7 +140,6 @@ plhNotificationMetadata :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationMetadata =
     lens _plhNotificationMetadata
          (\s a -> s { _plhNotificationMetadata = a })
-{-# INLINE plhNotificationMetadata #-}
 
 -- | Defines the amount of time, in seconds, that can elapse before the
 -- lifecycle hook times out. When the lifecycle hook times out, Auto Scaling
@@ -157,7 +150,6 @@ plhNotificationMetadata =
 plhHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Integer)
 plhHeartbeatTimeout =
     lens _plhHeartbeatTimeout (\s a -> s { _plhHeartbeatTimeout = a })
-{-# INLINE plhHeartbeatTimeout #-}
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for this
@@ -166,7 +158,6 @@ plhHeartbeatTimeout =
 plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
 plhDefaultResult =
     lens _plhDefaultResult (\s a -> s { _plhDefaultResult = a })
-{-# INLINE plhDefaultResult #-}
 
 instance ToQuery PutLifecycleHook where
     toQuery = genericQuery def

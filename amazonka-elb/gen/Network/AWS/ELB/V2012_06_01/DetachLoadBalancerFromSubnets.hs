@@ -62,19 +62,16 @@ mkDetachLoadBalancerFromSubnets p1 p2 = DetachLoadBalancerFromSubnets
     { _dlbfsLoadBalancerName = p1
     , _dlbfsSubnets = p2
     }
-{-# INLINE mkDetachLoadBalancerFromSubnets #-}
 
 -- | The name associated with the load balancer to be detached.
 dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
 dlbfsLoadBalancerName =
     lens _dlbfsLoadBalancerName (\s a -> s { _dlbfsLoadBalancerName = a })
-{-# INLINE dlbfsLoadBalancerName #-}
 
 -- | A list of subnet IDs to remove from the set of configured subnets for the
 -- load balancer.
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
 dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a })
-{-# INLINE dlbfsSubnets #-}
 
 instance ToQuery DetachLoadBalancerFromSubnets where
     toQuery = genericQuery def
@@ -87,7 +84,6 @@ newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRes
 -- | A list of subnet IDs the load balancer is now attached to.
 dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrsSubnets = lens _dlbfsrsSubnets (\s a -> s { _dlbfsrsSubnets = a })
-{-# INLINE dlbfsrsSubnets #-}
 
 instance FromXML DetachLoadBalancerFromSubnetsResponse where
     fromXMLOptions = xmlOptions

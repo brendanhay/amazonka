@@ -69,7 +69,6 @@ mkCreateOptionGroup p1 p2 p3 p4 = CreateOptionGroup
     , _cogOptionGroupDescription = p4
     , _cogTags = mempty
     }
-{-# INLINE mkCreateOptionGroup #-}
 
 -- | Specifies the name of the option group to be created. Constraints: Must be
 -- 1 to 255 alphanumeric characters or hyphens First character must be a
@@ -78,32 +77,27 @@ mkCreateOptionGroup p1 p2 p3 p4 = CreateOptionGroup
 cogOptionGroupName :: Lens' CreateOptionGroup Text
 cogOptionGroupName =
     lens _cogOptionGroupName (\s a -> s { _cogOptionGroupName = a })
-{-# INLINE cogOptionGroupName #-}
 
 -- | Specifies the name of the engine that this option group should be
 -- associated with.
 cogEngineName :: Lens' CreateOptionGroup Text
 cogEngineName = lens _cogEngineName (\s a -> s { _cogEngineName = a })
-{-# INLINE cogEngineName #-}
 
 -- | Specifies the major version of the engine that this option group should be
 -- associated with.
 cogMajorEngineVersion :: Lens' CreateOptionGroup Text
 cogMajorEngineVersion =
     lens _cogMajorEngineVersion (\s a -> s { _cogMajorEngineVersion = a })
-{-# INLINE cogMajorEngineVersion #-}
 
 -- | The description of the option group.
 cogOptionGroupDescription :: Lens' CreateOptionGroup Text
 cogOptionGroupDescription =
     lens _cogOptionGroupDescription
          (\s a -> s { _cogOptionGroupDescription = a })
-{-# INLINE cogOptionGroupDescription #-}
 
 -- | A list of tags.
 cogTags :: Lens' CreateOptionGroup [Tag]
 cogTags = lens _cogTags (\s a -> s { _cogTags = a })
-{-# INLINE cogTags #-}
 
 instance ToQuery CreateOptionGroup where
     toQuery = genericQuery def
@@ -116,7 +110,6 @@ newtype CreateOptionGroupResponse = CreateOptionGroupResponse
 cogrsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 cogrsOptionGroup =
     lens _cogrsOptionGroup (\s a -> s { _cogrsOptionGroup = a })
-{-# INLINE cogrsOptionGroup #-}
 
 instance FromXML CreateOptionGroupResponse where
     fromXMLOptions = xmlOptions

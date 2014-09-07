@@ -73,19 +73,16 @@ mkListHostedZones = ListHostedZones
     { _lhzMarker = Nothing
     , _lhzMaxItems = Nothing
     }
-{-# INLINE mkListHostedZones #-}
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
 lhzMarker :: Lens' ListHostedZones (Maybe Text)
 lhzMarker = lens _lhzMarker (\s a -> s { _lhzMarker = a })
-{-# INLINE lhzMarker #-}
 
 -- | Specify the maximum number of hosted zones to return per page of results.
 lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
 lhzMaxItems = lens _lhzMaxItems (\s a -> s { _lhzMaxItems = a })
-{-# INLINE lhzMaxItems #-}
 
 instance ToPath ListHostedZones where
     toPath = const "/2013-04-01/hostedzone"
@@ -116,14 +113,12 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 lhzrsHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
 lhzrsHostedZones =
     lens _lhzrsHostedZones (\s a -> s { _lhzrsHostedZones = a })
-{-# INLINE lhzrsHostedZones #-}
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the
 -- marker parameter to get the next page of results.
 lhzrsMarker :: Lens' ListHostedZonesResponse Text
 lhzrsMarker = lens _lhzrsMarker (\s a -> s { _lhzrsMarker = a })
-{-# INLINE lhzrsMarker #-}
 
 -- | A flag indicating whether there are more hosted zones to be listed. If your
 -- results were truncated, you can make a follow-up request for the next page
@@ -131,7 +126,6 @@ lhzrsMarker = lens _lhzrsMarker (\s a -> s { _lhzrsMarker = a })
 lhzrsIsTruncated :: Lens' ListHostedZonesResponse Bool
 lhzrsIsTruncated =
     lens _lhzrsIsTruncated (\s a -> s { _lhzrsIsTruncated = a })
-{-# INLINE lhzrsIsTruncated #-}
 
 -- | Indicates where to continue listing hosted zones. If
 -- ListHostedZonesResponse$IsTruncated is true, make another request to
@@ -139,7 +133,6 @@ lhzrsIsTruncated =
 -- Marker element to get the next page of results.
 lhzrsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrsNextMarker = lens _lhzrsNextMarker (\s a -> s { _lhzrsNextMarker = a })
-{-# INLINE lhzrsNextMarker #-}
 
 -- | The maximum number of hosted zones to be included in the response body. If
 -- the number of hosted zones associated with this AWS account exceeds
@@ -149,7 +142,6 @@ lhzrsNextMarker = lens _lhzrsNextMarker (\s a -> s { _lhzrsNextMarker = a })
 -- element to get the next page of results.
 lhzrsMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrsMaxItems = lens _lhzrsMaxItems (\s a -> s { _lhzrsMaxItems = a })
-{-# INLINE lhzrsMaxItems #-}
 
 instance FromXML ListHostedZonesResponse where
     fromXMLOptions = xmlOptions
@@ -163,7 +155,5 @@ instance AWSRequest ListHostedZones where
 
 instance AWSPager ListHostedZones where
     next rq rs
-        | not (_lhzrsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lhzMarker = _lhzrsNextMarker rs
-            }
+        | not (rs ^. lhzrsIsTruncated) = Nothing
+        | otherwise = Just (rq & lhzMarker .~ rs ^. lhzrsNextMarker)

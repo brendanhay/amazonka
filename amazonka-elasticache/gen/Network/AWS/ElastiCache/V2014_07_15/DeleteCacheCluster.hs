@@ -63,14 +63,12 @@ mkDeleteCacheCluster p1 = DeleteCacheCluster
     { _dccCacheClusterId = p1
     , _dccFinalSnapshotIdentifier = Nothing
     }
-{-# INLINE mkDeleteCacheCluster #-}
 
 -- | The cache cluster identifier for the cluster to be deleted. This parameter
 -- is not case sensitive.
 dccCacheClusterId :: Lens' DeleteCacheCluster Text
 dccCacheClusterId =
     lens _dccCacheClusterId (\s a -> s { _dccCacheClusterId = a })
-{-# INLINE dccCacheClusterId #-}
 
 -- | The name of a final cache cluster snapshot. ElastiCache creates the
 -- snapshot, and then deletes the cache cluster immediately afterward.
@@ -78,7 +76,6 @@ dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
 dccFinalSnapshotIdentifier =
     lens _dccFinalSnapshotIdentifier
          (\s a -> s { _dccFinalSnapshotIdentifier = a })
-{-# INLINE dccFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteCacheCluster where
     toQuery = genericQuery def
@@ -91,7 +88,6 @@ newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
 dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrsCacheCluster =
     lens _dccrsCacheCluster (\s a -> s { _dccrsCacheCluster = a })
-{-# INLINE dccrsCacheCluster #-}
 
 instance FromXML DeleteCacheClusterResponse where
     fromXMLOptions = xmlOptions

@@ -64,18 +64,15 @@ mkDetachVpnGateway p1 p2 = DetachVpnGateway
     { _dvg2VpnGatewayId = p1
     , _dvg2VpcId = p2
     }
-{-# INLINE mkDetachVpnGateway #-}
 
 -- | The ID of the virtual private gateway.
 dvg2VpnGatewayId :: Lens' DetachVpnGateway Text
 dvg2VpnGatewayId =
     lens _dvg2VpnGatewayId (\s a -> s { _dvg2VpnGatewayId = a })
-{-# INLINE dvg2VpnGatewayId #-}
 
 -- | The ID of the VPC.
 dvg2VpcId :: Lens' DetachVpnGateway Text
 dvg2VpcId = lens _dvg2VpcId (\s a -> s { _dvg2VpcId = a })
-{-# INLINE dvg2VpcId #-}
 
 instance ToQuery DetachVpnGateway where
     toQuery = genericQuery def

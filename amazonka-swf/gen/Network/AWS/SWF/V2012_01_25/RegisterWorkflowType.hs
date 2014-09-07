@@ -104,12 +104,10 @@ mkRegisterWorkflowType p1 p2 p3 = RegisterWorkflowType
     , _rwtDefaultTaskList = Nothing
     , _rwtDefaultChildPolicy = Nothing
     }
-{-# INLINE mkRegisterWorkflowType #-}
 
 -- | The name of the domain in which to register the workflow type.
 rwtDomain :: Lens' RegisterWorkflowType Text
 rwtDomain = lens _rwtDomain (\s a -> s { _rwtDomain = a })
-{-# INLINE rwtDomain #-}
 
 -- | The name of the workflow type. The specified string must not start or end
 -- with whitespace. It must not contain a : (colon), / (slash), | (vertical
@@ -117,7 +115,6 @@ rwtDomain = lens _rwtDomain (\s a -> s { _rwtDomain = a })
 -- must not contain the literal string &quot;arn&quot;.
 rwtName :: Lens' RegisterWorkflowType Text
 rwtName = lens _rwtName (\s a -> s { _rwtName = a })
-{-# INLINE rwtName #-}
 
 -- | The version of the workflow type. The workflow type consists of the name
 -- and version, the combination of which must be unique within the domain. To
@@ -128,12 +125,10 @@ rwtName = lens _rwtName (\s a -> s { _rwtName = a })
 -- not contain the literal string &quot;arn&quot;.
 rwtVersion :: Lens' RegisterWorkflowType Text
 rwtVersion = lens _rwtVersion (\s a -> s { _rwtVersion = a })
-{-# INLINE rwtVersion #-}
 
 -- | Textual description of the workflow type.
 rwtDescription :: Lens' RegisterWorkflowType (Maybe Text)
 rwtDescription = lens _rwtDescription (\s a -> s { _rwtDescription = a })
-{-# INLINE rwtDescription #-}
 
 -- | If set, specifies the default maximum duration of decision tasks for this
 -- workflow type. This default can be overridden when starting a workflow
@@ -145,7 +140,6 @@ rwtDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
 rwtDefaultTaskStartToCloseTimeout =
     lens _rwtDefaultTaskStartToCloseTimeout
          (\s a -> s { _rwtDefaultTaskStartToCloseTimeout = a })
-{-# INLINE rwtDefaultTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the default maximum duration for executions of this
 -- workflow type. You can override this default when starting an execution
@@ -160,7 +154,6 @@ rwtDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text
 rwtDefaultExecutionStartToCloseTimeout =
     lens _rwtDefaultExecutionStartToCloseTimeout
          (\s a -> s { _rwtDefaultExecutionStartToCloseTimeout = a })
-{-# INLINE rwtDefaultExecutionStartToCloseTimeout #-}
 
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if a
@@ -169,7 +162,6 @@ rwtDefaultExecutionStartToCloseTimeout =
 rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
 rwtDefaultTaskList =
     lens _rwtDefaultTaskList (\s a -> s { _rwtDefaultTaskList = a })
-{-# INLINE rwtDefaultTaskList #-}
 
 -- | If set, specifies the default policy to use for the child workflow
 -- executions when a workflow execution of this type is terminated, by calling
@@ -185,7 +177,6 @@ rwtDefaultTaskList =
 rwtDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
 rwtDefaultChildPolicy =
     lens _rwtDefaultChildPolicy (\s a -> s { _rwtDefaultChildPolicy = a })
-{-# INLINE rwtDefaultChildPolicy #-}
 
 instance ToPath RegisterWorkflowType
 

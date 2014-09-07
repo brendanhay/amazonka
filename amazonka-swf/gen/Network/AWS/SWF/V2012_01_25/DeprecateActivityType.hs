@@ -81,17 +81,14 @@ mkDeprecateActivityType p1 p2 = DeprecateActivityType
     { _datDomain = p1
     , _datActivityType = p2
     }
-{-# INLINE mkDeprecateActivityType #-}
 
 -- | The name of the domain in which the activity type is registered.
 datDomain :: Lens' DeprecateActivityType Text
 datDomain = lens _datDomain (\s a -> s { _datDomain = a })
-{-# INLINE datDomain #-}
 
 -- | The activity type to deprecate.
 datActivityType :: Lens' DeprecateActivityType ActivityType
 datActivityType = lens _datActivityType (\s a -> s { _datActivityType = a })
-{-# INLINE datActivityType #-}
 
 instance ToPath DeprecateActivityType
 

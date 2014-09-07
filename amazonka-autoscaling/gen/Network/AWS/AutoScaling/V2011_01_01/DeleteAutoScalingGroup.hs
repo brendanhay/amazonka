@@ -56,14 +56,12 @@ mkDeleteAutoScalingGroup p1 = DeleteAutoScalingGroup
     { _dasgAutoScalingGroupName = p1
     , _dasgForceDelete = Nothing
     }
-{-# INLINE mkDeleteAutoScalingGroup #-}
 
 -- | The name of the Auto Scaling group to delete.
 dasgAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
 dasgAutoScalingGroupName =
     lens _dasgAutoScalingGroupName
          (\s a -> s { _dasgAutoScalingGroupName = a })
-{-# INLINE dasgAutoScalingGroupName #-}
 
 -- | Starting with API version 2011-01-01, specifies that the Auto Scaling group
 -- will be deleted along with all instances associated with the group, without
@@ -71,7 +69,6 @@ dasgAutoScalingGroupName =
 -- lifecycle actions associated with the group.
 dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
 dasgForceDelete = lens _dasgForceDelete (\s a -> s { _dasgForceDelete = a })
-{-# INLINE dasgForceDelete #-}
 
 instance ToQuery DeleteAutoScalingGroup where
     toQuery = genericQuery def

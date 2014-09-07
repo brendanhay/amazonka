@@ -55,14 +55,12 @@ mkDisableLogging :: Text -- ^ 'dlClusterIdentifier'
 mkDisableLogging p1 = DisableLogging
     { _dlClusterIdentifier = p1
     }
-{-# INLINE mkDisableLogging #-}
 
 -- | The identifier of the cluster on which logging is to be stopped. Example:
 -- examplecluster.
 dlClusterIdentifier :: Lens' DisableLogging Text
 dlClusterIdentifier =
     lens _dlClusterIdentifier (\s a -> s { _dlClusterIdentifier = a })
-{-# INLINE dlClusterIdentifier #-}
 
 instance ToQuery DisableLogging where
     toQuery = genericQuery def
@@ -81,36 +79,30 @@ data DisableLoggingResponse = DisableLoggingResponse
 dlrsLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)
 dlrsLoggingEnabled =
     lens _dlrsLoggingEnabled (\s a -> s { _dlrsLoggingEnabled = a })
-{-# INLINE dlrsLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
 dlrsBucketName :: Lens' DisableLoggingResponse (Maybe Text)
 dlrsBucketName = lens _dlrsBucketName (\s a -> s { _dlrsBucketName = a })
-{-# INLINE dlrsBucketName #-}
 
 -- | The prefix applied to the log file names.
 dlrsS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
 dlrsS3KeyPrefix = lens _dlrsS3KeyPrefix (\s a -> s { _dlrsS3KeyPrefix = a })
-{-# INLINE dlrsS3KeyPrefix #-}
 
 -- | The last time when logs were delivered.
 dlrsLastSuccessfulDeliveryTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
 dlrsLastSuccessfulDeliveryTime =
     lens _dlrsLastSuccessfulDeliveryTime
          (\s a -> s { _dlrsLastSuccessfulDeliveryTime = a })
-{-# INLINE dlrsLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
 dlrsLastFailureTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
 dlrsLastFailureTime =
     lens _dlrsLastFailureTime (\s a -> s { _dlrsLastFailureTime = a })
-{-# INLINE dlrsLastFailureTime #-}
 
 -- | The message indicating that logs failed to be delivered.
 dlrsLastFailureMessage :: Lens' DisableLoggingResponse (Maybe Text)
 dlrsLastFailureMessage =
     lens _dlrsLastFailureMessage (\s a -> s { _dlrsLastFailureMessage = a })
-{-# INLINE dlrsLastFailureMessage #-}
 
 instance FromXML DisableLoggingResponse where
     fromXMLOptions = xmlOptions

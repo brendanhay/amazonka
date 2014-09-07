@@ -71,7 +71,6 @@ mkListOperations = ListOperations
     { _loMarker = Nothing
     , _loMaxItems = Nothing
     }
-{-# INLINE mkListOperations #-}
 
 -- | For an initial request for a list of operations, omit this element. If the
 -- number of operations that are not yet complete is greater than the value
@@ -81,13 +80,11 @@ mkListOperations = ListOperations
 -- Marker element. Type: String Default: None Required: No.
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\s a -> s { _loMarker = a })
-{-# INLINE loMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- value between 1 and 100. Required: No.
 loMaxItems :: Lens' ListOperations (Maybe Integer)
 loMaxItems = lens _loMaxItems (\s a -> s { _loMaxItems = a })
-{-# INLINE loMaxItems #-}
 
 instance ToPath ListOperations
 
@@ -107,7 +104,6 @@ data ListOperationsResponse = ListOperationsResponse
 -- operation summaries Children: OperationId, Status, SubmittedDate, Type.
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = lens _lorsOperations (\s a -> s { _lorsOperations = a })
-{-# INLINE lorsOperations #-}
 
 -- | If there are more operations than you specified for MaxItems in the
 -- request, submit another request and include the value of NextPageMarker in
@@ -115,7 +111,6 @@ lorsOperations = lens _lorsOperations (\s a -> s { _lorsOperations = a })
 lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker =
     lens _lorsNextPageMarker (\s a -> s { _lorsNextPageMarker = a })
-{-# INLINE lorsNextPageMarker #-}
 
 instance FromJSON ListOperationsResponse
 

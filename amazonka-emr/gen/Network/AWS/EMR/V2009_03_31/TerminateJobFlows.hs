@@ -69,12 +69,10 @@ mkTerminateJobFlows :: [Text] -- ^ 'tjfJobFlowIds'
 mkTerminateJobFlows p1 = TerminateJobFlows
     { _tjfJobFlowIds = p1
     }
-{-# INLINE mkTerminateJobFlows #-}
 
 -- | A list of job flows to be shutdown.
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
 tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a })
-{-# INLINE tjfJobFlowIds #-}
 
 instance ToPath TerminateJobFlows
 

@@ -74,12 +74,10 @@ mkTerminateInstances :: [Text] -- ^ 'tiInstanceIds'
 mkTerminateInstances p1 = TerminateInstances
     { _tiInstanceIds = p1
     }
-{-# INLINE mkTerminateInstances #-}
 
 -- | One or more instance IDs.
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
-{-# INLINE tiInstanceIds #-}
 
 instance ToQuery TerminateInstances where
     toQuery = genericQuery def
@@ -94,7 +92,6 @@ tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChang
 tirsTerminatingInstances =
     lens _tirsTerminatingInstances
          (\s a -> s { _tirsTerminatingInstances = a })
-{-# INLINE tirsTerminatingInstances #-}
 
 instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions

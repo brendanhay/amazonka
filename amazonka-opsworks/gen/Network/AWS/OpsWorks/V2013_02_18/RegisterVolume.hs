@@ -58,17 +58,14 @@ mkRegisterVolume p2 = RegisterVolume
     { _rvEc2VolumeId = Nothing
     , _rvStackId = p2
     }
-{-# INLINE mkRegisterVolume #-}
 
 -- | The Amazon EBS volume ID.
 rvEc2VolumeId :: Lens' RegisterVolume (Maybe Text)
 rvEc2VolumeId = lens _rvEc2VolumeId (\s a -> s { _rvEc2VolumeId = a })
-{-# INLINE rvEc2VolumeId #-}
 
 -- | The stack ID.
 rvStackId :: Lens' RegisterVolume Text
 rvStackId = lens _rvStackId (\s a -> s { _rvStackId = a })
-{-# INLINE rvStackId #-}
 
 instance ToPath RegisterVolume
 
@@ -86,7 +83,6 @@ newtype RegisterVolumeResponse = RegisterVolumeResponse
 -- | The volume ID.
 rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrsVolumeId = lens _rvrsVolumeId (\s a -> s { _rvrsVolumeId = a })
-{-# INLINE rvrsVolumeId #-}
 
 instance FromJSON RegisterVolumeResponse
 

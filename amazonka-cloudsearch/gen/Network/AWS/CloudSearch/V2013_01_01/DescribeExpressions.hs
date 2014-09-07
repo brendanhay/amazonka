@@ -64,25 +64,21 @@ mkDescribeExpressions p1 = DescribeExpressions
     , _de2ExpressionNames = mempty
     , _de2Deployed = Nothing
     }
-{-# INLINE mkDescribeExpressions #-}
 
 -- | The name of the domain you want to describe.
 de2DomainName :: Lens' DescribeExpressions Text
 de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
-{-# INLINE de2DomainName #-}
 
 -- | Limits the DescribeExpressions response to the specified expressions. If
 -- not specified, all expressions are shown.
 de2ExpressionNames :: Lens' DescribeExpressions [Text]
 de2ExpressionNames =
     lens _de2ExpressionNames (\s a -> s { _de2ExpressionNames = a })
-{-# INLINE de2ExpressionNames #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 de2Deployed :: Lens' DescribeExpressions (Maybe Bool)
 de2Deployed = lens _de2Deployed (\s a -> s { _de2Deployed = a })
-{-# INLINE de2Deployed #-}
 
 instance ToQuery DescribeExpressions where
     toQuery = genericQuery def
@@ -97,7 +93,6 @@ newtype DescribeExpressionsResponse = DescribeExpressionsResponse
 ders1Expressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 ders1Expressions =
     lens _ders1Expressions (\s a -> s { _ders1Expressions = a })
-{-# INLINE ders1Expressions #-}
 
 instance FromXML DescribeExpressionsResponse where
     fromXMLOptions = xmlOptions

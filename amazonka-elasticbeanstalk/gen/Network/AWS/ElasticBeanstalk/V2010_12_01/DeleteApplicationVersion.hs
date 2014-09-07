@@ -59,18 +59,15 @@ mkDeleteApplicationVersion p1 p2 = DeleteApplicationVersion
     , _davVersionLabel = p2
     , _davDeleteSourceBundle = Nothing
     }
-{-# INLINE mkDeleteApplicationVersion #-}
 
 -- | The name of the application to delete releases from.
 davApplicationName :: Lens' DeleteApplicationVersion Text
 davApplicationName =
     lens _davApplicationName (\s a -> s { _davApplicationName = a })
-{-# INLINE davApplicationName #-}
 
 -- | The label of the version to delete.
 davVersionLabel :: Lens' DeleteApplicationVersion Text
 davVersionLabel = lens _davVersionLabel (\s a -> s { _davVersionLabel = a })
-{-# INLINE davVersionLabel #-}
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
 -- true: An attempt is made to delete the associated Amazon S3 source bundle
@@ -79,7 +76,6 @@ davVersionLabel = lens _davVersionLabel (\s a -> s { _davVersionLabel = a })
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
 davDeleteSourceBundle =
     lens _davDeleteSourceBundle (\s a -> s { _davDeleteSourceBundle = a })
-{-# INLINE davDeleteSourceBundle #-}
 
 instance ToQuery DeleteApplicationVersion where
     toQuery = genericQuery def

@@ -68,13 +68,11 @@ mkDescribeClusterVersions = DescribeClusterVersions
     , _dcvMaxRecords = Nothing
     , _dcvMarker = Nothing
     }
-{-# INLINE mkDescribeClusterVersions #-}
 
 -- | The specific cluster version to return. Example: 1.0.
 dcvClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterVersion =
     lens _dcvClusterVersion (\s a -> s { _dcvClusterVersion = a })
-{-# INLINE dcvClusterVersion #-}
 
 -- | The name of a specific cluster parameter group family to return details
 -- for. Constraints: Must be 1 to 255 alphanumeric characters First character
@@ -84,7 +82,6 @@ dcvClusterParameterGroupFamily :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterParameterGroupFamily =
     lens _dcvClusterParameterGroupFamily
          (\s a -> s { _dcvClusterParameterGroupFamily = a })
-{-# INLINE dcvClusterParameterGroupFamily #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -93,7 +90,6 @@ dcvClusterParameterGroupFamily =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Integer)
 dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
-{-# INLINE dcvMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterVersions request
@@ -103,7 +99,6 @@ dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
 -- the request.
 dcvMarker :: Lens' DescribeClusterVersions (Maybe Text)
 dcvMarker = lens _dcvMarker (\s a -> s { _dcvMarker = a })
-{-# INLINE dcvMarker #-}
 
 instance ToQuery DescribeClusterVersions where
     toQuery = genericQuery def
@@ -121,13 +116,11 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
 -- is empty, all response records have been retrieved for the request.
 dcvrsMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrsMarker = lens _dcvrsMarker (\s a -> s { _dcvrsMarker = a })
-{-# INLINE dcvrsMarker #-}
 
 -- | A list of Version elements.
 dcvrsClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
 dcvrsClusterVersions =
     lens _dcvrsClusterVersions (\s a -> s { _dcvrsClusterVersions = a })
-{-# INLINE dcvrsClusterVersions #-}
 
 instance FromXML DescribeClusterVersionsResponse where
     fromXMLOptions = xmlOptions
@@ -140,5 +133,5 @@ instance AWSRequest DescribeClusterVersions where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterVersions where
-    next rq rs = (\x -> rq { _dcvMarker = Just x })
-        <$> (_dcvrsMarker rs)
+    next rq rs = (\x -> rq & dcvMarker ?~ x) <$> (rs ^. dcvrsMarker)
+

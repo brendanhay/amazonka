@@ -50,12 +50,10 @@ mkStopStack :: Text -- ^ 'ss2StackId'
 mkStopStack p1 = StopStack
     { _ss2StackId = p1
     }
-{-# INLINE mkStopStack #-}
 
 -- | The stack ID.
 ss2StackId :: Lens' StopStack Text
 ss2StackId = lens _ss2StackId (\s a -> s { _ss2StackId = a })
-{-# INLINE ss2StackId #-}
 
 instance ToPath StopStack
 

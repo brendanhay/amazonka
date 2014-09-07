@@ -53,20 +53,17 @@ mkDescribeLifecycleHooks p1 = DescribeLifecycleHooks
     { _dlh1AutoScalingGroupName = p1
     , _dlh1LifecycleHookNames = mempty
     }
-{-# INLINE mkDescribeLifecycleHooks #-}
 
 -- | The name of one or more Auto Scaling groups.
 dlh1AutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
 dlh1AutoScalingGroupName =
     lens _dlh1AutoScalingGroupName
          (\s a -> s { _dlh1AutoScalingGroupName = a })
-{-# INLINE dlh1AutoScalingGroupName #-}
 
 -- | The name of one or more lifecycle hooks.
 dlh1LifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
 dlh1LifecycleHookNames =
     lens _dlh1LifecycleHookNames (\s a -> s { _dlh1LifecycleHookNames = a })
-{-# INLINE dlh1LifecycleHookNames #-}
 
 instance ToQuery DescribeLifecycleHooks where
     toQuery = genericQuery def
@@ -81,7 +78,6 @@ newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
 dlhrsrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrsrsLifecycleHooks =
     lens _dlhrsrsLifecycleHooks (\s a -> s { _dlhrsrsLifecycleHooks = a })
-{-# INLINE dlhrsrsLifecycleHooks #-}
 
 instance FromXML DescribeLifecycleHooksResponse where
     fromXMLOptions = xmlOptions

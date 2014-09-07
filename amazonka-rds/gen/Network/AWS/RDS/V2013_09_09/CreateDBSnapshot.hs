@@ -63,7 +63,6 @@ mkCreateDBSnapshot p1 p2 = CreateDBSnapshot
     , _cdbs1DBInstanceIdentifier = p2
     , _cdbs1Tags = mempty
     }
-{-# INLINE mkCreateDBSnapshot #-}
 
 -- | The identifier for the DB snapshot. Constraints: Cannot be null, empty, or
 -- blank Must contain from 1 to 255 alphanumeric characters or hyphens First
@@ -73,7 +72,6 @@ cdbs1DBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbs1DBSnapshotIdentifier =
     lens _cdbs1DBSnapshotIdentifier
          (\s a -> s { _cdbs1DBSnapshotIdentifier = a })
-{-# INLINE cdbs1DBSnapshotIdentifier #-}
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
 -- instance. This parameter isn't case sensitive. Constraints: Must contain
@@ -83,12 +81,10 @@ cdbs1DBInstanceIdentifier :: Lens' CreateDBSnapshot Text
 cdbs1DBInstanceIdentifier =
     lens _cdbs1DBInstanceIdentifier
          (\s a -> s { _cdbs1DBInstanceIdentifier = a })
-{-# INLINE cdbs1DBInstanceIdentifier #-}
 
 -- | A list of tags.
 cdbs1Tags :: Lens' CreateDBSnapshot [Tag]
 cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a })
-{-# INLINE cdbs1Tags #-}
 
 instance ToQuery CreateDBSnapshot where
     toQuery = genericQuery def
@@ -103,7 +99,6 @@ newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
 cdbsrsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 cdbsrsrsDBSnapshot =
     lens _cdbsrsrsDBSnapshot (\s a -> s { _cdbsrsrsDBSnapshot = a })
-{-# INLINE cdbsrsrsDBSnapshot #-}
 
 instance FromXML CreateDBSnapshotResponse where
     fromXMLOptions = xmlOptions

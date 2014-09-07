@@ -54,19 +54,15 @@ mkPutBucketTagging p1 p3 = PutBucketTagging
     , _pbtContentMD5 = Nothing
     , _pbtTagging = p3
     }
-{-# INLINE mkPutBucketTagging #-}
 
 pbtBucket :: Lens' PutBucketTagging BucketName
 pbtBucket = lens _pbtBucket (\s a -> s { _pbtBucket = a })
-{-# INLINE pbtBucket #-}
 
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
 pbtContentMD5 = lens _pbtContentMD5 (\s a -> s { _pbtContentMD5 = a })
-{-# INLINE pbtContentMD5 #-}
 
 pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
-{-# INLINE pbtTagging #-}
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat

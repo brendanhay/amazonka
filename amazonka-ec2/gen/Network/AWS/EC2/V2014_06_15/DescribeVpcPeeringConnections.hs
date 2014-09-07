@@ -83,7 +83,6 @@ mkDescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1VpcPeeringConnectionIds = mempty
     , _dvpc1Filters = mempty
     }
-{-# INLINE mkDescribeVpcPeeringConnections #-}
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
@@ -91,7 +90,6 @@ dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
 dvpc1VpcPeeringConnectionIds =
     lens _dvpc1VpcPeeringConnectionIds
          (\s a -> s { _dvpc1VpcPeeringConnectionIds = a })
-{-# INLINE dvpc1VpcPeeringConnectionIds #-}
 
 -- | One or more filters. accepter-vpc-info.cidr-block - The CIDR block of the
 -- peer VPC. accepter-vpc-info.owner-id - The AWS account ID of the owner of
@@ -115,7 +113,6 @@ dvpc1VpcPeeringConnectionIds =
 -- filter. vpc-peering-connection-id - The ID of the VPC peering connection.
 dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]
 dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
-{-# INLINE dvpc1Filters #-}
 
 instance ToQuery DescribeVpcPeeringConnections where
     toQuery = genericQuery def
@@ -130,7 +127,6 @@ dvpcrsrsVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [Vp
 dvpcrsrsVpcPeeringConnections =
     lens _dvpcrsrsVpcPeeringConnections
          (\s a -> s { _dvpcrsrsVpcPeeringConnections = a })
-{-# INLINE dvpcrsrsVpcPeeringConnections #-}
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     fromXMLOptions = xmlOptions

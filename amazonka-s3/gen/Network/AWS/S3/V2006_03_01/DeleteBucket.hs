@@ -49,11 +49,9 @@ mkDeleteBucket :: BucketName -- ^ 'dbBucket'
 mkDeleteBucket p1 = DeleteBucket
     { _dbBucket = p1
     }
-{-# INLINE mkDeleteBucket #-}
 
 dbBucket :: Lens' DeleteBucket BucketName
 dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
-{-# INLINE dbBucket #-}
 
 instance ToPath DeleteBucket where
     toPath DeleteBucket{..} = mconcat

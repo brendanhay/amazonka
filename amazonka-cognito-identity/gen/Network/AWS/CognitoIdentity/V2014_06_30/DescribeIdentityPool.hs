@@ -62,13 +62,11 @@ mkDescribeIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
 mkDescribeIdentityPool p1 = DescribeIdentityPool
     { _dip1IdentityPoolId = p1
     }
-{-# INLINE mkDescribeIdentityPool #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 dip1IdentityPoolId :: Lens' DescribeIdentityPool Text
 dip1IdentityPoolId =
     lens _dip1IdentityPoolId (\s a -> s { _dip1IdentityPoolId = a })
-{-# INLINE dip1IdentityPoolId #-}
 
 instance ToPath DescribeIdentityPool
 
@@ -90,27 +88,23 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
 diprsIdentityPoolId :: Lens' DescribeIdentityPoolResponse Text
 diprsIdentityPoolId =
     lens _diprsIdentityPoolId (\s a -> s { _diprsIdentityPoolId = a })
-{-# INLINE diprsIdentityPoolId #-}
 
 -- | A string that you provide.
 diprsIdentityPoolName :: Lens' DescribeIdentityPoolResponse Text
 diprsIdentityPoolName =
     lens _diprsIdentityPoolName (\s a -> s { _diprsIdentityPoolName = a })
-{-# INLINE diprsIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 diprsAllowUnauthenticatedIdentities :: Lens' DescribeIdentityPoolResponse Bool
 diprsAllowUnauthenticatedIdentities =
     lens _diprsAllowUnauthenticatedIdentities
          (\s a -> s { _diprsAllowUnauthenticatedIdentities = a })
-{-# INLINE diprsAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 diprsSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (Map Text Text)
 diprsSupportedLoginProviders =
     lens _diprsSupportedLoginProviders
          (\s a -> s { _diprsSupportedLoginProviders = a })
-{-# INLINE diprsSupportedLoginProviders #-}
 
 instance FromJSON DescribeIdentityPoolResponse
 

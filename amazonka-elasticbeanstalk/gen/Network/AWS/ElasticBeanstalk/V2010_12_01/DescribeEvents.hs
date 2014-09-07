@@ -94,76 +94,64 @@ mkDescribeEvents = DescribeEvents
     , _de1MaxRecords = Nothing
     , _de1NextToken = Nothing
     }
-{-# INLINE mkDescribeEvents #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- include only those associated with this application.
 de1ApplicationName :: Lens' DescribeEvents (Maybe Text)
 de1ApplicationName =
     lens _de1ApplicationName (\s a -> s { _de1ApplicationName = a })
-{-# INLINE de1ApplicationName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this application version.
 de1VersionLabel :: Lens' DescribeEvents (Maybe Text)
 de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
-{-# INLINE de1VersionLabel #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that are associated with this environment configuration.
 de1TemplateName :: Lens' DescribeEvents (Maybe Text)
 de1TemplateName = lens _de1TemplateName (\s a -> s { _de1TemplateName = a })
-{-# INLINE de1TemplateName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this environment.
 de1EnvironmentId :: Lens' DescribeEvents (Maybe Text)
 de1EnvironmentId =
     lens _de1EnvironmentId (\s a -> s { _de1EnvironmentId = a })
-{-# INLINE de1EnvironmentId #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those associated with this environment.
 de1EnvironmentName :: Lens' DescribeEvents (Maybe Text)
 de1EnvironmentName =
     lens _de1EnvironmentName (\s a -> s { _de1EnvironmentName = a })
-{-# INLINE de1EnvironmentName #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the described events to
 -- include only those associated with this request ID.
 de1RequestId :: Lens' DescribeEvents (Maybe Text)
 de1RequestId = lens _de1RequestId (\s a -> s { _de1RequestId = a })
-{-# INLINE de1RequestId #-}
 
 -- | If specified, limits the events returned from this call to include only
 -- those with the specified severity or higher.
 de1Severity :: Lens' DescribeEvents (Maybe EventSeverity)
 de1Severity = lens _de1Severity (\s a -> s { _de1Severity = a })
-{-# INLINE de1Severity #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that occur on or after this time.
 de1StartTime :: Lens' DescribeEvents (Maybe ISO8601)
 de1StartTime = lens _de1StartTime (\s a -> s { _de1StartTime = a })
-{-# INLINE de1StartTime #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
 -- those that occur up to, but not including, the EndTime.
 de1EndTime :: Lens' DescribeEvents (Maybe ISO8601)
 de1EndTime = lens _de1EndTime (\s a -> s { _de1EndTime = a })
-{-# INLINE de1EndTime #-}
 
 -- | Specifies the maximum number of events that can be returned, beginning with
 -- the most recent event.
 de1MaxRecords :: Lens' DescribeEvents (Maybe Integer)
 de1MaxRecords = lens _de1MaxRecords (\s a -> s { _de1MaxRecords = a })
-{-# INLINE de1MaxRecords #-}
 
 -- | Pagination token. If specified, the events return the next batch of
 -- results.
 de1NextToken :: Lens' DescribeEvents (Maybe Text)
 de1NextToken = lens _de1NextToken (\s a -> s { _de1NextToken = a })
-{-# INLINE de1NextToken #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
@@ -177,13 +165,11 @@ data DescribeEventsResponse = DescribeEventsResponse
 -- | A list of EventDescription.
 dersrsEvents :: Lens' DescribeEventsResponse [EventDescription]
 dersrsEvents = lens _dersrsEvents (\s a -> s { _dersrsEvents = a })
-{-# INLINE dersrsEvents #-}
 
 -- | If returned, this indicates that there are more results to obtain. Use this
 -- token in the next DescribeEvents call to get the next batch of events.
 dersrsNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 dersrsNextToken = lens _dersrsNextToken (\s a -> s { _dersrsNextToken = a })
-{-# INLINE dersrsNextToken #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -196,5 +182,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq { _de1NextToken = Just x })
-        <$> (_dersrsNextToken rs)
+    next rq rs = (\x -> rq & de1NextToken ?~ x) <$> (rs ^. dersrsNextToken)
+

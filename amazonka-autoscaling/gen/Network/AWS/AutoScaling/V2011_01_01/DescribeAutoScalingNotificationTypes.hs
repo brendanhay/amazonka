@@ -42,7 +42,6 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 -- a valid 'DescribeAutoScalingNotificationTypes' request.
 mkDescribeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 mkDescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
-{-# INLINE mkDescribeAutoScalingNotificationTypes #-}
 
 instance ToQuery DescribeAutoScalingNotificationTypes where
     toQuery = genericQuery def
@@ -65,7 +64,6 @@ dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationType
 dasntrsAutoScalingNotificationTypes =
     lens _dasntrsAutoScalingNotificationTypes
          (\s a -> s { _dasntrsAutoScalingNotificationTypes = a })
-{-# INLINE dasntrsAutoScalingNotificationTypes #-}
 
 instance FromXML DescribeAutoScalingNotificationTypesResponse where
     fromXMLOptions = xmlOptions

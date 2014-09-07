@@ -54,21 +54,17 @@ mkPutBucketLifecycle p1 = PutBucketLifecycle
     , _pblContentMD5 = Nothing
     , _pblLifecycleConfiguration = Nothing
     }
-{-# INLINE mkPutBucketLifecycle #-}
 
 pblBucket :: Lens' PutBucketLifecycle BucketName
 pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
-{-# INLINE pblBucket #-}
 
 pblContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
 pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
-{-# INLINE pblContentMD5 #-}
 
 pblLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
 pblLifecycleConfiguration =
     lens _pblLifecycleConfiguration
          (\s a -> s { _pblLifecycleConfiguration = a })
-{-# INLINE pblLifecycleConfiguration #-}
 
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat

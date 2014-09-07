@@ -56,13 +56,11 @@ mkDeleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
 mkDeleteDhcpOptions p1 = DeleteDhcpOptions
     { _ddoDhcpOptionsId = p1
     }
-{-# INLINE mkDeleteDhcpOptions #-}
 
 -- | The ID of the DHCP options set.
 ddoDhcpOptionsId :: Lens' DeleteDhcpOptions Text
 ddoDhcpOptionsId =
     lens _ddoDhcpOptionsId (\s a -> s { _ddoDhcpOptionsId = a })
-{-# INLINE ddoDhcpOptionsId #-}
 
 instance ToQuery DeleteDhcpOptions where
     toQuery = genericQuery def

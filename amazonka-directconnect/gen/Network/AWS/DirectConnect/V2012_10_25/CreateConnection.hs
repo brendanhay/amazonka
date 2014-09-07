@@ -74,23 +74,19 @@ mkCreateConnection p1 p2 p3 = CreateConnection
     , _cc1Bandwidth = p2
     , _cc1ConnectionName = p3
     }
-{-# INLINE mkCreateConnection #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 cc1Location :: Lens' CreateConnection Text
 cc1Location = lens _cc1Location (\s a -> s { _cc1Location = a })
-{-# INLINE cc1Location #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 cc1Bandwidth :: Lens' CreateConnection Text
 cc1Bandwidth = lens _cc1Bandwidth (\s a -> s { _cc1Bandwidth = a })
-{-# INLINE cc1Bandwidth #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
 cc1ConnectionName :: Lens' CreateConnection Text
 cc1ConnectionName =
     lens _cc1ConnectionName (\s a -> s { _cc1ConnectionName = a })
-{-# INLINE cc1ConnectionName #-}
 
 instance ToPath CreateConnection
 
@@ -117,19 +113,16 @@ data CreateConnectionResponse = CreateConnectionResponse
 ccrsrsOwnerAccount :: Lens' CreateConnectionResponse (Maybe Text)
 ccrsrsOwnerAccount =
     lens _ccrsrsOwnerAccount (\s a -> s { _ccrsrsOwnerAccount = a })
-{-# INLINE ccrsrsOwnerAccount #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 ccrsrsConnectionId :: Lens' CreateConnectionResponse (Maybe Text)
 ccrsrsConnectionId =
     lens _ccrsrsConnectionId (\s a -> s { _ccrsrsConnectionId = a })
-{-# INLINE ccrsrsConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
 ccrsrsConnectionName :: Lens' CreateConnectionResponse (Maybe Text)
 ccrsrsConnectionName =
     lens _ccrsrsConnectionName (\s a -> s { _ccrsrsConnectionName = a })
-{-# INLINE ccrsrsConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state
@@ -145,33 +138,27 @@ ccrsrsConnectionName =
 ccrsrsConnectionState :: Lens' CreateConnectionResponse (Maybe ConnectionState)
 ccrsrsConnectionState =
     lens _ccrsrsConnectionState (\s a -> s { _ccrsrsConnectionState = a })
-{-# INLINE ccrsrsConnectionState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
 ccrsrsRegion :: Lens' CreateConnectionResponse (Maybe Text)
 ccrsrsRegion = lens _ccrsrsRegion (\s a -> s { _ccrsrsRegion = a })
-{-# INLINE ccrsrsRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 ccrsrsLocation :: Lens' CreateConnectionResponse (Maybe Text)
 ccrsrsLocation = lens _ccrsrsLocation (\s a -> s { _ccrsrsLocation = a })
-{-# INLINE ccrsrsLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 ccrsrsBandwidth :: Lens' CreateConnectionResponse (Maybe Text)
 ccrsrsBandwidth = lens _ccrsrsBandwidth (\s a -> s { _ccrsrsBandwidth = a })
-{-# INLINE ccrsrsBandwidth #-}
 
 -- | The VLAN ID. Example: 101.
 ccrsrsVlan :: Lens' CreateConnectionResponse (Maybe Integer)
 ccrsrsVlan = lens _ccrsrsVlan (\s a -> s { _ccrsrsVlan = a })
-{-# INLINE ccrsrsVlan #-}
 
 ccrsrsPartnerName :: Lens' CreateConnectionResponse (Maybe Text)
 ccrsrsPartnerName =
     lens _ccrsrsPartnerName (\s a -> s { _ccrsrsPartnerName = a })
-{-# INLINE ccrsrsPartnerName #-}
 
 instance FromJSON CreateConnectionResponse
 

@@ -55,7 +55,6 @@ mkAddTagsToResource p1 p2 = AddTagsToResource
     { _attrResourceName = p1
     , _attrTags = p2
     }
-{-# INLINE mkAddTagsToResource #-}
 
 -- | The Amazon RDS resource the tags will be added to. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
@@ -63,12 +62,10 @@ mkAddTagsToResource p1 p2 = AddTagsToResource
 attrResourceName :: Lens' AddTagsToResource Text
 attrResourceName =
     lens _attrResourceName (\s a -> s { _attrResourceName = a })
-{-# INLINE attrResourceName #-}
 
 -- | The tags to be assigned to the Amazon RDS resource.
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\s a -> s { _attrTags = a })
-{-# INLINE attrTags #-}
 
 instance ToQuery AddTagsToResource where
     toQuery = genericQuery def

@@ -87,17 +87,14 @@ mkCreateSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecovery
     { _csfvrpVolumeARN = p1
     , _csfvrpSnapshotDescription = p2
     }
-{-# INLINE mkCreateSnapshotFromVolumeRecoveryPoint #-}
 
 csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpVolumeARN = lens _csfvrpVolumeARN (\s a -> s { _csfvrpVolumeARN = a })
-{-# INLINE csfvrpVolumeARN #-}
 
 csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpSnapshotDescription =
     lens _csfvrpSnapshotDescription
          (\s a -> s { _csfvrpSnapshotDescription = a })
-{-# INLINE csfvrpSnapshotDescription #-}
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
 
@@ -116,18 +113,15 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
 csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprsSnapshotId =
     lens _csfvrprsSnapshotId (\s a -> s { _csfvrprsSnapshotId = a })
-{-# INLINE csfvrprsSnapshotId #-}
 
 csfvrprsVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprsVolumeARN =
     lens _csfvrprsVolumeARN (\s a -> s { _csfvrprsVolumeARN = a })
-{-# INLINE csfvrprsVolumeARN #-}
 
 csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprsVolumeRecoveryPointTime =
     lens _csfvrprsVolumeRecoveryPointTime
          (\s a -> s { _csfvrprsVolumeRecoveryPointTime = a })
-{-# INLINE csfvrprsVolumeRecoveryPointTime #-}
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse
 

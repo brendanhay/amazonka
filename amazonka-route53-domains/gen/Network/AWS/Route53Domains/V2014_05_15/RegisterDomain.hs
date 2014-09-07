@@ -127,7 +127,6 @@ mkRegisterDomain p1 p3 p5 p6 p7 = RegisterDomain
     , _rdPrivacyProtectRegistrantContact = Nothing
     , _rdPrivacyProtectTechContact = Nothing
     }
-{-# INLINE mkRegisterDomain #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -135,12 +134,10 @@ mkRegisterDomain p1 p3 p5 p6 p7 = RegisterDomain
 -- Yes.
 rdDomainName :: Lens' RegisterDomain Text
 rdDomainName = lens _rdDomainName (\s a -> s { _rdDomainName = a })
-{-# INLINE rdDomainName #-}
 
 -- | Reserved for future use.
 rdIdnLangCode :: Lens' RegisterDomain (Maybe Text)
 rdIdnLangCode = lens _rdIdnLangCode (\s a -> s { _rdIdnLangCode = a })
-{-# INLINE rdIdnLangCode #-}
 
 -- | The number of years the domain will be registered. Domains are registered
 -- for a minimum of one year. The maximum period depends on the top-level
@@ -149,14 +146,12 @@ rdIdnLangCode = lens _rdIdnLangCode (\s a -> s { _rdIdnLangCode = a })
 rdDurationInYears :: Lens' RegisterDomain Integer
 rdDurationInYears =
     lens _rdDurationInYears (\s a -> s { _rdDurationInYears = a })
-{-# INLINE rdDurationInYears #-}
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged. Type:
 -- Boolean Valid values: true | false Default: true Required: No.
 rdAutoRenew :: Lens' RegisterDomain (Maybe Bool)
 rdAutoRenew = lens _rdAutoRenew (\s a -> s { _rdAutoRenew = a })
-{-# INLINE rdAutoRenew #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -164,7 +159,6 @@ rdAutoRenew = lens _rdAutoRenew (\s a -> s { _rdAutoRenew = a })
 -- ExtraParams Required: Yes.
 rdAdminContact :: Lens' RegisterDomain ContactDetail
 rdAdminContact = lens _rdAdminContact (\s a -> s { _rdAdminContact = a })
-{-# INLINE rdAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -173,7 +167,6 @@ rdAdminContact = lens _rdAdminContact (\s a -> s { _rdAdminContact = a })
 rdRegistrantContact :: Lens' RegisterDomain ContactDetail
 rdRegistrantContact =
     lens _rdRegistrantContact (\s a -> s { _rdRegistrantContact = a })
-{-# INLINE rdRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -181,7 +174,6 @@ rdRegistrantContact =
 -- ExtraParams Required: Yes.
 rdTechContact :: Lens' RegisterDomain ContactDetail
 rdTechContact = lens _rdTechContact (\s a -> s { _rdTechContact = a })
-{-# INLINE rdTechContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -191,7 +183,6 @@ rdPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectAdminContact =
     lens _rdPrivacyProtectAdminContact
          (\s a -> s { _rdPrivacyProtectAdminContact = a })
-{-# INLINE rdPrivacyProtectAdminContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -201,7 +192,6 @@ rdPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectRegistrantContact =
     lens _rdPrivacyProtectRegistrantContact
          (\s a -> s { _rdPrivacyProtectRegistrantContact = a })
-{-# INLINE rdPrivacyProtectRegistrantContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -211,7 +201,6 @@ rdPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectTechContact =
     lens _rdPrivacyProtectTechContact
          (\s a -> s { _rdPrivacyProtectTechContact = a })
-{-# INLINE rdPrivacyProtectTechContact #-}
 
 instance ToPath RegisterDomain
 
@@ -231,7 +220,6 @@ newtype RegisterDomainResponse = RegisterDomainResponse
 -- None Constraints: Maximum 255 characters.
 rdrsOperationId :: Lens' RegisterDomainResponse Text
 rdrsOperationId = lens _rdrsOperationId (\s a -> s { _rdrsOperationId = a })
-{-# INLINE rdrsOperationId #-}
 
 instance FromJSON RegisterDomainResponse
 

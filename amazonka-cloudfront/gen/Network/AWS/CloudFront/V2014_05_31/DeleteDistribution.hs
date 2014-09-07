@@ -51,18 +51,15 @@ mkDeleteDistribution p1 = DeleteDistribution
     { _ddId = p1
     , _ddIfMatch = Nothing
     }
-{-# INLINE mkDeleteDistribution #-}
 
 -- | The distribution id.
 ddId :: Lens' DeleteDistribution Text
 ddId = lens _ddId (\s a -> s { _ddId = a })
-{-# INLINE ddId #-}
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
-{-# INLINE ddIfMatch #-}
 
 instance ToPath DeleteDistribution where
     toPath DeleteDistribution{..} = mconcat

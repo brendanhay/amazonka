@@ -50,18 +50,15 @@ mkDeletePolicy p2 = DeletePolicy
     { _dpAutoScalingGroupName = Nothing
     , _dpPolicyName = p2
     }
-{-# INLINE mkDeletePolicy #-}
 
 -- | The name of the Auto Scaling group.
 dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
 dpAutoScalingGroupName =
     lens _dpAutoScalingGroupName (\s a -> s { _dpAutoScalingGroupName = a })
-{-# INLINE dpAutoScalingGroupName #-}
 
 -- | The name or PolicyARN of the policy you want to delete.
 dpPolicyName :: Lens' DeletePolicy Text
 dpPolicyName = lens _dpPolicyName (\s a -> s { _dpPolicyName = a })
-{-# INLINE dpPolicyName #-}
 
 instance ToQuery DeletePolicy where
     toQuery = genericQuery def

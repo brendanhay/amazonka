@@ -60,14 +60,12 @@ mkCancelReservedInstancesListing :: Text -- ^ 'crilReservedInstancesListingId'
 mkCancelReservedInstancesListing p1 = CancelReservedInstancesListing
     { _crilReservedInstancesListingId = p1
     }
-{-# INLINE mkCancelReservedInstancesListing #-}
 
 -- | The ID of the Reserved Instance listing.
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId =
     lens _crilReservedInstancesListingId
          (\s a -> s { _crilReservedInstancesListingId = a })
-{-# INLINE crilReservedInstancesListingId #-}
 
 instance ToQuery CancelReservedInstancesListing where
     toQuery = genericQuery def
@@ -82,7 +80,6 @@ crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse 
 crilrsReservedInstancesListings =
     lens _crilrsReservedInstancesListings
          (\s a -> s { _crilrsReservedInstancesListings = a })
-{-# INLINE crilrsReservedInstancesListings #-}
 
 instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions

@@ -51,12 +51,10 @@ mkGetStreamingDistributionConfig :: Text -- ^ 'gsdcId'
 mkGetStreamingDistributionConfig p1 = GetStreamingDistributionConfig
     { _gsdcId = p1
     }
-{-# INLINE mkGetStreamingDistributionConfig #-}
 
 -- | The streaming distribution's id.
 gsdcId :: Lens' GetStreamingDistributionConfig Text
 gsdcId = lens _gsdcId (\s a -> s { _gsdcId = a })
-{-# INLINE gsdcId #-}
 
 instance ToPath GetStreamingDistributionConfig where
     toPath GetStreamingDistributionConfig{..} = mconcat
@@ -84,12 +82,10 @@ gsdcrsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigRespons
 gsdcrsStreamingDistributionConfig =
     lens _gsdcrsStreamingDistributionConfig
          (\s a -> s { _gsdcrsStreamingDistributionConfig = a })
-{-# INLINE gsdcrsStreamingDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcrsETag = lens _gsdcrsETag (\s a -> s { _gsdcrsETag = a })
-{-# INLINE gsdcrsETag #-}
 
 instance AWSRequest GetStreamingDistributionConfig where
     type Sv GetStreamingDistributionConfig = CloudFront

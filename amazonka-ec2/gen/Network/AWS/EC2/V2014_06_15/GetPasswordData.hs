@@ -67,12 +67,10 @@ mkGetPasswordData :: Text -- ^ 'gpdInstanceId'
 mkGetPasswordData p1 = GetPasswordData
     { _gpdInstanceId = p1
     }
-{-# INLINE mkGetPasswordData #-}
 
 -- | The ID of the Windows instance.
 gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
-{-# INLINE gpdInstanceId #-}
 
 instance ToQuery GetPasswordData where
     toQuery = genericQuery def
@@ -87,18 +85,15 @@ data GetPasswordDataResponse = GetPasswordDataResponse
 -- | The ID of the Windows instance.
 gpdrsInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrsInstanceId = lens _gpdrsInstanceId (\s a -> s { _gpdrsInstanceId = a })
-{-# INLINE gpdrsInstanceId #-}
 
 -- | The time the data was last updated.
 gpdrsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
 gpdrsTimestamp = lens _gpdrsTimestamp (\s a -> s { _gpdrsTimestamp = a })
-{-# INLINE gpdrsTimestamp #-}
 
 -- | The password of the instance.
 gpdrsPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrsPasswordData =
     lens _gpdrsPasswordData (\s a -> s { _gpdrsPasswordData = a })
-{-# INLINE gpdrsPasswordData #-}
 
 instance FromXML GetPasswordDataResponse where
     fromXMLOptions = xmlOptions

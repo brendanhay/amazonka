@@ -73,13 +73,11 @@ mkDeleteVolume :: Text -- ^ 'dvVolumeARN'
 mkDeleteVolume p1 = DeleteVolume
     { _dvVolumeARN = p1
     }
-{-# INLINE mkDeleteVolume #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\s a -> s { _dvVolumeARN = a })
-{-# INLINE dvVolumeARN #-}
 
 instance ToPath DeleteVolume
 
@@ -98,7 +96,6 @@ newtype DeleteVolumeResponse = DeleteVolumeResponse
 -- is the same ARN you provided in the request.
 dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrsVolumeARN = lens _dvrsVolumeARN (\s a -> s { _dvrsVolumeARN = a })
-{-# INLINE dvrsVolumeARN #-}
 
 instance FromJSON DeleteVolumeResponse
 

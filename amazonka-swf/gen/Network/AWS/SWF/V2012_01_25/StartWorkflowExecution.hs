@@ -114,12 +114,10 @@ mkStartWorkflowExecution p1 p2 p3 = StartWorkflowExecution
     , _swe1TaskStartToCloseTimeout = Nothing
     , _swe1ChildPolicy = Nothing
     }
-{-# INLINE mkStartWorkflowExecution #-}
 
 -- | The name of the domain in which the workflow execution is created.
 swe1Domain :: Lens' StartWorkflowExecution Text
 swe1Domain = lens _swe1Domain (\s a -> s { _swe1Domain = a })
-{-# INLINE swe1Domain #-}
 
 -- | The user defined identifier associated with the workflow execution. You can
 -- use this to associate a custom identifier with the workflow execution. You
@@ -132,13 +130,11 @@ swe1Domain = lens _swe1Domain (\s a -> s { _swe1Domain = a })
 -- &quot;arn&quot;.
 swe1WorkflowId :: Lens' StartWorkflowExecution Text
 swe1WorkflowId = lens _swe1WorkflowId (\s a -> s { _swe1WorkflowId = a })
-{-# INLINE swe1WorkflowId #-}
 
 -- | The type of the workflow to start.
 swe1WorkflowType :: Lens' StartWorkflowExecution WorkflowType
 swe1WorkflowType =
     lens _swe1WorkflowType (\s a -> s { _swe1WorkflowType = a })
-{-# INLINE swe1WorkflowType #-}
 
 -- | The task list to use for the decision tasks generated for this workflow
 -- execution. This overrides the defaultTaskList specified when registering
@@ -152,7 +148,6 @@ swe1WorkflowType =
 -- string &quot;arn&quot;.
 swe1TaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
 swe1TaskList = lens _swe1TaskList (\s a -> s { _swe1TaskList = a })
-{-# INLINE swe1TaskList #-}
 
 -- | The input for the workflow execution. This is a free form string which
 -- should be meaningful to the workflow you are starting. This input is made
@@ -160,7 +155,6 @@ swe1TaskList = lens _swe1TaskList (\s a -> s { _swe1TaskList = a })
 -- history event.
 swe1Input :: Lens' StartWorkflowExecution (Maybe Text)
 swe1Input = lens _swe1Input (\s a -> s { _swe1Input = a })
-{-# INLINE swe1Input #-}
 
 -- | The total duration for this workflow execution. This overrides the
 -- defaultExecutionStartToCloseTimeout specified when registering the workflow
@@ -177,7 +171,6 @@ swe1ExecutionStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 swe1ExecutionStartToCloseTimeout =
     lens _swe1ExecutionStartToCloseTimeout
          (\s a -> s { _swe1ExecutionStartToCloseTimeout = a })
-{-# INLINE swe1ExecutionStartToCloseTimeout #-}
 
 -- | The list of tags to associate with the workflow execution. You can specify
 -- a maximum of 5 tags. You can list workflow executions with a specific tag
@@ -185,7 +178,6 @@ swe1ExecutionStartToCloseTimeout =
 -- specifying a TagFilter.
 swe1TagList :: Lens' StartWorkflowExecution [Text]
 swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a })
-{-# INLINE swe1TagList #-}
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the defaultTaskStartToCloseTimout
@@ -201,7 +193,6 @@ swe1TaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 swe1TaskStartToCloseTimeout =
     lens _swe1TaskStartToCloseTimeout
          (\s a -> s { _swe1TaskStartToCloseTimeout = a })
-{-# INLINE swe1TaskStartToCloseTimeout #-}
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- this workflow execution if it is terminated, by calling the
@@ -219,7 +210,6 @@ swe1TaskStartToCloseTimeout =
 -- specified at registration time then a fault will be returned.
 swe1ChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
 swe1ChildPolicy = lens _swe1ChildPolicy (\s a -> s { _swe1ChildPolicy = a })
-{-# INLINE swe1ChildPolicy #-}
 
 instance ToPath StartWorkflowExecution
 
@@ -238,7 +228,6 @@ newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
 -- can be used to uniquely identify the workflow execution within a domain.
 swersRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
 swersRunId = lens _swersRunId (\s a -> s { _swersRunId = a })
-{-# INLINE swersRunId #-}
 
 instance FromJSON StartWorkflowExecutionResponse
 

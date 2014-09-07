@@ -59,13 +59,11 @@ mkResetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     { _rniaNetworkInterfaceId = p1
     , _rniaSourceDestCheck = Nothing
     }
-{-# INLINE mkResetNetworkInterfaceAttribute #-}
 
 -- | The ID of the network interface.
 rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
 rniaNetworkInterfaceId =
     lens _rniaNetworkInterfaceId (\s a -> s { _rniaNetworkInterfaceId = a })
-{-# INLINE rniaNetworkInterfaceId #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
@@ -73,7 +71,6 @@ rniaNetworkInterfaceId =
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
-{-# INLINE rniaSourceDestCheck #-}
 
 instance ToQuery ResetNetworkInterfaceAttribute where
     toQuery = genericQuery def

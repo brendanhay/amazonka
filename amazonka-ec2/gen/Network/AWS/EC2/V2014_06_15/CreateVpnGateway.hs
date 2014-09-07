@@ -66,18 +66,15 @@ mkCreateVpnGateway p1 = CreateVpnGateway
     { _cvgType = p1
     , _cvgAvailabilityZone = Nothing
     }
-{-# INLINE mkCreateVpnGateway #-}
 
 -- | The type of VPN connection this virtual private gateway supports.
 cvgType :: Lens' CreateVpnGateway GatewayType
 cvgType = lens _cvgType (\s a -> s { _cvgType = a })
-{-# INLINE cvgType #-}
 
 -- | The Availability Zone for the virtual private gateway.
 cvgAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
 cvgAvailabilityZone =
     lens _cvgAvailabilityZone (\s a -> s { _cvgAvailabilityZone = a })
-{-# INLINE cvgAvailabilityZone #-}
 
 instance ToQuery CreateVpnGateway where
     toQuery = genericQuery def
@@ -90,7 +87,6 @@ newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
 -- | Information about the virtual private gateway.
 cvgrsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgrsVpnGateway = lens _cvgrsVpnGateway (\s a -> s { _cvgrsVpnGateway = a })
-{-# INLINE cvgrsVpnGateway #-}
 
 instance FromXML CreateVpnGatewayResponse where
     fromXMLOptions = xmlOptions

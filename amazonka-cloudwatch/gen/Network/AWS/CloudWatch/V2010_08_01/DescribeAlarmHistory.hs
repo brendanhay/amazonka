@@ -67,39 +67,32 @@ mkDescribeAlarmHistory = DescribeAlarmHistory
     , _dahMaxRecords = Nothing
     , _dahNextToken = Nothing
     }
-{-# INLINE mkDescribeAlarmHistory #-}
 
 -- | The name of the alarm.
 dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
 dahAlarmName = lens _dahAlarmName (\s a -> s { _dahAlarmName = a })
-{-# INLINE dahAlarmName #-}
 
 -- | The type of alarm histories to retrieve.
 dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
 dahHistoryItemType =
     lens _dahHistoryItemType (\s a -> s { _dahHistoryItemType = a })
-{-# INLINE dahHistoryItemType #-}
 
 -- | The starting date to retrieve alarm history.
 dahStartDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
 dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a })
-{-# INLINE dahStartDate #-}
 
 -- | The ending date to retrieve alarm history.
 dahEndDate :: Lens' DescribeAlarmHistory (Maybe ISO8601)
 dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a })
-{-# INLINE dahEndDate #-}
 
 -- | The maximum number of alarm history records to retrieve.
 dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Integer)
 dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a })
-{-# INLINE dahMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
 dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
 dahNextToken = lens _dahNextToken (\s a -> s { _dahNextToken = a })
-{-# INLINE dahNextToken #-}
 
 instance ToQuery DescribeAlarmHistory where
     toQuery = genericQuery def
@@ -114,12 +107,10 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
 dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
 dahrsAlarmHistoryItems =
     lens _dahrsAlarmHistoryItems (\s a -> s { _dahrsAlarmHistoryItems = a })
-{-# INLINE dahrsAlarmHistoryItems #-}
 
 -- | A string that marks the start of the next batch of returned results.
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrsNextToken = lens _dahrsNextToken (\s a -> s { _dahrsNextToken = a })
-{-# INLINE dahrsNextToken #-}
 
 instance FromXML DescribeAlarmHistoryResponse where
     fromXMLOptions = xmlOptions
@@ -132,5 +123,5 @@ instance AWSRequest DescribeAlarmHistory where
     response _ = xmlResponse
 
 instance AWSPager DescribeAlarmHistory where
-    next rq rs = (\x -> rq { _dahNextToken = Just x })
-        <$> (_dahrsNextToken rs)
+    next rq rs = (\x -> rq & dahNextToken ?~ x) <$> (rs ^. dahrsNextToken)
+

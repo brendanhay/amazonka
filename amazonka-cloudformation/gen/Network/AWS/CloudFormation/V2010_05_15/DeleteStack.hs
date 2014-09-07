@@ -53,12 +53,10 @@ mkDeleteStack :: Text -- ^ 'dsStackName'
 mkDeleteStack p1 = DeleteStack
     { _dsStackName = p1
     }
-{-# INLINE mkDeleteStack #-}
 
 -- | The name or the unique identifier associated with the stack.
 dsStackName :: Lens' DeleteStack Text
 dsStackName = lens _dsStackName (\s a -> s { _dsStackName = a })
-{-# INLINE dsStackName #-}
 
 instance ToQuery DeleteStack where
     toQuery = genericQuery def

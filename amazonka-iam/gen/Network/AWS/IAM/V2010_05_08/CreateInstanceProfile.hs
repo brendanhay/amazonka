@@ -60,20 +60,17 @@ mkCreateInstanceProfile p1 = CreateInstanceProfile
     { _cipInstanceProfileName = p1
     , _cipPath = Nothing
     }
-{-# INLINE mkCreateInstanceProfile #-}
 
 -- | Name of the instance profile to create.
 cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName =
     lens _cipInstanceProfileName (\s a -> s { _cipInstanceProfileName = a })
-{-# INLINE cipInstanceProfileName #-}
 
 -- | The path to the instance profile. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\s a -> s { _cipPath = a })
-{-# INLINE cipPath #-}
 
 instance ToQuery CreateInstanceProfile where
     toQuery = genericQuery def
@@ -88,7 +85,6 @@ newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
 ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprsInstanceProfile =
     lens _ciprsInstanceProfile (\s a -> s { _ciprsInstanceProfile = a })
-{-# INLINE ciprsInstanceProfile #-}
 
 instance FromXML CreateInstanceProfileResponse where
     fromXMLOptions = xmlOptions

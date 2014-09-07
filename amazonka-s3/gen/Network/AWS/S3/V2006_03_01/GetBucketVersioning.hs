@@ -50,11 +50,9 @@ mkGetBucketVersioning :: BucketName -- ^ 'gbvBucket'
 mkGetBucketVersioning p1 = GetBucketVersioning
     { _gbvBucket = p1
     }
-{-# INLINE mkGetBucketVersioning #-}
 
 gbvBucket :: Lens' GetBucketVersioning BucketName
 gbvBucket = lens _gbvBucket (\s a -> s { _gbvBucket = a })
-{-# INLINE gbvBucket #-}
 
 instance ToPath GetBucketVersioning where
     toPath GetBucketVersioning{..} = mconcat
@@ -79,7 +77,6 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse
 -- | The versioning state of the bucket.
 gbvrsStatus :: Lens' GetBucketVersioningResponse (Maybe (Switch BucketVersioningStatus))
 gbvrsStatus = lens _gbvrsStatus (\s a -> s { _gbvrsStatus = a })
-{-# INLINE gbvrsStatus #-}
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -87,7 +84,6 @@ gbvrsStatus = lens _gbvrsStatus (\s a -> s { _gbvrsStatus = a })
 -- this element is not returned.
 gbvrsMfaDelete :: Lens' GetBucketVersioningResponse (Maybe (Switch MFADeleteStatus))
 gbvrsMfaDelete = lens _gbvrsMfaDelete (\s a -> s { _gbvrsMfaDelete = a })
-{-# INLINE gbvrsMfaDelete #-}
 
 instance FromXML GetBucketVersioningResponse where
     fromXMLOptions = xmlOptions

@@ -51,19 +51,16 @@ mkDeleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName = p1
     , _dlblLoadBalancerPorts = p2
     }
-{-# INLINE mkDeleteLoadBalancerListeners #-}
 
 -- | The mnemonic name associated with the load balancer.
 dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
 dlblLoadBalancerName =
     lens _dlblLoadBalancerName (\s a -> s { _dlblLoadBalancerName = a })
-{-# INLINE dlblLoadBalancerName #-}
 
 -- | The client port number(s) of the load balancer listener(s) to be removed.
 dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Integer]
 dlblLoadBalancerPorts =
     lens _dlblLoadBalancerPorts (\s a -> s { _dlblLoadBalancerPorts = a })
-{-# INLINE dlblLoadBalancerPorts #-}
 
 instance ToQuery DeleteLoadBalancerListeners where
     toQuery = genericQuery def

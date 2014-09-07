@@ -64,14 +64,12 @@ mkDescribeDBSecurityGroups = DescribeDBSecurityGroups
     , _ddbsg2MaxRecords = Nothing
     , _ddbsg2Marker = Nothing
     }
-{-# INLINE mkDescribeDBSecurityGroups #-}
 
 -- | The name of the DB security group to return details for.
 ddbsg2DBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsg2DBSecurityGroupName =
     lens _ddbsg2DBSecurityGroupName
          (\s a -> s { _ddbsg2DBSecurityGroupName = a })
-{-# INLINE ddbsg2DBSecurityGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -80,7 +78,6 @@ ddbsg2DBSecurityGroupName =
 ddbsg2MaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Integer)
 ddbsg2MaxRecords =
     lens _ddbsg2MaxRecords (\s a -> s { _ddbsg2MaxRecords = a })
-{-# INLINE ddbsg2MaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSecurityGroups request. If this parameter is specified, the
@@ -88,7 +85,6 @@ ddbsg2MaxRecords =
 -- by MaxRecords.
 ddbsg2Marker :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsg2Marker = lens _ddbsg2Marker (\s a -> s { _ddbsg2Marker = a })
-{-# INLINE ddbsg2Marker #-}
 
 instance ToQuery DescribeDBSecurityGroups where
     toQuery = genericQuery def
@@ -105,14 +101,12 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
 -- marker, up to the value specified by MaxRecords.
 ddbsgrsMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrsMarker = lens _ddbsgrsMarker (\s a -> s { _ddbsgrsMarker = a })
-{-# INLINE ddbsgrsMarker #-}
 
 -- | A list of DBSecurityGroup instances.
 ddbsgrsDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgrsDBSecurityGroups =
     lens _ddbsgrsDBSecurityGroups
          (\s a -> s { _ddbsgrsDBSecurityGroups = a })
-{-# INLINE ddbsgrsDBSecurityGroups #-}
 
 instance FromXML DescribeDBSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -125,5 +119,5 @@ instance AWSRequest DescribeDBSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSecurityGroups where
-    next rq rs = (\x -> rq { _ddbsg2Marker = Just x })
-        <$> (_ddbsgrsMarker rs)
+    next rq rs = (\x -> rq & ddbsg2Marker ?~ x) <$> (rs ^. ddbsgrsMarker)
+

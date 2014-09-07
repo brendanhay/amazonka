@@ -41,7 +41,6 @@ data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 -- a valid 'DeleteAccountPasswordPolicy' request.
 mkDeleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 mkDeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
-{-# INLINE mkDeleteAccountPasswordPolicy #-}
 
 instance ToQuery DeleteAccountPasswordPolicy where
     toQuery = genericQuery def

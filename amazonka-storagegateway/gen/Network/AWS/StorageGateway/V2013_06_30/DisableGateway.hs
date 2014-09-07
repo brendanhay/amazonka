@@ -48,13 +48,11 @@ mkDisableGateway :: Text -- ^ 'dg1GatewayARN'
 mkDisableGateway p1 = DisableGateway
     { _dg1GatewayARN = p1
     }
-{-# INLINE mkDisableGateway #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dg1GatewayARN :: Lens' DisableGateway Text
 dg1GatewayARN = lens _dg1GatewayARN (\s a -> s { _dg1GatewayARN = a })
-{-# INLINE dg1GatewayARN #-}
 
 instance ToPath DisableGateway
 
@@ -73,7 +71,6 @@ newtype DisableGatewayResponse = DisableGatewayResponse
 dgrsrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dgrsrsGatewayARN =
     lens _dgrsrsGatewayARN (\s a -> s { _dgrsrsGatewayARN = a })
-{-# INLINE dgrsrsGatewayARN #-}
 
 instance FromJSON DisableGatewayResponse
 

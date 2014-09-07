@@ -54,13 +54,11 @@ mkCancelExportTask :: Text -- ^ 'cetExportTaskId'
 mkCancelExportTask p1 = CancelExportTask
     { _cetExportTaskId = p1
     }
-{-# INLINE mkCancelExportTask #-}
 
 -- | The ID of the export task. This is the ID returned by
 -- CreateInstanceExportTask.
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
-{-# INLINE cetExportTaskId #-}
 
 instance ToQuery CancelExportTask where
     toQuery = genericQuery def

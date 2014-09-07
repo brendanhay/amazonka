@@ -74,17 +74,14 @@ mkListSubscriptionsByTopic p1 = ListSubscriptionsByTopic
     { _lsbtTopicArn = p1
     , _lsbtNextToken = Nothing
     }
-{-# INLINE mkListSubscriptionsByTopic #-}
 
 -- | The ARN of the topic for which you wish to find subscriptions.
 lsbtTopicArn :: Lens' ListSubscriptionsByTopic Text
 lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
-{-# INLINE lsbtTopicArn #-}
 
 -- | Token returned by the previous ListSubscriptionsByTopic request.
 lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
 lsbtNextToken = lens _lsbtNextToken (\s a -> s { _lsbtNextToken = a })
-{-# INLINE lsbtNextToken #-}
 
 instance ToQuery ListSubscriptionsByTopic where
     toQuery = genericQuery def
@@ -99,13 +96,11 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
 lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrsSubscriptions =
     lens _lsbtrsSubscriptions (\s a -> s { _lsbtrsSubscriptions = a })
-{-# INLINE lsbtrsSubscriptions #-}
 
 -- | Token to pass along to the next ListSubscriptionsByTopic request. This
 -- element is returned if there are more subscriptions to retrieve.
 lsbtrsNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrsNextToken = lens _lsbtrsNextToken (\s a -> s { _lsbtrsNextToken = a })
-{-# INLINE lsbtrsNextToken #-}
 
 instance FromXML ListSubscriptionsByTopicResponse where
     fromXMLOptions = xmlOptions
@@ -118,5 +113,5 @@ instance AWSRequest ListSubscriptionsByTopic where
     response _ = xmlResponse
 
 instance AWSPager ListSubscriptionsByTopic where
-    next rq rs = (\x -> rq { _lsbtNextToken = Just x })
-        <$> (_lsbtrsNextToken rs)
+    next rq rs = (\x -> rq & lsbtNextToken ?~ x) <$> (rs ^. lsbtrsNextToken)
+

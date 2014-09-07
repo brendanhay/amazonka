@@ -75,23 +75,19 @@ mkCreateImage p1 p2 = CreateImage
     , _ci1NoReboot = Nothing
     , _ci1BlockDeviceMappings = mempty
     }
-{-# INLINE mkCreateImage #-}
 
 -- | The ID of the instance.
 ci1InstanceId :: Lens' CreateImage Text
 ci1InstanceId = lens _ci1InstanceId (\s a -> s { _ci1InstanceId = a })
-{-# INLINE ci1InstanceId #-}
 
 -- | A name for the new image. Constraints: 3-128 alphanumeric characters,
 -- parenthesis (()), periods (.), slashes (/), dashes (-), or underscores(_).
 ci1Name :: Lens' CreateImage Text
 ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
-{-# INLINE ci1Name #-}
 
 -- | A description for the new image.
 ci1Description :: Lens' CreateImage (Maybe Text)
 ci1Description = lens _ci1Description (\s a -> s { _ci1Description = a })
-{-# INLINE ci1Description #-}
 
 -- | By default, this parameter is set to false, which means Amazon EC2 attempts
 -- to shut down the instance cleanly before image creation and then reboots
@@ -100,13 +96,11 @@ ci1Description = lens _ci1Description (\s a -> s { _ci1Description = a })
 -- system integrity on the created image can't be guaranteed.
 ci1NoReboot :: Lens' CreateImage (Maybe Bool)
 ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
-{-# INLINE ci1NoReboot #-}
 
 -- | Information about one or more block device mappings.
 ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
 ci1BlockDeviceMappings =
     lens _ci1BlockDeviceMappings (\s a -> s { _ci1BlockDeviceMappings = a })
-{-# INLINE ci1BlockDeviceMappings #-}
 
 instance ToQuery CreateImage where
     toQuery = genericQuery def
@@ -119,7 +113,6 @@ newtype CreateImageResponse = CreateImageResponse
 -- | The ID of the new AMI.
 cirsrsImageId :: Lens' CreateImageResponse (Maybe Text)
 cirsrsImageId = lens _cirsrsImageId (\s a -> s { _cirsrsImageId = a })
-{-# INLINE cirsrsImageId #-}
 
 instance FromXML CreateImageResponse where
     fromXMLOptions = xmlOptions

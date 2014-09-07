@@ -61,19 +61,16 @@ mkCreateSnapshot p1 p2 = CreateSnapshot
     { _cs1CacheClusterId = p1
     , _cs1SnapshotName = p2
     }
-{-# INLINE mkCreateSnapshot #-}
 
 -- | The identifier of an existing cache cluster. The snapshot will be created
 -- from this cache cluster.
 cs1CacheClusterId :: Lens' CreateSnapshot Text
 cs1CacheClusterId =
     lens _cs1CacheClusterId (\s a -> s { _cs1CacheClusterId = a })
-{-# INLINE cs1CacheClusterId #-}
 
 -- | A name for the snapshot being created.
 cs1SnapshotName :: Lens' CreateSnapshot Text
 cs1SnapshotName = lens _cs1SnapshotName (\s a -> s { _cs1SnapshotName = a })
-{-# INLINE cs1SnapshotName #-}
 
 instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
@@ -86,7 +83,6 @@ newtype CreateSnapshotResponse = CreateSnapshotResponse
 -- snapshot was taken.
 csrsrsSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 csrsrsSnapshot = lens _csrsrsSnapshot (\s a -> s { _csrsrsSnapshot = a })
-{-# INLINE csrsrsSnapshot #-}
 
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions

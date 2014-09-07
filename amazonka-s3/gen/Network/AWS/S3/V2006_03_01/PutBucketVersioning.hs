@@ -58,27 +58,22 @@ mkPutBucketVersioning p1 p4 = PutBucketVersioning
     , _pbvMFA = Nothing
     , _pbvVersioningConfiguration = p4
     }
-{-# INLINE mkPutBucketVersioning #-}
 
 pbvBucket :: Lens' PutBucketVersioning BucketName
 pbvBucket = lens _pbvBucket (\s a -> s { _pbvBucket = a })
-{-# INLINE pbvBucket #-}
 
 pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
 pbvContentMD5 = lens _pbvContentMD5 (\s a -> s { _pbvContentMD5 = a })
-{-# INLINE pbvContentMD5 #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
 pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
 pbvMFA = lens _pbvMFA (\s a -> s { _pbvMFA = a })
-{-# INLINE pbvMFA #-}
 
 pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
 pbvVersioningConfiguration =
     lens _pbvVersioningConfiguration
          (\s a -> s { _pbvVersioningConfiguration = a })
-{-# INLINE pbvVersioningConfiguration #-}
 
 instance ToPath PutBucketVersioning where
     toPath PutBucketVersioning{..} = mconcat

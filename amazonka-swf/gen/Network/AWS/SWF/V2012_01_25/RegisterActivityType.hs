@@ -107,12 +107,10 @@ mkRegisterActivityType p1 p2 p3 = RegisterActivityType
     , _ratDefaultTaskScheduleToStartTimeout = Nothing
     , _ratDefaultTaskScheduleToCloseTimeout = Nothing
     }
-{-# INLINE mkRegisterActivityType #-}
 
 -- | The name of the domain in which this activity is to be registered.
 ratDomain :: Lens' RegisterActivityType Text
 ratDomain = lens _ratDomain (\s a -> s { _ratDomain = a })
-{-# INLINE ratDomain #-}
 
 -- | The name of the activity type within the domain. The specified string must
 -- not start or end with whitespace. It must not contain a : (colon), /
@@ -121,7 +119,6 @@ ratDomain = lens _ratDomain (\s a -> s { _ratDomain = a })
 -- &quot;arn&quot;.
 ratName :: Lens' RegisterActivityType Text
 ratName = lens _ratName (\s a -> s { _ratName = a })
-{-# INLINE ratName #-}
 
 -- | The version of the activity type. The activity type consists of the name
 -- and version, the combination of which must be unique within the domain. The
@@ -131,12 +128,10 @@ ratName = lens _ratName (\s a -> s { _ratName = a })
 -- string &quot;arn&quot;.
 ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\s a -> s { _ratVersion = a })
-{-# INLINE ratVersion #-}
 
 -- | A textual description of the activity type.
 ratDescription :: Lens' RegisterActivityType (Maybe Text)
 ratDescription = lens _ratDescription (\s a -> s { _ratDescription = a })
-{-# INLINE ratDescription #-}
 
 -- | If set, specifies the default maximum duration that a worker can take to
 -- process tasks of this activity type. This default can be overridden when
@@ -148,7 +143,6 @@ ratDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskStartToCloseTimeout =
     lens _ratDefaultTaskStartToCloseTimeout
          (\s a -> s { _ratDefaultTaskStartToCloseTimeout = a })
-{-# INLINE ratDefaultTaskStartToCloseTimeout #-}
 
 -- | If set, specifies the default maximum time before which a worker processing
 -- a task of this type must report progress by calling
@@ -165,7 +159,6 @@ ratDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskHeartbeatTimeout =
     lens _ratDefaultTaskHeartbeatTimeout
          (\s a -> s { _ratDefaultTaskHeartbeatTimeout = a })
-{-# INLINE ratDefaultTaskHeartbeatTimeout #-}
 
 -- | If set, specifies the default task list to use for scheduling tasks of this
 -- activity type. This default task list is used if a task list is not
@@ -174,7 +167,6 @@ ratDefaultTaskHeartbeatTimeout =
 ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
 ratDefaultTaskList =
     lens _ratDefaultTaskList (\s a -> s { _ratDefaultTaskList = a })
-{-# INLINE ratDefaultTaskList #-}
 
 -- | If set, specifies the default maximum duration that a task of this activity
 -- type can wait before being assigned to a worker. This default can be
@@ -186,7 +178,6 @@ ratDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskScheduleToStartTimeout =
     lens _ratDefaultTaskScheduleToStartTimeout
          (\s a -> s { _ratDefaultTaskScheduleToStartTimeout = a })
-{-# INLINE ratDefaultTaskScheduleToStartTimeout #-}
 
 -- | If set, specifies the default maximum duration for a task of this activity
 -- type. This default can be overridden when scheduling an activity task using
@@ -197,7 +188,6 @@ ratDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskScheduleToCloseTimeout =
     lens _ratDefaultTaskScheduleToCloseTimeout
          (\s a -> s { _ratDefaultTaskScheduleToCloseTimeout = a })
-{-# INLINE ratDefaultTaskScheduleToCloseTimeout #-}
 
 instance ToPath RegisterActivityType
 

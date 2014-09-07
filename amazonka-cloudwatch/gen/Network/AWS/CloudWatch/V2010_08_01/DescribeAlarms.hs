@@ -66,40 +66,33 @@ mkDescribeAlarms = DescribeAlarms
     , _da1MaxRecords = Nothing
     , _da1NextToken = Nothing
     }
-{-# INLINE mkDescribeAlarms #-}
 
 -- | A list of alarm names to retrieve information for.
 da1AlarmNames :: Lens' DescribeAlarms [Text]
 da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a })
-{-# INLINE da1AlarmNames #-}
 
 -- | The alarm name prefix. AlarmNames cannot be specified if this parameter is
 -- specified.
 da1AlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 da1AlarmNamePrefix =
     lens _da1AlarmNamePrefix (\s a -> s { _da1AlarmNamePrefix = a })
-{-# INLINE da1AlarmNamePrefix #-}
 
 -- | The state value to be used in matching alarms.
 da1StateValue :: Lens' DescribeAlarms (Maybe StateValue)
 da1StateValue = lens _da1StateValue (\s a -> s { _da1StateValue = a })
-{-# INLINE da1StateValue #-}
 
 -- | The action name prefix.
 da1ActionPrefix :: Lens' DescribeAlarms (Maybe Text)
 da1ActionPrefix = lens _da1ActionPrefix (\s a -> s { _da1ActionPrefix = a })
-{-# INLINE da1ActionPrefix #-}
 
 -- | The maximum number of alarm descriptions to retrieve.
 da1MaxRecords :: Lens' DescribeAlarms (Maybe Integer)
 da1MaxRecords = lens _da1MaxRecords (\s a -> s { _da1MaxRecords = a })
-{-# INLINE da1MaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
 da1NextToken :: Lens' DescribeAlarms (Maybe Text)
 da1NextToken = lens _da1NextToken (\s a -> s { _da1NextToken = a })
-{-# INLINE da1NextToken #-}
 
 instance ToQuery DescribeAlarms where
     toQuery = genericQuery def
@@ -114,12 +107,10 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse
 darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
 darsMetricAlarms =
     lens _darsMetricAlarms (\s a -> s { _darsMetricAlarms = a })
-{-# INLINE darsMetricAlarms #-}
 
 -- | A string that marks the start of the next batch of returned results.
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\s a -> s { _darsNextToken = a })
-{-# INLINE darsNextToken #-}
 
 instance FromXML DescribeAlarmsResponse where
     fromXMLOptions = xmlOptions
@@ -132,5 +123,5 @@ instance AWSRequest DescribeAlarms where
     response _ = xmlResponse
 
 instance AWSPager DescribeAlarms where
-    next rq rs = (\x -> rq { _da1NextToken = Just x })
-        <$> (_darsNextToken rs)
+    next rq rs = (\x -> rq & da1NextToken ?~ x) <$> (rs ^. darsNextToken)
+

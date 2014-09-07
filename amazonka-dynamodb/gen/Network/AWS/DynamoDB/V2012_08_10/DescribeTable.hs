@@ -65,12 +65,10 @@ mkDescribeTable :: Text -- ^ 'dt1TableName'
 mkDescribeTable p1 = DescribeTable
     { _dt1TableName = p1
     }
-{-# INLINE mkDescribeTable #-}
 
 -- | The name of the table to describe.
 dt1TableName :: Lens' DescribeTable Text
 dt1TableName = lens _dt1TableName (\s a -> s { _dt1TableName = a })
-{-# INLINE dt1TableName #-}
 
 instance ToPath DescribeTable
 
@@ -88,7 +86,6 @@ newtype DescribeTableResponse = DescribeTableResponse
 -- | Represents the properties of a table.
 dtrsrsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 dtrsrsTable = lens _dtrsrsTable (\s a -> s { _dtrsrsTable = a })
-{-# INLINE dtrsrsTable #-}
 
 instance FromJSON DescribeTableResponse
 

@@ -61,31 +61,26 @@ mkSetAlarmState p1 p2 p3 = SetAlarmState
     , _sasStateReason = p3
     , _sasStateReasonData = Nothing
     }
-{-# INLINE mkSetAlarmState #-}
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account. The maximum length is 255 characters.
 sasAlarmName :: Lens' SetAlarmState Text
 sasAlarmName = lens _sasAlarmName (\s a -> s { _sasAlarmName = a })
-{-# INLINE sasAlarmName #-}
 
 -- | The value of the state.
 sasStateValue :: Lens' SetAlarmState StateValue
 sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
-{-# INLINE sasStateValue #-}
 
 -- | The reason that this alarm is set to this specific state (in human-readable
 -- text format).
 sasStateReason :: Lens' SetAlarmState Text
 sasStateReason = lens _sasStateReason (\s a -> s { _sasStateReason = a })
-{-# INLINE sasStateReason #-}
 
 -- | The reason that this alarm is set to this specific state (in
 -- machine-readable JSON format).
 sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
 sasStateReasonData =
     lens _sasStateReasonData (\s a -> s { _sasStateReasonData = a })
-{-# INLINE sasStateReasonData #-}
 
 instance ToQuery SetAlarmState where
     toQuery = genericQuery def

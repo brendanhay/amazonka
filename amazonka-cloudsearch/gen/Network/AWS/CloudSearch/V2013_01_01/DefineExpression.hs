@@ -58,7 +58,6 @@ mkDefineExpression p1 p2 = DefineExpression
     { _deDomainName = p1
     , _deExpression = p2
     }
-{-# INLINE mkDefineExpression #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -66,13 +65,11 @@ mkDefineExpression p1 p2 = DefineExpression
 -- (lowercase), 0-9, and - (hyphen).
 deDomainName :: Lens' DefineExpression Text
 deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
-{-# INLINE deDomainName #-}
 
 -- | A named expression that can be evaluated at search time. Can be used for
 -- sorting and filtering search results and constructing other expressions.
 deExpression :: Lens' DefineExpression Expression
 deExpression = lens _deExpression (\s a -> s { _deExpression = a })
-{-# INLINE deExpression #-}
 
 instance ToQuery DefineExpression where
     toQuery = genericQuery def
@@ -86,7 +83,6 @@ newtype DefineExpressionResponse = DefineExpressionResponse
 -- | The value of an Expression and its current status.
 dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
 dersExpression = lens _dersExpression (\s a -> s { _dersExpression = a })
-{-# INLINE dersExpression #-}
 
 instance FromXML DefineExpressionResponse where
     fromXMLOptions = xmlOptions

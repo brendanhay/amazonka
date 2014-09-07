@@ -88,21 +88,18 @@ mkPutScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     , _psugaMaxSize = Nothing
     , _psugaDesiredCapacity = Nothing
     }
-{-# INLINE mkPutScheduledUpdateGroupAction #-}
 
 -- | The name or ARN of the Auto Scaling group.
 psugaAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction Text
 psugaAutoScalingGroupName =
     lens _psugaAutoScalingGroupName
          (\s a -> s { _psugaAutoScalingGroupName = a })
-{-# INLINE psugaAutoScalingGroupName #-}
 
 -- | The name of this scaling action.
 psugaScheduledActionName :: Lens' PutScheduledUpdateGroupAction Text
 psugaScheduledActionName =
     lens _psugaScheduledActionName
          (\s a -> s { _psugaScheduledActionName = a })
-{-# INLINE psugaScheduledActionName #-}
 
 -- | Time is deprecated. The time for this action to start. Time is an alias for
 -- StartTime and can be specified instead of StartTime, or vice versa. If both
@@ -110,7 +107,6 @@ psugaScheduledActionName =
 -- Otherwise, PutScheduledUpdateGroupAction will return an error.
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
 psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a })
-{-# INLINE psugaTime #-}
 
 -- | The time for this action to start, as in --start-time 2010-06-01T00:00:00Z.
 -- If you try to schedule your action in the past, Auto Scaling returns an
@@ -118,12 +114,10 @@ psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a })
 -- they form the boundaries of when the recurring action will start and stop.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
 psugaStartTime = lens _psugaStartTime (\s a -> s { _psugaStartTime = a })
-{-# INLINE psugaStartTime #-}
 
 -- | The time for this action to end.
 psugaEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe ISO8601)
 psugaEndTime = lens _psugaEndTime (\s a -> s { _psugaEndTime = a })
-{-# INLINE psugaEndTime #-}
 
 -- | The time when recurring future actions will start. Start time is specified
 -- by the user following the Unix cron syntax format. For information about
@@ -132,23 +126,19 @@ psugaEndTime = lens _psugaEndTime (\s a -> s { _psugaEndTime = a })
 -- recurring action will start and stop.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\s a -> s { _psugaRecurrence = a })
-{-# INLINE psugaRecurrence #-}
 
 -- | The minimum size for the new Auto Scaling group.
 psugaMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
 psugaMinSize = lens _psugaMinSize (\s a -> s { _psugaMinSize = a })
-{-# INLINE psugaMinSize #-}
 
 -- | The maximum size for the Auto Scaling group.
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
 psugaMaxSize = lens _psugaMaxSize (\s a -> s { _psugaMaxSize = a })
-{-# INLINE psugaMaxSize #-}
 
 -- | The number of Amazon EC2 instances that should be running in the group.
 psugaDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Integer)
 psugaDesiredCapacity =
     lens _psugaDesiredCapacity (\s a -> s { _psugaDesiredCapacity = a })
-{-# INLINE psugaDesiredCapacity #-}
 
 instance ToQuery PutScheduledUpdateGroupAction where
     toQuery = genericQuery def

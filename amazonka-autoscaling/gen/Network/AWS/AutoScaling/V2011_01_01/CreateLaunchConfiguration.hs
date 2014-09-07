@@ -101,27 +101,23 @@ mkCreateLaunchConfiguration p1 = CreateLaunchConfiguration
     , _clcAssociatePublicIpAddress = Nothing
     , _clcPlacementTenancy = Nothing
     }
-{-# INLINE mkCreateLaunchConfiguration #-}
 
 -- | The name of the launch configuration to create.
 clcLaunchConfigurationName :: Lens' CreateLaunchConfiguration Text
 clcLaunchConfigurationName =
     lens _clcLaunchConfigurationName
          (\s a -> s { _clcLaunchConfigurationName = a })
-{-# INLINE clcLaunchConfigurationName #-}
 
 -- | Unique ID of the Amazon Machine Image (AMI) you want to use to launch your
 -- EC2 instances. For information about finding Amazon EC2 AMIs, see Finding a
 -- Suitable AMI in the Amazon Elastic Compute Cloud User Guide.
 clcImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcImageId = lens _clcImageId (\s a -> s { _clcImageId = a })
-{-# INLINE clcImageId #-}
 
 -- | The name of the Amazon EC2 key pair. For more information, see Getting a
 -- Key Pair in the Amazon Elastic Compute Cloud User Guide.
 clcKeyName :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcKeyName = lens _clcKeyName (\s a -> s { _clcKeyName = a })
-{-# INLINE clcKeyName #-}
 
 -- | The security groups with which to associate Amazon EC2 or Amazon VPC
 -- instances. If your instances are launched in EC2, you can either specify
@@ -134,7 +130,6 @@ clcKeyName = lens _clcKeyName (\s a -> s { _clcKeyName = a })
 clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
 clcSecurityGroups =
     lens _clcSecurityGroups (\s a -> s { _clcSecurityGroups = a })
-{-# INLINE clcSecurityGroups #-}
 
 -- | The user data to make available to the launched Amazon EC2 instances. For
 -- more information about Amazon EC2 user data, see User Data Retrieval in the
@@ -142,7 +137,6 @@ clcSecurityGroups =
 -- configurations don't support compressed (e.g. zipped) user data files.
 clcUserData :: Lens' CreateLaunchConfiguration (Maybe ByteString)
 clcUserData = lens _clcUserData (\s a -> s { _clcUserData = a })
-{-# INLINE clcUserData #-}
 
 -- | The ID of the Amazon EC2 instance you want to use to create the launch
 -- configuration. Use this attribute if you want the launch configuration to
@@ -157,24 +151,20 @@ clcUserData = lens _clcUserData (\s a -> s { _clcUserData = a })
 -- Instance in the Auto Scaling Developer Guide.
 clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceId = lens _clcInstanceId (\s a -> s { _clcInstanceId = a })
-{-# INLINE clcInstanceId #-}
 
 -- | The instance type of the Amazon EC2 instance. For information about
 -- available Amazon EC2 instance types, see Available Instance Types in the
 -- Amazon Elastic Cloud Compute User Guide.
 clcInstanceType :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceType = lens _clcInstanceType (\s a -> s { _clcInstanceType = a })
-{-# INLINE clcInstanceType #-}
 
 -- | The ID of the kernel associated with the Amazon EC2 AMI.
 clcKernelId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcKernelId = lens _clcKernelId (\s a -> s { _clcKernelId = a })
-{-# INLINE clcKernelId #-}
 
 -- | The ID of the RAM disk associated with the Amazon EC2 AMI.
 clcRamdiskId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcRamdiskId = lens _clcRamdiskId (\s a -> s { _clcRamdiskId = a })
-{-# INLINE clcRamdiskId #-}
 
 -- | A list of mappings that specify how block devices are exposed to the
 -- instance. Each mapping is made up of a VirtualName, a DeviceName, and an
@@ -185,7 +175,6 @@ clcRamdiskId = lens _clcRamdiskId (\s a -> s { _clcRamdiskId = a })
 clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration [BlockDeviceMapping]
 clcBlockDeviceMappings =
     lens _clcBlockDeviceMappings (\s a -> s { _clcBlockDeviceMappings = a })
-{-# INLINE clcBlockDeviceMappings #-}
 
 -- | Enables detailed monitoring if it is disabled. Detailed monitoring is
 -- enabled by default. When detailed monitoring is enabled, Amazon Cloudwatch
@@ -197,7 +186,6 @@ clcBlockDeviceMappings =
 clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clcInstanceMonitoring =
     lens _clcInstanceMonitoring (\s a -> s { _clcInstanceMonitoring = a })
-{-# INLINE clcInstanceMonitoring #-}
 
 -- | The maximum hourly price to be paid for any Spot Instance launched to
 -- fulfill the request. Spot Instances are launched when the price you specify
@@ -206,7 +194,6 @@ clcInstanceMonitoring =
 -- Scaling Developer Guide.
 clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcSpotPrice = lens _clcSpotPrice (\s a -> s { _clcSpotPrice = a })
-{-# INLINE clcSpotPrice #-}
 
 -- | The name or the Amazon Resource Name (ARN) of the instance profile
 -- associated with the IAM role for the instance. Amazon EC2 instances
@@ -219,7 +206,6 @@ clcSpotPrice = lens _clcSpotPrice (\s a -> s { _clcSpotPrice = a })
 clcIamInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcIamInstanceProfile =
     lens _clcIamInstanceProfile (\s a -> s { _clcIamInstanceProfile = a })
-{-# INLINE clcIamInstanceProfile #-}
 
 -- | Whether the instance is optimized for EBS I/O. The optimization provides
 -- dedicated throughput to Amazon EBS and an optimized configuration stack to
@@ -230,7 +216,6 @@ clcIamInstanceProfile =
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
 clcEbsOptimized :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clcEbsOptimized = lens _clcEbsOptimized (\s a -> s { _clcEbsOptimized = a })
-{-# INLINE clcEbsOptimized #-}
 
 -- | Used for Auto Scaling groups that launch instances into an Amazon Virtual
 -- Private Cloud (Amazon VPC). Specifies whether to assign a public IP address
@@ -246,7 +231,6 @@ clcAssociatePublicIpAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clcAssociatePublicIpAddress =
     lens _clcAssociatePublicIpAddress
          (\s a -> s { _clcAssociatePublicIpAddress = a })
-{-# INLINE clcAssociatePublicIpAddress #-}
 
 -- | The tenancy of the instance. An instance with a tenancy of dedicated runs
 -- on single-tenant hardware and can only be launched in a VPC. You must set
@@ -260,7 +244,6 @@ clcAssociatePublicIpAddress =
 clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcPlacementTenancy =
     lens _clcPlacementTenancy (\s a -> s { _clcPlacementTenancy = a })
-{-# INLINE clcPlacementTenancy #-}
 
 instance ToQuery CreateLaunchConfiguration where
     toQuery = genericQuery def

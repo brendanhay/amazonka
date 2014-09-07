@@ -79,14 +79,12 @@ mkListPlatformApplications :: ListPlatformApplications
 mkListPlatformApplications = ListPlatformApplications
     { _lpaNextToken = Nothing
     }
-{-# INLINE mkListPlatformApplications #-}
 
 -- | NextToken string is used when calling ListPlatformApplications action to
 -- retrieve additional records that are available after the first page
 -- results.
 lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
-{-# INLINE lpaNextToken #-}
 
 instance ToQuery ListPlatformApplications where
     toQuery = genericQuery def
@@ -103,13 +101,11 @@ lparsPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApp
 lparsPlatformApplications =
     lens _lparsPlatformApplications
          (\s a -> s { _lparsPlatformApplications = a })
-{-# INLINE lparsPlatformApplications #-}
 
 -- | NextToken string is returned when calling ListPlatformApplications action
 -- if additional records are available after the first page results.
 lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparsNextToken = lens _lparsNextToken (\s a -> s { _lparsNextToken = a })
-{-# INLINE lparsNextToken #-}
 
 instance FromXML ListPlatformApplicationsResponse where
     fromXMLOptions = xmlOptions
@@ -122,5 +118,5 @@ instance AWSRequest ListPlatformApplications where
     response _ = xmlResponse
 
 instance AWSPager ListPlatformApplications where
-    next rq rs = (\x -> rq { _lpaNextToken = Just x })
-        <$> (_lparsNextToken rs)
+    next rq rs = (\x -> rq & lpaNextToken ?~ x) <$> (rs ^. lparsNextToken)
+

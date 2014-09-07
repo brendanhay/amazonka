@@ -53,13 +53,11 @@ mkDescribeTags :: [Text] -- ^ 'dtLoadBalancerNames'
 mkDescribeTags p1 = DescribeTags
     { _dtLoadBalancerNames = p1
     }
-{-# INLINE mkDescribeTags #-}
 
 -- | The names of the load balancers.
 dtLoadBalancerNames :: Lens' DescribeTags [Text]
 dtLoadBalancerNames =
     lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
-{-# INLINE dtLoadBalancerNames #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
@@ -73,7 +71,6 @@ newtype DescribeTagsResponse = DescribeTagsResponse
 dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTagDescriptions =
     lens _dtrsTagDescriptions (\s a -> s { _dtrsTagDescriptions = a })
-{-# INLINE dtrsTagDescriptions #-}
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions

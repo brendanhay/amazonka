@@ -48,14 +48,12 @@ mkDeleteOptionGroup :: Text -- ^ 'dogOptionGroupName'
 mkDeleteOptionGroup p1 = DeleteOptionGroup
     { _dogOptionGroupName = p1
     }
-{-# INLINE mkDeleteOptionGroup #-}
 
 -- | The name of the option group to be deleted. You cannot delete default
 -- option groups.
 dogOptionGroupName :: Lens' DeleteOptionGroup Text
 dogOptionGroupName =
     lens _dogOptionGroupName (\s a -> s { _dogOptionGroupName = a })
-{-# INLINE dogOptionGroupName #-}
 
 instance ToQuery DeleteOptionGroup where
     toQuery = genericQuery def

@@ -61,31 +61,26 @@ mkDescribeVolumes = DescribeVolumes
     , _dv1RaidArrayId = Nothing
     , _dv1VolumeIds = mempty
     }
-{-# INLINE mkDescribeVolumes #-}
 
 -- | The instance ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified instance.
 dv1InstanceId :: Lens' DescribeVolumes (Maybe Text)
 dv1InstanceId = lens _dv1InstanceId (\s a -> s { _dv1InstanceId = a })
-{-# INLINE dv1InstanceId #-}
 
 -- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
 dv1StackId :: Lens' DescribeVolumes (Maybe Text)
 dv1StackId = lens _dv1StackId (\s a -> s { _dv1StackId = a })
-{-# INLINE dv1StackId #-}
 
 -- | The RAID array ID. If you use this parameter, DescribeVolumes returns
 -- descriptions of the volumes associated with the specified RAID array.
 dv1RaidArrayId :: Lens' DescribeVolumes (Maybe Text)
 dv1RaidArrayId = lens _dv1RaidArrayId (\s a -> s { _dv1RaidArrayId = a })
-{-# INLINE dv1RaidArrayId #-}
 
 -- | Am array of volume IDs. If you use this parameter, DescribeVolumes returns
 -- descriptions of the specified volumes. Otherwise, it returns a description
 -- of every volume.
 dv1VolumeIds :: Lens' DescribeVolumes [Text]
 dv1VolumeIds = lens _dv1VolumeIds (\s a -> s { _dv1VolumeIds = a })
-{-# INLINE dv1VolumeIds #-}
 
 instance ToPath DescribeVolumes
 
@@ -103,7 +98,6 @@ newtype DescribeVolumesResponse = DescribeVolumesResponse
 -- | An array of volume IDs.
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrsVolumes = lens _dvrsVolumes (\s a -> s { _dvrsVolumes = a })
-{-# INLINE dvrsVolumes #-}
 
 instance FromJSON DescribeVolumesResponse
 

@@ -54,7 +54,6 @@ mkDeleteCacheParameterGroup :: Text -- ^ 'dcpgCacheParameterGroupName'
 mkDeleteCacheParameterGroup p1 = DeleteCacheParameterGroup
     { _dcpgCacheParameterGroupName = p1
     }
-{-# INLINE mkDeleteCacheParameterGroup #-}
 
 -- | The name of the cache parameter group to delete. The specified cache
 -- security group must not be associated with any cache clusters.
@@ -62,7 +61,6 @@ dcpgCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
 dcpgCacheParameterGroupName =
     lens _dcpgCacheParameterGroupName
          (\s a -> s { _dcpgCacheParameterGroupName = a })
-{-# INLINE dcpgCacheParameterGroupName #-}
 
 instance ToQuery DeleteCacheParameterGroup where
     toQuery = genericQuery def

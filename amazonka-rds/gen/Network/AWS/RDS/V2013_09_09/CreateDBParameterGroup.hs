@@ -74,7 +74,6 @@ mkCreateDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
     , _cdbpgDescription = p3
     , _cdbpgTags = mempty
     }
-{-# INLINE mkCreateDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
@@ -84,7 +83,6 @@ cdbpgDBParameterGroupName :: Lens' CreateDBParameterGroup Text
 cdbpgDBParameterGroupName =
     lens _cdbpgDBParameterGroupName
          (\s a -> s { _cdbpgDBParameterGroupName = a })
-{-# INLINE cdbpgDBParameterGroupName #-}
 
 -- | The DB parameter group family name. A DB parameter group can be associated
 -- with one and only one DB parameter group family, and can be applied only to
@@ -94,18 +92,15 @@ cdbpgDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
 cdbpgDBParameterGroupFamily =
     lens _cdbpgDBParameterGroupFamily
          (\s a -> s { _cdbpgDBParameterGroupFamily = a })
-{-# INLINE cdbpgDBParameterGroupFamily #-}
 
 -- | The description for the DB parameter group.
 cdbpgDescription :: Lens' CreateDBParameterGroup Text
 cdbpgDescription =
     lens _cdbpgDescription (\s a -> s { _cdbpgDescription = a })
-{-# INLINE cdbpgDescription #-}
 
 -- | A list of tags.
 cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
 cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a })
-{-# INLINE cdbpgTags #-}
 
 instance ToQuery CreateDBParameterGroup where
     toQuery = genericQuery def
@@ -122,7 +117,6 @@ cdbpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParamet
 cdbpgrsDBParameterGroup =
     lens _cdbpgrsDBParameterGroup
          (\s a -> s { _cdbpgrsDBParameterGroup = a })
-{-# INLINE cdbpgrsDBParameterGroup #-}
 
 instance FromXML CreateDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

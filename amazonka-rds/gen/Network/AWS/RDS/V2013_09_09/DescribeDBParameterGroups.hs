@@ -63,7 +63,6 @@ mkDescribeDBParameterGroups = DescribeDBParameterGroups
     , _ddbpg1MaxRecords = Nothing
     , _ddbpg1Marker = Nothing
     }
-{-# INLINE mkDescribeDBParameterGroups #-}
 
 -- | The name of a specific DB parameter group to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
@@ -72,7 +71,6 @@ ddbpg1DBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddbpg1DBParameterGroupName =
     lens _ddbpg1DBParameterGroupName
          (\s a -> s { _ddbpg1DBParameterGroupName = a })
-{-# INLINE ddbpg1DBParameterGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -81,7 +79,6 @@ ddbpg1DBParameterGroupName =
 ddbpg1MaxRecords :: Lens' DescribeDBParameterGroups (Maybe Integer)
 ddbpg1MaxRecords =
     lens _ddbpg1MaxRecords (\s a -> s { _ddbpg1MaxRecords = a })
-{-# INLINE ddbpg1MaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBParameterGroups request. If this parameter is specified, the
@@ -89,7 +86,6 @@ ddbpg1MaxRecords =
 -- by MaxRecords.
 ddbpg1Marker :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddbpg1Marker = lens _ddbpg1Marker (\s a -> s { _ddbpg1Marker = a })
-{-# INLINE ddbpg1Marker #-}
 
 instance ToQuery DescribeDBParameterGroups where
     toQuery = genericQuery def
@@ -106,14 +102,12 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
 -- marker, up to the value specified by MaxRecords.
 ddbpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddbpgrsMarker = lens _ddbpgrsMarker (\s a -> s { _ddbpgrsMarker = a })
-{-# INLINE ddbpgrsMarker #-}
 
 -- | A list of DBParameterGroup instances.
 ddbpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddbpgrsDBParameterGroups =
     lens _ddbpgrsDBParameterGroups
          (\s a -> s { _ddbpgrsDBParameterGroups = a })
-{-# INLINE ddbpgrsDBParameterGroups #-}
 
 instance FromXML DescribeDBParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -126,5 +120,5 @@ instance AWSRequest DescribeDBParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBParameterGroups where
-    next rq rs = (\x -> rq { _ddbpg1Marker = Just x })
-        <$> (_ddbpgrsMarker rs)
+    next rq rs = (\x -> rq & ddbpg1Marker ?~ x) <$> (rs ^. ddbpgrsMarker)
+

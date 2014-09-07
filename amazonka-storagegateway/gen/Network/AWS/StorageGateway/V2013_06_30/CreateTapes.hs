@@ -64,32 +64,26 @@ mkCreateTapes p1 p2 p3 p4 p5 = CreateTapes
     , _ctNumTapesToCreate = p4
     , _ctTapeBarcodePrefix = p5
     }
-{-# INLINE mkCreateTapes #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 ctGatewayARN :: Lens' CreateTapes Text
 ctGatewayARN = lens _ctGatewayARN (\s a -> s { _ctGatewayARN = a })
-{-# INLINE ctGatewayARN #-}
 
 ctTapeSizeInBytes :: Lens' CreateTapes Integer
 ctTapeSizeInBytes =
     lens _ctTapeSizeInBytes (\s a -> s { _ctTapeSizeInBytes = a })
-{-# INLINE ctTapeSizeInBytes #-}
 
 ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\s a -> s { _ctClientToken = a })
-{-# INLINE ctClientToken #-}
 
 ctNumTapesToCreate :: Lens' CreateTapes Integer
 ctNumTapesToCreate =
     lens _ctNumTapesToCreate (\s a -> s { _ctNumTapesToCreate = a })
-{-# INLINE ctNumTapesToCreate #-}
 
 ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix =
     lens _ctTapeBarcodePrefix (\s a -> s { _ctTapeBarcodePrefix = a })
-{-# INLINE ctTapeBarcodePrefix #-}
 
 instance ToPath CreateTapes
 
@@ -105,7 +99,6 @@ newtype CreateTapesResponse = CreateTapesResponse
 
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\s a -> s { _ctrsTapeARNs = a })
-{-# INLINE ctrsTapeARNs #-}
 
 instance FromJSON CreateTapesResponse
 

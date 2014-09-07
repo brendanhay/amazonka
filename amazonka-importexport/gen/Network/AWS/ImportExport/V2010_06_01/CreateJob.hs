@@ -69,29 +69,24 @@ mkCreateJob p1 p2 p4 = CreateJob
     , _cj1ManifestAddendum = Nothing
     , _cj1ValidateOnly = p4
     }
-{-# INLINE mkCreateJob #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
 cj1JobType :: Lens' CreateJob JobType
 cj1JobType = lens _cj1JobType (\s a -> s { _cj1JobType = a })
-{-# INLINE cj1JobType #-}
 
 -- | The UTF-8 encoded text of the manifest file.
 cj1Manifest :: Lens' CreateJob Text
 cj1Manifest = lens _cj1Manifest (\s a -> s { _cj1Manifest = a })
-{-# INLINE cj1Manifest #-}
 
 -- | For internal use only.
 cj1ManifestAddendum :: Lens' CreateJob (Maybe Text)
 cj1ManifestAddendum =
     lens _cj1ManifestAddendum (\s a -> s { _cj1ManifestAddendum = a })
-{-# INLINE cj1ManifestAddendum #-}
 
 -- | Validate the manifest and parameter values in the request but do not
 -- actually create a job.
 cj1ValidateOnly :: Lens' CreateJob Bool
 cj1ValidateOnly = lens _cj1ValidateOnly (\s a -> s { _cj1ValidateOnly = a })
-{-# INLINE cj1ValidateOnly #-}
 
 instance ToQuery CreateJob where
     toQuery = genericQuery def
@@ -109,19 +104,16 @@ data CreateJobResponse = CreateJobResponse
 -- | A unique identifier which refers to a particular job.
 cjrsrsJobId :: Lens' CreateJobResponse (Maybe Text)
 cjrsrsJobId = lens _cjrsrsJobId (\s a -> s { _cjrsrsJobId = a })
-{-# INLINE cjrsrsJobId #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
 cjrsrsJobType :: Lens' CreateJobResponse (Maybe JobType)
 cjrsrsJobType = lens _cjrsrsJobType (\s a -> s { _cjrsrsJobType = a })
-{-# INLINE cjrsrsJobType #-}
 
 -- | Address you ship your storage device to.
 cjrsrsAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
 cjrsrsAwsShippingAddress =
     lens _cjrsrsAwsShippingAddress
          (\s a -> s { _cjrsrsAwsShippingAddress = a })
-{-# INLINE cjrsrsAwsShippingAddress #-}
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
@@ -129,21 +121,18 @@ cjrsrsAwsShippingAddress =
 -- SignatureFileContents value.
 cjrsrsSignature :: Lens' CreateJobResponse (Maybe Text)
 cjrsrsSignature = lens _cjrsrsSignature (\s a -> s { _cjrsrsSignature = a })
-{-# INLINE cjrsrsSignature #-}
 
 -- | The actual text of the SIGNATURE file to be written to disk.
 cjrsrsSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
 cjrsrsSignatureFileContents =
     lens _cjrsrsSignatureFileContents
          (\s a -> s { _cjrsrsSignatureFileContents = a })
-{-# INLINE cjrsrsSignatureFileContents #-}
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
 cjrsrsWarningMessage :: Lens' CreateJobResponse (Maybe Text)
 cjrsrsWarningMessage =
     lens _cjrsrsWarningMessage (\s a -> s { _cjrsrsWarningMessage = a })
-{-# INLINE cjrsrsWarningMessage #-}
 
 instance FromXML CreateJobResponse where
     fromXMLOptions = xmlOptions

@@ -72,17 +72,14 @@ mkAddCache p1 p2 = AddCache
     { _acGatewayARN = p1
     , _acDiskIds = p2
     }
-{-# INLINE mkAddCache #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 acGatewayARN :: Lens' AddCache Text
 acGatewayARN = lens _acGatewayARN (\s a -> s { _acGatewayARN = a })
-{-# INLINE acGatewayARN #-}
 
 acDiskIds :: Lens' AddCache [Text]
 acDiskIds = lens _acDiskIds (\s a -> s { _acDiskIds = a })
-{-# INLINE acDiskIds #-}
 
 instance ToPath AddCache
 
@@ -100,7 +97,6 @@ newtype AddCacheResponse = AddCacheResponse
 -- operation to return a list of gateways for your account and region.
 acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrsGatewayARN = lens _acrsGatewayARN (\s a -> s { _acrsGatewayARN = a })
-{-# INLINE acrsGatewayARN #-}
 
 instance FromJSON AddCacheResponse
 

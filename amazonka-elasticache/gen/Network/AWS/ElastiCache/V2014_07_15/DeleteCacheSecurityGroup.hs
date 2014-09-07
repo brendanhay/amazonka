@@ -53,7 +53,6 @@ mkDeleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
 mkDeleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName = p1
     }
-{-# INLINE mkDeleteCacheSecurityGroup #-}
 
 -- | The name of the cache security group to delete. You cannot delete the
 -- default security group.
@@ -61,7 +60,6 @@ dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
 dcsgCacheSecurityGroupName =
     lens _dcsgCacheSecurityGroupName
          (\s a -> s { _dcsgCacheSecurityGroupName = a })
-{-# INLINE dcsgCacheSecurityGroupName #-}
 
 instance ToQuery DeleteCacheSecurityGroup where
     toQuery = genericQuery def

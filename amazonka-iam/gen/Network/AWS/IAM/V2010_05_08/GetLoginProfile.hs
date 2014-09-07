@@ -53,12 +53,10 @@ mkGetLoginProfile :: Text -- ^ 'glpUserName'
 mkGetLoginProfile p1 = GetLoginProfile
     { _glpUserName = p1
     }
-{-# INLINE mkGetLoginProfile #-}
 
 -- | Name of the user whose login profile you want to retrieve.
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
-{-# INLINE glpUserName #-}
 
 instance ToQuery GetLoginProfile where
     toQuery = genericQuery def
@@ -73,7 +71,6 @@ newtype GetLoginProfileResponse = GetLoginProfileResponse
 glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprsLoginProfile =
     lens _glprsLoginProfile (\s a -> s { _glprsLoginProfile = a })
-{-# INLINE glprsLoginProfile #-}
 
 instance FromXML GetLoginProfileResponse where
     fromXMLOptions = xmlOptions

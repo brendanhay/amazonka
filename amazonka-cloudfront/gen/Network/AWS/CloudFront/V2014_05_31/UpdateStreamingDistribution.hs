@@ -58,25 +58,21 @@ mkUpdateStreamingDistribution p1 p2 = UpdateStreamingDistribution
     , _usdId = p2
     , _usdIfMatch = Nothing
     }
-{-# INLINE mkUpdateStreamingDistribution #-}
 
 -- | The streaming distribution's configuration information.
 usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
 usdStreamingDistributionConfig =
     lens _usdStreamingDistributionConfig
          (\s a -> s { _usdStreamingDistributionConfig = a })
-{-# INLINE usdStreamingDistributionConfig #-}
 
 -- | The streaming distribution's id.
 usdId :: Lens' UpdateStreamingDistribution Text
 usdId = lens _usdId (\s a -> s { _usdId = a })
-{-# INLINE usdId #-}
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution's configuration. For example: E2QWRUHAPOMQZL.
 usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
 usdIfMatch = lens _usdIfMatch (\s a -> s { _usdIfMatch = a })
-{-# INLINE usdIfMatch #-}
 
 instance ToPath UpdateStreamingDistribution where
     toPath UpdateStreamingDistribution{..} = mconcat
@@ -107,12 +103,10 @@ usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe S
 usdrsStreamingDistribution =
     lens _usdrsStreamingDistribution
          (\s a -> s { _usdrsStreamingDistribution = a })
-{-# INLINE usdrsStreamingDistribution #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
 usdrsETag = lens _usdrsETag (\s a -> s { _usdrsETag = a })
-{-# INLINE usdrsETag #-}
 
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront

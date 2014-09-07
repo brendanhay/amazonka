@@ -56,7 +56,6 @@ mkDeleteExpression p1 p2 = DeleteExpression
     { _de1DomainName = p1
     , _de1ExpressionName = p2
     }
-{-# INLINE mkDeleteExpression #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -64,13 +63,11 @@ mkDeleteExpression p1 p2 = DeleteExpression
 -- (lowercase), 0-9, and - (hyphen).
 de1DomainName :: Lens' DeleteExpression Text
 de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
-{-# INLINE de1DomainName #-}
 
 -- | The name of the Expression to delete.
 de1ExpressionName :: Lens' DeleteExpression Text
 de1ExpressionName =
     lens _de1ExpressionName (\s a -> s { _de1ExpressionName = a })
-{-# INLINE de1ExpressionName #-}
 
 instance ToQuery DeleteExpression where
     toQuery = genericQuery def
@@ -85,7 +82,6 @@ newtype DeleteExpressionResponse = DeleteExpressionResponse
 dersrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
 dersrsExpression =
     lens _dersrsExpression (\s a -> s { _dersrsExpression = a })
-{-# INLINE dersrsExpression #-}
 
 instance FromXML DeleteExpressionResponse where
     fromXMLOptions = xmlOptions

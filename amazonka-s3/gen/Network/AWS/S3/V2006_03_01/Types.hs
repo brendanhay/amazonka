@@ -958,12 +958,10 @@ mkBucketLoggingStatus :: BucketLoggingStatus
 mkBucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled = Nothing
     }
-{-# INLINE mkBucketLoggingStatus #-}
 
 blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
 blsLoggingEnabled =
     lens _blsLoggingEnabled (\s a -> s { _blsLoggingEnabled = a })
-{-# INLINE blsLoggingEnabled #-}
 
 instance ToXML BucketLoggingStatus where
     toXMLOptions = xmlOptions
@@ -979,11 +977,9 @@ mkCORSConfiguration :: CORSConfiguration
 mkCORSConfiguration = CORSConfiguration
     { _corscCORSRules = mempty
     }
-{-# INLINE mkCORSConfiguration #-}
 
 corscCORSRules :: Lens' CORSConfiguration [CORSRule]
 corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
-{-# INLINE corscCORSRules #-}
 
 instance ToXML CORSConfiguration where
     toXMLOptions = xmlOptions
@@ -999,11 +995,9 @@ mkCommonPrefix :: CommonPrefix
 mkCommonPrefix = CommonPrefix
     { _cprsPrefix = Nothing
     }
-{-# INLINE mkCommonPrefix #-}
 
 cprsPrefix :: Lens' CommonPrefix (Maybe Text)
 cprsPrefix = lens _cprsPrefix (\s a -> s { _cprsPrefix = a })
-{-# INLINE cprsPrefix #-}
 
 instance FromXML CommonPrefix where
     fromXMLOptions = xmlOptions
@@ -1019,11 +1013,9 @@ mkCompletedMultipartUpload :: CompletedMultipartUpload
 mkCompletedMultipartUpload = CompletedMultipartUpload
     { _cmu1Parts = mempty
     }
-{-# INLINE mkCompletedMultipartUpload #-}
 
 cmu1Parts :: Lens' CompletedMultipartUpload [CompletedPart]
 cmu1Parts = lens _cmu1Parts (\s a -> s { _cmu1Parts = a })
-{-# INLINE cmu1Parts #-}
 
 instance ToXML CompletedMultipartUpload where
     toXMLOptions = xmlOptions
@@ -1039,13 +1031,11 @@ mkCreateBucketConfiguration :: CreateBucketConfiguration
 mkCreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint = Nothing
     }
-{-# INLINE mkCreateBucketConfiguration #-}
 
 -- | Specifies the region where the bucket will be created.
 cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Region)
 cbcLocationConstraint =
     lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
-{-# INLINE cbcLocationConstraint #-}
 
 instance ToXML CreateBucketConfiguration where
     toXMLOptions = xmlOptions
@@ -1062,12 +1052,10 @@ mkErrorDocument :: ObjectKey -- ^ 'edKey'
 mkErrorDocument p1 = ErrorDocument
     { _edKey = p1
     }
-{-# INLINE mkErrorDocument #-}
 
 -- | The object key name to use when a 4XX class error occurs.
 edKey :: Lens' ErrorDocument ObjectKey
 edKey = lens _edKey (\s a -> s { _edKey = a })
-{-# INLINE edKey #-}
 
 instance FromXML ErrorDocument where
     fromXMLOptions = xmlOptions
@@ -1088,7 +1076,6 @@ mkIndexDocument :: Text -- ^ 'idSuffix'
 mkIndexDocument p1 = IndexDocument
     { _idSuffix = p1
     }
-{-# INLINE mkIndexDocument #-}
 
 -- | A suffix that is appended to a request that is for a directory on the
 -- website endpoint (e.g. if the suffix is index.html and you make a request
@@ -1097,7 +1084,6 @@ mkIndexDocument p1 = IndexDocument
 -- not include a slash character.
 idSuffix :: Lens' IndexDocument Text
 idSuffix = lens _idSuffix (\s a -> s { _idSuffix = a })
-{-# INLINE idSuffix #-}
 
 instance FromXML IndexDocument where
     fromXMLOptions = xmlOptions
@@ -1118,11 +1104,9 @@ mkLifecycleConfiguration :: [Rule] -- ^ 'lcRules'
 mkLifecycleConfiguration p1 = LifecycleConfiguration
     { _lcRules = p1
     }
-{-# INLINE mkLifecycleConfiguration #-}
 
 lcRules :: Lens' LifecycleConfiguration [Rule]
 lcRules = lens _lcRules (\s a -> s { _lcRules = a })
-{-# INLINE lcRules #-}
 
 instance ToXML LifecycleConfiguration where
     toXMLOptions = xmlOptions
@@ -1143,7 +1127,6 @@ mkNoncurrentVersionExpiration :: NoncurrentVersionExpiration
 mkNoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays = Nothing
     }
-{-# INLINE mkNoncurrentVersionExpiration #-}
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can
 -- perform the associated action. For information about the noncurrent days
@@ -1152,7 +1135,6 @@ mkNoncurrentVersionExpiration = NoncurrentVersionExpiration
 nveNoncurrentDays :: Lens' NoncurrentVersionExpiration (Maybe Integer)
 nveNoncurrentDays =
     lens _nveNoncurrentDays (\s a -> s { _nveNoncurrentDays = a })
-{-# INLINE nveNoncurrentDays #-}
 
 instance FromXML NoncurrentVersionExpiration where
     fromXMLOptions = xmlOptions
@@ -1173,12 +1155,10 @@ mkNotificationConfiguration :: TopicConfiguration -- ^ 'ncTopicConfiguration'
 mkNotificationConfiguration p1 = NotificationConfiguration
     { _ncTopicConfiguration = p1
     }
-{-# INLINE mkNotificationConfiguration #-}
 
 ncTopicConfiguration :: Lens' NotificationConfiguration TopicConfiguration
 ncTopicConfiguration =
     lens _ncTopicConfiguration (\s a -> s { _ncTopicConfiguration = a })
-{-# INLINE ncTopicConfiguration #-}
 
 instance ToXML NotificationConfiguration where
     toXMLOptions = xmlOptions
@@ -1195,12 +1175,10 @@ mkRequestPaymentConfiguration :: Payer -- ^ 'rpcPayer'
 mkRequestPaymentConfiguration p1 = RequestPaymentConfiguration
     { _rpcPayer = p1
     }
-{-# INLINE mkRequestPaymentConfiguration #-}
 
 -- | Specifies who pays for the download and request fees.
 rpcPayer :: Lens' RequestPaymentConfiguration Payer
 rpcPayer = lens _rpcPayer (\s a -> s { _rpcPayer = a })
-{-# INLINE rpcPayer #-}
 
 instance ToXML RequestPaymentConfiguration where
     toXMLOptions = xmlOptions
@@ -1217,12 +1195,10 @@ mkRestoreRequest :: Integer -- ^ 'rr1Days'
 mkRestoreRequest p1 = RestoreRequest
     { _rr1Days = p1
     }
-{-# INLINE mkRestoreRequest #-}
 
 -- | Lifetime of the active copy in days.
 rr1Days :: Lens' RestoreRequest Integer
 rr1Days = lens _rr1Days (\s a -> s { _rr1Days = a })
-{-# INLINE rr1Days #-}
 
 instance ToXML RestoreRequest where
     toXMLOptions = xmlOptions
@@ -1239,11 +1215,9 @@ mkTagging :: [Tag] -- ^ 't1TagSet'
 mkTagging p1 = Tagging
     { _t1TagSet = p1
     }
-{-# INLINE mkTagging #-}
 
 t1TagSet :: Lens' Tagging [Tag]
 t1TagSet = lens _t1TagSet (\s a -> s { _t1TagSet = a })
-{-# INLINE t1TagSet #-}
 
 instance ToXML Tagging where
     toXMLOptions = xmlOptions
@@ -1261,16 +1235,13 @@ mkAccessControlPolicy = AccessControlPolicy
     { _acpGrants = mempty
     , _acpOwner = Nothing
     }
-{-# INLINE mkAccessControlPolicy #-}
 
 -- | A list of grants.
 acpGrants :: Lens' AccessControlPolicy [Grant]
 acpGrants = lens _acpGrants (\s a -> s { _acpGrants = a })
-{-# INLINE acpGrants #-}
 
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
-{-# INLINE acpOwner #-}
 
 instance ToXML AccessControlPolicy where
     toXMLOptions = xmlOptions
@@ -1288,17 +1259,14 @@ mkBucket = Bucket
     { _bName = Nothing
     , _bCreationDate = Nothing
     }
-{-# INLINE mkBucket #-}
 
 -- | The name of the bucket.
 bName :: Lens' Bucket (Maybe BucketName)
 bName = lens _bName (\s a -> s { _bName = a })
-{-# INLINE bName #-}
 
 -- | Date the bucket was created.
 bCreationDate :: Lens' Bucket (Maybe RFC822)
 bCreationDate = lens _bCreationDate (\s a -> s { _bCreationDate = a })
-{-# INLINE bCreationDate #-}
 
 instance FromXML Bucket where
     fromXMLOptions = xmlOptions
@@ -1322,27 +1290,23 @@ mkCORSRule = CORSRule
     , _corsrExposeHeaders = mempty
     , _corsrMaxAgeSeconds = Nothing
     }
-{-# INLINE mkCORSRule #-}
 
 -- | Specifies which headers are allowed in a pre-flight OPTIONS request.
 corsrAllowedHeaders :: Lens' CORSRule [Text]
 corsrAllowedHeaders =
     lens _corsrAllowedHeaders (\s a -> s { _corsrAllowedHeaders = a })
-{-# INLINE corsrAllowedHeaders #-}
 
 -- | Identifies HTTP methods that the domain/origin specified in the rule is
 -- allowed to execute.
 corsrAllowedMethods :: Lens' CORSRule [Text]
 corsrAllowedMethods =
     lens _corsrAllowedMethods (\s a -> s { _corsrAllowedMethods = a })
-{-# INLINE corsrAllowedMethods #-}
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
 corsrAllowedOrigins :: Lens' CORSRule [Text]
 corsrAllowedOrigins =
     lens _corsrAllowedOrigins (\s a -> s { _corsrAllowedOrigins = a })
-{-# INLINE corsrAllowedOrigins #-}
 
 -- | One or more headers in the response that you want customers to be able to
 -- access from their applications (for example, from a JavaScript
@@ -1350,14 +1314,12 @@ corsrAllowedOrigins =
 corsrExposeHeaders :: Lens' CORSRule [Text]
 corsrExposeHeaders =
     lens _corsrExposeHeaders (\s a -> s { _corsrExposeHeaders = a })
-{-# INLINE corsrExposeHeaders #-}
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
 corsrMaxAgeSeconds :: Lens' CORSRule (Maybe Integer)
 corsrMaxAgeSeconds =
     lens _corsrMaxAgeSeconds (\s a -> s { _corsrMaxAgeSeconds = a })
-{-# INLINE corsrMaxAgeSeconds #-}
 
 instance FromXML CORSRule where
     fromXMLOptions = xmlOptions
@@ -1379,17 +1341,14 @@ mkCompletedPart = CompletedPart
     { _cpETag = Nothing
     , _cpPartNumber = Nothing
     }
-{-# INLINE mkCompletedPart #-}
 
 -- | Entity tag returned when the part was uploaded.
 cpETag :: Lens' CompletedPart (Maybe ETag)
 cpETag = lens _cpETag (\s a -> s { _cpETag = a })
-{-# INLINE cpETag #-}
 
 -- | Part number that identifies the part.
 cpPartNumber :: Lens' CompletedPart (Maybe Integer)
 cpPartNumber = lens _cpPartNumber (\s a -> s { _cpPartNumber = a })
-{-# INLINE cpPartNumber #-}
 
 instance ToXML CompletedPart where
     toXMLOptions = xmlOptions
@@ -1412,7 +1371,6 @@ mkCondition = Condition
     { _cHttpErrorCodeReturnedEquals = Nothing
     , _cKeyPrefixEquals = Nothing
     }
-{-# INLINE mkCondition #-}
 
 -- | The HTTP error code when the redirect is applied. In the event of an error,
 -- if the error code equals this value, then the specified redirect is
@@ -1423,7 +1381,6 @@ cHttpErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
 cHttpErrorCodeReturnedEquals =
     lens _cHttpErrorCodeReturnedEquals
          (\s a -> s { _cHttpErrorCodeReturnedEquals = a })
-{-# INLINE cHttpErrorCodeReturnedEquals #-}
 
 -- | The object key name prefix when the redirect is applied. For example, to
 -- redirect requests for ExamplePage.html, the key prefix will be
@@ -1435,7 +1392,6 @@ cHttpErrorCodeReturnedEquals =
 cKeyPrefixEquals :: Lens' Condition (Maybe Text)
 cKeyPrefixEquals =
     lens _cKeyPrefixEquals (\s a -> s { _cKeyPrefixEquals = a })
-{-# INLINE cKeyPrefixEquals #-}
 
 instance FromXML Condition where
     fromXMLOptions = xmlOptions
@@ -1457,15 +1413,12 @@ mkCopyObjectResult = CopyObjectResult
     { _corETag = Nothing
     , _corLastModified = Nothing
     }
-{-# INLINE mkCopyObjectResult #-}
 
 corETag :: Lens' CopyObjectResult (Maybe ETag)
 corETag = lens _corETag (\s a -> s { _corETag = a })
-{-# INLINE corETag #-}
 
 corLastModified :: Lens' CopyObjectResult (Maybe RFC822)
 corLastModified = lens _corLastModified (\s a -> s { _corLastModified = a })
-{-# INLINE corLastModified #-}
 
 instance FromXML CopyObjectResult where
     fromXMLOptions = xmlOptions
@@ -1483,17 +1436,14 @@ mkCopyPartResult = CopyPartResult
     { _cprETag = Nothing
     , _cprLastModified = Nothing
     }
-{-# INLINE mkCopyPartResult #-}
 
 -- | Entity tag of the object.
 cprETag :: Lens' CopyPartResult (Maybe ETag)
 cprETag = lens _cprETag (\s a -> s { _cprETag = a })
-{-# INLINE cprETag #-}
 
 -- | Date and time at which the object was uploaded.
 cprLastModified :: Lens' CopyPartResult (Maybe RFC822)
 cprLastModified = lens _cprLastModified (\s a -> s { _cprLastModified = a })
-{-# INLINE cprLastModified #-}
 
 instance FromXML CopyPartResult where
     fromXMLOptions = xmlOptions
@@ -1512,17 +1462,14 @@ mkDelete p1 = Delete
     { _dObjects = p1
     , _dQuiet = Nothing
     }
-{-# INLINE mkDelete #-}
 
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\s a -> s { _dObjects = a })
-{-# INLINE dObjects #-}
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.
 dQuiet :: Lens' Delete (Maybe Bool)
 dQuiet = lens _dQuiet (\s a -> s { _dQuiet = a })
-{-# INLINE dQuiet #-}
 
 instance ToXML Delete where
     toXMLOptions = xmlOptions
@@ -1546,32 +1493,26 @@ mkDeleteMarkerEntry = DeleteMarkerEntry
     , _dmeIsLatest = Nothing
     , _dmeLastModified = Nothing
     }
-{-# INLINE mkDeleteMarkerEntry #-}
 
 dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner = lens _dmeOwner (\s a -> s { _dmeOwner = a })
-{-# INLINE dmeOwner #-}
 
 -- | The object key.
 dmeKey :: Lens' DeleteMarkerEntry (Maybe ObjectKey)
 dmeKey = lens _dmeKey (\s a -> s { _dmeKey = a })
-{-# INLINE dmeKey #-}
 
 -- | Version ID of an object.
 dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
 dmeVersionId = lens _dmeVersionId (\s a -> s { _dmeVersionId = a })
-{-# INLINE dmeVersionId #-}
 
 -- | Specifies whether the object is (true) or is not (false) the latest version
 -- of an object.
 dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
 dmeIsLatest = lens _dmeIsLatest (\s a -> s { _dmeIsLatest = a })
-{-# INLINE dmeIsLatest #-}
 
 -- | Date and time the object was last modified.
 dmeLastModified :: Lens' DeleteMarkerEntry (Maybe RFC822)
 dmeLastModified = lens _dmeLastModified (\s a -> s { _dmeLastModified = a })
-{-# INLINE dmeLastModified #-}
 
 instance FromXML DeleteMarkerEntry where
     fromXMLOptions = xmlOptions
@@ -1593,26 +1534,21 @@ mkDeletedObject = DeletedObject
     , _do1rsDeleteMarker = Nothing
     , _do1rsDeleteMarkerVersionId = Nothing
     }
-{-# INLINE mkDeletedObject #-}
 
 do1rsKey :: Lens' DeletedObject (Maybe ObjectKey)
 do1rsKey = lens _do1rsKey (\s a -> s { _do1rsKey = a })
-{-# INLINE do1rsKey #-}
 
 do1rsVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
 do1rsVersionId = lens _do1rsVersionId (\s a -> s { _do1rsVersionId = a })
-{-# INLINE do1rsVersionId #-}
 
 do1rsDeleteMarker :: Lens' DeletedObject (Maybe Bool)
 do1rsDeleteMarker =
     lens _do1rsDeleteMarker (\s a -> s { _do1rsDeleteMarker = a })
-{-# INLINE do1rsDeleteMarker #-}
 
 do1rsDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
 do1rsDeleteMarkerVersionId =
     lens _do1rsDeleteMarkerVersionId
          (\s a -> s { _do1rsDeleteMarkerVersionId = a })
-{-# INLINE do1rsDeleteMarkerVersionId #-}
 
 instance FromXML DeletedObject where
     fromXMLOptions = xmlOptions
@@ -1634,23 +1570,18 @@ mkError = Error
     , _eCode = Nothing
     , _eMessage = Nothing
     }
-{-# INLINE mkError #-}
 
 eKey :: Lens' Error (Maybe ObjectKey)
 eKey = lens _eKey (\s a -> s { _eKey = a })
-{-# INLINE eKey #-}
 
 eVersionId :: Lens' Error (Maybe ObjectVersionId)
 eVersionId = lens _eVersionId (\s a -> s { _eVersionId = a })
-{-# INLINE eVersionId #-}
 
 eCode :: Lens' Error (Maybe Text)
 eCode = lens _eCode (\s a -> s { _eCode = a })
-{-# INLINE eCode #-}
 
 eMessage :: Lens' Error (Maybe Text)
 eMessage = lens _eMessage (\s a -> s { _eMessage = a })
-{-# INLINE eMessage #-}
 
 instance FromXML Error where
     fromXMLOptions = xmlOptions
@@ -1668,16 +1599,13 @@ mkGrant = Grant
     { _gGrantee = Nothing
     , _gPermission = Nothing
     }
-{-# INLINE mkGrant #-}
 
 gGrantee :: Lens' Grant (Maybe Grantee)
 gGrantee = lens _gGrantee (\s a -> s { _gGrantee = a })
-{-# INLINE gGrantee #-}
 
 -- | Specifies the permission given to the grantee.
 gPermission :: Lens' Grant (Maybe Permission)
 gPermission = lens _gPermission (\s a -> s { _gPermission = a })
-{-# INLINE gPermission #-}
 
 instance FromXML Grant where
     fromXMLOptions = xmlOptions
@@ -1706,32 +1634,26 @@ mkGrantee p4 = Grantee
     , _g1Type = p4
     , _g1URI = Nothing
     }
-{-# INLINE mkGrantee #-}
 
 -- | Screen name of the grantee.
 g1DisplayName :: Lens' Grantee (Maybe Text)
 g1DisplayName = lens _g1DisplayName (\s a -> s { _g1DisplayName = a })
-{-# INLINE g1DisplayName #-}
 
 -- | Email address of the grantee.
 g1EmailAddress :: Lens' Grantee (Maybe Text)
 g1EmailAddress = lens _g1EmailAddress (\s a -> s { _g1EmailAddress = a })
-{-# INLINE g1EmailAddress #-}
 
 -- | The canonical user ID of the grantee.
 g1ID :: Lens' Grantee (Maybe Text)
 g1ID = lens _g1ID (\s a -> s { _g1ID = a })
-{-# INLINE g1ID #-}
 
 -- | Type of grantee.
 g1Type :: Lens' Grantee Type
 g1Type = lens _g1Type (\s a -> s { _g1Type = a })
-{-# INLINE g1Type #-}
 
 -- | URI of the grantee group.
 g1URI :: Lens' Grantee (Maybe Text)
 g1URI = lens _g1URI (\s a -> s { _g1URI = a })
-{-# INLINE g1URI #-}
 
 instance FromXML Grantee where
     fromXMLOptions = xmlOptions
@@ -1754,18 +1676,15 @@ mkInitiator = Initiator
     { _iID = Nothing
     , _iDisplayName = Nothing
     }
-{-# INLINE mkInitiator #-}
 
 -- | If the principal is an AWS account, it provides the Canonical User ID. If
 -- the principal is an IAM User, it provides a user ARN value.
 iID :: Lens' Initiator (Maybe Text)
 iID = lens _iID (\s a -> s { _iID = a })
-{-# INLINE iID #-}
 
 -- | Name of the Principal.
 iDisplayName :: Lens' Initiator (Maybe Text)
 iDisplayName = lens _iDisplayName (\s a -> s { _iDisplayName = a })
-{-# INLINE iDisplayName #-}
 
 instance FromXML Initiator where
     fromXMLOptions = xmlOptions
@@ -1787,19 +1706,16 @@ mkLifecycleExpiration = LifecycleExpiration
     { _leDate = Nothing
     , _leDays = Nothing
     }
-{-# INLINE mkLifecycleExpiration #-}
 
 -- | Indicates at what date the object is to be moved or deleted. Should be in
 -- GMT ISO 8601 Format.
 leDate :: Lens' LifecycleExpiration (Maybe RFC822)
 leDate = lens _leDate (\s a -> s { _leDate = a })
-{-# INLINE leDate #-}
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
 leDays :: Lens' LifecycleExpiration (Maybe Integer)
 leDays = lens _leDays (\s a -> s { _leDays = a })
-{-# INLINE leDays #-}
 
 instance FromXML LifecycleExpiration where
     fromXMLOptions = xmlOptions
@@ -1823,7 +1739,6 @@ mkLoggingEnabled = LoggingEnabled
     , _lersTargetGrants = mempty
     , _lersTargetPrefix = Nothing
     }
-{-# INLINE mkLoggingEnabled #-}
 
 -- | Specifies the bucket where you want Amazon S3 to store server access logs.
 -- You can have your logs delivered to any bucket that you own, including the
@@ -1834,19 +1749,16 @@ mkLoggingEnabled = LoggingEnabled
 lersTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 lersTargetBucket =
     lens _lersTargetBucket (\s a -> s { _lersTargetBucket = a })
-{-# INLINE lersTargetBucket #-}
 
 lersTargetGrants :: Lens' LoggingEnabled [TargetGrant]
 lersTargetGrants =
     lens _lersTargetGrants (\s a -> s { _lersTargetGrants = a })
-{-# INLINE lersTargetGrants #-}
 
 -- | This element lets you specify a prefix for the keys that the log files will
 -- be stored under.
 lersTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
 lersTargetPrefix =
     lens _lersTargetPrefix (\s a -> s { _lersTargetPrefix = a })
-{-# INLINE lersTargetPrefix #-}
 
 instance FromXML LoggingEnabled where
     fromXMLOptions = xmlOptions
@@ -1876,36 +1788,29 @@ mkMultipartUpload = MultipartUpload
     , _muOwner = Nothing
     , _muInitiator = Nothing
     }
-{-# INLINE mkMultipartUpload #-}
 
 -- | Upload ID that identifies the multipart upload.
 muUploadId :: Lens' MultipartUpload (Maybe Text)
 muUploadId = lens _muUploadId (\s a -> s { _muUploadId = a })
-{-# INLINE muUploadId #-}
 
 -- | Key of the object for which the multipart upload was initiated.
 muKey :: Lens' MultipartUpload (Maybe ObjectKey)
 muKey = lens _muKey (\s a -> s { _muKey = a })
-{-# INLINE muKey #-}
 
 -- | Date and time at which the multipart upload was initiated.
 muInitiated :: Lens' MultipartUpload (Maybe RFC822)
 muInitiated = lens _muInitiated (\s a -> s { _muInitiated = a })
-{-# INLINE muInitiated #-}
 
 -- | The class of storage used to store the object.
 muStorageClass :: Lens' MultipartUpload (Maybe StorageClass)
 muStorageClass = lens _muStorageClass (\s a -> s { _muStorageClass = a })
-{-# INLINE muStorageClass #-}
 
 muOwner :: Lens' MultipartUpload (Maybe Owner)
 muOwner = lens _muOwner (\s a -> s { _muOwner = a })
-{-# INLINE muOwner #-}
 
 -- | Identifies who initiated the multipart upload.
 muInitiator :: Lens' MultipartUpload (Maybe Initiator)
 muInitiator = lens _muInitiator (\s a -> s { _muInitiator = a })
-{-# INLINE muInitiator #-}
 
 instance FromXML MultipartUpload where
     fromXMLOptions = xmlOptions
@@ -1928,7 +1833,6 @@ mkNoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays = Nothing
     , _nvtStorageClass = Nothing
     }
-{-# INLINE mkNoncurrentVersionTransition #-}
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can
 -- perform the associated action. For information about the noncurrent days
@@ -1937,12 +1841,10 @@ mkNoncurrentVersionTransition = NoncurrentVersionTransition
 nvtNoncurrentDays :: Lens' NoncurrentVersionTransition (Maybe Integer)
 nvtNoncurrentDays =
     lens _nvtNoncurrentDays (\s a -> s { _nvtNoncurrentDays = a })
-{-# INLINE nvtNoncurrentDays #-}
 
 -- | The class of storage used to store the object.
 nvtStorageClass :: Lens' NoncurrentVersionTransition (Maybe TransitionStorageClass)
 nvtStorageClass = lens _nvtStorageClass (\s a -> s { _nvtStorageClass = a })
-{-# INLINE nvtStorageClass #-}
 
 instance FromXML NoncurrentVersionTransition where
     fromXMLOptions = xmlOptions
@@ -1953,22 +1855,22 @@ instance ToXML NoncurrentVersionTransition where
     toXMLRoot    = toRoot "NoncurrentVersionTransition"
 
 data Object = Object
-    { _orsKey :: Maybe ObjectKey
-    , _orsLastModified :: Maybe RFC822
-    , _orsETag :: Maybe ETag
-    , _orsSize :: Maybe Integer
-    , _orsStorageClass :: Maybe ObjectStorageClass
-    , _orsOwner :: Maybe Owner
+    { _orsKey :: ObjectKey
+    , _orsLastModified :: RFC822
+    , _orsETag :: ETag
+    , _orsSize :: Integer
+    , _orsStorageClass :: ObjectStorageClass
+    , _orsOwner :: Owner
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Object' data type to populate a request.
-mkObject :: Maybe ObjectKey -- ^ 'orsKey'
-         -> Maybe RFC822 -- ^ 'orsLastModified'
-         -> Maybe ETag -- ^ 'orsETag'
-         -> Maybe Integer -- ^ 'orsSize'
-         -> Maybe ObjectStorageClass -- ^ 'orsStorageClass'
-         -> Maybe Owner -- ^ 'orsOwner'
+mkObject :: ObjectKey -- ^ 'orsKey'
+         -> RFC822 -- ^ 'orsLastModified'
+         -> ETag -- ^ 'orsETag'
+         -> Integer -- ^ 'orsSize'
+         -> ObjectStorageClass -- ^ 'orsStorageClass'
+         -> Owner -- ^ 'orsOwner'
          -> Object
 mkObject p1 p2 p3 p4 p5 p6 = Object
     { _orsKey = p1
@@ -1978,32 +1880,25 @@ mkObject p1 p2 p3 p4 p5 p6 = Object
     , _orsStorageClass = p5
     , _orsOwner = p6
     }
-{-# INLINE mkObject #-}
 
-orsKey :: Lens' Object (Maybe ObjectKey)
+orsKey :: Lens' Object ObjectKey
 orsKey = lens _orsKey (\s a -> s { _orsKey = a })
-{-# INLINE orsKey #-}
 
-orsLastModified :: Lens' Object (Maybe RFC822)
+orsLastModified :: Lens' Object RFC822
 orsLastModified = lens _orsLastModified (\s a -> s { _orsLastModified = a })
-{-# INLINE orsLastModified #-}
 
-orsETag :: Lens' Object (Maybe ETag)
+orsETag :: Lens' Object ETag
 orsETag = lens _orsETag (\s a -> s { _orsETag = a })
-{-# INLINE orsETag #-}
 
-orsSize :: Lens' Object (Maybe Integer)
+orsSize :: Lens' Object Integer
 orsSize = lens _orsSize (\s a -> s { _orsSize = a })
-{-# INLINE orsSize #-}
 
 -- | The class of storage used to store the object.
-orsStorageClass :: Lens' Object (Maybe ObjectStorageClass)
+orsStorageClass :: Lens' Object ObjectStorageClass
 orsStorageClass = lens _orsStorageClass (\s a -> s { _orsStorageClass = a })
-{-# INLINE orsStorageClass #-}
 
-orsOwner :: Lens' Object (Maybe Owner)
+orsOwner :: Lens' Object Owner
 orsOwner = lens _orsOwner (\s a -> s { _orsOwner = a })
-{-# INLINE orsOwner #-}
 
 instance FromXML Object where
     fromXMLOptions = xmlOptions
@@ -2022,17 +1917,14 @@ mkObjectIdentifier p1 = ObjectIdentifier
     { _oiKey = p1
     , _oiVersionId = Nothing
     }
-{-# INLINE mkObjectIdentifier #-}
 
 -- | Key name of the object to delete.
 oiKey :: Lens' ObjectIdentifier ObjectKey
 oiKey = lens _oiKey (\s a -> s { _oiKey = a })
-{-# INLINE oiKey #-}
 
 -- | VersionId for the specific version of the object to delete.
 oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
 oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
-{-# INLINE oiVersionId #-}
 
 instance ToXML ObjectIdentifier where
     toXMLOptions = xmlOptions
@@ -2062,46 +1954,37 @@ mkObjectVersion = ObjectVersion
     , _ovLastModified = Nothing
     , _ovOwner = Nothing
     }
-{-# INLINE mkObjectVersion #-}
 
 ovETag :: Lens' ObjectVersion (Maybe ETag)
 ovETag = lens _ovETag (\s a -> s { _ovETag = a })
-{-# INLINE ovETag #-}
 
 -- | Size in bytes of the object.
 ovSize :: Lens' ObjectVersion (Maybe Integer)
 ovSize = lens _ovSize (\s a -> s { _ovSize = a })
-{-# INLINE ovSize #-}
 
 -- | The class of storage used to store the object.
 ovStorageClass :: Lens' ObjectVersion (Maybe ObjectVersionStorageClass)
 ovStorageClass = lens _ovStorageClass (\s a -> s { _ovStorageClass = a })
-{-# INLINE ovStorageClass #-}
 
 -- | The object key.
 ovKey :: Lens' ObjectVersion (Maybe ObjectKey)
 ovKey = lens _ovKey (\s a -> s { _ovKey = a })
-{-# INLINE ovKey #-}
 
 -- | Version ID of an object.
 ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
 ovVersionId = lens _ovVersionId (\s a -> s { _ovVersionId = a })
-{-# INLINE ovVersionId #-}
 
 -- | Specifies whether the object is (true) or is not (false) the latest version
 -- of an object.
 ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
 ovIsLatest = lens _ovIsLatest (\s a -> s { _ovIsLatest = a })
-{-# INLINE ovIsLatest #-}
 
 -- | Date and time the object was last modified.
 ovLastModified :: Lens' ObjectVersion (Maybe RFC822)
 ovLastModified = lens _ovLastModified (\s a -> s { _ovLastModified = a })
-{-# INLINE ovLastModified #-}
 
 ovOwner :: Lens' ObjectVersion (Maybe Owner)
 ovOwner = lens _ovOwner (\s a -> s { _ovOwner = a })
-{-# INLINE ovOwner #-}
 
 instance FromXML ObjectVersion where
     fromXMLOptions = xmlOptions
@@ -2119,15 +2002,12 @@ mkOwner = Owner
     { _oDisplayName = Nothing
     , _oID = Nothing
     }
-{-# INLINE mkOwner #-}
 
 oDisplayName :: Lens' Owner (Maybe Text)
 oDisplayName = lens _oDisplayName (\s a -> s { _oDisplayName = a })
-{-# INLINE oDisplayName #-}
 
 oID :: Lens' Owner (Maybe Text)
 oID = lens _oID (\s a -> s { _oID = a })
-{-# INLINE oID #-}
 
 instance FromXML Owner where
     fromXMLOptions = xmlOptions
@@ -2153,27 +2033,22 @@ mkPart = Part
     , _pETag = Nothing
     , _pSize = Nothing
     }
-{-# INLINE mkPart #-}
 
 -- | Part number identifying the part.
 pPartNumber :: Lens' Part (Maybe Integer)
 pPartNumber = lens _pPartNumber (\s a -> s { _pPartNumber = a })
-{-# INLINE pPartNumber #-}
 
 -- | Date and time at which the part was uploaded.
 pLastModified :: Lens' Part (Maybe RFC822)
 pLastModified = lens _pLastModified (\s a -> s { _pLastModified = a })
-{-# INLINE pLastModified #-}
 
 -- | Entity tag returned when the part was uploaded.
 pETag :: Lens' Part (Maybe ETag)
 pETag = lens _pETag (\s a -> s { _pETag = a })
-{-# INLINE pETag #-}
 
 -- | Size of the uploaded part data.
 pSize :: Lens' Part (Maybe Integer)
 pSize = lens _pSize (\s a -> s { _pSize = a })
-{-# INLINE pSize #-}
 
 instance FromXML Part where
     fromXMLOptions = xmlOptions
@@ -2200,25 +2075,21 @@ mkRedirect = Redirect
     , _r1ReplaceKeyPrefixWith = Nothing
     , _r1ReplaceKeyWith = Nothing
     }
-{-# INLINE mkRedirect #-}
 
 -- | The host name to use in the redirect request.
 r1HostName :: Lens' Redirect (Maybe Text)
 r1HostName = lens _r1HostName (\s a -> s { _r1HostName = a })
-{-# INLINE r1HostName #-}
 
 -- | The HTTP redirect code to use on the response. Not required if one of the
 -- siblings is present.
 r1HttpRedirectCode :: Lens' Redirect (Maybe Text)
 r1HttpRedirectCode =
     lens _r1HttpRedirectCode (\s a -> s { _r1HttpRedirectCode = a })
-{-# INLINE r1HttpRedirectCode #-}
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
 r1Protocol :: Lens' Redirect (Maybe Protocol)
 r1Protocol = lens _r1Protocol (\s a -> s { _r1Protocol = a })
-{-# INLINE r1Protocol #-}
 
 -- | The object key prefix to use in the redirect request. For example, to
 -- redirect requests for all pages with prefix docs/ (objects in the docs/
@@ -2229,7 +2100,6 @@ r1Protocol = lens _r1Protocol (\s a -> s { _r1Protocol = a })
 r1ReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
 r1ReplaceKeyPrefixWith =
     lens _r1ReplaceKeyPrefixWith (\s a -> s { _r1ReplaceKeyPrefixWith = a })
-{-# INLINE r1ReplaceKeyPrefixWith #-}
 
 -- | The specific object key to use in the redirect request. For example,
 -- redirect request to error.html. Not required if one of the sibling is
@@ -2237,7 +2107,6 @@ r1ReplaceKeyPrefixWith =
 r1ReplaceKeyWith :: Lens' Redirect (Maybe Text)
 r1ReplaceKeyWith =
     lens _r1ReplaceKeyWith (\s a -> s { _r1ReplaceKeyWith = a })
-{-# INLINE r1ReplaceKeyWith #-}
 
 instance FromXML Redirect where
     fromXMLOptions = xmlOptions
@@ -2260,18 +2129,15 @@ mkRedirectAllRequestsTo p1 = RedirectAllRequestsTo
     { _rartHostName = p1
     , _rartProtocol = Nothing
     }
-{-# INLINE mkRedirectAllRequestsTo #-}
 
 -- | Name of the host where requests will be redirected.
 rartHostName :: Lens' RedirectAllRequestsTo Text
 rartHostName = lens _rartHostName (\s a -> s { _rartHostName = a })
-{-# INLINE rartHostName #-}
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the
 -- protocol that is used in the original request.
 rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
 rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
-{-# INLINE rartProtocol #-}
 
 instance FromXML RedirectAllRequestsTo where
     fromXMLOptions = xmlOptions
@@ -2294,7 +2160,6 @@ mkRoutingRule p2 = RoutingRule
     { _rrCondition = Nothing
     , _rrRedirect = p2
     }
-{-# INLINE mkRoutingRule #-}
 
 -- | A container for describing a condition that must be met for the specified
 -- redirect to apply. For example, 1. If request is for pages in the /docs
@@ -2303,14 +2168,12 @@ mkRoutingRule p2 = RoutingRule
 -- error.
 rrCondition :: Lens' RoutingRule (Maybe Condition)
 rrCondition = lens _rrCondition (\s a -> s { _rrCondition = a })
-{-# INLINE rrCondition #-}
 
 -- | Container for redirect information. You can redirect requests to another
 -- host, to another page, or with another protocol. In the event of an error,
 -- you can can specify a different error code to return.
 rrRedirect :: Lens' RoutingRule Redirect
 rrRedirect = lens _rrRedirect (\s a -> s { _rrRedirect = a })
-{-# INLINE rrRedirect #-}
 
 instance FromXML RoutingRule where
     fromXMLOptions = xmlOptions
@@ -2344,32 +2207,26 @@ mkRule p3 p4 = Rule
     , _rNoncurrentVersionTransition = Nothing
     , _rNoncurrentVersionExpiration = Nothing
     }
-{-# INLINE mkRule #-}
 
 rExpiration :: Lens' Rule (Maybe LifecycleExpiration)
 rExpiration = lens _rExpiration (\s a -> s { _rExpiration = a })
-{-# INLINE rExpiration #-}
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
 rID :: Lens' Rule (Maybe Text)
 rID = lens _rID (\s a -> s { _rID = a })
-{-# INLINE rID #-}
 
 -- | Prefix identifying one or more objects to which the rule applies.
 rPrefix :: Lens' Rule Text
 rPrefix = lens _rPrefix (\s a -> s { _rPrefix = a })
-{-# INLINE rPrefix #-}
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
 -- is not currently being applied.
 rStatus :: Lens' Rule (Switch ExpirationStatus)
 rStatus = lens _rStatus (\s a -> s { _rStatus = a })
-{-# INLINE rStatus #-}
 
 rTransition :: Lens' Rule (Maybe Transition)
 rTransition = lens _rTransition (\s a -> s { _rTransition = a })
-{-# INLINE rTransition #-}
 
 -- | Container for the transition rule that describes when noncurrent objects
 -- transition to the GLACIER storage class. If your bucket is
@@ -2380,7 +2237,6 @@ rNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
 rNoncurrentVersionTransition =
     lens _rNoncurrentVersionTransition
          (\s a -> s { _rNoncurrentVersionTransition = a })
-{-# INLINE rNoncurrentVersionTransition #-}
 
 -- | Specifies when noncurrent object versions expire. Upon expiration, Amazon
 -- S3 permanently deletes the noncurrent object versions. You set this
@@ -2391,7 +2247,6 @@ rNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
 rNoncurrentVersionExpiration =
     lens _rNoncurrentVersionExpiration
          (\s a -> s { _rNoncurrentVersionExpiration = a })
-{-# INLINE rNoncurrentVersionExpiration #-}
 
 instance FromXML Rule where
     fromXMLOptions = xmlOptions
@@ -2415,17 +2270,14 @@ mkTag p1 p2 = Tag
     { _trsKey = p1
     , _trsValue = p2
     }
-{-# INLINE mkTag #-}
 
 -- | Name of the tag.
 trsKey :: Lens' Tag ObjectKey
 trsKey = lens _trsKey (\s a -> s { _trsKey = a })
-{-# INLINE trsKey #-}
 
 -- | Value of the tag.
 trsValue :: Lens' Tag Text
 trsValue = lens _trsValue (\s a -> s { _trsValue = a })
-{-# INLINE trsValue #-}
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
@@ -2447,16 +2299,13 @@ mkTargetGrant = TargetGrant
     { _tgGrantee = Nothing
     , _tgPermission = Nothing
     }
-{-# INLINE mkTargetGrant #-}
 
 tgGrantee :: Lens' TargetGrant (Maybe Grantee)
 tgGrantee = lens _tgGrantee (\s a -> s { _tgGrantee = a })
-{-# INLINE tgGrantee #-}
 
 -- | Logging permissions assigned to the Grantee for the bucket.
 tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
 tgPermission = lens _tgPermission (\s a -> s { _tgPermission = a })
-{-# INLINE tgPermission #-}
 
 instance FromXML TargetGrant where
     fromXMLOptions = xmlOptions
@@ -2478,18 +2327,15 @@ mkTopicConfiguration = TopicConfiguration
     { _tcEvent = Nothing
     , _tcTopic = Nothing
     }
-{-# INLINE mkTopicConfiguration #-}
 
 -- | Bucket event for which to send notifications.
 tcEvent :: Lens' TopicConfiguration (Maybe Event)
 tcEvent = lens _tcEvent (\s a -> s { _tcEvent = a })
-{-# INLINE tcEvent #-}
 
 -- | Amazon SNS topic to which Amazon S3 will publish a message to report the
 -- specified events for the bucket.
 tcTopic :: Lens' TopicConfiguration (Maybe Text)
 tcTopic = lens _tcTopic (\s a -> s { _tcTopic = a })
-{-# INLINE tcTopic #-}
 
 instance FromXML TopicConfiguration where
     fromXMLOptions = xmlOptions
@@ -2513,24 +2359,20 @@ mkTransition = Transition
     , _tDays = Nothing
     , _tStorageClass = Nothing
     }
-{-# INLINE mkTransition #-}
 
 -- | Indicates at what date the object is to be moved or deleted. Should be in
 -- GMT ISO 8601 Format.
 tDate :: Lens' Transition (Maybe RFC822)
 tDate = lens _tDate (\s a -> s { _tDate = a })
-{-# INLINE tDate #-}
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
 tDays :: Lens' Transition (Maybe Integer)
 tDays = lens _tDays (\s a -> s { _tDays = a })
-{-# INLINE tDays #-}
 
 -- | The class of storage used to store the object.
 tStorageClass :: Lens' Transition (Maybe TransitionStorageClass)
 tStorageClass = lens _tStorageClass (\s a -> s { _tStorageClass = a })
-{-# INLINE tStorageClass #-}
 
 instance FromXML Transition where
     fromXMLOptions = xmlOptions
@@ -2552,12 +2394,10 @@ mkVersioningConfiguration = VersioningConfiguration
     { _vcStatus = Nothing
     , _vcMfaDelete = Nothing
     }
-{-# INLINE mkVersioningConfiguration #-}
 
 -- | The versioning state of the bucket.
 vcStatus :: Lens' VersioningConfiguration (Maybe (Switch BucketVersioningStatus))
 vcStatus = lens _vcStatus (\s a -> s { _vcStatus = a })
-{-# INLINE vcStatus #-}
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -2565,7 +2405,6 @@ vcStatus = lens _vcStatus (\s a -> s { _vcStatus = a })
 -- this element is not returned.
 vcMfaDelete :: Lens' VersioningConfiguration (Maybe (Switch MFADelete))
 vcMfaDelete = lens _vcMfaDelete (\s a -> s { _vcMfaDelete = a })
-{-# INLINE vcMfaDelete #-}
 
 instance ToXML VersioningConfiguration where
     toXMLOptions = xmlOptions
@@ -2587,25 +2426,20 @@ mkWebsiteConfiguration = WebsiteConfiguration
     , _wcRedirectAllRequestsTo = Nothing
     , _wcRoutingRules = mempty
     }
-{-# INLINE mkWebsiteConfiguration #-}
 
 wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
 wcErrorDocument = lens _wcErrorDocument (\s a -> s { _wcErrorDocument = a })
-{-# INLINE wcErrorDocument #-}
 
 wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
 wcIndexDocument = lens _wcIndexDocument (\s a -> s { _wcIndexDocument = a })
-{-# INLINE wcIndexDocument #-}
 
 wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
 wcRedirectAllRequestsTo =
     lens _wcRedirectAllRequestsTo
          (\s a -> s { _wcRedirectAllRequestsTo = a })
-{-# INLINE wcRedirectAllRequestsTo #-}
 
 wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
 wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
-{-# INLINE wcRoutingRules #-}
 
 instance ToXML WebsiteConfiguration where
     toXMLOptions = xmlOptions

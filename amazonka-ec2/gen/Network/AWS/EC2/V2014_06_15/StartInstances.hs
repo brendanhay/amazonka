@@ -75,18 +75,15 @@ mkStartInstances p1 = StartInstances
     { _siInstanceIds = p1
     , _siAdditionalInfo = Nothing
     }
-{-# INLINE mkStartInstances #-}
 
 -- | One or more instance IDs.
 siInstanceIds :: Lens' StartInstances [Text]
 siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
-{-# INLINE siInstanceIds #-}
 
 -- | Reserved.
 siAdditionalInfo :: Lens' StartInstances (Maybe Text)
 siAdditionalInfo =
     lens _siAdditionalInfo (\s a -> s { _siAdditionalInfo = a })
-{-# INLINE siAdditionalInfo #-}
 
 instance ToQuery StartInstances where
     toQuery = genericQuery def
@@ -100,7 +97,6 @@ newtype StartInstancesResponse = StartInstancesResponse
 sirsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 sirsStartingInstances =
     lens _sirsStartingInstances (\s a -> s { _sirsStartingInstances = a })
-{-# INLINE sirsStartingInstances #-}
 
 instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions

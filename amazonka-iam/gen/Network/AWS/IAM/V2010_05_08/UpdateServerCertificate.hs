@@ -64,20 +64,17 @@ mkUpdateServerCertificate p1 = UpdateServerCertificate
     , _uscNewPath = Nothing
     , _uscNewServerCertificateName = Nothing
     }
-{-# INLINE mkUpdateServerCertificate #-}
 
 -- | The name of the server certificate that you want to update.
 uscServerCertificateName :: Lens' UpdateServerCertificate Text
 uscServerCertificateName =
     lens _uscServerCertificateName
          (\s a -> s { _uscServerCertificateName = a })
-{-# INLINE uscServerCertificateName #-}
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate's path.
 uscNewPath :: Lens' UpdateServerCertificate (Maybe Text)
 uscNewPath = lens _uscNewPath (\s a -> s { _uscNewPath = a })
-{-# INLINE uscNewPath #-}
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate's name.
@@ -85,7 +82,6 @@ uscNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
 uscNewServerCertificateName =
     lens _uscNewServerCertificateName
          (\s a -> s { _uscNewServerCertificateName = a })
-{-# INLINE uscNewServerCertificateName #-}
 
 instance ToQuery UpdateServerCertificate where
     toQuery = genericQuery def

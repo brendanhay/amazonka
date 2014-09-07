@@ -98,23 +98,19 @@ mkUpdateStack p1 = UpdateStack
     , _usDefaultRootDeviceType = Nothing
     , _usUseOpsworksSecurityGroups = Nothing
     }
-{-# INLINE mkUpdateStack #-}
 
 -- | The stack ID.
 usStackId :: Lens' UpdateStack Text
 usStackId = lens _usStackId (\s a -> s { _usStackId = a })
-{-# INLINE usStackId #-}
 
 -- | The stack's new name.
 usName :: Lens' UpdateStack (Maybe Text)
 usName = lens _usName (\s a -> s { _usName = a })
-{-# INLINE usName #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 usAttributes :: Lens' UpdateStack (Map StackAttributesKeys Text)
 usAttributes = lens _usAttributes (\s a -> s { _usAttributes = a })
-{-# INLINE usAttributes #-}
 
 -- | The stack AWS Identity and Access Management (IAM) role, which allows AWS
 -- OpsWorks to work with AWS resources on your behalf. You must set this
@@ -126,7 +122,6 @@ usAttributes = lens _usAttributes (\s a -> s { _usAttributes = a })
 usServiceRoleArn :: Lens' UpdateStack (Maybe Text)
 usServiceRoleArn =
     lens _usServiceRoleArn (\s a -> s { _usServiceRoleArn = a })
-{-# INLINE usServiceRoleArn #-}
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
@@ -135,13 +130,11 @@ usDefaultInstanceProfileArn :: Lens' UpdateStack (Maybe Text)
 usDefaultInstanceProfileArn =
     lens _usDefaultInstanceProfileArn
          (\s a -> s { _usDefaultInstanceProfileArn = a })
-{-# INLINE usDefaultInstanceProfileArn #-}
 
 -- | The stack's default operating system, which must be set to Amazon Linux or
 -- Ubuntu 12.04 LTS. The default option is Amazon Linux.
 usDefaultOs :: Lens' UpdateStack (Maybe Text)
 usDefaultOs = lens _usDefaultOs (\s a -> s { _usDefaultOs = a })
-{-# INLINE usDefaultOs #-}
 
 -- | The stack's new host name theme, with spaces are replaced by underscores.
 -- The theme is used to generate host names for the stack's instances. By
@@ -154,7 +147,6 @@ usDefaultOs = lens _usDefaultOs (\s a -> s { _usDefaultOs = a })
 -- theme.
 usHostnameTheme :: Lens' UpdateStack (Maybe Text)
 usHostnameTheme = lens _usHostnameTheme (\s a -> s { _usHostnameTheme = a })
-{-# INLINE usHostnameTheme #-}
 
 -- | The stack's default Availability Zone, which must be in the specified
 -- region. For more information, see Regions and Endpoints. If you also
@@ -164,7 +156,6 @@ usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone =
     lens _usDefaultAvailabilityZone
          (\s a -> s { _usDefaultAvailabilityZone = a })
-{-# INLINE usDefaultAvailabilityZone #-}
 
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
@@ -173,7 +164,6 @@ usDefaultAvailabilityZone =
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId =
     lens _usDefaultSubnetId (\s a -> s { _usDefaultSubnetId = a })
-{-# INLINE usDefaultSubnetId #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -182,7 +172,6 @@ usDefaultSubnetId =
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
 usCustomJson :: Lens' UpdateStack (Maybe Text)
 usCustomJson = lens _usCustomJson (\s a -> s { _usCustomJson = a })
-{-# INLINE usCustomJson #-}
 
 -- | The configuration manager. When you clone a stack we recommend that you use
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
@@ -190,7 +179,6 @@ usCustomJson = lens _usCustomJson (\s a -> s { _usCustomJson = a })
 usConfigurationManager :: Lens' UpdateStack (Maybe StackConfigurationManager)
 usConfigurationManager =
     lens _usConfigurationManager (\s a -> s { _usConfigurationManager = a })
-{-# INLINE usConfigurationManager #-}
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
@@ -198,13 +186,11 @@ usConfigurationManager =
 usChefConfiguration :: Lens' UpdateStack (Maybe ChefConfiguration)
 usChefConfiguration =
     lens _usChefConfiguration (\s a -> s { _usChefConfiguration = a })
-{-# INLINE usChefConfiguration #-}
 
 -- | Whether the stack uses custom cookbooks.
 usUseCustomCookbooks :: Lens' UpdateStack (Maybe Bool)
 usUseCustomCookbooks =
     lens _usUseCustomCookbooks (\s a -> s { _usUseCustomCookbooks = a })
-{-# INLINE usUseCustomCookbooks #-}
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
@@ -213,14 +199,12 @@ usCustomCookbooksSource :: Lens' UpdateStack (Maybe Source)
 usCustomCookbooksSource =
     lens _usCustomCookbooksSource
          (\s a -> s { _usCustomCookbooksSource = a })
-{-# INLINE usCustomCookbooksSource #-}
 
 -- | A default SSH key for the stack instances. You can override this value when
 -- you create or update an instance.
 usDefaultSshKeyName :: Lens' UpdateStack (Maybe Text)
 usDefaultSshKeyName =
     lens _usDefaultSshKeyName (\s a -> s { _usDefaultSshKeyName = a })
-{-# INLINE usDefaultSshKeyName #-}
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
@@ -229,7 +213,6 @@ usDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
 usDefaultRootDeviceType =
     lens _usDefaultRootDeviceType
          (\s a -> s { _usDefaultRootDeviceType = a })
-{-# INLINE usDefaultRootDeviceType #-}
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack's layers. AWS OpsWorks provides a standard set of built-in security
@@ -250,7 +233,6 @@ usUseOpsworksSecurityGroups :: Lens' UpdateStack (Maybe Bool)
 usUseOpsworksSecurityGroups =
     lens _usUseOpsworksSecurityGroups
          (\s a -> s { _usUseOpsworksSecurityGroups = a })
-{-# INLINE usUseOpsworksSecurityGroups #-}
 
 instance ToPath UpdateStack
 

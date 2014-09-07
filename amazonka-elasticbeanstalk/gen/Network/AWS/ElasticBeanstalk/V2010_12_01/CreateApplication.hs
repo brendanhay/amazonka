@@ -60,7 +60,6 @@ mkCreateApplication p1 = CreateApplication
     { _caApplicationName = p1
     , _caDescription = Nothing
     }
-{-# INLINE mkCreateApplication #-}
 
 -- | The name of the application. Constraint: This name must be unique within
 -- your account. If the specified name already exists, the action returns an
@@ -68,12 +67,10 @@ mkCreateApplication p1 = CreateApplication
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName =
     lens _caApplicationName (\s a -> s { _caApplicationName = a })
-{-# INLINE caApplicationName #-}
 
 -- | Describes the application.
 caDescription :: Lens' CreateApplication (Maybe Text)
 caDescription = lens _caDescription (\s a -> s { _caDescription = a })
-{-# INLINE caDescription #-}
 
 instance ToQuery CreateApplication where
     toQuery = genericQuery def
@@ -86,7 +83,6 @@ newtype CreateApplicationResponse = CreateApplicationResponse
 -- | The ApplicationDescription of the application.
 carsApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
 carsApplication = lens _carsApplication (\s a -> s { _carsApplication = a })
-{-# INLINE carsApplication #-}
 
 instance FromXML CreateApplicationResponse where
     fromXMLOptions = xmlOptions

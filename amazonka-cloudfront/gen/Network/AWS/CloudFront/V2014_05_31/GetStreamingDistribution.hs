@@ -51,12 +51,10 @@ mkGetStreamingDistribution :: Text -- ^ 'gsdId'
 mkGetStreamingDistribution p1 = GetStreamingDistribution
     { _gsdId = p1
     }
-{-# INLINE mkGetStreamingDistribution #-}
 
 -- | The streaming distribution's id.
 gsdId :: Lens' GetStreamingDistribution Text
 gsdId = lens _gsdId (\s a -> s { _gsdId = a })
-{-# INLINE gsdId #-}
 
 instance ToPath GetStreamingDistribution where
     toPath GetStreamingDistribution{..} = mconcat
@@ -83,13 +81,11 @@ gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe Stre
 gsdrsStreamingDistribution =
     lens _gsdrsStreamingDistribution
          (\s a -> s { _gsdrsStreamingDistribution = a })
-{-# INLINE gsdrsStreamingDistribution #-}
 
 -- | The current version of the streaming distribution's information. For
 -- example: E2QWRUHAPOMQZL.
 gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
 gsdrsETag = lens _gsdrsETag (\s a -> s { _gsdrsETag = a })
-{-# INLINE gsdrsETag #-}
 
 instance AWSRequest GetStreamingDistribution where
     type Sv GetStreamingDistribution = CloudFront

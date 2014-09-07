@@ -67,18 +67,15 @@ mkDescribeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     { _dniaNetworkInterfaceId = p1
     , _dniaAttribute = Nothing
     }
-{-# INLINE mkDescribeNetworkInterfaceAttribute #-}
 
 -- | The ID of the network interface.
 dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniaNetworkInterfaceId =
     lens _dniaNetworkInterfaceId (\s a -> s { _dniaNetworkInterfaceId = a })
-{-# INLINE dniaNetworkInterfaceId #-}
 
 -- | The attribute of the network interface.
 dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
 dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
-{-# INLINE dniaAttribute #-}
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery = genericQuery def
@@ -97,30 +94,25 @@ dniarsNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (May
 dniarsNetworkInterfaceId =
     lens _dniarsNetworkInterfaceId
          (\s a -> s { _dniarsNetworkInterfaceId = a })
-{-# INLINE dniarsNetworkInterfaceId #-}
 
 -- | The description of the network interface.
 dniarsDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniarsDescription =
     lens _dniarsDescription (\s a -> s { _dniarsDescription = a })
-{-# INLINE dniarsDescription #-}
 
 -- | Indicates whether source/destination checking is enabled.
 dniarsSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
 dniarsSourceDestCheck =
     lens _dniarsSourceDestCheck (\s a -> s { _dniarsSourceDestCheck = a })
-{-# INLINE dniarsSourceDestCheck #-}
 
 -- | The security groups associated with the network interface.
 dniarsGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
 dniarsGroups = lens _dniarsGroups (\s a -> s { _dniarsGroups = a })
-{-# INLINE dniarsGroups #-}
 
 -- | The attachment (if any) of the network interface.
 dniarsAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
 dniarsAttachment =
     lens _dniarsAttachment (\s a -> s { _dniarsAttachment = a })
-{-# INLINE dniarsAttachment #-}
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions

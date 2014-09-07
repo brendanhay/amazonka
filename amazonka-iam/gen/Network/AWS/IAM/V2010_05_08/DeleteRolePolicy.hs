@@ -54,17 +54,14 @@ mkDeleteRolePolicy p1 p2 = DeleteRolePolicy
     { _drpRoleName = p1
     , _drpPolicyName = p2
     }
-{-# INLINE mkDeleteRolePolicy #-}
 
 -- | Name of the role the associated with the policy.
 drpRoleName :: Lens' DeleteRolePolicy Text
 drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
-{-# INLINE drpRoleName #-}
 
 -- | Name of the policy document to delete.
 drpPolicyName :: Lens' DeleteRolePolicy Text
 drpPolicyName = lens _drpPolicyName (\s a -> s { _drpPolicyName = a })
-{-# INLINE drpPolicyName #-}
 
 instance ToQuery DeleteRolePolicy where
     toQuery = genericQuery def

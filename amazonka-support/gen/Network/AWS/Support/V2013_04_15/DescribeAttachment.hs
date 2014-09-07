@@ -54,13 +54,11 @@ mkDescribeAttachment :: Text -- ^ 'daAttachmentId'
 mkDescribeAttachment p1 = DescribeAttachment
     { _daAttachmentId = p1
     }
-{-# INLINE mkDescribeAttachment #-}
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the
 -- DescribeCommunications operation.
 daAttachmentId :: Lens' DescribeAttachment Text
 daAttachmentId = lens _daAttachmentId (\s a -> s { _daAttachmentId = a })
-{-# INLINE daAttachmentId #-}
 
 instance ToPath DescribeAttachment
 
@@ -79,7 +77,6 @@ newtype DescribeAttachmentResponse = DescribeAttachmentResponse
 -- | The attachment content and file name.
 darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darsAttachment = lens _darsAttachment (\s a -> s { _darsAttachment = a })
-{-# INLINE darsAttachment #-}
 
 instance FromJSON DescribeAttachmentResponse
 

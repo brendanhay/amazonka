@@ -47,14 +47,12 @@ mkDeleteEventSubscription :: Text -- ^ 'desSubscriptionName'
 mkDeleteEventSubscription p1 = DeleteEventSubscription
     { _desSubscriptionName = p1
     }
-{-# INLINE mkDeleteEventSubscription #-}
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
 desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName =
     lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
-{-# INLINE desSubscriptionName #-}
 
 instance ToQuery DeleteEventSubscription where
     toQuery = genericQuery def

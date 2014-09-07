@@ -61,7 +61,6 @@ mkRequestEnvironmentInfo p3 = RequestEnvironmentInfo
     , _reiEnvironmentName = Nothing
     , _reiInfoType = p3
     }
-{-# INLINE mkRequestEnvironmentInfo #-}
 
 -- | The ID of the environment of the requested data. If no such environment is
 -- found, RequestEnvironmentInfo returns an InvalidParameterValue error.
@@ -71,7 +70,6 @@ mkRequestEnvironmentInfo p3 = RequestEnvironmentInfo
 reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentId =
     lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
-{-# INLINE reiEnvironmentId #-}
 
 -- | The name of the environment of the requested data. If no such environment
 -- is found, RequestEnvironmentInfo returns an InvalidParameterValue error.
@@ -81,12 +79,10 @@ reiEnvironmentId =
 reiEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentName =
     lens _reiEnvironmentName (\s a -> s { _reiEnvironmentName = a })
-{-# INLINE reiEnvironmentName #-}
 
 -- | The type of information to request.
 reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
 reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
-{-# INLINE reiInfoType #-}
 
 instance ToQuery RequestEnvironmentInfo where
     toQuery = genericQuery def

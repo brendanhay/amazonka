@@ -104,20 +104,17 @@ mkCreatePipeline p1 p2 p4 = CreatePipeline
     , _cpContentConfig = Nothing
     , _cpThumbnailConfig = Nothing
     }
-{-# INLINE mkCreatePipeline #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
 cpName :: Lens' CreatePipeline Text
 cpName = lens _cpName (\s a -> s { _cpName = a })
-{-# INLINE cpName #-}
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode.
 cpInputBucket :: Lens' CreatePipeline Text
 cpInputBucket = lens _cpInputBucket (\s a -> s { _cpInputBucket = a })
-{-# INLINE cpInputBucket #-}
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
 -- transcoded files. (Use this, or use ContentConfig:Bucket plus
@@ -137,13 +134,11 @@ cpInputBucket = lens _cpInputBucket (\s a -> s { _cpInputBucket = a })
 -- instead.
 cpOutputBucket :: Lens' CreatePipeline (Maybe Text)
 cpOutputBucket = lens _cpOutputBucket (\s a -> s { _cpOutputBucket = a })
-{-# INLINE cpOutputBucket #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to create the pipeline.
 cpRole :: Lens' CreatePipeline Text
 cpRole = lens _cpRole (\s a -> s { _cpRole = a })
-{-# INLINE cpRole #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
 -- notify to report job status. To receive notifications, you must also
@@ -164,7 +159,6 @@ cpRole = lens _cpRole (\s a -> s { _cpRole = a })
 -- is the ARN that Amazon SNS returned when you created the topic.
 cpNotifications :: Lens' CreatePipeline (Maybe Notifications)
 cpNotifications = lens _cpNotifications (\s a -> s { _cpNotifications = a })
-{-# INLINE cpNotifications #-}
 
 -- | The optional ContentConfig object specifies information about the Amazon S3
 -- bucket in which you want Elastic Transcoder to save transcoded files and
@@ -209,7 +203,6 @@ cpNotifications = lens _cpNotifications (\s a -> s { _cpNotifications = a })
 -- files and playlists that it stores in your Amazon S3 bucket.
 cpContentConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cpContentConfig = lens _cpContentConfig (\s a -> s { _cpContentConfig = a })
-{-# INLINE cpContentConfig #-}
 
 -- | The ThumbnailConfig object specifies several values, including the Amazon
 -- S3 bucket in which you want Elastic Transcoder to save thumbnail files,
@@ -250,7 +243,6 @@ cpContentConfig = lens _cpContentConfig (\s a -> s { _cpContentConfig = a })
 cpThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cpThumbnailConfig =
     lens _cpThumbnailConfig (\s a -> s { _cpThumbnailConfig = a })
-{-# INLINE cpThumbnailConfig #-}
 
 instance ToPath CreatePipeline where
     toPath = const "/2012-09-25/pipelines"
@@ -271,7 +263,6 @@ newtype CreatePipelineResponse = CreatePipelineResponse
 -- that is created.
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 cprsPipeline = lens _cprsPipeline (\s a -> s { _cprsPipeline = a })
-{-# INLINE cprsPipeline #-}
 
 instance FromJSON CreatePipelineResponse
 

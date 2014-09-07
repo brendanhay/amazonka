@@ -75,19 +75,16 @@ mkListGateways = ListGateways
     { _lgMarker = Nothing
     , _lgLimit = Nothing
     }
-{-# INLINE mkListGateways #-}
 
 -- | An opaque string that indicates the position at which to begin the returned
 -- list of gateways.
 lgMarker :: Lens' ListGateways (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
-{-# INLINE lgMarker #-}
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
 lgLimit :: Lens' ListGateways (Maybe Integer)
 lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
-{-# INLINE lgLimit #-}
 
 instance ToPath ListGateways
 
@@ -104,11 +101,9 @@ data ListGatewaysResponse = ListGatewaysResponse
 
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInformation]
 lgrsGateways = lens _lgrsGateways (\s a -> s { _lgrsGateways = a })
-{-# INLINE lgrsGateways #-}
 
 lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrsMarker = lens _lgrsMarker (\s a -> s { _lgrsMarker = a })
-{-# INLINE lgrsMarker #-}
 
 instance FromJSON ListGatewaysResponse
 
@@ -120,5 +115,5 @@ instance AWSRequest ListGateways where
     response _ = jsonResponse
 
 instance AWSPager ListGateways where
-    next rq rs = (\x -> rq { _lgMarker = Just x })
-        <$> (_lgrsMarker rs)
+    next rq rs = (\x -> rq & lgMarker ?~ x) <$> (rs ^. lgrsMarker)
+

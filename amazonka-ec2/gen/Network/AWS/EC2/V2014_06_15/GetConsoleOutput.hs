@@ -85,12 +85,10 @@ mkGetConsoleOutput :: Text -- ^ 'gcoInstanceId'
 mkGetConsoleOutput p1 = GetConsoleOutput
     { _gcoInstanceId = p1
     }
-{-# INLINE mkGetConsoleOutput #-}
 
 -- | The ID of the instance.
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
-{-# INLINE gcoInstanceId #-}
 
 instance ToQuery GetConsoleOutput where
     toQuery = genericQuery def
@@ -105,17 +103,14 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
 -- | The ID of the instance.
 gcorsInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsInstanceId = lens _gcorsInstanceId (\s a -> s { _gcorsInstanceId = a })
-{-# INLINE gcorsInstanceId #-}
 
 -- | The time the output was last updated.
 gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
 gcorsTimestamp = lens _gcorsTimestamp (\s a -> s { _gcorsTimestamp = a })
-{-# INLINE gcorsTimestamp #-}
 
 -- | The console output, Base64 encoded.
 gcorsOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsOutput = lens _gcorsOutput (\s a -> s { _gcorsOutput = a })
-{-# INLINE gcorsOutput #-}
 
 instance FromXML GetConsoleOutputResponse where
     fromXMLOptions = xmlOptions

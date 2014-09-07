@@ -102,12 +102,10 @@ mkPollForActivityTask p1 p2 = PollForActivityTask
     , _pfatTaskList = p2
     , _pfatIdentity = Nothing
     }
-{-# INLINE mkPollForActivityTask #-}
 
 -- | The name of the domain that contains the task lists being polled.
 pfatDomain :: Lens' PollForActivityTask Text
 pfatDomain = lens _pfatDomain (\s a -> s { _pfatDomain = a })
-{-# INLINE pfatDomain #-}
 
 -- | Specifies the task list to poll for activity tasks. The specified string
 -- must not start or end with whitespace. It must not contain a : (colon), /
@@ -116,14 +114,12 @@ pfatDomain = lens _pfatDomain (\s a -> s { _pfatDomain = a })
 -- &quot;arn&quot;.
 pfatTaskList :: Lens' PollForActivityTask TaskList
 pfatTaskList = lens _pfatTaskList (\s a -> s { _pfatTaskList = a })
-{-# INLINE pfatTaskList #-}
 
 -- | Identity of the worker making the request, which is recorded in the
 -- ActivityTaskStarted event in the workflow history. This enables diagnostic
 -- tracing when problems arise. The form of this identity is user defined.
 pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
 pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
-{-# INLINE pfatIdentity #-}
 
 instance ToPath PollForActivityTask
 
@@ -148,39 +144,33 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
 -- about the task.
 pfatrsTaskToken :: Lens' PollForActivityTaskResponse Text
 pfatrsTaskToken = lens _pfatrsTaskToken (\s a -> s { _pfatrsTaskToken = a })
-{-# INLINE pfatrsTaskToken #-}
 
 -- | The unique ID of the task.
 pfatrsActivityId :: Lens' PollForActivityTaskResponse Text
 pfatrsActivityId =
     lens _pfatrsActivityId (\s a -> s { _pfatrsActivityId = a })
-{-# INLINE pfatrsActivityId #-}
 
 -- | The id of the ActivityTaskStarted event recorded in the history.
 pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
 pfatrsStartedEventId =
     lens _pfatrsStartedEventId (\s a -> s { _pfatrsStartedEventId = a })
-{-# INLINE pfatrsStartedEventId #-}
 
 -- | The workflow execution that started this activity task.
 pfatrsWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
 pfatrsWorkflowExecution =
     lens _pfatrsWorkflowExecution
          (\s a -> s { _pfatrsWorkflowExecution = a })
-{-# INLINE pfatrsWorkflowExecution #-}
 
 -- | The type of this activity task.
 pfatrsActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrsActivityType =
     lens _pfatrsActivityType (\s a -> s { _pfatrsActivityType = a })
-{-# INLINE pfatrsActivityType #-}
 
 -- | The inputs provided when the activity task was scheduled. The form of the
 -- input is user defined and should be meaningful to the activity
 -- implementation.
 pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrsInput = lens _pfatrsInput (\s a -> s { _pfatrsInput = a })
-{-# INLINE pfatrsInput #-}
 
 instance FromJSON PollForActivityTaskResponse
 

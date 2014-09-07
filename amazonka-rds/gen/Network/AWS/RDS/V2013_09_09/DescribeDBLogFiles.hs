@@ -77,7 +77,6 @@ mkDescribeDBLogFiles p1 = DescribeDBLogFiles
     , _ddblfMaxRecords = Nothing
     , _ddblfMarker = Nothing
     }
-{-# INLINE mkDescribeDBLogFiles #-}
 
 -- | The customer-assigned name of the DB instance that contains the log files
 -- you want to list. Constraints: Must contain from 1 to 63 alphanumeric
@@ -87,26 +86,22 @@ ddblfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
 ddblfDBInstanceIdentifier =
     lens _ddblfDBInstanceIdentifier
          (\s a -> s { _ddblfDBInstanceIdentifier = a })
-{-# INLINE ddblfDBInstanceIdentifier #-}
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
 ddblfFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
 ddblfFilenameContains =
     lens _ddblfFilenameContains (\s a -> s { _ddblfFilenameContains = a })
-{-# INLINE ddblfFilenameContains #-}
 
 -- | Filters the available log files for files written since the specified date,
 -- in POSIX timestamp format.
 ddblfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfFileLastWritten =
     lens _ddblfFileLastWritten (\s a -> s { _ddblfFileLastWritten = a })
-{-# INLINE ddblfFileLastWritten #-}
 
 -- | Filters the available log files for files larger than the specified size.
 ddblfFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfFileSize = lens _ddblfFileSize (\s a -> s { _ddblfFileSize = a })
-{-# INLINE ddblfFileSize #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -114,14 +109,12 @@ ddblfFileSize = lens _ddblfFileSize (\s a -> s { _ddblfFileSize = a })
 -- retrieved.
 ddblfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfMaxRecords = lens _ddblfMaxRecords (\s a -> s { _ddblfMaxRecords = a })
-{-# INLINE ddblfMaxRecords #-}
 
 -- | The pagination token provided in the previous request. If this parameter is
 -- specified the response includes only records beyond the marker, up to
 -- MaxRecords.
 ddblfMarker :: Lens' DescribeDBLogFiles (Maybe Text)
 ddblfMarker = lens _ddblfMarker (\s a -> s { _ddblfMarker = a })
-{-# INLINE ddblfMarker #-}
 
 instance ToQuery DescribeDBLogFiles where
     toQuery = genericQuery def
@@ -137,12 +130,10 @@ ddblfrsDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFile
 ddblfrsDescribeDBLogFiles =
     lens _ddblfrsDescribeDBLogFiles
          (\s a -> s { _ddblfrsDescribeDBLogFiles = a })
-{-# INLINE ddblfrsDescribeDBLogFiles #-}
 
 -- | An optional paging token.
 ddblfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddblfrsMarker = lens _ddblfrsMarker (\s a -> s { _ddblfrsMarker = a })
-{-# INLINE ddblfrsMarker #-}
 
 instance FromXML DescribeDBLogFilesResponse where
     fromXMLOptions = xmlOptions
@@ -155,5 +146,5 @@ instance AWSRequest DescribeDBLogFiles where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBLogFiles where
-    next rq rs = (\x -> rq { _ddblfMarker = Just x })
-        <$> (_ddblfrsMarker rs)
+    next rq rs = (\x -> rq & ddblfMarker ?~ x) <$> (rs ^. ddblfrsMarker)
+

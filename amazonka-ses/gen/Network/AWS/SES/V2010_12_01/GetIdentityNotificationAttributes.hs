@@ -67,12 +67,10 @@ mkGetIdentityNotificationAttributes :: [Text] -- ^ 'ginaIdentities'
 mkGetIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
     { _ginaIdentities = p1
     }
-{-# INLINE mkGetIdentityNotificationAttributes #-}
 
 -- | A list of one or more identities.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a })
-{-# INLINE ginaIdentities #-}
 
 instance ToQuery GetIdentityNotificationAttributes where
     toQuery = genericQuery def
@@ -90,7 +88,6 @@ ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse 
 ginarsNotificationAttributes =
     lens _ginarsNotificationAttributes
          (\s a -> s { _ginarsNotificationAttributes = a })
-{-# INLINE ginarsNotificationAttributes #-}
 
 instance FromXML GetIdentityNotificationAttributesResponse where
     fromXMLOptions = xmlOptions

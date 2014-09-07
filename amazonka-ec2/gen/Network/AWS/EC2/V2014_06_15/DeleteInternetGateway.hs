@@ -55,13 +55,11 @@ mkDeleteInternetGateway :: Text -- ^ 'digInternetGatewayId'
 mkDeleteInternetGateway p1 = DeleteInternetGateway
     { _digInternetGatewayId = p1
     }
-{-# INLINE mkDeleteInternetGateway #-}
 
 -- | The ID of the Internet gateway.
 digInternetGatewayId :: Lens' DeleteInternetGateway Text
 digInternetGatewayId =
     lens _digInternetGatewayId (\s a -> s { _digInternetGatewayId = a })
-{-# INLINE digInternetGatewayId #-}
 
 instance ToQuery DeleteInternetGateway where
     toQuery = genericQuery def

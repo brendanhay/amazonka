@@ -56,7 +56,6 @@ mkListJobs = ListJobs
     { _ljMaxJobs = Nothing
     , _ljMarker = Nothing
     }
-{-# INLINE mkListJobs #-}
 
 -- | Sets the maximum number of jobs returned in the response. If there are
 -- additional jobs that were not returned because MaxJobs was exceeded, the
@@ -64,14 +63,12 @@ mkListJobs = ListJobs
 -- the additional jobs, see Marker.
 ljMaxJobs :: Lens' ListJobs (Maybe Integer)
 ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
-{-# INLINE ljMaxJobs #-}
 
 -- | Specifies the JOBID to start after when listing the jobs created with your
 -- account. AWS Import/Export lists your jobs in reverse chronological order.
 -- See MaxJobs.
 ljMarker :: Lens' ListJobs (Maybe Text)
 ljMarker = lens _ljMarker (\s a -> s { _ljMarker = a })
-{-# INLINE ljMarker #-}
 
 instance ToQuery ListJobs where
     toQuery = genericQuery def
@@ -85,13 +82,11 @@ data ListJobsResponse = ListJobsResponse
 -- | A list container for Jobs returned by the ListJobs operation.
 ljrsJobs :: Lens' ListJobsResponse [Job]
 ljrsJobs = lens _ljrsJobs (\s a -> s { _ljrsJobs = a })
-{-# INLINE ljrsJobs #-}
 
 -- | Indicates whether the list of jobs was truncated. If true, then call
 -- ListJobs again using the last JobId element as the marker.
 ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrsIsTruncated = lens _ljrsIsTruncated (\s a -> s { _ljrsIsTruncated = a })
-{-# INLINE ljrsIsTruncated #-}
 
 instance FromXML ListJobsResponse where
     fromXMLOptions = xmlOptions
@@ -105,7 +100,5 @@ instance AWSRequest ListJobs where
 
 instance AWSPager ListJobs where
     next rq rs
-        | not (_ljrsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _ljMarker = keyed _jJobId _ljrsJobs rs
-            }
+        | not (rs ^. ljrsIsTruncated) = Nothing
+        | otherwise = Just (rq & ljMarker .~ rs ^. keyed jJobId ljrsJobs)

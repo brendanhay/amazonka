@@ -75,42 +75,35 @@ mkReplaceRoute p1 p2 = ReplaceRoute
     , _rrNetworkInterfaceId = Nothing
     , _rrVpcPeeringConnectionId = Nothing
     }
-{-# INLINE mkReplaceRoute #-}
 
 -- | The ID of the route table.
 rrRouteTableId :: Lens' ReplaceRoute Text
 rrRouteTableId = lens _rrRouteTableId (\s a -> s { _rrRouteTableId = a })
-{-# INLINE rrRouteTableId #-}
 
 -- | The CIDR address block used for the destination match. The value you
 -- provide must match the CIDR of an existing route in the table.
 rrDestinationCidrBlock :: Lens' ReplaceRoute Text
 rrDestinationCidrBlock =
     lens _rrDestinationCidrBlock (\s a -> s { _rrDestinationCidrBlock = a })
-{-# INLINE rrDestinationCidrBlock #-}
 
 -- | The ID of an Internet gateway attached to your VPC.
 rrGatewayId :: Lens' ReplaceRoute (Maybe Text)
 rrGatewayId = lens _rrGatewayId (\s a -> s { _rrGatewayId = a })
-{-# INLINE rrGatewayId #-}
 
 -- | The ID of a NAT instance in your VPC.
 rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
 rrInstanceId = lens _rrInstanceId (\s a -> s { _rrInstanceId = a })
-{-# INLINE rrInstanceId #-}
 
 -- | The ID of a network interface.
 rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
 rrNetworkInterfaceId =
     lens _rrNetworkInterfaceId (\s a -> s { _rrNetworkInterfaceId = a })
-{-# INLINE rrNetworkInterfaceId #-}
 
 -- | The ID of a VPC peering connection.
 rrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
 rrVpcPeeringConnectionId =
     lens _rrVpcPeeringConnectionId
          (\s a -> s { _rrVpcPeeringConnectionId = a })
-{-# INLINE rrVpcPeeringConnectionId #-}
 
 instance ToQuery ReplaceRoute where
     toQuery = genericQuery def

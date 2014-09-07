@@ -59,14 +59,12 @@ mkRejectVpcPeeringConnection :: Text -- ^ 'rvpcVpcPeeringConnectionId'
 mkRejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     { _rvpcVpcPeeringConnectionId = p1
     }
-{-# INLINE mkRejectVpcPeeringConnection #-}
 
 -- | The ID of the VPC peering connection.
 rvpcVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
 rvpcVpcPeeringConnectionId =
     lens _rvpcVpcPeeringConnectionId
          (\s a -> s { _rvpcVpcPeeringConnectionId = a })
-{-# INLINE rvpcVpcPeeringConnectionId #-}
 
 instance ToQuery RejectVpcPeeringConnection where
     toQuery = genericQuery def
@@ -79,7 +77,6 @@ newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 rvpcrsReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcrsReturn = lens _rvpcrsReturn (\s a -> s { _rvpcrsReturn = a })
-{-# INLINE rvpcrsReturn #-}
 
 instance FromXML RejectVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

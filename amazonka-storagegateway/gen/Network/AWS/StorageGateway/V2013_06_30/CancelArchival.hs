@@ -52,17 +52,14 @@ mkCancelArchival p1 p2 = CancelArchival
     { _caGatewayARN = p1
     , _caTapeARN = p2
     }
-{-# INLINE mkCancelArchival #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 caGatewayARN :: Lens' CancelArchival Text
 caGatewayARN = lens _caGatewayARN (\s a -> s { _caGatewayARN = a })
-{-# INLINE caGatewayARN #-}
 
 caTapeARN :: Lens' CancelArchival Text
 caTapeARN = lens _caTapeARN (\s a -> s { _caTapeARN = a })
-{-# INLINE caTapeARN #-}
 
 instance ToPath CancelArchival
 
@@ -78,7 +75,6 @@ newtype CancelArchivalResponse = CancelArchivalResponse
 
 carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carsTapeARN = lens _carsTapeARN (\s a -> s { _carsTapeARN = a })
-{-# INLINE carsTapeARN #-}
 
 instance FromJSON CancelArchivalResponse
 

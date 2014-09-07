@@ -63,7 +63,6 @@ mkModifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
     , _mcsgCacheSubnetGroupDescription = Nothing
     , _mcsgSubnetIds = mempty
     }
-{-# INLINE mkModifyCacheSubnetGroup #-}
 
 -- | The name for the cache subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
@@ -72,19 +71,16 @@ mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
 mcsgCacheSubnetGroupName =
     lens _mcsgCacheSubnetGroupName
          (\s a -> s { _mcsgCacheSubnetGroupName = a })
-{-# INLINE mcsgCacheSubnetGroupName #-}
 
 -- | A description for the cache subnet group.
 mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
 mcsgCacheSubnetGroupDescription =
     lens _mcsgCacheSubnetGroupDescription
          (\s a -> s { _mcsgCacheSubnetGroupDescription = a })
-{-# INLINE mcsgCacheSubnetGroupDescription #-}
 
 -- | The EC2 subnet IDs for the cache subnet group.
 mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
-{-# INLINE mcsgSubnetIds #-}
 
 instance ToQuery ModifyCacheSubnetGroup where
     toQuery = genericQuery def
@@ -98,7 +94,6 @@ newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
 mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 mcsgrsCacheSubnetGroup =
     lens _mcsgrsCacheSubnetGroup (\s a -> s { _mcsgrsCacheSubnetGroup = a })
-{-# INLINE mcsgrsCacheSubnetGroup #-}
 
 instance FromXML ModifyCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions

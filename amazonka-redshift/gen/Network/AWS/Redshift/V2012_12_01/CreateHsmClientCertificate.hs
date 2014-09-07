@@ -56,7 +56,6 @@ mkCreateHsmClientCertificate :: Text -- ^ 'chccHsmClientCertificateIdentifier'
 mkCreateHsmClientCertificate p1 = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier = p1
     }
-{-# INLINE mkCreateHsmClientCertificate #-}
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption keys.
@@ -64,7 +63,6 @@ chccHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificate Text
 chccHsmClientCertificateIdentifier =
     lens _chccHsmClientCertificateIdentifier
          (\s a -> s { _chccHsmClientCertificateIdentifier = a })
-{-# INLINE chccHsmClientCertificateIdentifier #-}
 
 instance ToQuery CreateHsmClientCertificate where
     toQuery = genericQuery def
@@ -80,7 +78,6 @@ chccrsHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe Hs
 chccrsHsmClientCertificate =
     lens _chccrsHsmClientCertificate
          (\s a -> s { _chccrsHsmClientCertificate = a })
-{-# INLINE chccrsHsmClientCertificate #-}
 
 instance FromXML CreateHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions

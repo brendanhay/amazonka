@@ -59,7 +59,6 @@ mkDefineSuggester p1 p2 = DefineSuggester
     { _ds1DomainName = p1
     , _ds1Suggester = p2
     }
-{-# INLINE mkDefineSuggester #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -67,7 +66,6 @@ mkDefineSuggester p1 p2 = DefineSuggester
 -- (lowercase), 0-9, and - (hyphen).
 ds1DomainName :: Lens' DefineSuggester Text
 ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
-{-# INLINE ds1DomainName #-}
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for suggestions.
@@ -75,7 +73,6 @@ ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
 -- SortExpression.
 ds1Suggester :: Lens' DefineSuggester Suggester
 ds1Suggester = lens _ds1Suggester (\s a -> s { _ds1Suggester = a })
-{-# INLINE ds1Suggester #-}
 
 instance ToQuery DefineSuggester where
     toQuery = genericQuery def
@@ -89,7 +86,6 @@ newtype DefineSuggesterResponse = DefineSuggesterResponse
 -- | The value of a Suggester and its current status.
 dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrsSuggester = lens _dsrsSuggester (\s a -> s { _dsrsSuggester = a })
-{-# INLINE dsrsSuggester #-}
 
 instance FromXML DefineSuggesterResponse where
     fromXMLOptions = xmlOptions

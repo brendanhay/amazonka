@@ -70,7 +70,6 @@ mkListStackResources p1 = ListStackResources
     { _lsrStackName = p1
     , _lsrNextToken = Nothing
     }
-{-# INLINE mkListStackResources #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
@@ -78,13 +77,11 @@ mkListStackResources p1 = ListStackResources
 -- stack ID. Default: There is no default value.
 lsrStackName :: Lens' ListStackResources Text
 lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
-{-# INLINE lsrStackName #-}
 
 -- | String that identifies the start of the next list of stack resource
 -- summaries, if there is one. Default: There is no default value.
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
-{-# INLINE lsrNextToken #-}
 
 instance ToQuery ListStackResources where
     toQuery = genericQuery def
@@ -100,13 +97,11 @@ lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSu
 lsrrsStackResourceSummaries =
     lens _lsrrsStackResourceSummaries
          (\s a -> s { _lsrrsStackResourceSummaries = a })
-{-# INLINE lsrrsStackResourceSummaries #-}
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrsNextToken = lens _lsrrsNextToken (\s a -> s { _lsrrsNextToken = a })
-{-# INLINE lsrrsNextToken #-}
 
 instance FromXML ListStackResourcesResponse where
     fromXMLOptions = xmlOptions
@@ -119,5 +114,5 @@ instance AWSRequest ListStackResources where
     response _ = xmlResponse
 
 instance AWSPager ListStackResources where
-    next rq rs = (\x -> rq { _lsrNextToken = Just x })
-        <$> (_lsrrsNextToken rs)
+    next rq rs = (\x -> rq & lsrNextToken ?~ x) <$> (rs ^. lsrrsNextToken)
+

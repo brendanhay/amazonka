@@ -66,19 +66,16 @@ mkReplaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     { _rrtaAssociationId = p1
     , _rrtaRouteTableId = p2
     }
-{-# INLINE mkReplaceRouteTableAssociation #-}
 
 -- | The association ID.
 rrtaAssociationId :: Lens' ReplaceRouteTableAssociation Text
 rrtaAssociationId =
     lens _rrtaAssociationId (\s a -> s { _rrtaAssociationId = a })
-{-# INLINE rrtaAssociationId #-}
 
 -- | The ID of the new route table to associate with the subnet.
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
 rrtaRouteTableId =
     lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
-{-# INLINE rrtaRouteTableId #-}
 
 instance ToQuery ReplaceRouteTableAssociation where
     toQuery = genericQuery def
@@ -92,7 +89,6 @@ newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationRespo
 rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarsNewAssociationId =
     lens _rrtarsNewAssociationId (\s a -> s { _rrtarsNewAssociationId = a })
-{-# INLINE rrtarsNewAssociationId #-}
 
 instance FromXML ReplaceRouteTableAssociationResponse where
     fromXMLOptions = xmlOptions

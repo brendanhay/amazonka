@@ -52,7 +52,6 @@ mkListStreamingDistributions = ListStreamingDistributions
     { _lsdMarker = Nothing
     , _lsdMaxItems = Nothing
     }
-{-# INLINE mkListStreamingDistributions #-}
 
 -- | Use this when paginating results to indicate where to begin in your list of
 -- streaming distributions. The results include distributions in the list that
@@ -61,13 +60,11 @@ mkListStreamingDistributions = ListStreamingDistributions
 -- the ID of the last distribution on that page).
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\s a -> s { _lsdMarker = a })
-{-# INLINE lsdMarker #-}
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
 lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
-{-# INLINE lsdMaxItems #-}
 
 instance ToPath ListStreamingDistributions where
     toPath = const "/2014-05-31/streaming-distribution"
@@ -86,15 +83,14 @@ instance ToXML ListStreamingDistributions where
 
 -- | The returned result of the corresponding request.
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdrsStreamingDistributionList :: Maybe StreamingDistributionList
+    { _lsdrsStreamingDistributionList :: StreamingDistributionList
     } deriving (Show, Generic)
 
 -- | The StreamingDistributionList type.
-lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse (Maybe StreamingDistributionList)
+lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
 lsdrsStreamingDistributionList =
     lens _lsdrsStreamingDistributionList
          (\s a -> s { _lsdrsStreamingDistributionList = a })
-{-# INLINE lsdrsStreamingDistributionList #-}
 
 instance FromXML ListStreamingDistributionsResponse where
     fromXMLOptions = xmlOptions
@@ -108,7 +104,5 @@ instance AWSRequest ListStreamingDistributions where
 
 instance AWSPager ListStreamingDistributions where
     next rq rs
-        | not (_sdlIsTruncated $ _lsdrsStreamingDistributionList rs) = Nothing
-        | otherwise = Just $ rq
-            { _lsdMarker = _sdlNextMarker $ _lsdrsStreamingDistributionList rs
-            }
+        | not (rs ^. lsdrsStreamingDistributionList . sdlIsTruncated) = Nothing
+        | otherwise = Just (rq & lsdMarker .~ rs ^. lsdrsStreamingDistributionList . sdlNextMarker)

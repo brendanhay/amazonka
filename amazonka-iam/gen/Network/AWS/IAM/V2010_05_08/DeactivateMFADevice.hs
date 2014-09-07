@@ -54,19 +54,16 @@ mkDeactivateMFADevice p1 p2 = DeactivateMFADevice
     { _dmfadUserName = p1
     , _dmfadSerialNumber = p2
     }
-{-# INLINE mkDeactivateMFADevice #-}
 
 -- | Name of the user whose MFA device you want to deactivate.
 dmfadUserName :: Lens' DeactivateMFADevice Text
 dmfadUserName = lens _dmfadUserName (\s a -> s { _dmfadUserName = a })
-{-# INLINE dmfadUserName #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the device ARN.
 dmfadSerialNumber :: Lens' DeactivateMFADevice Text
 dmfadSerialNumber =
     lens _dmfadSerialNumber (\s a -> s { _dmfadSerialNumber = a })
-{-# INLINE dmfadSerialNumber #-}
 
 instance ToQuery DeactivateMFADevice where
     toQuery = genericQuery def

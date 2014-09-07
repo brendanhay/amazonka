@@ -74,49 +74,40 @@ mkCreateBucket p2 = CreateBucket
     , _cbGrantWrite = Nothing
     , _cbGrantWriteACP = Nothing
     }
-{-# INLINE mkCreateBucket #-}
 
 -- | The canned ACL to apply to the bucket.
 cbACL :: Lens' CreateBucket (Maybe BucketCannedACL)
 cbACL = lens _cbACL (\s a -> s { _cbACL = a })
-{-# INLINE cbACL #-}
 
 cbBucket :: Lens' CreateBucket BucketName
 cbBucket = lens _cbBucket (\s a -> s { _cbBucket = a })
-{-# INLINE cbBucket #-}
 
 cbCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
 cbCreateBucketConfiguration =
     lens _cbCreateBucketConfiguration
          (\s a -> s { _cbCreateBucketConfiguration = a })
-{-# INLINE cbCreateBucketConfiguration #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
 cbGrantFullControl :: Lens' CreateBucket (Maybe Text)
 cbGrantFullControl =
     lens _cbGrantFullControl (\s a -> s { _cbGrantFullControl = a })
-{-# INLINE cbGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
 cbGrantRead :: Lens' CreateBucket (Maybe Text)
 cbGrantRead = lens _cbGrantRead (\s a -> s { _cbGrantRead = a })
-{-# INLINE cbGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
 cbGrantReadACP :: Lens' CreateBucket (Maybe Text)
 cbGrantReadACP = lens _cbGrantReadACP (\s a -> s { _cbGrantReadACP = a })
-{-# INLINE cbGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
 cbGrantWrite :: Lens' CreateBucket (Maybe Text)
 cbGrantWrite = lens _cbGrantWrite (\s a -> s { _cbGrantWrite = a })
-{-# INLINE cbGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 cbGrantWriteACP :: Lens' CreateBucket (Maybe Text)
 cbGrantWriteACP = lens _cbGrantWriteACP (\s a -> s { _cbGrantWriteACP = a })
-{-# INLINE cbGrantWriteACP #-}
 
 instance ToPath CreateBucket where
     toPath CreateBucket{..} = mconcat
@@ -145,7 +136,6 @@ newtype CreateBucketResponse = CreateBucketResponse
 
 cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrsLocation = lens _cbrsLocation (\s a -> s { _cbrsLocation = a })
-{-# INLINE cbrsLocation #-}
 
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3

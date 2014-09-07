@@ -54,12 +54,10 @@ mkDeleteNetworkAcl :: Text -- ^ 'dnaNetworkAclId'
 mkDeleteNetworkAcl p1 = DeleteNetworkAcl
     { _dnaNetworkAclId = p1
     }
-{-# INLINE mkDeleteNetworkAcl #-}
 
 -- | The ID of the network ACL.
 dnaNetworkAclId :: Lens' DeleteNetworkAcl Text
 dnaNetworkAclId = lens _dnaNetworkAclId (\s a -> s { _dnaNetworkAclId = a })
-{-# INLINE dnaNetworkAclId #-}
 
 instance ToQuery DeleteNetworkAcl where
     toQuery = genericQuery def

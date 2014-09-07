@@ -62,7 +62,6 @@ mkListGeoLocations = ListGeoLocations
     , _lglStartSubdivisionCode = Nothing
     , _lglMaxItems = Nothing
     }
-{-# INLINE mkListGeoLocations #-}
 
 -- | The first continent code in the lexicographic ordering of geo locations
 -- that you want the ListGeoLocations request to list. For non-continent geo
@@ -72,7 +71,6 @@ mkListGeoLocations = ListGeoLocations
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode =
     lens _lglStartContinentCode (\s a -> s { _lglStartContinentCode = a })
-{-# INLINE lglStartContinentCode #-}
 
 -- | The first country code in the lexicographic ordering of geo locations that
 -- you want the ListGeoLocations request to list. The default geo location
@@ -81,7 +79,6 @@ lglStartContinentCode =
 lglStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartCountryCode =
     lens _lglStartCountryCode (\s a -> s { _lglStartCountryCode = a })
-{-# INLINE lglStartCountryCode #-}
 
 -- | The first subdivision code in the lexicographic ordering of geo locations
 -- that you want the ListGeoLocations request to list. Constraint: Specifying
@@ -90,12 +87,10 @@ lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode =
     lens _lglStartSubdivisionCode
          (\s a -> s { _lglStartSubdivisionCode = a })
-{-# INLINE lglStartSubdivisionCode #-}
 
 -- | The maximum number of geo locations you want in the response body.
 lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
 lglMaxItems = lens _lglMaxItems (\s a -> s { _lglMaxItems = a })
-{-# INLINE lglMaxItems #-}
 
 instance ToPath ListGeoLocations where
     toPath = const "/2013-04-01/geolocations"
@@ -131,7 +126,6 @@ lglrsGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetail
 lglrsGeoLocationDetailsList =
     lens _lglrsGeoLocationDetailsList
          (\s a -> s { _lglrsGeoLocationDetailsList = a })
-{-# INLINE lglrsGeoLocationDetailsList #-}
 
 -- | A flag that indicates whether there are more geo locations to be listed. If
 -- your results were truncated, you can make a follow-up request for the next
@@ -143,7 +137,6 @@ lglrsGeoLocationDetailsList =
 lglrsIsTruncated :: Lens' ListGeoLocationsResponse Bool
 lglrsIsTruncated =
     lens _lglrsIsTruncated (\s a -> s { _lglrsIsTruncated = a })
-{-# INLINE lglrsIsTruncated #-}
 
 -- | If the results were truncated, the continent code of the next geo location
 -- in the list. This element is present only if
@@ -152,7 +145,6 @@ lglrsIsTruncated =
 lglrsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextContinentCode =
     lens _lglrsNextContinentCode (\s a -> s { _lglrsNextContinentCode = a })
-{-# INLINE lglrsNextContinentCode #-}
 
 -- | If the results were truncated, the country code of the next geo location in
 -- the list. This element is present only if
@@ -161,7 +153,6 @@ lglrsNextContinentCode =
 lglrsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextCountryCode =
     lens _lglrsNextCountryCode (\s a -> s { _lglrsNextCountryCode = a })
-{-# INLINE lglrsNextCountryCode #-}
 
 -- | If the results were truncated, the subdivision code of the next geo
 -- location in the list. This element is present only if
@@ -171,13 +162,11 @@ lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextSubdivisionCode =
     lens _lglrsNextSubdivisionCode
          (\s a -> s { _lglrsNextSubdivisionCode = a })
-{-# INLINE lglrsNextSubdivisionCode #-}
 
 -- | The maximum number of records you requested. The maximum value of MaxItems
 -- is 100.
 lglrsMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrsMaxItems = lens _lglrsMaxItems (\s a -> s { _lglrsMaxItems = a })
-{-# INLINE lglrsMaxItems #-}
 
 instance FromXML ListGeoLocationsResponse where
     fromXMLOptions = xmlOptions

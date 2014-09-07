@@ -50,13 +50,11 @@ mkDeleteInterconnect :: Text -- ^ 'diInterconnectId'
 mkDeleteInterconnect p1 = DeleteInterconnect
     { _diInterconnectId = p1
     }
-{-# INLINE mkDeleteInterconnect #-}
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
 diInterconnectId :: Lens' DeleteInterconnect Text
 diInterconnectId =
     lens _diInterconnectId (\s a -> s { _diInterconnectId = a })
-{-# INLINE diInterconnectId #-}
 
 instance ToPath DeleteInterconnect
 
@@ -80,7 +78,6 @@ newtype DeleteInterconnectResponse = DeleteInterconnectResponse
 dirsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
 dirsInterconnectState =
     lens _dirsInterconnectState (\s a -> s { _dirsInterconnectState = a })
-{-# INLINE dirsInterconnectState #-}
 
 instance FromJSON DeleteInterconnectResponse
 

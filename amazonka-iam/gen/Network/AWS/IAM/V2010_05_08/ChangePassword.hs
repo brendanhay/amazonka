@@ -56,18 +56,15 @@ mkChangePassword p1 p2 = ChangePassword
     { _cpOldPassword = p1
     , _cpNewPassword = p2
     }
-{-# INLINE mkChangePassword #-}
 
 -- | The IAM users's current password.
 cpOldPassword :: Lens' ChangePassword Text
 cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a })
-{-# INLINE cpOldPassword #-}
 
 -- | The new password. The new password must conform to the AWS account's
 -- password policy, if one exists.
 cpNewPassword :: Lens' ChangePassword Text
 cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a })
-{-# INLINE cpNewPassword #-}
 
 instance ToQuery ChangePassword where
     toQuery = genericQuery def

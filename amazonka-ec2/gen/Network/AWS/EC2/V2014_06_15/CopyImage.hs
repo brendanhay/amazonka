@@ -75,34 +75,28 @@ mkCopyImage p1 p2 = CopyImage
     , _ciDescription = Nothing
     , _ciClientToken = Nothing
     }
-{-# INLINE mkCopyImage #-}
 
 -- | The name of the region that contains the AMI to copy.
 ciSourceRegion :: Lens' CopyImage Text
 ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
-{-# INLINE ciSourceRegion #-}
 
 -- | The ID of the AMI to copy.
 ciSourceImageId :: Lens' CopyImage Text
 ciSourceImageId = lens _ciSourceImageId (\s a -> s { _ciSourceImageId = a })
-{-# INLINE ciSourceImageId #-}
 
 -- | The name of the new AMI in the destination region.
 ciName :: Lens' CopyImage (Maybe Text)
 ciName = lens _ciName (\s a -> s { _ciName = a })
-{-# INLINE ciName #-}
 
 -- | A description for the new AMI in the destination region.
 ciDescription :: Lens' CopyImage (Maybe Text)
 ciDescription = lens _ciDescription (\s a -> s { _ciDescription = a })
-{-# INLINE ciDescription #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the
 -- request. For more information, see How to Ensure Idempotency in the Amazon
 -- Elastic Compute Cloud User Guide.
 ciClientToken :: Lens' CopyImage (Maybe Text)
 ciClientToken = lens _ciClientToken (\s a -> s { _ciClientToken = a })
-{-# INLINE ciClientToken #-}
 
 instance ToQuery CopyImage where
     toQuery = genericQuery def
@@ -115,7 +109,6 @@ newtype CopyImageResponse = CopyImageResponse
 -- | The ID of the new AMI.
 cirsImageId :: Lens' CopyImageResponse (Maybe Text)
 cirsImageId = lens _cirsImageId (\s a -> s { _cirsImageId = a })
-{-# INLINE cirsImageId #-}
 
 instance FromXML CopyImageResponse where
     fromXMLOptions = xmlOptions

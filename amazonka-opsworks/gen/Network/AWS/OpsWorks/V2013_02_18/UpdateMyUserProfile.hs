@@ -49,13 +49,11 @@ mkUpdateMyUserProfile :: UpdateMyUserProfile
 mkUpdateMyUserProfile = UpdateMyUserProfile
     { _umupSshPublicKey = Nothing
     }
-{-# INLINE mkUpdateMyUserProfile #-}
 
 -- | The user's SSH public key.
 umupSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umupSshPublicKey =
     lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
-{-# INLINE umupSshPublicKey #-}
 
 instance ToPath UpdateMyUserProfile
 

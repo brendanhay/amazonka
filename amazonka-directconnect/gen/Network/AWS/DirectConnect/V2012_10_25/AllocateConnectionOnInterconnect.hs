@@ -77,39 +77,33 @@ mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnIntercon
     , _acoiInterconnectId = p4
     , _acoiVlan = p5
     }
-{-# INLINE mkAllocateConnectionOnInterconnect #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
 acoiBandwidth = lens _acoiBandwidth (\s a -> s { _acoiBandwidth = a })
-{-# INLINE acoiBandwidth #-}
 
 -- | Name of the provisioned connection. Example: "500M Connection to AWS"
 -- Default: None.
 acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
 acoiConnectionName =
     lens _acoiConnectionName (\s a -> s { _acoiConnectionName = a })
-{-# INLINE acoiConnectionName #-}
 
 -- | Numeric account Id of the customer for whom the connection will be
 -- provisioned. Example: 123443215678 Default: None.
 acoiOwnerAccount :: Lens' AllocateConnectionOnInterconnect Text
 acoiOwnerAccount =
     lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
-{-# INLINE acoiOwnerAccount #-}
 
 -- | ID of the interconnect on which the connection will be provisioned.
 -- Example: dxcon-456abc78 Default: None.
 acoiInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
 acoiInterconnectId =
     lens _acoiInterconnectId (\s a -> s { _acoiInterconnectId = a })
-{-# INLINE acoiInterconnectId #-}
 
 -- | The dedicated VLAN provisioned to the connection. Example: 101 Default:
 -- None.
 acoiVlan :: Lens' AllocateConnectionOnInterconnect Integer
 acoiVlan = lens _acoiVlan (\s a -> s { _acoiVlan = a })
-{-# INLINE acoiVlan #-}
 
 instance ToPath AllocateConnectionOnInterconnect
 
@@ -136,19 +130,16 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
 acoirsOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirsOwnerAccount =
     lens _acoirsOwnerAccount (\s a -> s { _acoirsOwnerAccount = a })
-{-# INLINE acoirsOwnerAccount #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 acoirsConnectionId :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirsConnectionId =
     lens _acoirsConnectionId (\s a -> s { _acoirsConnectionId = a })
-{-# INLINE acoirsConnectionId #-}
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
 acoirsConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirsConnectionName =
     lens _acoirsConnectionName (\s a -> s { _acoirsConnectionName = a })
-{-# INLINE acoirsConnectionName #-}
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state
@@ -164,33 +155,27 @@ acoirsConnectionName =
 acoirsConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
 acoirsConnectionState =
     lens _acoirsConnectionState (\s a -> s { _acoirsConnectionState = a })
-{-# INLINE acoirsConnectionState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
 acoirsRegion :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirsRegion = lens _acoirsRegion (\s a -> s { _acoirsRegion = a })
-{-# INLINE acoirsRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 acoirsLocation :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirsLocation = lens _acoirsLocation (\s a -> s { _acoirsLocation = a })
-{-# INLINE acoirsLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 acoirsBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirsBandwidth = lens _acoirsBandwidth (\s a -> s { _acoirsBandwidth = a })
-{-# INLINE acoirsBandwidth #-}
 
 -- | The VLAN ID. Example: 101.
 acoirsVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Integer)
 acoirsVlan = lens _acoirsVlan (\s a -> s { _acoirsVlan = a })
-{-# INLINE acoirsVlan #-}
 
 acoirsPartnerName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirsPartnerName =
     lens _acoirsPartnerName (\s a -> s { _acoirsPartnerName = a })
-{-# INLINE acoirsPartnerName #-}
 
 instance FromJSON AllocateConnectionOnInterconnectResponse
 

@@ -82,13 +82,11 @@ mkAssignPrivateIpAddresses p1 = AssignPrivateIpAddresses
     , _apiaSecondaryPrivateIpAddressCount = Nothing
     , _apiaAllowReassignment = Nothing
     }
-{-# INLINE mkAssignPrivateIpAddresses #-}
 
 -- | The ID of the network interface.
 apiaNetworkInterfaceId :: Lens' AssignPrivateIpAddresses Text
 apiaNetworkInterfaceId =
     lens _apiaNetworkInterfaceId (\s a -> s { _apiaNetworkInterfaceId = a })
-{-# INLINE apiaNetworkInterfaceId #-}
 
 -- | One or more IP addresses to be assigned as a secondary private IP address
 -- to the network interface. If you don't specify an IP address, Amazon EC2
@@ -96,14 +94,12 @@ apiaNetworkInterfaceId =
 apiaPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
 apiaPrivateIpAddresses =
     lens _apiaPrivateIpAddresses (\s a -> s { _apiaPrivateIpAddresses = a })
-{-# INLINE apiaPrivateIpAddresses #-}
 
 -- | The number of secondary IP addresses to assign to the network interface.
 apiaSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Integer)
 apiaSecondaryPrivateIpAddressCount =
     lens _apiaSecondaryPrivateIpAddressCount
          (\s a -> s { _apiaSecondaryPrivateIpAddressCount = a })
-{-# INLINE apiaSecondaryPrivateIpAddressCount #-}
 
 -- | Indicates whether to allow an IP address that is already assigned to
 -- another network interface or instance to be reassigned to the specified
@@ -111,7 +107,6 @@ apiaSecondaryPrivateIpAddressCount =
 apiaAllowReassignment :: Lens' AssignPrivateIpAddresses (Maybe Bool)
 apiaAllowReassignment =
     lens _apiaAllowReassignment (\s a -> s { _apiaAllowReassignment = a })
-{-# INLINE apiaAllowReassignment #-}
 
 instance ToQuery AssignPrivateIpAddresses where
     toQuery = genericQuery def

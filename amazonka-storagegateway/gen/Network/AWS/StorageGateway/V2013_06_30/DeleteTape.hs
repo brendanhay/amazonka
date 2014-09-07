@@ -52,17 +52,14 @@ mkDeleteTape p1 p2 = DeleteTape
     { _dtGatewayARN = p1
     , _dtTapeARN = p2
     }
-{-# INLINE mkDeleteTape #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dtGatewayARN :: Lens' DeleteTape Text
 dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
-{-# INLINE dtGatewayARN #-}
 
 dtTapeARN :: Lens' DeleteTape Text
 dtTapeARN = lens _dtTapeARN (\s a -> s { _dtTapeARN = a })
-{-# INLINE dtTapeARN #-}
 
 instance ToPath DeleteTape
 
@@ -78,7 +75,6 @@ newtype DeleteTapeResponse = DeleteTapeResponse
 
 dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrsTapeARN = lens _dtrsTapeARN (\s a -> s { _dtrsTapeARN = a })
-{-# INLINE dtrsTapeARN #-}
 
 instance FromJSON DeleteTapeResponse
 

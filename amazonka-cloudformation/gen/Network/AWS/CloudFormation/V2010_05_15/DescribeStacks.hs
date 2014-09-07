@@ -60,7 +60,6 @@ mkDescribeStacks = DescribeStacks
     { _ds1StackName = Nothing
     , _ds1NextToken = Nothing
     }
-{-# INLINE mkDescribeStacks #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
@@ -68,13 +67,11 @@ mkDescribeStacks = DescribeStacks
 -- stack ID. Default: There is no default value.
 ds1StackName :: Lens' DescribeStacks (Maybe Text)
 ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
-{-# INLINE ds1StackName #-}
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 ds1NextToken :: Lens' DescribeStacks (Maybe Text)
 ds1NextToken = lens _ds1NextToken (\s a -> s { _ds1NextToken = a })
-{-# INLINE ds1NextToken #-}
 
 instance ToQuery DescribeStacks where
     toQuery = genericQuery def
@@ -88,13 +85,11 @@ data DescribeStacksResponse = DescribeStacksResponse
 -- | A list of stack structures.
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
 dsrsStacks = lens _dsrsStacks (\s a -> s { _dsrsStacks = a })
-{-# INLINE dsrsStacks #-}
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 dsrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsrsNextToken = lens _dsrsNextToken (\s a -> s { _dsrsNextToken = a })
-{-# INLINE dsrsNextToken #-}
 
 instance FromXML DescribeStacksResponse where
     fromXMLOptions = xmlOptions
@@ -107,5 +102,5 @@ instance AWSRequest DescribeStacks where
     response _ = xmlResponse
 
 instance AWSPager DescribeStacks where
-    next rq rs = (\x -> rq { _ds1NextToken = Just x })
-        <$> (_dsrsNextToken rs)
+    next rq rs = (\x -> rq & ds1NextToken ?~ x) <$> (rs ^. dsrsNextToken)
+

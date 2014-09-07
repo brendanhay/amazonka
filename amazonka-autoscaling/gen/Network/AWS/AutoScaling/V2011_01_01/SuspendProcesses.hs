@@ -57,14 +57,12 @@ mkSuspendProcesses p1 = SuspendProcesses
     { _sp1AutoScalingGroupName = p1
     , _sp1ScalingProcesses = mempty
     }
-{-# INLINE mkSuspendProcesses #-}
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 sp1AutoScalingGroupName :: Lens' SuspendProcesses Text
 sp1AutoScalingGroupName =
     lens _sp1AutoScalingGroupName
          (\s a -> s { _sp1AutoScalingGroupName = a })
-{-# INLINE sp1AutoScalingGroupName #-}
 
 -- | The processes that you want to suspend or resume, which can include one or
 -- more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
@@ -73,7 +71,6 @@ sp1AutoScalingGroupName =
 sp1ScalingProcesses :: Lens' SuspendProcesses [Text]
 sp1ScalingProcesses =
     lens _sp1ScalingProcesses (\s a -> s { _sp1ScalingProcesses = a })
-{-# INLINE sp1ScalingProcesses #-}
 
 instance ToQuery SuspendProcesses where
     toQuery = genericQuery def

@@ -55,7 +55,6 @@ mkGetGeoLocation = GetGeoLocation
     , _gglCountryCode = Nothing
     , _gglSubdivisionCode = Nothing
     }
-{-# INLINE mkGetGeoLocation #-}
 
 -- | The code for a continent geo location. Note: only continent locations have
 -- a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
@@ -64,7 +63,6 @@ mkGetGeoLocation = GetGeoLocation
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode =
     lens _gglContinentCode (\s a -> s { _gglContinentCode = a })
-{-# INLINE gglContinentCode #-}
 
 -- | The code for a country geo location. The default location uses '*' for the
 -- country code and will match all locations that are not matched by a geo
@@ -72,7 +70,6 @@ gglContinentCode =
 -- country codes follow the ISO 3166 two-character code.
 gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
 gglCountryCode = lens _gglCountryCode (\s a -> s { _gglCountryCode = a })
-{-# INLINE gglCountryCode #-}
 
 -- | The code for a country's subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
@@ -81,7 +78,6 @@ gglCountryCode = lens _gglCountryCode (\s a -> s { _gglCountryCode = a })
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode =
     lens _gglSubdivisionCode (\s a -> s { _gglSubdivisionCode = a })
-{-# INLINE gglSubdivisionCode #-}
 
 instance ToPath GetGeoLocation where
     toPath = const "/2013-04-01/geolocation"
@@ -110,7 +106,6 @@ gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrsGeoLocationDetails =
     lens _gglrsGeoLocationDetails
          (\s a -> s { _gglrsGeoLocationDetails = a })
-{-# INLINE gglrsGeoLocationDetails #-}
 
 instance FromXML GetGeoLocationResponse where
     fromXMLOptions = xmlOptions

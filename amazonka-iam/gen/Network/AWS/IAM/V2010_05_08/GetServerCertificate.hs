@@ -70,14 +70,12 @@ mkGetServerCertificate :: Text -- ^ 'gscServerCertificateName'
 mkGetServerCertificate p1 = GetServerCertificate
     { _gscServerCertificateName = p1
     }
-{-# INLINE mkGetServerCertificate #-}
 
 -- | The name of the server certificate you want to retrieve information about.
 gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName =
     lens _gscServerCertificateName
          (\s a -> s { _gscServerCertificateName = a })
-{-# INLINE gscServerCertificateName #-}
 
 instance ToQuery GetServerCertificate where
     toQuery = genericQuery def
@@ -92,7 +90,6 @@ newtype GetServerCertificateResponse = GetServerCertificateResponse
 gscrsServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrsServerCertificate =
     lens _gscrsServerCertificate (\s a -> s { _gscrsServerCertificate = a })
-{-# INLINE gscrsServerCertificate #-}
 
 instance FromXML GetServerCertificateResponse where
     fromXMLOptions = xmlOptions

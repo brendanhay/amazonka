@@ -79,12 +79,10 @@ mkQueryObjects p1 p3 = QueryObjects
     , _qoMarker = Nothing
     , _qoLimit = Nothing
     }
-{-# INLINE mkQueryObjects #-}
 
 -- | Identifier of the pipeline to be queried for object names.
 qoPipelineId :: Lens' QueryObjects Text
 qoPipelineId = lens _qoPipelineId (\s a -> s { _qoPipelineId = a })
-{-# INLINE qoPipelineId #-}
 
 -- | Query that defines the objects to be returned. The Query object can contain
 -- a maximum of ten selectors. The conditions in the query are limited to
@@ -92,13 +90,11 @@ qoPipelineId = lens _qoPipelineId (\s a -> s { _qoPipelineId = a })
 -- components, instances, and attempts.
 qoQuery :: Lens' QueryObjects (Maybe Query)
 qoQuery = lens _qoQuery (\s a -> s { _qoQuery = a })
-{-# INLINE qoQuery #-}
 
 -- | Specifies whether the query applies to components or instances. Allowable
 -- values: COMPONENT, INSTANCE, ATTEMPT.
 qoSphere :: Lens' QueryObjects Text
 qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
-{-# INLINE qoSphere #-}
 
 -- | The starting point for the results to be returned. The first time you call
 -- QueryObjects, this value should be empty. As long as the action returns
@@ -106,13 +102,11 @@ qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
 -- value from the response to retrieve the next set of results.
 qoMarker :: Lens' QueryObjects (Maybe Text)
 qoMarker = lens _qoMarker (\s a -> s { _qoMarker = a })
-{-# INLINE qoMarker #-}
 
 -- | Specifies the maximum number of object names that QueryObjects will return
 -- in a single call. The default value is 100.
 qoLimit :: Lens' QueryObjects (Maybe Integer)
 qoLimit = lens _qoLimit (\s a -> s { _qoLimit = a })
-{-# INLINE qoLimit #-}
 
 instance ToPath QueryObjects
 
@@ -132,21 +126,18 @@ data QueryObjectsResponse = QueryObjectsResponse
 -- | A list of identifiers that match the query selectors.
 qorsIds :: Lens' QueryObjectsResponse [Text]
 qorsIds = lens _qorsIds (\s a -> s { _qorsIds = a })
-{-# INLINE qorsIds #-}
 
 -- | The starting point for the results to be returned. As long as the action
 -- returns HasMoreResults as True, you can call QueryObjects again and pass
 -- the marker value from the response to retrieve the next set of results.
 qorsMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorsMarker = lens _qorsMarker (\s a -> s { _qorsMarker = a })
-{-# INLINE qorsMarker #-}
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to QueryObjects.
 qorsHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
 qorsHasMoreResults =
     lens _qorsHasMoreResults (\s a -> s { _qorsHasMoreResults = a })
-{-# INLINE qorsHasMoreResults #-}
 
 instance FromJSON QueryObjectsResponse
 
@@ -159,7 +150,5 @@ instance AWSRequest QueryObjects where
 
 instance AWSPager QueryObjects where
     next rq rs
-        | not (_qorsHasMoreResults rs) = Nothing
-        | otherwise = Just $ rq
-            { _qoMarker = _qorsMarker rs
-            }
+        | not (rs ^. qorsHasMoreResults) = Nothing
+        | otherwise = Just (rq & qoMarker .~ rs ^. qorsMarker)

@@ -51,20 +51,17 @@ mkDeleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName = p1
     , _dncTopicARN = p2
     }
-{-# INLINE mkDeleteNotificationConfiguration #-}
 
 -- | The name of the Auto Scaling group.
 dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
 dncAutoScalingGroupName =
     lens _dncAutoScalingGroupName
          (\s a -> s { _dncAutoScalingGroupName = a })
-{-# INLINE dncAutoScalingGroupName #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
 dncTopicARN :: Lens' DeleteNotificationConfiguration Text
 dncTopicARN = lens _dncTopicARN (\s a -> s { _dncTopicARN = a })
-{-# INLINE dncTopicARN #-}
 
 instance ToQuery DeleteNotificationConfiguration where
     toQuery = genericQuery def

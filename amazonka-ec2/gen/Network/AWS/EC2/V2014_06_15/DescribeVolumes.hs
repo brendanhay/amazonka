@@ -72,12 +72,10 @@ mkDescribeVolumes = DescribeVolumes
     { _dv2VolumeIds = mempty
     , _dv2Filters = mempty
     }
-{-# INLINE mkDescribeVolumes #-}
 
 -- | One or more volume IDs.
 dv2VolumeIds :: Lens' DescribeVolumes [Text]
 dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a })
-{-# INLINE dv2VolumeIds #-}
 
 -- | One or more filters. attachment.attach-time - The time stamp when the
 -- attachment initiated. attachment.delete-on-termination - Whether the volume
@@ -104,7 +102,6 @@ dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a })
 -- standard for Magnetic volumes.
 dv2Filters :: Lens' DescribeVolumes [Filter]
 dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a })
-{-# INLINE dv2Filters #-}
 
 instance ToQuery DescribeVolumes where
     toQuery = genericQuery def
@@ -117,7 +114,6 @@ newtype DescribeVolumesResponse = DescribeVolumesResponse
 -- | 
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrsVolumes = lens _dvrsVolumes (\s a -> s { _dvrsVolumes = a })
-{-# INLINE dvrsVolumes #-}
 
 instance FromXML DescribeVolumesResponse where
     fromXMLOptions = xmlOptions

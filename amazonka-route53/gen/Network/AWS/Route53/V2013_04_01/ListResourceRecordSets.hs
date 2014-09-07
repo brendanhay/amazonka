@@ -82,7 +82,7 @@ import Network.AWS.Types (Region)
 data ListResourceRecordSets = ListResourceRecordSets
     { _lrrsHostedZoneId :: Text
     , _lrrsStartRecordName :: Maybe Text
-    , _lrrsStartRecordType :: Maybe RRType
+    , _lrrsStartRecordType :: Maybe RecordType
     , _lrrsStartRecordIdentifier :: Maybe Text
     , _lrrsMaxItems :: Maybe Text
     } deriving (Show, Generic)
@@ -98,21 +98,18 @@ mkListResourceRecordSets p1 = ListResourceRecordSets
     , _lrrsStartRecordIdentifier = Nothing
     , _lrrsMaxItems = Nothing
     }
-{-# INLINE mkListResourceRecordSets #-}
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to get.
 lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
 lrrsHostedZoneId =
     lens _lrrsHostedZoneId (\s a -> s { _lrrsHostedZoneId = a })
-{-# INLINE lrrsHostedZoneId #-}
 
 -- | The first name in the lexicographic ordering of domain names that you want
 -- the ListResourceRecordSets request to list.
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName =
     lens _lrrsStartRecordName (\s a -> s { _lrrsStartRecordName = a })
-{-# INLINE lrrsStartRecordName #-}
 
 -- | The DNS type at which to begin the listing of resource record sets. Valid
 -- values: A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT Values for
@@ -120,10 +117,9 @@ lrrsStartRecordName =
 -- Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias Resource
 -- Record Sets: A | AAAA Constraint: Specifying type without specifying name
 -- returns an InvalidInput error.
-lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RRType)
+lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
-{-# INLINE lrrsStartRecordType #-}
 
 -- | Weighted resource record sets only: If results were truncated for a given
 -- DNS name and type, specify the value of
@@ -134,12 +130,10 @@ lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordIdentifier =
     lens _lrrsStartRecordIdentifier
          (\s a -> s { _lrrsStartRecordIdentifier = a })
-{-# INLINE lrrsStartRecordIdentifier #-}
 
 -- | The maximum number of records you want in the response body.
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\s a -> s { _lrrsMaxItems = a })
-{-# INLINE lrrsMaxItems #-}
 
 instance ToPath ListResourceRecordSets where
     toPath ListResourceRecordSets{..} = mconcat
@@ -168,7 +162,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { _lrrsrsResourceRecordSets :: [ResourceRecordSet]
     , _lrrsrsIsTruncated :: Bool
     , _lrrsrsNextRecordName :: Maybe Text
-    , _lrrsrsNextRecordType :: Maybe RRType
+    , _lrrsrsNextRecordType :: Maybe RecordType
     , _lrrsrsNextRecordIdentifier :: Maybe Text
     , _lrrsrsMaxItems :: Text
     } deriving (Show, Generic)
@@ -179,7 +173,6 @@ lrrsrsResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecord
 lrrsrsResourceRecordSets =
     lens _lrrsrsResourceRecordSets
          (\s a -> s { _lrrsrsResourceRecordSets = a })
-{-# INLINE lrrsrsResourceRecordSets #-}
 
 -- | A flag that indicates whether there are more resource record sets to be
 -- listed. If your results were truncated, you can make a follow-up request
@@ -189,7 +182,6 @@ lrrsrsResourceRecordSets =
 lrrsrsIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
 lrrsrsIsTruncated =
     lens _lrrsrsIsTruncated (\s a -> s { _lrrsrsIsTruncated = a })
-{-# INLINE lrrsrsIsTruncated #-}
 
 -- | If the results were truncated, the name of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
@@ -197,15 +189,13 @@ lrrsrsIsTruncated =
 lrrsrsNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordName =
     lens _lrrsrsNextRecordName (\s a -> s { _lrrsrsNextRecordName = a })
-{-# INLINE lrrsrsNextRecordName #-}
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
 -- is true.
-lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RRType)
+lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrsNextRecordType =
     lens _lrrsrsNextRecordType (\s a -> s { _lrrsrsNextRecordType = a })
-{-# INLINE lrrsrsNextRecordType #-}
 
 -- | Weighted resource record sets only: If results were truncated for a given
 -- DNS name and type, the value of SetIdentifier for the next resource record
@@ -214,13 +204,11 @@ lrrsrsNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordIdentifier =
     lens _lrrsrsNextRecordIdentifier
          (\s a -> s { _lrrsrsNextRecordIdentifier = a })
-{-# INLINE lrrsrsNextRecordIdentifier #-}
 
 -- | The maximum number of records you requested. The maximum value of MaxItems
 -- is 100.
 lrrsrsMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrsMaxItems = lens _lrrsrsMaxItems (\s a -> s { _lrrsrsMaxItems = a })
-{-# INLINE lrrsrsMaxItems #-}
 
 instance FromXML ListResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions
@@ -234,14 +222,13 @@ instance AWSRequest ListResourceRecordSets where
 
 instance AWSPager ListResourceRecordSets where
     next rq rs
-        | not (_lrrsrsIsTruncated rs) = Nothing
-        | and [isNothing p1, isNothing p2, isNothing p3] = Nothing
+        | not (rs ^. lrrsrsIsTruncated) = Nothing
+        | isNothing p1 && isNothing p2 && isNothing p3 = Nothing
         | otherwise = Just $ rq
-            { _lrrsStartRecordName = p1
-            , _lrrsStartRecordType = p2
-            , _lrrsStartRecordIdentifier = p3
-            }
+            & lrrsStartRecordName .~ p1
+            & lrrsStartRecordType .~ p2
+            & lrrsStartRecordIdentifier .~ p3
       where
-        p1 = _lrrsrsNextRecordName rs
-        p2 = _lrrsrsNextRecordType rs
-        p3 = _lrrsrsNextRecordIdentifier rs
+       p1 = rs ^. lrrsrsNextRecordName
+       p2 = rs ^. lrrsrsNextRecordType
+       p3 = rs ^. lrrsrsNextRecordIdentifier

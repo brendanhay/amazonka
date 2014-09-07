@@ -59,13 +59,11 @@ mkDeleteHostedZone :: Text -- ^ 'dhzId'
 mkDeleteHostedZone p1 = DeleteHostedZone
     { _dhzId = p1
     }
-{-# INLINE mkDeleteHostedZone #-}
 
 -- | The ID of the request. Include this ID in a call to GetChange to track when
 -- the change has propagated to all Route 53 DNS servers.
 dhzId :: Lens' DeleteHostedZone Text
 dhzId = lens _dhzId (\s a -> s { _dhzId = a })
-{-# INLINE dhzId #-}
 
 instance ToPath DeleteHostedZone where
     toPath DeleteHostedZone{..} = mconcat
@@ -90,7 +88,6 @@ newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
 -- your delete request.
 dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrsChangeInfo = lens _dhzrsChangeInfo (\s a -> s { _dhzrsChangeInfo = a })
-{-# INLINE dhzrsChangeInfo #-}
 
 instance FromXML DeleteHostedZoneResponse where
     fromXMLOptions = xmlOptions

@@ -85,32 +85,26 @@ mkCreateApp p1 p3 p6 = CreateApp
     , _caSslConfiguration = Nothing
     , _caAttributes = mempty
     }
-{-# INLINE mkCreateApp #-}
 
 -- | The stack ID.
 caStackId :: Lens' CreateApp Text
 caStackId = lens _caStackId (\s a -> s { _caStackId = a })
-{-# INLINE caStackId #-}
 
 -- | The app's short name.
 caShortname :: Lens' CreateApp (Maybe Text)
 caShortname = lens _caShortname (\s a -> s { _caShortname = a })
-{-# INLINE caShortname #-}
 
 -- | The app name.
 caName :: Lens' CreateApp Text
 caName = lens _caName (\s a -> s { _caName = a })
-{-# INLINE caName #-}
 
 -- | A description of the app.
 caDescription :: Lens' CreateApp (Maybe Text)
 caDescription = lens _caDescription (\s a -> s { _caDescription = a })
-{-# INLINE caDescription #-}
 
 -- | The app's data source.
 caDataSources :: Lens' CreateApp [DataSource]
 caDataSources = lens _caDataSources (\s a -> s { _caDataSources = a })
-{-# INLINE caDataSources #-}
 
 -- | The app type. Each supported type is associated with a particular layer.
 -- For example, PHP applications are associated with a PHP layer. AWS OpsWorks
@@ -118,35 +112,29 @@ caDataSources = lens _caDataSources (\s a -> s { _caDataSources = a })
 -- corresponding layer.
 caType :: Lens' CreateApp AppType
 caType = lens _caType (\s a -> s { _caType = a })
-{-# INLINE caType #-}
 
 -- | A Source object that specifies the app repository.
 caAppSource :: Lens' CreateApp (Maybe Source)
 caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
-{-# INLINE caAppSource #-}
 
 -- | The app virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
 caDomains :: Lens' CreateApp [Text]
 caDomains = lens _caDomains (\s a -> s { _caDomains = a })
-{-# INLINE caDomains #-}
 
 -- | Whether to enable SSL for the app.
 caEnableSsl :: Lens' CreateApp (Maybe Bool)
 caEnableSsl = lens _caEnableSsl (\s a -> s { _caEnableSsl = a })
-{-# INLINE caEnableSsl #-}
 
 -- | An SslConfiguration object with the SSL configuration.
 caSslConfiguration :: Lens' CreateApp (Maybe SslConfiguration)
 caSslConfiguration =
     lens _caSslConfiguration (\s a -> s { _caSslConfiguration = a })
-{-# INLINE caSslConfiguration #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 caAttributes :: Lens' CreateApp (Map AppAttributesKeys Text)
 caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a })
-{-# INLINE caAttributes #-}
 
 instance ToPath CreateApp
 
@@ -164,7 +152,6 @@ newtype CreateAppResponse = CreateAppResponse
 -- | The app ID.
 carsAppId :: Lens' CreateAppResponse (Maybe Text)
 carsAppId = lens _carsAppId (\s a -> s { _carsAppId = a })
-{-# INLINE carsAppId #-}
 
 instance FromJSON CreateAppResponse
 

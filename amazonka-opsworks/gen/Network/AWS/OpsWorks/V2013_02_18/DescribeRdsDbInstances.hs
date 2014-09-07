@@ -52,19 +52,16 @@ mkDescribeRdsDbInstances p1 = DescribeRdsDbInstances
     { _drdi1StackId = p1
     , _drdi1RdsDbInstanceArns = mempty
     }
-{-# INLINE mkDescribeRdsDbInstances #-}
 
 -- | The stack ID that the instances are registered with. The operation returns
 -- descriptions of all registered Amazon RDS instances.
 drdi1StackId :: Lens' DescribeRdsDbInstances Text
 drdi1StackId = lens _drdi1StackId (\s a -> s { _drdi1StackId = a })
-{-# INLINE drdi1StackId #-}
 
 -- | An array containing the ARNs of the instances to be described.
 drdi1RdsDbInstanceArns :: Lens' DescribeRdsDbInstances [Text]
 drdi1RdsDbInstanceArns =
     lens _drdi1RdsDbInstanceArns (\s a -> s { _drdi1RdsDbInstanceArns = a })
-{-# INLINE drdi1RdsDbInstanceArns #-}
 
 instance ToPath DescribeRdsDbInstances
 
@@ -83,7 +80,6 @@ newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
 drdirsRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
 drdirsRdsDbInstances =
     lens _drdirsRdsDbInstances (\s a -> s { _drdirsRdsDbInstances = a })
-{-# INLINE drdirsRdsDbInstances #-}
 
 instance FromJSON DescribeRdsDbInstancesResponse
 

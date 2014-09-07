@@ -76,19 +76,16 @@ mkListStreams = ListStreams
     { _lsLimit = Nothing
     , _lsExclusiveStartStreamName = Nothing
     }
-{-# INLINE mkListStreams #-}
 
 -- | The maximum number of streams to list.
 lsLimit :: Lens' ListStreams (Maybe Integer)
 lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a })
-{-# INLINE lsLimit #-}
 
 -- | The name of the stream to start the list with.
 lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
 lsExclusiveStartStreamName =
     lens _lsExclusiveStartStreamName
          (\s a -> s { _lsExclusiveStartStreamName = a })
-{-# INLINE lsExclusiveStartStreamName #-}
 
 instance ToPath ListStreams
 
@@ -108,13 +105,11 @@ data ListStreamsResponse = ListStreamsResponse
 -- the ListStreams request.
 lsrsStreamNames :: Lens' ListStreamsResponse [Text]
 lsrsStreamNames = lens _lsrsStreamNames (\s a -> s { _lsrsStreamNames = a })
-{-# INLINE lsrsStreamNames #-}
 
 -- | If set to true, there are more streams available to list.
 lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrsHasMoreStreams =
     lens _lsrsHasMoreStreams (\s a -> s { _lsrsHasMoreStreams = a })
-{-# INLINE lsrsHasMoreStreams #-}
 
 instance FromJSON ListStreamsResponse
 
@@ -127,7 +122,5 @@ instance AWSRequest ListStreams where
 
 instance AWSPager ListStreams where
     next rq rs
-        | not (_lsrsHasMoreStreams rs) = Nothing
-        | otherwise = Just $ rq
-            { _lsExclusiveStartStreamName = keyed id _lsrsStreamNames rs
-            }
+        | not (rs ^. lsrsHasMoreStreams) = Nothing
+        | otherwise = Just (rq & lsExclusiveStartStreamName .~ rs ^. keyed id lsrsStreamNames)

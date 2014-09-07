@@ -68,14 +68,12 @@ mkAuthorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngre
     , _acsgiEC2SecurityGroupName = p2
     , _acsgiEC2SecurityGroupOwnerId = p3
     }
-{-# INLINE mkAuthorizeCacheSecurityGroupIngress #-}
 
 -- | The cache security group which will allow network ingress.
 acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiCacheSecurityGroupName =
     lens _acsgiCacheSecurityGroupName
          (\s a -> s { _acsgiCacheSecurityGroupName = a })
-{-# INLINE acsgiCacheSecurityGroupName #-}
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
@@ -83,7 +81,6 @@ acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupName =
     lens _acsgiEC2SecurityGroupName
          (\s a -> s { _acsgiEC2SecurityGroupName = a })
-{-# INLINE acsgiEC2SecurityGroupName #-}
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
@@ -92,7 +89,6 @@ acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId
          (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
-{-# INLINE acsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeCacheSecurityGroupIngress where
     toQuery = genericQuery def
@@ -108,7 +104,6 @@ acsgirsCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (M
 acsgirsCacheSecurityGroup =
     lens _acsgirsCacheSecurityGroup
          (\s a -> s { _acsgirsCacheSecurityGroup = a })
-{-# INLINE acsgirsCacheSecurityGroup #-}
 
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

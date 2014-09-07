@@ -47,11 +47,9 @@ mkDeleteBucketWebsite :: BucketName -- ^ 'dbwBucket'
 mkDeleteBucketWebsite p1 = DeleteBucketWebsite
     { _dbwBucket = p1
     }
-{-# INLINE mkDeleteBucketWebsite #-}
 
 dbwBucket :: Lens' DeleteBucketWebsite BucketName
 dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
-{-# INLINE dbwBucket #-}
 
 instance ToPath DeleteBucketWebsite where
     toPath DeleteBucketWebsite{..} = mconcat

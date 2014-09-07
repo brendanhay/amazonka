@@ -75,14 +75,12 @@ mkTerminateEnvironment = TerminateEnvironment
     , _teEnvironmentName = Nothing
     , _teTerminateResources = Nothing
     }
-{-# INLINE mkTerminateEnvironment #-}
 
 -- | The ID of the environment to terminate. Condition: You must specify either
 -- this or an EnvironmentName, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
 teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentId = lens _teEnvironmentId (\s a -> s { _teEnvironmentId = a })
-{-# INLINE teEnvironmentId #-}
 
 -- | The name of the environment to terminate. Condition: You must specify
 -- either this or an EnvironmentId, or both. If you do not specify either, AWS
@@ -90,7 +88,6 @@ teEnvironmentId = lens _teEnvironmentId (\s a -> s { _teEnvironmentId = a })
 teEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentName =
     lens _teEnvironmentName (\s a -> s { _teEnvironmentName = a })
-{-# INLINE teEnvironmentName #-}
 
 -- | Indicates whether the associated AWS resources should shut down when the
 -- environment is terminated: true: (default) The user AWS resources (for
@@ -105,7 +102,6 @@ teEnvironmentName =
 teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
 teTerminateResources =
     lens _teTerminateResources (\s a -> s { _teTerminateResources = a })
-{-# INLINE teTerminateResources #-}
 
 instance ToQuery TerminateEnvironment where
     toQuery = genericQuery def
@@ -133,64 +129,53 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
 tersEnvironmentName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersEnvironmentName =
     lens _tersEnvironmentName (\s a -> s { _tersEnvironmentName = a })
-{-# INLINE tersEnvironmentName #-}
 
 -- | The ID of this environment.
 tersEnvironmentId :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersEnvironmentId =
     lens _tersEnvironmentId (\s a -> s { _tersEnvironmentId = a })
-{-# INLINE tersEnvironmentId #-}
 
 -- | The name of the application associated with this environment.
 tersApplicationName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersApplicationName =
     lens _tersApplicationName (\s a -> s { _tersApplicationName = a })
-{-# INLINE tersApplicationName #-}
 
 -- | The application version deployed in this environment.
 tersVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersVersionLabel =
     lens _tersVersionLabel (\s a -> s { _tersVersionLabel = a })
-{-# INLINE tersVersionLabel #-}
 
 -- | The name of the SolutionStack deployed with this environment.
 tersSolutionStackName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersSolutionStackName =
     lens _tersSolutionStackName (\s a -> s { _tersSolutionStackName = a })
-{-# INLINE tersSolutionStackName #-}
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
 tersTemplateName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersTemplateName =
     lens _tersTemplateName (\s a -> s { _tersTemplateName = a })
-{-# INLINE tersTemplateName #-}
 
 -- | Describes this environment.
 tersDescription :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersDescription = lens _tersDescription (\s a -> s { _tersDescription = a })
-{-# INLINE tersDescription #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
 tersEndpointURL :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersEndpointURL = lens _tersEndpointURL (\s a -> s { _tersEndpointURL = a })
-{-# INLINE tersEndpointURL #-}
 
 -- | The URL to the CNAME for this environment.
 tersCNAME :: Lens' TerminateEnvironmentResponse (Maybe Text)
 tersCNAME = lens _tersCNAME (\s a -> s { _tersCNAME = a })
-{-# INLINE tersCNAME #-}
 
 -- | The creation date for this environment.
 tersDateCreated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
 tersDateCreated = lens _tersDateCreated (\s a -> s { _tersDateCreated = a })
-{-# INLINE tersDateCreated #-}
 
 -- | The last modified date for this environment.
 tersDateUpdated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
 tersDateUpdated = lens _tersDateUpdated (\s a -> s { _tersDateUpdated = a })
-{-# INLINE tersDateUpdated #-}
 
 -- | The current operational status of the environment: Launching: Environment
 -- is in the process of initial deployment. Updating: Environment is in the
@@ -200,7 +185,6 @@ tersDateUpdated = lens _tersDateUpdated (\s a -> s { _tersDateUpdated = a })
 -- Terminated: Environment is not running.
 tersStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
 tersStatus = lens _tersStatus (\s a -> s { _tersStatus = a })
-{-# INLINE tersStatus #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment: Red : Indicates the
@@ -217,17 +201,14 @@ tersStatus = lens _tersStatus (\s a -> s { _tersStatus = a })
 -- Default: Grey.
 tersHealth :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentHealth)
 tersHealth = lens _tersHealth (\s a -> s { _tersHealth = a })
-{-# INLINE tersHealth #-}
 
 -- | The description of the AWS resources used by this environment.
 tersResources :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 tersResources = lens _tersResources (\s a -> s { _tersResources = a })
-{-# INLINE tersResources #-}
 
 -- | Describes the current tier of this environment.
 tersTier :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentTier)
 tersTier = lens _tersTier (\s a -> s { _tersTier = a })
-{-# INLINE tersTier #-}
 
 instance FromXML TerminateEnvironmentResponse where
     fromXMLOptions = xmlOptions

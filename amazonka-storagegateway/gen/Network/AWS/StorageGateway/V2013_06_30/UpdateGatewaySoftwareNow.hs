@@ -74,13 +74,11 @@ mkUpdateGatewaySoftwareNow :: Text -- ^ 'ugsnGatewayARN'
 mkUpdateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
     { _ugsnGatewayARN = p1
     }
-{-# INLINE mkUpdateGatewaySoftwareNow #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
 ugsnGatewayARN = lens _ugsnGatewayARN (\s a -> s { _ugsnGatewayARN = a })
-{-# INLINE ugsnGatewayARN #-}
 
 instance ToPath UpdateGatewaySoftwareNow
 
@@ -100,7 +98,6 @@ newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
 ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrsGatewayARN =
     lens _ugsnrsGatewayARN (\s a -> s { _ugsnrsGatewayARN = a })
-{-# INLINE ugsnrsGatewayARN #-}
 
 instance FromJSON UpdateGatewaySoftwareNowResponse
 

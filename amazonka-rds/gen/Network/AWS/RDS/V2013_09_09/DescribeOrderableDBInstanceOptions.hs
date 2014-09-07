@@ -80,39 +80,33 @@ mkDescribeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
     , _dodbioMaxRecords = Nothing
     , _dodbioMarker = Nothing
     }
-{-# INLINE mkDescribeOrderableDBInstanceOptions #-}
 
 -- | The name of the engine to retrieve DB instance options for.
 dodbioEngine :: Lens' DescribeOrderableDBInstanceOptions Text
 dodbioEngine = lens _dodbioEngine (\s a -> s { _dodbioEngine = a })
-{-# INLINE dodbioEngine #-}
 
 -- | The engine version filter value. Specify this parameter to show only the
 -- available offerings matching the specified engine version.
 dodbioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodbioEngineVersion =
     lens _dodbioEngineVersion (\s a -> s { _dodbioEngineVersion = a })
-{-# INLINE dodbioEngineVersion #-}
 
 -- | The DB instance class filter value. Specify this parameter to show only the
 -- available offerings matching the specified DB instance class.
 dodbioDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodbioDBInstanceClass =
     lens _dodbioDBInstanceClass (\s a -> s { _dodbioDBInstanceClass = a })
-{-# INLINE dodbioDBInstanceClass #-}
 
 -- | The license model filter value. Specify this parameter to show only the
 -- available offerings matching the specified license model.
 dodbioLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodbioLicenseModel =
     lens _dodbioLicenseModel (\s a -> s { _dodbioLicenseModel = a })
-{-# INLINE dodbioLicenseModel #-}
 
 -- | The VPC filter value. Specify this parameter to show only the available VPC
 -- or non-VPC offerings.
 dodbioVpc :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
 dodbioVpc = lens _dodbioVpc (\s a -> s { _dodbioVpc = a })
-{-# INLINE dodbioVpc #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -121,7 +115,6 @@ dodbioVpc = lens _dodbioVpc (\s a -> s { _dodbioVpc = a })
 dodbioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Integer)
 dodbioMaxRecords =
     lens _dodbioMaxRecords (\s a -> s { _dodbioMaxRecords = a })
-{-# INLINE dodbioMaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
@@ -129,7 +122,6 @@ dodbioMaxRecords =
 -- specified by MaxRecords .
 dodbioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodbioMarker = lens _dodbioMarker (\s a -> s { _dodbioMarker = a })
-{-# INLINE dodbioMarker #-}
 
 instance ToQuery DescribeOrderableDBInstanceOptions where
     toQuery = genericQuery def
@@ -147,7 +139,6 @@ dodbiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsRe
 dodbiorsOrderableDBInstanceOptions =
     lens _dodbiorsOrderableDBInstanceOptions
          (\s a -> s { _dodbiorsOrderableDBInstanceOptions = a })
-{-# INLINE dodbiorsOrderableDBInstanceOptions #-}
 
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the
@@ -155,7 +146,6 @@ dodbiorsOrderableDBInstanceOptions =
 -- by MaxRecords .
 dodbiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodbiorsMarker = lens _dodbiorsMarker (\s a -> s { _dodbiorsMarker = a })
-{-# INLINE dodbiorsMarker #-}
 
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -168,5 +158,5 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
-    next rq rs = (\x -> rq { _dodbioMarker = Just x })
-        <$> (_dodbiorsMarker rs)
+    next rq rs = (\x -> rq & dodbioMarker ?~ x) <$> (rs ^. dodbiorsMarker)
+

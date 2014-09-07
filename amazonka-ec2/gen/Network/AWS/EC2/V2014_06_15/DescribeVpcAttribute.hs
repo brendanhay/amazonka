@@ -75,17 +75,14 @@ mkDescribeVpcAttribute p1 = DescribeVpcAttribute
     { _dva1VpcId = p1
     , _dva1Attribute = Nothing
     }
-{-# INLINE mkDescribeVpcAttribute #-}
 
 -- | The ID of the VPC.
 dva1VpcId :: Lens' DescribeVpcAttribute Text
 dva1VpcId = lens _dva1VpcId (\s a -> s { _dva1VpcId = a })
-{-# INLINE dva1VpcId #-}
 
 -- | The VPC attribute.
 dva1Attribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
 dva1Attribute = lens _dva1Attribute (\s a -> s { _dva1Attribute = a })
-{-# INLINE dva1Attribute #-}
 
 instance ToQuery DescribeVpcAttribute where
     toQuery = genericQuery def
@@ -100,7 +97,6 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
 -- | The ID of the VPC.
 dvarsrsVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
 dvarsrsVpcId = lens _dvarsrsVpcId (\s a -> s { _dvarsrsVpcId = a })
-{-# INLINE dvarsrsVpcId #-}
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this attribute
 -- is true, the Amazon DNS server resolves DNS hostnames for your instances to
@@ -109,7 +105,6 @@ dvarsrsEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBo
 dvarsrsEnableDnsSupport =
     lens _dvarsrsEnableDnsSupport
          (\s a -> s { _dvarsrsEnableDnsSupport = a })
-{-# INLINE dvarsrsEnableDnsSupport #-}
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
@@ -118,7 +113,6 @@ dvarsrsEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe Attribute
 dvarsrsEnableDnsHostnames =
     lens _dvarsrsEnableDnsHostnames
          (\s a -> s { _dvarsrsEnableDnsHostnames = a })
-{-# INLINE dvarsrsEnableDnsHostnames #-}
 
 instance FromXML DescribeVpcAttributeResponse where
     fromXMLOptions = xmlOptions

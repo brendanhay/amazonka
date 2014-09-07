@@ -58,12 +58,10 @@ mkDeleteSnapshot :: Text -- ^ 'dsSnapshotName'
 mkDeleteSnapshot p1 = DeleteSnapshot
     { _dsSnapshotName = p1
     }
-{-# INLINE mkDeleteSnapshot #-}
 
 -- | The name of the snapshot to be deleted.
 dsSnapshotName :: Lens' DeleteSnapshot Text
 dsSnapshotName = lens _dsSnapshotName (\s a -> s { _dsSnapshotName = a })
-{-# INLINE dsSnapshotName #-}
 
 instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def
@@ -76,7 +74,6 @@ newtype DeleteSnapshotResponse = DeleteSnapshotResponse
 -- snapshot was taken.
 dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrsSnapshot = lens _dsrsSnapshot (\s a -> s { _dsrsSnapshot = a })
-{-# INLINE dsrsSnapshot #-}
 
 instance FromXML DeleteSnapshotResponse where
     fromXMLOptions = xmlOptions

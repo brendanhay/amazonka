@@ -64,7 +64,6 @@ mkCopyDBSnapshot p1 p2 = CopyDBSnapshot
     , _cdbsTargetDBSnapshotIdentifier = p2
     , _cdbsTags = mempty
     }
-{-# INLINE mkCopyDBSnapshot #-}
 
 -- | The identifier for the source DB snapshot. Constraints: Must specify a
 -- valid system snapshot in the "available" state. If the source snapshot is
@@ -78,7 +77,6 @@ cdbsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdbsSourceDBSnapshotIdentifier =
     lens _cdbsSourceDBSnapshotIdentifier
          (\s a -> s { _cdbsSourceDBSnapshotIdentifier = a })
-{-# INLINE cdbsSourceDBSnapshotIdentifier #-}
 
 -- | The identifier for the copied snapshot. Constraints: Cannot be null, empty,
 -- or blank Must contain from 1 to 255 alphanumeric characters or hyphens
@@ -88,12 +86,10 @@ cdbsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdbsTargetDBSnapshotIdentifier =
     lens _cdbsTargetDBSnapshotIdentifier
          (\s a -> s { _cdbsTargetDBSnapshotIdentifier = a })
-{-# INLINE cdbsTargetDBSnapshotIdentifier #-}
 
 -- | A list of tags.
 cdbsTags :: Lens' CopyDBSnapshot [Tag]
 cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a })
-{-# INLINE cdbsTags #-}
 
 instance ToQuery CopyDBSnapshot where
     toQuery = genericQuery def
@@ -108,7 +104,6 @@ newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
 cdbsrsDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdbsrsDBSnapshot =
     lens _cdbsrsDBSnapshot (\s a -> s { _cdbsrsDBSnapshot = a })
-{-# INLINE cdbsrsDBSnapshot #-}
 
 instance FromXML CopyDBSnapshotResponse where
     fromXMLOptions = xmlOptions

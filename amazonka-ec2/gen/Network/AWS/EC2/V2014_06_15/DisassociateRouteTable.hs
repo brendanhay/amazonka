@@ -58,14 +58,12 @@ mkDisassociateRouteTable :: Text -- ^ 'drt2AssociationId'
 mkDisassociateRouteTable p1 = DisassociateRouteTable
     { _drt2AssociationId = p1
     }
-{-# INLINE mkDisassociateRouteTable #-}
 
 -- | The association ID representing the current association between the route
 -- table and subnet.
 drt2AssociationId :: Lens' DisassociateRouteTable Text
 drt2AssociationId =
     lens _drt2AssociationId (\s a -> s { _drt2AssociationId = a })
-{-# INLINE drt2AssociationId #-}
 
 instance ToQuery DisassociateRouteTable where
     toQuery = genericQuery def

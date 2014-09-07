@@ -64,7 +64,6 @@ mkPurchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
     , _prcnoReservedCacheNodeId = Nothing
     , _prcnoCacheNodeCount = Nothing
     }
-{-# INLINE mkPurchaseReservedCacheNodesOffering #-}
 
 -- | The ID of the reserved cache node offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
@@ -72,7 +71,6 @@ prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Te
 prcnoReservedCacheNodesOfferingId =
     lens _prcnoReservedCacheNodesOfferingId
          (\s a -> s { _prcnoReservedCacheNodesOfferingId = a })
-{-# INLINE prcnoReservedCacheNodesOfferingId #-}
 
 -- | A customer-specified identifier to track this reservation. Example:
 -- myreservationID.
@@ -80,13 +78,11 @@ prcnoReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text
 prcnoReservedCacheNodeId =
     lens _prcnoReservedCacheNodeId
          (\s a -> s { _prcnoReservedCacheNodeId = a })
-{-# INLINE prcnoReservedCacheNodeId #-}
 
 -- | The number of cache node instances to reserve. Default: 1.
 prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Integer)
 prcnoCacheNodeCount =
     lens _prcnoCacheNodeCount (\s a -> s { _prcnoCacheNodeCount = a })
-{-# INLINE prcnoCacheNodeCount #-}
 
 instance ToQuery PurchaseReservedCacheNodesOffering where
     toQuery = genericQuery def
@@ -100,7 +96,6 @@ prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Ma
 prcnorsReservedCacheNode =
     lens _prcnorsReservedCacheNode
          (\s a -> s { _prcnorsReservedCacheNode = a })
-{-# INLINE prcnorsReservedCacheNode #-}
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
     fromXMLOptions = xmlOptions

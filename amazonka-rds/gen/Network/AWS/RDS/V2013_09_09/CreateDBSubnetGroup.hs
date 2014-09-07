@@ -68,7 +68,6 @@ mkCreateDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
     , _cdbsg1SubnetIds = p3
     , _cdbsg1Tags = mempty
     }
-{-# INLINE mkCreateDBSubnetGroup #-}
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
@@ -77,24 +76,20 @@ cdbsg1DBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
 cdbsg1DBSubnetGroupName =
     lens _cdbsg1DBSubnetGroupName
          (\s a -> s { _cdbsg1DBSubnetGroupName = a })
-{-# INLINE cdbsg1DBSubnetGroupName #-}
 
 -- | The description for the DB subnet group.
 cdbsg1DBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
 cdbsg1DBSubnetGroupDescription =
     lens _cdbsg1DBSubnetGroupDescription
          (\s a -> s { _cdbsg1DBSubnetGroupDescription = a })
-{-# INLINE cdbsg1DBSubnetGroupDescription #-}
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 cdbsg1SubnetIds :: Lens' CreateDBSubnetGroup [Text]
 cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a })
-{-# INLINE cdbsg1SubnetIds #-}
 
 -- | A list of tags.
 cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
 cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a })
-{-# INLINE cdbsg1Tags #-}
 
 instance ToQuery CreateDBSubnetGroup where
     toQuery = genericQuery def
@@ -110,7 +105,6 @@ newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
 cdbsgrsrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdbsgrsrsDBSubnetGroup =
     lens _cdbsgrsrsDBSubnetGroup (\s a -> s { _cdbsgrsrsDBSubnetGroup = a })
-{-# INLINE cdbsgrsrsDBSubnetGroup #-}
 
 instance FromXML CreateDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions

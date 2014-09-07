@@ -66,13 +66,11 @@ mkDescribeEventSubscriptions = DescribeEventSubscriptions
     , _des1MaxRecords = Nothing
     , _des1Marker = Nothing
     }
-{-# INLINE mkDescribeEventSubscriptions #-}
 
 -- | The name of the RDS event notification subscription you want to describe.
 des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
-{-# INLINE des1SubscriptionName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -80,7 +78,6 @@ des1SubscriptionName =
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Integer)
 des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
-{-# INLINE des1MaxRecords #-}
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
@@ -88,7 +85,6 @@ des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
 -- specified by MaxRecords .
 des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
-{-# INLINE des1Marker #-}
 
 instance ToQuery DescribeEventSubscriptions where
     toQuery = genericQuery def
@@ -105,14 +101,12 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
 -- specified by MaxRecords.
 desrsrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrsrsMarker = lens _desrsrsMarker (\s a -> s { _desrsrsMarker = a })
-{-# INLINE desrsrsMarker #-}
 
 -- | A list of EventSubscriptions data types.
 desrsrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
 desrsrsEventSubscriptionsList =
     lens _desrsrsEventSubscriptionsList
          (\s a -> s { _desrsrsEventSubscriptionsList = a })
-{-# INLINE desrsrsEventSubscriptionsList #-}
 
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions
@@ -125,5 +119,5 @@ instance AWSRequest DescribeEventSubscriptions where
     response _ = xmlResponse
 
 instance AWSPager DescribeEventSubscriptions where
-    next rq rs = (\x -> rq { _des1Marker = Just x })
-        <$> (_desrsrsMarker rs)
+    next rq rs = (\x -> rq & des1Marker ?~ x) <$> (rs ^. desrsrsMarker)
+

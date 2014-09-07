@@ -72,13 +72,11 @@ mkDeleteTags p1 = DeleteTags
     { _dtResources = p1
     , _dtTags = mempty
     }
-{-# INLINE mkDeleteTags #-}
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
 dtResources :: Lens' DeleteTags [Text]
 dtResources = lens _dtResources (\s a -> s { _dtResources = a })
-{-# INLINE dtResources #-}
 
 -- | One or more tags to delete. If you omit the value parameter, we delete the
 -- tag regardless of its value. If you specify this parameter with an empty
@@ -86,7 +84,6 @@ dtResources = lens _dtResources (\s a -> s { _dtResources = a })
 -- string.
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\s a -> s { _dtTags = a })
-{-# INLINE dtTags #-}
 
 instance ToQuery DeleteTags where
     toQuery = genericQuery def

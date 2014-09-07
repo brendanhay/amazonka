@@ -50,11 +50,9 @@ mkGetBucketAcl :: BucketName -- ^ 'gbaBucket'
 mkGetBucketAcl p1 = GetBucketAcl
     { _gbaBucket = p1
     }
-{-# INLINE mkGetBucketAcl #-}
 
 gbaBucket :: Lens' GetBucketAcl BucketName
 gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
-{-# INLINE gbaBucket #-}
 
 instance ToPath GetBucketAcl where
     toPath GetBucketAcl{..} = mconcat
@@ -78,12 +76,10 @@ data GetBucketAclResponse = GetBucketAclResponse
 
 gbarsOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbarsOwner = lens _gbarsOwner (\s a -> s { _gbarsOwner = a })
-{-# INLINE gbarsOwner #-}
 
 -- | A list of grants.
 gbarsGrants :: Lens' GetBucketAclResponse [Grant]
 gbarsGrants = lens _gbarsGrants (\s a -> s { _gbarsGrants = a })
-{-# INLINE gbarsGrants #-}
 
 instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions

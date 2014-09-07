@@ -51,20 +51,17 @@ mkDeleteScheduledAction p2 = DeleteScheduledAction
     { _dsaAutoScalingGroupName = Nothing
     , _dsaScheduledActionName = p2
     }
-{-# INLINE mkDeleteScheduledAction #-}
 
 -- | The name of the Auto Scaling group.
 dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
 dsaAutoScalingGroupName =
     lens _dsaAutoScalingGroupName
          (\s a -> s { _dsaAutoScalingGroupName = a })
-{-# INLINE dsaAutoScalingGroupName #-}
 
 -- | The name of the action you want to delete.
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName =
     lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })
-{-# INLINE dsaScheduledActionName #-}
 
 instance ToQuery DeleteScheduledAction where
     toQuery = genericQuery def

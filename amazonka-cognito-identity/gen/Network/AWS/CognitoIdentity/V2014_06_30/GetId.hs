@@ -62,24 +62,20 @@ mkGetId p1 p2 = GetId
     , _giIdentityPoolId = p2
     , _giLogins = mempty
     }
-{-# INLINE mkGetId #-}
 
 -- | A standard AWS account ID (9+ digits).
 giAccountId :: Lens' GetId Text
 giAccountId = lens _giAccountId (\s a -> s { _giAccountId = a })
-{-# INLINE giAccountId #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 giIdentityPoolId :: Lens' GetId Text
 giIdentityPoolId =
     lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
-{-# INLINE giIdentityPoolId #-}
 
 -- | A set of optional name/value pairs that map provider names to provider
 -- tokens.
 giLogins :: Lens' GetId (Map Text Text)
 giLogins = lens _giLogins (\s a -> s { _giLogins = a })
-{-# INLINE giLogins #-}
 
 instance ToPath GetId
 
@@ -97,7 +93,6 @@ newtype GetIdResponse = GetIdResponse
 -- | A unique identifier in the format REGION:GUID.
 girsIdentityId :: Lens' GetIdResponse (Maybe Text)
 girsIdentityId = lens _girsIdentityId (\s a -> s { _girsIdentityId = a })
-{-# INLINE girsIdentityId #-}
 
 instance FromJSON GetIdResponse
 

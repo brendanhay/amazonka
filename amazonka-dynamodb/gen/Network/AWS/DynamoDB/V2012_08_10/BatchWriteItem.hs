@@ -106,7 +106,6 @@ mkBatchWriteItem p1 = BatchWriteItem
     , _bwiReturnConsumedCapacity = Nothing
     , _bwiReturnItemCollectionMetrics = Nothing
     }
-{-# INLINE mkBatchWriteItem #-}
 
 -- | A map of one or more table names and, for each table, a list of operations
 -- to be performed (DeleteRequest or PutRequest). Each element in the map
@@ -126,7 +125,6 @@ mkBatchWriteItem p1 = BatchWriteItem
 -- definition.
 bwiRequestItems :: Lens' BatchWriteItem (Map Text [WriteRequest])
 bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a })
-{-# INLINE bwiRequestItems #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -136,7 +134,6 @@ bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
 bwiReturnConsumedCapacity =
     lens _bwiReturnConsumedCapacity
          (\s a -> s { _bwiReturnConsumedCapacity = a })
-{-# INLINE bwiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
@@ -145,7 +142,6 @@ bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollecti
 bwiReturnItemCollectionMetrics =
     lens _bwiReturnItemCollectionMetrics
          (\s a -> s { _bwiReturnItemCollectionMetrics = a })
-{-# INLINE bwiReturnItemCollectionMetrics #-}
 
 instance ToPath BatchWriteItem
 
@@ -184,7 +180,6 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
 bwirsUnprocessedItems =
     lens _bwirsUnprocessedItems (\s a -> s { _bwirsUnprocessedItems = a })
-{-# INLINE bwirsUnprocessedItems #-}
 
 -- | A list of tables that were processed by BatchWriteItem and, for each table,
 -- information about any item collections that were affected by individual
@@ -202,7 +197,6 @@ bwirsItemCollectionMetrics :: Lens' BatchWriteItemResponse (Map Text [ItemCollec
 bwirsItemCollectionMetrics =
     lens _bwirsItemCollectionMetrics
          (\s a -> s { _bwirsItemCollectionMetrics = a })
-{-# INLINE bwirsItemCollectionMetrics #-}
 
 -- | The capacity units consumed by the operation. Each element consists of:
 -- TableName - The table that consumed the provisioned throughput.
@@ -210,7 +204,6 @@ bwirsItemCollectionMetrics =
 bwirsConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
 bwirsConsumedCapacity =
     lens _bwirsConsumedCapacity (\s a -> s { _bwirsConsumedCapacity = a })
-{-# INLINE bwirsConsumedCapacity #-}
 
 instance FromJSON BatchWriteItemResponse
 

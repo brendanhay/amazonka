@@ -50,12 +50,10 @@ mkCancelJob :: Text -- ^ 'cjJobId'
 mkCancelJob p1 = CancelJob
     { _cjJobId = p1
     }
-{-# INLINE mkCancelJob #-}
 
 -- | A unique identifier which refers to a particular job.
 cjJobId :: Lens' CancelJob Text
 cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
-{-# INLINE cjJobId #-}
 
 instance ToQuery CancelJob where
     toQuery = genericQuery def
@@ -68,7 +66,6 @@ newtype CancelJobResponse = CancelJobResponse
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 cjrsSuccess :: Lens' CancelJobResponse (Maybe Bool)
 cjrsSuccess = lens _cjrsSuccess (\s a -> s { _cjrsSuccess = a })
-{-# INLINE cjrsSuccess #-}
 
 instance FromXML CancelJobResponse where
     fromXMLOptions = xmlOptions

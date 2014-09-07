@@ -62,21 +62,17 @@ mkDeleteObjects p1 p2 = DeleteObjects
     , _do1Delete = p2
     , _do1MFA = Nothing
     }
-{-# INLINE mkDeleteObjects #-}
 
 do1Bucket :: Lens' DeleteObjects BucketName
 do1Bucket = lens _do1Bucket (\s a -> s { _do1Bucket = a })
-{-# INLINE do1Bucket #-}
 
 do1Delete :: Lens' DeleteObjects Delete
 do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
-{-# INLINE do1Delete #-}
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
 do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
-{-# INLINE do1MFA #-}
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
@@ -104,11 +100,9 @@ data DeleteObjectsResponse = DeleteObjectsResponse
 
 dorsrsDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
 dorsrsDeleted = lens _dorsrsDeleted (\s a -> s { _dorsrsDeleted = a })
-{-# INLINE dorsrsDeleted #-}
 
 dorsrsErrors :: Lens' DeleteObjectsResponse [Error]
 dorsrsErrors = lens _dorsrsErrors (\s a -> s { _dorsrsErrors = a })
-{-# INLINE dorsrsErrors #-}
 
 instance FromXML DeleteObjectsResponse where
     fromXMLOptions = xmlOptions

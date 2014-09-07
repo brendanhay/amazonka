@@ -120,40 +120,33 @@ mkCreatePreset p1 p3 = CreatePreset
     , _cp1Audio = Nothing
     , _cp1Thumbnails = Nothing
     }
-{-# INLINE mkCreatePreset #-}
 
 -- | The name of the preset. We recommend that the name be unique within the AWS
 -- account, but uniqueness is not enforced.
 cp1Name :: Lens' CreatePreset Text
 cp1Name = lens _cp1Name (\s a -> s { _cp1Name = a })
-{-# INLINE cp1Name #-}
 
 -- | A description of the preset.
 cp1Description :: Lens' CreatePreset (Maybe Text)
 cp1Description = lens _cp1Description (\s a -> s { _cp1Description = a })
-{-# INLINE cp1Description #-}
 
 -- | The container type for the output file. Valid values include mp3, mp4, ogg,
 -- ts, and webm.
 cp1Container :: Lens' CreatePreset Text
 cp1Container = lens _cp1Container (\s a -> s { _cp1Container = a })
-{-# INLINE cp1Container #-}
 
 -- | A section of the request body that specifies the video parameters.
 cp1Video :: Lens' CreatePreset (Maybe VideoParameters)
 cp1Video = lens _cp1Video (\s a -> s { _cp1Video = a })
-{-# INLINE cp1Video #-}
 
 -- | A section of the request body that specifies the audio parameters.
 cp1Audio :: Lens' CreatePreset (Maybe AudioParameters)
 cp1Audio = lens _cp1Audio (\s a -> s { _cp1Audio = a })
-{-# INLINE cp1Audio #-}
 
 -- | A section of the request body that specifies the thumbnail parameters, if
 -- any.
 cp1Thumbnails :: Lens' CreatePreset (Maybe Thumbnails)
 cp1Thumbnails = lens _cp1Thumbnails (\s a -> s { _cp1Thumbnails = a })
-{-# INLINE cp1Thumbnails #-}
 
 instance ToPath CreatePreset where
     toPath = const "/2012-09-25/presets"
@@ -174,7 +167,6 @@ data CreatePresetResponse = CreatePresetResponse
 -- that is created.
 cprsrsPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprsrsPreset = lens _cprsrsPreset (\s a -> s { _cprsrsPreset = a })
-{-# INLINE cprsrsPreset #-}
 
 -- | If the preset settings don't comply with the standards for the video codec
 -- but Elastic Transcoder created the preset, this message explains the reason
@@ -182,7 +174,6 @@ cprsrsPreset = lens _cprsrsPreset (\s a -> s { _cprsrsPreset = a })
 -- preset because the settings might produce acceptable output.
 cprsrsWarning :: Lens' CreatePresetResponse (Maybe Text)
 cprsrsWarning = lens _cprsrsWarning (\s a -> s { _cprsrsWarning = a })
-{-# INLINE cprsrsWarning #-}
 
 instance FromJSON CreatePresetResponse
 

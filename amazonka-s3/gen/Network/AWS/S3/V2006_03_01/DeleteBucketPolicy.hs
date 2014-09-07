@@ -47,11 +47,9 @@ mkDeleteBucketPolicy :: BucketName -- ^ 'dbpBucket'
 mkDeleteBucketPolicy p1 = DeleteBucketPolicy
     { _dbpBucket = p1
     }
-{-# INLINE mkDeleteBucketPolicy #-}
 
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
 dbpBucket = lens _dbpBucket (\s a -> s { _dbpBucket = a })
-{-# INLINE dbpBucket #-}
 
 instance ToPath DeleteBucketPolicy where
     toPath DeleteBucketPolicy{..} = mconcat

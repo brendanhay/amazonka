@@ -60,7 +60,6 @@ mkUpdateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
     { _uaoDomainName = p1
     , _uaoMultiAZ = p2
     }
-{-# INLINE mkUpdateAvailabilityOptions #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -68,7 +67,6 @@ mkUpdateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
 -- (lowercase), 0-9, and - (hyphen).
 uaoDomainName :: Lens' UpdateAvailabilityOptions Text
 uaoDomainName = lens _uaoDomainName (\s a -> s { _uaoDomainName = a })
-{-# INLINE uaoDomainName #-}
 
 -- | You expand an existing search domain to a second Availability Zone by
 -- setting the Multi-AZ option to true. Similarly, you can turn off the
@@ -76,7 +74,6 @@ uaoDomainName = lens _uaoDomainName (\s a -> s { _uaoDomainName = a })
 -- setting the Multi-AZ option to false.
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
-{-# INLINE uaoMultiAZ #-}
 
 instance ToQuery UpdateAvailabilityOptions where
     toQuery = genericQuery def
@@ -93,7 +90,6 @@ uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe Avail
 uaorsAvailabilityOptions =
     lens _uaorsAvailabilityOptions
          (\s a -> s { _uaorsAvailabilityOptions = a })
-{-# INLINE uaorsAvailabilityOptions #-}
 
 instance FromXML UpdateAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions

@@ -52,17 +52,14 @@ mkRetrieveTapeArchive p1 p2 = RetrieveTapeArchive
     { _rtaTapeARN = p1
     , _rtaGatewayARN = p2
     }
-{-# INLINE mkRetrieveTapeArchive #-}
 
 rtaTapeARN :: Lens' RetrieveTapeArchive Text
 rtaTapeARN = lens _rtaTapeARN (\s a -> s { _rtaTapeARN = a })
-{-# INLINE rtaTapeARN #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 rtaGatewayARN :: Lens' RetrieveTapeArchive Text
 rtaGatewayARN = lens _rtaGatewayARN (\s a -> s { _rtaGatewayARN = a })
-{-# INLINE rtaGatewayARN #-}
 
 instance ToPath RetrieveTapeArchive
 
@@ -78,7 +75,6 @@ newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
 
 rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarsTapeARN = lens _rtarsTapeARN (\s a -> s { _rtarsTapeARN = a })
-{-# INLINE rtarsTapeARN #-}
 
 instance FromJSON RetrieveTapeArchiveResponse
 

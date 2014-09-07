@@ -162,17 +162,14 @@ mkCreateNetworkInterface p1 = CreateNetworkInterface
     , _cniPrivateIpAddresses = mempty
     , _cniSecondaryPrivateIpAddressCount = Nothing
     }
-{-# INLINE mkCreateNetworkInterface #-}
 
 -- | The ID of the subnet to associate with the network interface.
 cniSubnetId :: Lens' CreateNetworkInterface Text
 cniSubnetId = lens _cniSubnetId (\s a -> s { _cniSubnetId = a })
-{-# INLINE cniSubnetId #-}
 
 -- | A description for the network interface.
 cniDescription :: Lens' CreateNetworkInterface (Maybe Text)
 cniDescription = lens _cniDescription (\s a -> s { _cniDescription = a })
-{-# INLINE cniDescription #-}
 
 -- | The primary private IP address of the network interface. If you don't
 -- specify an IP address, Amazon EC2 selects one for you from the subnet
@@ -180,18 +177,15 @@ cniDescription = lens _cniDescription (\s a -> s { _cniDescription = a })
 cniPrivateIpAddress :: Lens' CreateNetworkInterface (Maybe Text)
 cniPrivateIpAddress =
     lens _cniPrivateIpAddress (\s a -> s { _cniPrivateIpAddress = a })
-{-# INLINE cniPrivateIpAddress #-}
 
 -- | The IDs of one or more security groups.
 cniGroups :: Lens' CreateNetworkInterface [Text]
 cniGroups = lens _cniGroups (\s a -> s { _cniGroups = a })
-{-# INLINE cniGroups #-}
 
 -- | One or more private IP addresses.
 cniPrivateIpAddresses :: Lens' CreateNetworkInterface [PrivateIpAddressSpecification]
 cniPrivateIpAddresses =
     lens _cniPrivateIpAddresses (\s a -> s { _cniPrivateIpAddresses = a })
-{-# INLINE cniPrivateIpAddresses #-}
 
 -- | The number of secondary private IP addresses to assign to a network
 -- interface. When you specify a number of secondary IP addresses, Amazon EC2
@@ -203,7 +197,6 @@ cniSecondaryPrivateIpAddressCount :: Lens' CreateNetworkInterface (Maybe Integer
 cniSecondaryPrivateIpAddressCount =
     lens _cniSecondaryPrivateIpAddressCount
          (\s a -> s { _cniSecondaryPrivateIpAddressCount = a })
-{-# INLINE cniSecondaryPrivateIpAddressCount #-}
 
 instance ToQuery CreateNetworkInterface where
     toQuery = genericQuery def
@@ -217,7 +210,6 @@ newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
 cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirsNetworkInterface =
     lens _cnirsNetworkInterface (\s a -> s { _cnirsNetworkInterface = a })
-{-# INLINE cnirsNetworkInterface #-}
 
 instance FromXML CreateNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions

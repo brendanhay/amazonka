@@ -949,74 +949,60 @@ mkApp = App
     , _aAttributes = mempty
     , _aCreatedAt = Nothing
     }
-{-# INLINE mkApp #-}
 
 -- | The app ID.
 aAppId :: Lens' App (Maybe Text)
 aAppId = lens _aAppId (\s a -> s { _aAppId = a })
-{-# INLINE aAppId #-}
 
 -- | The app stack ID.
 aStackId :: Lens' App (Maybe Text)
 aStackId = lens _aStackId (\s a -> s { _aStackId = a })
-{-# INLINE aStackId #-}
 
 -- | The app's short name.
 aShortname :: Lens' App (Maybe Text)
 aShortname = lens _aShortname (\s a -> s { _aShortname = a })
-{-# INLINE aShortname #-}
 
 -- | The app name.
 aName :: Lens' App (Maybe Text)
 aName = lens _aName (\s a -> s { _aName = a })
-{-# INLINE aName #-}
 
 -- | A description of the app.
 aDescription :: Lens' App (Maybe Text)
 aDescription = lens _aDescription (\s a -> s { _aDescription = a })
-{-# INLINE aDescription #-}
 
 -- | The app's data sources.
 aDataSources :: Lens' App [DataSource]
 aDataSources = lens _aDataSources (\s a -> s { _aDataSources = a })
-{-# INLINE aDataSources #-}
 
 -- | The app type.
 aType :: Lens' App (Maybe AppType)
 aType = lens _aType (\s a -> s { _aType = a })
-{-# INLINE aType #-}
 
 -- | A Source object that describes the app repository.
 aAppSource :: Lens' App (Maybe Source)
 aAppSource = lens _aAppSource (\s a -> s { _aAppSource = a })
-{-# INLINE aAppSource #-}
 
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: 'www.example.com, example.com'.
 aDomains :: Lens' App [Text]
 aDomains = lens _aDomains (\s a -> s { _aDomains = a })
-{-# INLINE aDomains #-}
 
 -- | Whether to enable SSL for the app.
 aEnableSsl :: Lens' App (Maybe Bool)
 aEnableSsl = lens _aEnableSsl (\s a -> s { _aEnableSsl = a })
-{-# INLINE aEnableSsl #-}
 
 -- | An SslConfiguration object with the SSL configuration.
 aSslConfiguration :: Lens' App (Maybe SslConfiguration)
 aSslConfiguration =
     lens _aSslConfiguration (\s a -> s { _aSslConfiguration = a })
-{-# INLINE aSslConfiguration #-}
 
 -- | The stack attributes.
 aAttributes :: Lens' App (Map AppAttributesKeys Text)
 aAttributes = lens _aAttributes (\s a -> s { _aAttributes = a })
-{-# INLINE aAttributes #-}
 
 -- | When the app was created.
 aCreatedAt :: Lens' App (Maybe Text)
 aCreatedAt = lens _aCreatedAt (\s a -> s { _aCreatedAt = a })
-{-# INLINE aCreatedAt #-}
 
 instance FromJSON App
 
@@ -1043,20 +1029,17 @@ mkAutoScalingThresholds = AutoScalingThresholds
     , _astMemoryThreshold = Nothing
     , _astLoadThreshold = Nothing
     }
-{-# INLINE mkAutoScalingThresholds #-}
 
 -- | The number of instances to add or remove when the load exceeds a threshold.
 astInstanceCount :: Lens' AutoScalingThresholds (Maybe Integer)
 astInstanceCount =
     lens _astInstanceCount (\s a -> s { _astInstanceCount = a })
-{-# INLINE astInstanceCount #-}
 
 -- | The amount of time, in minutes, that the load must exceed a threshold
 -- before more instances are added or removed.
 astThresholdsWaitTime :: Lens' AutoScalingThresholds (Maybe Integer)
 astThresholdsWaitTime =
     lens _astThresholdsWaitTime (\s a -> s { _astThresholdsWaitTime = a })
-{-# INLINE astThresholdsWaitTime #-}
 
 -- | The amount of time (in minutes) after a scaling event occurs that AWS
 -- OpsWorks should ignore metrics and not raise any additional scaling events.
@@ -1069,25 +1052,21 @@ astThresholdsWaitTime =
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Integer)
 astIgnoreMetricsTime =
     lens _astIgnoreMetricsTime (\s a -> s { _astIgnoreMetricsTime = a })
-{-# INLINE astIgnoreMetricsTime #-}
 
 -- | The CPU utilization threshold, as a percent of the available CPU.
 astCpuThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astCpuThreshold = lens _astCpuThreshold (\s a -> s { _astCpuThreshold = a })
-{-# INLINE astCpuThreshold #-}
 
 -- | The memory utilization threshold, as a percent of the available memory.
 astMemoryThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astMemoryThreshold =
     lens _astMemoryThreshold (\s a -> s { _astMemoryThreshold = a })
-{-# INLINE astMemoryThreshold #-}
 
 -- | The load threshold. For more information about how load is computed, see
 -- Load (computing).
 astLoadThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astLoadThreshold =
     lens _astLoadThreshold (\s a -> s { _astLoadThreshold = a })
-{-# INLINE astLoadThreshold #-}
 
 instance FromJSON AutoScalingThresholds
 
@@ -1108,19 +1087,16 @@ mkChefConfiguration = ChefConfiguration
     { _ccManageBerkshelf = Nothing
     , _ccBerkshelfVersion = Nothing
     }
-{-# INLINE mkChefConfiguration #-}
 
 -- | Whether to enable Berkshelf.
 ccManageBerkshelf :: Lens' ChefConfiguration (Maybe Bool)
 ccManageBerkshelf =
     lens _ccManageBerkshelf (\s a -> s { _ccManageBerkshelf = a })
-{-# INLINE ccManageBerkshelf #-}
 
 -- | The Berkshelf version.
 ccBerkshelfVersion :: Lens' ChefConfiguration (Maybe Text)
 ccBerkshelfVersion =
     lens _ccBerkshelfVersion (\s a -> s { _ccBerkshelfVersion = a })
-{-# INLINE ccBerkshelfVersion #-}
 
 instance FromJSON ChefConfiguration
 
@@ -1155,59 +1131,48 @@ mkCommand = Command
     , _cLogUrl = Nothing
     , _cType = Nothing
     }
-{-# INLINE mkCommand #-}
 
 -- | The command ID.
 cCommandId :: Lens' Command (Maybe Text)
 cCommandId = lens _cCommandId (\s a -> s { _cCommandId = a })
-{-# INLINE cCommandId #-}
 
 -- | The ID of the instance where the command was executed.
 cInstanceId :: Lens' Command (Maybe Text)
 cInstanceId = lens _cInstanceId (\s a -> s { _cInstanceId = a })
-{-# INLINE cInstanceId #-}
 
 -- | The command deployment ID.
 cDeploymentId :: Lens' Command (Maybe Text)
 cDeploymentId = lens _cDeploymentId (\s a -> s { _cDeploymentId = a })
-{-# INLINE cDeploymentId #-}
 
 -- | Date and time when the command was run.
 cCreatedAt :: Lens' Command (Maybe Text)
 cCreatedAt = lens _cCreatedAt (\s a -> s { _cCreatedAt = a })
-{-# INLINE cCreatedAt #-}
 
 -- | Date and time when the command was acknowledged.
 cAcknowledgedAt :: Lens' Command (Maybe Text)
 cAcknowledgedAt = lens _cAcknowledgedAt (\s a -> s { _cAcknowledgedAt = a })
-{-# INLINE cAcknowledgedAt #-}
 
 -- | Date when the command completed.
 cCompletedAt :: Lens' Command (Maybe Text)
 cCompletedAt = lens _cCompletedAt (\s a -> s { _cCompletedAt = a })
-{-# INLINE cCompletedAt #-}
 
 -- | The command status: failed successful skipped pending.
 cStatus :: Lens' Command (Maybe Text)
 cStatus = lens _cStatus (\s a -> s { _cStatus = a })
-{-# INLINE cStatus #-}
 
 -- | The command exit code.
 cExitCode :: Lens' Command (Maybe Integer)
 cExitCode = lens _cExitCode (\s a -> s { _cExitCode = a })
-{-# INLINE cExitCode #-}
 
 -- | The URL of the command log.
 cLogUrl :: Lens' Command (Maybe Text)
 cLogUrl = lens _cLogUrl (\s a -> s { _cLogUrl = a })
-{-# INLINE cLogUrl #-}
 
 -- | The command type: deploy rollback start stop restart undeploy
 -- update_dependencies install_dependencies update_custom_cookbooks
 -- execute_recipes.
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\s a -> s { _cType = a })
-{-# INLINE cType #-}
 
 instance FromJSON Command
 
@@ -1226,23 +1191,19 @@ mkDataSource = DataSource
     , _dsArn = Nothing
     , _dsDatabaseName = Nothing
     }
-{-# INLINE mkDataSource #-}
 
 -- | The data source's type, AutoSelectOpsworksMysqlInstance,
 -- OpsworksMysqlInstance, or RdsDbInstance.
 dsType :: Lens' DataSource (Maybe Text)
 dsType = lens _dsType (\s a -> s { _dsType = a })
-{-# INLINE dsType #-}
 
 -- | The data source's ARN.
 dsArn :: Lens' DataSource (Maybe Text)
 dsArn = lens _dsArn (\s a -> s { _dsArn = a })
-{-# INLINE dsArn #-}
 
 -- | The database name.
 dsDatabaseName :: Lens' DataSource (Maybe Text)
 dsDatabaseName = lens _dsDatabaseName (\s a -> s { _dsDatabaseName = a })
-{-# INLINE dsDatabaseName #-}
 
 instance FromJSON DataSource
 
@@ -1281,57 +1242,46 @@ mkDeployment = Deployment
     , _dCustomJson = Nothing
     , _dInstanceIds = mempty
     }
-{-# INLINE mkDeployment #-}
 
 -- | The deployment ID.
 dDeploymentId :: Lens' Deployment (Maybe Text)
 dDeploymentId = lens _dDeploymentId (\s a -> s { _dDeploymentId = a })
-{-# INLINE dDeploymentId #-}
 
 -- | The stack ID.
 dStackId :: Lens' Deployment (Maybe Text)
 dStackId = lens _dStackId (\s a -> s { _dStackId = a })
-{-# INLINE dStackId #-}
 
 -- | The app ID.
 dAppId :: Lens' Deployment (Maybe Text)
 dAppId = lens _dAppId (\s a -> s { _dAppId = a })
-{-# INLINE dAppId #-}
 
 -- | Date when the deployment was created.
 dCreatedAt :: Lens' Deployment (Maybe Text)
 dCreatedAt = lens _dCreatedAt (\s a -> s { _dCreatedAt = a })
-{-# INLINE dCreatedAt #-}
 
 -- | Date when the deployment completed.
 dCompletedAt :: Lens' Deployment (Maybe Text)
 dCompletedAt = lens _dCompletedAt (\s a -> s { _dCompletedAt = a })
-{-# INLINE dCompletedAt #-}
 
 -- | The deployment duration.
 dDuration :: Lens' Deployment (Maybe Integer)
 dDuration = lens _dDuration (\s a -> s { _dDuration = a })
-{-# INLINE dDuration #-}
 
 -- | The user's IAM ARN.
 dIamUserArn :: Lens' Deployment (Maybe Text)
 dIamUserArn = lens _dIamUserArn (\s a -> s { _dIamUserArn = a })
-{-# INLINE dIamUserArn #-}
 
 -- | A user-defined comment.
 dComment :: Lens' Deployment (Maybe Text)
 dComment = lens _dComment (\s a -> s { _dComment = a })
-{-# INLINE dComment #-}
 
 -- | Used to specify a deployment operation.
 dCommand :: Lens' Deployment (Maybe DeploymentCommand)
 dCommand = lens _dCommand (\s a -> s { _dCommand = a })
-{-# INLINE dCommand #-}
 
 -- | The deployment status: running successful failed.
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\s a -> s { _dStatus = a })
-{-# INLINE dStatus #-}
 
 -- | A string that contains user-defined custom JSON. It is used to override the
 -- corresponding default stack configuration JSON values for stack. The string
@@ -1340,12 +1290,10 @@ dStatus = lens _dStatus (\s a -> s { _dStatus = a })
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
 dCustomJson :: Lens' Deployment (Maybe Text)
 dCustomJson = lens _dCustomJson (\s a -> s { _dCustomJson = a })
-{-# INLINE dCustomJson #-}
 
 -- | The IDs of the target instances.
 dInstanceIds :: Lens' Deployment [Text]
 dInstanceIds = lens _dInstanceIds (\s a -> s { _dInstanceIds = a })
-{-# INLINE dInstanceIds #-}
 
 instance FromJSON Deployment
 
@@ -1364,7 +1312,6 @@ mkDeploymentCommand p1 = DeploymentCommand
     { _dcName = p1
     , _dcArgs = mempty
     }
-{-# INLINE mkDeploymentCommand #-}
 
 -- | Specifies the operation. You can specify only one command. For stacks, the
 -- following commands are available: execute_recipes: Execute one or more
@@ -1384,14 +1331,12 @@ mkDeploymentCommand p1 = DeploymentCommand
 -- web or application server. undeploy: Undeploy the app.
 dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\s a -> s { _dcName = a })
-{-# INLINE dcName #-}
 
 -- | The arguments of those commands that take arguments. It should be set to a
 -- JSON object with the following format: {"arg_name":["value1", "value2",
 -- ...]}.
 dcArgs :: Lens' DeploymentCommand (Map Text [Text])
 dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a })
-{-# INLINE dcArgs #-}
 
 instance FromJSON DeploymentCommand
 
@@ -1416,32 +1361,26 @@ mkElasticIp = ElasticIp
     , _eiRegion = Nothing
     , _eiInstanceId = Nothing
     }
-{-# INLINE mkElasticIp #-}
 
 -- | The IP address.
 eiIp :: Lens' ElasticIp (Maybe Text)
 eiIp = lens _eiIp (\s a -> s { _eiIp = a })
-{-# INLINE eiIp #-}
 
 -- | The name.
 eiName :: Lens' ElasticIp (Maybe Text)
 eiName = lens _eiName (\s a -> s { _eiName = a })
-{-# INLINE eiName #-}
 
 -- | The domain.
 eiDomain :: Lens' ElasticIp (Maybe Text)
 eiDomain = lens _eiDomain (\s a -> s { _eiDomain = a })
-{-# INLINE eiDomain #-}
 
 -- | The AWS region. For more information, see Regions and Endpoints.
 eiRegion :: Lens' ElasticIp (Maybe Text)
 eiRegion = lens _eiRegion (\s a -> s { _eiRegion = a })
-{-# INLINE eiRegion #-}
 
 -- | The ID of the instance that the address is attached to.
 eiInstanceId :: Lens' ElasticIp (Maybe Text)
 eiInstanceId = lens _eiInstanceId (\s a -> s { _eiInstanceId = a })
-{-# INLINE eiInstanceId #-}
 
 instance FromJSON ElasticIp
 
@@ -1472,57 +1411,47 @@ mkElasticLoadBalancer = ElasticLoadBalancer
     , _elbSubnetIds = mempty
     , _elbEc2InstanceIds = mempty
     }
-{-# INLINE mkElasticLoadBalancer #-}
 
 -- | The Elastic Load Balancing instance's name.
 elbElasticLoadBalancerName :: Lens' ElasticLoadBalancer (Maybe Text)
 elbElasticLoadBalancerName =
     lens _elbElasticLoadBalancerName
          (\s a -> s { _elbElasticLoadBalancerName = a })
-{-# INLINE elbElasticLoadBalancerName #-}
 
 -- | The instance's AWS region.
 elbRegion :: Lens' ElasticLoadBalancer (Maybe Text)
 elbRegion = lens _elbRegion (\s a -> s { _elbRegion = a })
-{-# INLINE elbRegion #-}
 
 -- | The instance's public DNS name.
 elbDnsName :: Lens' ElasticLoadBalancer (Maybe Text)
 elbDnsName = lens _elbDnsName (\s a -> s { _elbDnsName = a })
-{-# INLINE elbDnsName #-}
 
 -- | The ID of the stack that the instance is associated with.
 elbStackId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbStackId = lens _elbStackId (\s a -> s { _elbStackId = a })
-{-# INLINE elbStackId #-}
 
 -- | The ID of the layer that the instance is attached to.
 elbLayerId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbLayerId = lens _elbLayerId (\s a -> s { _elbLayerId = a })
-{-# INLINE elbLayerId #-}
 
 -- | The VPC ID.
 elbVpcId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbVpcId = lens _elbVpcId (\s a -> s { _elbVpcId = a })
-{-# INLINE elbVpcId #-}
 
 -- | A list of Availability Zones.
 elbAvailabilityZones :: Lens' ElasticLoadBalancer [Text]
 elbAvailabilityZones =
     lens _elbAvailabilityZones (\s a -> s { _elbAvailabilityZones = a })
-{-# INLINE elbAvailabilityZones #-}
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
 elbSubnetIds :: Lens' ElasticLoadBalancer [Text]
 elbSubnetIds = lens _elbSubnetIds (\s a -> s { _elbSubnetIds = a })
-{-# INLINE elbSubnetIds #-}
 
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
 elbEc2InstanceIds :: Lens' ElasticLoadBalancer [Text]
 elbEc2InstanceIds =
     lens _elbEc2InstanceIds (\s a -> s { _elbEc2InstanceIds = a })
-{-# INLINE elbEc2InstanceIds #-}
 
 instance FromJSON ElasticLoadBalancer
 
@@ -1595,44 +1524,36 @@ mkInstance = Instance
     , _iInstallUpdatesOnBoot = Nothing
     , _iEbsOptimized = Nothing
     }
-{-# INLINE mkInstance #-}
 
 -- | The instance ID.
 iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\s a -> s { _iInstanceId = a })
-{-# INLINE iInstanceId #-}
 
 -- | The ID of the associated Amazon EC2 instance.
 iEc2InstanceId :: Lens' Instance (Maybe Text)
 iEc2InstanceId = lens _iEc2InstanceId (\s a -> s { _iEc2InstanceId = a })
-{-# INLINE iEc2InstanceId #-}
 
 -- | The instance's virtualization type, paravirtual or hvm.
 iVirtualizationType :: Lens' Instance (Maybe Text)
 iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
-{-# INLINE iVirtualizationType #-}
 
 -- | The instance host name.
 iHostname :: Lens' Instance (Maybe Text)
 iHostname = lens _iHostname (\s a -> s { _iHostname = a })
-{-# INLINE iHostname #-}
 
 -- | The stack ID.
 iStackId :: Lens' Instance (Maybe Text)
 iStackId = lens _iStackId (\s a -> s { _iStackId = a })
-{-# INLINE iStackId #-}
 
 -- | An array containing the instance layer IDs.
 iLayerIds :: Lens' Instance [Text]
 iLayerIds = lens _iLayerIds (\s a -> s { _iLayerIds = a })
-{-# INLINE iLayerIds #-}
 
 -- | An array containing the instance security group IDs.
 iSecurityGroupIds :: Lens' Instance [Text]
 iSecurityGroupIds =
     lens _iSecurityGroupIds (\s a -> s { _iSecurityGroupIds = a })
-{-# INLINE iSecurityGroupIds #-}
 
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
 -- Compute, Cluster GPU, and High Memory Cluster. For more information, see
@@ -1640,69 +1561,57 @@ iSecurityGroupIds =
 -- types are in the API Name column of the Available Instance Types table.
 iInstanceType :: Lens' Instance (Maybe Text)
 iInstanceType = lens _iInstanceType (\s a -> s { _iInstanceType = a })
-{-# INLINE iInstanceType #-}
 
 -- | The ARN of the instance's IAM profile. For more information about IAM ARNs,
 -- see Using Identifiers.
 iInstanceProfileArn :: Lens' Instance (Maybe Text)
 iInstanceProfileArn =
     lens _iInstanceProfileArn (\s a -> s { _iInstanceProfileArn = a })
-{-# INLINE iInstanceProfileArn #-}
 
 -- | The instance status: requested booting running_setup online setup_failed
 -- start_failed terminating terminated stopped connection_lost.
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
-{-# INLINE iStatus #-}
 
 -- | The instance operating system.
 iOs :: Lens' Instance (Maybe Text)
 iOs = lens _iOs (\s a -> s { _iOs = a })
-{-# INLINE iOs #-}
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
 -- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
 -- For more information, see Instances.
 iAmiId :: Lens' Instance (Maybe Text)
 iAmiId = lens _iAmiId (\s a -> s { _iAmiId = a })
-{-# INLINE iAmiId #-}
 
 -- | The instance Availability Zone. For more information, see Regions and
 -- Endpoints.
 iAvailabilityZone :: Lens' Instance (Maybe Text)
 iAvailabilityZone =
     lens _iAvailabilityZone (\s a -> s { _iAvailabilityZone = a })
-{-# INLINE iAvailabilityZone #-}
 
 -- | The instance's subnet ID, if the stack is running in a VPC.
 iSubnetId :: Lens' Instance (Maybe Text)
 iSubnetId = lens _iSubnetId (\s a -> s { _iSubnetId = a })
-{-# INLINE iSubnetId #-}
 
 -- | The instance public DNS name.
 iPublicDns :: Lens' Instance (Maybe Text)
 iPublicDns = lens _iPublicDns (\s a -> s { _iPublicDns = a })
-{-# INLINE iPublicDns #-}
 
 -- | The instance private DNS name.
 iPrivateDns :: Lens' Instance (Maybe Text)
 iPrivateDns = lens _iPrivateDns (\s a -> s { _iPrivateDns = a })
-{-# INLINE iPrivateDns #-}
 
 -- | The instance public IP address.
 iPublicIp :: Lens' Instance (Maybe Text)
 iPublicIp = lens _iPublicIp (\s a -> s { _iPublicIp = a })
-{-# INLINE iPublicIp #-}
 
 -- | The instance private IP address.
 iPrivateIp :: Lens' Instance (Maybe Text)
 iPrivateIp = lens _iPrivateIp (\s a -> s { _iPrivateIp = a })
-{-# INLINE iPrivateIp #-}
 
 -- | The instance Elastic IP address .
 iElasticIp :: Lens' Instance (Maybe Text)
 iElasticIp = lens _iElasticIp (\s a -> s { _iElasticIp = a })
-{-# INLINE iElasticIp #-}
 
 -- | The instance's auto scaling type, which has three possible values:
 -- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
@@ -1713,55 +1622,46 @@ iElasticIp = lens _iElasticIp (\s a -> s { _iElasticIp = a })
 iAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 iAutoScalingType =
     lens _iAutoScalingType (\s a -> s { _iAutoScalingType = a })
-{-# INLINE iAutoScalingType #-}
 
 -- | The instance SSH key name.
 iSshKeyName :: Lens' Instance (Maybe Text)
 iSshKeyName = lens _iSshKeyName (\s a -> s { _iSshKeyName = a })
-{-# INLINE iSshKeyName #-}
 
 -- | The SSH key's RSA fingerprint.
 iSshHostRsaKeyFingerprint :: Lens' Instance (Maybe Text)
 iSshHostRsaKeyFingerprint =
     lens _iSshHostRsaKeyFingerprint
          (\s a -> s { _iSshHostRsaKeyFingerprint = a })
-{-# INLINE iSshHostRsaKeyFingerprint #-}
 
 -- | The SSH key's DSA fingerprint.
 iSshHostDsaKeyFingerprint :: Lens' Instance (Maybe Text)
 iSshHostDsaKeyFingerprint =
     lens _iSshHostDsaKeyFingerprint
          (\s a -> s { _iSshHostDsaKeyFingerprint = a })
-{-# INLINE iSshHostDsaKeyFingerprint #-}
 
 -- | The time that the instance was created.
 iCreatedAt :: Lens' Instance (Maybe Text)
 iCreatedAt = lens _iCreatedAt (\s a -> s { _iCreatedAt = a })
-{-# INLINE iCreatedAt #-}
 
 -- | The ID of the last service error. For more information, call
 -- DescribeServiceErrors.
 iLastServiceErrorId :: Lens' Instance (Maybe Text)
 iLastServiceErrorId =
     lens _iLastServiceErrorId (\s a -> s { _iLastServiceErrorId = a })
-{-# INLINE iLastServiceErrorId #-}
 
 -- | The instance architecture, "i386" or "x86_64".
 iArchitecture :: Lens' Instance (Maybe Architecture)
 iArchitecture = lens _iArchitecture (\s a -> s { _iArchitecture = a })
-{-# INLINE iArchitecture #-}
 
 -- | The instance root device type. For more information, see Storage for the
 -- Root Device.
 iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
 iRootDeviceType = lens _iRootDeviceType (\s a -> s { _iRootDeviceType = a })
-{-# INLINE iRootDeviceType #-}
 
 -- | The root device volume ID.
 iRootDeviceVolumeId :: Lens' Instance (Maybe Text)
 iRootDeviceVolumeId =
     lens _iRootDeviceVolumeId (\s a -> s { _iRootDeviceVolumeId = a })
-{-# INLINE iRootDeviceVolumeId #-}
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. If this value is set to false, you must
@@ -1773,12 +1673,10 @@ iRootDeviceVolumeId =
 iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
 iInstallUpdatesOnBoot =
     lens _iInstallUpdatesOnBoot (\s a -> s { _iInstallUpdatesOnBoot = a })
-{-# INLINE iInstallUpdatesOnBoot #-}
 
 -- | Whether this is an Amazon EBS-optimized instance.
 iEbsOptimized :: Lens' Instance (Maybe Bool)
 iEbsOptimized = lens _iEbsOptimized (\s a -> s { _iEbsOptimized = a })
-{-# INLINE iEbsOptimized #-}
 
 instance FromJSON Instance
 
@@ -1819,78 +1717,63 @@ mkInstancesCount = InstancesCount
     , _icTerminated = Nothing
     , _icTerminating = Nothing
     }
-{-# INLINE mkInstancesCount #-}
 
 -- | The number of instances with booting status.
 icBooting :: Lens' InstancesCount (Maybe Integer)
 icBooting = lens _icBooting (\s a -> s { _icBooting = a })
-{-# INLINE icBooting #-}
 
 -- | The number of instances with connection_lost status.
 icConnectionLost :: Lens' InstancesCount (Maybe Integer)
 icConnectionLost =
     lens _icConnectionLost (\s a -> s { _icConnectionLost = a })
-{-# INLINE icConnectionLost #-}
 
 -- | The number of instances with online status.
 icOnline :: Lens' InstancesCount (Maybe Integer)
 icOnline = lens _icOnline (\s a -> s { _icOnline = a })
-{-# INLINE icOnline #-}
 
 -- | The number of instances with pending status.
 icPending :: Lens' InstancesCount (Maybe Integer)
 icPending = lens _icPending (\s a -> s { _icPending = a })
-{-# INLINE icPending #-}
 
 -- | The number of instances with rebooting status.
 icRebooting :: Lens' InstancesCount (Maybe Integer)
 icRebooting = lens _icRebooting (\s a -> s { _icRebooting = a })
-{-# INLINE icRebooting #-}
 
 -- | The number of instances with requested status.
 icRequested :: Lens' InstancesCount (Maybe Integer)
 icRequested = lens _icRequested (\s a -> s { _icRequested = a })
-{-# INLINE icRequested #-}
 
 -- | The number of instances with running_setup status.
 icRunningSetup :: Lens' InstancesCount (Maybe Integer)
 icRunningSetup = lens _icRunningSetup (\s a -> s { _icRunningSetup = a })
-{-# INLINE icRunningSetup #-}
 
 -- | The number of instances with setup_failed status.
 icSetupFailed :: Lens' InstancesCount (Maybe Integer)
 icSetupFailed = lens _icSetupFailed (\s a -> s { _icSetupFailed = a })
-{-# INLINE icSetupFailed #-}
 
 -- | The number of instances with shutting_down status.
 icShuttingDown :: Lens' InstancesCount (Maybe Integer)
 icShuttingDown = lens _icShuttingDown (\s a -> s { _icShuttingDown = a })
-{-# INLINE icShuttingDown #-}
 
 -- | The number of instances with start_failed status.
 icStartFailed :: Lens' InstancesCount (Maybe Integer)
 icStartFailed = lens _icStartFailed (\s a -> s { _icStartFailed = a })
-{-# INLINE icStartFailed #-}
 
 -- | The number of instances with stopped status.
 icStopped :: Lens' InstancesCount (Maybe Integer)
 icStopped = lens _icStopped (\s a -> s { _icStopped = a })
-{-# INLINE icStopped #-}
 
 -- | The number of instances with stopping status.
 icStopping :: Lens' InstancesCount (Maybe Integer)
 icStopping = lens _icStopping (\s a -> s { _icStopping = a })
-{-# INLINE icStopping #-}
 
 -- | The number of instances with terminated status.
 icTerminated :: Lens' InstancesCount (Maybe Integer)
 icTerminated = lens _icTerminated (\s a -> s { _icTerminated = a })
-{-# INLINE icTerminated #-}
 
 -- | The number of instances with terminating status.
 icTerminating :: Lens' InstancesCount (Maybe Integer)
 icTerminating = lens _icTerminating (\s a -> s { _icTerminating = a })
-{-# INLINE icTerminating #-}
 
 instance FromJSON InstancesCount
 
@@ -1941,39 +1824,32 @@ mkLayer = Layer
     , _lInstallUpdatesOnBoot = Nothing
     , _lUseEbsOptimizedInstances = Nothing
     }
-{-# INLINE mkLayer #-}
 
 -- | The layer stack ID.
 lStackId :: Lens' Layer (Maybe Text)
 lStackId = lens _lStackId (\s a -> s { _lStackId = a })
-{-# INLINE lStackId #-}
 
 -- | The layer ID.
 lLayerId :: Lens' Layer (Maybe Text)
 lLayerId = lens _lLayerId (\s a -> s { _lLayerId = a })
-{-# INLINE lLayerId #-}
 
 -- | The layer type, which must be one of the following: Custom
 -- GangliaMonitoringMaster HaProxy MemcachedServer MySqlMaster NodeJsAppServer
 -- PhpAppServer RailsAppServer WebServer.
 lType :: Lens' Layer (Maybe LayerType)
 lType = lens _lType (\s a -> s { _lType = a })
-{-# INLINE lType #-}
 
 -- | The layer name.
 lName :: Lens' Layer (Maybe Text)
 lName = lens _lName (\s a -> s { _lName = a })
-{-# INLINE lName #-}
 
 -- | The layer short name.
 lShortname :: Lens' Layer (Maybe Text)
 lShortname = lens _lShortname (\s a -> s { _lShortname = a })
-{-# INLINE lShortname #-}
 
 -- | The layer attributes.
 lAttributes :: Lens' Layer (Map LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a })
-{-# INLINE lAttributes #-}
 
 -- | The ARN of the default IAM profile to be used for the layer's EC2
 -- instances. For more information about IAM ARNs, see Using Identifiers.
@@ -1981,46 +1857,39 @@ lCustomInstanceProfileArn :: Lens' Layer (Maybe Text)
 lCustomInstanceProfileArn =
     lens _lCustomInstanceProfileArn
          (\s a -> s { _lCustomInstanceProfileArn = a })
-{-# INLINE lCustomInstanceProfileArn #-}
 
 -- | An array containing the layer's custom security group IDs.
 lCustomSecurityGroupIds :: Lens' Layer [Text]
 lCustomSecurityGroupIds =
     lens _lCustomSecurityGroupIds
          (\s a -> s { _lCustomSecurityGroupIds = a })
-{-# INLINE lCustomSecurityGroupIds #-}
 
 -- | An array containing the layer's security group names.
 lDefaultSecurityGroupNames :: Lens' Layer [Text]
 lDefaultSecurityGroupNames =
     lens _lDefaultSecurityGroupNames
          (\s a -> s { _lDefaultSecurityGroupNames = a })
-{-# INLINE lDefaultSecurityGroupNames #-}
 
 -- | An array of Package objects that describe the layer's packages.
 lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\s a -> s { _lPackages = a })
-{-# INLINE lPackages #-}
 
 -- | A VolumeConfigurations object that describes the layer's Amazon EBS
 -- volumes.
 lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations =
     lens _lVolumeConfigurations (\s a -> s { _lVolumeConfigurations = a })
-{-# INLINE lVolumeConfigurations #-}
 
 -- | Whether auto healing is disabled for the layer.
 lEnableAutoHealing :: Lens' Layer (Maybe Bool)
 lEnableAutoHealing =
     lens _lEnableAutoHealing (\s a -> s { _lEnableAutoHealing = a })
-{-# INLINE lEnableAutoHealing #-}
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
 lAutoAssignElasticIps :: Lens' Layer (Maybe Bool)
 lAutoAssignElasticIps =
     lens _lAutoAssignElasticIps (\s a -> s { _lAutoAssignElasticIps = a })
-{-# INLINE lAutoAssignElasticIps #-}
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer's instances. For more information, see How
@@ -2028,7 +1897,6 @@ lAutoAssignElasticIps =
 lAutoAssignPublicIps :: Lens' Layer (Maybe Bool)
 lAutoAssignPublicIps =
     lens _lAutoAssignPublicIps (\s a -> s { _lAutoAssignPublicIps = a })
-{-# INLINE lAutoAssignPublicIps #-}
 
 -- | AWS OpsWorks supports five lifecycle events, setup, configuration, deploy,
 -- undeploy, and shutdown. For each layer, AWS OpsWorks runs a set of standard
@@ -2042,17 +1910,14 @@ lAutoAssignPublicIps =
 -- dbsetup.rb recipe in the repository's phpapp2 folder.
 lDefaultRecipes :: Lens' Layer (Maybe Recipes)
 lDefaultRecipes = lens _lDefaultRecipes (\s a -> s { _lDefaultRecipes = a })
-{-# INLINE lDefaultRecipes #-}
 
 -- | A LayerCustomRecipes object that specifies the layer's custom recipes.
 lCustomRecipes :: Lens' Layer (Maybe Recipes)
 lCustomRecipes = lens _lCustomRecipes (\s a -> s { _lCustomRecipes = a })
-{-# INLINE lCustomRecipes #-}
 
 -- | Date when the layer was created.
 lCreatedAt :: Lens' Layer (Maybe Text)
 lCreatedAt = lens _lCreatedAt (\s a -> s { _lCreatedAt = a })
-{-# INLINE lCreatedAt #-}
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. If this value is set to false, you must
@@ -2064,14 +1929,12 @@ lCreatedAt = lens _lCreatedAt (\s a -> s { _lCreatedAt = a })
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lInstallUpdatesOnBoot =
     lens _lInstallUpdatesOnBoot (\s a -> s { _lInstallUpdatesOnBoot = a })
-{-# INLINE lInstallUpdatesOnBoot #-}
 
 -- | Whether the layer uses Amazon EBS-optimized instances.
 lUseEbsOptimizedInstances :: Lens' Layer (Maybe Bool)
 lUseEbsOptimizedInstances =
     lens _lUseEbsOptimizedInstances
          (\s a -> s { _lUseEbsOptimizedInstances = a })
-{-# INLINE lUseEbsOptimizedInstances #-}
 
 instance FromJSON Layer
 
@@ -2092,24 +1955,20 @@ mkLoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     , _lbascUpScaling = Nothing
     , _lbascDownScaling = Nothing
     }
-{-# INLINE mkLoadBasedAutoScalingConfiguration #-}
 
 -- | The layer ID.
 lbascLayerId :: Lens' LoadBasedAutoScalingConfiguration (Maybe Text)
 lbascLayerId = lens _lbascLayerId (\s a -> s { _lbascLayerId = a })
-{-# INLINE lbascLayerId #-}
 
 -- | Whether load-based auto scaling is enabled for the layer.
 lbascEnable :: Lens' LoadBasedAutoScalingConfiguration (Maybe Bool)
 lbascEnable = lens _lbascEnable (\s a -> s { _lbascEnable = a })
-{-# INLINE lbascEnable #-}
 
 -- | A LoadBasedAutoscalingInstruction object that describes the upscaling
 -- configuration, which defines how and when AWS OpsWorks increases the number
 -- of instances.
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascUpScaling = lens _lbascUpScaling (\s a -> s { _lbascUpScaling = a })
-{-# INLINE lbascUpScaling #-}
 
 -- | A LoadBasedAutoscalingInstruction object that describes the downscaling
 -- configuration, which defines how and when AWS OpsWorks reduces the number
@@ -2117,7 +1976,6 @@ lbascUpScaling = lens _lbascUpScaling (\s a -> s { _lbascUpScaling = a })
 lbascDownScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascDownScaling =
     lens _lbascDownScaling (\s a -> s { _lbascDownScaling = a })
-{-# INLINE lbascDownScaling #-}
 
 instance FromJSON LoadBasedAutoScalingConfiguration
 
@@ -2140,35 +1998,29 @@ mkPermission = Permission
     , _pAllowSudo = Nothing
     , _pLevel = Nothing
     }
-{-# INLINE mkPermission #-}
 
 -- | A stack ID.
 pStackId :: Lens' Permission (Maybe Text)
 pStackId = lens _pStackId (\s a -> s { _pStackId = a })
-{-# INLINE pStackId #-}
 
 -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management
 -- (IAM) role. For more information about IAM ARNs, see Using Identifiers.
 pIamUserArn :: Lens' Permission (Maybe Text)
 pIamUserArn = lens _pIamUserArn (\s a -> s { _pIamUserArn = a })
-{-# INLINE pIamUserArn #-}
 
 -- | Whether the user can use SSH.
 pAllowSsh :: Lens' Permission (Maybe Bool)
 pAllowSsh = lens _pAllowSsh (\s a -> s { _pAllowSsh = a })
-{-# INLINE pAllowSsh #-}
 
 -- | Whether the user can use sudo.
 pAllowSudo :: Lens' Permission (Maybe Bool)
 pAllowSudo = lens _pAllowSudo (\s a -> s { _pAllowSudo = a })
-{-# INLINE pAllowSudo #-}
 
 -- | The user's permission level, which must be the following: deny show deploy
 -- manage iam_only For more information on the permissions associated with
 -- these levels, see Managing User Permissions.
 pLevel :: Lens' Permission (Maybe Text)
 pLevel = lens _pLevel (\s a -> s { _pLevel = a })
-{-# INLINE pLevel #-}
 
 instance FromJSON Permission
 
@@ -2205,69 +2057,56 @@ mkRaidArray = RaidArray
     , _raVolumeType = Nothing
     , _raIops = Nothing
     }
-{-# INLINE mkRaidArray #-}
 
 -- | The array ID.
 raRaidArrayId :: Lens' RaidArray (Maybe Text)
 raRaidArrayId = lens _raRaidArrayId (\s a -> s { _raRaidArrayId = a })
-{-# INLINE raRaidArrayId #-}
 
 -- | The instance ID.
 raInstanceId :: Lens' RaidArray (Maybe Text)
 raInstanceId = lens _raInstanceId (\s a -> s { _raInstanceId = a })
-{-# INLINE raInstanceId #-}
 
 -- | The array name.
 raName :: Lens' RaidArray (Maybe Text)
 raName = lens _raName (\s a -> s { _raName = a })
-{-# INLINE raName #-}
 
 -- | The RAID level.
 raRaidLevel :: Lens' RaidArray (Maybe Integer)
 raRaidLevel = lens _raRaidLevel (\s a -> s { _raRaidLevel = a })
-{-# INLINE raRaidLevel #-}
 
 -- | The number of disks in the array.
 raNumberOfDisks :: Lens' RaidArray (Maybe Integer)
 raNumberOfDisks = lens _raNumberOfDisks (\s a -> s { _raNumberOfDisks = a })
-{-# INLINE raNumberOfDisks #-}
 
 -- | The array's size.
 raSize :: Lens' RaidArray (Maybe Integer)
 raSize = lens _raSize (\s a -> s { _raSize = a })
-{-# INLINE raSize #-}
 
 -- | The array's Linux device. For example /dev/mdadm0.
 raDevice :: Lens' RaidArray (Maybe Text)
 raDevice = lens _raDevice (\s a -> s { _raDevice = a })
-{-# INLINE raDevice #-}
 
 -- | The array's mount point.
 raMountPoint :: Lens' RaidArray (Maybe Text)
 raMountPoint = lens _raMountPoint (\s a -> s { _raMountPoint = a })
-{-# INLINE raMountPoint #-}
 
 -- | The array's Availability Zone. For more information, see Regions and
 -- Endpoints.
 raAvailabilityZone :: Lens' RaidArray (Maybe Text)
 raAvailabilityZone =
     lens _raAvailabilityZone (\s a -> s { _raAvailabilityZone = a })
-{-# INLINE raAvailabilityZone #-}
 
 -- | When the RAID array was created.
 raCreatedAt :: Lens' RaidArray (Maybe Text)
 raCreatedAt = lens _raCreatedAt (\s a -> s { _raCreatedAt = a })
-{-# INLINE raCreatedAt #-}
 
 -- | The volume type, standard or PIOPS.
 raVolumeType :: Lens' RaidArray (Maybe Text)
 raVolumeType = lens _raVolumeType (\s a -> s { _raVolumeType = a })
-{-# INLINE raVolumeType #-}
 
 -- | For PIOPS volumes, the IOPS per disk.
 raIops :: Lens' RaidArray (Maybe Integer)
 raIops = lens _raIops (\s a -> s { _raIops = a })
-{-# INLINE raIops #-}
 
 instance FromJSON RaidArray
 
@@ -2298,57 +2137,47 @@ mkRdsDbInstance = RdsDbInstance
     , _rdiStackId = Nothing
     , _rdiMissingOnRds = Nothing
     }
-{-# INLINE mkRdsDbInstance #-}
 
 -- | The instance's ARN.
 rdiRdsDbInstanceArn :: Lens' RdsDbInstance (Maybe Text)
 rdiRdsDbInstanceArn =
     lens _rdiRdsDbInstanceArn (\s a -> s { _rdiRdsDbInstanceArn = a })
-{-# INLINE rdiRdsDbInstanceArn #-}
 
 -- | The DB instance identifier.
 rdiDbInstanceIdentifier :: Lens' RdsDbInstance (Maybe Text)
 rdiDbInstanceIdentifier =
     lens _rdiDbInstanceIdentifier
          (\s a -> s { _rdiDbInstanceIdentifier = a })
-{-# INLINE rdiDbInstanceIdentifier #-}
 
 -- | The master user name.
 rdiDbUser :: Lens' RdsDbInstance (Maybe Text)
 rdiDbUser = lens _rdiDbUser (\s a -> s { _rdiDbUser = a })
-{-# INLINE rdiDbUser #-}
 
 -- | The database password.
 rdiDbPassword :: Lens' RdsDbInstance (Maybe Text)
 rdiDbPassword = lens _rdiDbPassword (\s a -> s { _rdiDbPassword = a })
-{-# INLINE rdiDbPassword #-}
 
 -- | The instance's AWS region.
 rdiRegion :: Lens' RdsDbInstance (Maybe Text)
 rdiRegion = lens _rdiRegion (\s a -> s { _rdiRegion = a })
-{-# INLINE rdiRegion #-}
 
 -- | The instance's address.
 rdiAddress :: Lens' RdsDbInstance (Maybe Text)
 rdiAddress = lens _rdiAddress (\s a -> s { _rdiAddress = a })
-{-# INLINE rdiAddress #-}
 
 -- | The instance's database engine.
 rdiEngine :: Lens' RdsDbInstance (Maybe Text)
 rdiEngine = lens _rdiEngine (\s a -> s { _rdiEngine = a })
-{-# INLINE rdiEngine #-}
 
 -- | The ID of the stack that the instance is registered with.
 rdiStackId :: Lens' RdsDbInstance (Maybe Text)
 rdiStackId = lens _rdiStackId (\s a -> s { _rdiStackId = a })
-{-# INLINE rdiStackId #-}
 
 -- | Set to true if AWS OpsWorks was unable to discover the Amazon RDS instance.
 -- AWS OpsWorks attempts to discover the instance only once. If this value is
 -- set to true, you must deregister the instance and then register it again.
 rdiMissingOnRds :: Lens' RdsDbInstance (Maybe Bool)
 rdiMissingOnRds = lens _rdiMissingOnRds (\s a -> s { _rdiMissingOnRds = a })
-{-# INLINE rdiMissingOnRds #-}
 
 instance FromJSON RdsDbInstance
 
@@ -2371,32 +2200,26 @@ mkRecipes = Recipes
     , _rUndeploy = mempty
     , _rShutdown = mempty
     }
-{-# INLINE mkRecipes #-}
 
 -- | An array of custom recipe names to be run following a setup event.
 rSetup :: Lens' Recipes [Text]
 rSetup = lens _rSetup (\s a -> s { _rSetup = a })
-{-# INLINE rSetup #-}
 
 -- | An array of custom recipe names to be run following a configure event.
 rConfigure :: Lens' Recipes [Text]
 rConfigure = lens _rConfigure (\s a -> s { _rConfigure = a })
-{-# INLINE rConfigure #-}
 
 -- | An array of custom recipe names to be run following a deploy event.
 rDeploy :: Lens' Recipes [Text]
 rDeploy = lens _rDeploy (\s a -> s { _rDeploy = a })
-{-# INLINE rDeploy #-}
 
 -- | An array of custom recipe names to be run following a undeploy event.
 rUndeploy :: Lens' Recipes [Text]
 rUndeploy = lens _rUndeploy (\s a -> s { _rUndeploy = a })
-{-# INLINE rUndeploy #-}
 
 -- | An array of custom recipe names to be run following a shutdown event.
 rShutdown :: Lens' Recipes [Text]
 rShutdown = lens _rShutdown (\s a -> s { _rShutdown = a })
-{-# INLINE rShutdown #-}
 
 instance FromJSON Recipes
 
@@ -2419,27 +2242,22 @@ mkSelfUserProfile = SelfUserProfile
     , _supSshUsername = Nothing
     , _supSshPublicKey = Nothing
     }
-{-# INLINE mkSelfUserProfile #-}
 
 -- | The user's IAM ARN.
 supIamUserArn :: Lens' SelfUserProfile (Maybe Text)
 supIamUserArn = lens _supIamUserArn (\s a -> s { _supIamUserArn = a })
-{-# INLINE supIamUserArn #-}
 
 -- | The user's name.
 supName :: Lens' SelfUserProfile (Maybe Text)
 supName = lens _supName (\s a -> s { _supName = a })
-{-# INLINE supName #-}
 
 -- | The user's SSH user name.
 supSshUsername :: Lens' SelfUserProfile (Maybe Text)
 supSshUsername = lens _supSshUsername (\s a -> s { _supSshUsername = a })
-{-# INLINE supSshUsername #-}
 
 -- | The user's SSH public key.
 supSshPublicKey :: Lens' SelfUserProfile (Maybe Text)
 supSshPublicKey = lens _supSshPublicKey (\s a -> s { _supSshPublicKey = a })
-{-# INLINE supSshPublicKey #-}
 
 instance FromJSON SelfUserProfile
 
@@ -2464,38 +2282,31 @@ mkServiceError = ServiceError
     , _seMessage = Nothing
     , _seCreatedAt = Nothing
     }
-{-# INLINE mkServiceError #-}
 
 -- | The error ID.
 seServiceErrorId :: Lens' ServiceError (Maybe Text)
 seServiceErrorId =
     lens _seServiceErrorId (\s a -> s { _seServiceErrorId = a })
-{-# INLINE seServiceErrorId #-}
 
 -- | The stack ID.
 seStackId :: Lens' ServiceError (Maybe Text)
 seStackId = lens _seStackId (\s a -> s { _seStackId = a })
-{-# INLINE seStackId #-}
 
 -- | The instance ID.
 seInstanceId :: Lens' ServiceError (Maybe Text)
 seInstanceId = lens _seInstanceId (\s a -> s { _seInstanceId = a })
-{-# INLINE seInstanceId #-}
 
 -- | The error type.
 seType :: Lens' ServiceError (Maybe Text)
 seType = lens _seType (\s a -> s { _seType = a })
-{-# INLINE seType #-}
 
 -- | A message that describes the error.
 seMessage :: Lens' ServiceError (Maybe Text)
 seMessage = lens _seMessage (\s a -> s { _seMessage = a })
-{-# INLINE seMessage #-}
 
 -- | When the error occurred.
 seCreatedAt :: Lens' ServiceError (Maybe Text)
 seCreatedAt = lens _seCreatedAt (\s a -> s { _seCreatedAt = a })
-{-# INLINE seCreatedAt #-}
 
 instance FromJSON ServiceError
 
@@ -2522,24 +2333,20 @@ mkSource = Source
     , _sSshKey = Nothing
     , _sRevision = Nothing
     }
-{-# INLINE mkSource #-}
 
 -- | The repository type.
 sType :: Lens' Source (Maybe SourceType)
 sType = lens _sType (\s a -> s { _sType = a })
-{-# INLINE sType #-}
 
 -- | The source URL.
 sUrl :: Lens' Source (Maybe Text)
 sUrl = lens _sUrl (\s a -> s { _sUrl = a })
-{-# INLINE sUrl #-}
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
 -- Username to the appropriate IAM access key ID. For HTTP bundles, Git
 -- repositories, and Subversion repositories, set Username to the user name.
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\s a -> s { _sUsername = a })
-{-# INLINE sUsername #-}
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
 -- Password to the appropriate IAM secret access key. For HTTP bundles and
@@ -2547,12 +2354,10 @@ sUsername = lens _sUsername (\s a -> s { _sUsername = a })
 -- on how to safely handle IAM credentials, see .
 sPassword :: Lens' Source (Maybe Text)
 sPassword = lens _sPassword (\s a -> s { _sPassword = a })
-{-# INLINE sPassword #-}
 
 -- | The repository's SSH key.
 sSshKey :: Lens' Source (Maybe Text)
 sSshKey = lens _sSshKey (\s a -> s { _sSshKey = a })
-{-# INLINE sSshKey #-}
 
 -- | The application's version. AWS OpsWorks enables you to easily deploy new
 -- versions of an application. One of the simplest approaches is to have
@@ -2560,7 +2365,6 @@ sSshKey = lens _sSshKey (\s a -> s { _sSshKey = a })
 -- that can potentially be deployed.
 sRevision :: Lens' Source (Maybe Text)
 sRevision = lens _sRevision (\s a -> s { _sRevision = a })
-{-# INLINE sRevision #-}
 
 instance FromJSON Source
 
@@ -2583,23 +2387,19 @@ mkSslConfiguration p1 p2 = SslConfiguration
     , _scPrivateKey = p2
     , _scChain = Nothing
     }
-{-# INLINE mkSslConfiguration #-}
 
 -- | The contents of the certificate's domain.crt file.
 scCertificate :: Lens' SslConfiguration Text
 scCertificate = lens _scCertificate (\s a -> s { _scCertificate = a })
-{-# INLINE scCertificate #-}
 
 -- | The private key; the contents of the certificate's domain.kex file.
 scPrivateKey :: Lens' SslConfiguration Text
 scPrivateKey = lens _scPrivateKey (\s a -> s { _scPrivateKey = a })
-{-# INLINE scPrivateKey #-}
 
 -- | Optional. Can be used to specify an intermediate certificate authority key
 -- or client authentication.
 scChain :: Lens' SslConfiguration (Maybe Text)
 scChain = lens _scChain (\s a -> s { _scChain = a })
-{-# INLINE scChain #-}
 
 instance FromJSON SslConfiguration
 
@@ -2656,44 +2456,36 @@ mkStack = Stack
     , _srsCreatedAt = Nothing
     , _srsDefaultRootDeviceType = Nothing
     }
-{-# INLINE mkStack #-}
 
 -- | The stack ID.
 srsStackId :: Lens' Stack (Maybe Text)
 srsStackId = lens _srsStackId (\s a -> s { _srsStackId = a })
-{-# INLINE srsStackId #-}
 
 -- | The stack name.
 srsName :: Lens' Stack (Maybe Text)
 srsName = lens _srsName (\s a -> s { _srsName = a })
-{-# INLINE srsName #-}
 
 -- | The stack's ARN.
 srsArn :: Lens' Stack (Maybe Text)
 srsArn = lens _srsArn (\s a -> s { _srsArn = a })
-{-# INLINE srsArn #-}
 
 -- | The stack AWS region, such as "us-east-1". For more information about AWS
 -- regions, see Regions and Endpoints.
 srsRegion :: Lens' Stack (Maybe Text)
 srsRegion = lens _srsRegion (\s a -> s { _srsRegion = a })
-{-# INLINE srsRegion #-}
 
 -- | The VPC ID, if the stack is running in a VPC.
 srsVpcId :: Lens' Stack (Maybe Text)
 srsVpcId = lens _srsVpcId (\s a -> s { _srsVpcId = a })
-{-# INLINE srsVpcId #-}
 
 -- | The stack's attributes.
 srsAttributes :: Lens' Stack (Map StackAttributesKeys Text)
 srsAttributes = lens _srsAttributes (\s a -> s { _srsAttributes = a })
-{-# INLINE srsAttributes #-}
 
 -- | The stack AWS Identity and Access Management (IAM) role.
 srsServiceRoleArn :: Lens' Stack (Maybe Text)
 srsServiceRoleArn =
     lens _srsServiceRoleArn (\s a -> s { _srsServiceRoleArn = a })
-{-# INLINE srsServiceRoleArn #-}
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
@@ -2702,19 +2494,16 @@ srsDefaultInstanceProfileArn :: Lens' Stack (Maybe Text)
 srsDefaultInstanceProfileArn =
     lens _srsDefaultInstanceProfileArn
          (\s a -> s { _srsDefaultInstanceProfileArn = a })
-{-# INLINE srsDefaultInstanceProfileArn #-}
 
 -- | The stack's default operating system, which must be set to Amazon Linux or
 -- Ubuntu 12.04 LTS. The default option is Amazon Linux.
 srsDefaultOs :: Lens' Stack (Maybe Text)
 srsDefaultOs = lens _srsDefaultOs (\s a -> s { _srsDefaultOs = a })
-{-# INLINE srsDefaultOs #-}
 
 -- | The stack host name theme, with spaces replaced by underscores.
 srsHostnameTheme :: Lens' Stack (Maybe Text)
 srsHostnameTheme =
     lens _srsHostnameTheme (\s a -> s { _srsHostnameTheme = a })
-{-# INLINE srsHostnameTheme #-}
 
 -- | The stack's default Availability Zone. For more information, see Regions
 -- and Endpoints.
@@ -2722,13 +2511,11 @@ srsDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
 srsDefaultAvailabilityZone =
     lens _srsDefaultAvailabilityZone
          (\s a -> s { _srsDefaultAvailabilityZone = a })
-{-# INLINE srsDefaultAvailabilityZone #-}
 
 -- | The default subnet ID, if the stack is running in a VPC.
 srsDefaultSubnetId :: Lens' Stack (Maybe Text)
 srsDefaultSubnetId =
     lens _srsDefaultSubnetId (\s a -> s { _srsDefaultSubnetId = a })
-{-# INLINE srsDefaultSubnetId #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -2737,27 +2524,23 @@ srsDefaultSubnetId =
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
 srsCustomJson :: Lens' Stack (Maybe Text)
 srsCustomJson = lens _srsCustomJson (\s a -> s { _srsCustomJson = a })
-{-# INLINE srsCustomJson #-}
 
 -- | The configuration manager.
 srsConfigurationManager :: Lens' Stack (Maybe StackConfigurationManager)
 srsConfigurationManager =
     lens _srsConfigurationManager
          (\s a -> s { _srsConfigurationManager = a })
-{-# INLINE srsConfigurationManager #-}
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version. For more information, see Create a New Stack.
 srsChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
 srsChefConfiguration =
     lens _srsChefConfiguration (\s a -> s { _srsChefConfiguration = a })
-{-# INLINE srsChefConfiguration #-}
 
 -- | Whether the stack uses custom cookbooks.
 srsUseCustomCookbooks :: Lens' Stack (Maybe Bool)
 srsUseCustomCookbooks =
     lens _srsUseCustomCookbooks (\s a -> s { _srsUseCustomCookbooks = a })
-{-# INLINE srsUseCustomCookbooks #-}
 
 -- | Whether the stack automatically associates the AWS OpsWorks built-in
 -- security groups with the stack's layers.
@@ -2765,7 +2548,6 @@ srsUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
 srsUseOpsworksSecurityGroups =
     lens _srsUseOpsworksSecurityGroups
          (\s a -> s { _srsUseOpsworksSecurityGroups = a })
-{-# INLINE srsUseOpsworksSecurityGroups #-}
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
@@ -2774,19 +2556,16 @@ srsCustomCookbooksSource :: Lens' Stack (Maybe Source)
 srsCustomCookbooksSource =
     lens _srsCustomCookbooksSource
          (\s a -> s { _srsCustomCookbooksSource = a })
-{-# INLINE srsCustomCookbooksSource #-}
 
 -- | A default SSH key for the stack's instances. You can override this value
 -- when you create or update an instance.
 srsDefaultSshKeyName :: Lens' Stack (Maybe Text)
 srsDefaultSshKeyName =
     lens _srsDefaultSshKeyName (\s a -> s { _srsDefaultSshKeyName = a })
-{-# INLINE srsDefaultSshKeyName #-}
 
 -- | Date when the stack was created.
 srsCreatedAt :: Lens' Stack (Maybe Text)
 srsCreatedAt = lens _srsCreatedAt (\s a -> s { _srsCreatedAt = a })
-{-# INLINE srsCreatedAt #-}
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
@@ -2795,7 +2574,6 @@ srsDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 srsDefaultRootDeviceType =
     lens _srsDefaultRootDeviceType
          (\s a -> s { _srsDefaultRootDeviceType = a })
-{-# INLINE srsDefaultRootDeviceType #-}
 
 instance FromJSON Stack
 
@@ -2814,18 +2592,15 @@ mkStackConfigurationManager = StackConfigurationManager
     { _scmName = Nothing
     , _scmVersion = Nothing
     }
-{-# INLINE mkStackConfigurationManager #-}
 
 -- | The name. This parameter must be set to "Chef".
 scmName :: Lens' StackConfigurationManager (Maybe Text)
 scmName = lens _scmName (\s a -> s { _scmName = a })
-{-# INLINE scmName #-}
 
 -- | The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The
 -- default value is 11.4.
 scmVersion :: Lens' StackConfigurationManager (Maybe Text)
 scmVersion = lens _scmVersion (\s a -> s { _scmVersion = a })
-{-# INLINE scmVersion #-}
 
 instance FromJSON StackConfigurationManager
 
@@ -2852,38 +2627,31 @@ mkStackSummary = StackSummary
     , _ssAppsCount = Nothing
     , _ssInstancesCount = Nothing
     }
-{-# INLINE mkStackSummary #-}
 
 -- | The stack ID.
 ssStackId :: Lens' StackSummary (Maybe Text)
 ssStackId = lens _ssStackId (\s a -> s { _ssStackId = a })
-{-# INLINE ssStackId #-}
 
 -- | The stack name.
 ssName :: Lens' StackSummary (Maybe Text)
 ssName = lens _ssName (\s a -> s { _ssName = a })
-{-# INLINE ssName #-}
 
 -- | The stack's ARN.
 ssArn :: Lens' StackSummary (Maybe Text)
 ssArn = lens _ssArn (\s a -> s { _ssArn = a })
-{-# INLINE ssArn #-}
 
 -- | The number of layers.
 ssLayersCount :: Lens' StackSummary (Maybe Integer)
 ssLayersCount = lens _ssLayersCount (\s a -> s { _ssLayersCount = a })
-{-# INLINE ssLayersCount #-}
 
 -- | The number of apps.
 ssAppsCount :: Lens' StackSummary (Maybe Integer)
 ssAppsCount = lens _ssAppsCount (\s a -> s { _ssAppsCount = a })
-{-# INLINE ssAppsCount #-}
 
 -- | An InstancesCount object with the number of instances in each status.
 ssInstancesCount :: Lens' StackSummary (Maybe InstancesCount)
 ssInstancesCount =
     lens _ssInstancesCount (\s a -> s { _ssInstancesCount = a })
-{-# INLINE ssInstancesCount #-}
 
 instance FromJSON StackSummary
 
@@ -2900,19 +2668,16 @@ mkTimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascInstanceId = Nothing
     , _tbascAutoScalingSchedule = Nothing
     }
-{-# INLINE mkTimeBasedAutoScalingConfiguration #-}
 
 -- | The instance ID.
 tbascInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
 tbascInstanceId = lens _tbascInstanceId (\s a -> s { _tbascInstanceId = a })
-{-# INLINE tbascInstanceId #-}
 
 -- | A WeeklyAutoScalingSchedule object with the instance schedule.
 tbascAutoScalingSchedule :: Lens' TimeBasedAutoScalingConfiguration (Maybe WeeklyAutoScalingSchedule)
 tbascAutoScalingSchedule =
     lens _tbascAutoScalingSchedule
          (\s a -> s { _tbascAutoScalingSchedule = a })
-{-# INLINE tbascAutoScalingSchedule #-}
 
 instance FromJSON TimeBasedAutoScalingConfiguration
 
@@ -2935,34 +2700,28 @@ mkUserProfile = UserProfile
     , _upSshPublicKey = Nothing
     , _upAllowSelfManagement = Nothing
     }
-{-# INLINE mkUserProfile #-}
 
 -- | The user's IAM ARN.
 upIamUserArn :: Lens' UserProfile (Maybe Text)
 upIamUserArn = lens _upIamUserArn (\s a -> s { _upIamUserArn = a })
-{-# INLINE upIamUserArn #-}
 
 -- | The user's name.
 upName :: Lens' UserProfile (Maybe Text)
 upName = lens _upName (\s a -> s { _upName = a })
-{-# INLINE upName #-}
 
 -- | The user's SSH user name.
 upSshUsername :: Lens' UserProfile (Maybe Text)
 upSshUsername = lens _upSshUsername (\s a -> s { _upSshUsername = a })
-{-# INLINE upSshUsername #-}
 
 -- | The user's SSH public key.
 upSshPublicKey :: Lens' UserProfile (Maybe Text)
 upSshPublicKey = lens _upSshPublicKey (\s a -> s { _upSshPublicKey = a })
-{-# INLINE upSshPublicKey #-}
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see Managing User Permissions.
 upAllowSelfManagement :: Lens' UserProfile (Maybe Bool)
 upAllowSelfManagement =
     lens _upAllowSelfManagement (\s a -> s { _upAllowSelfManagement = a })
-{-# INLINE upAllowSelfManagement #-}
 
 instance FromJSON UserProfile
 
@@ -3001,75 +2760,61 @@ mkVolume = Volume
     , _vVolumeType = Nothing
     , _vIops = Nothing
     }
-{-# INLINE mkVolume #-}
 
 -- | The volume ID.
 vVolumeId :: Lens' Volume (Maybe Text)
 vVolumeId = lens _vVolumeId (\s a -> s { _vVolumeId = a })
-{-# INLINE vVolumeId #-}
 
 -- | The Amazon EC2 volume ID.
 vEc2VolumeId :: Lens' Volume (Maybe Text)
 vEc2VolumeId = lens _vEc2VolumeId (\s a -> s { _vEc2VolumeId = a })
-{-# INLINE vEc2VolumeId #-}
 
 -- | The volume name.
 vName :: Lens' Volume (Maybe Text)
 vName = lens _vName (\s a -> s { _vName = a })
-{-# INLINE vName #-}
 
 -- | The RAID array ID.
 vRaidArrayId :: Lens' Volume (Maybe Text)
 vRaidArrayId = lens _vRaidArrayId (\s a -> s { _vRaidArrayId = a })
-{-# INLINE vRaidArrayId #-}
 
 -- | The instance ID.
 vInstanceId :: Lens' Volume (Maybe Text)
 vInstanceId = lens _vInstanceId (\s a -> s { _vInstanceId = a })
-{-# INLINE vInstanceId #-}
 
 -- | The value returned by DescribeVolumes.
 vStatus :: Lens' Volume (Maybe Text)
 vStatus = lens _vStatus (\s a -> s { _vStatus = a })
-{-# INLINE vStatus #-}
 
 -- | The volume size.
 vSize :: Lens' Volume (Maybe Integer)
 vSize = lens _vSize (\s a -> s { _vSize = a })
-{-# INLINE vSize #-}
 
 -- | The device name.
 vDevice :: Lens' Volume (Maybe Text)
 vDevice = lens _vDevice (\s a -> s { _vDevice = a })
-{-# INLINE vDevice #-}
 
 -- | The volume mount point. For example "/dev/sdh".
 vMountPoint :: Lens' Volume (Maybe Text)
 vMountPoint = lens _vMountPoint (\s a -> s { _vMountPoint = a })
-{-# INLINE vMountPoint #-}
 
 -- | The AWS region. For more information about AWS regions, see Regions and
 -- Endpoints.
 vRegion :: Lens' Volume (Maybe Text)
 vRegion = lens _vRegion (\s a -> s { _vRegion = a })
-{-# INLINE vRegion #-}
 
 -- | The volume Availability Zone. For more information, see Regions and
 -- Endpoints.
 vAvailabilityZone :: Lens' Volume (Maybe Text)
 vAvailabilityZone =
     lens _vAvailabilityZone (\s a -> s { _vAvailabilityZone = a })
-{-# INLINE vAvailabilityZone #-}
 
 -- | The volume type, standard or PIOPS.
 vVolumeType :: Lens' Volume (Maybe Text)
 vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
-{-# INLINE vVolumeType #-}
 
 -- | For PIOPS volumes, the IOPS per disk.
 vIops :: Lens' Volume (Maybe Integer)
 vIops = lens _vIops (\s a -> s { _vIops = a })
-{-# INLINE vIops #-}
 
 instance FromJSON Volume
 
@@ -3097,37 +2842,30 @@ mkVolumeConfiguration p1 p3 p4 = VolumeConfiguration
     , _vcVolumeType = Nothing
     , _vcIops = Nothing
     }
-{-# INLINE mkVolumeConfiguration #-}
 
 -- | The volume mount point. For example "/dev/sdh".
 vcMountPoint :: Lens' VolumeConfiguration Text
 vcMountPoint = lens _vcMountPoint (\s a -> s { _vcMountPoint = a })
-{-# INLINE vcMountPoint #-}
 
 -- | The volume RAID level.
 vcRaidLevel :: Lens' VolumeConfiguration (Maybe Integer)
 vcRaidLevel = lens _vcRaidLevel (\s a -> s { _vcRaidLevel = a })
-{-# INLINE vcRaidLevel #-}
 
 -- | The number of disks in the volume.
 vcNumberOfDisks :: Lens' VolumeConfiguration Integer
 vcNumberOfDisks = lens _vcNumberOfDisks (\s a -> s { _vcNumberOfDisks = a })
-{-# INLINE vcNumberOfDisks #-}
 
 -- | The volume size.
 vcSize :: Lens' VolumeConfiguration Integer
 vcSize = lens _vcSize (\s a -> s { _vcSize = a })
-{-# INLINE vcSize #-}
 
 -- | The volume type, standard or PIOPS.
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\s a -> s { _vcVolumeType = a })
-{-# INLINE vcVolumeType #-}
 
 -- | For PIOPS volumes, the IOPS per disk.
 vcIops :: Lens' VolumeConfiguration (Maybe Integer)
 vcIops = lens _vcIops (\s a -> s { _vcIops = a })
-{-# INLINE vcIops #-}
 
 instance FromJSON VolumeConfiguration
 
@@ -3156,42 +2894,34 @@ mkWeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     , _wassSaturday = mempty
     , _wassSunday = mempty
     }
-{-# INLINE mkWeeklyAutoScalingSchedule #-}
 
 -- | The schedule for Monday.
 wassMonday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassMonday = lens _wassMonday (\s a -> s { _wassMonday = a })
-{-# INLINE wassMonday #-}
 
 -- | The schedule for Tuesday.
 wassTuesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassTuesday = lens _wassTuesday (\s a -> s { _wassTuesday = a })
-{-# INLINE wassTuesday #-}
 
 -- | The schedule for Wednesday.
 wassWednesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a })
-{-# INLINE wassWednesday #-}
 
 -- | The schedule for Thursday.
 wassThursday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassThursday = lens _wassThursday (\s a -> s { _wassThursday = a })
-{-# INLINE wassThursday #-}
 
 -- | The schedule for Friday.
 wassFriday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassFriday = lens _wassFriday (\s a -> s { _wassFriday = a })
-{-# INLINE wassFriday #-}
 
 -- | The schedule for Saturday.
 wassSaturday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassSaturday = lens _wassSaturday (\s a -> s { _wassSaturday = a })
-{-# INLINE wassSaturday #-}
 
 -- | The schedule for Sunday.
 wassSunday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
 wassSunday = lens _wassSunday (\s a -> s { _wassSunday = a })
-{-# INLINE wassSunday #-}
 
 instance FromJSON WeeklyAutoScalingSchedule
 

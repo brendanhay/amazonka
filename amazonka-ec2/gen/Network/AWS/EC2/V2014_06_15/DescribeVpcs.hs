@@ -68,12 +68,10 @@ mkDescribeVpcs = DescribeVpcs
     { _dv3VpcIds = mempty
     , _dv3Filters = mempty
     }
-{-# INLINE mkDescribeVpcs #-}
 
 -- | One or more VPC IDs. Default: Describes all your VPCs.
 dv3VpcIds :: Lens' DescribeVpcs [Text]
 dv3VpcIds = lens _dv3VpcIds (\s a -> s { _dv3VpcIds = a })
-{-# INLINE dv3VpcIds #-}
 
 -- | One or more filters. cidr - The CIDR block of the VPC. The CIDR block you
 -- specify must exactly match the VPC's CIDR block for information to be
@@ -91,7 +89,6 @@ dv3VpcIds = lens _dv3VpcIds (\s a -> s { _dv3VpcIds = a })
 -- The ID of the VPC.
 dv3Filters :: Lens' DescribeVpcs [Filter]
 dv3Filters = lens _dv3Filters (\s a -> s { _dv3Filters = a })
-{-# INLINE dv3Filters #-}
 
 instance ToQuery DescribeVpcs where
     toQuery = genericQuery def
@@ -104,7 +101,6 @@ newtype DescribeVpcsResponse = DescribeVpcsResponse
 -- | Information about one or more VPCs.
 dvrsrsVpcs :: Lens' DescribeVpcsResponse [Vpc]
 dvrsrsVpcs = lens _dvrsrsVpcs (\s a -> s { _dvrsrsVpcs = a })
-{-# INLINE dvrsrsVpcs #-}
 
 instance FromXML DescribeVpcsResponse where
     fromXMLOptions = xmlOptions

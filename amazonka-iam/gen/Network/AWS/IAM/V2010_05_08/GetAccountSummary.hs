@@ -49,7 +49,6 @@ data GetAccountSummary = GetAccountSummary
 -- a valid 'GetAccountSummary' request.
 mkGetAccountSummary :: GetAccountSummary
 mkGetAccountSummary = GetAccountSummary
-{-# INLINE mkGetAccountSummary #-}
 
 instance ToQuery GetAccountSummary where
     toQuery = genericQuery def
@@ -84,7 +83,6 @@ newtype GetAccountSummaryResponse = GetAccountSummaryResponse
 -- the AWS account.
 gasrsSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Integer)
 gasrsSummaryMap = lens _gasrsSummaryMap (\s a -> s { _gasrsSummaryMap = a })
-{-# INLINE gasrsSummaryMap #-}
 
 instance FromXML GetAccountSummaryResponse where
     fromXMLOptions = xmlOptions

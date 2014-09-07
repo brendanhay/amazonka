@@ -51,12 +51,10 @@ mkGetCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'gcfoaicId'
 mkGetCloudFrontOriginAccessIdentityConfig p1 = GetCloudFrontOriginAccessIdentityConfig
     { _gcfoaicId = p1
     }
-{-# INLINE mkGetCloudFrontOriginAccessIdentityConfig #-}
 
 -- | The identity's id.
 gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
 gcfoaicId = lens _gcfoaicId (\s a -> s { _gcfoaicId = a })
-{-# INLINE gcfoaicId #-}
 
 instance ToPath GetCloudFrontOriginAccessIdentityConfig where
     toPath GetCloudFrontOriginAccessIdentityConfig{..} = mconcat
@@ -84,12 +82,10 @@ gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccess
 gcfoaicrsCloudFrontOriginAccessIdentityConfig =
     lens _gcfoaicrsCloudFrontOriginAccessIdentityConfig
          (\s a -> s { _gcfoaicrsCloudFrontOriginAccessIdentityConfig = a })
-{-# INLINE gcfoaicrsCloudFrontOriginAccessIdentityConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 gcfoaicrsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
 gcfoaicrsETag = lens _gcfoaicrsETag (\s a -> s { _gcfoaicrsETag = a })
-{-# INLINE gcfoaicrsETag #-}
 
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront

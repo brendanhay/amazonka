@@ -53,14 +53,12 @@ mkConfirmPublicVirtualInterface :: Text -- ^ 'cpvi1VirtualInterfaceId'
 mkConfirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId = p1
     }
-{-# INLINE mkConfirmPublicVirtualInterface #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 cpvi1VirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
 cpvi1VirtualInterfaceId =
     lens _cpvi1VirtualInterfaceId
          (\s a -> s { _cpvi1VirtualInterfaceId = a })
-{-# INLINE cpvi1VirtualInterfaceId #-}
 
 instance ToPath ConfirmPublicVirtualInterface
 
@@ -95,7 +93,6 @@ cpvirsrsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Ma
 cpvirsrsVirtualInterfaceState =
     lens _cpvirsrsVirtualInterfaceState
          (\s a -> s { _cpvirsrsVirtualInterfaceState = a })
-{-# INLINE cpvirsrsVirtualInterfaceState #-}
 
 instance FromJSON ConfirmPublicVirtualInterfaceResponse
 

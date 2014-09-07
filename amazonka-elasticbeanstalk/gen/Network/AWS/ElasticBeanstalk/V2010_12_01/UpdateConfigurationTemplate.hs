@@ -117,7 +117,6 @@ mkUpdateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
     , _uctOptionSettings = mempty
     , _uctOptionsToRemove = mempty
     }
-{-# INLINE mkUpdateConfigurationTemplate #-}
 
 -- | The name of the application associated with the configuration template to
 -- update. If no application is found with this name,
@@ -125,33 +124,28 @@ mkUpdateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
 uctApplicationName :: Lens' UpdateConfigurationTemplate Text
 uctApplicationName =
     lens _uctApplicationName (\s a -> s { _uctApplicationName = a })
-{-# INLINE uctApplicationName #-}
 
 -- | The name of the configuration template to update. If no configuration
 -- template is found with this name, UpdateConfigurationTemplate returns an
 -- InvalidParameterValue error.
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\s a -> s { _uctTemplateName = a })
-{-# INLINE uctTemplateName #-}
 
 -- | A new description for the configuration.
 uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
 uctDescription = lens _uctDescription (\s a -> s { _uctDescription = a })
-{-# INLINE uctDescription #-}
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
 uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
 uctOptionSettings =
     lens _uctOptionSettings (\s a -> s { _uctOptionSettings = a })
-{-# INLINE uctOptionSettings #-}
 
 -- | A list of configuration options to remove from the configuration set.
 -- Constraint: You can remove only UserDefined configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove =
     lens _uctOptionsToRemove (\s a -> s { _uctOptionsToRemove = a })
-{-# INLINE uctOptionsToRemove #-}
 
 instance ToQuery UpdateConfigurationTemplate where
     toQuery = genericQuery def
@@ -173,32 +167,27 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
 uctrsSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrsSolutionStackName =
     lens _uctrsSolutionStackName (\s a -> s { _uctrsSolutionStackName = a })
-{-# INLINE uctrsSolutionStackName #-}
 
 -- | The name of the application associated with this configuration set.
 uctrsApplicationName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrsApplicationName =
     lens _uctrsApplicationName (\s a -> s { _uctrsApplicationName = a })
-{-# INLINE uctrsApplicationName #-}
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
 uctrsTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrsTemplateName =
     lens _uctrsTemplateName (\s a -> s { _uctrsTemplateName = a })
-{-# INLINE uctrsTemplateName #-}
 
 -- | Describes this configuration set.
 uctrsDescription :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrsDescription =
     lens _uctrsDescription (\s a -> s { _uctrsDescription = a })
-{-# INLINE uctrsDescription #-}
 
 -- | If not null, the name of the environment for this configuration set.
 uctrsEnvironmentName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrsEnvironmentName =
     lens _uctrsEnvironmentName (\s a -> s { _uctrsEnvironmentName = a })
-{-# INLINE uctrsEnvironmentName #-}
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -216,26 +205,22 @@ uctrsEnvironmentName =
 uctrsDeploymentStatus :: Lens' UpdateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
 uctrsDeploymentStatus =
     lens _uctrsDeploymentStatus (\s a -> s { _uctrsDeploymentStatus = a })
-{-# INLINE uctrsDeploymentStatus #-}
 
 -- | The date (in UTC time) when this configuration set was created.
 uctrsDateCreated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
 uctrsDateCreated =
     lens _uctrsDateCreated (\s a -> s { _uctrsDateCreated = a })
-{-# INLINE uctrsDateCreated #-}
 
 -- | The date (in UTC time) when this configuration set was last modified.
 uctrsDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
 uctrsDateUpdated =
     lens _uctrsDateUpdated (\s a -> s { _uctrsDateUpdated = a })
-{-# INLINE uctrsDateUpdated #-}
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
 uctrsOptionSettings :: Lens' UpdateConfigurationTemplateResponse [ConfigurationOptionSetting]
 uctrsOptionSettings =
     lens _uctrsOptionSettings (\s a -> s { _uctrsOptionSettings = a })
-{-# INLINE uctrsOptionSettings #-}
 
 instance FromXML UpdateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions

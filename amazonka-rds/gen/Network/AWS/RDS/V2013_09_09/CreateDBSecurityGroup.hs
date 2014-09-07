@@ -63,7 +63,6 @@ mkCreateDBSecurityGroup p1 p2 = CreateDBSecurityGroup
     , _cdbsgDBSecurityGroupDescription = p2
     , _cdbsgTags = mempty
     }
-{-# INLINE mkCreateDBSecurityGroup #-}
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string. Constraints: Must be 1 to 255 alphanumeric characters First
@@ -74,19 +73,16 @@ cdbsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
 cdbsgDBSecurityGroupName =
     lens _cdbsgDBSecurityGroupName
          (\s a -> s { _cdbsgDBSecurityGroupName = a })
-{-# INLINE cdbsgDBSecurityGroupName #-}
 
 -- | The description for the DB security group.
 cdbsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
 cdbsgDBSecurityGroupDescription =
     lens _cdbsgDBSecurityGroupDescription
          (\s a -> s { _cdbsgDBSecurityGroupDescription = a })
-{-# INLINE cdbsgDBSecurityGroupDescription #-}
 
 -- | A list of tags.
 cdbsgTags :: Lens' CreateDBSecurityGroup [Tag]
 cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a })
-{-# INLINE cdbsgTags #-}
 
 instance ToQuery CreateDBSecurityGroup where
     toQuery = genericQuery def
@@ -102,7 +98,6 @@ newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
 cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 cdbsgrsDBSecurityGroup =
     lens _cdbsgrsDBSecurityGroup (\s a -> s { _cdbsgrsDBSecurityGroup = a })
-{-# INLINE cdbsgrsDBSecurityGroup #-}
 
 instance FromXML CreateDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions

@@ -56,19 +56,16 @@ mkCreateGroup p2 = CreateGroup
     { _cgPath = Nothing
     , _cgGroupName = p2
     }
-{-# INLINE mkCreateGroup #-}
 
 -- | The path to the group. For more information about paths, see Identifiers
 -- for IAM Entities in the Using IAM guide. This parameter is optional. If it
 -- is not included, it defaults to a slash (/).
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\s a -> s { _cgPath = a })
-{-# INLINE cgPath #-}
 
 -- | Name of the group to create. Do not include the path in this value.
 cgGroupName :: Lens' CreateGroup Text
 cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
-{-# INLINE cgGroupName #-}
 
 instance ToQuery CreateGroup where
     toQuery = genericQuery def
@@ -81,7 +78,6 @@ newtype CreateGroupResponse = CreateGroupResponse
 -- | Information about the group.
 cgrsGroup :: Lens' CreateGroupResponse Group
 cgrsGroup = lens _cgrsGroup (\s a -> s { _cgrsGroup = a })
-{-# INLINE cgrsGroup #-}
 
 instance FromXML CreateGroupResponse where
     fromXMLOptions = xmlOptions

@@ -58,26 +58,22 @@ mkDescribeInstances = DescribeInstances
     , _di1LayerId = Nothing
     , _di1InstanceIds = mempty
     }
-{-# INLINE mkDescribeInstances #-}
 
 -- | A stack ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified stack.
 di1StackId :: Lens' DescribeInstances (Maybe Text)
 di1StackId = lens _di1StackId (\s a -> s { _di1StackId = a })
-{-# INLINE di1StackId #-}
 
 -- | A layer ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified layer.
 di1LayerId :: Lens' DescribeInstances (Maybe Text)
 di1LayerId = lens _di1LayerId (\s a -> s { _di1LayerId = a })
-{-# INLINE di1LayerId #-}
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- DescribeInstances returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
 di1InstanceIds :: Lens' DescribeInstances [Text]
 di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a })
-{-# INLINE di1InstanceIds #-}
 
 instance ToPath DescribeInstances
 
@@ -95,7 +91,6 @@ newtype DescribeInstancesResponse = DescribeInstancesResponse
 -- | An array of Instance objects that describe the instances.
 dirsInstances :: Lens' DescribeInstancesResponse [Instance]
 dirsInstances = lens _dirsInstances (\s a -> s { _dirsInstances = a })
-{-# INLINE dirsInstances #-}
 
 instance FromJSON DescribeInstancesResponse
 

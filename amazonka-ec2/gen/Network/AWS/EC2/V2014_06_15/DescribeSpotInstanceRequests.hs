@@ -72,14 +72,12 @@ mkDescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirSpotInstanceRequestIds = mempty
     , _dsirFilters = mempty
     }
-{-# INLINE mkDescribeSpotInstanceRequests #-}
 
 -- | One or more Spot Instance request IDs.
 dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
 dsirSpotInstanceRequestIds =
     lens _dsirSpotInstanceRequestIds
          (\s a -> s { _dsirSpotInstanceRequestIds = a })
-{-# INLINE dsirSpotInstanceRequestIds #-}
 
 -- | One or more filters. availability-zone-group - The Availability Zone group.
 -- create-time - The time stamp when the Spot Instance request was created.
@@ -134,7 +132,6 @@ dsirSpotInstanceRequestIds =
 -- date of the request.
 dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
 dsirFilters = lens _dsirFilters (\s a -> s { _dsirFilters = a })
-{-# INLINE dsirFilters #-}
 
 instance ToQuery DescribeSpotInstanceRequests where
     toQuery = genericQuery def
@@ -149,7 +146,6 @@ dsirrsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotIn
 dsirrsSpotInstanceRequests =
     lens _dsirrsSpotInstanceRequests
          (\s a -> s { _dsirrsSpotInstanceRequests = a })
-{-# INLINE dsirrsSpotInstanceRequests #-}
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions

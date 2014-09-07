@@ -64,19 +64,16 @@ mkCreateLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
     { _clblLoadBalancerName = p1
     , _clblListeners = p2
     }
-{-# INLINE mkCreateLoadBalancerListeners #-}
 
 -- | The name of the load balancer.
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
 clblLoadBalancerName =
     lens _clblLoadBalancerName (\s a -> s { _clblLoadBalancerName = a })
-{-# INLINE clblLoadBalancerName #-}
 
 -- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
 -- SSLCertificateId items.
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
 clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a })
-{-# INLINE clblListeners #-}
 
 instance ToQuery CreateLoadBalancerListeners where
     toQuery = genericQuery def

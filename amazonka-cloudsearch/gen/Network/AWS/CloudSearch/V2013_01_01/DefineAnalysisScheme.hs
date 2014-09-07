@@ -58,7 +58,6 @@ mkDefineAnalysisScheme p1 p2 = DefineAnalysisScheme
     { _dasDomainName = p1
     , _dasAnalysisScheme = p2
     }
-{-# INLINE mkDefineAnalysisScheme #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -66,7 +65,6 @@ mkDefineAnalysisScheme p1 p2 = DefineAnalysisScheme
 -- (lowercase), 0-9, and - (hyphen).
 dasDomainName :: Lens' DefineAnalysisScheme Text
 dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
-{-# INLINE dasDomainName #-}
 
 -- | Configuration information for an analysis scheme. Each analysis scheme has
 -- a unique name and specifies the language of the text to be processed. The
@@ -75,7 +73,6 @@ dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
 dasAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
 dasAnalysisScheme =
     lens _dasAnalysisScheme (\s a -> s { _dasAnalysisScheme = a })
-{-# INLINE dasAnalysisScheme #-}
 
 instance ToQuery DefineAnalysisScheme where
     toQuery = genericQuery def
@@ -90,7 +87,6 @@ newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
 dasrsAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 dasrsAnalysisScheme =
     lens _dasrsAnalysisScheme (\s a -> s { _dasrsAnalysisScheme = a })
-{-# INLINE dasrsAnalysisScheme #-}
 
 instance FromXML DefineAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions

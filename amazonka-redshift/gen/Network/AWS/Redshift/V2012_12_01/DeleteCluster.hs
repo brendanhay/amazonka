@@ -72,7 +72,6 @@ mkDeleteCluster p1 = DeleteCluster
     , _dcSkipFinalClusterSnapshot = Nothing
     , _dcFinalClusterSnapshotIdentifier = Nothing
     }
-{-# INLINE mkDeleteCluster #-}
 
 -- | The identifier of the cluster to be deleted. Constraints: Must contain
 -- lowercase characters. Must contain from 1 to 63 alphanumeric characters or
@@ -81,7 +80,6 @@ mkDeleteCluster p1 = DeleteCluster
 dcClusterIdentifier :: Lens' DeleteCluster Text
 dcClusterIdentifier =
     lens _dcClusterIdentifier (\s a -> s { _dcClusterIdentifier = a })
-{-# INLINE dcClusterIdentifier #-}
 
 -- | Determines whether a final snapshot of the cluster is created before Amazon
 -- Redshift deletes the cluster. If true, a final cluster snapshot is not
@@ -92,7 +90,6 @@ dcSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 dcSkipFinalClusterSnapshot =
     lens _dcSkipFinalClusterSnapshot
          (\s a -> s { _dcSkipFinalClusterSnapshot = a })
-{-# INLINE dcSkipFinalClusterSnapshot #-}
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
@@ -103,7 +100,6 @@ dcFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
 dcFinalClusterSnapshotIdentifier =
     lens _dcFinalClusterSnapshotIdentifier
          (\s a -> s { _dcFinalClusterSnapshotIdentifier = a })
-{-# INLINE dcFinalClusterSnapshotIdentifier #-}
 
 instance ToQuery DeleteCluster where
     toQuery = genericQuery def
@@ -115,7 +111,6 @@ newtype DeleteClusterResponse = DeleteClusterResponse
 -- | Describes a cluster.
 dcrsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 dcrsCluster = lens _dcrsCluster (\s a -> s { _dcrsCluster = a })
-{-# INLINE dcrsCluster #-}
 
 instance FromXML DeleteClusterResponse where
     fromXMLOptions = xmlOptions

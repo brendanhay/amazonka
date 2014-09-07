@@ -91,17 +91,14 @@ mkSendMessageBatch p1 p2 = SendMessageBatch
     { _smbQueueUrl = p1
     , _smbEntries = p2
     }
-{-# INLINE mkSendMessageBatch #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
-{-# INLINE smbQueueUrl #-}
 
 -- | A list of SendMessageBatchRequestEntry items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
-{-# INLINE smbEntries #-}
 
 instance ToQuery SendMessageBatch where
     toQuery = genericQuery def
@@ -117,13 +114,11 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 -- | A list of SendMessageBatchResultEntry items.
 smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrsSuccessful = lens _smbrsSuccessful (\s a -> s { _smbrsSuccessful = a })
-{-# INLINE smbrsSuccessful #-}
 
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrsFailed = lens _smbrsFailed (\s a -> s { _smbrsFailed = a })
-{-# INLINE smbrsFailed #-}
 
 instance FromXML SendMessageBatchResponse where
     fromXMLOptions = xmlOptions

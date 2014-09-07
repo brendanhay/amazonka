@@ -77,12 +77,10 @@ mkDescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazZoneNames = mempty
     , _dazFilters = mempty
     }
-{-# INLINE mkDescribeAvailabilityZones #-}
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
 dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a })
-{-# INLINE dazZoneNames #-}
 
 -- | One or more filters. message - Information about the Availability Zone.
 -- region-name - The name of the region for the Availability Zone (for
@@ -91,7 +89,6 @@ dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a })
 -- (for example, us-east-1a).
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
 dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a })
-{-# INLINE dazFilters #-}
 
 instance ToQuery DescribeAvailabilityZones where
     toQuery = genericQuery def
@@ -105,7 +102,6 @@ newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
 dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrsAvailabilityZones =
     lens _dazrsAvailabilityZones (\s a -> s { _dazrsAvailabilityZones = a })
-{-# INLINE dazrsAvailabilityZones #-}
 
 instance FromXML DescribeAvailabilityZonesResponse where
     fromXMLOptions = xmlOptions

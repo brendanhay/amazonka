@@ -52,12 +52,10 @@ mkDescribeTrustedAdvisorCheckRefreshStatuses :: [Text] -- ^ 'dtacrsCheckIds'
 mkDescribeTrustedAdvisorCheckRefreshStatuses p1 = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsCheckIds = p1
     }
-{-# INLINE mkDescribeTrustedAdvisorCheckRefreshStatuses #-}
 
 -- | The IDs of the Trusted Advisor checks.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
 dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a })
-{-# INLINE dtacrsCheckIds #-}
 
 instance ToPath DescribeTrustedAdvisorCheckRefreshStatuses
 
@@ -77,7 +75,6 @@ newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvi
 dtacrsrsStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrsStatuses =
     lens _dtacrsrsStatuses (\s a -> s { _dtacrsrsStatuses = a })
-{-# INLINE dtacrsrsStatuses #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse
 

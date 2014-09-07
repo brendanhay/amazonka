@@ -72,12 +72,10 @@ mkSetVisibleToAllUsers p1 p2 = SetVisibleToAllUsers
     { _svtauJobFlowIds = p1
     , _svtauVisibleToAllUsers = p2
     }
-{-# INLINE mkSetVisibleToAllUsers #-}
 
 -- | Identifiers of the job flows to receive the new visibility setting.
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
 svtauJobFlowIds = lens _svtauJobFlowIds (\s a -> s { _svtauJobFlowIds = a })
-{-# INLINE svtauJobFlowIds #-}
 
 -- | Whether the specified job flows are visible to all IAM users of the AWS
 -- account associated with the job flow. If this value is set to True, all IAM
@@ -87,7 +85,6 @@ svtauJobFlowIds = lens _svtauJobFlowIds (\s a -> s { _svtauJobFlowIds = a })
 svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
 svtauVisibleToAllUsers =
     lens _svtauVisibleToAllUsers (\s a -> s { _svtauVisibleToAllUsers = a })
-{-# INLINE svtauVisibleToAllUsers #-}
 
 instance ToPath SetVisibleToAllUsers
 

@@ -61,16 +61,13 @@ mkDeleteLogStream p1 p2 = DeleteLogStream
     { _dlsLogGroupName = p1
     , _dlsLogStreamName = p2
     }
-{-# INLINE mkDeleteLogStream #-}
 
 dlsLogGroupName :: Lens' DeleteLogStream Text
 dlsLogGroupName = lens _dlsLogGroupName (\s a -> s { _dlsLogGroupName = a })
-{-# INLINE dlsLogGroupName #-}
 
 dlsLogStreamName :: Lens' DeleteLogStream Text
 dlsLogStreamName =
     lens _dlsLogStreamName (\s a -> s { _dlsLogStreamName = a })
-{-# INLINE dlsLogStreamName #-}
 
 instance ToPath DeleteLogStream
 

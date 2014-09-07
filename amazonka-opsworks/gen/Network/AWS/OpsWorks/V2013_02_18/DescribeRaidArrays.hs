@@ -55,20 +55,17 @@ mkDescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId = Nothing
     , _draRaidArrayIds = mempty
     }
-{-# INLINE mkDescribeRaidArrays #-}
 
 -- | The instance ID. If you use this parameter, DescribeRaidArrays returns
 -- descriptions of the RAID arrays associated with the specified instance.
 draInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
 draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
-{-# INLINE draInstanceId #-}
 
 -- | An array of RAID array IDs. If you use this parameter, DescribeRaidArrays
 -- returns descriptions of the specified arrays. Otherwise, it returns a
 -- description of every array.
 draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
 draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a })
-{-# INLINE draRaidArrayIds #-}
 
 instance ToPath DescribeRaidArrays
 
@@ -86,7 +83,6 @@ newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
 -- | A RaidArrays object that describes the specified RAID arrays.
 drarsRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
 drarsRaidArrays = lens _drarsRaidArrays (\s a -> s { _drarsRaidArrays = a })
-{-# INLINE drarsRaidArrays #-}
 
 instance FromJSON DescribeRaidArraysResponse
 

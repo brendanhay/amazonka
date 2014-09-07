@@ -84,32 +84,27 @@ mkUpdateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
     , _ussRecurrenceInHours = p3
     , _ussDescription = Nothing
     }
-{-# INLINE mkUpdateSnapshotSchedule #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })
-{-# INLINE ussVolumeARN #-}
 
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- hh, where hh is the hour (0 to 23). The hour of the day is in the time zone
 -- of the gateway.
 ussStartAt :: Lens' UpdateSnapshotSchedule Integer
 ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a })
-{-# INLINE ussStartAt #-}
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
 ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Integer
 ussRecurrenceInHours =
     lens _ussRecurrenceInHours (\s a -> s { _ussRecurrenceInHours = a })
-{-# INLINE ussRecurrenceInHours #-}
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
 ussDescription = lens _ussDescription (\s a -> s { _ussDescription = a })
-{-# INLINE ussDescription #-}
 
 instance ToPath UpdateSnapshotSchedule
 
@@ -127,7 +122,6 @@ newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
 -- | 
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrsVolumeARN = lens _ussrsVolumeARN (\s a -> s { _ussrsVolumeARN = a })
-{-# INLINE ussrsVolumeARN #-}
 
 instance FromJSON UpdateSnapshotScheduleResponse
 

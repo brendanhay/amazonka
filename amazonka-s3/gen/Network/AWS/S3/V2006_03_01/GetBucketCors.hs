@@ -49,11 +49,9 @@ mkGetBucketCors :: BucketName -- ^ 'gbcBucket'
 mkGetBucketCors p1 = GetBucketCors
     { _gbcBucket = p1
     }
-{-# INLINE mkGetBucketCors #-}
 
 gbcBucket :: Lens' GetBucketCors BucketName
 gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
-{-# INLINE gbcBucket #-}
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
@@ -76,7 +74,6 @@ newtype GetBucketCorsResponse = GetBucketCorsResponse
 
 gbcrsCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
 gbcrsCORSRules = lens _gbcrsCORSRules (\s a -> s { _gbcrsCORSRules = a })
-{-# INLINE gbcrsCORSRules #-}
 
 instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions

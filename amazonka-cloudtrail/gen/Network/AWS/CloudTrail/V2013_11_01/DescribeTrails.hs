@@ -50,13 +50,11 @@ mkDescribeTrails :: DescribeTrails
 mkDescribeTrails = DescribeTrails
     { _dt1TrailNameList = mempty
     }
-{-# INLINE mkDescribeTrails #-}
 
 -- | The trail returned.
 dt1TrailNameList :: Lens' DescribeTrails [Text]
 dt1TrailNameList =
     lens _dt1TrailNameList (\s a -> s { _dt1TrailNameList = a })
-{-# INLINE dt1TrailNameList #-}
 
 instance ToPath DescribeTrails
 
@@ -75,7 +73,6 @@ newtype DescribeTrailsResponse = DescribeTrailsResponse
 -- | The list of trails.
 dtrsrsTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrsrsTrailList = lens _dtrsrsTrailList (\s a -> s { _dtrsrsTrailList = a })
-{-# INLINE dtrsrsTrailList #-}
 
 instance FromJSON DescribeTrailsResponse
 

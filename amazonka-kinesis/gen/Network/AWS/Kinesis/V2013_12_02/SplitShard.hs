@@ -100,17 +100,14 @@ mkSplitShard p1 p2 p3 = SplitShard
     , _ssShardToSplit = p2
     , _ssNewStartingHashKey = p3
     }
-{-# INLINE mkSplitShard #-}
 
 -- | The name of the stream for the shard split.
 ssStreamName :: Lens' SplitShard Text
 ssStreamName = lens _ssStreamName (\s a -> s { _ssStreamName = a })
-{-# INLINE ssStreamName #-}
 
 -- | The shard ID of the shard to split.
 ssShardToSplit :: Lens' SplitShard Text
 ssShardToSplit = lens _ssShardToSplit (\s a -> s { _ssShardToSplit = a })
-{-# INLINE ssShardToSplit #-}
 
 -- | A hash key value for the starting hash key of one of the child shards
 -- created by the split. The hash key range for a given shard constitutes a
@@ -122,7 +119,6 @@ ssShardToSplit = lens _ssShardToSplit (\s a -> s { _ssShardToSplit = a })
 ssNewStartingHashKey :: Lens' SplitShard Text
 ssNewStartingHashKey =
     lens _ssNewStartingHashKey (\s a -> s { _ssNewStartingHashKey = a })
-{-# INLINE ssNewStartingHashKey #-}
 
 instance ToPath SplitShard
 

@@ -101,12 +101,10 @@ mkReceiveMessage p1 = ReceiveMessage
     , _rmVisibilityTimeout = Nothing
     , _rmWaitTimeSeconds = Nothing
     }
-{-# INLINE mkReceiveMessage #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 rmQueueUrl :: Lens' ReceiveMessage Text
 rmQueueUrl = lens _rmQueueUrl (\s a -> s { _rmQueueUrl = a })
-{-# INLINE rmQueueUrl #-}
 
 -- | A list of attributes that need to be returned along with each message. The
 -- following lists the names and descriptions of the attributes that can be
@@ -120,7 +118,6 @@ rmQueueUrl = lens _rmQueueUrl (\s a -> s { _rmQueueUrl = a })
 rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
 rmAttributeNames =
     lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a })
-{-# INLINE rmAttributeNames #-}
 
 -- | The message attribute Name can contain the following characters: A-Z, a-z,
 -- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name
@@ -134,7 +131,6 @@ rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
 rmMessageAttributeNames =
     lens _rmMessageAttributeNames
          (\s a -> s { _rmMessageAttributeNames = a })
-{-# INLINE rmMessageAttributeNames #-}
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to 10.
@@ -142,7 +138,6 @@ rmMessageAttributeNames =
 rmMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Integer)
 rmMaxNumberOfMessages =
     lens _rmMaxNumberOfMessages (\s a -> s { _rmMaxNumberOfMessages = a })
-{-# INLINE rmMaxNumberOfMessages #-}
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a ReceiveMessage
@@ -150,7 +145,6 @@ rmMaxNumberOfMessages =
 rmVisibilityTimeout :: Lens' ReceiveMessage (Maybe Integer)
 rmVisibilityTimeout =
     lens _rmVisibilityTimeout (\s a -> s { _rmVisibilityTimeout = a })
-{-# INLINE rmVisibilityTimeout #-}
 
 -- | The duration (in seconds) for which the call will wait for a message to
 -- arrive in the queue before returning. If a message is available, the call
@@ -158,7 +152,6 @@ rmVisibilityTimeout =
 rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Integer)
 rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
-{-# INLINE rmWaitTimeSeconds #-}
 
 instance ToQuery ReceiveMessage where
     toQuery = genericQuery def
@@ -171,7 +164,6 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
 -- | A list of messages.
 rmrsMessages :: Lens' ReceiveMessageResponse [Message]
 rmrsMessages = lens _rmrsMessages (\s a -> s { _rmrsMessages = a })
-{-# INLINE rmrsMessages #-}
 
 instance FromXML ReceiveMessageResponse where
     fromXMLOptions = xmlOptions

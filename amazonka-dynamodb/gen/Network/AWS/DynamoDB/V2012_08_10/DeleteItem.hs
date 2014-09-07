@@ -88,18 +88,15 @@ mkDeleteItem p1 p2 = DeleteItem
     , _diReturnConsumedCapacity = Nothing
     , _diReturnItemCollectionMetrics = Nothing
     }
-{-# INLINE mkDeleteItem #-}
 
 -- | The name of the table from which to delete the item.
 diTableName :: Lens' DeleteItem Text
 diTableName = lens _diTableName (\s a -> s { _diTableName = a })
-{-# INLINE diTableName #-}
 
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to delete.
 diKey :: Lens' DeleteItem (Map Text AttributeValue)
 diKey = lens _diKey (\s a -> s { _diKey = a })
-{-# INLINE diKey #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
 -- DeleteItem operation. All the conditions must be met for the operation to
@@ -129,12 +126,10 @@ diKey = lens _diKey (\s a -> s { _diKey = a })
 -- together.) Otherwise, the conditional operation will fail.
 diExpected :: Lens' DeleteItem (Map Text ExpectedAttributeValue)
 diExpected = lens _diExpected (\s a -> s { _diExpected = a })
-{-# INLINE diExpected #-}
 
 diConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
 diConditionalOperator =
     lens _diConditionalOperator (\s a -> s { _diConditionalOperator = a })
-{-# INLINE diConditionalOperator #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
 -- before they were deleted. For DeleteItem, the valid values are: NONE - If
@@ -143,7 +138,6 @@ diConditionalOperator =
 -- the old item is returned.
 diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
 diReturnValues = lens _diReturnValues (\s a -> s { _diReturnValues = a })
-{-# INLINE diReturnValues #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -153,7 +147,6 @@ diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
 diReturnConsumedCapacity =
     lens _diReturnConsumedCapacity
          (\s a -> s { _diReturnConsumedCapacity = a })
-{-# INLINE diReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
@@ -162,7 +155,6 @@ diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMet
 diReturnItemCollectionMetrics =
     lens _diReturnItemCollectionMetrics
          (\s a -> s { _diReturnItemCollectionMetrics = a })
-{-# INLINE diReturnItemCollectionMetrics #-}
 
 instance ToPath DeleteItem
 
@@ -184,7 +176,6 @@ data DeleteItemResponse = DeleteItemResponse
 -- response only if ReturnValues was specified as ALL_OLD in the request.
 dirsAttributes :: Lens' DeleteItemResponse (Map Text AttributeValue)
 dirsAttributes = lens _dirsAttributes (\s a -> s { _dirsAttributes = a })
-{-# INLINE dirsAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
@@ -194,7 +185,6 @@ dirsAttributes = lens _dirsAttributes (\s a -> s { _dirsAttributes = a })
 dirsConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
 dirsConsumedCapacity =
     lens _dirsConsumedCapacity (\s a -> s { _dirsConsumedCapacity = a })
-{-# INLINE dirsConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
@@ -214,7 +204,6 @@ dirsItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetri
 dirsItemCollectionMetrics =
     lens _dirsItemCollectionMetrics
          (\s a -> s { _dirsItemCollectionMetrics = a })
-{-# INLINE dirsItemCollectionMetrics #-}
 
 instance FromJSON DeleteItemResponse
 

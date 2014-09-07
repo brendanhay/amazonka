@@ -58,13 +58,11 @@ mkAuthorizeSnapshotAccess p1 p3 = AuthorizeSnapshotAccess
     , _asaSnapshotClusterIdentifier = Nothing
     , _asaAccountWithRestoreAccess = p3
     }
-{-# INLINE mkAuthorizeSnapshotAccess #-}
 
 -- | The identifier of the snapshot the account is authorized to restore.
 asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
 asaSnapshotIdentifier =
     lens _asaSnapshotIdentifier (\s a -> s { _asaSnapshotIdentifier = a })
-{-# INLINE asaSnapshotIdentifier #-}
 
 -- | The identifier of the cluster the snapshot was created from. This parameter
 -- is required if your IAM user has a policy containing a snapshot resource
@@ -73,7 +71,6 @@ asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
 asaSnapshotClusterIdentifier =
     lens _asaSnapshotClusterIdentifier
          (\s a -> s { _asaSnapshotClusterIdentifier = a })
-{-# INLINE asaSnapshotClusterIdentifier #-}
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
@@ -81,7 +78,6 @@ asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
 asaAccountWithRestoreAccess =
     lens _asaAccountWithRestoreAccess
          (\s a -> s { _asaAccountWithRestoreAccess = a })
-{-# INLINE asaAccountWithRestoreAccess #-}
 
 instance ToQuery AuthorizeSnapshotAccess where
     toQuery = genericQuery def
@@ -93,7 +89,6 @@ newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
 -- | Describes a snapshot.
 asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarsSnapshot = lens _asarsSnapshot (\s a -> s { _asarsSnapshot = a })
-{-# INLINE asarsSnapshot #-}
 
 instance FromXML AuthorizeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions

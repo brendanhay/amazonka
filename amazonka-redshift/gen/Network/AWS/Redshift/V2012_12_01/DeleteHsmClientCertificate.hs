@@ -47,14 +47,12 @@ mkDeleteHsmClientCertificate :: Text -- ^ 'dhccHsmClientCertificateIdentifier'
 mkDeleteHsmClientCertificate p1 = DeleteHsmClientCertificate
     { _dhccHsmClientCertificateIdentifier = p1
     }
-{-# INLINE mkDeleteHsmClientCertificate #-}
 
 -- | The identifier of the HSM client certificate to be deleted.
 dhccHsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificate Text
 dhccHsmClientCertificateIdentifier =
     lens _dhccHsmClientCertificateIdentifier
          (\s a -> s { _dhccHsmClientCertificateIdentifier = a })
-{-# INLINE dhccHsmClientCertificateIdentifier #-}
 
 instance ToQuery DeleteHsmClientCertificate where
     toQuery = genericQuery def

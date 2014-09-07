@@ -75,27 +75,22 @@ mkPutMetricFilter p1 p2 p3 p4 = PutMetricFilter
     , _pmfFilterPattern = p3
     , _pmfMetricTransformations = p4
     }
-{-# INLINE mkPutMetricFilter #-}
 
 pmfLogGroupName :: Lens' PutMetricFilter Text
 pmfLogGroupName = lens _pmfLogGroupName (\s a -> s { _pmfLogGroupName = a })
-{-# INLINE pmfLogGroupName #-}
 
 -- | The name of the metric filter.
 pmfFilterName :: Lens' PutMetricFilter Text
 pmfFilterName = lens _pmfFilterName (\s a -> s { _pmfFilterName = a })
-{-# INLINE pmfFilterName #-}
 
 pmfFilterPattern :: Lens' PutMetricFilter Text
 pmfFilterPattern =
     lens _pmfFilterPattern (\s a -> s { _pmfFilterPattern = a })
-{-# INLINE pmfFilterPattern #-}
 
 pmfMetricTransformations :: Lens' PutMetricFilter [MetricTransformation]
 pmfMetricTransformations =
     lens _pmfMetricTransformations
          (\s a -> s { _pmfMetricTransformations = a })
-{-# INLINE pmfMetricTransformations #-}
 
 instance ToPath PutMetricFilter
 

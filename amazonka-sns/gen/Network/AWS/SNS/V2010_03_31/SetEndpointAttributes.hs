@@ -67,12 +67,10 @@ mkSetEndpointAttributes p1 p2 = SetEndpointAttributes
     { _seaEndpointArn = p1
     , _seaAttributes = p2
     }
-{-# INLINE mkSetEndpointAttributes #-}
 
 -- | EndpointArn used for SetEndpointAttributes action.
 seaEndpointArn :: Lens' SetEndpointAttributes Text
 seaEndpointArn = lens _seaEndpointArn (\s a -> s { _seaEndpointArn = a })
-{-# INLINE seaEndpointArn #-}
 
 -- | A map of the endpoint attributes. Attributes in this map include the
 -- following: CustomUserData -- arbitrary user data to associate with the
@@ -86,7 +84,6 @@ seaEndpointArn = lens _seaEndpointArn (\s a -> s { _seaEndpointArn = a })
 -- registered with the notification service.
 seaAttributes :: Lens' SetEndpointAttributes (Map Text Text)
 seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a })
-{-# INLINE seaAttributes #-}
 
 instance ToQuery SetEndpointAttributes where
     toQuery = genericQuery def

@@ -64,7 +64,6 @@ mkCreateCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName = p1
     , _ccsgDescription = p2
     }
-{-# INLINE mkCreateCacheSecurityGroup #-}
 
 -- | A name for the cache security group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters.
@@ -73,12 +72,10 @@ ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
 ccsgCacheSecurityGroupName =
     lens _ccsgCacheSecurityGroupName
          (\s a -> s { _ccsgCacheSecurityGroupName = a })
-{-# INLINE ccsgCacheSecurityGroupName #-}
 
 -- | A description for the cache security group.
 ccsgDescription :: Lens' CreateCacheSecurityGroup Text
 ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
-{-# INLINE ccsgDescription #-}
 
 instance ToQuery CreateCacheSecurityGroup where
     toQuery = genericQuery def
@@ -94,7 +91,6 @@ ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheS
 ccsgrsCacheSecurityGroup =
     lens _ccsgrsCacheSecurityGroup
          (\s a -> s { _ccsgrsCacheSecurityGroup = a })
-{-# INLINE ccsgrsCacheSecurityGroup #-}
 
 instance FromXML CreateCacheSecurityGroupResponse where
     fromXMLOptions = xmlOptions

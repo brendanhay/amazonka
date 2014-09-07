@@ -66,7 +66,6 @@ mkDescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     , _dcsg2MaxRecords = Nothing
     , _dcsg2Marker = Nothing
     }
-{-# INLINE mkDescribeClusterSecurityGroups #-}
 
 -- | The name of a cluster security group for which you are requesting details.
 -- You can specify either the Marker parameter or a ClusterSecurityGroupName
@@ -75,7 +74,6 @@ dcsg2ClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text
 dcsg2ClusterSecurityGroupName =
     lens _dcsg2ClusterSecurityGroupName
          (\s a -> s { _dcsg2ClusterSecurityGroupName = a })
-{-# INLINE dcsg2ClusterSecurityGroupName #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -84,7 +82,6 @@ dcsg2ClusterSecurityGroupName =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsg2MaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Integer)
 dcsg2MaxRecords = lens _dcsg2MaxRecords (\s a -> s { _dcsg2MaxRecords = a })
-{-# INLINE dcsg2MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterSecurityGroups
@@ -95,7 +92,6 @@ dcsg2MaxRecords = lens _dcsg2MaxRecords (\s a -> s { _dcsg2MaxRecords = a })
 -- ClusterSecurityGroupName parameter or the Marker parameter, but not both.
 dcsg2Marker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsg2Marker = lens _dcsg2Marker (\s a -> s { _dcsg2Marker = a })
-{-# INLINE dcsg2Marker #-}
 
 instance ToQuery DescribeClusterSecurityGroups where
     toQuery = genericQuery def
@@ -113,14 +109,12 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 -- is empty, all response records have been retrieved for the request.
 dcsgrsMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgrsMarker = lens _dcsgrsMarker (\s a -> s { _dcsgrsMarker = a })
-{-# INLINE dcsgrsMarker #-}
 
 -- | A list of ClusterSecurityGroup instances.
 dcsgrsClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
 dcsgrsClusterSecurityGroups =
     lens _dcsgrsClusterSecurityGroups
          (\s a -> s { _dcsgrsClusterSecurityGroups = a })
-{-# INLINE dcsgrsClusterSecurityGroups #-}
 
 instance FromXML DescribeClusterSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -133,5 +127,5 @@ instance AWSRequest DescribeClusterSecurityGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterSecurityGroups where
-    next rq rs = (\x -> rq { _dcsg2Marker = Just x })
-        <$> (_dcsgrsMarker rs)
+    next rq rs = (\x -> rq & dcsg2Marker ?~ x) <$> (rs ^. dcsgrsMarker)
+

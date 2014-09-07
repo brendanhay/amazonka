@@ -53,12 +53,10 @@ mkDescribeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsCheckIds'
 mkDescribeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
     { _dtacsCheckIds = p1
     }
-{-# INLINE mkDescribeTrustedAdvisorCheckSummaries #-}
 
 -- | The IDs of the Trusted Advisor checks.
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
 dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a })
-{-# INLINE dtacsCheckIds #-}
 
 instance ToPath DescribeTrustedAdvisorCheckSummaries
 
@@ -78,7 +76,6 @@ newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorChe
 dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
 dtacsrsSummaries =
     lens _dtacsrsSummaries (\s a -> s { _dtacsrsSummaries = a })
-{-# INLINE dtacsrsSummaries #-}
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse
 

@@ -105,19 +105,16 @@ mkAssumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
     , _arwsamlPolicy = Nothing
     , _arwsamlDurationSeconds = Nothing
     }
-{-# INLINE mkAssumeRoleWithSAML #-}
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
 arwsamlRoleArn :: Lens' AssumeRoleWithSAML Text
 arwsamlRoleArn = lens _arwsamlRoleArn (\s a -> s { _arwsamlRoleArn = a })
-{-# INLINE arwsamlRoleArn #-}
 
 -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that describes
 -- the IdP.
 arwsamlPrincipalArn :: Lens' AssumeRoleWithSAML Text
 arwsamlPrincipalArn =
     lens _arwsamlPrincipalArn (\s a -> s { _arwsamlPrincipalArn = a })
-{-# INLINE arwsamlPrincipalArn #-}
 
 -- | The base-64 encoded SAML authentication response provided by the IdP. For
 -- more information, see Configuring a Relying Party and Adding Claims in the
@@ -125,7 +122,6 @@ arwsamlPrincipalArn =
 arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
 arwsamlSAMLAssertion =
     lens _arwsamlSAMLAssertion (\s a -> s { _arwsamlSAMLAssertion = a })
-{-# INLINE arwsamlSAMLAssertion #-}
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you pass
 -- a policy, the temporary security credentials that are returned by the
@@ -139,7 +135,6 @@ arwsamlSAMLAssertion =
 -- be 2048 bytes or shorter, and its packed size must be less than 450 bytes.
 arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
 arwsamlPolicy = lens _arwsamlPolicy (\s a -> s { _arwsamlPolicy = a })
-{-# INLINE arwsamlPolicy #-}
 
 -- | The duration, in seconds, of the role session. The value can range from 900
 -- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
@@ -151,7 +146,6 @@ arwsamlPolicy = lens _arwsamlPolicy (\s a -> s { _arwsamlPolicy = a })
 arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Integer)
 arwsamlDurationSeconds =
     lens _arwsamlDurationSeconds (\s a -> s { _arwsamlDurationSeconds = a })
-{-# INLINE arwsamlDurationSeconds #-}
 
 instance ToQuery AssumeRoleWithSAML where
     toQuery = genericQuery def
@@ -173,7 +167,6 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
 arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
 arwsamlrsCredentials =
     lens _arwsamlrsCredentials (\s a -> s { _arwsamlrsCredentials = a })
-{-# INLINE arwsamlrsCredentials #-}
 
 -- | The identifiers for the temporary security credentials that the operation
 -- returns.
@@ -181,7 +174,6 @@ arwsamlrsAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleU
 arwsamlrsAssumedRoleUser =
     lens _arwsamlrsAssumedRoleUser
          (\s a -> s { _arwsamlrsAssumedRoleUser = a })
-{-# INLINE arwsamlrsAssumedRoleUser #-}
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
@@ -190,31 +182,25 @@ arwsamlrsPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Integer)
 arwsamlrsPackedPolicySize =
     lens _arwsamlrsPackedPolicySize
          (\s a -> s { _arwsamlrsPackedPolicySize = a })
-{-# INLINE arwsamlrsPackedPolicySize #-}
 
 arwsamlrsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsSubject =
     lens _arwsamlrsSubject (\s a -> s { _arwsamlrsSubject = a })
-{-# INLINE arwsamlrsSubject #-}
 
 arwsamlrsSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsSubjectType =
     lens _arwsamlrsSubjectType (\s a -> s { _arwsamlrsSubjectType = a })
-{-# INLINE arwsamlrsSubjectType #-}
 
 arwsamlrsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsIssuer = lens _arwsamlrsIssuer (\s a -> s { _arwsamlrsIssuer = a })
-{-# INLINE arwsamlrsIssuer #-}
 
 arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsAudience =
     lens _arwsamlrsAudience (\s a -> s { _arwsamlrsAudience = a })
-{-# INLINE arwsamlrsAudience #-}
 
 arwsamlrsNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsNameQualifier =
     lens _arwsamlrsNameQualifier (\s a -> s { _arwsamlrsNameQualifier = a })
-{-# INLINE arwsamlrsNameQualifier #-}
 
 instance FromXML AssumeRoleWithSAMLResponse where
     fromXMLOptions = xmlOptions

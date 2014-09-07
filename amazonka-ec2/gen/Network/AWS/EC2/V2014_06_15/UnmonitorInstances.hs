@@ -63,12 +63,10 @@ mkUnmonitorInstances :: [Text] -- ^ 'uiInstanceIds'
 mkUnmonitorInstances p1 = UnmonitorInstances
     { _uiInstanceIds = p1
     }
-{-# INLINE mkUnmonitorInstances #-}
 
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
-{-# INLINE uiInstanceIds #-}
 
 instance ToQuery UnmonitorInstances where
     toQuery = genericQuery def
@@ -83,7 +81,6 @@ uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirsInstanceMonitorings =
     lens _uirsInstanceMonitorings
          (\s a -> s { _uirsInstanceMonitorings = a })
-{-# INLINE uirsInstanceMonitorings #-}
 
 instance FromXML UnmonitorInstancesResponse where
     fromXMLOptions = xmlOptions

@@ -54,12 +54,10 @@ mkEnableVolumeIO :: Text -- ^ 'evioVolumeId'
 mkEnableVolumeIO p1 = EnableVolumeIO
     { _evioVolumeId = p1
     }
-{-# INLINE mkEnableVolumeIO #-}
 
 -- | The ID of the volume.
 evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\s a -> s { _evioVolumeId = a })
-{-# INLINE evioVolumeId #-}
 
 instance ToQuery EnableVolumeIO where
     toQuery = genericQuery def

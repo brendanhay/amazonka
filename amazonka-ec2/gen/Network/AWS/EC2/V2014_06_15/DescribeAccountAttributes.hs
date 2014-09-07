@@ -95,13 +95,11 @@ mkDescribeAccountAttributes :: DescribeAccountAttributes
 mkDescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames = mempty
     }
-{-# INLINE mkDescribeAccountAttributes #-}
 
 -- | One or more account attribute names.
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
 daaAttributeNames =
     lens _daaAttributeNames (\s a -> s { _daaAttributeNames = a })
-{-# INLINE daaAttributeNames #-}
 
 instance ToQuery DescribeAccountAttributes where
     toQuery = genericQuery def
@@ -115,7 +113,6 @@ newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
 daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarsAccountAttributes =
     lens _daarsAccountAttributes (\s a -> s { _daarsAccountAttributes = a })
-{-# INLINE daarsAccountAttributes #-}
 
 instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions

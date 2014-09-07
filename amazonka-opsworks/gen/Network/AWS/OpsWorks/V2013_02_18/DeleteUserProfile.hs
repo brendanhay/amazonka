@@ -49,12 +49,10 @@ mkDeleteUserProfile :: Text -- ^ 'dupIamUserArn'
 mkDeleteUserProfile p1 = DeleteUserProfile
     { _dupIamUserArn = p1
     }
-{-# INLINE mkDeleteUserProfile #-}
 
 -- | The user's IAM ARN.
 dupIamUserArn :: Lens' DeleteUserProfile Text
 dupIamUserArn = lens _dupIamUserArn (\s a -> s { _dupIamUserArn = a })
-{-# INLINE dupIamUserArn #-}
 
 instance ToPath DeleteUserProfile
 

@@ -85,12 +85,10 @@ mkSetQueueAttributes p1 p2 = SetQueueAttributes
     { _sqaQueueUrl = p1
     , _sqaAttributes = p2
     }
-{-# INLINE mkSetQueueAttributes #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueUrl :: Lens' SetQueueAttributes Text
 sqaQueueUrl = lens _sqaQueueUrl (\s a -> s { _sqaQueueUrl = a })
-{-# INLINE sqaQueueUrl #-}
 
 -- | A map of attributes to set. The following lists the names, descriptions,
 -- and values of the special request parameters the SetQueueAttributes action
@@ -118,7 +116,6 @@ sqaQueueUrl = lens _sqaQueueUrl (\s a -> s { _sqaQueueUrl = a })
 -- Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
 sqaAttributes :: Lens' SetQueueAttributes (Map QueueAttributeName Text)
 sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
-{-# INLINE sqaAttributes #-}
 
 instance ToQuery SetQueueAttributes where
     toQuery = genericQuery def

@@ -241,13 +241,11 @@ mkQuery :: Query
 mkQuery = Query
     { _qSelectors = mempty
     }
-{-# INLINE mkQuery #-}
 
 -- | List of selectors that define the query. An object must satisfy all of the
 -- selectors to match the query.
 qSelectors :: Lens' Query [Selector]
 qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a })
-{-# INLINE qSelectors #-}
 
 instance ToJSON Query
 
@@ -269,22 +267,18 @@ mkField p1 = Field
     , _fStringValue = Nothing
     , _fRefValue = Nothing
     }
-{-# INLINE mkField #-}
 
 -- | The field identifier.
 fKey :: Lens' Field Text
 fKey = lens _fKey (\s a -> s { _fKey = a })
-{-# INLINE fKey #-}
 
 -- | The field value, expressed as a String.
 fStringValue :: Lens' Field (Maybe Text)
 fStringValue = lens _fStringValue (\s a -> s { _fStringValue = a })
-{-# INLINE fStringValue #-}
 
 -- | The field value, expressed as the identifier of another object.
 fRefValue :: Lens' Field (Maybe Text)
 fRefValue = lens _fRefValue (\s a -> s { _fRefValue = a })
-{-# INLINE fRefValue #-}
 
 instance FromJSON Field
 
@@ -309,20 +303,17 @@ mkInstanceIdentity = InstanceIdentity
     { _iiDocument = Nothing
     , _iiSignature = Nothing
     }
-{-# INLINE mkInstanceIdentity #-}
 
 -- | A description of an Amazon EC2 instance that is generated when the instance
 -- is launched and exposed to the instance via the instance metadata service
 -- in the form of a JSON representation of an object.
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\s a -> s { _iiDocument = a })
-{-# INLINE iiDocument #-}
 
 -- | A signature which can be used to verify the accuracy and authenticity of
 -- the information provided in the instance identity document.
 iiSignature :: Lens' InstanceIdentity (Maybe Text)
 iiSignature = lens _iiSignature (\s a -> s { _iiSignature = a })
-{-# INLINE iiSignature #-}
 
 instance ToJSON InstanceIdentity
 
@@ -340,7 +331,6 @@ mkOperator = Operator
     { _oType = Nothing
     , _oValues = mempty
     }
-{-# INLINE mkOperator #-}
 
 -- | The logical operation to be performed: equal (EQ), equal reference
 -- (REF_EQ), less than or equal (LE), greater than or equal (GE), or between
@@ -359,12 +349,10 @@ mkOperator = Operator
 -- with the string "my".
 oType :: Lens' Operator (Maybe OperatorType)
 oType = lens _oType (\s a -> s { _oType = a })
-{-# INLINE oType #-}
 
 -- | The value that the actual field value will be compared with.
 oValues :: Lens' Operator [Text]
 oValues = lens _oValues (\s a -> s { _oValues = a })
-{-# INLINE oValues #-}
 
 instance FromJSON Operator
 
@@ -390,29 +378,24 @@ mkPipelineDescription p1 p2 p3 = PipelineDescription
     , _pdFields = p3
     , _pdDescription = Nothing
     }
-{-# INLINE mkPipelineDescription #-}
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a
 -- string of the form df-297EG78HU43EEXAMPLE.
 pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
-{-# INLINE pdPipelineId #-}
 
 -- | Name of the pipeline.
 pdName :: Lens' PipelineDescription Text
 pdName = lens _pdName (\s a -> s { _pdName = a })
-{-# INLINE pdName #-}
 
 -- | A list of read-only fields that contain metadata about the pipeline:
 -- @userId, @accountId, and @pipelineState.
 pdFields :: Lens' PipelineDescription [Field]
 pdFields = lens _pdFields (\s a -> s { _pdFields = a })
-{-# INLINE pdFields #-}
 
 -- | Description of the pipeline.
 pdDescription :: Lens' PipelineDescription (Maybe Text)
 pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
-{-# INLINE pdDescription #-}
 
 instance FromJSON PipelineDescription
 
@@ -429,18 +412,15 @@ mkPipelineIdName = PipelineIdName
     { _pinId = Nothing
     , _pinName = Nothing
     }
-{-# INLINE mkPipelineIdName #-}
 
 -- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is
 -- a string of the form df-297EG78HU43EEXAMPLE.
 pinId :: Lens' PipelineIdName (Maybe Text)
 pinId = lens _pinId (\s a -> s { _pinId = a })
-{-# INLINE pinId #-}
 
 -- | Name of the pipeline.
 pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\s a -> s { _pinName = a })
-{-# INLINE pinName #-}
 
 instance FromJSON PipelineIdName
 
@@ -464,22 +444,18 @@ mkPipelineObject p1 p2 p3 = PipelineObject
     , _poName = p2
     , _poFields = p3
     }
-{-# INLINE mkPipelineObject #-}
 
 -- | Identifier of the object.
 poId :: Lens' PipelineObject Text
 poId = lens _poId (\s a -> s { _poId = a })
-{-# INLINE poId #-}
 
 -- | Name of the object.
 poName :: Lens' PipelineObject Text
 poName = lens _poName (\s a -> s { _poName = a })
-{-# INLINE poName #-}
 
 -- | Key-value pairs that define the properties of the object.
 poFields :: Lens' PipelineObject [Field]
 poFields = lens _poFields (\s a -> s { _poFields = a })
-{-# INLINE poFields #-}
 
 instance FromJSON PipelineObject
 
@@ -499,7 +475,6 @@ mkSelector = Selector
     { _sFieldName = Nothing
     , _sOperator = Nothing
     }
-{-# INLINE mkSelector #-}
 
 -- | The name of the field that the operator will be applied to. The field name
 -- is the "key" portion of the field definition in the pipeline definition
@@ -507,13 +482,11 @@ mkSelector = Selector
 -- on the object, the condition fails.
 sFieldName :: Lens' Selector (Maybe Text)
 sFieldName = lens _sFieldName (\s a -> s { _sFieldName = a })
-{-# INLINE sFieldName #-}
 
 -- | Contains a logical operation for comparing the value of a field with a
 -- specified value.
 sOperator :: Lens' Selector (Maybe Operator)
 sOperator = lens _sOperator (\s a -> s { _sOperator = a })
-{-# INLINE sOperator #-}
 
 instance ToJSON Selector
 
@@ -539,30 +512,25 @@ mkTaskObject = TaskObject
     , _toAttemptId = Nothing
     , _toObjects = mempty
     }
-{-# INLINE mkTaskObject #-}
 
 -- | An internal identifier for the task. This ID is passed to the SetTaskStatus
 -- and ReportTaskProgress actions.
 toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
-{-# INLINE toTaskId #-}
 
 -- | Identifier of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)
 toPipelineId = lens _toPipelineId (\s a -> s { _toPipelineId = a })
-{-# INLINE toPipelineId #-}
 
 -- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
 toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\s a -> s { _toAttemptId = a })
-{-# INLINE toAttemptId #-}
 
 -- | Connection information for the location where the task runner will publish
 -- the output of the task.
 toObjects :: Lens' TaskObject (Map Text PipelineObject)
 toObjects = lens _toObjects (\s a -> s { _toObjects = a })
-{-# INLINE toObjects #-}
 
 instance FromJSON TaskObject
 
@@ -582,17 +550,14 @@ mkValidationError = ValidationError
     { _veId = Nothing
     , _veErrors = mempty
     }
-{-# INLINE mkValidationError #-}
 
 -- | The identifier of the object that contains the validation error.
 veId :: Lens' ValidationError (Maybe Text)
 veId = lens _veId (\s a -> s { _veId = a })
-{-# INLINE veId #-}
 
 -- | A description of the validation error.
 veErrors :: Lens' ValidationError [Text]
 veErrors = lens _veErrors (\s a -> s { _veErrors = a })
-{-# INLINE veErrors #-}
 
 instance FromJSON ValidationError
 
@@ -612,16 +577,13 @@ mkValidationWarning = ValidationWarning
     { _vwId = Nothing
     , _vwWarnings = mempty
     }
-{-# INLINE mkValidationWarning #-}
 
 -- | The identifier of the object that contains the validation warning.
 vwId :: Lens' ValidationWarning (Maybe Text)
 vwId = lens _vwId (\s a -> s { _vwId = a })
-{-# INLINE vwId #-}
 
 -- | A description of the validation warning.
 vwWarnings :: Lens' ValidationWarning [Text]
 vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a })
-{-# INLINE vwWarnings #-}
 
 instance FromJSON ValidationWarning

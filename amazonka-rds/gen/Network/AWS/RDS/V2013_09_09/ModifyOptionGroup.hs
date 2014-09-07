@@ -66,7 +66,6 @@ mkModifyOptionGroup p1 = ModifyOptionGroup
     , _mogOptionsToRemove = mempty
     , _mogApplyImmediately = Nothing
     }
-{-# INLINE mkModifyOptionGroup #-}
 
 -- | The name of the option group to be modified. cannot be removed from an
 -- option group while DB instances are associated with the option group. -->
@@ -76,27 +75,23 @@ mkModifyOptionGroup p1 = ModifyOptionGroup
 mogOptionGroupName :: Lens' ModifyOptionGroup Text
 mogOptionGroupName =
     lens _mogOptionGroupName (\s a -> s { _mogOptionGroupName = a })
-{-# INLINE mogOptionGroupName #-}
 
 -- | Options in this list are added to the option group or, if already present,
 -- the specified configuration is used to update the existing configuration.
 mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
 mogOptionsToInclude =
     lens _mogOptionsToInclude (\s a -> s { _mogOptionsToInclude = a })
-{-# INLINE mogOptionsToInclude #-}
 
 -- | Options in this list are removed from the option group.
 mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
 mogOptionsToRemove =
     lens _mogOptionsToRemove (\s a -> s { _mogOptionsToRemove = a })
-{-# INLINE mogOptionsToRemove #-}
 
 -- | Indicates whether the changes should be applied immediately, or during the
 -- next maintenance window for each instance associated with the option group.
 mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
 mogApplyImmediately =
     lens _mogApplyImmediately (\s a -> s { _mogApplyImmediately = a })
-{-# INLINE mogApplyImmediately #-}
 
 instance ToQuery ModifyOptionGroup where
     toQuery = genericQuery def
@@ -109,7 +104,6 @@ newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
 mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrsOptionGroup =
     lens _mogrsOptionGroup (\s a -> s { _mogrsOptionGroup = a })
-{-# INLINE mogrsOptionGroup #-}
 
 instance FromXML ModifyOptionGroupResponse where
     fromXMLOptions = xmlOptions

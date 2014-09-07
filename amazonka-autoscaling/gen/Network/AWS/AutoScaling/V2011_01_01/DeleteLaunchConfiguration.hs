@@ -52,14 +52,12 @@ mkDeleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
 mkDeleteLaunchConfiguration p1 = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName = p1
     }
-{-# INLINE mkDeleteLaunchConfiguration #-}
 
 -- | The name of the launch configuration.
 dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
 dlcLaunchConfigurationName =
     lens _dlcLaunchConfigurationName
          (\s a -> s { _dlcLaunchConfigurationName = a })
-{-# INLINE dlcLaunchConfigurationName #-}
 
 instance ToQuery DeleteLaunchConfiguration where
     toQuery = genericQuery def

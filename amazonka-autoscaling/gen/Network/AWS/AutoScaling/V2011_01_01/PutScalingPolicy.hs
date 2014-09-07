@@ -77,19 +77,16 @@ mkPutScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
     , _pspCooldown = Nothing
     , _pspMinAdjustmentStep = Nothing
     }
-{-# INLINE mkPutScalingPolicy #-}
 
 -- | The name or ARN of the Auto Scaling group.
 pspAutoScalingGroupName :: Lens' PutScalingPolicy Text
 pspAutoScalingGroupName =
     lens _pspAutoScalingGroupName
          (\s a -> s { _pspAutoScalingGroupName = a })
-{-# INLINE pspAutoScalingGroupName #-}
 
 -- | The name of the policy you want to create or update.
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\s a -> s { _pspPolicyName = a })
-{-# INLINE pspPolicyName #-}
 
 -- | The number of instances by which to scale. AdjustmentType determines the
 -- interpretation of this number (e.g., as an absolute number or as a
@@ -99,7 +96,6 @@ pspPolicyName = lens _pspPolicyName (\s a -> s { _pspPolicyName = a })
 pspScalingAdjustment :: Lens' PutScalingPolicy Integer
 pspScalingAdjustment =
     lens _pspScalingAdjustment (\s a -> s { _pspScalingAdjustment = a })
-{-# INLINE pspScalingAdjustment #-}
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
@@ -108,14 +104,12 @@ pspScalingAdjustment =
 pspAdjustmentType :: Lens' PutScalingPolicy Text
 pspAdjustmentType =
     lens _pspAdjustmentType (\s a -> s { _pspAdjustmentType = a })
-{-# INLINE pspAdjustmentType #-}
 
 -- | The amount of time, in seconds, after a scaling activity completes and
 -- before the next scaling activity can start. For more information, see
 -- Cooldown Period.
 pspCooldown :: Lens' PutScalingPolicy (Maybe Integer)
 pspCooldown = lens _pspCooldown (\s a -> s { _pspCooldown = a })
-{-# INLINE pspCooldown #-}
 
 -- | Used with AdjustmentType with the value PercentChangeInCapacity, the
 -- scaling policy changes the DesiredCapacity of the Auto Scaling group by at
@@ -125,7 +119,6 @@ pspCooldown = lens _pspCooldown (\s a -> s { _pspCooldown = a })
 pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Integer)
 pspMinAdjustmentStep =
     lens _pspMinAdjustmentStep (\s a -> s { _pspMinAdjustmentStep = a })
-{-# INLINE pspMinAdjustmentStep #-}
 
 instance ToQuery PutScalingPolicy where
     toQuery = genericQuery def
@@ -138,7 +131,6 @@ newtype PutScalingPolicyResponse = PutScalingPolicyResponse
 -- | A policy's Amazon Resource Name (ARN).
 psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprsPolicyARN = lens _psprsPolicyARN (\s a -> s { _psprsPolicyARN = a })
-{-# INLINE psprsPolicyARN #-}
 
 instance FromXML PutScalingPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -71,7 +71,6 @@ mkSetLoadBalancerPoliciesForBackendServer p1 p2 p3 = SetLoadBalancerPoliciesForB
     , _slbpfbsInstancePort = p2
     , _slbpfbsPolicyNames = p3
     }
-{-# INLINE mkSetLoadBalancerPoliciesForBackendServer #-}
 
 -- | The mnemonic name associated with the load balancer. This name must be
 -- unique within the set of your load balancers.
@@ -79,20 +78,17 @@ slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
 slbpfbsLoadBalancerName =
     lens _slbpfbsLoadBalancerName
          (\s a -> s { _slbpfbsLoadBalancerName = a })
-{-# INLINE slbpfbsLoadBalancerName #-}
 
 -- | The port number associated with the back-end server.
 slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Integer
 slbpfbsInstancePort =
     lens _slbpfbsInstancePort (\s a -> s { _slbpfbsInstancePort = a })
-{-# INLINE slbpfbsInstancePort #-}
 
 -- | List of policy names to be set. If the list is empty, then all current
 -- polices are removed from the back-end server.
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames =
     lens _slbpfbsPolicyNames (\s a -> s { _slbpfbsPolicyNames = a })
-{-# INLINE slbpfbsPolicyNames #-}
 
 instance ToQuery SetLoadBalancerPoliciesForBackendServer where
     toQuery = genericQuery def

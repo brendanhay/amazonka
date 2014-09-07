@@ -58,19 +58,16 @@ mkCreateUser p2 = CreateUser
     { _cuPath = Nothing
     , _cuUserName = p2
     }
-{-# INLINE mkCreateUser #-}
 
 -- | The path for the user name. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
 -- optional. If it is not included, it defaults to a slash (/).
 cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\s a -> s { _cuPath = a })
-{-# INLINE cuPath #-}
 
 -- | Name of the user to create.
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
-{-# INLINE cuUserName #-}
 
 instance ToQuery CreateUser where
     toQuery = genericQuery def
@@ -83,7 +80,6 @@ newtype CreateUserResponse = CreateUserResponse
 -- | Information about the user.
 cursUser :: Lens' CreateUserResponse (Maybe User)
 cursUser = lens _cursUser (\s a -> s { _cursUser = a })
-{-# INLINE cursUser #-}
 
 instance FromXML CreateUserResponse where
     fromXMLOptions = xmlOptions

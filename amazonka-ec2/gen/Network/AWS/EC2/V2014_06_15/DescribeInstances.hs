@@ -164,12 +164,10 @@ mkDescribeInstances = DescribeInstances
     , _di2NextToken = Nothing
     , _di2MaxResults = Nothing
     }
-{-# INLINE mkDescribeInstances #-}
 
 -- | One or more instance IDs. Default: Describes all your instances.
 di2InstanceIds :: Lens' DescribeInstances [Text]
 di2InstanceIds = lens _di2InstanceIds (\s a -> s { _di2InstanceIds = a })
-{-# INLINE di2InstanceIds #-}
 
 -- | One or more filters. architecture - The instance architecture (i386 |
 -- x86_64). availability-zone - The Availability Zone of the instance.
@@ -295,20 +293,17 @@ di2InstanceIds = lens _di2InstanceIds (\s a -> s { _di2InstanceIds = a })
 -- returned when the network interface was associated with an IP address.
 di2Filters :: Lens' DescribeInstances [Filter]
 di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a })
-{-# INLINE di2Filters #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
 di2NextToken :: Lens' DescribeInstances (Maybe Text)
 di2NextToken = lens _di2NextToken (\s a -> s { _di2NextToken = a })
-{-# INLINE di2NextToken #-}
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
 di2MaxResults :: Lens' DescribeInstances (Maybe Integer)
 di2MaxResults = lens _di2MaxResults (\s a -> s { _di2MaxResults = a })
-{-# INLINE di2MaxResults #-}
 
 instance ToQuery DescribeInstances where
     toQuery = genericQuery def
@@ -323,13 +318,11 @@ data DescribeInstancesResponse = DescribeInstancesResponse
 dirsrsReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirsrsReservations =
     lens _dirsrsReservations (\s a -> s { _dirsrsReservations = a })
-{-# INLINE dirsrsReservations #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 dirsrsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirsrsNextToken = lens _dirsrsNextToken (\s a -> s { _dirsrsNextToken = a })
-{-# INLINE dirsrsNextToken #-}
 
 instance FromXML DescribeInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -342,5 +335,5 @@ instance AWSRequest DescribeInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeInstances where
-    next rq rs = (\x -> rq { _di2NextToken = Just x })
-        <$> (_dirsrsNextToken rs)
+    next rq rs = (\x -> rq & di2NextToken ?~ x) <$> (rs ^. dirsrsNextToken)
+

@@ -67,23 +67,19 @@ mkPutUserPolicy p1 p2 p3 = PutUserPolicy
     , _pupPolicyName = p2
     , _pupPolicyDocument = p3
     }
-{-# INLINE mkPutUserPolicy #-}
 
 -- | Name of the user to associate the policy with.
 pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
-{-# INLINE pupUserName #-}
 
 -- | Name of the policy document.
 pupPolicyName :: Lens' PutUserPolicy Text
 pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
-{-# INLINE pupPolicyName #-}
 
 -- | The policy document.
 pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument =
     lens _pupPolicyDocument (\s a -> s { _pupPolicyDocument = a })
-{-# INLINE pupPolicyDocument #-}
 
 instance ToQuery PutUserPolicy where
     toQuery = genericQuery def

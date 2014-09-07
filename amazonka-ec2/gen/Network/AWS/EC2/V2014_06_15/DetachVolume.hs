@@ -82,22 +82,18 @@ mkDetachVolume p1 = DetachVolume
     , _dv4Device = Nothing
     , _dv4Force = Nothing
     }
-{-# INLINE mkDetachVolume #-}
 
 -- | The ID of the volume.
 dv4VolumeId :: Lens' DetachVolume Text
 dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
-{-# INLINE dv4VolumeId #-}
 
 -- | The ID of the instance.
 dv4InstanceId :: Lens' DetachVolume (Maybe Text)
 dv4InstanceId = lens _dv4InstanceId (\s a -> s { _dv4InstanceId = a })
-{-# INLINE dv4InstanceId #-}
 
 -- | The device name.
 dv4Device :: Lens' DetachVolume (Maybe Text)
 dv4Device = lens _dv4Device (\s a -> s { _dv4Device = a })
-{-# INLINE dv4Device #-}
 
 -- | Forces detachment if the previous detachment attempt did not occur cleanly
 -- (for example, logging into an instance, unmounting the volume, and
@@ -108,7 +104,6 @@ dv4Device = lens _dv4Device (\s a -> s { _dv4Device = a })
 -- perform file system check and repair procedures.
 dv4Force :: Lens' DetachVolume (Maybe Bool)
 dv4Force = lens _dv4Force (\s a -> s { _dv4Force = a })
-{-# INLINE dv4Force #-}
 
 instance ToQuery DetachVolume where
     toQuery = genericQuery def
@@ -126,34 +121,28 @@ data DetachVolumeResponse = DetachVolumeResponse
 -- | The ID of the volume.
 dvrs1VolumeId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrs1VolumeId = lens _dvrs1VolumeId (\s a -> s { _dvrs1VolumeId = a })
-{-# INLINE dvrs1VolumeId #-}
 
 -- | The ID of the instance.
 dvrs1InstanceId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrs1InstanceId = lens _dvrs1InstanceId (\s a -> s { _dvrs1InstanceId = a })
-{-# INLINE dvrs1InstanceId #-}
 
 -- | The device name.
 dvrs1Device :: Lens' DetachVolumeResponse (Maybe Text)
 dvrs1Device = lens _dvrs1Device (\s a -> s { _dvrs1Device = a })
-{-# INLINE dvrs1Device #-}
 
 -- | The attachment state of the volume.
 dvrs1State :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
 dvrs1State = lens _dvrs1State (\s a -> s { _dvrs1State = a })
-{-# INLINE dvrs1State #-}
 
 -- | The time stamp when the attachment initiated.
 dvrs1AttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)
 dvrs1AttachTime = lens _dvrs1AttachTime (\s a -> s { _dvrs1AttachTime = a })
-{-# INLINE dvrs1AttachTime #-}
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
 dvrs1DeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
 dvrs1DeleteOnTermination =
     lens _dvrs1DeleteOnTermination
          (\s a -> s { _dvrs1DeleteOnTermination = a })
-{-# INLINE dvrs1DeleteOnTermination #-}
 
 instance FromXML DetachVolumeResponse where
     fromXMLOptions = xmlOptions

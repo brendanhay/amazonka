@@ -53,20 +53,16 @@ mkPutBucketCors p1 = PutBucketCors
     , _pbcCORSConfiguration = Nothing
     , _pbcContentMD5 = Nothing
     }
-{-# INLINE mkPutBucketCors #-}
 
 pbcBucket :: Lens' PutBucketCors BucketName
 pbcBucket = lens _pbcBucket (\s a -> s { _pbcBucket = a })
-{-# INLINE pbcBucket #-}
 
 pbcCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
 pbcCORSConfiguration =
     lens _pbcCORSConfiguration (\s a -> s { _pbcCORSConfiguration = a })
-{-# INLINE pbcCORSConfiguration #-}
 
 pbcContentMD5 :: Lens' PutBucketCors (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\s a -> s { _pbcContentMD5 = a })
-{-# INLINE pbcContentMD5 #-}
 
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat

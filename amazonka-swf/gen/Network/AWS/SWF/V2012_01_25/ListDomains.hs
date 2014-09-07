@@ -97,20 +97,17 @@ mkListDomains p2 = ListDomains
     , _ldMaximumPageSize = Nothing
     , _ldReverseOrder = Nothing
     }
-{-# INLINE mkListDomains #-}
 
 -- | If on a previous call to this method a NextPageToken was returned, the
 -- result has more than one page. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
 ldNextPageToken :: Lens' ListDomains (Maybe Text)
 ldNextPageToken = lens _ldNextPageToken (\s a -> s { _ldNextPageToken = a })
-{-# INLINE ldNextPageToken #-}
 
 -- | Specifies the registration status of the domains to list.
 ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
 ldRegistrationStatus =
     lens _ldRegistrationStatus (\s a -> s { _ldRegistrationStatus = a })
-{-# INLINE ldRegistrationStatus #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
@@ -121,14 +118,12 @@ ldRegistrationStatus =
 ldMaximumPageSize :: Lens' ListDomains (Maybe Integer)
 ldMaximumPageSize =
     lens _ldMaximumPageSize (\s a -> s { _ldMaximumPageSize = a })
-{-# INLINE ldMaximumPageSize #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- domains.
 ldReverseOrder :: Lens' ListDomains (Maybe Bool)
 ldReverseOrder = lens _ldReverseOrder (\s a -> s { _ldReverseOrder = a })
-{-# INLINE ldReverseOrder #-}
 
 instance ToPath ListDomains
 
@@ -147,7 +142,6 @@ data ListDomainsResponse = ListDomainsResponse
 -- | A list of DomainInfo structures.
 ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
 ldrsDomainInfos = lens _ldrsDomainInfos (\s a -> s { _ldrsDomainInfos = a })
-{-# INLINE ldrsDomainInfos #-}
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
@@ -155,7 +149,6 @@ ldrsDomainInfos = lens _ldrsDomainInfos (\s a -> s { _ldrsDomainInfos = a })
 ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageToken =
     lens _ldrsNextPageToken (\s a -> s { _ldrsNextPageToken = a })
-{-# INLINE ldrsNextPageToken #-}
 
 instance FromJSON ListDomainsResponse
 
@@ -167,5 +160,5 @@ instance AWSRequest ListDomains where
     response _ = jsonResponse
 
 instance AWSPager ListDomains where
-    next rq rs = (\x -> rq { _ldNextPageToken = Just x })
-        <$> (_ldrsNextPageToken rs)
+    next rq rs = (\x -> rq & ldNextPageToken ?~ x) <$> (rs ^. ldrsNextPageToken)
+

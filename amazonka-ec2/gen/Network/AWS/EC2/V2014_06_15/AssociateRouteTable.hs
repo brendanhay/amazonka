@@ -67,17 +67,14 @@ mkAssociateRouteTable p1 p2 = AssociateRouteTable
     { _artSubnetId = p1
     , _artRouteTableId = p2
     }
-{-# INLINE mkAssociateRouteTable #-}
 
 -- | The ID of the subnet.
 artSubnetId :: Lens' AssociateRouteTable Text
 artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
-{-# INLINE artSubnetId #-}
 
 -- | The ID of the route table.
 artRouteTableId :: Lens' AssociateRouteTable Text
 artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
-{-# INLINE artRouteTableId #-}
 
 instance ToQuery AssociateRouteTable where
     toQuery = genericQuery def
@@ -91,7 +88,6 @@ newtype AssociateRouteTableResponse = AssociateRouteTableResponse
 artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrsAssociationId =
     lens _artrsAssociationId (\s a -> s { _artrsAssociationId = a })
-{-# INLINE artrsAssociationId #-}
 
 instance FromXML AssociateRouteTableResponse where
     fromXMLOptions = xmlOptions

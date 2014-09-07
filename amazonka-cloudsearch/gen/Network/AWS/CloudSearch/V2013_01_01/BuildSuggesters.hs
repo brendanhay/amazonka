@@ -50,7 +50,6 @@ mkBuildSuggesters :: Text -- ^ 'bsDomainName'
 mkBuildSuggesters p1 = BuildSuggesters
     { _bsDomainName = p1
     }
-{-# INLINE mkBuildSuggesters #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -58,7 +57,6 @@ mkBuildSuggesters p1 = BuildSuggesters
 -- (lowercase), 0-9, and - (hyphen).
 bsDomainName :: Lens' BuildSuggesters Text
 bsDomainName = lens _bsDomainName (\s a -> s { _bsDomainName = a })
-{-# INLINE bsDomainName #-}
 
 instance ToQuery BuildSuggesters where
     toQuery = genericQuery def
@@ -72,7 +70,6 @@ newtype BuildSuggestersResponse = BuildSuggestersResponse
 -- | A list of field names.
 bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrsFieldNames = lens _bsrsFieldNames (\s a -> s { _bsrsFieldNames = a })
-{-# INLINE bsrsFieldNames #-}
 
 instance FromXML BuildSuggestersResponse where
     fromXMLOptions = xmlOptions

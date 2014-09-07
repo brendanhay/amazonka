@@ -63,13 +63,11 @@ mkUnsubscribe :: Text -- ^ 'uSubscriptionArn'
 mkUnsubscribe p1 = Unsubscribe
     { _uSubscriptionArn = p1
     }
-{-# INLINE mkUnsubscribe #-}
 
 -- | The ARN of the subscription to be deleted.
 uSubscriptionArn :: Lens' Unsubscribe Text
 uSubscriptionArn =
     lens _uSubscriptionArn (\s a -> s { _uSubscriptionArn = a })
-{-# INLINE uSubscriptionArn #-}
 
 instance ToQuery Unsubscribe where
     toQuery = genericQuery def

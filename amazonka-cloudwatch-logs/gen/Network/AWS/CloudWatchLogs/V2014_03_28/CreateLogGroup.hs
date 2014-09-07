@@ -60,11 +60,9 @@ mkCreateLogGroup :: Text -- ^ 'clgLogGroupName'
 mkCreateLogGroup p1 = CreateLogGroup
     { _clgLogGroupName = p1
     }
-{-# INLINE mkCreateLogGroup #-}
 
 clgLogGroupName :: Lens' CreateLogGroup Text
 clgLogGroupName = lens _clgLogGroupName (\s a -> s { _clgLogGroupName = a })
-{-# INLINE clgLogGroupName #-}
 
 instance ToPath CreateLogGroup
 

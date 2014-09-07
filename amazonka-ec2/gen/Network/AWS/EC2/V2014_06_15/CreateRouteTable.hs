@@ -58,12 +58,10 @@ mkCreateRouteTable :: Text -- ^ 'crtVpcId'
 mkCreateRouteTable p1 = CreateRouteTable
     { _crtVpcId = p1
     }
-{-# INLINE mkCreateRouteTable #-}
 
 -- | The ID of the VPC.
 crtVpcId :: Lens' CreateRouteTable Text
 crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
-{-# INLINE crtVpcId #-}
 
 instance ToQuery CreateRouteTable where
     toQuery = genericQuery def
@@ -76,7 +74,6 @@ newtype CreateRouteTableResponse = CreateRouteTableResponse
 -- | Information about the route table.
 crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrsRouteTable = lens _crtrsRouteTable (\s a -> s { _crtrsRouteTable = a })
-{-# INLINE crtrsRouteTable #-}
 
 instance FromXML CreateRouteTableResponse where
     fromXMLOptions = xmlOptions

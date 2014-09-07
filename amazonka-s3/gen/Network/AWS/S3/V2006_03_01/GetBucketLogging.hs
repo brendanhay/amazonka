@@ -50,11 +50,9 @@ mkGetBucketLogging :: BucketName -- ^ 'gbl2Bucket'
 mkGetBucketLogging p1 = GetBucketLogging
     { _gbl2Bucket = p1
     }
-{-# INLINE mkGetBucketLogging #-}
 
 gbl2Bucket :: Lens' GetBucketLogging BucketName
 gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
-{-# INLINE gbl2Bucket #-}
 
 instance ToPath GetBucketLogging where
     toPath GetBucketLogging{..} = mconcat
@@ -78,7 +76,6 @@ newtype GetBucketLoggingResponse = GetBucketLoggingResponse
 gblrs1LoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 gblrs1LoggingEnabled =
     lens _gblrs1LoggingEnabled (\s a -> s { _gblrs1LoggingEnabled = a })
-{-# INLINE gblrs1LoggingEnabled #-}
 
 instance FromXML GetBucketLoggingResponse where
     fromXMLOptions = xmlOptions

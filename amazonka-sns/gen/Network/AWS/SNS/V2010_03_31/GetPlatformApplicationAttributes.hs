@@ -67,14 +67,12 @@ mkGetPlatformApplicationAttributes :: Text -- ^ 'gpaaPlatformApplicationArn'
 mkGetPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn = p1
     }
-{-# INLINE mkGetPlatformApplicationAttributes #-}
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
 gpaaPlatformApplicationArn :: Lens' GetPlatformApplicationAttributes Text
 gpaaPlatformApplicationArn =
     lens _gpaaPlatformApplicationArn
          (\s a -> s { _gpaaPlatformApplicationArn = a })
-{-# INLINE gpaaPlatformApplicationArn #-}
 
 instance ToQuery GetPlatformApplicationAttributes where
     toQuery = genericQuery def
@@ -95,7 +93,6 @@ newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttribu
 gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
 gpaarsAttributes =
     lens _gpaarsAttributes (\s a -> s { _gpaarsAttributes = a })
-{-# INLINE gpaarsAttributes #-}
 
 instance FromXML GetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions

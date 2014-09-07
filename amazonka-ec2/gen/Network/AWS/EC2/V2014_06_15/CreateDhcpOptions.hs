@@ -89,13 +89,11 @@ mkCreateDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
 mkCreateDhcpOptions p1 = CreateDhcpOptions
     { _cdoDhcpConfigurations = p1
     }
-{-# INLINE mkCreateDhcpOptions #-}
 
 -- | A DHCP configuration option.
 cdoDhcpConfigurations :: Lens' CreateDhcpOptions [DhcpConfiguration]
 cdoDhcpConfigurations =
     lens _cdoDhcpConfigurations (\s a -> s { _cdoDhcpConfigurations = a })
-{-# INLINE cdoDhcpConfigurations #-}
 
 instance ToQuery CreateDhcpOptions where
     toQuery = genericQuery def
@@ -109,7 +107,6 @@ newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
 cdorsDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdorsDhcpOptions =
     lens _cdorsDhcpOptions (\s a -> s { _cdorsDhcpOptions = a })
-{-# INLINE cdorsDhcpOptions #-}
 
 instance FromXML CreateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions

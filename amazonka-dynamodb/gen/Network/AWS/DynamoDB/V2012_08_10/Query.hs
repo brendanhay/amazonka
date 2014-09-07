@@ -108,18 +108,15 @@ mkQuery p1 = Query
     , _qExclusiveStartKey = mempty
     , _qReturnConsumedCapacity = Nothing
     }
-{-# INLINE mkQuery #-}
 
 -- | The name of the table containing the requested items.
 qTableName :: Lens' Query Text
 qTableName = lens _qTableName (\s a -> s { _qTableName = a })
-{-# INLINE qTableName #-}
 
 -- | The name of an index to query. This can be any local secondary index or
 -- global secondary index on the table.
 qIndexName :: Lens' Query (Maybe Text)
 qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
-{-# INLINE qIndexName #-}
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, the count of matching items, or in
@@ -152,7 +149,6 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 -- AttributesToGet without any value for Select.).
 qSelect :: Lens' Query (Maybe Select)
 qSelect = lens _qSelect (\s a -> s { _qSelect = a })
-{-# INLINE qSelect #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
@@ -171,7 +167,6 @@ qSelect = lens _qSelect (\s a -> s { _qSelect = a })
 qAttributesToGet :: Lens' Query (Maybe [Text])
 qAttributesToGet =
     lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a })
-{-# INLINE qAttributesToGet #-}
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the limit
@@ -186,7 +181,6 @@ qAttributesToGet =
 -- >Query and Scan in the Amazon DynamoDB Developer Guide.
 qLimit :: Lens' Query (Maybe Integer)
 qLimit = lens _qLimit (\s a -> s { _qLimit = a })
-{-# INLINE qLimit #-}
 
 -- | If set to true, then the operation uses strongly consistent reads;
 -- otherwise, eventually consistent reads are used. Strongly consistent reads
@@ -195,7 +189,6 @@ qLimit = lens _qLimit (\s a -> s { _qLimit = a })
 -- message.
 qConsistentRead :: Lens' Query (Maybe Bool)
 qConsistentRead = lens _qConsistentRead (\s a -> s { _qConsistentRead = a })
-{-# INLINE qConsistentRead #-}
 
 -- | The selection criteria for the query. For a query on a table, you can only
 -- have conditions on the table primary key attributes. You must specify the
@@ -261,16 +254,13 @@ qConsistentRead = lens _qConsistentRead (\s a -> s { _qConsistentRead = a })
 -- to {"NS":["6", "2", "1"]}.
 qKeyConditions :: Lens' Query (Map Text Condition)
 qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a })
-{-# INLINE qKeyConditions #-}
 
 qQueryFilter :: Lens' Query (Map Text Condition)
 qQueryFilter = lens _qQueryFilter (\s a -> s { _qQueryFilter = a })
-{-# INLINE qQueryFilter #-}
 
 qConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
 qConditionalOperator =
     lens _qConditionalOperator (\s a -> s { _qConditionalOperator = a })
-{-# INLINE qConditionalOperator #-}
 
 -- | Specifies ascending (true) or descending (false) traversal of the index.
 -- DynamoDB returns results reflecting the requested order determined by the
@@ -282,7 +272,6 @@ qConditionalOperator =
 qScanIndexForward :: Lens' Query (Maybe Bool)
 qScanIndexForward =
     lens _qScanIndexForward (\s a -> s { _qScanIndexForward = a })
-{-# INLINE qScanIndexForward #-}
 
 -- | The primary key of the first item that this operation will evalute. Use the
 -- value that was returned for LastEvaluatedKey in the previous operation. The
@@ -291,7 +280,6 @@ qScanIndexForward =
 qExclusiveStartKey :: Lens' Query (Map Text AttributeValue)
 qExclusiveStartKey =
     lens _qExclusiveStartKey (\s a -> s { _qExclusiveStartKey = a })
-{-# INLINE qExclusiveStartKey #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -301,7 +289,6 @@ qReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
 qReturnConsumedCapacity =
     lens _qReturnConsumedCapacity
          (\s a -> s { _qReturnConsumedCapacity = a })
-{-# INLINE qReturnConsumedCapacity #-}
 
 instance ToPath Query
 
@@ -324,16 +311,13 @@ data QueryResponse = QueryResponse
 -- this array consists of an attribute name and the value for that attribute.
 qrsItems :: Lens' QueryResponse [Map Text AttributeValue]
 qrsItems = lens _qrsItems (\s a -> s { _qrsItems = a })
-{-# INLINE qrsItems #-}
 
 -- | The number of items in the response.
 qrsCount :: Lens' QueryResponse (Maybe Integer)
 qrsCount = lens _qrsCount (\s a -> s { _qrsCount = a })
-{-# INLINE qrsCount #-}
 
 qrsScannedCount :: Lens' QueryResponse (Maybe Integer)
 qrsScannedCount = lens _qrsScannedCount (\s a -> s { _qrsScannedCount = a })
-{-# INLINE qrsScannedCount #-}
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -346,7 +330,6 @@ qrsScannedCount = lens _qrsScannedCount (\s a -> s { _qrsScannedCount = a })
 qrsLastEvaluatedKey :: Lens' QueryResponse (Map Text AttributeValue)
 qrsLastEvaluatedKey =
     lens _qrsLastEvaluatedKey (\s a -> s { _qrsLastEvaluatedKey = a })
-{-# INLINE qrsLastEvaluatedKey #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
@@ -356,7 +339,6 @@ qrsLastEvaluatedKey =
 qrsConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
 qrsConsumedCapacity =
     lens _qrsConsumedCapacity (\s a -> s { _qrsConsumedCapacity = a })
-{-# INLINE qrsConsumedCapacity #-}
 
 instance FromJSON QueryResponse
 
@@ -370,6 +352,6 @@ instance AWSRequest Query where
 instance AWSPager Query where
     next rq rs
         | Map.null k = Nothing
-        | otherwise  = Just (rq { _qExclusiveStartKey = k })
+        | otherwise  = Just (rq & qExclusiveStartKey .~ k)
       where
-        k = _qrsLastEvaluatedKey rs
+        k = rs ^. qrsLastEvaluatedKey

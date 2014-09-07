@@ -62,20 +62,17 @@ mkDescribePlacementGroups = DescribePlacementGroups
     { _dpg1GroupNames = mempty
     , _dpg1Filters = mempty
     }
-{-# INLINE mkDescribePlacementGroups #-}
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
 dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
-{-# INLINE dpg1GroupNames #-}
 
 -- | One or more filters. group-name - The name of the placement group. state -
 -- The state of the placement group (pending | available | deleting |
 -- deleted). strategy - The strategy of the placement group (cluster).
 dpg1Filters :: Lens' DescribePlacementGroups [Filter]
 dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
-{-# INLINE dpg1Filters #-}
 
 instance ToQuery DescribePlacementGroups where
     toQuery = genericQuery def
@@ -89,7 +86,6 @@ newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
 dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrsPlacementGroups =
     lens _dpgrsPlacementGroups (\s a -> s { _dpgrsPlacementGroups = a })
-{-# INLINE dpgrsPlacementGroups #-}
 
 instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions

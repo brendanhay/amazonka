@@ -53,17 +53,14 @@ mkRemoveUserFromGroup p1 p2 = RemoveUserFromGroup
     { _rufgGroupName = p1
     , _rufgUserName = p2
     }
-{-# INLINE mkRemoveUserFromGroup #-}
 
 -- | Name of the group to update.
 rufgGroupName :: Lens' RemoveUserFromGroup Text
 rufgGroupName = lens _rufgGroupName (\s a -> s { _rufgGroupName = a })
-{-# INLINE rufgGroupName #-}
 
 -- | Name of the user to remove.
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
-{-# INLINE rufgUserName #-}
 
 instance ToQuery RemoveUserFromGroup where
     toQuery = genericQuery def

@@ -63,19 +63,16 @@ mkDescribeReservedInstancesModifications = DescribeReservedInstancesModification
     , _drimNextToken = Nothing
     , _drimFilters = mempty
     }
-{-# INLINE mkDescribeReservedInstancesModifications #-}
 
 -- | IDs for the submitted modification request.
 drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
 drimReservedInstancesModificationIds =
     lens _drimReservedInstancesModificationIds
          (\s a -> s { _drimReservedInstancesModificationIds = a })
-{-# INLINE drimReservedInstancesModificationIds #-}
 
 -- | The token for the next page of data.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
-{-# INLINE drimNextToken #-}
 
 -- | One or more filters. client-token - The idempotency token for the
 -- modification request. create-date - The time when the modification request
@@ -98,7 +95,6 @@ drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
 -- updated.
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a })
-{-# INLINE drimFilters #-}
 
 instance ToQuery DescribeReservedInstancesModifications where
     toQuery = genericQuery def
@@ -114,12 +110,10 @@ drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificat
 drimrsReservedInstancesModifications =
     lens _drimrsReservedInstancesModifications
          (\s a -> s { _drimrsReservedInstancesModifications = a })
-{-# INLINE drimrsReservedInstancesModifications #-}
 
 -- | The token for the next page of data.
 drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrsNextToken = lens _drimrsNextToken (\s a -> s { _drimrsNextToken = a })
-{-# INLINE drimrsNextToken #-}
 
 instance FromXML DescribeReservedInstancesModificationsResponse where
     fromXMLOptions = xmlOptions
@@ -132,5 +126,5 @@ instance AWSRequest DescribeReservedInstancesModifications where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedInstancesModifications where
-    next rq rs = (\x -> rq { _drimNextToken = Just x })
-        <$> (_drimrsNextToken rs)
+    next rq rs = (\x -> rq & drimNextToken ?~ x) <$> (rs ^. drimrsNextToken)
+

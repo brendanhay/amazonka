@@ -65,14 +65,12 @@ mkDescribeDBSubnetGroups = DescribeDBSubnetGroups
     , _ddbsg3MaxRecords = Nothing
     , _ddbsg3Marker = Nothing
     }
-{-# INLINE mkDescribeDBSubnetGroups #-}
 
 -- | The name of the DB subnet group to return details for.
 ddbsg3DBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddbsg3DBSubnetGroupName =
     lens _ddbsg3DBSubnetGroupName
          (\s a -> s { _ddbsg3DBSubnetGroupName = a })
-{-# INLINE ddbsg3DBSubnetGroupName #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -81,14 +79,12 @@ ddbsg3DBSubnetGroupName =
 ddbsg3MaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Integer)
 ddbsg3MaxRecords =
     lens _ddbsg3MaxRecords (\s a -> s { _ddbsg3MaxRecords = a })
-{-# INLINE ddbsg3MaxRecords #-}
 
 -- | An optional pagination token provided by a previous DescribeDBSubnetGroups
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
 ddbsg3Marker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddbsg3Marker = lens _ddbsg3Marker (\s a -> s { _ddbsg3Marker = a })
-{-# INLINE ddbsg3Marker #-}
 
 instance ToQuery DescribeDBSubnetGroups where
     toQuery = genericQuery def
@@ -105,14 +101,12 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
 -- marker, up to the value specified by MaxRecords.
 ddbsgrsrsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddbsgrsrsMarker = lens _ddbsgrsrsMarker (\s a -> s { _ddbsgrsrsMarker = a })
-{-# INLINE ddbsgrsrsMarker #-}
 
 -- | A list of DBSubnetGroup instances.
 ddbsgrsrsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddbsgrsrsDBSubnetGroups =
     lens _ddbsgrsrsDBSubnetGroups
          (\s a -> s { _ddbsgrsrsDBSubnetGroups = a })
-{-# INLINE ddbsgrsrsDBSubnetGroups #-}
 
 instance FromXML DescribeDBSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -125,5 +119,5 @@ instance AWSRequest DescribeDBSubnetGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBSubnetGroups where
-    next rq rs = (\x -> rq { _ddbsg3Marker = Just x })
-        <$> (_ddbsgrsrsMarker rs)
+    next rq rs = (\x -> rq & ddbsg3Marker ?~ x) <$> (rs ^. ddbsgrsrsMarker)
+

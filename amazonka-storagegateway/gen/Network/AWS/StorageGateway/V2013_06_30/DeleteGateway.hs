@@ -74,13 +74,11 @@ mkDeleteGateway :: Text -- ^ 'dgGatewayARN'
 mkDeleteGateway p1 = DeleteGateway
     { _dgGatewayARN = p1
     }
-{-# INLINE mkDeleteGateway #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dgGatewayARN :: Lens' DeleteGateway Text
 dgGatewayARN = lens _dgGatewayARN (\s a -> s { _dgGatewayARN = a })
-{-# INLINE dgGatewayARN #-}
 
 instance ToPath DeleteGateway
 
@@ -99,7 +97,6 @@ newtype DeleteGatewayResponse = DeleteGatewayResponse
 -- operation to return a list of gateways for your account and region.
 dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrsGatewayARN = lens _dgrsGatewayARN (\s a -> s { _dgrsGatewayARN = a })
-{-# INLINE dgrsGatewayARN #-}
 
 instance FromJSON DeleteGatewayResponse
 

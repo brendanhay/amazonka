@@ -67,19 +67,16 @@ mkGetGroup p1 = GetGroup
     , _ggMarker = Nothing
     , _ggMaxItems = Nothing
     }
-{-# INLINE mkGetGroup #-}
 
 -- | Name of the group.
 ggGroupName :: Lens' GetGroup Text
 ggGroupName = lens _ggGroupName (\s a -> s { _ggGroupName = a })
-{-# INLINE ggGroupName #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 ggMarker :: Lens' GetGroup (Maybe Text)
 ggMarker = lens _ggMarker (\s a -> s { _ggMarker = a })
-{-# INLINE ggMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- user names you want in the response. If there are additional user names
@@ -87,7 +84,6 @@ ggMarker = lens _ggMarker (\s a -> s { _ggMarker = a })
 -- This parameter is optional. If you do not include it, it defaults to 100.
 ggMaxItems :: Lens' GetGroup (Maybe Integer)
 ggMaxItems = lens _ggMaxItems (\s a -> s { _ggMaxItems = a })
-{-# INLINE ggMaxItems #-}
 
 instance ToQuery GetGroup where
     toQuery = genericQuery def
@@ -96,32 +92,28 @@ instance ToQuery GetGroup where
 data GetGroupResponse = GetGroupResponse
     { _ggrsGroup :: Group
     , _ggrsUsers :: [User]
-    , _ggrsIsTruncated :: Maybe Bool
+    , _ggrsIsTruncated :: Bool
     , _ggrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Information about the group.
 ggrsGroup :: Lens' GetGroupResponse Group
 ggrsGroup = lens _ggrsGroup (\s a -> s { _ggrsGroup = a })
-{-# INLINE ggrsGroup #-}
 
 -- | A list of users in the group.
 ggrsUsers :: Lens' GetGroupResponse [User]
 ggrsUsers = lens _ggrsUsers (\s a -> s { _ggrsUsers = a })
-{-# INLINE ggrsUsers #-}
 
 -- | A flag that indicates whether there are more user names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more user names in the list.
-ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
+ggrsIsTruncated :: Lens' GetGroupResponse Bool
 ggrsIsTruncated = lens _ggrsIsTruncated (\s a -> s { _ggrsIsTruncated = a })
-{-# INLINE ggrsIsTruncated #-}
 
 -- | If IsTruncated is true, then this element is present and contains the value
 -- to use for the Marker parameter in a subsequent pagination request.
 ggrsMarker :: Lens' GetGroupResponse (Maybe Text)
 ggrsMarker = lens _ggrsMarker (\s a -> s { _ggrsMarker = a })
-{-# INLINE ggrsMarker #-}
 
 instance FromXML GetGroupResponse where
     fromXMLOptions = xmlOptions
@@ -135,7 +127,5 @@ instance AWSRequest GetGroup where
 
 instance AWSPager GetGroup where
     next rq rs
-        | not (_ggrsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _ggMarker = _ggrsMarker rs
-            }
+        | not (rs ^. ggrsIsTruncated) = Nothing
+        | otherwise = Just (rq & ggMarker .~ rs ^. ggrsMarker)

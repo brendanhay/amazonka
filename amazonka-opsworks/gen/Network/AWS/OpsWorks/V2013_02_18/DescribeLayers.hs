@@ -55,19 +55,16 @@ mkDescribeLayers = DescribeLayers
     { _dl1StackId = Nothing
     , _dl1LayerIds = mempty
     }
-{-# INLINE mkDescribeLayers #-}
 
 -- | The stack ID.
 dl1StackId :: Lens' DescribeLayers (Maybe Text)
 dl1StackId = lens _dl1StackId (\s a -> s { _dl1StackId = a })
-{-# INLINE dl1StackId #-}
 
 -- | An array of layer IDs that specify the layers to be described. If you omit
 -- this parameter, DescribeLayers returns a description of every layer in the
 -- specified stack.
 dl1LayerIds :: Lens' DescribeLayers [Text]
 dl1LayerIds = lens _dl1LayerIds (\s a -> s { _dl1LayerIds = a })
-{-# INLINE dl1LayerIds #-}
 
 instance ToPath DescribeLayers
 
@@ -85,7 +82,6 @@ newtype DescribeLayersResponse = DescribeLayersResponse
 -- | An array of Layer objects that describe the layers.
 dlrsLayers :: Lens' DescribeLayersResponse [Layer]
 dlrsLayers = lens _dlrsLayers (\s a -> s { _dlrsLayers = a })
-{-# INLINE dlrsLayers #-}
 
 instance FromJSON DescribeLayersResponse
 

@@ -71,20 +71,17 @@ mkCreateLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
     , _clbcspPolicyName = p2
     , _clbcspCookieExpirationPeriod = Nothing
     }
-{-# INLINE mkCreateLBCookieStickinessPolicy #-}
 
 -- | The name associated with the load balancer.
 clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspLoadBalancerName =
     lens _clbcspLoadBalancerName (\s a -> s { _clbcspLoadBalancerName = a })
-{-# INLINE clbcspLoadBalancerName #-}
 
 -- | The name of the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspPolicyName =
     lens _clbcspPolicyName (\s a -> s { _clbcspPolicyName = a })
-{-# INLINE clbcspPolicyName #-}
 
 -- | The time period in seconds after which the cookie should be considered
 -- stale. Not specifying this parameter indicates that the sticky session will
@@ -93,7 +90,6 @@ clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Inte
 clbcspCookieExpirationPeriod =
     lens _clbcspCookieExpirationPeriod
          (\s a -> s { _clbcspCookieExpirationPeriod = a })
-{-# INLINE clbcspCookieExpirationPeriod #-}
 
 instance ToQuery CreateLBCookieStickinessPolicy where
     toQuery = genericQuery def

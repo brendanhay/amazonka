@@ -61,17 +61,14 @@ mkPutMetricData p1 p2 = PutMetricData
     { _pmdNamespace = p1
     , _pmdMetricData = p2
     }
-{-# INLINE mkPutMetricData #-}
 
 -- | The namespace for the metric data.
 pmdNamespace :: Lens' PutMetricData Text
 pmdNamespace = lens _pmdNamespace (\s a -> s { _pmdNamespace = a })
-{-# INLINE pmdNamespace #-}
 
 -- | A list of data describing the metric.
 pmdMetricData :: Lens' PutMetricData [MetricDatum]
 pmdMetricData = lens _pmdMetricData (\s a -> s { _pmdMetricData = a })
-{-# INLINE pmdMetricData #-}
 
 instance ToQuery PutMetricData where
     toQuery = genericQuery def

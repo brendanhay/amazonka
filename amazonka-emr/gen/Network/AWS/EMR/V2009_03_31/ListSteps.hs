@@ -57,22 +57,18 @@ mkListSteps p1 = ListSteps
     , _lsStepStates = mempty
     , _lsMarker = Nothing
     }
-{-# INLINE mkListSteps #-}
 
 -- | The identifier of the cluster for which to list the steps.
 lsClusterId :: Lens' ListSteps Text
 lsClusterId = lens _lsClusterId (\s a -> s { _lsClusterId = a })
-{-# INLINE lsClusterId #-}
 
 -- | The filter to limit the step list based on certain states.
 lsStepStates :: Lens' ListSteps [StepState]
 lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a })
-{-# INLINE lsStepStates #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsMarker :: Lens' ListSteps (Maybe Text)
 lsMarker = lens _lsMarker (\s a -> s { _lsMarker = a })
-{-# INLINE lsMarker #-}
 
 instance ToPath ListSteps
 
@@ -91,12 +87,10 @@ data ListStepsResponse = ListStepsResponse
 -- | The filtered list of steps for the cluster.
 lsrsSteps :: Lens' ListStepsResponse [StepSummary]
 lsrsSteps = lens _lsrsSteps (\s a -> s { _lsrsSteps = a })
-{-# INLINE lsrsSteps #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrsMarker = lens _lsrsMarker (\s a -> s { _lsrsMarker = a })
-{-# INLINE lsrsMarker #-}
 
 instance FromJSON ListStepsResponse
 
@@ -108,5 +102,5 @@ instance AWSRequest ListSteps where
     response _ = jsonResponse
 
 instance AWSPager ListSteps where
-    next rq rs = (\x -> rq { _lsMarker = Just x })
-        <$> (_lsrsMarker rs)
+    next rq rs = (\x -> rq & lsMarker ?~ x) <$> (rs ^. lsrsMarker)
+

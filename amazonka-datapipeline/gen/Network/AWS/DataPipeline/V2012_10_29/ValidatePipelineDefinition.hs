@@ -93,19 +93,16 @@ mkValidatePipelineDefinition p1 p2 = ValidatePipelineDefinition
     { _vpdPipelineId = p1
     , _vpdPipelineObjects = p2
     }
-{-# INLINE mkValidatePipelineDefinition #-}
 
 -- | Identifies the pipeline whose definition is to be validated.
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
 vpdPipelineId = lens _vpdPipelineId (\s a -> s { _vpdPipelineId = a })
-{-# INLINE vpdPipelineId #-}
 
 -- | A list of objects that define the pipeline changes to validate against the
 -- pipeline.
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects =
     lens _vpdPipelineObjects (\s a -> s { _vpdPipelineObjects = a })
-{-# INLINE vpdPipelineObjects #-}
 
 instance ToPath ValidatePipelineDefinition
 
@@ -126,7 +123,6 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
 vpdrsValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
 vpdrsValidationErrors =
     lens _vpdrsValidationErrors (\s a -> s { _vpdrsValidationErrors = a })
-{-# INLINE vpdrsValidationErrors #-}
 
 -- | Lists the validation warnings that were found by
 -- ValidatePipelineDefinition.
@@ -134,12 +130,10 @@ vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationW
 vpdrsValidationWarnings =
     lens _vpdrsValidationWarnings
          (\s a -> s { _vpdrsValidationWarnings = a })
-{-# INLINE vpdrsValidationWarnings #-}
 
 -- | If True, there were validation errors.
 vpdrsErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrsErrored = lens _vpdrsErrored (\s a -> s { _vpdrsErrored = a })
-{-# INLINE vpdrsErrored #-}
 
 instance FromJSON ValidatePipelineDefinitionResponse
 

@@ -51,12 +51,10 @@ mkDeleteAccountAlias :: Text -- ^ 'daaAccountAlias'
 mkDeleteAccountAlias p1 = DeleteAccountAlias
     { _daaAccountAlias = p1
     }
-{-# INLINE mkDeleteAccountAlias #-}
 
 -- | Name of the account alias to delete.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
-{-# INLINE daaAccountAlias #-}
 
 instance ToQuery DeleteAccountAlias where
     toQuery = genericQuery def

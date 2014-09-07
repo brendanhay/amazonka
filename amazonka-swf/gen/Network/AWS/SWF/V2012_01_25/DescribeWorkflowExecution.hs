@@ -93,17 +93,14 @@ mkDescribeWorkflowExecution p1 p2 = DescribeWorkflowExecution
     { _dweDomain = p1
     , _dweExecution = p2
     }
-{-# INLINE mkDescribeWorkflowExecution #-}
 
 -- | The name of the domain containing the workflow execution.
 dweDomain :: Lens' DescribeWorkflowExecution Text
 dweDomain = lens _dweDomain (\s a -> s { _dweDomain = a })
-{-# INLINE dweDomain #-}
 
 -- | The workflow execution to describe.
 dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
 dweExecution = lens _dweExecution (\s a -> s { _dweExecution = a })
-{-# INLINE dweExecution #-}
 
 instance ToPath DescribeWorkflowExecution
 
@@ -126,7 +123,6 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
 dwersExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
 dwersExecutionInfo =
     lens _dwersExecutionInfo (\s a -> s { _dwersExecutionInfo = a })
-{-# INLINE dwersExecutionInfo #-}
 
 -- | The configuration settings for this workflow execution including timeout
 -- values, tasklist etc.
@@ -134,13 +130,11 @@ dwersExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse WorkflowE
 dwersExecutionConfiguration =
     lens _dwersExecutionConfiguration
          (\s a -> s { _dwersExecutionConfiguration = a })
-{-# INLINE dwersExecutionConfiguration #-}
 
 -- | The number of tasks for this workflow execution. This includes open and
 -- closed tasks of all types.
 dwersOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
 dwersOpenCounts = lens _dwersOpenCounts (\s a -> s { _dwersOpenCounts = a })
-{-# INLINE dwersOpenCounts #-}
 
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
@@ -150,7 +144,6 @@ dwersLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (May
 dwersLatestActivityTaskTimestamp =
     lens _dwersLatestActivityTaskTimestamp
          (\s a -> s { _dwersLatestActivityTaskTimestamp = a })
-{-# INLINE dwersLatestActivityTaskTimestamp #-}
 
 -- | The latest executionContext provided by the decider for this workflow
 -- execution. A decider can provide an executionContext, which is a free form
@@ -159,7 +152,6 @@ dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Te
 dwersLatestExecutionContext =
     lens _dwersLatestExecutionContext
          (\s a -> s { _dwersLatestExecutionContext = a })
-{-# INLINE dwersLatestExecutionContext #-}
 
 instance FromJSON DescribeWorkflowExecutionResponse
 

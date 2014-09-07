@@ -64,25 +64,21 @@ mkUpdateUser p1 = UpdateUser
     , _uuNewPath = Nothing
     , _uuNewUserName = Nothing
     }
-{-# INLINE mkUpdateUser #-}
 
 -- | Name of the user to update. If you're changing the name of the user, this
 -- is the original user name.
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
-{-# INLINE uuUserName #-}
 
 -- | New path for the user. Include this parameter only if you're changing the
 -- user's path.
 uuNewPath :: Lens' UpdateUser (Maybe Text)
 uuNewPath = lens _uuNewPath (\s a -> s { _uuNewPath = a })
-{-# INLINE uuNewPath #-}
 
 -- | New name for the user. Include this parameter only if you're changing the
 -- user's name.
 uuNewUserName :: Lens' UpdateUser (Maybe Text)
 uuNewUserName = lens _uuNewUserName (\s a -> s { _uuNewUserName = a })
-{-# INLINE uuNewUserName #-}
 
 instance ToQuery UpdateUser where
     toQuery = genericQuery def

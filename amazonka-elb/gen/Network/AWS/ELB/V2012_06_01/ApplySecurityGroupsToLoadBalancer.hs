@@ -61,14 +61,12 @@ mkApplySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName = p1
     , _asgtlbSecurityGroups = p2
     }
-{-# INLINE mkApplySecurityGroupsToLoadBalancer #-}
 
 -- | The name associated with the load balancer. The name must be unique within
 -- the set of load balancers associated with your AWS account.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
 asgtlbLoadBalancerName =
     lens _asgtlbLoadBalancerName (\s a -> s { _asgtlbLoadBalancerName = a })
-{-# INLINE asgtlbLoadBalancerName #-}
 
 -- | A list of security group IDs to associate with your load balancer in VPC.
 -- The security group IDs must be provided as the ID and not the security
@@ -76,7 +74,6 @@ asgtlbLoadBalancerName =
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups =
     lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
-{-# INLINE asgtlbSecurityGroups #-}
 
 instance ToQuery ApplySecurityGroupsToLoadBalancer where
     toQuery = genericQuery def
@@ -90,7 +87,6 @@ newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBal
 asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrsSecurityGroups =
     lens _asgtlbrsSecurityGroups (\s a -> s { _asgtlbrsSecurityGroups = a })
-{-# INLINE asgtlbrsSecurityGroups #-}
 
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
     fromXMLOptions = xmlOptions

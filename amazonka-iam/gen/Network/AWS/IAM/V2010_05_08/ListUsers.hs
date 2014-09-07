@@ -67,7 +67,6 @@ mkListUsers = ListUsers
     , _luMarker = Nothing
     , _luMaxItems = Nothing
     }
-{-# INLINE mkListUsers #-}
 
 -- | The path prefix for filtering the results. For example:
 -- /division_abc/subdivision_xyz/, which would get all user names whose path
@@ -75,7 +74,6 @@ mkListUsers = ListUsers
 -- it is not included, it defaults to a slash (/), listing all user names.
 luPathPrefix :: Lens' ListUsers (Maybe Text)
 luPathPrefix = lens _luPathPrefix (\s a -> s { _luPathPrefix = a })
-{-# INLINE luPathPrefix #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -83,7 +81,6 @@ luPathPrefix = lens _luPathPrefix (\s a -> s { _luPathPrefix = a })
 -- received.
 luMarker :: Lens' ListUsers (Maybe Text)
 luMarker = lens _luMarker (\s a -> s { _luMarker = a })
-{-# INLINE luMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of user names you want in the response. If there are additional user
@@ -92,7 +89,6 @@ luMarker = lens _luMarker (\s a -> s { _luMarker = a })
 -- 100.
 luMaxItems :: Lens' ListUsers (Maybe Integer)
 luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a })
-{-# INLINE luMaxItems #-}
 
 instance ToQuery ListUsers where
     toQuery = genericQuery def
@@ -100,27 +96,24 @@ instance ToQuery ListUsers where
 -- | Contains the result of a successful invocation of the ListUsers action.
 data ListUsersResponse = ListUsersResponse
     { _lursUsers :: [User]
-    , _lursIsTruncated :: Maybe Bool
+    , _lursIsTruncated :: Bool
     , _lursMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of users.
 lursUsers :: Lens' ListUsersResponse [User]
 lursUsers = lens _lursUsers (\s a -> s { _lursUsers = a })
-{-# INLINE lursUsers #-}
 
 -- | A flag that indicates whether there are more user names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more users in the list.
-lursIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
+lursIsTruncated :: Lens' ListUsersResponse Bool
 lursIsTruncated = lens _lursIsTruncated (\s a -> s { _lursIsTruncated = a })
-{-# INLINE lursIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lursMarker :: Lens' ListUsersResponse (Maybe Text)
 lursMarker = lens _lursMarker (\s a -> s { _lursMarker = a })
-{-# INLINE lursMarker #-}
 
 instance FromXML ListUsersResponse where
     fromXMLOptions = xmlOptions
@@ -134,7 +127,5 @@ instance AWSRequest ListUsers where
 
 instance AWSPager ListUsers where
     next rq rs
-        | not (_lursIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _luMarker = _lursMarker rs
-            }
+        | not (rs ^. lursIsTruncated) = Nothing
+        | otherwise = Just (rq & luMarker .~ rs ^. lursMarker)

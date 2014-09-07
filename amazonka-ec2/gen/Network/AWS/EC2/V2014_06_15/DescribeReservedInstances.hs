@@ -69,7 +69,6 @@ mkDescribeReservedInstances = DescribeReservedInstances
     , _driFilters = mempty
     , _driOfferingType = Nothing
     }
-{-# INLINE mkDescribeReservedInstances #-}
 
 -- | One or more Reserved Instance IDs. Default: Describes all your Reserved
 -- Instances, or only those otherwise specified.
@@ -77,7 +76,6 @@ driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds =
     lens _driReservedInstancesIds
          (\s a -> s { _driReservedInstancesIds = a })
-{-# INLINE driReservedInstancesIds #-}
 
 -- | One or more filters. availability-zone - The Availability Zone where the
 -- Reserved Instance can be used. duration - The duration of the Reserved
@@ -102,12 +100,10 @@ driReservedInstancesIds =
 -- of the Reserved Instance, per hour (for example, 0.84).
 driFilters :: Lens' DescribeReservedInstances [Filter]
 driFilters = lens _driFilters (\s a -> s { _driFilters = a })
-{-# INLINE driFilters #-}
 
 -- | The Reserved Instance offering type.
 driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
 driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
-{-# INLINE driOfferingType #-}
 
 instance ToQuery DescribeReservedInstances where
     toQuery = genericQuery def
@@ -121,7 +117,6 @@ newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
 drirsReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirsReservedInstances =
     lens _drirsReservedInstances (\s a -> s { _drirsReservedInstances = a })
-{-# INLINE drirsReservedInstances #-}
 
 instance FromXML DescribeReservedInstancesResponse where
     fromXMLOptions = xmlOptions

@@ -436,34 +436,28 @@ mkAlarmHistoryItem = AlarmHistoryItem
     , _ahiHistorySummary = Nothing
     , _ahiHistoryData = Nothing
     }
-{-# INLINE mkAlarmHistoryItem #-}
 
 -- | The descriptive name for the alarm.
 ahiAlarmName :: Lens' AlarmHistoryItem (Maybe Text)
 ahiAlarmName = lens _ahiAlarmName (\s a -> s { _ahiAlarmName = a })
-{-# INLINE ahiAlarmName #-}
 
 -- | The time stamp for the alarm history item.
 ahiTimestamp :: Lens' AlarmHistoryItem (Maybe ISO8601)
 ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a })
-{-# INLINE ahiTimestamp #-}
 
 -- | The type of alarm history item.
 ahiHistoryItemType :: Lens' AlarmHistoryItem (Maybe HistoryItemType)
 ahiHistoryItemType =
     lens _ahiHistoryItemType (\s a -> s { _ahiHistoryItemType = a })
-{-# INLINE ahiHistoryItemType #-}
 
 -- | A human-readable summary of the alarm history.
 ahiHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistorySummary =
     lens _ahiHistorySummary (\s a -> s { _ahiHistorySummary = a })
-{-# INLINE ahiHistorySummary #-}
 
 -- | Machine-readable data about the alarm in JSON format.
 ahiHistoryData :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistoryData = lens _ahiHistoryData (\s a -> s { _ahiHistoryData = a })
-{-# INLINE ahiHistoryData #-}
 
 instance FromXML AlarmHistoryItem where
     fromXMLOptions = xmlOptions
@@ -493,43 +487,35 @@ mkDatapoint = Datapoint
     , _drsMaximum = Nothing
     , _drsUnit = Nothing
     }
-{-# INLINE mkDatapoint #-}
 
 -- | The time stamp used for the datapoint.
 drsTimestamp :: Lens' Datapoint (Maybe ISO8601)
 drsTimestamp = lens _drsTimestamp (\s a -> s { _drsTimestamp = a })
-{-# INLINE drsTimestamp #-}
 
 -- | The number of metric values that contributed to the aggregate value of this
 -- datapoint.
 drsSampleCount :: Lens' Datapoint (Maybe Double)
 drsSampleCount = lens _drsSampleCount (\s a -> s { _drsSampleCount = a })
-{-# INLINE drsSampleCount #-}
 
 -- | The average of metric values that correspond to the datapoint.
 drsAverage :: Lens' Datapoint (Maybe Double)
 drsAverage = lens _drsAverage (\s a -> s { _drsAverage = a })
-{-# INLINE drsAverage #-}
 
 -- | The sum of metric values used for the datapoint.
 drsSum :: Lens' Datapoint (Maybe Double)
 drsSum = lens _drsSum (\s a -> s { _drsSum = a })
-{-# INLINE drsSum #-}
 
 -- | The minimum metric value used for the datapoint.
 drsMinimum :: Lens' Datapoint (Maybe Double)
 drsMinimum = lens _drsMinimum (\s a -> s { _drsMinimum = a })
-{-# INLINE drsMinimum #-}
 
 -- | The maximum of the metric value used for the datapoint.
 drsMaximum :: Lens' Datapoint (Maybe Double)
 drsMaximum = lens _drsMaximum (\s a -> s { _drsMaximum = a })
-{-# INLINE drsMaximum #-}
 
 -- | The standard unit used for the datapoint.
 drsUnit :: Lens' Datapoint (Maybe StandardUnit)
 drsUnit = lens _drsUnit (\s a -> s { _drsUnit = a })
-{-# INLINE drsUnit #-}
 
 instance FromXML Datapoint where
     fromXMLOptions = xmlOptions
@@ -551,17 +537,14 @@ mkDimension p1 p2 = Dimension
     { _dName = p1
     , _dValue = p2
     }
-{-# INLINE mkDimension #-}
 
 -- | The name of the dimension.
 dName :: Lens' Dimension Text
 dName = lens _dName (\s a -> s { _dName = a })
-{-# INLINE dName #-}
 
 -- | The value representing the dimension measurement.
 dValue :: Lens' Dimension Text
 dValue = lens _dValue (\s a -> s { _dValue = a })
-{-# INLINE dValue #-}
 
 instance FromXML Dimension where
     fromXMLOptions = xmlOptions
@@ -584,18 +567,15 @@ mkDimensionFilter p1 = DimensionFilter
     { _dfName = p1
     , _dfValue = Nothing
     }
-{-# INLINE mkDimensionFilter #-}
 
 -- | The dimension name to be matched.
 dfName :: Lens' DimensionFilter Text
 dfName = lens _dfName (\s a -> s { _dfName = a })
-{-# INLINE dfName #-}
 
 -- | The value of the dimension to be matched. Specifying a Name without
 -- specifying a Value returns all values associated with that Name.
 dfValue :: Lens' DimensionFilter (Maybe Text)
 dfValue = lens _dfValue (\s a -> s { _dfValue = a })
-{-# INLINE dfValue #-}
 
 instance ToQuery DimensionFilter where
     toQuery = genericQuery def
@@ -617,22 +597,18 @@ mkMetric = Metric
     , _mMetricName = Nothing
     , _mDimensions = mempty
     }
-{-# INLINE mkMetric #-}
 
 -- | The namespace of the metric.
 mNamespace :: Lens' Metric (Maybe Text)
 mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
-{-# INLINE mNamespace #-}
 
 -- | The name of the metric.
 mMetricName :: Lens' Metric (Maybe Text)
 mMetricName = lens _mMetricName (\s a -> s { _mMetricName = a })
-{-# INLINE mMetricName #-}
 
 -- | A list of dimensions associated with the metric.
 mDimensions :: Lens' Metric [Dimension]
 mDimensions = lens _mDimensions (\s a -> s { _mDimensions = a })
-{-# INLINE mDimensions #-}
 
 instance FromXML Metric where
     fromXMLOptions = xmlOptions
@@ -690,37 +666,31 @@ mkMetricAlarm = MetricAlarm
     , _maThreshold = Nothing
     , _maComparisonOperator = Nothing
     }
-{-# INLINE mkMetricAlarm #-}
 
 -- | The name of the alarm.
 maAlarmName :: Lens' MetricAlarm (Maybe Text)
 maAlarmName = lens _maAlarmName (\s a -> s { _maAlarmName = a })
-{-# INLINE maAlarmName #-}
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 maAlarmArn :: Lens' MetricAlarm (Maybe Text)
 maAlarmArn = lens _maAlarmArn (\s a -> s { _maAlarmArn = a })
-{-# INLINE maAlarmArn #-}
 
 -- | The description for the alarm.
 maAlarmDescription :: Lens' MetricAlarm (Maybe Text)
 maAlarmDescription =
     lens _maAlarmDescription (\s a -> s { _maAlarmDescription = a })
-{-# INLINE maAlarmDescription #-}
 
 -- | The time stamp of the last update to the alarm configuration.
 maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe ISO8601)
 maAlarmConfigurationUpdatedTimestamp =
     lens _maAlarmConfigurationUpdatedTimestamp
          (\s a -> s { _maAlarmConfigurationUpdatedTimestamp = a })
-{-# INLINE maAlarmConfigurationUpdatedTimestamp #-}
 
 -- | Indicates whether actions should be executed during any changes to the
 -- alarm's state.
 maActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
 maActionsEnabled =
     lens _maActionsEnabled (\s a -> s { _maActionsEnabled = a })
-{-# INLINE maActionsEnabled #-}
 
 -- | The list of actions to execute when this alarm transitions into an OK state
 -- from any other state. Each action is specified as an Amazon Resource Number
@@ -728,7 +698,6 @@ maActionsEnabled =
 -- topic and triggering an Auto Scaling policy.
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\s a -> s { _maOKActions = a })
-{-# INLINE maOKActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an ALARM
 -- state from any other state. Each action is specified as an Amazon Resource
@@ -736,7 +705,6 @@ maOKActions = lens _maOKActions (\s a -> s { _maOKActions = a })
 -- Amazon SNS topic and triggering an Auto Scaling policy.
 maAlarmActions :: Lens' MetricAlarm [Text]
 maAlarmActions = lens _maAlarmActions (\s a -> s { _maAlarmActions = a })
-{-# INLINE maAlarmActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an
 -- INSUFFICIENT_DATA state from any other state. Each action is specified as
@@ -746,79 +714,65 @@ maInsufficientDataActions :: Lens' MetricAlarm [Text]
 maInsufficientDataActions =
     lens _maInsufficientDataActions
          (\s a -> s { _maInsufficientDataActions = a })
-{-# INLINE maInsufficientDataActions #-}
 
 -- | The state value for the alarm.
 maStateValue :: Lens' MetricAlarm (Maybe StateValue)
 maStateValue = lens _maStateValue (\s a -> s { _maStateValue = a })
-{-# INLINE maStateValue #-}
 
 -- | A human-readable explanation for the alarm's state.
 maStateReason :: Lens' MetricAlarm (Maybe Text)
 maStateReason = lens _maStateReason (\s a -> s { _maStateReason = a })
-{-# INLINE maStateReason #-}
 
 -- | An explanation for the alarm's state in machine-readable JSON format.
 maStateReasonData :: Lens' MetricAlarm (Maybe Text)
 maStateReasonData =
     lens _maStateReasonData (\s a -> s { _maStateReasonData = a })
-{-# INLINE maStateReasonData #-}
 
 -- | The time stamp of the last update to the alarm's state.
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe ISO8601)
 maStateUpdatedTimestamp =
     lens _maStateUpdatedTimestamp
          (\s a -> s { _maStateUpdatedTimestamp = a })
-{-# INLINE maStateUpdatedTimestamp #-}
 
 -- | The name of the alarm's metric.
 maMetricName :: Lens' MetricAlarm (Maybe Text)
 maMetricName = lens _maMetricName (\s a -> s { _maMetricName = a })
-{-# INLINE maMetricName #-}
 
 -- | The namespace of alarm's associated metric.
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\s a -> s { _maNamespace = a })
-{-# INLINE maNamespace #-}
 
 -- | The statistic to apply to the alarm's associated metric.
 maStatistic :: Lens' MetricAlarm (Maybe Statistic)
 maStatistic = lens _maStatistic (\s a -> s { _maStatistic = a })
-{-# INLINE maStatistic #-}
 
 -- | The list of dimensions associated with the alarm's associated metric.
 maDimensions :: Lens' MetricAlarm [Dimension]
 maDimensions = lens _maDimensions (\s a -> s { _maDimensions = a })
-{-# INLINE maDimensions #-}
 
 -- | The period in seconds over which the statistic is applied.
 maPeriod :: Lens' MetricAlarm (Maybe Integer)
 maPeriod = lens _maPeriod (\s a -> s { _maPeriod = a })
-{-# INLINE maPeriod #-}
 
 -- | The unit of the alarm's associated metric.
 maUnit :: Lens' MetricAlarm (Maybe StandardUnit)
 maUnit = lens _maUnit (\s a -> s { _maUnit = a })
-{-# INLINE maUnit #-}
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
 maEvaluationPeriods :: Lens' MetricAlarm (Maybe Integer)
 maEvaluationPeriods =
     lens _maEvaluationPeriods (\s a -> s { _maEvaluationPeriods = a })
-{-# INLINE maEvaluationPeriods #-}
 
 -- | The value against which the specified statistic is compared.
 maThreshold :: Lens' MetricAlarm (Maybe Double)
 maThreshold = lens _maThreshold (\s a -> s { _maThreshold = a })
-{-# INLINE maThreshold #-}
 
 -- | The arithmetic operation to use when comparing the specified Statistic and
 -- Threshold. The specified Statistic value is used as the first operand.
 maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 maComparisonOperator =
     lens _maComparisonOperator (\s a -> s { _maComparisonOperator = a })
-{-# INLINE maComparisonOperator #-}
 
 instance FromXML MetricAlarm where
     fromXMLOptions = xmlOptions
@@ -848,23 +802,19 @@ mkMetricDatum p1 = MetricDatum
     , _mdStatisticValues = Nothing
     , _mdUnit = Nothing
     }
-{-# INLINE mkMetricDatum #-}
 
 -- | The name of the metric.
 mdMetricName :: Lens' MetricDatum Text
 mdMetricName = lens _mdMetricName (\s a -> s { _mdMetricName = a })
-{-# INLINE mdMetricName #-}
 
 -- | A list of dimensions associated with the metric.
 mdDimensions :: Lens' MetricDatum [Dimension]
 mdDimensions = lens _mdDimensions (\s a -> s { _mdDimensions = a })
-{-# INLINE mdDimensions #-}
 
 -- | The time stamp used for the metric. If not specified, the default value is
 -- set to the time the metric data was received.
 mdTimestamp :: Lens' MetricDatum (Maybe ISO8601)
 mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a })
-{-# INLINE mdTimestamp #-}
 
 -- | The value for the metric. Although the Value parameter accepts numbers of
 -- type Double, Amazon CloudWatch truncates values with very large exponents.
@@ -873,18 +823,15 @@ mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a })
 -- also truncated.
 mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\s a -> s { _mdValue = a })
-{-# INLINE mdValue #-}
 
 -- | A set of statistical values describing the metric.
 mdStatisticValues :: Lens' MetricDatum (Maybe StatisticSet)
 mdStatisticValues =
     lens _mdStatisticValues (\s a -> s { _mdStatisticValues = a })
-{-# INLINE mdStatisticValues #-}
 
 -- | The unit of the metric.
 mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\s a -> s { _mdUnit = a })
-{-# INLINE mdUnit #-}
 
 instance ToQuery MetricDatum where
     toQuery = genericQuery def
@@ -910,27 +857,22 @@ mkStatisticSet p1 p2 p3 p4 = StatisticSet
     , _ssMinimum = p3
     , _ssMaximum = p4
     }
-{-# INLINE mkStatisticSet #-}
 
 -- | The number of samples used for the statistic set.
 ssSampleCount :: Lens' StatisticSet Double
 ssSampleCount = lens _ssSampleCount (\s a -> s { _ssSampleCount = a })
-{-# INLINE ssSampleCount #-}
 
 -- | The sum of values for the sample set.
 ssSum :: Lens' StatisticSet Double
 ssSum = lens _ssSum (\s a -> s { _ssSum = a })
-{-# INLINE ssSum #-}
 
 -- | The minimum value of the sample set.
 ssMinimum :: Lens' StatisticSet Double
 ssMinimum = lens _ssMinimum (\s a -> s { _ssMinimum = a })
-{-# INLINE ssMinimum #-}
 
 -- | The maximum value of the sample set.
 ssMaximum :: Lens' StatisticSet Double
 ssMaximum = lens _ssMaximum (\s a -> s { _ssMaximum = a })
-{-# INLINE ssMaximum #-}
 
 instance FromXML StatisticSet where
     fromXMLOptions = xmlOptions

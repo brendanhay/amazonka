@@ -65,23 +65,19 @@ mkAttachNetworkInterface p1 p2 p3 = AttachNetworkInterface
     , _aniInstanceId = p2
     , _aniDeviceIndex = p3
     }
-{-# INLINE mkAttachNetworkInterface #-}
 
 -- | The ID of the network interface.
 aniNetworkInterfaceId :: Lens' AttachNetworkInterface Text
 aniNetworkInterfaceId =
     lens _aniNetworkInterfaceId (\s a -> s { _aniNetworkInterfaceId = a })
-{-# INLINE aniNetworkInterfaceId #-}
 
 -- | The ID of the instance.
 aniInstanceId :: Lens' AttachNetworkInterface Text
 aniInstanceId = lens _aniInstanceId (\s a -> s { _aniInstanceId = a })
-{-# INLINE aniInstanceId #-}
 
 -- | The index of the device for the network interface attachment.
 aniDeviceIndex :: Lens' AttachNetworkInterface Integer
 aniDeviceIndex = lens _aniDeviceIndex (\s a -> s { _aniDeviceIndex = a })
-{-# INLINE aniDeviceIndex #-}
 
 instance ToQuery AttachNetworkInterface where
     toQuery = genericQuery def
@@ -95,7 +91,6 @@ newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
 anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirsAttachmentId =
     lens _anirsAttachmentId (\s a -> s { _anirsAttachmentId = a })
-{-# INLINE anirsAttachmentId #-}
 
 instance FromXML AttachNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions

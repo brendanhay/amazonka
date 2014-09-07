@@ -61,17 +61,14 @@ mkGetUserPolicy p1 p2 = GetUserPolicy
     { _gupUserName = p1
     , _gupPolicyName = p2
     }
-{-# INLINE mkGetUserPolicy #-}
 
 -- | Name of the user who the policy is associated with.
 gupUserName :: Lens' GetUserPolicy Text
 gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
-{-# INLINE gupUserName #-}
 
 -- | Name of the policy document to get.
 gupPolicyName :: Lens' GetUserPolicy Text
 gupPolicyName = lens _gupPolicyName (\s a -> s { _gupPolicyName = a })
-{-# INLINE gupPolicyName #-}
 
 instance ToQuery GetUserPolicy where
     toQuery = genericQuery def
@@ -86,18 +83,15 @@ data GetUserPolicyResponse = GetUserPolicyResponse
 -- | The user the policy is associated with.
 guprsUserName :: Lens' GetUserPolicyResponse Text
 guprsUserName = lens _guprsUserName (\s a -> s { _guprsUserName = a })
-{-# INLINE guprsUserName #-}
 
 -- | The name of the policy.
 guprsPolicyName :: Lens' GetUserPolicyResponse Text
 guprsPolicyName = lens _guprsPolicyName (\s a -> s { _guprsPolicyName = a })
-{-# INLINE guprsPolicyName #-}
 
 -- | The policy document.
 guprsPolicyDocument :: Lens' GetUserPolicyResponse Text
 guprsPolicyDocument =
     lens _guprsPolicyDocument (\s a -> s { _guprsPolicyDocument = a })
-{-# INLINE guprsPolicyDocument #-}
 
 instance FromXML GetUserPolicyResponse where
     fromXMLOptions = xmlOptions

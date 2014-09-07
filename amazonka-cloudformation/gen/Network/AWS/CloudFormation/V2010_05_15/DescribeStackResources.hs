@@ -76,7 +76,6 @@ mkDescribeStackResources = DescribeStackResources
     , _dsr1LogicalResourceId = Nothing
     , _dsr1PhysicalResourceId = Nothing
     }
-{-# INLINE mkDescribeStackResources #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
@@ -85,14 +84,12 @@ mkDescribeStackResources = DescribeStackResources
 -- do not specify StackName, you must specify PhysicalResourceId.
 dsr1StackName :: Lens' DescribeStackResources (Maybe Text)
 dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
-{-# INLINE dsr1StackName #-}
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
 dsr1LogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
 dsr1LogicalResourceId =
     lens _dsr1LogicalResourceId (\s a -> s { _dsr1LogicalResourceId = a })
-{-# INLINE dsr1LogicalResourceId #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of
 -- a resource supported by AWS CloudFormation. For example, for an Amazon
@@ -105,7 +102,6 @@ dsr1LogicalResourceId =
 dsr1PhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
 dsr1PhysicalResourceId =
     lens _dsr1PhysicalResourceId (\s a -> s { _dsr1PhysicalResourceId = a })
-{-# INLINE dsr1PhysicalResourceId #-}
 
 instance ToQuery DescribeStackResources where
     toQuery = genericQuery def
@@ -119,7 +115,6 @@ newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
 dsrrsrsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 dsrrsrsStackResources =
     lens _dsrrsrsStackResources (\s a -> s { _dsrrsrsStackResources = a })
-{-# INLINE dsrrsrsStackResources #-}
 
 instance FromXML DescribeStackResourcesResponse where
     fromXMLOptions = xmlOptions

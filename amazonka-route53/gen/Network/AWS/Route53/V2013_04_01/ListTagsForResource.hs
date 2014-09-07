@@ -54,19 +54,16 @@ mkListTagsForResource p1 p2 = ListTagsForResource
     { _ltfrResourceType = p1
     , _ltfrResourceId = p2
     }
-{-# INLINE mkListTagsForResource #-}
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
 ltfrResourceType :: Lens' ListTagsForResource TagResourceType
 ltfrResourceType =
     lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
-{-# INLINE ltfrResourceType #-}
 
 -- | The ID of the resource for which you want to retrieve tags.
 ltfrResourceId :: Lens' ListTagsForResource Text
 ltfrResourceId = lens _ltfrResourceId (\s a -> s { _ltfrResourceId = a })
-{-# INLINE ltfrResourceId #-}
 
 instance ToPath ListTagsForResource where
     toPath ListTagsForResource{..} = mconcat
@@ -93,7 +90,6 @@ newtype ListTagsForResourceResponse = ListTagsForResourceResponse
 ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrsResourceTagSet =
     lens _ltfrrsResourceTagSet (\s a -> s { _ltfrrsResourceTagSet = a })
-{-# INLINE ltfrrsResourceTagSet #-}
 
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions

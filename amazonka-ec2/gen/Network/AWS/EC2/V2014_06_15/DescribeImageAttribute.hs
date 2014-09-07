@@ -70,17 +70,14 @@ mkDescribeImageAttribute p1 p2 = DescribeImageAttribute
     { _diaImageId = p1
     , _diaAttribute = p2
     }
-{-# INLINE mkDescribeImageAttribute #-}
 
 -- | The ID of the AMI.
 diaImageId :: Lens' DescribeImageAttribute Text
 diaImageId = lens _diaImageId (\s a -> s { _diaImageId = a })
-{-# INLINE diaImageId #-}
 
 -- | The AMI attribute.
 diaAttribute :: Lens' DescribeImageAttribute ImageAttributeName
 diaAttribute = lens _diaAttribute (\s a -> s { _diaAttribute = a })
-{-# INLINE diaAttribute #-}
 
 instance ToQuery DescribeImageAttribute where
     toQuery = genericQuery def
@@ -100,48 +97,40 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 -- | The ID of the AMI.
 diarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 diarsImageId = lens _diarsImageId (\s a -> s { _diarsImageId = a })
-{-# INLINE diarsImageId #-}
 
 -- | One or more launch permissions.
 diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
 diarsLaunchPermissions =
     lens _diarsLaunchPermissions (\s a -> s { _diarsLaunchPermissions = a })
-{-# INLINE diarsLaunchPermissions #-}
 
 -- | One or more product codes.
 diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
 diarsProductCodes =
     lens _diarsProductCodes (\s a -> s { _diarsProductCodes = a })
-{-# INLINE diarsProductCodes #-}
 
 -- | The kernel ID.
 diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsKernelId = lens _diarsKernelId (\s a -> s { _diarsKernelId = a })
-{-# INLINE diarsKernelId #-}
 
 -- | The RAM disk ID.
 diarsRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsRamdiskId = lens _diarsRamdiskId (\s a -> s { _diarsRamdiskId = a })
-{-# INLINE diarsRamdiskId #-}
 
 -- | A description for the AMI.
 diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsDescription =
     lens _diarsDescription (\s a -> s { _diarsDescription = a })
-{-# INLINE diarsDescription #-}
 
 -- | 
 diarsSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsSriovNetSupport =
     lens _diarsSriovNetSupport (\s a -> s { _diarsSriovNetSupport = a })
-{-# INLINE diarsSriovNetSupport #-}
 
 -- | One or more block device mapping entries.
 diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
 diarsBlockDeviceMappings =
     lens _diarsBlockDeviceMappings
          (\s a -> s { _diarsBlockDeviceMappings = a })
-{-# INLINE diarsBlockDeviceMappings #-}
 
 instance FromXML DescribeImageAttributeResponse where
     fromXMLOptions = xmlOptions

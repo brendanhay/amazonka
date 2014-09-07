@@ -59,19 +59,16 @@ mkDescribeRegions = DescribeRegions
     { _dr1RegionNames = mempty
     , _dr1Filters = mempty
     }
-{-# INLINE mkDescribeRegions #-}
 
 -- | The names of one or more regions.
 dr1RegionNames :: Lens' DescribeRegions [Text]
 dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
-{-# INLINE dr1RegionNames #-}
 
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
 dr1Filters :: Lens' DescribeRegions [Filter]
 dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
-{-# INLINE dr1Filters #-}
 
 instance ToQuery DescribeRegions where
     toQuery = genericQuery def
@@ -84,7 +81,6 @@ newtype DescribeRegionsResponse = DescribeRegionsResponse
 -- | Information about one or more regions.
 drrsRegions :: Lens' DescribeRegionsResponse [Region]
 drrsRegions = lens _drrsRegions (\s a -> s { _drrsRegions = a })
-{-# INLINE drrsRegions #-}
 
 instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions

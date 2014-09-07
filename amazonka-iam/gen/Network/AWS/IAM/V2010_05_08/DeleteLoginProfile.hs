@@ -54,12 +54,10 @@ mkDeleteLoginProfile :: Text -- ^ 'dlpUserName'
 mkDeleteLoginProfile p1 = DeleteLoginProfile
     { _dlpUserName = p1
     }
-{-# INLINE mkDeleteLoginProfile #-}
 
 -- | Name of the user whose password you want to delete.
 dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\s a -> s { _dlpUserName = a })
-{-# INLINE dlpUserName #-}
 
 instance ToQuery DeleteLoginProfile where
     toQuery = genericQuery def

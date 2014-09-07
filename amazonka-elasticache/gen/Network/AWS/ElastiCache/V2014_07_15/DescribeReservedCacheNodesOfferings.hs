@@ -74,7 +74,6 @@ mkDescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
     , _drcnoMaxRecords = Nothing
     , _drcnoMarker = Nothing
     }
-{-# INLINE mkDescribeReservedCacheNodesOfferings #-}
 
 -- | The offering identifier filter value. Use this parameter to show only the
 -- available offering that matches the specified reservation identifier.
@@ -83,21 +82,18 @@ drcnoReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (
 drcnoReservedCacheNodesOfferingId =
     lens _drcnoReservedCacheNodesOfferingId
          (\s a -> s { _drcnoReservedCacheNodesOfferingId = a })
-{-# INLINE drcnoReservedCacheNodesOfferingId #-}
 
 -- | The cache node type filter value. Use this parameter to show only the
 -- available offerings matching the specified cache node type.
 drcnoCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoCacheNodeType =
     lens _drcnoCacheNodeType (\s a -> s { _drcnoCacheNodeType = a })
-{-# INLINE drcnoCacheNodeType #-}
 
 -- | Duration filter value, specified in years or seconds. Use this parameter to
 -- show only reservations for a given duration. Valid Values: 1 | 3 | 31536000
 -- | 94608000.
 drcnoDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoDuration = lens _drcnoDuration (\s a -> s { _drcnoDuration = a })
-{-# INLINE drcnoDuration #-}
 
 -- | The product description filter value. Use this parameter to show only the
 -- available offerings matching the specified product description.
@@ -105,7 +101,6 @@ drcnoProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text
 drcnoProductDescription =
     lens _drcnoProductDescription
          (\s a -> s { _drcnoProductDescription = a })
-{-# INLINE drcnoProductDescription #-}
 
 -- | The offering type filter value. Use this parameter to show only the
 -- available offerings matching the specified offering type. Valid Values:
@@ -113,7 +108,6 @@ drcnoProductDescription =
 drcnoOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoOfferingType =
     lens _drcnoOfferingType (\s a -> s { _drcnoOfferingType = a })
-{-# INLINE drcnoOfferingType #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -121,7 +115,6 @@ drcnoOfferingType =
 -- Constraints: minimum 20; maximum 100.
 drcnoMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Integer)
 drcnoMaxRecords = lens _drcnoMaxRecords (\s a -> s { _drcnoMaxRecords = a })
-{-# INLINE drcnoMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -129,7 +122,6 @@ drcnoMaxRecords = lens _drcnoMaxRecords (\s a -> s { _drcnoMaxRecords = a })
 -- specified by MaxRecords.
 drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoMarker = lens _drcnoMarker (\s a -> s { _drcnoMarker = a })
-{-# INLINE drcnoMarker #-}
 
 instance ToQuery DescribeReservedCacheNodesOfferings where
     toQuery = genericQuery def
@@ -143,7 +135,6 @@ data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOff
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnorsMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
 drcnorsMarker = lens _drcnorsMarker (\s a -> s { _drcnorsMarker = a })
-{-# INLINE drcnorsMarker #-}
 
 -- | A list of reserved cache node offerings. Each element in the list contains
 -- detailed information about one offering.
@@ -151,7 +142,6 @@ drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsR
 drcnorsReservedCacheNodesOfferings =
     lens _drcnorsReservedCacheNodesOfferings
          (\s a -> s { _drcnorsReservedCacheNodesOfferings = a })
-{-# INLINE drcnorsReservedCacheNodesOfferings #-}
 
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -164,5 +154,5 @@ instance AWSRequest DescribeReservedCacheNodesOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedCacheNodesOfferings where
-    next rq rs = (\x -> rq { _drcnoMarker = Just x })
-        <$> (_drcnorsMarker rs)
+    next rq rs = (\x -> rq & drcnoMarker ?~ x) <$> (rs ^. drcnorsMarker)
+

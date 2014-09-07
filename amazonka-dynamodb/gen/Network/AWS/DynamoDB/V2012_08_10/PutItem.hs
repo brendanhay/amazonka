@@ -90,12 +90,10 @@ mkPutItem p1 p2 = PutItem
     , _piReturnItemCollectionMetrics = Nothing
     , _piConditionalOperator = Nothing
     }
-{-# INLINE mkPutItem #-}
 
 -- | The name of the table to contain the item.
 piTableName :: Lens' PutItem Text
 piTableName = lens _piTableName (\s a -> s { _piTableName = a })
-{-# INLINE piTableName #-}
 
 -- | A map of attribute name/value pairs, one for each attribute. Only the
 -- primary key attributes are required; you can optionally provide other
@@ -106,7 +104,6 @@ piTableName = lens _piTableName (\s a -> s { _piTableName = a })
 -- Developer Guide. Each element in the Item map is an AttributeValue object.
 piItem :: Lens' PutItem (Map Text AttributeValue)
 piItem = lens _piItem (\s a -> s { _piItem = a })
-{-# INLINE piItem #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
 -- PutItem operation. All the conditions must be met for the operation to
@@ -136,7 +133,6 @@ piItem = lens _piItem (\s a -> s { _piItem = a })
 -- together.) Otherwise, the conditional operation will fail.
 piExpected :: Lens' PutItem (Map Text ExpectedAttributeValue)
 piExpected = lens _piExpected (\s a -> s { _piExpected = a })
-{-# INLINE piExpected #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
 -- before they were updated with the PutItem request. For PutItem, the valid
@@ -146,7 +142,6 @@ piExpected = lens _piExpected (\s a -> s { _piExpected = a })
 -- content of the old item is returned.
 piReturnValues :: Lens' PutItem (Maybe ReturnValue)
 piReturnValues = lens _piReturnValues (\s a -> s { _piReturnValues = a })
-{-# INLINE piReturnValues #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -156,7 +151,6 @@ piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
 piReturnConsumedCapacity =
     lens _piReturnConsumedCapacity
          (\s a -> s { _piReturnConsumedCapacity = a })
-{-# INLINE piReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
@@ -165,12 +159,10 @@ piReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetric
 piReturnItemCollectionMetrics =
     lens _piReturnItemCollectionMetrics
          (\s a -> s { _piReturnItemCollectionMetrics = a })
-{-# INLINE piReturnItemCollectionMetrics #-}
 
 piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
 piConditionalOperator =
     lens _piConditionalOperator (\s a -> s { _piConditionalOperator = a })
-{-# INLINE piConditionalOperator #-}
 
 instance ToPath PutItem
 
@@ -192,7 +184,6 @@ data PutItemResponse = PutItemResponse
 -- consists of an attribute name and an attribute value.
 pirsAttributes :: Lens' PutItemResponse (Map Text AttributeValue)
 pirsAttributes = lens _pirsAttributes (\s a -> s { _pirsAttributes = a })
-{-# INLINE pirsAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
@@ -202,7 +193,6 @@ pirsAttributes = lens _pirsAttributes (\s a -> s { _pirsAttributes = a })
 pirsConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
 pirsConsumedCapacity =
     lens _pirsConsumedCapacity (\s a -> s { _pirsConsumedCapacity = a })
-{-# INLINE pirsConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
@@ -222,7 +212,6 @@ pirsItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
 pirsItemCollectionMetrics =
     lens _pirsItemCollectionMetrics
          (\s a -> s { _pirsItemCollectionMetrics = a })
-{-# INLINE pirsItemCollectionMetrics #-}
 
 instance FromJSON PutItemResponse
 

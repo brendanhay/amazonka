@@ -47,14 +47,12 @@ mkDeleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
 mkDeleteHsmConfiguration p1 = DeleteHsmConfiguration
     { _dhcHsmConfigurationIdentifier = p1
     }
-{-# INLINE mkDeleteHsmConfiguration #-}
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
 dhcHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration Text
 dhcHsmConfigurationIdentifier =
     lens _dhcHsmConfigurationIdentifier
          (\s a -> s { _dhcHsmConfigurationIdentifier = a })
-{-# INLINE dhcHsmConfigurationIdentifier #-}
 
 instance ToQuery DeleteHsmConfiguration where
     toQuery = genericQuery def

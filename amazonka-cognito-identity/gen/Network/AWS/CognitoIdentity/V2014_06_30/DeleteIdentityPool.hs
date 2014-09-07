@@ -51,13 +51,11 @@ mkDeleteIdentityPool :: Text -- ^ 'dipIdentityPoolId'
 mkDeleteIdentityPool p1 = DeleteIdentityPool
     { _dipIdentityPoolId = p1
     }
-{-# INLINE mkDeleteIdentityPool #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 dipIdentityPoolId :: Lens' DeleteIdentityPool Text
 dipIdentityPoolId =
     lens _dipIdentityPoolId (\s a -> s { _dipIdentityPoolId = a })
-{-# INLINE dipIdentityPoolId #-}
 
 instance ToPath DeleteIdentityPool
 

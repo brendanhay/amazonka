@@ -64,13 +64,11 @@ mkRebootCluster :: Text -- ^ 'rc1ClusterIdentifier'
 mkRebootCluster p1 = RebootCluster
     { _rc1ClusterIdentifier = p1
     }
-{-# INLINE mkRebootCluster #-}
 
 -- | The cluster identifier.
 rc1ClusterIdentifier :: Lens' RebootCluster Text
 rc1ClusterIdentifier =
     lens _rc1ClusterIdentifier (\s a -> s { _rc1ClusterIdentifier = a })
-{-# INLINE rc1ClusterIdentifier #-}
 
 instance ToQuery RebootCluster where
     toQuery = genericQuery def
@@ -82,7 +80,6 @@ newtype RebootClusterResponse = RebootClusterResponse
 -- | Describes a cluster.
 rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrsCluster = lens _rcrsCluster (\s a -> s { _rcrsCluster = a })
-{-# INLINE rcrsCluster #-}
 
 instance FromXML RebootClusterResponse where
     fromXMLOptions = xmlOptions

@@ -110,7 +110,6 @@ mkModifyDBInstance p1 = ModifyDBInstance
     , _mdbiOptionGroupName = Nothing
     , _mdbiNewDBInstanceIdentifier = Nothing
     }
-{-# INLINE mkModifyDBInstance #-}
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 -- Constraints: Must be the identifier for an existing DB instance Must
@@ -121,7 +120,6 @@ mdbiDBInstanceIdentifier :: Lens' ModifyDBInstance Text
 mdbiDBInstanceIdentifier =
     lens _mdbiDBInstanceIdentifier
          (\s a -> s { _mdbiDBInstanceIdentifier = a })
-{-# INLINE mdbiDBInstanceIdentifier #-}
 
 -- | The new storage capacity of the RDS instance. Changing this parameter does
 -- not result in an outage and the change is applied during the next
@@ -150,7 +148,6 @@ mdbiDBInstanceIdentifier =
 mdbiAllocatedStorage :: Lens' ModifyDBInstance (Maybe Integer)
 mdbiAllocatedStorage =
     lens _mdbiAllocatedStorage (\s a -> s { _mdbiAllocatedStorage = a })
-{-# INLINE mdbiAllocatedStorage #-}
 
 -- | The new compute and memory capacity of the DB instance. To determine the
 -- instance classes that are available for a particular DB engine, use the
@@ -163,7 +160,6 @@ mdbiAllocatedStorage =
 mdbiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdbiDBInstanceClass =
     lens _mdbiDBInstanceClass (\s a -> s { _mdbiDBInstanceClass = a })
-{-# INLINE mdbiDBInstanceClass #-}
 
 -- | A list of DB security groups to authorize on this DB instance. Changing
 -- this parameter does not result in an outage and the change is
@@ -173,7 +169,6 @@ mdbiDBInstanceClass =
 mdbiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
 mdbiDBSecurityGroups =
     lens _mdbiDBSecurityGroups (\s a -> s { _mdbiDBSecurityGroups = a })
-{-# INLINE mdbiDBSecurityGroups #-}
 
 -- | A list of EC2 VPC security groups to authorize on this DB instance. This
 -- change is asynchronously applied as soon as possible. Constraints: Must be
@@ -183,7 +178,6 @@ mdbiVpcSecurityGroupIds :: Lens' ModifyDBInstance [Text]
 mdbiVpcSecurityGroupIds =
     lens _mdbiVpcSecurityGroupIds
          (\s a -> s { _mdbiVpcSecurityGroupIds = a })
-{-# INLINE mdbiVpcSecurityGroupIds #-}
 
 -- | Specifies whether or not the modifications in this request and any pending
 -- modifications are asynchronously applied as soon as possible, regardless of
@@ -195,7 +189,6 @@ mdbiVpcSecurityGroupIds =
 mdbiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiApplyImmediately =
     lens _mdbiApplyImmediately (\s a -> s { _mdbiApplyImmediately = a })
-{-# INLINE mdbiApplyImmediately #-}
 
 -- | The new password for the DB instance master user. Can be any printable
 -- ASCII character except "/", """, or "@". Changing this parameter does not
@@ -211,7 +204,6 @@ mdbiApplyImmediately =
 mdbiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdbiMasterUserPassword =
     lens _mdbiMasterUserPassword (\s a -> s { _mdbiMasterUserPassword = a })
-{-# INLINE mdbiMasterUserPassword #-}
 
 -- | The name of the DB parameter group to apply to this DB instance. Changing
 -- this parameter does not result in an outage and the change is applied
@@ -223,7 +215,6 @@ mdbiDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdbiDBParameterGroupName =
     lens _mdbiDBParameterGroupName
          (\s a -> s { _mdbiDBParameterGroupName = a })
-{-# INLINE mdbiDBParameterGroupName #-}
 
 -- | The number of days to retain automated backups. Setting this parameter to a
 -- positive number enables backups. Setting this parameter to 0 disables
@@ -240,7 +231,6 @@ mdbiBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Integer)
 mdbiBackupRetentionPeriod =
     lens _mdbiBackupRetentionPeriod
          (\s a -> s { _mdbiBackupRetentionPeriod = a })
-{-# INLINE mdbiBackupRetentionPeriod #-}
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, as determined by the BackupRetentionPeriod.
@@ -253,7 +243,6 @@ mdbiPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdbiPreferredBackupWindow =
     lens _mdbiPreferredBackupWindow
          (\s a -> s { _mdbiPreferredBackupWindow = a })
-{-# INLINE mdbiPreferredBackupWindow #-}
 
 -- | The weekly time range (in UTC) during which system maintenance can occur,
 -- which may result in an outage. Changing this parameter does not result in
@@ -270,7 +259,6 @@ mdbiPreferredMaintenanceWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdbiPreferredMaintenanceWindow =
     lens _mdbiPreferredMaintenanceWindow
          (\s a -> s { _mdbiPreferredMaintenanceWindow = a })
-{-# INLINE mdbiPreferredMaintenanceWindow #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
 -- parameter does not result in an outage and the change is applied during the
@@ -279,7 +267,6 @@ mdbiPreferredMaintenanceWindow =
 -- is a read replica.
 mdbiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiMultiAZ = lens _mdbiMultiAZ (\s a -> s { _mdbiMultiAZ = a })
-{-# INLINE mdbiMultiAZ #-}
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
@@ -292,7 +279,6 @@ mdbiMultiAZ = lens _mdbiMultiAZ (\s a -> s { _mdbiMultiAZ = a })
 mdbiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdbiEngineVersion =
     lens _mdbiEngineVersion (\s a -> s { _mdbiEngineVersion = a })
-{-# INLINE mdbiEngineVersion #-}
 
 -- | Indicates that major version upgrades are allowed. Changing this parameter
 -- does not result in an outage and the change is asynchronously applied as
@@ -303,7 +289,6 @@ mdbiAllowMajorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiAllowMajorVersionUpgrade =
     lens _mdbiAllowMajorVersionUpgrade
          (\s a -> s { _mdbiAllowMajorVersionUpgrade = a })
-{-# INLINE mdbiAllowMajorVersionUpgrade #-}
 
 -- | Indicates that minor version upgrades will be applied automatically to the
 -- DB instance during the maintenance window. Changing this parameter does not
@@ -316,7 +301,6 @@ mdbiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiAutoMinorVersionUpgrade =
     lens _mdbiAutoMinorVersionUpgrade
          (\s a -> s { _mdbiAutoMinorVersionUpgrade = a })
-{-# INLINE mdbiAutoMinorVersionUpgrade #-}
 
 -- | The new Provisioned IOPS (I/O operations per second) value for the RDS
 -- instance. Changing this parameter does not result in an outage and the
@@ -340,7 +324,6 @@ mdbiAutoMinorVersionUpgrade =
 -- replica for the instance, and creating a DB snapshot of the instance.
 mdbiIops :: Lens' ModifyDBInstance (Maybe Integer)
 mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
-{-# INLINE mdbiIops #-}
 
 -- | Indicates that the DB instance should be associated with the specified
 -- option group. Changing this parameter does not result in an outage except
@@ -357,7 +340,6 @@ mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
 mdbiOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdbiOptionGroupName =
     lens _mdbiOptionGroupName (\s a -> s { _mdbiOptionGroupName = a })
-{-# INLINE mdbiOptionGroupName #-}
 
 -- | The new DB instance identifier for the DB instance when renaming a DB
 -- Instance. This value is stored as a lowercase string. Constraints: Must
@@ -368,7 +350,6 @@ mdbiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdbiNewDBInstanceIdentifier =
     lens _mdbiNewDBInstanceIdentifier
          (\s a -> s { _mdbiNewDBInstanceIdentifier = a })
-{-# INLINE mdbiNewDBInstanceIdentifier #-}
 
 instance ToQuery ModifyDBInstance where
     toQuery = genericQuery def
@@ -383,7 +364,6 @@ newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
 mdbirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdbirsDBInstance =
     lens _mdbirsDBInstance (\s a -> s { _mdbirsDBInstance = a })
-{-# INLINE mdbirsDBInstance #-}
 
 instance FromXML ModifyDBInstanceResponse where
     fromXMLOptions = xmlOptions

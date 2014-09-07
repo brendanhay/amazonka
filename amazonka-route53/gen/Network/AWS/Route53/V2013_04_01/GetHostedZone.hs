@@ -54,13 +54,11 @@ mkGetHostedZone :: Text -- ^ 'ghzId'
 mkGetHostedZone p1 = GetHostedZone
     { _ghzId = p1
     }
-{-# INLINE mkGetHostedZone #-}
 
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
 ghzId :: Lens' GetHostedZone Text
 ghzId = lens _ghzId (\s a -> s { _ghzId = a })
-{-# INLINE ghzId #-}
 
 instance ToPath GetHostedZone where
     toPath GetHostedZone{..} = mconcat
@@ -86,14 +84,12 @@ data GetHostedZoneResponse = GetHostedZoneResponse
 -- zone.
 ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrsHostedZone = lens _ghzrsHostedZone (\s a -> s { _ghzrsHostedZone = a })
-{-# INLINE ghzrsHostedZone #-}
 
 -- | A complex type that contains information about the name servers for the
 -- specified hosted zone.
 ghzrsDelegationSet :: Lens' GetHostedZoneResponse DelegationSet
 ghzrsDelegationSet =
     lens _ghzrsDelegationSet (\s a -> s { _ghzrsDelegationSet = a })
-{-# INLINE ghzrsDelegationSet #-}
 
 instance FromXML GetHostedZoneResponse where
     fromXMLOptions = xmlOptions

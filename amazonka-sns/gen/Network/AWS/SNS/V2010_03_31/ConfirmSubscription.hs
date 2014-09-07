@@ -74,17 +74,14 @@ mkConfirmSubscription p1 p2 = ConfirmSubscription
     , _csToken = p2
     , _csAuthenticateOnUnsubscribe = Nothing
     }
-{-# INLINE mkConfirmSubscription #-}
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
 csTopicArn :: Lens' ConfirmSubscription Text
 csTopicArn = lens _csTopicArn (\s a -> s { _csTopicArn = a })
-{-# INLINE csTopicArn #-}
 
 -- | Short-lived token sent to an endpoint during the Subscribe action.
 csToken :: Lens' ConfirmSubscription Text
 csToken = lens _csToken (\s a -> s { _csToken = a })
-{-# INLINE csToken #-}
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value of
 -- this parameter is true and the request has an AWS signature, then only the
@@ -94,7 +91,6 @@ csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
 csAuthenticateOnUnsubscribe =
     lens _csAuthenticateOnUnsubscribe
          (\s a -> s { _csAuthenticateOnUnsubscribe = a })
-{-# INLINE csAuthenticateOnUnsubscribe #-}
 
 instance ToQuery ConfirmSubscription where
     toQuery = genericQuery def
@@ -108,7 +104,6 @@ newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
 csrsSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrsSubscriptionArn =
     lens _csrsSubscriptionArn (\s a -> s { _csrsSubscriptionArn = a })
-{-# INLINE csrsSubscriptionArn #-}
 
 instance FromXML ConfirmSubscriptionResponse where
     fromXMLOptions = xmlOptions

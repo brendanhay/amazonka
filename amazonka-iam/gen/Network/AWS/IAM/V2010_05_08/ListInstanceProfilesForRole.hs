@@ -70,12 +70,10 @@ mkListInstanceProfilesForRole p1 = ListInstanceProfilesForRole
     , _lipfrMarker = Nothing
     , _lipfrMaxItems = Nothing
     }
-{-# INLINE mkListInstanceProfilesForRole #-}
 
 -- | The name of the role to list instance profiles for.
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
-{-# INLINE lipfrRoleName #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -83,7 +81,6 @@ lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
 -- received.
 lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
 lipfrMarker = lens _lipfrMarker (\s a -> s { _lipfrMarker = a })
-{-# INLINE lipfrMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of user names you want in the response. If there are additional user
@@ -92,7 +89,6 @@ lipfrMarker = lens _lipfrMarker (\s a -> s { _lipfrMarker = a })
 -- 100.
 lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Integer)
 lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a })
-{-# INLINE lipfrMaxItems #-}
 
 instance ToQuery ListInstanceProfilesForRole where
     toQuery = genericQuery def
@@ -101,7 +97,7 @@ instance ToQuery ListInstanceProfilesForRole where
 -- ListInstanceProfilesForRole action.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrsInstanceProfiles :: [InstanceProfile]
-    , _lipfrrsIsTruncated :: Maybe Bool
+    , _lipfrrsIsTruncated :: Bool
     , _lipfrrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
@@ -110,22 +106,19 @@ lipfrrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstancePr
 lipfrrsInstanceProfiles =
     lens _lipfrrsInstanceProfiles
          (\s a -> s { _lipfrrsInstanceProfiles = a })
-{-# INLINE lipfrrsInstanceProfiles #-}
 
 -- | A flag that indicates whether there are more instance profiles to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more instance profiles in
 -- the list.
-lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
+lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse Bool
 lipfrrsIsTruncated =
     lens _lipfrrsIsTruncated (\s a -> s { _lipfrrsIsTruncated = a })
-{-# INLINE lipfrrsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lipfrrsMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrsMarker = lens _lipfrrsMarker (\s a -> s { _lipfrrsMarker = a })
-{-# INLINE lipfrrsMarker #-}
 
 instance FromXML ListInstanceProfilesForRoleResponse where
     fromXMLOptions = xmlOptions
@@ -139,7 +132,5 @@ instance AWSRequest ListInstanceProfilesForRole where
 
 instance AWSPager ListInstanceProfilesForRole where
     next rq rs
-        | not (_lipfrrsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lipfrMarker = _lipfrrsMarker rs
-            }
+        | not (rs ^. lipfrrsIsTruncated) = Nothing
+        | otherwise = Just (rq & lipfrMarker .~ rs ^. lipfrrsMarker)

@@ -130,24 +130,20 @@ mkRunJobFlow p1 p5 = RunJobFlow
     , _rjfServiceRole = Nothing
     , _rjfTags = mempty
     }
-{-# INLINE mkRunJobFlow #-}
 
 -- | The name of the job flow.
 rjfName :: Lens' RunJobFlow Text
 rjfName = lens _rjfName (\s a -> s { _rjfName = a })
-{-# INLINE rjfName #-}
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a
 -- value is not provided, logs are not created.
 rjfLogUri :: Lens' RunJobFlow (Maybe Text)
 rjfLogUri = lens _rjfLogUri (\s a -> s { _rjfLogUri = a })
-{-# INLINE rjfLogUri #-}
 
 -- | A JSON string for selecting additional features.
 rjfAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
 rjfAdditionalInfo =
     lens _rjfAdditionalInfo (\s a -> s { _rjfAdditionalInfo = a })
-{-# INLINE rjfAdditionalInfo #-}
 
 -- | The version of the Amazon Machine Image (AMI) to use when launching Amazon
 -- EC2 instances in the job flow. The following values are valid: "latest"
@@ -160,25 +156,21 @@ rjfAdditionalInfo =
 -- in the Amazon Elastic MapReduce Developer's Guide.
 rjfAmiVersion :: Lens' RunJobFlow (Maybe Text)
 rjfAmiVersion = lens _rjfAmiVersion (\s a -> s { _rjfAmiVersion = a })
-{-# INLINE rjfAmiVersion #-}
 
 -- | A specification of the number and type of Amazon EC2 instances on which to
 -- run the job flow.
 rjfInstances :: Lens' RunJobFlow JobFlowInstancesConfig
 rjfInstances = lens _rjfInstances (\s a -> s { _rjfInstances = a })
-{-# INLINE rjfInstances #-}
 
 -- | A list of steps to be executed by the job flow.
 rjfSteps :: Lens' RunJobFlow [StepConfig]
 rjfSteps = lens _rjfSteps (\s a -> s { _rjfSteps = a })
-{-# INLINE rjfSteps #-}
 
 -- | A list of bootstrap actions that will be run before Hadoop is started on
 -- the cluster nodes.
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
 rjfBootstrapActions =
     lens _rjfBootstrapActions (\s a -> s { _rjfBootstrapActions = a })
-{-# INLINE rjfBootstrapActions #-}
 
 -- | A list of strings that indicates third-party software to use with the job
 -- flow. For more information, go to Use Third Party Applications with Amazon
@@ -187,7 +179,6 @@ rjfBootstrapActions =
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts =
     lens _rjfSupportedProducts (\s a -> s { _rjfSupportedProducts = a })
-{-# INLINE rjfSupportedProducts #-}
 
 -- | A list of strings that indicates third-party software to use with the job
 -- flow that accepts a user argument list. EMR accepts and forwards the
@@ -202,7 +193,6 @@ rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
 rjfNewSupportedProducts =
     lens _rjfNewSupportedProducts
          (\s a -> s { _rjfNewSupportedProducts = a })
-{-# INLINE rjfNewSupportedProducts #-}
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
 -- associated with the job flow. If this value is set to true, all IAM users
@@ -212,26 +202,22 @@ rjfNewSupportedProducts =
 rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers =
     lens _rjfVisibleToAllUsers (\s a -> s { _rjfVisibleToAllUsers = a })
-{-# INLINE rjfVisibleToAllUsers #-}
 
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume this
 -- role. The default role is EMRJobflowDefault. In order to use the default
 -- role, you must have already created it using the CLI.
 rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\s a -> s { _rjfJobFlowRole = a })
-{-# INLINE rjfJobFlowRole #-}
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
 rjfServiceRole :: Lens' RunJobFlow (Maybe Text)
 rjfServiceRole = lens _rjfServiceRole (\s a -> s { _rjfServiceRole = a })
-{-# INLINE rjfServiceRole #-}
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
 rjfTags :: Lens' RunJobFlow [Tag]
 rjfTags = lens _rjfTags (\s a -> s { _rjfTags = a })
-{-# INLINE rjfTags #-}
 
 instance ToPath RunJobFlow
 
@@ -249,7 +235,6 @@ newtype RunJobFlowResponse = RunJobFlowResponse
 -- | An unique identifier for the job flow.
 rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrsJobFlowId = lens _rjfrsJobFlowId (\s a -> s { _rjfrsJobFlowId = a })
-{-# INLINE rjfrsJobFlowId #-}
 
 instance FromJSON RunJobFlowResponse
 

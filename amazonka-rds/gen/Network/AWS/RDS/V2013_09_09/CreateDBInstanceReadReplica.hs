@@ -93,7 +93,6 @@ mkCreateDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
     , _cdbirrTags = mempty
     , _cdbirrDBSubnetGroupName = Nothing
     }
-{-# INLINE mkCreateDBInstanceReadReplica #-}
 
 -- | The DB instance identifier of the read replica. This is the unique key that
 -- identifies a DB instance. This parameter is stored as a lowercase string.
@@ -101,7 +100,6 @@ cdbirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdbirrDBInstanceIdentifier =
     lens _cdbirrDBInstanceIdentifier
          (\s a -> s { _cdbirrDBInstanceIdentifier = a })
-{-# INLINE cdbirrDBInstanceIdentifier #-}
 
 -- | The identifier of the DB instance that will act as the source for the read
 -- replica. Each DB instance can have up to five read replicas. Constraints:
@@ -113,7 +111,6 @@ cdbirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdbirrSourceDBInstanceIdentifier =
     lens _cdbirrSourceDBInstanceIdentifier
          (\s a -> s { _cdbirrSourceDBInstanceIdentifier = a })
-{-# INLINE cdbirrSourceDBInstanceIdentifier #-}
 
 -- | The compute and memory capacity of the read replica. Valid Values:
 -- db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
@@ -122,7 +119,6 @@ cdbirrSourceDBInstanceIdentifier =
 cdbirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrDBInstanceClass =
     lens _cdbirrDBInstanceClass (\s a -> s { _cdbirrDBInstanceClass = a })
-{-# INLINE cdbirrDBInstanceClass #-}
 
 -- | The Amazon EC2 Availability Zone that the read replica will be created in.
 -- Default: A random, system-chosen Availability Zone in the endpoint's
@@ -130,13 +126,11 @@ cdbirrDBInstanceClass =
 cdbirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrAvailabilityZone =
     lens _cdbirrAvailabilityZone (\s a -> s { _cdbirrAvailabilityZone = a })
-{-# INLINE cdbirrAvailabilityZone #-}
 
 -- | The port number that the DB instance uses for connections. Default:
 -- Inherits from the source DB instance Valid Values: 1150-65535.
 cdbirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Integer)
 cdbirrPort = lens _cdbirrPort (\s a -> s { _cdbirrPort = a })
-{-# INLINE cdbirrPort #-}
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
 -- read replica during the maintenance window. Default: Inherits from the
@@ -145,20 +139,17 @@ cdbirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdbirrAutoMinorVersionUpgrade =
     lens _cdbirrAutoMinorVersionUpgrade
          (\s a -> s { _cdbirrAutoMinorVersionUpgrade = a })
-{-# INLINE cdbirrAutoMinorVersionUpgrade #-}
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be
 -- initially allocated for the DB instance.
 cdbirrIops :: Lens' CreateDBInstanceReadReplica (Maybe Integer)
 cdbirrIops = lens _cdbirrIops (\s a -> s { _cdbirrIops = a })
-{-# INLINE cdbirrIops #-}
 
 -- | The option group the DB instance will be associated with. If omitted, the
 -- default option group for the engine specified will be used.
 cdbirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrOptionGroupName =
     lens _cdbirrOptionGroupName (\s a -> s { _cdbirrOptionGroupName = a })
-{-# INLINE cdbirrOptionGroupName #-}
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS name,
@@ -175,12 +166,10 @@ cdbirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdbirrPubliclyAccessible =
     lens _cdbirrPubliclyAccessible
          (\s a -> s { _cdbirrPubliclyAccessible = a })
-{-# INLINE cdbirrPubliclyAccessible #-}
 
 -- | A list of tags.
 cdbirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
 cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a })
-{-# INLINE cdbirrTags #-}
 
 -- | A DB Subnet Group to associate with this DB Instance in case of a cross
 -- region read replica. If there is no DB Subnet Group, then it is a non-VPC
@@ -190,7 +179,6 @@ cdbirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrDBSubnetGroupName =
     lens _cdbirrDBSubnetGroupName
          (\s a -> s { _cdbirrDBSubnetGroupName = a })
-{-# INLINE cdbirrDBSubnetGroupName #-}
 
 instance ToQuery CreateDBInstanceReadReplica where
     toQuery = genericQuery def
@@ -205,7 +193,6 @@ newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaRespons
 cdbirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdbirrrsDBInstance =
     lens _cdbirrrsDBInstance (\s a -> s { _cdbirrrsDBInstance = a })
-{-# INLINE cdbirrrsDBInstance #-}
 
 instance FromXML CreateDBInstanceReadReplicaResponse where
     fromXMLOptions = xmlOptions

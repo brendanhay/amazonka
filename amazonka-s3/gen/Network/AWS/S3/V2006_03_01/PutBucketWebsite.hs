@@ -54,21 +54,17 @@ mkPutBucketWebsite p1 p3 = PutBucketWebsite
     , _pbwContentMD5 = Nothing
     , _pbwWebsiteConfiguration = p3
     }
-{-# INLINE mkPutBucketWebsite #-}
 
 pbwBucket :: Lens' PutBucketWebsite BucketName
 pbwBucket = lens _pbwBucket (\s a -> s { _pbwBucket = a })
-{-# INLINE pbwBucket #-}
 
 pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
 pbwContentMD5 = lens _pbwContentMD5 (\s a -> s { _pbwContentMD5 = a })
-{-# INLINE pbwContentMD5 #-}
 
 pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
 pbwWebsiteConfiguration =
     lens _pbwWebsiteConfiguration
          (\s a -> s { _pbwWebsiteConfiguration = a })
-{-# INLINE pbwWebsiteConfiguration #-}
 
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat

@@ -52,13 +52,11 @@ mkGetHealthCheck :: Text -- ^ 'ghcHealthCheckId'
 mkGetHealthCheck p1 = GetHealthCheck
     { _ghcHealthCheckId = p1
     }
-{-# INLINE mkGetHealthCheck #-}
 
 -- | The ID of the health check to retrieve.
 ghcHealthCheckId :: Lens' GetHealthCheck Text
 ghcHealthCheckId =
     lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
-{-# INLINE ghcHealthCheckId #-}
 
 instance ToPath GetHealthCheck where
     toPath GetHealthCheck{..} = mconcat
@@ -84,7 +82,6 @@ newtype GetHealthCheckResponse = GetHealthCheckResponse
 ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrsHealthCheck =
     lens _ghcrsHealthCheck (\s a -> s { _ghcrsHealthCheck = a })
-{-# INLINE ghcrsHealthCheck #-}
 
 instance FromXML GetHealthCheckResponse where
     fromXMLOptions = xmlOptions

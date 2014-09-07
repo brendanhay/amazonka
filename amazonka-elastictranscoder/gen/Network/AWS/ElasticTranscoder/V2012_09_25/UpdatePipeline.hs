@@ -72,38 +72,32 @@ mkUpdatePipeline p1 = UpdatePipeline
     , _upContentConfig = Nothing
     , _upThumbnailConfig = Nothing
     }
-{-# INLINE mkUpdatePipeline #-}
 
 -- | The ID of the pipeline that you want to update.
 upId :: Lens' UpdatePipeline Text
 upId = lens _upId (\s a -> s { _upId = a })
-{-# INLINE upId #-}
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
 upName :: Lens' UpdatePipeline (Maybe Text)
 upName = lens _upName (\s a -> s { _upName = a })
-{-# INLINE upName #-}
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode and the graphics that you want to use as watermarks.
 upInputBucket :: Lens' UpdatePipeline (Maybe Text)
 upInputBucket = lens _upInputBucket (\s a -> s { _upInputBucket = a })
-{-# INLINE upInputBucket #-}
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to transcode jobs for this pipeline.
 upRole :: Lens' UpdatePipeline (Maybe Text)
 upRole = lens _upRole (\s a -> s { _upRole = a })
-{-# INLINE upRole #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to
 -- notify in order to report job status. To receive notifications, you must
 -- also subscribe to the new topic in the Amazon SNS console.
 upNotifications :: Lens' UpdatePipeline (Maybe Notifications)
 upNotifications = lens _upNotifications (\s a -> s { _upNotifications = a })
-{-# INLINE upNotifications #-}
 
 -- | The optional ContentConfig object specifies information about the Amazon S3
 -- bucket in which you want Elastic Transcoder to save transcoded files and
@@ -148,7 +142,6 @@ upNotifications = lens _upNotifications (\s a -> s { _upNotifications = a })
 -- files and playlists that it stores in your Amazon S3 bucket.
 upContentConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upContentConfig = lens _upContentConfig (\s a -> s { _upContentConfig = a })
-{-# INLINE upContentConfig #-}
 
 -- | The ThumbnailConfig object specifies several values, including the Amazon
 -- S3 bucket in which you want Elastic Transcoder to save thumbnail files,
@@ -189,7 +182,6 @@ upContentConfig = lens _upContentConfig (\s a -> s { _upContentConfig = a })
 upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upThumbnailConfig =
     lens _upThumbnailConfig (\s a -> s { _upThumbnailConfig = a })
-{-# INLINE upThumbnailConfig #-}
 
 instance ToPath UpdatePipeline where
     toPath UpdatePipeline{..} = mconcat
@@ -212,7 +204,6 @@ newtype UpdatePipelineResponse = UpdatePipelineResponse
 -- | The pipeline (queue) that is used to manage jobs.
 uprsPipeline :: Lens' UpdatePipelineResponse Pipeline
 uprsPipeline = lens _uprsPipeline (\s a -> s { _uprsPipeline = a })
-{-# INLINE uprsPipeline #-}
 
 instance FromJSON UpdatePipelineResponse
 

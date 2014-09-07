@@ -51,12 +51,10 @@ mkStartInstance :: Text -- ^ 'siInstanceId'
 mkStartInstance p1 = StartInstance
     { _siInstanceId = p1
     }
-{-# INLINE mkStartInstance #-}
 
 -- | The instance ID.
 siInstanceId :: Lens' StartInstance Text
 siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
-{-# INLINE siInstanceId #-}
 
 instance ToPath StartInstance
 

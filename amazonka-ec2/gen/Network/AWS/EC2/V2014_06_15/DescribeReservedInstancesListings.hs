@@ -64,21 +64,18 @@ mkDescribeReservedInstancesListings = DescribeReservedInstancesListings
     , _drilReservedInstancesListingId = Nothing
     , _drilFilters = mempty
     }
-{-# INLINE mkDescribeReservedInstancesListings #-}
 
 -- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesId =
     lens _drilReservedInstancesId
          (\s a -> s { _drilReservedInstancesId = a })
-{-# INLINE drilReservedInstancesId #-}
 
 -- | One or more Reserved Instance Listing IDs.
 drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesListingId =
     lens _drilReservedInstancesListingId
          (\s a -> s { _drilReservedInstancesListingId = a })
-{-# INLINE drilReservedInstancesListingId #-}
 
 -- | One or more filters. reserved-instances-id - The ID of the Reserved
 -- Instances. reserved-instances-listing-id - The ID of the Reserved Instances
@@ -86,7 +83,6 @@ drilReservedInstancesListingId =
 -- active | cancelled | closed). status-message - The reason for the status.
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
 drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a })
-{-# INLINE drilFilters #-}
 
 instance ToQuery DescribeReservedInstancesListings where
     toQuery = genericQuery def
@@ -101,7 +97,6 @@ drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsRespon
 drilrsReservedInstancesListings =
     lens _drilrsReservedInstancesListings
          (\s a -> s { _drilrsReservedInstancesListings = a })
-{-# INLINE drilrsReservedInstancesListings #-}
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions

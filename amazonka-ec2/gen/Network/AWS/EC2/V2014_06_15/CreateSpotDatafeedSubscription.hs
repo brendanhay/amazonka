@@ -66,18 +66,15 @@ mkCreateSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     { _csdsBucket = p1
     , _csdsPrefix = Nothing
     }
-{-# INLINE mkCreateSpotDatafeedSubscription #-}
 
 -- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
 -- Constraints: Must be a valid bucket associated with your AWS account.
 csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
 csdsBucket = lens _csdsBucket (\s a -> s { _csdsBucket = a })
-{-# INLINE csdsBucket #-}
 
 -- | A prefix for the datafeed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
-{-# INLINE csdsPrefix #-}
 
 instance ToQuery CreateSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -92,7 +89,6 @@ csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (
 csdsrsSpotDatafeedSubscription =
     lens _csdsrsSpotDatafeedSubscription
          (\s a -> s { _csdsrsSpotDatafeedSubscription = a })
-{-# INLINE csdsrsSpotDatafeedSubscription #-}
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions

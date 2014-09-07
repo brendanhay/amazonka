@@ -53,15 +53,12 @@ mkGetObjectTorrent p1 p2 = GetObjectTorrent
     { _gotBucket = p1
     , _gotKey = p2
     }
-{-# INLINE mkGetObjectTorrent #-}
 
 gotBucket :: Lens' GetObjectTorrent BucketName
 gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
-{-# INLINE gotBucket #-}
 
 gotKey :: Lens' GetObjectTorrent ObjectKey
 gotKey = lens _gotKey (\s a -> s { _gotKey = a })
-{-# INLINE gotKey #-}
 
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
@@ -86,7 +83,6 @@ newtype GetObjectTorrentResponse = GetObjectTorrentResponse
 
 gotrsBody :: Lens' GetObjectTorrentResponse RsBody
 gotrsBody = lens _gotrsBody (\s a -> s { _gotrsBody = a })
-{-# INLINE gotrsBody #-}
 
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3

@@ -76,12 +76,10 @@ mkDescribeDomain :: Text -- ^ 'dd1Name'
 mkDescribeDomain p1 = DescribeDomain
     { _dd1Name = p1
     }
-{-# INLINE mkDescribeDomain #-}
 
 -- | The name of the domain to describe.
 dd1Name :: Lens' DescribeDomain Text
 dd1Name = lens _dd1Name (\s a -> s { _dd1Name = a })
-{-# INLINE dd1Name #-}
 
 instance ToPath DescribeDomain
 
@@ -100,13 +98,11 @@ data DescribeDomainResponse = DescribeDomainResponse
 -- | Contains general information about a domain.
 ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
 ddrsDomainInfo = lens _ddrsDomainInfo (\s a -> s { _ddrsDomainInfo = a })
-{-# INLINE ddrsDomainInfo #-}
 
 -- | Contains the configuration settings of a domain.
 ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
 ddrsConfiguration =
     lens _ddrsConfiguration (\s a -> s { _ddrsConfiguration = a })
-{-# INLINE ddrsConfiguration #-}
 
 instance FromJSON DescribeDomainResponse
 

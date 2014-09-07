@@ -71,13 +71,11 @@ mkListLocalDisks :: Text -- ^ 'lldGatewayARN'
 mkListLocalDisks p1 = ListLocalDisks
     { _lldGatewayARN = p1
     }
-{-# INLINE mkListLocalDisks #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 lldGatewayARN :: Lens' ListLocalDisks Text
 lldGatewayARN = lens _lldGatewayARN (\s a -> s { _lldGatewayARN = a })
-{-# INLINE lldGatewayARN #-}
 
 instance ToPath ListLocalDisks
 
@@ -96,11 +94,9 @@ data ListLocalDisksResponse = ListLocalDisksResponse
 -- operation to return a list of gateways for your account and region.
 lldrsGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrsGatewayARN = lens _lldrsGatewayARN (\s a -> s { _lldrsGatewayARN = a })
-{-# INLINE lldrsGatewayARN #-}
 
 lldrsDisks :: Lens' ListLocalDisksResponse [DiskInformation]
 lldrsDisks = lens _lldrsDisks (\s a -> s { _lldrsDisks = a })
-{-# INLINE lldrsDisks #-}
 
 instance FromJSON ListLocalDisksResponse
 

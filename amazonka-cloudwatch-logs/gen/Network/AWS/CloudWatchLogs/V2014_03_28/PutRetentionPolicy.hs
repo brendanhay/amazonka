@@ -63,11 +63,9 @@ mkPutRetentionPolicy p1 p2 = PutRetentionPolicy
     { _prpLogGroupName = p1
     , _prpRetentionInDays = p2
     }
-{-# INLINE mkPutRetentionPolicy #-}
 
 prpLogGroupName :: Lens' PutRetentionPolicy Text
 prpLogGroupName = lens _prpLogGroupName (\s a -> s { _prpLogGroupName = a })
-{-# INLINE prpLogGroupName #-}
 
 -- | Specifies the number of days you want to retain log events in the specified
 -- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
@@ -75,7 +73,6 @@ prpLogGroupName = lens _prpLogGroupName (\s a -> s { _prpLogGroupName = a })
 prpRetentionInDays :: Lens' PutRetentionPolicy Integer
 prpRetentionInDays =
     lens _prpRetentionInDays (\s a -> s { _prpRetentionInDays = a })
-{-# INLINE prpRetentionInDays #-}
 
 instance ToPath PutRetentionPolicy
 

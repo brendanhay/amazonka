@@ -97,7 +97,6 @@ mkCreateVolume p3 = CreateVolume
     , _cvIops = Nothing
     , _cvEncrypted = Nothing
     }
-{-# INLINE mkCreateVolume #-}
 
 -- | The size of the volume, in GiBs. Constraints: If the volume type is io1,
 -- the minimum size of the volume is 10 GiB. Default: If you're creating the
@@ -105,12 +104,10 @@ mkCreateVolume p3 = CreateVolume
 -- snapshot size.
 cvSize :: Lens' CreateVolume (Maybe Integer)
 cvSize = lens _cvSize (\s a -> s { _cvSize = a })
-{-# INLINE cvSize #-}
 
 -- | The snapshot from which to create the volume.
 cvSnapshotId :: Lens' CreateVolume (Maybe Text)
 cvSnapshotId = lens _cvSnapshotId (\s a -> s { _cvSnapshotId = a })
-{-# INLINE cvSnapshotId #-}
 
 -- | The Availability Zone in which to create the volume. Use
 -- DescribeAvailabilityZones to list the Availability Zones that are currently
@@ -118,25 +115,21 @@ cvSnapshotId = lens _cvSnapshotId (\s a -> s { _cvSnapshotId = a })
 cvAvailabilityZone :: Lens' CreateVolume Text
 cvAvailabilityZone =
     lens _cvAvailabilityZone (\s a -> s { _cvAvailabilityZone = a })
-{-# INLINE cvAvailabilityZone #-}
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes. Default:
 -- standard.
 cvVolumeType :: Lens' CreateVolume (Maybe VolumeType)
 cvVolumeType = lens _cvVolumeType (\s a -> s { _cvVolumeType = a })
-{-# INLINE cvVolumeType #-}
 
 -- | Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations
 -- per second (IOPS) to provision for the volume.
 cvIops :: Lens' CreateVolume (Maybe Integer)
 cvIops = lens _cvIops (\s a -> s { _cvIops = a })
-{-# INLINE cvIops #-}
 
 -- | Specifies whether the volume should be encrypted.
 cvEncrypted :: Lens' CreateVolume (Maybe Bool)
 cvEncrypted = lens _cvEncrypted (\s a -> s { _cvEncrypted = a })
-{-# INLINE cvEncrypted #-}
 
 instance ToQuery CreateVolume where
     toQuery = genericQuery def
@@ -159,49 +152,40 @@ data CreateVolumeResponse = CreateVolumeResponse
 -- | The ID of the volume.
 cvrsVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
 cvrsVolumeId = lens _cvrsVolumeId (\s a -> s { _cvrsVolumeId = a })
-{-# INLINE cvrsVolumeId #-}
 
 -- | The size of the volume, in GiBs.
 cvrsSize :: Lens' CreateVolumeResponse (Maybe Integer)
 cvrsSize = lens _cvrsSize (\s a -> s { _cvrsSize = a })
-{-# INLINE cvrsSize #-}
 
 -- | The snapshot from which the volume was created, if applicable.
 cvrsSnapshotId :: Lens' CreateVolumeResponse (Maybe Text)
 cvrsSnapshotId = lens _cvrsSnapshotId (\s a -> s { _cvrsSnapshotId = a })
-{-# INLINE cvrsSnapshotId #-}
 
 -- | The Availability Zone for the volume.
 cvrsAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
 cvrsAvailabilityZone =
     lens _cvrsAvailabilityZone (\s a -> s { _cvrsAvailabilityZone = a })
-{-# INLINE cvrsAvailabilityZone #-}
 
 -- | The volume state.
 cvrsState :: Lens' CreateVolumeResponse (Maybe VolumeState)
 cvrsState = lens _cvrsState (\s a -> s { _cvrsState = a })
-{-# INLINE cvrsState #-}
 
 -- | The time stamp when volume creation was initiated.
 cvrsCreateTime :: Lens' CreateVolumeResponse (Maybe ISO8601)
 cvrsCreateTime = lens _cvrsCreateTime (\s a -> s { _cvrsCreateTime = a })
-{-# INLINE cvrsCreateTime #-}
 
 -- | 
 cvrsAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
 cvrsAttachments = lens _cvrsAttachments (\s a -> s { _cvrsAttachments = a })
-{-# INLINE cvrsAttachments #-}
 
 -- | Any tags assigned to the volume.
 cvrsTags :: Lens' CreateVolumeResponse [Tag]
 cvrsTags = lens _cvrsTags (\s a -> s { _cvrsTags = a })
-{-# INLINE cvrsTags #-}
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
 cvrsVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
 cvrsVolumeType = lens _cvrsVolumeType (\s a -> s { _cvrsVolumeType = a })
-{-# INLINE cvrsVolumeType #-}
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
 -- For Provisioned IOPS (SSD) volumes, this represents the number of IOPS that
@@ -216,12 +200,10 @@ cvrsVolumeType = lens _cvrsVolumeType (\s a -> s { _cvrsVolumeType = a })
 -- create standard or gp2 volumes.
 cvrsIops :: Lens' CreateVolumeResponse (Maybe Integer)
 cvrsIops = lens _cvrsIops (\s a -> s { _cvrsIops = a })
-{-# INLINE cvrsIops #-}
 
 -- | Indicates whether the volume is encrypted.
 cvrsEncrypted :: Lens' CreateVolumeResponse (Maybe Bool)
 cvrsEncrypted = lens _cvrsEncrypted (\s a -> s { _cvrsEncrypted = a })
-{-# INLINE cvrsEncrypted #-}
 
 instance FromXML CreateVolumeResponse where
     fromXMLOptions = xmlOptions

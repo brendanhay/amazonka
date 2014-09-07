@@ -69,7 +69,6 @@ mkDisableDomainTransferLock :: Text -- ^ 'ddtlDomainName'
 mkDisableDomainTransferLock p1 = DisableDomainTransferLock
     { _ddtlDomainName = p1
     }
-{-# INLINE mkDisableDomainTransferLock #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -77,7 +76,6 @@ mkDisableDomainTransferLock p1 = DisableDomainTransferLock
 -- Yes.
 ddtlDomainName :: Lens' DisableDomainTransferLock Text
 ddtlDomainName = lens _ddtlDomainName (\s a -> s { _ddtlDomainName = a })
-{-# INLINE ddtlDomainName #-}
 
 instance ToPath DisableDomainTransferLock
 
@@ -98,7 +96,6 @@ newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
 ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrsOperationId =
     lens _ddtlrsOperationId (\s a -> s { _ddtlrsOperationId = a })
-{-# INLINE ddtlrsOperationId #-}
 
 instance FromJSON DisableDomainTransferLockResponse
 

@@ -55,20 +55,17 @@ mkDescribeApps = DescribeApps
     { _da1StackId = Nothing
     , _da1AppIds = mempty
     }
-{-# INLINE mkDescribeApps #-}
 
 -- | The app stack ID. If you use this parameter, DescribeApps returns a
 -- description of the apps in the specified stack.
 da1StackId :: Lens' DescribeApps (Maybe Text)
 da1StackId = lens _da1StackId (\s a -> s { _da1StackId = a })
-{-# INLINE da1StackId #-}
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, DescribeApps returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
 da1AppIds :: Lens' DescribeApps [Text]
 da1AppIds = lens _da1AppIds (\s a -> s { _da1AppIds = a })
-{-# INLINE da1AppIds #-}
 
 instance ToPath DescribeApps
 
@@ -86,7 +83,6 @@ newtype DescribeAppsResponse = DescribeAppsResponse
 -- | An array of App objects that describe the specified apps.
 darsApps :: Lens' DescribeAppsResponse [App]
 darsApps = lens _darsApps (\s a -> s { _darsApps = a })
-{-# INLINE darsApps #-}
 
 instance FromJSON DescribeAppsResponse
 

@@ -44,7 +44,6 @@ data GenerateCredentialReport = GenerateCredentialReport
 -- a valid 'GenerateCredentialReport' request.
 mkGenerateCredentialReport :: GenerateCredentialReport
 mkGenerateCredentialReport = GenerateCredentialReport
-{-# INLINE mkGenerateCredentialReport #-}
 
 instance ToQuery GenerateCredentialReport where
     toQuery = genericQuery def
@@ -59,13 +58,11 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse
 -- | Information about the state of a credential report.
 gcrrsState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
 gcrrsState = lens _gcrrsState (\s a -> s { _gcrrsState = a })
-{-# INLINE gcrrsState #-}
 
 -- | Information about the credential report.
 gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrsDescription =
     lens _gcrrsDescription (\s a -> s { _gcrrsDescription = a })
-{-# INLINE gcrrsDescription #-}
 
 instance FromXML GenerateCredentialReportResponse where
     fromXMLOptions = xmlOptions

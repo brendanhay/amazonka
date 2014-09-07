@@ -56,12 +56,10 @@ mkDeleteVpnGateway :: Text -- ^ 'dvgVpnGatewayId'
 mkDeleteVpnGateway p1 = DeleteVpnGateway
     { _dvgVpnGatewayId = p1
     }
-{-# INLINE mkDeleteVpnGateway #-}
 
 -- | The ID of the virtual private gateway.
 dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
 dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
-{-# INLINE dvgVpnGatewayId #-}
 
 instance ToQuery DeleteVpnGateway where
     toQuery = genericQuery def

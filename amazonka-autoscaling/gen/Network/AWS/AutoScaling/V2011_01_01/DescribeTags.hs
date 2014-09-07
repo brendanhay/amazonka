@@ -64,7 +64,6 @@ mkDescribeTags = DescribeTags
     , _dt1NextToken = Nothing
     , _dt1MaxRecords = Nothing
     }
-{-# INLINE mkDescribeTags #-}
 
 -- | The value of the filter type used to identify the tags to be returned. For
 -- example, you can filter so that tags are returned according to Auto Scaling
@@ -72,17 +71,14 @@ mkDescribeTags = DescribeTags
 -- instances launched after the tag is created (PropagateAtLaunch).
 dt1Filters :: Lens' DescribeTags [Filter]
 dt1Filters = lens _dt1Filters (\s a -> s { _dt1Filters = a })
-{-# INLINE dt1Filters #-}
 
 -- | A string that marks the start of the next batch of returned results.
 dt1NextToken :: Lens' DescribeTags (Maybe Text)
 dt1NextToken = lens _dt1NextToken (\s a -> s { _dt1NextToken = a })
-{-# INLINE dt1NextToken #-}
 
 -- | The maximum number of records to return.
 dt1MaxRecords :: Lens' DescribeTags (Maybe Integer)
 dt1MaxRecords = lens _dt1MaxRecords (\s a -> s { _dt1MaxRecords = a })
-{-# INLINE dt1MaxRecords #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
@@ -96,12 +92,10 @@ data DescribeTagsResponse = DescribeTagsResponse
 -- | The list of tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\s a -> s { _dtrsTags = a })
-{-# INLINE dtrsTags #-}
 
 -- | A string used to mark the start of the next batch of returned results.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\s a -> s { _dtrsNextToken = a })
-{-# INLINE dtrsNextToken #-}
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -114,5 +108,5 @@ instance AWSRequest DescribeTags where
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq { _dt1NextToken = Just x })
-        <$> (_dtrsNextToken rs)
+    next rq rs = (\x -> rq & dt1NextToken ?~ x) <$> (rs ^. dtrsNextToken)
+

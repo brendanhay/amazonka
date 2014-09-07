@@ -58,7 +58,6 @@ mkGetTemplate :: Text -- ^ 'gtStackName'
 mkGetTemplate p1 = GetTemplate
     { _gtStackName = p1
     }
-{-# INLINE mkGetTemplate #-}
 
 -- | The name or the unique identifier associated with the stack, which are not
 -- always interchangeable: Running stacks: You can specify either the stack's
@@ -66,7 +65,6 @@ mkGetTemplate p1 = GetTemplate
 -- stack ID. Default: There is no default value.
 gtStackName :: Lens' GetTemplate Text
 gtStackName = lens _gtStackName (\s a -> s { _gtStackName = a })
-{-# INLINE gtStackName #-}
 
 instance ToQuery GetTemplate where
     toQuery = genericQuery def
@@ -81,7 +79,6 @@ newtype GetTemplateResponse = GetTemplateResponse
 gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrsTemplateBody =
     lens _gtrsTemplateBody (\s a -> s { _gtrsTemplateBody = a })
-{-# INLINE gtrsTemplateBody #-}
 
 instance FromXML GetTemplateResponse where
     fromXMLOptions = xmlOptions

@@ -70,13 +70,11 @@ mkAllocateAddress :: AllocateAddress
 mkAllocateAddress = AllocateAddress
     { _aaDomain = Nothing
     }
-{-# INLINE mkAllocateAddress #-}
 
 -- | Set to vpc to allocate the address for use with instances in a VPC.
 -- Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
-{-# INLINE aaDomain #-}
 
 instance ToQuery AllocateAddress where
     toQuery = genericQuery def
@@ -91,20 +89,17 @@ data AllocateAddressResponse = AllocateAddressResponse
 -- | The Elastic IP address.
 aarsPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
 aarsPublicIp = lens _aarsPublicIp (\s a -> s { _aarsPublicIp = a })
-{-# INLINE aarsPublicIp #-}
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (standard) or instances in a VPC (vpc).
 aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aarsDomain = lens _aarsDomain (\s a -> s { _aarsDomain = a })
-{-# INLINE aarsDomain #-}
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
 aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aarsAllocationId =
     lens _aarsAllocationId (\s a -> s { _aarsAllocationId = a })
-{-# INLINE aarsAllocationId #-}
 
 instance FromXML AllocateAddressResponse where
     fromXMLOptions = xmlOptions

@@ -150,12 +150,10 @@ mkTopic :: Topic
 mkTopic = Topic
     { _tTopicArn = Nothing
     }
-{-# INLINE mkTopic #-}
 
 -- | The topic's ARN.
 tTopicArn :: Lens' Topic (Maybe Text)
 tTopicArn = lens _tTopicArn (\s a -> s { _tTopicArn = a })
-{-# INLINE tTopicArn #-}
 
 instance FromXML Topic where
     fromXMLOptions = xmlOptions
@@ -174,17 +172,14 @@ mkEndpoint = Endpoint
     { _eEndpointArn = Nothing
     , _eAttributes = mempty
     }
-{-# INLINE mkEndpoint #-}
 
 -- | EndpointArn for mobile app and device.
 eEndpointArn :: Lens' Endpoint (Maybe Text)
 eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
-{-# INLINE eEndpointArn #-}
 
 -- | Attributes for endpoint.
 eAttributes :: Lens' Endpoint (Map Text Text)
 eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a })
-{-# INLINE eAttributes #-}
 
 instance FromXML Endpoint where
     fromXMLOptions = xmlOptions
@@ -213,25 +208,21 @@ mkMessageAttributeValue p1 = MessageAttributeValue
     , _mavStringValue = Nothing
     , _mavBinaryValue = Nothing
     }
-{-# INLINE mkMessageAttributeValue #-}
 
 -- | Amazon SNS supports the following logical data types: String, Number, and
 -- Binary. For more information, see Message Attribute Data Types.
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
-{-# INLINE mavDataType #-}
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
 -- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
-{-# INLINE mavStringValue #-}
 
 -- | Binary type attributes can store any binary data, for example, compressed
 -- data, encrypted data, or images.
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
-{-# INLINE mavBinaryValue #-}
 
 instance ToQuery MessageAttributeValue where
     toQuery = genericQuery def
@@ -249,19 +240,16 @@ mkPlatformApplication = PlatformApplication
     { _paPlatformApplicationArn = Nothing
     , _paAttributes = mempty
     }
-{-# INLINE mkPlatformApplication #-}
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationArn :: Lens' PlatformApplication (Maybe Text)
 paPlatformApplicationArn =
     lens _paPlatformApplicationArn
          (\s a -> s { _paPlatformApplicationArn = a })
-{-# INLINE paPlatformApplicationArn #-}
 
 -- | Attributes for platform application object.
 paAttributes :: Lens' PlatformApplication (Map Text Text)
 paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a })
-{-# INLINE paAttributes #-}
 
 instance FromXML PlatformApplication where
     fromXMLOptions = xmlOptions
@@ -286,33 +274,27 @@ mkSubscription = Subscription
     , _sEndpoint = Nothing
     , _sTopicArn = Nothing
     }
-{-# INLINE mkSubscription #-}
 
 -- | The subscription's ARN.
 sSubscriptionArn :: Lens' Subscription (Maybe Text)
 sSubscriptionArn =
     lens _sSubscriptionArn (\s a -> s { _sSubscriptionArn = a })
-{-# INLINE sSubscriptionArn #-}
 
 -- | The subscription's owner.
 sOwner :: Lens' Subscription (Maybe Text)
 sOwner = lens _sOwner (\s a -> s { _sOwner = a })
-{-# INLINE sOwner #-}
 
 -- | The subscription's protocol.
 sProtocol :: Lens' Subscription (Maybe Text)
 sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
-{-# INLINE sProtocol #-}
 
 -- | The subscription's endpoint (format depends on the protocol).
 sEndpoint :: Lens' Subscription (Maybe Text)
 sEndpoint = lens _sEndpoint (\s a -> s { _sEndpoint = a })
-{-# INLINE sEndpoint #-}
 
 -- | The ARN of the subscription's topic.
 sTopicArn :: Lens' Subscription (Maybe Text)
 sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
-{-# INLINE sTopicArn #-}
 
 instance FromXML Subscription where
     fromXMLOptions = xmlOptions

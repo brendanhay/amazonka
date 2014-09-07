@@ -52,7 +52,6 @@ mkRemoveTagsFromResource p1 p2 = RemoveTagsFromResource
     { _rtfrResourceName = p1
     , _rtfrTagKeys = p2
     }
-{-# INLINE mkRemoveTagsFromResource #-}
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
@@ -60,12 +59,10 @@ mkRemoveTagsFromResource p1 p2 = RemoveTagsFromResource
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
 rtfrResourceName =
     lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
-{-# INLINE rtfrResourceName #-}
 
 -- | The tag key (name) of the tag to be removed.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a })
-{-# INLINE rtfrTagKeys #-}
 
 instance ToQuery RemoveTagsFromResource where
     toQuery = genericQuery def

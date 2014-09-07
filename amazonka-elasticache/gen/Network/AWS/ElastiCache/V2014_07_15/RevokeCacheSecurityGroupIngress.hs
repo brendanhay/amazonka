@@ -66,21 +66,18 @@ mkRevokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngress
     , _rcsgiEC2SecurityGroupName = p2
     , _rcsgiEC2SecurityGroupOwnerId = p3
     }
-{-# INLINE mkRevokeCacheSecurityGroupIngress #-}
 
 -- | The name of the cache security group to revoke ingress from.
 rcsgiCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
 rcsgiCacheSecurityGroupName =
     lens _rcsgiCacheSecurityGroupName
          (\s a -> s { _rcsgiCacheSecurityGroupName = a })
-{-# INLINE rcsgiCacheSecurityGroupName #-}
 
 -- | The name of the Amazon EC2 security group to revoke access from.
 rcsgiEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
 rcsgiEC2SecurityGroupName =
     lens _rcsgiEC2SecurityGroupName
          (\s a -> s { _rcsgiEC2SecurityGroupName = a })
-{-# INLINE rcsgiEC2SecurityGroupName #-}
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
@@ -89,7 +86,6 @@ rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
 rcsgiEC2SecurityGroupOwnerId =
     lens _rcsgiEC2SecurityGroupOwnerId
          (\s a -> s { _rcsgiEC2SecurityGroupOwnerId = a })
-{-# INLINE rcsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery RevokeCacheSecurityGroupIngress where
     toQuery = genericQuery def
@@ -105,7 +101,6 @@ rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Mayb
 rcsgirsCacheSecurityGroup =
     lens _rcsgirsCacheSecurityGroup
          (\s a -> s { _rcsgirsCacheSecurityGroup = a })
-{-# INLINE rcsgirsCacheSecurityGroup #-}
 
 instance FromXML RevokeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

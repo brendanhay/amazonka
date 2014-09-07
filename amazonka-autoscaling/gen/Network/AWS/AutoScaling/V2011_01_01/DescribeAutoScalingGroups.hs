@@ -67,24 +67,20 @@ mkDescribeAutoScalingGroups = DescribeAutoScalingGroups
     , _dasg1NextToken = Nothing
     , _dasg1MaxRecords = Nothing
     }
-{-# INLINE mkDescribeAutoScalingGroups #-}
 
 -- | A list of Auto Scaling group names.
 dasg1AutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
 dasg1AutoScalingGroupNames =
     lens _dasg1AutoScalingGroupNames
          (\s a -> s { _dasg1AutoScalingGroupNames = a })
-{-# INLINE dasg1AutoScalingGroupNames #-}
 
 -- | A string that marks the start of the next batch of returned results.
 dasg1NextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasg1NextToken = lens _dasg1NextToken (\s a -> s { _dasg1NextToken = a })
-{-# INLINE dasg1NextToken #-}
 
 -- | The maximum number of records to return.
 dasg1MaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Integer)
 dasg1MaxRecords = lens _dasg1MaxRecords (\s a -> s { _dasg1MaxRecords = a })
-{-# INLINE dasg1MaxRecords #-}
 
 instance ToQuery DescribeAutoScalingGroups where
     toQuery = genericQuery def
@@ -100,12 +96,10 @@ dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingG
 dasgrsAutoScalingGroups =
     lens _dasgrsAutoScalingGroups
          (\s a -> s { _dasgrsAutoScalingGroups = a })
-{-# INLINE dasgrsAutoScalingGroups #-}
 
 -- | A string that marks the start of the next batch of returned results.
 dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrsNextToken = lens _dasgrsNextToken (\s a -> s { _dasgrsNextToken = a })
-{-# INLINE dasgrsNextToken #-}
 
 instance FromXML DescribeAutoScalingGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -118,5 +112,5 @@ instance AWSRequest DescribeAutoScalingGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeAutoScalingGroups where
-    next rq rs = (\x -> rq { _dasg1NextToken = Just x })
-        <$> (_dasgrsNextToken rs)
+    next rq rs = (\x -> rq & dasg1NextToken ?~ x) <$> (rs ^. dasgrsNextToken)
+

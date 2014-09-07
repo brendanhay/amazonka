@@ -59,7 +59,6 @@ mkDeleteTopic :: Text -- ^ 'dtTopicArn'
 mkDeleteTopic p1 = DeleteTopic
     { _dtTopicArn = p1
     }
-{-# INLINE mkDeleteTopic #-}
 
 -- | The ARN of the topic you want to delete.
 -- http://sns.us-east-1.amazonaws.com/
@@ -75,7 +74,6 @@ mkDeleteTopic p1 = DeleteTopic
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
 dtTopicArn :: Lens' DeleteTopic Text
 dtTopicArn = lens _dtTopicArn (\s a -> s { _dtTopicArn = a })
-{-# INLINE dtTopicArn #-}
 
 instance ToQuery DeleteTopic where
     toQuery = genericQuery def

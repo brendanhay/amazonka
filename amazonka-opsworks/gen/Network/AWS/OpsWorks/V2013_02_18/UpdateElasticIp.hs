@@ -54,17 +54,14 @@ mkUpdateElasticIp p1 = UpdateElasticIp
     { _ueiElasticIp = p1
     , _ueiName = Nothing
     }
-{-# INLINE mkUpdateElasticIp #-}
 
 -- | The address.
 ueiElasticIp :: Lens' UpdateElasticIp Text
 ueiElasticIp = lens _ueiElasticIp (\s a -> s { _ueiElasticIp = a })
-{-# INLINE ueiElasticIp #-}
 
 -- | The new name.
 ueiName :: Lens' UpdateElasticIp (Maybe Text)
 ueiName = lens _ueiName (\s a -> s { _ueiName = a })
-{-# INLINE ueiName #-}
 
 instance ToPath UpdateElasticIp
 

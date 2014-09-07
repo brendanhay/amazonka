@@ -57,18 +57,15 @@ mkDeleteSigningCertificate p2 = DeleteSigningCertificate
     { _dsc1UserName = Nothing
     , _dsc1CertificateId = p2
     }
-{-# INLINE mkDeleteSigningCertificate #-}
 
 -- | Name of the user the signing certificate belongs to.
 dsc1UserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dsc1UserName = lens _dsc1UserName (\s a -> s { _dsc1UserName = a })
-{-# INLINE dsc1UserName #-}
 
 -- | ID of the signing certificate to delete.
 dsc1CertificateId :: Lens' DeleteSigningCertificate Text
 dsc1CertificateId =
     lens _dsc1CertificateId (\s a -> s { _dsc1CertificateId = a })
-{-# INLINE dsc1CertificateId #-}
 
 instance ToQuery DeleteSigningCertificate where
     toQuery = genericQuery def

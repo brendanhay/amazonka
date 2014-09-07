@@ -50,7 +50,6 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 -- a valid 'DescribeMetricCollectionTypes' request.
 mkDescribeMetricCollectionTypes :: DescribeMetricCollectionTypes
 mkDescribeMetricCollectionTypes = DescribeMetricCollectionTypes
-{-# INLINE mkDescribeMetricCollectionTypes #-}
 
 instance ToQuery DescribeMetricCollectionTypes where
     toQuery = genericQuery def
@@ -69,13 +68,11 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- EnableMetricsCollection.
 dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
 dmctrsMetrics = lens _dmctrsMetrics (\s a -> s { _dmctrsMetrics = a })
-{-# INLINE dmctrsMetrics #-}
 
 -- | A list of granularities for the listed Metrics.
 dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
 dmctrsGranularities =
     lens _dmctrsGranularities (\s a -> s { _dmctrsGranularities = a })
-{-# INLINE dmctrsGranularities #-}
 
 instance FromXML DescribeMetricCollectionTypesResponse where
     fromXMLOptions = xmlOptions

@@ -56,20 +56,17 @@ mkDeleteApplication p1 = DeleteApplication
     { _daApplicationName = p1
     , _daTerminateEnvByForce = Nothing
     }
-{-# INLINE mkDeleteApplication #-}
 
 -- | The name of the application to delete.
 daApplicationName :: Lens' DeleteApplication Text
 daApplicationName =
     lens _daApplicationName (\s a -> s { _daApplicationName = a })
-{-# INLINE daApplicationName #-}
 
 -- | When set to true, running environments will be terminated before deleting
 -- the application.
 daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
 daTerminateEnvByForce =
     lens _daTerminateEnvByForce (\s a -> s { _daTerminateEnvByForce = a })
-{-# INLINE daTerminateEnvByForce #-}
 
 instance ToQuery DeleteApplication where
     toQuery = genericQuery def

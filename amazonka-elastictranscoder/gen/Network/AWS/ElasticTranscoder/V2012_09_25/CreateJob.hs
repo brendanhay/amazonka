@@ -122,7 +122,6 @@ mkCreateJob p1 p2 = CreateJob
     , _cj1OutputKeyPrefix = Nothing
     , _cj1Playlists = mempty
     }
-{-# INLINE mkCreateJob #-}
 
 -- | The Id of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the Amazon
@@ -130,25 +129,21 @@ mkCreateJob p1 p2 = CreateJob
 -- bucket into which Elastic Transcoder puts the transcoded files.
 cj1PipelineId :: Lens' CreateJob Text
 cj1PipelineId = lens _cj1PipelineId (\s a -> s { _cj1PipelineId = a })
-{-# INLINE cj1PipelineId #-}
 
 -- | A section of the request body that provides information about the file that
 -- is being transcoded.
 cj1Input :: Lens' CreateJob JobInput
 cj1Input = lens _cj1Input (\s a -> s { _cj1Input = a })
-{-# INLINE cj1Input #-}
 
 -- | The CreateJobOutput structure.
 cj1Output :: Lens' CreateJob (Maybe CreateJobOutput)
 cj1Output = lens _cj1Output (\s a -> s { _cj1Output = a })
-{-# INLINE cj1Output #-}
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the Outputs syntax
 -- instead of the Output syntax.
 cj1Outputs :: Lens' CreateJob [CreateJobOutput]
 cj1Outputs = lens _cj1Outputs (\s a -> s { _cj1Outputs = a })
-{-# INLINE cj1Outputs #-}
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the names
 -- of all files that this job creates, including output files, thumbnails, and
@@ -156,7 +151,6 @@ cj1Outputs = lens _cj1Outputs (\s a -> s { _cj1Outputs = a })
 cj1OutputKeyPrefix :: Lens' CreateJob (Maybe Text)
 cj1OutputKeyPrefix =
     lens _cj1OutputKeyPrefix (\s a -> s { _cj1OutputKeyPrefix = a })
-{-# INLINE cj1OutputKeyPrefix #-}
 
 -- | If you specify a preset in PresetId for which the value of Container is ts
 -- (MPEG-TS), Playlists contains information about the master playlists that
@@ -164,7 +158,6 @@ cj1OutputKeyPrefix =
 -- one master playlist. The maximum number of master playlists in a job is 30.
 cj1Playlists :: Lens' CreateJob [CreateJobPlaylist]
 cj1Playlists = lens _cj1Playlists (\s a -> s { _cj1Playlists = a })
-{-# INLINE cj1Playlists #-}
 
 instance ToPath CreateJob where
     toPath = const "/2012-09-25/jobs"
@@ -184,7 +177,6 @@ newtype CreateJobResponse = CreateJobResponse
 -- is created.
 cjrsrsJob :: Lens' CreateJobResponse (Maybe Job)
 cjrsrsJob = lens _cjrsrsJob (\s a -> s { _cjrsrsJob = a })
-{-# INLINE cjrsrsJob #-}
 
 instance FromJSON CreateJobResponse
 

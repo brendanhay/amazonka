@@ -53,19 +53,16 @@ mkCopySnapshot p1 p2 = CopySnapshot
     { _csSourceSnapshotName = p1
     , _csTargetSnapshotName = p2
     }
-{-# INLINE mkCopySnapshot #-}
 
 -- | The name of an existing snapshot from which to copy.
 csSourceSnapshotName :: Lens' CopySnapshot Text
 csSourceSnapshotName =
     lens _csSourceSnapshotName (\s a -> s { _csSourceSnapshotName = a })
-{-# INLINE csSourceSnapshotName #-}
 
 -- | A name for the copied snapshot.
 csTargetSnapshotName :: Lens' CopySnapshot Text
 csTargetSnapshotName =
     lens _csTargetSnapshotName (\s a -> s { _csTargetSnapshotName = a })
-{-# INLINE csTargetSnapshotName #-}
 
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
@@ -78,7 +75,6 @@ newtype CopySnapshotResponse = CopySnapshotResponse
 -- snapshot was taken.
 csrsSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrsSnapshot = lens _csrsSnapshot (\s a -> s { _csrsSnapshot = a })
-{-# INLINE csrsSnapshot #-}
 
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions

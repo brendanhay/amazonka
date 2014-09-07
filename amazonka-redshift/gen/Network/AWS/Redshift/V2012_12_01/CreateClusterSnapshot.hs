@@ -64,7 +64,6 @@ mkCreateClusterSnapshot p1 p2 = CreateClusterSnapshot
     { _ccs1SnapshotIdentifier = p1
     , _ccs1ClusterIdentifier = p2
     }
-{-# INLINE mkCreateClusterSnapshot #-}
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
@@ -75,13 +74,11 @@ mkCreateClusterSnapshot p1 p2 = CreateClusterSnapshot
 ccs1SnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccs1SnapshotIdentifier =
     lens _ccs1SnapshotIdentifier (\s a -> s { _ccs1SnapshotIdentifier = a })
-{-# INLINE ccs1SnapshotIdentifier #-}
 
 -- | The cluster identifier for which you want a snapshot.
 ccs1ClusterIdentifier :: Lens' CreateClusterSnapshot Text
 ccs1ClusterIdentifier =
     lens _ccs1ClusterIdentifier (\s a -> s { _ccs1ClusterIdentifier = a })
-{-# INLINE ccs1ClusterIdentifier #-}
 
 instance ToQuery CreateClusterSnapshot where
     toQuery = genericQuery def
@@ -93,7 +90,6 @@ newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
 -- | Describes a snapshot.
 ccsrsrsSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 ccsrsrsSnapshot = lens _ccsrsrsSnapshot (\s a -> s { _ccsrsrsSnapshot = a })
-{-# INLINE ccsrsrsSnapshot #-}
 
 instance FromXML CreateClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

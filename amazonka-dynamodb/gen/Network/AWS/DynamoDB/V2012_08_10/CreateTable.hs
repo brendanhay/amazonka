@@ -94,19 +94,16 @@ mkCreateTable p1 p2 p3 p6 = CreateTable
     , _ctGlobalSecondaryIndexes = mempty
     , _ctProvisionedThroughput = p6
     }
-{-# INLINE mkCreateTable #-}
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
 ctAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
 ctAttributeDefinitions =
     lens _ctAttributeDefinitions (\s a -> s { _ctAttributeDefinitions = a })
-{-# INLINE ctAttributeDefinitions #-}
 
 -- | The name of the table to create.
 ctTableName :: Lens' CreateTable Text
 ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
-{-# INLINE ctTableName #-}
 
 -- | Specifies the attributes that make up the primary key for a table or an
 -- index. The attributes in KeySchema must also be defined in the
@@ -122,7 +119,6 @@ ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 -- the Amazon DynamoDB Developer Guide.
 ctKeySchema :: Lens' CreateTable [KeySchemaElement]
 ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a })
-{-# INLINE ctKeySchema #-}
 
 -- | One or more local secondary indexes (the maximum is five) to be created on
 -- the table. Each index is scoped to a given hash key value. There is a 10 GB
@@ -148,7 +144,6 @@ ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
 ctLocalSecondaryIndexes =
     lens _ctLocalSecondaryIndexes
          (\s a -> s { _ctLocalSecondaryIndexes = a })
-{-# INLINE ctLocalSecondaryIndexes #-}
 
 -- | One or more global secondary indexes (the maximum is five) to be created on
 -- the table. Each global secondary index in the array includes the following:
@@ -173,7 +168,6 @@ ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
 ctGlobalSecondaryIndexes =
     lens _ctGlobalSecondaryIndexes
          (\s a -> s { _ctGlobalSecondaryIndexes = a })
-{-# INLINE ctGlobalSecondaryIndexes #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the UpdateTable operation. For
@@ -183,7 +177,6 @@ ctProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
 ctProvisionedThroughput =
     lens _ctProvisionedThroughput
          (\s a -> s { _ctProvisionedThroughput = a })
-{-# INLINE ctProvisionedThroughput #-}
 
 instance ToPath CreateTable
 
@@ -202,7 +195,6 @@ newtype CreateTableResponse = CreateTableResponse
 ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrsTableDescription =
     lens _ctrsTableDescription (\s a -> s { _ctrsTableDescription = a })
-{-# INLINE ctrsTableDescription #-}
 
 instance FromJSON CreateTableResponse
 

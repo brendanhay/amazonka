@@ -98,24 +98,20 @@ mkDescribeStream p1 = DescribeStream
     , _ds1Limit = Nothing
     , _ds1ExclusiveStartShardId = Nothing
     }
-{-# INLINE mkDescribeStream #-}
 
 -- | The name of the stream to describe.
 ds1StreamName :: Lens' DescribeStream Text
 ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
-{-# INLINE ds1StreamName #-}
 
 -- | The maximum number of shards to return.
 ds1Limit :: Lens' DescribeStream (Maybe Integer)
 ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a })
-{-# INLINE ds1Limit #-}
 
 -- | The shard ID of the shard to start with for the stream description.
 ds1ExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
 ds1ExclusiveStartShardId =
     lens _ds1ExclusiveStartShardId
          (\s a -> s { _ds1ExclusiveStartShardId = a })
-{-# INLINE ds1ExclusiveStartShardId #-}
 
 instance ToPath DescribeStream
 
@@ -136,7 +132,6 @@ newtype DescribeStreamResponse = DescribeStreamResponse
 dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrsStreamDescription =
     lens _dsrsStreamDescription (\s a -> s { _dsrsStreamDescription = a })
-{-# INLINE dsrsStreamDescription #-}
 
 instance FromJSON DescribeStreamResponse
 
@@ -149,7 +144,5 @@ instance AWSRequest DescribeStream where
 
 instance AWSPager DescribeStream where
     next rq rs
-        | not (_sdHasMoreShards $ _dsrsStreamDescription rs) = Nothing
-        | otherwise = Just $ rq
-            { _ds1ExclusiveStartShardId = keyed _sShardId _sdShards $ _dsrsStreamDescription rs
-            }
+        | not (rs ^. dsrsStreamDescription . sdHasMoreShards) = Nothing
+        | otherwise = Just (rq & ds1ExclusiveStartShardId .~ rs ^. dsrsStreamDescription . keyed sShardId sdShards)

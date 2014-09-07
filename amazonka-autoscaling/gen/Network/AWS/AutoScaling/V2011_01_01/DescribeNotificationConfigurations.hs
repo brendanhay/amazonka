@@ -56,25 +56,21 @@ mkDescribeNotificationConfigurations = DescribeNotificationConfigurations
     , _dnc1NextToken = Nothing
     , _dnc1MaxRecords = Nothing
     }
-{-# INLINE mkDescribeNotificationConfigurations #-}
 
 -- | The name of the Auto Scaling group.
 dnc1AutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
 dnc1AutoScalingGroupNames =
     lens _dnc1AutoScalingGroupNames
          (\s a -> s { _dnc1AutoScalingGroupNames = a })
-{-# INLINE dnc1AutoScalingGroupNames #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
 dnc1NextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dnc1NextToken = lens _dnc1NextToken (\s a -> s { _dnc1NextToken = a })
-{-# INLINE dnc1NextToken #-}
 
 -- | Maximum number of records to be returned.
 dnc1MaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Integer)
 dnc1MaxRecords = lens _dnc1MaxRecords (\s a -> s { _dnc1MaxRecords = a })
-{-# INLINE dnc1MaxRecords #-}
 
 instance ToQuery DescribeNotificationConfigurations where
     toQuery = genericQuery def
@@ -90,13 +86,11 @@ dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsRespo
 dncrsNotificationConfigurations =
     lens _dncrsNotificationConfigurations
          (\s a -> s { _dncrsNotificationConfigurations = a })
-{-# INLINE dncrsNotificationConfigurations #-}
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
 dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrsNextToken = lens _dncrsNextToken (\s a -> s { _dncrsNextToken = a })
-{-# INLINE dncrsNextToken #-}
 
 instance FromXML DescribeNotificationConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -109,5 +103,5 @@ instance AWSRequest DescribeNotificationConfigurations where
     response _ = xmlResponse
 
 instance AWSPager DescribeNotificationConfigurations where
-    next rq rs = (\x -> rq { _dnc1NextToken = Just x })
-        <$> (_dncrsNextToken rs)
+    next rq rs = (\x -> rq & dnc1NextToken ?~ x) <$> (rs ^. dncrsNextToken)
+

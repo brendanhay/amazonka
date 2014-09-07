@@ -120,59 +120,49 @@ mkRegisterImage p2 = RegisterImage
     , _ri2VirtualizationType = Nothing
     , _ri2SriovNetSupport = Nothing
     }
-{-# INLINE mkRegisterImage #-}
 
 -- | The full path to your AMI manifest in Amazon S3 storage.
 ri2ImageLocation :: Lens' RegisterImage (Maybe Text)
 ri2ImageLocation =
     lens _ri2ImageLocation (\s a -> s { _ri2ImageLocation = a })
-{-# INLINE ri2ImageLocation #-}
 
 -- | A name for your AMI. Constraints: 3-128 alphanumeric characters,
 -- parenthesis (()), commas (,), slashes (/), dashes (-), or underscores (_).
 ri2Name :: Lens' RegisterImage Text
 ri2Name = lens _ri2Name (\s a -> s { _ri2Name = a })
-{-# INLINE ri2Name #-}
 
 -- | A description for your AMI.
 ri2Description :: Lens' RegisterImage (Maybe Text)
 ri2Description = lens _ri2Description (\s a -> s { _ri2Description = a })
-{-# INLINE ri2Description #-}
 
 -- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, i386. For
 -- instance store-backed AMIs, the architecture specified in the manifest
 -- file.
 ri2Architecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 ri2Architecture = lens _ri2Architecture (\s a -> s { _ri2Architecture = a })
-{-# INLINE ri2Architecture #-}
 
 -- | The ID of the kernel.
 ri2KernelId :: Lens' RegisterImage (Maybe Text)
 ri2KernelId = lens _ri2KernelId (\s a -> s { _ri2KernelId = a })
-{-# INLINE ri2KernelId #-}
 
 -- | The ID of the RAM disk.
 ri2RamdiskId :: Lens' RegisterImage (Maybe Text)
 ri2RamdiskId = lens _ri2RamdiskId (\s a -> s { _ri2RamdiskId = a })
-{-# INLINE ri2RamdiskId #-}
 
 -- | The name of the root device (for example, /dev/sda1, or xvda).
 ri2RootDeviceName :: Lens' RegisterImage (Maybe Text)
 ri2RootDeviceName =
     lens _ri2RootDeviceName (\s a -> s { _ri2RootDeviceName = a })
-{-# INLINE ri2RootDeviceName #-}
 
 -- | One or more block device mapping entries.
 ri2BlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
 ri2BlockDeviceMappings =
     lens _ri2BlockDeviceMappings (\s a -> s { _ri2BlockDeviceMappings = a })
-{-# INLINE ri2BlockDeviceMappings #-}
 
 -- | The type of virtualization.
 ri2VirtualizationType :: Lens' RegisterImage (Maybe VirtualizationType)
 ri2VirtualizationType =
     lens _ri2VirtualizationType (\s a -> s { _ri2VirtualizationType = a })
-{-# INLINE ri2VirtualizationType #-}
 
 -- | Set to simple to enable enhanced networking for the AMI and any instances
 -- that you launch from the AMI. There is no way to disable enhanced
@@ -182,7 +172,6 @@ ri2VirtualizationType =
 ri2SriovNetSupport :: Lens' RegisterImage (Maybe Text)
 ri2SriovNetSupport =
     lens _ri2SriovNetSupport (\s a -> s { _ri2SriovNetSupport = a })
-{-# INLINE ri2SriovNetSupport #-}
 
 instance ToQuery RegisterImage where
     toQuery = genericQuery def
@@ -195,7 +184,6 @@ newtype RegisterImageResponse = RegisterImageResponse
 -- | The ID of the newly registered AMI.
 rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirsImageId = lens _rirsImageId (\s a -> s { _rirsImageId = a })
-{-# INLINE rirsImageId #-}
 
 instance FromXML RegisterImageResponse where
     fromXMLOptions = xmlOptions

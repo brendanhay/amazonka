@@ -54,19 +54,15 @@ mkDescribeTapeArchives = DescribeTapeArchives
     , _dta1Marker = Nothing
     , _dta1Limit = Nothing
     }
-{-# INLINE mkDescribeTapeArchives #-}
 
 dta1TapeARNs :: Lens' DescribeTapeArchives [Text]
 dta1TapeARNs = lens _dta1TapeARNs (\s a -> s { _dta1TapeARNs = a })
-{-# INLINE dta1TapeARNs #-}
 
 dta1Marker :: Lens' DescribeTapeArchives (Maybe Text)
 dta1Marker = lens _dta1Marker (\s a -> s { _dta1Marker = a })
-{-# INLINE dta1Marker #-}
 
 dta1Limit :: Lens' DescribeTapeArchives (Maybe Integer)
 dta1Limit = lens _dta1Limit (\s a -> s { _dta1Limit = a })
-{-# INLINE dta1Limit #-}
 
 instance ToPath DescribeTapeArchives
 
@@ -84,11 +80,9 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
 dtarsrsTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
 dtarsrsTapeArchives =
     lens _dtarsrsTapeArchives (\s a -> s { _dtarsrsTapeArchives = a })
-{-# INLINE dtarsrsTapeArchives #-}
 
 dtarsrsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarsrsMarker = lens _dtarsrsMarker (\s a -> s { _dtarsrsMarker = a })
-{-# INLINE dtarsrsMarker #-}
 
 instance FromJSON DescribeTapeArchivesResponse
 
@@ -100,5 +94,5 @@ instance AWSRequest DescribeTapeArchives where
     response _ = jsonResponse
 
 instance AWSPager DescribeTapeArchives where
-    next rq rs = (\x -> rq { _dta1Marker = Just x })
-        <$> (_dtarsrsMarker rs)
+    next rq rs = (\x -> rq & dta1Marker ?~ x) <$> (rs ^. dtarsrsMarker)
+

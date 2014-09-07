@@ -52,14 +52,12 @@ mkDisableMetricsCollection p1 = DisableMetricsCollection
     { _dmcAutoScalingGroupName = p1
     , _dmcMetrics = mempty
     }
-{-# INLINE mkDisableMetricsCollection #-}
 
 -- | The name or ARN of the Auto Scaling Group.
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
 dmcAutoScalingGroupName =
     lens _dmcAutoScalingGroupName
          (\s a -> s { _dmcAutoScalingGroupName = a })
-{-# INLINE dmcAutoScalingGroupName #-}
 
 -- | The list of metrics to disable. If no metrics are specified, all metrics
 -- are disabled. The following metrics are supported: GroupMinSize
@@ -68,7 +66,6 @@ dmcAutoScalingGroupName =
 -- GroupTotalInstances.
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a })
-{-# INLINE dmcMetrics #-}
 
 instance ToQuery DisableMetricsCollection where
     toQuery = genericQuery def

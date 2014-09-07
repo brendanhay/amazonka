@@ -52,12 +52,10 @@ mkDisassociateElasticIp :: Text -- ^ 'dei2ElasticIp'
 mkDisassociateElasticIp p1 = DisassociateElasticIp
     { _dei2ElasticIp = p1
     }
-{-# INLINE mkDisassociateElasticIp #-}
 
 -- | The Elastic IP address.
 dei2ElasticIp :: Lens' DisassociateElasticIp Text
 dei2ElasticIp = lens _dei2ElasticIp (\s a -> s { _dei2ElasticIp = a })
-{-# INLINE dei2ElasticIp #-}
 
 instance ToPath DisassociateElasticIp
 

@@ -113,7 +113,6 @@ mkDescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1NetworkInterfaceIds = mempty
     , _dni1Filters = mempty
     }
-{-# INLINE mkDescribeNetworkInterfaces #-}
 
 -- | One or more network interface IDs. Default: Describes all your network
 -- interfaces.
@@ -121,7 +120,6 @@ dni1NetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
 dni1NetworkInterfaceIds =
     lens _dni1NetworkInterfaceIds
          (\s a -> s { _dni1NetworkInterfaceIds = a })
-{-# INLINE dni1NetworkInterfaceIds #-}
 
 -- | One or more filters. addresses.private-ip-address - The private IP
 -- addresses associated with the network interface. addresses.primary -
@@ -178,7 +176,6 @@ dni1NetworkInterfaceIds =
 -- filter. vpc-id - The ID of the VPC for the network interface.
 dni1Filters :: Lens' DescribeNetworkInterfaces [Filter]
 dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a })
-{-# INLINE dni1Filters #-}
 
 instance ToQuery DescribeNetworkInterfaces where
     toQuery = genericQuery def
@@ -192,7 +189,6 @@ newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 dnirsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirsNetworkInterfaces =
     lens _dnirsNetworkInterfaces (\s a -> s { _dnirsNetworkInterfaces = a })
-{-# INLINE dnirsNetworkInterfaces #-}
 
 instance FromXML DescribeNetworkInterfacesResponse where
     fromXMLOptions = xmlOptions

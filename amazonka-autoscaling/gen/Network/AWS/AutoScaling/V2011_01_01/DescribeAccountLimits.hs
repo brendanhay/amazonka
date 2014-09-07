@@ -50,7 +50,6 @@ data DescribeAccountLimits = DescribeAccountLimits
 -- a valid 'DescribeAccountLimits' request.
 mkDescribeAccountLimits :: DescribeAccountLimits
 mkDescribeAccountLimits = DescribeAccountLimits
-{-# INLINE mkDescribeAccountLimits #-}
 
 instance ToQuery DescribeAccountLimits where
     toQuery = genericQuery def
@@ -66,14 +65,12 @@ dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe 
 dalrsMaxNumberOfAutoScalingGroups =
     lens _dalrsMaxNumberOfAutoScalingGroups
          (\s a -> s { _dalrsMaxNumberOfAutoScalingGroups = a })
-{-# INLINE dalrsMaxNumberOfAutoScalingGroups #-}
 
 -- | The maximum number of launch configurations allowed for your AWS account.
 dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
 dalrsMaxNumberOfLaunchConfigurations =
     lens _dalrsMaxNumberOfLaunchConfigurations
          (\s a -> s { _dalrsMaxNumberOfLaunchConfigurations = a })
-{-# INLINE dalrsMaxNumberOfLaunchConfigurations #-}
 
 instance FromXML DescribeAccountLimitsResponse where
     fromXMLOptions = xmlOptions

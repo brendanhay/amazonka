@@ -52,12 +52,10 @@ mkUnassignVolume :: Text -- ^ 'uvVolumeId'
 mkUnassignVolume p1 = UnassignVolume
     { _uvVolumeId = p1
     }
-{-# INLINE mkUnassignVolume #-}
 
 -- | The volume ID.
 uvVolumeId :: Lens' UnassignVolume Text
 uvVolumeId = lens _uvVolumeId (\s a -> s { _uvVolumeId = a })
-{-# INLINE uvVolumeId #-}
 
 instance ToPath UnassignVolume
 

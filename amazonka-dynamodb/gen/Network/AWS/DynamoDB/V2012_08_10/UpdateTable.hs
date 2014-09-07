@@ -83,12 +83,10 @@ mkUpdateTable p1 = UpdateTable
     , _utProvisionedThroughput = Nothing
     , _utGlobalSecondaryIndexUpdates = mempty
     }
-{-# INLINE mkUpdateTable #-}
 
 -- | The name of the table to be updated.
 utTableName :: Lens' UpdateTable Text
 utTableName = lens _utTableName (\s a -> s { _utTableName = a })
-{-# INLINE utTableName #-}
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the UpdateTable operation. For
@@ -98,7 +96,6 @@ utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
 utProvisionedThroughput =
     lens _utProvisionedThroughput
          (\s a -> s { _utProvisionedThroughput = a })
-{-# INLINE utProvisionedThroughput #-}
 
 -- | An array of one or more global secondary indexes on the table, together
 -- with provisioned throughput settings for each index.
@@ -106,7 +103,6 @@ utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates =
     lens _utGlobalSecondaryIndexUpdates
          (\s a -> s { _utGlobalSecondaryIndexUpdates = a })
-{-# INLINE utGlobalSecondaryIndexUpdates #-}
 
 instance ToPath UpdateTable
 
@@ -125,7 +121,6 @@ newtype UpdateTableResponse = UpdateTableResponse
 utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrsTableDescription =
     lens _utrsTableDescription (\s a -> s { _utrsTableDescription = a })
-{-# INLINE utrsTableDescription #-}
 
 instance FromJSON UpdateTableResponse
 

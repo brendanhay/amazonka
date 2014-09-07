@@ -52,12 +52,10 @@ mkDeleteLayer :: Text -- ^ 'dlLayerId'
 mkDeleteLayer p1 = DeleteLayer
     { _dlLayerId = p1
     }
-{-# INLINE mkDeleteLayer #-}
 
 -- | The layer ID.
 dlLayerId :: Lens' DeleteLayer Text
 dlLayerId = lens _dlLayerId (\s a -> s { _dlLayerId = a })
-{-# INLINE dlLayerId #-}
 
 instance ToPath DeleteLayer
 

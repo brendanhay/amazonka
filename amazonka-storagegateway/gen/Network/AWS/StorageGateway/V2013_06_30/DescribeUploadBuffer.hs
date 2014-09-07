@@ -73,13 +73,11 @@ mkDescribeUploadBuffer :: Text -- ^ 'dubGatewayARN'
 mkDescribeUploadBuffer p1 = DescribeUploadBuffer
     { _dubGatewayARN = p1
     }
-{-# INLINE mkDescribeUploadBuffer #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
 dubGatewayARN = lens _dubGatewayARN (\s a -> s { _dubGatewayARN = a })
-{-# INLINE dubGatewayARN #-}
 
 instance ToPath DescribeUploadBuffer
 
@@ -100,23 +98,19 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
 -- operation to return a list of gateways for your account and region.
 dubrsGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
 dubrsGatewayARN = lens _dubrsGatewayARN (\s a -> s { _dubrsGatewayARN = a })
-{-# INLINE dubrsGatewayARN #-}
 
 dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
 dubrsDiskIds = lens _dubrsDiskIds (\s a -> s { _dubrsDiskIds = a })
-{-# INLINE dubrsDiskIds #-}
 
 dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferUsedInBytes =
     lens _dubrsUploadBufferUsedInBytes
          (\s a -> s { _dubrsUploadBufferUsedInBytes = a })
-{-# INLINE dubrsUploadBufferUsedInBytes #-}
 
 dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferAllocatedInBytes =
     lens _dubrsUploadBufferAllocatedInBytes
          (\s a -> s { _dubrsUploadBufferAllocatedInBytes = a })
-{-# INLINE dubrsUploadBufferAllocatedInBytes #-}
 
 instance FromJSON DescribeUploadBufferResponse
 

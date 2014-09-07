@@ -76,33 +76,28 @@ mkUpdateIdentityPool p1 p2 p3 = UpdateIdentityPool
     , _uipAllowUnauthenticatedIdentities = p3
     , _uipSupportedLoginProviders = mempty
     }
-{-# INLINE mkUpdateIdentityPool #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 uipIdentityPoolId :: Lens' UpdateIdentityPool Text
 uipIdentityPoolId =
     lens _uipIdentityPoolId (\s a -> s { _uipIdentityPoolId = a })
-{-# INLINE uipIdentityPoolId #-}
 
 -- | A string that you provide.
 uipIdentityPoolName :: Lens' UpdateIdentityPool Text
 uipIdentityPoolName =
     lens _uipIdentityPoolName (\s a -> s { _uipIdentityPoolName = a })
-{-# INLINE uipIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 uipAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool Bool
 uipAllowUnauthenticatedIdentities =
     lens _uipAllowUnauthenticatedIdentities
          (\s a -> s { _uipAllowUnauthenticatedIdentities = a })
-{-# INLINE uipAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (Map Text Text)
 uipSupportedLoginProviders =
     lens _uipSupportedLoginProviders
          (\s a -> s { _uipSupportedLoginProviders = a })
-{-# INLINE uipSupportedLoginProviders #-}
 
 instance ToPath UpdateIdentityPool
 
@@ -124,27 +119,23 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
 uiprsIdentityPoolId :: Lens' UpdateIdentityPoolResponse Text
 uiprsIdentityPoolId =
     lens _uiprsIdentityPoolId (\s a -> s { _uiprsIdentityPoolId = a })
-{-# INLINE uiprsIdentityPoolId #-}
 
 -- | A string that you provide.
 uiprsIdentityPoolName :: Lens' UpdateIdentityPoolResponse Text
 uiprsIdentityPoolName =
     lens _uiprsIdentityPoolName (\s a -> s { _uiprsIdentityPoolName = a })
-{-# INLINE uiprsIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 uiprsAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPoolResponse Bool
 uiprsAllowUnauthenticatedIdentities =
     lens _uiprsAllowUnauthenticatedIdentities
          (\s a -> s { _uiprsAllowUnauthenticatedIdentities = a })
-{-# INLINE uiprsAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 uiprsSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (Map Text Text)
 uiprsSupportedLoginProviders =
     lens _uiprsSupportedLoginProviders
          (\s a -> s { _uiprsSupportedLoginProviders = a })
-{-# INLINE uiprsSupportedLoginProviders #-}
 
 instance FromJSON UpdateIdentityPoolResponse
 

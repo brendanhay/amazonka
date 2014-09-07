@@ -71,12 +71,10 @@ mkGetPipelineDefinition p1 = GetPipelineDefinition
     { _gpdPipelineId = p1
     , _gpdVersion = Nothing
     }
-{-# INLINE mkGetPipelineDefinition #-}
 
 -- | The identifier of the pipeline.
 gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
-{-# INLINE gpdPipelineId #-}
 
 -- | The version of the pipeline definition to retrieve. This parameter accepts
 -- the values latest (default) and active. Where latest indicates the last
@@ -84,7 +82,6 @@ gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 -- of the pipeline that was activated.
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
-{-# INLINE gpdVersion #-}
 
 instance ToPath GetPipelineDefinition
 
@@ -103,7 +100,6 @@ newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
 gpdrsPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrsPipelineObjects =
     lens _gpdrsPipelineObjects (\s a -> s { _gpdrsPipelineObjects = a })
-{-# INLINE gpdrsPipelineObjects #-}
 
 instance FromJSON GetPipelineDefinitionResponse
 

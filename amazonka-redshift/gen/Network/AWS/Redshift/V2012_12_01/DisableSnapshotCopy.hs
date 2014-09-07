@@ -50,7 +50,6 @@ mkDisableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
 mkDisableSnapshotCopy p1 = DisableSnapshotCopy
     { _dscClusterIdentifier = p1
     }
-{-# INLINE mkDisableSnapshotCopy #-}
 
 -- | The unique identifier of the source cluster that you want to disable
 -- copying of snapshots to a destination region. Constraints: Must be the
@@ -59,7 +58,6 @@ mkDisableSnapshotCopy p1 = DisableSnapshotCopy
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier =
     lens _dscClusterIdentifier (\s a -> s { _dscClusterIdentifier = a })
-{-# INLINE dscClusterIdentifier #-}
 
 instance ToQuery DisableSnapshotCopy where
     toQuery = genericQuery def
@@ -71,7 +69,6 @@ newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
 -- | Describes a cluster.
 dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrsCluster = lens _dscrsCluster (\s a -> s { _dscrsCluster = a })
-{-# INLINE dscrsCluster #-}
 
 instance FromXML DisableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

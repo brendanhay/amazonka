@@ -68,7 +68,6 @@ mkDescribeDBParameters p1 = DescribeDBParameters
     , _ddbpMaxRecords = Nothing
     , _ddbpMarker = Nothing
     }
-{-# INLINE mkDescribeDBParameters #-}
 
 -- | The name of a specific DB parameter group to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
@@ -77,13 +76,11 @@ ddbpDBParameterGroupName :: Lens' DescribeDBParameters Text
 ddbpDBParameterGroupName =
     lens _ddbpDBParameterGroupName
          (\s a -> s { _ddbpDBParameterGroupName = a })
-{-# INLINE ddbpDBParameterGroupName #-}
 
 -- | The parameter types to return. Default: All parameter types returned Valid
 -- Values: user | system | engine-default.
 ddbpSource :: Lens' DescribeDBParameters (Maybe Text)
 ddbpSource = lens _ddbpSource (\s a -> s { _ddbpSource = a })
-{-# INLINE ddbpSource #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -91,14 +88,12 @@ ddbpSource = lens _ddbpSource (\s a -> s { _ddbpSource = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbpMaxRecords :: Lens' DescribeDBParameters (Maybe Integer)
 ddbpMaxRecords = lens _ddbpMaxRecords (\s a -> s { _ddbpMaxRecords = a })
-{-# INLINE ddbpMaxRecords #-}
 
 -- | An optional pagination token provided by a previous DescribeDBParameters
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords.
 ddbpMarker :: Lens' DescribeDBParameters (Maybe Text)
 ddbpMarker = lens _ddbpMarker (\s a -> s { _ddbpMarker = a })
-{-# INLINE ddbpMarker #-}
 
 instance ToQuery DescribeDBParameters where
     toQuery = genericQuery def
@@ -114,14 +109,12 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
 ddbprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
 ddbprsParameters =
     lens _ddbprsParameters (\s a -> s { _ddbprsParameters = a })
-{-# INLINE ddbprsParameters #-}
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
 ddbprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddbprsMarker = lens _ddbprsMarker (\s a -> s { _ddbprsMarker = a })
-{-# INLINE ddbprsMarker #-}
 
 instance FromXML DescribeDBParametersResponse where
     fromXMLOptions = xmlOptions
@@ -134,5 +127,5 @@ instance AWSRequest DescribeDBParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBParameters where
-    next rq rs = (\x -> rq { _ddbpMarker = Just x })
-        <$> (_ddbprsMarker rs)
+    next rq rs = (\x -> rq & ddbpMarker ?~ x) <$> (rs ^. ddbprsMarker)
+

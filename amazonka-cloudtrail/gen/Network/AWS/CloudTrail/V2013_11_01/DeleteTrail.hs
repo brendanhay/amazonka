@@ -48,12 +48,10 @@ mkDeleteTrail :: Text -- ^ 'dtName'
 mkDeleteTrail p1 = DeleteTrail
     { _dtName = p1
     }
-{-# INLINE mkDeleteTrail #-}
 
 -- | The name of a trail to be deleted.
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\s a -> s { _dtName = a })
-{-# INLINE dtName #-}
 
 instance ToPath DeleteTrail
 

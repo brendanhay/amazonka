@@ -55,20 +55,16 @@ mkPutBucketPolicy p1 p3 = PutBucketPolicy
     , _pbpContentMD5 = Nothing
     , _pbpPolicy = p3
     }
-{-# INLINE mkPutBucketPolicy #-}
 
 pbpBucket :: Lens' PutBucketPolicy BucketName
 pbpBucket = lens _pbpBucket (\s a -> s { _pbpBucket = a })
-{-# INLINE pbpBucket #-}
 
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
 pbpContentMD5 = lens _pbpContentMD5 (\s a -> s { _pbpContentMD5 = a })
-{-# INLINE pbpContentMD5 #-}
 
 -- | The bucket policy as a JSON document.
 pbpPolicy :: Lens' PutBucketPolicy Text
 pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
-{-# INLINE pbpPolicy #-}
 
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat

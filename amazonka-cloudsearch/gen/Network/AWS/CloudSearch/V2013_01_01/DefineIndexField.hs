@@ -62,7 +62,6 @@ mkDefineIndexField p1 p2 = DefineIndexField
     { _difDomainName = p1
     , _difIndexField = p2
     }
-{-# INLINE mkDefineIndexField #-}
 
 -- | A string that represents the name of a domain. Domain names are unique
 -- across the domains owned by an account within an AWS region. Domain names
@@ -70,12 +69,10 @@ mkDefineIndexField p1 p2 = DefineIndexField
 -- (lowercase), 0-9, and - (hyphen).
 difDomainName :: Lens' DefineIndexField Text
 difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
-{-# INLINE difDomainName #-}
 
 -- | The index field and field options you want to configure.
 difIndexField :: Lens' DefineIndexField IndexField
 difIndexField = lens _difIndexField (\s a -> s { _difIndexField = a })
-{-# INLINE difIndexField #-}
 
 instance ToQuery DefineIndexField where
     toQuery = genericQuery def
@@ -89,7 +86,6 @@ newtype DefineIndexFieldResponse = DefineIndexFieldResponse
 -- | The value of an IndexField and its current status.
 difrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 difrsIndexField = lens _difrsIndexField (\s a -> s { _difrsIndexField = a })
-{-# INLINE difrsIndexField #-}
 
 instance FromXML DefineIndexFieldResponse where
     fromXMLOptions = xmlOptions

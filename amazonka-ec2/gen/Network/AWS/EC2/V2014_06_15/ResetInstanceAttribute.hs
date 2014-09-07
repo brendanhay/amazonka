@@ -64,17 +64,14 @@ mkResetInstanceAttribute p1 p2 = ResetInstanceAttribute
     { _ria1InstanceId = p1
     , _ria1Attribute = p2
     }
-{-# INLINE mkResetInstanceAttribute #-}
 
 -- | The ID of the instance.
 ria1InstanceId :: Lens' ResetInstanceAttribute Text
 ria1InstanceId = lens _ria1InstanceId (\s a -> s { _ria1InstanceId = a })
-{-# INLINE ria1InstanceId #-}
 
 -- | The attribute to reset.
 ria1Attribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
-{-# INLINE ria1Attribute #-}
 
 instance ToQuery ResetInstanceAttribute where
     toQuery = genericQuery def

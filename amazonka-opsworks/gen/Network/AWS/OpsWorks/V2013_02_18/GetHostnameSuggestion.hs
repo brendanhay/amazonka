@@ -54,12 +54,10 @@ mkGetHostnameSuggestion :: Text -- ^ 'ghsLayerId'
 mkGetHostnameSuggestion p1 = GetHostnameSuggestion
     { _ghsLayerId = p1
     }
-{-# INLINE mkGetHostnameSuggestion #-}
 
 -- | The layer ID.
 ghsLayerId :: Lens' GetHostnameSuggestion Text
 ghsLayerId = lens _ghsLayerId (\s a -> s { _ghsLayerId = a })
-{-# INLINE ghsLayerId #-}
 
 instance ToPath GetHostnameSuggestion
 
@@ -78,12 +76,10 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
 -- | The layer ID.
 ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrsLayerId = lens _ghsrsLayerId (\s a -> s { _ghsrsLayerId = a })
-{-# INLINE ghsrsLayerId #-}
 
 -- | The generated host name.
 ghsrsHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrsHostname = lens _ghsrsHostname (\s a -> s { _ghsrsHostname = a })
-{-# INLINE ghsrsHostname #-}
 
 instance FromJSON GetHostnameSuggestionResponse
 

@@ -60,19 +60,16 @@ mkDeleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
     { _decApplicationName = p1
     , _decEnvironmentName = p2
     }
-{-# INLINE mkDeleteEnvironmentConfiguration #-}
 
 -- | The name of the application the environment is associated with.
 decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
 decApplicationName =
     lens _decApplicationName (\s a -> s { _decApplicationName = a })
-{-# INLINE decApplicationName #-}
 
 -- | The name of the environment to delete the draft configuration from.
 decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
 decEnvironmentName =
     lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })
-{-# INLINE decEnvironmentName #-}
 
 instance ToQuery DeleteEnvironmentConfiguration where
     toQuery = genericQuery def

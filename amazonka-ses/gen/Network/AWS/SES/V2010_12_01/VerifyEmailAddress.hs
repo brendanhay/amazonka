@@ -60,12 +60,10 @@ mkVerifyEmailAddress :: Text -- ^ 'veaEmailAddress'
 mkVerifyEmailAddress p1 = VerifyEmailAddress
     { _veaEmailAddress = p1
     }
-{-# INLINE mkVerifyEmailAddress #-}
 
 -- | The email address to be verified.
 veaEmailAddress :: Lens' VerifyEmailAddress Text
 veaEmailAddress = lens _veaEmailAddress (\s a -> s { _veaEmailAddress = a })
-{-# INLINE veaEmailAddress #-}
 
 instance ToQuery VerifyEmailAddress where
     toQuery = genericQuery def

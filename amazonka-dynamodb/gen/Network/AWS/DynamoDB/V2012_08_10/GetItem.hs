@@ -79,18 +79,15 @@ mkGetItem p1 p2 = GetItem
     , _giConsistentRead = Nothing
     , _giReturnConsumedCapacity = Nothing
     }
-{-# INLINE mkGetItem #-}
 
 -- | The name of the table containing the requested item.
 giTableName :: Lens' GetItem Text
 giTableName = lens _giTableName (\s a -> s { _giTableName = a })
-{-# INLINE giTableName #-}
 
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to retrieve.
 giKey :: Lens' GetItem (Map Text AttributeValue)
 giKey = lens _giKey (\s a -> s { _giKey = a })
-{-# INLINE giKey #-}
 
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
@@ -98,14 +95,12 @@ giKey = lens _giKey (\s a -> s { _giKey = a })
 giAttributesToGet :: Lens' GetItem (Maybe [Text])
 giAttributesToGet =
     lens _giAttributesToGet (\s a -> s { _giAttributesToGet = a })
-{-# INLINE giAttributesToGet #-}
 
 -- | If set to true, then the operation uses strongly consistent reads;
 -- otherwise, eventually consistent reads are used.
 giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead =
     lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
-{-# INLINE giConsistentRead #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -115,7 +110,6 @@ giReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
 giReturnConsumedCapacity =
     lens _giReturnConsumedCapacity
          (\s a -> s { _giReturnConsumedCapacity = a })
-{-# INLINE giReturnConsumedCapacity #-}
 
 instance ToPath GetItem
 
@@ -135,7 +129,6 @@ data GetItemResponse = GetItemResponse
 -- AttributesToGet.
 girsItem :: Lens' GetItemResponse (Map Text AttributeValue)
 girsItem = lens _girsItem (\s a -> s { _girsItem = a })
-{-# INLINE girsItem #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
@@ -145,7 +138,6 @@ girsItem = lens _girsItem (\s a -> s { _girsItem = a })
 girsConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
 girsConsumedCapacity =
     lens _girsConsumedCapacity (\s a -> s { _girsConsumedCapacity = a })
-{-# INLINE girsConsumedCapacity #-}
 
 instance FromJSON GetItemResponse
 

@@ -63,12 +63,10 @@ mkCreateAccessKey :: CreateAccessKey
 mkCreateAccessKey = CreateAccessKey
     { _cakUserName = Nothing
     }
-{-# INLINE mkCreateAccessKey #-}
 
 -- | The user name that the new key will belong to.
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
-{-# INLINE cakUserName #-}
 
 instance ToQuery CreateAccessKey where
     toQuery = genericQuery def
@@ -82,7 +80,6 @@ newtype CreateAccessKeyResponse = CreateAccessKeyResponse
 -- | Information about the access key.
 cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrsAccessKey = lens _cakrsAccessKey (\s a -> s { _cakrsAccessKey = a })
-{-# INLINE cakrsAccessKey #-}
 
 instance FromXML CreateAccessKeyResponse where
     fromXMLOptions = xmlOptions

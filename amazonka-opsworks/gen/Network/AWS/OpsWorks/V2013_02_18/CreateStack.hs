@@ -106,18 +106,15 @@ mkCreateStack p1 p2 p5 p6 = CreateStack
     , _cs1DefaultSshKeyName = Nothing
     , _cs1DefaultRootDeviceType = Nothing
     }
-{-# INLINE mkCreateStack #-}
 
 -- | The stack name.
 cs1Name :: Lens' CreateStack Text
 cs1Name = lens _cs1Name (\s a -> s { _cs1Name = a })
-{-# INLINE cs1Name #-}
 
 -- | The stack AWS region, such as "us-east-1". For more information about
 -- Amazon regions, see Regions and Endpoints.
 cs1Region :: Lens' CreateStack Text
 cs1Region = lens _cs1Region (\s a -> s { _cs1Region = a })
-{-# INLINE cs1Region #-}
 
 -- | The ID of the VPC that the stack is to be launched into. It must be in the
 -- specified region. All instances will be launched into this VPC, and you
@@ -136,13 +133,11 @@ cs1Region = lens _cs1Region (\s a -> s { _cs1Region = a })
 -- information on default VPC and EC2 Classic, see Supported Platforms.
 cs1VpcId :: Lens' CreateStack (Maybe Text)
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
-{-# INLINE cs1VpcId #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 cs1Attributes :: Lens' CreateStack (Map StackAttributesKeys Text)
 cs1Attributes = lens _cs1Attributes (\s a -> s { _cs1Attributes = a })
-{-# INLINE cs1Attributes #-}
 
 -- | The stack AWS Identity and Access Management (IAM) role, which allows AWS
 -- OpsWorks to work with AWS resources on your behalf. You must set this
@@ -151,7 +146,6 @@ cs1Attributes = lens _cs1Attributes (\s a -> s { _cs1Attributes = a })
 cs1ServiceRoleArn :: Lens' CreateStack Text
 cs1ServiceRoleArn =
     lens _cs1ServiceRoleArn (\s a -> s { _cs1ServiceRoleArn = a })
-{-# INLINE cs1ServiceRoleArn #-}
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
@@ -160,13 +154,11 @@ cs1DefaultInstanceProfileArn :: Lens' CreateStack Text
 cs1DefaultInstanceProfileArn =
     lens _cs1DefaultInstanceProfileArn
          (\s a -> s { _cs1DefaultInstanceProfileArn = a })
-{-# INLINE cs1DefaultInstanceProfileArn #-}
 
 -- | The stack's default operating system, which must be set to Amazon Linux or
 -- Ubuntu 12.04 LTS. The default option is Amazon Linux.
 cs1DefaultOs :: Lens' CreateStack (Maybe Text)
 cs1DefaultOs = lens _cs1DefaultOs (\s a -> s { _cs1DefaultOs = a })
-{-# INLINE cs1DefaultOs #-}
 
 -- | The stack's host name theme, with spaces are replaced by underscores. The
 -- theme is used to generate host names for the stack's instances. By default,
@@ -180,7 +172,6 @@ cs1DefaultOs = lens _cs1DefaultOs (\s a -> s { _cs1DefaultOs = a })
 cs1HostnameTheme :: Lens' CreateStack (Maybe Text)
 cs1HostnameTheme =
     lens _cs1HostnameTheme (\s a -> s { _cs1HostnameTheme = a })
-{-# INLINE cs1HostnameTheme #-}
 
 -- | The stack's default Availability Zone, which must be in the specified
 -- region. For more information, see Regions and Endpoints. If you also
@@ -190,7 +181,6 @@ cs1DefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
 cs1DefaultAvailabilityZone =
     lens _cs1DefaultAvailabilityZone
          (\s a -> s { _cs1DefaultAvailabilityZone = a })
-{-# INLINE cs1DefaultAvailabilityZone #-}
 
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
@@ -200,7 +190,6 @@ cs1DefaultAvailabilityZone =
 cs1DefaultSubnetId :: Lens' CreateStack (Maybe Text)
 cs1DefaultSubnetId =
     lens _cs1DefaultSubnetId (\s a -> s { _cs1DefaultSubnetId = a })
-{-# INLINE cs1DefaultSubnetId #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -209,7 +198,6 @@ cs1DefaultSubnetId =
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
 cs1CustomJson :: Lens' CreateStack (Maybe Text)
 cs1CustomJson = lens _cs1CustomJson (\s a -> s { _cs1CustomJson = a })
-{-# INLINE cs1CustomJson #-}
 
 -- | The configuration manager. When you clone a stack we recommend that you use
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
@@ -218,7 +206,6 @@ cs1ConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
 cs1ConfigurationManager =
     lens _cs1ConfigurationManager
          (\s a -> s { _cs1ConfigurationManager = a })
-{-# INLINE cs1ConfigurationManager #-}
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
@@ -226,13 +213,11 @@ cs1ConfigurationManager =
 cs1ChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
 cs1ChefConfiguration =
     lens _cs1ChefConfiguration (\s a -> s { _cs1ChefConfiguration = a })
-{-# INLINE cs1ChefConfiguration #-}
 
 -- | Whether the stack uses custom cookbooks.
 cs1UseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
 cs1UseCustomCookbooks =
     lens _cs1UseCustomCookbooks (\s a -> s { _cs1UseCustomCookbooks = a })
-{-# INLINE cs1UseCustomCookbooks #-}
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack's layers. AWS OpsWorks provides a standard set of built-in security
@@ -253,7 +238,6 @@ cs1UseOpsworksSecurityGroups :: Lens' CreateStack (Maybe Bool)
 cs1UseOpsworksSecurityGroups =
     lens _cs1UseOpsworksSecurityGroups
          (\s a -> s { _cs1UseOpsworksSecurityGroups = a })
-{-# INLINE cs1UseOpsworksSecurityGroups #-}
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
@@ -262,14 +246,12 @@ cs1CustomCookbooksSource :: Lens' CreateStack (Maybe Source)
 cs1CustomCookbooksSource =
     lens _cs1CustomCookbooksSource
          (\s a -> s { _cs1CustomCookbooksSource = a })
-{-# INLINE cs1CustomCookbooksSource #-}
 
 -- | A default SSH key for the stack instances. You can override this value when
 -- you create or update an instance.
 cs1DefaultSshKeyName :: Lens' CreateStack (Maybe Text)
 cs1DefaultSshKeyName =
     lens _cs1DefaultSshKeyName (\s a -> s { _cs1DefaultSshKeyName = a })
-{-# INLINE cs1DefaultSshKeyName #-}
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
@@ -279,7 +261,6 @@ cs1DefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
 cs1DefaultRootDeviceType =
     lens _cs1DefaultRootDeviceType
          (\s a -> s { _cs1DefaultRootDeviceType = a })
-{-# INLINE cs1DefaultRootDeviceType #-}
 
 instance ToPath CreateStack
 
@@ -298,7 +279,6 @@ newtype CreateStackResponse = CreateStackResponse
 -- when performing actions such as DescribeStacks.
 csrsrsStackId :: Lens' CreateStackResponse (Maybe Text)
 csrsrsStackId = lens _csrsrsStackId (\s a -> s { _csrsrsStackId = a })
-{-# INLINE csrsrsStackId #-}
 
 instance FromJSON CreateStackResponse
 

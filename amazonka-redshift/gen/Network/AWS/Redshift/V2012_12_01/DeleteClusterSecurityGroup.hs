@@ -57,14 +57,12 @@ mkDeleteClusterSecurityGroup :: Text -- ^ 'dcsgClusterSecurityGroupName'
 mkDeleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
     { _dcsgClusterSecurityGroupName = p1
     }
-{-# INLINE mkDeleteClusterSecurityGroup #-}
 
 -- | The name of the cluster security group to be deleted.
 dcsgClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
 dcsgClusterSecurityGroupName =
     lens _dcsgClusterSecurityGroupName
          (\s a -> s { _dcsgClusterSecurityGroupName = a })
-{-# INLINE dcsgClusterSecurityGroupName #-}
 
 instance ToQuery DeleteClusterSecurityGroup where
     toQuery = genericQuery def

@@ -66,20 +66,17 @@ mkCreateVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
     { _cvcrVpnConnectionId = p1
     , _cvcrDestinationCidrBlock = p2
     }
-{-# INLINE mkCreateVpnConnectionRoute #-}
 
 -- | The ID of the VPN connection.
 cvcrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
 cvcrVpnConnectionId =
     lens _cvcrVpnConnectionId (\s a -> s { _cvcrVpnConnectionId = a })
-{-# INLINE cvcrVpnConnectionId #-}
 
 -- | The CIDR block associated with the local subnet of the customer network.
 cvcrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute Text
 cvcrDestinationCidrBlock =
     lens _cvcrDestinationCidrBlock
          (\s a -> s { _cvcrDestinationCidrBlock = a })
-{-# INLINE cvcrDestinationCidrBlock #-}
 
 instance ToQuery CreateVpnConnectionRoute where
     toQuery = genericQuery def

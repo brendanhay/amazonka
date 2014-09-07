@@ -73,19 +73,16 @@ mkChangeResourceRecordSets p1 p2 = ChangeResourceRecordSets
     { _crrsHostedZoneId = p1
     , _crrsChangeBatch = p2
     }
-{-# INLINE mkChangeResourceRecordSets #-}
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to change.
 crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
 crrsHostedZoneId =
     lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
-{-# INLINE crrsHostedZoneId #-}
 
 -- | A complex type that contains an optional comment and the Changes element.
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\s a -> s { _crrsChangeBatch = a })
-{-# INLINE crrsChangeBatch #-}
 
 instance ToPath ChangeResourceRecordSets where
     toPath ChangeResourceRecordSets{..} = mconcat
@@ -113,7 +110,6 @@ newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
 crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrsChangeInfo =
     lens _crrsrsChangeInfo (\s a -> s { _crrsrsChangeInfo = a })
-{-# INLINE crrsrsChangeInfo #-}
 
 instance FromXML ChangeResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions

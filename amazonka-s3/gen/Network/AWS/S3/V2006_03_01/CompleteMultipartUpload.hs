@@ -66,24 +66,19 @@ mkCompleteMultipartUpload p1 p2 p4 = CompleteMultipartUpload
     , _cmuMultipartUpload = Nothing
     , _cmuUploadId = p4
     }
-{-# INLINE mkCompleteMultipartUpload #-}
 
 cmuBucket :: Lens' CompleteMultipartUpload BucketName
 cmuBucket = lens _cmuBucket (\s a -> s { _cmuBucket = a })
-{-# INLINE cmuBucket #-}
 
 cmuKey :: Lens' CompleteMultipartUpload ObjectKey
 cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
-{-# INLINE cmuKey #-}
 
 cmuMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
 cmuMultipartUpload =
     lens _cmuMultipartUpload (\s a -> s { _cmuMultipartUpload = a })
-{-# INLINE cmuMultipartUpload #-}
 
 cmuUploadId :: Lens' CompleteMultipartUpload Text
 cmuUploadId = lens _cmuUploadId (\s a -> s { _cmuUploadId = a })
-{-# INLINE cmuUploadId #-}
 
 instance ToPath CompleteMultipartUpload where
     toPath CompleteMultipartUpload{..} = mconcat
@@ -115,39 +110,32 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
 
 cmursLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmursLocation = lens _cmursLocation (\s a -> s { _cmursLocation = a })
-{-# INLINE cmursLocation #-}
 
 cmursBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
 cmursBucket = lens _cmursBucket (\s a -> s { _cmursBucket = a })
-{-# INLINE cmursBucket #-}
 
 cmursKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
 cmursKey = lens _cmursKey (\s a -> s { _cmursKey = a })
-{-# INLINE cmursKey #-}
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
 cmursExpiration :: Lens' CompleteMultipartUploadResponse (Maybe RFC822)
 cmursExpiration = lens _cmursExpiration (\s a -> s { _cmursExpiration = a })
-{-# INLINE cmursExpiration #-}
 
 -- | Entity tag of the object.
 cmursETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
 cmursETag = lens _cmursETag (\s a -> s { _cmursETag = a })
-{-# INLINE cmursETag #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 cmursServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 cmursServerSideEncryption =
     lens _cmursServerSideEncryption
          (\s a -> s { _cmursServerSideEncryption = a })
-{-# INLINE cmursServerSideEncryption #-}
 
 -- | Version of the object.
 cmursVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
 cmursVersionId = lens _cmursVersionId (\s a -> s { _cmursVersionId = a })
-{-# INLINE cmursVersionId #-}
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3

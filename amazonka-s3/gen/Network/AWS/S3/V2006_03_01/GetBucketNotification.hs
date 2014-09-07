@@ -49,11 +49,9 @@ mkGetBucketNotification :: BucketName -- ^ 'gbnBucket'
 mkGetBucketNotification p1 = GetBucketNotification
     { _gbnBucket = p1
     }
-{-# INLINE mkGetBucketNotification #-}
 
 gbnBucket :: Lens' GetBucketNotification BucketName
 gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
-{-# INLINE gbnBucket #-}
 
 instance ToPath GetBucketNotification where
     toPath GetBucketNotification{..} = mconcat
@@ -78,7 +76,6 @@ gbnrsTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfi
 gbnrsTopicConfiguration =
     lens _gbnrsTopicConfiguration
          (\s a -> s { _gbnrsTopicConfiguration = a })
-{-# INLINE gbnrsTopicConfiguration #-}
 
 instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions

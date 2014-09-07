@@ -65,25 +65,21 @@ mkUpdateSigningCertificate p2 p3 = UpdateSigningCertificate
     , _usc1CertificateId = p2
     , _usc1Status = p3
     }
-{-# INLINE mkUpdateSigningCertificate #-}
 
 -- | Name of the user the signing certificate belongs to.
 usc1UserName :: Lens' UpdateSigningCertificate (Maybe Text)
 usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
-{-# INLINE usc1UserName #-}
 
 -- | The ID of the signing certificate you want to update.
 usc1CertificateId :: Lens' UpdateSigningCertificate Text
 usc1CertificateId =
     lens _usc1CertificateId (\s a -> s { _usc1CertificateId = a })
-{-# INLINE usc1CertificateId #-}
 
 -- | The status you want to assign to the certificate. Active means the
 -- certificate can be used for API calls to AWS, while Inactive means the
 -- certificate cannot be used.
 usc1Status :: Lens' UpdateSigningCertificate StatusType
 usc1Status = lens _usc1Status (\s a -> s { _usc1Status = a })
-{-# INLINE usc1Status #-}
 
 instance ToQuery UpdateSigningCertificate where
     toQuery = genericQuery def

@@ -56,13 +56,11 @@ mkDeleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
 mkDeleteHealthCheck p1 = DeleteHealthCheck
     { _dhcHealthCheckId = p1
     }
-{-# INLINE mkDeleteHealthCheck #-}
 
 -- | The ID of the health check to delete.
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
 dhcHealthCheckId =
     lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
-{-# INLINE dhcHealthCheckId #-}
 
 instance ToPath DeleteHealthCheck where
     toPath DeleteHealthCheck{..} = mconcat

@@ -59,12 +59,10 @@ mkUpdateUserProfile p1 = UpdateUserProfile
     , _uupSshPublicKey = Nothing
     , _uupAllowSelfManagement = Nothing
     }
-{-# INLINE mkUpdateUserProfile #-}
 
 -- | The user IAM ARN.
 uupIamUserArn :: Lens' UpdateUserProfile Text
 uupIamUserArn = lens _uupIamUserArn (\s a -> s { _uupIamUserArn = a })
-{-# INLINE uupIamUserArn #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
 -- '-', and '_'. If the specified name includes other punctuation marks, AWS
@@ -73,19 +71,16 @@ uupIamUserArn = lens _uupIamUserArn (\s a -> s { _uupIamUserArn = a })
 -- IAM user name.
 uupSshUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSshUsername = lens _uupSshUsername (\s a -> s { _uupSshUsername = a })
-{-# INLINE uupSshUsername #-}
 
 -- | The user's new SSH public key.
 uupSshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
 uupSshPublicKey = lens _uupSshPublicKey (\s a -> s { _uupSshPublicKey = a })
-{-# INLINE uupSshPublicKey #-}
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see Managing User Permissions.
 uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
 uupAllowSelfManagement =
     lens _uupAllowSelfManagement (\s a -> s { _uupAllowSelfManagement = a })
-{-# INLINE uupAllowSelfManagement #-}
 
 instance ToPath UpdateUserProfile
 

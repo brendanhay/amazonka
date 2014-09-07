@@ -92,7 +92,6 @@ mkUpdateDomainContact p1 = UpdateDomainContact
     , _udcRegistrantContact = Nothing
     , _udcTechContact = Nothing
     }
-{-# INLINE mkUpdateDomainContact #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -100,7 +99,6 @@ mkUpdateDomainContact p1 = UpdateDomainContact
 -- Yes.
 udcDomainName :: Lens' UpdateDomainContact Text
 udcDomainName = lens _udcDomainName (\s a -> s { _udcDomainName = a })
-{-# INLINE udcDomainName #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -108,7 +106,6 @@ udcDomainName = lens _udcDomainName (\s a -> s { _udcDomainName = a })
 -- ExtraParams Required: Yes.
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcAdminContact = lens _udcAdminContact (\s a -> s { _udcAdminContact = a })
-{-# INLINE udcAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -117,7 +114,6 @@ udcAdminContact = lens _udcAdminContact (\s a -> s { _udcAdminContact = a })
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcRegistrantContact =
     lens _udcRegistrantContact (\s a -> s { _udcRegistrantContact = a })
-{-# INLINE udcRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -125,7 +121,6 @@ udcRegistrantContact =
 -- ExtraParams Required: Yes.
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcTechContact = lens _udcTechContact (\s a -> s { _udcTechContact = a })
-{-# INLINE udcTechContact #-}
 
 instance ToPath UpdateDomainContact
 
@@ -146,7 +141,6 @@ newtype UpdateDomainContactResponse = UpdateDomainContactResponse
 udcrsOperationId :: Lens' UpdateDomainContactResponse Text
 udcrsOperationId =
     lens _udcrsOperationId (\s a -> s { _udcrsOperationId = a })
-{-# INLINE udcrsOperationId #-}
 
 instance FromJSON UpdateDomainContactResponse
 

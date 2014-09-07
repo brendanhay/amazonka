@@ -94,33 +94,28 @@ mkCountOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
     , _coweTagFilter = Nothing
     , _coweExecutionFilter = Nothing
     }
-{-# INLINE mkCountOpenWorkflowExecutions #-}
 
 -- | The name of the domain containing the workflow executions to count.
 coweDomain :: Lens' CountOpenWorkflowExecutions Text
 coweDomain = lens _coweDomain (\s a -> s { _coweDomain = a })
-{-# INLINE coweDomain #-}
 
 -- | Specifies the start time criteria that workflow executions must meet in
 -- order to be counted.
 coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
 coweStartTimeFilter =
     lens _coweStartTimeFilter (\s a -> s { _coweStartTimeFilter = a })
-{-# INLINE coweStartTimeFilter #-}
 
 -- | Specifies the type of the workflow executions to be counted.
 -- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 -- specify at most one of these in a request.
 coweTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
 coweTypeFilter = lens _coweTypeFilter (\s a -> s { _coweTypeFilter = a })
-{-# INLINE coweTypeFilter #-}
 
 -- | If specified, only executions that have a tag that matches the filter are
 -- counted. executionFilter, typeFilter and tagFilter are mutually exclusive.
 -- You can specify at most one of these in a request.
 coweTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
 coweTagFilter = lens _coweTagFilter (\s a -> s { _coweTagFilter = a })
-{-# INLINE coweTagFilter #-}
 
 -- | If specified, only workflow executions matching the WorkflowId in the
 -- filter are counted. executionFilter, typeFilter and tagFilter are mutually
@@ -128,7 +123,6 @@ coweTagFilter = lens _coweTagFilter (\s a -> s { _coweTagFilter = a })
 coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
 coweExecutionFilter =
     lens _coweExecutionFilter (\s a -> s { _coweExecutionFilter = a })
-{-# INLINE coweExecutionFilter #-}
 
 instance ToPath CountOpenWorkflowExecutions
 
@@ -148,13 +142,11 @@ data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
 -- | The number of workflow executions.
 cowersCount :: Lens' CountOpenWorkflowExecutionsResponse Integer
 cowersCount = lens _cowersCount (\s a -> s { _cowersCount = a })
-{-# INLINE cowersCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
 cowersTruncated :: Lens' CountOpenWorkflowExecutionsResponse (Maybe Bool)
 cowersTruncated = lens _cowersTruncated (\s a -> s { _cowersTruncated = a })
-{-# INLINE cowersTruncated #-}
 
 instance FromJSON CountOpenWorkflowExecutionsResponse
 

@@ -45,7 +45,6 @@ data GetHealthCheckCount = GetHealthCheckCount
 -- a valid 'GetHealthCheckCount' request.
 mkGetHealthCheckCount :: GetHealthCheckCount
 mkGetHealthCheckCount = GetHealthCheckCount
-{-# INLINE mkGetHealthCheckCount #-}
 
 instance ToPath GetHealthCheckCount where
     toPath = const "/2013-04-01/healthcheckcount"
@@ -68,7 +67,6 @@ newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
 ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrsHealthCheckCount =
     lens _ghccrsHealthCheckCount (\s a -> s { _ghccrsHealthCheckCount = a })
-{-# INLINE ghccrsHealthCheckCount #-}
 
 instance FromXML GetHealthCheckCountResponse where
     fromXMLOptions = xmlOptions

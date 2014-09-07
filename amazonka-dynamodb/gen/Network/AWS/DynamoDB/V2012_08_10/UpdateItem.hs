@@ -83,18 +83,15 @@ mkUpdateItem p1 p2 = UpdateItem
     , _uiReturnConsumedCapacity = Nothing
     , _uiReturnItemCollectionMetrics = Nothing
     }
-{-# INLINE mkUpdateItem #-}
 
 -- | The name of the table containing the item to update.
 uiTableName :: Lens' UpdateItem Text
 uiTableName = lens _uiTableName (\s a -> s { _uiTableName = a })
-{-# INLINE uiTableName #-}
 
 -- | The primary key that defines the item. Each element consists of an
 -- attribute name and a value for that attribute.
 uiKey :: Lens' UpdateItem (Map Text AttributeValue)
 uiKey = lens _uiKey (\s a -> s { _uiKey = a })
-{-# INLINE uiKey #-}
 
 -- | The names of attributes to be modified, the action to perform on each, and
 -- the new value for each. If you are updating an attribute that is an index
@@ -154,7 +151,6 @@ uiKey = lens _uiKey (\s a -> s { _uiKey = a })
 uiAttributeUpdates :: Lens' UpdateItem (Map Text AttributeValueUpdate)
 uiAttributeUpdates =
     lens _uiAttributeUpdates (\s a -> s { _uiAttributeUpdates = a })
-{-# INLINE uiAttributeUpdates #-}
 
 -- | A map of attribute/condition pairs. This is the conditional block for the
 -- UpdateItem operation. All the conditions must be met for the operation to
@@ -184,12 +180,10 @@ uiAttributeUpdates =
 -- together.) Otherwise, the conditional operation will fail.
 uiExpected :: Lens' UpdateItem (Map Text ExpectedAttributeValue)
 uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a })
-{-# INLINE uiExpected #-}
 
 uiConditionalOperator :: Lens' UpdateItem (Maybe ConditionalOperator)
 uiConditionalOperator =
     lens _uiConditionalOperator (\s a -> s { _uiConditionalOperator = a })
-{-# INLINE uiConditionalOperator #-}
 
 -- | Use ReturnValues if you want to get the item attributes as they appeared
 -- either before or after they were updated. For UpdateItem, the valid values
@@ -202,7 +196,6 @@ uiConditionalOperator =
 -- updated attributes are returned.
 uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
 uiReturnValues = lens _uiReturnValues (\s a -> s { _uiReturnValues = a })
-{-# INLINE uiReturnValues #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -212,7 +205,6 @@ uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
 uiReturnConsumedCapacity =
     lens _uiReturnConsumedCapacity
          (\s a -> s { _uiReturnConsumedCapacity = a })
-{-# INLINE uiReturnConsumedCapacity #-}
 
 -- | If set to SIZE, statistics about item collections, if any, that were
 -- modified during the operation are returned in the response. If set to NONE
@@ -221,7 +213,6 @@ uiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMet
 uiReturnItemCollectionMetrics =
     lens _uiReturnItemCollectionMetrics
          (\s a -> s { _uiReturnItemCollectionMetrics = a })
-{-# INLINE uiReturnItemCollectionMetrics #-}
 
 instance ToPath UpdateItem
 
@@ -243,7 +234,6 @@ data UpdateItemResponse = UpdateItemResponse
 -- request. Each element represents one attribute.
 uirsAttributes :: Lens' UpdateItemResponse (Map Text AttributeValue)
 uirsAttributes = lens _uirsAttributes (\s a -> s { _uirsAttributes = a })
-{-# INLINE uirsAttributes #-}
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
@@ -253,7 +243,6 @@ uirsAttributes = lens _uirsAttributes (\s a -> s { _uirsAttributes = a })
 uirsConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
 uirsConsumedCapacity =
     lens _uirsConsumedCapacity (\s a -> s { _uirsConsumedCapacity = a })
-{-# INLINE uirsConsumedCapacity #-}
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
@@ -263,7 +252,6 @@ uirsItemCollectionMetrics :: Lens' UpdateItemResponse (Maybe ItemCollectionMetri
 uirsItemCollectionMetrics =
     lens _uirsItemCollectionMetrics
          (\s a -> s { _uirsItemCollectionMetrics = a })
-{-# INLINE uirsItemCollectionMetrics #-}
 
 instance FromJSON UpdateItemResponse
 

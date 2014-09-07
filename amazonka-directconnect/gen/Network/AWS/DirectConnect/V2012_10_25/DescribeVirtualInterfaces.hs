@@ -61,19 +61,16 @@ mkDescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dvi1ConnectionId = Nothing
     , _dvi1VirtualInterfaceId = Nothing
     }
-{-# INLINE mkDescribeVirtualInterfaces #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 dvi1ConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dvi1ConnectionId =
     lens _dvi1ConnectionId (\s a -> s { _dvi1ConnectionId = a })
-{-# INLINE dvi1ConnectionId #-}
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
 dvi1VirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dvi1VirtualInterfaceId =
     lens _dvi1VirtualInterfaceId (\s a -> s { _dvi1VirtualInterfaceId = a })
-{-# INLINE dvi1VirtualInterfaceId #-}
 
 instance ToPath DescribeVirtualInterfaces
 
@@ -93,7 +90,6 @@ dvirsrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInte
 dvirsrsVirtualInterfaces =
     lens _dvirsrsVirtualInterfaces
          (\s a -> s { _dvirsrsVirtualInterfaces = a })
-{-# INLINE dvirsrsVirtualInterfaces #-}
 
 instance FromJSON DescribeVirtualInterfacesResponse
 

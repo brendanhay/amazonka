@@ -113,23 +113,19 @@ mkCloneStack p1 p6 = CloneStack
     , _csCloneAppIds = mempty
     , _csDefaultRootDeviceType = Nothing
     }
-{-# INLINE mkCloneStack #-}
 
 -- | The source stack ID.
 csSourceStackId :: Lens' CloneStack Text
 csSourceStackId = lens _csSourceStackId (\s a -> s { _csSourceStackId = a })
-{-# INLINE csSourceStackId #-}
 
 -- | The cloned stack name.
 csName :: Lens' CloneStack (Maybe Text)
 csName = lens _csName (\s a -> s { _csName = a })
-{-# INLINE csName #-}
 
 -- | The cloned stack AWS region, such as "us-east-1". For more information
 -- about AWS regions, see Regions and Endpoints.
 csRegion :: Lens' CloneStack (Maybe Text)
 csRegion = lens _csRegion (\s a -> s { _csRegion = a })
-{-# INLINE csRegion #-}
 
 -- | The ID of the VPC that the cloned stack is to be launched into. It must be
 -- in the specified region. All instances will be launched into this VPC, and
@@ -148,13 +144,11 @@ csRegion = lens _csRegion (\s a -> s { _csRegion = a })
 -- information on default VPC and EC2 Classic, see Supported Platforms.
 csVpcId :: Lens' CloneStack (Maybe Text)
 csVpcId = lens _csVpcId (\s a -> s { _csVpcId = a })
-{-# INLINE csVpcId #-}
 
 -- | A list of stack attributes and values as key/value pairs to be added to the
 -- cloned stack.
 csAttributes :: Lens' CloneStack (Map StackAttributesKeys Text)
 csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a })
-{-# INLINE csAttributes #-}
 
 -- | The stack AWS Identity and Access Management (IAM) role, which allows AWS
 -- OpsWorks to work with AWS resources on your behalf. You must set this
@@ -168,7 +162,6 @@ csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a })
 csServiceRoleArn :: Lens' CloneStack Text
 csServiceRoleArn =
     lens _csServiceRoleArn (\s a -> s { _csServiceRoleArn = a })
-{-# INLINE csServiceRoleArn #-}
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
@@ -177,13 +170,11 @@ csDefaultInstanceProfileArn :: Lens' CloneStack (Maybe Text)
 csDefaultInstanceProfileArn =
     lens _csDefaultInstanceProfileArn
          (\s a -> s { _csDefaultInstanceProfileArn = a })
-{-# INLINE csDefaultInstanceProfileArn #-}
 
 -- | The cloned stack's default operating system, which must be set to Amazon
 -- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
 csDefaultOs :: Lens' CloneStack (Maybe Text)
 csDefaultOs = lens _csDefaultOs (\s a -> s { _csDefaultOs = a })
-{-# INLINE csDefaultOs #-}
 
 -- | The stack's host name theme, with spaces are replaced by underscores. The
 -- theme is used to generate host names for the stack's instances. By default,
@@ -196,7 +187,6 @@ csDefaultOs = lens _csDefaultOs (\s a -> s { _csDefaultOs = a })
 -- theme.
 csHostnameTheme :: Lens' CloneStack (Maybe Text)
 csHostnameTheme = lens _csHostnameTheme (\s a -> s { _csHostnameTheme = a })
-{-# INLINE csHostnameTheme #-}
 
 -- | The cloned stack's default Availability Zone, which must be in the
 -- specified region. For more information, see Regions and Endpoints. If you
@@ -206,7 +196,6 @@ csDefaultAvailabilityZone :: Lens' CloneStack (Maybe Text)
 csDefaultAvailabilityZone =
     lens _csDefaultAvailabilityZone
          (\s a -> s { _csDefaultAvailabilityZone = a })
-{-# INLINE csDefaultAvailabilityZone #-}
 
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
@@ -216,7 +205,6 @@ csDefaultAvailabilityZone =
 csDefaultSubnetId :: Lens' CloneStack (Maybe Text)
 csDefaultSubnetId =
     lens _csDefaultSubnetId (\s a -> s { _csDefaultSubnetId = a })
-{-# INLINE csDefaultSubnetId #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -225,7 +213,6 @@ csDefaultSubnetId =
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
 csCustomJson :: Lens' CloneStack (Maybe Text)
 csCustomJson = lens _csCustomJson (\s a -> s { _csCustomJson = a })
-{-# INLINE csCustomJson #-}
 
 -- | The configuration manager. When you clone a stack we recommend that you use
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
@@ -233,7 +220,6 @@ csCustomJson = lens _csCustomJson (\s a -> s { _csCustomJson = a })
 csConfigurationManager :: Lens' CloneStack (Maybe StackConfigurationManager)
 csConfigurationManager =
     lens _csConfigurationManager (\s a -> s { _csConfigurationManager = a })
-{-# INLINE csConfigurationManager #-}
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
@@ -241,13 +227,11 @@ csConfigurationManager =
 csChefConfiguration :: Lens' CloneStack (Maybe ChefConfiguration)
 csChefConfiguration =
     lens _csChefConfiguration (\s a -> s { _csChefConfiguration = a })
-{-# INLINE csChefConfiguration #-}
 
 -- | Whether to use custom cookbooks.
 csUseCustomCookbooks :: Lens' CloneStack (Maybe Bool)
 csUseCustomCookbooks =
     lens _csUseCustomCookbooks (\s a -> s { _csUseCustomCookbooks = a })
-{-# INLINE csUseCustomCookbooks #-}
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack's layers. AWS OpsWorks provides a standard set of built-in security
@@ -268,7 +252,6 @@ csUseOpsworksSecurityGroups :: Lens' CloneStack (Maybe Bool)
 csUseOpsworksSecurityGroups =
     lens _csUseOpsworksSecurityGroups
          (\s a -> s { _csUseOpsworksSecurityGroups = a })
-{-# INLINE csUseOpsworksSecurityGroups #-}
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
@@ -277,25 +260,21 @@ csCustomCookbooksSource :: Lens' CloneStack (Maybe Source)
 csCustomCookbooksSource =
     lens _csCustomCookbooksSource
          (\s a -> s { _csCustomCookbooksSource = a })
-{-# INLINE csCustomCookbooksSource #-}
 
 -- | A default SSH key for the stack instances. You can override this value when
 -- you create or update an instance.
 csDefaultSshKeyName :: Lens' CloneStack (Maybe Text)
 csDefaultSshKeyName =
     lens _csDefaultSshKeyName (\s a -> s { _csDefaultSshKeyName = a })
-{-# INLINE csDefaultSshKeyName #-}
 
 -- | Whether to clone the source stack's permissions.
 csClonePermissions :: Lens' CloneStack (Maybe Bool)
 csClonePermissions =
     lens _csClonePermissions (\s a -> s { _csClonePermissions = a })
-{-# INLINE csClonePermissions #-}
 
 -- | A list of source stack app IDs to be included in the cloned stack.
 csCloneAppIds :: Lens' CloneStack [Text]
 csCloneAppIds = lens _csCloneAppIds (\s a -> s { _csCloneAppIds = a })
-{-# INLINE csCloneAppIds #-}
 
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create an
@@ -304,7 +283,6 @@ csDefaultRootDeviceType :: Lens' CloneStack (Maybe RootDeviceType)
 csDefaultRootDeviceType =
     lens _csDefaultRootDeviceType
          (\s a -> s { _csDefaultRootDeviceType = a })
-{-# INLINE csDefaultRootDeviceType #-}
 
 instance ToPath CloneStack
 
@@ -322,7 +300,6 @@ newtype CloneStackResponse = CloneStackResponse
 -- | The cloned stack ID.
 csrsStackId :: Lens' CloneStackResponse (Maybe Text)
 csrsStackId = lens _csrsStackId (\s a -> s { _csrsStackId = a })
-{-# INLINE csrsStackId #-}
 
 instance FromJSON CloneStackResponse
 

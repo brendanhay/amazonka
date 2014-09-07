@@ -59,28 +59,23 @@ mkRegisterRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
     , _rrdiDbUser = p3
     , _rrdiDbPassword = p4
     }
-{-# INLINE mkRegisterRdsDbInstance #-}
 
 -- | The stack ID.
 rrdiStackId :: Lens' RegisterRdsDbInstance Text
 rrdiStackId = lens _rrdiStackId (\s a -> s { _rrdiStackId = a })
-{-# INLINE rrdiStackId #-}
 
 -- | The Amazon RDS instance's ARN.
 rrdiRdsDbInstanceArn :: Lens' RegisterRdsDbInstance Text
 rrdiRdsDbInstanceArn =
     lens _rrdiRdsDbInstanceArn (\s a -> s { _rrdiRdsDbInstanceArn = a })
-{-# INLINE rrdiRdsDbInstanceArn #-}
 
 -- | The database's master user name.
 rrdiDbUser :: Lens' RegisterRdsDbInstance Text
 rrdiDbUser = lens _rrdiDbUser (\s a -> s { _rrdiDbUser = a })
-{-# INLINE rrdiDbUser #-}
 
 -- | The database password.
 rrdiDbPassword :: Lens' RegisterRdsDbInstance Text
 rrdiDbPassword = lens _rrdiDbPassword (\s a -> s { _rrdiDbPassword = a })
-{-# INLINE rrdiDbPassword #-}
 
 instance ToPath RegisterRdsDbInstance
 

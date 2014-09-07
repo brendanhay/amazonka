@@ -129,17 +129,14 @@ mkGetWorkflowExecutionHistory p1 p2 = GetWorkflowExecutionHistory
     , _gwehMaximumPageSize = Nothing
     , _gwehReverseOrder = Nothing
     }
-{-# INLINE mkGetWorkflowExecutionHistory #-}
 
 -- | The name of the domain containing the workflow execution.
 gwehDomain :: Lens' GetWorkflowExecutionHistory Text
 gwehDomain = lens _gwehDomain (\s a -> s { _gwehDomain = a })
-{-# INLINE gwehDomain #-}
 
 -- | Specifies the workflow execution for which to return the history.
 gwehExecution :: Lens' GetWorkflowExecutionHistory WorkflowExecution
 gwehExecution = lens _gwehExecution (\s a -> s { _gwehExecution = a })
-{-# INLINE gwehExecution #-}
 
 -- | If a NextPageToken is returned, the result has more than one pages. To get
 -- the next page, repeat the call and specify the nextPageToken with all other
@@ -147,7 +144,6 @@ gwehExecution = lens _gwehExecution (\s a -> s { _gwehExecution = a })
 gwehNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
 gwehNextPageToken =
     lens _gwehNextPageToken (\s a -> s { _gwehNextPageToken = a })
-{-# INLINE gwehNextPageToken #-}
 
 -- | Specifies the maximum number of history events returned in one page. The
 -- next page in the result is identified by the NextPageToken returned. By
@@ -159,7 +155,6 @@ gwehNextPageToken =
 gwehMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Integer)
 gwehMaximumPageSize =
     lens _gwehMaximumPageSize (\s a -> s { _gwehMaximumPageSize = a })
-{-# INLINE gwehMaximumPageSize #-}
 
 -- | When set to true, returns the events in reverse order. By default the
 -- results are returned in ascending order of the eventTimeStamp of the
@@ -167,7 +162,6 @@ gwehMaximumPageSize =
 gwehReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
 gwehReverseOrder =
     lens _gwehReverseOrder (\s a -> s { _gwehReverseOrder = a })
-{-# INLINE gwehReverseOrder #-}
 
 instance ToPath GetWorkflowExecutionHistory
 
@@ -188,7 +182,6 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
 -- | The list of history events.
 gwehrsEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
 gwehrsEvents = lens _gwehrsEvents (\s a -> s { _gwehrsEvents = a })
-{-# INLINE gwehrsEvents #-}
 
 -- | The token for the next page. If set, the history consists of more than one
 -- page and the next page can be retrieved by repeating the request with this
@@ -196,7 +189,6 @@ gwehrsEvents = lens _gwehrsEvents (\s a -> s { _gwehrsEvents = a })
 gwehrsNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 gwehrsNextPageToken =
     lens _gwehrsNextPageToken (\s a -> s { _gwehrsNextPageToken = a })
-{-# INLINE gwehrsNextPageToken #-}
 
 instance FromJSON GetWorkflowExecutionHistoryResponse
 
@@ -208,5 +200,5 @@ instance AWSRequest GetWorkflowExecutionHistory where
     response _ = jsonResponse
 
 instance AWSPager GetWorkflowExecutionHistory where
-    next rq rs = (\x -> rq { _gwehNextPageToken = Just x })
-        <$> (_gwehrsNextPageToken rs)
+    next rq rs = (\x -> rq & gwehNextPageToken ?~ x) <$> (rs ^. gwehrsNextPageToken)
+

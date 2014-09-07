@@ -54,18 +54,15 @@ mkDescribePermissions = DescribePermissions
     { _dpIamUserArn = Nothing
     , _dpStackId = Nothing
     }
-{-# INLINE mkDescribePermissions #-}
 
 -- | The user's IAM ARN. For more information about IAM ARNs, see Using
 -- Identifiers.
 dpIamUserArn :: Lens' DescribePermissions (Maybe Text)
 dpIamUserArn = lens _dpIamUserArn (\s a -> s { _dpIamUserArn = a })
-{-# INLINE dpIamUserArn #-}
 
 -- | The stack ID.
 dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
-{-# INLINE dpStackId #-}
 
 instance ToPath DescribePermissions
 
@@ -89,7 +86,6 @@ newtype DescribePermissionsResponse = DescribePermissionsResponse
 -- with permissions for the specified stack and IAM ARN.
 dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprsPermissions = lens _dprsPermissions (\s a -> s { _dprsPermissions = a })
-{-# INLINE dprsPermissions #-}
 
 instance FromJSON DescribePermissionsResponse
 

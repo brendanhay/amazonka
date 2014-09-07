@@ -99,26 +99,22 @@ mkListJobsByPipeline p1 = ListJobsByPipeline
     , _ljbpAscending = Nothing
     , _ljbpPageToken = Nothing
     }
-{-# INLINE mkListJobsByPipeline #-}
 
 -- | The ID of the pipeline for which you want to get job information.
 ljbpPipelineId :: Lens' ListJobsByPipeline Text
 ljbpPipelineId = lens _ljbpPipelineId (\s a -> s { _ljbpPipelineId = a })
-{-# INLINE ljbpPipelineId #-}
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter true. To list jobs in reverse chronological order, enter
 -- false.
 ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpAscending = lens _ljbpAscending (\s a -> s { _ljbpAscending = a })
-{-# INLINE ljbpAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpPageToken = lens _ljbpPageToken (\s a -> s { _ljbpPageToken = a })
-{-# INLINE ljbpPageToken #-}
 
 instance ToPath ListJobsByPipeline where
     toPath ListJobsByPipeline{..} = mconcat
@@ -145,7 +141,6 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse
 -- | An array of Job objects that are in the specified pipeline.
 ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job]
 ljbprsJobs = lens _ljbprsJobs (\s a -> s { _ljbprsJobs = a })
-{-# INLINE ljbprsJobs #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the jobs in the specified pipeline fit on one page or when
@@ -154,7 +149,6 @@ ljbprsJobs = lens _ljbprsJobs (\s a -> s { _ljbprsJobs = a })
 ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprsNextPageToken =
     lens _ljbprsNextPageToken (\s a -> s { _ljbprsNextPageToken = a })
-{-# INLINE ljbprsNextPageToken #-}
 
 instance FromJSON ListJobsByPipelineResponse
 
@@ -166,5 +160,5 @@ instance AWSRequest ListJobsByPipeline where
     response _ = jsonResponse
 
 instance AWSPager ListJobsByPipeline where
-    next rq rs = (\x -> rq { _ljbpPageToken = Just x })
-        <$> (_ljbprsNextPageToken rs)
+    next rq rs = (\x -> rq & ljbpPageToken ?~ x) <$> (rs ^. ljbprsNextPageToken)
+

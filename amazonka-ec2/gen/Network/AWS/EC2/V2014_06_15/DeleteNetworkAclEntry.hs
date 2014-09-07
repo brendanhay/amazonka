@@ -63,23 +63,19 @@ mkDeleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     , _dnaeRuleNumber = p2
     , _dnaeEgress = p3
     }
-{-# INLINE mkDeleteNetworkAclEntry #-}
 
 -- | The ID of the network ACL.
 dnaeNetworkAclId :: Lens' DeleteNetworkAclEntry Text
 dnaeNetworkAclId =
     lens _dnaeNetworkAclId (\s a -> s { _dnaeNetworkAclId = a })
-{-# INLINE dnaeNetworkAclId #-}
 
 -- | The rule number of the entry to delete.
 dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Integer
 dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
-{-# INLINE dnaeRuleNumber #-}
 
 -- | Indicates whether the rule is an egress rule.
 dnaeEgress :: Lens' DeleteNetworkAclEntry Bool
 dnaeEgress = lens _dnaeEgress (\s a -> s { _dnaeEgress = a })
-{-# INLINE dnaeEgress #-}
 
 instance ToQuery DeleteNetworkAclEntry where
     toQuery = genericQuery def

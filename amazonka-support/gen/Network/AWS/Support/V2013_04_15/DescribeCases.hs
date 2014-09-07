@@ -81,54 +81,45 @@ mkDescribeCases = DescribeCases
     , _dcLanguage = Nothing
     , _dcIncludeCommunications = Nothing
     }
-{-# INLINE mkDescribeCases #-}
 
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
 dcCaseIdList :: Lens' DescribeCases [Text]
 dcCaseIdList = lens _dcCaseIdList (\s a -> s { _dcCaseIdList = a })
-{-# INLINE dcCaseIdList #-}
 
 -- | The ID displayed for a case in the AWS Support Center user interface.
 dcDisplayId :: Lens' DescribeCases (Maybe Text)
 dcDisplayId = lens _dcDisplayId (\s a -> s { _dcDisplayId = a })
-{-# INLINE dcDisplayId #-}
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dcAfterTime :: Lens' DescribeCases (Maybe Text)
 dcAfterTime = lens _dcAfterTime (\s a -> s { _dcAfterTime = a })
-{-# INLINE dcAfterTime #-}
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dcBeforeTime :: Lens' DescribeCases (Maybe Text)
 dcBeforeTime = lens _dcBeforeTime (\s a -> s { _dcBeforeTime = a })
-{-# INLINE dcBeforeTime #-}
 
 -- | Specifies whether resolved support cases should be included in the
 -- DescribeCases results. The default is false.
 dcIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
 dcIncludeResolvedCases =
     lens _dcIncludeResolvedCases (\s a -> s { _dcIncludeResolvedCases = a })
-{-# INLINE dcIncludeResolvedCases #-}
 
 -- | A resumption point for pagination.
 dcNextToken :: Lens' DescribeCases (Maybe Text)
 dcNextToken = lens _dcNextToken (\s a -> s { _dcNextToken = a })
-{-# INLINE dcNextToken #-}
 
 -- | The maximum number of results to return before paginating.
 dcMaxResults :: Lens' DescribeCases (Maybe Integer)
 dcMaxResults = lens _dcMaxResults (\s a -> s { _dcMaxResults = a })
-{-# INLINE dcMaxResults #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dcLanguage :: Lens' DescribeCases (Maybe Text)
 dcLanguage = lens _dcLanguage (\s a -> s { _dcLanguage = a })
-{-# INLINE dcLanguage #-}
 
 -- | Specifies whether communications should be included in the DescribeCases
 -- results. The default is true.
@@ -136,7 +127,6 @@ dcIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
 dcIncludeCommunications =
     lens _dcIncludeCommunications
          (\s a -> s { _dcIncludeCommunications = a })
-{-# INLINE dcIncludeCommunications #-}
 
 instance ToPath DescribeCases
 
@@ -156,12 +146,10 @@ data DescribeCasesResponse = DescribeCasesResponse
 -- | The details for the cases that match the request.
 dcrsCases :: Lens' DescribeCasesResponse [CaseDetails]
 dcrsCases = lens _dcrsCases (\s a -> s { _dcrsCases = a })
-{-# INLINE dcrsCases #-}
 
 -- | A resumption point for pagination.
 dcrsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 dcrsNextToken = lens _dcrsNextToken (\s a -> s { _dcrsNextToken = a })
-{-# INLINE dcrsNextToken #-}
 
 instance FromJSON DescribeCasesResponse
 
@@ -173,5 +161,5 @@ instance AWSRequest DescribeCases where
     response _ = jsonResponse
 
 instance AWSPager DescribeCases where
-    next rq rs = (\x -> rq { _dcNextToken = Just x })
-        <$> (_dcrsNextToken rs)
+    next rq rs = (\x -> rq & dcNextToken ?~ x) <$> (rs ^. dcrsNextToken)
+

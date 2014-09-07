@@ -74,7 +74,6 @@ mkRebootDBInstance p1 = RebootDBInstance
     { _rdbi1DBInstanceIdentifier = p1
     , _rdbi1ForceFailover = Nothing
     }
-{-# INLINE mkRebootDBInstance #-}
 
 -- | The DB instance identifier. This parameter is stored as a lowercase string.
 -- Constraints: Must contain from 1 to 63 alphanumeric characters or hyphens
@@ -84,7 +83,6 @@ rdbi1DBInstanceIdentifier :: Lens' RebootDBInstance Text
 rdbi1DBInstanceIdentifier =
     lens _rdbi1DBInstanceIdentifier
          (\s a -> s { _rdbi1DBInstanceIdentifier = a })
-{-# INLINE rdbi1DBInstanceIdentifier #-}
 
 -- | When true, the reboot will be conducted through a MultiAZ failover.
 -- Constraint: You cannot specify true if the instance is not configured for
@@ -92,7 +90,6 @@ rdbi1DBInstanceIdentifier =
 rdbi1ForceFailover :: Lens' RebootDBInstance (Maybe Bool)
 rdbi1ForceFailover =
     lens _rdbi1ForceFailover (\s a -> s { _rdbi1ForceFailover = a })
-{-# INLINE rdbi1ForceFailover #-}
 
 instance ToQuery RebootDBInstance where
     toQuery = genericQuery def
@@ -107,7 +104,6 @@ newtype RebootDBInstanceResponse = RebootDBInstanceResponse
 rdbirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdbirsDBInstance =
     lens _rdbirsDBInstance (\s a -> s { _rdbirsDBInstance = a })
-{-# INLINE rdbirsDBInstance #-}
 
 instance FromXML RebootDBInstanceResponse where
     fromXMLOptions = xmlOptions

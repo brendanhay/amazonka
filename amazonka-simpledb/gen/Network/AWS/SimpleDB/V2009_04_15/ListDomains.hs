@@ -56,20 +56,17 @@ mkListDomains = ListDomains
     { _ldMaxNumberOfDomains = Nothing
     , _ldNextToken = Nothing
     }
-{-# INLINE mkListDomains #-}
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
 ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Integer)
 ldMaxNumberOfDomains =
     lens _ldMaxNumberOfDomains (\s a -> s { _ldMaxNumberOfDomains = a })
-{-# INLINE ldMaxNumberOfDomains #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of domain
 -- names.
 ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
-{-# INLINE ldNextToken #-}
 
 instance ToQuery ListDomains where
     toQuery = genericQuery def
@@ -82,13 +79,11 @@ data ListDomainsResponse = ListDomainsResponse
 -- | A list of domain names that match the expression.
 ldrsDomainNames :: Lens' ListDomainsResponse [Text]
 ldrsDomainNames = lens _ldrsDomainNames (\s a -> s { _ldrsDomainNames = a })
-{-# INLINE ldrsDomainNames #-}
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
 ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\s a -> s { _ldrsNextToken = a })
-{-# INLINE ldrsNextToken #-}
 
 instance FromXML ListDomainsResponse where
     fromXMLOptions = xmlOptions
@@ -101,5 +96,5 @@ instance AWSRequest ListDomains where
     response _ = xmlResponse
 
 instance AWSPager ListDomains where
-    next rq rs = (\x -> rq { _ldNextToken = Just x })
-        <$> (_ldrsNextToken rs)
+    next rq rs = (\x -> rq & ldNextToken ?~ x) <$> (rs ^. ldrsNextToken)
+

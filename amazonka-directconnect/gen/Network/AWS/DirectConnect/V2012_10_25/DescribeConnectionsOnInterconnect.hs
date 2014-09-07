@@ -52,14 +52,12 @@ mkDescribeConnectionsOnInterconnect :: Text -- ^ 'dcoiInterconnectId'
 mkDescribeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId = p1
     }
-{-# INLINE mkDescribeConnectionsOnInterconnect #-}
 
 -- | ID of the interconnect on which a list of connection is provisioned.
 -- Example: dxcon-abc123 Default: None.
 dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
 dcoiInterconnectId =
     lens _dcoiInterconnectId (\s a -> s { _dcoiInterconnectId = a })
-{-# INLINE dcoiInterconnectId #-}
 
 instance ToPath DescribeConnectionsOnInterconnect
 
@@ -78,7 +76,6 @@ newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterco
 dcoirsConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
 dcoirsConnections =
     lens _dcoirsConnections (\s a -> s { _dcoirsConnections = a })
-{-# INLINE dcoirsConnections #-}
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse
 

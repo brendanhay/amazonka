@@ -56,7 +56,6 @@ mkDeleteDBSnapshot :: Text -- ^ 'ddbsDBSnapshotIdentifier'
 mkDeleteDBSnapshot p1 = DeleteDBSnapshot
     { _ddbsDBSnapshotIdentifier = p1
     }
-{-# INLINE mkDeleteDBSnapshot #-}
 
 -- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB
 -- snapshot in the available state.
@@ -64,7 +63,6 @@ ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
 ddbsDBSnapshotIdentifier =
     lens _ddbsDBSnapshotIdentifier
          (\s a -> s { _ddbsDBSnapshotIdentifier = a })
-{-# INLINE ddbsDBSnapshotIdentifier #-}
 
 instance ToQuery DeleteDBSnapshot where
     toQuery = genericQuery def
@@ -79,7 +77,6 @@ newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
 ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrsDBSnapshot =
     lens _ddbsrsDBSnapshot (\s a -> s { _ddbsrsDBSnapshot = a })
-{-# INLINE ddbsrsDBSnapshot #-}
 
 instance FromXML DeleteDBSnapshotResponse where
     fromXMLOptions = xmlOptions

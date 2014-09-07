@@ -64,7 +64,6 @@ mkDescribeDBInstances = DescribeDBInstances
     , _ddbi1MaxRecords = Nothing
     , _ddbi1Marker = Nothing
     }
-{-# INLINE mkDescribeDBInstances #-}
 
 -- | The user-supplied instance identifier. If this parameter is specified,
 -- information from only the specific DB instance is returned. This parameter
@@ -75,7 +74,6 @@ ddbi1DBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
 ddbi1DBInstanceIdentifier =
     lens _ddbi1DBInstanceIdentifier
          (\s a -> s { _ddbi1DBInstanceIdentifier = a })
-{-# INLINE ddbi1DBInstanceIdentifier #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -83,14 +81,12 @@ ddbi1DBInstanceIdentifier =
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Integer)
 ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
-{-# INLINE ddbi1MaxRecords #-}
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by MaxRecords .
 ddbi1Marker :: Lens' DescribeDBInstances (Maybe Text)
 ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
-{-# INLINE ddbi1Marker #-}
 
 instance ToQuery DescribeDBInstances where
     toQuery = genericQuery def
@@ -107,13 +103,11 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse
 -- marker, up to the value specified by MaxRecords .
 ddbirsrsMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirsrsMarker = lens _ddbirsrsMarker (\s a -> s { _ddbirsrsMarker = a })
-{-# INLINE ddbirsrsMarker #-}
 
 -- | A list of DBInstance instances.
 ddbirsrsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
 ddbirsrsDBInstances =
     lens _ddbirsrsDBInstances (\s a -> s { _ddbirsrsDBInstances = a })
-{-# INLINE ddbirsrsDBInstances #-}
 
 instance FromXML DescribeDBInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -126,5 +120,5 @@ instance AWSRequest DescribeDBInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeDBInstances where
-    next rq rs = (\x -> rq { _ddbi1Marker = Just x })
-        <$> (_ddbirsrsMarker rs)
+    next rq rs = (\x -> rq & ddbi1Marker ?~ x) <$> (rs ^. ddbirsrsMarker)
+

@@ -57,21 +57,17 @@ mkPutBucketRequestPayment p1 p3 = PutBucketRequestPayment
     , _pbrpContentMD5 = Nothing
     , _pbrpRequestPaymentConfiguration = p3
     }
-{-# INLINE mkPutBucketRequestPayment #-}
 
 pbrpBucket :: Lens' PutBucketRequestPayment BucketName
 pbrpBucket = lens _pbrpBucket (\s a -> s { _pbrpBucket = a })
-{-# INLINE pbrpBucket #-}
 
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
 pbrpContentMD5 = lens _pbrpContentMD5 (\s a -> s { _pbrpContentMD5 = a })
-{-# INLINE pbrpContentMD5 #-}
 
 pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
 pbrpRequestPaymentConfiguration =
     lens _pbrpRequestPaymentConfiguration
          (\s a -> s { _pbrpRequestPaymentConfiguration = a })
-{-# INLINE pbrpRequestPaymentConfiguration #-}
 
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat

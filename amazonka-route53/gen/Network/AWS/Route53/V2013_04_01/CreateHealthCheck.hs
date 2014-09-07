@@ -60,7 +60,6 @@ mkCreateHealthCheck p1 p2 = CreateHealthCheck
     { _chcCallerReference = p1
     , _chcHealthCheckConfig = p2
     }
-{-# INLINE mkCreateHealthCheck #-}
 
 -- | A unique string that identifies the request and that allows failed
 -- CreateHealthCheck requests to be retried without the risk of executing the
@@ -72,13 +71,11 @@ mkCreateHealthCheck p1 p2 = CreateHealthCheck
 chcCallerReference :: Lens' CreateHealthCheck Text
 chcCallerReference =
     lens _chcCallerReference (\s a -> s { _chcCallerReference = a })
-{-# INLINE chcCallerReference #-}
 
 -- | A complex type that contains health check configuration.
 chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
 chcHealthCheckConfig =
     lens _chcHealthCheckConfig (\s a -> s { _chcHealthCheckConfig = a })
-{-# INLINE chcHealthCheckConfig #-}
 
 instance ToPath CreateHealthCheck where
     toPath = const "/2013-04-01/healthcheck"
@@ -103,12 +100,10 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
 chcrsHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
 chcrsHealthCheck =
     lens _chcrsHealthCheck (\s a -> s { _chcrsHealthCheck = a })
-{-# INLINE chcrsHealthCheck #-}
 
 -- | The unique URL representing the new health check.
 chcrsLocation :: Lens' CreateHealthCheckResponse Text
 chcrsLocation = lens _chcrsLocation (\s a -> s { _chcrsLocation = a })
-{-# INLINE chcrsLocation #-}
 
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53

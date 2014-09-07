@@ -58,14 +58,12 @@ mkListAccountAliases = ListAccountAliases
     { _laaMarker = Nothing
     , _laaMaxItems = Nothing
     }
-{-# INLINE mkListAccountAliases #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
-{-# INLINE laaMarker #-}
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- account aliases you want in the response. If there are additional account
@@ -74,7 +72,6 @@ laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
 -- 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Integer)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a })
-{-# INLINE laaMaxItems #-}
 
 instance ToQuery ListAccountAliases where
     toQuery = genericQuery def
@@ -83,7 +80,7 @@ instance ToQuery ListAccountAliases where
 -- action.
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarsAccountAliases :: [Text]
-    , _laarsIsTruncated :: Maybe Bool
+    , _laarsIsTruncated :: Bool
     , _laarsMarker :: Maybe Text
     } deriving (Show, Generic)
 
@@ -91,23 +88,20 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
 laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarsAccountAliases =
     lens _laarsAccountAliases (\s a -> s { _laarsAccountAliases = a })
-{-# INLINE laarsAccountAliases #-}
 
 -- | A flag that indicates whether there are more account aliases to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more account aliases in the
 -- list.
-laarsIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
+laarsIsTruncated :: Lens' ListAccountAliasesResponse Bool
 laarsIsTruncated =
     lens _laarsIsTruncated (\s a -> s { _laarsIsTruncated = a })
-{-# INLINE laarsIsTruncated #-}
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
 laarsMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarsMarker = lens _laarsMarker (\s a -> s { _laarsMarker = a })
-{-# INLINE laarsMarker #-}
 
 instance FromXML ListAccountAliasesResponse where
     fromXMLOptions = xmlOptions
@@ -121,7 +115,5 @@ instance AWSRequest ListAccountAliases where
 
 instance AWSPager ListAccountAliases where
     next rq rs
-        | not (_laarsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _laaMarker = _laarsMarker rs
-            }
+        | not (rs ^. laarsIsTruncated) = Nothing
+        | otherwise = Just (rq & laaMarker .~ rs ^. laarsMarker)

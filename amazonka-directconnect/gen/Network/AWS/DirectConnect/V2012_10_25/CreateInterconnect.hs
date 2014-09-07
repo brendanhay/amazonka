@@ -75,25 +75,21 @@ mkCreateInterconnect p1 p2 p3 = CreateInterconnect
     , _ciBandwidth = p2
     , _ciLocation = p3
     }
-{-# INLINE mkCreateInterconnect #-}
 
 -- | The name of the interconnect. Example: "1G Interconnect to AWS" Default:
 -- None.
 ciInterconnectName :: Lens' CreateInterconnect Text
 ciInterconnectName =
     lens _ciInterconnectName (\s a -> s { _ciInterconnectName = a })
-{-# INLINE ciInterconnectName #-}
 
 -- | The port bandwidth Example: 1Gbps Default: None Available values:
 -- 1Gbps,10Gbps.
 ciBandwidth :: Lens' CreateInterconnect Text
 ciBandwidth = lens _ciBandwidth (\s a -> s { _ciBandwidth = a })
-{-# INLINE ciBandwidth #-}
 
 -- | Where the interconnect is located Example: EqSV5 Default: None.
 ciLocation :: Lens' CreateInterconnect Text
 ciLocation = lens _ciLocation (\s a -> s { _ciLocation = a })
-{-# INLINE ciLocation #-}
 
 instance ToPath CreateInterconnect
 
@@ -126,13 +122,11 @@ data CreateInterconnectResponse = CreateInterconnectResponse
 cirsInterconnectId :: Lens' CreateInterconnectResponse (Maybe Text)
 cirsInterconnectId =
     lens _cirsInterconnectId (\s a -> s { _cirsInterconnectId = a })
-{-# INLINE cirsInterconnectId #-}
 
 -- | The name of the interconnect. Example: "1G Interconnect to AWS".
 cirsInterconnectName :: Lens' CreateInterconnectResponse (Maybe Text)
 cirsInterconnectName =
     lens _cirsInterconnectName (\s a -> s { _cirsInterconnectName = a })
-{-# INLINE cirsInterconnectName #-}
 
 -- | State of the interconnect. Requested: The initial state of an interconnect.
 -- The interconnect stays in the requested state until the Letter of
@@ -143,23 +137,19 @@ cirsInterconnectName =
 cirsInterconnectState :: Lens' CreateInterconnectResponse (Maybe InterconnectState)
 cirsInterconnectState =
     lens _cirsInterconnectState (\s a -> s { _cirsInterconnectState = a })
-{-# INLINE cirsInterconnectState #-}
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
 cirsRegion :: Lens' CreateInterconnectResponse (Maybe Text)
 cirsRegion = lens _cirsRegion (\s a -> s { _cirsRegion = a })
-{-# INLINE cirsRegion #-}
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
 cirsLocation :: Lens' CreateInterconnectResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\s a -> s { _cirsLocation = a })
-{-# INLINE cirsLocation #-}
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
 cirsBandwidth :: Lens' CreateInterconnectResponse (Maybe Text)
 cirsBandwidth = lens _cirsBandwidth (\s a -> s { _cirsBandwidth = a })
-{-# INLINE cirsBandwidth #-}
 
 instance FromJSON CreateInterconnectResponse
 

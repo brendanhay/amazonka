@@ -85,26 +85,22 @@ mkDescribeImages = DescribeImages
     , _di1ExecutableUsers = mempty
     , _di1Filters = mempty
     }
-{-# INLINE mkDescribeImages #-}
 
 -- | One or more image IDs. Default: Describes all images available to you.
 di1ImageIds :: Lens' DescribeImages [Text]
 di1ImageIds = lens _di1ImageIds (\s a -> s { _di1ImageIds = a })
-{-# INLINE di1ImageIds #-}
 
 -- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
 -- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is the
 -- sender of the request), or all (all owners).
 di1Owners :: Lens' DescribeImages [Text]
 di1Owners = lens _di1Owners (\s a -> s { _di1Owners = a })
-{-# INLINE di1Owners #-}
 
 -- | Scopes the images by users with explicit launch permissions. Specify an AWS
 -- account ID, self (the sender of the request), or all (public AMIs).
 di1ExecutableUsers :: Lens' DescribeImages [Text]
 di1ExecutableUsers =
     lens _di1ExecutableUsers (\s a -> s { _di1ExecutableUsers = a })
-{-# INLINE di1ExecutableUsers #-}
 
 -- | One or more filters. architecture - The image architecture (i386 | x86_64).
 -- block-device-mapping.delete-on-termination - A Boolean value that indicates
@@ -141,7 +137,6 @@ di1ExecutableUsers =
 -- virtualization type (paravirtual | hvm).
 di1Filters :: Lens' DescribeImages [Filter]
 di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a })
-{-# INLINE di1Filters #-}
 
 instance ToQuery DescribeImages where
     toQuery = genericQuery def
@@ -154,7 +149,6 @@ newtype DescribeImagesResponse = DescribeImagesResponse
 -- | Information about one or more images.
 dirsImages :: Lens' DescribeImagesResponse [Image]
 dirsImages = lens _dirsImages (\s a -> s { _dirsImages = a })
-{-# INLINE dirsImages #-}
 
 instance FromXML DescribeImagesResponse where
     fromXMLOptions = xmlOptions

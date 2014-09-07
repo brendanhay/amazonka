@@ -90,7 +90,6 @@ mkBatchGetItem p1 = BatchGetItem
     { _bgiRequestItems = p1
     , _bgiReturnConsumedCapacity = Nothing
     }
-{-# INLINE mkBatchGetItem #-}
 
 -- | A map of one or more table names and, for each table, the corresponding
 -- primary keys for the items to retrieve. Each table name can be invoked only
@@ -103,7 +102,6 @@ mkBatchGetItem p1 = BatchGetItem
 -- consistent read is used.
 bgiRequestItems :: Lens' BatchGetItem (Map Text KeysAndAttributes)
 bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a })
-{-# INLINE bgiRequestItems #-}
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
 -- indexes. If set to INDEXES, the repsonse includes ConsumedCapacity for
@@ -113,7 +111,6 @@ bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
 bgiReturnConsumedCapacity =
     lens _bgiReturnConsumedCapacity
          (\s a -> s { _bgiReturnConsumedCapacity = a })
-{-# INLINE bgiReturnConsumedCapacity #-}
 
 instance ToPath BatchGetItem
 
@@ -135,7 +132,6 @@ data BatchGetItemResponse = BatchGetItemResponse
 -- type and attribute value.
 bgirsResponses :: Lens' BatchGetItemResponse (Map Text [Map Text AttributeValue])
 bgirsResponses = lens _bgirsResponses (\s a -> s { _bgirsResponses = a })
-{-# INLINE bgirsResponses #-}
 
 -- | A map of tables and their respective keys that were not processed with the
 -- current response. The UnprocessedKeys value is in the same form as
@@ -151,7 +147,6 @@ bgirsResponses = lens _bgirsResponses (\s a -> s { _bgirsResponses = a })
 bgirsUnprocessedKeys :: Lens' BatchGetItemResponse (Map Text KeysAndAttributes)
 bgirsUnprocessedKeys =
     lens _bgirsUnprocessedKeys (\s a -> s { _bgirsUnprocessedKeys = a })
-{-# INLINE bgirsUnprocessedKeys #-}
 
 -- | The write capacity units consumed by the operation. Each element consists
 -- of: TableName - The table that consumed the provisioned throughput.
@@ -159,7 +154,6 @@ bgirsUnprocessedKeys =
 bgirsConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
 bgirsConsumedCapacity =
     lens _bgirsConsumedCapacity (\s a -> s { _bgirsConsumedCapacity = a })
-{-# INLINE bgirsConsumedCapacity #-}
 
 instance FromJSON BatchGetItemResponse
 

@@ -86,23 +86,19 @@ mkListActivityTypes p1 p3 = ListActivityTypes
     , _latMaximumPageSize = Nothing
     , _latReverseOrder = Nothing
     }
-{-# INLINE mkListActivityTypes #-}
 
 -- | The name of the domain in which the activity types have been registered.
 latDomain :: Lens' ListActivityTypes Text
 latDomain = lens _latDomain (\s a -> s { _latDomain = a })
-{-# INLINE latDomain #-}
 
 -- | If specified, only lists the activity types that have this name.
 latName :: Lens' ListActivityTypes (Maybe Text)
 latName = lens _latName (\s a -> s { _latName = a })
-{-# INLINE latName #-}
 
 -- | Specifies the registration status of the activity types to list.
 latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus =
     lens _latRegistrationStatus (\s a -> s { _latRegistrationStatus = a })
-{-# INLINE latRegistrationStatus #-}
 
 -- | If on a previous call to this method a NextResultToken was returned, the
 -- results have more than one page. To get the next page of results, repeat
@@ -110,7 +106,6 @@ latRegistrationStatus =
 latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
 latNextPageToken =
     lens _latNextPageToken (\s a -> s { _latNextPageToken = a })
-{-# INLINE latNextPageToken #-}
 
 -- | The maximum number of results returned in each page. The default is 100,
 -- but the caller can override this value to a page size smaller than the
@@ -120,14 +115,12 @@ latNextPageToken =
 latMaximumPageSize :: Lens' ListActivityTypes (Maybe Integer)
 latMaximumPageSize =
     lens _latMaximumPageSize (\s a -> s { _latMaximumPageSize = a })
-{-# INLINE latMaximumPageSize #-}
 
 -- | When set to true, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the name of the
 -- activity types.
 latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
 latReverseOrder = lens _latReverseOrder (\s a -> s { _latReverseOrder = a })
-{-# INLINE latReverseOrder #-}
 
 instance ToPath ListActivityTypes
 
@@ -146,7 +139,6 @@ data ListActivityTypesResponse = ListActivityTypesResponse
 -- | List of activity type information.
 latrsTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrsTypeInfos = lens _latrsTypeInfos (\s a -> s { _latrsTypeInfos = a })
-{-# INLINE latrsTypeInfos #-}
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
@@ -154,7 +146,6 @@ latrsTypeInfos = lens _latrsTypeInfos (\s a -> s { _latrsTypeInfos = a })
 latrsNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 latrsNextPageToken =
     lens _latrsNextPageToken (\s a -> s { _latrsNextPageToken = a })
-{-# INLINE latrsNextPageToken #-}
 
 instance FromJSON ListActivityTypesResponse
 
@@ -166,5 +157,5 @@ instance AWSRequest ListActivityTypes where
     response _ = jsonResponse
 
 instance AWSPager ListActivityTypes where
-    next rq rs = (\x -> rq { _latNextPageToken = Just x })
-        <$> (_latrsNextPageToken rs)
+    next rq rs = (\x -> rq & latNextPageToken ?~ x) <$> (rs ^. latrsNextPageToken)
+

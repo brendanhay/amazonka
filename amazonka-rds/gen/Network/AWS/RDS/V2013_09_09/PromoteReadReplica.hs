@@ -64,7 +64,6 @@ mkPromoteReadReplica p1 = PromoteReadReplica
     , _prrBackupRetentionPeriod = Nothing
     , _prrPreferredBackupWindow = Nothing
     }
-{-# INLINE mkPromoteReadReplica #-}
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 -- Constraints: Must be the identifier for an existing read replica DB
@@ -75,7 +74,6 @@ prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
 prrDBInstanceIdentifier =
     lens _prrDBInstanceIdentifier
          (\s a -> s { _prrDBInstanceIdentifier = a })
-{-# INLINE prrDBInstanceIdentifier #-}
 
 -- | The number of days to retain automated backups. Setting this parameter to a
 -- positive number enables backups. Setting this parameter to 0 disables
@@ -84,7 +82,6 @@ prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Integer)
 prrBackupRetentionPeriod =
     lens _prrBackupRetentionPeriod
          (\s a -> s { _prrBackupRetentionPeriod = a })
-{-# INLINE prrBackupRetentionPeriod #-}
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the BackupRetentionPeriod parameter.
@@ -98,7 +95,6 @@ prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrPreferredBackupWindow =
     lens _prrPreferredBackupWindow
          (\s a -> s { _prrPreferredBackupWindow = a })
-{-# INLINE prrPreferredBackupWindow #-}
 
 instance ToQuery PromoteReadReplica where
     toQuery = genericQuery def
@@ -112,7 +108,6 @@ newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
 -- as a response element in the DescribeDBInstances action.
 prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrsDBInstance = lens _prrrsDBInstance (\s a -> s { _prrrsDBInstance = a })
-{-# INLINE prrrsDBInstance #-}
 
 instance FromXML PromoteReadReplicaResponse where
     fromXMLOptions = xmlOptions

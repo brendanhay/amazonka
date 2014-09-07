@@ -82,29 +82,24 @@ mkPutAttributes p1 p2 p3 = PutAttributes
     , _paAttributes = p3
     , _paExpected = Nothing
     }
-{-# INLINE mkPutAttributes #-}
 
 -- | The name of the domain in which to perform the operation.
 paDomainName :: Lens' PutAttributes Text
 paDomainName = lens _paDomainName (\s a -> s { _paDomainName = a })
-{-# INLINE paDomainName #-}
 
 -- | The name of the item.
 paItemName :: Lens' PutAttributes Text
 paItemName = lens _paItemName (\s a -> s { _paItemName = a })
-{-# INLINE paItemName #-}
 
 -- | The list of attributes.
 paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
 paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a })
-{-# INLINE paAttributes #-}
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be updated or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be updated.
 paExpected :: Lens' PutAttributes (Maybe UpdateCondition)
 paExpected = lens _paExpected (\s a -> s { _paExpected = a })
-{-# INLINE paExpected #-}
 
 instance ToQuery PutAttributes where
     toQuery = genericQuery def

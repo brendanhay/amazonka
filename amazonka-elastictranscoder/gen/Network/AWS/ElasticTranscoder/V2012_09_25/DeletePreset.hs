@@ -60,13 +60,11 @@ mkDeletePreset :: Text -- ^ 'dp1Id'
 mkDeletePreset p1 = DeletePreset
     { _dp1Id = p1
     }
-{-# INLINE mkDeletePreset #-}
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
 dp1Id :: Lens' DeletePreset Text
 dp1Id = lens _dp1Id (\s a -> s { _dp1Id = a })
-{-# INLINE dp1Id #-}
 
 instance ToPath DeletePreset where
     toPath DeletePreset{..} = mconcat

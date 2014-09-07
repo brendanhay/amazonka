@@ -49,7 +49,6 @@ data ListSAMLProviders = ListSAMLProviders
 -- a valid 'ListSAMLProviders' request.
 mkListSAMLProviders :: ListSAMLProviders
 mkListSAMLProviders = ListSAMLProviders
-{-# INLINE mkListSAMLProviders #-}
 
 instance ToQuery ListSAMLProviders where
     toQuery = genericQuery def
@@ -65,7 +64,6 @@ lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEnt
 lsamlprsSAMLProviderList =
     lens _lsamlprsSAMLProviderList
          (\s a -> s { _lsamlprsSAMLProviderList = a })
-{-# INLINE lsamlprsSAMLProviderList #-}
 
 instance FromXML ListSAMLProvidersResponse where
     fromXMLOptions = xmlOptions

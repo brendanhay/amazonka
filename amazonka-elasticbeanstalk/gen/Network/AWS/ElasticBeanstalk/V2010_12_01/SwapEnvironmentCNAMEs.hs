@@ -58,7 +58,6 @@ mkSwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     , _secnameDestinationEnvironmentId = Nothing
     , _secnameDestinationEnvironmentName = Nothing
     }
-{-# INLINE mkSwapEnvironmentCNAMEs #-}
 
 -- | The ID of the source environment. Condition: You must specify at least the
 -- SourceEnvironmentID or the SourceEnvironmentName. You may also specify
@@ -68,7 +67,6 @@ secnameSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnameSourceEnvironmentId =
     lens _secnameSourceEnvironmentId
          (\s a -> s { _secnameSourceEnvironmentId = a })
-{-# INLINE secnameSourceEnvironmentId #-}
 
 -- | The name of the source environment. Condition: You must specify at least
 -- the SourceEnvironmentID or the SourceEnvironmentName. You may also specify
@@ -78,7 +76,6 @@ secnameSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnameSourceEnvironmentName =
     lens _secnameSourceEnvironmentName
          (\s a -> s { _secnameSourceEnvironmentName = a })
-{-# INLINE secnameSourceEnvironmentName #-}
 
 -- | The ID of the destination environment. Condition: You must specify at least
 -- the DestinationEnvironmentID or the DestinationEnvironmentName. You may
@@ -88,7 +85,6 @@ secnameDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnameDestinationEnvironmentId =
     lens _secnameDestinationEnvironmentId
          (\s a -> s { _secnameDestinationEnvironmentId = a })
-{-# INLINE secnameDestinationEnvironmentId #-}
 
 -- | The name of the destination environment. Condition: You must specify at
 -- least the DestinationEnvironmentID or the DestinationEnvironmentName. You
@@ -98,7 +94,6 @@ secnameDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnameDestinationEnvironmentName =
     lens _secnameDestinationEnvironmentName
          (\s a -> s { _secnameDestinationEnvironmentName = a })
-{-# INLINE secnameDestinationEnvironmentName #-}
 
 instance ToQuery SwapEnvironmentCNAMEs where
     toQuery = genericQuery def

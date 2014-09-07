@@ -50,14 +50,12 @@ mkDescribeEventCategories :: DescribeEventCategories
 mkDescribeEventCategories = DescribeEventCategories
     { _decSourceType = Nothing
     }
-{-# INLINE mkDescribeEventCategories #-}
 
 -- | The source type, such as cluster or parameter group, to which the described
 -- event categories apply. Valid values: cluster, snapshot, parameter group,
 -- and security group.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
-{-# INLINE decSourceType #-}
 
 instance ToQuery DescribeEventCategories where
     toQuery = genericQuery def
@@ -72,7 +70,6 @@ decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCateg
 decrsEventCategoriesMapList =
     lens _decrsEventCategoriesMapList
          (\s a -> s { _decrsEventCategoriesMapList = a })
-{-# INLINE decrsEventCategoriesMapList #-}
 
 instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions

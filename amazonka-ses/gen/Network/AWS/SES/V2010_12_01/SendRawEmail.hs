@@ -99,7 +99,6 @@ mkSendRawEmail p3 = SendRawEmail
     , _sreDestinations = mempty
     , _sreRawMessage = p3
     }
-{-# INLINE mkSendRawEmail #-}
 
 -- | The identity's email address. By default, the string must be 7-bit ASCII.
 -- If the text must contain any other characters, then you must use MIME
@@ -112,13 +111,11 @@ mkSendRawEmail p3 = SendRawEmail
 -- text of the message.
 sreSource :: Lens' SendRawEmail (Maybe Text)
 sreSource = lens _sreSource (\s a -> s { _sreSource = a })
-{-# INLINE sreSource #-}
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
 sreDestinations :: Lens' SendRawEmail [Text]
 sreDestinations = lens _sreDestinations (\s a -> s { _sreDestinations = a })
-{-# INLINE sreDestinations #-}
 
 -- | The raw text of the message. The client is responsible for ensuring the
 -- following: Message must contain a header and a body, separated by a blank
@@ -128,7 +125,6 @@ sreDestinations = lens _sreDestinations (\s a -> s { _sreDestinations = a })
 -- Developer Guide. Content must be base64-encoded, if MIME requires it.
 sreRawMessage :: Lens' SendRawEmail RawMessage
 sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
-{-# INLINE sreRawMessage #-}
 
 instance ToQuery SendRawEmail where
     toQuery = genericQuery def
@@ -142,7 +138,6 @@ newtype SendRawEmailResponse = SendRawEmailResponse
 -- | The unique message identifier returned from the SendRawEmail action.
 srersMessageId :: Lens' SendRawEmailResponse Text
 srersMessageId = lens _srersMessageId (\s a -> s { _srersMessageId = a })
-{-# INLINE srersMessageId #-}
 
 instance FromXML SendRawEmailResponse where
     fromXMLOptions = xmlOptions

@@ -69,7 +69,6 @@ mkDescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbp1LoadBalancerName = Nothing
     , _dlbp1PolicyNames = mempty
     }
-{-# INLINE mkDescribeLoadBalancerPolicies #-}
 
 -- | The mnemonic name associated with the load balancer. If no name is
 -- specified, the operation returns the attributes of either all the sample
@@ -78,14 +77,12 @@ mkDescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
 dlbp1LoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
 dlbp1LoadBalancerName =
     lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
-{-# INLINE dlbp1LoadBalancerName #-}
 
 -- | The names of load balancer policies you've created or Elastic Load
 -- Balancing sample policy names.
 dlbp1PolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
 dlbp1PolicyNames =
     lens _dlbp1PolicyNames (\s a -> s { _dlbp1PolicyNames = a })
-{-# INLINE dlbp1PolicyNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicies where
     toQuery = genericQuery def
@@ -100,7 +97,6 @@ dlbprsrsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [Policy
 dlbprsrsPolicyDescriptions =
     lens _dlbprsrsPolicyDescriptions
          (\s a -> s { _dlbprsrsPolicyDescriptions = a })
-{-# INLINE dlbprsrsPolicyDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPoliciesResponse where
     fromXMLOptions = xmlOptions

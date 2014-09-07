@@ -49,11 +49,9 @@ mkGetBucketTagging :: BucketName -- ^ 'gbtBucket'
 mkGetBucketTagging p1 = GetBucketTagging
     { _gbtBucket = p1
     }
-{-# INLINE mkGetBucketTagging #-}
 
 gbtBucket :: Lens' GetBucketTagging BucketName
 gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
-{-# INLINE gbtBucket #-}
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat
@@ -76,7 +74,6 @@ newtype GetBucketTaggingResponse = GetBucketTaggingResponse
 
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrsTagSet = lens _gbtrsTagSet (\s a -> s { _gbtrsTagSet = a })
-{-# INLINE gbtrsTagSet #-}
 
 instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions

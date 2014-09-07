@@ -66,23 +66,19 @@ mkUpdateGroup p1 = UpdateGroup
     , _ugNewPath = Nothing
     , _ugNewGroupName = Nothing
     }
-{-# INLINE mkUpdateGroup #-}
 
 -- | Name of the group to update. If you're changing the name of the group, this
 -- is the original name.
 ugGroupName :: Lens' UpdateGroup Text
 ugGroupName = lens _ugGroupName (\s a -> s { _ugGroupName = a })
-{-# INLINE ugGroupName #-}
 
 -- | New path for the group. Only include this if changing the group's path.
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
-{-# INLINE ugNewPath #-}
 
 -- | New name for the group. Only include this if changing the group's name.
 ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
 ugNewGroupName = lens _ugNewGroupName (\s a -> s { _ugNewGroupName = a })
-{-# INLINE ugNewGroupName #-}
 
 instance ToQuery UpdateGroup where
     toQuery = genericQuery def

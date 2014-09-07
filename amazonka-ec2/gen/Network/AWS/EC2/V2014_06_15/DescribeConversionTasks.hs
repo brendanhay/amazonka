@@ -58,18 +58,15 @@ mkDescribeConversionTasks = DescribeConversionTasks
     { _dctFilters = mempty
     , _dctConversionTaskIds = mempty
     }
-{-# INLINE mkDescribeConversionTasks #-}
 
 -- | 
 dctFilters :: Lens' DescribeConversionTasks [Filter]
 dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a })
-{-# INLINE dctFilters #-}
 
 -- | One or more conversion task IDs.
 dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
 dctConversionTaskIds =
     lens _dctConversionTaskIds (\s a -> s { _dctConversionTaskIds = a })
-{-# INLINE dctConversionTaskIds #-}
 
 instance ToQuery DescribeConversionTasks where
     toQuery = genericQuery def
@@ -83,7 +80,6 @@ newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
 dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrsConversionTasks =
     lens _dctrsConversionTasks (\s a -> s { _dctrsConversionTasks = a })
-{-# INLINE dctrsConversionTasks #-}
 
 instance FromXML DescribeConversionTasksResponse where
     fromXMLOptions = xmlOptions

@@ -102,26 +102,22 @@ mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 = PutMetricAlarm
     , _pmaThreshold = p14
     , _pmaComparisonOperator = p15
     }
-{-# INLINE mkPutMetricAlarm #-}
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account.
 pmaAlarmName :: Lens' PutMetricAlarm Text
 pmaAlarmName = lens _pmaAlarmName (\s a -> s { _pmaAlarmName = a })
-{-# INLINE pmaAlarmName #-}
 
 -- | The description for the alarm.
 pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
 pmaAlarmDescription =
     lens _pmaAlarmDescription (\s a -> s { _pmaAlarmDescription = a })
-{-# INLINE pmaAlarmDescription #-}
 
 -- | Indicates whether or not actions should be executed during any changes to
 -- the alarm's state.
 pmaActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
 pmaActionsEnabled =
     lens _pmaActionsEnabled (\s a -> s { _pmaActionsEnabled = a })
-{-# INLINE pmaActionsEnabled #-}
 
 -- | The list of actions to execute when this alarm transitions into an OK state
 -- from any other state. Each action is specified as an Amazon Resource Number
@@ -129,7 +125,6 @@ pmaActionsEnabled =
 -- topic or an Amazon Auto Scaling policy.
 pmaOKActions :: Lens' PutMetricAlarm [Text]
 pmaOKActions = lens _pmaOKActions (\s a -> s { _pmaOKActions = a })
-{-# INLINE pmaOKActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an ALARM
 -- state from any other state. Each action is specified as an Amazon Resource
@@ -137,7 +132,6 @@ pmaOKActions = lens _pmaOKActions (\s a -> s { _pmaOKActions = a })
 -- Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaAlarmActions :: Lens' PutMetricAlarm [Text]
 pmaAlarmActions = lens _pmaAlarmActions (\s a -> s { _pmaAlarmActions = a })
-{-# INLINE pmaAlarmActions #-}
 
 -- | The list of actions to execute when this alarm transitions into an
 -- INSUFFICIENT_DATA state from any other state. Each action is specified as
@@ -147,56 +141,46 @@ pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
 pmaInsufficientDataActions =
     lens _pmaInsufficientDataActions
          (\s a -> s { _pmaInsufficientDataActions = a })
-{-# INLINE pmaInsufficientDataActions #-}
 
 -- | The name for the alarm's associated metric.
 pmaMetricName :: Lens' PutMetricAlarm Text
 pmaMetricName = lens _pmaMetricName (\s a -> s { _pmaMetricName = a })
-{-# INLINE pmaMetricName #-}
 
 -- | The namespace for the alarm's associated metric.
 pmaNamespace :: Lens' PutMetricAlarm Text
 pmaNamespace = lens _pmaNamespace (\s a -> s { _pmaNamespace = a })
-{-# INLINE pmaNamespace #-}
 
 -- | The statistic to apply to the alarm's associated metric.
 pmaStatistic :: Lens' PutMetricAlarm Statistic
 pmaStatistic = lens _pmaStatistic (\s a -> s { _pmaStatistic = a })
-{-# INLINE pmaStatistic #-}
 
 -- | The dimensions for the alarm's associated metric.
 pmaDimensions :: Lens' PutMetricAlarm [Dimension]
 pmaDimensions = lens _pmaDimensions (\s a -> s { _pmaDimensions = a })
-{-# INLINE pmaDimensions #-}
 
 -- | The period in seconds over which the specified statistic is applied.
 pmaPeriod :: Lens' PutMetricAlarm Integer
 pmaPeriod = lens _pmaPeriod (\s a -> s { _pmaPeriod = a })
-{-# INLINE pmaPeriod #-}
 
 -- | The unit for the alarm's associated metric.
 pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
 pmaUnit = lens _pmaUnit (\s a -> s { _pmaUnit = a })
-{-# INLINE pmaUnit #-}
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
 pmaEvaluationPeriods :: Lens' PutMetricAlarm Integer
 pmaEvaluationPeriods =
     lens _pmaEvaluationPeriods (\s a -> s { _pmaEvaluationPeriods = a })
-{-# INLINE pmaEvaluationPeriods #-}
 
 -- | The value against which the specified statistic is compared.
 pmaThreshold :: Lens' PutMetricAlarm Double
 pmaThreshold = lens _pmaThreshold (\s a -> s { _pmaThreshold = a })
-{-# INLINE pmaThreshold #-}
 
 -- | The arithmetic operation to use when comparing the specified Statistic and
 -- Threshold. The specified Statistic value is used as the first operand.
 pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
 pmaComparisonOperator =
     lens _pmaComparisonOperator (\s a -> s { _pmaComparisonOperator = a })
-{-# INLINE pmaComparisonOperator #-}
 
 instance ToQuery PutMetricAlarm where
     toQuery = genericQuery def

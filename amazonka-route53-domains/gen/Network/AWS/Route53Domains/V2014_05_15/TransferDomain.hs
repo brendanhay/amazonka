@@ -136,7 +136,6 @@ mkTransferDomain p1 p3 p4 p7 p8 p9 = TransferDomain
     , _tdPrivacyProtectRegistrantContact = Nothing
     , _tdPrivacyProtectTechContact = Nothing
     }
-{-# INLINE mkTransferDomain #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -144,12 +143,10 @@ mkTransferDomain p1 p3 p4 p7 p8 p9 = TransferDomain
 -- Yes.
 tdDomainName :: Lens' TransferDomain Text
 tdDomainName = lens _tdDomainName (\s a -> s { _tdDomainName = a })
-{-# INLINE tdDomainName #-}
 
 -- | Reserved for future use.
 tdIdnLangCode :: Lens' TransferDomain (Maybe Text)
 tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
-{-# INLINE tdIdnLangCode #-}
 
 -- | The number of years the domain will be registered. Domains are registered
 -- for a minimum of one year. The maximum period depends on the top-level
@@ -158,26 +155,22 @@ tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
 tdDurationInYears :: Lens' TransferDomain Integer
 tdDurationInYears =
     lens _tdDurationInYears (\s a -> s { _tdDurationInYears = a })
-{-# INLINE tdDurationInYears #-}
 
 -- | Contains details for the host and glue IP addresses. Type: Complex
 -- Children: GlueIps, Name.
 tdNameservers :: Lens' TransferDomain [Nameserver]
 tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a })
-{-# INLINE tdNameservers #-}
 
 -- | The authorization code for the domain. You get this value from the current
 -- registrar. Type: String Required: Yes.
 tdAuthCode :: Lens' TransferDomain (Maybe Text)
 tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a })
-{-# INLINE tdAuthCode #-}
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged. Type:
 -- Boolean Valid values: true | false Default: true Required: No.
 tdAutoRenew :: Lens' TransferDomain (Maybe Bool)
 tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
-{-# INLINE tdAutoRenew #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -185,7 +178,6 @@ tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
 -- ExtraParams Required: Yes.
 tdAdminContact :: Lens' TransferDomain ContactDetail
 tdAdminContact = lens _tdAdminContact (\s a -> s { _tdAdminContact = a })
-{-# INLINE tdAdminContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -194,7 +186,6 @@ tdAdminContact = lens _tdAdminContact (\s a -> s { _tdAdminContact = a })
 tdRegistrantContact :: Lens' TransferDomain ContactDetail
 tdRegistrantContact =
     lens _tdRegistrantContact (\s a -> s { _tdRegistrantContact = a })
-{-# INLINE tdRegistrantContact #-}
 
 -- | Provides detailed contact information. Type: Complex Children: FirstName,
 -- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
@@ -202,7 +193,6 @@ tdRegistrantContact =
 -- ExtraParams Required: Yes.
 tdTechContact :: Lens' TransferDomain ContactDetail
 tdTechContact = lens _tdTechContact (\s a -> s { _tdTechContact = a })
-{-# INLINE tdTechContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -212,7 +202,6 @@ tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectAdminContact =
     lens _tdPrivacyProtectAdminContact
          (\s a -> s { _tdPrivacyProtectAdminContact = a })
-{-# INLINE tdPrivacyProtectAdminContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -222,7 +211,6 @@ tdPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectRegistrantContact =
     lens _tdPrivacyProtectRegistrantContact
          (\s a -> s { _tdPrivacyProtectRegistrantContact = a })
-{-# INLINE tdPrivacyProtectRegistrantContact #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -232,7 +220,6 @@ tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectTechContact =
     lens _tdPrivacyProtectTechContact
          (\s a -> s { _tdPrivacyProtectTechContact = a })
-{-# INLINE tdPrivacyProtectTechContact #-}
 
 instance ToPath TransferDomain
 
@@ -252,7 +239,6 @@ newtype TransferDomainResponse = TransferDomainResponse
 -- None Constraints: Maximum 255 characters.
 tdrsOperationId :: Lens' TransferDomainResponse Text
 tdrsOperationId = lens _tdrsOperationId (\s a -> s { _tdrsOperationId = a })
-{-# INLINE tdrsOperationId #-}
 
 instance FromJSON TransferDomainResponse
 

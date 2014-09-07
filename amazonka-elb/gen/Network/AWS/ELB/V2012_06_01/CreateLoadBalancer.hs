@@ -133,7 +133,6 @@ mkCreateLoadBalancer p1 p2 = CreateLoadBalancer
     , _clbScheme = Nothing
     , _clbTags = Nothing
     }
-{-# INLINE mkCreateLoadBalancer #-}
 
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers, must have a maximum of 32 characters, and must
@@ -141,13 +140,11 @@ mkCreateLoadBalancer p1 p2 = CreateLoadBalancer
 clbLoadBalancerName :: Lens' CreateLoadBalancer Text
 clbLoadBalancerName =
     lens _clbLoadBalancerName (\s a -> s { _clbLoadBalancerName = a })
-{-# INLINE clbLoadBalancerName #-}
 
 -- | A list of the following tuples: Protocol, LoadBalancerPort,
 -- InstanceProtocol, InstancePort, and SSLCertificateId.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
 clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a })
-{-# INLINE clbListeners #-}
 
 -- | A list of Availability Zones. At least one Availability Zone must be
 -- specified. Specified Availability Zones must be in the same EC2 Region as
@@ -157,19 +154,16 @@ clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a })
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones =
     lens _clbAvailabilityZones (\s a -> s { _clbAvailabilityZones = a })
-{-# INLINE clbAvailabilityZones #-}
 
 -- | A list of subnet IDs in your VPC to attach to your load balancer. Specify
 -- one subnet per Availability Zone.
 clbSubnets :: Lens' CreateLoadBalancer [Text]
 clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a })
-{-# INLINE clbSubnets #-}
 
 -- | The security groups to assign to your load balancer within your VPC.
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
 clbSecurityGroups =
     lens _clbSecurityGroups (\s a -> s { _clbSecurityGroups = a })
-{-# INLINE clbSecurityGroups #-}
 
 -- | The type of a load balancer. By default, Elastic Load Balancing creates an
 -- Internet-facing load balancer with a publicly resolvable DNS name, which
@@ -180,13 +174,11 @@ clbSecurityGroups =
 -- option is only available for load balancers created within EC2-VPC.
 clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
-{-# INLINE clbScheme #-}
 
 -- | A list of tags to assign to the load balancer. For more information about
 -- setting tags for your load balancer, see Tagging.
 clbTags :: Lens' CreateLoadBalancer (Maybe [Tag])
 clbTags = lens _clbTags (\s a -> s { _clbTags = a })
-{-# INLINE clbTags #-}
 
 instance ToQuery CreateLoadBalancer where
     toQuery = genericQuery def
@@ -199,7 +191,6 @@ newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
 -- | The DNS name for the load balancer.
 clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrsDNSName = lens _clbrsDNSName (\s a -> s { _clbrsDNSName = a })
-{-# INLINE clbrsDNSName #-}
 
 instance FromXML CreateLoadBalancerResponse where
     fromXMLOptions = xmlOptions

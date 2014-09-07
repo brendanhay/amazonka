@@ -61,16 +61,13 @@ mkDeleteMetricFilter p1 p2 = DeleteMetricFilter
     { _dmfLogGroupName = p1
     , _dmfFilterName = p2
     }
-{-# INLINE mkDeleteMetricFilter #-}
 
 dmfLogGroupName :: Lens' DeleteMetricFilter Text
 dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
-{-# INLINE dmfLogGroupName #-}
 
 -- | The name of the metric filter.
 dmfFilterName :: Lens' DeleteMetricFilter Text
 dmfFilterName = lens _dmfFilterName (\s a -> s { _dmfFilterName = a })
-{-# INLINE dmfFilterName #-}
 
 instance ToPath DeleteMetricFilter
 

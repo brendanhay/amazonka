@@ -64,27 +64,22 @@ mkSetPermission p1 p2 = SetPermission
     , _spAllowSudo = Nothing
     , _spLevel = Nothing
     }
-{-# INLINE mkSetPermission #-}
 
 -- | The stack ID.
 spStackId :: Lens' SetPermission Text
 spStackId = lens _spStackId (\s a -> s { _spStackId = a })
-{-# INLINE spStackId #-}
 
 -- | The user's IAM ARN.
 spIamUserArn :: Lens' SetPermission Text
 spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
-{-# INLINE spIamUserArn #-}
 
 -- | The user is allowed to use SSH to communicate with the instance.
 spAllowSsh :: Lens' SetPermission (Maybe Bool)
 spAllowSsh = lens _spAllowSsh (\s a -> s { _spAllowSsh = a })
-{-# INLINE spAllowSsh #-}
 
 -- | The user is allowed to use sudo to elevate privileges.
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
 spAllowSudo = lens _spAllowSudo (\s a -> s { _spAllowSudo = a })
-{-# INLINE spAllowSudo #-}
 
 -- | The user's permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level. deny show deploy manage
@@ -92,7 +87,6 @@ spAllowSudo = lens _spAllowSudo (\s a -> s { _spAllowSudo = a })
 -- levels, see Managing User Permissions.
 spLevel :: Lens' SetPermission (Maybe Text)
 spLevel = lens _spLevel (\s a -> s { _spLevel = a })
-{-# INLINE spLevel #-}
 
 instance ToPath SetPermission
 

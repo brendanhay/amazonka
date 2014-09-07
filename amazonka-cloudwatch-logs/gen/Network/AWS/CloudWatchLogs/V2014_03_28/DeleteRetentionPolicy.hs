@@ -57,11 +57,9 @@ mkDeleteRetentionPolicy :: Text -- ^ 'drpLogGroupName'
 mkDeleteRetentionPolicy p1 = DeleteRetentionPolicy
     { _drpLogGroupName = p1
     }
-{-# INLINE mkDeleteRetentionPolicy #-}
 
 drpLogGroupName :: Lens' DeleteRetentionPolicy Text
 drpLogGroupName = lens _drpLogGroupName (\s a -> s { _drpLogGroupName = a })
-{-# INLINE drpLogGroupName #-}
 
 instance ToPath DeleteRetentionPolicy
 

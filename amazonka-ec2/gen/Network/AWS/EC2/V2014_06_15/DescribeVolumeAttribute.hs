@@ -77,17 +77,14 @@ mkDescribeVolumeAttribute p1 = DescribeVolumeAttribute
     { _dvaVolumeId = p1
     , _dvaAttribute = Nothing
     }
-{-# INLINE mkDescribeVolumeAttribute #-}
 
 -- | The ID of the volume.
 dvaVolumeId :: Lens' DescribeVolumeAttribute Text
 dvaVolumeId = lens _dvaVolumeId (\s a -> s { _dvaVolumeId = a })
-{-# INLINE dvaVolumeId #-}
 
 -- | The instance attribute.
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
-{-# INLINE dvaAttribute #-}
 
 instance ToQuery DescribeVolumeAttribute where
     toQuery = genericQuery def
@@ -102,19 +99,16 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
 -- | The ID of the volume.
 dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarsVolumeId = lens _dvarsVolumeId (\s a -> s { _dvarsVolumeId = a })
-{-# INLINE dvarsVolumeId #-}
 
 -- | The state of autoEnableIO attribute.
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarsAutoEnableIO =
     lens _dvarsAutoEnableIO (\s a -> s { _dvarsAutoEnableIO = a })
-{-# INLINE dvarsAutoEnableIO #-}
 
 -- | A list of product codes.
 dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
 dvarsProductCodes =
     lens _dvarsProductCodes (\s a -> s { _dvarsProductCodes = a })
-{-# INLINE dvarsProductCodes #-}
 
 instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions

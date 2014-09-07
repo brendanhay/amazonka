@@ -61,12 +61,10 @@ mkGetRole :: Text -- ^ 'grRoleName'
 mkGetRole p1 = GetRole
     { _grRoleName = p1
     }
-{-# INLINE mkGetRole #-}
 
 -- | Name of the role to get information about.
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
-{-# INLINE grRoleName #-}
 
 instance ToQuery GetRole where
     toQuery = genericQuery def
@@ -79,7 +77,6 @@ newtype GetRoleResponse = GetRoleResponse
 -- | Information about the role.
 grrsRole :: Lens' GetRoleResponse Role
 grrsRole = lens _grrsRole (\s a -> s { _grrsRole = a })
-{-# INLINE grrsRole #-}
 
 instance FromXML GetRoleResponse where
     fromXMLOptions = xmlOptions

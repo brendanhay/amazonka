@@ -92,7 +92,6 @@ mkSendEmail p1 p2 p3 = SendEmail
     , _seReplyToAddresses = mempty
     , _seReturnPath = Nothing
     }
-{-# INLINE mkSendEmail #-}
 
 -- | The identity's email address. By default, the string must be 7-bit ASCII.
 -- If the text must contain any other characters, then you must use MIME
@@ -101,24 +100,20 @@ mkSendEmail p1 p2 p3 = SendEmail
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\s a -> s { _seSource = a })
-{-# INLINE seSource #-}
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
 seDestination :: Lens' SendEmail Destination
 seDestination = lens _seDestination (\s a -> s { _seDestination = a })
-{-# INLINE seDestination #-}
 
 -- | The message to be sent.
 seMessage :: Lens' SendEmail Message
 seMessage = lens _seMessage (\s a -> s { _seMessage = a })
-{-# INLINE seMessage #-}
 
 -- | The reply-to email address(es) for the message. If the recipient replies to
 -- the message, each reply-to address will receive the reply.
 seReplyToAddresses :: Lens' SendEmail [Text]
 seReplyToAddresses =
     lens _seReplyToAddresses (\s a -> s { _seReplyToAddresses = a })
-{-# INLINE seReplyToAddresses #-}
 
 -- | The email address to which bounces and complaints are to be forwarded when
 -- feedback forwarding is enabled. If the message cannot be delivered to the
@@ -127,7 +122,6 @@ seReplyToAddresses =
 -- ReturnPath parameter.
 seReturnPath :: Lens' SendEmail (Maybe Text)
 seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
-{-# INLINE seReturnPath #-}
 
 instance ToQuery SendEmail where
     toQuery = genericQuery def
@@ -141,7 +135,6 @@ newtype SendEmailResponse = SendEmailResponse
 -- | The unique message identifier returned from the SendEmail action.
 sersMessageId :: Lens' SendEmailResponse Text
 sersMessageId = lens _sersMessageId (\s a -> s { _sersMessageId = a })
-{-# INLINE sersMessageId #-}
 
 instance FromXML SendEmailResponse where
     fromXMLOptions = xmlOptions

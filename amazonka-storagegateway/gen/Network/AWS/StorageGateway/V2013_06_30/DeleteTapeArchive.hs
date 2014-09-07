@@ -48,11 +48,9 @@ mkDeleteTapeArchive :: Text -- ^ 'dtaTapeARN'
 mkDeleteTapeArchive p1 = DeleteTapeArchive
     { _dtaTapeARN = p1
     }
-{-# INLINE mkDeleteTapeArchive #-}
 
 dtaTapeARN :: Lens' DeleteTapeArchive Text
 dtaTapeARN = lens _dtaTapeARN (\s a -> s { _dtaTapeARN = a })
-{-# INLINE dtaTapeARN #-}
 
 instance ToPath DeleteTapeArchive
 
@@ -68,7 +66,6 @@ newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
 
 dtarsTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtarsTapeARN = lens _dtarsTapeARN (\s a -> s { _dtarsTapeARN = a })
-{-# INLINE dtarsTapeARN #-}
 
 instance FromJSON DeleteTapeArchiveResponse
 

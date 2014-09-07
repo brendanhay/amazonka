@@ -78,16 +78,13 @@ mkListObjects p1 = ListObjects
     , _loMaxKeys = Nothing
     , _loPrefix = Nothing
     }
-{-# INLINE mkListObjects #-}
 
 loBucket :: Lens' ListObjects BucketName
 loBucket = lens _loBucket (\s a -> s { _loBucket = a })
-{-# INLINE loBucket #-}
 
 -- | A delimiter is a character you use to group keys.
 loDelimiter :: Lens' ListObjects (Maybe Char)
 loDelimiter = lens _loDelimiter (\s a -> s { _loDelimiter = a })
-{-# INLINE loDelimiter #-}
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
 -- the encoding method to use. An object key may contain any Unicode
@@ -97,23 +94,19 @@ loDelimiter = lens _loDelimiter (\s a -> s { _loDelimiter = a })
 -- encode the keys in the response.
 loEncodingType :: Lens' ListObjects (Maybe EncodingType)
 loEncodingType = lens _loEncodingType (\s a -> s { _loEncodingType = a })
-{-# INLINE loEncodingType #-}
 
 -- | Specifies the key to start with when listing objects in a bucket.
 loMarker :: Lens' ListObjects (Maybe Text)
 loMarker = lens _loMarker (\s a -> s { _loMarker = a })
-{-# INLINE loMarker #-}
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
 loMaxKeys :: Lens' ListObjects (Maybe Integer)
 loMaxKeys = lens _loMaxKeys (\s a -> s { _loMaxKeys = a })
-{-# INLINE loMaxKeys #-}
 
 -- | Limits the response to keys that begin with the specified prefix.
 loPrefix :: Lens' ListObjects (Maybe Text)
 loPrefix = lens _loPrefix (\s a -> s { _loPrefix = a })
-{-# INLINE loPrefix #-}
 
 instance ToPath ListObjects where
     toPath ListObjects{..} = mconcat
@@ -139,7 +132,7 @@ data ListObjectsResponse = ListObjectsResponse
     , _lorsMarker :: Maybe Text
     , _lorsNextMarker :: Maybe Text
     , _lorsContents :: [Object]
-    , _lorsName :: Maybe BucketName
+    , _lorsName :: BucketName
     , _lorsPrefix :: Maybe Text
     , _lorsMaxKeys :: Maybe Integer
     , _lorsCommonPrefixes :: [CommonPrefix]
@@ -150,11 +143,9 @@ data ListObjectsResponse = ListObjectsResponse
 -- that satisfied the search criteria.
 lorsIsTruncated :: Lens' ListObjectsResponse Bool
 lorsIsTruncated = lens _lorsIsTruncated (\s a -> s { _lorsIsTruncated = a })
-{-# INLINE lorsIsTruncated #-}
 
 lorsMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsMarker = lens _lorsMarker (\s a -> s { _lorsMarker = a })
-{-# INLINE lorsMarker #-}
 
 -- | When response is truncated (the IsTruncated element value in the response
 -- is true), you can use the key name in this field as marker in the
@@ -166,34 +157,27 @@ lorsMarker = lens _lorsMarker (\s a -> s { _lorsMarker = a })
 -- object keys.
 lorsNextMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsNextMarker = lens _lorsNextMarker (\s a -> s { _lorsNextMarker = a })
-{-# INLINE lorsNextMarker #-}
 
 lorsContents :: Lens' ListObjectsResponse [Object]
 lorsContents = lens _lorsContents (\s a -> s { _lorsContents = a })
-{-# INLINE lorsContents #-}
 
-lorsName :: Lens' ListObjectsResponse (Maybe BucketName)
+lorsName :: Lens' ListObjectsResponse BucketName
 lorsName = lens _lorsName (\s a -> s { _lorsName = a })
-{-# INLINE lorsName #-}
 
 lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
 lorsPrefix = lens _lorsPrefix (\s a -> s { _lorsPrefix = a })
-{-# INLINE lorsPrefix #-}
 
 lorsMaxKeys :: Lens' ListObjectsResponse (Maybe Integer)
 lorsMaxKeys = lens _lorsMaxKeys (\s a -> s { _lorsMaxKeys = a })
-{-# INLINE lorsMaxKeys #-}
 
 lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorsCommonPrefixes =
     lens _lorsCommonPrefixes (\s a -> s { _lorsCommonPrefixes = a })
-{-# INLINE lorsCommonPrefixes #-}
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
 lorsEncodingType =
     lens _lorsEncodingType (\s a -> s { _lorsEncodingType = a })
-{-# INLINE lorsEncodingType #-}
 
 instance FromXML ListObjectsResponse where
     fromXMLOptions = xmlOptions
@@ -207,7 +191,5 @@ instance AWSRequest ListObjects where
 
 instance AWSPager ListObjects where
     next rq rs
-        | not (_lorsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _loMarker = _lorsNextMarker rs
-            }
+        | not (rs ^. lorsIsTruncated) = Nothing
+        | otherwise = Just (rq & loMarker .~ rs ^. lorsNextMarker)

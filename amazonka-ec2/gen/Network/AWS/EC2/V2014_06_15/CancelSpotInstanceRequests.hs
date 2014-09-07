@@ -66,14 +66,12 @@ mkCancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
 mkCancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
     { _csirSpotInstanceRequestIds = p1
     }
-{-# INLINE mkCancelSpotInstanceRequests #-}
 
 -- | One or more Spot Instance request IDs.
 csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds =
     lens _csirSpotInstanceRequestIds
          (\s a -> s { _csirSpotInstanceRequestIds = a })
-{-# INLINE csirSpotInstanceRequestIds #-}
 
 instance ToQuery CancelSpotInstanceRequests where
     toQuery = genericQuery def
@@ -88,7 +86,6 @@ csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse 
 csirrsCancelledSpotInstanceRequests =
     lens _csirrsCancelledSpotInstanceRequests
          (\s a -> s { _csirrsCancelledSpotInstanceRequests = a })
-{-# INLINE csirrsCancelledSpotInstanceRequests #-}
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions

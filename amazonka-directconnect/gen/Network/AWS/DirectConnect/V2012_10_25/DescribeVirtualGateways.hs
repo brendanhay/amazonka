@@ -46,7 +46,6 @@ data DescribeVirtualGateways = DescribeVirtualGateways
 -- a valid 'DescribeVirtualGateways' request.
 mkDescribeVirtualGateways :: DescribeVirtualGateways
 mkDescribeVirtualGateways = DescribeVirtualGateways
-{-# INLINE mkDescribeVirtualGateways #-}
 
 instance ToPath DescribeVirtualGateways
 
@@ -65,7 +64,6 @@ newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
 dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrsVirtualGateways =
     lens _dvgrsVirtualGateways (\s a -> s { _dvgrsVirtualGateways = a })
-{-# INLINE dvgrsVirtualGateways #-}
 
 instance FromJSON DescribeVirtualGatewaysResponse
 

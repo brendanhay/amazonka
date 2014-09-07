@@ -69,7 +69,6 @@ mkDescribeClusterParameterGroups = DescribeClusterParameterGroups
     , _dcpg1MaxRecords = Nothing
     , _dcpg1Marker = Nothing
     }
-{-# INLINE mkDescribeClusterParameterGroups #-}
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter group
@@ -78,7 +77,6 @@ dcpg1ParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpg1ParameterGroupName =
     lens _dcpg1ParameterGroupName
          (\s a -> s { _dcpg1ParameterGroupName = a })
-{-# INLINE dcpg1ParameterGroupName #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -87,7 +85,6 @@ dcpg1ParameterGroupName =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcpg1MaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Integer)
 dcpg1MaxRecords = lens _dcpg1MaxRecords (\s a -> s { _dcpg1MaxRecords = a })
-{-# INLINE dcpg1MaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterParameterGroups
@@ -97,7 +94,6 @@ dcpg1MaxRecords = lens _dcpg1MaxRecords (\s a -> s { _dcpg1MaxRecords = a })
 -- retrying the request.
 dcpg1Marker :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpg1Marker = lens _dcpg1Marker (\s a -> s { _dcpg1Marker = a })
-{-# INLINE dcpg1Marker #-}
 
 instance ToQuery DescribeClusterParameterGroups where
     toQuery = genericQuery def
@@ -115,14 +111,12 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 -- is empty, all response records have been retrieved for the request.
 dcpgrsMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\s a -> s { _dcpgrsMarker = a })
-{-# INLINE dcpgrsMarker #-}
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
 dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrsParameterGroups =
     lens _dcpgrsParameterGroups (\s a -> s { _dcpgrsParameterGroups = a })
-{-# INLINE dcpgrsParameterGroups #-}
 
 instance FromXML DescribeClusterParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -135,5 +129,5 @@ instance AWSRequest DescribeClusterParameterGroups where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterParameterGroups where
-    next rq rs = (\x -> rq { _dcpg1Marker = Just x })
-        <$> (_dcpgrsMarker rs)
+    next rq rs = (\x -> rq & dcpg1Marker ?~ x) <$> (rs ^. dcpgrsMarker)
+

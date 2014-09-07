@@ -64,20 +64,17 @@ mkGetQueueUrl p1 = GetQueueUrl
     { _gquQueueName = p1
     , _gquQueueOwnerAWSAccountId = Nothing
     }
-{-# INLINE mkGetQueueUrl #-}
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
 gquQueueName :: Lens' GetQueueUrl Text
 gquQueueName = lens _gquQueueName (\s a -> s { _gquQueueName = a })
-{-# INLINE gquQueueName #-}
 
 -- | The AWS account ID of the account that created the queue.
 gquQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
 gquQueueOwnerAWSAccountId =
     lens _gquQueueOwnerAWSAccountId
          (\s a -> s { _gquQueueOwnerAWSAccountId = a })
-{-# INLINE gquQueueOwnerAWSAccountId #-}
 
 instance ToQuery GetQueueUrl where
     toQuery = genericQuery def
@@ -90,7 +87,6 @@ newtype GetQueueUrlResponse = GetQueueUrlResponse
 -- | The URL for the queue.
 gqursQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
 gqursQueueUrl = lens _gqursQueueUrl (\s a -> s { _gqursQueueUrl = a })
-{-# INLINE gqursQueueUrl #-}
 
 instance FromXML GetQueueUrlResponse where
     fromXMLOptions = xmlOptions

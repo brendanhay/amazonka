@@ -53,23 +53,19 @@ mkUpdateRdsDbInstance p1 = UpdateRdsDbInstance
     , _urdiDbUser = Nothing
     , _urdiDbPassword = Nothing
     }
-{-# INLINE mkUpdateRdsDbInstance #-}
 
 -- | The Amazon RDS instance's ARN.
 urdiRdsDbInstanceArn :: Lens' UpdateRdsDbInstance Text
 urdiRdsDbInstanceArn =
     lens _urdiRdsDbInstanceArn (\s a -> s { _urdiRdsDbInstanceArn = a })
-{-# INLINE urdiRdsDbInstanceArn #-}
 
 -- | The master user name.
 urdiDbUser :: Lens' UpdateRdsDbInstance (Maybe Text)
 urdiDbUser = lens _urdiDbUser (\s a -> s { _urdiDbUser = a })
-{-# INLINE urdiDbUser #-}
 
 -- | The database password.
 urdiDbPassword :: Lens' UpdateRdsDbInstance (Maybe Text)
 urdiDbPassword = lens _urdiDbPassword (\s a -> s { _urdiDbPassword = a })
-{-# INLINE urdiDbPassword #-}
 
 instance ToPath UpdateRdsDbInstance
 

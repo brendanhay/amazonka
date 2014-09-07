@@ -48,7 +48,6 @@ data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
 -- a valid 'DeleteSpotDatafeedSubscription' request.
 mkDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
 mkDeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-{-# INLINE mkDeleteSpotDatafeedSubscription #-}
 
 instance ToQuery DeleteSpotDatafeedSubscription where
     toQuery = genericQuery def

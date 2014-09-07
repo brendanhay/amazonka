@@ -80,17 +80,14 @@ mkUpdateInstance p1 = UpdateInstance
     , _uiInstallUpdatesOnBoot = Nothing
     , _uiEbsOptimized = Nothing
     }
-{-# INLINE mkUpdateInstance #-}
 
 -- | The instance ID.
 uiInstanceId :: Lens' UpdateInstance Text
 uiInstanceId = lens _uiInstanceId (\s a -> s { _uiInstanceId = a })
-{-# INLINE uiInstanceId #-}
 
 -- | The instance's layer IDs.
 uiLayerIds :: Lens' UpdateInstance [Text]
 uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a })
-{-# INLINE uiLayerIds #-}
 
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
 -- Compute, Cluster GPU, and High Memory Cluster. For more information, see
@@ -99,7 +96,6 @@ uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a })
 -- Types table.
 uiInstanceType :: Lens' UpdateInstance (Maybe Text)
 uiInstanceType = lens _uiInstanceType (\s a -> s { _uiInstanceType = a })
-{-# INLINE uiInstanceType #-}
 
 -- | The instance's auto scaling type, which has three possible values:
 -- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
@@ -110,12 +106,10 @@ uiInstanceType = lens _uiInstanceType (\s a -> s { _uiInstanceType = a })
 uiAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
 uiAutoScalingType =
     lens _uiAutoScalingType (\s a -> s { _uiAutoScalingType = a })
-{-# INLINE uiAutoScalingType #-}
 
 -- | The instance host name.
 uiHostname :: Lens' UpdateInstance (Maybe Text)
 uiHostname = lens _uiHostname (\s a -> s { _uiHostname = a })
-{-# INLINE uiHostname #-}
 
 -- | The instance operating system, which must be set to one of the following.
 -- Standard operating systems: Amazon Linux or Ubuntu 12.04 LTS Custom AMIs:
@@ -126,26 +120,22 @@ uiHostname = lens _uiHostname (\s a -> s { _uiHostname = a })
 -- custom AMIs with OpsWorks, see Using Custom AMIs.
 uiOs :: Lens' UpdateInstance (Maybe Text)
 uiOs = lens _uiOs (\s a -> s { _uiOs = a })
-{-# INLINE uiOs #-}
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
 -- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
 -- For more information, see Instances.
 uiAmiId :: Lens' UpdateInstance (Maybe Text)
 uiAmiId = lens _uiAmiId (\s a -> s { _uiAmiId = a })
-{-# INLINE uiAmiId #-}
 
 -- | The instance SSH key name.
 uiSshKeyName :: Lens' UpdateInstance (Maybe Text)
 uiSshKeyName = lens _uiSshKeyName (\s a -> s { _uiSshKeyName = a })
-{-# INLINE uiSshKeyName #-}
 
 -- | The instance architecture. Instance types do not necessarily support both
 -- architectures. For a list of the architectures that are supported by the
 -- different instance types, see Instance Families and Types.
 uiArchitecture :: Lens' UpdateInstance (Maybe Architecture)
 uiArchitecture = lens _uiArchitecture (\s a -> s { _uiArchitecture = a })
-{-# INLINE uiArchitecture #-}
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. To control when updates are installed,
@@ -157,12 +147,10 @@ uiArchitecture = lens _uiArchitecture (\s a -> s { _uiArchitecture = a })
 uiInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
 uiInstallUpdatesOnBoot =
     lens _uiInstallUpdatesOnBoot (\s a -> s { _uiInstallUpdatesOnBoot = a })
-{-# INLINE uiInstallUpdatesOnBoot #-}
 
 -- | Whether this is an Amazon EBS-optimized instance.
 uiEbsOptimized :: Lens' UpdateInstance (Maybe Bool)
 uiEbsOptimized = lens _uiEbsOptimized (\s a -> s { _uiEbsOptimized = a })
-{-# INLINE uiEbsOptimized #-}
 
 instance ToPath UpdateInstance
 

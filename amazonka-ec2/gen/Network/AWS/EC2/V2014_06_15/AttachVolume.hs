@@ -94,23 +94,19 @@ mkAttachVolume p1 p2 p3 = AttachVolume
     , _avInstanceId = p2
     , _avDevice = p3
     }
-{-# INLINE mkAttachVolume #-}
 
 -- | The ID of the Amazon EBS volume. The volume and instance must be within the
 -- same Availability Zone.
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
-{-# INLINE avVolumeId #-}
 
 -- | The ID of the instance.
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
-{-# INLINE avInstanceId #-}
 
 -- | The device name to expose to the instance (for example, /dev/sdh or xvdh).
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\s a -> s { _avDevice = a })
-{-# INLINE avDevice #-}
 
 instance ToQuery AttachVolume where
     toQuery = genericQuery def
@@ -128,34 +124,28 @@ data AttachVolumeResponse = AttachVolumeResponse
 -- | The ID of the volume.
 avrsVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
 avrsVolumeId = lens _avrsVolumeId (\s a -> s { _avrsVolumeId = a })
-{-# INLINE avrsVolumeId #-}
 
 -- | The ID of the instance.
 avrsInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
 avrsInstanceId = lens _avrsInstanceId (\s a -> s { _avrsInstanceId = a })
-{-# INLINE avrsInstanceId #-}
 
 -- | The device name.
 avrsDevice :: Lens' AttachVolumeResponse (Maybe Text)
 avrsDevice = lens _avrsDevice (\s a -> s { _avrsDevice = a })
-{-# INLINE avrsDevice #-}
 
 -- | The attachment state of the volume.
 avrsState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
 avrsState = lens _avrsState (\s a -> s { _avrsState = a })
-{-# INLINE avrsState #-}
 
 -- | The time stamp when the attachment initiated.
 avrsAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)
 avrsAttachTime = lens _avrsAttachTime (\s a -> s { _avrsAttachTime = a })
-{-# INLINE avrsAttachTime #-}
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
 avrsDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
 avrsDeleteOnTermination =
     lens _avrsDeleteOnTermination
          (\s a -> s { _avrsDeleteOnTermination = a })
-{-# INLINE avrsDeleteOnTermination #-}
 
 instance FromXML AttachVolumeResponse where
     fromXMLOptions = xmlOptions

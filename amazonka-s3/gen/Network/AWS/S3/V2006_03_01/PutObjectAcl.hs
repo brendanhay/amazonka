@@ -76,57 +76,46 @@ mkPutObjectAcl p10 p3 = PutObjectAcl
     , _poaGrantWriteACP = Nothing
     , _poaKey = p10
     }
-{-# INLINE mkPutObjectAcl #-}
 
 -- | The canned ACL to apply to the object.
 poaACL :: Lens' PutObjectAcl (Maybe ObjectCannedACL)
 poaACL = lens _poaACL (\s a -> s { _poaACL = a })
-{-# INLINE poaACL #-}
 
 poaAccessControlPolicy :: Lens' PutObjectAcl (Maybe AccessControlPolicy)
 poaAccessControlPolicy =
     lens _poaAccessControlPolicy (\s a -> s { _poaAccessControlPolicy = a })
-{-# INLINE poaAccessControlPolicy #-}
 
 poaBucket :: Lens' PutObjectAcl BucketName
 poaBucket = lens _poaBucket (\s a -> s { _poaBucket = a })
-{-# INLINE poaBucket #-}
 
 poaContentMD5 :: Lens' PutObjectAcl (Maybe Text)
 poaContentMD5 = lens _poaContentMD5 (\s a -> s { _poaContentMD5 = a })
-{-# INLINE poaContentMD5 #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the
 -- bucket.
 poaGrantFullControl :: Lens' PutObjectAcl (Maybe Text)
 poaGrantFullControl =
     lens _poaGrantFullControl (\s a -> s { _poaGrantFullControl = a })
-{-# INLINE poaGrantFullControl #-}
 
 -- | Allows grantee to list the objects in the bucket.
 poaGrantRead :: Lens' PutObjectAcl (Maybe Text)
 poaGrantRead = lens _poaGrantRead (\s a -> s { _poaGrantRead = a })
-{-# INLINE poaGrantRead #-}
 
 -- | Allows grantee to read the bucket ACL.
 poaGrantReadACP :: Lens' PutObjectAcl (Maybe Text)
 poaGrantReadACP = lens _poaGrantReadACP (\s a -> s { _poaGrantReadACP = a })
-{-# INLINE poaGrantReadACP #-}
 
 -- | Allows grantee to create, overwrite, and delete any object in the bucket.
 poaGrantWrite :: Lens' PutObjectAcl (Maybe Text)
 poaGrantWrite = lens _poaGrantWrite (\s a -> s { _poaGrantWrite = a })
-{-# INLINE poaGrantWrite #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 poaGrantWriteACP :: Lens' PutObjectAcl (Maybe Text)
 poaGrantWriteACP =
     lens _poaGrantWriteACP (\s a -> s { _poaGrantWriteACP = a })
-{-# INLINE poaGrantWriteACP #-}
 
 poaKey :: Lens' PutObjectAcl ObjectKey
 poaKey = lens _poaKey (\s a -> s { _poaKey = a })
-{-# INLINE poaKey #-}
 
 instance ToPath PutObjectAcl where
     toPath PutObjectAcl{..} = mconcat

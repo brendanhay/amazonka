@@ -78,18 +78,15 @@ mkChangeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl = p1
     , _cmvbEntries = p2
     }
-{-# INLINE mkChangeMessageVisibilityBatch #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
-{-# INLINE cmvbQueueUrl #-}
 
 -- | A list of receipt handles of the messages for which the visibility timeout
 -- must be changed.
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
 cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a })
-{-# INLINE cmvbEntries #-}
 
 instance ToQuery ChangeMessageVisibilityBatch where
     toQuery = genericQuery def
@@ -106,12 +103,10 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 cmvbrsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrsSuccessful =
     lens _cmvbrsSuccessful (\s a -> s { _cmvbrsSuccessful = a })
-{-# INLINE cmvbrsSuccessful #-}
 
 -- | A list of BatchResultErrorEntry items.
 cmvbrsFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrsFailed = lens _cmvbrsFailed (\s a -> s { _cmvbrsFailed = a })
-{-# INLINE cmvbrsFailed #-}
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
     fromXMLOptions = xmlOptions

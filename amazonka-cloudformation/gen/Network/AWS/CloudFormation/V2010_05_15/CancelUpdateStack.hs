@@ -54,12 +54,10 @@ mkCancelUpdateStack :: Text -- ^ 'cusStackName'
 mkCancelUpdateStack p1 = CancelUpdateStack
     { _cusStackName = p1
     }
-{-# INLINE mkCancelUpdateStack #-}
 
 -- | The name or the unique identifier associated with the stack.
 cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
-{-# INLINE cusStackName #-}
 
 instance ToQuery CancelUpdateStack where
     toQuery = genericQuery def

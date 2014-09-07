@@ -79,13 +79,11 @@ mkDecodeAuthorizationMessage :: Text -- ^ 'damEncodedMessage'
 mkDecodeAuthorizationMessage p1 = DecodeAuthorizationMessage
     { _damEncodedMessage = p1
     }
-{-# INLINE mkDecodeAuthorizationMessage #-}
 
 -- | The encoded message that was returned with the response.
 damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
 damEncodedMessage =
     lens _damEncodedMessage (\s a -> s { _damEncodedMessage = a })
-{-# INLINE damEncodedMessage #-}
 
 instance ToQuery DecodeAuthorizationMessage where
     toQuery = genericQuery def
@@ -102,7 +100,6 @@ newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrsDecodedMessage =
     lens _damrsDecodedMessage (\s a -> s { _damrsDecodedMessage = a })
-{-# INLINE damrsDecodedMessage #-}
 
 instance FromXML DecodeAuthorizationMessageResponse where
     fromXMLOptions = xmlOptions

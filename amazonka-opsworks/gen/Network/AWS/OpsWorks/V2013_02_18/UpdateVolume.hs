@@ -57,22 +57,18 @@ mkUpdateVolume p1 = UpdateVolume
     , _uv1Name = Nothing
     , _uv1MountPoint = Nothing
     }
-{-# INLINE mkUpdateVolume #-}
 
 -- | The volume ID.
 uv1VolumeId :: Lens' UpdateVolume Text
 uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
-{-# INLINE uv1VolumeId #-}
 
 -- | The new name.
 uv1Name :: Lens' UpdateVolume (Maybe Text)
 uv1Name = lens _uv1Name (\s a -> s { _uv1Name = a })
-{-# INLINE uv1Name #-}
 
 -- | The new mount point.
 uv1MountPoint :: Lens' UpdateVolume (Maybe Text)
 uv1MountPoint = lens _uv1MountPoint (\s a -> s { _uv1MountPoint = a })
-{-# INLINE uv1MountPoint #-}
 
 instance ToPath UpdateVolume
 

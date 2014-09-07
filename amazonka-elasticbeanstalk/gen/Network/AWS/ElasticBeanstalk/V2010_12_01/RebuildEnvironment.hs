@@ -54,14 +54,12 @@ mkRebuildEnvironment = RebuildEnvironment
     { _reEnvironmentId = Nothing
     , _reEnvironmentName = Nothing
     }
-{-# INLINE mkRebuildEnvironment #-}
 
 -- | The ID of the environment to rebuild. Condition: You must specify either
 -- this or an EnvironmentName, or both. If you do not specify either, AWS
 -- Elastic Beanstalk returns MissingRequiredParameter error.
 reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentId = lens _reEnvironmentId (\s a -> s { _reEnvironmentId = a })
-{-# INLINE reEnvironmentId #-}
 
 -- | The name of the environment to rebuild. Condition: You must specify either
 -- this or an EnvironmentId, or both. If you do not specify either, AWS
@@ -69,7 +67,6 @@ reEnvironmentId = lens _reEnvironmentId (\s a -> s { _reEnvironmentId = a })
 reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentName =
     lens _reEnvironmentName (\s a -> s { _reEnvironmentName = a })
-{-# INLINE reEnvironmentName #-}
 
 instance ToQuery RebuildEnvironment where
     toQuery = genericQuery def

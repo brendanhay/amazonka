@@ -92,7 +92,6 @@ mkDescribeTags = DescribeTags
     , _dt1MaxResults = Nothing
     , _dt1NextToken = Nothing
     }
-{-# INLINE mkDescribeTags #-}
 
 -- | One or more filters. key - The tag key. resource-id - The resource ID.
 -- resource-type - The resource type (customer-gateway | dhcp-options | image
@@ -102,20 +101,17 @@ mkDescribeTags = DescribeTags
 -- vpn-gateway). value - The tag value.
 dt1Filters :: Lens' DescribeTags [Filter]
 dt1Filters = lens _dt1Filters (\s a -> s { _dt1Filters = a })
-{-# INLINE dt1Filters #-}
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
 dt1MaxResults :: Lens' DescribeTags (Maybe Integer)
 dt1MaxResults = lens _dt1MaxResults (\s a -> s { _dt1MaxResults = a })
-{-# INLINE dt1MaxResults #-}
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
 dt1NextToken :: Lens' DescribeTags (Maybe Text)
 dt1NextToken = lens _dt1NextToken (\s a -> s { _dt1NextToken = a })
-{-# INLINE dt1NextToken #-}
 
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
@@ -129,13 +125,11 @@ data DescribeTagsResponse = DescribeTagsResponse
 -- | A list of tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\s a -> s { _dtrsTags = a })
-{-# INLINE dtrsTags #-}
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\s a -> s { _dtrsNextToken = a })
-{-# INLINE dtrsNextToken #-}
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -148,5 +142,5 @@ instance AWSRequest DescribeTags where
     response _ = xmlResponse
 
 instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq { _dt1NextToken = Just x })
-        <$> (_dtrsNextToken rs)
+    next rq rs = (\x -> rq & dt1NextToken ?~ x) <$> (rs ^. dtrsNextToken)
+

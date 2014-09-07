@@ -61,17 +61,14 @@ mkCreateLoginProfile p1 p2 = CreateLoginProfile
     , _clpPassword = p2
     , _clpPasswordResetRequired = Nothing
     }
-{-# INLINE mkCreateLoginProfile #-}
 
 -- | Name of the user to create a password for.
 clpUserName :: Lens' CreateLoginProfile Text
 clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
-{-# INLINE clpUserName #-}
 
 -- | The new password for the user.
 clpPassword :: Lens' CreateLoginProfile Text
 clpPassword = lens _clpPassword (\s a -> s { _clpPassword = a })
-{-# INLINE clpPassword #-}
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
@@ -79,7 +76,6 @@ clpPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
 clpPasswordResetRequired =
     lens _clpPasswordResetRequired
          (\s a -> s { _clpPasswordResetRequired = a })
-{-# INLINE clpPasswordResetRequired #-}
 
 instance ToQuery CreateLoginProfile where
     toQuery = genericQuery def
@@ -94,7 +90,6 @@ newtype CreateLoginProfileResponse = CreateLoginProfileResponse
 clprsLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprsLoginProfile =
     lens _clprsLoginProfile (\s a -> s { _clprsLoginProfile = a })
-{-# INLINE clprsLoginProfile #-}
 
 instance FromXML CreateLoginProfileResponse where
     fromXMLOptions = xmlOptions

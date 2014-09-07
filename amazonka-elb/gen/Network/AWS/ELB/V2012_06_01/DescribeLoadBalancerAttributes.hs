@@ -54,13 +54,11 @@ mkDescribeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
 mkDescribeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName = p1
     }
-{-# INLINE mkDescribeLoadBalancerAttributes #-}
 
 -- | The name of the load balancer.
 dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
 dlbaLoadBalancerName =
     lens _dlbaLoadBalancerName (\s a -> s { _dlbaLoadBalancerName = a })
-{-# INLINE dlbaLoadBalancerName #-}
 
 instance ToQuery DescribeLoadBalancerAttributes where
     toQuery = genericQuery def
@@ -76,7 +74,6 @@ dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Ma
 dlbarsLoadBalancerAttributes =
     lens _dlbarsLoadBalancerAttributes
          (\s a -> s { _dlbarsLoadBalancerAttributes = a })
-{-# INLINE dlbarsLoadBalancerAttributes #-}
 
 instance FromXML DescribeLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions

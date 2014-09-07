@@ -62,21 +62,18 @@ mkEnableLogging p1 p2 = EnableLogging
     , _elBucketName = p2
     , _elS3KeyPrefix = Nothing
     }
-{-# INLINE mkEnableLogging #-}
 
 -- | The identifier of the cluster on which logging is to be started. Example:
 -- examplecluster.
 elClusterIdentifier :: Lens' EnableLogging Text
 elClusterIdentifier =
     lens _elClusterIdentifier (\s a -> s { _elClusterIdentifier = a })
-{-# INLINE elClusterIdentifier #-}
 
 -- | The name of an existing S3 bucket where the log files are to be stored.
 -- Constraints: Must be in the same region as the cluster The cluster must
 -- have read bucket and put object permissions.
 elBucketName :: Lens' EnableLogging Text
 elBucketName = lens _elBucketName (\s a -> s { _elBucketName = a })
-{-# INLINE elBucketName #-}
 
 -- | The prefix applied to the log file names. Constraints: Cannot exceed 512
 -- characters Cannot contain spaces( ), double quotes ("), single quotes ('),
@@ -84,7 +81,6 @@ elBucketName = lens _elBucketName (\s a -> s { _elBucketName = a })
 -- characters are: x00 to x20 x22 x27 x5c x7f or larger.
 elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
 elS3KeyPrefix = lens _elS3KeyPrefix (\s a -> s { _elS3KeyPrefix = a })
-{-# INLINE elS3KeyPrefix #-}
 
 instance ToQuery EnableLogging where
     toQuery = genericQuery def
@@ -103,36 +99,30 @@ data EnableLoggingResponse = EnableLoggingResponse
 elrsLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
 elrsLoggingEnabled =
     lens _elrsLoggingEnabled (\s a -> s { _elrsLoggingEnabled = a })
-{-# INLINE elrsLoggingEnabled #-}
 
 -- | The name of the S3 bucket where the log files are stored.
 elrsBucketName :: Lens' EnableLoggingResponse (Maybe Text)
 elrsBucketName = lens _elrsBucketName (\s a -> s { _elrsBucketName = a })
-{-# INLINE elrsBucketName #-}
 
 -- | The prefix applied to the log file names.
 elrsS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
 elrsS3KeyPrefix = lens _elrsS3KeyPrefix (\s a -> s { _elrsS3KeyPrefix = a })
-{-# INLINE elrsS3KeyPrefix #-}
 
 -- | The last time when logs were delivered.
 elrsLastSuccessfulDeliveryTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
 elrsLastSuccessfulDeliveryTime =
     lens _elrsLastSuccessfulDeliveryTime
          (\s a -> s { _elrsLastSuccessfulDeliveryTime = a })
-{-# INLINE elrsLastSuccessfulDeliveryTime #-}
 
 -- | The last time when logs failed to be delivered.
 elrsLastFailureTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
 elrsLastFailureTime =
     lens _elrsLastFailureTime (\s a -> s { _elrsLastFailureTime = a })
-{-# INLINE elrsLastFailureTime #-}
 
 -- | The message indicating that logs failed to be delivered.
 elrsLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
 elrsLastFailureMessage =
     lens _elrsLastFailureMessage (\s a -> s { _elrsLastFailureMessage = a })
-{-# INLINE elrsLastFailureMessage #-}
 
 instance FromXML EnableLoggingResponse where
     fromXMLOptions = xmlOptions

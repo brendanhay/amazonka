@@ -60,14 +60,12 @@ mkDeleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
 mkDeleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
     { _dvpcVpcPeeringConnectionId = p1
     }
-{-# INLINE mkDeleteVpcPeeringConnection #-}
 
 -- | The ID of the VPC peering connection.
 dvpcVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
 dvpcVpcPeeringConnectionId =
     lens _dvpcVpcPeeringConnectionId
          (\s a -> s { _dvpcVpcPeeringConnectionId = a })
-{-# INLINE dvpcVpcPeeringConnectionId #-}
 
 instance ToQuery DeleteVpcPeeringConnection where
     toQuery = genericQuery def
@@ -80,7 +78,6 @@ newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 dvpcrsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcrsReturn = lens _dvpcrsReturn (\s a -> s { _dvpcrsReturn = a })
-{-# INLINE dvpcrsReturn #-}
 
 instance FromXML DeleteVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

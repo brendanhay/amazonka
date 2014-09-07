@@ -58,20 +58,17 @@ mkSetDesiredCapacity p1 p2 = SetDesiredCapacity
     , _sdcDesiredCapacity = p2
     , _sdcHonorCooldown = Nothing
     }
-{-# INLINE mkSetDesiredCapacity #-}
 
 -- | The name of the Auto Scaling group.
 sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
 sdcAutoScalingGroupName =
     lens _sdcAutoScalingGroupName
          (\s a -> s { _sdcAutoScalingGroupName = a })
-{-# INLINE sdcAutoScalingGroupName #-}
 
 -- | The new capacity setting for the Auto Scaling group.
 sdcDesiredCapacity :: Lens' SetDesiredCapacity Integer
 sdcDesiredCapacity =
     lens _sdcDesiredCapacity (\s a -> s { _sdcDesiredCapacity = a })
-{-# INLINE sdcDesiredCapacity #-}
 
 -- | By default, SetDesiredCapacity overrides any cooldown period associated
 -- with the Auto Scaling group. Set to True if you want Auto Scaling to wait
@@ -81,7 +78,6 @@ sdcDesiredCapacity =
 sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
 sdcHonorCooldown =
     lens _sdcHonorCooldown (\s a -> s { _sdcHonorCooldown = a })
-{-# INLINE sdcHonorCooldown #-}
 
 instance ToQuery SetDesiredCapacity where
     toQuery = genericQuery def

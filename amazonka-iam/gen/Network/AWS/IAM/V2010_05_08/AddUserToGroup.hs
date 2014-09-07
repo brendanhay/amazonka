@@ -53,17 +53,14 @@ mkAddUserToGroup p1 p2 = AddUserToGroup
     { _autgGroupName = p1
     , _autgUserName = p2
     }
-{-# INLINE mkAddUserToGroup #-}
 
 -- | Name of the group to update.
 autgGroupName :: Lens' AddUserToGroup Text
 autgGroupName = lens _autgGroupName (\s a -> s { _autgGroupName = a })
-{-# INLINE autgGroupName #-}
 
 -- | Name of the user to add.
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\s a -> s { _autgUserName = a })
-{-# INLINE autgUserName #-}
 
 instance ToQuery AddUserToGroup where
     toQuery = genericQuery def

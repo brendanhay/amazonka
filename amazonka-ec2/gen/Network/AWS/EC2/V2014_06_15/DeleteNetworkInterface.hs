@@ -55,13 +55,11 @@ mkDeleteNetworkInterface :: Text -- ^ 'dniNetworkInterfaceId'
 mkDeleteNetworkInterface p1 = DeleteNetworkInterface
     { _dniNetworkInterfaceId = p1
     }
-{-# INLINE mkDeleteNetworkInterface #-}
 
 -- | The ID of the network interface.
 dniNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dniNetworkInterfaceId =
     lens _dniNetworkInterfaceId (\s a -> s { _dniNetworkInterfaceId = a })
-{-# INLINE dniNetworkInterfaceId #-}
 
 instance ToQuery DeleteNetworkInterface where
     toQuery = genericQuery def

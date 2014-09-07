@@ -93,13 +93,11 @@ mkDescribeAddresses = DescribeAddresses
     , _daFilters = mempty
     , _daAllocationIds = mempty
     }
-{-# INLINE mkDescribeAddresses #-}
 
 -- | [EC2-Classic] One or more Elastic IP addresses. Default: Describes all your
 -- Elastic IP addresses.
 daPublicIps :: Lens' DescribeAddresses [Text]
 daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
-{-# INLINE daPublicIps #-}
 
 -- | One or more filters. allocation-id - [EC2-VPC] The allocation ID for the
 -- address. association-id - [EC2-VPC] The association ID for the address.
@@ -112,13 +110,11 @@ daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
 -- Elastic IP address. public-ip - The Elastic IP address.
 daFilters :: Lens' DescribeAddresses [Filter]
 daFilters = lens _daFilters (\s a -> s { _daFilters = a })
-{-# INLINE daFilters #-}
 
 -- | [EC2-VPC] One or more allocation IDs. Default: Describes all your Elastic
 -- IP addresses.
 daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a })
-{-# INLINE daAllocationIds #-}
 
 instance ToQuery DescribeAddresses where
     toQuery = genericQuery def
@@ -131,7 +127,6 @@ newtype DescribeAddressesResponse = DescribeAddressesResponse
 -- | Information about one or more Elastic IP addresses.
 darsAddresses :: Lens' DescribeAddressesResponse [Address]
 darsAddresses = lens _darsAddresses (\s a -> s { _darsAddresses = a })
-{-# INLINE darsAddresses #-}
 
 instance FromXML DescribeAddressesResponse where
     fromXMLOptions = xmlOptions

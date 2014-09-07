@@ -59,12 +59,10 @@ mkDeleteEndpoint :: Text -- ^ 'deEndpointArn'
 mkDeleteEndpoint p1 = DeleteEndpoint
     { _deEndpointArn = p1
     }
-{-# INLINE mkDeleteEndpoint #-}
 
 -- | EndpointArn of endpoint to delete.
 deEndpointArn :: Lens' DeleteEndpoint Text
 deEndpointArn = lens _deEndpointArn (\s a -> s { _deEndpointArn = a })
-{-# INLINE deEndpointArn #-}
 
 instance ToQuery DeleteEndpoint where
     toQuery = genericQuery def

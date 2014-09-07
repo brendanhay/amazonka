@@ -74,19 +74,16 @@ mkDescribeSecurityGroups = DescribeSecurityGroups
     , _dsg1GroupIds = mempty
     , _dsg1Filters = mempty
     }
-{-# INLINE mkDescribeSecurityGroups #-}
 
 -- | [EC2-Classic, default VPC] One or more security group names. Default:
 -- Describes all your security groups.
 dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
-{-# INLINE dsg1GroupNames #-}
 
 -- | One or more security group IDs. Default: Describes all your security
 -- groups.
 dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
-{-# INLINE dsg1GroupIds #-}
 
 -- | One or more filters. description - The description of the security group.
 -- group-id - The ID of the security group. group-name - The name of the
@@ -105,7 +102,6 @@ dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
 -- VPC specified when the security group was created.
 dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
 dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a })
-{-# INLINE dsg1Filters #-}
 
 instance ToQuery DescribeSecurityGroups where
     toQuery = genericQuery def
@@ -119,7 +115,6 @@ newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
 dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrsSecurityGroups =
     lens _dsgrsSecurityGroups (\s a -> s { _dsgrsSecurityGroups = a })
-{-# INLINE dsgrsSecurityGroups #-}
 
 instance FromXML DescribeSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

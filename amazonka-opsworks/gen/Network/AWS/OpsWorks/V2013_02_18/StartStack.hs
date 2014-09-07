@@ -50,12 +50,10 @@ mkStartStack :: Text -- ^ 'ss1StackId'
 mkStartStack p1 = StartStack
     { _ss1StackId = p1
     }
-{-# INLINE mkStartStack #-}
 
 -- | The stack ID.
 ss1StackId :: Lens' StartStack Text
 ss1StackId = lens _ss1StackId (\s a -> s { _ss1StackId = a })
-{-# INLINE ss1StackId #-}
 
 instance ToPath StartStack
 

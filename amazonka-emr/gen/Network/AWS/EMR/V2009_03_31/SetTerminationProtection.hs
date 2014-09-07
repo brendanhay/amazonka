@@ -80,14 +80,12 @@ mkSetTerminationProtection p1 p2 = SetTerminationProtection
     { _stpJobFlowIds = p1
     , _stpTerminationProtected = p2
     }
-{-# INLINE mkSetTerminationProtection #-}
 
 -- | A list of strings that uniquely identify the job flows to protect. This
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
 stpJobFlowIds = lens _stpJobFlowIds (\s a -> s { _stpJobFlowIds = a })
-{-# INLINE stpJobFlowIds #-}
 
 -- | A Boolean that indicates whether to protect the job flow and prevent the
 -- Amazon EC2 instances in the cluster from shutting down due to API calls,
@@ -96,7 +94,6 @@ stpTerminationProtected :: Lens' SetTerminationProtection Bool
 stpTerminationProtected =
     lens _stpTerminationProtected
          (\s a -> s { _stpTerminationProtected = a })
-{-# INLINE stpTerminationProtected #-}
 
 instance ToPath SetTerminationProtection
 

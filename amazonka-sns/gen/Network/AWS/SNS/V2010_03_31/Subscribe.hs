@@ -71,12 +71,10 @@ mkSubscribe p1 p2 = Subscribe
     , _s1Protocol = p2
     , _s1Endpoint = Nothing
     }
-{-# INLINE mkSubscribe #-}
 
 -- | The ARN of the topic you want to subscribe to.
 s1TopicArn :: Lens' Subscribe Text
 s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
-{-# INLINE s1TopicArn #-}
 
 -- | The protocol you want to use. Supported protocols include: http -- delivery
 -- of JSON-encoded message via HTTP POST https -- delivery of JSON-encoded
@@ -87,7 +85,6 @@ s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
 -- mobile app and device.
 s1Protocol :: Lens' Subscribe Text
 s1Protocol = lens _s1Protocol (\s a -> s { _s1Protocol = a })
-{-# INLINE s1Protocol #-}
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
 -- protocol: For the http protocol, the endpoint is an URL beginning with
@@ -100,7 +97,6 @@ s1Protocol = lens _s1Protocol (\s a -> s { _s1Protocol = a })
 -- device.
 s1Endpoint :: Lens' Subscribe (Maybe Text)
 s1Endpoint = lens _s1Endpoint (\s a -> s { _s1Endpoint = a })
-{-# INLINE s1Endpoint #-}
 
 instance ToQuery Subscribe where
     toQuery = genericQuery def
@@ -115,7 +111,6 @@ newtype SubscribeResponse = SubscribeResponse
 srsSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 srsSubscriptionArn =
     lens _srsSubscriptionArn (\s a -> s { _srsSubscriptionArn = a })
-{-# INLINE srsSubscriptionArn #-}
 
 instance FromXML SubscribeResponse where
     fromXMLOptions = xmlOptions

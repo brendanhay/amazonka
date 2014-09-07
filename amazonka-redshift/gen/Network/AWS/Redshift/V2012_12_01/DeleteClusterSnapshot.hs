@@ -67,14 +67,12 @@ mkDeleteClusterSnapshot p1 = DeleteClusterSnapshot
     { _dcsSnapshotIdentifier = p1
     , _dcsSnapshotClusterIdentifier = Nothing
     }
-{-# INLINE mkDeleteClusterSnapshot #-}
 
 -- | The unique identifier of the manual snapshot to be deleted. Constraints:
 -- Must be the name of an existing snapshot that is in the available state.
 dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
 dcsSnapshotIdentifier =
     lens _dcsSnapshotIdentifier (\s a -> s { _dcsSnapshotIdentifier = a })
-{-# INLINE dcsSnapshotIdentifier #-}
 
 -- | The unique identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
@@ -84,7 +82,6 @@ dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
 dcsSnapshotClusterIdentifier =
     lens _dcsSnapshotClusterIdentifier
          (\s a -> s { _dcsSnapshotClusterIdentifier = a })
-{-# INLINE dcsSnapshotClusterIdentifier #-}
 
 instance ToQuery DeleteClusterSnapshot where
     toQuery = genericQuery def
@@ -96,7 +93,6 @@ newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
 -- | Describes a snapshot.
 dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrsSnapshot = lens _dcsrsSnapshot (\s a -> s { _dcsrsSnapshot = a })
-{-# INLINE dcsrsSnapshot #-}
 
 instance FromXML DeleteClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

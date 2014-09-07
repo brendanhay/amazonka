@@ -62,14 +62,12 @@ mkAddSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
     { _asitsSubscriptionName = p1
     , _asitsSourceIdentifier = p2
     }
-{-# INLINE mkAddSourceIdentifierToSubscription #-}
 
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
 asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
 asitsSubscriptionName =
     lens _asitsSubscriptionName (\s a -> s { _asitsSubscriptionName = a })
-{-# INLINE asitsSubscriptionName #-}
 
 -- | The identifier of the event source to be added. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens; it
@@ -82,7 +80,6 @@ asitsSubscriptionName =
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
 asitsSourceIdentifier =
     lens _asitsSourceIdentifier (\s a -> s { _asitsSourceIdentifier = a })
-{-# INLINE asitsSourceIdentifier #-}
 
 instance ToQuery AddSourceIdentifierToSubscription where
     toQuery = genericQuery def
@@ -97,7 +94,6 @@ asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (May
 asitsrsEventSubscription =
     lens _asitsrsEventSubscription
          (\s a -> s { _asitsrsEventSubscription = a })
-{-# INLINE asitsrsEventSubscription #-}
 
 instance FromXML AddSourceIdentifierToSubscriptionResponse where
     fromXMLOptions = xmlOptions

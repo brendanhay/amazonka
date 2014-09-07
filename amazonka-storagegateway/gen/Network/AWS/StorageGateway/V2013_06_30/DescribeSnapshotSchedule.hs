@@ -71,13 +71,11 @@ mkDescribeSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
 mkDescribeSnapshotSchedule p1 = DescribeSnapshotSchedule
     { _dss1VolumeARN = p1
     }
-{-# INLINE mkDescribeSnapshotSchedule #-}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation
 -- to return a list of gateway volumes.
 dss1VolumeARN :: Lens' DescribeSnapshotSchedule Text
 dss1VolumeARN = lens _dss1VolumeARN (\s a -> s { _dss1VolumeARN = a })
-{-# INLINE dss1VolumeARN #-}
 
 instance ToPath DescribeSnapshotSchedule
 
@@ -98,26 +96,21 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
 dssrsrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsrsVolumeARN =
     lens _dssrsrsVolumeARN (\s a -> s { _dssrsrsVolumeARN = a })
-{-# INLINE dssrsrsVolumeARN #-}
 
 dssrsrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
 dssrsrsStartAt = lens _dssrsrsStartAt (\s a -> s { _dssrsrsStartAt = a })
-{-# INLINE dssrsrsStartAt #-}
 
 dssrsrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
 dssrsrsRecurrenceInHours =
     lens _dssrsrsRecurrenceInHours
          (\s a -> s { _dssrsrsRecurrenceInHours = a })
-{-# INLINE dssrsrsRecurrenceInHours #-}
 
 dssrsrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsrsDescription =
     lens _dssrsrsDescription (\s a -> s { _dssrsrsDescription = a })
-{-# INLINE dssrsrsDescription #-}
 
 dssrsrsTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsrsTimezone = lens _dssrsrsTimezone (\s a -> s { _dssrsrsTimezone = a })
-{-# INLINE dssrsrsTimezone #-}
 
 instance FromJSON DescribeSnapshotScheduleResponse
 

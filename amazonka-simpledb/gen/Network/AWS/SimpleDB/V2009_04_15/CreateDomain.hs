@@ -53,14 +53,12 @@ mkCreateDomain :: Text -- ^ 'cdDomainName'
 mkCreateDomain p1 = CreateDomain
     { _cdDomainName = p1
     }
-{-# INLINE mkCreateDomain #-}
 
 -- | The name of the domain to create. The name can range between 3 and 255
 -- characters and can contain the following characters: a-z, A-Z, 0-9, '_',
 -- '-', and '.'.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
-{-# INLINE cdDomainName #-}
 
 instance ToQuery CreateDomain where
     toQuery = genericQuery def

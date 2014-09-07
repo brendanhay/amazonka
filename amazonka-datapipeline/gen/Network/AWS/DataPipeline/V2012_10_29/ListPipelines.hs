@@ -61,7 +61,6 @@ mkListPipelines :: ListPipelines
 mkListPipelines = ListPipelines
     { _lpMarker = Nothing
     }
-{-# INLINE mkListPipelines #-}
 
 -- | The starting point for the results to be returned. The first time you call
 -- ListPipelines, this value should be empty. As long as the action returns
@@ -69,7 +68,6 @@ mkListPipelines = ListPipelines
 -- marker value from the response to retrieve the next set of results.
 lpMarker :: Lens' ListPipelines (Maybe Text)
 lpMarker = lens _lpMarker (\s a -> s { _lpMarker = a })
-{-# INLINE lpMarker #-}
 
 instance ToPath ListPipelines
 
@@ -92,21 +90,18 @@ data ListPipelinesResponse = ListPipelinesResponse
 lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprsPipelineIdList =
     lens _lprsPipelineIdList (\s a -> s { _lprsPipelineIdList = a })
-{-# INLINE lprsPipelineIdList #-}
 
 -- | If not null, indicates the starting point for the set of pipeline
 -- identifiers that the next call to ListPipelines will retrieve. If null,
 -- there are no more pipeline identifiers.
 lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprsMarker = lens _lprsMarker (\s a -> s { _lprsMarker = a })
-{-# INLINE lprsMarker #-}
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to ListPipelines.
 lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
 lprsHasMoreResults =
     lens _lprsHasMoreResults (\s a -> s { _lprsHasMoreResults = a })
-{-# INLINE lprsHasMoreResults #-}
 
 instance FromJSON ListPipelinesResponse
 
@@ -119,7 +114,5 @@ instance AWSRequest ListPipelines where
 
 instance AWSPager ListPipelines where
     next rq rs
-        | not (_lprsHasMoreResults rs) = Nothing
-        | otherwise = Just $ rq
-            { _lpMarker = _lprsMarker rs
-            }
+        | not (rs ^. lprsHasMoreResults) = Nothing
+        | otherwise = Just (rq & lpMarker .~ rs ^. lprsMarker)

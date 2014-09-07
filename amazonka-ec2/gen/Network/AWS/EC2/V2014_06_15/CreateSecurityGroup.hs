@@ -91,24 +91,20 @@ mkCreateSecurityGroup p1 p2 = CreateSecurityGroup
     , _csgDescription = p2
     , _csgVpcId = Nothing
     }
-{-# INLINE mkCreateSecurityGroup #-}
 
 -- | The name of the security group. Constraints: Up to 255 characters in length
 -- Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z,
 -- A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
 csgGroupName :: Lens' CreateSecurityGroup Text
 csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
-{-# INLINE csgGroupName #-}
 
 -- | A description for the security group. This is informational only.
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
-{-# INLINE csgDescription #-}
 
 -- | [EC2-VPC] The ID of the VPC.
 csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
-{-# INLINE csgVpcId #-}
 
 instance ToQuery CreateSecurityGroup where
     toQuery = genericQuery def
@@ -121,7 +117,6 @@ newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
 -- | The ID of the security group.
 csgrsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
 csgrsGroupId = lens _csgrsGroupId (\s a -> s { _csgrsGroupId = a })
-{-# INLINE csgrsGroupId #-}
 
 instance FromXML CreateSecurityGroupResponse where
     fromXMLOptions = xmlOptions

@@ -61,13 +61,11 @@ mkAddTags p1 p2 = AddTags
     { _atResourceId = p1
     , _atTags = p2
     }
-{-# INLINE mkAddTags #-}
 
 -- | The Amazon EMR resource identifier to which tags will be added. This value
 -- must be a cluster identifier.
 atResourceId :: Lens' AddTags Text
 atResourceId = lens _atResourceId (\s a -> s { _atResourceId = a })
-{-# INLINE atResourceId #-}
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances. Tags are user-defined key/value pairs that consist of a required
@@ -75,7 +73,6 @@ atResourceId = lens _atResourceId (\s a -> s { _atResourceId = a })
 -- with a maximum of 256 characters.
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\s a -> s { _atTags = a })
-{-# INLINE atTags #-}
 
 instance ToPath AddTags
 

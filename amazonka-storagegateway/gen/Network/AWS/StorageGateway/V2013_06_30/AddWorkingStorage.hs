@@ -74,20 +74,17 @@ mkAddWorkingStorage p1 p2 = AddWorkingStorage
     { _awsGatewayARN = p1
     , _awsDiskIds = p2
     }
-{-# INLINE mkAddWorkingStorage #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 awsGatewayARN :: Lens' AddWorkingStorage Text
 awsGatewayARN = lens _awsGatewayARN (\s a -> s { _awsGatewayARN = a })
-{-# INLINE awsGatewayARN #-}
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string have a minimum length of 1 and maximum length
 -- of 300. You can get the disk IDs from the ListLocalDisks API.
 awsDiskIds :: Lens' AddWorkingStorage [Text]
 awsDiskIds = lens _awsDiskIds (\s a -> s { _awsDiskIds = a })
-{-# INLINE awsDiskIds #-}
 
 instance ToPath AddWorkingStorage
 
@@ -107,7 +104,6 @@ newtype AddWorkingStorageResponse = AddWorkingStorageResponse
 -- operation to return a list of gateways for your account and region.
 awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrsGatewayARN = lens _awsrsGatewayARN (\s a -> s { _awsrsGatewayARN = a })
-{-# INLINE awsrsGatewayARN #-}
 
 instance FromJSON AddWorkingStorageResponse
 

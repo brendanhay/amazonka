@@ -53,12 +53,10 @@ mkDeleteRole :: Text -- ^ 'drRoleName'
 mkDeleteRole p1 = DeleteRole
     { _drRoleName = p1
     }
-{-# INLINE mkDeleteRole #-}
 
 -- | Name of the role to delete.
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\s a -> s { _drRoleName = a })
-{-# INLINE drRoleName #-}
 
 instance ToQuery DeleteRole where
     toQuery = genericQuery def

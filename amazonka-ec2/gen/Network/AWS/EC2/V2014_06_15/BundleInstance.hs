@@ -79,19 +79,16 @@ mkBundleInstance p1 p2 = BundleInstance
     { _biInstanceId = p1
     , _biStorage = p2
     }
-{-# INLINE mkBundleInstance #-}
 
 -- | The ID of the instance to bundle.
 biInstanceId :: Lens' BundleInstance Text
 biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
-{-# INLINE biInstanceId #-}
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If you
 -- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 biStorage :: Lens' BundleInstance Storage
 biStorage = lens _biStorage (\s a -> s { _biStorage = a })
-{-# INLINE biStorage #-}
 
 instance ToQuery BundleInstance where
     toQuery = genericQuery def
@@ -104,7 +101,6 @@ newtype BundleInstanceResponse = BundleInstanceResponse
 -- | Information about the bundle task.
 birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birsBundleTask = lens _birsBundleTask (\s a -> s { _birsBundleTask = a })
-{-# INLINE birsBundleTask #-}
 
 instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions

@@ -73,13 +73,11 @@ mkDescribeWorkingStorage :: Text -- ^ 'dwsGatewayARN'
 mkDescribeWorkingStorage p1 = DescribeWorkingStorage
     { _dwsGatewayARN = p1
     }
-{-# INLINE mkDescribeWorkingStorage #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
 dwsGatewayARN = lens _dwsGatewayARN (\s a -> s { _dwsGatewayARN = a })
-{-# INLINE dwsGatewayARN #-}
 
 instance ToPath DescribeWorkingStorage
 
@@ -101,7 +99,6 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
 -- operation to return a list of gateways for your account and region.
 dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
 dwsrsGatewayARN = lens _dwsrsGatewayARN (\s a -> s { _dwsrsGatewayARN = a })
-{-# INLINE dwsrsGatewayARN #-}
 
 -- | An array of the gateway's local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of 1
@@ -109,7 +106,6 @@ dwsrsGatewayARN = lens _dwsrsGatewayARN (\s a -> s { _dwsrsGatewayARN = a })
 -- storage, then the DiskIds array is empty.
 dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
 dwsrsDiskIds = lens _dwsrsDiskIds (\s a -> s { _dwsrsDiskIds = a })
-{-# INLINE dwsrsDiskIds #-}
 
 -- | The total working storage in bytes in use by the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
@@ -117,7 +113,6 @@ dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe In
 dwsrsWorkingStorageUsedInBytes =
     lens _dwsrsWorkingStorageUsedInBytes
          (\s a -> s { _dwsrsWorkingStorageUsedInBytes = a })
-{-# INLINE dwsrsWorkingStorageUsedInBytes #-}
 
 -- | The total working storage in bytes allocated for the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
@@ -125,7 +120,6 @@ dwsrsWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (May
 dwsrsWorkingStorageAllocatedInBytes =
     lens _dwsrsWorkingStorageAllocatedInBytes
          (\s a -> s { _dwsrsWorkingStorageAllocatedInBytes = a })
-{-# INLINE dwsrsWorkingStorageAllocatedInBytes #-}
 
 instance FromJSON DescribeWorkingStorageResponse
 

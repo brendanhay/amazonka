@@ -64,18 +64,15 @@ mkDeregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalance
     { _diflbLoadBalancerName = p1
     , _diflbInstances = p2
     }
-{-# INLINE mkDeregisterInstancesFromLoadBalancer #-}
 
 -- | The name associated with the load balancer.
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
 diflbLoadBalancerName =
     lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
-{-# INLINE diflbLoadBalancerName #-}
 
 -- | A list of EC2 instance IDs consisting of all instances to be deregistered.
 diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
 diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a })
-{-# INLINE diflbInstances #-}
 
 instance ToQuery DeregisterInstancesFromLoadBalancer where
     toQuery = genericQuery def
@@ -89,7 +86,6 @@ newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoa
 diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrsInstances =
     lens _diflbrsInstances (\s a -> s { _diflbrsInstances = a })
-{-# INLINE diflbrsInstances #-}
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
     fromXMLOptions = xmlOptions

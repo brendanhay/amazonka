@@ -73,13 +73,11 @@ mkDescribeGatewayInformation :: Text -- ^ 'dgiGatewayARN'
 mkDescribeGatewayInformation p1 = DescribeGatewayInformation
     { _dgiGatewayARN = p1
     }
-{-# INLINE mkDescribeGatewayInformation #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 dgiGatewayARN :: Lens' DescribeGatewayInformation Text
 dgiGatewayARN = lens _dgiGatewayARN (\s a -> s { _dgiGatewayARN = a })
-{-# INLINE dgiGatewayARN #-}
 
 instance ToPath DescribeGatewayInformation
 
@@ -104,24 +102,20 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
 -- operation to return a list of gateways for your account and region.
 dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayARN = lens _dgirsGatewayARN (\s a -> s { _dgirsGatewayARN = a })
-{-# INLINE dgirsGatewayARN #-}
 
 -- | The gateway ID.
 dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayId = lens _dgirsGatewayId (\s a -> s { _dgirsGatewayId = a })
-{-# INLINE dgirsGatewayId #-}
 
 -- | One of the values that indicates the time zone configured for the gateway.
 dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayTimezone =
     lens _dgirsGatewayTimezone (\s a -> s { _dgirsGatewayTimezone = a })
-{-# INLINE dgirsGatewayTimezone #-}
 
 -- | One of the values that indicates the operating state of the gateway.
 dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayState =
     lens _dgirsGatewayState (\s a -> s { _dgirsGatewayState = a })
-{-# INLINE dgirsGatewayState #-}
 
 -- | A NetworkInterface array that contains descriptions of the gateway network
 -- interfaces.
@@ -129,13 +123,11 @@ dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [Netwo
 dgirsGatewayNetworkInterfaces =
     lens _dgirsGatewayNetworkInterfaces
          (\s a -> s { _dgirsGatewayNetworkInterfaces = a })
-{-# INLINE dgirsGatewayNetworkInterfaces #-}
 
 -- | TBD.
 dgirsGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayType =
     lens _dgirsGatewayType (\s a -> s { _dgirsGatewayType = a })
-{-# INLINE dgirsGatewayType #-}
 
 -- | The date at which an update to the gateway is available. This date is in
 -- the time zone of the gateway. If the gateway is not available for an update
@@ -144,7 +136,6 @@ dgirsNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (May
 dgirsNextUpdateAvailabilityDate =
     lens _dgirsNextUpdateAvailabilityDate
          (\s a -> s { _dgirsNextUpdateAvailabilityDate = a })
-{-# INLINE dgirsNextUpdateAvailabilityDate #-}
 
 instance FromJSON DescribeGatewayInformationResponse
 

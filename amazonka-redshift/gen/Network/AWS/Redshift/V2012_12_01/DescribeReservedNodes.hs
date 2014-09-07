@@ -66,13 +66,11 @@ mkDescribeReservedNodes = DescribeReservedNodes
     , _drnMaxRecords = Nothing
     , _drnMarker = Nothing
     }
-{-# INLINE mkDescribeReservedNodes #-}
 
 -- | Identifier for the node reservation.
 drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
 drnReservedNodeId =
     lens _drnReservedNodeId (\s a -> s { _drnReservedNodeId = a })
-{-# INLINE drnReservedNodeId #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -81,7 +79,6 @@ drnReservedNodeId =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 drnMaxRecords :: Lens' DescribeReservedNodes (Maybe Integer)
 drnMaxRecords = lens _drnMaxRecords (\s a -> s { _drnMaxRecords = a })
-{-# INLINE drnMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeReservedNodes request
@@ -91,7 +88,6 @@ drnMaxRecords = lens _drnMaxRecords (\s a -> s { _drnMaxRecords = a })
 -- the request.
 drnMarker :: Lens' DescribeReservedNodes (Maybe Text)
 drnMarker = lens _drnMarker (\s a -> s { _drnMarker = a })
-{-# INLINE drnMarker #-}
 
 instance ToQuery DescribeReservedNodes where
     toQuery = genericQuery def
@@ -109,13 +105,11 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse
 -- is empty, all response records have been retrieved for the request.
 drnrsMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrsMarker = lens _drnrsMarker (\s a -> s { _drnrsMarker = a })
-{-# INLINE drnrsMarker #-}
 
 -- | The list of reserved nodes.
 drnrsReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
 drnrsReservedNodes =
     lens _drnrsReservedNodes (\s a -> s { _drnrsReservedNodes = a })
-{-# INLINE drnrsReservedNodes #-}
 
 instance FromXML DescribeReservedNodesResponse where
     fromXMLOptions = xmlOptions
@@ -128,5 +122,5 @@ instance AWSRequest DescribeReservedNodes where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedNodes where
-    next rq rs = (\x -> rq { _drnMarker = Just x })
-        <$> (_drnrsMarker rs)
+    next rq rs = (\x -> rq & drnMarker ?~ x) <$> (rs ^. drnrsMarker)
+

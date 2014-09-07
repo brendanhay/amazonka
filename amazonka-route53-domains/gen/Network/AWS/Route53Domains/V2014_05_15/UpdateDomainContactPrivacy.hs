@@ -81,7 +81,6 @@ mkUpdateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
     , _udcpRegistrantPrivacy = Nothing
     , _udcpTechPrivacy = Nothing
     }
-{-# INLINE mkUpdateDomainContactPrivacy #-}
 
 -- | The name of a domain. Type: String Default: None Constraints: The domain
 -- name can contain only the letters a through z, the numbers 0 through 9, and
@@ -89,7 +88,6 @@ mkUpdateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
 -- Yes.
 udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
 udcpDomainName = lens _udcpDomainName (\s a -> s { _udcpDomainName = a })
-{-# INLINE udcpDomainName #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -98,7 +96,6 @@ udcpDomainName = lens _udcpDomainName (\s a -> s { _udcpDomainName = a })
 udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpAdminPrivacy =
     lens _udcpAdminPrivacy (\s a -> s { _udcpAdminPrivacy = a })
-{-# INLINE udcpAdminPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -107,7 +104,6 @@ udcpAdminPrivacy =
 udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpRegistrantPrivacy =
     lens _udcpRegistrantPrivacy (\s a -> s { _udcpRegistrantPrivacy = a })
-{-# INLINE udcpRegistrantPrivacy #-}
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you
 -- specify true, WHOIS ("who is") queries will return contact information for
@@ -115,7 +111,6 @@ udcpRegistrantPrivacy =
 -- enter. Type: Boolean Default: None Valid values: true | false Required: No.
 udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
-{-# INLINE udcpTechPrivacy #-}
 
 instance ToPath UpdateDomainContactPrivacy
 
@@ -136,7 +131,6 @@ newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
 udcprsOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprsOperationId =
     lens _udcprsOperationId (\s a -> s { _udcprsOperationId = a })
-{-# INLINE udcprsOperationId #-}
 
 instance FromJSON UpdateDomainContactPrivacyResponse
 

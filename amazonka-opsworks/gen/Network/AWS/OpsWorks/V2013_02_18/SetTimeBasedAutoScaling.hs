@@ -55,19 +55,16 @@ mkSetTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     { _stbasInstanceId = p1
     , _stbasAutoScalingSchedule = Nothing
     }
-{-# INLINE mkSetTimeBasedAutoScaling #-}
 
 -- | The instance ID.
 stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
-{-# INLINE stbasInstanceId #-}
 
 -- | An AutoScalingSchedule with the instance schedule.
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
 stbasAutoScalingSchedule =
     lens _stbasAutoScalingSchedule
          (\s a -> s { _stbasAutoScalingSchedule = a })
-{-# INLINE stbasAutoScalingSchedule #-}
 
 instance ToPath SetTimeBasedAutoScaling
 

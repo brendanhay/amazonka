@@ -67,14 +67,12 @@ mkDeleteReplicationGroup p1 = DeleteReplicationGroup
     , _drgRetainPrimaryCluster = Nothing
     , _drgFinalSnapshotIdentifier = Nothing
     }
-{-# INLINE mkDeleteReplicationGroup #-}
 
 -- | The identifier for the replication group to be deleted. This parameter is
 -- not case sensitive.
 drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
 drgReplicationGroupId =
     lens _drgReplicationGroupId (\s a -> s { _drgReplicationGroupId = a })
-{-# INLINE drgReplicationGroupId #-}
 
 -- | If set to true, all of the read replicas will be deleted, but the primary
 -- cache cluster will be retained.
@@ -82,7 +80,6 @@ drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster =
     lens _drgRetainPrimaryCluster
          (\s a -> s { _drgRetainPrimaryCluster = a })
-{-# INLINE drgRetainPrimaryCluster #-}
 
 -- | The name of a final cache cluster snapshot. ElastiCache creates the
 -- snapshot from the primary cluster in the replication group, rather than one
@@ -93,7 +90,6 @@ drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
 drgFinalSnapshotIdentifier =
     lens _drgFinalSnapshotIdentifier
          (\s a -> s { _drgFinalSnapshotIdentifier = a })
-{-# INLINE drgFinalSnapshotIdentifier #-}
 
 instance ToQuery DeleteReplicationGroup where
     toQuery = genericQuery def
@@ -106,7 +102,6 @@ newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
 drgrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 drgrsReplicationGroup =
     lens _drgrsReplicationGroup (\s a -> s { _drgrsReplicationGroup = a })
-{-# INLINE drgrsReplicationGroup #-}
 
 instance FromXML DeleteReplicationGroupResponse where
     fromXMLOptions = xmlOptions

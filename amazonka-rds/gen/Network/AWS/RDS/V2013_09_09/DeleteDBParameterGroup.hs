@@ -54,7 +54,6 @@ mkDeleteDBParameterGroup :: Text -- ^ 'ddbpgDBParameterGroupName'
 mkDeleteDBParameterGroup p1 = DeleteDBParameterGroup
     { _ddbpgDBParameterGroupName = p1
     }
-{-# INLINE mkDeleteDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group You cannot delete a default DB parameter group
@@ -63,7 +62,6 @@ ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
 ddbpgDBParameterGroupName =
     lens _ddbpgDBParameterGroupName
          (\s a -> s { _ddbpgDBParameterGroupName = a })
-{-# INLINE ddbpgDBParameterGroupName #-}
 
 instance ToQuery DeleteDBParameterGroup where
     toQuery = genericQuery def

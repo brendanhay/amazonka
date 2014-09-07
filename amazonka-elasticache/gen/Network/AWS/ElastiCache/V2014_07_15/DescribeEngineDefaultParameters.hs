@@ -67,7 +67,6 @@ mkDescribeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     , _dedpMaxRecords = Nothing
     , _dedpMarker = Nothing
     }
-{-# INLINE mkDescribeEngineDefaultParameters #-}
 
 -- | The name of the cache parameter group family. Valid values are:
 -- memcached1.4 | redis2.6 | redis2.8.
@@ -75,7 +74,6 @@ dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpCacheParameterGroupFamily =
     lens _dedpCacheParameterGroupFamily
          (\s a -> s { _dedpCacheParameterGroupFamily = a })
-{-# INLINE dedpCacheParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -83,7 +81,6 @@ dedpCacheParameterGroupFamily =
 -- Constraints: minimum 20; maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Integer)
 dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
-{-# INLINE dedpMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -91,20 +88,18 @@ dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 -- specified by MaxRecords.
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
-{-# INLINE dedpMarker #-}
 
 instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprsEngineDefaults :: Maybe EngineDefaults
+    { _dedprsEngineDefaults :: EngineDefaults
     } deriving (Show, Generic)
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
-dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
+dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprsEngineDefaults =
     lens _dedprsEngineDefaults (\s a -> s { _dedprsEngineDefaults = a })
-{-# INLINE dedprsEngineDefaults #-}
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
@@ -117,5 +112,5 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq { _dedpMarker = Just x })
-        <$> (_edMarker $ _dedprsEngineDefaults rs)
+    next rq rs = (\x -> rq & dedpMarker ?~ x) <$> (rs ^. dedprsEngineDefaults . edMarker)
+

@@ -56,17 +56,14 @@ mkAssociateElasticIp p1 = AssociateElasticIp
     { _aeiElasticIp = p1
     , _aeiInstanceId = Nothing
     }
-{-# INLINE mkAssociateElasticIp #-}
 
 -- | The Elastic IP address.
 aeiElasticIp :: Lens' AssociateElasticIp Text
 aeiElasticIp = lens _aeiElasticIp (\s a -> s { _aeiElasticIp = a })
-{-# INLINE aeiElasticIp #-}
 
 -- | The instance ID.
 aeiInstanceId :: Lens' AssociateElasticIp (Maybe Text)
 aeiInstanceId = lens _aeiInstanceId (\s a -> s { _aeiInstanceId = a })
-{-# INLINE aeiInstanceId #-}
 
 instance ToPath AssociateElasticIp
 

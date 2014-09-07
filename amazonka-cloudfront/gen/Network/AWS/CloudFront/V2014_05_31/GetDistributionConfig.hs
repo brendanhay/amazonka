@@ -51,12 +51,10 @@ mkGetDistributionConfig :: Text -- ^ 'gdcId'
 mkGetDistributionConfig p1 = GetDistributionConfig
     { _gdcId = p1
     }
-{-# INLINE mkGetDistributionConfig #-}
 
 -- | The distribution's id.
 gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\s a -> s { _gdcId = a })
-{-# INLINE gdcId #-}
 
 instance ToPath GetDistributionConfig where
     toPath GetDistributionConfig{..} = mconcat
@@ -84,12 +82,10 @@ gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe Distributi
 gdcrsDistributionConfig =
     lens _gdcrsDistributionConfig
          (\s a -> s { _gdcrsDistributionConfig = a })
-{-# INLINE gdcrsDistributionConfig #-}
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
 gdcrsETag = lens _gdcrsETag (\s a -> s { _gdcrsETag = a })
-{-# INLINE gdcrsETag #-}
 
 instance AWSRequest GetDistributionConfig where
     type Sv GetDistributionConfig = CloudFront

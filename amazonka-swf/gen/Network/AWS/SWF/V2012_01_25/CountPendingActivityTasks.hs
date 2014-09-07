@@ -82,17 +82,14 @@ mkCountPendingActivityTasks p1 p2 = CountPendingActivityTasks
     { _cpatDomain = p1
     , _cpatTaskList = p2
     }
-{-# INLINE mkCountPendingActivityTasks #-}
 
 -- | The name of the domain that contains the task list.
 cpatDomain :: Lens' CountPendingActivityTasks Text
 cpatDomain = lens _cpatDomain (\s a -> s { _cpatDomain = a })
-{-# INLINE cpatDomain #-}
 
 -- | The name of the task list.
 cpatTaskList :: Lens' CountPendingActivityTasks TaskList
 cpatTaskList = lens _cpatTaskList (\s a -> s { _cpatTaskList = a })
-{-# INLINE cpatTaskList #-}
 
 instance ToPath CountPendingActivityTasks
 
@@ -111,13 +108,11 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
 -- | The number of tasks in the task list.
 cpatrsCount :: Lens' CountPendingActivityTasksResponse Integer
 cpatrsCount = lens _cpatrsCount (\s a -> s { _cpatrsCount = a })
-{-# INLINE cpatrsCount #-}
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
 cpatrsTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
 cpatrsTruncated = lens _cpatrsTruncated (\s a -> s { _cpatrsTruncated = a })
-{-# INLINE cpatrsTruncated #-}
 
 instance FromJSON CountPendingActivityTasksResponse
 

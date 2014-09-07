@@ -60,19 +60,16 @@ mkAddTags p1 p2 = AddTags
     { _atLoadBalancerNames = p1
     , _atTags = p2
     }
-{-# INLINE mkAddTags #-}
 
 -- | The name of the load balancer to tag. You can specify a maximum of one load
 -- balancer name.
 atLoadBalancerNames :: Lens' AddTags [Text]
 atLoadBalancerNames =
     lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
-{-# INLINE atLoadBalancerNames #-}
 
 -- | A list of tags for each load balancer.
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\s a -> s { _atTags = a })
-{-# INLINE atTags #-}
 
 instance ToQuery AddTags where
     toQuery = genericQuery def

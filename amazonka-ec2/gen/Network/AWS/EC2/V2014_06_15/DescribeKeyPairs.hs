@@ -60,18 +60,15 @@ mkDescribeKeyPairs = DescribeKeyPairs
     { _dkp1KeyNames = mempty
     , _dkp1Filters = mempty
     }
-{-# INLINE mkDescribeKeyPairs #-}
 
 -- | One or more key pair names. Default: Describes all your key pairs.
 dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
 dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a })
-{-# INLINE dkp1KeyNames #-}
 
 -- | One or more filters. fingerprint - The fingerprint of the key pair.
 -- key-name - The name of the key pair.
 dkp1Filters :: Lens' DescribeKeyPairs [Filter]
 dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a })
-{-# INLINE dkp1Filters #-}
 
 instance ToQuery DescribeKeyPairs where
     toQuery = genericQuery def
@@ -84,7 +81,6 @@ newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
 -- | Information about one or more key pairs.
 dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprsKeyPairs = lens _dkprsKeyPairs (\s a -> s { _dkprsKeyPairs = a })
-{-# INLINE dkprsKeyPairs #-}
 
 instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions

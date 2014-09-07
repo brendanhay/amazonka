@@ -53,12 +53,10 @@ mkDeleteKeyPair :: Text -- ^ 'dkpKeyName'
 mkDeleteKeyPair p1 = DeleteKeyPair
     { _dkpKeyName = p1
     }
-{-# INLINE mkDeleteKeyPair #-}
 
 -- | The name of the key pair.
 dkpKeyName :: Lens' DeleteKeyPair Text
 dkpKeyName = lens _dkpKeyName (\s a -> s { _dkpKeyName = a })
-{-# INLINE dkpKeyName #-}
 
 instance ToQuery DeleteKeyPair where
     toQuery = genericQuery def

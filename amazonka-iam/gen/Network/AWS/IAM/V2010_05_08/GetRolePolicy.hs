@@ -62,17 +62,14 @@ mkGetRolePolicy p1 p2 = GetRolePolicy
     { _grpRoleName = p1
     , _grpPolicyName = p2
     }
-{-# INLINE mkGetRolePolicy #-}
 
 -- | Name of the role associated with the policy.
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\s a -> s { _grpRoleName = a })
-{-# INLINE grpRoleName #-}
 
 -- | Name of the policy document to get.
 grpPolicyName :: Lens' GetRolePolicy Text
 grpPolicyName = lens _grpPolicyName (\s a -> s { _grpPolicyName = a })
-{-# INLINE grpPolicyName #-}
 
 instance ToQuery GetRolePolicy where
     toQuery = genericQuery def
@@ -87,18 +84,15 @@ data GetRolePolicyResponse = GetRolePolicyResponse
 -- | The role the policy is associated with.
 grprsRoleName :: Lens' GetRolePolicyResponse Text
 grprsRoleName = lens _grprsRoleName (\s a -> s { _grprsRoleName = a })
-{-# INLINE grprsRoleName #-}
 
 -- | The name of the policy.
 grprsPolicyName :: Lens' GetRolePolicyResponse Text
 grprsPolicyName = lens _grprsPolicyName (\s a -> s { _grprsPolicyName = a })
-{-# INLINE grprsPolicyName #-}
 
 -- | The policy document.
 grprsPolicyDocument :: Lens' GetRolePolicyResponse Text
 grprsPolicyDocument =
     lens _grprsPolicyDocument (\s a -> s { _grprsPolicyDocument = a })
-{-# INLINE grprsPolicyDocument #-}
 
 instance FromXML GetRolePolicyResponse where
     fromXMLOptions = xmlOptions

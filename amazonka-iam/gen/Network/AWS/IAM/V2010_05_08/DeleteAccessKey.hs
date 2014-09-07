@@ -56,18 +56,15 @@ mkDeleteAccessKey p2 = DeleteAccessKey
     { _dakUserName = Nothing
     , _dakAccessKeyId = p2
     }
-{-# INLINE mkDeleteAccessKey #-}
 
 -- | Name of the user whose key you want to delete.
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
-{-# INLINE dakUserName #-}
 
 -- | The access key ID for the access key ID and secret access key you want to
 -- delete.
 dakAccessKeyId :: Lens' DeleteAccessKey Text
 dakAccessKeyId = lens _dakAccessKeyId (\s a -> s { _dakAccessKeyId = a })
-{-# INLINE dakAccessKeyId #-}
 
 instance ToQuery DeleteAccessKey where
     toQuery = genericQuery def

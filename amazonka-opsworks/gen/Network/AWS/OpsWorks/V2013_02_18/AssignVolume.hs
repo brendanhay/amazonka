@@ -56,17 +56,14 @@ mkAssignVolume p1 = AssignVolume
     { _avVolumeId = p1
     , _avInstanceId = Nothing
     }
-{-# INLINE mkAssignVolume #-}
 
 -- | The volume ID.
 avVolumeId :: Lens' AssignVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
-{-# INLINE avVolumeId #-}
 
 -- | The instance ID.
 avInstanceId :: Lens' AssignVolume (Maybe Text)
 avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
-{-# INLINE avInstanceId #-}
 
 instance ToPath AssignVolume
 

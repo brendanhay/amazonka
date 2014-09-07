@@ -68,12 +68,10 @@ mkListSubscriptions :: ListSubscriptions
 mkListSubscriptions = ListSubscriptions
     { _lsNextToken = Nothing
     }
-{-# INLINE mkListSubscriptions #-}
 
 -- | Token returned by the previous ListSubscriptions request.
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
-{-# INLINE lsNextToken #-}
 
 instance ToQuery ListSubscriptions where
     toQuery = genericQuery def
@@ -88,13 +86,11 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse
 lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrsSubscriptions =
     lens _lsrsSubscriptions (\s a -> s { _lsrsSubscriptions = a })
-{-# INLINE lsrsSubscriptions #-}
 
 -- | Token to pass along to the next ListSubscriptions request. This element is
 -- returned if there are more subscriptions to retrieve.
 lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\s a -> s { _lsrsNextToken = a })
-{-# INLINE lsrsNextToken #-}
 
 instance FromXML ListSubscriptionsResponse where
     fromXMLOptions = xmlOptions
@@ -107,5 +103,5 @@ instance AWSRequest ListSubscriptions where
     response _ = xmlResponse
 
 instance AWSPager ListSubscriptions where
-    next rq rs = (\x -> rq { _lsNextToken = Just x })
-        <$> (_lsrsNextToken rs)
+    next rq rs = (\x -> rq & lsNextToken ?~ x) <$> (rs ^. lsrsNextToken)
+

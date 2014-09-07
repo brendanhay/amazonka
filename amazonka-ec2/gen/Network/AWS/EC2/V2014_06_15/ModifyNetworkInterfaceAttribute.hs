@@ -68,18 +68,15 @@ mkModifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     , _mniaGroups = mempty
     , _mniaAttachment = Nothing
     }
-{-# INLINE mkModifyNetworkInterfaceAttribute #-}
 
 -- | The ID of the network interface.
 mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
 mniaNetworkInterfaceId =
     lens _mniaNetworkInterfaceId (\s a -> s { _mniaNetworkInterfaceId = a })
-{-# INLINE mniaNetworkInterfaceId #-}
 
 -- | A description for the network interface.
 mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
 mniaDescription = lens _mniaDescription (\s a -> s { _mniaDescription = a })
-{-# INLINE mniaDescription #-}
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
@@ -88,7 +85,6 @@ mniaDescription = lens _mniaDescription (\s a -> s { _mniaDescription = a })
 mniaSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
 mniaSourceDestCheck =
     lens _mniaSourceDestCheck (\s a -> s { _mniaSourceDestCheck = a })
-{-# INLINE mniaSourceDestCheck #-}
 
 -- | Changes the security groups for the network interface. The new set of
 -- groups you specify replaces the current set. You must specify at least one
@@ -96,12 +92,10 @@ mniaSourceDestCheck =
 -- specify the ID of the security group, not the name.
 mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
 mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a })
-{-# INLINE mniaGroups #-}
 
 -- | The ID of the interface attachment.
 mniaAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
 mniaAttachment = lens _mniaAttachment (\s a -> s { _mniaAttachment = a })
-{-# INLINE mniaAttachment #-}
 
 instance ToQuery ModifyNetworkInterfaceAttribute where
     toQuery = genericQuery def

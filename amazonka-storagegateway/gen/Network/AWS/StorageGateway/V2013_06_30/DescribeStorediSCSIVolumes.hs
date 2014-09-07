@@ -73,7 +73,6 @@ mkDescribeStorediSCSIVolumes :: [Text] -- ^ 'dsscsivVolumeARNs'
 mkDescribeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
     { _dsscsivVolumeARNs = p1
     }
-{-# INLINE mkDescribeStorediSCSIVolumes #-}
 
 -- | An array of strings where each string represents the Amazon Resource Name
 -- (ARN) of a stored volume. All of the specified stored volumes must from the
@@ -81,7 +80,6 @@ mkDescribeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
 dsscsivVolumeARNs =
     lens _dsscsivVolumeARNs (\s a -> s { _dsscsivVolumeARNs = a })
-{-# INLINE dsscsivVolumeARNs #-}
 
 instance ToPath DescribeStorediSCSIVolumes
 
@@ -99,7 +97,6 @@ dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [Storedi
 dsscsivrsStorediSCSIVolumes =
     lens _dsscsivrsStorediSCSIVolumes
          (\s a -> s { _dsscsivrsStorediSCSIVolumes = a })
-{-# INLINE dsscsivrsStorediSCSIVolumes #-}
 
 instance FromJSON DescribeStorediSCSIVolumesResponse
 

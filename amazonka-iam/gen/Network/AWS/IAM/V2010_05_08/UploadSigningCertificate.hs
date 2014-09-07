@@ -97,18 +97,15 @@ mkUploadSigningCertificate p2 = UploadSigningCertificate
     { _usc3UserName = Nothing
     , _usc3CertificateBody = p2
     }
-{-# INLINE mkUploadSigningCertificate #-}
 
 -- | Name of the user the signing certificate is for.
 usc3UserName :: Lens' UploadSigningCertificate (Maybe Text)
 usc3UserName = lens _usc3UserName (\s a -> s { _usc3UserName = a })
-{-# INLINE usc3UserName #-}
 
 -- | The contents of the signing certificate.
 usc3CertificateBody :: Lens' UploadSigningCertificate Text
 usc3CertificateBody =
     lens _usc3CertificateBody (\s a -> s { _usc3CertificateBody = a })
-{-# INLINE usc3CertificateBody #-}
 
 instance ToQuery UploadSigningCertificate where
     toQuery = genericQuery def
@@ -123,7 +120,6 @@ newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
 uscrsrsCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrsrsCertificate =
     lens _uscrsrsCertificate (\s a -> s { _uscrsrsCertificate = a })
-{-# INLINE uscrsrsCertificate #-}
 
 instance FromXML UploadSigningCertificateResponse where
     fromXMLOptions = xmlOptions

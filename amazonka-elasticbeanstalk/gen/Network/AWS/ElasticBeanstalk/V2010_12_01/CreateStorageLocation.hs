@@ -45,7 +45,6 @@ data CreateStorageLocation = CreateStorageLocation
 -- a valid 'CreateStorageLocation' request.
 mkCreateStorageLocation :: CreateStorageLocation
 mkCreateStorageLocation = CreateStorageLocation
-{-# INLINE mkCreateStorageLocation #-}
 
 instance ToQuery CreateStorageLocation where
     toQuery = genericQuery def
@@ -58,7 +57,6 @@ newtype CreateStorageLocationResponse = CreateStorageLocationResponse
 -- | The name of the Amazon S3 bucket created.
 cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrsS3Bucket = lens _cslrsS3Bucket (\s a -> s { _cslrsS3Bucket = a })
-{-# INLINE cslrsS3Bucket #-}
 
 instance FromXML CreateStorageLocationResponse where
     fromXMLOptions = xmlOptions

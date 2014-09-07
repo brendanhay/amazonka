@@ -51,12 +51,10 @@ mkCreateAccountAlias :: Text -- ^ 'caaAccountAlias'
 mkCreateAccountAlias p1 = CreateAccountAlias
     { _caaAccountAlias = p1
     }
-{-# INLINE mkCreateAccountAlias #-}
 
 -- | Name of the account alias to create.
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
-{-# INLINE caaAccountAlias #-}
 
 instance ToQuery CreateAccountAlias where
     toQuery = genericQuery def

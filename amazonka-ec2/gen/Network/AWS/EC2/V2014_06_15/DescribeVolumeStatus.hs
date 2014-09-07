@@ -101,12 +101,10 @@ mkDescribeVolumeStatus = DescribeVolumeStatus
     , _dvsNextToken = Nothing
     , _dvsMaxResults = Nothing
     }
-{-# INLINE mkDescribeVolumeStatus #-}
 
 -- | One or more volume IDs. Default: Describes all your volumes.
 dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
 dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
-{-# INLINE dvsVolumeIds #-}
 
 -- | One or more filters. action.code - The action code for the event (for
 -- example, enable-volume-io). action.description - A description of the
@@ -125,18 +123,15 @@ dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
 -- insufficient-data).
 dvsFilters :: Lens' DescribeVolumeStatus [Filter]
 dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a })
-{-# INLINE dvsFilters #-}
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
 dvsNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
 dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
-{-# INLINE dvsNextToken #-}
 
 -- | The maximum number of paginated volume items per response.
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Integer)
 dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
-{-# INLINE dvsMaxResults #-}
 
 instance ToQuery DescribeVolumeStatus where
     toQuery = genericQuery def
@@ -151,12 +146,10 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrsVolumeStatuses =
     lens _dvsrsVolumeStatuses (\s a -> s { _dvsrsVolumeStatuses = a })
-{-# INLINE dvsrsVolumeStatuses #-}
 
 -- | The next paginated set of results to return.
 dvsrsNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvsrsNextToken = lens _dvsrsNextToken (\s a -> s { _dvsrsNextToken = a })
-{-# INLINE dvsrsNextToken #-}
 
 instance FromXML DescribeVolumeStatusResponse where
     fromXMLOptions = xmlOptions
@@ -169,5 +162,5 @@ instance AWSRequest DescribeVolumeStatus where
     response _ = xmlResponse
 
 instance AWSPager DescribeVolumeStatus where
-    next rq rs = (\x -> rq { _dvsNextToken = Just x })
-        <$> (_dvsrsNextToken rs)
+    next rq rs = (\x -> rq & dvsNextToken ?~ x) <$> (rs ^. dvsrsNextToken)
+

@@ -192,30 +192,25 @@ mkAttribute p1 p3 = Attribute
     , _aValue = p3
     , _aAlternateValueEncoding = Nothing
     }
-{-# INLINE mkAttribute #-}
 
 -- | The name of the attribute.
 aName :: Lens' Attribute Text
 aName = lens _aName (\s a -> s { _aName = a })
-{-# INLINE aName #-}
 
 -- | 
 aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
 aAlternateNameEncoding =
     lens _aAlternateNameEncoding (\s a -> s { _aAlternateNameEncoding = a })
-{-# INLINE aAlternateNameEncoding #-}
 
 -- | The value of the attribute.
 aValue :: Lens' Attribute Text
 aValue = lens _aValue (\s a -> s { _aValue = a })
-{-# INLINE aValue #-}
 
 -- | 
 aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
 aAlternateValueEncoding =
     lens _aAlternateValueEncoding
          (\s a -> s { _aAlternateValueEncoding = a })
-{-# INLINE aAlternateValueEncoding #-}
 
 instance FromXML Attribute where
     fromXMLOptions = xmlOptions
@@ -237,15 +232,12 @@ mkDeletableItem p1 = DeletableItem
     { _diName = p1
     , _diAttributes = mempty
     }
-{-# INLINE mkDeletableItem #-}
 
 diName :: Lens' DeletableItem Text
 diName = lens _diName (\s a -> s { _diName = a })
-{-# INLINE diName #-}
 
 diAttributes :: Lens' DeletableItem [Attribute]
 diAttributes = lens _diAttributes (\s a -> s { _diAttributes = a })
-{-# INLINE diAttributes #-}
 
 instance ToQuery DeletableItem where
     toQuery = genericQuery def
@@ -267,23 +259,19 @@ mkItem p1 p3 = Item
     , _iAlternateNameEncoding = Nothing
     , _iAttributes = p3
     }
-{-# INLINE mkItem #-}
 
 -- | The name of the item.
 iName :: Lens' Item Text
 iName = lens _iName (\s a -> s { _iName = a })
-{-# INLINE iName #-}
 
 -- | 
 iAlternateNameEncoding :: Lens' Item (Maybe Text)
 iAlternateNameEncoding =
     lens _iAlternateNameEncoding (\s a -> s { _iAlternateNameEncoding = a })
-{-# INLINE iAlternateNameEncoding #-}
 
 -- | A list of attributes.
 iAttributes :: Lens' Item [Attribute]
 iAttributes = lens _iAttributes (\s a -> s { _iAttributes = a })
-{-# INLINE iAttributes #-}
 
 instance FromXML Item where
     fromXMLOptions = xmlOptions
@@ -306,23 +294,19 @@ mkReplaceableAttribute p1 p2 = ReplaceableAttribute
     , _raValue = p2
     , _raReplace = Nothing
     }
-{-# INLINE mkReplaceableAttribute #-}
 
 -- | The name of the replaceable attribute.
 raName :: Lens' ReplaceableAttribute Text
 raName = lens _raName (\s a -> s { _raName = a })
-{-# INLINE raName #-}
 
 -- | The value of the replaceable attribute.
 raValue :: Lens' ReplaceableAttribute Text
 raValue = lens _raValue (\s a -> s { _raValue = a })
-{-# INLINE raValue #-}
 
 -- | A flag specifying whether or not to replace the attribute/value pair or to
 -- add a new attribute/value pair. The default setting is false.
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
 raReplace = lens _raReplace (\s a -> s { _raReplace = a })
-{-# INLINE raReplace #-}
 
 instance FromXML ReplaceableAttribute where
     fromXMLOptions = xmlOptions
@@ -346,17 +330,14 @@ mkReplaceableItem p1 p2 = ReplaceableItem
     { _riName = p1
     , _riAttributes = p2
     }
-{-# INLINE mkReplaceableItem #-}
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem Text
 riName = lens _riName (\s a -> s { _riName = a })
-{-# INLINE riName #-}
 
 -- | The list of attributes for a replaceable item.
 riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
 riAttributes = lens _riAttributes (\s a -> s { _riAttributes = a })
-{-# INLINE riAttributes #-}
 
 instance ToQuery ReplaceableItem where
     toQuery = genericQuery def
@@ -378,18 +359,15 @@ mkUpdateCondition = UpdateCondition
     , _ucValue = Nothing
     , _ucExists = Nothing
     }
-{-# INLINE mkUpdateCondition #-}
 
 -- | The name of the attribute involved in the condition.
 ucName :: Lens' UpdateCondition (Maybe Text)
 ucName = lens _ucName (\s a -> s { _ucName = a })
-{-# INLINE ucName #-}
 
 -- | The value of an attribute. This value can only be specified when the Exists
 -- parameter is equal to true.
 ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\s a -> s { _ucValue = a })
-{-# INLINE ucValue #-}
 
 -- | A value specifying whether or not the specified attribute must exist with
 -- the specified value in order for the update condition to be satisfied.
@@ -398,7 +376,6 @@ ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 -- update condition to be satisfied.
 ucExists :: Lens' UpdateCondition (Maybe Bool)
 ucExists = lens _ucExists (\s a -> s { _ucExists = a })
-{-# INLINE ucExists #-}
 
 instance ToQuery UpdateCondition where
     toQuery = genericQuery def

@@ -74,12 +74,10 @@ mkDescribeCachediSCSIVolumes :: [Text] -- ^ 'dcscsivVolumeARNs'
 mkDescribeCachediSCSIVolumes p1 = DescribeCachediSCSIVolumes
     { _dcscsivVolumeARNs = p1
     }
-{-# INLINE mkDescribeCachediSCSIVolumes #-}
 
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
 dcscsivVolumeARNs =
     lens _dcscsivVolumeARNs (\s a -> s { _dcscsivVolumeARNs = a })
-{-# INLINE dcscsivVolumeARNs #-}
 
 instance ToPath DescribeCachediSCSIVolumes
 
@@ -100,7 +98,6 @@ dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [Cachedi
 dcscsivrsCachediSCSIVolumes =
     lens _dcscsivrsCachediSCSIVolumes
          (\s a -> s { _dcscsivrsCachediSCSIVolumes = a })
-{-# INLINE dcscsivrsCachediSCSIVolumes #-}
 
 instance FromJSON DescribeCachediSCSIVolumesResponse
 

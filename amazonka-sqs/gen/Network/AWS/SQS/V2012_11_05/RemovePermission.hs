@@ -60,18 +60,15 @@ mkRemovePermission p1 p2 = RemovePermission
     { _rpQueueUrl = p1
     , _rpLabel = p2
     }
-{-# INLINE mkRemovePermission #-}
 
 -- | The URL of the Amazon SQS queue to take action on.
 rpQueueUrl :: Lens' RemovePermission Text
 rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
-{-# INLINE rpQueueUrl #-}
 
 -- | The identification of the permission to remove. This is the label added
 -- with the AddPermission action.
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
-{-# INLINE rpLabel #-}
 
 instance ToQuery RemovePermission where
     toQuery = genericQuery def

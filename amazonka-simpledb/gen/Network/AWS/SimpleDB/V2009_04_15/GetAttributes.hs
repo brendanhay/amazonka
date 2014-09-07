@@ -65,23 +65,19 @@ mkGetAttributes p1 p2 = GetAttributes
     , _gaAttributeNames = mempty
     , _gaConsistentRead = Nothing
     }
-{-# INLINE mkGetAttributes #-}
 
 -- | The name of the domain in which to perform the operation.
 gaDomainName :: Lens' GetAttributes Text
 gaDomainName = lens _gaDomainName (\s a -> s { _gaDomainName = a })
-{-# INLINE gaDomainName #-}
 
 -- | The name of the item.
 gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
-{-# INLINE gaItemName #-}
 
 -- | The names of the attributes.
 gaAttributeNames :: Lens' GetAttributes [Text]
 gaAttributeNames =
     lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a })
-{-# INLINE gaAttributeNames #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
@@ -90,7 +86,6 @@ gaAttributeNames =
 gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
 gaConsistentRead =
     lens _gaConsistentRead (\s a -> s { _gaConsistentRead = a })
-{-# INLINE gaConsistentRead #-}
 
 instance ToQuery GetAttributes where
     toQuery = genericQuery def
@@ -102,7 +97,6 @@ newtype GetAttributesResponse = GetAttributesResponse
 -- | The list of attributes returned by the operation.
 garsAttributes :: Lens' GetAttributesResponse [Attribute]
 garsAttributes = lens _garsAttributes (\s a -> s { _garsAttributes = a })
-{-# INLINE garsAttributes #-}
 
 instance FromXML GetAttributesResponse where
     fromXMLOptions = xmlOptions

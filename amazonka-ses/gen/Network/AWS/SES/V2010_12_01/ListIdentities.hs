@@ -66,24 +66,20 @@ mkListIdentities = ListIdentities
     , _liNextToken = Nothing
     , _liMaxItems = Nothing
     }
-{-# INLINE mkListIdentities #-}
 
 -- | The type of the identities to list. Possible values are "EmailAddress" and
 -- "Domain". If this parameter is omitted, then all identities will be listed.
 liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
 liIdentityType = lens _liIdentityType (\s a -> s { _liIdentityType = a })
-{-# INLINE liIdentityType #-}
 
 -- | The token to use for pagination.
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
-{-# INLINE liNextToken #-}
 
 -- | The maximum number of identities per page. Possible values are 1-100
 -- inclusive.
 liMaxItems :: Lens' ListIdentities (Maybe Integer)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
-{-# INLINE liMaxItems #-}
 
 instance ToQuery ListIdentities where
     toQuery = genericQuery def
@@ -97,12 +93,10 @@ data ListIdentitiesResponse = ListIdentitiesResponse
 -- | A list of identities.
 lirsIdentities :: Lens' ListIdentitiesResponse [Text]
 lirsIdentities = lens _lirsIdentities (\s a -> s { _lirsIdentities = a })
-{-# INLINE lirsIdentities #-}
 
 -- | The token used for pagination.
 lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirsNextToken = lens _lirsNextToken (\s a -> s { _lirsNextToken = a })
-{-# INLINE lirsNextToken #-}
 
 instance FromXML ListIdentitiesResponse where
     fromXMLOptions = xmlOptions
@@ -115,5 +109,5 @@ instance AWSRequest ListIdentities where
     response _ = xmlResponse
 
 instance AWSPager ListIdentities where
-    next rq rs = (\x -> rq { _liNextToken = Just x })
-        <$> (_lirsNextToken rs)
+    next rq rs = (\x -> rq & liNextToken ?~ x) <$> (rs ^. lirsNextToken)
+

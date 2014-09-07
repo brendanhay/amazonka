@@ -69,7 +69,6 @@ mkResetDBParameterGroup p1 = ResetDBParameterGroup
     , _rdbpgResetAllParameters = Nothing
     , _rdbpgParameters = mempty
     }
-{-# INLINE mkResetDBParameterGroup #-}
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
@@ -78,7 +77,6 @@ rdbpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
 rdbpgDBParameterGroupName =
     lens _rdbpgDBParameterGroupName
          (\s a -> s { _rdbpgDBParameterGroupName = a })
-{-# INLINE rdbpgDBParameterGroupName #-}
 
 -- | Specifies whether (true) or not (false) to reset all parameters in the DB
 -- parameter group to default values. Default: true.
@@ -86,7 +84,6 @@ rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdbpgResetAllParameters =
     lens _rdbpgResetAllParameters
          (\s a -> s { _rdbpgResetAllParameters = a })
-{-# INLINE rdbpgResetAllParameters #-}
 
 -- | An array of parameter names, values, and the apply method for the parameter
 -- update. At least one parameter name, value, and apply method must be
@@ -98,7 +95,6 @@ rdbpgResetAllParameters =
 -- Valid Values (for Apply method): pending-reboot.
 rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
 rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a })
-{-# INLINE rdbpgParameters #-}
 
 instance ToQuery ResetDBParameterGroup where
     toQuery = genericQuery def
@@ -114,7 +110,6 @@ rdbpgrsDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
 rdbpgrsDBParameterGroupName =
     lens _rdbpgrsDBParameterGroupName
          (\s a -> s { _rdbpgrsDBParameterGroupName = a })
-{-# INLINE rdbpgrsDBParameterGroupName #-}
 
 instance FromXML ResetDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

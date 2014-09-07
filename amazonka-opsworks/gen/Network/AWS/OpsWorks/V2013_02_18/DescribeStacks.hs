@@ -52,13 +52,11 @@ mkDescribeStacks :: DescribeStacks
 mkDescribeStacks = DescribeStacks
     { _ds2StackIds = mempty
     }
-{-# INLINE mkDescribeStacks #-}
 
 -- | An array of stack IDs that specify the stacks to be described. If you omit
 -- this parameter, DescribeStacks returns a description of every stack.
 ds2StackIds :: Lens' DescribeStacks [Text]
 ds2StackIds = lens _ds2StackIds (\s a -> s { _ds2StackIds = a })
-{-# INLINE ds2StackIds #-}
 
 instance ToPath DescribeStacks
 
@@ -76,7 +74,6 @@ newtype DescribeStacksResponse = DescribeStacksResponse
 -- | An array of Stack objects that describe the stacks.
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
 dsrsStacks = lens _dsrsStacks (\s a -> s { _dsrsStacks = a })
-{-# INLINE dsrsStacks #-}
 
 instance FromJSON DescribeStacksResponse
 

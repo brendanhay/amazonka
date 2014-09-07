@@ -64,24 +64,20 @@ mkDescribeIndexFields p1 = DescribeIndexFields
     , _dif2FieldNames = mempty
     , _dif2Deployed = Nothing
     }
-{-# INLINE mkDescribeIndexFields #-}
 
 -- | The name of the domain you want to describe.
 dif2DomainName :: Lens' DescribeIndexFields Text
 dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
-{-# INLINE dif2DomainName #-}
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
 dif2FieldNames :: Lens' DescribeIndexFields [Text]
 dif2FieldNames = lens _dif2FieldNames (\s a -> s { _dif2FieldNames = a })
-{-# INLINE dif2FieldNames #-}
 
 -- | Whether to display the deployed configuration (true) or include any pending
 -- changes (false). Defaults to false.
 dif2Deployed :: Lens' DescribeIndexFields (Maybe Bool)
 dif2Deployed = lens _dif2Deployed (\s a -> s { _dif2Deployed = a })
-{-# INLINE dif2Deployed #-}
 
 instance ToQuery DescribeIndexFields where
     toQuery = genericQuery def
@@ -96,7 +92,6 @@ newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
 difrs1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difrs1IndexFields =
     lens _difrs1IndexFields (\s a -> s { _difrs1IndexFields = a })
-{-# INLINE difrs1IndexFields #-}
 
 instance FromXML DescribeIndexFieldsResponse where
     fromXMLOptions = xmlOptions

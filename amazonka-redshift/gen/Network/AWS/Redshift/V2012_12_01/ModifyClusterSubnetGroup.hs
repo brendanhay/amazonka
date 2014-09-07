@@ -58,25 +58,21 @@ mkModifyClusterSubnetGroup p1 p3 = ModifyClusterSubnetGroup
     , _mcsgDescription = Nothing
     , _mcsgSubnetIds = p3
     }
-{-# INLINE mkModifyClusterSubnetGroup #-}
 
 -- | The name of the subnet group to be modified.
 mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
 mcsgClusterSubnetGroupName =
     lens _mcsgClusterSubnetGroupName
          (\s a -> s { _mcsgClusterSubnetGroupName = a })
-{-# INLINE mcsgClusterSubnetGroupName #-}
 
 -- | A text description of the subnet group to be modified.
 mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
 mcsgDescription = lens _mcsgDescription (\s a -> s { _mcsgDescription = a })
-{-# INLINE mcsgDescription #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
-{-# INLINE mcsgSubnetIds #-}
 
 instance ToQuery ModifyClusterSubnetGroup where
     toQuery = genericQuery def
@@ -90,7 +86,6 @@ mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe Cluste
 mcsgrsClusterSubnetGroup =
     lens _mcsgrsClusterSubnetGroup
          (\s a -> s { _mcsgrsClusterSubnetGroup = a })
-{-# INLINE mcsgrsClusterSubnetGroup #-}
 
 instance FromXML ModifyClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions

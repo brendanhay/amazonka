@@ -51,18 +51,15 @@ mkDeleteStreamingDistribution p1 = DeleteStreamingDistribution
     { _dsdId = p1
     , _dsdIfMatch = Nothing
     }
-{-# INLINE mkDeleteStreamingDistribution #-}
 
 -- | The distribution id.
 dsdId :: Lens' DeleteStreamingDistribution Text
 dsdId = lens _dsdId (\s a -> s { _dsdId = a })
-{-# INLINE dsdId #-}
 
 -- | The value of the ETag header you received when you disabled the streaming
 -- distribution. For example: E2QWRUHAPOMQZL.
 dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
-{-# INLINE dsdIfMatch #-}
 
 instance ToPath DeleteStreamingDistribution where
     toPath DeleteStreamingDistribution{..} = mconcat

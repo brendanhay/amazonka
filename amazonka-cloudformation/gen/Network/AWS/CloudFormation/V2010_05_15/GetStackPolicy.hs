@@ -57,13 +57,11 @@ mkGetStackPolicy :: Text -- ^ 'gspStackName'
 mkGetStackPolicy p1 = GetStackPolicy
     { _gspStackName = p1
     }
-{-# INLINE mkGetStackPolicy #-}
 
 -- | The name or stack ID that is associated with the stack whose policy you
 -- want to get.
 gspStackName :: Lens' GetStackPolicy Text
 gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
-{-# INLINE gspStackName #-}
 
 instance ToQuery GetStackPolicy where
     toQuery = genericQuery def
@@ -78,7 +76,6 @@ newtype GetStackPolicyResponse = GetStackPolicyResponse
 gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprsStackPolicyBody =
     lens _gsprsStackPolicyBody (\s a -> s { _gsprsStackPolicyBody = a })
-{-# INLINE gsprsStackPolicyBody #-}
 
 instance FromXML GetStackPolicyResponse where
     fromXMLOptions = xmlOptions

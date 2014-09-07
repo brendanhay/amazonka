@@ -65,7 +65,6 @@ mkDescribeAutoScalingInstances = DescribeAutoScalingInstances
     , _dasiMaxRecords = Nothing
     , _dasiNextToken = Nothing
     }
-{-# INLINE mkDescribeAutoScalingInstances #-}
 
 -- | The list of Auto Scaling instances to describe. If this list is omitted,
 -- all auto scaling instances are described. The list of requested instances
@@ -73,19 +72,16 @@ mkDescribeAutoScalingInstances = DescribeAutoScalingInstances
 -- are ignored with no error.
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
 dasiInstanceIds = lens _dasiInstanceIds (\s a -> s { _dasiInstanceIds = a })
-{-# INLINE dasiInstanceIds #-}
 
 -- | The maximum number of Auto Scaling instances to be described with each
 -- call.
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Integer)
 dasiMaxRecords = lens _dasiMaxRecords (\s a -> s { _dasiMaxRecords = a })
-{-# INLINE dasiMaxRecords #-}
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
-{-# INLINE dasiNextToken #-}
 
 instance ToQuery DescribeAutoScalingInstances where
     toQuery = genericQuery def
@@ -101,12 +97,10 @@ dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoSc
 dasirsAutoScalingInstances =
     lens _dasirsAutoScalingInstances
          (\s a -> s { _dasirsAutoScalingInstances = a })
-{-# INLINE dasirsAutoScalingInstances #-}
 
 -- | A string that marks the start of the next batch of returned results.
 dasirsNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirsNextToken = lens _dasirsNextToken (\s a -> s { _dasirsNextToken = a })
-{-# INLINE dasirsNextToken #-}
 
 instance FromXML DescribeAutoScalingInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -119,5 +113,5 @@ instance AWSRequest DescribeAutoScalingInstances where
     response _ = xmlResponse
 
 instance AWSPager DescribeAutoScalingInstances where
-    next rq rs = (\x -> rq { _dasiNextToken = Just x })
-        <$> (_dasirsNextToken rs)
+    next rq rs = (\x -> rq & dasiNextToken ?~ x) <$> (rs ^. dasirsNextToken)
+

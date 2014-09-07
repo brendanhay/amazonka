@@ -65,7 +65,6 @@ mkDescribeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
 mkDescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames = mempty
     }
-{-# INLINE mkDescribeLoadBalancerPolicyTypes #-}
 
 -- | Specifies the name of the policy types. If no names are specified, returns
 -- the description of all the policy types defined by Elastic Load Balancing
@@ -73,7 +72,6 @@ mkDescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
 dlbptPolicyTypeNames =
     lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
-{-# INLINE dlbptPolicyTypeNames #-}
 
 instance ToQuery DescribeLoadBalancerPolicyTypes where
     toQuery = genericQuery def
@@ -90,7 +88,6 @@ dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [
 dlbptrsPolicyTypeDescriptions =
     lens _dlbptrsPolicyTypeDescriptions
          (\s a -> s { _dlbptrsPolicyTypeDescriptions = a })
-{-# INLINE dlbptrsPolicyTypeDescriptions #-}
 
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
     fromXMLOptions = xmlOptions

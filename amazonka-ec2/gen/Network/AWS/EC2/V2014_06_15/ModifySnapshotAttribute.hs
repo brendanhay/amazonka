@@ -89,40 +89,33 @@ mkModifySnapshotAttribute p1 = ModifySnapshotAttribute
     , _msaGroupNames = mempty
     , _msaCreateVolumePermission = Nothing
     }
-{-# INLINE mkModifySnapshotAttribute #-}
 
 -- | The ID of the snapshot.
 msaSnapshotId :: Lens' ModifySnapshotAttribute Text
 msaSnapshotId = lens _msaSnapshotId (\s a -> s { _msaSnapshotId = a })
-{-# INLINE msaSnapshotId #-}
 
 -- | The snapshot attribute to modify.
 msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\s a -> s { _msaAttribute = a })
-{-# INLINE msaAttribute #-}
 
 -- | The type of operation to perform to the attribute.
 msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
 msaOperationType =
     lens _msaOperationType (\s a -> s { _msaOperationType = a })
-{-# INLINE msaOperationType #-}
 
 -- | The account ID to modify for the snapshot.
 msaUserIds :: Lens' ModifySnapshotAttribute [Text]
 msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a })
-{-# INLINE msaUserIds #-}
 
 -- | The group to modify for the snapshot.
 msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
 msaGroupNames = lens _msaGroupNames (\s a -> s { _msaGroupNames = a })
-{-# INLINE msaGroupNames #-}
 
 -- | A JSON representation of the snapshot attribute modification.
 msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
 msaCreateVolumePermission =
     lens _msaCreateVolumePermission
          (\s a -> s { _msaCreateVolumePermission = a })
-{-# INLINE msaCreateVolumePermission #-}
 
 instance ToQuery ModifySnapshotAttribute where
     toQuery = genericQuery def

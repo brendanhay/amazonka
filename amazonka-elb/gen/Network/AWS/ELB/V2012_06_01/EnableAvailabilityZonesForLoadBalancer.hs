@@ -64,13 +64,11 @@ mkEnableAvailabilityZonesForLoadBalancer p1 p2 = EnableAvailabilityZonesForLoadB
     { _eazflbLoadBalancerName = p1
     , _eazflbAvailabilityZones = p2
     }
-{-# INLINE mkEnableAvailabilityZonesForLoadBalancer #-}
 
 -- | The name associated with the load balancer.
 eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
 eazflbLoadBalancerName =
     lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
-{-# INLINE eazflbLoadBalancerName #-}
 
 -- | A list of new Availability Zones for the load balancer. Each Availability
 -- Zone must be in the same region as the load balancer.
@@ -78,7 +76,6 @@ eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
 eazflbAvailabilityZones =
     lens _eazflbAvailabilityZones
          (\s a -> s { _eazflbAvailabilityZones = a })
-{-# INLINE eazflbAvailabilityZones #-}
 
 instance ToQuery EnableAvailabilityZonesForLoadBalancer where
     toQuery = genericQuery def
@@ -93,7 +90,6 @@ eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerRespons
 eazflbrsAvailabilityZones =
     lens _eazflbrsAvailabilityZones
          (\s a -> s { _eazflbrsAvailabilityZones = a })
-{-# INLINE eazflbrsAvailabilityZones #-}
 
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions

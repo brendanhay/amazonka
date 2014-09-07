@@ -74,12 +74,10 @@ mkGetTopicAttributes :: Text -- ^ 'gtaTopicArn'
 mkGetTopicAttributes p1 = GetTopicAttributes
     { _gtaTopicArn = p1
     }
-{-# INLINE mkGetTopicAttributes #-}
 
 -- | The ARN of the topic whose properties you want to get.
 gtaTopicArn :: Lens' GetTopicAttributes Text
 gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
-{-# INLINE gtaTopicArn #-}
 
 instance ToQuery GetTopicAttributes where
     toQuery = genericQuery def
@@ -102,7 +100,6 @@ newtype GetTopicAttributesResponse = GetTopicAttributesResponse
 -- effective delivery policy that takes into account system defaults.
 gtarsAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
 gtarsAttributes = lens _gtarsAttributes (\s a -> s { _gtarsAttributes = a })
-{-# INLINE gtarsAttributes #-}
 
 instance FromXML GetTopicAttributesResponse where
     fromXMLOptions = xmlOptions

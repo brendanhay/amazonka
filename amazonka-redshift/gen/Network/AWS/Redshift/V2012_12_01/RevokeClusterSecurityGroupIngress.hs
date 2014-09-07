@@ -70,14 +70,12 @@ mkRevokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
     , _rcsgiEC2SecurityGroupName = Nothing
     , _rcsgiEC2SecurityGroupOwnerId = Nothing
     }
-{-# INLINE mkRevokeClusterSecurityGroupIngress #-}
 
 -- | The name of the security Group from which to revoke the ingress rule.
 rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
 rcsgiClusterSecurityGroupName =
     lens _rcsgiClusterSecurityGroupName
          (\s a -> s { _rcsgiClusterSecurityGroupName = a })
-{-# INLINE rcsgiClusterSecurityGroupName #-}
 
 -- | The IP range for which to revoke access. This range must be a valid
 -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If CIDRIP is
@@ -85,7 +83,6 @@ rcsgiClusterSecurityGroupName =
 -- provided.
 rcsgiCIDRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
 rcsgiCIDRIP = lens _rcsgiCIDRIP (\s a -> s { _rcsgiCIDRIP = a })
-{-# INLINE rcsgiCIDRIP #-}
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If
 -- EC2SecurityGroupName is specified, EC2SecurityGroupOwnerId must also be
@@ -94,7 +91,6 @@ rcsgiEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text
 rcsgiEC2SecurityGroupName =
     lens _rcsgiEC2SecurityGroupName
          (\s a -> s { _rcsgiEC2SecurityGroupName = a })
-{-# INLINE rcsgiEC2SecurityGroupName #-}
 
 -- | The AWS account number of the owner of the security group specified in the
 -- EC2SecurityGroupName parameter. The AWS access key ID is not an acceptable
@@ -104,7 +100,6 @@ rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe T
 rcsgiEC2SecurityGroupOwnerId =
     lens _rcsgiEC2SecurityGroupOwnerId
          (\s a -> s { _rcsgiEC2SecurityGroupOwnerId = a })
-{-# INLINE rcsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery RevokeClusterSecurityGroupIngress where
     toQuery = genericQuery def
@@ -118,7 +113,6 @@ rcsgirsClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (
 rcsgirsClusterSecurityGroup =
     lens _rcsgirsClusterSecurityGroup
          (\s a -> s { _rcsgirsClusterSecurityGroup = a })
-{-# INLINE rcsgirsClusterSecurityGroup #-}
 
 instance FromXML RevokeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

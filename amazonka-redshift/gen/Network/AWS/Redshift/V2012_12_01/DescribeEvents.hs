@@ -79,7 +79,6 @@ mkDescribeEvents = DescribeEvents
     , _deMaxRecords = Nothing
     , _deMarker = Nothing
     }
-{-# INLINE mkDescribeEvents #-}
 
 -- | The identifier of the event source for which events will be returned. If
 -- this parameter is not specified, then all sources are included in the
@@ -92,7 +91,6 @@ mkDescribeEvents = DescribeEvents
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier =
     lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
-{-# INLINE deSourceIdentifier #-}
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned. Constraints: If SourceType is supplied,
@@ -104,21 +102,18 @@ deSourceIdentifier =
 -- identifier.
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
-{-# INLINE deSourceType #-}
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
 deStartTime :: Lens' DescribeEvents (Maybe ISO8601)
 deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
-{-# INLINE deStartTime #-}
 
 -- | The end of the time interval for which to retrieve events, specified in ISO
 -- 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
 deEndTime :: Lens' DescribeEvents (Maybe ISO8601)
 deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
-{-# INLINE deEndTime #-}
 
 -- | The number of minutes prior to the time of the request for which to
 -- retrieve events. For example, if the request is sent at 18:00 and you
@@ -126,7 +121,6 @@ deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
 -- will be returned. Default: 60.
 deDuration :: Lens' DescribeEvents (Maybe Integer)
 deDuration = lens _deDuration (\s a -> s { _deDuration = a })
-{-# INLINE deDuration #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -135,7 +129,6 @@ deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 deMaxRecords :: Lens' DescribeEvents (Maybe Integer)
 deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
-{-# INLINE deMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeEvents request exceed the
@@ -145,7 +138,6 @@ deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
 -- the request.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
-{-# INLINE deMarker #-}
 
 instance ToQuery DescribeEvents where
     toQuery = genericQuery def
@@ -163,12 +155,10 @@ data DescribeEventsResponse = DescribeEventsResponse
 -- is empty, all response records have been retrieved for the request.
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\s a -> s { _dersMarker = a })
-{-# INLINE dersMarker #-}
 
 -- | A list of Event instances.
 dersEvents :: Lens' DescribeEventsResponse [Event]
 dersEvents = lens _dersEvents (\s a -> s { _dersEvents = a })
-{-# INLINE dersEvents #-}
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -181,5 +171,5 @@ instance AWSRequest DescribeEvents where
     response _ = xmlResponse
 
 instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq { _deMarker = Just x })
-        <$> (_dersMarker rs)
+    next rq rs = (\x -> rq & deMarker ?~ x) <$> (rs ^. dersMarker)
+

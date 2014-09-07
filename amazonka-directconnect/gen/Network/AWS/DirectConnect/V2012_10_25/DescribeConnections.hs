@@ -50,12 +50,10 @@ mkDescribeConnections :: DescribeConnections
 mkDescribeConnections = DescribeConnections
     { _dc1ConnectionId = Nothing
     }
-{-# INLINE mkDescribeConnections #-}
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
 dc1ConnectionId :: Lens' DescribeConnections (Maybe Text)
 dc1ConnectionId = lens _dc1ConnectionId (\s a -> s { _dc1ConnectionId = a })
-{-# INLINE dc1ConnectionId #-}
 
 instance ToPath DescribeConnections
 
@@ -74,7 +72,6 @@ newtype DescribeConnectionsResponse = DescribeConnectionsResponse
 dcrsrsConnections :: Lens' DescribeConnectionsResponse [Connection]
 dcrsrsConnections =
     lens _dcrsrsConnections (\s a -> s { _dcrsrsConnections = a })
-{-# INLINE dcrsrsConnections #-}
 
 instance FromJSON DescribeConnectionsResponse
 

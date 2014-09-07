@@ -53,7 +53,6 @@ data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
 -- a valid 'ListVerifiedEmailAddresses' request.
 mkListVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 mkListVerifiedEmailAddresses = ListVerifiedEmailAddresses
-{-# INLINE mkListVerifiedEmailAddresses #-}
 
 instance ToQuery ListVerifiedEmailAddresses where
     toQuery = genericQuery def
@@ -68,7 +67,6 @@ lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearsVerifiedEmailAddresses =
     lens _lvearsVerifiedEmailAddresses
          (\s a -> s { _lvearsVerifiedEmailAddresses = a })
-{-# INLINE lvearsVerifiedEmailAddresses #-}
 
 instance FromXML ListVerifiedEmailAddressesResponse where
     fromXMLOptions = xmlOptions

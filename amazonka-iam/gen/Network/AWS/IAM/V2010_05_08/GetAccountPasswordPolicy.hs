@@ -45,7 +45,6 @@ data GetAccountPasswordPolicy = GetAccountPasswordPolicy
 -- a valid 'GetAccountPasswordPolicy' request.
 mkGetAccountPasswordPolicy :: GetAccountPasswordPolicy
 mkGetAccountPasswordPolicy = GetAccountPasswordPolicy
-{-# INLINE mkGetAccountPasswordPolicy #-}
 
 instance ToQuery GetAccountPasswordPolicy where
     toQuery = genericQuery def
@@ -62,7 +61,6 @@ newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
 gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprsPasswordPolicy =
     lens _gapprsPasswordPolicy (\s a -> s { _gapprsPasswordPolicy = a })
-{-# INLINE gapprsPasswordPolicy #-}
 
 instance FromXML GetAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions

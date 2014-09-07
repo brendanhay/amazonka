@@ -71,27 +71,23 @@ mkCreateIdentityPool p1 p2 = CreateIdentityPool
     , _cipAllowUnauthenticatedIdentities = p2
     , _cipSupportedLoginProviders = mempty
     }
-{-# INLINE mkCreateIdentityPool #-}
 
 -- | A string that you provide.
 cipIdentityPoolName :: Lens' CreateIdentityPool Text
 cipIdentityPoolName =
     lens _cipIdentityPoolName (\s a -> s { _cipIdentityPoolName = a })
-{-# INLINE cipIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
 cipAllowUnauthenticatedIdentities =
     lens _cipAllowUnauthenticatedIdentities
          (\s a -> s { _cipAllowUnauthenticatedIdentities = a })
-{-# INLINE cipAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (Map Text Text)
 cipSupportedLoginProviders =
     lens _cipSupportedLoginProviders
          (\s a -> s { _cipSupportedLoginProviders = a })
-{-# INLINE cipSupportedLoginProviders #-}
 
 instance ToPath CreateIdentityPool
 
@@ -113,27 +109,23 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
 ciprsIdentityPoolId :: Lens' CreateIdentityPoolResponse Text
 ciprsIdentityPoolId =
     lens _ciprsIdentityPoolId (\s a -> s { _ciprsIdentityPoolId = a })
-{-# INLINE ciprsIdentityPoolId #-}
 
 -- | A string that you provide.
 ciprsIdentityPoolName :: Lens' CreateIdentityPoolResponse Text
 ciprsIdentityPoolName =
     lens _ciprsIdentityPoolName (\s a -> s { _ciprsIdentityPoolName = a })
-{-# INLINE ciprsIdentityPoolName #-}
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 ciprsAllowUnauthenticatedIdentities :: Lens' CreateIdentityPoolResponse Bool
 ciprsAllowUnauthenticatedIdentities =
     lens _ciprsAllowUnauthenticatedIdentities
          (\s a -> s { _ciprsAllowUnauthenticatedIdentities = a })
-{-# INLINE ciprsAllowUnauthenticatedIdentities #-}
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 ciprsSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (Map Text Text)
 ciprsSupportedLoginProviders =
     lens _ciprsSupportedLoginProviders
          (\s a -> s { _ciprsSupportedLoginProviders = a })
-{-# INLINE ciprsSupportedLoginProviders #-}
 
 instance FromJSON CreateIdentityPoolResponse
 

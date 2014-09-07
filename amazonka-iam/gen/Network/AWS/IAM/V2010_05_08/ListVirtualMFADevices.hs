@@ -70,7 +70,6 @@ mkListVirtualMFADevices = ListVirtualMFADevices
     , _lvmfadMarker = Nothing
     , _lvmfadMaxItems = Nothing
     }
-{-# INLINE mkListVirtualMFADevices #-}
 
 -- | The status (unassigned or assigned) of the devices to list. If you do not
 -- specify an AssignmentStatus, the action defaults to Any which lists both
@@ -78,7 +77,6 @@ mkListVirtualMFADevices = ListVirtualMFADevices
 lvmfadAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmfadAssignmentStatus =
     lens _lvmfadAssignmentStatus (\s a -> s { _lvmfadAssignmentStatus = a })
-{-# INLINE lvmfadAssignmentStatus #-}
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -86,7 +84,6 @@ lvmfadAssignmentStatus =
 -- received.
 lvmfadMarker :: Lens' ListVirtualMFADevices (Maybe Text)
 lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
-{-# INLINE lvmfadMarker #-}
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of user names you want in the response. If there are additional user
@@ -95,7 +92,6 @@ lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
 -- 100.
 lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Integer)
 lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a })
-{-# INLINE lvmfadMaxItems #-}
 
 instance ToQuery ListVirtualMFADevices where
     toQuery = genericQuery def
@@ -104,7 +100,7 @@ instance ToQuery ListVirtualMFADevices where
 -- action.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrsVirtualMFADevices :: [VirtualMFADevice]
-    , _lvmfadrsIsTruncated :: Maybe Bool
+    , _lvmfadrsIsTruncated :: Bool
     , _lvmfadrsMarker :: Maybe Text
     } deriving (Show, Generic)
 
@@ -112,21 +108,18 @@ lvmfadrsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevi
 lvmfadrsVirtualMFADevices =
     lens _lvmfadrsVirtualMFADevices
          (\s a -> s { _lvmfadrsVirtualMFADevices = a })
-{-# INLINE lvmfadrsVirtualMFADevices #-}
 
 -- | A flag that indicates whether there are more items to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more items the list.
-lvmfadrsIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
+lvmfadrsIsTruncated :: Lens' ListVirtualMFADevicesResponse Bool
 lvmfadrsIsTruncated =
     lens _lvmfadrsIsTruncated (\s a -> s { _lvmfadrsIsTruncated = a })
-{-# INLINE lvmfadrsIsTruncated #-}
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
 lvmfadrsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
 lvmfadrsMarker = lens _lvmfadrsMarker (\s a -> s { _lvmfadrsMarker = a })
-{-# INLINE lvmfadrsMarker #-}
 
 instance FromXML ListVirtualMFADevicesResponse where
     fromXMLOptions = xmlOptions
@@ -140,7 +133,5 @@ instance AWSRequest ListVirtualMFADevices where
 
 instance AWSPager ListVirtualMFADevices where
     next rq rs
-        | not (_lvmfadrsIsTruncated rs) = Nothing
-        | otherwise = Just $ rq
-            { _lvmfadMarker = _lvmfadrsMarker rs
-            }
+        | not (rs ^. lvmfadrsIsTruncated) = Nothing
+        | otherwise = Just (rq & lvmfadMarker .~ rs ^. lvmfadrsMarker)

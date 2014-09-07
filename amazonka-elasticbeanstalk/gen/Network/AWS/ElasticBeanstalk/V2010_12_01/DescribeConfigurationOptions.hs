@@ -135,7 +135,6 @@ mkDescribeConfigurationOptions = DescribeConfigurationOptions
     , _dcoSolutionStackName = Nothing
     , _dcoOptions = mempty
     }
-{-# INLINE mkDescribeConfigurationOptions #-}
 
 -- | The name of the application associated with the configuration template or
 -- environment. Only needed if you want to describe the configuration options
@@ -143,32 +142,27 @@ mkDescribeConfigurationOptions = DescribeConfigurationOptions
 dcoApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoApplicationName =
     lens _dcoApplicationName (\s a -> s { _dcoApplicationName = a })
-{-# INLINE dcoApplicationName #-}
 
 -- | The name of the configuration template whose configuration options you want
 -- to describe.
 dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoTemplateName = lens _dcoTemplateName (\s a -> s { _dcoTemplateName = a })
-{-# INLINE dcoTemplateName #-}
 
 -- | The name of the environment whose configuration options you want to
 -- describe.
 dcoEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoEnvironmentName =
     lens _dcoEnvironmentName (\s a -> s { _dcoEnvironmentName = a })
-{-# INLINE dcoEnvironmentName #-}
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
 dcoSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoSolutionStackName =
     lens _dcoSolutionStackName (\s a -> s { _dcoSolutionStackName = a })
-{-# INLINE dcoSolutionStackName #-}
 
 -- | If specified, restricts the descriptions to only the specified options.
 dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
 dcoOptions = lens _dcoOptions (\s a -> s { _dcoOptions = a })
-{-# INLINE dcoOptions #-}
 
 instance ToQuery DescribeConfigurationOptions where
     toQuery = genericQuery def
@@ -183,12 +177,10 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorsSolutionStackName =
     lens _dcorsSolutionStackName (\s a -> s { _dcorsSolutionStackName = a })
-{-# INLINE dcorsSolutionStackName #-}
 
 -- | A list of ConfigurationOptionDescription.
 dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
 dcorsOptions = lens _dcorsOptions (\s a -> s { _dcorsOptions = a })
-{-# INLINE dcorsOptions #-}
 
 instance FromXML DescribeConfigurationOptionsResponse where
     fromXMLOptions = xmlOptions

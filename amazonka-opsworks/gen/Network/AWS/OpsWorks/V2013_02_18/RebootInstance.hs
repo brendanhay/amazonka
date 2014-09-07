@@ -51,12 +51,10 @@ mkRebootInstance :: Text -- ^ 'riInstanceId'
 mkRebootInstance p1 = RebootInstance
     { _riInstanceId = p1
     }
-{-# INLINE mkRebootInstance #-}
 
 -- | The instance ID.
 riInstanceId :: Lens' RebootInstance Text
 riInstanceId = lens _riInstanceId (\s a -> s { _riInstanceId = a })
-{-# INLINE riInstanceId #-}
 
 instance ToPath RebootInstance
 

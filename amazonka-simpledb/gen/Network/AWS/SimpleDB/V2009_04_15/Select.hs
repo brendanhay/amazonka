@@ -63,19 +63,16 @@ mkSelect p1 = Select
     , _sNextToken = Nothing
     , _sConsistentRead = Nothing
     }
-{-# INLINE mkSelect #-}
 
 -- | The expression used to query the domain.
 sSelectExpression :: Lens' Select Text
 sSelectExpression =
     lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
-{-# INLINE sSelectExpression #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- ItemNames.
 sNextToken :: Lens' Select (Maybe Text)
 sNextToken = lens _sNextToken (\s a -> s { _sNextToken = a })
-{-# INLINE sNextToken #-}
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
@@ -83,7 +80,6 @@ sNextToken = lens _sNextToken (\s a -> s { _sNextToken = a })
 -- client may not see data that was written immediately before your read.
 sConsistentRead :: Lens' Select (Maybe Bool)
 sConsistentRead = lens _sConsistentRead (\s a -> s { _sConsistentRead = a })
-{-# INLINE sConsistentRead #-}
 
 instance ToQuery Select where
     toQuery = genericQuery def
@@ -96,14 +92,12 @@ data SelectResponse = SelectResponse
 -- | A list of items that match the select expression.
 srsItems :: Lens' SelectResponse [Item]
 srsItems = lens _srsItems (\s a -> s { _srsItems = a })
-{-# INLINE srsItems #-}
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
 srsNextToken :: Lens' SelectResponse (Maybe Text)
 srsNextToken = lens _srsNextToken (\s a -> s { _srsNextToken = a })
-{-# INLINE srsNextToken #-}
 
 instance FromXML SelectResponse where
     fromXMLOptions = xmlOptions
@@ -116,5 +110,5 @@ instance AWSRequest Select where
     response _ = xmlResponse
 
 instance AWSPager Select where
-    next rq rs = (\x -> rq { _sNextToken = Just x })
-        <$> (_srsNextToken rs)
+    next rq rs = (\x -> rq & sNextToken ?~ x) <$> (rs ^. srsNextToken)
+

@@ -65,17 +65,14 @@ mkBatchDeleteAttributes p1 p2 = BatchDeleteAttributes
     { _bdaDomainName = p1
     , _bdaItems = p2
     }
-{-# INLINE mkBatchDeleteAttributes #-}
 
 -- | The name of the domain in which the attributes are being deleted.
 bdaDomainName :: Lens' BatchDeleteAttributes Text
 bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
-{-# INLINE bdaDomainName #-}
 
 -- | A list of items on which to perform the operation.
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
-{-# INLINE bdaItems #-}
 
 instance ToQuery BatchDeleteAttributes where
     toQuery = genericQuery def

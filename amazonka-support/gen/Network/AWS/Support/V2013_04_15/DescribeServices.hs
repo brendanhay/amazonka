@@ -61,20 +61,17 @@ mkDescribeServices = DescribeServices
     { _dsServiceCodeList = mempty
     , _dsLanguage = Nothing
     }
-{-# INLINE mkDescribeServices #-}
 
 -- | A JSON-formatted list of service codes available for AWS services.
 dsServiceCodeList :: Lens' DescribeServices [Text]
 dsServiceCodeList =
     lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
-{-# INLINE dsServiceCodeList #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dsLanguage :: Lens' DescribeServices (Maybe Text)
 dsLanguage = lens _dsLanguage (\s a -> s { _dsLanguage = a })
-{-# INLINE dsLanguage #-}
 
 instance ToPath DescribeServices
 
@@ -92,7 +89,6 @@ newtype DescribeServicesResponse = DescribeServicesResponse
 -- | A JSON-formatted list of AWS services.
 dsrsServices :: Lens' DescribeServicesResponse [Service]
 dsrsServices = lens _dsrsServices (\s a -> s { _dsrsServices = a })
-{-# INLINE dsrsServices #-}
 
 instance FromJSON DescribeServicesResponse
 

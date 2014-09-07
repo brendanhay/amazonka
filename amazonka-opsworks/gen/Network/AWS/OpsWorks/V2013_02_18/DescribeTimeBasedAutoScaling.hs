@@ -54,13 +54,11 @@ mkDescribeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasInstanceIds'
 mkDescribeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
     { _dtbasInstanceIds = p1
     }
-{-# INLINE mkDescribeTimeBasedAutoScaling #-}
 
 -- | An array of instance IDs.
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
 dtbasInstanceIds =
     lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a })
-{-# INLINE dtbasInstanceIds #-}
 
 instance ToPath DescribeTimeBasedAutoScaling
 
@@ -81,7 +79,6 @@ dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingR
 dtbasrsTimeBasedAutoScalingConfigurations =
     lens _dtbasrsTimeBasedAutoScalingConfigurations
          (\s a -> s { _dtbasrsTimeBasedAutoScalingConfigurations = a })
-{-# INLINE dtbasrsTimeBasedAutoScalingConfigurations #-}
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse
 

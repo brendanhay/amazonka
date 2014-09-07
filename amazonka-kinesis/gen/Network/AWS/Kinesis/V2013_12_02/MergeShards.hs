@@ -93,23 +93,19 @@ mkMergeShards p1 p2 p3 = MergeShards
     , _msShardToMerge = p2
     , _msAdjacentShardToMerge = p3
     }
-{-# INLINE mkMergeShards #-}
 
 -- | The name of the stream for the merge.
 msStreamName :: Lens' MergeShards Text
 msStreamName = lens _msStreamName (\s a -> s { _msStreamName = a })
-{-# INLINE msStreamName #-}
 
 -- | The shard ID of the shard to combine with the adjacent shard for the merge.
 msShardToMerge :: Lens' MergeShards Text
 msShardToMerge = lens _msShardToMerge (\s a -> s { _msShardToMerge = a })
-{-# INLINE msShardToMerge #-}
 
 -- | The shard ID of the adjacent shard for the merge.
 msAdjacentShardToMerge :: Lens' MergeShards Text
 msAdjacentShardToMerge =
     lens _msAdjacentShardToMerge (\s a -> s { _msAdjacentShardToMerge = a })
-{-# INLINE msAdjacentShardToMerge #-}
 
 instance ToPath MergeShards
 

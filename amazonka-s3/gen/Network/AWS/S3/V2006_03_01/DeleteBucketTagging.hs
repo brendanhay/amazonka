@@ -47,11 +47,9 @@ mkDeleteBucketTagging :: BucketName -- ^ 'dbtBucket'
 mkDeleteBucketTagging p1 = DeleteBucketTagging
     { _dbtBucket = p1
     }
-{-# INLINE mkDeleteBucketTagging #-}
 
 dbtBucket :: Lens' DeleteBucketTagging BucketName
 dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
-{-# INLINE dbtBucket #-}
 
 instance ToPath DeleteBucketTagging where
     toPath DeleteBucketTagging{..} = mconcat

@@ -114,23 +114,19 @@ mkModifyInstanceAttribute p1 = ModifyInstanceAttribute
     , _mia1EbsOptimized = Nothing
     , _mia1SriovNetSupport = Nothing
     }
-{-# INLINE mkModifyInstanceAttribute #-}
 
 -- | The ID of the instance.
 mia1InstanceId :: Lens' ModifyInstanceAttribute Text
 mia1InstanceId = lens _mia1InstanceId (\s a -> s { _mia1InstanceId = a })
-{-# INLINE mia1InstanceId #-}
 
 -- | The name of the attribute.
 mia1Attribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
 mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
-{-# INLINE mia1Attribute #-}
 
 -- | A new value for the attribute. Use only with the kernel, ramdisk, userData,
 -- disableApiTermination, or intanceInitiateShutdownBehavior attribute.
 mia1Value :: Lens' ModifyInstanceAttribute (Maybe Text)
 mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })
-{-# INLINE mia1Value #-}
 
 -- | Modifies the DeleteOnTermination attribute for volumes that are currently
 -- attached. The volume must be owned by the caller. If no value is specified
@@ -143,7 +139,6 @@ mia1BlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMap
 mia1BlockDeviceMappings =
     lens _mia1BlockDeviceMappings
          (\s a -> s { _mia1BlockDeviceMappings = a })
-{-# INLINE mia1BlockDeviceMappings #-}
 
 -- | Specifies whether source/destination checking is enabled. A value of true
 -- means that checking is enabled, and false means checking is disabled. This
@@ -151,7 +146,6 @@ mia1BlockDeviceMappings =
 mia1SourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mia1SourceDestCheck =
     lens _mia1SourceDestCheck (\s a -> s { _mia1SourceDestCheck = a })
-{-# INLINE mia1SourceDestCheck #-}
 
 -- | Specifies whether to disable the ability to terminate the instance using
 -- the Amazon EC2 console, CLI, and API.
@@ -159,7 +153,6 @@ mia1DisableApiTermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBoole
 mia1DisableApiTermination =
     lens _mia1DisableApiTermination
          (\s a -> s { _mia1DisableApiTermination = a })
-{-# INLINE mia1DisableApiTermination #-}
 
 -- | Changes the instance type to the specified value. For more information, see
 -- Instance Types. If the instance type is not valid, the error returned is
@@ -167,22 +160,18 @@ mia1DisableApiTermination =
 mia1InstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1InstanceType =
     lens _mia1InstanceType (\s a -> s { _mia1InstanceType = a })
-{-# INLINE mia1InstanceType #-}
 
 -- | Changes the instance's kernel to the specified value.
 mia1Kernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1Kernel = lens _mia1Kernel (\s a -> s { _mia1Kernel = a })
-{-# INLINE mia1Kernel #-}
 
 -- | Changes the instance's RAM disk to the specified value.
 mia1Ramdisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1Ramdisk = lens _mia1Ramdisk (\s a -> s { _mia1Ramdisk = a })
-{-# INLINE mia1Ramdisk #-}
 
 -- | Changes the instance's user data to the specified value.
 mia1UserData :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1UserData = lens _mia1UserData (\s a -> s { _mia1UserData = a })
-{-# INLINE mia1UserData #-}
 
 -- | Specifies whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
@@ -191,7 +180,6 @@ mia1InstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe At
 mia1InstanceInitiatedShutdownBehavior =
     lens _mia1InstanceInitiatedShutdownBehavior
          (\s a -> s { _mia1InstanceInitiatedShutdownBehavior = a })
-{-# INLINE mia1InstanceInitiatedShutdownBehavior #-}
 
 -- | [EC2-VPC] Changes the security groups of the instance. You must specify at
 -- least one security group, even if it's just the default security group for
@@ -200,7 +188,6 @@ mia1InstanceInitiatedShutdownBehavior =
 -- sg-9b9b9b9b, specify GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
 mia1Groups :: Lens' ModifyInstanceAttribute [Text]
 mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a })
-{-# INLINE mia1Groups #-}
 
 -- | Specifies whether the instance is optimized for EBS I/O. This optimization
 -- provides dedicated throughput to Amazon EBS and an optimized configuration
@@ -210,7 +197,6 @@ mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a })
 mia1EbsOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mia1EbsOptimized =
     lens _mia1EbsOptimized (\s a -> s { _mia1EbsOptimized = a })
-{-# INLINE mia1EbsOptimized #-}
 
 -- | Set to simple to enable enhanced networking for the instance. There is no
 -- way to disable enhanced networking at this time. This option is supported
@@ -219,7 +205,6 @@ mia1EbsOptimized =
 mia1SriovNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1SriovNetSupport =
     lens _mia1SriovNetSupport (\s a -> s { _mia1SriovNetSupport = a })
-{-# INLINE mia1SriovNetSupport #-}
 
 instance ToQuery ModifyInstanceAttribute where
     toQuery = genericQuery def

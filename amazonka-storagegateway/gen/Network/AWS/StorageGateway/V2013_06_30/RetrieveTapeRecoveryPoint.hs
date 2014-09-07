@@ -52,17 +52,14 @@ mkRetrieveTapeRecoveryPoint p1 p2 = RetrieveTapeRecoveryPoint
     { _rtrpTapeARN = p1
     , _rtrpGatewayARN = p2
     }
-{-# INLINE mkRetrieveTapeRecoveryPoint #-}
 
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
-{-# INLINE rtrpTapeARN #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
 rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpGatewayARN = lens _rtrpGatewayARN (\s a -> s { _rtrpGatewayARN = a })
-{-# INLINE rtrpGatewayARN #-}
 
 instance ToPath RetrieveTapeRecoveryPoint
 
@@ -78,7 +75,6 @@ newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
 
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprsTapeARN = lens _rtrprsTapeARN (\s a -> s { _rtrprsTapeARN = a })
-{-# INLINE rtrprsTapeARN #-}
 
 instance FromJSON RetrieveTapeRecoveryPointResponse
 

@@ -105,7 +105,6 @@ mkUploadServerCertificate p2 p3 p4 = UploadServerCertificate
     , _usc2PrivateKey = p4
     , _usc2CertificateChain = Nothing
     }
-{-# INLINE mkUploadServerCertificate #-}
 
 -- | The path for the server certificate. For more information about paths, see
 -- Identifiers for IAM Entities in the Using IAM guide. This parameter is
@@ -116,32 +115,27 @@ mkUploadServerCertificate p2 p3 p4 = UploadServerCertificate
 -- /cloudfront/test/).
 usc2Path :: Lens' UploadServerCertificate (Maybe Text)
 usc2Path = lens _usc2Path (\s a -> s { _usc2Path = a })
-{-# INLINE usc2Path #-}
 
 -- | The name for the server certificate. Do not include the path in this value.
 usc2ServerCertificateName :: Lens' UploadServerCertificate Text
 usc2ServerCertificateName =
     lens _usc2ServerCertificateName
          (\s a -> s { _usc2ServerCertificateName = a })
-{-# INLINE usc2ServerCertificateName #-}
 
 -- | The contents of the public key certificate in PEM-encoded format.
 usc2CertificateBody :: Lens' UploadServerCertificate Text
 usc2CertificateBody =
     lens _usc2CertificateBody (\s a -> s { _usc2CertificateBody = a })
-{-# INLINE usc2CertificateBody #-}
 
 -- | The contents of the private key in PEM-encoded format.
 usc2PrivateKey :: Lens' UploadServerCertificate Text
 usc2PrivateKey = lens _usc2PrivateKey (\s a -> s { _usc2PrivateKey = a })
-{-# INLINE usc2PrivateKey #-}
 
 -- | The contents of the certificate chain. This is typically a concatenation of
 -- the PEM-encoded public key certificates of the chain.
 usc2CertificateChain :: Lens' UploadServerCertificate (Maybe Text)
 usc2CertificateChain =
     lens _usc2CertificateChain (\s a -> s { _usc2CertificateChain = a })
-{-# INLINE usc2CertificateChain #-}
 
 instance ToQuery UploadServerCertificate where
     toQuery = genericQuery def
@@ -158,7 +152,6 @@ uscrsServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe S
 uscrsServerCertificateMetadata =
     lens _uscrsServerCertificateMetadata
          (\s a -> s { _uscrsServerCertificateMetadata = a })
-{-# INLINE uscrsServerCertificateMetadata #-}
 
 instance FromXML UploadServerCertificateResponse where
     fromXMLOptions = xmlOptions

@@ -59,18 +59,15 @@ mkDisassociateAddress = DisassociateAddress
     { _da1PublicIp = Nothing
     , _da1AssociationId = Nothing
     }
-{-# INLINE mkDisassociateAddress #-}
 
 -- | [EC2-Classic] The Elastic IP address.
 da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
 da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
-{-# INLINE da1PublicIp #-}
 
 -- | [EC2-VPC] The association ID.
 da1AssociationId :: Lens' DisassociateAddress (Maybe Text)
 da1AssociationId =
     lens _da1AssociationId (\s a -> s { _da1AssociationId = a })
-{-# INLINE da1AssociationId #-}
 
 instance ToQuery DisassociateAddress where
     toQuery = genericQuery def

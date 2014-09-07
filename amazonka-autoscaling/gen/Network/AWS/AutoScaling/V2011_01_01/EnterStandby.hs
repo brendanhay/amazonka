@@ -66,20 +66,17 @@ mkEnterStandby p2 p3 = EnterStandby
     , _esAutoScalingGroupName = p2
     , _esShouldDecrementDesiredCapacity = p3
     }
-{-# INLINE mkEnterStandby #-}
 
 -- | The instances to move into Standby mode. You must specify at least one
 -- instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
 esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a })
-{-# INLINE esInstanceIds #-}
 
 -- | The name of the Auto Scaling group from which to move instances into
 -- Standby mode.
 esAutoScalingGroupName :: Lens' EnterStandby Text
 esAutoScalingGroupName =
     lens _esAutoScalingGroupName (\s a -> s { _esAutoScalingGroupName = a })
-{-# INLINE esAutoScalingGroupName #-}
 
 -- | Specifies whether the instances moved to Standby mode count as part of the
 -- Auto Scaling group's desired capacity. If set, the desired capacity for the
@@ -89,7 +86,6 @@ esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
 esShouldDecrementDesiredCapacity =
     lens _esShouldDecrementDesiredCapacity
          (\s a -> s { _esShouldDecrementDesiredCapacity = a })
-{-# INLINE esShouldDecrementDesiredCapacity #-}
 
 instance ToQuery EnterStandby where
     toQuery = genericQuery def
@@ -103,7 +99,6 @@ newtype EnterStandbyResponse = EnterStandbyResponse
 -- mode.
 esrsActivities :: Lens' EnterStandbyResponse [Activity]
 esrsActivities = lens _esrsActivities (\s a -> s { _esrsActivities = a })
-{-# INLINE esrsActivities #-}
 
 instance FromXML EnterStandbyResponse where
     fromXMLOptions = xmlOptions

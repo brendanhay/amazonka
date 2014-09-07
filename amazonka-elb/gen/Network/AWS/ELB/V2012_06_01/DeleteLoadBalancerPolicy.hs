@@ -52,18 +52,15 @@ mkDeleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
     { _dlbpLoadBalancerName = p1
     , _dlbpPolicyName = p2
     }
-{-# INLINE mkDeleteLoadBalancerPolicy #-}
 
 -- | The mnemonic name associated with the load balancer.
 dlbpLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
 dlbpLoadBalancerName =
     lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
-{-# INLINE dlbpLoadBalancerName #-}
 
 -- | The mnemonic name for the policy being deleted.
 dlbpPolicyName :: Lens' DeleteLoadBalancerPolicy Text
 dlbpPolicyName = lens _dlbpPolicyName (\s a -> s { _dlbpPolicyName = a })
-{-# INLINE dlbpPolicyName #-}
 
 instance ToQuery DeleteLoadBalancerPolicy where
     toQuery = genericQuery def

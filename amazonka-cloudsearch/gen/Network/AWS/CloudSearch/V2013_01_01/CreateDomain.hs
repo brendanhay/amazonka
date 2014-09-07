@@ -51,14 +51,12 @@ mkCreateDomain :: Text -- ^ 'cdDomainName'
 mkCreateDomain p1 = CreateDomain
     { _cdDomainName = p1
     }
-{-# INLINE mkCreateDomain #-}
 
 -- | A name for the domain you are creating. Allowed characters are a-z
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with a
 -- letter or number and be at least 3 and no more than 28 characters long.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
-{-# INLINE cdDomainName #-}
 
 instance ToQuery CreateDomain where
     toQuery = genericQuery def
@@ -73,7 +71,6 @@ newtype CreateDomainResponse = CreateDomainResponse
 cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrsDomainStatus =
     lens _cdrsDomainStatus (\s a -> s { _cdrsDomainStatus = a })
-{-# INLINE cdrsDomainStatus #-}
 
 instance FromXML CreateDomainResponse where
     fromXMLOptions = xmlOptions

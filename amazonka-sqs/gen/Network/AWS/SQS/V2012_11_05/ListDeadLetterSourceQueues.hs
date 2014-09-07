@@ -56,12 +56,10 @@ mkListDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
 mkListDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl = p1
     }
-{-# INLINE mkListDeadLetterSourceQueues #-}
 
 -- | The queue URL of a dead letter queue.
 ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
-{-# INLINE ldlsqQueueUrl #-}
 
 instance ToQuery ListDeadLetterSourceQueues where
     toQuery = genericQuery def
@@ -76,7 +74,6 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 ldlsqrsQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrsQueueUrls =
     lens _ldlsqrsQueueUrls (\s a -> s { _ldlsqrsQueueUrls = a })
-{-# INLINE ldlsqrsQueueUrls #-}
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
     fromXMLOptions = xmlOptions

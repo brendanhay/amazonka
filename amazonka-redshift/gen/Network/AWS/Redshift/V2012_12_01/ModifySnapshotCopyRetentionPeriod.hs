@@ -54,7 +54,6 @@ mkModifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
     { _mscrpClusterIdentifier = p1
     , _mscrpRetentionPeriod = p2
     }
-{-# INLINE mkModifySnapshotCopyRetentionPeriod #-}
 
 -- | The unique identifier of the cluster for which you want to change the
 -- retention period for automated snapshots that are copied to a destination
@@ -63,7 +62,6 @@ mkModifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
 mscrpClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod Text
 mscrpClusterIdentifier =
     lens _mscrpClusterIdentifier (\s a -> s { _mscrpClusterIdentifier = a })
-{-# INLINE mscrpClusterIdentifier #-}
 
 -- | The number of days to retain automated snapshots in the destination region
 -- after they are copied from the source region. If you decrease the retention
@@ -74,7 +72,6 @@ mscrpClusterIdentifier =
 mscrpRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Integer
 mscrpRetentionPeriod =
     lens _mscrpRetentionPeriod (\s a -> s { _mscrpRetentionPeriod = a })
-{-# INLINE mscrpRetentionPeriod #-}
 
 instance ToQuery ModifySnapshotCopyRetentionPeriod where
     toQuery = genericQuery def
@@ -86,7 +83,6 @@ newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionP
 -- | Describes a cluster.
 mscrprsCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprsCluster = lens _mscrprsCluster (\s a -> s { _mscrprsCluster = a })
-{-# INLINE mscrprsCluster #-}
 
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
     fromXMLOptions = xmlOptions

@@ -148,17 +148,14 @@ mkInputLogEvent p1 p2 = InputLogEvent
     { _ileTimestamp = p1
     , _ileMessage = p2
     }
-{-# INLINE mkInputLogEvent #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 ileTimestamp :: Lens' InputLogEvent Integer
 ileTimestamp = lens _ileTimestamp (\s a -> s { _ileTimestamp = a })
-{-# INLINE ileTimestamp #-}
 
 ileMessage :: Lens' InputLogEvent Text
 ileMessage = lens _ileMessage (\s a -> s { _ileMessage = a })
-{-# INLINE ileMessage #-}
 
 instance ToJSON InputLogEvent
 
@@ -182,17 +179,14 @@ mkLogGroup = LogGroup
     , _lgArn = Nothing
     , _lgStoredBytes = Nothing
     }
-{-# INLINE mkLogGroup #-}
 
 lgLogGroupName :: Lens' LogGroup (Maybe Text)
 lgLogGroupName = lens _lgLogGroupName (\s a -> s { _lgLogGroupName = a })
-{-# INLINE lgLogGroupName #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 lgCreationTime :: Lens' LogGroup (Maybe Integer)
 lgCreationTime = lens _lgCreationTime (\s a -> s { _lgCreationTime = a })
-{-# INLINE lgCreationTime #-}
 
 -- | Specifies the number of days you want to retain log events in the specified
 -- log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
@@ -200,21 +194,17 @@ lgCreationTime = lens _lgCreationTime (\s a -> s { _lgCreationTime = a })
 lgRetentionInDays :: Lens' LogGroup (Maybe Integer)
 lgRetentionInDays =
     lens _lgRetentionInDays (\s a -> s { _lgRetentionInDays = a })
-{-# INLINE lgRetentionInDays #-}
 
 -- | The number of metric filters associated with the log group.
 lgMetricFilterCount :: Lens' LogGroup (Maybe Integer)
 lgMetricFilterCount =
     lens _lgMetricFilterCount (\s a -> s { _lgMetricFilterCount = a })
-{-# INLINE lgMetricFilterCount #-}
 
 lgArn :: Lens' LogGroup (Maybe Text)
 lgArn = lens _lgArn (\s a -> s { _lgArn = a })
-{-# INLINE lgArn #-}
 
 lgStoredBytes :: Lens' LogGroup (Maybe Integer)
 lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a })
-{-# INLINE lgStoredBytes #-}
 
 instance FromJSON LogGroup
 
@@ -243,38 +233,32 @@ mkLogStream = LogStream
     , _lsArn = Nothing
     , _lsStoredBytes = Nothing
     }
-{-# INLINE mkLogStream #-}
 
 lsLogStreamName :: Lens' LogStream (Maybe Text)
 lsLogStreamName = lens _lsLogStreamName (\s a -> s { _lsLogStreamName = a })
-{-# INLINE lsLogStreamName #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 lsCreationTime :: Lens' LogStream (Maybe Integer)
 lsCreationTime = lens _lsCreationTime (\s a -> s { _lsCreationTime = a })
-{-# INLINE lsCreationTime #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Integer)
 lsFirstEventTimestamp =
     lens _lsFirstEventTimestamp (\s a -> s { _lsFirstEventTimestamp = a })
-{-# INLINE lsFirstEventTimestamp #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Integer)
 lsLastEventTimestamp =
     lens _lsLastEventTimestamp (\s a -> s { _lsLastEventTimestamp = a })
-{-# INLINE lsLastEventTimestamp #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 lsLastIngestionTime :: Lens' LogStream (Maybe Integer)
 lsLastIngestionTime =
     lens _lsLastIngestionTime (\s a -> s { _lsLastIngestionTime = a })
-{-# INLINE lsLastIngestionTime #-}
 
 -- | A string token used for making PutLogEvents requests. A sequenceToken can
 -- only be used once, and PutLogEvents requests must include the sequenceToken
@@ -282,15 +266,12 @@ lsLastIngestionTime =
 lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
 lsUploadSequenceToken =
     lens _lsUploadSequenceToken (\s a -> s { _lsUploadSequenceToken = a })
-{-# INLINE lsUploadSequenceToken #-}
 
 lsArn :: Lens' LogStream (Maybe Text)
 lsArn = lens _lsArn (\s a -> s { _lsArn = a })
-{-# INLINE lsArn #-}
 
 lsStoredBytes :: Lens' LogStream (Maybe Integer)
 lsStoredBytes = lens _lsStoredBytes (\s a -> s { _lsStoredBytes = a })
-{-# INLINE lsStoredBytes #-}
 
 instance FromJSON LogStream
 
@@ -313,28 +294,23 @@ mkMetricFilter = MetricFilter
     , _mfMetricTransformations = Nothing
     , _mfCreationTime = Nothing
     }
-{-# INLINE mkMetricFilter #-}
 
 -- | The name of the metric filter.
 mfFilterName :: Lens' MetricFilter (Maybe Text)
 mfFilterName = lens _mfFilterName (\s a -> s { _mfFilterName = a })
-{-# INLINE mfFilterName #-}
 
 mfFilterPattern :: Lens' MetricFilter (Maybe Text)
 mfFilterPattern = lens _mfFilterPattern (\s a -> s { _mfFilterPattern = a })
-{-# INLINE mfFilterPattern #-}
 
 mfMetricTransformations :: Lens' MetricFilter (Maybe [MetricTransformation])
 mfMetricTransformations =
     lens _mfMetricTransformations
          (\s a -> s { _mfMetricTransformations = a })
-{-# INLINE mfMetricTransformations #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 mfCreationTime :: Lens' MetricFilter (Maybe Integer)
 mfCreationTime = lens _mfCreationTime (\s a -> s { _mfCreationTime = a })
-{-# INLINE mfCreationTime #-}
 
 instance FromJSON MetricFilter
 
@@ -352,21 +328,17 @@ mkMetricFilterMatchRecord = MetricFilterMatchRecord
     , _mfmrEventMessage = Nothing
     , _mfmrExtractedValues = mempty
     }
-{-# INLINE mkMetricFilterMatchRecord #-}
 
 mfmrEventNumber :: Lens' MetricFilterMatchRecord (Maybe Integer)
 mfmrEventNumber = lens _mfmrEventNumber (\s a -> s { _mfmrEventNumber = a })
-{-# INLINE mfmrEventNumber #-}
 
 mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
 mfmrEventMessage =
     lens _mfmrEventMessage (\s a -> s { _mfmrEventMessage = a })
-{-# INLINE mfmrEventMessage #-}
 
 mfmrExtractedValues :: Lens' MetricFilterMatchRecord (Map Text Text)
 mfmrExtractedValues =
     lens _mfmrExtractedValues (\s a -> s { _mfmrExtractedValues = a })
-{-# INLINE mfmrExtractedValues #-}
 
 instance FromJSON MetricFilterMatchRecord
 
@@ -387,20 +359,16 @@ mkMetricTransformation p1 p2 p3 = MetricTransformation
     , _mtMetricNamespace = p2
     , _mtMetricValue = p3
     }
-{-# INLINE mkMetricTransformation #-}
 
 mtMetricName :: Lens' MetricTransformation Text
 mtMetricName = lens _mtMetricName (\s a -> s { _mtMetricName = a })
-{-# INLINE mtMetricName #-}
 
 mtMetricNamespace :: Lens' MetricTransformation Text
 mtMetricNamespace =
     lens _mtMetricNamespace (\s a -> s { _mtMetricNamespace = a })
-{-# INLINE mtMetricNamespace #-}
 
 mtMetricValue :: Lens' MetricTransformation Text
 mtMetricValue = lens _mtMetricValue (\s a -> s { _mtMetricValue = a })
-{-# INLINE mtMetricValue #-}
 
 instance FromJSON MetricTransformation
 
@@ -420,23 +388,19 @@ mkOutputLogEvent = OutputLogEvent
     , _oleMessage = Nothing
     , _oleIngestionTime = Nothing
     }
-{-# INLINE mkOutputLogEvent #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 oleTimestamp :: Lens' OutputLogEvent (Maybe Integer)
 oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a })
-{-# INLINE oleTimestamp #-}
 
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
 oleMessage = lens _oleMessage (\s a -> s { _oleMessage = a })
-{-# INLINE oleMessage #-}
 
 -- | A point in time expressed as the number milliseconds since Jan 1, 1970
 -- 00:00:00 UTC.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Integer)
 oleIngestionTime =
     lens _oleIngestionTime (\s a -> s { _oleIngestionTime = a })
-{-# INLINE oleIngestionTime #-}
 
 instance FromJSON OutputLogEvent

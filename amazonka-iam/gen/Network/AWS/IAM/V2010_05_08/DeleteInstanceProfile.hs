@@ -55,13 +55,11 @@ mkDeleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
 mkDeleteInstanceProfile p1 = DeleteInstanceProfile
     { _dipInstanceProfileName = p1
     }
-{-# INLINE mkDeleteInstanceProfile #-}
 
 -- | Name of the instance profile to delete.
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName =
     lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
-{-# INLINE dipInstanceProfileName #-}
 
 instance ToQuery DeleteInstanceProfile where
     toQuery = genericQuery def

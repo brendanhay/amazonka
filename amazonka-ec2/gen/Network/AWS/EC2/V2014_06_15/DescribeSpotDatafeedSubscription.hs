@@ -47,7 +47,6 @@ data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 -- a valid 'DescribeSpotDatafeedSubscription' request.
 mkDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
 mkDescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-{-# INLINE mkDescribeSpotDatafeedSubscription #-}
 
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -62,7 +61,6 @@ dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse
 dsdsrsSpotDatafeedSubscription =
     lens _dsdsrsSpotDatafeedSubscription
          (\s a -> s { _dsdsrsSpotDatafeedSubscription = a })
-{-# INLINE dsdsrsSpotDatafeedSubscription #-}
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions

@@ -60,13 +60,11 @@ mkRevokeSnapshotAccess p1 p3 = RevokeSnapshotAccess
     , _rsaSnapshotClusterIdentifier = Nothing
     , _rsaAccountWithRestoreAccess = p3
     }
-{-# INLINE mkRevokeSnapshotAccess #-}
 
 -- | The identifier of the snapshot that the account can no longer access.
 rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
 rsaSnapshotIdentifier =
     lens _rsaSnapshotIdentifier (\s a -> s { _rsaSnapshotIdentifier = a })
-{-# INLINE rsaSnapshotIdentifier #-}
 
 -- | The identifier of the cluster the snapshot was created from. This parameter
 -- is required if your IAM user has a policy containing a snapshot resource
@@ -75,7 +73,6 @@ rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
 rsaSnapshotClusterIdentifier =
     lens _rsaSnapshotClusterIdentifier
          (\s a -> s { _rsaSnapshotClusterIdentifier = a })
-{-# INLINE rsaSnapshotClusterIdentifier #-}
 
 -- | The identifier of the AWS customer account that can no longer restore the
 -- specified snapshot.
@@ -83,7 +80,6 @@ rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
 rsaAccountWithRestoreAccess =
     lens _rsaAccountWithRestoreAccess
          (\s a -> s { _rsaAccountWithRestoreAccess = a })
-{-# INLINE rsaAccountWithRestoreAccess #-}
 
 instance ToQuery RevokeSnapshotAccess where
     toQuery = genericQuery def
@@ -95,7 +91,6 @@ newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
 -- | Describes a snapshot.
 rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarsSnapshot = lens _rsarsSnapshot (\s a -> s { _rsarsSnapshot = a })
-{-# INLINE rsarsSnapshot #-}
 
 instance FromXML RevokeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions

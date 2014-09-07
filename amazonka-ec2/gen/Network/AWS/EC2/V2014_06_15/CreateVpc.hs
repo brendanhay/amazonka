@@ -81,12 +81,10 @@ mkCreateVpc p1 = CreateVpc
     { _cv1CidrBlock = p1
     , _cv1InstanceTenancy = Nothing
     }
-{-# INLINE mkCreateVpc #-}
 
 -- | The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16.
 cv1CidrBlock :: Lens' CreateVpc Text
 cv1CidrBlock = lens _cv1CidrBlock (\s a -> s { _cv1CidrBlock = a })
-{-# INLINE cv1CidrBlock #-}
 
 -- | The supported tenancy options for instances launched into the VPC. A value
 -- of default means that instances can be launched with any tenancy; a value
@@ -97,7 +95,6 @@ cv1CidrBlock = lens _cv1CidrBlock (\s a -> s { _cv1CidrBlock = a })
 cv1InstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
 cv1InstanceTenancy =
     lens _cv1InstanceTenancy (\s a -> s { _cv1InstanceTenancy = a })
-{-# INLINE cv1InstanceTenancy #-}
 
 instance ToQuery CreateVpc where
     toQuery = genericQuery def
@@ -110,7 +107,6 @@ newtype CreateVpcResponse = CreateVpcResponse
 -- | Information about the VPC.
 cvrsrsVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvrsrsVpc = lens _cvrsrsVpc (\s a -> s { _cvrsrsVpc = a })
-{-# INLINE cvrsrsVpc #-}
 
 instance FromXML CreateVpcResponse where
     fromXMLOptions = xmlOptions

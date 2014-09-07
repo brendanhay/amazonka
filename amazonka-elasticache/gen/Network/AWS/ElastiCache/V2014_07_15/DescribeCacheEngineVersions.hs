@@ -71,18 +71,15 @@ mkDescribeCacheEngineVersions = DescribeCacheEngineVersions
     , _dcevMarker = Nothing
     , _dcevDefaultOnly = Nothing
     }
-{-# INLINE mkDescribeCacheEngineVersions #-}
 
 -- | The cache engine to return. Valid values: memcached | redis.
 dcevEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngine = lens _dcevEngine (\s a -> s { _dcevEngine = a })
-{-# INLINE dcevEngine #-}
 
 -- | The cache engine version to return. Example: 1.4.14.
 dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngineVersion =
     lens _dcevEngineVersion (\s a -> s { _dcevEngineVersion = a })
-{-# INLINE dcevEngineVersion #-}
 
 -- | The name of a specific cache parameter group family to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character must
@@ -91,7 +88,6 @@ dcevCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevCacheParameterGroupFamily =
     lens _dcevCacheParameterGroupFamily
          (\s a -> s { _dcevCacheParameterGroupFamily = a })
-{-# INLINE dcevCacheParameterGroupFamily #-}
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
@@ -99,7 +95,6 @@ dcevCacheParameterGroupFamily =
 -- Constraints: minimum 20; maximum 100.
 dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Integer)
 dcevMaxRecords = lens _dcevMaxRecords (\s a -> s { _dcevMaxRecords = a })
-{-# INLINE dcevMaxRecords #-}
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
@@ -107,13 +102,11 @@ dcevMaxRecords = lens _dcevMaxRecords (\s a -> s { _dcevMaxRecords = a })
 -- specified by MaxRecords.
 dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevMarker = lens _dcevMarker (\s a -> s { _dcevMarker = a })
-{-# INLINE dcevMarker #-}
 
 -- | If true, specifies that only the default version of the specified engine or
 -- engine and major version combination is to be returned.
 dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
 dcevDefaultOnly = lens _dcevDefaultOnly (\s a -> s { _dcevDefaultOnly = a })
-{-# INLINE dcevDefaultOnly #-}
 
 instance ToQuery DescribeCacheEngineVersions where
     toQuery = genericQuery def
@@ -127,7 +120,6 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrsMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrsMarker = lens _dcevrsMarker (\s a -> s { _dcevrsMarker = a })
-{-# INLINE dcevrsMarker #-}
 
 -- | A list of cache engine version details. Each element in the list contains
 -- detailed information about once cache engine version.
@@ -135,7 +127,6 @@ dcevrsCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEng
 dcevrsCacheEngineVersions =
     lens _dcevrsCacheEngineVersions
          (\s a -> s { _dcevrsCacheEngineVersions = a })
-{-# INLINE dcevrsCacheEngineVersions #-}
 
 instance FromXML DescribeCacheEngineVersionsResponse where
     fromXMLOptions = xmlOptions
@@ -148,5 +139,5 @@ instance AWSRequest DescribeCacheEngineVersions where
     response _ = xmlResponse
 
 instance AWSPager DescribeCacheEngineVersions where
-    next rq rs = (\x -> rq { _dcevMarker = Just x })
-        <$> (_dcevrsMarker rs)
+    next rq rs = (\x -> rq & dcevMarker ?~ x) <$> (rs ^. dcevrsMarker)
+

@@ -66,28 +66,23 @@ mkUpdateJob p1 p2 p3 p4 = UpdateJob
     , _ujJobType = p3
     , _ujValidateOnly = p4
     }
-{-# INLINE mkUpdateJob #-}
 
 -- | A unique identifier which refers to a particular job.
 ujJobId :: Lens' UpdateJob Text
 ujJobId = lens _ujJobId (\s a -> s { _ujJobId = a })
-{-# INLINE ujJobId #-}
 
 -- | The UTF-8 encoded text of the manifest file.
 ujManifest :: Lens' UpdateJob Text
 ujManifest = lens _ujManifest (\s a -> s { _ujManifest = a })
-{-# INLINE ujManifest #-}
 
 -- | Specifies whether the job to initiate is an import or export job.
 ujJobType :: Lens' UpdateJob JobType
 ujJobType = lens _ujJobType (\s a -> s { _ujJobType = a })
-{-# INLINE ujJobType #-}
 
 -- | Validate the manifest and parameter values in the request but do not
 -- actually create a job.
 ujValidateOnly :: Lens' UpdateJob Bool
 ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
-{-# INLINE ujValidateOnly #-}
 
 instance ToQuery UpdateJob where
     toQuery = genericQuery def
@@ -101,14 +96,12 @@ data UpdateJobResponse = UpdateJobResponse
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
 ujrsSuccess = lens _ujrsSuccess (\s a -> s { _ujrsSuccess = a })
-{-# INLINE ujrsSuccess #-}
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
 ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujrsWarningMessage =
     lens _ujrsWarningMessage (\s a -> s { _ujrsWarningMessage = a })
-{-# INLINE ujrsWarningMessage #-}
 
 instance FromXML UpdateJobResponse where
     fromXMLOptions = xmlOptions

@@ -60,19 +60,16 @@ mkRemoveRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName = p1
     , _rrfipRoleName = p2
     }
-{-# INLINE mkRemoveRoleFromInstanceProfile #-}
 
 -- | Name of the instance profile to update.
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipInstanceProfileName =
     lens _rrfipInstanceProfileName
          (\s a -> s { _rrfipInstanceProfileName = a })
-{-# INLINE rrfipInstanceProfileName #-}
 
 -- | Name of the role to remove.
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
-{-# INLINE rrfipRoleName #-}
 
 instance ToQuery RemoveRoleFromInstanceProfile where
     toQuery = genericQuery def

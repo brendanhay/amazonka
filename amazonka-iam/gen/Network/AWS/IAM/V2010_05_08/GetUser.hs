@@ -55,13 +55,11 @@ mkGetUser :: GetUser
 mkGetUser = GetUser
     { _guUserName = Nothing
     }
-{-# INLINE mkGetUser #-}
 
 -- | Name of the user to get information about. This parameter is optional. If
 -- it is not included, it defaults to the user making the request.
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\s a -> s { _guUserName = a })
-{-# INLINE guUserName #-}
 
 instance ToQuery GetUser where
     toQuery = genericQuery def
@@ -74,7 +72,6 @@ newtype GetUserResponse = GetUserResponse
 -- | Information about the user.
 gursUser :: Lens' GetUserResponse User
 gursUser = lens _gursUser (\s a -> s { _gursUser = a })
-{-# INLINE gursUser #-}
 
 instance FromXML GetUserResponse where
     fromXMLOptions = xmlOptions

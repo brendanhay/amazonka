@@ -82,16 +82,13 @@ mkListObjectVersions p1 = ListObjectVersions
     , _lovPrefix = Nothing
     , _lovVersionIdMarker = Nothing
     }
-{-# INLINE mkListObjectVersions #-}
 
 lovBucket :: Lens' ListObjectVersions BucketName
 lovBucket = lens _lovBucket (\s a -> s { _lovBucket = a })
-{-# INLINE lovBucket #-}
 
 -- | A delimiter is a character you use to group keys.
 lovDelimiter :: Lens' ListObjectVersions (Maybe Char)
 lovDelimiter = lens _lovDelimiter (\s a -> s { _lovDelimiter = a })
-{-# INLINE lovDelimiter #-}
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
 -- the encoding method to use. An object key may contain any Unicode
@@ -101,29 +98,24 @@ lovDelimiter = lens _lovDelimiter (\s a -> s { _lovDelimiter = a })
 -- encode the keys in the response.
 lovEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
 lovEncodingType = lens _lovEncodingType (\s a -> s { _lovEncodingType = a })
-{-# INLINE lovEncodingType #-}
 
 -- | Specifies the key to start with when listing objects in a bucket.
 lovKeyMarker :: Lens' ListObjectVersions (Maybe Text)
 lovKeyMarker = lens _lovKeyMarker (\s a -> s { _lovKeyMarker = a })
-{-# INLINE lovKeyMarker #-}
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
 lovMaxKeys :: Lens' ListObjectVersions (Maybe Integer)
 lovMaxKeys = lens _lovMaxKeys (\s a -> s { _lovMaxKeys = a })
-{-# INLINE lovMaxKeys #-}
 
 -- | Limits the response to keys that begin with the specified prefix.
 lovPrefix :: Lens' ListObjectVersions (Maybe Text)
 lovPrefix = lens _lovPrefix (\s a -> s { _lovPrefix = a })
-{-# INLINE lovPrefix #-}
 
 -- | Specifies the object version you want to start listing from.
 lovVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
 lovVersionIdMarker =
     lens _lovVersionIdMarker (\s a -> s { _lovVersionIdMarker = a })
-{-# INLINE lovVersionIdMarker #-}
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat
@@ -168,24 +160,20 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 lovrsIsTruncated :: Lens' ListObjectVersionsResponse Bool
 lovrsIsTruncated =
     lens _lovrsIsTruncated (\s a -> s { _lovrsIsTruncated = a })
-{-# INLINE lovrsIsTruncated #-}
 
 -- | Marks the last Key returned in a truncated response.
 lovrsKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsKeyMarker = lens _lovrsKeyMarker (\s a -> s { _lovrsKeyMarker = a })
-{-# INLINE lovrsKeyMarker #-}
 
 lovrsVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsVersionIdMarker =
     lens _lovrsVersionIdMarker (\s a -> s { _lovrsVersionIdMarker = a })
-{-# INLINE lovrsVersionIdMarker #-}
 
 -- | Use this value for the key marker request parameter in a subsequent
 -- request.
 lovrsNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsNextKeyMarker =
     lens _lovrsNextKeyMarker (\s a -> s { _lovrsNextKeyMarker = a })
-{-# INLINE lovrsNextKeyMarker #-}
 
 -- | Use this value for the next version id marker parameter in a subsequent
 -- request.
@@ -193,39 +181,31 @@ lovrsNextVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsNextVersionIdMarker =
     lens _lovrsNextVersionIdMarker
          (\s a -> s { _lovrsNextVersionIdMarker = a })
-{-# INLINE lovrsNextVersionIdMarker #-}
 
 lovrsVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
 lovrsVersions = lens _lovrsVersions (\s a -> s { _lovrsVersions = a })
-{-# INLINE lovrsVersions #-}
 
 lovrsDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
 lovrsDeleteMarkers =
     lens _lovrsDeleteMarkers (\s a -> s { _lovrsDeleteMarkers = a })
-{-# INLINE lovrsDeleteMarkers #-}
 
 lovrsName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
 lovrsName = lens _lovrsName (\s a -> s { _lovrsName = a })
-{-# INLINE lovrsName #-}
 
 lovrsPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsPrefix = lens _lovrsPrefix (\s a -> s { _lovrsPrefix = a })
-{-# INLINE lovrsPrefix #-}
 
 lovrsMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Integer)
 lovrsMaxKeys = lens _lovrsMaxKeys (\s a -> s { _lovrsMaxKeys = a })
-{-# INLINE lovrsMaxKeys #-}
 
 lovrsCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
 lovrsCommonPrefixes =
     lens _lovrsCommonPrefixes (\s a -> s { _lovrsCommonPrefixes = a })
-{-# INLINE lovrsCommonPrefixes #-}
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lovrsEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovrsEncodingType =
     lens _lovrsEncodingType (\s a -> s { _lovrsEncodingType = a })
-{-# INLINE lovrsEncodingType #-}
 
 instance FromXML ListObjectVersionsResponse where
     fromXMLOptions = xmlOptions
@@ -239,12 +219,11 @@ instance AWSRequest ListObjectVersions where
 
 instance AWSPager ListObjectVersions where
     next rq rs
-        | not (_lovrsIsTruncated rs) = Nothing
-        | and [isNothing p1, isNothing p2] = Nothing
+        | not (rs ^. lovrsIsTruncated) = Nothing
+        | isNothing p1 && isNothing p2 = Nothing
         | otherwise = Just $ rq
-            { _lovKeyMarker = p1
-            , _lovVersionIdMarker = p2
-            }
+            & lovKeyMarker .~ p1
+            & lovVersionIdMarker .~ p2
       where
-        p1 = _lovrsNextKeyMarker rs
-        p2 = _lovrsNextVersionIdMarker rs
+       p1 = rs ^. lovrsNextKeyMarker
+       p2 = rs ^. lovrsNextVersionIdMarker

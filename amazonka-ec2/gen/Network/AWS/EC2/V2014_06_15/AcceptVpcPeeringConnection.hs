@@ -68,14 +68,12 @@ mkAcceptVpcPeeringConnection :: AcceptVpcPeeringConnection
 mkAcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcVpcPeeringConnectionId = Nothing
     }
-{-# INLINE mkAcceptVpcPeeringConnection #-}
 
 -- | The ID of the VPC peering connection.
 avpcVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcVpcPeeringConnectionId =
     lens _avpcVpcPeeringConnectionId
          (\s a -> s { _avpcVpcPeeringConnectionId = a })
-{-# INLINE avpcVpcPeeringConnectionId #-}
 
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery = genericQuery def
@@ -90,7 +88,6 @@ avpcrsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe Vp
 avpcrsVpcPeeringConnection =
     lens _avpcrsVpcPeeringConnection
          (\s a -> s { _avpcrsVpcPeeringConnection = a })
-{-# INLINE avpcrsVpcPeeringConnection #-}
 
 instance FromXML AcceptVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

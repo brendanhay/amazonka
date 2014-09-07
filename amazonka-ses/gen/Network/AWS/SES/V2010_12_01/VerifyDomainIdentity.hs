@@ -59,12 +59,10 @@ mkVerifyDomainIdentity :: Text -- ^ 'vdiDomain'
 mkVerifyDomainIdentity p1 = VerifyDomainIdentity
     { _vdiDomain = p1
     }
-{-# INLINE mkVerifyDomainIdentity #-}
 
 -- | The domain to be verified.
 vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
-{-# INLINE vdiDomain #-}
 
 instance ToQuery VerifyDomainIdentity where
     toQuery = genericQuery def
@@ -79,7 +77,6 @@ newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
 vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirsVerificationToken =
     lens _vdirsVerificationToken (\s a -> s { _vdirsVerificationToken = a })
-{-# INLINE vdirsVerificationToken #-}
 
 instance FromXML VerifyDomainIdentityResponse where
     fromXMLOptions = xmlOptions

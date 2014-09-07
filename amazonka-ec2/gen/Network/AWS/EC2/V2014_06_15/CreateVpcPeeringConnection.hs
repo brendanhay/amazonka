@@ -86,23 +86,19 @@ mkCreateVpcPeeringConnection = CreateVpcPeeringConnection
     , _cvpcPeerVpcId = Nothing
     , _cvpcPeerOwnerId = Nothing
     }
-{-# INLINE mkCreateVpcPeeringConnection #-}
 
 -- | The ID of the requester VPC.
 cvpcVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
-{-# INLINE cvpcVpcId #-}
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
 cvpcPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcPeerVpcId = lens _cvpcPeerVpcId (\s a -> s { _cvpcPeerVpcId = a })
-{-# INLINE cvpcPeerVpcId #-}
 
 -- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account
 -- ID.
 cvpcPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\s a -> s { _cvpcPeerOwnerId = a })
-{-# INLINE cvpcPeerOwnerId #-}
 
 instance ToQuery CreateVpcPeeringConnection where
     toQuery = genericQuery def
@@ -117,7 +113,6 @@ cvpcrsVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe Vp
 cvpcrsVpcPeeringConnection =
     lens _cvpcrsVpcPeeringConnection
          (\s a -> s { _cvpcrsVpcPeeringConnection = a })
-{-# INLINE cvpcrsVpcPeeringConnection #-}
 
 instance FromXML CreateVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

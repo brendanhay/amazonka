@@ -85,13 +85,11 @@ mkDescribeClusterParameters p1 = DescribeClusterParameters
     , _dcpMaxRecords = Nothing
     , _dcpMarker = Nothing
     }
-{-# INLINE mkDescribeClusterParameters #-}
 
 -- | The name of a cluster parameter group for which to return details.
 dcpParameterGroupName :: Lens' DescribeClusterParameters Text
 dcpParameterGroupName =
     lens _dcpParameterGroupName (\s a -> s { _dcpParameterGroupName = a })
-{-# INLINE dcpParameterGroupName #-}
 
 -- | The parameter types to return. Specify user to show parameters that are
 -- different form the default. Similarly, specify engine-default to show
@@ -99,7 +97,6 @@ dcpParameterGroupName =
 -- parameter types returned. Valid Values: user | engine-default.
 dcpSource :: Lens' DescribeClusterParameters (Maybe Text)
 dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
-{-# INLINE dcpSource #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -108,7 +105,6 @@ dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcpMaxRecords :: Lens' DescribeClusterParameters (Maybe Integer)
 dcpMaxRecords = lens _dcpMaxRecords (\s a -> s { _dcpMaxRecords = a })
-{-# INLINE dcpMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeClusterParameters request
@@ -118,7 +114,6 @@ dcpMaxRecords = lens _dcpMaxRecords (\s a -> s { _dcpMaxRecords = a })
 -- the request.
 dcpMarker :: Lens' DescribeClusterParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
-{-# INLINE dcpMarker #-}
 
 instance ToQuery DescribeClusterParameters where
     toQuery = genericQuery def
@@ -133,7 +128,6 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse
 -- cluster parameter group.
 dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
 dcprsParameters = lens _dcprsParameters (\s a -> s { _dcprsParameters = a })
-{-# INLINE dcprsParameters #-}
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you
@@ -142,7 +136,6 @@ dcprsParameters = lens _dcprsParameters (\s a -> s { _dcprsParameters = a })
 -- is empty, all response records have been retrieved for the request.
 dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\s a -> s { _dcprsMarker = a })
-{-# INLINE dcprsMarker #-}
 
 instance FromXML DescribeClusterParametersResponse where
     fromXMLOptions = xmlOptions
@@ -155,5 +148,5 @@ instance AWSRequest DescribeClusterParameters where
     response _ = xmlResponse
 
 instance AWSPager DescribeClusterParameters where
-    next rq rs = (\x -> rq { _dcpMarker = Just x })
-        <$> (_dcprsMarker rs)
+    next rq rs = (\x -> rq & dcpMarker ?~ x) <$> (rs ^. dcprsMarker)
+

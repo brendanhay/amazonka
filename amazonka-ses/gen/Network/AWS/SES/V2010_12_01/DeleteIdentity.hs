@@ -58,12 +58,10 @@ mkDeleteIdentity :: Text -- ^ 'diIdentity'
 mkDeleteIdentity p1 = DeleteIdentity
     { _diIdentity = p1
     }
-{-# INLINE mkDeleteIdentity #-}
 
 -- | The identity to be removed from the list of identities for the AWS Account.
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
-{-# INLINE diIdentity #-}
 
 instance ToQuery DeleteIdentity where
     toQuery = genericQuery def

@@ -87,7 +87,6 @@ mkActivateGateway p1 p2 p3 p4 = ActivateGateway
     , _agGatewayRegion = p4
     , _agGatewayType = Nothing
     }
-{-# INLINE mkActivateGateway #-}
 
 -- | Your gateway activation key. You can obtain the activation key by sending
 -- an HTTP GET request with redirects enabled to the gateway IP address (port
@@ -98,14 +97,12 @@ mkActivateGateway p1 p2 p3 p4 = ActivateGateway
 -- determine the actual configuration of your gateway.
 agActivationKey :: Lens' ActivateGateway Text
 agActivationKey = lens _agActivationKey (\s a -> s { _agActivationKey = a })
-{-# INLINE agActivationKey #-}
 
 -- | A unique identifier for your gateway. This name becomes part of the gateway
 -- Amazon Resources Name (ARN) which is what you use as an input to other
 -- operations.
 agGatewayName :: Lens' ActivateGateway Text
 agGatewayName = lens _agGatewayName (\s a -> s { _agGatewayName = a })
-{-# INLINE agGatewayName #-}
 
 -- | One of the values that indicates the time zone you want to set for the
 -- gateway. The time zone is used, for example, for scheduling snapshots and
@@ -113,7 +110,6 @@ agGatewayName = lens _agGatewayName (\s a -> s { _agGatewayName = a })
 agGatewayTimezone :: Lens' ActivateGateway Text
 agGatewayTimezone =
     lens _agGatewayTimezone (\s a -> s { _agGatewayTimezone = a })
-{-# INLINE agGatewayTimezone #-}
 
 -- | One of the values that indicates the region where you want to store the
 -- snapshot backups. The gateway region specified must be the same region as
@@ -124,14 +120,12 @@ agGatewayTimezone =
 -- "sa-east-1".
 agGatewayRegion :: Lens' ActivateGateway Text
 agGatewayRegion = lens _agGatewayRegion (\s a -> s { _agGatewayRegion = a })
-{-# INLINE agGatewayRegion #-}
 
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot be
 -- changed after activation. The default value is STORED.
 agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\s a -> s { _agGatewayType = a })
-{-# INLINE agGatewayType #-}
 
 instance ToPath ActivateGateway
 
@@ -153,7 +147,6 @@ newtype ActivateGatewayResponse = ActivateGatewayResponse
 -- operation to return a list of gateways for your account and region.
 agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrsGatewayARN = lens _agrsGatewayARN (\s a -> s { _agrsGatewayARN = a })
-{-# INLINE agrsGatewayARN #-}
 
 instance FromJSON ActivateGatewayResponse
 

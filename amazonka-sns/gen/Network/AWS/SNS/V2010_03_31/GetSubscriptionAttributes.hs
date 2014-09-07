@@ -67,13 +67,11 @@ mkGetSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
 mkGetSubscriptionAttributes p1 = GetSubscriptionAttributes
     { _gsaSubscriptionArn = p1
     }
-{-# INLINE mkGetSubscriptionAttributes #-}
 
 -- | The ARN of the subscription whose properties you want to get.
 gsaSubscriptionArn :: Lens' GetSubscriptionAttributes Text
 gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
-{-# INLINE gsaSubscriptionArn #-}
 
 instance ToQuery GetSubscriptionAttributes where
     toQuery = genericQuery def
@@ -94,7 +92,6 @@ newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 -- defaults.
 gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
 gsarsAttributes = lens _gsarsAttributes (\s a -> s { _gsarsAttributes = a })
-{-# INLINE gsarsAttributes #-}
 
 instance FromXML GetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions

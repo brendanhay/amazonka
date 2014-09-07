@@ -101,28 +101,24 @@ mkListJobsByStatus p1 = ListJobsByStatus
     , _ljbsAscending = Nothing
     , _ljbsPageToken = Nothing
     }
-{-# INLINE mkListJobsByStatus #-}
 
 -- | To get information about all of the jobs associated with the current AWS
 -- account that have a given status, specify the following status: Submitted,
 -- Progressing, Complete, Canceled, or Error.
 ljbsStatus :: Lens' ListJobsByStatus Text
 ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
-{-# INLINE ljbsStatus #-}
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter true. To list jobs in reverse chronological order, enter
 -- false.
 ljbsAscending :: Lens' ListJobsByStatus (Maybe Text)
 ljbsAscending = lens _ljbsAscending (\s a -> s { _ljbsAscending = a })
-{-# INLINE ljbsAscending #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- pageToken in subsequent GET requests to get each successive page of
 -- results.
 ljbsPageToken :: Lens' ListJobsByStatus (Maybe Text)
 ljbsPageToken = lens _ljbsPageToken (\s a -> s { _ljbsPageToken = a })
-{-# INLINE ljbsPageToken #-}
 
 instance ToPath ListJobsByStatus where
     toPath ListJobsByStatus{..} = mconcat
@@ -149,7 +145,6 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
 -- | An array of Job objects that have the specified status.
 ljbsrsJobs :: Lens' ListJobsByStatusResponse [Job]
 ljbsrsJobs = lens _ljbsrsJobs (\s a -> s { _ljbsrsJobs = a })
-{-# INLINE ljbsrsJobs #-}
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the jobs in the specified pipeline fit on one page or when
@@ -158,7 +153,6 @@ ljbsrsJobs = lens _ljbsrsJobs (\s a -> s { _ljbsrsJobs = a })
 ljbsrsNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
 ljbsrsNextPageToken =
     lens _ljbsrsNextPageToken (\s a -> s { _ljbsrsNextPageToken = a })
-{-# INLINE ljbsrsNextPageToken #-}
 
 instance FromJSON ListJobsByStatusResponse
 
@@ -170,5 +164,5 @@ instance AWSRequest ListJobsByStatus where
     response _ = jsonResponse
 
 instance AWSPager ListJobsByStatus where
-    next rq rs = (\x -> rq { _ljbsPageToken = Just x })
-        <$> (_ljbsrsNextPageToken rs)
+    next rq rs = (\x -> rq & ljbsPageToken ?~ x) <$> (rs ^. ljbsrsNextPageToken)
+

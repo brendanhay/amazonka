@@ -121,28 +121,23 @@ mkCreateMultipartUpload p13 p2 = CreateMultipartUpload
     , _cmu2SSECustomerKey = Nothing
     , _cmu2SSECustomerKeyMD5 = Nothing
     }
-{-# INLINE mkCreateMultipartUpload #-}
 
 -- | The canned ACL to apply to the object.
 cmu2ACL :: Lens' CreateMultipartUpload (Maybe ObjectCannedACL)
 cmu2ACL = lens _cmu2ACL (\s a -> s { _cmu2ACL = a })
-{-# INLINE cmu2ACL #-}
 
 cmu2Bucket :: Lens' CreateMultipartUpload BucketName
 cmu2Bucket = lens _cmu2Bucket (\s a -> s { _cmu2Bucket = a })
-{-# INLINE cmu2Bucket #-}
 
 -- | Specifies caching behavior along the request/reply chain.
 cmu2CacheControl :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2CacheControl =
     lens _cmu2CacheControl (\s a -> s { _cmu2CacheControl = a })
-{-# INLINE cmu2CacheControl #-}
 
 -- | Specifies presentational information for the object.
 cmu2ContentDisposition :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2ContentDisposition =
     lens _cmu2ContentDisposition (\s a -> s { _cmu2ContentDisposition = a })
-{-# INLINE cmu2ContentDisposition #-}
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
@@ -150,68 +145,56 @@ cmu2ContentDisposition =
 cmu2ContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2ContentEncoding =
     lens _cmu2ContentEncoding (\s a -> s { _cmu2ContentEncoding = a })
-{-# INLINE cmu2ContentEncoding #-}
 
 -- | The language the content is in.
 cmu2ContentLanguage :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2ContentLanguage =
     lens _cmu2ContentLanguage (\s a -> s { _cmu2ContentLanguage = a })
-{-# INLINE cmu2ContentLanguage #-}
 
 -- | A standard MIME type describing the format of the object data.
 cmu2ContentType :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2ContentType = lens _cmu2ContentType (\s a -> s { _cmu2ContentType = a })
-{-# INLINE cmu2ContentType #-}
 
 -- | The date and time at which the object is no longer cacheable.
 cmu2Expires :: Lens' CreateMultipartUpload (Maybe RFC822)
 cmu2Expires = lens _cmu2Expires (\s a -> s { _cmu2Expires = a })
-{-# INLINE cmu2Expires #-}
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 cmu2GrantFullControl :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2GrantFullControl =
     lens _cmu2GrantFullControl (\s a -> s { _cmu2GrantFullControl = a })
-{-# INLINE cmu2GrantFullControl #-}
 
 -- | Allows grantee to read the object data and its metadata.
 cmu2GrantRead :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2GrantRead = lens _cmu2GrantRead (\s a -> s { _cmu2GrantRead = a })
-{-# INLINE cmu2GrantRead #-}
 
 -- | Allows grantee to read the object ACL.
 cmu2GrantReadACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2GrantReadACP =
     lens _cmu2GrantReadACP (\s a -> s { _cmu2GrantReadACP = a })
-{-# INLINE cmu2GrantReadACP #-}
 
 -- | Allows grantee to write the ACL for the applicable object.
 cmu2GrantWriteACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2GrantWriteACP =
     lens _cmu2GrantWriteACP (\s a -> s { _cmu2GrantWriteACP = a })
-{-# INLINE cmu2GrantWriteACP #-}
 
 cmu2Key :: Lens' CreateMultipartUpload ObjectKey
 cmu2Key = lens _cmu2Key (\s a -> s { _cmu2Key = a })
-{-# INLINE cmu2Key #-}
 
 -- | A map of metadata to store with the object in S3.
 cmu2Metadata :: Lens' CreateMultipartUpload (Map Text Text)
 cmu2Metadata = lens _cmu2Metadata (\s a -> s { _cmu2Metadata = a })
-{-# INLINE cmu2Metadata #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 cmu2ServerSideEncryption :: Lens' CreateMultipartUpload (Maybe ServerSideEncryption)
 cmu2ServerSideEncryption =
     lens _cmu2ServerSideEncryption
          (\s a -> s { _cmu2ServerSideEncryption = a })
-{-# INLINE cmu2ServerSideEncryption #-}
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
 cmu2StorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
 cmu2StorageClass =
     lens _cmu2StorageClass (\s a -> s { _cmu2StorageClass = a })
-{-# INLINE cmu2StorageClass #-}
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
@@ -220,7 +203,6 @@ cmu2WebsiteRedirectLocation :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2WebsiteRedirectLocation =
     lens _cmu2WebsiteRedirectLocation
          (\s a -> s { _cmu2WebsiteRedirectLocation = a })
-{-# INLINE cmu2WebsiteRedirectLocation #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
@@ -228,7 +210,6 @@ cmu2SSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2SSECustomerAlgorithm =
     lens _cmu2SSECustomerAlgorithm
          (\s a -> s { _cmu2SSECustomerAlgorithm = a })
-{-# INLINE cmu2SSECustomerAlgorithm #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -238,7 +219,6 @@ cmu2SSECustomerAlgorithm =
 cmu2SSECustomerKey :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2SSECustomerKey =
     lens _cmu2SSECustomerKey (\s a -> s { _cmu2SSECustomerKey = a })
-{-# INLINE cmu2SSECustomerKey #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -246,7 +226,6 @@ cmu2SSECustomerKey =
 cmu2SSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2SSECustomerKeyMD5 =
     lens _cmu2SSECustomerKeyMD5 (\s a -> s { _cmu2SSECustomerKeyMD5 = a })
-{-# INLINE cmu2SSECustomerKeyMD5 #-}
 
 instance ToPath CreateMultipartUpload where
     toPath CreateMultipartUpload{..} = mconcat
@@ -297,24 +276,20 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
 -- | Name of the bucket to which the multipart upload was initiated.
 cmursrsBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
 cmursrsBucket = lens _cmursrsBucket (\s a -> s { _cmursrsBucket = a })
-{-# INLINE cmursrsBucket #-}
 
 -- | Object key for which the multipart upload was initiated.
 cmursrsKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)
 cmursrsKey = lens _cmursrsKey (\s a -> s { _cmursrsKey = a })
-{-# INLINE cmursrsKey #-}
 
 -- | ID for the initiated multipart upload.
 cmursrsUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursrsUploadId = lens _cmursrsUploadId (\s a -> s { _cmursrsUploadId = a })
-{-# INLINE cmursrsUploadId #-}
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 cmursrsServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
 cmursrsServerSideEncryption =
     lens _cmursrsServerSideEncryption
          (\s a -> s { _cmursrsServerSideEncryption = a })
-{-# INLINE cmursrsServerSideEncryption #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
@@ -323,7 +298,6 @@ cmursrsSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursrsSSECustomerAlgorithm =
     lens _cmursrsSSECustomerAlgorithm
          (\s a -> s { _cmursrsSSECustomerAlgorithm = a })
-{-# INLINE cmursrsSSECustomerAlgorithm #-}
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
@@ -332,7 +306,6 @@ cmursrsSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursrsSSECustomerKeyMD5 =
     lens _cmursrsSSECustomerKeyMD5
          (\s a -> s { _cmursrsSSECustomerKeyMD5 = a })
-{-# INLINE cmursrsSSECustomerKeyMD5 #-}
 
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3

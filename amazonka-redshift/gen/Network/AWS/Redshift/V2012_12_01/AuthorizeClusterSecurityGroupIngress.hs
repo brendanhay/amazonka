@@ -78,26 +78,22 @@ mkAuthorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
     , _acsgiEC2SecurityGroupName = Nothing
     , _acsgiEC2SecurityGroupOwnerId = Nothing
     }
-{-# INLINE mkAuthorizeClusterSecurityGroupIngress #-}
 
 -- | The name of the security group to which the ingress rule is added.
 acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
 acsgiClusterSecurityGroupName =
     lens _acsgiClusterSecurityGroupName
          (\s a -> s { _acsgiClusterSecurityGroupName = a })
-{-# INLINE acsgiClusterSecurityGroupName #-}
 
 -- | The IP range to be added the Amazon Redshift security group.
 acsgiCIDRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiCIDRIP = lens _acsgiCIDRIP (\s a -> s { _acsgiCIDRIP = a })
-{-# INLINE acsgiCIDRIP #-}
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
 acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiEC2SecurityGroupName =
     lens _acsgiEC2SecurityGroupName
          (\s a -> s { _acsgiEC2SecurityGroupName = a })
-{-# INLINE acsgiEC2SecurityGroupName #-}
 
 -- | The AWS account number of the owner of the security group specified by the
 -- EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
@@ -106,7 +102,6 @@ acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Mayb
 acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId
          (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
-{-# INLINE acsgiEC2SecurityGroupOwnerId #-}
 
 instance ToQuery AuthorizeClusterSecurityGroupIngress where
     toQuery = genericQuery def
@@ -120,7 +115,6 @@ acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressRespons
 acsgirsClusterSecurityGroup =
     lens _acsgirsClusterSecurityGroup
          (\s a -> s { _acsgirsClusterSecurityGroup = a })
-{-# INLINE acsgirsClusterSecurityGroup #-}
 
 instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

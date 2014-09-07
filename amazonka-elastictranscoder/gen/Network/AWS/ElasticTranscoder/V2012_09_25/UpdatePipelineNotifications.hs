@@ -74,13 +74,11 @@ mkUpdatePipelineNotifications p1 p2 = UpdatePipelineNotifications
     { _upnId = p1
     , _upnNotifications = p2
     }
-{-# INLINE mkUpdatePipelineNotifications #-}
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
 upnId :: Lens' UpdatePipelineNotifications Text
 upnId = lens _upnId (\s a -> s { _upnId = a })
-{-# INLINE upnId #-}
 
 -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic
 -- that you want to notify to report job status. To receive notifications, you
@@ -100,7 +98,6 @@ upnId = lens _upnId (\s a -> s { _upnId = a })
 upnNotifications :: Lens' UpdatePipelineNotifications Notifications
 upnNotifications =
     lens _upnNotifications (\s a -> s { _upnNotifications = a })
-{-# INLINE upnNotifications #-}
 
 instance ToPath UpdatePipelineNotifications where
     toPath UpdatePipelineNotifications{..} = mconcat
@@ -124,7 +121,6 @@ newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsRespons
 -- pipeline.
 upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrsPipeline = lens _upnrsPipeline (\s a -> s { _upnrsPipeline = a })
-{-# INLINE upnrsPipeline #-}
 
 instance FromJSON UpdatePipelineNotificationsResponse
 

@@ -813,7 +813,6 @@ mkRestrictions :: GeoRestriction -- ^ 'rGeoRestriction'
 mkRestrictions p1 = Restrictions
     { _rGeoRestriction = p1
     }
-{-# INLINE mkRestrictions #-}
 
 -- | A complex type that controls the countries in which your content is
 -- distributed. For more information about geo restriction, go to Customizing
@@ -823,7 +822,6 @@ mkRestrictions p1 = Restrictions
 -- your GeoIP databases? on the MaxMind website.
 rGeoRestriction :: Lens' Restrictions GeoRestriction
 rGeoRestriction = lens _rGeoRestriction (\s a -> s { _rGeoRestriction = a })
-{-# INLINE rGeoRestriction #-}
 
 instance FromXML Restrictions where
     fromXMLOptions = xmlOptions
@@ -846,7 +844,6 @@ mkS3OriginConfig :: Text -- ^ 'socOriginAccessIdentity'
 mkS3OriginConfig p1 = S3OriginConfig
     { _socOriginAccessIdentity = p1
     }
-{-# INLINE mkS3OriginConfig #-}
 
 -- | The CloudFront origin access identity to associate with the origin. Use an
 -- origin access identity to configure the origin so that end users can only
@@ -863,7 +860,6 @@ socOriginAccessIdentity :: Lens' S3OriginConfig Text
 socOriginAccessIdentity =
     lens _socOriginAccessIdentity
          (\s a -> s { _socOriginAccessIdentity = a })
-{-# INLINE socOriginAccessIdentity #-}
 
 instance FromXML S3OriginConfig where
     fromXMLOptions = xmlOptions
@@ -897,19 +893,16 @@ mkActiveTrustedSigners p1 p2 = ActiveTrustedSigners
     , _atsQuantity = p2
     , _atsItems = mempty
     }
-{-# INLINE mkActiveTrustedSigners #-}
 
 -- | Each active trusted signer.
 atsEnabled :: Lens' ActiveTrustedSigners Bool
 atsEnabled = lens _atsEnabled (\s a -> s { _atsEnabled = a })
-{-# INLINE atsEnabled #-}
 
 -- | The number of unique trusted signers included in all cache behaviors. For
 -- example, if three cache behaviors all list the same three AWS accounts, the
 -- value of Quantity for ActiveTrustedSigners will be 3.
 atsQuantity :: Lens' ActiveTrustedSigners Integer
 atsQuantity = lens _atsQuantity (\s a -> s { _atsQuantity = a })
-{-# INLINE atsQuantity #-}
 
 -- | A complex type that contains one Signer complex type for each unique
 -- trusted signer that is specified in the TrustedSigners complex type,
@@ -917,7 +910,6 @@ atsQuantity = lens _atsQuantity (\s a -> s { _atsQuantity = a })
 -- other cache behaviors.
 atsItems :: Lens' ActiveTrustedSigners [Signer]
 atsItems = lens _atsItems (\s a -> s { _atsItems = a })
-{-# INLINE atsItems #-}
 
 instance FromXML ActiveTrustedSigners where
     fromXMLOptions = xmlOptions
@@ -938,18 +930,15 @@ mkAliases p1 = Aliases
     { _aQuantity = p1
     , _aItems = mempty
     }
-{-# INLINE mkAliases #-}
 
 -- | The number of CNAMEs, if any, for this distribution.
 aQuantity :: Lens' Aliases Integer
 aQuantity = lens _aQuantity (\s a -> s { _aQuantity = a })
-{-# INLINE aQuantity #-}
 
 -- | Optional: A complex type that contains CNAME elements, if any, for this
 -- distribution. If Quantity is 0, you can omit Items.
 aItems :: Lens' Aliases [Text]
 aItems = lens _aItems (\s a -> s { _aItems = a })
-{-# INLINE aItems #-}
 
 instance FromXML Aliases where
     fromXMLOptions = xmlOptions
@@ -980,20 +969,17 @@ mkAllowedMethods p1 = AllowedMethods
     { _amQuantity = p1
     , _amItems = mempty
     }
-{-# INLINE mkAllowedMethods #-}
 
 -- | The number of HTTP methods that you want CloudFront to forward to your
 -- origin. Valid values are 2 (for GET and HEAD requests) and 7 (for DELETE,
 -- GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).
 amQuantity :: Lens' AllowedMethods Integer
 amQuantity = lens _amQuantity (\s a -> s { _amQuantity = a })
-{-# INLINE amQuantity #-}
 
 -- | A complex type that contains the HTTP methods that you want CloudFront to
 -- process and forward to your origin.
 amItems :: Lens' AllowedMethods [Method]
 amItems = lens _amItems (\s a -> s { _amItems = a })
-{-# INLINE amItems #-}
 
 instance FromXML AllowedMethods where
     fromXMLOptions = xmlOptions
@@ -1048,7 +1034,6 @@ mkCacheBehavior p1 p2 p3 p4 p5 p6 = CacheBehavior
     , _cb1AllowedMethods = Nothing
     , _cb1SmoothStreaming = Nothing
     }
-{-# INLINE mkCacheBehavior #-}
 
 -- | The pattern (for example, images/*.jpg) that specifies which requests you
 -- want this cache behavior to apply to. When CloudFront receives an end-user
@@ -1059,7 +1044,6 @@ mkCacheBehavior p1 p2 p3 p4 p5 p6 = CacheBehavior
 -- CloudFront applies the behavior in the default cache behavior.
 cb1PathPattern :: Lens' CacheBehavior Text
 cb1PathPattern = lens _cb1PathPattern (\s a -> s { _cb1PathPattern = a })
-{-# INLINE cb1PathPattern #-}
 
 -- | The value of ID for the origin that you want CloudFront to route requests
 -- to when a request matches the path pattern either for a cache behavior or
@@ -1067,14 +1051,12 @@ cb1PathPattern = lens _cb1PathPattern (\s a -> s { _cb1PathPattern = a })
 cb1TargetOriginId :: Lens' CacheBehavior Text
 cb1TargetOriginId =
     lens _cb1TargetOriginId (\s a -> s { _cb1TargetOriginId = a })
-{-# INLINE cb1TargetOriginId #-}
 
 -- | A complex type that specifies how CloudFront handles query strings, cookies
 -- and headers.
 cb1ForwardedValues :: Lens' CacheBehavior ForwardedValues
 cb1ForwardedValues =
     lens _cb1ForwardedValues (\s a -> s { _cb1ForwardedValues = a })
-{-# INLINE cb1ForwardedValues #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
 -- allow to create signed URLs for private content. If you want to require
@@ -1091,7 +1073,6 @@ cb1ForwardedValues =
 cb1TrustedSigners :: Lens' CacheBehavior TrustedSigners
 cb1TrustedSigners =
     lens _cb1TrustedSigners (\s a -> s { _cb1TrustedSigners = a })
-{-# INLINE cb1TrustedSigners #-}
 
 -- | Use this element to specify the protocol that users can use to access the
 -- files in the origin specified by TargetOriginId when a request matches the
@@ -1105,7 +1086,6 @@ cb1ViewerProtocolPolicy :: Lens' CacheBehavior ViewerProtocolPolicy
 cb1ViewerProtocolPolicy =
     lens _cb1ViewerProtocolPolicy
          (\s a -> s { _cb1ViewerProtocolPolicy = a })
-{-# INLINE cb1ViewerProtocolPolicy #-}
 
 -- | The minimum amount of time that you want objects to stay in CloudFront
 -- caches before CloudFront queries your origin to see whether the object has
@@ -1113,7 +1093,6 @@ cb1ViewerProtocolPolicy =
 -- years).
 cb1MinTTL :: Lens' CacheBehavior Integer
 cb1MinTTL = lens _cb1MinTTL (\s a -> s { _cb1MinTTL = a })
-{-# INLINE cb1MinTTL #-}
 
 -- | A complex type that controls which HTTP methods CloudFront processes and
 -- forwards to your Amazon S3 bucket or your custom origin. There are two
@@ -1126,7 +1105,6 @@ cb1MinTTL = lens _cb1MinTTL (\s a -> s { _cb1MinTTL = a })
 cb1AllowedMethods :: Lens' CacheBehavior (Maybe AllowedMethods)
 cb1AllowedMethods =
     lens _cb1AllowedMethods (\s a -> s { _cb1AllowedMethods = a })
-{-# INLINE cb1AllowedMethods #-}
 
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
@@ -1134,7 +1112,6 @@ cb1AllowedMethods =
 cb1SmoothStreaming :: Lens' CacheBehavior (Maybe Bool)
 cb1SmoothStreaming =
     lens _cb1SmoothStreaming (\s a -> s { _cb1SmoothStreaming = a })
-{-# INLINE cb1SmoothStreaming #-}
 
 instance FromXML CacheBehavior where
     fromXMLOptions = xmlOptions
@@ -1158,18 +1135,15 @@ mkCacheBehaviors p1 = CacheBehaviors
     { _cbQuantity = p1
     , _cbItems = mempty
     }
-{-# INLINE mkCacheBehaviors #-}
 
 -- | The number of cache behaviors for this distribution.
 cbQuantity :: Lens' CacheBehaviors Integer
 cbQuantity = lens _cbQuantity (\s a -> s { _cbQuantity = a })
-{-# INLINE cbQuantity #-}
 
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If Quantity is 0, you can omit Items.
 cbItems :: Lens' CacheBehaviors [CacheBehavior]
 cbItems = lens _cbItems (\s a -> s { _cbItems = a })
-{-# INLINE cbItems #-}
 
 instance FromXML CacheBehaviors where
     fromXMLOptions = xmlOptions
@@ -1196,12 +1170,10 @@ mkCloudFrontOriginAccessIdentity p1 p2 = CloudFrontOriginAccessIdentity
     , _cfoaiS3CanonicalUserId = p2
     , _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
     }
-{-# INLINE mkCloudFrontOriginAccessIdentity #-}
 
 -- | The ID for the origin access identity. For example: E74FTE3AJFJ256A.
 cfoaiId :: Lens' CloudFrontOriginAccessIdentity Text
 cfoaiId = lens _cfoaiId (\s a -> s { _cfoaiId = a })
-{-# INLINE cfoaiId #-}
 
 -- | The Amazon S3 canonical user ID for the origin access identity, which you
 -- use when giving the origin access identity read permission to an object in
@@ -1209,14 +1181,12 @@ cfoaiId = lens _cfoaiId (\s a -> s { _cfoaiId = a })
 cfoaiS3CanonicalUserId :: Lens' CloudFrontOriginAccessIdentity Text
 cfoaiS3CanonicalUserId =
     lens _cfoaiS3CanonicalUserId (\s a -> s { _cfoaiS3CanonicalUserId = a })
-{-# INLINE cfoaiS3CanonicalUserId #-}
 
 -- | The current configuration information for the identity.
 cfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CloudFrontOriginAccessIdentity (Maybe CloudFrontOriginAccessIdentityConfig)
 cfoaiCloudFrontOriginAccessIdentityConfig =
     lens _cfoaiCloudFrontOriginAccessIdentityConfig
          (\s a -> s { _cfoaiCloudFrontOriginAccessIdentityConfig = a })
-{-# INLINE cfoaiCloudFrontOriginAccessIdentityConfig #-}
 
 instance FromXML CloudFrontOriginAccessIdentity where
     fromXMLOptions = xmlOptions
@@ -1237,7 +1207,6 @@ mkCloudFrontOriginAccessIdentityConfig p1 p2 = CloudFrontOriginAccessIdentityCon
     { _cfoaicCallerReference = p1
     , _cfoaicComment = p2
     }
-{-# INLINE mkCloudFrontOriginAccessIdentityConfig #-}
 
 -- | A unique number that ensures the request can't be replayed. If the
 -- CallerReference is new (no matter the content of the
@@ -1254,12 +1223,10 @@ mkCloudFrontOriginAccessIdentityConfig p1 p2 = CloudFrontOriginAccessIdentityCon
 cfoaicCallerReference :: Lens' CloudFrontOriginAccessIdentityConfig Text
 cfoaicCallerReference =
     lens _cfoaicCallerReference (\s a -> s { _cfoaicCallerReference = a })
-{-# INLINE cfoaicCallerReference #-}
 
 -- | Any comments you want to include about the origin access identity.
 cfoaicComment :: Lens' CloudFrontOriginAccessIdentityConfig Text
 cfoaicComment = lens _cfoaicComment (\s a -> s { _cfoaicComment = a })
-{-# INLINE cfoaicComment #-}
 
 instance FromXML CloudFrontOriginAccessIdentityConfig where
     fromXMLOptions = xmlOptions
@@ -1294,12 +1261,10 @@ mkCloudFrontOriginAccessIdentityList p1 p3 p4 p5 = CloudFrontOriginAccessIdentit
     , _cfoailQuantity = p5
     , _cfoailItems = mempty
     }
-{-# INLINE mkCloudFrontOriginAccessIdentityList #-}
 
 -- | The value you provided for the Marker request parameter.
 cfoailMarker :: Lens' CloudFrontOriginAccessIdentityList Text
 cfoailMarker = lens _cfoailMarker (\s a -> s { _cfoailMarker = a })
-{-# INLINE cfoailMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your origin
@@ -1307,12 +1272,10 @@ cfoailMarker = lens _cfoailMarker (\s a -> s { _cfoailMarker = a })
 cfoailNextMarker :: Lens' CloudFrontOriginAccessIdentityList (Maybe Text)
 cfoailNextMarker =
     lens _cfoailNextMarker (\s a -> s { _cfoailNextMarker = a })
-{-# INLINE cfoailNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
 cfoailMaxItems :: Lens' CloudFrontOriginAccessIdentityList Integer
 cfoailMaxItems = lens _cfoailMaxItems (\s a -> s { _cfoailMaxItems = a })
-{-# INLINE cfoailMaxItems #-}
 
 -- | A flag that indicates whether more origin access identities remain to be
 -- listed. If your results were truncated, you can make a follow-up pagination
@@ -1321,20 +1284,17 @@ cfoailMaxItems = lens _cfoailMaxItems (\s a -> s { _cfoailMaxItems = a })
 cfoailIsTruncated :: Lens' CloudFrontOriginAccessIdentityList Bool
 cfoailIsTruncated =
     lens _cfoailIsTruncated (\s a -> s { _cfoailIsTruncated = a })
-{-# INLINE cfoailIsTruncated #-}
 
 -- | The number of CloudFront origin access identities that were created by the
 -- current AWS account.
 cfoailQuantity :: Lens' CloudFrontOriginAccessIdentityList Integer
 cfoailQuantity = lens _cfoailQuantity (\s a -> s { _cfoailQuantity = a })
-{-# INLINE cfoailQuantity #-}
 
 -- | A complex type that contains one CloudFrontOriginAccessIdentitySummary
 -- element for each origin access identity that was created by the current AWS
 -- account.
 cfoailItems :: Lens' CloudFrontOriginAccessIdentityList [CloudFrontOriginAccessIdentitySummary]
 cfoailItems = lens _cfoailItems (\s a -> s { _cfoailItems = a })
-{-# INLINE cfoailItems #-}
 
 instance FromXML CloudFrontOriginAccessIdentityList where
     fromXMLOptions = xmlOptions
@@ -1358,12 +1318,10 @@ mkCloudFrontOriginAccessIdentitySummary p1 p2 p3 = CloudFrontOriginAccessIdentit
     , _cfoaisS3CanonicalUserId = p2
     , _cfoaisComment = p3
     }
-{-# INLINE mkCloudFrontOriginAccessIdentitySummary #-}
 
 -- | The ID for the origin access identity. For example: E74FTE3AJFJ256A.
 cfoaisId :: Lens' CloudFrontOriginAccessIdentitySummary Text
 cfoaisId = lens _cfoaisId (\s a -> s { _cfoaisId = a })
-{-# INLINE cfoaisId #-}
 
 -- | The Amazon S3 canonical user ID for the origin access identity, which you
 -- use when giving the origin access identity read permission to an object in
@@ -1372,13 +1330,11 @@ cfoaisS3CanonicalUserId :: Lens' CloudFrontOriginAccessIdentitySummary Text
 cfoaisS3CanonicalUserId =
     lens _cfoaisS3CanonicalUserId
          (\s a -> s { _cfoaisS3CanonicalUserId = a })
-{-# INLINE cfoaisS3CanonicalUserId #-}
 
 -- | The comment for this origin access identity, as originally specified when
 -- created.
 cfoaisComment :: Lens' CloudFrontOriginAccessIdentitySummary Text
 cfoaisComment = lens _cfoaisComment (\s a -> s { _cfoaisComment = a })
-{-# INLINE cfoaisComment #-}
 
 instance FromXML CloudFrontOriginAccessIdentitySummary where
     fromXMLOptions = xmlOptions
@@ -1400,18 +1356,15 @@ mkCookieNames p1 = CookieNames
     { _cnQuantity = p1
     , _cnItems = mempty
     }
-{-# INLINE mkCookieNames #-}
 
 -- | The number of whitelisted cookies for this cache behavior.
 cnQuantity :: Lens' CookieNames Integer
 cnQuantity = lens _cnQuantity (\s a -> s { _cnQuantity = a })
-{-# INLINE cnQuantity #-}
 
 -- | Optional: A complex type that contains whitelisted cookies for this cache
 -- behavior. If Quantity is 0, you can omit Items.
 cnItems :: Lens' CookieNames [Text]
 cnItems = lens _cnItems (\s a -> s { _cnItems = a })
-{-# INLINE cnItems #-}
 
 instance FromXML CookieNames where
     fromXMLOptions = xmlOptions
@@ -1435,7 +1388,6 @@ mkCookiePreference p1 = CookiePreference
     { _cpForward = p1
     , _cpWhitelistedNames = Nothing
     }
-{-# INLINE mkCookiePreference #-}
 
 -- | Use this element to specify whether you want CloudFront to forward cookies
 -- to the origin that is associated with this cache behavior. You can specify
@@ -1443,7 +1395,6 @@ mkCookiePreference p1 = CookiePreference
 -- regardless of how many your application uses.
 cpForward :: Lens' CookiePreference ItemSelection
 cpForward = lens _cpForward (\s a -> s { _cpForward = a })
-{-# INLINE cpForward #-}
 
 -- | A complex type that specifies the whitelisted cookies, if any, that you
 -- want CloudFront to forward to your origin that is associated with this
@@ -1451,7 +1402,6 @@ cpForward = lens _cpForward (\s a -> s { _cpForward = a })
 cpWhitelistedNames :: Lens' CookiePreference (Maybe CookieNames)
 cpWhitelistedNames =
     lens _cpWhitelistedNames (\s a -> s { _cpWhitelistedNames = a })
-{-# INLINE cpWhitelistedNames #-}
 
 instance FromXML CookiePreference where
     fromXMLOptions = xmlOptions
@@ -1489,13 +1439,11 @@ mkCustomErrorResponse p1 = CustomErrorResponse
     , _cer1ResponseCode = Nothing
     , _cer1ErrorCachingMinTTL = Nothing
     }
-{-# INLINE mkCustomErrorResponse #-}
 
 -- | The 4xx or 5xx HTTP status code that you want to customize. For a list of
 -- HTTP status codes that you can customize, see CloudFront documentation.
 cer1ErrorCode :: Lens' CustomErrorResponse Integer
 cer1ErrorCode = lens _cer1ErrorCode (\s a -> s { _cer1ErrorCode = a })
-{-# INLINE cer1ErrorCode #-}
 
 -- | The path of the custom error page (for example, /custom_404.html). The path
 -- is relative to the distribution and must begin with a slash (/). If the
@@ -1506,7 +1454,6 @@ cer1ErrorCode = lens _cer1ErrorCode (\s a -> s { _cer1ErrorCode = a })
 cer1ResponsePagePath :: Lens' CustomErrorResponse (Maybe Text)
 cer1ResponsePagePath =
     lens _cer1ResponsePagePath (\s a -> s { _cer1ResponsePagePath = a })
-{-# INLINE cer1ResponsePagePath #-}
 
 -- | The HTTP status code that you want CloudFront to return with the custom
 -- error page to the viewer. For a list of HTTP status codes that you can
@@ -1514,7 +1461,6 @@ cer1ResponsePagePath =
 cer1ResponseCode :: Lens' CustomErrorResponse (Maybe Text)
 cer1ResponseCode =
     lens _cer1ResponseCode (\s a -> s { _cer1ResponseCode = a })
-{-# INLINE cer1ResponseCode #-}
 
 -- | The minimum amount of time you want HTTP error codes to stay in CloudFront
 -- caches before CloudFront queries your origin to see whether the object has
@@ -1522,7 +1468,6 @@ cer1ResponseCode =
 cer1ErrorCachingMinTTL :: Lens' CustomErrorResponse (Maybe Integer)
 cer1ErrorCachingMinTTL =
     lens _cer1ErrorCachingMinTTL (\s a -> s { _cer1ErrorCachingMinTTL = a })
-{-# INLINE cer1ErrorCachingMinTTL #-}
 
 instance FromXML CustomErrorResponse where
     fromXMLOptions = xmlOptions
@@ -1546,18 +1491,15 @@ mkCustomErrorResponses p1 = CustomErrorResponses
     { _cerQuantity = p1
     , _cerItems = mempty
     }
-{-# INLINE mkCustomErrorResponses #-}
 
 -- | The number of custom error responses for this distribution.
 cerQuantity :: Lens' CustomErrorResponses Integer
 cerQuantity = lens _cerQuantity (\s a -> s { _cerQuantity = a })
-{-# INLINE cerQuantity #-}
 
 -- | Optional: A complex type that contains custom error responses for this
 -- distribution. If Quantity is 0, you can omit Items.
 cerItems :: Lens' CustomErrorResponses [CustomErrorResponse]
 cerItems = lens _cerItems (\s a -> s { _cerItems = a })
-{-# INLINE cerItems #-}
 
 instance FromXML CustomErrorResponses where
     fromXMLOptions = xmlOptions
@@ -1586,24 +1528,20 @@ mkCustomOriginConfig p1 p2 p3 = CustomOriginConfig
     , _cocHTTPSPort = p2
     , _cocOriginProtocolPolicy = p3
     }
-{-# INLINE mkCustomOriginConfig #-}
 
 -- | The HTTP port the custom origin listens on.
 cocHTTPPort :: Lens' CustomOriginConfig Integer
 cocHTTPPort = lens _cocHTTPPort (\s a -> s { _cocHTTPPort = a })
-{-# INLINE cocHTTPPort #-}
 
 -- | The HTTPS port the custom origin listens on.
 cocHTTPSPort :: Lens' CustomOriginConfig Integer
 cocHTTPSPort = lens _cocHTTPSPort (\s a -> s { _cocHTTPSPort = a })
-{-# INLINE cocHTTPSPort #-}
 
 -- | The origin protocol policy to apply to your origin.
 cocOriginProtocolPolicy :: Lens' CustomOriginConfig OriginProtocolPolicy
 cocOriginProtocolPolicy =
     lens _cocOriginProtocolPolicy
          (\s a -> s { _cocOriginProtocolPolicy = a })
-{-# INLINE cocOriginProtocolPolicy #-}
 
 instance FromXML CustomOriginConfig where
     fromXMLOptions = xmlOptions
@@ -1644,7 +1582,6 @@ mkDefaultCacheBehavior p1 p2 p3 p4 p5 = DefaultCacheBehavior
     , _dcbAllowedMethods = Nothing
     , _dcbSmoothStreaming = Nothing
     }
-{-# INLINE mkDefaultCacheBehavior #-}
 
 -- | The value of ID for the origin that you want CloudFront to route requests
 -- to when a request matches the path pattern either for a cache behavior or
@@ -1652,14 +1589,12 @@ mkDefaultCacheBehavior p1 p2 p3 p4 p5 = DefaultCacheBehavior
 dcbTargetOriginId :: Lens' DefaultCacheBehavior Text
 dcbTargetOriginId =
     lens _dcbTargetOriginId (\s a -> s { _dcbTargetOriginId = a })
-{-# INLINE dcbTargetOriginId #-}
 
 -- | A complex type that specifies how CloudFront handles query strings, cookies
 -- and headers.
 dcbForwardedValues :: Lens' DefaultCacheBehavior ForwardedValues
 dcbForwardedValues =
     lens _dcbForwardedValues (\s a -> s { _dcbForwardedValues = a })
-{-# INLINE dcbForwardedValues #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
 -- allow to create signed URLs for private content. If you want to require
@@ -1676,7 +1611,6 @@ dcbForwardedValues =
 dcbTrustedSigners :: Lens' DefaultCacheBehavior TrustedSigners
 dcbTrustedSigners =
     lens _dcbTrustedSigners (\s a -> s { _dcbTrustedSigners = a })
-{-# INLINE dcbTrustedSigners #-}
 
 -- | Use this element to specify the protocol that users can use to access the
 -- files in the origin specified by TargetOriginId when a request matches the
@@ -1690,7 +1624,6 @@ dcbViewerProtocolPolicy :: Lens' DefaultCacheBehavior ViewerProtocolPolicy
 dcbViewerProtocolPolicy =
     lens _dcbViewerProtocolPolicy
          (\s a -> s { _dcbViewerProtocolPolicy = a })
-{-# INLINE dcbViewerProtocolPolicy #-}
 
 -- | The minimum amount of time that you want objects to stay in CloudFront
 -- caches before CloudFront queries your origin to see whether the object has
@@ -1698,7 +1631,6 @@ dcbViewerProtocolPolicy =
 -- years).
 dcbMinTTL :: Lens' DefaultCacheBehavior Integer
 dcbMinTTL = lens _dcbMinTTL (\s a -> s { _dcbMinTTL = a })
-{-# INLINE dcbMinTTL #-}
 
 -- | A complex type that controls which HTTP methods CloudFront processes and
 -- forwards to your Amazon S3 bucket or your custom origin. There are two
@@ -1711,7 +1643,6 @@ dcbMinTTL = lens _dcbMinTTL (\s a -> s { _dcbMinTTL = a })
 dcbAllowedMethods :: Lens' DefaultCacheBehavior (Maybe AllowedMethods)
 dcbAllowedMethods =
     lens _dcbAllowedMethods (\s a -> s { _dcbAllowedMethods = a })
-{-# INLINE dcbAllowedMethods #-}
 
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
@@ -1719,7 +1650,6 @@ dcbAllowedMethods =
 dcbSmoothStreaming :: Lens' DefaultCacheBehavior (Maybe Bool)
 dcbSmoothStreaming =
     lens _dcbSmoothStreaming (\s a -> s { _dcbSmoothStreaming = a })
-{-# INLINE dcbSmoothStreaming #-}
 
 instance FromXML DefaultCacheBehavior where
     fromXMLOptions = xmlOptions
@@ -1759,38 +1689,32 @@ mkDistribution p1 p2 p3 p4 p5 p6 p7 = Distribution
     , _dActiveTrustedSigners = p6
     , _dDistributionConfig = p7
     }
-{-# INLINE mkDistribution #-}
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 dId :: Lens' Distribution Text
 dId = lens _dId (\s a -> s { _dId = a })
-{-# INLINE dId #-}
 
 -- | This response element indicates the current status of the distribution.
 -- When the status is Deployed, the distribution's information is fully
 -- propagated throughout the Amazon CloudFront system.
 dStatus :: Lens' Distribution Text
 dStatus = lens _dStatus (\s a -> s { _dStatus = a })
-{-# INLINE dStatus #-}
 
 -- | The date and time the distribution was last modified.
 dLastModifiedTime :: Lens' Distribution ISO8601
 dLastModifiedTime =
     lens _dLastModifiedTime (\s a -> s { _dLastModifiedTime = a })
-{-# INLINE dLastModifiedTime #-}
 
 -- | The number of invalidation batches currently in progress.
 dInProgressInvalidationBatches :: Lens' Distribution Integer
 dInProgressInvalidationBatches =
     lens _dInProgressInvalidationBatches
          (\s a -> s { _dInProgressInvalidationBatches = a })
-{-# INLINE dInProgressInvalidationBatches #-}
 
 -- | The domain name corresponding to the distribution. For example:
 -- d604721fxaaqy9.cloudfront.net.
 dDomainName :: Lens' Distribution Text
 dDomainName = lens _dDomainName (\s a -> s { _dDomainName = a })
-{-# INLINE dDomainName #-}
 
 -- | CloudFront automatically adds this element to the response only if you've
 -- set up the distribution to serve private content with signed URLs. The
@@ -1803,13 +1727,11 @@ dDomainName = lens _dDomainName (\s a -> s { _dDomainName = a })
 dActiveTrustedSigners :: Lens' Distribution ActiveTrustedSigners
 dActiveTrustedSigners =
     lens _dActiveTrustedSigners (\s a -> s { _dActiveTrustedSigners = a })
-{-# INLINE dActiveTrustedSigners #-}
 
 -- | The current configuration information for the distribution.
 dDistributionConfig :: Lens' Distribution DistributionConfig
 dDistributionConfig =
     lens _dDistributionConfig (\s a -> s { _dDistributionConfig = a })
-{-# INLINE dDistributionConfig #-}
 
 instance FromXML Distribution where
     fromXMLOptions = xmlOptions
@@ -1860,7 +1782,6 @@ mkDistributionConfig p1 p10 p11 p2 p3 p4 p5 p6 p8 p9 = DistributionConfig
     , _dcViewerCertificate = Nothing
     , _dcRestrictions = Nothing
     }
-{-# INLINE mkDistributionConfig #-}
 
 -- | A unique number that ensures the request can't be replayed. If the
 -- CallerReference is new (no matter the content of the DistributionConfig
@@ -1875,13 +1796,11 @@ mkDistributionConfig p1 p10 p11 p2 p3 p4 p5 p6 p8 p9 = DistributionConfig
 dcCallerReference :: Lens' DistributionConfig Text
 dcCallerReference =
     lens _dcCallerReference (\s a -> s { _dcCallerReference = a })
-{-# INLINE dcCallerReference #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
 dcAliases :: Lens' DistributionConfig Aliases
 dcAliases = lens _dcAliases (\s a -> s { _dcAliases = a })
-{-# INLINE dcAliases #-}
 
 -- | The object that you want CloudFront to return (for example, index.html)
 -- when an end user requests the root URL for your distribution
@@ -1896,13 +1815,11 @@ dcAliases = lens _dcAliases (\s a -> s { _dcAliases = a })
 dcDefaultRootObject :: Lens' DistributionConfig Text
 dcDefaultRootObject =
     lens _dcDefaultRootObject (\s a -> s { _dcDefaultRootObject = a })
-{-# INLINE dcDefaultRootObject #-}
 
 -- | A complex type that contains information about origins for this
 -- distribution.
 dcOrigins :: Lens' DistributionConfig Origins
 dcOrigins = lens _dcOrigins (\s a -> s { _dcOrigins = a })
-{-# INLINE dcOrigins #-}
 
 -- | A complex type that describes the default cache behavior if you do not
 -- specify a CacheBehavior element or if files don't match any of the values
@@ -1911,55 +1828,46 @@ dcOrigins = lens _dcOrigins (\s a -> s { _dcOrigins = a })
 dcDefaultCacheBehavior :: Lens' DistributionConfig DefaultCacheBehavior
 dcDefaultCacheBehavior =
     lens _dcDefaultCacheBehavior (\s a -> s { _dcDefaultCacheBehavior = a })
-{-# INLINE dcDefaultCacheBehavior #-}
 
 -- | A complex type that contains zero or more CacheBehavior elements.
 dcCacheBehaviors :: Lens' DistributionConfig CacheBehaviors
 dcCacheBehaviors =
     lens _dcCacheBehaviors (\s a -> s { _dcCacheBehaviors = a })
-{-# INLINE dcCacheBehaviors #-}
 
 -- | A complex type that contains zero or more CustomErrorResponse elements.
 dcCustomErrorResponses :: Lens' DistributionConfig (Maybe CustomErrorResponses)
 dcCustomErrorResponses =
     lens _dcCustomErrorResponses (\s a -> s { _dcCustomErrorResponses = a })
-{-# INLINE dcCustomErrorResponses #-}
 
 -- | Any comments you want to include about the distribution.
 dcComment :: Lens' DistributionConfig Text
 dcComment = lens _dcComment (\s a -> s { _dcComment = a })
-{-# INLINE dcComment #-}
 
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
 dcLogging :: Lens' DistributionConfig LoggingConfig
 dcLogging = lens _dcLogging (\s a -> s { _dcLogging = a })
-{-# INLINE dcLogging #-}
 
 -- | A complex type that contains information about price class for this
 -- distribution.
 dcPriceClass :: Lens' DistributionConfig PriceClass
 dcPriceClass = lens _dcPriceClass (\s a -> s { _dcPriceClass = a })
-{-# INLINE dcPriceClass #-}
 
 -- | Whether the distribution is enabled to accept end user requests for
 -- content.
 dcEnabled :: Lens' DistributionConfig Bool
 dcEnabled = lens _dcEnabled (\s a -> s { _dcEnabled = a })
-{-# INLINE dcEnabled #-}
 
 -- | A complex type that contains information about viewer certificates for this
 -- distribution.
 dcViewerCertificate :: Lens' DistributionConfig (Maybe ViewerCertificate)
 dcViewerCertificate =
     lens _dcViewerCertificate (\s a -> s { _dcViewerCertificate = a })
-{-# INLINE dcViewerCertificate #-}
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
 dcRestrictions :: Lens' DistributionConfig (Maybe Restrictions)
 dcRestrictions = lens _dcRestrictions (\s a -> s { _dcRestrictions = a })
-{-# INLINE dcRestrictions #-}
 
 instance FromXML DistributionConfig where
     fromXMLOptions = xmlOptions
@@ -1994,24 +1902,20 @@ mkDistributionList p1 p3 p4 p5 = DistributionList
     , _dlQuantity = p5
     , _dlItems = mempty
     }
-{-# INLINE mkDistributionList #-}
 
 -- | The value you provided for the Marker request parameter.
 dlMarker :: Lens' DistributionList Text
 dlMarker = lens _dlMarker (\s a -> s { _dlMarker = a })
-{-# INLINE dlMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your
 -- distributions where they left off.
 dlNextMarker :: Lens' DistributionList (Maybe Text)
 dlNextMarker = lens _dlNextMarker (\s a -> s { _dlNextMarker = a })
-{-# INLINE dlNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
 dlMaxItems :: Lens' DistributionList Integer
 dlMaxItems = lens _dlMaxItems (\s a -> s { _dlMaxItems = a })
-{-# INLINE dlMaxItems #-}
 
 -- | A flag that indicates whether more distributions remain to be listed. If
 -- your results were truncated, you can make a follow-up pagination request
@@ -2019,18 +1923,15 @@ dlMaxItems = lens _dlMaxItems (\s a -> s { _dlMaxItems = a })
 -- list.
 dlIsTruncated :: Lens' DistributionList Bool
 dlIsTruncated = lens _dlIsTruncated (\s a -> s { _dlIsTruncated = a })
-{-# INLINE dlIsTruncated #-}
 
 -- | The number of distributions that were created by the current AWS account.
 dlQuantity :: Lens' DistributionList Integer
 dlQuantity = lens _dlQuantity (\s a -> s { _dlQuantity = a })
-{-# INLINE dlQuantity #-}
 
 -- | A complex type that contains one DistributionSummary element for each
 -- distribution that was created by the current AWS account.
 dlItems :: Lens' DistributionList [DistributionSummary]
 dlItems = lens _dlItems (\s a -> s { _dlItems = a })
-{-# INLINE dlItems #-}
 
 instance FromXML DistributionList where
     fromXMLOptions = xmlOptions
@@ -2087,43 +1988,36 @@ mkDistributionSummary p1 p10 p11 p12 p13 p14 p2 p3 p4 p5 p6 p7 p8 p9 = Distribut
     , _dsViewerCertificate = p13
     , _dsRestrictions = p14
     }
-{-# INLINE mkDistributionSummary #-}
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 dsId :: Lens' DistributionSummary Text
 dsId = lens _dsId (\s a -> s { _dsId = a })
-{-# INLINE dsId #-}
 
 -- | This response element indicates the current status of the distribution.
 -- When the status is Deployed, the distribution's information is fully
 -- propagated throughout the Amazon CloudFront system.
 dsStatus :: Lens' DistributionSummary Text
 dsStatus = lens _dsStatus (\s a -> s { _dsStatus = a })
-{-# INLINE dsStatus #-}
 
 -- | The date and time the distribution was last modified.
 dsLastModifiedTime :: Lens' DistributionSummary ISO8601
 dsLastModifiedTime =
     lens _dsLastModifiedTime (\s a -> s { _dsLastModifiedTime = a })
-{-# INLINE dsLastModifiedTime #-}
 
 -- | The domain name corresponding to the distribution. For example:
 -- d604721fxaaqy9.cloudfront.net.
 dsDomainName :: Lens' DistributionSummary Text
 dsDomainName = lens _dsDomainName (\s a -> s { _dsDomainName = a })
-{-# INLINE dsDomainName #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
 dsAliases :: Lens' DistributionSummary Aliases
 dsAliases = lens _dsAliases (\s a -> s { _dsAliases = a })
-{-# INLINE dsAliases #-}
 
 -- | A complex type that contains information about origins for this
 -- distribution.
 dsOrigins :: Lens' DistributionSummary Origins
 dsOrigins = lens _dsOrigins (\s a -> s { _dsOrigins = a })
-{-# INLINE dsOrigins #-}
 
 -- | A complex type that describes the default cache behavior if you do not
 -- specify a CacheBehavior element or if files don't match any of the values
@@ -2132,47 +2026,39 @@ dsOrigins = lens _dsOrigins (\s a -> s { _dsOrigins = a })
 dsDefaultCacheBehavior :: Lens' DistributionSummary DefaultCacheBehavior
 dsDefaultCacheBehavior =
     lens _dsDefaultCacheBehavior (\s a -> s { _dsDefaultCacheBehavior = a })
-{-# INLINE dsDefaultCacheBehavior #-}
 
 -- | A complex type that contains zero or more CacheBehavior elements.
 dsCacheBehaviors :: Lens' DistributionSummary CacheBehaviors
 dsCacheBehaviors =
     lens _dsCacheBehaviors (\s a -> s { _dsCacheBehaviors = a })
-{-# INLINE dsCacheBehaviors #-}
 
 -- | A complex type that contains zero or more CustomErrorResponses elements.
 dsCustomErrorResponses :: Lens' DistributionSummary CustomErrorResponses
 dsCustomErrorResponses =
     lens _dsCustomErrorResponses (\s a -> s { _dsCustomErrorResponses = a })
-{-# INLINE dsCustomErrorResponses #-}
 
 -- | The comment originally specified when this distribution was created.
 dsComment :: Lens' DistributionSummary Text
 dsComment = lens _dsComment (\s a -> s { _dsComment = a })
-{-# INLINE dsComment #-}
 
 dsPriceClass :: Lens' DistributionSummary PriceClass
 dsPriceClass = lens _dsPriceClass (\s a -> s { _dsPriceClass = a })
-{-# INLINE dsPriceClass #-}
 
 -- | Whether the distribution is enabled to accept end user requests for
 -- content.
 dsEnabled :: Lens' DistributionSummary Bool
 dsEnabled = lens _dsEnabled (\s a -> s { _dsEnabled = a })
-{-# INLINE dsEnabled #-}
 
 -- | A complex type that contains information about viewer certificates for this
 -- distribution.
 dsViewerCertificate :: Lens' DistributionSummary ViewerCertificate
 dsViewerCertificate =
     lens _dsViewerCertificate (\s a -> s { _dsViewerCertificate = a })
-{-# INLINE dsViewerCertificate #-}
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
 dsRestrictions :: Lens' DistributionSummary Restrictions
 dsRestrictions = lens _dsRestrictions (\s a -> s { _dsRestrictions = a })
-{-# INLINE dsRestrictions #-}
 
 instance FromXML DistributionSummary where
     fromXMLOptions = xmlOptions
@@ -2196,25 +2082,21 @@ mkForwardedValues p1 p2 = ForwardedValues
     , _fvCookies = p2
     , _fvHeaders = Nothing
     }
-{-# INLINE mkForwardedValues #-}
 
 -- | Indicates whether you want CloudFront to forward query strings to the
 -- origin that is associated with this cache behavior. If so, specify true; if
 -- not, specify false.
 fvQueryString :: Lens' ForwardedValues Bool
 fvQueryString = lens _fvQueryString (\s a -> s { _fvQueryString = a })
-{-# INLINE fvQueryString #-}
 
 -- | A complex type that specifies how CloudFront handles cookies.
 fvCookies :: Lens' ForwardedValues CookiePreference
 fvCookies = lens _fvCookies (\s a -> s { _fvCookies = a })
-{-# INLINE fvCookies #-}
 
 -- | A complex type that specifies the Headers, if any, that you want CloudFront
 -- to vary upon for this cache behavior.
 fvHeaders :: Lens' ForwardedValues (Maybe Headers)
 fvHeaders = lens _fvHeaders (\s a -> s { _fvHeaders = a })
-{-# INLINE fvHeaders #-}
 
 instance FromXML ForwardedValues where
     fromXMLOptions = xmlOptions
@@ -2246,7 +2128,6 @@ mkGeoRestriction p1 p2 = GeoRestriction
     , _grQuantity = p2
     , _grItems = mempty
     }
-{-# INLINE mkGeoRestriction #-}
 
 -- | The method that you want to use to restrict distribution of your content by
 -- country: - none: No geo restriction is enabled, meaning access to content
@@ -2257,14 +2138,12 @@ mkGeoRestriction p1 p2 = GeoRestriction
 grRestrictionType :: Lens' GeoRestriction GeoRestrictionType
 grRestrictionType =
     lens _grRestrictionType (\s a -> s { _grRestrictionType = a })
-{-# INLINE grRestrictionType #-}
 
 -- | When geo restriction is enabled, this is the number of countries in your
 -- whitelist or blacklist. Otherwise, when it is not enabled, Quantity is 0,
 -- and you can omit Items.
 grQuantity :: Lens' GeoRestriction Integer
 grQuantity = lens _grQuantity (\s a -> s { _grQuantity = a })
-{-# INLINE grQuantity #-}
 
 -- | A complex type that contains a Location element for each country in which
 -- you want CloudFront either to distribute your content (whitelist) or not
@@ -2278,7 +2157,6 @@ grQuantity = lens _grQuantity (\s a -> s { _grQuantity = a })
 -- country names and codes.
 grItems :: Lens' GeoRestriction [Text]
 grItems = lens _grItems (\s a -> s { _grItems = a })
-{-# INLINE grItems #-}
 
 instance FromXML GeoRestriction where
     fromXMLOptions = xmlOptions
@@ -2303,7 +2181,6 @@ mkHeaders p1 = Headers
     { _hQuantity = p1
     , _hItems = mempty
     }
-{-# INLINE mkHeaders #-}
 
 -- | The number of different headers that you want CloudFront to forward to the
 -- origin and to vary on for this cache behavior. The maximum number of
@@ -2314,14 +2191,12 @@ mkHeaders p1 = Headers
 -- Quantity and omit Items.
 hQuantity :: Lens' Headers Integer
 hQuantity = lens _hQuantity (\s a -> s { _hQuantity = a })
-{-# INLINE hQuantity #-}
 
 -- | Optional: A complex type that contains a Name element for each header that
 -- you want CloudFront to forward to the origin and to vary on for this cache
 -- behavior. If Quantity is 0, omit Items.
 hItems :: Lens' Headers [Text]
 hItems = lens _hItems (\s a -> s { _hItems = a })
-{-# INLINE hItems #-}
 
 instance FromXML Headers where
     fromXMLOptions = xmlOptions
@@ -2352,29 +2227,24 @@ mkInvalidation p1 p2 p3 p4 = Invalidation
     , _iCreateTime = p3
     , _iInvalidationBatch = p4
     }
-{-# INLINE mkInvalidation #-}
 
 -- | The identifier for the invalidation request. For example: IDFDVBD632BHDS5.
 iId :: Lens' Invalidation Text
 iId = lens _iId (\s a -> s { _iId = a })
-{-# INLINE iId #-}
 
 -- | The status of the invalidation request. When the invalidation batch is
 -- finished, the status is Completed.
 iStatus :: Lens' Invalidation Text
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
-{-# INLINE iStatus #-}
 
 -- | The date and time the invalidation request was first made.
 iCreateTime :: Lens' Invalidation ISO8601
 iCreateTime = lens _iCreateTime (\s a -> s { _iCreateTime = a })
-{-# INLINE iCreateTime #-}
 
 -- | The current invalidation information for the batch request.
 iInvalidationBatch :: Lens' Invalidation InvalidationBatch
 iInvalidationBatch =
     lens _iInvalidationBatch (\s a -> s { _iInvalidationBatch = a })
-{-# INLINE iInvalidationBatch #-}
 
 instance FromXML Invalidation where
     fromXMLOptions = xmlOptions
@@ -2395,7 +2265,6 @@ mkInvalidationBatch p1 p2 = InvalidationBatch
     { _ibPaths = p1
     , _ibCallerReference = p2
     }
-{-# INLINE mkInvalidationBatch #-}
 
 -- | The path of the object to invalidate. The path is relative to the
 -- distribution and must begin with a slash (/). You must enclose each
@@ -2406,7 +2275,6 @@ mkInvalidationBatch p1 p2 = InvalidationBatch
 -- invalidate the old version of the updated object.
 ibPaths :: Lens' InvalidationBatch Paths
 ibPaths = lens _ibPaths (\s a -> s { _ibPaths = a })
-{-# INLINE ibPaths #-}
 
 -- | A unique name that ensures the request can't be replayed. If the
 -- CallerReference is new (no matter the content of the Path object), a new
@@ -2420,7 +2288,6 @@ ibPaths = lens _ibPaths (\s a -> s { _ibPaths = a })
 ibCallerReference :: Lens' InvalidationBatch Text
 ibCallerReference =
     lens _ibCallerReference (\s a -> s { _ibCallerReference = a })
-{-# INLINE ibCallerReference #-}
 
 instance FromXML InvalidationBatch where
     fromXMLOptions = xmlOptions
@@ -2455,24 +2322,20 @@ mkInvalidationList p1 p3 p4 p5 = InvalidationList
     , _ilQuantity = p5
     , _ilItems = mempty
     }
-{-# INLINE mkInvalidationList #-}
 
 -- | The value you provided for the Marker request parameter.
 ilMarker :: Lens' InvalidationList Text
 ilMarker = lens _ilMarker (\s a -> s { _ilMarker = a })
-{-# INLINE ilMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your
 -- invalidation batches where they left off.
 ilNextMarker :: Lens' InvalidationList (Maybe Text)
 ilNextMarker = lens _ilNextMarker (\s a -> s { _ilNextMarker = a })
-{-# INLINE ilNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
 ilMaxItems :: Lens' InvalidationList Integer
 ilMaxItems = lens _ilMaxItems (\s a -> s { _ilMaxItems = a })
-{-# INLINE ilMaxItems #-}
 
 -- | A flag that indicates whether more invalidation batch requests remain to be
 -- listed. If your results were truncated, you can make a follow-up pagination
@@ -2480,19 +2343,16 @@ ilMaxItems = lens _ilMaxItems (\s a -> s { _ilMaxItems = a })
 -- batches in the list.
 ilIsTruncated :: Lens' InvalidationList Bool
 ilIsTruncated = lens _ilIsTruncated (\s a -> s { _ilIsTruncated = a })
-{-# INLINE ilIsTruncated #-}
 
 -- | The number of invalidation batches that were created by the current AWS
 -- account.
 ilQuantity :: Lens' InvalidationList Integer
 ilQuantity = lens _ilQuantity (\s a -> s { _ilQuantity = a })
-{-# INLINE ilQuantity #-}
 
 -- | A complex type that contains one InvalidationSummary element for each
 -- invalidation batch that was created by the current AWS account.
 ilItems :: Lens' InvalidationList [InvalidationSummary]
 ilItems = lens _ilItems (\s a -> s { _ilItems = a })
-{-# INLINE ilItems #-}
 
 instance FromXML InvalidationList where
     fromXMLOptions = xmlOptions
@@ -2516,21 +2376,17 @@ mkInvalidationSummary p1 p2 p3 = InvalidationSummary
     , _isCreateTime = p2
     , _isStatus = p3
     }
-{-# INLINE mkInvalidationSummary #-}
 
 -- | The unique ID for an invalidation request.
 isId :: Lens' InvalidationSummary Text
 isId = lens _isId (\s a -> s { _isId = a })
-{-# INLINE isId #-}
 
 isCreateTime :: Lens' InvalidationSummary ISO8601
 isCreateTime = lens _isCreateTime (\s a -> s { _isCreateTime = a })
-{-# INLINE isCreateTime #-}
 
 -- | The status of an invalidation request.
 isStatus :: Lens' InvalidationSummary Text
 isStatus = lens _isStatus (\s a -> s { _isStatus = a })
-{-# INLINE isStatus #-}
 
 instance FromXML InvalidationSummary where
     fromXMLOptions = xmlOptions
@@ -2551,18 +2407,15 @@ mkKeyPairIds p1 = KeyPairIds
     { _kpiQuantity = p1
     , _kpiItems = mempty
     }
-{-# INLINE mkKeyPairIds #-}
 
 -- | The number of active CloudFront key pairs for AwsAccountNumber.
 kpiQuantity :: Lens' KeyPairIds Integer
 kpiQuantity = lens _kpiQuantity (\s a -> s { _kpiQuantity = a })
-{-# INLINE kpiQuantity #-}
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that are
 -- associated with AwsAccountNumber.
 kpiItems :: Lens' KeyPairIds [Text]
 kpiItems = lens _kpiItems (\s a -> s { _kpiItems = a })
-{-# INLINE kpiItems #-}
 
 instance FromXML KeyPairIds where
     fromXMLOptions = xmlOptions
@@ -2594,7 +2447,6 @@ mkLoggingConfig p1 p2 p3 p4 = LoggingConfig
     , _lcBucket = p3
     , _lcPrefix = p4
     }
-{-# INLINE mkLoggingConfig #-}
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon S3
 -- bucket. If you do not want to enable logging when you create a distribution
@@ -2604,7 +2456,6 @@ mkLoggingConfig p1 p2 p3 p4 = LoggingConfig
 -- IncludeCookies, the values are automatically deleted.
 lcEnabled :: Lens' LoggingConfig Bool
 lcEnabled = lens _lcEnabled (\s a -> s { _lcEnabled = a })
-{-# INLINE lcEnabled #-}
 
 -- | Specifies whether you want CloudFront to include cookies in access logs,
 -- specify true for IncludeCookies. If you choose to include cookies in logs,
@@ -2615,13 +2466,11 @@ lcEnabled = lens _lcEnabled (\s a -> s { _lcEnabled = a })
 lcIncludeCookies :: Lens' LoggingConfig Bool
 lcIncludeCookies =
     lens _lcIncludeCookies (\s a -> s { _lcIncludeCookies = a })
-{-# INLINE lcIncludeCookies #-}
 
 -- | The Amazon S3 bucket to store the access logs in, for example,
 -- myawslogbucket.s3.amazonaws.com.
 lcBucket :: Lens' LoggingConfig Text
 lcBucket = lens _lcBucket (\s a -> s { _lcBucket = a })
-{-# INLINE lcBucket #-}
 
 -- | An optional string that you want CloudFront to prefix to the access log
 -- filenames for this distribution, for example, myprefix/. If you want to
@@ -2629,7 +2478,6 @@ lcBucket = lens _lcBucket (\s a -> s { _lcBucket = a })
 -- include an empty Prefix element in the Logging element.
 lcPrefix :: Lens' LoggingConfig Text
 lcPrefix = lens _lcPrefix (\s a -> s { _lcPrefix = a })
-{-# INLINE lcPrefix #-}
 
 instance FromXML LoggingConfig where
     fromXMLOptions = xmlOptions
@@ -2660,7 +2508,6 @@ mkOrigin p1 p2 = Origin
     , _o1S3OriginConfig = Nothing
     , _o1CustomOriginConfig = Nothing
     }
-{-# INLINE mkOrigin #-}
 
 -- | A unique identifier for the origin. The value of Id must be unique within
 -- the distribution. You use the value of Id when you create a cache behavior.
@@ -2668,7 +2515,6 @@ mkOrigin p1 p2 = Origin
 -- request matches the path pattern for that cache behavior.
 o1Id :: Lens' Origin Text
 o1Id = lens _o1Id (\s a -> s { _o1Id = a })
-{-# INLINE o1Id #-}
 
 -- | Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want
 -- CloudFront to get objects for this origin, for example,
@@ -2677,21 +2523,18 @@ o1Id = lens _o1Id (\s a -> s { _o1Id = a })
 -- for example, www.example.com.
 o1DomainName :: Lens' Origin Text
 o1DomainName = lens _o1DomainName (\s a -> s { _o1DomainName = a })
-{-# INLINE o1DomainName #-}
 
 -- | A complex type that contains information about the Amazon S3 origin. If the
 -- origin is a custom origin, use the CustomOriginConfig element instead.
 o1S3OriginConfig :: Lens' Origin (Maybe S3OriginConfig)
 o1S3OriginConfig =
     lens _o1S3OriginConfig (\s a -> s { _o1S3OriginConfig = a })
-{-# INLINE o1S3OriginConfig #-}
 
 -- | A complex type that contains information about a custom origin. If the
 -- origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
 o1CustomOriginConfig :: Lens' Origin (Maybe CustomOriginConfig)
 o1CustomOriginConfig =
     lens _o1CustomOriginConfig (\s a -> s { _o1CustomOriginConfig = a })
-{-# INLINE o1CustomOriginConfig #-}
 
 instance FromXML Origin where
     fromXMLOptions = xmlOptions
@@ -2716,17 +2559,14 @@ mkOrigins p1 = Origins
     { _oQuantity = p1
     , _oItems = Nothing
     }
-{-# INLINE mkOrigins #-}
 
 -- | The number of origins for this distribution.
 oQuantity :: Lens' Origins Integer
 oQuantity = lens _oQuantity (\s a -> s { _oQuantity = a })
-{-# INLINE oQuantity #-}
 
 -- | A complex type that contains origins for this distribution.
 oItems :: Lens' Origins (Maybe [Origin])
 oItems = lens _oItems (\s a -> s { _oItems = a })
-{-# INLINE oItems #-}
 
 instance FromXML Origins where
     fromXMLOptions = xmlOptions
@@ -2756,18 +2596,15 @@ mkPaths p1 = Paths
     { _pQuantity = p1
     , _pItems = mempty
     }
-{-# INLINE mkPaths #-}
 
 -- | The number of objects that you want to invalidate.
 pQuantity :: Lens' Paths Integer
 pQuantity = lens _pQuantity (\s a -> s { _pQuantity = a })
-{-# INLINE pQuantity #-}
 
 -- | A complex type that contains a list of the objects that you want to
 -- invalidate.
 pItems :: Lens' Paths [Text]
 pItems = lens _pItems (\s a -> s { _pItems = a })
-{-# INLINE pItems #-}
 
 instance FromXML Paths where
     fromXMLOptions = xmlOptions
@@ -2793,18 +2630,15 @@ mkS3Origin p1 p2 = S3Origin
     { _soDomainName = p1
     , _soOriginAccessIdentity = p2
     }
-{-# INLINE mkS3Origin #-}
 
 -- | The DNS name of the S3 origin.
 soDomainName :: Lens' S3Origin Text
 soDomainName = lens _soDomainName (\s a -> s { _soDomainName = a })
-{-# INLINE soDomainName #-}
 
 -- | Your S3 origin's origin access identity.
 soOriginAccessIdentity :: Lens' S3Origin Text
 soOriginAccessIdentity =
     lens _soOriginAccessIdentity (\s a -> s { _soOriginAccessIdentity = a })
-{-# INLINE soOriginAccessIdentity #-}
 
 instance FromXML S3Origin where
     fromXMLOptions = xmlOptions
@@ -2829,7 +2663,6 @@ mkSigner = Signer
     { _sAwsAccountNumber = Nothing
     , _sKeyPairIds = Nothing
     }
-{-# INLINE mkSigner #-}
 
 -- | Specifies an AWS account that can create signed URLs. Values: self, which
 -- indicates that the AWS account that was used to create the distribution can
@@ -2838,13 +2671,11 @@ mkSigner = Signer
 sAwsAccountNumber :: Lens' Signer (Maybe Text)
 sAwsAccountNumber =
     lens _sAwsAccountNumber (\s a -> s { _sAwsAccountNumber = a })
-{-# INLINE sAwsAccountNumber #-}
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that are
 -- associated with AwsAccountNumber.
 sKeyPairIds :: Lens' Signer (Maybe KeyPairIds)
 sKeyPairIds = lens _sKeyPairIds (\s a -> s { _sKeyPairIds = a })
-{-# INLINE sKeyPairIds #-}
 
 instance FromXML Signer where
     fromXMLOptions = xmlOptions
@@ -2876,32 +2707,27 @@ mkStreamingDistribution p1 p2 p4 p5 p6 = StreamingDistribution
     , _sdActiveTrustedSigners = p5
     , _sdStreamingDistributionConfig = p6
     }
-{-# INLINE mkStreamingDistribution #-}
 
 -- | The identifier for the streaming distribution. For example:
 -- EGTXBD79H29TRA8.
 sdId :: Lens' StreamingDistribution Text
 sdId = lens _sdId (\s a -> s { _sdId = a })
-{-# INLINE sdId #-}
 
 -- | The current status of the streaming distribution. When the status is
 -- Deployed, the distribution's information is fully propagated throughout the
 -- Amazon CloudFront system.
 sdStatus :: Lens' StreamingDistribution Text
 sdStatus = lens _sdStatus (\s a -> s { _sdStatus = a })
-{-# INLINE sdStatus #-}
 
 -- | The date and time the distribution was last modified.
 sdLastModifiedTime :: Lens' StreamingDistribution (Maybe ISO8601)
 sdLastModifiedTime =
     lens _sdLastModifiedTime (\s a -> s { _sdLastModifiedTime = a })
-{-# INLINE sdLastModifiedTime #-}
 
 -- | The domain name corresponding to the streaming distribution. For example:
 -- s5c39gqb8ow64r.cloudfront.net.
 sdDomainName :: Lens' StreamingDistribution Text
 sdDomainName = lens _sdDomainName (\s a -> s { _sdDomainName = a })
-{-# INLINE sdDomainName #-}
 
 -- | CloudFront automatically adds this element to the response only if you've
 -- set up the distribution to serve private content with signed URLs. The
@@ -2914,14 +2740,12 @@ sdDomainName = lens _sdDomainName (\s a -> s { _sdDomainName = a })
 sdActiveTrustedSigners :: Lens' StreamingDistribution ActiveTrustedSigners
 sdActiveTrustedSigners =
     lens _sdActiveTrustedSigners (\s a -> s { _sdActiveTrustedSigners = a })
-{-# INLINE sdActiveTrustedSigners #-}
 
 -- | The current configuration information for the streaming distribution.
 sdStreamingDistributionConfig :: Lens' StreamingDistribution StreamingDistributionConfig
 sdStreamingDistributionConfig =
     lens _sdStreamingDistributionConfig
          (\s a -> s { _sdStreamingDistributionConfig = a })
-{-# INLINE sdStreamingDistributionConfig #-}
 
 instance FromXML StreamingDistribution where
     fromXMLOptions = xmlOptions
@@ -2960,7 +2784,6 @@ mkStreamingDistributionConfig p1 p2 p3 p4 p5 p6 p7 p8 = StreamingDistributionCon
     , _sdcPriceClass = p7
     , _sdcEnabled = p8
     }
-{-# INLINE mkStreamingDistributionConfig #-}
 
 -- | A unique number that ensures the request can't be replayed. If the
 -- CallerReference is new (no matter the content of the
@@ -2976,30 +2799,25 @@ mkStreamingDistributionConfig p1 p2 p3 p4 p5 p6 p7 p8 = StreamingDistributionCon
 sdcCallerReference :: Lens' StreamingDistributionConfig Text
 sdcCallerReference =
     lens _sdcCallerReference (\s a -> s { _sdcCallerReference = a })
-{-# INLINE sdcCallerReference #-}
 
 -- | A complex type that contains information about the Amazon S3 bucket from
 -- which you want CloudFront to get your media files for distribution.
 sdcS3Origin :: Lens' StreamingDistributionConfig S3Origin
 sdcS3Origin = lens _sdcS3Origin (\s a -> s { _sdcS3Origin = a })
-{-# INLINE sdcS3Origin #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
 sdcAliases :: Lens' StreamingDistributionConfig Aliases
 sdcAliases = lens _sdcAliases (\s a -> s { _sdcAliases = a })
-{-# INLINE sdcAliases #-}
 
 -- | Any comments you want to include about the streaming distribution.
 sdcComment :: Lens' StreamingDistributionConfig Text
 sdcComment = lens _sdcComment (\s a -> s { _sdcComment = a })
-{-# INLINE sdcComment #-}
 
 -- | A complex type that controls whether access logs are written for the
 -- streaming distribution.
 sdcLogging :: Lens' StreamingDistributionConfig StreamingLoggingConfig
 sdcLogging = lens _sdcLogging (\s a -> s { _sdcLogging = a })
-{-# INLINE sdcLogging #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
 -- allow to create signed URLs for private content. If you want to require
@@ -3016,19 +2834,16 @@ sdcLogging = lens _sdcLogging (\s a -> s { _sdcLogging = a })
 sdcTrustedSigners :: Lens' StreamingDistributionConfig TrustedSigners
 sdcTrustedSigners =
     lens _sdcTrustedSigners (\s a -> s { _sdcTrustedSigners = a })
-{-# INLINE sdcTrustedSigners #-}
 
 -- | A complex type that contains information about price class for this
 -- streaming distribution.
 sdcPriceClass :: Lens' StreamingDistributionConfig PriceClass
 sdcPriceClass = lens _sdcPriceClass (\s a -> s { _sdcPriceClass = a })
-{-# INLINE sdcPriceClass #-}
 
 -- | Whether the streaming distribution is enabled to accept end user requests
 -- for content.
 sdcEnabled :: Lens' StreamingDistributionConfig Bool
 sdcEnabled = lens _sdcEnabled (\s a -> s { _sdcEnabled = a })
-{-# INLINE sdcEnabled #-}
 
 instance FromXML StreamingDistributionConfig where
     fromXMLOptions = xmlOptions
@@ -3063,24 +2878,20 @@ mkStreamingDistributionList p1 p3 p4 p5 = StreamingDistributionList
     , _sdlQuantity = p5
     , _sdlItems = mempty
     }
-{-# INLINE mkStreamingDistributionList #-}
 
 -- | The value you provided for the Marker request parameter.
 sdlMarker :: Lens' StreamingDistributionList Text
 sdlMarker = lens _sdlMarker (\s a -> s { _sdlMarker = a })
-{-# INLINE sdlMarker #-}
 
 -- | If IsTruncated is true, this element is present and contains the value you
 -- can use for the Marker request parameter to continue listing your streaming
 -- distributions where they left off.
 sdlNextMarker :: Lens' StreamingDistributionList (Maybe Text)
 sdlNextMarker = lens _sdlNextMarker (\s a -> s { _sdlNextMarker = a })
-{-# INLINE sdlNextMarker #-}
 
 -- | The value you provided for the MaxItems request parameter.
 sdlMaxItems :: Lens' StreamingDistributionList Integer
 sdlMaxItems = lens _sdlMaxItems (\s a -> s { _sdlMaxItems = a })
-{-# INLINE sdlMaxItems #-}
 
 -- | A flag that indicates whether more streaming distributions remain to be
 -- listed. If your results were truncated, you can make a follow-up pagination
@@ -3088,19 +2899,16 @@ sdlMaxItems = lens _sdlMaxItems (\s a -> s { _sdlMaxItems = a })
 -- in the list.
 sdlIsTruncated :: Lens' StreamingDistributionList Bool
 sdlIsTruncated = lens _sdlIsTruncated (\s a -> s { _sdlIsTruncated = a })
-{-# INLINE sdlIsTruncated #-}
 
 -- | The number of streaming distributions that were created by the current AWS
 -- account.
 sdlQuantity :: Lens' StreamingDistributionList Integer
 sdlQuantity = lens _sdlQuantity (\s a -> s { _sdlQuantity = a })
-{-# INLINE sdlQuantity #-}
 
 -- | A complex type that contains one StreamingDistributionSummary element for
 -- each distribution that was created by the current AWS account.
 sdlItems :: Lens' StreamingDistributionList [StreamingDistributionSummary]
 sdlItems = lens _sdlItems (\s a -> s { _sdlItems = a })
-{-# INLINE sdlItems #-}
 
 instance FromXML StreamingDistributionList where
     fromXMLOptions = xmlOptions
@@ -3146,43 +2954,36 @@ mkStreamingDistributionSummary p1 p10 p2 p3 p4 p5 p6 p7 p8 p9 = StreamingDistrib
     , _sdsPriceClass = p9
     , _sdsEnabled = p10
     }
-{-# INLINE mkStreamingDistributionSummary #-}
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 sdsId :: Lens' StreamingDistributionSummary Text
 sdsId = lens _sdsId (\s a -> s { _sdsId = a })
-{-# INLINE sdsId #-}
 
 -- | Indicates the current status of the distribution. When the status is
 -- Deployed, the distribution's information is fully propagated throughout the
 -- Amazon CloudFront system.
 sdsStatus :: Lens' StreamingDistributionSummary Text
 sdsStatus = lens _sdsStatus (\s a -> s { _sdsStatus = a })
-{-# INLINE sdsStatus #-}
 
 -- | The date and time the distribution was last modified.
 sdsLastModifiedTime :: Lens' StreamingDistributionSummary ISO8601
 sdsLastModifiedTime =
     lens _sdsLastModifiedTime (\s a -> s { _sdsLastModifiedTime = a })
-{-# INLINE sdsLastModifiedTime #-}
 
 -- | The domain name corresponding to the distribution. For example:
 -- d604721fxaaqy9.cloudfront.net.
 sdsDomainName :: Lens' StreamingDistributionSummary Text
 sdsDomainName = lens _sdsDomainName (\s a -> s { _sdsDomainName = a })
-{-# INLINE sdsDomainName #-}
 
 -- | A complex type that contains information about the Amazon S3 bucket from
 -- which you want CloudFront to get your media files for distribution.
 sdsS3Origin :: Lens' StreamingDistributionSummary S3Origin
 sdsS3Origin = lens _sdsS3Origin (\s a -> s { _sdsS3Origin = a })
-{-# INLINE sdsS3Origin #-}
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
 sdsAliases :: Lens' StreamingDistributionSummary Aliases
 sdsAliases = lens _sdsAliases (\s a -> s { _sdsAliases = a })
-{-# INLINE sdsAliases #-}
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to
 -- allow to create signed URLs for private content. If you want to require
@@ -3199,22 +3000,18 @@ sdsAliases = lens _sdsAliases (\s a -> s { _sdsAliases = a })
 sdsTrustedSigners :: Lens' StreamingDistributionSummary TrustedSigners
 sdsTrustedSigners =
     lens _sdsTrustedSigners (\s a -> s { _sdsTrustedSigners = a })
-{-# INLINE sdsTrustedSigners #-}
 
 -- | The comment originally specified when this distribution was created.
 sdsComment :: Lens' StreamingDistributionSummary Text
 sdsComment = lens _sdsComment (\s a -> s { _sdsComment = a })
-{-# INLINE sdsComment #-}
 
 sdsPriceClass :: Lens' StreamingDistributionSummary PriceClass
 sdsPriceClass = lens _sdsPriceClass (\s a -> s { _sdsPriceClass = a })
-{-# INLINE sdsPriceClass #-}
 
 -- | Whether the distribution is enabled to accept end user requests for
 -- content.
 sdsEnabled :: Lens' StreamingDistributionSummary Bool
 sdsEnabled = lens _sdsEnabled (\s a -> s { _sdsEnabled = a })
-{-# INLINE sdsEnabled #-}
 
 instance FromXML StreamingDistributionSummary where
     fromXMLOptions = xmlOptions
@@ -3239,7 +3036,6 @@ mkStreamingLoggingConfig p1 p2 p3 = StreamingLoggingConfig
     , _slcBucket = p2
     , _slcPrefix = p3
     }
-{-# INLINE mkStreamingLoggingConfig #-}
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon S3
 -- bucket. If you do not want to enable logging when you create a streaming
@@ -3249,13 +3045,11 @@ mkStreamingLoggingConfig p1 p2 p3 = StreamingLoggingConfig
 -- for Bucket and Prefix, the values are automatically deleted.
 slcEnabled :: Lens' StreamingLoggingConfig Bool
 slcEnabled = lens _slcEnabled (\s a -> s { _slcEnabled = a })
-{-# INLINE slcEnabled #-}
 
 -- | The Amazon S3 bucket to store the access logs in, for example,
 -- myawslogbucket.s3.amazonaws.com.
 slcBucket :: Lens' StreamingLoggingConfig Text
 slcBucket = lens _slcBucket (\s a -> s { _slcBucket = a })
-{-# INLINE slcBucket #-}
 
 -- | An optional string that you want CloudFront to prefix to the access log
 -- filenames for this streaming distribution, for example, myprefix/. If you
@@ -3263,7 +3057,6 @@ slcBucket = lens _slcBucket (\s a -> s { _slcBucket = a })
 -- must include an empty Prefix element in the Logging element.
 slcPrefix :: Lens' StreamingLoggingConfig Text
 slcPrefix = lens _slcPrefix (\s a -> s { _slcPrefix = a })
-{-# INLINE slcPrefix #-}
 
 instance FromXML StreamingLoggingConfig where
     fromXMLOptions = xmlOptions
@@ -3301,24 +3094,20 @@ mkTrustedSigners p1 p2 = TrustedSigners
     , _tsQuantity = p2
     , _tsItems = mempty
     }
-{-# INLINE mkTrustedSigners #-}
 
 -- | Specifies whether you want to require end users to use signed URLs to
 -- access the files specified by PathPattern and TargetOriginId.
 tsEnabled :: Lens' TrustedSigners Bool
 tsEnabled = lens _tsEnabled (\s a -> s { _tsEnabled = a })
-{-# INLINE tsEnabled #-}
 
 -- | The number of trusted signers for this cache behavior.
 tsQuantity :: Lens' TrustedSigners Integer
 tsQuantity = lens _tsQuantity (\s a -> s { _tsQuantity = a })
-{-# INLINE tsQuantity #-}
 
 -- | Optional: A complex type that contains trusted signers for this cache
 -- behavior. If Quantity is 0, you can omit Items.
 tsItems :: Lens' TrustedSigners [Text]
 tsItems = lens _tsItems (\s a -> s { _tsItems = a })
-{-# INLINE tsItems #-}
 
 instance FromXML TrustedSigners where
     fromXMLOptions = xmlOptions
@@ -3344,7 +3133,6 @@ mkViewerCertificate = ViewerCertificate
     , _vcCloudFrontDefaultCertificate = Nothing
     , _vcSSLSupportMethod = Nothing
     }
-{-# INLINE mkViewerCertificate #-}
 
 -- | If you want viewers to use HTTPS to request your objects and you're using
 -- an alternate domain name in your object URLs (for example,
@@ -3354,7 +3142,6 @@ mkViewerCertificate = ViewerCertificate
 vcIAMCertificateId :: Lens' ViewerCertificate (Maybe Text)
 vcIAMCertificateId =
     lens _vcIAMCertificateId (\s a -> s { _vcIAMCertificateId = a })
-{-# INLINE vcIAMCertificateId #-}
 
 -- | If you want viewers to use HTTPS to request your objects and you're using
 -- the CloudFront domain name of your distribution in your object URLs (for
@@ -3364,7 +3151,6 @@ vcCloudFrontDefaultCertificate :: Lens' ViewerCertificate (Maybe Bool)
 vcCloudFrontDefaultCertificate =
     lens _vcCloudFrontDefaultCertificate
          (\s a -> s { _vcCloudFrontDefaultCertificate = a })
-{-# INLINE vcCloudFrontDefaultCertificate #-}
 
 -- | If you specify a value for IAMCertificateId, you must also specify how you
 -- want CloudFront to serve HTTPS requests. Valid values are vip and sni-only.
@@ -3379,7 +3165,6 @@ vcCloudFrontDefaultCertificate =
 vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod =
     lens _vcSSLSupportMethod (\s a -> s { _vcSSLSupportMethod = a })
-{-# INLINE vcSSLSupportMethod #-}
 
 instance FromXML ViewerCertificate where
     fromXMLOptions = xmlOptions

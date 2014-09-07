@@ -104,12 +104,10 @@ mkAuthorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
     , _asgeCidrIp = Nothing
     , _asgeIpPermissions = mempty
     }
-{-# INLINE mkAuthorizeSecurityGroupEgress #-}
 
 -- | The ID of the security group.
 asgeGroupId :: Lens' AuthorizeSecurityGroupEgress Text
 asgeGroupId = lens _asgeGroupId (\s a -> s { _asgeGroupId = a })
-{-# INLINE asgeGroupId #-}
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
@@ -117,7 +115,6 @@ asgeSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeSourceSecurityGroupName =
     lens _asgeSourceSecurityGroupName
          (\s a -> s { _asgeSourceSecurityGroupName = a })
-{-# INLINE asgeSourceSecurityGroupName #-}
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
@@ -125,38 +122,32 @@ asgeSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupEgress (Maybe Text
 asgeSourceSecurityGroupOwnerId =
     lens _asgeSourceSecurityGroupOwnerId
          (\s a -> s { _asgeSourceSecurityGroupOwnerId = a })
-{-# INLINE asgeSourceSecurityGroupOwnerId #-}
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers). Use
 -- -1 to specify all.
 asgeIpProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeIpProtocol = lens _asgeIpProtocol (\s a -> s { _asgeIpProtocol = a })
-{-# INLINE asgeIpProtocol #-}
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use -1 to specify all ICMP types.
 asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Integer)
 asgeFromPort = lens _asgeFromPort (\s a -> s { _asgeFromPort = a })
-{-# INLINE asgeFromPort #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use -1 to specify all ICMP codes for the
 -- ICMP type.
 asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Integer)
 asgeToPort = lens _asgeToPort (\s a -> s { _asgeToPort = a })
-{-# INLINE asgeToPort #-}
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying
 -- a source security group.
 asgeCidrIp :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeCidrIp = lens _asgeCidrIp (\s a -> s { _asgeCidrIp = a })
-{-# INLINE asgeCidrIp #-}
 
 -- | 
 asgeIpPermissions :: Lens' AuthorizeSecurityGroupEgress [IpPermission]
 asgeIpPermissions =
     lens _asgeIpPermissions (\s a -> s { _asgeIpPermissions = a })
-{-# INLINE asgeIpPermissions #-}
 
 instance ToQuery AuthorizeSecurityGroupEgress where
     toQuery = genericQuery def

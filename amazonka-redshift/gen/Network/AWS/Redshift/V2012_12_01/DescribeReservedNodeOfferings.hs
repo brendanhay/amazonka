@@ -72,14 +72,12 @@ mkDescribeReservedNodeOfferings = DescribeReservedNodeOfferings
     , _drnoMaxRecords = Nothing
     , _drnoMarker = Nothing
     }
-{-# INLINE mkDescribeReservedNodeOfferings #-}
 
 -- | The unique identifier for the offering.
 drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoReservedNodeOfferingId =
     lens _drnoReservedNodeOfferingId
          (\s a -> s { _drnoReservedNodeOfferingId = a })
-{-# INLINE drnoReservedNodeOfferingId #-}
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
@@ -88,7 +86,6 @@ drnoReservedNodeOfferingId =
 -- marker value. Default: 100 Constraints: minimum 20, maximum 100.
 drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Integer)
 drnoMaxRecords = lens _drnoMaxRecords (\s a -> s { _drnoMaxRecords = a })
-{-# INLINE drnoMaxRecords #-}
 
 -- | An optional parameter that specifies the starting point to return a set of
 -- response records. When the results of a DescribeReservedNodeOfferings
@@ -98,7 +95,6 @@ drnoMaxRecords = lens _drnoMaxRecords (\s a -> s { _drnoMaxRecords = a })
 -- retrying the request.
 drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoMarker = lens _drnoMarker (\s a -> s { _drnoMarker = a })
-{-# INLINE drnoMarker #-}
 
 instance ToQuery DescribeReservedNodeOfferings where
     toQuery = genericQuery def
@@ -116,14 +112,12 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 -- is empty, all response records have been retrieved for the request.
 drnorsMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorsMarker = lens _drnorsMarker (\s a -> s { _drnorsMarker = a })
-{-# INLINE drnorsMarker #-}
 
 -- | A list of reserved node offerings.
 drnorsReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
 drnorsReservedNodeOfferings =
     lens _drnorsReservedNodeOfferings
          (\s a -> s { _drnorsReservedNodeOfferings = a })
-{-# INLINE drnorsReservedNodeOfferings #-}
 
 instance FromXML DescribeReservedNodeOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -136,5 +130,5 @@ instance AWSRequest DescribeReservedNodeOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedNodeOfferings where
-    next rq rs = (\x -> rq { _drnoMarker = Just x })
-        <$> (_drnorsMarker rs)
+    next rq rs = (\x -> rq & drnoMarker ?~ x) <$> (rs ^. drnorsMarker)
+

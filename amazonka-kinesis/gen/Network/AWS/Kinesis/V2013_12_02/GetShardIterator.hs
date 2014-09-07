@@ -104,17 +104,14 @@ mkGetShardIterator p1 p2 p3 = GetShardIterator
     , _gsiShardIteratorType = p3
     , _gsiStartingSequenceNumber = Nothing
     }
-{-# INLINE mkGetShardIterator #-}
 
 -- | The name of the stream.
 gsiStreamName :: Lens' GetShardIterator Text
 gsiStreamName = lens _gsiStreamName (\s a -> s { _gsiStreamName = a })
-{-# INLINE gsiStreamName #-}
 
 -- | The shard ID of the shard to get the iterator for.
 gsiShardId :: Lens' GetShardIterator Text
 gsiShardId = lens _gsiShardId (\s a -> s { _gsiShardId = a })
-{-# INLINE gsiShardId #-}
 
 -- | Determines how the shard iterator is used to start reading data records
 -- from the shard. The following are the valid shard iterator types:
@@ -128,7 +125,6 @@ gsiShardId = lens _gsiShardId (\s a -> s { _gsiShardId = a })
 gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
 gsiShardIteratorType =
     lens _gsiShardIteratorType (\s a -> s { _gsiShardIteratorType = a })
-{-# INLINE gsiShardIteratorType #-}
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading from.
@@ -136,7 +132,6 @@ gsiStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
 gsiStartingSequenceNumber =
     lens _gsiStartingSequenceNumber
          (\s a -> s { _gsiStartingSequenceNumber = a })
-{-# INLINE gsiStartingSequenceNumber #-}
 
 instance ToPath GetShardIterator
 
@@ -157,7 +152,6 @@ newtype GetShardIteratorResponse = GetShardIteratorResponse
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirsShardIterator =
     lens _gsirsShardIterator (\s a -> s { _gsirsShardIterator = a })
-{-# INLINE gsirsShardIterator #-}
 
 instance FromJSON GetShardIteratorResponse
 

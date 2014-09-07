@@ -44,7 +44,6 @@ data DescribeLocations = DescribeLocations
 -- a valid 'DescribeLocations' request.
 mkDescribeLocations :: DescribeLocations
 mkDescribeLocations = DescribeLocations
-{-# INLINE mkDescribeLocations #-}
 
 instance ToPath DescribeLocations
 
@@ -60,7 +59,6 @@ newtype DescribeLocationsResponse = DescribeLocationsResponse
 
 dlrsLocations :: Lens' DescribeLocationsResponse [Location]
 dlrsLocations = lens _dlrsLocations (\s a -> s { _dlrsLocations = a })
-{-# INLINE dlrsLocations #-}
 
 instance FromJSON DescribeLocationsResponse
 

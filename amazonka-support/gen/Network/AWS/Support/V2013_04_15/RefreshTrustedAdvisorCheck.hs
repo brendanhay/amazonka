@@ -57,12 +57,10 @@ mkRefreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
 mkRefreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
     { _rtacCheckId = p1
     }
-{-# INLINE mkRefreshTrustedAdvisorCheck #-}
 
 -- | The unique identifier for the Trusted Advisor check.
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
-{-# INLINE rtacCheckId #-}
 
 instance ToPath RefreshTrustedAdvisorCheck
 
@@ -81,7 +79,6 @@ newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
 -- the check is eligible for refresh.
 rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrsStatus = lens _rtacrsStatus (\s a -> s { _rtacrsStatus = a })
-{-# INLINE rtacrsStatus #-}
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse
 

@@ -53,14 +53,12 @@ mkDeleteVirtualMFADevice :: Text -- ^ 'dvmfadSerialNumber'
 mkDeleteVirtualMFADevice p1 = DeleteVirtualMFADevice
     { _dvmfadSerialNumber = p1
     }
-{-# INLINE mkDeleteVirtualMFADevice #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the same as the ARN.
 dvmfadSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmfadSerialNumber =
     lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })
-{-# INLINE dvmfadSerialNumber #-}
 
 instance ToQuery DeleteVirtualMFADevice where
     toQuery = genericQuery def

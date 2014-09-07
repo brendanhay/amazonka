@@ -131,14 +131,12 @@ mkDescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioMaxDuration = Nothing
     , _drioMaxInstanceCount = Nothing
     }
-{-# INLINE mkDescribeReservedInstancesOfferings #-}
 
 -- | One or more Reserved Instances offering IDs.
 drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
 drioReservedInstancesOfferingIds =
     lens _drioReservedInstancesOfferingIds
          (\s a -> s { _drioReservedInstancesOfferingIds = a })
-{-# INLINE drioReservedInstancesOfferingIds #-}
 
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see Instance Types in the Amazon Elastic Compute Cloud User
@@ -146,20 +144,17 @@ drioReservedInstancesOfferingIds =
 drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 drioInstanceType =
     lens _drioInstanceType (\s a -> s { _drioInstanceType = a })
-{-# INLINE drioInstanceType #-}
 
 -- | The Availability Zone in which the Reserved Instance can be used.
 drioAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioAvailabilityZone =
     lens _drioAvailabilityZone (\s a -> s { _drioAvailabilityZone = a })
-{-# INLINE drioAvailabilityZone #-}
 
 -- | The Reserved Instance description. Instances that include (Amazon VPC) in
 -- the description are for use with Amazon VPC.
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription =
     lens _drioProductDescription (\s a -> s { _drioProductDescription = a })
-{-# INLINE drioProductDescription #-}
 
 -- | One or more filters. availability-zone - The Availability Zone where the
 -- Reserved Instance can be used. duration - The duration of the Reserved
@@ -176,7 +171,6 @@ drioProductDescription =
 -- example, 0.84).
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
 drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a })
-{-# INLINE drioFilters #-}
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
 -- dedicated tenancy runs on single-tenant hardware and can only be launched
@@ -184,45 +178,37 @@ drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a })
 drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 drioInstanceTenancy =
     lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
-{-# INLINE drioInstanceTenancy #-}
 
 -- | The Reserved Instance offering type.
 drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
 drioOfferingType =
     lens _drioOfferingType (\s a -> s { _drioOfferingType = a })
-{-# INLINE drioOfferingType #-}
 
 -- | The token to use when requesting the next paginated set of offerings.
 drioNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioNextToken = lens _drioNextToken (\s a -> s { _drioNextToken = a })
-{-# INLINE drioNextToken #-}
 
 -- | The maximum number of offerings to return.
 drioMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMaxResults = lens _drioMaxResults (\s a -> s { _drioMaxResults = a })
-{-# INLINE drioMaxResults #-}
 
 -- | Include Marketplace offerings in the response.
 drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
 drioIncludeMarketplace =
     lens _drioIncludeMarketplace (\s a -> s { _drioIncludeMarketplace = a })
-{-# INLINE drioIncludeMarketplace #-}
 
 -- | The minimum duration (in seconds) to filter when searching for offerings.
 drioMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMinDuration = lens _drioMinDuration (\s a -> s { _drioMinDuration = a })
-{-# INLINE drioMinDuration #-}
 
 -- | The maximum duration (in seconds) to filter when searching for offerings.
 drioMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMaxDuration = lens _drioMaxDuration (\s a -> s { _drioMaxDuration = a })
-{-# INLINE drioMaxDuration #-}
 
 -- | The maximum number of instances to filter when searching for offerings.
 drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMaxInstanceCount =
     lens _drioMaxInstanceCount (\s a -> s { _drioMaxInstanceCount = a })
-{-# INLINE drioMaxInstanceCount #-}
 
 instance ToQuery DescribeReservedInstancesOfferings where
     toQuery = genericQuery def
@@ -238,12 +224,10 @@ driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResp
 driorsReservedInstancesOfferings =
     lens _driorsReservedInstancesOfferings
          (\s a -> s { _driorsReservedInstancesOfferings = a })
-{-# INLINE driorsReservedInstancesOfferings #-}
 
 -- | The next paginated set of results to return.
 driorsNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driorsNextToken = lens _driorsNextToken (\s a -> s { _driorsNextToken = a })
-{-# INLINE driorsNextToken #-}
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -256,5 +240,5 @@ instance AWSRequest DescribeReservedInstancesOfferings where
     response _ = xmlResponse
 
 instance AWSPager DescribeReservedInstancesOfferings where
-    next rq rs = (\x -> rq { _drioNextToken = Just x })
-        <$> (_driorsNextToken rs)
+    next rq rs = (\x -> rq & drioNextToken ?~ x) <$> (rs ^. driorsNextToken)
+

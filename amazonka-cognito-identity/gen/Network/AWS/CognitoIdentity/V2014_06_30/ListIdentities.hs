@@ -66,23 +66,19 @@ mkListIdentities p1 p2 = ListIdentities
     , _liMaxResults = p2
     , _liNextToken = Nothing
     }
-{-# INLINE mkListIdentities #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 liIdentityPoolId :: Lens' ListIdentities Text
 liIdentityPoolId =
     lens _liIdentityPoolId (\s a -> s { _liIdentityPoolId = a })
-{-# INLINE liIdentityPoolId #-}
 
 -- | The maximum number of identities to return.
 liMaxResults :: Lens' ListIdentities Integer
 liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a })
-{-# INLINE liMaxResults #-}
 
 -- | A pagination token.
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
-{-# INLINE liNextToken #-}
 
 instance ToPath ListIdentities
 
@@ -103,17 +99,14 @@ data ListIdentitiesResponse = ListIdentitiesResponse
 lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
 lirsIdentityPoolId =
     lens _lirsIdentityPoolId (\s a -> s { _lirsIdentityPoolId = a })
-{-# INLINE lirsIdentityPoolId #-}
 
 -- | An object containing a set of identities and associated mappings.
 lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirsIdentities = lens _lirsIdentities (\s a -> s { _lirsIdentities = a })
-{-# INLINE lirsIdentities #-}
 
 -- | A pagination token.
 lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirsNextToken = lens _lirsNextToken (\s a -> s { _lirsNextToken = a })
-{-# INLINE lirsNextToken #-}
 
 instance FromJSON ListIdentitiesResponse
 

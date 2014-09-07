@@ -65,7 +65,6 @@ mkModifyDBSubnetGroup p1 p3 = ModifyDBSubnetGroup
     , _mdbsgDBSubnetGroupDescription = Nothing
     , _mdbsgSubnetIds = p3
     }
-{-# INLINE mkModifyDBSubnetGroup #-}
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric characters
@@ -73,19 +72,16 @@ mkModifyDBSubnetGroup p1 p3 = ModifyDBSubnetGroup
 mdbsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
 mdbsgDBSubnetGroupName =
     lens _mdbsgDBSubnetGroupName (\s a -> s { _mdbsgDBSubnetGroupName = a })
-{-# INLINE mdbsgDBSubnetGroupName #-}
 
 -- | The description for the DB subnet group.
 mdbsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
 mdbsgDBSubnetGroupDescription =
     lens _mdbsgDBSubnetGroupDescription
          (\s a -> s { _mdbsgDBSubnetGroupDescription = a })
-{-# INLINE mdbsgDBSubnetGroupDescription #-}
 
 -- | The EC2 subnet IDs for the DB subnet group.
 mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
 mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a })
-{-# INLINE mdbsgSubnetIds #-}
 
 instance ToQuery ModifyDBSubnetGroup where
     toQuery = genericQuery def
@@ -101,7 +97,6 @@ newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
 mdbsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdbsgrsDBSubnetGroup =
     lens _mdbsgrsDBSubnetGroup (\s a -> s { _mdbsgrsDBSubnetGroup = a })
-{-# INLINE mdbsgrsDBSubnetGroup #-}
 
 instance FromXML ModifyDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions

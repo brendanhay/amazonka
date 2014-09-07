@@ -57,14 +57,12 @@ mkDeleteServerCertificate :: Text -- ^ 'dscServerCertificateName'
 mkDeleteServerCertificate p1 = DeleteServerCertificate
     { _dscServerCertificateName = p1
     }
-{-# INLINE mkDeleteServerCertificate #-}
 
 -- | The name of the server certificate you want to delete.
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName =
     lens _dscServerCertificateName
          (\s a -> s { _dscServerCertificateName = a })
-{-# INLINE dscServerCertificateName #-}
 
 instance ToQuery DeleteServerCertificate where
     toQuery = genericQuery def

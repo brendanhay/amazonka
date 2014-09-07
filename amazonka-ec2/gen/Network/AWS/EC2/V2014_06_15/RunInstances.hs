@@ -183,12 +183,10 @@ mkRunInstances p1 p2 p3 = RunInstances
     , _ri3IamInstanceProfile = Nothing
     , _ri3EbsOptimized = Nothing
     }
-{-# INLINE mkRunInstances #-}
 
 -- | The ID of the AMI, which you can get by calling DescribeImages.
 ri3ImageId :: Lens' RunInstances Text
 ri3ImageId = lens _ri3ImageId (\s a -> s { _ri3ImageId = a })
-{-# INLINE ri3ImageId #-}
 
 -- | The minimum number of instances to launch. If you specify a minimum that is
 -- more instances than Amazon EC2 can launch in the target Availability Zone,
@@ -198,7 +196,6 @@ ri3ImageId = lens _ri3ImageId (\s a -> s { _ri3ImageId = a })
 -- instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
 ri3MinCount :: Lens' RunInstances Integer
 ri3MinCount = lens _ri3MinCount (\s a -> s { _ri3MinCount = a })
-{-# INLINE ri3MinCount #-}
 
 -- | The maximum number of instances to launch. If you specify more instances
 -- than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
@@ -209,14 +206,12 @@ ri3MinCount = lens _ri3MinCount (\s a -> s { _ri3MinCount = a })
 -- in the Amazon EC2 General FAQ.
 ri3MaxCount :: Lens' RunInstances Integer
 ri3MaxCount = lens _ri3MaxCount (\s a -> s { _ri3MaxCount = a })
-{-# INLINE ri3MaxCount #-}
 
 -- | The name of the key pair. You can create a key pair using CreateKeyPair or
 -- ImportKeyPair. If you launch an instance without specifying a key pair, you
 -- can't connect to the instance.
 ri3KeyName :: Lens' RunInstances (Maybe Text)
 ri3KeyName = lens _ri3KeyName (\s a -> s { _ri3KeyName = a })
-{-# INLINE ri3KeyName #-}
 
 -- | [EC2-Classic, default VPC] One or more security group names. For a
 -- nondefault VPC, you must use security group IDs instead. Default: Amazon
@@ -224,59 +219,49 @@ ri3KeyName = lens _ri3KeyName (\s a -> s { _ri3KeyName = a })
 ri3SecurityGroups :: Lens' RunInstances [Text]
 ri3SecurityGroups =
     lens _ri3SecurityGroups (\s a -> s { _ri3SecurityGroups = a })
-{-# INLINE ri3SecurityGroups #-}
 
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup. Default: Amazon EC2 uses the default security group.
 ri3SecurityGroupIds :: Lens' RunInstances [Text]
 ri3SecurityGroupIds =
     lens _ri3SecurityGroupIds (\s a -> s { _ri3SecurityGroupIds = a })
-{-# INLINE ri3SecurityGroupIds #-}
 
 -- | The user data for the instances. You can specify the user data as a string,
 -- or if the user data contents are in a file, you can use file://filename.
 ri3UserData :: Lens' RunInstances (Maybe ByteString)
 ri3UserData = lens _ri3UserData (\s a -> s { _ri3UserData = a })
-{-# INLINE ri3UserData #-}
 
 -- | The instance type. For more information, see Instance Types in the Amazon
 -- Elastic Compute Cloud User Guide. Default: m1.small.
 ri3InstanceType :: Lens' RunInstances (Maybe InstanceType)
 ri3InstanceType = lens _ri3InstanceType (\s a -> s { _ri3InstanceType = a })
-{-# INLINE ri3InstanceType #-}
 
 -- | The placement for the instance.
 ri3Placement :: Lens' RunInstances (Maybe Placement)
 ri3Placement = lens _ri3Placement (\s a -> s { _ri3Placement = a })
-{-# INLINE ri3Placement #-}
 
 -- | The ID of the kernel. We recommend that you use PV-GRUB instead of kernels
 -- and RAM disks. For more information, see PV-GRUB: A New Amazon Kernel Image
 -- in the Amazon Elastic Compute Cloud User Guide.
 ri3KernelId :: Lens' RunInstances (Maybe Text)
 ri3KernelId = lens _ri3KernelId (\s a -> s { _ri3KernelId = a })
-{-# INLINE ri3KernelId #-}
 
 -- | The ID of the RAM disk.
 ri3RamdiskId :: Lens' RunInstances (Maybe Text)
 ri3RamdiskId = lens _ri3RamdiskId (\s a -> s { _ri3RamdiskId = a })
-{-# INLINE ri3RamdiskId #-}
 
 -- | The block device mapping.
 ri3BlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
 ri3BlockDeviceMappings =
     lens _ri3BlockDeviceMappings (\s a -> s { _ri3BlockDeviceMappings = a })
-{-# INLINE ri3BlockDeviceMappings #-}
 
 -- | The monitoring for the instance.
 ri3Monitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
 ri3Monitoring = lens _ri3Monitoring (\s a -> s { _ri3Monitoring = a })
-{-# INLINE ri3Monitoring #-}
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
 ri3SubnetId :: Lens' RunInstances (Maybe Text)
 ri3SubnetId = lens _ri3SubnetId (\s a -> s { _ri3SubnetId = a })
-{-# INLINE ri3SubnetId #-}
 
 -- | If you set this parameter to true, you can't terminate the instance using
 -- the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this
@@ -289,7 +274,6 @@ ri3DisableApiTermination :: Lens' RunInstances (Maybe Bool)
 ri3DisableApiTermination =
     lens _ri3DisableApiTermination
          (\s a -> s { _ri3DisableApiTermination = a })
-{-# INLINE ri3DisableApiTermination #-}
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
@@ -298,7 +282,6 @@ ri3InstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavi
 ri3InstanceInitiatedShutdownBehavior =
     lens _ri3InstanceInitiatedShutdownBehavior
          (\s a -> s { _ri3InstanceInitiatedShutdownBehavior = a })
-{-# INLINE ri3InstanceInitiatedShutdownBehavior #-}
 
 -- | [EC2-VPC] The primary IP address. You must specify a value from the IP
 -- address range of the subnet. Only one private IP address can be designated
@@ -309,7 +292,6 @@ ri3InstanceInitiatedShutdownBehavior =
 ri3PrivateIpAddress :: Lens' RunInstances (Maybe Text)
 ri3PrivateIpAddress =
     lens _ri3PrivateIpAddress (\s a -> s { _ri3PrivateIpAddress = a })
-{-# INLINE ri3PrivateIpAddress #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of
 -- the request. For more information, see How to Ensure Idempotency in the
@@ -317,25 +299,21 @@ ri3PrivateIpAddress =
 -- characters.
 ri3ClientToken :: Lens' RunInstances (Maybe Text)
 ri3ClientToken = lens _ri3ClientToken (\s a -> s { _ri3ClientToken = a })
-{-# INLINE ri3ClientToken #-}
 
 -- | Reserved.
 ri3AdditionalInfo :: Lens' RunInstances (Maybe Text)
 ri3AdditionalInfo =
     lens _ri3AdditionalInfo (\s a -> s { _ri3AdditionalInfo = a })
-{-# INLINE ri3AdditionalInfo #-}
 
 -- | One or more network interfaces.
 ri3NetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
 ri3NetworkInterfaces =
     lens _ri3NetworkInterfaces (\s a -> s { _ri3NetworkInterfaces = a })
-{-# INLINE ri3NetworkInterfaces #-}
 
 -- | The IAM instance profile.
 ri3IamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecification)
 ri3IamInstanceProfile =
     lens _ri3IamInstanceProfile (\s a -> s { _ri3IamInstanceProfile = a })
-{-# INLINE ri3IamInstanceProfile #-}
 
 -- | Indicates whether the instance is optimized for EBS I/O. This optimization
 -- provides dedicated throughput to Amazon EBS and an optimized configuration
@@ -344,7 +322,6 @@ ri3IamInstanceProfile =
 -- when using an EBS-optimized instance. Default: false.
 ri3EbsOptimized :: Lens' RunInstances (Maybe Bool)
 ri3EbsOptimized = lens _ri3EbsOptimized (\s a -> s { _ri3EbsOptimized = a })
-{-# INLINE ri3EbsOptimized #-}
 
 instance ToQuery RunInstances where
     toQuery = genericQuery def
@@ -362,29 +339,24 @@ data RunInstancesResponse = RunInstancesResponse
 rirsrsReservationId :: Lens' RunInstancesResponse (Maybe Text)
 rirsrsReservationId =
     lens _rirsrsReservationId (\s a -> s { _rirsrsReservationId = a })
-{-# INLINE rirsrsReservationId #-}
 
 -- | The ID of the AWS account that owns the reservation.
 rirsrsOwnerId :: Lens' RunInstancesResponse (Maybe Text)
 rirsrsOwnerId = lens _rirsrsOwnerId (\s a -> s { _rirsrsOwnerId = a })
-{-# INLINE rirsrsOwnerId #-}
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
 rirsrsRequesterId :: Lens' RunInstancesResponse (Maybe Text)
 rirsrsRequesterId =
     lens _rirsrsRequesterId (\s a -> s { _rirsrsRequesterId = a })
-{-# INLINE rirsrsRequesterId #-}
 
 -- | One or more security groups.
 rirsrsGroups :: Lens' RunInstancesResponse [GroupIdentifier]
 rirsrsGroups = lens _rirsrsGroups (\s a -> s { _rirsrsGroups = a })
-{-# INLINE rirsrsGroups #-}
 
 -- | One or more instances.
 rirsrsInstances :: Lens' RunInstancesResponse [Instance]
 rirsrsInstances = lens _rirsrsInstances (\s a -> s { _rirsrsInstances = a })
-{-# INLINE rirsrsInstances #-}
 
 instance FromXML RunInstancesResponse where
     fromXMLOptions = xmlOptions

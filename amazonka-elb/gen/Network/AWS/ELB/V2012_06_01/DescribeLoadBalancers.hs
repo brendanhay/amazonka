@@ -68,25 +68,21 @@ mkDescribeLoadBalancers = DescribeLoadBalancers
     , _dlb1Marker = Nothing
     , _dlb1PageSize = Nothing
     }
-{-# INLINE mkDescribeLoadBalancers #-}
 
 -- | A list of load balancer names associated with the account.
 dlb1LoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
 dlb1LoadBalancerNames =
     lens _dlb1LoadBalancerNames (\s a -> s { _dlb1LoadBalancerNames = a })
-{-# INLINE dlb1LoadBalancerNames #-}
 
 -- | An optional parameter used for pagination of results from this call. If
 -- specified, the response includes only records beyond the marker.
 dlb1Marker :: Lens' DescribeLoadBalancers (Maybe Text)
 dlb1Marker = lens _dlb1Marker (\s a -> s { _dlb1Marker = a })
-{-# INLINE dlb1Marker #-}
 
 -- | The number of results returned in each page. The default is 400. You cannot
 -- specify a page size greater than 400 or less than 1.
 dlb1PageSize :: Lens' DescribeLoadBalancers (Maybe Integer)
 dlb1PageSize = lens _dlb1PageSize (\s a -> s { _dlb1PageSize = a })
-{-# INLINE dlb1PageSize #-}
 
 instance ToQuery DescribeLoadBalancers where
     toQuery = genericQuery def
@@ -102,14 +98,12 @@ dlbrsrsLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBala
 dlbrsrsLoadBalancerDescriptions =
     lens _dlbrsrsLoadBalancerDescriptions
          (\s a -> s { _dlbrsrsLoadBalancerDescriptions = a })
-{-# INLINE dlbrsrsLoadBalancerDescriptions #-}
 
 -- | Specifies the value of next marker if the request returned more than one
 -- page of results.
 dlbrsrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsrsNextMarker =
     lens _dlbrsrsNextMarker (\s a -> s { _dlbrsrsNextMarker = a })
-{-# INLINE dlbrsrsNextMarker #-}
 
 instance FromXML DescribeLoadBalancersResponse where
     fromXMLOptions = xmlOptions
@@ -122,5 +116,5 @@ instance AWSRequest DescribeLoadBalancers where
     response _ = xmlResponse
 
 instance AWSPager DescribeLoadBalancers where
-    next rq rs = (\x -> rq { _dlb1Marker = Just x })
-        <$> (_dlbrsrsNextMarker rs)
+    next rq rs = (\x -> rq & dlb1Marker ?~ x) <$> (rs ^. dlbrsrsNextMarker)
+

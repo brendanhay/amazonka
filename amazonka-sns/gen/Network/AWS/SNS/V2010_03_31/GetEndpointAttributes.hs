@@ -70,12 +70,10 @@ mkGetEndpointAttributes :: Text -- ^ 'geaEndpointArn'
 mkGetEndpointAttributes p1 = GetEndpointAttributes
     { _geaEndpointArn = p1
     }
-{-# INLINE mkGetEndpointAttributes #-}
 
 -- | EndpointArn for GetEndpointAttributes input.
 geaEndpointArn :: Lens' GetEndpointAttributes Text
 geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
-{-# INLINE geaEndpointArn #-}
 
 instance ToQuery GetEndpointAttributes where
     toQuery = genericQuery def
@@ -96,7 +94,6 @@ newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
 -- app and mobile device are registered with the notification service.
 gearsAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
 gearsAttributes = lens _gearsAttributes (\s a -> s { _gearsAttributes = a })
-{-# INLINE gearsAttributes #-}
 
 instance FromXML GetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions

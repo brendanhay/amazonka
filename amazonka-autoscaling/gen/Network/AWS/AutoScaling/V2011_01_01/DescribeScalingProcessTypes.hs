@@ -46,7 +46,6 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 -- a valid 'DescribeScalingProcessTypes' request.
 mkDescribeScalingProcessTypes :: DescribeScalingProcessTypes
 mkDescribeScalingProcessTypes = DescribeScalingProcessTypes
-{-# INLINE mkDescribeScalingProcessTypes #-}
 
 instance ToQuery DescribeScalingProcessTypes where
     toQuery = genericQuery def
@@ -59,7 +58,6 @@ newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesRespons
 -- | A list of ProcessType names.
 dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrsProcesses = lens _dsptrsProcesses (\s a -> s { _dsptrsProcesses = a })
-{-# INLINE dsptrsProcesses #-}
 
 instance FromXML DescribeScalingProcessTypesResponse where
     fromXMLOptions = xmlOptions

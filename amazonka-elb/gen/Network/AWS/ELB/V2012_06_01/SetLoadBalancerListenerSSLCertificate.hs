@@ -64,21 +64,18 @@ mkSetLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCer
     , _slblsslcLoadBalancerPort = p2
     , _slblsslcSSLCertificateId = p3
     }
-{-# INLINE mkSetLoadBalancerListenerSSLCertificate #-}
 
 -- | The name of the load balancer.
 slblsslcLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblsslcLoadBalancerName =
     lens _slblsslcLoadBalancerName
          (\s a -> s { _slblsslcLoadBalancerName = a })
-{-# INLINE slblsslcLoadBalancerName #-}
 
 -- | The port that uses the specified SSL certificate.
 slblsslcLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Integer
 slblsslcLoadBalancerPort =
     lens _slblsslcLoadBalancerPort
          (\s a -> s { _slblsslcLoadBalancerPort = a })
-{-# INLINE slblsslcLoadBalancerPort #-}
 
 -- | The Amazon Resource Number (ARN) of the SSL certificate chain to use. For
 -- more information on SSL certificates, see Managing Server Certificates in
@@ -87,7 +84,6 @@ slblsslcSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblsslcSSLCertificateId =
     lens _slblsslcSSLCertificateId
          (\s a -> s { _slblsslcSSLCertificateId = a })
-{-# INLINE slblsslcSSLCertificateId #-}
 
 instance ToQuery SetLoadBalancerListenerSSLCertificate where
     toQuery = genericQuery def

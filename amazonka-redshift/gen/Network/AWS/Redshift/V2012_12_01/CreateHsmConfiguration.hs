@@ -76,38 +76,32 @@ mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
     , _chcHsmPartitionPassword = p5
     , _chcHsmServerPublicCertificate = p6
     }
-{-# INLINE mkCreateHsmConfiguration #-}
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
 chcHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration Text
 chcHsmConfigurationIdentifier =
     lens _chcHsmConfigurationIdentifier
          (\s a -> s { _chcHsmConfigurationIdentifier = a })
-{-# INLINE chcHsmConfigurationIdentifier #-}
 
 -- | A text description of the HSM configuration to be created.
 chcDescription :: Lens' CreateHsmConfiguration Text
 chcDescription = lens _chcDescription (\s a -> s { _chcDescription = a })
-{-# INLINE chcDescription #-}
 
 -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
 chcHsmIpAddress :: Lens' CreateHsmConfiguration Text
 chcHsmIpAddress = lens _chcHsmIpAddress (\s a -> s { _chcHsmIpAddress = a })
-{-# INLINE chcHsmIpAddress #-}
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
 chcHsmPartitionName :: Lens' CreateHsmConfiguration Text
 chcHsmPartitionName =
     lens _chcHsmPartitionName (\s a -> s { _chcHsmPartitionName = a })
-{-# INLINE chcHsmPartitionName #-}
 
 -- | The password required to access the HSM partition.
 chcHsmPartitionPassword :: Lens' CreateHsmConfiguration Text
 chcHsmPartitionPassword =
     lens _chcHsmPartitionPassword
          (\s a -> s { _chcHsmPartitionPassword = a })
-{-# INLINE chcHsmPartitionPassword #-}
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
@@ -115,7 +109,6 @@ chcHsmServerPublicCertificate :: Lens' CreateHsmConfiguration Text
 chcHsmServerPublicCertificate =
     lens _chcHsmServerPublicCertificate
          (\s a -> s { _chcHsmServerPublicCertificate = a })
-{-# INLINE chcHsmServerPublicCertificate #-}
 
 instance ToQuery CreateHsmConfiguration where
     toQuery = genericQuery def
@@ -130,7 +123,6 @@ newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
 chcrsHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
 chcrsHsmConfiguration =
     lens _chcrsHsmConfiguration (\s a -> s { _chcrsHsmConfiguration = a })
-{-# INLINE chcrsHsmConfiguration #-}
 
 instance FromXML CreateHsmConfigurationResponse where
     fromXMLOptions = xmlOptions

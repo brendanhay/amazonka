@@ -54,14 +54,12 @@ mkGetChange :: Text -- ^ 'gcId'
 mkGetChange p1 = GetChange
     { _gcId = p1
     }
-{-# INLINE mkGetChange #-}
 
 -- | The ID of the change batch request. The value that you specify here is the
 -- value that ChangeResourceRecordSets returned in the Id element when you
 -- submitted the request.
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\s a -> s { _gcId = a })
-{-# INLINE gcId #-}
 
 instance ToPath GetChange where
     toPath GetChange{..} = mconcat
@@ -87,7 +85,6 @@ newtype GetChangeResponse = GetChangeResponse
 -- time of the request.
 gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrsChangeInfo = lens _gcrsChangeInfo (\s a -> s { _gcrsChangeInfo = a })
-{-# INLINE gcrsChangeInfo #-}
 
 instance FromXML GetChangeResponse where
     fromXMLOptions = xmlOptions

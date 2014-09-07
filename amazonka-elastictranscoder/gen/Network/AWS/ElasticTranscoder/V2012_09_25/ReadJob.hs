@@ -66,12 +66,10 @@ mkReadJob :: Text -- ^ 'rjId'
 mkReadJob p1 = ReadJob
     { _rjId = p1
     }
-{-# INLINE mkReadJob #-}
 
 -- | The identifier of the job for which you want to get detailed information.
 rjId :: Lens' ReadJob Text
 rjId = lens _rjId (\s a -> s { _rjId = a })
-{-# INLINE rjId #-}
 
 instance ToPath ReadJob where
     toPath ReadJob{..} = mconcat
@@ -93,7 +91,6 @@ newtype ReadJobResponse = ReadJobResponse
 -- | A section of the response body that provides information about the job.
 rjrsJob :: Lens' ReadJobResponse (Maybe Job)
 rjrsJob = lens _rjrsJob (\s a -> s { _rjrsJob = a })
-{-# INLINE rjrsJob #-}
 
 instance FromJSON ReadJobResponse
 

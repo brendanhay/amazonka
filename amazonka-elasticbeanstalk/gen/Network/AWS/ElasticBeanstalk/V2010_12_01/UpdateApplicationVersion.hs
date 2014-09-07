@@ -63,7 +63,6 @@ mkUpdateApplicationVersion p1 p2 = UpdateApplicationVersion
     , _uavVersionLabel = p2
     , _uavDescription = Nothing
     }
-{-# INLINE mkUpdateApplicationVersion #-}
 
 -- | The name of the application associated with this version. If no application
 -- is found with this name, UpdateApplication returns an InvalidParameterValue
@@ -71,18 +70,15 @@ mkUpdateApplicationVersion p1 p2 = UpdateApplicationVersion
 uavApplicationName :: Lens' UpdateApplicationVersion Text
 uavApplicationName =
     lens _uavApplicationName (\s a -> s { _uavApplicationName = a })
-{-# INLINE uavApplicationName #-}
 
 -- | The name of the version to update. If no application version is found with
 -- this label, UpdateApplication returns an InvalidParameterValue error.
 uavVersionLabel :: Lens' UpdateApplicationVersion Text
 uavVersionLabel = lens _uavVersionLabel (\s a -> s { _uavVersionLabel = a })
-{-# INLINE uavVersionLabel #-}
 
 -- | A new description for this release.
 uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
 uavDescription = lens _uavDescription (\s a -> s { _uavDescription = a })
-{-# INLINE uavDescription #-}
 
 instance ToQuery UpdateApplicationVersion where
     toQuery = genericQuery def
@@ -97,7 +93,6 @@ uavrsApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe Applica
 uavrsApplicationVersion =
     lens _uavrsApplicationVersion
          (\s a -> s { _uavrsApplicationVersion = a })
-{-# INLINE uavrsApplicationVersion #-}
 
 instance FromXML UpdateApplicationVersionResponse where
     fromXMLOptions = xmlOptions

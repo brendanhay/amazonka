@@ -51,14 +51,12 @@ mkDescribeSeverityLevels :: DescribeSeverityLevels
 mkDescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage = Nothing
     }
-{-# INLINE mkDescribeSeverityLevels #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
-{-# INLINE dslLanguage #-}
 
 instance ToPath DescribeSeverityLevels
 
@@ -79,7 +77,6 @@ newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
 dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrsSeverityLevels =
     lens _dslrsSeverityLevels (\s a -> s { _dslrsSeverityLevels = a })
-{-# INLINE dslrsSeverityLevels #-}
 
 instance FromJSON DescribeSeverityLevelsResponse
 

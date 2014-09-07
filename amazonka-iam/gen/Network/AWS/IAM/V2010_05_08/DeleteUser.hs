@@ -50,12 +50,10 @@ mkDeleteUser :: Text -- ^ 'duUserName'
 mkDeleteUser p1 = DeleteUser
     { _duUserName = p1
     }
-{-# INLINE mkDeleteUser #-}
 
 -- | Name of the user to delete.
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\s a -> s { _duUserName = a })
-{-# INLINE duUserName #-}
 
 instance ToQuery DeleteUser where
     toQuery = genericQuery def

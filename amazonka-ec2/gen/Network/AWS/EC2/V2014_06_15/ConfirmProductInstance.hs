@@ -65,17 +65,14 @@ mkConfirmProductInstance p1 p2 = ConfirmProductInstance
     { _cpiProductCode = p1
     , _cpiInstanceId = p2
     }
-{-# INLINE mkConfirmProductInstance #-}
 
 -- | The product code. This must be an Amazon DevPay product code that you own.
 cpiProductCode :: Lens' ConfirmProductInstance Text
 cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
-{-# INLINE cpiProductCode #-}
 
 -- | The ID of the instance.
 cpiInstanceId :: Lens' ConfirmProductInstance Text
 cpiInstanceId = lens _cpiInstanceId (\s a -> s { _cpiInstanceId = a })
-{-# INLINE cpiInstanceId #-}
 
 instance ToQuery ConfirmProductInstance where
     toQuery = genericQuery def
@@ -89,7 +86,6 @@ newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 -- product code is attached to the instance.
 cpirsOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirsOwnerId = lens _cpirsOwnerId (\s a -> s { _cpirsOwnerId = a })
-{-# INLINE cpirsOwnerId #-}
 
 instance FromXML ConfirmProductInstanceResponse where
     fromXMLOptions = xmlOptions

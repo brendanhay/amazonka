@@ -72,7 +72,6 @@ mkListDomains = ListDomains
     { _ldMarker = Nothing
     , _ldMaxItems = Nothing
     }
-{-# INLINE mkListDomains #-}
 
 -- | For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current AWS account is
@@ -84,13 +83,11 @@ mkListDomains = ListDomains
 -- request. Required: No.
 ldMarker :: Lens' ListDomains (Maybe Text)
 ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
-{-# INLINE ldMarker #-}
 
 -- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A
 -- numeral between 1 and 100. Required: No.
 ldMaxItems :: Lens' ListDomains (Maybe Integer)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
-{-# INLINE ldMaxItems #-}
 
 instance ToPath ListDomains
 
@@ -110,7 +107,6 @@ data ListDomainsResponse = ListDomainsResponse
 -- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.
 ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrsDomains = lens _ldrsDomains (\s a -> s { _ldrsDomains = a })
-{-# INLINE ldrsDomains #-}
 
 -- | If there are more domains than you specified for MaxItems in the request,
 -- submit another request and include the value of NextPageMarker in the value
@@ -118,7 +114,6 @@ ldrsDomains = lens _ldrsDomains (\s a -> s { _ldrsDomains = a })
 ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageMarker =
     lens _ldrsNextPageMarker (\s a -> s { _ldrsNextPageMarker = a })
-{-# INLINE ldrsNextPageMarker #-}
 
 instance FromJSON ListDomainsResponse
 

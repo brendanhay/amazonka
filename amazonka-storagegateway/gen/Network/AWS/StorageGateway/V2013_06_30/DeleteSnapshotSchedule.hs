@@ -69,11 +69,9 @@ mkDeleteSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
 mkDeleteSnapshotSchedule p1 = DeleteSnapshotSchedule
     { _dssVolumeARN = p1
     }
-{-# INLINE mkDeleteSnapshotSchedule #-}
 
 dssVolumeARN :: Lens' DeleteSnapshotSchedule Text
 dssVolumeARN = lens _dssVolumeARN (\s a -> s { _dssVolumeARN = a })
-{-# INLINE dssVolumeARN #-}
 
 instance ToPath DeleteSnapshotSchedule
 
@@ -89,7 +87,6 @@ newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
 
 dssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dssrsVolumeARN = lens _dssrsVolumeARN (\s a -> s { _dssrsVolumeARN = a })
-{-# INLINE dssrsVolumeARN #-}
 
 instance FromJSON DeleteSnapshotScheduleResponse
 

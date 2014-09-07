@@ -72,34 +72,28 @@ mkCreateDeployment p1 p4 = CreateDeployment
     , _cdComment = Nothing
     , _cdCustomJson = Nothing
     }
-{-# INLINE mkCreateDeployment #-}
 
 -- | The stack ID.
 cdStackId :: Lens' CreateDeployment Text
 cdStackId = lens _cdStackId (\s a -> s { _cdStackId = a })
-{-# INLINE cdStackId #-}
 
 -- | The app ID. This parameter is required for app deployments, but not for
 -- other deployment commands.
 cdAppId :: Lens' CreateDeployment (Maybe Text)
 cdAppId = lens _cdAppId (\s a -> s { _cdAppId = a })
-{-# INLINE cdAppId #-}
 
 -- | The instance IDs for the deployment targets.
 cdInstanceIds :: Lens' CreateDeployment [Text]
 cdInstanceIds = lens _cdInstanceIds (\s a -> s { _cdInstanceIds = a })
-{-# INLINE cdInstanceIds #-}
 
 -- | A DeploymentCommand object that specifies the deployment command and any
 -- associated arguments.
 cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\s a -> s { _cdCommand = a })
-{-# INLINE cdCommand #-}
 
 -- | A user-defined comment.
 cdComment :: Lens' CreateDeployment (Maybe Text)
 cdComment = lens _cdComment (\s a -> s { _cdComment = a })
-{-# INLINE cdComment #-}
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -108,7 +102,6 @@ cdComment = lens _cdComment (\s a -> s { _cdComment = a })
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
 cdCustomJson :: Lens' CreateDeployment (Maybe Text)
 cdCustomJson = lens _cdCustomJson (\s a -> s { _cdCustomJson = a })
-{-# INLINE cdCustomJson #-}
 
 instance ToPath CreateDeployment
 
@@ -128,7 +121,6 @@ newtype CreateDeploymentResponse = CreateDeploymentResponse
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId =
     lens _cdrsDeploymentId (\s a -> s { _cdrsDeploymentId = a })
-{-# INLINE cdrsDeploymentId #-}
 
 instance FromJSON CreateDeploymentResponse
 

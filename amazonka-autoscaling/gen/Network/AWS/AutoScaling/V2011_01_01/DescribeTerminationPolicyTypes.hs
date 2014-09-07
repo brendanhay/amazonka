@@ -45,7 +45,6 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 -- a valid 'DescribeTerminationPolicyTypes' request.
 mkDescribeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 mkDescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
-{-# INLINE mkDescribeTerminationPolicyTypes #-}
 
 instance ToQuery DescribeTerminationPolicyTypes where
     toQuery = genericQuery def
@@ -62,7 +61,6 @@ dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Te
 dtptrsTerminationPolicyTypes =
     lens _dtptrsTerminationPolicyTypes
          (\s a -> s { _dtptrsTerminationPolicyTypes = a })
-{-# INLINE dtptrsTerminationPolicyTypes #-}
 
 instance FromXML DescribeTerminationPolicyTypesResponse where
     fromXMLOptions = xmlOptions

@@ -68,14 +68,12 @@ mkSetPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
     { _spaaPlatformApplicationArn = p1
     , _spaaAttributes = p2
     }
-{-# INLINE mkSetPlatformApplicationAttributes #-}
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
 spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text
 spaaPlatformApplicationArn =
     lens _spaaPlatformApplicationArn
          (\s a -> s { _spaaPlatformApplicationArn = a })
-{-# INLINE spaaPlatformApplicationArn #-}
 
 -- | A map of the platform application attributes. Attributes in this map
 -- include the following: PlatformCredential -- The credential received from
@@ -94,7 +92,6 @@ spaaPlatformApplicationArn =
 -- endpoints.
 spaaAttributes :: Lens' SetPlatformApplicationAttributes (Map Text Text)
 spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a })
-{-# INLINE spaaAttributes #-}
 
 instance ToQuery SetPlatformApplicationAttributes where
     toQuery = genericQuery def

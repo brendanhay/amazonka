@@ -70,7 +70,6 @@ mkCreateClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
     , _ccsg1Description = p2
     , _ccsg1SubnetIds = p3
     }
-{-# INLINE mkCreateClusterSubnetGroup #-}
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
 -- lowercase string. Constraints: Must contain no more than 255 alphanumeric
@@ -80,19 +79,16 @@ ccsg1ClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
 ccsg1ClusterSubnetGroupName =
     lens _ccsg1ClusterSubnetGroupName
          (\s a -> s { _ccsg1ClusterSubnetGroupName = a })
-{-# INLINE ccsg1ClusterSubnetGroupName #-}
 
 -- | A description for the subnet group.
 ccsg1Description :: Lens' CreateClusterSubnetGroup Text
 ccsg1Description =
     lens _ccsg1Description (\s a -> s { _ccsg1Description = a })
-{-# INLINE ccsg1Description #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 ccsg1SubnetIds :: Lens' CreateClusterSubnetGroup [Text]
 ccsg1SubnetIds = lens _ccsg1SubnetIds (\s a -> s { _ccsg1SubnetIds = a })
-{-# INLINE ccsg1SubnetIds #-}
 
 instance ToQuery CreateClusterSubnetGroup where
     toQuery = genericQuery def
@@ -106,7 +102,6 @@ ccsgrsrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe Clus
 ccsgrsrsClusterSubnetGroup =
     lens _ccsgrsrsClusterSubnetGroup
          (\s a -> s { _ccsgrsrsClusterSubnetGroup = a })
-{-# INLINE ccsgrsrsClusterSubnetGroup #-}
 
 instance FromXML CreateClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions

@@ -433,7 +433,7 @@ instance Default TypeOverride where
     def = TypeOverride mempty mempty mempty mempty mempty
 
 newtype FieldOverride = FieldOverride
-    { _fRequired :: [Text]
+    { _fRequired :: [CI Text]
     } deriving (Show, Generic)
 
 instance Default FieldOverride where

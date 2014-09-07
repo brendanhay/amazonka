@@ -266,7 +266,8 @@ fields rq svc s = case s of
   where
     f :: (Text, Shape) -> Field
     f (k, v) =
-        let x = if k `elem` (svc ^. fRequired) then v & cmnRequired .~ True else v
+        let p = (`elem` (svc ^. fRequired)) . CI.mk
+            x = if p k then v & cmnRequired .~ True else v
          in Field (annOf rq svc x) k (prefixed s k) (x ^. common)
 
 prefixed :: HasCommon a => a -> Text -> Text

@@ -225,5 +225,5 @@ instance AWSPager ListObjectVersions where
             & lovKeyMarker .~ p1
             & lovVersionIdMarker .~ p2
       where
-        p1 = lovrsNextKeyMarker rs
-        p2 = lovrsNextVersionIdMarker rs
+        p1 = rs ^. lovrsNextKeyMarker
+        p2 = rs ^. lovrsNextVersionIdMarker

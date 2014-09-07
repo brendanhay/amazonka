@@ -13,7 +13,6 @@
 
 module Network.AWS.Route53.Internal.Types where
 
-import Data.String
 import GHC.Generics
 import Network.AWS.Prelude
 

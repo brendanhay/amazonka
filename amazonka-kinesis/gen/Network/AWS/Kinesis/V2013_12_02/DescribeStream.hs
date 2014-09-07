@@ -145,4 +145,4 @@ instance AWSRequest DescribeStream where
 instance AWSPager DescribeStream where
     next rq rs
         | not (rs ^. dsrsStreamDescription . sdHasMoreShards) = Nothing
-        | otherwise = Just (rq & ds1ExclusiveStartShardId .~ rs ^. dsrsStreamDescription . keyed sShardId sdShards)
+        | otherwise = Just (rq & ds1ExclusiveStartShardId .~ rs ^. dsrsStreamDescription . index sShardId sdShards)

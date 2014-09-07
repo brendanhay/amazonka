@@ -76,7 +76,7 @@ instance ToQuery ListJobs where
 -- | Output structure for the ListJobs operation.
 data ListJobsResponse = ListJobsResponse
     { _ljrsJobs :: [Job]
-    , _ljrsIsTruncated :: Maybe Bool
+    , _ljrsIsTruncated :: Bool
     } deriving (Show, Generic)
 
 -- | A list container for Jobs returned by the ListJobs operation.
@@ -85,7 +85,7 @@ ljrsJobs = lens _ljrsJobs (\s a -> s { _ljrsJobs = a })
 
 -- | Indicates whether the list of jobs was truncated. If true, then call
 -- ListJobs again using the last JobId element as the marker.
-ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
+ljrsIsTruncated :: Lens' ListJobsResponse Bool
 ljrsIsTruncated = lens _ljrsIsTruncated (\s a -> s { _ljrsIsTruncated = a })
 
 instance FromXML ListJobsResponse where
@@ -101,4 +101,4 @@ instance AWSRequest ListJobs where
 instance AWSPager ListJobs where
     next rq rs
         | not (rs ^. ljrsIsTruncated) = Nothing
-        | otherwise = Just (rq & ljMarker .~ rs ^. keyed jJobId ljrsJobs)
+        | otherwise = Just (rq & ljMarker .~ rs ^. index jJobId ljrsJobs)

@@ -219,11 +219,12 @@ instance ToJSON Python where
     toJSON = toJSON . go
       where
         go p = case p of
-            Empty      -> "id"
-            Keyed    k -> lensPrefix k
-            Index  x y -> "index " <> go y <> " " <> lensPrefix x
-            Apply  x y -> lensPrefix x <> " . " <> go y
-            Choice x y -> "choice (" <> go x <> ") (" <> go y <> ")"
+            Empty                -> "(to id)"
+            Keyed    k           -> lensPrefix k
+            Index  x y           -> "index " <> lensPrefix x <> " " <> go y
+            Apply  x (Index y z) -> "index (" <> go (Apply x (Keyed y)) <> ") " <> go z
+            Apply  x y           -> lensPrefix x <> " . " <> go y
+            Choice x y           -> "choice (" <> go x <> ") (" <> go y <> ")"
 
 instance ToJSON Token where
     toJSON Token{..} = object
@@ -232,9 +233,10 @@ instance ToJSON Token where
         , "output_prefix" .= pref _tokOutput
         ]
       where
-        pref Index{}  = False
-        pref Choice{} = False
-        pref _        = True
+        pref Index{}           = False
+        pref Choice{}          = False
+        pref (Apply _ Index{}) = False
+        pref _                 = True
 
 instance ToJSON Pagination where
     toJSON p = object $

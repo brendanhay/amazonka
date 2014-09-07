@@ -41,10 +41,9 @@ module Network.AWS.EMR.V2009_03_31.ListClusters
     , lcrsMarker
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | This input determines how the ListClusters action filters the list of
 -- clusters that it returns.

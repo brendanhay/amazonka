@@ -74,10 +74,9 @@ module Network.AWS.Kinesis.V2013_12_02.PutRecord
     , prrsSequenceNumber
     ) where
 
-import           Network.AWS.Kinesis.V2013_12_02.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.Kinesis.V2013_12_02.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Represents the input of a PutRecord operation.
 data PutRecord = PutRecord

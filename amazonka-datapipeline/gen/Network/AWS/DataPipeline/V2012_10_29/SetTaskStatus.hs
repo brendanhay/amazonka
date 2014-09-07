@@ -47,10 +47,9 @@ module Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
     , SetTaskStatusResponse
     ) where
 
-import           Network.AWS.DataPipeline.V2012_10_29.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.DataPipeline.V2012_10_29.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The input of the SetTaskStatus action.
 data SetTaskStatus = SetTaskStatus

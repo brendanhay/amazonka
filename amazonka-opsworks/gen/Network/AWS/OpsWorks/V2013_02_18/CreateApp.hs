@@ -47,10 +47,9 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateApp
     , carsAppId
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data CreateApp = CreateApp
     { _caStackId :: Text

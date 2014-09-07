@@ -201,10 +201,9 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter
     , tmfrsMatches
     ) where
 
-import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CloudWatchLogs.V2014_03_28.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data TestMetricFilter = TestMetricFilter
     { _tmfFilterPattern :: Text

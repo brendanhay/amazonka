@@ -60,10 +60,9 @@ module Network.AWS.EMR.V2009_03_31.SetTerminationProtection
     , SetTerminationProtectionResponse
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The input argument to the TerminationProtection operation.
 data SetTerminationProtection = SetTerminationProtection

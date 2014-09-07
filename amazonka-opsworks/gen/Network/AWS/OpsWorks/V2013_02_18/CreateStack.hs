@@ -53,10 +53,9 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateStack
     , csrsrsStackId
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data CreateStack = CreateStack
     { _cs1Name :: Text

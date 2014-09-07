@@ -47,10 +47,9 @@ module Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
     , rdacrsAuthCode
     ) where
 
-import           Network.AWS.Route53Domains.V2014_05_15.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.Route53Domains.V2014_05_15.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The RetrieveDomainAuthCode request includes the following element.
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode

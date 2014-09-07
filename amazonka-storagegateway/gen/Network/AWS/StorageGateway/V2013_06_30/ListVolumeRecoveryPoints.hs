@@ -58,10 +58,9 @@ module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
     , lvrprsVolumeRecoveryPointInfos
     ) where
 
-import           Network.AWS.StorageGateway.V2013_06_30.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.StorageGateway.V2013_06_30.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpGatewayARN :: Text

@@ -1,9 +1,8 @@
 {% include "_include/exports-operation.ede" %}
 
-import           {{ types_namespace }}
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import {{ types_namespace }}
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 {% if alias %}
 
 type {{ alias }} = {{ request.name }}

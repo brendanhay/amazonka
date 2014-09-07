@@ -77,10 +77,9 @@ module Network.AWS.Kinesis.V2013_12_02.DescribeStream
     , dsrsStreamDescription
     ) where
 
-import           Network.AWS.Kinesis.V2013_12_02.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.Kinesis.V2013_12_02.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Represents the input of a DescribeStream operation.
 data DescribeStream = DescribeStream

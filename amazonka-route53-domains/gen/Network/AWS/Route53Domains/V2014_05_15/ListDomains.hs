@@ -54,10 +54,9 @@ module Network.AWS.Route53Domains.V2014_05_15.ListDomains
     , ldrsNextPageMarker
     ) where
 
-import           Network.AWS.Route53Domains.V2014_05_15.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.Route53Domains.V2014_05_15.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The ListDomains request includes the following elements.
 data ListDomains = ListDomains

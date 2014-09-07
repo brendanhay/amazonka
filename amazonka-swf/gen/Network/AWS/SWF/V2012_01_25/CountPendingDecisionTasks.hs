@@ -63,10 +63,9 @@ module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
     , cpdtrsTruncated
     ) where
 
-import           Network.AWS.SWF.V2012_01_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.SWF.V2012_01_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtDomain :: Text

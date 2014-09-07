@@ -56,10 +56,9 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups
     , dlgrsNextToken
     ) where
 
-import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CloudWatchLogs.V2014_03_28.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data DescribeLogGroups = DescribeLogGroups
     { _dlg1LogGroupNamePrefix :: Maybe Text

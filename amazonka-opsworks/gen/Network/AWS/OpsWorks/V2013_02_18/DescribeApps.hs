@@ -38,10 +38,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeApps
     , darsApps
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data DescribeApps = DescribeApps
     { _da1StackId :: Maybe Text

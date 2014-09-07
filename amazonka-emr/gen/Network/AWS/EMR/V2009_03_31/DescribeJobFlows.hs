@@ -90,10 +90,9 @@ module Network.AWS.EMR.V2009_03_31.DescribeJobFlows
     , djfrsJobFlows
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The input for the DescribeJobFlows operation.
 data DescribeJobFlows = DescribeJobFlows

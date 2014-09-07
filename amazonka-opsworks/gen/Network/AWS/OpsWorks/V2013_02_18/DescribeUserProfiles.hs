@@ -35,10 +35,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
     , duprsUserProfiles
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 newtype DescribeUserProfiles = DescribeUserProfiles
     { _dup1IamUserArns :: [Text]

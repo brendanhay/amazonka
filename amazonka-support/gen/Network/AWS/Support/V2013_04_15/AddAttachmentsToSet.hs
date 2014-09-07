@@ -43,10 +43,9 @@ module Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
     , aatsrsExpiryTime
     ) where
 
-import           Network.AWS.Support.V2013_04_15.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.Support.V2013_04_15.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | 
 data AddAttachmentsToSet = AddAttachmentsToSet

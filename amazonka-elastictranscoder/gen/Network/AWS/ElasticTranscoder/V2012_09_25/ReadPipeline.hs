@@ -50,10 +50,9 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline
     , rprsPipeline
     ) where
 
-import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.ElasticTranscoder.V2012_09_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The ReadPipelineRequest structure.
 newtype ReadPipeline = ReadPipeline

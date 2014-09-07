@@ -44,10 +44,9 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
     , dcrsPartnerName
     ) where
 
-import           Network.AWS.DirectConnect.V2012_10_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.DirectConnect.V2012_10_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the DeleteConnection operation.
 newtype DeleteConnection = DeleteConnection

@@ -94,10 +94,9 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob
     , cjrsrsJob
     ) where
 
-import           Network.AWS.ElasticTranscoder.V2012_09_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.ElasticTranscoder.V2012_09_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The CreateJobRequest structure.
 data CreateJob = CreateJob

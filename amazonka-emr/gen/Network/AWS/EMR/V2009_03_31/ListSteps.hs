@@ -36,10 +36,9 @@ module Network.AWS.EMR.V2009_03_31.ListSteps
     , lsrsMarker
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | This input determines which steps to list.
 data ListSteps = ListSteps

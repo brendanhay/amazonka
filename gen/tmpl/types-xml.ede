@@ -1,11 +1,10 @@
 {% include "_include/exports-type.ede" %}
 
-import           Network.AWS.Prelude
-import           Network.AWS.Signing.{{ signature }}
-import           Network.AWS.Types     (Region)
-import qualified Network.AWS.Types.Map as Map
+import Network.AWS.Prelude
+import Network.AWS.Signing.{{ signature }}
+import Network.AWS.Types (Region)
 {% for module in static %}
-import           {{ module.value }}
+import {{ module.value }}
 {% endfor %}
 
 {% include "_include/service.ede" %}

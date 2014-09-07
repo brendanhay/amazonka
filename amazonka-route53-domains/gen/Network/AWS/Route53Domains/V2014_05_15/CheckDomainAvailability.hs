@@ -50,10 +50,9 @@ module Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
     , cdarsAvailability
     ) where
 
-import           Network.AWS.Route53Domains.V2014_05_15.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.Route53Domains.V2014_05_15.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The CheckDomainAvailability request contains the following elements.
 data CheckDomainAvailability = CheckDomainAvailability

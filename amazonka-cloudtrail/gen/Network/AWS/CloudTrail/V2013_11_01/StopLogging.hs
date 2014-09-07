@@ -34,10 +34,9 @@ module Network.AWS.CloudTrail.V2013_11_01.StopLogging
     , StopLoggingResponse
     ) where
 
-import           Network.AWS.CloudTrail.V2013_11_01.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CloudTrail.V2013_11_01.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Passes the request to CloudTrail to stop logging AWS API calls for the
 -- specified account.

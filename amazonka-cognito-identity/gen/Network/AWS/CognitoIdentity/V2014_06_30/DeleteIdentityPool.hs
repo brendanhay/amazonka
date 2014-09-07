@@ -34,10 +34,9 @@ module Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
     , DeleteIdentityPoolResponse
     ) where
 
-import           Network.AWS.CognitoIdentity.V2014_06_30.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CognitoIdentity.V2014_06_30.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Input to the DeleteIdentityPool action.
 newtype DeleteIdentityPool = DeleteIdentityPool

@@ -41,10 +41,9 @@ module Network.AWS.EMR.V2009_03_31.AddTags
     , AddTagsResponse
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | This input identifies a cluster and a list of tags to attach.
 data AddTags = AddTags

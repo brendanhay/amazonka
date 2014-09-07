@@ -60,10 +60,9 @@ module Network.AWS.SWF.V2012_01_25.DescribeDomain
     , ddrsConfiguration
     ) where
 
-import           Network.AWS.SWF.V2012_01_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.SWF.V2012_01_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 newtype DescribeDomain = DescribeDomain
     { _dd1Name :: Text

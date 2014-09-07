@@ -34,10 +34,9 @@ module Network.AWS.OpsWorks.V2013_02_18.StartStack
     , StartStackResponse
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 newtype StartStack = StartStack
     { _ss1StackId :: Text

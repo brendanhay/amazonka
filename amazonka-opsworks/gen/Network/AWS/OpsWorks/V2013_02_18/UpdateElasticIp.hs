@@ -36,10 +36,9 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp
     , UpdateElasticIpResponse
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data UpdateElasticIp = UpdateElasticIp
     { _ueiElasticIp :: Text

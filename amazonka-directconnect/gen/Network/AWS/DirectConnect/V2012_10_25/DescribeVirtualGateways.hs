@@ -34,10 +34,9 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
     , dvgrsVirtualGateways
     ) where
 
-import           Network.AWS.DirectConnect.V2012_10_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.DirectConnect.V2012_10_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data DescribeVirtualGateways = DescribeVirtualGateways
     deriving (Eq, Show, Generic)

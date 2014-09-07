@@ -51,10 +51,9 @@ module Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
     , uiprsSupportedLoginProviders
     ) where
 
-import           Network.AWS.CognitoIdentity.V2014_06_30.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CognitoIdentity.V2014_06_30.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | An object representing a Cognito identity pool.
 data UpdateIdentityPool = UpdateIdentityPool

@@ -70,10 +70,9 @@ module Network.AWS.SWF.V2012_01_25.DescribeActivityType
     , datrsConfiguration
     ) where
 
-import           Network.AWS.SWF.V2012_01_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.SWF.V2012_01_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data DescribeActivityType = DescribeActivityType
     { _dat1Domain :: Text

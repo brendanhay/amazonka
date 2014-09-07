@@ -85,10 +85,9 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
     , bwirsConsumedCapacity
     ) where
 
-import           Network.AWS.DynamoDB.V2012_08_10.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.DynamoDB.V2012_08_10.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Represents the input of a BatchWriteItem operation.
 data BatchWriteItem = BatchWriteItem

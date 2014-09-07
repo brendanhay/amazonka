@@ -399,11 +399,10 @@ module Network.AWS.S3.V2006_03_01.Types
     , module Network.AWS.S3.Internal.Types
     ) where
 
-import           Network.AWS.Prelude
-import           Network.AWS.Signing.V4
-import           Network.AWS.Types     (Region)
-import qualified Network.AWS.Types.Map as Map
-import           Network.AWS.S3.Internal.Types
+import Network.AWS.Prelude
+import Network.AWS.Signing.V4
+import Network.AWS.Types (Region)
+import Network.AWS.S3.Internal.Types
 
 -- | Supported version (@2006-03-01@) of the
 -- @Amazon Simple Storage Service@ service.

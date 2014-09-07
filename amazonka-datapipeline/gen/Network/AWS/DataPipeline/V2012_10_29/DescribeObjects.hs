@@ -54,10 +54,9 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
     , dorsHasMoreResults
     ) where
 
-import           Network.AWS.DataPipeline.V2012_10_29.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.DataPipeline.V2012_10_29.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The DescribeObjects action returns the object definitions for a specified
 -- set of object identifiers. You can filter the results to named fields and

@@ -52,10 +52,9 @@ module Network.AWS.EMR.V2009_03_31.TerminateJobFlows
     , TerminateJobFlowsResponse
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Input to the TerminateJobFlows operation.
 newtype TerminateJobFlows = TerminateJobFlows

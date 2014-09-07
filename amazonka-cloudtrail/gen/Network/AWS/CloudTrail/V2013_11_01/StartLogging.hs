@@ -31,10 +31,9 @@ module Network.AWS.CloudTrail.V2013_11_01.StartLogging
     , StartLoggingResponse
     ) where
 
-import           Network.AWS.CloudTrail.V2013_11_01.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CloudTrail.V2013_11_01.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The request to CloudTrail to start logging AWS API calls for an account.
 newtype StartLogging = StartLogging

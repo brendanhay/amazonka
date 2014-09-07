@@ -39,10 +39,9 @@ module Network.AWS.DynamoDB.V2012_08_10.ListTables
     , ltrsLastEvaluatedTableName
     ) where
 
-import           Network.AWS.DynamoDB.V2012_08_10.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.DynamoDB.V2012_08_10.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Represents the input of a ListTables operation.
 data ListTables = ListTables

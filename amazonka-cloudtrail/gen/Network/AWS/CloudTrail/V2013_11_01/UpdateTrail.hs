@@ -45,10 +45,9 @@ module Network.AWS.CloudTrail.V2013_11_01.UpdateTrail
     , utrsIncludeGlobalServiceEvents
     ) where
 
-import           Network.AWS.CloudTrail.V2013_11_01.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CloudTrail.V2013_11_01.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Specifies settings to update for the trail.
 data UpdateTrail = UpdateTrail

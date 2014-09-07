@@ -88,10 +88,9 @@ module Network.AWS.EMR.V2009_03_31.RunJobFlow
     , rjfrsJobFlowId
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | Input to the RunJobFlow operation.
 data RunJobFlow = RunJobFlow

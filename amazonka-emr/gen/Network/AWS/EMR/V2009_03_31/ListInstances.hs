@@ -41,10 +41,9 @@ module Network.AWS.EMR.V2009_03_31.ListInstances
     , lirsMarker
     ) where
 
-import           Network.AWS.EMR.V2009_03_31.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.EMR.V2009_03_31.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | This input determines which instances to list.
 data ListInstances = ListInstances

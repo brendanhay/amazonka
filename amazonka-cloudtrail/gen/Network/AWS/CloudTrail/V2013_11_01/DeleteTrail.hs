@@ -31,10 +31,9 @@ module Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
     , DeleteTrailResponse
     ) where
 
-import           Network.AWS.CloudTrail.V2013_11_01.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CloudTrail.V2013_11_01.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | The request that specifies the name of a trail to delete.
 newtype DeleteTrail = DeleteTrail

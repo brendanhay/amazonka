@@ -62,10 +62,9 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot
     , csrsSnapshotId
     ) where
 
-import           Network.AWS.StorageGateway.V2013_06_30.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.StorageGateway.V2013_06_30.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | A JSON object containing one or more of the following fields:
 -- CreateSnapshotInput$SnapshotDescription CreateSnapshotInput$VolumeARN.

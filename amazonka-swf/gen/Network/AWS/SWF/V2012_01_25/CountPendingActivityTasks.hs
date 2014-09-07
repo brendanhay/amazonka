@@ -63,10 +63,9 @@ module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
     , cpatrsTruncated
     ) where
 
-import           Network.AWS.SWF.V2012_01_25.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.SWF.V2012_01_25.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatDomain :: Text

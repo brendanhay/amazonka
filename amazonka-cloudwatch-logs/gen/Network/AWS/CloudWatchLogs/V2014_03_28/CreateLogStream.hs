@@ -46,10 +46,9 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream
     , CreateLogStreamResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.V2014_03_28.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.CloudWatchLogs.V2014_03_28.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data CreateLogStream = CreateLogStream
     { _clsLogGroupName :: Text

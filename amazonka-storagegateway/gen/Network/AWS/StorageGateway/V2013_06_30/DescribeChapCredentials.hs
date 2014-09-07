@@ -49,10 +49,9 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials
     , dccrsrsChapCredentials
     ) where
 
-import           Network.AWS.StorageGateway.V2013_06_30.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.StorageGateway.V2013_06_30.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
 -- target.

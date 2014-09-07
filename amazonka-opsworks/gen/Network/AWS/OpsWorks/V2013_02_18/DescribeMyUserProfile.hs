@@ -33,10 +33,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
     , dmuprsUserProfile
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 data DescribeMyUserProfile = DescribeMyUserProfile
     deriving (Eq, Show, Generic)

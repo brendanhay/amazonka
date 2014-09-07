@@ -38,10 +38,9 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling
     , dlbasrsLoadBasedAutoScalingConfigurations
     ) where
 
-import           Network.AWS.OpsWorks.V2013_02_18.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request.JSON
-import qualified Network.AWS.Types.Map    as Map
+import Network.AWS.OpsWorks.V2013_02_18.Types
+import Network.AWS.Prelude
+import Network.AWS.Request.JSON
 
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     { _dlbasLayerIds :: [Text]

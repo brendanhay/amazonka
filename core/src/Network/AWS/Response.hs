@@ -26,7 +26,7 @@ module Network.AWS.Response
     ) where
 
 import           Control.Applicative
-import           Control.Lens        (Getting, View)
+import           Control.Lens        (Getting, view)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Bifunctor

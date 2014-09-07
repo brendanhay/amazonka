@@ -29,11 +29,7 @@ instance AWSPager {{ scope.request.name }} where
     {% endfor %}
       where
     {% for token in scope.pagination.tokens %}
-      {% if scope.pagination.token.output_prefix %}
         {{ token.key }} = rs ^. {{ token.value.output }}
-      {% else %}
-        {{ token.key }} = {{ token.value.output }} rs
-      {% endif %}
    {% endfor %}
   {% endcase %}
 {% endif %}

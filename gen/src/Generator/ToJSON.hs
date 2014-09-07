@@ -221,7 +221,7 @@ instance ToJSON Python where
         go p = case p of
             Empty      -> "id"
             Keyed    k -> lensPrefix k
-            Index  x y -> "keyed " <> go y <> " " <> lensPrefix x
+            Index  x y -> "index " <> go y <> " " <> lensPrefix x
             Apply  x y -> lensPrefix x <> " . " <> go y
             Choice x y -> "choice (" <> go x <> ") (" <> go y <> ")"
 

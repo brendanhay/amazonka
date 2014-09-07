@@ -13,7 +13,7 @@
 module Network.AWS.Response
     (
     -- * Pagination
-      keyed
+      index
     , choice
 
     -- * Responses
@@ -26,13 +26,13 @@ module Network.AWS.Response
     ) where
 
 import           Control.Applicative
+import           Control.Lens        (Getting, View)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Bifunctor
 import           Data.Conduit
 import qualified Data.Conduit.Binary as Conduit
 import           Data.Default
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Text           (Text)
 import           Network.AWS.Data
@@ -42,11 +42,18 @@ import           Network.HTTP.Types
 import qualified Text.XML            as XML
 import           Text.XML.Cursor
 
-keyed :: ToText c => (b -> c) -> (a -> [b]) -> a -> Maybe Text
-keyed g f = fmap (toText . g) . listToMaybe . reverse . f
+index :: ToText c => Getting c b c -> Getting [b] a [b] -> a -> Maybe Text
+index f g = fmap (toText . view f) . lastMay . view g
 
 choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
 choice f g x = f x <|> g x
+
+lastMay :: [a] -> Maybe a
+lastMay []     = Nothing
+lastMay (x:xs) = Just (go x xs)
+  where
+    go y []     = y
+    go _ (y:ys) = go y ys
 
 headerResponse :: (Monad m, AWSServiceError e)
                => (ResponseHeaders -> Either String a)

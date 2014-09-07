@@ -40,7 +40,6 @@ library
         , Network.AWS.Signing.V3
         , Network.AWS.Signing.V4
         , Network.AWS.Types
-        , Network.AWS.Types.Map
 
     other-modules:
           Network.AWS.Internal.Auth
@@ -55,6 +54,7 @@ library
         , Network.AWS.Internal.Data.XML
         , Network.AWS.Internal.Request
         , Network.AWS.Internal.Signing
+        , Network.AWS.Internal.Types.Map
 
     build-depends:
           aeson

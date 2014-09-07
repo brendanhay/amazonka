@@ -64,6 +64,5 @@ import GHC.Generics           (Generic)
 import Network.AWS.Data       as Export hiding (Query)
 import Network.AWS.Response   as Export
 import Network.AWS.Types
-import Network.AWS.Types.Map  (Map(..))
 import Network.HTTP.Client    (HttpException, RequestBody, Response)
 import Prelude                as Export hiding (head, error)

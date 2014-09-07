@@ -22,33 +22,37 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Types where
+module Network.AWS.Types
+    ( module Network.AWS.Types
+    , module Network.AWS.Internal.Types.Map
+    ) where
 
 import           Control.Applicative
-import           Control.Concurrent        (ThreadId)
-import           Control.Exception         (Exception)
-import           Control.Lens              hiding (Action)
+import           Control.Concurrent             (ThreadId)
+import           Control.Exception              (Exception)
+import           Control.Lens                   hiding (Action)
 import           Control.Monad.IO.Class
-import           Data.Aeson                hiding (Error)
-import qualified Data.Attoparsec.Text      as AText
-import           Data.ByteString           (ByteString)
-import qualified Data.ByteString.Base64    as Base64
+import           Data.Aeson                     hiding (Error)
+import qualified Data.Attoparsec.Text           as AText
+import           Data.ByteString                (ByteString)
+import qualified Data.ByteString.Base64         as Base64
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
-import qualified Data.Text.Encoding        as Text
-import qualified Data.Text.Lazy            as LText
+import           Data.Text                      (Text)
+import qualified Data.Text                      as Text
+import qualified Data.Text.Encoding             as Text
+import qualified Data.Text.Lazy                 as LText
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
-import qualified Network.HTTP.Client       as Client
-import           Network.HTTP.Client       hiding (Request, Response)
+import           Network.AWS.Internal.Types.Map
+import qualified Network.HTTP.Client            as Client
+import           Network.HTTP.Client            hiding (Request, Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           System.Locale

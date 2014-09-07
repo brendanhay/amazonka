@@ -227,9 +227,14 @@ instance ToJSON Python where
 
 instance ToJSON Token where
     toJSON Token{..} = object
-        [ "input"  .= _tokInput
-        , "output" .= _tokOutput
+        [ "input"         .= _tokInput
+        , "output"        .= _tokOutput
+        , "output_prefix" .= pref _tokOutput
         ]
+      where
+        pref Index{}  = False
+        pref Choice{} = False
+        pref _        = True
 
 instance ToJSON Pagination where
     toJSON p = object $
@@ -239,11 +244,13 @@ instance ToJSON Pagination where
                 , "result_key" .= rk
                 , "token"      .= t
                 ]
+
             More k [t] ->
                 [ "type"  .= ("one" :: Text)
                 , "more"  .= k
                 , "token" .= t
                 ]
+
             More k ts ->
                 let f x = (Text.pack ('p' : show x),)
                     m   = Map.fromList (zipWith f [1..length ts] ts)

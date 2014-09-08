@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -25,9 +24,9 @@ import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable                        (Hashable)
 import           Data.Monoid
+import           Data.Semigroup                       (Semigroup)
 import           Data.Tagged
 import           Data.Traversable                     (Traversable)
-import           Data.Typeable                        (Typeable)
 import           Network.AWS.Internal.Data.ByteString
 import           Network.AWS.Internal.Data.Header
 import           Network.AWS.Internal.Data.Query
@@ -42,9 +41,8 @@ newtype Map k v = Map { toHashMap :: HashMap k v }
         , Functor
         , Foldable
         , Traversable
-        , Typeable
-        , Data
         , Monoid
+        , Semigroup
         )
 
 nullMap :: Map k v -> Bool

@@ -25,7 +25,6 @@ module Network.AWS.Prelude
     , RequestBody
     , Response
     , Text
-    , NonEmpty        (..)
 
     -- * Classes
     , FromJSON        (..)
@@ -41,6 +40,7 @@ module Network.AWS.Prelude
     , Endpoint'       (..)
     , Service'        (..)
     , Switch          (..)
+    , NonEmpty        (..)
 
     -- * Lenses
     , module Lens

@@ -46,6 +46,7 @@ library
           Network.AWS.Internal.Data.Body
         , Network.AWS.Internal.Data.ByteString
         , Network.AWS.Internal.Data.Header
+        , Network.AWS.Internal.Data.List1
         , Network.AWS.Internal.Data.Map
         , Network.AWS.Internal.Data.Path
         , Network.AWS.Internal.Data.Query
@@ -57,8 +58,8 @@ library
         , Network.AWS.Internal.Signing
 
     build-depends:
-          aeson
-        , attoparsec
+          aeson                 == 0.8.*
+        , attoparsec            == 0.12.*
         , base                  >= 4.6     && < 5
         , base16-bytestring
         , base64-bytestring
@@ -88,4 +89,5 @@ library
         , transformers          == 0.4.*
         , transformers-base
         , unordered-containers
+        , vector
         , xml-conduit           == 1.2.*

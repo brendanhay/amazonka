@@ -38,6 +38,9 @@ module Network.AWS.Data
     , module Network.AWS.Internal.Data.URI
 
     -- * Collections
+    -- ** Non-empty List
+    , module Network.AWS.Internal.Data.List1
+    -- ** Unordered Map
     , module Network.AWS.Internal.Data.Map
 
     -- * XML
@@ -47,10 +50,11 @@ module Network.AWS.Data
 import Network.AWS.Internal.Data.Body
 import Network.AWS.Internal.Data.ByteString
 import Network.AWS.Internal.Data.Header
+import Network.AWS.Internal.Data.List1
+import Network.AWS.Internal.Data.Map
 import Network.AWS.Internal.Data.Path
 import Network.AWS.Internal.Data.Query
 import Network.AWS.Internal.Data.Text
 import Network.AWS.Internal.Data.Time
 import Network.AWS.Internal.Data.URI
 import Network.AWS.Internal.Data.XML
-import Network.AWS.Internal.Data.Map

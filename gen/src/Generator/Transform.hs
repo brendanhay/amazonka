@@ -296,12 +296,12 @@ shapeType rq svc@Service{..} s = Type
     name  = s ^. cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
-annOf rq svc s = Ann raw (ctorOf s) wrap monoid' default' req
+annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req
   where
     monoid'  = isMonoid s
     default' = isDefault s
 
-    (raw, wrap) = case s of
+    (isRaw, isWrapped) = case s of
         _ | Just x <- renameType   svc s -> (x, False)
         _ | Just x <- existingType svc s -> (x, False)
 
@@ -309,10 +309,11 @@ annOf rq svc s = Ann raw (ctorOf s) wrap monoid' default' req
 
         SList l
             | l ^. lstMinLength > 0
-                -> ("List1 " <> ann (_lstItem l), True)
-        SList l -> ("[" <> ann (_lstItem l) <> "]", False)
+                -> let (r, w) = ann (_lstItem l)
+                    in (, True) $ if w then "List1 (" <> r <> ")" else "List1 " <> r
+        SList l -> ("[" <> raw (_lstItem l) <> "]", False)
 
-        SMap  m -> ("Map " <> ann (_mapKey m) <> " " <> ann (_mapValue m), True)
+        SMap  m -> ("Map " <> raw (_mapKey m) <> " " <> raw (_mapValue m), True)
 
         SSum _
             | switch      -> ("Switch " <> name, True)
@@ -323,7 +324,8 @@ annOf rq svc s = Ann raw (ctorOf s) wrap monoid' default' req
             | body       -> ("RsBody", False)
             | otherwise  -> (formatPrim svc p, False)
 
-    ann = _anRaw' . annOf rq svc
+    raw   = fst . ann
+    ann x = let y = annOf rq svc x in (_anRaw' y, _anWrap y)
 
     switch = name `elem` switches
 

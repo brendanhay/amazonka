@@ -1372,14 +1372,14 @@ instance ToJSON KeySchemaElement
 -- | Represents a set of primary keys and, for each key, the attributes to
 -- retrieve from the table.
 data KeysAndAttributes = KeysAndAttributes
-    { _kaaKeys :: List1 Map Text AttributeValue
+    { _kaaKeys :: List1 (Map Text AttributeValue)
     , _kaaAttributesToGet :: Maybe (List1 Text)
     , _kaaConsistentRead :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeysAndAttributes' data type to populate a request.
-mkKeysAndAttributes :: List1 Map Text AttributeValue -- ^ 'kaaKeys'
+mkKeysAndAttributes :: List1 (Map Text AttributeValue) -- ^ 'kaaKeys'
                     -> KeysAndAttributes
 mkKeysAndAttributes p1 = KeysAndAttributes
     { _kaaKeys = p1
@@ -1389,7 +1389,7 @@ mkKeysAndAttributes p1 = KeysAndAttributes
 
 -- | The primary key attribute values that define the items and the attributes
 -- associated with the items.
-kaaKeys :: Lens' KeysAndAttributes (List1 Map Text AttributeValue)
+kaaKeys :: Lens' KeysAndAttributes (List1 (Map Text AttributeValue))
 kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
 
 -- | One or more attributes to retrieve from the table or index. If no attribute

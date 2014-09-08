@@ -72,7 +72,7 @@ import Network.AWS.Request.JSON
 data CreateTable = CreateTable
     { _ctAttributeDefinitions :: [AttributeDefinition]
     , _ctTableName :: Text
-    , _ctKeySchema :: [KeySchemaElement]
+    , _ctKeySchema :: NonEmpty KeySchemaElement
     , _ctLocalSecondaryIndexes :: [LocalSecondaryIndex]
     , _ctGlobalSecondaryIndexes :: [GlobalSecondaryIndex]
     , _ctProvisionedThroughput :: ProvisionedThroughput
@@ -82,7 +82,7 @@ data CreateTable = CreateTable
 -- a valid 'CreateTable' request.
 mkCreateTable :: [AttributeDefinition] -- ^ 'ctAttributeDefinitions'
               -> Text -- ^ 'ctTableName'
-              -> [KeySchemaElement] -- ^ 'ctKeySchema'
+              -> NonEmpty KeySchemaElement -- ^ 'ctKeySchema'
               -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
               -> CreateTable
 mkCreateTable p1 p2 p3 p6 = CreateTable
@@ -116,7 +116,7 @@ ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 -- element must have a KeyType of HASH, and the second element must have a
 -- KeyType of RANGE. For more information, see Specifying the Primary Key in
 -- the Amazon DynamoDB Developer Guide.
-ctKeySchema :: Lens' CreateTable [KeySchemaElement]
+ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
 ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a })
 
 -- | One or more local secondary indexes (the maximum is five) to be created on

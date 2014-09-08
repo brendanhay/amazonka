@@ -1182,7 +1182,7 @@ instance ToJSON ExpectedAttributeValue
 -- | Represents a global secondary index.
 data GlobalSecondaryIndex = GlobalSecondaryIndex
     { _gsiIndexName :: Text
-    , _gsiKeySchema :: [KeySchemaElement]
+    , _gsiKeySchema :: NonEmpty KeySchemaElement
     , _gsiProjection :: Projection
     , _gsiProvisionedThroughput :: ProvisionedThroughput
     } deriving (Show, Generic)
@@ -1190,7 +1190,7 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GlobalSecondaryIndex' data type to populate a request.
 mkGlobalSecondaryIndex :: Text -- ^ 'gsiIndexName'
-                       -> [KeySchemaElement] -- ^ 'gsiKeySchema'
+                       -> NonEmpty KeySchemaElement -- ^ 'gsiKeySchema'
                        -> Projection -- ^ 'gsiProjection'
                        -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
                        -> GlobalSecondaryIndex
@@ -1208,7 +1208,7 @@ gsiIndexName = lens _gsiIndexName (\s a -> s { _gsiIndexName = a })
 
 -- | The complete key schema for a global secondary index, which consists of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
-gsiKeySchema :: Lens' GlobalSecondaryIndex [KeySchemaElement]
+gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\s a -> s { _gsiKeySchema = a })
 
 -- | Represents attributes that are copied (projected) from the table into an
@@ -1231,7 +1231,7 @@ instance ToJSON GlobalSecondaryIndex
 -- | Represents the properties of a global secondary index.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName :: Maybe Text
-    , _gsidKeySchema :: Maybe [KeySchemaElement]
+    , _gsidKeySchema :: Maybe (NonEmpty KeySchemaElement)
     , _gsidProjection :: Maybe Projection
     , _gsidIndexStatus :: Maybe IndexStatus
     , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
@@ -1258,7 +1258,7 @@ gsidIndexName = lens _gsidIndexName (\s a -> s { _gsidIndexName = a })
 
 -- | The complete key schema for the global secondary index, consisting of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
-gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe [KeySchemaElement])
+gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 gsidKeySchema = lens _gsidKeySchema (\s a -> s { _gsidKeySchema = a })
 
 -- | Represents attributes that are copied (projected) from the table into an
@@ -1372,14 +1372,14 @@ instance ToJSON KeySchemaElement
 -- | Represents a set of primary keys and, for each key, the attributes to
 -- retrieve from the table.
 data KeysAndAttributes = KeysAndAttributes
-    { _kaaKeys :: [Map Text AttributeValue]
-    , _kaaAttributesToGet :: Maybe [Text]
+    { _kaaKeys :: NonEmpty Map Text AttributeValue
+    , _kaaAttributesToGet :: Maybe (NonEmpty Text)
     , _kaaConsistentRead :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeysAndAttributes' data type to populate a request.
-mkKeysAndAttributes :: [Map Text AttributeValue] -- ^ 'kaaKeys'
+mkKeysAndAttributes :: NonEmpty Map Text AttributeValue -- ^ 'kaaKeys'
                     -> KeysAndAttributes
 mkKeysAndAttributes p1 = KeysAndAttributes
     { _kaaKeys = p1
@@ -1389,13 +1389,13 @@ mkKeysAndAttributes p1 = KeysAndAttributes
 
 -- | The primary key attribute values that define the items and the attributes
 -- associated with the items.
-kaaKeys :: Lens' KeysAndAttributes [Map Text AttributeValue]
+kaaKeys :: Lens' KeysAndAttributes (NonEmpty Map Text AttributeValue)
 kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
 
 -- | One or more attributes to retrieve from the table or index. If no attribute
 -- names are specified then all attributes will be returned. If any of the
 -- specified attributes are not found, they will not appear in the result.
-kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe [Text])
+kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe (NonEmpty Text))
 kaaAttributesToGet =
     lens _kaaAttributesToGet (\s a -> s { _kaaAttributesToGet = a })
 
@@ -1412,14 +1412,14 @@ instance ToJSON KeysAndAttributes
 -- | Represents a local secondary index.
 data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName :: Text
-    , _lsiKeySchema :: [KeySchemaElement]
+    , _lsiKeySchema :: NonEmpty KeySchemaElement
     , _lsiProjection :: Projection
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LocalSecondaryIndex' data type to populate a request.
 mkLocalSecondaryIndex :: Text -- ^ 'lsiIndexName'
-                      -> [KeySchemaElement] -- ^ 'lsiKeySchema'
+                      -> NonEmpty KeySchemaElement -- ^ 'lsiKeySchema'
                       -> Projection -- ^ 'lsiProjection'
                       -> LocalSecondaryIndex
 mkLocalSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
@@ -1435,7 +1435,7 @@ lsiIndexName = lens _lsiIndexName (\s a -> s { _lsiIndexName = a })
 
 -- | The complete key schema for the local secondary index, consisting of one or
 -- more pairs of attribute names and key types (HASH or RANGE).
-lsiKeySchema :: Lens' LocalSecondaryIndex [KeySchemaElement]
+lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a })
 
 -- | Represents attributes that are copied (projected) from the table into an
@@ -1449,7 +1449,7 @@ instance ToJSON LocalSecondaryIndex
 -- | Represents the properties of a local secondary index.
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName :: Maybe Text
-    , _lsidKeySchema :: Maybe [KeySchemaElement]
+    , _lsidKeySchema :: Maybe (NonEmpty KeySchemaElement)
     , _lsidProjection :: Maybe Projection
     , _lsidIndexSizeBytes :: Maybe Integer
     , _lsidItemCount :: Maybe Integer
@@ -1472,7 +1472,7 @@ lsidIndexName = lens _lsidIndexName (\s a -> s { _lsidIndexName = a })
 
 -- | The complete index key schema, which consists of one or more pairs of
 -- attribute names and key types (HASH or RANGE).
-lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe [KeySchemaElement])
+lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a })
 
 -- | Represents attributes that are copied (projected) from the table into an
@@ -1501,7 +1501,7 @@ instance FromJSON LocalSecondaryIndexDescription
 -- attributes, which are automatically projected.
 data Projection = Projection
     { _pProjectionType :: Maybe ProjectionType
-    , _pNonKeyAttributes :: Maybe [Text]
+    , _pNonKeyAttributes :: Maybe (NonEmpty Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1525,7 +1525,7 @@ pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 -- summed across all of the local secondary indexes, must not exceed 20. If
 -- you project the same attribute into two different indexes, this counts as
 -- two distinct attributes when determining the total.
-pNonKeyAttributes :: Lens' Projection (Maybe [Text])
+pNonKeyAttributes :: Lens' Projection (Maybe (NonEmpty Text))
 pNonKeyAttributes =
     lens _pNonKeyAttributes (\s a -> s { _pNonKeyAttributes = a })
 
@@ -1637,7 +1637,7 @@ instance ToJSON ProvisionedThroughputDescription
 data TableDescription = TableDescription
     { _tdAttributeDefinitions :: [AttributeDefinition]
     , _tdTableName :: Maybe Text
-    , _tdKeySchema :: Maybe [KeySchemaElement]
+    , _tdKeySchema :: Maybe (NonEmpty KeySchemaElement)
     , _tdTableStatus :: Maybe TableStatus
     , _tdCreationDateTime :: Maybe ISO8601
     , _tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription
@@ -1679,7 +1679,7 @@ tdTableName = lens _tdTableName (\s a -> s { _tdTableName = a })
 -- AttributeName - The name of the attribute. KeyType - The key type for the
 -- attribute. Can be either HASH or RANGE. For more information about primary
 -- keys, see Primary Key in the Amazon DynamoDB Developer Guide.
-tdKeySchema :: Lens' TableDescription (Maybe [KeySchemaElement])
+tdKeySchema :: Lens' TableDescription (Maybe (NonEmpty KeySchemaElement))
 tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a })
 
 -- | The current state of the table: CREATING - The table is being created, as

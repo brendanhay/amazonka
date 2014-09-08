@@ -69,7 +69,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , _casgMaxSize :: Integer
     , _casgDesiredCapacity :: Maybe Integer
     , _casgDefaultCooldown :: Maybe Integer
-    , _casgAvailabilityZones :: Maybe [Text]
+    , _casgAvailabilityZones :: Maybe (NonEmpty Text)
     , _casgLoadBalancerNames :: [Text]
     , _casgHealthCheckType :: Maybe Text
     , _casgHealthCheckGracePeriod :: Maybe Integer
@@ -155,7 +155,7 @@ casgDefaultCooldown =
 
 -- | A list of Availability Zones for the Auto Scaling group. This is required
 -- unless you have specified subnets.
-casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe [Text])
+casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
 casgAvailabilityZones =
     lens _casgAvailabilityZones (\s a -> s { _casgAvailabilityZones = a })
 

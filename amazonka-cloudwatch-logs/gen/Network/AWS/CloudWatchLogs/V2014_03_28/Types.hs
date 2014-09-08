@@ -279,7 +279,7 @@ instance FromJSON LogStream
 data MetricFilter = MetricFilter
     { _mfFilterName :: Maybe Text
     , _mfFilterPattern :: Maybe Text
-    , _mfMetricTransformations :: Maybe [MetricTransformation]
+    , _mfMetricTransformations :: Maybe (NonEmpty MetricTransformation)
     , _mfCreationTime :: Maybe Integer
     } deriving (Show, Generic)
 
@@ -300,7 +300,7 @@ mfFilterName = lens _mfFilterName (\s a -> s { _mfFilterName = a })
 mfFilterPattern :: Lens' MetricFilter (Maybe Text)
 mfFilterPattern = lens _mfFilterPattern (\s a -> s { _mfFilterPattern = a })
 
-mfMetricTransformations :: Lens' MetricFilter (Maybe [MetricTransformation])
+mfMetricTransformations :: Lens' MetricFilter (Maybe (NonEmpty MetricTransformation))
 mfMetricTransformations =
     lens _mfMetricTransformations
          (\s a -> s { _mfMetricTransformations = a })

@@ -58,7 +58,7 @@ data PutMetricFilter = PutMetricFilter
     { _pmfLogGroupName :: Text
     , _pmfFilterName :: Text
     , _pmfFilterPattern :: Text
-    , _pmfMetricTransformations :: [MetricTransformation]
+    , _pmfMetricTransformations :: NonEmpty MetricTransformation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -66,7 +66,7 @@ data PutMetricFilter = PutMetricFilter
 mkPutMetricFilter :: Text -- ^ 'pmfLogGroupName'
                   -> Text -- ^ 'pmfFilterName'
                   -> Text -- ^ 'pmfFilterPattern'
-                  -> [MetricTransformation] -- ^ 'pmfMetricTransformations'
+                  -> NonEmpty MetricTransformation -- ^ 'pmfMetricTransformations'
                   -> PutMetricFilter
 mkPutMetricFilter p1 p2 p3 p4 = PutMetricFilter
     { _pmfLogGroupName = p1
@@ -86,7 +86,7 @@ pmfFilterPattern :: Lens' PutMetricFilter Text
 pmfFilterPattern =
     lens _pmfFilterPattern (\s a -> s { _pmfFilterPattern = a })
 
-pmfMetricTransformations :: Lens' PutMetricFilter [MetricTransformation]
+pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
 pmfMetricTransformations =
     lens _pmfMetricTransformations
          (\s a -> s { _pmfMetricTransformations = a })

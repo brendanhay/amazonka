@@ -1239,7 +1239,7 @@ instance ToQuery Tag where
 -- | The descriptions of all the tags associated with load balancer.
 data TagDescription = TagDescription
     { _tdLoadBalancerName :: Maybe Text
-    , _tdTags :: Maybe [Tag]
+    , _tdTags :: Maybe (NonEmpty Tag)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1256,7 +1256,7 @@ tdLoadBalancerName =
     lens _tdLoadBalancerName (\s a -> s { _tdLoadBalancerName = a })
 
 -- | List of tags associated with the load balancer.
-tdTags :: Lens' TagDescription (Maybe [Tag])
+tdTags :: Lens' TagDescription (Maybe (NonEmpty Tag))
 tdTags = lens _tdTags (\s a -> s { _tdTags = a })
 
 instance FromXML TagDescription where

@@ -91,14 +91,14 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a BatchWriteItem operation.
 data BatchWriteItem = BatchWriteItem
-    { _bwiRequestItems :: Map Text [WriteRequest]
+    { _bwiRequestItems :: Map Text NonEmpty WriteRequest
     , _bwiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     , _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchWriteItem' request.
-mkBatchWriteItem :: Map Text [WriteRequest] -- ^ 'bwiRequestItems'
+mkBatchWriteItem :: Map Text NonEmpty WriteRequest -- ^ 'bwiRequestItems'
                  -> BatchWriteItem
 mkBatchWriteItem p1 = BatchWriteItem
     { _bwiRequestItems = p1
@@ -122,7 +122,7 @@ mkBatchWriteItem p1 = BatchWriteItem
 -- any attributes that are part of an index key, then the data types for those
 -- attributes must match those of the schema in the table's attribute
 -- definition.
-bwiRequestItems :: Lens' BatchWriteItem (Map Text [WriteRequest])
+bwiRequestItems :: Lens' BatchWriteItem (Map Text NonEmpty WriteRequest)
 bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a })
 
 -- | If set to TOTAL, the response includes ConsumedCapacity data for tables and
@@ -152,7 +152,7 @@ instance ToJSON BatchWriteItem
 
 -- | Represents the output of a BatchWriteItem operation.
 data BatchWriteItemResponse = BatchWriteItemResponse
-    { _bwirUnprocessedItems :: Map Text [WriteRequest]
+    { _bwirUnprocessedItems :: Map Text NonEmpty WriteRequest
     , _bwirItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
     , _bwirConsumedCapacity :: [ConsumedCapacity]
     } deriving (Show, Generic)
@@ -176,7 +176,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 -- ValidationException. If you specify any attributes that are part of an
 -- index key, then the data types for those attributes must match those of the
 -- schema in the table's attribute definition.
-bwirUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
+bwirUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text NonEmpty WriteRequest)
 bwirUnprocessedItems =
     lens _bwirUnprocessedItems (\s a -> s { _bwirUnprocessedItems = a })
 

@@ -43,19 +43,19 @@ import Network.AWS.Prelude
 
 -- | The input for the DescribeTags action.
 newtype DescribeTags = DescribeTags
-    { _dtLoadBalancerNames :: [Text]
+    { _dtLoadBalancerNames :: NonEmpty Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
-mkDescribeTags :: [Text] -- ^ 'dtLoadBalancerNames'
+mkDescribeTags :: NonEmpty Text -- ^ 'dtLoadBalancerNames'
                -> DescribeTags
 mkDescribeTags p1 = DescribeTags
     { _dtLoadBalancerNames = p1
     }
 
 -- | The names of the load balancers.
-dtLoadBalancerNames :: Lens' DescribeTags [Text]
+dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
 dtLoadBalancerNames =
     lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
 

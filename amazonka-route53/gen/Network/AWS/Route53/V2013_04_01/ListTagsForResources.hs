@@ -42,13 +42,13 @@ import Network.AWS.Types (Region)
 -- tags that are associated with up to 10 specified resources.
 data ListTagsForResources = ListTagsForResources
     { _ltfr1ResourceType :: TagResourceType
-    , _ltfr1ResourceIds :: [Text]
+    , _ltfr1ResourceIds :: NonEmpty Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResources' request.
 mkListTagsForResources :: TagResourceType -- ^ 'ltfr1ResourceType'
-                       -> [Text] -- ^ 'ltfr1ResourceIds'
+                       -> NonEmpty Text -- ^ 'ltfr1ResourceIds'
                        -> ListTagsForResources
 mkListTagsForResources p1 p2 = ListTagsForResources
     { _ltfr1ResourceType = p1
@@ -63,7 +63,7 @@ ltfr1ResourceType =
 
 -- | A complex type that contains the ResourceId element for each resource for
 -- which you want to get a list of tags.
-ltfr1ResourceIds :: Lens' ListTagsForResources [Text]
+ltfr1ResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
 ltfr1ResourceIds =
     lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a })
 

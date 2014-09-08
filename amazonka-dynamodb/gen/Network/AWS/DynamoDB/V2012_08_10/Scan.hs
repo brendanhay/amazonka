@@ -74,7 +74,7 @@ import Network.AWS.Request.JSON
 -- | Represents the input of a Scan operation.
 data Scan = Scan
     { _sTableName :: Text
-    , _sAttributesToGet :: Maybe [Text]
+    , _sAttributesToGet :: Maybe (NonEmpty Text)
     , _sLimit :: Maybe Integer
     , _sSelect :: Maybe Select
     , _sScanFilter :: Map Text Condition
@@ -109,7 +109,7 @@ sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
-sAttributesToGet :: Lens' Scan (Maybe [Text])
+sAttributesToGet :: Lens' Scan (Maybe (NonEmpty Text))
 sAttributesToGet =
     lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a })
 

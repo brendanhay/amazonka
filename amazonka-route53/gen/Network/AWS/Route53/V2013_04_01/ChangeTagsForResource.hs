@@ -43,8 +43,8 @@ import Network.AWS.Types (Region)
 data ChangeTagsForResource = ChangeTagsForResource
     { _ctfrResourceType :: TagResourceType
     , _ctfrResourceId :: Text
-    , _ctfrAddTags :: Maybe [Tag]
-    , _ctfrRemoveTagKeys :: Maybe [Text]
+    , _ctfrAddTags :: Maybe (NonEmpty Tag)
+    , _ctfrRemoveTagKeys :: Maybe (NonEmpty Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -71,11 +71,11 @@ ctfrResourceId = lens _ctfrResourceId (\s a -> s { _ctfrResourceId = a })
 
 -- | A complex type that contains a list of Tag elements. Each Tag element
 -- identifies a tag that you want to add or update for the specified resource.
-ctfrAddTags :: Lens' ChangeTagsForResource (Maybe [Tag])
+ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
 ctfrAddTags = lens _ctfrAddTags (\s a -> s { _ctfrAddTags = a })
 
 -- | A list of Tag keys that you want to remove from the specified resource.
-ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe [Text])
+ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
 ctfrRemoveTagKeys =
     lens _ctfrRemoveTagKeys (\s a -> s { _ctfrRemoveTagKeys = a })
 

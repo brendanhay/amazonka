@@ -43,13 +43,13 @@ import Network.AWS.Prelude
 -- | The input for the RemoveTags action.
 data RemoveTags = RemoveTags
     { _rtLoadBalancerNames :: [Text]
-    , _rtTags :: [TagKeyOnly]
+    , _rtTags :: NonEmpty TagKeyOnly
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.
 mkRemoveTags :: [Text] -- ^ 'rtLoadBalancerNames'
-             -> [TagKeyOnly] -- ^ 'rtTags'
+             -> NonEmpty TagKeyOnly -- ^ 'rtTags'
              -> RemoveTags
 mkRemoveTags p1 p2 = RemoveTags
     { _rtLoadBalancerNames = p1
@@ -63,7 +63,7 @@ rtLoadBalancerNames =
     lens _rtLoadBalancerNames (\s a -> s { _rtLoadBalancerNames = a })
 
 -- | A list of tag keys to remove.
-rtTags :: Lens' RemoveTags [TagKeyOnly]
+rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\s a -> s { _rtTags = a })
 
 instance ToQuery RemoveTags where

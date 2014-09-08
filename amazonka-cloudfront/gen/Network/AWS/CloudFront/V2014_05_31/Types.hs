@@ -2545,7 +2545,7 @@ instance ToXML Origin where
 -- distribution.
 data Origins = Origins
     { _oQuantity :: Integer
-    , _oItems :: Maybe [Origin]
+    , _oItems :: Maybe (NonEmpty Origin)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2562,7 +2562,7 @@ oQuantity :: Lens' Origins Integer
 oQuantity = lens _oQuantity (\s a -> s { _oQuantity = a })
 
 -- | A complex type that contains origins for this distribution.
-oItems :: Lens' Origins (Maybe [Origin])
+oItems :: Lens' Origins (Maybe (NonEmpty Origin))
 oItems = lens _oItems (\s a -> s { _oItems = a })
 
 instance FromXML Origins where

@@ -48,13 +48,13 @@ import Network.AWS.Prelude
 -- | The input for the AddTags action.
 data AddTags = AddTags
     { _atLoadBalancerNames :: [Text]
-    , _atTags :: [Tag]
+    , _atTags :: NonEmpty Tag
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.
 mkAddTags :: [Text] -- ^ 'atLoadBalancerNames'
-          -> [Tag] -- ^ 'atTags'
+          -> NonEmpty Tag -- ^ 'atTags'
           -> AddTags
 mkAddTags p1 p2 = AddTags
     { _atLoadBalancerNames = p1
@@ -68,7 +68,7 @@ atLoadBalancerNames =
     lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
 
 -- | A list of tags for each load balancer.
-atTags :: Lens' AddTags [Tag]
+atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a })
 
 instance ToQuery AddTags where

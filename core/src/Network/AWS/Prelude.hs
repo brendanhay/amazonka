@@ -25,6 +25,7 @@ module Network.AWS.Prelude
     , RequestBody
     , Response
     , Text
+    , NonEmpty        (..)
 
     -- * Classes
     , FromJSON        (..)
@@ -54,6 +55,7 @@ import Data.Bifunctor         as Export
 import Data.ByteString        (ByteString)
 import Data.Default           as Export
 import Data.Hashable          as Export
+import Data.List.NonEmpty     (NonEmpty(..))
 import Data.Maybe             as Export
 import Data.Monoid            as Export
 import Data.Tagged            as Export

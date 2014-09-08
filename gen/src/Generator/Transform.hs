@@ -309,7 +309,7 @@ annOf rq svc s = Ann raw (ctorOf s) wrap monoid' default' req
 
         SList l
             | l ^. lstMinLength > 0
-                -> ("NonEmpty " <> ann (_lstItem l), True)
+                -> ("List1 " <> ann (_lstItem l), True)
         SList l -> ("[" <> ann (_lstItem l) <> "]", False)
 
         SMap  m -> ("Map " <> ann (_mapKey m) <> " " <> ann (_mapValue m), True)

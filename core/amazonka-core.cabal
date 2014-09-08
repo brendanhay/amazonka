@@ -30,6 +30,8 @@ library
         , Network.AWS
         , Network.AWS.Auth
         , Network.AWS.Data
+        , Network.AWS.Data.List1
+        , Network.AWS.Data.Map
         , Network.AWS.EC2.Metadata
         , Network.AWS.Prelude
         , Network.AWS.Request.JSON
@@ -46,8 +48,6 @@ library
           Network.AWS.Internal.Data.Body
         , Network.AWS.Internal.Data.ByteString
         , Network.AWS.Internal.Data.Header
-        , Network.AWS.Internal.Data.List1
-        , Network.AWS.Internal.Data.Map
         , Network.AWS.Internal.Data.Path
         , Network.AWS.Internal.Data.Query
         , Network.AWS.Internal.Data.Text

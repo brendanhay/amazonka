@@ -26,8 +26,6 @@ description:
     You can change your data model on the fly, and data is automatically indexed for you.
     .
     With Amazon SimpleDB, you can focus on application development without worrying about infrastructure provisioning, high availability, software maintenance, schema and index management, or performance tuning.
-    .
-    .
 
 source-repository head
     type:     git

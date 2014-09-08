@@ -22,8 +22,6 @@ description:
     You can use Amazon CloudWatch to gain system-wide visibility into resource utilization, application performance, and operational health.
     .
     You can use these insights to react and keep your application running smoothly.
-    .
-    .
 
 source-repository head
     type:     git

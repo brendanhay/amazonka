@@ -167,7 +167,10 @@ filters = EDE.defaultFilters
     haddock t =
         case Text.splitOn "." t of
             [] -> ""
-            xs -> Text.intercalate "\n" . intersperse "." $ map ((<> ".") . Text.strip) xs
+            xs -> Text.intercalate "\n"
+                . intersperse "."
+                . map ((<> ".") . Text.strip)
+                $ init xs
 
     wrap p n t =
         case normalise n t of

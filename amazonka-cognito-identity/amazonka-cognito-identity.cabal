@@ -24,8 +24,6 @@ description:
     You can also choose to support unauthenticated access from your application.
     .
     Your users are provided with Cognito tokens that uniquely identify their device and any information provided about third-party logins.
-    .
-    .
 
 source-repository head
     type:     git

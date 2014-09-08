@@ -18,8 +18,6 @@ description:
     AWS transfers your data directly onto and off of storage devices using Amazon’s high-speed internal network and bypassing the Internet.
     .
     For significant data sets, AWS Import/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity.
-    .
-    .
 
 source-repository head
     type:     git

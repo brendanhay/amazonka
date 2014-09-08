@@ -18,8 +18,6 @@ description:
     You can start small for just $0.
     .
     25 per hour with no commitments or upfront costs and scale to a petabyte or more for $1,000 per terabyte per year, less than a tenth of most other data warehousing solutions.
-    .
-    .
 
 source-repository head
     type:     git

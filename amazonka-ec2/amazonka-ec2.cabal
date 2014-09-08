@@ -26,8 +26,6 @@ description:
     Amazon EC2 changes the economics of computing by allowing you to pay only for capacity that you actually use.
     .
     Amazon EC2 provides developers the tools to build failure resilient applications and isolate themselves from common failure scenarios.
-    .
-    .
 
 source-repository head
     type:     git

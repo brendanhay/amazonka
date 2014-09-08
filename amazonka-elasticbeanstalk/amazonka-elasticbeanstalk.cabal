@@ -26,8 +26,6 @@ description:
     At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time.
     .
     There is no additional charge for Elastic Beanstalk - you pay only for the AWS resources needed to store and run your applications.
-    .
-    .
 
 source-repository head
     type:     git

@@ -28,8 +28,6 @@ description:
     If the content is already in that edge location, CloudFront delivers it immediately.
     .
     If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
-    .
-    .
 
 source-repository head
     type:     git

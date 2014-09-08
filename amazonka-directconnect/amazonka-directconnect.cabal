@@ -18,8 +18,6 @@ description:
     One end of the cable is connected to your router, the other to an AWS Direct Connect router.
     .
     With this connection in place, you can create virtual interfaces directly to the AWS cloud and Amazon Virtual Private Cloud, bypassing Internet service providers in your network path.
-    .
-    .
 
 source-repository head
     type:     git

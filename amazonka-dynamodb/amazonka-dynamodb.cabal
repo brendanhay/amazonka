@@ -18,8 +18,6 @@ description:
     You can use Amazon DynamoDB to create a database table that can store and retrieve any amount of data, and serve any level of request traffic.
     .
     Amazon DynamoDB automatically spreads the data and traffic for the table over a sufficient number of servers to handle the request capacity specified by the customer and the amount of data stored, while maintaining consistent and fast performance.
-    .
-    .
 
 source-repository head
     type:     git

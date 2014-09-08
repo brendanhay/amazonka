@@ -22,8 +22,6 @@ description:
     Besides pushing cloud notifications directly to mobile devices, Amazon SNS can also deliver notifications by SMS text message or email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint.
     .
     To prevent messages from being lost, all messages published to Amazon SNS are stored redundantly across multiple availability zones.
-    .
-    .
 
 source-repository head
     type:     git

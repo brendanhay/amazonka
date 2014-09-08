@@ -20,8 +20,6 @@ description:
     You can use SQS to transmit any volume of data, at any level of throughput, without losing messages or requiring other services to be always available.
     .
     With SQS, you can offload the administrative burden of operating and scaling a highly available messaging cluster, while paying a low price for only what you use.
-    .
-    .
 
 source-repository head
     type:     git

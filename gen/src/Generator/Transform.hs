@@ -310,10 +310,14 @@ annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req
         SList l
             | l ^. lstMinLength > 0
                 -> let (r, w) = ann (_lstItem l)
-                    in (, True) $ if w then "List1 (" <> r <> ")" else "List1 " <> r
+                    in ("List1 " <> parens w r, True)
+
         SList l -> ("[" <> raw (_lstItem l) <> "]", False)
 
-        SMap  m -> ("Map " <> raw (_mapKey m) <> " " <> raw (_mapValue m), True)
+        SMap  m ->
+            let (kr, kw) = ann (_mapKey m)
+                (vr, vw) = ann (_mapValue m)
+             in ("Map " <> parens kw kr <> " " <> parens vw vr, True)
 
         SSum _
             | switch      -> ("Switch " <> name, True)
@@ -341,8 +345,9 @@ typeOf Ann{..}
   where
     raw = parens _anWrap _anRaw'
 
-    parens True  x = "(" <> x <> ")"
-    parens False x = x
+parens :: (IsString m, Monoid m) => Bool -> m -> m
+parens True  x = "(" <> x <> ")"
+parens False x = x
 
 isBody :: HasCommon a => a -> Bool
 isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming

@@ -13,13 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Kinesis is a managed service that scales elastically for real-time
+    Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data.
     .
-    processing of streaming big data. The service takes in large streams of
+    The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances.
     .
-    data records that can then be consumed in real time by multiple
     .
-    data-processing applications that can be run on Amazon EC2 instances.
 
 source-repository head
     type:     git

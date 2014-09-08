@@ -13,15 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    CloudTrail is a web service that records AWS API calls for your AWS
+    CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket.
     .
-    account and delivers log files to an Amazon S3 bucket. The recorded
+    The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.
     .
-    information includes the identity of the user, the start time of the AWS
     .
-    API call, the source IP address, the request parameters, and the response
-    .
-    elements returned by the service.
 
 source-repository head
     type:     git

@@ -13,17 +13,13 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Import/Export accelerates moving large amounts of data into and out
+    AWS Import/Export accelerates moving large amounts of data into and out of AWS using portable storage devices for transport.
     .
-    of AWS using portable storage devices for transport. AWS transfers your
+    AWS transfers your data directly onto and off of storage devices using Amazon’s high-speed internal network and bypassing the Internet.
     .
-    data directly onto and off of storage devices using Amazon’s high-speed
+    For significant data sets, AWS Import/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity.
     .
-    internal network and bypassing the Internet. For significant data sets,
     .
-    AWS Import/Export is often faster than Internet transfer and more cost
-    .
-    effective than upgrading your connectivity.
 
 source-repository head
     type:     git

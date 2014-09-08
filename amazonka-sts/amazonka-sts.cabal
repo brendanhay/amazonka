@@ -13,13 +13,9 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    The AWS Security Token Service (STS) is a web service that enables you to
+    The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users).
     .
-    request temporary, limited-privilege credentials for AWS Identity and
     .
-    Access Management (IAM) users or for users that you authenticate
-    .
-    (federated users).
 
 source-repository head
     type:     git

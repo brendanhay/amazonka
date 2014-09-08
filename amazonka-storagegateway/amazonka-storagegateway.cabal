@@ -13,13 +13,9 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Storage Gateway is a service that connects an on-premises software
+    AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between your on-premises IT environment and AWS's storage infrastructure.
     .
-    appliance with cloud-based storage to provide seamless and secure
     .
-    integration between your on-premises IT environment and AWS's storage
-    .
-    infrastructure.
 
 source-repository head
     type:     git

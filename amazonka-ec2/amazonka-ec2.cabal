@@ -13,31 +13,21 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides
+    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud.
     .
-    resizable compute capacity in the cloud. It is designed to make web-scale
+    It is designed to make web-scale computing easier for developers.
     .
-    computing easier for developers. Amazon EC2’s simple web service
+    Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction.
     .
-    interface allows you to obtain and configure capacity with minimal
+    It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
     .
-    friction. It provides you with complete control of your computing
+    Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change.
     .
-    resources and lets you run on Amazon’s proven computing environment.
+    Amazon EC2 changes the economics of computing by allowing you to pay only for capacity that you actually use.
     .
-    Amazon EC2 reduces the time required to obtain and boot new server
+    Amazon EC2 provides developers the tools to build failure resilient applications and isolate themselves from common failure scenarios.
     .
-    instances to minutes, allowing you to quickly scale capacity, both up and
     .
-    down, as your computing requirements change. Amazon EC2 changes the
-    .
-    economics of computing by allowing you to pay only for capacity that you
-    .
-    actually use. Amazon EC2 provides developers the tools to build failure
-    .
-    resilient applications and isolate themselves from common failure
-    .
-    scenarios.
 
 source-repository head
     type:     git

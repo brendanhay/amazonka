@@ -13,17 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Elastic Transcoder lets you convert media files that you have
+    Amazon Elastic Transcoder lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices.
     .
-    stored in Amazon Simple Storage Service (Amazon S3) into media files in
+    For example, you can convert large, high-quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions.
     .
-    the formats required by consumer playback devices. For example, you can
     .
-    convert large, high-quality digital media files into formats that users
-    .
-    can play back on mobile devices, tablets, web browsers, and connected
-    .
-    televisions.
 
 source-repository head
     type:     git

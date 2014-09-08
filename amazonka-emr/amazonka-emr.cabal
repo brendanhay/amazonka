@@ -13,15 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy
+    Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently.
     .
-    to process large amounts of data efficiently. Amazon EMR uses Hadoop
+    Amazon EMR uses Hadoop processing combined with several AWS products to do such tasks as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.
     .
-    processing combined with several AWS products to do such tasks as web
     .
-    indexing, data mining, log file analysis, machine learning, scientific
-    .
-    simulation, and data warehousing.
 
 source-repository head
     type:     git

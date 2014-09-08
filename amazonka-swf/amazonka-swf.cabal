@@ -13,23 +13,15 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
+    Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that coordinate work across distributed components.
     .
-    applications that coordinate work across distributed components. In
+    In Amazon SWF, a task represents a logical unit of work that is performed by a component of your application.
     .
-    Amazon SWF, a task represents a logical unit of work that is performed by
+    Coordinating tasks across the application involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application.
     .
-    a component of your application. Coordinating tasks across the
+    Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state.
     .
-    application involves managing intertask dependencies, scheduling, and
     .
-    concurrency in accordance with the logical flow of the application.
-    .
-    Amazon SWF gives you full control over implementing tasks and
-    .
-    coordinating them without worrying about underlying complexities such as
-    .
-    tracking their progress and maintaining their state.
 
 source-repository head
     type:     git

@@ -13,9 +13,9 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon CloudWatch Logs enables you to monitor, store, and access your
+    Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files.
     .
-    system, application, and custom log files.
+    .
 
 source-repository head
     type:     git

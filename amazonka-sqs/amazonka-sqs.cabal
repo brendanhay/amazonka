@@ -13,21 +13,15 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully
+    Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully managed message queuing service.
     .
-    managed message queuing service. SQS makes it simple and cost-effective
+    SQS makes it simple and cost-effective to decouple the components of a cloud application.
     .
-    to decouple the components of a cloud application. You can use SQS to
+    You can use SQS to transmit any volume of data, at any level of throughput, without losing messages or requiring other services to be always available.
     .
-    transmit any volume of data, at any level of throughput, without losing
+    With SQS, you can offload the administrative burden of operating and scaling a highly available messaging cluster, while paying a low price for only what you use.
     .
-    messages or requiring other services to be always available. With SQS,
     .
-    you can offload the administrative burden of operating and scaling a
-    .
-    highly available messaging cluster, while paying a low price for only
-    .
-    what you use.
 
 source-repository head
     type:     git

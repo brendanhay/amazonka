@@ -13,13 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Identity and Access Management (IAM) enables you to securely control
+    AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users.
     .
-    access to AWS services and resources for your users. Using IAM, you can
+    Using IAM, you can create and manage AWS users and groups and use permissions to allow and deny their access to AWS resources.
     .
-    create and manage AWS users and groups and use permissions to allow and
     .
-    deny their access to AWS resources.
 
 source-repository head
     type:     git

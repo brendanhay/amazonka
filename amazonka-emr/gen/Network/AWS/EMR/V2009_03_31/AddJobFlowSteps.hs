@@ -68,6 +68,8 @@ module Network.AWS.EMR.V2009_03_31.AddJobFlowSteps
 
     -- * Response
     , AddJobFlowStepsResponse
+    -- ** Response constructor
+    , mkAddJobFlowStepsResponse
     -- ** Response lenses
     , ajfsrStepIds
     ) where
@@ -113,6 +115,15 @@ instance ToJSON AddJobFlowSteps
 newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsrStepIds :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddJobFlowStepsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddJobFlowStepsResponse :: AddJobFlowStepsResponse
+mkAddJobFlowStepsResponse = AddJobFlowStepsResponse
+    { _ajfsrStepIds = mempty
+    }
 
 -- | The identifiers of the list of steps added to the job flow.
 ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]

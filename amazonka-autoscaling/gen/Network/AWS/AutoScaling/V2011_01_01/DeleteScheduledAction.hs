@@ -31,6 +31,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction
 
     -- * Response
     , DeleteScheduledActionResponse
+    -- ** Response constructor
+    , mkDeleteScheduledActionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,6 +70,13 @@ instance ToQuery DeleteScheduledAction where
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteScheduledActionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteScheduledActionResponse :: DeleteScheduledActionResponse
+mkDeleteScheduledActionResponse = DeleteScheduledActionResponse
 
 instance AWSRequest DeleteScheduledAction where
     type Sv DeleteScheduledAction = AutoScaling

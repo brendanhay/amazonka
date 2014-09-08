@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DisassociateRouteTable
 
     -- * Response
     , DisassociateRouteTableResponse
+    -- ** Response constructor
+    , mkDisassociateRouteTableResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,6 +72,13 @@ instance ToQuery DisassociateRouteTable where
 
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisassociateRouteTableResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisassociateRouteTableResponse :: DisassociateRouteTableResponse
+mkDisassociateRouteTableResponse = DisassociateRouteTableResponse
 
 instance AWSRequest DisassociateRouteTable where
     type Sv DisassociateRouteTable = EC2

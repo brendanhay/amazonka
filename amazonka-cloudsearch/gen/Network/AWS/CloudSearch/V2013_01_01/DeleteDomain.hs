@@ -31,6 +31,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteDomain
 
     -- * Response
     , DeleteDomainResponse
+    -- ** Response constructor
+    , mkDeleteDomainResponse
     -- ** Response lenses
     , ddrDomainStatus
     ) where
@@ -66,6 +68,15 @@ instance ToQuery DeleteDomain where
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteDomainResponse :: DeleteDomainResponse
+mkDeleteDomainResponse = DeleteDomainResponse
+    { _ddrDomainStatus = Nothing
+    }
 
 -- | The current status of the search domain.
 ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)

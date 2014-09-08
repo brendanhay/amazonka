@@ -34,6 +34,8 @@ module Network.AWS.IAM.V2010_05_08.CreateGroup
 
     -- * Response
     , CreateGroupResponse
+    -- ** Response constructor
+    , mkCreateGroupResponse
     -- ** Response lenses
     , cgrGroup
     ) where
@@ -74,6 +76,16 @@ instance ToQuery CreateGroup where
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateGroupResponse :: Group -- ^ 'cgrGroup'
+                      -> CreateGroupResponse
+mkCreateGroupResponse p1 = CreateGroupResponse
+    { _cgrGroup = p1
+    }
 
 -- | Information about the group.
 cgrGroup :: Lens' CreateGroupResponse Group

@@ -47,6 +47,8 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup
 
     -- * Response
     , ModifyDBParameterGroupResponse
+    -- ** Response constructor
+    , mkModifyDBParameterGroupResponse
     -- ** Response lenses
     , mdbpgrDBParameterGroupName
     ) where
@@ -98,6 +100,15 @@ instance ToQuery ModifyDBParameterGroup where
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyDBParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyDBParameterGroupResponse :: ModifyDBParameterGroupResponse
+mkModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
+    { _mdbpgrDBParameterGroupName = Nothing
+    }
 
 -- | The name of the DB parameter group.
 mdbpgrDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)

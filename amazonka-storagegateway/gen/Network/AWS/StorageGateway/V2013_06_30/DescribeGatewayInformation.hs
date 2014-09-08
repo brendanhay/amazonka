@@ -46,6 +46,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation
 
     -- * Response
     , DescribeGatewayInformationResponse
+    -- ** Response constructor
+    , mkDescribeGatewayInformationResponse
     -- ** Response lenses
     , dgirGatewayARN
     , dgirGatewayId
@@ -96,6 +98,21 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
     , _dgirGatewayType :: Maybe Text
     , _dgirNextUpdateAvailabilityDate :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeGatewayInformationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeGatewayInformationResponse :: DescribeGatewayInformationResponse
+mkDescribeGatewayInformationResponse = DescribeGatewayInformationResponse
+    { _dgirGatewayARN = Nothing
+    , _dgirGatewayId = Nothing
+    , _dgirGatewayTimezone = Nothing
+    , _dgirGatewayState = Nothing
+    , _dgirGatewayNetworkInterfaces = mempty
+    , _dgirGatewayType = Nothing
+    , _dgirNextUpdateAvailabilityDate = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

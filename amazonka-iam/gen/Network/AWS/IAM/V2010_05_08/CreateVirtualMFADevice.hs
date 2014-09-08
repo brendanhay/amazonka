@@ -44,6 +44,8 @@ module Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
 
     -- * Response
     , CreateVirtualMFADeviceResponse
+    -- ** Response constructor
+    , mkCreateVirtualMFADeviceResponse
     -- ** Response lenses
     , cvmfadrVirtualMFADevice
     ) where
@@ -88,6 +90,16 @@ instance ToQuery CreateVirtualMFADevice where
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice :: VirtualMFADevice
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVirtualMFADeviceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateVirtualMFADeviceResponse :: VirtualMFADevice -- ^ 'cvmfadrVirtualMFADevice'
+                                 -> CreateVirtualMFADeviceResponse
+mkCreateVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
+    { _cvmfadrVirtualMFADevice = p1
+    }
 
 -- | A newly created virtual MFA device.
 cvmfadrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice

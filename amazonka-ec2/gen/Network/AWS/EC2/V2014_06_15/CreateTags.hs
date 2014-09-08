@@ -42,6 +42,8 @@ module Network.AWS.EC2.V2014_06_15.CreateTags
 
     -- * Response
     , CreateTagsResponse
+    -- ** Response constructor
+    , mkCreateTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -79,6 +81,13 @@ instance ToQuery CreateTags where
 
 data CreateTagsResponse = CreateTagsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateTagsResponse :: CreateTagsResponse
+mkCreateTagsResponse = CreateTagsResponse
 
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2

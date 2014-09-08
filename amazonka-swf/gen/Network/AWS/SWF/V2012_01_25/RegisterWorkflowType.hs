@@ -70,6 +70,8 @@ module Network.AWS.SWF.V2012_01_25.RegisterWorkflowType
 
     -- * Response
     , RegisterWorkflowTypeResponse
+    -- ** Response constructor
+    , mkRegisterWorkflowTypeResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -187,6 +189,13 @@ instance ToJSON RegisterWorkflowType
 
 data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterWorkflowTypeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterWorkflowTypeResponse :: RegisterWorkflowTypeResponse
+mkRegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
 
 instance AWSRequest RegisterWorkflowType where
     type Sv RegisterWorkflowType = SWF

@@ -29,6 +29,8 @@ module Network.AWS.CloudTrail.V2013_11_01.StartLogging
 
     -- * Response
     , StartLoggingResponse
+    -- ** Response constructor
+    , mkStartLoggingResponse
     ) where
 
 import Network.AWS.CloudTrail.V2013_11_01.Types
@@ -64,6 +66,13 @@ instance ToJSON StartLogging
 -- an error.
 data StartLoggingResponse = StartLoggingResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartLoggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStartLoggingResponse :: StartLoggingResponse
+mkStartLoggingResponse = StartLoggingResponse
 
 instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail

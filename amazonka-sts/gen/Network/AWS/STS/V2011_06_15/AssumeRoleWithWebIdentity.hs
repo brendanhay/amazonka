@@ -95,6 +95,8 @@ module Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity
 
     -- * Response
     , AssumeRoleWithWebIdentityResponse
+    -- ** Response constructor
+    , mkAssumeRoleWithWebIdentityResponse
     -- ** Response lenses
     , arwwirCredentials
     , arwwirSubjectFromWebIdentityToken
@@ -194,6 +196,20 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     , _arwwirProvider :: Maybe Text
     , _arwwirAudience :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssumeRoleWithWebIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse
+mkAssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
+    { _arwwirCredentials = Nothing
+    , _arwwirSubjectFromWebIdentityToken = Nothing
+    , _arwwirAssumedRoleUser = Nothing
+    , _arwwirPackedPolicySize = Nothing
+    , _arwwirProvider = Nothing
+    , _arwwirAudience = Nothing
+    }
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security token.

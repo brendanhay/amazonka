@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.ResyncMFADevice
 
     -- * Response
     , ResyncMFADeviceResponse
+    -- ** Response constructor
+    , mkResyncMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -89,6 +91,13 @@ instance ToQuery ResyncMFADevice where
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResyncMFADeviceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResyncMFADeviceResponse :: ResyncMFADeviceResponse
+mkResyncMFADeviceResponse = ResyncMFADeviceResponse
 
 instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM

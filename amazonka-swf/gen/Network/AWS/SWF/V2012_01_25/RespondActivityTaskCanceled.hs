@@ -65,6 +65,8 @@ module Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled
 
     -- * Response
     , RespondActivityTaskCanceledResponse
+    -- ** Response constructor
+    , mkRespondActivityTaskCanceledResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -106,6 +108,13 @@ instance ToJSON RespondActivityTaskCanceled
 
 data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RespondActivityTaskCanceledResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRespondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse
+mkRespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
 
 instance AWSRequest RespondActivityTaskCanceled where
     type Sv RespondActivityTaskCanceled = SWF

@@ -35,6 +35,8 @@ module Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute
 
     -- * Response
     , ModifyVpcAttributeResponse
+    -- ** Response constructor
+    , mkModifyVpcAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -85,6 +87,13 @@ instance ToQuery ModifyVpcAttribute where
 
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyVpcAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyVpcAttributeResponse :: ModifyVpcAttributeResponse
+mkModifyVpcAttributeResponse = ModifyVpcAttributeResponse
 
 instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2

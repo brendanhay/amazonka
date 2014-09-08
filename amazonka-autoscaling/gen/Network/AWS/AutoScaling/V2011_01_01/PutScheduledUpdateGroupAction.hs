@@ -53,6 +53,8 @@ module Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction
 
     -- * Response
     , PutScheduledUpdateGroupActionResponse
+    -- ** Response constructor
+    , mkPutScheduledUpdateGroupActionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -145,6 +147,13 @@ instance ToQuery PutScheduledUpdateGroupAction where
 
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutScheduledUpdateGroupActionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
+mkPutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
 
 instance AWSRequest PutScheduledUpdateGroupAction where
     type Sv PutScheduledUpdateGroupAction = AutoScaling

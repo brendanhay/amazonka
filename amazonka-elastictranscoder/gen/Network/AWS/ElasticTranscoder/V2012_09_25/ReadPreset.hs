@@ -55,6 +55,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset
 
     -- * Response
     , ReadPresetResponse
+    -- ** Response constructor
+    , mkReadPresetResponse
     -- ** Response lenses
     , rprrPreset
     ) where
@@ -97,6 +99,15 @@ instance ToJSON ReadPreset
 newtype ReadPresetResponse = ReadPresetResponse
     { _rprrPreset :: Maybe Preset
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadPresetResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReadPresetResponse :: ReadPresetResponse
+mkReadPresetResponse = ReadPresetResponse
+    { _rprrPreset = Nothing
+    }
 
 -- | A section of the response body that provides information about the preset.
 rprrPreset :: Lens' ReadPresetResponse (Maybe Preset)

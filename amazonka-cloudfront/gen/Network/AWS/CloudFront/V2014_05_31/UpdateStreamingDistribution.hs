@@ -31,6 +31,8 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution
 
     -- * Response
     , UpdateStreamingDistributionResponse
+    -- ** Response constructor
+    , mkUpdateStreamingDistributionResponse
     -- ** Response lenses
     , usdrStreamingDistribution
     , usdrETag
@@ -97,6 +99,16 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrStreamingDistribution :: Maybe StreamingDistribution
     , _usdrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateStreamingDistributionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateStreamingDistributionResponse :: UpdateStreamingDistributionResponse
+mkUpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
+    { _usdrStreamingDistribution = Nothing
+    , _usdrETag = Nothing
+    }
 
 -- | The streaming distribution's information.
 usdrStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)

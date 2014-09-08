@@ -39,6 +39,8 @@ module Network.AWS.ELB.V2012_06_01.AddTags
 
     -- * Response
     , AddTagsResponse
+    -- ** Response constructor
+    , mkAddTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -77,6 +79,13 @@ instance ToQuery AddTags where
 -- | The output for the AddTags action.
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddTagsResponse :: AddTagsResponse
+mkAddTagsResponse = AddTagsResponse
 
 instance AWSRequest AddTags where
     type Sv AddTags = ELB

@@ -31,6 +31,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketNotification
 
     -- * Response
     , PutBucketNotificationResponse
+    -- ** Response constructor
+    , mkPutBucketNotificationResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -87,6 +89,13 @@ instance ToBody PutBucketNotification where
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketNotificationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketNotificationResponse :: PutBucketNotificationResponse
+mkPutBucketNotificationResponse = PutBucketNotificationResponse
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3

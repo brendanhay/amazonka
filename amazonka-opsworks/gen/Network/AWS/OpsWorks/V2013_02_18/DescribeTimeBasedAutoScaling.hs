@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling
 
     -- * Response
     , DescribeTimeBasedAutoScalingResponse
+    -- ** Response constructor
+    , mkDescribeTimeBasedAutoScalingResponse
     -- ** Response lenses
     , dtbasrTimeBasedAutoScalingConfigurations
     ) where
@@ -71,6 +73,15 @@ instance ToJSON DescribeTimeBasedAutoScaling
 newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
     { _dtbasrTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTimeBasedAutoScalingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse
+mkDescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
+    { _dtbasrTimeBasedAutoScalingConfigurations = mempty
+    }
 
 -- | An array of TimeBasedAutoScalingConfiguration objects that describe the
 -- configuration for the specified instances.

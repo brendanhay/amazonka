@@ -53,6 +53,8 @@ module Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth
 
     -- * Response
     , DescribeInstanceHealthResponse
+    -- ** Response constructor
+    , mkDescribeInstanceHealthResponse
     -- ** Response lenses
     , dihrInstanceStates
     ) where
@@ -92,6 +94,15 @@ instance ToQuery DescribeInstanceHealth where
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates :: [InstanceState]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstanceHealthResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeInstanceHealthResponse :: DescribeInstanceHealthResponse
+mkDescribeInstanceHealthResponse = DescribeInstanceHealthResponse
+    { _dihrInstanceStates = mempty
+    }
 
 -- | A list containing health information for the specified instances.
 dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]

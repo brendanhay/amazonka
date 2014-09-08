@@ -80,6 +80,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateConfigurationTemplate
 
     -- * Response
     , UpdateConfigurationTemplateResponse
+    -- ** Response constructor
+    , mkUpdateConfigurationTemplateResponse
     -- ** Response lenses
     , uctrSolutionStackName
     , uctrApplicationName
@@ -162,6 +164,23 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     , _uctrDateUpdated :: Maybe ISO8601
     , _uctrOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateConfigurationTemplateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateConfigurationTemplateResponse :: UpdateConfigurationTemplateResponse
+mkUpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
+    { _uctrSolutionStackName = Nothing
+    , _uctrApplicationName = Nothing
+    , _uctrTemplateName = Nothing
+    , _uctrDescription = Nothing
+    , _uctrEnvironmentName = Nothing
+    , _uctrDeploymentStatus = Nothing
+    , _uctrDateCreated = Nothing
+    , _uctrDateUpdated = Nothing
+    , _uctrOptionSettings = mempty
+    }
 
 -- | The name of the solution stack this configuration set uses.
 uctrSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)

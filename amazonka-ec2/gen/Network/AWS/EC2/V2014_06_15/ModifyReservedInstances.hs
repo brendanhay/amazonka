@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.ModifyReservedInstances
 
     -- * Response
     , ModifyReservedInstancesResponse
+    -- ** Response constructor
+    , mkModifyReservedInstancesResponse
     -- ** Response lenses
     , mrirReservedInstancesModificationId
     ) where
@@ -93,6 +95,15 @@ instance ToQuery ModifyReservedInstances where
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyReservedInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyReservedInstancesResponse :: ModifyReservedInstancesResponse
+mkModifyReservedInstancesResponse = ModifyReservedInstancesResponse
+    { _mrirReservedInstancesModificationId = Nothing
+    }
 
 -- | The ID for the modification.
 mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)

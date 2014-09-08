@@ -60,6 +60,8 @@ module Network.AWS.SWF.V2012_01_25.DeprecateActivityType
 
     -- * Response
     , DeprecateActivityTypeResponse
+    -- ** Response constructor
+    , mkDeprecateActivityTypeResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -99,6 +101,13 @@ instance ToJSON DeprecateActivityType
 
 data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeprecateActivityTypeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeprecateActivityTypeResponse :: DeprecateActivityTypeResponse
+mkDeprecateActivityTypeResponse = DeprecateActivityTypeResponse
 
 instance AWSRequest DeprecateActivityType where
     type Sv DeprecateActivityType = SWF

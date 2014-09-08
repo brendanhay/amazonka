@@ -62,6 +62,8 @@ module Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
 
     -- * Response
     , ListWorkflowTypesResponse
+    -- ** Response constructor
+    , mkListWorkflowTypesResponse
     -- ** Response lenses
     , lwtrTypeInfos
     , lwtrNextPageToken
@@ -142,6 +144,17 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse
     { _lwtrTypeInfos :: [WorkflowTypeInfo]
     , _lwtrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListWorkflowTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListWorkflowTypesResponse :: [WorkflowTypeInfo] -- ^ 'lwtrTypeInfos'
+                            -> ListWorkflowTypesResponse
+mkListWorkflowTypesResponse p1 = ListWorkflowTypesResponse
+    { _lwtrTypeInfos = p1
+    , _lwtrNextPageToken = Nothing
+    }
 
 -- | The list of workflow type information.
 lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]

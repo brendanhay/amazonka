@@ -58,6 +58,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams
 
     -- * Response
     , DescribeLogStreamsResponse
+    -- ** Response constructor
+    , mkDescribeLogStreamsResponse
     -- ** Response lenses
     , dlsrLogStreams
     , dlsrNextToken
@@ -117,6 +119,16 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams :: [LogStream]
     , _dlsrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLogStreamsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLogStreamsResponse :: DescribeLogStreamsResponse
+mkDescribeLogStreamsResponse = DescribeLogStreamsResponse
+    { _dlsrLogStreams = mempty
+    , _dlsrNextToken = Nothing
+    }
 
 -- | A list of log streams.
 dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]

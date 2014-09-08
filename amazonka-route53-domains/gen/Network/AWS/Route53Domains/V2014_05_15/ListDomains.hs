@@ -49,6 +49,8 @@ module Network.AWS.Route53Domains.V2014_05_15.ListDomains
 
     -- * Response
     , ListDomainsResponse
+    -- ** Response constructor
+    , mkListDomainsResponse
     -- ** Response lenses
     , ldrDomains
     , ldrNextPageMarker
@@ -101,6 +103,17 @@ data ListDomainsResponse = ListDomainsResponse
     { _ldrDomains :: [DomainSummary]
     , _ldrNextPageMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDomainsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListDomainsResponse :: [DomainSummary] -- ^ 'ldrDomains'
+                      -> ListDomainsResponse
+mkListDomainsResponse p1 = ListDomainsResponse
+    { _ldrDomains = p1
+    , _ldrNextPageMarker = Nothing
+    }
 
 -- | A summary of domains. Type: Complex type containing a list of domain
 -- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.

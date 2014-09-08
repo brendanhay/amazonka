@@ -36,6 +36,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetId
 
     -- * Response
     , GetIdResponse
+    -- ** Response constructor
+    , mkGetIdResponse
     -- ** Response lenses
     , girIdentityId
     ) where
@@ -88,6 +90,15 @@ instance ToJSON GetId
 newtype GetIdResponse = GetIdResponse
     { _girIdentityId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetIdResponse :: GetIdResponse
+mkGetIdResponse = GetIdResponse
+    { _girIdentityId = Nothing
+    }
 
 -- | A unique identifier in the format REGION:GUID.
 girIdentityId :: Lens' GetIdResponse (Maybe Text)

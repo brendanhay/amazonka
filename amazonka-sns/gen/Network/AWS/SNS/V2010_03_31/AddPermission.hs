@@ -47,6 +47,8 @@ module Network.AWS.SNS.V2010_03_31.AddPermission
 
     -- * Response
     , AddPermissionResponse
+    -- ** Response constructor
+    , mkAddPermissionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -98,6 +100,13 @@ instance ToQuery AddPermission where
 
 data AddPermissionResponse = AddPermissionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddPermissionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddPermissionResponse :: AddPermissionResponse
+mkAddPermissionResponse = AddPermissionResponse
 
 instance AWSRequest AddPermission where
     type Sv AddPermission = SNS

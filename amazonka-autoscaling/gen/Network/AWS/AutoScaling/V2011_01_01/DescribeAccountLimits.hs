@@ -34,6 +34,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits
     , mkDescribeAccountLimits
     -- * Response
     , DescribeAccountLimitsResponse
+    -- ** Response constructor
+    , mkDescribeAccountLimitsResponse
     -- ** Response lenses
     , dalrMaxNumberOfAutoScalingGroups
     , dalrMaxNumberOfLaunchConfigurations
@@ -59,6 +61,16 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups :: Maybe Integer
     , _dalrMaxNumberOfLaunchConfigurations :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAccountLimitsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAccountLimitsResponse :: DescribeAccountLimitsResponse
+mkDescribeAccountLimitsResponse = DescribeAccountLimitsResponse
+    { _dalrMaxNumberOfAutoScalingGroups = Nothing
+    , _dalrMaxNumberOfLaunchConfigurations = Nothing
+    }
 
 -- | The maximum number of Auto Scaling groups allowed for your AWS account.
 dalrMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Integer)

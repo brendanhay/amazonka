@@ -42,6 +42,8 @@ module Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction
 
     -- * Response
     , CompleteLifecycleActionResponse
+    -- ** Response constructor
+    , mkCompleteLifecycleActionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -102,6 +104,13 @@ instance ToQuery CompleteLifecycleAction where
 -- | The output of the CompleteLifecycleAction.
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CompleteLifecycleActionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCompleteLifecycleActionResponse :: CompleteLifecycleActionResponse
+mkCompleteLifecycleActionResponse = CompleteLifecycleActionResponse
 
 instance AWSRequest CompleteLifecycleAction where
     type Sv CompleteLifecycleAction = AutoScaling

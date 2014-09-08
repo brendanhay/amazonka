@@ -49,6 +49,8 @@ module Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm
 
     -- * Response
     , PutMetricAlarmResponse
+    -- ** Response constructor
+    , mkPutMetricAlarmResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -187,6 +189,13 @@ instance ToQuery PutMetricAlarm where
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutMetricAlarmResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutMetricAlarmResponse :: PutMetricAlarmResponse
+mkPutMetricAlarmResponse = PutMetricAlarmResponse
 
 instance AWSRequest PutMetricAlarm where
     type Sv PutMetricAlarm = CloudWatch

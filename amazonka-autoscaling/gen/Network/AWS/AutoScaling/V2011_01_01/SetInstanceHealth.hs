@@ -33,6 +33,8 @@ module Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth
 
     -- * Response
     , SetInstanceHealthResponse
+    -- ** Response constructor
+    , mkSetInstanceHealthResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -83,6 +85,13 @@ instance ToQuery SetInstanceHealth where
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetInstanceHealthResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetInstanceHealthResponse :: SetInstanceHealthResponse
+mkSetInstanceHealthResponse = SetInstanceHealthResponse
 
 instance AWSRequest SetInstanceHealth where
     type Sv SetInstanceHealth = AutoScaling

@@ -42,6 +42,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSecurityGroups
 
     -- * Response
     , DescribeClusterSecurityGroupsResponse
+    -- ** Response constructor
+    , mkDescribeClusterSecurityGroupsResponse
     -- ** Response lenses
     , dcsgrMarker
     , dcsgrClusterSecurityGroups
@@ -101,6 +103,16 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
     { _dcsgrMarker :: Maybe Text
     , _dcsgrClusterSecurityGroups :: [ClusterSecurityGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterSecurityGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
+mkDescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
+    { _dcsgrMarker = Nothing
+    , _dcsgrClusterSecurityGroups = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

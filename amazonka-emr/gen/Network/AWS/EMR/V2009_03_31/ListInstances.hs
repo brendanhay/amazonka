@@ -36,6 +36,8 @@ module Network.AWS.EMR.V2009_03_31.ListInstances
 
     -- * Response
     , ListInstancesResponse
+    -- ** Response constructor
+    , mkListInstancesResponse
     -- ** Response lenses
     , lirInstances
     , lirMarker
@@ -95,6 +97,16 @@ data ListInstancesResponse = ListInstancesResponse
     { _lirInstances :: [Instance]
     , _lirMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListInstancesResponse :: ListInstancesResponse
+mkListInstancesResponse = ListInstancesResponse
+    { _lirInstances = mempty
+    , _lirMarker = Nothing
+    }
 
 -- | The list of instances for the cluster and given filters.
 lirInstances :: Lens' ListInstancesResponse [Instance]

@@ -60,6 +60,8 @@ module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
 
     -- * Response
     , DecodeAuthorizationMessageResponse
+    -- ** Response constructor
+    , mkDecodeAuthorizationMessageResponse
     -- ** Response lenses
     , damrDecodedMessage
     ) where
@@ -94,6 +96,15 @@ instance ToQuery DecodeAuthorizationMessage where
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DecodeAuthorizationMessageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDecodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse
+mkDecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
+    { _damrDecodedMessage = Nothing
+    }
 
 -- | An XML document that contains the decoded message. For more information,
 -- see DecodeAuthorizationMessage.

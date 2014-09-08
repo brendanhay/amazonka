@@ -47,6 +47,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeOrderableDBInstanceOptions
 
     -- * Response
     , DescribeOrderableDBInstanceOptionsResponse
+    -- ** Response constructor
+    , mkDescribeOrderableDBInstanceOptionsResponse
     -- ** Response lenses
     , dodbiorOrderableDBInstanceOptions
     , dodbiorMarker
@@ -132,6 +134,16 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
     { _dodbiorOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
     , _dodbiorMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeOrderableDBInstanceOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
+mkDescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
+    { _dodbiorOrderableDBInstanceOptions = mempty
+    , _dodbiorMarker = Nothing
+    }
 
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.

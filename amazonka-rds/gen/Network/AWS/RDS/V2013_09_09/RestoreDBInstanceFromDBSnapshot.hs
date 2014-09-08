@@ -53,6 +53,8 @@ module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceFromDBSnapshot
 
     -- * Response
     , RestoreDBInstanceFromDBSnapshotResponse
+    -- ** Response constructor
+    , mkRestoreDBInstanceFromDBSnapshotResponse
     -- ** Response lenses
     , rdbifdbsrDBInstance
     ) where
@@ -228,6 +230,15 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot where
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestoreDBInstanceFromDBSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRestoreDBInstanceFromDBSnapshotResponse :: RestoreDBInstanceFromDBSnapshotResponse
+mkRestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
+    { _rdbifdbsrDBInstance = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used

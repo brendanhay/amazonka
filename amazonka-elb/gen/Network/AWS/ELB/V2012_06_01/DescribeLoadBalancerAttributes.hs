@@ -34,6 +34,8 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes
 
     -- * Response
     , DescribeLoadBalancerAttributesResponse
+    -- ** Response constructor
+    , mkDescribeLoadBalancerAttributesResponse
     -- ** Response lenses
     , dlbarLoadBalancerAttributes
     ) where
@@ -68,6 +70,15 @@ instance ToQuery DescribeLoadBalancerAttributes where
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancerAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse
+mkDescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
+    { _dlbarLoadBalancerAttributes = Nothing
+    }
 
 -- | The load balancer attributes structure.
 dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)

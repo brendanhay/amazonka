@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.GetUser
 
     -- * Response
     , GetUserResponse
+    -- ** Response constructor
+    , mkGetUserResponse
     -- ** Response lenses
     , gurUser
     ) where
@@ -68,6 +70,16 @@ instance ToQuery GetUser where
 newtype GetUserResponse = GetUserResponse
     { _gurUser :: User
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetUserResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetUserResponse :: User -- ^ 'gurUser'
+                  -> GetUserResponse
+mkGetUserResponse p1 = GetUserResponse
+    { _gurUser = p1
+    }
 
 -- | Information about the user.
 gurUser :: Lens' GetUserResponse User

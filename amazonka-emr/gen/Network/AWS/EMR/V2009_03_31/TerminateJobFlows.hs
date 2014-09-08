@@ -50,6 +50,8 @@ module Network.AWS.EMR.V2009_03_31.TerminateJobFlows
 
     -- * Response
     , TerminateJobFlowsResponse
+    -- ** Response constructor
+    , mkTerminateJobFlowsResponse
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -83,6 +85,13 @@ instance ToJSON TerminateJobFlows
 
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateJobFlowsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTerminateJobFlowsResponse :: TerminateJobFlowsResponse
+mkTerminateJobFlowsResponse = TerminateJobFlowsResponse
 
 instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR

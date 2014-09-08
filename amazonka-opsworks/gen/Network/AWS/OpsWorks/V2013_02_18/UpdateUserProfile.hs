@@ -35,6 +35,8 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateUserProfile
 
     -- * Response
     , UpdateUserProfileResponse
+    -- ** Response constructor
+    , mkUpdateUserProfileResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -91,6 +93,13 @@ instance ToJSON UpdateUserProfile
 
 data UpdateUserProfileResponse = UpdateUserProfileResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateUserProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateUserProfileResponse :: UpdateUserProfileResponse
+mkUpdateUserProfileResponse = UpdateUserProfileResponse
 
 instance AWSRequest UpdateUserProfile where
     type Sv UpdateUserProfile = OpsWorks

@@ -138,6 +138,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstances
 
     -- * Response
     , DescribeInstancesResponse
+    -- ** Response constructor
+    , mkDescribeInstancesResponse
     -- ** Response lenses
     , dirrReservations
     , dirrNextToken
@@ -313,6 +315,16 @@ data DescribeInstancesResponse = DescribeInstancesResponse
     { _dirrReservations :: [Reservation]
     , _dirrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeInstancesResponse :: DescribeInstancesResponse
+mkDescribeInstancesResponse = DescribeInstancesResponse
+    { _dirrReservations = mempty
+    , _dirrNextToken = Nothing
+    }
 
 -- | One or more reservations.
 dirrReservations :: Lens' DescribeInstancesResponse [Reservation]

@@ -38,6 +38,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
 
     -- * Response
     , DescribeIdentityPoolResponse
+    -- ** Response constructor
+    , mkDescribeIdentityPoolResponse
     -- ** Response lenses
     , diprIdentityPoolId
     , diprIdentityPoolName
@@ -82,6 +84,21 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
     , _diprAllowUnauthenticatedIdentities :: Bool
     , _diprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeIdentityPoolResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeIdentityPoolResponse :: Text -- ^ 'diprIdentityPoolId'
+                               -> Text -- ^ 'diprIdentityPoolName'
+                               -> Bool -- ^ 'diprAllowUnauthenticatedIdentities'
+                               -> DescribeIdentityPoolResponse
+mkDescribeIdentityPoolResponse p1 p2 p3 = DescribeIdentityPoolResponse
+    { _diprIdentityPoolId = p1
+    , _diprIdentityPoolName = p2
+    , _diprAllowUnauthenticatedIdentities = p3
+    , _diprSupportedLoginProviders = mempty
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 diprIdentityPoolId :: Lens' DescribeIdentityPoolResponse Text

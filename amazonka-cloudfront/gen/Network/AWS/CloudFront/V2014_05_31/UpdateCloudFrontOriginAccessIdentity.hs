@@ -31,6 +31,8 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity
 
     -- * Response
     , UpdateCloudFrontOriginAccessIdentityResponse
+    -- ** Response constructor
+    , mkUpdateCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
     , ucfoairCloudFrontOriginAccessIdentity
     , ucfoairETag
@@ -97,6 +99,16 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
     { _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ucfoairETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateCloudFrontOriginAccessIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateCloudFrontOriginAccessIdentityResponse :: UpdateCloudFrontOriginAccessIdentityResponse
+mkUpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
+    { _ucfoairCloudFrontOriginAccessIdentity = Nothing
+    , _ucfoairETag = Nothing
+    }
 
 -- | The origin access identity's information.
 ucfoairCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)

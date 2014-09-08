@@ -54,6 +54,8 @@ module Network.AWS.SWF.V2012_01_25.ListActivityTypes
 
     -- * Response
     , ListActivityTypesResponse
+    -- ** Response constructor
+    , mkListActivityTypesResponse
     -- ** Response lenses
     , latrTypeInfos
     , latrNextPageToken
@@ -134,6 +136,17 @@ data ListActivityTypesResponse = ListActivityTypesResponse
     { _latrTypeInfos :: [ActivityTypeInfo]
     , _latrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListActivityTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListActivityTypesResponse :: [ActivityTypeInfo] -- ^ 'latrTypeInfos'
+                            -> ListActivityTypesResponse
+mkListActivityTypesResponse p1 = ListActivityTypesResponse
+    { _latrTypeInfos = p1
+    , _latrNextPageToken = Nothing
+    }
 
 -- | List of activity type information.
 latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]

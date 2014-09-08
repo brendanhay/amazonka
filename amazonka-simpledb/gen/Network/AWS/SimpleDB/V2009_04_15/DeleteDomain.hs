@@ -33,6 +33,8 @@ module Network.AWS.SimpleDB.V2009_04_15.DeleteDomain
 
     -- * Response
     , DeleteDomainResponse
+    -- ** Response constructor
+    , mkDeleteDomainResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,6 +62,13 @@ instance ToQuery DeleteDomain where
 
 data DeleteDomainResponse = DeleteDomainResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteDomainResponse :: DeleteDomainResponse
+mkDeleteDomainResponse = DeleteDomainResponse
 
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = SimpleDB

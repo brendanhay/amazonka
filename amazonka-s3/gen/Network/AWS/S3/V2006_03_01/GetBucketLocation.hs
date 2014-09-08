@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketLocation
 
     -- * Response
     , GetBucketLocationResponse
+    -- ** Response constructor
+    , mkGetBucketLocationResponse
     -- ** Response lenses
     , gblrrLocationConstraint
     ) where
@@ -71,6 +73,15 @@ instance ToBody GetBucketLocation
 newtype GetBucketLocationResponse = GetBucketLocationResponse
     { _gblrrLocationConstraint :: Maybe Region
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketLocationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketLocationResponse :: GetBucketLocationResponse
+mkGetBucketLocationResponse = GetBucketLocationResponse
+    { _gblrrLocationConstraint = Nothing
+    }
 
 gblrrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 gblrrLocationConstraint =

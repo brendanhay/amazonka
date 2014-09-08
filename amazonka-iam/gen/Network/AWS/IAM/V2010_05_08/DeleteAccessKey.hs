@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteAccessKey
 
     -- * Response
     , DeleteAccessKeyResponse
+    -- ** Response constructor
+    , mkDeleteAccessKeyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -71,6 +73,13 @@ instance ToQuery DeleteAccessKey where
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAccessKeyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAccessKeyResponse :: DeleteAccessKeyResponse
+mkDeleteAccessKeyResponse = DeleteAccessKeyResponse
 
 instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM

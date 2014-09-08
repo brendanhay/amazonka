@@ -33,6 +33,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeEventSubscriptions
 
     -- * Response
     , DescribeEventSubscriptionsResponse
+    -- ** Response constructor
+    , mkDescribeEventSubscriptionsResponse
     -- ** Response lenses
     , desrMarker
     , desrEventSubscriptionsList
@@ -89,6 +91,16 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrMarker :: Maybe Text
     , _desrEventSubscriptionsList :: [EventSubscription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventSubscriptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
+mkDescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
+    { _desrMarker = Nothing
+    , _desrEventSubscriptionsList = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

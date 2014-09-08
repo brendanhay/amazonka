@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeRouteTables
 
     -- * Response
     , DescribeRouteTablesResponse
+    -- ** Response constructor
+    , mkDescribeRouteTablesResponse
     -- ** Response lenses
     , drtrRouteTables
     ) where
@@ -102,6 +104,15 @@ instance ToQuery DescribeRouteTables where
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: [RouteTable]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRouteTablesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeRouteTablesResponse :: DescribeRouteTablesResponse
+mkDescribeRouteTablesResponse = DescribeRouteTablesResponse
+    { _drtrRouteTables = mempty
+    }
 
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]

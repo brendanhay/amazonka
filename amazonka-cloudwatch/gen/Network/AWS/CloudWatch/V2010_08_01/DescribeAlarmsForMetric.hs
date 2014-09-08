@@ -35,6 +35,8 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
 
     -- * Response
     , DescribeAlarmsForMetricResponse
+    -- ** Response constructor
+    , mkDescribeAlarmsForMetricResponse
     -- ** Response lenses
     , dafmrMetricAlarms
     ) where
@@ -98,6 +100,15 @@ instance ToQuery DescribeAlarmsForMetric where
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms :: [MetricAlarm]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAlarmsForMetricResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
+mkDescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
+    { _dafmrMetricAlarms = mempty
+    }
 
 -- | A list of information for each alarm with the specified metric.
 dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]

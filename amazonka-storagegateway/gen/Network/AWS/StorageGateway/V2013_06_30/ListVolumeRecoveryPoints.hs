@@ -53,6 +53,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
 
     -- * Response
     , ListVolumeRecoveryPointsResponse
+    -- ** Response constructor
+    , mkListVolumeRecoveryPointsResponse
     -- ** Response lenses
     , lvrprGatewayARN
     , lvrprVolumeRecoveryPointInfos
@@ -91,6 +93,16 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     { _lvrprGatewayARN :: Maybe Text
     , _lvrprVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVolumeRecoveryPointsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
+mkListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
+    { _lvrprGatewayARN = Nothing
+    , _lvrprVolumeRecoveryPointInfos = mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

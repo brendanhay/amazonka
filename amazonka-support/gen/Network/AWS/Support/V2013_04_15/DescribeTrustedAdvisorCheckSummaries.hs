@@ -32,6 +32,8 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
 
     -- * Response
     , DescribeTrustedAdvisorCheckSummariesResponse
+    -- ** Response constructor
+    , mkDescribeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
     , dtacsrSummaries
     ) where
@@ -70,6 +72,16 @@ instance ToJSON DescribeTrustedAdvisorCheckSummaries
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
     { _dtacsrSummaries :: [TrustedAdvisorCheckSummary]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrustedAdvisorCheckSummariesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTrustedAdvisorCheckSummariesResponse :: [TrustedAdvisorCheckSummary] -- ^ 'dtacsrSummaries'
+                                               -> DescribeTrustedAdvisorCheckSummariesResponse
+mkDescribeTrustedAdvisorCheckSummariesResponse p1 = DescribeTrustedAdvisorCheckSummariesResponse
+    { _dtacsrSummaries = p1
+    }
 
 -- | The summary information for the requested Trusted Advisor checks.
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]

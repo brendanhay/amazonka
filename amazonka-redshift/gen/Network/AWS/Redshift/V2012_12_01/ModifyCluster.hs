@@ -66,6 +66,8 @@ module Network.AWS.Redshift.V2012_12_01.ModifyCluster
 
     -- * Response
     , ModifyClusterResponse
+    -- ** Response constructor
+    , mkModifyClusterResponse
     -- ** Response lenses
     , mcrCluster
     ) where
@@ -270,6 +272,15 @@ instance ToQuery ModifyCluster where
 newtype ModifyClusterResponse = ModifyClusterResponse
     { _mcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyClusterResponse :: ModifyClusterResponse
+mkModifyClusterResponse = ModifyClusterResponse
+    { _mcrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)

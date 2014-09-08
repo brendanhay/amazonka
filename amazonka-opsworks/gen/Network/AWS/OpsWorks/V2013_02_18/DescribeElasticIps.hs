@@ -35,6 +35,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps
 
     -- * Response
     , DescribeElasticIpsResponse
+    -- ** Response constructor
+    , mkDescribeElasticIpsResponse
     -- ** Response lenses
     , deirElasticIps
     ) where
@@ -89,6 +91,15 @@ instance ToJSON DescribeElasticIps
 newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
     { _deirElasticIps :: [ElasticIp]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeElasticIpsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeElasticIpsResponse :: DescribeElasticIpsResponse
+mkDescribeElasticIpsResponse = DescribeElasticIpsResponse
+    { _deirElasticIps = mempty
+    }
 
 -- | An ElasticIps object that describes the specified Elastic IP addresses.
 deirElasticIps :: Lens' DescribeElasticIpsResponse [ElasticIp]

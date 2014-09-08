@@ -70,6 +70,8 @@ module Network.AWS.SWF.V2012_01_25.ListDomains
 
     -- * Response
     , ListDomainsResponse
+    -- ** Response constructor
+    , mkListDomainsResponse
     -- ** Response lenses
     , ldrDomainInfos
     , ldrNextPageToken
@@ -137,6 +139,17 @@ data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainInfos :: [DomainInfo]
     , _ldrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDomainsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListDomainsResponse :: [DomainInfo] -- ^ 'ldrDomainInfos'
+                      -> ListDomainsResponse
+mkListDomainsResponse p1 = ListDomainsResponse
+    { _ldrDomainInfos = p1
+    , _ldrNextPageToken = Nothing
+    }
 
 -- | A list of DomainInfo structures.
 ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]

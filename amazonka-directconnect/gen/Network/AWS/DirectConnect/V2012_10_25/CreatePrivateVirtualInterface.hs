@@ -32,6 +32,8 @@ module Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface
 
     -- * Response
     , CreatePrivateVirtualInterfaceResponse
+    -- ** Response constructor
+    , mkCreatePrivateVirtualInterfaceResponse
     -- ** Response lenses
     , cpvir1OwnerAccount
     , cpvir1VirtualInterfaceId
@@ -110,6 +112,29 @@ data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceRespon
     , _cpvir1VirtualGatewayId :: Maybe Text
     , _cpvir1RouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePrivateVirtualInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreatePrivateVirtualInterfaceResponse :: CreatePrivateVirtualInterfaceResponse
+mkCreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceResponse
+    { _cpvir1OwnerAccount = Nothing
+    , _cpvir1VirtualInterfaceId = Nothing
+    , _cpvir1Location = Nothing
+    , _cpvir1ConnectionId = Nothing
+    , _cpvir1VirtualInterfaceType = Nothing
+    , _cpvir1VirtualInterfaceName = Nothing
+    , _cpvir1Vlan = Nothing
+    , _cpvir1Asn = Nothing
+    , _cpvir1AuthKey = Nothing
+    , _cpvir1AmazonAddress = Nothing
+    , _cpvir1CustomerAddress = Nothing
+    , _cpvir1VirtualInterfaceState = Nothing
+    , _cpvir1CustomerRouterConfig = Nothing
+    , _cpvir1VirtualGatewayId = Nothing
+    , _cpvir1RouteFilterPrefixes = mempty
+    }
 
 cpvir1OwnerAccount :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 cpvir1OwnerAccount =

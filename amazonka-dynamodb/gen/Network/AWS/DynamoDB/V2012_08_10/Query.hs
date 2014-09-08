@@ -61,6 +61,8 @@ module Network.AWS.DynamoDB.V2012_08_10.Query
 
     -- * Response
     , QueryResponse
+    -- ** Response constructor
+    , mkQueryResponse
     -- ** Response lenses
     , qrItems
     , qrCount
@@ -305,6 +307,19 @@ data QueryResponse = QueryResponse
     , _qrLastEvaluatedKey :: Map Text AttributeValue
     , _qrConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'QueryResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkQueryResponse :: QueryResponse
+mkQueryResponse = QueryResponse
+    { _qrItems = mempty
+    , _qrCount = Nothing
+    , _qrScannedCount = Nothing
+    , _qrLastEvaluatedKey = mempty
+    , _qrConsumedCapacity = Nothing
+    }
 
 -- | An array of item attributes that match the query criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.

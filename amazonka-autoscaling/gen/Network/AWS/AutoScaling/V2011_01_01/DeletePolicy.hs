@@ -30,6 +30,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DeletePolicy
 
     -- * Response
     , DeletePolicyResponse
+    -- ** Response constructor
+    , mkDeletePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,6 +67,13 @@ instance ToQuery DeletePolicy where
 
 data DeletePolicyResponse = DeletePolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeletePolicyResponse :: DeletePolicyResponse
+mkDeletePolicyResponse = DeletePolicyResponse
 
 instance AWSRequest DeletePolicy where
     type Sv DeletePolicy = AutoScaling

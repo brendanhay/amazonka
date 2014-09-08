@@ -51,6 +51,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets
 
     -- * Response
     , ListPresetsResponse
+    -- ** Response constructor
+    , mkListPresetsResponse
     -- ** Response lenses
     , lprrPresets
     , lprrNextPageToken
@@ -104,6 +106,16 @@ data ListPresetsResponse = ListPresetsResponse
     { _lprrPresets :: [Preset]
     , _lprrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPresetsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListPresetsResponse :: ListPresetsResponse
+mkListPresetsResponse = ListPresetsResponse
+    { _lprrPresets = mempty
+    , _lprrNextPageToken = Nothing
+    }
 
 -- | An array of Preset objects.
 lprrPresets :: Lens' ListPresetsResponse [Preset]

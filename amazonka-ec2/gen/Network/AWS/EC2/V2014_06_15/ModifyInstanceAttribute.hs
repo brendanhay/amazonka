@@ -70,6 +70,8 @@ module Network.AWS.EC2.V2014_06_15.ModifyInstanceAttribute
 
     -- * Response
     , ModifyInstanceAttributeResponse
+    -- ** Response constructor
+    , mkModifyInstanceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -211,6 +213,13 @@ instance ToQuery ModifyInstanceAttribute where
 
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyInstanceAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
+mkModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 
 instance AWSRequest ModifyInstanceAttribute where
     type Sv ModifyInstanceAttribute = EC2

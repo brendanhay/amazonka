@@ -657,7 +657,10 @@ data AccessPoliciesStatus = AccessPoliciesStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AccessPoliciesStatus' data type to populate a request.
+-- a valid 'AccessPoliciesStatus' data type.
+--
+-- 'AccessPoliciesStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAccessPoliciesStatus :: Text -- ^ 'apsOptions'
                        -> OptionStatus -- ^ 'apsStatus'
                        -> AccessPoliciesStatus
@@ -797,7 +800,10 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AnalysisSchemeStatus' data type to populate a request.
+-- a valid 'AnalysisSchemeStatus' data type.
+--
+-- 'AnalysisSchemeStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAnalysisSchemeStatus :: AnalysisScheme -- ^ 'assOptions'
                        -> OptionStatus -- ^ 'assStatus'
                        -> AnalysisSchemeStatus
@@ -829,7 +835,10 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AvailabilityOptionsStatus' data type to populate a request.
+-- a valid 'AvailabilityOptionsStatus' data type.
+--
+-- 'AvailabilityOptionsStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAvailabilityOptionsStatus :: Bool -- ^ 'aosOptions'
                             -> OptionStatus -- ^ 'aosStatus'
                             -> AvailabilityOptionsStatus
@@ -1025,7 +1034,10 @@ data DomainStatus = DomainStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DomainStatus' data type to populate a request.
+-- a valid 'DomainStatus' data type.
+--
+-- 'DomainStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDomainStatus :: Text -- ^ 'dsDomainId'
                -> Text -- ^ 'dsDomainName'
                -> Bool -- ^ 'dsRequiresIndexDocuments'
@@ -1270,7 +1282,10 @@ data ExpressionStatus = ExpressionStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ExpressionStatus' data type to populate a request.
+-- a valid 'ExpressionStatus' data type.
+--
+-- 'ExpressionStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkExpressionStatus :: Expression -- ^ 'esOptions'
                    -> OptionStatus -- ^ 'esStatus'
                    -> ExpressionStatus
@@ -1430,7 +1445,10 @@ data IndexFieldStatus = IndexFieldStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'IndexFieldStatus' data type to populate a request.
+-- a valid 'IndexFieldStatus' data type.
+--
+-- 'IndexFieldStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkIndexFieldStatus :: IndexField -- ^ 'ifsOptions'
                    -> OptionStatus -- ^ 'ifsStatus'
                    -> IndexFieldStatus
@@ -1835,7 +1853,10 @@ data ScalingParametersStatus = ScalingParametersStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ScalingParametersStatus' data type to populate a request.
+-- a valid 'ScalingParametersStatus' data type.
+--
+-- 'ScalingParametersStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkScalingParametersStatus :: ScalingParameters -- ^ 'spsOptions'
                           -> OptionStatus -- ^ 'spsStatus'
                           -> ScalingParametersStatus
@@ -1903,7 +1924,10 @@ data SuggesterStatus = SuggesterStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SuggesterStatus' data type to populate a request.
+-- a valid 'SuggesterStatus' data type.
+--
+-- 'SuggesterStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSuggesterStatus :: Suggester -- ^ 'ssOptions'
                   -> OptionStatus -- ^ 'ssStatus'
                   -> SuggesterStatus

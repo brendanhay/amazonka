@@ -41,6 +41,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot
 
     -- * Response
     , CreateClusterSnapshotResponse
+    -- ** Response constructor
+    , mkCreateClusterSnapshotResponse
     -- ** Response lenses
     , ccsrrSnapshot
     ) where
@@ -86,6 +88,15 @@ instance ToQuery CreateClusterSnapshot where
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsrrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateClusterSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateClusterSnapshotResponse :: CreateClusterSnapshotResponse
+mkCreateClusterSnapshotResponse = CreateClusterSnapshotResponse
+    { _ccsrrSnapshot = Nothing
+    }
 
 -- | Describes a snapshot.
 ccsrrSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)

@@ -35,6 +35,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineSuggester
 
     -- * Response
     , DefineSuggesterResponse
+    -- ** Response constructor
+    , mkDefineSuggesterResponse
     -- ** Response lenses
     , dsrSuggester
     ) where
@@ -82,6 +84,16 @@ instance ToQuery DefineSuggester where
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DefineSuggesterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDefineSuggesterResponse :: SuggesterStatus -- ^ 'dsrSuggester'
+                          -> DefineSuggesterResponse
+mkDefineSuggesterResponse p1 = DefineSuggesterResponse
+    { _dsrSuggester = p1
+    }
 
 -- | The value of a Suggester and its current status.
 dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus

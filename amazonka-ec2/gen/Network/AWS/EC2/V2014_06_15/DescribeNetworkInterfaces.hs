@@ -92,6 +92,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaces
 
     -- * Response
     , DescribeNetworkInterfacesResponse
+    -- ** Response constructor
+    , mkDescribeNetworkInterfacesResponse
     -- ** Response lenses
     , dnirNetworkInterfaces
     ) where
@@ -184,6 +186,15 @@ instance ToQuery DescribeNetworkInterfaces where
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: [NetworkInterface]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNetworkInterfacesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
+mkDescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
+    { _dnirNetworkInterfaces = mempty
+    }
 
 -- | Information about one or more network interfaces.
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]

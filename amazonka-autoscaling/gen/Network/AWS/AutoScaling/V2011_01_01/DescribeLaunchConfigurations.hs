@@ -39,6 +39,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations
 
     -- * Response
     , DescribeLaunchConfigurationsResponse
+    -- ** Response constructor
+    , mkDescribeLaunchConfigurationsResponse
     -- ** Response lenses
     , dlcrLaunchConfigurations
     , dlcrNextToken
@@ -86,6 +88,17 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations :: [LaunchConfiguration]
     , _dlcrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLaunchConfigurationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLaunchConfigurationsResponse :: [LaunchConfiguration] -- ^ 'dlcrLaunchConfigurations'
+                                       -> DescribeLaunchConfigurationsResponse
+mkDescribeLaunchConfigurationsResponse p1 = DescribeLaunchConfigurationsResponse
+    { _dlcrLaunchConfigurations = p1
+    , _dlcrNextToken = Nothing
+    }
 
 -- | A list of launch configurations.
 dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]

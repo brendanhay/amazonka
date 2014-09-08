@@ -46,6 +46,8 @@ module Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster
 
     -- * Response
     , RebootCacheClusterResponse
+    -- ** Response constructor
+    , mkRebootCacheClusterResponse
     -- ** Response lenses
     , rccrCacheCluster
     ) where
@@ -90,6 +92,15 @@ instance ToQuery RebootCacheCluster where
 newtype RebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootCacheClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRebootCacheClusterResponse :: RebootCacheClusterResponse
+mkRebootCacheClusterResponse = RebootCacheClusterResponse
+    { _rccrCacheCluster = Nothing
+    }
 
 -- | Contains all of the attributes of a specific cache cluster.
 rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)

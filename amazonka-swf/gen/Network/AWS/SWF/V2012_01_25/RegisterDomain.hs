@@ -56,6 +56,8 @@ module Network.AWS.SWF.V2012_01_25.RegisterDomain
 
     -- * Response
     , RegisterDomainResponse
+    -- ** Response constructor
+    , mkRegisterDomainResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -112,6 +114,13 @@ instance ToJSON RegisterDomain
 
 data RegisterDomainResponse = RegisterDomainResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterDomainResponse :: RegisterDomainResponse
+mkRegisterDomainResponse = RegisterDomainResponse
 
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = SWF

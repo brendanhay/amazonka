@@ -46,6 +46,8 @@ module Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled
 
     -- * Response
     , SetIdentityFeedbackForwardingEnabledResponse
+    -- ** Response constructor
+    , mkSetIdentityFeedbackForwardingEnabledResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -91,6 +93,13 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled where
 -- completed successfully.
 data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetIdentityFeedbackForwardingEnabledResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
+mkSetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
 
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Sv SetIdentityFeedbackForwardingEnabled = SES

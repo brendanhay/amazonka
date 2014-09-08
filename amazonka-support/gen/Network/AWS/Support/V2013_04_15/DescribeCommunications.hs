@@ -40,6 +40,8 @@ module Network.AWS.Support.V2013_04_15.DescribeCommunications
 
     -- * Response
     , DescribeCommunicationsResponse
+    -- ** Response constructor
+    , mkDescribeCommunicationsResponse
     -- ** Response lenses
     , dcrrCommunications
     , dcrrNextToken
@@ -107,6 +109,16 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse
     { _dcrrCommunications :: [Communication]
     , _dcrrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCommunicationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCommunicationsResponse :: DescribeCommunicationsResponse
+mkDescribeCommunicationsResponse = DescribeCommunicationsResponse
+    { _dcrrCommunications = mempty
+    , _dcrrNextToken = Nothing
+    }
 
 -- | The communications for the case.
 dcrrCommunications :: Lens' DescribeCommunicationsResponse [Communication]

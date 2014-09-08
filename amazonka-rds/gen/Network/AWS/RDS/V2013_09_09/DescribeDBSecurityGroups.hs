@@ -40,6 +40,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSecurityGroups
 
     -- * Response
     , DescribeDBSecurityGroupsResponse
+    -- ** Response constructor
+    , mkDescribeDBSecurityGroupsResponse
     -- ** Response lenses
     , ddbsgrMarker
     , ddbsgrDBSecurityGroups
@@ -95,6 +97,16 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgrMarker :: Maybe Text
     , _ddbsgrDBSecurityGroups :: [DBSecurityGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBSecurityGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
+mkDescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
+    { _ddbsgrMarker = Nothing
+    , _ddbsgrDBSecurityGroups = mempty
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

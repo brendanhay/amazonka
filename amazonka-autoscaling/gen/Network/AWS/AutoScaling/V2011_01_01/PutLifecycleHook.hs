@@ -54,6 +54,8 @@ module Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook
 
     -- * Response
     , PutLifecycleHookResponse
+    -- ** Response constructor
+    , mkPutLifecycleHookResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -165,6 +167,13 @@ instance ToQuery PutLifecycleHook where
 -- | The output of the PutLifecycleHook action.
 data PutLifecycleHookResponse = PutLifecycleHookResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutLifecycleHookResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutLifecycleHookResponse :: PutLifecycleHookResponse
+mkPutLifecycleHookResponse = PutLifecycleHookResponse
 
 instance AWSRequest PutLifecycleHook where
     type Sv PutLifecycleHook = AutoScaling

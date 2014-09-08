@@ -63,6 +63,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume
 
     -- * Response
     , CreateCachediSCSIVolumeResponse
+    -- ** Response constructor
+    , mkCreateCachediSCSIVolumeResponse
     -- ** Response lenses
     , ccscsivrVolumeARN
     , ccscsivrTargetARN
@@ -138,6 +140,16 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     { _ccscsivrVolumeARN :: Maybe Text
     , _ccscsivrTargetARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCachediSCSIVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
+mkCreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
+    { _ccscsivrVolumeARN = Nothing
+    , _ccscsivrTargetARN = Nothing
+    }
 
 ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrVolumeARN =

@@ -37,6 +37,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeSuggesters
 
     -- * Response
     , DescribeSuggestersResponse
+    -- ** Response constructor
+    , mkDescribeSuggestersResponse
     -- ** Response lenses
     , dsr1Suggesters
     ) where
@@ -87,6 +89,16 @@ instance ToQuery DescribeSuggesters where
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsr1Suggesters :: [SuggesterStatus]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSuggestersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSuggestersResponse :: [SuggesterStatus] -- ^ 'dsr1Suggesters'
+                             -> DescribeSuggestersResponse
+mkDescribeSuggestersResponse p1 = DescribeSuggestersResponse
+    { _dsr1Suggesters = p1
+    }
 
 -- | The suggesters configured for the domain specified in the request.
 dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]

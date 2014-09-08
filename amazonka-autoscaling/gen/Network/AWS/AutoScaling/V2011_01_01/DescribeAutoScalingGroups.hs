@@ -43,6 +43,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups
 
     -- * Response
     , DescribeAutoScalingGroupsResponse
+    -- ** Response constructor
+    , mkDescribeAutoScalingGroupsResponse
     -- ** Response lenses
     , dasgrAutoScalingGroups
     , dasgrNextToken
@@ -90,6 +92,17 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { _dasgrAutoScalingGroups :: [AutoScalingGroup]
     , _dasgrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAutoScalingGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAutoScalingGroupsResponse :: [AutoScalingGroup] -- ^ 'dasgrAutoScalingGroups'
+                                    -> DescribeAutoScalingGroupsResponse
+mkDescribeAutoScalingGroupsResponse p1 = DescribeAutoScalingGroupsResponse
+    { _dasgrAutoScalingGroups = p1
+    , _dasgrNextToken = Nothing
+    }
 
 -- | A list of Auto Scaling groups.
 dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]

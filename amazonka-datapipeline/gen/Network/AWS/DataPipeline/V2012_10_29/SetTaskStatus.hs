@@ -45,6 +45,8 @@ module Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus
 
     -- * Response
     , SetTaskStatusResponse
+    -- ** Response constructor
+    , mkSetTaskStatusResponse
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -116,6 +118,13 @@ instance ToJSON SetTaskStatus
 -- | The output from the SetTaskStatus action.
 data SetTaskStatusResponse = SetTaskStatusResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTaskStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetTaskStatusResponse :: SetTaskStatusResponse
+mkSetTaskStatusResponse = SetTaskStatusResponse
 
 instance AWSRequest SetTaskStatus where
     type Sv SetTaskStatus = DataPipeline

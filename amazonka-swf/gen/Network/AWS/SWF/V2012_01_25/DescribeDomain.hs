@@ -55,6 +55,8 @@ module Network.AWS.SWF.V2012_01_25.DescribeDomain
 
     -- * Response
     , DescribeDomainResponse
+    -- ** Response constructor
+    , mkDescribeDomainResponse
     -- ** Response lenses
     , ddrDomainInfo
     , ddrConfiguration
@@ -93,6 +95,18 @@ data DescribeDomainResponse = DescribeDomainResponse
     { _ddrDomainInfo :: DomainInfo
     , _ddrConfiguration :: DomainConfiguration
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDomainResponse :: DomainInfo -- ^ 'ddrDomainInfo'
+                         -> DomainConfiguration -- ^ 'ddrConfiguration'
+                         -> DescribeDomainResponse
+mkDescribeDomainResponse p1 p2 = DescribeDomainResponse
+    { _ddrDomainInfo = p1
+    , _ddrConfiguration = p2
+    }
 
 -- | Contains general information about a domain.
 ddrDomainInfo :: Lens' DescribeDomainResponse DomainInfo

@@ -39,6 +39,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogGroup
 
     -- * Response
     , DeleteLogGroupResponse
+    -- ** Response constructor
+    , mkDeleteLogGroupResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -70,6 +72,13 @@ instance ToJSON DeleteLogGroup
 
 data DeleteLogGroupResponse = DeleteLogGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLogGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteLogGroupResponse :: DeleteLogGroupResponse
+mkDeleteLogGroupResponse = DeleteLogGroupResponse
 
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs

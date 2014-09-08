@@ -69,6 +69,8 @@ module Network.AWS.EC2.V2014_06_15.CreateDhcpOptions
 
     -- * Response
     , CreateDhcpOptionsResponse
+    -- ** Response constructor
+    , mkCreateDhcpOptionsResponse
     -- ** Response lenses
     , cdorDhcpOptions
     ) where
@@ -102,6 +104,15 @@ instance ToQuery CreateDhcpOptions where
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDhcpOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDhcpOptionsResponse :: CreateDhcpOptionsResponse
+mkCreateDhcpOptionsResponse = CreateDhcpOptionsResponse
+    { _cdorDhcpOptions = Nothing
+    }
 
 -- | A set of DHCP options.
 cdorDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)

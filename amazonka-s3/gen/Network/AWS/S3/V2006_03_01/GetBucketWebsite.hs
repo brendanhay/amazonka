@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketWebsite
 
     -- * Response
     , GetBucketWebsiteResponse
+    -- ** Response constructor
+    , mkGetBucketWebsiteResponse
     -- ** Response lenses
     , gbwrRedirectAllRequestsTo
     , gbwrIndexDocument
@@ -77,6 +79,18 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     , _gbwrErrorDocument :: Maybe ErrorDocument
     , _gbwrRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketWebsiteResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketWebsiteResponse :: GetBucketWebsiteResponse
+mkGetBucketWebsiteResponse = GetBucketWebsiteResponse
+    { _gbwrRedirectAllRequestsTo = Nothing
+    , _gbwrIndexDocument = Nothing
+    , _gbwrErrorDocument = Nothing
+    , _gbwrRoutingRules = mempty
+    }
 
 gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
 gbwrRedirectAllRequestsTo =

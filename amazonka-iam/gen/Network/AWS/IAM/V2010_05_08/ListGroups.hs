@@ -43,6 +43,8 @@ module Network.AWS.IAM.V2010_05_08.ListGroups
 
     -- * Response
     , ListGroupsResponse
+    -- ** Response constructor
+    , mkListGroupsResponse
     -- ** Response lenses
     , lgrGroups
     , lgrIsTruncated
@@ -98,6 +100,19 @@ data ListGroupsResponse = ListGroupsResponse
     , _lgrIsTruncated :: Bool
     , _lgrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListGroupsResponse :: [Group] -- ^ 'lgrGroups'
+                     -> Bool -- ^ 'lgrIsTruncated'
+                     -> ListGroupsResponse
+mkListGroupsResponse p1 p2 = ListGroupsResponse
+    { _lgrGroups = p1
+    , _lgrIsTruncated = p2
+    , _lgrMarker = Nothing
+    }
 
 -- | A list of groups.
 lgrGroups :: Lens' ListGroupsResponse [Group]

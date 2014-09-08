@@ -84,6 +84,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateConfigurationTemplate
 
     -- * Response
     , CreateConfigurationTemplateResponse
+    -- ** Response constructor
+    , mkCreateConfigurationTemplateResponse
     -- ** Response lenses
     , cctrSolutionStackName
     , cctrApplicationName
@@ -198,6 +200,23 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     , _cctrDateUpdated :: Maybe ISO8601
     , _cctrOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateConfigurationTemplateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateConfigurationTemplateResponse :: CreateConfigurationTemplateResponse
+mkCreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
+    { _cctrSolutionStackName = Nothing
+    , _cctrApplicationName = Nothing
+    , _cctrTemplateName = Nothing
+    , _cctrDescription = Nothing
+    , _cctrEnvironmentName = Nothing
+    , _cctrDeploymentStatus = Nothing
+    , _cctrDateCreated = Nothing
+    , _cctrDateUpdated = Nothing
+    , _cctrOptionSettings = mempty
+    }
 
 -- | The name of the solution stack this configuration set uses.
 cctrSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)

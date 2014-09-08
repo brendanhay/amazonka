@@ -48,6 +48,8 @@ module Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups
 
     -- * Response
     , ModifyInstanceGroupsResponse
+    -- ** Response constructor
+    , mkModifyInstanceGroupsResponse
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -81,6 +83,13 @@ instance ToJSON ModifyInstanceGroups
 
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyInstanceGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
+mkModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
 
 instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR

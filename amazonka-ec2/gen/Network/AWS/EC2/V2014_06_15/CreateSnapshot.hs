@@ -63,6 +63,8 @@ module Network.AWS.EC2.V2014_06_15.CreateSnapshot
 
     -- * Response
     , CreateSnapshotResponse
+    -- ** Response constructor
+    , mkCreateSnapshotResponse
     -- ** Response lenses
     , csrrSnapshotId
     , csrrVolumeId
@@ -119,6 +121,24 @@ data CreateSnapshotResponse = CreateSnapshotResponse
     , _csrrOwnerAlias :: Maybe Text
     , _csrrEncrypted :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateSnapshotResponse :: CreateSnapshotResponse
+mkCreateSnapshotResponse = CreateSnapshotResponse
+    { _csrrSnapshotId = Nothing
+    , _csrrVolumeId = Nothing
+    , _csrrState = Nothing
+    , _csrrStartTime = Nothing
+    , _csrrProgress = Nothing
+    , _csrrOwnerId = Nothing
+    , _csrrDescription = Nothing
+    , _csrrVolumeSize = Nothing
+    , _csrrOwnerAlias = Nothing
+    , _csrrEncrypted = Nothing
+    }
 
 -- | The ID of the snapshot.
 csrrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)

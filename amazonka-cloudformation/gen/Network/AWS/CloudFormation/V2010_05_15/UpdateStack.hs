@@ -54,6 +54,8 @@ module Network.AWS.CloudFormation.V2010_05_15.UpdateStack
 
     -- * Response
     , UpdateStackResponse
+    -- ** Response constructor
+    , mkUpdateStackResponse
     -- ** Response lenses
     , usrStackId
     ) where
@@ -192,6 +194,15 @@ instance ToQuery UpdateStack where
 newtype UpdateStackResponse = UpdateStackResponse
     { _usrStackId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateStackResponse :: UpdateStackResponse
+mkUpdateStackResponse = UpdateStackResponse
+    { _usrStackId = Nothing
+    }
 
 -- | Unique identifier of the stack.
 usrStackId :: Lens' UpdateStackResponse (Maybe Text)

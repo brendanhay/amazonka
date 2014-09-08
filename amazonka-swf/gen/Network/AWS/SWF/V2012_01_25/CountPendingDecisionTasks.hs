@@ -58,6 +58,8 @@ module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
 
     -- * Response
     , CountPendingDecisionTasksResponse
+    -- ** Response constructor
+    , mkCountPendingDecisionTasksResponse
     -- ** Response lenses
     , cpdtrCount
     , cpdtrTruncated
@@ -103,6 +105,17 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
     { _cpdtrCount :: Integer
     , _cpdtrTruncated :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountPendingDecisionTasksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCountPendingDecisionTasksResponse :: Integer -- ^ 'cpdtrCount'
+                                    -> CountPendingDecisionTasksResponse
+mkCountPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
+    { _cpdtrCount = p1
+    , _cpdtrTruncated = Nothing
+    }
 
 -- | The number of tasks in the task list.
 cpdtrCount :: Lens' CountPendingDecisionTasksResponse Integer

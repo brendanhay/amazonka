@@ -40,6 +40,8 @@ module Network.AWS.ElastiCache.V2014_07_15.RevokeCacheSecurityGroupIngress
 
     -- * Response
     , RevokeCacheSecurityGroupIngressResponse
+    -- ** Response constructor
+    , mkRevokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirCacheSecurityGroup
     ) where
@@ -93,6 +95,15 @@ instance ToQuery RevokeCacheSecurityGroupIngress where
 newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeCacheSecurityGroupIngressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRevokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResponse
+mkRevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
+    { _rcsgirCacheSecurityGroup = Nothing
+    }
 
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup

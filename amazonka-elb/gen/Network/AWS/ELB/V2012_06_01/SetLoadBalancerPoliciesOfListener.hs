@@ -38,6 +38,8 @@ module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener
 
     -- * Response
     , SetLoadBalancerPoliciesOfListenerResponse
+    -- ** Response constructor
+    , mkSetLoadBalancerPoliciesOfListenerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -85,6 +87,13 @@ instance ToQuery SetLoadBalancerPoliciesOfListener where
 -- | The output for the SetLoadBalancerPoliciesOfListener action.
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBalancerPoliciesOfListenerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
+mkSetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Sv SetLoadBalancerPoliciesOfListener = ELB

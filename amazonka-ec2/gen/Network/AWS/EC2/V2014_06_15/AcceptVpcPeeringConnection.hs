@@ -49,6 +49,8 @@ module Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
 
     -- * Response
     , AcceptVpcPeeringConnectionResponse
+    -- ** Response constructor
+    , mkAcceptVpcPeeringConnectionResponse
     -- ** Response lenses
     , avpcrVpcPeeringConnection
     ) where
@@ -82,6 +84,15 @@ instance ToQuery AcceptVpcPeeringConnection where
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AcceptVpcPeeringConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAcceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResponse
+mkAcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
+    { _avpcrVpcPeeringConnection = Nothing
+    }
 
 -- | Information about the VPC peering connection.
 avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)

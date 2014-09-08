@@ -36,6 +36,8 @@ module Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration
 
     -- * Response
     , PutNotificationConfigurationResponse
+    -- ** Response constructor
+    , mkPutNotificationConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -84,6 +86,13 @@ instance ToQuery PutNotificationConfiguration where
 
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutNotificationConfigurationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutNotificationConfigurationResponse :: PutNotificationConfigurationResponse
+mkPutNotificationConfigurationResponse = PutNotificationConfigurationResponse
 
 instance AWSRequest PutNotificationConfiguration where
     type Sv PutNotificationConfiguration = AutoScaling

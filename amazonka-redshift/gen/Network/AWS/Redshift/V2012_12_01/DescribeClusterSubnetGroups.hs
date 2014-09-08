@@ -41,6 +41,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSubnetGroups
 
     -- * Response
     , DescribeClusterSubnetGroupsResponse
+    -- ** Response constructor
+    , mkDescribeClusterSubnetGroupsResponse
     -- ** Response lenses
     , dcsgrrMarker
     , dcsgrrClusterSubnetGroups
@@ -97,6 +99,16 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrrMarker :: Maybe Text
     , _dcsgrrClusterSubnetGroups :: [ClusterSubnetGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterSubnetGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
+mkDescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
+    { _dcsgrrMarker = Nothing
+    , _dcsgrrClusterSubnetGroups = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors
 
     -- * Response
     , DescribeServiceErrorsResponse
+    -- ** Response constructor
+    , mkDescribeServiceErrorsResponse
     -- ** Response lenses
     , dserServiceErrors
     ) where
@@ -86,6 +88,15 @@ instance ToJSON DescribeServiceErrors
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors :: [ServiceError]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeServiceErrorsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeServiceErrorsResponse :: DescribeServiceErrorsResponse
+mkDescribeServiceErrorsResponse = DescribeServiceErrorsResponse
+    { _dserServiceErrors = mempty
+    }
 
 -- | An array of ServiceError objects that describe the specified service
 -- errors.

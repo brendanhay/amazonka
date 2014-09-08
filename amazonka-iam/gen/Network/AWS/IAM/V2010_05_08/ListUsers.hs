@@ -42,6 +42,8 @@ module Network.AWS.IAM.V2010_05_08.ListUsers
 
     -- * Response
     , ListUsersResponse
+    -- ** Response constructor
+    , mkListUsersResponse
     -- ** Response lenses
     , lurUsers
     , lurIsTruncated
@@ -99,6 +101,19 @@ data ListUsersResponse = ListUsersResponse
     , _lurIsTruncated :: Bool
     , _lurMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListUsersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListUsersResponse :: [User] -- ^ 'lurUsers'
+                    -> Bool -- ^ 'lurIsTruncated'
+                    -> ListUsersResponse
+mkListUsersResponse p1 p2 = ListUsersResponse
+    { _lurUsers = p1
+    , _lurIsTruncated = p2
+    , _lurMarker = Nothing
+    }
 
 -- | A list of users.
 lurUsers :: Lens' ListUsersResponse [User]

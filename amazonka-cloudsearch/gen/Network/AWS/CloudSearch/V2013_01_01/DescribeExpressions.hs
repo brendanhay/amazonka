@@ -36,6 +36,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeExpressions
 
     -- * Response
     , DescribeExpressionsResponse
+    -- ** Response constructor
+    , mkDescribeExpressionsResponse
     -- ** Response lenses
     , der1Expressions
     ) where
@@ -88,6 +90,16 @@ instance ToQuery DescribeExpressions where
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _der1Expressions :: [ExpressionStatus]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeExpressionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeExpressionsResponse :: [ExpressionStatus] -- ^ 'der1Expressions'
+                              -> DescribeExpressionsResponse
+mkDescribeExpressionsResponse p1 = DescribeExpressionsResponse
+    { _der1Expressions = p1
+    }
 
 -- | The expressions configured for the domain.
 der1Expressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]

@@ -31,6 +31,8 @@ module Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus
 
     -- * Response
     , GetTrailStatusResponse
+    -- ** Response constructor
+    , mkGetTrailStatusResponse
     -- ** Response lenses
     , gtsrIsLogging
     , gtsrLatestDeliveryError
@@ -81,6 +83,21 @@ data GetTrailStatusResponse = GetTrailStatusResponse
     , _gtsrStartLoggingTime :: Maybe ISO8601
     , _gtsrStopLoggingTime :: Maybe ISO8601
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetTrailStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetTrailStatusResponse :: GetTrailStatusResponse
+mkGetTrailStatusResponse = GetTrailStatusResponse
+    { _gtsrIsLogging = Nothing
+    , _gtsrLatestDeliveryError = Nothing
+    , _gtsrLatestNotificationError = Nothing
+    , _gtsrLatestDeliveryTime = Nothing
+    , _gtsrLatestNotificationTime = Nothing
+    , _gtsrStartLoggingTime = Nothing
+    , _gtsrStopLoggingTime = Nothing
+    }
 
 -- | Whether the CloudTrail is currently logging AWS API calls.
 gtsrIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)

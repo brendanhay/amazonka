@@ -33,6 +33,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketLogging
 
     -- * Response
     , PutBucketLoggingResponse
+    -- ** Response constructor
+    , mkPutBucketLoggingResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -89,6 +91,13 @@ instance ToBody PutBucketLogging where
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketLoggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketLoggingResponse :: PutBucketLoggingResponse
+mkPutBucketLoggingResponse = PutBucketLoggingResponse
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3

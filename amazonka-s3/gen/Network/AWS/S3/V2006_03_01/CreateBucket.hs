@@ -38,6 +38,8 @@ module Network.AWS.S3.V2006_03_01.CreateBucket
 
     -- * Response
     , CreateBucketResponse
+    -- ** Response constructor
+    , mkCreateBucketResponse
     -- ** Response lenses
     , cbrLocation
     ) where
@@ -133,6 +135,15 @@ instance ToBody CreateBucket where
 newtype CreateBucketResponse = CreateBucketResponse
     { _cbrLocation :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateBucketResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateBucketResponse :: CreateBucketResponse
+mkCreateBucketResponse = CreateBucketResponse
+    { _cbrLocation = Nothing
+    }
 
 cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrLocation = lens _cbrLocation (\s a -> s { _cbrLocation = a })

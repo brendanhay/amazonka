@@ -99,6 +99,8 @@ module Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
 
     -- * Response
     , GetWorkflowExecutionHistoryResponse
+    -- ** Response constructor
+    , mkGetWorkflowExecutionHistoryResponse
     -- ** Response lenses
     , gwehrEvents
     , gwehrNextPageToken
@@ -177,6 +179,17 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
     { _gwehrEvents :: [HistoryEvent]
     , _gwehrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetWorkflowExecutionHistoryResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetWorkflowExecutionHistoryResponse :: [HistoryEvent] -- ^ 'gwehrEvents'
+                                      -> GetWorkflowExecutionHistoryResponse
+mkGetWorkflowExecutionHistoryResponse p1 = GetWorkflowExecutionHistoryResponse
+    { _gwehrEvents = p1
+    , _gwehrNextPageToken = Nothing
+    }
 
 -- | The list of history events.
 gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]

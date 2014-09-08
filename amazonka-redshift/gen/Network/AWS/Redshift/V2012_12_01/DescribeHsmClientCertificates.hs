@@ -33,6 +33,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeHsmClientCertificates
 
     -- * Response
     , DescribeHsmClientCertificatesResponse
+    -- ** Response constructor
+    , mkDescribeHsmClientCertificatesResponse
     -- ** Response lenses
     , dhccrMarker
     , dhccrHsmClientCertificates
@@ -91,6 +93,16 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
     { _dhccrMarker :: Maybe Text
     , _dhccrHsmClientCertificates :: [HsmClientCertificate]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeHsmClientCertificatesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeHsmClientCertificatesResponse :: DescribeHsmClientCertificatesResponse
+mkDescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
+    { _dhccrMarker = Nothing
+    , _dhccrHsmClientCertificates = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

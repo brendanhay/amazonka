@@ -30,6 +30,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation
     , mkCreateStorageLocation
     -- * Response
     , CreateStorageLocationResponse
+    -- ** Response constructor
+    , mkCreateStorageLocationResponse
     -- ** Response lenses
     , cslrS3Bucket
     ) where
@@ -53,6 +55,15 @@ instance ToQuery CreateStorageLocation where
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStorageLocationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateStorageLocationResponse :: CreateStorageLocationResponse
+mkCreateStorageLocationResponse = CreateStorageLocationResponse
+    { _cslrS3Bucket = Nothing
+    }
 
 -- | The name of the Amazon S3 bucket created.
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)

@@ -74,6 +74,8 @@ module Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
 
     -- * Response
     , ListOpenWorkflowExecutionsResponse
+    -- ** Response constructor
+    , mkListOpenWorkflowExecutionsResponse
     -- ** Response lenses
     , lowerExecutionInfos
     , lowerNextPageToken
@@ -176,6 +178,17 @@ data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
     { _lowerExecutionInfos :: [WorkflowExecutionInfo]
     , _lowerNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListOpenWorkflowExecutionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListOpenWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lowerExecutionInfos'
+                                     -> ListOpenWorkflowExecutionsResponse
+mkListOpenWorkflowExecutionsResponse p1 = ListOpenWorkflowExecutionsResponse
+    { _lowerExecutionInfos = p1
+    , _lowerNextPageToken = Nothing
+    }
 
 -- | The list of workflow information structures.
 lowerExecutionInfos :: Lens' ListOpenWorkflowExecutionsResponse [WorkflowExecutionInfo]

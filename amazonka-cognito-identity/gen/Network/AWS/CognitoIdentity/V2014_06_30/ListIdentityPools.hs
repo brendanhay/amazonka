@@ -36,6 +36,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
 
     -- * Response
     , ListIdentityPoolsResponse
+    -- ** Response constructor
+    , mkListIdentityPoolsResponse
     -- ** Response lenses
     , liprIdentityPools
     , liprNextToken
@@ -81,6 +83,16 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse
     { _liprIdentityPools :: [IdentityPoolShortDescription]
     , _liprNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentityPoolsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListIdentityPoolsResponse :: ListIdentityPoolsResponse
+mkListIdentityPoolsResponse = ListIdentityPoolsResponse
+    { _liprIdentityPools = mempty
+    , _liprNextToken = Nothing
+    }
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]

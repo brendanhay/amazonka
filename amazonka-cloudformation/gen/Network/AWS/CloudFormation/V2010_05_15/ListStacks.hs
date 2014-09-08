@@ -46,6 +46,8 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStacks
 
     -- * Response
     , ListStacksResponse
+    -- ** Response constructor
+    , mkListStacksResponse
     -- ** Response lenses
     , lsr1StackSummaries
     , lsr1NextToken
@@ -89,6 +91,16 @@ data ListStacksResponse = ListStacksResponse
     { _lsr1StackSummaries :: [StackSummary]
     , _lsr1NextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStacksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListStacksResponse :: ListStacksResponse
+mkListStacksResponse = ListStacksResponse
+    { _lsr1StackSummaries = mempty
+    , _lsr1NextToken = Nothing
+    }
 
 -- | A list of StackSummary structures containing information about the
 -- specified stacks.

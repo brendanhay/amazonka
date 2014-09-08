@@ -29,6 +29,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteTags
 
     -- * Response
     , DeleteTagsResponse
+    -- ** Response constructor
+    , mkDeleteTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,6 +62,13 @@ instance ToQuery DeleteTags where
 
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteTagsResponse :: DeleteTagsResponse
+mkDeleteTagsResponse = DeleteTagsResponse
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = AutoScaling

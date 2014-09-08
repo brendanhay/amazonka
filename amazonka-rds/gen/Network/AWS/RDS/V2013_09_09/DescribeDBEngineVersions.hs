@@ -63,6 +63,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBEngineVersions
 
     -- * Response
     , DescribeDBEngineVersionsResponse
+    -- ** Response constructor
+    , mkDescribeDBEngineVersionsResponse
     -- ** Response lenses
     , ddbevrMarker
     , ddbevrDBEngineVersions
@@ -149,6 +151,16 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrMarker :: Maybe Text
     , _ddbevrDBEngineVersions :: [DBEngineVersion]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBEngineVersionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
+mkDescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
+    { _ddbevrMarker = Nothing
+    , _ddbevrDBEngineVersions = mempty
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

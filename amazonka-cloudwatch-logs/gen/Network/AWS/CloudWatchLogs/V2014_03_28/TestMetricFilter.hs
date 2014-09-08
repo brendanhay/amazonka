@@ -197,6 +197,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter
 
     -- * Response
     , TestMetricFilterResponse
+    -- ** Response constructor
+    , mkTestMetricFilterResponse
     -- ** Response lenses
     , tmfrMatches
     ) where
@@ -239,6 +241,15 @@ instance ToJSON TestMetricFilter
 newtype TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfrMatches :: [MetricFilterMatchRecord]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TestMetricFilterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTestMetricFilterResponse :: TestMetricFilterResponse
+mkTestMetricFilterResponse = TestMetricFilterResponse
+    { _tmfrMatches = mempty
+    }
 
 tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrMatches = lens _tmfrMatches (\s a -> s { _tmfrMatches = a })

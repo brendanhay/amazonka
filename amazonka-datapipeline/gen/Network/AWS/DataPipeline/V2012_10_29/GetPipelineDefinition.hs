@@ -48,6 +48,8 @@ module Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
 
     -- * Response
     , GetPipelineDefinitionResponse
+    -- ** Response constructor
+    , mkGetPipelineDefinitionResponse
     -- ** Response lenses
     , gpdrPipelineObjects
     ) where
@@ -94,6 +96,15 @@ instance ToJSON GetPipelineDefinition
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrPipelineObjects :: [PipelineObject]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetPipelineDefinitionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetPipelineDefinitionResponse :: GetPipelineDefinitionResponse
+mkGetPipelineDefinitionResponse = GetPipelineDefinitionResponse
+    { _gpdrPipelineObjects = mempty
+    }
 
 -- | An array of objects defined in the pipeline.
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]

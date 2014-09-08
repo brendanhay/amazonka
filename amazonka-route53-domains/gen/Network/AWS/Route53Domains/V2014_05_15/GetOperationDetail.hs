@@ -46,6 +46,8 @@ module Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail
 
     -- * Response
     , GetOperationDetailResponse
+    -- ** Response constructor
+    , mkGetOperationDetailResponse
     -- ** Response lenses
     , godrOperationId
     , godrStatus
@@ -95,6 +97,20 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     , _godrType :: Maybe OperationType
     , _godrSubmittedDate :: Maybe ISO8601
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetOperationDetailResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetOperationDetailResponse :: GetOperationDetailResponse
+mkGetOperationDetailResponse = GetOperationDetailResponse
+    { _godrOperationId = Nothing
+    , _godrStatus = Nothing
+    , _godrMessage = Nothing
+    , _godrDomainName = Nothing
+    , _godrType = Nothing
+    , _godrSubmittedDate = Nothing
+    }
 
 -- | The identifier for the operation. Type: String.
 godrOperationId :: Lens' GetOperationDetailResponse (Maybe Text)

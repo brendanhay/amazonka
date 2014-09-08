@@ -64,6 +64,8 @@ module Network.AWS.SQS.V2012_11_05.SetQueueAttributes
 
     -- * Response
     , SetQueueAttributesResponse
+    -- ** Response constructor
+    , mkSetQueueAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -122,6 +124,13 @@ instance ToQuery SetQueueAttributes where
 
 data SetQueueAttributesResponse = SetQueueAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetQueueAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetQueueAttributesResponse :: SetQueueAttributesResponse
+mkSetQueueAttributesResponse = SetQueueAttributesResponse
 
 instance AWSRequest SetQueueAttributes where
     type Sv SetQueueAttributes = SQS

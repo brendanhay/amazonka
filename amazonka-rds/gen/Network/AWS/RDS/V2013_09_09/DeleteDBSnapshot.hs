@@ -36,6 +36,8 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBSnapshot
 
     -- * Response
     , DeleteDBSnapshotResponse
+    -- ** Response constructor
+    , mkDeleteDBSnapshotResponse
     -- ** Response lenses
     , ddbsrDBSnapshot
     ) where
@@ -70,6 +72,15 @@ instance ToQuery DeleteDBSnapshot where
 newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDBSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteDBSnapshotResponse :: DeleteDBSnapshotResponse
+mkDeleteDBSnapshotResponse = DeleteDBSnapshotResponse
+    { _ddbsrDBSnapshot = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response

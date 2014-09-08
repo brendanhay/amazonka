@@ -42,6 +42,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeResize
 
     -- * Response
     , DescribeResizeResponse
+    -- ** Response constructor
+    , mkDescribeResizeResponse
     -- ** Response lenses
     , drrTargetNodeType
     , drrTargetNumberOfNodes
@@ -99,6 +101,26 @@ data DescribeResizeResponse = DescribeResizeResponse
     , _drrElapsedTimeInSeconds :: Maybe Integer
     , _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeResizeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeResizeResponse :: DescribeResizeResponse
+mkDescribeResizeResponse = DescribeResizeResponse
+    { _drrTargetNodeType = Nothing
+    , _drrTargetNumberOfNodes = Nothing
+    , _drrTargetClusterType = Nothing
+    , _drrStatus = Nothing
+    , _drrImportTablesCompleted = mempty
+    , _drrImportTablesInProgress = mempty
+    , _drrImportTablesNotStarted = mempty
+    , _drrAvgResizeRateInMegaBytesPerSecond = Nothing
+    , _drrTotalResizeDataInMegaBytes = Nothing
+    , _drrProgressInMegaBytes = Nothing
+    , _drrElapsedTimeInSeconds = Nothing
+    , _drrEstimatedTimeToCompletionInSeconds = Nothing
+    }
 
 -- | The node type that the cluster will have after the resize operation is
 -- complete.

@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp
 
     -- * Response
     , UpdateElasticIpResponse
+    -- ** Response constructor
+    , mkUpdateElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -72,6 +74,13 @@ instance ToJSON UpdateElasticIp
 
 data UpdateElasticIpResponse = UpdateElasticIpResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateElasticIpResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateElasticIpResponse :: UpdateElasticIpResponse
+mkUpdateElasticIpResponse = UpdateElasticIpResponse
 
 instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks

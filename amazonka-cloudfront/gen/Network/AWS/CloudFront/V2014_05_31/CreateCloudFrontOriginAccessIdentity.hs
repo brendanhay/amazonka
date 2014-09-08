@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity
 
     -- * Response
     , CreateCloudFrontOriginAccessIdentityResponse
+    -- ** Response constructor
+    , mkCreateCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
     , ccfoairCloudFrontOriginAccessIdentity
     , ccfoairLocation
@@ -76,6 +78,17 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
     , _ccfoairLocation :: Maybe Text
     , _ccfoairETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCloudFrontOriginAccessIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse
+mkCreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
+    { _ccfoairCloudFrontOriginAccessIdentity = Nothing
+    , _ccfoairLocation = Nothing
+    , _ccfoairETag = Nothing
+    }
 
 -- | The origin access identity's information.
 ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)

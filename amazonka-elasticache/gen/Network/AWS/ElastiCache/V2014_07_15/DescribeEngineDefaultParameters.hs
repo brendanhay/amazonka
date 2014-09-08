@@ -43,6 +43,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
+    -- ** Response constructor
+    , mkDescribeEngineDefaultParametersResponse
     -- ** Response lenses
     , dedprEngineDefaults
     ) where
@@ -95,6 +97,16 @@ instance ToQuery DescribeEngineDefaultParameters where
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: EngineDefaults
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEngineDefaultParametersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
+                                          -> DescribeEngineDefaultParametersResponse
+mkDescribeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse
+    { _dedprEngineDefaults = p1
+    }
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults

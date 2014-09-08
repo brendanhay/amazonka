@@ -60,6 +60,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeImages
 
     -- * Response
     , DescribeImagesResponse
+    -- ** Response constructor
+    , mkDescribeImagesResponse
     -- ** Response lenses
     , dirImages
     ) where
@@ -145,6 +147,15 @@ instance ToQuery DescribeImages where
 newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: [Image]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeImagesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeImagesResponse :: DescribeImagesResponse
+mkDescribeImagesResponse = DescribeImagesResponse
+    { _dirImages = mempty
+    }
 
 -- | Information about one or more images.
 dirImages :: Lens' DescribeImagesResponse [Image]

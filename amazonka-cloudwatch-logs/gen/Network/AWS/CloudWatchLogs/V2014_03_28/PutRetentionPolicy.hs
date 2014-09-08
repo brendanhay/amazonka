@@ -42,6 +42,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy
 
     -- * Response
     , PutRetentionPolicyResponse
+    -- ** Response constructor
+    , mkPutRetentionPolicyResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -83,6 +85,13 @@ instance ToJSON PutRetentionPolicy
 
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutRetentionPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutRetentionPolicyResponse :: PutRetentionPolicyResponse
+mkPutRetentionPolicyResponse = PutRetentionPolicyResponse
 
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs

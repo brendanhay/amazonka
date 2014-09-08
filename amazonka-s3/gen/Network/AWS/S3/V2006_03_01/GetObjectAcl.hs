@@ -31,6 +31,8 @@ module Network.AWS.S3.V2006_03_01.GetObjectAcl
 
     -- * Response
     , GetObjectAclResponse
+    -- ** Response constructor
+    , mkGetObjectAclResponse
     -- ** Response lenses
     , goarOwner
     , goarGrants
@@ -89,6 +91,16 @@ data GetObjectAclResponse = GetObjectAclResponse
     { _goarOwner :: Maybe Owner
     , _goarGrants :: [Grant]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetObjectAclResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetObjectAclResponse :: GetObjectAclResponse
+mkGetObjectAclResponse = GetObjectAclResponse
+    { _goarOwner = Nothing
+    , _goarGrants = mempty
+    }
 
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })

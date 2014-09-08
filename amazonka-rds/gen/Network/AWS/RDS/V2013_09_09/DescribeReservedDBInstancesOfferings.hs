@@ -42,6 +42,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstancesOfferings
 
     -- * Response
     , DescribeReservedDBInstancesOfferingsResponse
+    -- ** Response constructor
+    , mkDescribeReservedDBInstancesOfferingsResponse
     -- ** Response lenses
     , drdbiorMarker
     , drdbiorReservedDBInstancesOfferings
@@ -139,6 +141,16 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
     { _drdbiorMarker :: Maybe Text
     , _drdbiorReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedDBInstancesOfferingsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeReservedDBInstancesOfferingsResponse :: DescribeReservedDBInstancesOfferingsResponse
+mkDescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
+    { _drdbiorMarker = Nothing
+    , _drdbiorReservedDBInstancesOfferings = mempty
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

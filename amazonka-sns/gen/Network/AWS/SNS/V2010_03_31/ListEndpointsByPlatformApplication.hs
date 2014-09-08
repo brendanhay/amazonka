@@ -61,6 +61,8 @@ module Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
 
     -- * Response
     , ListEndpointsByPlatformApplicationResponse
+    -- ** Response constructor
+    , mkListEndpointsByPlatformApplicationResponse
     -- ** Response lenses
     , lebparEndpoints
     , lebparNextToken
@@ -105,6 +107,16 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
     { _lebparEndpoints :: [Endpoint]
     , _lebparNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListEndpointsByPlatformApplicationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse
+mkListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
+    { _lebparEndpoints = mempty
+    , _lebparNextToken = Nothing
+    }
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]

@@ -36,6 +36,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate
 
     -- * Response
     , CreateHsmClientCertificateResponse
+    -- ** Response constructor
+    , mkCreateHsmClientCertificateResponse
     -- ** Response lenses
     , chccrHsmClientCertificate
     ) where
@@ -70,6 +72,15 @@ instance ToQuery CreateHsmClientCertificate where
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateHsmClientCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateHsmClientCertificateResponse :: CreateHsmClientCertificateResponse
+mkCreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
+    { _chccrHsmClientCertificate = Nothing
+    }
 
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon

@@ -55,6 +55,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
 
     -- * Response
     , ShutdownGatewayResponse
+    -- ** Response constructor
+    , mkShutdownGatewayResponse
     -- ** Response lenses
     , sgrGatewayARN
     ) where
@@ -93,6 +95,15 @@ instance ToJSON ShutdownGateway
 newtype ShutdownGatewayResponse = ShutdownGatewayResponse
     { _sgrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ShutdownGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkShutdownGatewayResponse :: ShutdownGatewayResponse
+mkShutdownGatewayResponse = ShutdownGatewayResponse
+    { _sgrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

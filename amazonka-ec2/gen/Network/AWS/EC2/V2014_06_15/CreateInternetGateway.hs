@@ -31,6 +31,8 @@ module Network.AWS.EC2.V2014_06_15.CreateInternetGateway
     , mkCreateInternetGateway
     -- * Response
     , CreateInternetGatewayResponse
+    -- ** Response constructor
+    , mkCreateInternetGatewayResponse
     -- ** Response lenses
     , cigrInternetGateway
     ) where
@@ -55,6 +57,15 @@ instance ToQuery CreateInternetGateway where
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInternetGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateInternetGatewayResponse :: CreateInternetGatewayResponse
+mkCreateInternetGatewayResponse = CreateInternetGatewayResponse
+    { _cigrInternetGateway = Nothing
+    }
 
 -- | Information about the Internet gateway.
 cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)

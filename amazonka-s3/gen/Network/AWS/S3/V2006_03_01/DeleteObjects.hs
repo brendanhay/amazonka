@@ -34,6 +34,8 @@ module Network.AWS.S3.V2006_03_01.DeleteObjects
 
     -- * Response
     , DeleteObjectsResponse
+    -- ** Response constructor
+    , mkDeleteObjectsResponse
     -- ** Response lenses
     , dorrDeleted
     , dorrErrors
@@ -97,6 +99,16 @@ data DeleteObjectsResponse = DeleteObjectsResponse
     { _dorrDeleted :: [DeletedObject]
     , _dorrErrors :: [Error]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteObjectsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteObjectsResponse :: DeleteObjectsResponse
+mkDeleteObjectsResponse = DeleteObjectsResponse
+    { _dorrDeleted = mempty
+    , _dorrErrors = mempty
+    }
 
 dorrDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
 dorrDeleted = lens _dorrDeleted (\s a -> s { _dorrDeleted = a })

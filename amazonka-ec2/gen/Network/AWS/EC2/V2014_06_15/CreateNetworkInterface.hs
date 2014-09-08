@@ -132,6 +132,8 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkInterface
 
     -- * Response
     , CreateNetworkInterfaceResponse
+    -- ** Response constructor
+    , mkCreateNetworkInterfaceResponse
     -- ** Response lenses
     , cnirNetworkInterface
     ) where
@@ -205,6 +207,15 @@ instance ToQuery CreateNetworkInterface where
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateNetworkInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateNetworkInterfaceResponse :: CreateNetworkInterfaceResponse
+mkCreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
+    { _cnirNetworkInterface = Nothing
+    }
 
 -- | Information about the network interface.
 cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)

@@ -31,6 +31,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile
 
     -- * Response
     , DeleteUserProfileResponse
+    -- ** Response constructor
+    , mkDeleteUserProfileResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -63,6 +65,13 @@ instance ToJSON DeleteUserProfile
 
 data DeleteUserProfileResponse = DeleteUserProfileResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteUserProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteUserProfileResponse :: DeleteUserProfileResponse
+mkDeleteUserProfileResponse = DeleteUserProfileResponse
 
 instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks

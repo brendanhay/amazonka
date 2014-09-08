@@ -39,6 +39,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipeline
 
     -- * Response
     , UpdatePipelineResponse
+    -- ** Response constructor
+    , mkUpdatePipelineResponse
     -- ** Response lenses
     , uprPipeline
     ) where
@@ -199,6 +201,16 @@ instance ToJSON UpdatePipeline
 newtype UpdatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline :: Pipeline
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdatePipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdatePipelineResponse :: Pipeline -- ^ 'uprPipeline'
+                         -> UpdatePipelineResponse
+mkUpdatePipelineResponse p1 = UpdatePipelineResponse
+    { _uprPipeline = p1
+    }
 
 -- | The pipeline (queue) that is used to manage jobs.
 uprPipeline :: Lens' UpdatePipelineResponse Pipeline

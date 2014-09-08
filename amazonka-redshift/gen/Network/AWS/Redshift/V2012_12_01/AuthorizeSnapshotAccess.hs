@@ -33,6 +33,8 @@ module Network.AWS.Redshift.V2012_12_01.AuthorizeSnapshotAccess
 
     -- * Response
     , AuthorizeSnapshotAccessResponse
+    -- ** Response constructor
+    , mkAuthorizeSnapshotAccessResponse
     -- ** Response lenses
     , asarSnapshot
     ) where
@@ -85,6 +87,15 @@ instance ToQuery AuthorizeSnapshotAccess where
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AuthorizeSnapshotAccessResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAuthorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse
+mkAuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
+    { _asarSnapshot = Nothing
+    }
 
 -- | Describes a snapshot.
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)

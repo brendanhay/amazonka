@@ -63,6 +63,8 @@ module Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection
 
     -- * Response
     , CreateVpcPeeringConnectionResponse
+    -- ** Response constructor
+    , mkCreateVpcPeeringConnectionResponse
     -- ** Response lenses
     , cvpcrVpcPeeringConnection
     ) where
@@ -107,6 +109,15 @@ instance ToQuery CreateVpcPeeringConnection where
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpcPeeringConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResponse
+mkCreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
+    { _cvpcrVpcPeeringConnection = Nothing
+    }
 
 -- | Information about the VPC peering connection.
 cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)

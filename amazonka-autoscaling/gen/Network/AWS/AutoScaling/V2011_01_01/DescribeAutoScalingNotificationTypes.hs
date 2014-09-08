@@ -27,6 +27,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes
     , mkDescribeAutoScalingNotificationTypes
     -- * Response
     , DescribeAutoScalingNotificationTypesResponse
+    -- ** Response constructor
+    , mkDescribeAutoScalingNotificationTypesResponse
     -- ** Response lenses
     , dasntrAutoScalingNotificationTypes
     ) where
@@ -50,6 +52,15 @@ instance ToQuery DescribeAutoScalingNotificationTypes where
 newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { _dasntrAutoScalingNotificationTypes :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAutoScalingNotificationTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse
+mkDescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
+    { _dasntrAutoScalingNotificationTypes = mempty
+    }
 
 -- | Returns a list of all notification types supported by Auto Scaling. They
 -- are: autoscaling:EC2_INSTANCE_LAUNCH autoscaling:EC2_INSTANCE_LAUNCH_ERROR

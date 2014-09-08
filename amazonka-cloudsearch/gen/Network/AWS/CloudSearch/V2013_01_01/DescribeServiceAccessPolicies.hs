@@ -35,6 +35,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies
 
     -- * Response
     , DescribeServiceAccessPoliciesResponse
+    -- ** Response constructor
+    , mkDescribeServiceAccessPoliciesResponse
     -- ** Response lenses
     , dsaprAccessPolicies
     ) where
@@ -77,6 +79,16 @@ instance ToQuery DescribeServiceAccessPolicies where
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeServiceAccessPoliciesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'dsaprAccessPolicies'
+                                        -> DescribeServiceAccessPoliciesResponse
+mkDescribeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse
+    { _dsaprAccessPolicies = p1
+    }
 
 -- | The access rules configured for the domain specified in the request.
 dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus

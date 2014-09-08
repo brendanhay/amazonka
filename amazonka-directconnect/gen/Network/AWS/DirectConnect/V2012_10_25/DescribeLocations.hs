@@ -28,6 +28,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
     , mkDescribeLocations
     -- * Response
     , DescribeLocationsResponse
+    -- ** Response constructor
+    , mkDescribeLocationsResponse
     -- ** Response lenses
     , dlrLocations
     ) where
@@ -55,6 +57,15 @@ instance ToJSON DescribeLocations
 newtype DescribeLocationsResponse = DescribeLocationsResponse
     { _dlrLocations :: [Location]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLocationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLocationsResponse :: DescribeLocationsResponse
+mkDescribeLocationsResponse = DescribeLocationsResponse
+    { _dlrLocations = mempty
+    }
 
 dlrLocations :: Lens' DescribeLocationsResponse [Location]
 dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a })

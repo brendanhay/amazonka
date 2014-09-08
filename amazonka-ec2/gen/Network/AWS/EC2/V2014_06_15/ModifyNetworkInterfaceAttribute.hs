@@ -42,6 +42,8 @@ module Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute
 
     -- * Response
     , ModifyNetworkInterfaceAttributeResponse
+    -- ** Response constructor
+    , mkModifyNetworkInterfaceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -102,6 +104,13 @@ instance ToQuery ModifyNetworkInterfaceAttribute where
 
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyNetworkInterfaceAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
+mkModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
 
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2

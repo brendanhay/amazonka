@@ -35,6 +35,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeInstances
 
     -- * Response
     , DescribeInstancesResponse
+    -- ** Response constructor
+    , mkDescribeInstancesResponse
     -- ** Response lenses
     , dirInstances
     ) where
@@ -86,6 +88,15 @@ instance ToJSON DescribeInstances
 newtype DescribeInstancesResponse = DescribeInstancesResponse
     { _dirInstances :: [Instance]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeInstancesResponse :: DescribeInstancesResponse
+mkDescribeInstancesResponse = DescribeInstancesResponse
+    { _dirInstances = mempty
+    }
 
 -- | An array of Instance objects that describe the instances.
 dirInstances :: Lens' DescribeInstancesResponse [Instance]

@@ -31,6 +31,8 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateDistribution
 
     -- * Response
     , UpdateDistributionResponse
+    -- ** Response constructor
+    , mkUpdateDistributionResponse
     -- ** Response lenses
     , udrDistribution
     , udrETag
@@ -96,6 +98,16 @@ data UpdateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution :: Maybe Distribution
     , _udrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateDistributionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateDistributionResponse :: UpdateDistributionResponse
+mkUpdateDistributionResponse = UpdateDistributionResponse
+    { _udrDistribution = Nothing
+    , _udrETag = Nothing
+    }
 
 -- | The distribution's information.
 udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)

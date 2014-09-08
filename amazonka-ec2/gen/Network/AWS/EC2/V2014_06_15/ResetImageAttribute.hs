@@ -37,6 +37,8 @@ module Network.AWS.EC2.V2014_06_15.ResetImageAttribute
 
     -- * Response
     , ResetImageAttributeResponse
+    -- ** Response constructor
+    , mkResetImageAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,6 +75,13 @@ instance ToQuery ResetImageAttribute where
 
 data ResetImageAttributeResponse = ResetImageAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetImageAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResetImageAttributeResponse :: ResetImageAttributeResponse
+mkResetImageAttributeResponse = ResetImageAttributeResponse
 
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2

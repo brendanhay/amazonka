@@ -29,6 +29,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes
     , mkDescribeAdjustmentTypes
     -- * Response
     , DescribeAdjustmentTypesResponse
+    -- ** Response constructor
+    , mkDescribeAdjustmentTypesResponse
     -- ** Response lenses
     , datrAdjustmentTypes
     ) where
@@ -52,6 +54,15 @@ instance ToQuery DescribeAdjustmentTypes where
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes :: [AdjustmentType]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAdjustmentTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
+mkDescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
+    { _datrAdjustmentTypes = mempty
+    }
 
 -- | A list of specific policy adjustment types.
 datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]

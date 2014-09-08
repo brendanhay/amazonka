@@ -61,6 +61,8 @@ module Network.AWS.EC2.V2014_06_15.CreateRoute
 
     -- * Response
     , CreateRouteResponse
+    -- ** Response constructor
+    , mkCreateRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -126,6 +128,13 @@ instance ToQuery CreateRoute where
 
 data CreateRouteResponse = CreateRouteResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateRouteResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateRouteResponse :: CreateRouteResponse
+mkCreateRouteResponse = CreateRouteResponse
 
 instance AWSRequest CreateRoute where
     type Sv CreateRoute = EC2

@@ -31,6 +31,8 @@ module Network.AWS.CloudSearch.V2013_01_01.IndexDocuments
 
     -- * Response
     , IndexDocumentsResponse
+    -- ** Response constructor
+    , mkIndexDocumentsResponse
     -- ** Response lenses
     , idrFieldNames
     ) where
@@ -68,6 +70,15 @@ instance ToQuery IndexDocuments where
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'IndexDocumentsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkIndexDocumentsResponse :: IndexDocumentsResponse
+mkIndexDocumentsResponse = IndexDocumentsResponse
+    { _idrFieldNames = mempty
+    }
 
 -- | The names of the fields that are currently being indexed.
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]

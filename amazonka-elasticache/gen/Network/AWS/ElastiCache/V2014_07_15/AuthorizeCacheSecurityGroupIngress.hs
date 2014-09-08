@@ -42,6 +42,8 @@ module Network.AWS.ElastiCache.V2014_07_15.AuthorizeCacheSecurityGroupIngress
 
     -- * Response
     , AuthorizeCacheSecurityGroupIngressResponse
+    -- ** Response constructor
+    , mkAuthorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirCacheSecurityGroup
     ) where
@@ -96,6 +98,15 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress where
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AuthorizeCacheSecurityGroupIngressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAuthorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse
+mkAuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
+    { _acsgirCacheSecurityGroup = Nothing
+    }
 
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup

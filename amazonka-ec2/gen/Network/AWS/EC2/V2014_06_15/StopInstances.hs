@@ -62,6 +62,8 @@ module Network.AWS.EC2.V2014_06_15.StopInstances
 
     -- * Response
     , StopInstancesResponse
+    -- ** Response constructor
+    , mkStopInstancesResponse
     -- ** Response lenses
     , sir1StoppingInstances
     ) where
@@ -103,6 +105,15 @@ instance ToQuery StopInstances where
 newtype StopInstancesResponse = StopInstancesResponse
     { _sir1StoppingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStopInstancesResponse :: StopInstancesResponse
+mkStopInstancesResponse = StopInstancesResponse
+    { _sir1StoppingInstances = mempty
+    }
 
 -- | Information about one or more stopped instances.
 sir1StoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]

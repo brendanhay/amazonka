@@ -42,6 +42,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool
 
     -- * Response
     , CreateIdentityPoolResponse
+    -- ** Response constructor
+    , mkCreateIdentityPoolResponse
     -- ** Response lenses
     , ciprIdentityPoolId
     , ciprIdentityPoolName
@@ -103,6 +105,21 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     , _ciprAllowUnauthenticatedIdentities :: Bool
     , _ciprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateIdentityPoolResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateIdentityPoolResponse :: Text -- ^ 'ciprIdentityPoolId'
+                             -> Text -- ^ 'ciprIdentityPoolName'
+                             -> Bool -- ^ 'ciprAllowUnauthenticatedIdentities'
+                             -> CreateIdentityPoolResponse
+mkCreateIdentityPoolResponse p1 p2 p3 = CreateIdentityPoolResponse
+    { _ciprIdentityPoolId = p1
+    , _ciprIdentityPoolName = p2
+    , _ciprAllowUnauthenticatedIdentities = p3
+    , _ciprSupportedLoginProviders = mempty
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 ciprIdentityPoolId :: Lens' CreateIdentityPoolResponse Text

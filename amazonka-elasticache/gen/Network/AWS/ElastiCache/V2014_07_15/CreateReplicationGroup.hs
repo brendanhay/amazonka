@@ -45,6 +45,8 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup
 
     -- * Response
     , CreateReplicationGroupResponse
+    -- ** Response constructor
+    , mkCreateReplicationGroupResponse
     -- ** Response lenses
     , crgrReplicationGroup
     ) where
@@ -99,6 +101,15 @@ instance ToQuery CreateReplicationGroup where
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateReplicationGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateReplicationGroupResponse :: CreateReplicationGroupResponse
+mkCreateReplicationGroupResponse = CreateReplicationGroupResponse
+    { _crgrReplicationGroup = Nothing
+    }
 
 -- | Contains all of the attributes of a specific replication group.
 crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)

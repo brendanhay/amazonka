@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.CreateUser
 
     -- * Response
     , CreateUserResponse
+    -- ** Response constructor
+    , mkCreateUserResponse
     -- ** Response lenses
     , curUser
     ) where
@@ -76,6 +78,15 @@ instance ToQuery CreateUser where
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateUserResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateUserResponse :: CreateUserResponse
+mkCreateUserResponse = CreateUserResponse
+    { _curUser = Nothing
+    }
 
 -- | Information about the user.
 curUser :: Lens' CreateUserResponse (Maybe User)

@@ -32,6 +32,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations
 
     -- * Response
     , DescribeNotificationConfigurationsResponse
+    -- ** Response constructor
+    , mkDescribeNotificationConfigurationsResponse
     -- ** Response lenses
     , dncrNotificationConfigurations
     , dncrNextToken
@@ -80,6 +82,17 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
     { _dncrNotificationConfigurations :: [NotificationConfiguration]
     , _dncrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNotificationConfigurationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeNotificationConfigurationsResponse :: [NotificationConfiguration] -- ^ 'dncrNotificationConfigurations'
+                                             -> DescribeNotificationConfigurationsResponse
+mkDescribeNotificationConfigurationsResponse p1 = DescribeNotificationConfigurationsResponse
+    { _dncrNotificationConfigurations = p1
+    , _dncrNextToken = Nothing
+    }
 
 -- | The list of notification configurations.
 dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]

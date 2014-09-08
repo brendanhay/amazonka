@@ -31,6 +31,8 @@ module Network.AWS.S3.V2006_03_01.DeleteBucket
 
     -- * Response
     , DeleteBucketResponse
+    -- ** Response constructor
+    , mkDeleteBucketResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -67,6 +69,13 @@ instance ToBody DeleteBucket
 
 data DeleteBucketResponse = DeleteBucketResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteBucketResponse :: DeleteBucketResponse
+mkDeleteBucketResponse = DeleteBucketResponse
 
 instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3

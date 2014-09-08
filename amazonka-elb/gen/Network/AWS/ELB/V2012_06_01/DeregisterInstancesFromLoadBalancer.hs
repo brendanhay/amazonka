@@ -41,6 +41,8 @@ module Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer
 
     -- * Response
     , DeregisterInstancesFromLoadBalancerResponse
+    -- ** Response constructor
+    , mkDeregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
     , diflbrInstances
     ) where
@@ -81,6 +83,15 @@ instance ToQuery DeregisterInstancesFromLoadBalancer where
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { _diflbrInstances :: [Instance]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterInstancesFromLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
+mkDeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
+    { _diflbrInstances = mempty
+    }
 
 -- | An updated list of remaining instances registered with the load balancer.
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]

@@ -54,6 +54,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateEnvironment
 
     -- * Response
     , UpdateEnvironmentResponse
+    -- ** Response constructor
+    , mkUpdateEnvironmentResponse
     -- ** Response lenses
     , uerEnvironmentName
     , uerEnvironmentId
@@ -177,6 +179,29 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     , _uerResources :: Maybe EnvironmentResourcesDescription
     , _uerTier :: Maybe EnvironmentTier
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateEnvironmentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateEnvironmentResponse :: UpdateEnvironmentResponse
+mkUpdateEnvironmentResponse = UpdateEnvironmentResponse
+    { _uerEnvironmentName = Nothing
+    , _uerEnvironmentId = Nothing
+    , _uerApplicationName = Nothing
+    , _uerVersionLabel = Nothing
+    , _uerSolutionStackName = Nothing
+    , _uerTemplateName = Nothing
+    , _uerDescription = Nothing
+    , _uerEndpointURL = Nothing
+    , _uerCNAME = Nothing
+    , _uerDateCreated = Nothing
+    , _uerDateUpdated = Nothing
+    , _uerStatus = Nothing
+    , _uerHealth = Nothing
+    , _uerResources = Nothing
+    , _uerTier = Nothing
+    }
 
 -- | The name of this environment.
 uerEnvironmentName :: Lens' UpdateEnvironmentResponse (Maybe Text)

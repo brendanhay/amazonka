@@ -53,6 +53,8 @@ module Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes
 
     -- * Response
     , GetIdentityDkimAttributesResponse
+    -- ** Response constructor
+    , mkGetIdentityDkimAttributesResponse
     -- ** Response lenses
     , gidarDkimAttributes
     ) where
@@ -91,6 +93,16 @@ instance ToQuery GetIdentityDkimAttributes where
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdentityDkimAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetIdentityDkimAttributesResponse :: Map Text IdentityDkimAttributes -- ^ 'gidarDkimAttributes'
+                                    -> GetIdentityDkimAttributesResponse
+mkGetIdentityDkimAttributesResponse p1 = GetIdentityDkimAttributesResponse
+    { _gidarDkimAttributes = p1
+    }
 
 -- | The DKIM attributes for an email address or a domain.
 gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)

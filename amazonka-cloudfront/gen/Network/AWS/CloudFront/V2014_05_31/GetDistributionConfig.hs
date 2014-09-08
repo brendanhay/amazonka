@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig
 
     -- * Response
     , GetDistributionConfigResponse
+    -- ** Response constructor
+    , mkGetDistributionConfigResponse
     -- ** Response lenses
     , gdcrDistributionConfig
     , gdcrETag
@@ -76,6 +78,16 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig :: Maybe DistributionConfig
     , _gdcrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetDistributionConfigResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetDistributionConfigResponse :: GetDistributionConfigResponse
+mkGetDistributionConfigResponse = GetDistributionConfigResponse
+    { _gdcrDistributionConfig = Nothing
+    , _gdcrETag = Nothing
+    }
 
 -- | The distribution's configuration information.
 gdcrDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)

@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketCors
 
     -- * Response
     , GetBucketCorsResponse
+    -- ** Response constructor
+    , mkGetBucketCorsResponse
     -- ** Response lenses
     , gbcrCORSRules
     ) where
@@ -71,6 +73,15 @@ instance ToBody GetBucketCors
 newtype GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules :: [CORSRule]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketCorsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketCorsResponse :: GetBucketCorsResponse
+mkGetBucketCorsResponse = GetBucketCorsResponse
+    { _gbcrCORSRules = mempty
+    }
 
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })

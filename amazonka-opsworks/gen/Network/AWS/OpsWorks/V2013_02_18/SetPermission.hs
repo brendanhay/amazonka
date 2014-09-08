@@ -37,6 +37,8 @@ module Network.AWS.OpsWorks.V2013_02_18.SetPermission
 
     -- * Response
     , SetPermissionResponse
+    -- ** Response constructor
+    , mkSetPermissionResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -97,6 +99,13 @@ instance ToJSON SetPermission
 
 data SetPermissionResponse = SetPermissionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetPermissionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetPermissionResponse :: SetPermissionResponse
+mkSetPermissionResponse = SetPermissionResponse
 
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks

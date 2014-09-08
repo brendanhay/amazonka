@@ -30,6 +30,8 @@ module Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy
 
     -- * Response
     , DisableSnapshotCopyResponse
+    -- ** Response constructor
+    , mkDisableSnapshotCopyResponse
     -- ** Response lenses
     , dscrCluster
     ) where
@@ -65,6 +67,15 @@ instance ToQuery DisableSnapshotCopy where
 newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableSnapshotCopyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisableSnapshotCopyResponse :: DisableSnapshotCopyResponse
+mkDisableSnapshotCopyResponse = DisableSnapshotCopyResponse
+    { _dscrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)

@@ -46,6 +46,8 @@ module Network.AWS.RDS.V2013_09_09.ModifyEventSubscription
 
     -- * Response
     , ModifyEventSubscriptionResponse
+    -- ** Response constructor
+    , mkModifyEventSubscriptionResponse
     -- ** Response lenses
     , mesrEventSubscription
     ) where
@@ -112,6 +114,15 @@ instance ToQuery ModifyEventSubscription where
 newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyEventSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse
+mkModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
+    { _mesrEventSubscription = Nothing
+    }
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.

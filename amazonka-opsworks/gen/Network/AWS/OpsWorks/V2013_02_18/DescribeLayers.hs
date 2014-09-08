@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLayers
 
     -- * Response
     , DescribeLayersResponse
+    -- ** Response constructor
+    , mkDescribeLayersResponse
     -- ** Response lenses
     , dlrLayers
     ) where
@@ -77,6 +79,15 @@ instance ToJSON DescribeLayers
 newtype DescribeLayersResponse = DescribeLayersResponse
     { _dlrLayers :: [Layer]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLayersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLayersResponse :: DescribeLayersResponse
+mkDescribeLayersResponse = DescribeLayersResponse
+    { _dlrLayers = mempty
+    }
 
 -- | An array of Layer objects that describe the layers.
 dlrLayers :: Lens' DescribeLayersResponse [Layer]

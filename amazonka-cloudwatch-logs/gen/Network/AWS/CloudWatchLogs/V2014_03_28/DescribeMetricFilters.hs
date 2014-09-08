@@ -51,6 +51,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters
 
     -- * Response
     , DescribeMetricFiltersResponse
+    -- ** Response constructor
+    , mkDescribeMetricFiltersResponse
     -- ** Response lenses
     , dmfrMetricFilters
     , dmfrNextToken
@@ -110,6 +112,16 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters :: [MetricFilter]
     , _dmfrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMetricFiltersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeMetricFiltersResponse :: DescribeMetricFiltersResponse
+mkDescribeMetricFiltersResponse = DescribeMetricFiltersResponse
+    { _dmfrMetricFilters = mempty
+    , _dmfrNextToken = Nothing
+    }
 
 dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrMetricFilters =

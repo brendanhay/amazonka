@@ -987,7 +987,10 @@ newtype CommonPrefix = CommonPrefix
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CommonPrefix' data type to populate a request.
+-- a valid 'CommonPrefix' data type.
+--
+-- 'CommonPrefix' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCommonPrefix :: CommonPrefix
 mkCommonPrefix = CommonPrefix
     { _cprPrefix = Nothing
@@ -1250,7 +1253,10 @@ data Bucket = Bucket
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Bucket' data type to populate a request.
+-- a valid 'Bucket' data type.
+--
+-- 'Bucket' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkBucket :: Bucket
 mkBucket = Bucket
     { _bName = Nothing
@@ -1404,7 +1410,10 @@ data CopyObjectResult = CopyObjectResult
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CopyObjectResult' data type to populate a request.
+-- a valid 'CopyObjectResult' data type.
+--
+-- 'CopyObjectResult' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCopyObjectResult :: CopyObjectResult
 mkCopyObjectResult = CopyObjectResult
     { _corrETag = Nothing
@@ -1428,7 +1437,10 @@ data CopyPartResult = CopyPartResult
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CopyPartResult' data type to populate a request.
+-- a valid 'CopyPartResult' data type.
+--
+-- 'CopyPartResult' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCopyPartResult :: CopyPartResult
 mkCopyPartResult = CopyPartResult
     { _cprrETag = Nothing
@@ -1483,7 +1495,10 @@ data DeleteMarkerEntry = DeleteMarkerEntry
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DeleteMarkerEntry' data type to populate a request.
+-- a valid 'DeleteMarkerEntry' data type.
+--
+-- 'DeleteMarkerEntry' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDeleteMarkerEntry :: DeleteMarkerEntry
 mkDeleteMarkerEntry = DeleteMarkerEntry
     { _dmeOwner = Nothing
@@ -1525,7 +1540,10 @@ data DeletedObject = DeletedObject
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DeletedObject' data type to populate a request.
+-- a valid 'DeletedObject' data type.
+--
+-- 'DeletedObject' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDeletedObject :: DeletedObject
 mkDeletedObject = DeletedObject
     { _do1rKey = Nothing
@@ -1561,7 +1579,10 @@ data Error = Error
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Error' data type to populate a request.
+-- a valid 'Error' data type.
+--
+-- 'Error' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkError :: Error
 mkError = Error
     { _eKey = Nothing
@@ -1774,7 +1795,10 @@ data MultipartUpload = MultipartUpload
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'MultipartUpload' data type to populate a request.
+-- a valid 'MultipartUpload' data type.
+--
+-- 'MultipartUpload' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMultipartUpload :: MultipartUpload
 mkMultipartUpload = MultipartUpload
     { _muUploadId = Nothing
@@ -1860,7 +1884,10 @@ data Object = Object
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Object' data type to populate a request.
+-- a valid 'Object' data type.
+--
+-- 'Object' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkObject :: ObjectKey -- ^ 'orKey'
          -> RFC822 -- ^ 'orLastModified'
          -> ETag -- ^ 'orETag'
@@ -1938,7 +1965,10 @@ data ObjectVersion = ObjectVersion
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ObjectVersion' data type to populate a request.
+-- a valid 'ObjectVersion' data type.
+--
+-- 'ObjectVersion' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkObjectVersion :: ObjectVersion
 mkObjectVersion = ObjectVersion
     { _ovETag = Nothing
@@ -2021,7 +2051,10 @@ data Part = Part
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Part' data type to populate a request.
+-- a valid 'Part' data type.
+--
+-- 'Part' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPart :: Part
 mkPart = Part
     { _pPartNumber = Nothing

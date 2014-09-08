@@ -65,6 +65,8 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact
 
     -- * Response
     , UpdateDomainContactResponse
+    -- ** Response constructor
+    , mkUpdateDomainContactResponse
     -- ** Response lenses
     , udcrOperationId
     ) where
@@ -133,6 +135,16 @@ instance ToJSON UpdateDomainContact
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
     { _udcrOperationId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateDomainContactResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateDomainContactResponse :: Text -- ^ 'udcrOperationId'
+                              -> UpdateDomainContactResponse
+mkUpdateDomainContactResponse p1 = UpdateDomainContactResponse
+    { _udcrOperationId = p1
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:

@@ -51,6 +51,8 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit
 
     -- * Response
     , UpdateBandwidthRateLimitResponse
+    -- ** Response constructor
+    , mkUpdateBandwidthRateLimitResponse
     -- ** Response lenses
     , ubrlrGatewayARN
     ) where
@@ -108,6 +110,15 @@ instance ToJSON UpdateBandwidthRateLimit
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateBandwidthRateLimitResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse
+mkUpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
+    { _ubrlrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

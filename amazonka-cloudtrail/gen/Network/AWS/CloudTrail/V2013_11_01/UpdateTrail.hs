@@ -37,6 +37,8 @@ module Network.AWS.CloudTrail.V2013_11_01.UpdateTrail
 
     -- * Response
     , UpdateTrailResponse
+    -- ** Response constructor
+    , mkUpdateTrailResponse
     -- ** Response lenses
     , utrName
     , utrS3BucketName
@@ -113,6 +115,19 @@ data UpdateTrailResponse = UpdateTrailResponse
     , _utrSnsTopicName :: Maybe Text
     , _utrIncludeGlobalServiceEvents :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateTrailResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateTrailResponse :: UpdateTrailResponse
+mkUpdateTrailResponse = UpdateTrailResponse
+    { _utrName = Nothing
+    , _utrS3BucketName = Nothing
+    , _utrS3KeyPrefix = Nothing
+    , _utrSnsTopicName = Nothing
+    , _utrIncludeGlobalServiceEvents = Nothing
+    }
 
 -- | Specifies the name of the trail.
 utrName :: Lens' UpdateTrailResponse (Maybe Text)

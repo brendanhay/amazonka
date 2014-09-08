@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer
 
     -- * Response
     , DetachElasticLoadBalancerResponse
+    -- ** Response constructor
+    , mkDetachElasticLoadBalancerResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -76,6 +78,13 @@ instance ToJSON DetachElasticLoadBalancer
 
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachElasticLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDetachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
+mkDetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
 
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks

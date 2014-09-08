@@ -90,6 +90,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob
 
     -- * Response
     , CreateJobResponse
+    -- ** Response constructor
+    , mkCreateJobResponse
     -- ** Response lenses
     , cjrrJob
     ) where
@@ -171,6 +173,15 @@ instance ToJSON CreateJob
 newtype CreateJobResponse = CreateJobResponse
     { _cjrrJob :: Maybe Job
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateJobResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateJobResponse :: CreateJobResponse
+mkCreateJobResponse = CreateJobResponse
+    { _cjrrJob = Nothing
+    }
 
 -- | A section of the response body that provides information about the job that
 -- is created.

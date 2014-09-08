@@ -47,6 +47,8 @@ module Network.AWS.DataPipeline.V2012_10_29.QueryObjects
 
     -- * Response
     , QueryObjectsResponse
+    -- ** Response constructor
+    , mkQueryObjectsResponse
     -- ** Response lenses
     , qorIds
     , qorMarker
@@ -121,6 +123,18 @@ data QueryObjectsResponse = QueryObjectsResponse
     , _qorMarker :: Maybe Text
     , _qorHasMoreResults :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'QueryObjectsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkQueryObjectsResponse :: Bool -- ^ 'qorHasMoreResults'
+                       -> QueryObjectsResponse
+mkQueryObjectsResponse p3 = QueryObjectsResponse
+    { _qorIds = mempty
+    , _qorMarker = Nothing
+    , _qorHasMoreResults = p3
+    }
 
 -- | A list of identifiers that match the query selectors.
 qorIds :: Lens' QueryObjectsResponse [Text]

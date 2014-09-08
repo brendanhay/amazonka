@@ -35,6 +35,8 @@ module Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling
 
     -- * Response
     , SetTimeBasedAutoScalingResponse
+    -- ** Response constructor
+    , mkSetTimeBasedAutoScalingResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -75,6 +77,13 @@ instance ToJSON SetTimeBasedAutoScaling
 
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTimeBasedAutoScalingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
+mkSetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
 
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks

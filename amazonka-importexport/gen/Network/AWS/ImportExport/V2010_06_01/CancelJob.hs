@@ -30,6 +30,8 @@ module Network.AWS.ImportExport.V2010_06_01.CancelJob
 
     -- * Response
     , CancelJobResponse
+    -- ** Response constructor
+    , mkCancelJobResponse
     -- ** Response lenses
     , cjrSuccess
     ) where
@@ -62,6 +64,15 @@ instance ToQuery CancelJob where
 newtype CancelJobResponse = CancelJobResponse
     { _cjrSuccess :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelJobResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelJobResponse :: CancelJobResponse
+mkCancelJobResponse = CancelJobResponse
+    { _cjrSuccess = Nothing
+    }
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)

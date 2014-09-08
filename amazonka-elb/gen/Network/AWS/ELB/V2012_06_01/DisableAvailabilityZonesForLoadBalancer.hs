@@ -44,6 +44,8 @@ module Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer
 
     -- * Response
     , DisableAvailabilityZonesForLoadBalancerResponse
+    -- ** Response constructor
+    , mkDisableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , dazflbrAvailabilityZones
     ) where
@@ -88,6 +90,15 @@ instance ToQuery DisableAvailabilityZonesForLoadBalancer where
 newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
     { _dazflbrAvailabilityZones :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableAvailabilityZonesForLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLoadBalancerResponse
+mkDisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
+    { _dazflbrAvailabilityZones = mempty
+    }
 
 -- | A list of updated Availability Zones for the load balancer.
 dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]

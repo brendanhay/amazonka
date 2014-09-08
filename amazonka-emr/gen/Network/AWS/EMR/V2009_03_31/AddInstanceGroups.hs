@@ -48,6 +48,8 @@ module Network.AWS.EMR.V2009_03_31.AddInstanceGroups
 
     -- * Response
     , AddInstanceGroupsResponse
+    -- ** Response constructor
+    , mkAddInstanceGroupsResponse
     -- ** Response lenses
     , aigrJobFlowId
     , aigrInstanceGroupIds
@@ -95,6 +97,16 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse
     { _aigrJobFlowId :: Maybe Text
     , _aigrInstanceGroupIds :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddInstanceGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddInstanceGroupsResponse :: AddInstanceGroupsResponse
+mkAddInstanceGroupsResponse = AddInstanceGroupsResponse
+    { _aigrJobFlowId = Nothing
+    , _aigrInstanceGroupIds = mempty
+    }
 
 -- | The job flow ID in which the instance groups are added.
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)

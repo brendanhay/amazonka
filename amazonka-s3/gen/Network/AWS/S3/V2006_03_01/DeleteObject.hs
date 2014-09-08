@@ -34,6 +34,8 @@ module Network.AWS.S3.V2006_03_01.DeleteObject
 
     -- * Response
     , DeleteObjectResponse
+    -- ** Response constructor
+    , mkDeleteObjectResponse
     -- ** Response lenses
     , dorDeleteMarker
     , dorVersionId
@@ -102,6 +104,16 @@ data DeleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker :: Maybe Bool
     , _dorVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteObjectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteObjectResponse :: DeleteObjectResponse
+mkDeleteObjectResponse = DeleteObjectResponse
+    { _dorDeleteMarker = Nothing
+    , _dorVersionId = Nothing
+    }
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.

@@ -30,6 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.ListDistributions
 
     -- * Response
     , ListDistributionsResponse
+    -- ** Response constructor
+    , mkListDistributionsResponse
     -- ** Response lenses
     , ldrDistributionList
     ) where
@@ -84,6 +86,16 @@ instance ToXML ListDistributions where
 newtype ListDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList :: DistributionList
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDistributionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListDistributionsResponse :: DistributionList -- ^ 'ldrDistributionList'
+                            -> ListDistributionsResponse
+mkListDistributionsResponse p1 = ListDistributionsResponse
+    { _ldrDistributionList = p1
+    }
 
 -- | The DistributionList type.
 ldrDistributionList :: Lens' ListDistributionsResponse DistributionList

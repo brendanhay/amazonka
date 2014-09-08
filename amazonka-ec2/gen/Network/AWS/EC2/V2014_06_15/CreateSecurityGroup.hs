@@ -66,6 +66,8 @@ module Network.AWS.EC2.V2014_06_15.CreateSecurityGroup
 
     -- * Response
     , CreateSecurityGroupResponse
+    -- ** Response constructor
+    , mkCreateSecurityGroupResponse
     -- ** Response lenses
     , csgrGroupId
     ) where
@@ -113,6 +115,15 @@ instance ToQuery CreateSecurityGroup where
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSecurityGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateSecurityGroupResponse :: CreateSecurityGroupResponse
+mkCreateSecurityGroupResponse = CreateSecurityGroupResponse
+    { _csgrGroupId = Nothing
+    }
 
 -- | The ID of the security group.
 csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)

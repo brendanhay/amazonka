@@ -56,6 +56,8 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBInstance
 
     -- * Response
     , ModifyDBInstanceResponse
+    -- ** Response constructor
+    , mkModifyDBInstanceResponse
     -- ** Response lenses
     , mdbirDBInstance
     ) where
@@ -357,6 +359,15 @@ instance ToQuery ModifyDBInstance where
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyDBInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyDBInstanceResponse :: ModifyDBInstanceResponse
+mkModifyDBInstanceResponse = ModifyDBInstanceResponse
+    { _mdbirDBInstance = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used

@@ -75,6 +75,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByStatus
 
     -- * Response
     , ListJobsByStatusResponse
+    -- ** Response constructor
+    , mkListJobsByStatusResponse
     -- ** Response lenses
     , ljbsrJobs
     , ljbsrNextPageToken
@@ -140,6 +142,16 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs :: [Job]
     , _ljbsrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListJobsByStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListJobsByStatusResponse :: ListJobsByStatusResponse
+mkListJobsByStatusResponse = ListJobsByStatusResponse
+    { _ljbsrJobs = mempty
+    , _ljbsrNextPageToken = Nothing
+    }
 
 -- | An array of Job objects that have the specified status.
 ljbsrJobs :: Lens' ListJobsByStatusResponse [Job]

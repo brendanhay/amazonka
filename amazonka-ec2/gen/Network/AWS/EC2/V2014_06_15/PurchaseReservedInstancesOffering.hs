@@ -52,6 +52,8 @@ module Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering
 
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
+    -- ** Response constructor
+    , mkPurchaseReservedInstancesOfferingResponse
     -- ** Response lenses
     , priorReservedInstancesId
     ) where
@@ -102,6 +104,15 @@ instance ToQuery PurchaseReservedInstancesOffering where
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedInstancesOfferingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse
+mkPurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
+    { _priorReservedInstancesId = Nothing
+    }
 
 -- | The IDs of the purchased Reserved Instances.
 priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)

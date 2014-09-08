@@ -40,6 +40,8 @@ module Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
 
     -- * Response
     , CreatePipelineResponse
+    -- ** Response constructor
+    , mkCreatePipelineResponse
     -- ** Response lenses
     , cprPipelineId
     ) where
@@ -103,6 +105,16 @@ instance ToJSON CreatePipeline
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipelineId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreatePipelineResponse :: Text -- ^ 'cprPipelineId'
+                         -> CreatePipelineResponse
+mkCreatePipelineResponse p1 = CreatePipelineResponse
+    { _cprPipelineId = p1
+    }
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is
 -- a string of the form: df-06372391ZG65EXAMPLE.

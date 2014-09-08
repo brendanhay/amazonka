@@ -69,6 +69,8 @@ module Network.AWS.AutoScaling.V2011_01_01.UpdateAutoScalingGroup
 
     -- * Response
     , UpdateAutoScalingGroupResponse
+    -- ** Response constructor
+    , mkUpdateAutoScalingGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -195,6 +197,13 @@ instance ToQuery UpdateAutoScalingGroup where
 
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAutoScalingGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
+mkUpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 
 instance AWSRequest UpdateAutoScalingGroup where
     type Sv UpdateAutoScalingGroup = AutoScaling

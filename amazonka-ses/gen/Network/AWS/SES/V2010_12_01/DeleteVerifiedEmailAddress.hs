@@ -40,6 +40,8 @@ module Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress
 
     -- * Response
     , DeleteVerifiedEmailAddressResponse
+    -- ** Response constructor
+    , mkDeleteVerifiedEmailAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,6 +72,13 @@ instance ToQuery DeleteVerifiedEmailAddress where
 
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVerifiedEmailAddressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
+mkDeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
 
 instance AWSRequest DeleteVerifiedEmailAddress where
     type Sv DeleteVerifiedEmailAddress = SES

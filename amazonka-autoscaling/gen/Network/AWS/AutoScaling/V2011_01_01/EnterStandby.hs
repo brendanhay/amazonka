@@ -41,6 +41,8 @@ module Network.AWS.AutoScaling.V2011_01_01.EnterStandby
 
     -- * Response
     , EnterStandbyResponse
+    -- ** Response constructor
+    , mkEnterStandbyResponse
     -- ** Response lenses
     , esrActivities
     ) where
@@ -94,6 +96,15 @@ instance ToQuery EnterStandby where
 newtype EnterStandbyResponse = EnterStandbyResponse
     { _esrActivities :: [Activity]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnterStandbyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnterStandbyResponse :: EnterStandbyResponse
+mkEnterStandbyResponse = EnterStandbyResponse
+    { _esrActivities = mempty
+    }
 
 -- | A list describing the activities related to moving instances into Standby
 -- mode.

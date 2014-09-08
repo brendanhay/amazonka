@@ -38,6 +38,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.TerminateEnvironment
 
     -- * Response
     , TerminateEnvironmentResponse
+    -- ** Response constructor
+    , mkTerminateEnvironmentResponse
     -- ** Response lenses
     , terEnvironmentName
     , terEnvironmentId
@@ -124,6 +126,29 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     , _terResources :: Maybe EnvironmentResourcesDescription
     , _terTier :: Maybe EnvironmentTier
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateEnvironmentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTerminateEnvironmentResponse :: TerminateEnvironmentResponse
+mkTerminateEnvironmentResponse = TerminateEnvironmentResponse
+    { _terEnvironmentName = Nothing
+    , _terEnvironmentId = Nothing
+    , _terApplicationName = Nothing
+    , _terVersionLabel = Nothing
+    , _terSolutionStackName = Nothing
+    , _terTemplateName = Nothing
+    , _terDescription = Nothing
+    , _terEndpointURL = Nothing
+    , _terCNAME = Nothing
+    , _terDateCreated = Nothing
+    , _terDateUpdated = Nothing
+    , _terStatus = Nothing
+    , _terHealth = Nothing
+    , _terResources = Nothing
+    , _terTier = Nothing
+    }
 
 -- | The name of this environment.
 terEnvironmentName :: Lens' TerminateEnvironmentResponse (Maybe Text)

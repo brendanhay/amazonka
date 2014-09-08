@@ -34,6 +34,8 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBSubnetGroup
 
     -- * Response
     , DeleteDBSubnetGroupResponse
+    -- ** Response constructor
+    , mkDeleteDBSubnetGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,6 +69,13 @@ instance ToQuery DeleteDBSubnetGroup where
 
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDBSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
+mkDeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 
 instance AWSRequest DeleteDBSubnetGroup where
     type Sv DeleteDBSubnetGroup = RDS

@@ -46,6 +46,8 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes
 
     -- * Response
     , DescribeLoadBalancerPolicyTypesResponse
+    -- ** Response constructor
+    , mkDescribeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
     , dlbptrPolicyTypeDescriptions
     ) where
@@ -80,6 +82,15 @@ instance ToQuery DescribeLoadBalancerPolicyTypes where
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancerPolicyTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
+mkDescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
+    { _dlbptrPolicyTypeDescriptions = mempty
+    }
 
 -- | List of policy type description structures of the specified policy type. If
 -- no policy type names are specified, returns the description of all the

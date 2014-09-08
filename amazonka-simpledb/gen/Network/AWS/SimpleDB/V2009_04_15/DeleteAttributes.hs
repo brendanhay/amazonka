@@ -41,6 +41,8 @@ module Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes
 
     -- * Response
     , DeleteAttributesResponse
+    -- ** Response constructor
+    , mkDeleteAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -91,6 +93,13 @@ instance ToQuery DeleteAttributes where
 
 data DeleteAttributesResponse = DeleteAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAttributesResponse :: DeleteAttributesResponse
+mkDeleteAttributesResponse = DeleteAttributesResponse
 
 instance AWSRequest DeleteAttributes where
     type Sv DeleteAttributes = SimpleDB

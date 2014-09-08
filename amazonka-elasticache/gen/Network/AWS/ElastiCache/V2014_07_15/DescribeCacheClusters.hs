@@ -57,6 +57,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters
 
     -- * Response
     , DescribeCacheClustersResponse
+    -- ** Response constructor
+    , mkDescribeCacheClustersResponse
     -- ** Response lenses
     , dccrrMarker
     , dccrrCacheClusters
@@ -119,6 +121,16 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrrMarker :: Maybe Text
     , _dccrrCacheClusters :: [CacheCluster]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheClustersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCacheClustersResponse :: DescribeCacheClustersResponse
+mkDescribeCacheClustersResponse = DescribeCacheClustersResponse
+    { _dccrrMarker = Nothing
+    , _dccrrCacheClusters = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dccrrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)

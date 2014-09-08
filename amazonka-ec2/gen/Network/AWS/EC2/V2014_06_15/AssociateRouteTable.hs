@@ -44,6 +44,8 @@ module Network.AWS.EC2.V2014_06_15.AssociateRouteTable
 
     -- * Response
     , AssociateRouteTableResponse
+    -- ** Response constructor
+    , mkAssociateRouteTableResponse
     -- ** Response lenses
     , artrAssociationId
     ) where
@@ -83,6 +85,15 @@ instance ToQuery AssociateRouteTable where
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateRouteTableResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssociateRouteTableResponse :: AssociateRouteTableResponse
+mkAssociateRouteTableResponse = AssociateRouteTableResponse
+    { _artrAssociationId = Nothing
+    }
 
 -- | The route table association ID (needed to disassociate the route table).
 artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)

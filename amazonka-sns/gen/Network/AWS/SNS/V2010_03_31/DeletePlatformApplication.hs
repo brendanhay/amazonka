@@ -43,6 +43,8 @@ module Network.AWS.SNS.V2010_03_31.DeletePlatformApplication
 
     -- * Response
     , DeletePlatformApplicationResponse
+    -- ** Response constructor
+    , mkDeletePlatformApplicationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,6 +75,13 @@ instance ToQuery DeletePlatformApplication where
 
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePlatformApplicationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeletePlatformApplicationResponse :: DeletePlatformApplicationResponse
+mkDeletePlatformApplicationResponse = DeletePlatformApplicationResponse
 
 instance AWSRequest DeletePlatformApplication where
     type Sv DeletePlatformApplication = SNS

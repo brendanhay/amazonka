@@ -54,6 +54,8 @@ module Network.AWS.SNS.V2010_03_31.GetTopicAttributes
 
     -- * Response
     , GetTopicAttributesResponse
+    -- ** Response constructor
+    , mkGetTopicAttributesResponse
     -- ** Response lenses
     , gtarAttributes
     ) where
@@ -86,6 +88,15 @@ instance ToQuery GetTopicAttributes where
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetTopicAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetTopicAttributesResponse :: GetTopicAttributesResponse
+mkGetTopicAttributesResponse = GetTopicAttributesResponse
+    { _gtarAttributes = mempty
+    }
 
 -- | A map of the topic's attributes. Attributes in this map include the
 -- following: TopicArn -- the topic's ARN Owner -- the AWS account ID of the

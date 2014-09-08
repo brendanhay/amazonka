@@ -36,6 +36,8 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterElasticIp
 
     -- * Response
     , RegisterElasticIpResponse
+    -- ** Response constructor
+    , mkRegisterElasticIpResponse
     -- ** Response lenses
     , reirElasticIp
     ) where
@@ -79,6 +81,15 @@ instance ToJSON RegisterElasticIp
 newtype RegisterElasticIpResponse = RegisterElasticIpResponse
     { _reirElasticIp :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterElasticIpResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterElasticIpResponse :: RegisterElasticIpResponse
+mkRegisterElasticIpResponse = RegisterElasticIpResponse
+    { _reirElasticIp = Nothing
+    }
 
 -- | The Elastic IP address.
 reirElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)

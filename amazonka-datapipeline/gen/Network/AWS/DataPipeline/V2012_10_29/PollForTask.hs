@@ -70,6 +70,8 @@ module Network.AWS.DataPipeline.V2012_10_29.PollForTask
 
     -- * Response
     , PollForTaskResponse
+    -- ** Response constructor
+    , mkPollForTaskResponse
     -- ** Response lenses
     , pftrTaskObject
     ) where
@@ -130,6 +132,15 @@ instance ToJSON PollForTask
 newtype PollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject :: Maybe TaskObject
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PollForTaskResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPollForTaskResponse :: PollForTaskResponse
+mkPollForTaskResponse = PollForTaskResponse
+    { _pftrTaskObject = Nothing
+    }
 
 -- | An instance of PollForTaskResult, which contains an instance of TaskObject.
 -- The returned object contains all the information needed to complete the

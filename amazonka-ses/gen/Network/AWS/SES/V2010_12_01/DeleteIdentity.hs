@@ -39,6 +39,8 @@ module Network.AWS.SES.V2010_12_01.DeleteIdentity
 
     -- * Response
     , DeleteIdentityResponse
+    -- ** Response constructor
+    , mkDeleteIdentityResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,6 +72,13 @@ instance ToQuery DeleteIdentity where
 -- completed successfully.
 data DeleteIdentityResponse = DeleteIdentityResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteIdentityResponse :: DeleteIdentityResponse
+mkDeleteIdentityResponse = DeleteIdentityResponse
 
 instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES

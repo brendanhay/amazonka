@@ -48,6 +48,8 @@ module Network.AWS.Route53Domains.V2014_05_15.ListOperations
 
     -- * Response
     , ListOperationsResponse
+    -- ** Response constructor
+    , mkListOperationsResponse
     -- ** Response lenses
     , lorOperations
     , lorNextPageMarker
@@ -98,6 +100,17 @@ data ListOperationsResponse = ListOperationsResponse
     { _lorOperations :: [OperationSummary]
     , _lorNextPageMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListOperationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListOperationsResponse :: [OperationSummary] -- ^ 'lorOperations'
+                         -> ListOperationsResponse
+mkListOperationsResponse p1 = ListOperationsResponse
+    { _lorOperations = p1
+    , _lorNextPageMarker = Nothing
+    }
 
 -- | Lists summaries of the operations. Type: Complex type containing a list of
 -- operation summaries Children: OperationId, Status, SubmittedDate, Type.

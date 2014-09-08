@@ -35,6 +35,8 @@ module Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
 
     -- * Response
     , AllocateConnectionOnInterconnectResponse
+    -- ** Response constructor
+    , mkAllocateConnectionOnInterconnectResponse
     -- ** Response lenses
     , acoirOwnerAccount
     , acoirConnectionId
@@ -125,6 +127,23 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
     , _acoirVlan :: Maybe Integer
     , _acoirPartnerName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AllocateConnectionOnInterconnectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAllocateConnectionOnInterconnectResponse :: AllocateConnectionOnInterconnectResponse
+mkAllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
+    { _acoirOwnerAccount = Nothing
+    , _acoirConnectionId = Nothing
+    , _acoirConnectionName = Nothing
+    , _acoirConnectionState = Nothing
+    , _acoirRegion = Nothing
+    , _acoirLocation = Nothing
+    , _acoirBandwidth = Nothing
+    , _acoirVlan = Nothing
+    , _acoirPartnerName = Nothing
+    }
 
 acoirOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirOwnerAccount =

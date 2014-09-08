@@ -37,6 +37,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources
 
     -- * Response
     , DescribeEnvironmentResourcesResponse
+    -- ** Response constructor
+    , mkDescribeEnvironmentResourcesResponse
     -- ** Response lenses
     , derrEnvironmentResources
     ) where
@@ -82,6 +84,15 @@ instance ToQuery DescribeEnvironmentResources where
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEnvironmentResourcesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
+mkDescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
+    { _derrEnvironmentResources = Nothing
+    }
 
 -- | A list of EnvironmentResourceDescription.
 derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)

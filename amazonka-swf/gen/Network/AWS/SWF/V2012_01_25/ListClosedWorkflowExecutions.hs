@@ -88,6 +88,8 @@ module Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
 
     -- * Response
     , ListClosedWorkflowExecutionsResponse
+    -- ** Response constructor
+    , mkListClosedWorkflowExecutionsResponse
     -- ** Response lenses
     , lcwerExecutionInfos
     , lcwerNextPageToken
@@ -217,6 +219,17 @@ data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
     { _lcwerExecutionInfos :: [WorkflowExecutionInfo]
     , _lcwerNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListClosedWorkflowExecutionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListClosedWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lcwerExecutionInfos'
+                                       -> ListClosedWorkflowExecutionsResponse
+mkListClosedWorkflowExecutionsResponse p1 = ListClosedWorkflowExecutionsResponse
+    { _lcwerExecutionInfos = p1
+    , _lcwerNextPageToken = Nothing
+    }
 
 -- | The list of workflow information structures.
 lcwerExecutionInfos :: Lens' ListClosedWorkflowExecutionsResponse [WorkflowExecutionInfo]

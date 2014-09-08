@@ -33,6 +33,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteUserPolicy
 
     -- * Response
     , DeleteUserPolicyResponse
+    -- ** Response constructor
+    , mkDeleteUserPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,6 +70,13 @@ instance ToQuery DeleteUserPolicy where
 
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteUserPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteUserPolicyResponse :: DeleteUserPolicyResponse
+mkDeleteUserPolicyResponse = DeleteUserPolicyResponse
 
 instance AWSRequest DeleteUserPolicy where
     type Sv DeleteUserPolicy = IAM

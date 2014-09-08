@@ -49,6 +49,8 @@ module Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic
 
     -- * Response
     , SetIdentityNotificationTopicResponse
+    -- ** Response constructor
+    , mkSetIdentityNotificationTopicResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -97,6 +99,13 @@ instance ToQuery SetIdentityNotificationTopic where
 -- completed successfully.
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetIdentityNotificationTopicResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
+mkSetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 
 instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES

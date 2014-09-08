@@ -43,6 +43,8 @@ module Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
 
     -- * Response
     , RetrieveDomainAuthCodeResponse
+    -- ** Response constructor
+    , mkRetrieveDomainAuthCodeResponse
     -- ** Response lenses
     , rdacrAuthCode
     ) where
@@ -83,6 +85,16 @@ instance ToJSON RetrieveDomainAuthCode
 newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
     { _rdacrAuthCode :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveDomainAuthCodeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRetrieveDomainAuthCodeResponse :: Text -- ^ 'rdacrAuthCode'
+                                 -> RetrieveDomainAuthCodeResponse
+mkRetrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse
+    { _rdacrAuthCode = p1
+    }
 
 -- | The authorization code for the domain. Type: String.
 rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text

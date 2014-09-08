@@ -30,6 +30,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus
 
     -- * Response
     , DescribeLoggingStatusResponse
+    -- ** Response constructor
+    , mkDescribeLoggingStatusResponse
     -- ** Response lenses
     , dlsrLoggingEnabled
     , dlsrBucketName
@@ -74,6 +76,20 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     , _dlsrLastFailureTime :: Maybe ISO8601
     , _dlsrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoggingStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLoggingStatusResponse :: DescribeLoggingStatusResponse
+mkDescribeLoggingStatusResponse = DescribeLoggingStatusResponse
+    { _dlsrLoggingEnabled = Nothing
+    , _dlsrBucketName = Nothing
+    , _dlsrS3KeyPrefix = Nothing
+    , _dlsrLastSuccessfulDeliveryTime = Nothing
+    , _dlsrLastFailureTime = Nothing
+    , _dlsrLastFailureMessage = Nothing
+    }
 
 -- | true if logging is on, false if logging is off.
 dlsrLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)

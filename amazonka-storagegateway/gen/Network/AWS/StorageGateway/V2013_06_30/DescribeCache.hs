@@ -49,6 +49,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeCache
 
     -- * Response
     , DescribeCacheResponse
+    -- ** Response constructor
+    , mkDescribeCacheResponse
     -- ** Response lenses
     , dcrGatewayARN
     , dcrDiskIds
@@ -97,6 +99,21 @@ data DescribeCacheResponse = DescribeCacheResponse
     , _dcrCacheHitPercentage :: Maybe Double
     , _dcrCacheMissPercentage :: Maybe Double
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCacheResponse :: DescribeCacheResponse
+mkDescribeCacheResponse = DescribeCacheResponse
+    { _dcrGatewayARN = Nothing
+    , _dcrDiskIds = mempty
+    , _dcrCacheAllocatedInBytes = Nothing
+    , _dcrCacheUsedPercentage = Nothing
+    , _dcrCacheDirtyPercentage = Nothing
+    , _dcrCacheHitPercentage = Nothing
+    , _dcrCacheMissPercentage = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

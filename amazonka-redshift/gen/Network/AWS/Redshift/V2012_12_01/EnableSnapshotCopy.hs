@@ -32,6 +32,8 @@ module Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy
 
     -- * Response
     , EnableSnapshotCopyResponse
+    -- ** Response constructor
+    , mkEnableSnapshotCopyResponse
     -- ** Response lenses
     , escrCluster
     ) where
@@ -85,6 +87,15 @@ instance ToQuery EnableSnapshotCopy where
 newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableSnapshotCopyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnableSnapshotCopyResponse :: EnableSnapshotCopyResponse
+mkEnableSnapshotCopyResponse = EnableSnapshotCopyResponse
+    { _escrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)

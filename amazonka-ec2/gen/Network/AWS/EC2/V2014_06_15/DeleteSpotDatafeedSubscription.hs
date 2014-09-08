@@ -34,6 +34,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription
     , mkDeleteSpotDatafeedSubscription
     -- * Response
     , DeleteSpotDatafeedSubscriptionResponse
+    -- ** Response constructor
+    , mkDeleteSpotDatafeedSubscriptionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,6 +56,13 @@ instance ToQuery DeleteSpotDatafeedSubscription where
 
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSpotDatafeedSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
+mkDeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
 
 instance AWSRequest DeleteSpotDatafeedSubscription where
     type Sv DeleteSpotDatafeedSubscription = EC2

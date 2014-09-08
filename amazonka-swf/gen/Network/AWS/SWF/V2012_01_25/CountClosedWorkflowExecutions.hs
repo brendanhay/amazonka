@@ -66,6 +66,8 @@ module Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
 
     -- * Response
     , CountClosedWorkflowExecutionsResponse
+    -- ** Response constructor
+    , mkCountClosedWorkflowExecutionsResponse
     -- ** Response lenses
     , ccwerCount
     , ccwerTruncated
@@ -159,6 +161,17 @@ data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsRespon
     { _ccwerCount :: Integer
     , _ccwerTruncated :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountClosedWorkflowExecutionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCountClosedWorkflowExecutionsResponse :: Integer -- ^ 'ccwerCount'
+                                        -> CountClosedWorkflowExecutionsResponse
+mkCountClosedWorkflowExecutionsResponse p1 = CountClosedWorkflowExecutionsResponse
+    { _ccwerCount = p1
+    , _ccwerTruncated = Nothing
+    }
 
 -- | The number of workflow executions.
 ccwerCount :: Lens' CountClosedWorkflowExecutionsResponse Integer

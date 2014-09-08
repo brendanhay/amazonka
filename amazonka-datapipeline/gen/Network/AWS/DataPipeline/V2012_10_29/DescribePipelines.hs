@@ -52,6 +52,8 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
 
     -- * Response
     , DescribePipelinesResponse
+    -- ** Response constructor
+    , mkDescribePipelinesResponse
     -- ** Response lenses
     , dprPipelineDescriptionList
     ) where
@@ -91,6 +93,16 @@ instance ToJSON DescribePipelines
 newtype DescribePipelinesResponse = DescribePipelinesResponse
     { _dprPipelineDescriptionList :: [PipelineDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribePipelinesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribePipelinesResponse :: [PipelineDescription] -- ^ 'dprPipelineDescriptionList'
+                            -> DescribePipelinesResponse
+mkDescribePipelinesResponse p1 = DescribePipelinesResponse
+    { _dprPipelineDescriptionList = p1
+    }
 
 -- | An array of descriptions returned for the specified pipelines.
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]

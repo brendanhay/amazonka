@@ -45,6 +45,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribePolicies
 
     -- * Response
     , DescribePoliciesResponse
+    -- ** Response constructor
+    , mkDescribePoliciesResponse
     -- ** Response lenses
     , dprScalingPolicies
     , dprNextToken
@@ -103,6 +105,16 @@ data DescribePoliciesResponse = DescribePoliciesResponse
     { _dprScalingPolicies :: [ScalingPolicy]
     , _dprNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribePoliciesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribePoliciesResponse :: DescribePoliciesResponse
+mkDescribePoliciesResponse = DescribePoliciesResponse
+    { _dprScalingPolicies = mempty
+    , _dprNextToken = Nothing
+    }
 
 -- | A list of scaling policies.
 dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]

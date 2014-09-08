@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.DetachInternetGateway
 
     -- * Response
     , DetachInternetGatewayResponse
+    -- ** Response constructor
+    , mkDetachInternetGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,6 +77,13 @@ instance ToQuery DetachInternetGateway where
 
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachInternetGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDetachInternetGatewayResponse :: DetachInternetGatewayResponse
+mkDetachInternetGatewayResponse = DetachInternetGatewayResponse
 
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2

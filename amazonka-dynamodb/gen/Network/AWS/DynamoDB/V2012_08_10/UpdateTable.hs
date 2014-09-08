@@ -58,6 +58,8 @@ module Network.AWS.DynamoDB.V2012_08_10.UpdateTable
 
     -- * Response
     , UpdateTableResponse
+    -- ** Response constructor
+    , mkUpdateTableResponse
     -- ** Response lenses
     , utrTableDescription
     ) where
@@ -115,6 +117,15 @@ instance ToJSON UpdateTable
 newtype UpdateTableResponse = UpdateTableResponse
     { _utrTableDescription :: Maybe TableDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateTableResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateTableResponse :: UpdateTableResponse
+mkUpdateTableResponse = UpdateTableResponse
+    { _utrTableDescription = Nothing
+    }
 
 -- | Represents the properties of a table.
 utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)

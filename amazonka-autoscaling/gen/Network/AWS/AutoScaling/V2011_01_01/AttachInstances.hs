@@ -33,6 +33,8 @@ module Network.AWS.AutoScaling.V2011_01_01.AttachInstances
 
     -- * Response
     , AttachInstancesResponse
+    -- ** Response constructor
+    , mkAttachInstancesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -71,6 +73,13 @@ instance ToQuery AttachInstances where
 
 data AttachInstancesResponse = AttachInstancesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAttachInstancesResponse :: AttachInstancesResponse
+mkAttachInstancesResponse = AttachInstancesResponse
 
 instance AWSRequest AttachInstances where
     type Sv AttachInstances = AutoScaling

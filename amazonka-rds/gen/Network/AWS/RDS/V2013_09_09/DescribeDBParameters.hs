@@ -41,6 +41,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBParameters
 
     -- * Response
     , DescribeDBParametersResponse
+    -- ** Response constructor
+    , mkDescribeDBParametersResponse
     -- ** Response lenses
     , ddbprParameters
     , ddbprMarker
@@ -104,6 +106,16 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprParameters :: [Parameter]
     , _ddbprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBParametersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDBParametersResponse :: DescribeDBParametersResponse
+mkDescribeDBParametersResponse = DescribeDBParametersResponse
+    { _ddbprParameters = mempty
+    , _ddbprMarker = Nothing
+    }
 
 -- | A list of Parameter values.
 ddbprParameters :: Lens' DescribeDBParametersResponse [Parameter]

@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.CancelConversionTask
 
     -- * Response
     , CancelConversionTaskResponse
+    -- ** Response constructor
+    , mkCancelConversionTaskResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -76,6 +78,13 @@ instance ToQuery CancelConversionTask where
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelConversionTaskResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelConversionTaskResponse :: CancelConversionTaskResponse
+mkCancelConversionTaskResponse = CancelConversionTaskResponse
 
 instance AWSRequest CancelConversionTask where
     type Sv CancelConversionTask = EC2

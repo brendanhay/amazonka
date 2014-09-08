@@ -34,6 +34,8 @@ module Network.AWS.RDS.V2013_09_09.AddTagsToResource
 
     -- * Response
     , AddTagsToResourceResponse
+    -- ** Response constructor
+    , mkAddTagsToResourceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery AddTagsToResource where
 
 data AddTagsToResourceResponse = AddTagsToResourceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddTagsToResourceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddTagsToResourceResponse :: AddTagsToResourceResponse
+mkAddTagsToResourceResponse = AddTagsToResourceResponse
 
 instance AWSRequest AddTagsToResource where
     type Sv AddTagsToResource = RDS

@@ -49,6 +49,8 @@ module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
 
     -- * Response
     , ChangeResourceRecordSetsResponse
+    -- ** Response constructor
+    , mkChangeResourceRecordSetsResponse
     -- ** Response lenses
     , crrsrChangeInfo
     ) where
@@ -103,6 +105,16 @@ instance ToXML ChangeResourceRecordSets where
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangeResourceRecordSetsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkChangeResourceRecordSetsResponse :: ChangeInfo -- ^ 'crrsrChangeInfo'
+                                   -> ChangeResourceRecordSetsResponse
+mkChangeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
+    { _crrsrChangeInfo = p1
+    }
 
 -- | A complex type that contains information about changes made to your hosted
 -- zone. This element contains an ID that you use when performing a GetChange

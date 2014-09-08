@@ -31,6 +31,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks
 
     -- * Response
     , DescribeLifecycleHooksResponse
+    -- ** Response constructor
+    , mkDescribeLifecycleHooksResponse
     -- ** Response lenses
     , dlhrrLifecycleHooks
     ) where
@@ -72,6 +74,15 @@ instance ToQuery DescribeLifecycleHooks where
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
     { _dlhrrLifecycleHooks :: [LifecycleHook]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLifecycleHooksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
+mkDescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
+    { _dlhrrLifecycleHooks = mempty
+    }
 
 -- | A list describing the lifecycle hooks that belong to the specified Auto
 -- Scaling group.

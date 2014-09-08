@@ -33,6 +33,8 @@ module Network.AWS.S3.V2006_03_01.ListParts
 
     -- * Response
     , ListPartsResponse
+    -- ** Response constructor
+    , mkListPartsResponse
     -- ** Response lenses
     , lprBucket
     , lprKey
@@ -126,6 +128,26 @@ data ListPartsResponse = ListPartsResponse
     , _lprOwner :: Maybe Owner
     , _lprStorageClass :: Maybe StorageClass
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPartsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListPartsResponse :: Bool -- ^ 'lprIsTruncated'
+                    -> ListPartsResponse
+mkListPartsResponse p7 = ListPartsResponse
+    { _lprBucket = Nothing
+    , _lprKey = Nothing
+    , _lprUploadId = Nothing
+    , _lprPartNumberMarker = Nothing
+    , _lprNextPartNumberMarker = Nothing
+    , _lprMaxParts = Nothing
+    , _lprIsTruncated = p7
+    , _lprParts = mempty
+    , _lprInitiator = Nothing
+    , _lprOwner = Nothing
+    , _lprStorageClass = Nothing
+    }
 
 -- | Name of the bucket to which the multipart upload was initiated.
 lprBucket :: Lens' ListPartsResponse (Maybe BucketName)

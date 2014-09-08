@@ -49,6 +49,8 @@ module Network.AWS.StorageGateway.V2013_06_30.AddCache
 
     -- * Response
     , AddCacheResponse
+    -- ** Response constructor
+    , mkAddCacheResponse
     -- ** Response lenses
     , acrGatewayARN
     ) where
@@ -91,6 +93,15 @@ instance ToJSON AddCache
 newtype AddCacheResponse = AddCacheResponse
     { _acrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddCacheResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddCacheResponse :: AddCacheResponse
+mkAddCacheResponse = AddCacheResponse
+    { _acrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

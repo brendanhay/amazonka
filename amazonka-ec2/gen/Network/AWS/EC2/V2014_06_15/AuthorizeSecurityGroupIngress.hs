@@ -88,6 +88,8 @@ module Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupIngress
 
     -- * Response
     , AuthorizeSecurityGroupIngressResponse
+    -- ** Response constructor
+    , mkAuthorizeSecurityGroupIngressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -175,6 +177,13 @@ instance ToQuery AuthorizeSecurityGroupIngress where
 
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AuthorizeSecurityGroupIngressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAuthorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse
+mkAuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
 
 instance AWSRequest AuthorizeSecurityGroupIngress where
     type Sv AuthorizeSecurityGroupIngress = EC2

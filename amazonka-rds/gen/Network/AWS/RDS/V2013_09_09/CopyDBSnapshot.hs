@@ -39,6 +39,8 @@ module Network.AWS.RDS.V2013_09_09.CopyDBSnapshot
 
     -- * Response
     , CopyDBSnapshotResponse
+    -- ** Response constructor
+    , mkCopyDBSnapshotResponse
     -- ** Response lenses
     , cdbsrDBSnapshot
     ) where
@@ -97,6 +99,15 @@ instance ToQuery CopyDBSnapshot where
 newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopyDBSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCopyDBSnapshotResponse :: CopyDBSnapshotResponse
+mkCopyDBSnapshotResponse = CopyDBSnapshotResponse
+    { _cdbsrDBSnapshot = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response

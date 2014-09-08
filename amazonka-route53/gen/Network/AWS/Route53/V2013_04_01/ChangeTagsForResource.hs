@@ -31,6 +31,8 @@ module Network.AWS.Route53.V2013_04_01.ChangeTagsForResource
 
     -- * Response
     , ChangeTagsForResourceResponse
+    -- ** Response constructor
+    , mkChangeTagsForResourceResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -98,6 +100,13 @@ instance ToXML ChangeTagsForResource where
 -- | Empty response for the request.
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangeTagsForResourceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkChangeTagsForResourceResponse :: ChangeTagsForResourceResponse
+mkChangeTagsForResourceResponse = ChangeTagsForResourceResponse
 
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53

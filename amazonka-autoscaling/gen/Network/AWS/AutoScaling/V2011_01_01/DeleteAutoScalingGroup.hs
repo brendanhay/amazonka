@@ -36,6 +36,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup
 
     -- * Response
     , DeleteAutoScalingGroupResponse
+    -- ** Response constructor
+    , mkDeleteAutoScalingGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,6 +77,13 @@ instance ToQuery DeleteAutoScalingGroup where
 
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAutoScalingGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
+mkDeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 
 instance AWSRequest DeleteAutoScalingGroup where
     type Sv DeleteAutoScalingGroup = AutoScaling

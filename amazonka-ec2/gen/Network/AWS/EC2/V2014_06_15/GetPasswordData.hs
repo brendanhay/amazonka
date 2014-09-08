@@ -45,6 +45,8 @@ module Network.AWS.EC2.V2014_06_15.GetPasswordData
 
     -- * Response
     , GetPasswordDataResponse
+    -- ** Response constructor
+    , mkGetPasswordDataResponse
     -- ** Response lenses
     , gpdrInstanceId
     , gpdrTimestamp
@@ -81,6 +83,17 @@ data GetPasswordDataResponse = GetPasswordDataResponse
     , _gpdrTimestamp :: Maybe ISO8601
     , _gpdrPasswordData :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetPasswordDataResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetPasswordDataResponse :: GetPasswordDataResponse
+mkGetPasswordDataResponse = GetPasswordDataResponse
+    { _gpdrInstanceId = Nothing
+    , _gpdrTimestamp = Nothing
+    , _gpdrPasswordData = Nothing
+    }
 
 -- | The ID of the Windows instance.
 gpdrInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)

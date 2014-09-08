@@ -36,6 +36,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl
 
     -- * Response
     , DeleteNetworkAclResponse
+    -- ** Response constructor
+    , mkDeleteNetworkAclResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,6 +66,13 @@ instance ToQuery DeleteNetworkAcl where
 
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteNetworkAclResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteNetworkAclResponse :: DeleteNetworkAclResponse
+mkDeleteNetworkAclResponse = DeleteNetworkAclResponse
 
 instance AWSRequest DeleteNetworkAcl where
     type Sv DeleteNetworkAcl = EC2

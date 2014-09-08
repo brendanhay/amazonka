@@ -34,6 +34,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes
     , mkDescribeMetricCollectionTypes
     -- * Response
     , DescribeMetricCollectionTypesResponse
+    -- ** Response constructor
+    , mkDescribeMetricCollectionTypesResponse
     -- ** Response lenses
     , dmctrMetrics
     , dmctrGranularities
@@ -59,6 +61,16 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
     { _dmctrMetrics :: [MetricCollectionType]
     , _dmctrGranularities :: [MetricGranularityType]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMetricCollectionTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse
+mkDescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
+    { _dmctrMetrics = mempty
+    , _dmctrGranularities = mempty
+    }
 
 -- | The list of Metrics collected. The following metrics are supported:
 -- GroupMinSize GroupMaxSize GroupDesiredCapacity GroupInServiceInstances

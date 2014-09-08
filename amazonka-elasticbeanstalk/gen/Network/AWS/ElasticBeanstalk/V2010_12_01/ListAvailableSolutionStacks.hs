@@ -30,6 +30,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.ListAvailableSolutionStacks
     , mkListAvailableSolutionStacks
     -- * Response
     , ListAvailableSolutionStacksResponse
+    -- ** Response constructor
+    , mkListAvailableSolutionStacksResponse
     -- ** Response lenses
     , lassrSolutionStacks
     , lassrSolutionStackDetails
@@ -55,6 +57,16 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     { _lassrSolutionStacks :: [Text]
     , _lassrSolutionStackDetails :: [SolutionStackDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListAvailableSolutionStacksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
+mkListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
+    { _lassrSolutionStacks = mempty
+    , _lassrSolutionStackDetails = mempty
+    }
 
 -- | A list of available solution stacks.
 lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]

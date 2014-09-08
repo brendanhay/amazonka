@@ -63,6 +63,8 @@ module Network.AWS.EC2.V2014_06_15.AttachVolume
 
     -- * Response
     , AttachVolumeResponse
+    -- ** Response constructor
+    , mkAttachVolumeResponse
     -- ** Response lenses
     , avrVolumeId
     , avrInstanceId
@@ -120,6 +122,20 @@ data AttachVolumeResponse = AttachVolumeResponse
     , _avrAttachTime :: Maybe ISO8601
     , _avrDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAttachVolumeResponse :: AttachVolumeResponse
+mkAttachVolumeResponse = AttachVolumeResponse
+    { _avrVolumeId = Nothing
+    , _avrInstanceId = Nothing
+    , _avrDevice = Nothing
+    , _avrState = Nothing
+    , _avrAttachTime = Nothing
+    , _avrDeleteOnTermination = Nothing
+    }
 
 -- | The ID of the volume.
 avrVolumeId :: Lens' AttachVolumeResponse (Maybe Text)

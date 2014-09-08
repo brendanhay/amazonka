@@ -35,6 +35,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeCommands
 
     -- * Response
     , DescribeCommandsResponse
+    -- ** Response constructor
+    , mkDescribeCommandsResponse
     -- ** Response lenses
     , dcrCommands
     ) where
@@ -86,6 +88,15 @@ instance ToJSON DescribeCommands
 newtype DescribeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands :: [Command]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCommandsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCommandsResponse :: DescribeCommandsResponse
+mkDescribeCommandsResponse = DescribeCommandsResponse
+    { _dcrCommands = mempty
+    }
 
 -- | An array of Command objects that describe each of the specified commands.
 dcrCommands :: Lens' DescribeCommandsResponse [Command]

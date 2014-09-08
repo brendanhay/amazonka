@@ -48,6 +48,8 @@ module Network.AWS.Redshift.V2012_12_01.DeleteCluster
 
     -- * Response
     , DeleteClusterResponse
+    -- ** Response constructor
+    , mkDeleteClusterResponse
     -- ** Response lenses
     , dcrCluster
     ) where
@@ -107,6 +109,15 @@ instance ToQuery DeleteCluster where
 newtype DeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteClusterResponse :: DeleteClusterResponse
+mkDeleteClusterResponse = DeleteClusterResponse
+    { _dcrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)

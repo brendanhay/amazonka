@@ -33,6 +33,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineExpression
 
     -- * Response
     , DefineExpressionResponse
+    -- ** Response constructor
+    , mkDefineExpressionResponse
     -- ** Response lenses
     , derExpression
     ) where
@@ -79,6 +81,16 @@ instance ToQuery DefineExpression where
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DefineExpressionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDefineExpressionResponse :: ExpressionStatus -- ^ 'derExpression'
+                           -> DefineExpressionResponse
+mkDefineExpressionResponse p1 = DefineExpressionResponse
+    { _derExpression = p1
+    }
 
 -- | The value of an Expression and its current status.
 derExpression :: Lens' DefineExpressionResponse ExpressionStatus

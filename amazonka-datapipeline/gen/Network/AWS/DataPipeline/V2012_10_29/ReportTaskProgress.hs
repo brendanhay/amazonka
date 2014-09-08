@@ -49,6 +49,8 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
 
     -- * Response
     , ReportTaskProgressResponse
+    -- ** Response constructor
+    , mkReportTaskProgressResponse
     -- ** Response lenses
     , rtprCanceled
     ) where
@@ -88,6 +90,16 @@ instance ToJSON ReportTaskProgress
 newtype ReportTaskProgressResponse = ReportTaskProgressResponse
     { _rtprCanceled :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReportTaskProgressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReportTaskProgressResponse :: Bool -- ^ 'rtprCanceled'
+                             -> ReportTaskProgressResponse
+mkReportTaskProgressResponse p1 = ReportTaskProgressResponse
+    { _rtprCanceled = p1
+    }
 
 -- | If True, the calling task runner should cancel processing of the task. The
 -- task runner does not need to call SetTaskStatus for canceled tasks.

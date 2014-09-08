@@ -220,7 +220,10 @@ newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchRe
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ChangeMessageVisibilityBatchResultEntry' data type to populate a request.
+-- a valid 'ChangeMessageVisibilityBatchResultEntry' data type.
+--
+-- 'ChangeMessageVisibilityBatchResultEntry' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkChangeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrerId'
                                           -> ChangeMessageVisibilityBatchResultEntry
 mkChangeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultEntry
@@ -242,7 +245,10 @@ newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DeleteMessageBatchResultEntry' data type to populate a request.
+-- a valid 'DeleteMessageBatchResultEntry' data type.
+--
+-- 'DeleteMessageBatchResultEntry' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDeleteMessageBatchResultEntry :: Text -- ^ 'dmbrerId'
                                 -> DeleteMessageBatchResultEntry
 mkDeleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
@@ -267,7 +273,10 @@ data BatchResultErrorEntry = BatchResultErrorEntry
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'BatchResultErrorEntry' data type to populate a request.
+-- a valid 'BatchResultErrorEntry' data type.
+--
+-- 'BatchResultErrorEntry' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkBatchResultErrorEntry :: Text -- ^ 'breeId'
                         -> Bool -- ^ 'breeSenderFault'
                         -> Text -- ^ 'breeCode'
@@ -387,7 +396,10 @@ data Message = Message
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Message' data type to populate a request.
+-- a valid 'Message' data type.
+--
+-- 'Message' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMessage :: Message
 mkMessage = Message
     { _mMessageId = Nothing
@@ -560,7 +572,10 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SendMessageBatchResultEntry' data type to populate a request.
+-- a valid 'SendMessageBatchResultEntry' data type.
+--
+-- 'SendMessageBatchResultEntry' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSendMessageBatchResultEntry :: Text -- ^ 'smbrerId'
                               -> Text -- ^ 'smbrerMessageId'
                               -> Text -- ^ 'smbrerMD5OfMessageBody'

@@ -38,6 +38,8 @@ module Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer
 
     -- * Response
     , ApplySecurityGroupsToLoadBalancerResponse
+    -- ** Response constructor
+    , mkApplySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
     , asgtlbrSecurityGroups
     ) where
@@ -82,6 +84,15 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer where
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ApplySecurityGroupsToLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkApplySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
+mkApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
+    { _asgtlbrSecurityGroups = mempty
+    }
 
 -- | A list of security group IDs associated with your load balancer.
 asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]

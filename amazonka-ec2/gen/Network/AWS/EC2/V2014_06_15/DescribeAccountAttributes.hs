@@ -76,6 +76,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes
 
     -- * Response
     , DescribeAccountAttributesResponse
+    -- ** Response constructor
+    , mkDescribeAccountAttributesResponse
     -- ** Response lenses
     , daarAccountAttributes
     ) where
@@ -108,6 +110,15 @@ instance ToQuery DescribeAccountAttributes where
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: [AccountAttribute]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAccountAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse
+mkDescribeAccountAttributesResponse = DescribeAccountAttributesResponse
+    { _daarAccountAttributes = mempty
+    }
 
 -- | Information about one or more account attributes.
 daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]

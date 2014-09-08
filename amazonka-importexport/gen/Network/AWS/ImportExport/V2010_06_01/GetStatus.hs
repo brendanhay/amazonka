@@ -32,6 +32,8 @@ module Network.AWS.ImportExport.V2010_06_01.GetStatus
 
     -- * Response
     , GetStatusResponse
+    -- ** Response constructor
+    , mkGetStatusResponse
     -- ** Response lenses
     , gsrJobId
     , gsrJobType
@@ -94,6 +96,30 @@ data GetStatusResponse = GetStatusResponse
     , _gsrCurrentManifest :: Maybe Text
     , _gsrCreationDate :: Maybe ISO8601
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetStatusResponse :: GetStatusResponse
+mkGetStatusResponse = GetStatusResponse
+    { _gsrJobId = Nothing
+    , _gsrJobType = Nothing
+    , _gsrAwsShippingAddress = Nothing
+    , _gsrLocationCode = Nothing
+    , _gsrLocationMessage = Nothing
+    , _gsrProgressCode = Nothing
+    , _gsrProgressMessage = Nothing
+    , _gsrCarrier = Nothing
+    , _gsrTrackingNumber = Nothing
+    , _gsrLogBucket = Nothing
+    , _gsrLogKey = Nothing
+    , _gsrErrorCount = Nothing
+    , _gsrSignature = Nothing
+    , _gsrSignatureFileContents = Nothing
+    , _gsrCurrentManifest = Nothing
+    , _gsrCreationDate = Nothing
+    }
 
 -- | A unique identifier which refers to a particular job.
 gsrJobId :: Lens' GetStatusResponse (Maybe Text)

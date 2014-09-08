@@ -446,7 +446,10 @@ data Stack = Stack
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Stack' data type to populate a request.
+-- a valid 'Stack' data type.
+--
+-- 'Stack' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStack :: Text -- ^ 'sStackName'
         -> ISO8601 -- ^ 'sCreationTime'
         -> StackStatus -- ^ 'sStackStatus'
@@ -550,7 +553,10 @@ data StackEvent = StackEvent
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StackEvent' data type to populate a request.
+-- a valid 'StackEvent' data type.
+--
+-- 'StackEvent' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStackEvent :: Text -- ^ 'seStackId'
              -> Text -- ^ 'seEventId'
              -> Text -- ^ 'seStackName'
@@ -634,7 +640,10 @@ data StackResource = StackResource
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StackResource' data type to populate a request.
+-- a valid 'StackResource' data type.
+--
+-- 'StackResource' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStackResource :: Text -- ^ 'srLogicalResourceId'
                 -> Text -- ^ 'srResourceType'
                 -> ISO8601 -- ^ 'srTimestamp'
@@ -714,7 +723,10 @@ data StackResourceDetail = StackResourceDetail
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StackResourceDetail' data type to populate a request.
+-- a valid 'StackResourceDetail' data type.
+--
+-- 'StackResourceDetail' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStackResourceDetail :: Text -- ^ 'srdLogicalResourceId'
                       -> Text -- ^ 'srdResourceType'
                       -> ISO8601 -- ^ 'srdLastUpdatedTimestamp'
@@ -799,7 +811,10 @@ data StackResourceSummary = StackResourceSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StackResourceSummary' data type to populate a request.
+-- a valid 'StackResourceSummary' data type.
+--
+-- 'StackResourceSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStackResourceSummary :: Text -- ^ 'srsLogicalResourceId'
                        -> Text -- ^ 'srsResourceType'
                        -> ISO8601 -- ^ 'srsLastUpdatedTimestamp'
@@ -864,7 +879,10 @@ data StackSummary = StackSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StackSummary' data type to populate a request.
+-- a valid 'StackSummary' data type.
+--
+-- 'StackSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStackSummary :: Text -- ^ 'ssStackName'
                -> ISO8601 -- ^ 'ssCreationTime'
                -> StackStatus -- ^ 'ssStackStatus'
@@ -963,7 +981,10 @@ data TemplateParameter = TemplateParameter
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TemplateParameter' data type to populate a request.
+-- a valid 'TemplateParameter' data type.
+--
+-- 'TemplateParameter' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTemplateParameter :: TemplateParameter
 mkTemplateParameter = TemplateParameter
     { _tpParameterKey = Nothing

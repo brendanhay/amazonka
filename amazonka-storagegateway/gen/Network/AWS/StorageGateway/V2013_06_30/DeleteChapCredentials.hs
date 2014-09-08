@@ -46,6 +46,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteChapCredentials
 
     -- * Response
     , DeleteChapCredentialsResponse
+    -- ** Response constructor
+    , mkDeleteChapCredentialsResponse
     -- ** Response lenses
     , dccrTargetARN
     , dccrInitiatorName
@@ -97,6 +99,16 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
     { _dccrTargetARN :: Maybe Text
     , _dccrInitiatorName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteChapCredentialsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteChapCredentialsResponse :: DeleteChapCredentialsResponse
+mkDeleteChapCredentialsResponse = DeleteChapCredentialsResponse
+    { _dccrTargetARN = Nothing
+    , _dccrInitiatorName = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the target.
 dccrTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)

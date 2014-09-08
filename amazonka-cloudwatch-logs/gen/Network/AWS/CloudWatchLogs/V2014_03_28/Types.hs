@@ -167,7 +167,10 @@ data LogGroup = LogGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LogGroup' data type to populate a request.
+-- a valid 'LogGroup' data type.
+--
+-- 'LogGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLogGroup :: LogGroup
 mkLogGroup = LogGroup
     { _lgLogGroupName = Nothing
@@ -219,7 +222,10 @@ data LogStream = LogStream
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LogStream' data type to populate a request.
+-- a valid 'LogStream' data type.
+--
+-- 'LogStream' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLogStream :: LogStream
 mkLogStream = LogStream
     { _lsLogStreamName = Nothing
@@ -284,7 +290,10 @@ data MetricFilter = MetricFilter
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'MetricFilter' data type to populate a request.
+-- a valid 'MetricFilter' data type.
+--
+-- 'MetricFilter' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMetricFilter :: MetricFilter
 mkMetricFilter = MetricFilter
     { _mfFilterName = Nothing
@@ -319,7 +328,10 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'MetricFilterMatchRecord' data type to populate a request.
+-- a valid 'MetricFilterMatchRecord' data type.
+--
+-- 'MetricFilterMatchRecord' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMetricFilterMatchRecord :: MetricFilterMatchRecord
 mkMetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventNumber = Nothing
@@ -379,7 +391,10 @@ data OutputLogEvent = OutputLogEvent
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'OutputLogEvent' data type to populate a request.
+-- a valid 'OutputLogEvent' data type.
+--
+-- 'OutputLogEvent' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkOutputLogEvent :: OutputLogEvent
 mkOutputLogEvent = OutputLogEvent
     { _oleTimestamp = Nothing

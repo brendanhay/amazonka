@@ -44,6 +44,8 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnGateway
 
     -- * Response
     , CreateVpnGatewayResponse
+    -- ** Response constructor
+    , mkCreateVpnGatewayResponse
     -- ** Response lenses
     , cvgrVpnGateway
     ) where
@@ -83,6 +85,15 @@ instance ToQuery CreateVpnGateway where
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpnGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateVpnGatewayResponse :: CreateVpnGatewayResponse
+mkCreateVpnGatewayResponse = CreateVpnGatewayResponse
+    { _cvgrVpnGateway = Nothing
+    }
 
 -- | Information about the virtual private gateway.
 cvgrVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)

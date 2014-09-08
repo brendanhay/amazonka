@@ -33,6 +33,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateLoginProfile
 
     -- * Response
     , UpdateLoginProfileResponse
+    -- ** Response constructor
+    , mkUpdateLoginProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,6 +77,13 @@ instance ToQuery UpdateLoginProfile where
 
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateLoginProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateLoginProfileResponse :: UpdateLoginProfileResponse
+mkUpdateLoginProfileResponse = UpdateLoginProfileResponse
 
 instance AWSRequest UpdateLoginProfile where
     type Sv UpdateLoginProfile = IAM

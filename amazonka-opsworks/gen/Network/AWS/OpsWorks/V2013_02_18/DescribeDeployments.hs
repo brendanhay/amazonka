@@ -35,6 +35,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments
 
     -- * Response
     , DescribeDeploymentsResponse
+    -- ** Response constructor
+    , mkDescribeDeploymentsResponse
     -- ** Response lenses
     , ddrDeployments
     ) where
@@ -86,6 +88,15 @@ instance ToJSON DescribeDeployments
 newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddrDeployments :: [Deployment]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDeploymentsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDeploymentsResponse :: DescribeDeploymentsResponse
+mkDescribeDeploymentsResponse = DescribeDeploymentsResponse
+    { _ddrDeployments = mempty
+    }
 
 -- | An array of Deployment objects that describe the deployments.
 ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]

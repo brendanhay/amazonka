@@ -38,6 +38,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
 
     -- * Response
     , GetOpenIdTokenResponse
+    -- ** Response constructor
+    , mkGetOpenIdTokenResponse
     -- ** Response lenses
     , goitrIdentityId
     , goitrToken
@@ -84,6 +86,16 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId :: Maybe Text
     , _goitrToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetOpenIdTokenResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetOpenIdTokenResponse :: GetOpenIdTokenResponse
+mkGetOpenIdTokenResponse = GetOpenIdTokenResponse
+    { _goitrIdentityId = Nothing
+    , _goitrToken = Nothing
+    }
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.

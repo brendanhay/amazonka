@@ -58,6 +58,8 @@ module Network.AWS.EMR.V2009_03_31.SetTerminationProtection
 
     -- * Response
     , SetTerminationProtectionResponse
+    -- ** Response constructor
+    , mkSetTerminationProtectionResponse
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -104,6 +106,13 @@ instance ToJSON SetTerminationProtection
 
 data SetTerminationProtectionResponse = SetTerminationProtectionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTerminationProtectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetTerminationProtectionResponse :: SetTerminationProtectionResponse
+mkSetTerminationProtectionResponse = SetTerminationProtectionResponse
 
 instance AWSRequest SetTerminationProtection where
     type Sv SetTerminationProtection = EMR

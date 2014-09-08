@@ -38,6 +38,8 @@ module Network.AWS.Route53.V2013_04_01.ListHealthChecks
 
     -- * Response
     , ListHealthChecksResponse
+    -- ** Response constructor
+    , mkListHealthChecksResponse
     -- ** Response lenses
     , lhcrHealthChecks
     , lhcrMarker
@@ -106,6 +108,23 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     , _lhcrNextMarker :: Maybe Text
     , _lhcrMaxItems :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListHealthChecksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthChecks'
+                           -> Text -- ^ 'lhcrMarker'
+                           -> Bool -- ^ 'lhcrIsTruncated'
+                           -> Text -- ^ 'lhcrMaxItems'
+                           -> ListHealthChecksResponse
+mkListHealthChecksResponse p1 p2 p3 p5 = ListHealthChecksResponse
+    { _lhcrHealthChecks = p1
+    , _lhcrMarker = p2
+    , _lhcrIsTruncated = p3
+    , _lhcrNextMarker = Nothing
+    , _lhcrMaxItems = p5
+    }
 
 -- | A complex type that contains information about the health checks associated
 -- with the current AWS account.

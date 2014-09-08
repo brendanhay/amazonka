@@ -36,6 +36,8 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup
 
     -- * Response
     , DeleteDBParameterGroupResponse
+    -- ** Response constructor
+    , mkDeleteDBParameterGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,6 +70,13 @@ instance ToQuery DeleteDBParameterGroup where
 
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteDBParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
+mkDeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 
 instance AWSRequest DeleteDBParameterGroup where
     type Sv DeleteDBParameterGroup = RDS

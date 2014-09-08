@@ -28,6 +28,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive
 
     -- * Response
     , DeleteTapeArchiveResponse
+    -- ** Response constructor
+    , mkDeleteTapeArchiveResponse
     -- ** Response lenses
     , dtarTapeARN
     ) where
@@ -62,6 +64,15 @@ instance ToJSON DeleteTapeArchive
 newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
     { _dtarTapeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTapeArchiveResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteTapeArchiveResponse :: DeleteTapeArchiveResponse
+mkDeleteTapeArchiveResponse = DeleteTapeArchiveResponse
+    { _dtarTapeARN = Nothing
+    }
 
 dtarTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtarTapeARN = lens _dtarTapeARN (\s a -> s { _dtarTapeARN = a })

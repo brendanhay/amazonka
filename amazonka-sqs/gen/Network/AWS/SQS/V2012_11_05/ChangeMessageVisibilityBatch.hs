@@ -54,6 +54,8 @@ module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch
 
     -- * Response
     , ChangeMessageVisibilityBatchResponse
+    -- ** Response constructor
+    , mkChangeMessageVisibilityBatchResponse
     -- ** Response lenses
     , cmvbrSuccessful
     , cmvbrFailed
@@ -98,6 +100,18 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
     , _cmvbrFailed :: [BatchResultErrorEntry]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangeMessageVisibilityBatchResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkChangeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry] -- ^ 'cmvbrSuccessful'
+                                       -> [BatchResultErrorEntry] -- ^ 'cmvbrFailed'
+                                       -> ChangeMessageVisibilityBatchResponse
+mkChangeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchResponse
+    { _cmvbrSuccessful = p1
+    , _cmvbrFailed = p2
+    }
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]

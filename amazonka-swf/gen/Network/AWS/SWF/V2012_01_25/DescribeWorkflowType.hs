@@ -64,6 +64,8 @@ module Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
 
     -- * Response
     , DescribeWorkflowTypeResponse
+    -- ** Response constructor
+    , mkDescribeWorkflowTypeResponse
     -- ** Response lenses
     , dwtrTypeInfo
     , dwtrConfiguration
@@ -110,6 +112,18 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
     { _dwtrTypeInfo :: WorkflowTypeInfo
     , _dwtrConfiguration :: WorkflowTypeConfiguration
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeWorkflowTypeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeWorkflowTypeResponse :: WorkflowTypeInfo -- ^ 'dwtrTypeInfo'
+                               -> WorkflowTypeConfiguration -- ^ 'dwtrConfiguration'
+                               -> DescribeWorkflowTypeResponse
+mkDescribeWorkflowTypeResponse p1 p2 = DescribeWorkflowTypeResponse
+    { _dwtrTypeInfo = p1
+    , _dwtrConfiguration = p2
+    }
 
 -- | General information about the workflow type. The status of the workflow
 -- type (returned in the WorkflowTypeInfo structure) can be one of the

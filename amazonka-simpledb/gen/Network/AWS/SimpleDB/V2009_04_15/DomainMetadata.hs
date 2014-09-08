@@ -31,6 +31,8 @@ module Network.AWS.SimpleDB.V2009_04_15.DomainMetadata
 
     -- * Response
     , DomainMetadataResponse
+    -- ** Response constructor
+    , mkDomainMetadataResponse
     -- ** Response lenses
     , dmrItemCount
     , dmrItemNamesSizeBytes
@@ -73,6 +75,21 @@ data DomainMetadataResponse = DomainMetadataResponse
     , _dmrAttributeValuesSizeBytes :: Maybe Integer
     , _dmrTimestamp :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DomainMetadataResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDomainMetadataResponse :: DomainMetadataResponse
+mkDomainMetadataResponse = DomainMetadataResponse
+    { _dmrItemCount = Nothing
+    , _dmrItemNamesSizeBytes = Nothing
+    , _dmrAttributeNameCount = Nothing
+    , _dmrAttributeNamesSizeBytes = Nothing
+    , _dmrAttributeValueCount = Nothing
+    , _dmrAttributeValuesSizeBytes = Nothing
+    , _dmrTimestamp = Nothing
+    }
 
 -- | The number of all items in the domain.
 dmrItemCount :: Lens' DomainMetadataResponse (Maybe Integer)

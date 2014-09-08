@@ -32,6 +32,8 @@ module Network.AWS.OpsWorks.V2013_02_18.StopStack
 
     -- * Response
     , StopStackResponse
+    -- ** Response constructor
+    , mkStopStackResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -64,6 +66,13 @@ instance ToJSON StopStack
 
 data StopStackResponse = StopStackResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStopStackResponse :: StopStackResponse
+mkStopStackResponse = StopStackResponse
 
 instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks

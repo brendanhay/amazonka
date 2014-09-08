@@ -70,6 +70,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeAddresses
 
     -- * Response
     , DescribeAddressesResponse
+    -- ** Response constructor
+    , mkDescribeAddressesResponse
     -- ** Response lenses
     , darAddresses
     ) where
@@ -123,6 +125,15 @@ instance ToQuery DescribeAddresses where
 newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: [Address]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAddressesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAddressesResponse :: DescribeAddressesResponse
+mkDescribeAddressesResponse = DescribeAddressesResponse
+    { _darAddresses = mempty
+    }
 
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResponse [Address]

@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteLoginProfile
 
     -- * Response
     , DeleteLoginProfileResponse
+    -- ** Response constructor
+    , mkDeleteLoginProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,6 +66,13 @@ instance ToQuery DeleteLoginProfile where
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoginProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteLoginProfileResponse :: DeleteLoginProfileResponse
+mkDeleteLoginProfileResponse = DeleteLoginProfileResponse
 
 instance AWSRequest DeleteLoginProfile where
     type Sv DeleteLoginProfile = IAM

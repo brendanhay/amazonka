@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection
 
     -- * Response
     , DeleteVpcPeeringConnectionResponse
+    -- ** Response constructor
+    , mkDeleteVpcPeeringConnectionResponse
     -- ** Response lenses
     , dvpcrReturn
     ) where
@@ -74,6 +76,15 @@ instance ToQuery DeleteVpcPeeringConnection where
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpcPeeringConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResponse
+mkDeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
+    { _dvpcrReturn = Nothing
+    }
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)

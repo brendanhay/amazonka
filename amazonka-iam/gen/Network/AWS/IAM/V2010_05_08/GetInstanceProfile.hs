@@ -42,6 +42,8 @@ module Network.AWS.IAM.V2010_05_08.GetInstanceProfile
 
     -- * Response
     , GetInstanceProfileResponse
+    -- ** Response constructor
+    , mkGetInstanceProfileResponse
     -- ** Response lenses
     , giprInstanceProfile
     ) where
@@ -76,6 +78,16 @@ instance ToQuery GetInstanceProfile where
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetInstanceProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetInstanceProfileResponse :: InstanceProfile -- ^ 'giprInstanceProfile'
+                             -> GetInstanceProfileResponse
+mkGetInstanceProfileResponse p1 = GetInstanceProfileResponse
+    { _giprInstanceProfile = p1
+    }
 
 -- | Information about the instance profile.
 giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile

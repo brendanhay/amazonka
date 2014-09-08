@@ -46,6 +46,8 @@ module Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests
 
     -- * Response
     , CancelSpotInstanceRequestsResponse
+    -- ** Response constructor
+    , mkCancelSpotInstanceRequestsResponse
     -- ** Response lenses
     , csirrCancelledSpotInstanceRequests
     ) where
@@ -80,6 +82,15 @@ instance ToQuery CancelSpotInstanceRequests where
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelSpotInstanceRequestsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
+mkCancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
+    { _csirrCancelledSpotInstanceRequests = mempty
+    }
 
 -- | One or more Spot Instance requests.
 csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]

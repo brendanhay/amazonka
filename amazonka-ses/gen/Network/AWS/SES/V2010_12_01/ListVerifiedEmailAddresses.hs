@@ -38,6 +38,8 @@ module Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses
     , mkListVerifiedEmailAddresses
     -- * Response
     , ListVerifiedEmailAddressesResponse
+    -- ** Response constructor
+    , mkListVerifiedEmailAddressesResponse
     -- ** Response lenses
     , lvearVerifiedEmailAddresses
     ) where
@@ -61,6 +63,15 @@ instance ToQuery ListVerifiedEmailAddresses where
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVerifiedEmailAddressesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
+mkListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
+    { _lvearVerifiedEmailAddresses = mempty
+    }
 
 -- | A list of email addresses that have been verified.
 lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]

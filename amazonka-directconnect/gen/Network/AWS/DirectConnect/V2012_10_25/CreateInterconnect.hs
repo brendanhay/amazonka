@@ -43,6 +43,8 @@ module Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
 
     -- * Response
     , CreateInterconnectResponse
+    -- ** Response constructor
+    , mkCreateInterconnectResponse
     -- ** Response lenses
     , cirInterconnectId
     , cirInterconnectName
@@ -116,6 +118,20 @@ data CreateInterconnectResponse = CreateInterconnectResponse
     , _cirLocation :: Maybe Text
     , _cirBandwidth :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInterconnectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateInterconnectResponse :: CreateInterconnectResponse
+mkCreateInterconnectResponse = CreateInterconnectResponse
+    { _cirInterconnectId = Nothing
+    , _cirInterconnectName = Nothing
+    , _cirInterconnectState = Nothing
+    , _cirRegion = Nothing
+    , _cirLocation = Nothing
+    , _cirBandwidth = Nothing
+    }
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
 cirInterconnectId :: Lens' CreateInterconnectResponse (Maybe Text)

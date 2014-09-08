@@ -37,6 +37,8 @@ module Network.AWS.IAM.V2010_05_08.ListRolePolicies
 
     -- * Response
     , ListRolePoliciesResponse
+    -- ** Response constructor
+    , mkListRolePoliciesResponse
     -- ** Response lenses
     , lrprPolicyNames
     , lrprIsTruncated
@@ -93,6 +95,19 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
     , _lrprIsTruncated :: Bool
     , _lrprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListRolePoliciesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListRolePoliciesResponse :: [Text] -- ^ 'lrprPolicyNames'
+                           -> Bool -- ^ 'lrprIsTruncated'
+                           -> ListRolePoliciesResponse
+mkListRolePoliciesResponse p1 p2 = ListRolePoliciesResponse
+    { _lrprPolicyNames = p1
+    , _lrprIsTruncated = p2
+    , _lrprMarker = Nothing
+    }
 
 -- | A list of policy names.
 lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]

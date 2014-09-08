@@ -39,6 +39,8 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup
 
     -- * Response
     , DeleteClusterSecurityGroupResponse
+    -- ** Response constructor
+    , mkDeleteClusterSecurityGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -69,6 +71,13 @@ instance ToQuery DeleteClusterSecurityGroup where
 
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterSecurityGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
+mkDeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 
 instance AWSRequest DeleteClusterSecurityGroup where
     type Sv DeleteClusterSecurityGroup = Redshift

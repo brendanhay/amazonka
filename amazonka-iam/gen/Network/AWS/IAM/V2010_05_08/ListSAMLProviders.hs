@@ -33,6 +33,8 @@ module Network.AWS.IAM.V2010_05_08.ListSAMLProviders
     , mkListSAMLProviders
     -- * Response
     , ListSAMLProvidersResponse
+    -- ** Response constructor
+    , mkListSAMLProvidersResponse
     -- ** Response lenses
     , lsamlprSAMLProviderList
     ) where
@@ -58,6 +60,15 @@ instance ToQuery ListSAMLProviders where
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSAMLProvidersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListSAMLProvidersResponse :: ListSAMLProvidersResponse
+mkListSAMLProvidersResponse = ListSAMLProvidersResponse
+    { _lsamlprSAMLProviderList = mempty
+    }
 
 -- | The list of SAML providers for this account.
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]

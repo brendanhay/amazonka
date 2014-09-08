@@ -38,6 +38,8 @@ module Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
 
     -- * Response
     , AddAttachmentsToSetResponse
+    -- ** Response constructor
+    , mkAddAttachmentsToSetResponse
     -- ** Response lenses
     , aatsrAttachmentSetId
     , aatsrExpiryTime
@@ -89,6 +91,16 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId :: Maybe Text
     , _aatsrExpiryTime :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddAttachmentsToSetResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddAttachmentsToSetResponse :: AddAttachmentsToSetResponse
+mkAddAttachmentsToSetResponse = AddAttachmentsToSetResponse
+    { _aatsrAttachmentSetId = Nothing
+    , _aatsrExpiryTime = Nothing
+    }
 
 -- | The ID of the attachment set. If an AttachmentSetId was not specified, a
 -- new attachment set is created, and the ID of the set is returned in the

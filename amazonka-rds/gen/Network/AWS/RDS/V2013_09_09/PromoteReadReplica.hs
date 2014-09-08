@@ -40,6 +40,8 @@ module Network.AWS.RDS.V2013_09_09.PromoteReadReplica
 
     -- * Response
     , PromoteReadReplicaResponse
+    -- ** Response constructor
+    , mkPromoteReadReplicaResponse
     -- ** Response lenses
     , prrrDBInstance
     ) where
@@ -102,6 +104,15 @@ instance ToQuery PromoteReadReplica where
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PromoteReadReplicaResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPromoteReadReplicaResponse :: PromoteReadReplicaResponse
+mkPromoteReadReplicaResponse = PromoteReadReplicaResponse
+    { _prrrDBInstance = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used

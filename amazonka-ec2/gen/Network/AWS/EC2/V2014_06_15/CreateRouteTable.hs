@@ -38,6 +38,8 @@ module Network.AWS.EC2.V2014_06_15.CreateRouteTable
 
     -- * Response
     , CreateRouteTableResponse
+    -- ** Response constructor
+    , mkCreateRouteTableResponse
     -- ** Response lenses
     , crtrRouteTable
     ) where
@@ -70,6 +72,15 @@ instance ToQuery CreateRouteTable where
 newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable :: Maybe RouteTable
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateRouteTableResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateRouteTableResponse :: CreateRouteTableResponse
+mkCreateRouteTableResponse = CreateRouteTableResponse
+    { _crtrRouteTable = Nothing
+    }
 
 -- | Information about the route table.
 crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)

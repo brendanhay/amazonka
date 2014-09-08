@@ -38,6 +38,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot
 
     -- * Response
     , DeleteSnapshotResponse
+    -- ** Response constructor
+    , mkDeleteSnapshotResponse
     -- ** Response lenses
     , dsrSnapshot
     ) where
@@ -69,6 +71,15 @@ instance ToQuery DeleteSnapshot where
 newtype DeleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSnapshotResponse :: DeleteSnapshotResponse
+mkDeleteSnapshotResponse = DeleteSnapshotResponse
+    { _dsrSnapshot = Nothing
+    }
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.

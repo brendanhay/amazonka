@@ -100,6 +100,8 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancer
 
     -- * Response
     , CreateLoadBalancerResponse
+    -- ** Response constructor
+    , mkCreateLoadBalancerResponse
     -- ** Response lenses
     , clbrDNSName
     ) where
@@ -187,6 +189,15 @@ instance ToQuery CreateLoadBalancer where
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLoadBalancerResponse :: CreateLoadBalancerResponse
+mkCreateLoadBalancerResponse = CreateLoadBalancerResponse
+    { _clbrDNSName = Nothing
+    }
 
 -- | The DNS name for the load balancer.
 clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)

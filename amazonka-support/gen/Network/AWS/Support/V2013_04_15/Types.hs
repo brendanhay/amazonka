@@ -333,7 +333,10 @@ data CaseDetails = CaseDetails
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CaseDetails' data type to populate a request.
+-- a valid 'CaseDetails' data type.
+--
+-- 'CaseDetails' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCaseDetails :: CaseDetails
 mkCaseDetails = CaseDetails
     { _cdCaseId = Nothing
@@ -524,7 +527,10 @@ data Service = Service
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Service' data type to populate a request.
+-- a valid 'Service' data type.
+--
+-- 'Service' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkService :: Service
 mkService = Service
     { _sCode = Nothing
@@ -559,7 +565,10 @@ data SeverityLevel = SeverityLevel
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SeverityLevel' data type to populate a request.
+-- a valid 'SeverityLevel' data type.
+--
+-- 'SeverityLevel' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSeverityLevel :: SeverityLevel
 mkSeverityLevel = SeverityLevel
     { _slCode = Nothing
@@ -587,7 +596,10 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TrustedAdvisorCheckDescription' data type to populate a request.
+-- a valid 'TrustedAdvisorCheckDescription' data type.
+--
+-- 'TrustedAdvisorCheckDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTrustedAdvisorCheckDescription :: Text -- ^ 'tacdId'
                                  -> Text -- ^ 'tacdName'
                                  -> Text -- ^ 'tacdDescription'
@@ -637,7 +649,10 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TrustedAdvisorCheckRefreshStatus' data type to populate a request.
+-- a valid 'TrustedAdvisorCheckRefreshStatus' data type.
+--
+-- 'TrustedAdvisorCheckRefreshStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTrustedAdvisorCheckRefreshStatus :: Text -- ^ 'tacrsCheckId'
                                    -> Text -- ^ 'tacrsStatus'
                                    -> Integer -- ^ 'tacrsMillisUntilNextRefreshable'
@@ -677,7 +692,10 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TrustedAdvisorCheckResult' data type to populate a request.
+-- a valid 'TrustedAdvisorCheckResult' data type.
+--
+-- 'TrustedAdvisorCheckResult' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTrustedAdvisorCheckResult :: Text -- ^ 'tacrCheckId'
                             -> Text -- ^ 'tacrTimestamp'
                             -> Text -- ^ 'tacrStatus'
@@ -739,7 +757,10 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TrustedAdvisorCheckSummary' data type to populate a request.
+-- a valid 'TrustedAdvisorCheckSummary' data type.
+--
+-- 'TrustedAdvisorCheckSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTrustedAdvisorCheckSummary :: Text -- ^ 'tacsCheckId'
                              -> Text -- ^ 'tacsTimestamp'
                              -> Text -- ^ 'tacsStatus'
@@ -835,7 +856,10 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TrustedAdvisorResourceDetail' data type to populate a request.
+-- a valid 'TrustedAdvisorResourceDetail' data type.
+--
+-- 'TrustedAdvisorResourceDetail' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTrustedAdvisorResourceDetail :: Text -- ^ 'tardStatus'
                                -> Text -- ^ 'tardRegion'
                                -> Text -- ^ 'tardResourceId'

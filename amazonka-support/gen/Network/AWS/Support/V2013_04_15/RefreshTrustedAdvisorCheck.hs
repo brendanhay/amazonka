@@ -36,6 +36,8 @@ module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
 
     -- * Response
     , RefreshTrustedAdvisorCheckResponse
+    -- ** Response constructor
+    , mkRefreshTrustedAdvisorCheckResponse
     -- ** Response lenses
     , rtacrStatus
     ) where
@@ -73,6 +75,16 @@ instance ToJSON RefreshTrustedAdvisorCheck
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RefreshTrustedAdvisorCheckResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRefreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrStatus'
+                                     -> RefreshTrustedAdvisorCheckResponse
+mkRefreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
+    { _rtacrStatus = p1
+    }
 
 -- | The current refresh status for a check, including the amount of time until
 -- the check is eligible for refresh.

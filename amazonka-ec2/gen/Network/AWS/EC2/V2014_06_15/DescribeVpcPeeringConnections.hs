@@ -62,6 +62,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcPeeringConnections
 
     -- * Response
     , DescribeVpcPeeringConnectionsResponse
+    -- ** Response constructor
+    , mkDescribeVpcPeeringConnectionsResponse
     -- ** Response lenses
     , dvpcrrVpcPeeringConnections
     ) where
@@ -121,6 +123,15 @@ instance ToQuery DescribeVpcPeeringConnections where
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrrVpcPeeringConnections :: [VpcPeeringConnection]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpcPeeringConnectionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResponse
+mkDescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
+    { _dvpcrrVpcPeeringConnections = mempty
+    }
 
 -- | Information about the VPC peering connections.
 dvpcrrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]

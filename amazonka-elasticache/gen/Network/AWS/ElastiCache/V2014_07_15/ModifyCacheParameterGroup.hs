@@ -40,6 +40,8 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup
 
     -- * Response
     , ModifyCacheParameterGroupResponse
+    -- ** Response constructor
+    , mkModifyCacheParameterGroupResponse
     -- ** Response lenses
     , mcpgrCacheParameterGroupName
     ) where
@@ -86,6 +88,15 @@ instance ToQuery ModifyCacheParameterGroup where
 newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     { _mcpgrCacheParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyCacheParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyCacheParameterGroupResponse :: ModifyCacheParameterGroupResponse
+mkModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
+    { _mcpgrCacheParameterGroupName = Nothing
+    }
 
 -- | The name of the cache parameter group.
 mcpgrCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe Text)

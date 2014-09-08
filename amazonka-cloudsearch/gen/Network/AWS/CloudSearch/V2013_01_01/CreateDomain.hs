@@ -30,6 +30,8 @@ module Network.AWS.CloudSearch.V2013_01_01.CreateDomain
 
     -- * Response
     , CreateDomainResponse
+    -- ** Response constructor
+    , mkCreateDomainResponse
     -- ** Response lenses
     , cdrDomainStatus
     ) where
@@ -66,6 +68,15 @@ instance ToQuery CreateDomain where
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDomainResponse :: CreateDomainResponse
+mkCreateDomainResponse = CreateDomainResponse
+    { _cdrDomainStatus = Nothing
+    }
 
 -- | The current status of the search domain.
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)

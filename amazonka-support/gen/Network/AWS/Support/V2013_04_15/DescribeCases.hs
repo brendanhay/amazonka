@@ -44,6 +44,8 @@ module Network.AWS.Support.V2013_04_15.DescribeCases
 
     -- * Response
     , DescribeCasesResponse
+    -- ** Response constructor
+    , mkDescribeCasesResponse
     -- ** Response lenses
     , dcrCases
     , dcrNextToken
@@ -141,6 +143,16 @@ data DescribeCasesResponse = DescribeCasesResponse
     { _dcrCases :: [CaseDetails]
     , _dcrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCasesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCasesResponse :: DescribeCasesResponse
+mkDescribeCasesResponse = DescribeCasesResponse
+    { _dcrCases = mempty
+    , _dcrNextToken = Nothing
+    }
 
 -- | The details for the cases that match the request.
 dcrCases :: Lens' DescribeCasesResponse [CaseDetails]

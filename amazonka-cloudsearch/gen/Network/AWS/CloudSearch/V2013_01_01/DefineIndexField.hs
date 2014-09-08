@@ -37,6 +37,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineIndexField
 
     -- * Response
     , DefineIndexFieldResponse
+    -- ** Response constructor
+    , mkDefineIndexFieldResponse
     -- ** Response lenses
     , difrIndexField
     ) where
@@ -82,6 +84,16 @@ instance ToQuery DefineIndexField where
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DefineIndexFieldResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDefineIndexFieldResponse :: IndexFieldStatus -- ^ 'difrIndexField'
+                           -> DefineIndexFieldResponse
+mkDefineIndexFieldResponse p1 = DefineIndexFieldResponse
+    { _difrIndexField = p1
+    }
 
 -- | The value of an IndexField and its current status.
 difrIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus

@@ -30,6 +30,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
 
     -- * Response
     , DescribeTapeRecoveryPointsResponse
+    -- ** Response constructor
+    , mkDescribeTapeRecoveryPointsResponse
     -- ** Response lenses
     , dtrprGatewayARN
     , dtrprTapeRecoveryPointInfos
@@ -80,6 +82,17 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     , _dtrprTapeRecoveryPointInfos :: [TapeRecoveryPointInfo]
     , _dtrprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTapeRecoveryPointsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTapeRecoveryPointsResponse :: DescribeTapeRecoveryPointsResponse
+mkDescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
+    { _dtrprGatewayARN = Nothing
+    , _dtrprTapeRecoveryPointInfos = mempty
+    , _dtrprMarker = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

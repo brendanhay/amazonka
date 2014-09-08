@@ -232,7 +232,10 @@ data Record = Record
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Record' data type to populate a request.
+-- a valid 'Record' data type.
+--
+-- 'Record' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkRecord :: Text -- ^ 'rSequenceNumber'
          -> Base64 -- ^ 'rData'
          -> Text -- ^ 'rPartitionKey'
@@ -302,7 +305,10 @@ data Shard = Shard
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Shard' data type to populate a request.
+-- a valid 'Shard' data type.
+--
+-- 'Shard' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkShard :: Text -- ^ 'sShardId'
         -> HashKeyRange -- ^ 'sHashKeyRange'
         -> SequenceNumberRange -- ^ 'sSequenceNumberRange'
@@ -352,7 +358,10 @@ data StreamDescription = StreamDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StreamDescription' data type to populate a request.
+-- a valid 'StreamDescription' data type.
+--
+-- 'StreamDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStreamDescription :: Text -- ^ 'sdStreamName'
                     -> Text -- ^ 'sdStreamARN'
                     -> StreamStatus -- ^ 'sdStreamStatus'

@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteLayer
 
     -- * Response
     , DeleteLayerResponse
+    -- ** Response constructor
+    , mkDeleteLayerResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -66,6 +68,13 @@ instance ToJSON DeleteLayer
 
 data DeleteLayerResponse = DeleteLayerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLayerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteLayerResponse :: DeleteLayerResponse
+mkDeleteLayerResponse = DeleteLayerResponse
 
 instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks

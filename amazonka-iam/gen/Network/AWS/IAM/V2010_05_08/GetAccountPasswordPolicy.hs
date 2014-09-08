@@ -30,6 +30,8 @@ module Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
     , mkGetAccountPasswordPolicy
     -- * Response
     , GetAccountPasswordPolicyResponse
+    -- ** Response constructor
+    , mkGetAccountPasswordPolicyResponse
     -- ** Response lenses
     , gapprPasswordPolicy
     ) where
@@ -54,6 +56,16 @@ instance ToQuery GetAccountPasswordPolicy where
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAccountPasswordPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetAccountPasswordPolicyResponse :: PasswordPolicy -- ^ 'gapprPasswordPolicy'
+                                   -> GetAccountPasswordPolicyResponse
+mkGetAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse
+    { _gapprPasswordPolicy = p1
+    }
 
 -- | The PasswordPolicy data type contains information about the account
 -- password policy. This data type is used as a response element in the action

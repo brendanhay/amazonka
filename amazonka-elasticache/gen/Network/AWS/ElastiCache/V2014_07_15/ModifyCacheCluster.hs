@@ -53,6 +53,8 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheCluster
 
     -- * Response
     , ModifyCacheClusterResponse
+    -- ** Response constructor
+    , mkModifyCacheClusterResponse
     -- ** Response lenses
     , mccrCacheCluster
     ) where
@@ -295,6 +297,15 @@ instance ToQuery ModifyCacheCluster where
 newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyCacheClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyCacheClusterResponse :: ModifyCacheClusterResponse
+mkModifyCacheClusterResponse = ModifyCacheClusterResponse
+    { _mccrCacheCluster = Nothing
+    }
 
 -- | Contains all of the attributes of a specific cache cluster.
 mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)

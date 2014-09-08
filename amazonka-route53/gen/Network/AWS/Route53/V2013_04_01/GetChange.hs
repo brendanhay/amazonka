@@ -33,6 +33,8 @@ module Network.AWS.Route53.V2013_04_01.GetChange
 
     -- * Response
     , GetChangeResponse
+    -- ** Response constructor
+    , mkGetChangeResponse
     -- ** Response lenses
     , gcrChangeInfo
     ) where
@@ -79,6 +81,16 @@ instance ToXML GetChange where
 newtype GetChangeResponse = GetChangeResponse
     { _gcrChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetChangeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetChangeResponse :: ChangeInfo -- ^ 'gcrChangeInfo'
+                    -> GetChangeResponse
+mkGetChangeResponse p1 = GetChangeResponse
+    { _gcrChangeInfo = p1
+    }
 
 -- | A complex type that contains information about the specified change batch,
 -- including the change batch ID, the status of the change, and the date and

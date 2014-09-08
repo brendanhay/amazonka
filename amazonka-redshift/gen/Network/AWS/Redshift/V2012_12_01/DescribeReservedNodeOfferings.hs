@@ -48,6 +48,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeReservedNodeOfferings
 
     -- * Response
     , DescribeReservedNodeOfferingsResponse
+    -- ** Response constructor
+    , mkDescribeReservedNodeOfferingsResponse
     -- ** Response lenses
     , drnorMarker
     , drnorReservedNodeOfferings
@@ -104,6 +106,16 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
     { _drnorMarker :: Maybe Text
     , _drnorReservedNodeOfferings :: [ReservedNodeOffering]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedNodeOfferingsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
+mkDescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
+    { _drnorMarker = Nothing
+    , _drnorReservedNodeOfferings = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

@@ -51,6 +51,8 @@ module Network.AWS.CloudFormation.V2010_05_15.CreateStack
 
     -- * Response
     , CreateStackResponse
+    -- ** Response constructor
+    , mkCreateStackResponse
     -- ** Response lenses
     , csrStackId
     ) where
@@ -188,6 +190,15 @@ instance ToQuery CreateStack where
 newtype CreateStackResponse = CreateStackResponse
     { _csrStackId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateStackResponse :: CreateStackResponse
+mkCreateStackResponse = CreateStackResponse
+    { _csrStackId = Nothing
+    }
 
 -- | Unique identifier of the stack.
 csrStackId :: Lens' CreateStackResponse (Maybe Text)

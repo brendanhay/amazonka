@@ -44,6 +44,8 @@ module Network.AWS.IAM.V2010_05_08.CreateAccessKey
 
     -- * Response
     , CreateAccessKeyResponse
+    -- ** Response constructor
+    , mkCreateAccessKeyResponse
     -- ** Response lenses
     , cakrAccessKey
     ) where
@@ -76,6 +78,16 @@ instance ToQuery CreateAccessKey where
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAccessKeyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateAccessKeyResponse :: AccessKey -- ^ 'cakrAccessKey'
+                          -> CreateAccessKeyResponse
+mkCreateAccessKeyResponse p1 = CreateAccessKeyResponse
+    { _cakrAccessKey = p1
+    }
 
 -- | Information about the access key.
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey

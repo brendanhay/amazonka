@@ -33,6 +33,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeHsmConfigurations
 
     -- * Response
     , DescribeHsmConfigurationsResponse
+    -- ** Response constructor
+    , mkDescribeHsmConfigurationsResponse
     -- ** Response lenses
     , dhcrMarker
     , dhcrHsmConfigurations
@@ -91,6 +93,16 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrMarker :: Maybe Text
     , _dhcrHsmConfigurations :: [HsmConfiguration]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeHsmConfigurationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeHsmConfigurationsResponse :: DescribeHsmConfigurationsResponse
+mkDescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
+    { _dhcrMarker = Nothing
+    , _dhcrHsmConfigurations = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

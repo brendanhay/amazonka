@@ -57,6 +57,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot
 
     -- * Response
     , CreateSnapshotResponse
+    -- ** Response constructor
+    , mkCreateSnapshotResponse
     -- ** Response lenses
     , csrVolumeARN
     , csrSnapshotId
@@ -108,6 +110,16 @@ data CreateSnapshotResponse = CreateSnapshotResponse
     { _csrVolumeARN :: Maybe Text
     , _csrSnapshotId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateSnapshotResponse :: CreateSnapshotResponse
+mkCreateSnapshotResponse = CreateSnapshotResponse
+    { _csrVolumeARN = Nothing
+    , _csrSnapshotId = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.

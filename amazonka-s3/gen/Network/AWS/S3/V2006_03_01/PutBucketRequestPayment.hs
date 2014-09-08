@@ -34,6 +34,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketRequestPayment
 
     -- * Response
     , PutBucketRequestPaymentResponse
+    -- ** Response constructor
+    , mkPutBucketRequestPaymentResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -90,6 +92,13 @@ instance ToBody PutBucketRequestPayment where
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketRequestPaymentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
+mkPutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3

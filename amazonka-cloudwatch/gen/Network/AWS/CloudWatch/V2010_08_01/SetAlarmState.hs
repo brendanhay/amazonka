@@ -35,6 +35,8 @@ module Network.AWS.CloudWatch.V2010_08_01.SetAlarmState
 
     -- * Response
     , SetAlarmStateResponse
+    -- ** Response constructor
+    , mkSetAlarmStateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -87,6 +89,13 @@ instance ToQuery SetAlarmState where
 
 data SetAlarmStateResponse = SetAlarmStateResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetAlarmStateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetAlarmStateResponse :: SetAlarmStateResponse
+mkSetAlarmStateResponse = SetAlarmStateResponse
 
 instance AWSRequest SetAlarmState where
     type Sv SetAlarmState = CloudWatch

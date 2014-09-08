@@ -46,6 +46,8 @@ module Network.AWS.SNS.V2010_03_31.Subscribe
 
     -- * Response
     , SubscribeResponse
+    -- ** Response constructor
+    , mkSubscribeResponse
     -- ** Response lenses
     , srSubscriptionArn
     ) where
@@ -105,6 +107,15 @@ instance ToQuery Subscribe where
 newtype SubscribeResponse = SubscribeResponse
     { _srSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SubscribeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSubscribeResponse :: SubscribeResponse
+mkSubscribeResponse = SubscribeResponse
+    { _srSubscriptionArn = Nothing
+    }
 
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner confirmation).

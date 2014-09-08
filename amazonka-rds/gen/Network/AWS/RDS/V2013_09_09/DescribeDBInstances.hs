@@ -40,6 +40,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBInstances
 
     -- * Response
     , DescribeDBInstancesResponse
+    -- ** Response constructor
+    , mkDescribeDBInstancesResponse
     -- ** Response lenses
     , ddbirrMarker
     , ddbirrDBInstances
@@ -97,6 +99,16 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirrMarker :: Maybe Text
     , _ddbirrDBInstances :: [DBInstance]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDBInstancesResponse :: DescribeDBInstancesResponse
+mkDescribeDBInstancesResponse = DescribeDBInstancesResponse
+    { _ddbirrMarker = Nothing
+    , _ddbirrDBInstances = mempty
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

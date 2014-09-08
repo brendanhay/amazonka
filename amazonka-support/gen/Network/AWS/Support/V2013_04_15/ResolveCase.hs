@@ -30,6 +30,8 @@ module Network.AWS.Support.V2013_04_15.ResolveCase
 
     -- * Response
     , ResolveCaseResponse
+    -- ** Response constructor
+    , mkResolveCaseResponse
     -- ** Response lenses
     , rcrInitialCaseStatus
     , rcrFinalCaseStatus
@@ -70,6 +72,16 @@ data ResolveCaseResponse = ResolveCaseResponse
     { _rcrInitialCaseStatus :: Maybe Text
     , _rcrFinalCaseStatus :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResolveCaseResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResolveCaseResponse :: ResolveCaseResponse
+mkResolveCaseResponse = ResolveCaseResponse
+    { _rcrInitialCaseStatus = Nothing
+    , _rcrFinalCaseStatus = Nothing
+    }
 
 -- | The status of the case when the ResolveCase request was sent.
 rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)

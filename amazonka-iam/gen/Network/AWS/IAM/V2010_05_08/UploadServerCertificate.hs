@@ -75,6 +75,8 @@ module Network.AWS.IAM.V2010_05_08.UploadServerCertificate
 
     -- * Response
     , UploadServerCertificateResponse
+    -- ** Response constructor
+    , mkUploadServerCertificateResponse
     -- ** Response lenses
     , uscrServerCertificateMetadata
     ) where
@@ -145,6 +147,15 @@ instance ToQuery UploadServerCertificate where
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UploadServerCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUploadServerCertificateResponse :: UploadServerCertificateResponse
+mkUploadServerCertificateResponse = UploadServerCertificateResponse
+    { _uscrServerCertificateMetadata = Nothing
+    }
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.

@@ -41,6 +41,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironments
 
     -- * Response
     , DescribeEnvironmentsResponse
+    -- ** Response constructor
+    , mkDescribeEnvironmentsResponse
     -- ** Response lenses
     , der1Environments
     ) where
@@ -115,6 +117,15 @@ instance ToQuery DescribeEnvironments where
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _der1Environments :: [EnvironmentDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEnvironmentsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEnvironmentsResponse :: DescribeEnvironmentsResponse
+mkDescribeEnvironmentsResponse = DescribeEnvironmentsResponse
+    { _der1Environments = mempty
+    }
 
 -- | Returns an EnvironmentDescription list.
 der1Environments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]

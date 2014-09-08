@@ -38,6 +38,8 @@ module Network.AWS.CloudFormation.V2010_05_15.GetTemplate
 
     -- * Response
     , GetTemplateResponse
+    -- ** Response constructor
+    , mkGetTemplateResponse
     -- ** Response lenses
     , gtrTemplateBody
     ) where
@@ -73,6 +75,15 @@ instance ToQuery GetTemplate where
 newtype GetTemplateResponse = GetTemplateResponse
     { _gtrTemplateBody :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetTemplateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetTemplateResponse :: GetTemplateResponse
+mkGetTemplateResponse = GetTemplateResponse
+    { _gtrTemplateBody = Nothing
+    }
 
 -- | Structure containing the template body. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.).

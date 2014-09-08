@@ -39,6 +39,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteRetentionPolicy
 
     -- * Response
     , DeleteRetentionPolicyResponse
+    -- ** Response constructor
+    , mkDeleteRetentionPolicyResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -70,6 +72,13 @@ instance ToJSON DeleteRetentionPolicy
 
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRetentionPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
+mkDeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
 
 instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs

@@ -50,6 +50,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSnapshots
 
     -- * Response
     , DescribeClusterSnapshotsResponse
+    -- ** Response constructor
+    , mkDescribeClusterSnapshotsResponse
     -- ** Response lenses
     , dcsrrMarker
     , dcsrrSnapshots
@@ -149,6 +151,16 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrrMarker :: Maybe Text
     , _dcsrrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterSnapshotsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
+mkDescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
+    { _dcsrrMarker = Nothing
+    , _dcsrrSnapshots = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

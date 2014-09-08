@@ -29,6 +29,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
 
     -- * Response
     , DeleteInterconnectResponse
+    -- ** Response constructor
+    , mkDeleteInterconnectResponse
     -- ** Response lenses
     , dirInterconnectState
     ) where
@@ -67,6 +69,15 @@ instance ToJSON DeleteInterconnect
 newtype DeleteInterconnectResponse = DeleteInterconnectResponse
     { _dirInterconnectState :: Maybe InterconnectState
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInterconnectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteInterconnectResponse :: DeleteInterconnectResponse
+mkDeleteInterconnectResponse = DeleteInterconnectResponse
+    { _dirInterconnectState = Nothing
+    }
 
 -- | State of the interconnect. Requested: The initial state of an interconnect.
 -- The interconnect stays in the requested state until the Letter of

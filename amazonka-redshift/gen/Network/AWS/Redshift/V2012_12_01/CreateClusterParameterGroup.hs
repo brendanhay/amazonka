@@ -47,6 +47,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterParameterGroup
 
     -- * Response
     , CreateClusterParameterGroupResponse
+    -- ** Response constructor
+    , mkCreateClusterParameterGroupResponse
     -- ** Response lenses
     , ccpgrClusterParameterGroup
     ) where
@@ -106,6 +108,15 @@ instance ToQuery CreateClusterParameterGroup where
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateClusterParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateClusterParameterGroupResponse :: CreateClusterParameterGroupResponse
+mkCreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
+    { _ccpgrClusterParameterGroup = Nothing
+    }
 
 -- | Describes a parameter group.
 ccpgrClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)

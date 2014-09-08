@@ -79,6 +79,8 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
 
     -- * Response
     , BatchWriteItemResponse
+    -- ** Response constructor
+    , mkBatchWriteItemResponse
     -- ** Response lenses
     , bwirUnprocessedItems
     , bwirItemCollectionMetrics
@@ -156,6 +158,17 @@ data BatchWriteItemResponse = BatchWriteItemResponse
     , _bwirItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
     , _bwirConsumedCapacity :: [ConsumedCapacity]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchWriteItemResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkBatchWriteItemResponse :: BatchWriteItemResponse
+mkBatchWriteItemResponse = BatchWriteItemResponse
+    { _bwirUnprocessedItems = mempty
+    , _bwirItemCollectionMetrics = mempty
+    , _bwirConsumedCapacity = mempty
+    }
 
 -- | A map of tables and requests against those tables that were not processed.
 -- The UnprocessedKeys value is in the same form as RequestItems, so you can

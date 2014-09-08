@@ -847,7 +847,10 @@ data Job = Job
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Job' data type to populate a request.
+-- a valid 'Job' data type.
+--
+-- 'Job' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkJob :: Job
 mkJob = Job
     { _jId = Nothing
@@ -1397,7 +1400,10 @@ data Pipeline = Pipeline
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Pipeline' data type to populate a request.
+-- a valid 'Pipeline' data type.
+--
+-- 'Pipeline' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPipeline :: Pipeline
 mkPipeline = Pipeline
     { _prId = Nothing
@@ -1686,7 +1692,10 @@ data Preset = Preset
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Preset' data type to populate a request.
+-- a valid 'Preset' data type.
+--
+-- 'Preset' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPreset :: Preset
 mkPreset = Preset
     { _p1rId = Nothing

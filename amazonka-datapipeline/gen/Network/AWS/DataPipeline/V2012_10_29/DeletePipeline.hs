@@ -42,6 +42,8 @@ module Network.AWS.DataPipeline.V2012_10_29.DeletePipeline
 
     -- * Response
     , DeletePipelineResponse
+    -- ** Response constructor
+    , mkDeletePipelineResponse
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -75,6 +77,13 @@ instance ToJSON DeletePipeline
 
 data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeletePipelineResponse :: DeletePipelineResponse
+mkDeletePipelineResponse = DeletePipelineResponse
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = DataPipeline

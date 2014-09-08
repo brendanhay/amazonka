@@ -51,6 +51,8 @@ module Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
 
     -- * Response
     , ListSubscriptionsByTopicResponse
+    -- ** Response constructor
+    , mkListSubscriptionsByTopicResponse
     -- ** Response lenses
     , lsbtrSubscriptions
     , lsbtrNextToken
@@ -91,6 +93,16 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrSubscriptions :: [Subscription]
     , _lsbtrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSubscriptionsByTopicResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse
+mkListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
+    { _lsbtrSubscriptions = mempty
+    , _lsbtrNextToken = Nothing
+    }
 
 -- | A list of subscriptions.
 lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]

@@ -143,7 +143,10 @@ newtype Topic = Topic
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Topic' data type to populate a request.
+-- a valid 'Topic' data type.
+--
+-- 'Topic' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTopic :: Topic
 mkTopic = Topic
     { _tTopicArn = Nothing
@@ -164,7 +167,10 @@ data Endpoint = Endpoint
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Endpoint' data type to populate a request.
+-- a valid 'Endpoint' data type.
+--
+-- 'Endpoint' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEndpoint :: Endpoint
 mkEndpoint = Endpoint
     { _eEndpointArn = Nothing
@@ -232,7 +238,10 @@ data PlatformApplication = PlatformApplication
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'PlatformApplication' data type to populate a request.
+-- a valid 'PlatformApplication' data type.
+--
+-- 'PlatformApplication' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPlatformApplication :: PlatformApplication
 mkPlatformApplication = PlatformApplication
     { _paPlatformApplicationArn = Nothing
@@ -263,7 +272,10 @@ data Subscription = Subscription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Subscription' data type to populate a request.
+-- a valid 'Subscription' data type.
+--
+-- 'Subscription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSubscription :: Subscription
 mkSubscription = Subscription
     { _sSubscriptionArn = Nothing

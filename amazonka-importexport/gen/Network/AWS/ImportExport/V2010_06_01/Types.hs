@@ -166,7 +166,10 @@ data Job = Job
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Job' data type to populate a request.
+-- a valid 'Job' data type.
+--
+-- 'Job' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkJob :: Text -- ^ 'jJobId'
       -> ISO8601 -- ^ 'jCreationDate'
       -> Bool -- ^ 'jIsCanceled'

@@ -102,6 +102,8 @@ module Network.AWS.STS.V2011_06_15.AssumeRole
 
     -- * Response
     , AssumeRoleResponse
+    -- ** Response constructor
+    , mkAssumeRoleResponse
     -- ** Response lenses
     , arrCredentials
     , arrAssumedRoleUser
@@ -204,6 +206,17 @@ data AssumeRoleResponse = AssumeRoleResponse
     , _arrAssumedRoleUser :: Maybe AssumedRoleUser
     , _arrPackedPolicySize :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssumeRoleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssumeRoleResponse :: AssumeRoleResponse
+mkAssumeRoleResponse = AssumeRoleResponse
+    { _arrCredentials = Nothing
+    , _arrAssumedRoleUser = Nothing
+    , _arrPackedPolicySize = Nothing
+    }
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security (or session) token.

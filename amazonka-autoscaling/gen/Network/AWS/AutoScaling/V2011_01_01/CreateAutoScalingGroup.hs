@@ -54,6 +54,8 @@ module Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup
 
     -- * Response
     , CreateAutoScalingGroupResponse
+    -- ** Response constructor
+    , mkCreateAutoScalingGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -229,6 +231,13 @@ instance ToQuery CreateAutoScalingGroup where
 
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAutoScalingGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
+mkCreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 
 instance AWSRequest CreateAutoScalingGroup where
     type Sv CreateAutoScalingGroup = AutoScaling

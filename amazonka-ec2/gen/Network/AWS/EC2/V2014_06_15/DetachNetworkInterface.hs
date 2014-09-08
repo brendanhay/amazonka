@@ -37,6 +37,8 @@ module Network.AWS.EC2.V2014_06_15.DetachNetworkInterface
 
     -- * Response
     , DetachNetworkInterfaceResponse
+    -- ** Response constructor
+    , mkDetachNetworkInterfaceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery DetachNetworkInterface where
 
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachNetworkInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDetachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
+mkDetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 
 instance AWSRequest DetachNetworkInterface where
     type Sv DetachNetworkInterface = EC2

@@ -46,6 +46,8 @@ module Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes
 
     -- * Response
     , GetIdentityNotificationAttributesResponse
+    -- ** Response constructor
+    , mkGetIdentityNotificationAttributesResponse
     -- ** Response lenses
     , ginarNotificationAttributes
     ) where
@@ -82,6 +84,16 @@ instance ToQuery GetIdentityNotificationAttributes where
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdentityNotificationAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetIdentityNotificationAttributesResponse :: Map Text IdentityNotificationAttributes -- ^ 'ginarNotificationAttributes'
+                                            -> GetIdentityNotificationAttributesResponse
+mkGetIdentityNotificationAttributesResponse p1 = GetIdentityNotificationAttributesResponse
+    { _ginarNotificationAttributes = p1
+    }
 
 -- | A map of Identity to IdentityNotificationAttributes.
 ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)

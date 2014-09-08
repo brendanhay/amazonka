@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeKeyPairs
 
     -- * Response
     , DescribeKeyPairsResponse
+    -- ** Response constructor
+    , mkDescribeKeyPairsResponse
     -- ** Response lenses
     , dkprKeyPairs
     ) where
@@ -77,6 +79,15 @@ instance ToQuery DescribeKeyPairs where
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeKeyPairsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeKeyPairsResponse :: DescribeKeyPairsResponse
+mkDescribeKeyPairsResponse = DescribeKeyPairsResponse
+    { _dkprKeyPairs = mempty
+    }
 
 -- | Information about one or more key pairs.
 dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]

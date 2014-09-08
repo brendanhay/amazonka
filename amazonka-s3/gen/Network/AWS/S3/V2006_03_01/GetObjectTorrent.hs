@@ -30,6 +30,8 @@ module Network.AWS.S3.V2006_03_01.GetObjectTorrent
 
     -- * Response
     , GetObjectTorrentResponse
+    -- ** Response constructor
+    , mkGetObjectTorrentResponse
     -- ** Response lenses
     , gotrBody
     ) where
@@ -80,6 +82,16 @@ instance ToBody GetObjectTorrent
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotrBody :: RsBody
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetObjectTorrentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
+                           -> GetObjectTorrentResponse
+mkGetObjectTorrentResponse p1 = GetObjectTorrentResponse
+    { _gotrBody = p1
+    }
 
 gotrBody :: Lens' GetObjectTorrentResponse RsBody
 gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })

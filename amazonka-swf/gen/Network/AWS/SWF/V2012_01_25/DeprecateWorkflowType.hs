@@ -61,6 +61,8 @@ module Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType
 
     -- * Response
     , DeprecateWorkflowTypeResponse
+    -- ** Response constructor
+    , mkDeprecateWorkflowTypeResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -100,6 +102,13 @@ instance ToJSON DeprecateWorkflowType
 
 data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeprecateWorkflowTypeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
+mkDeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
 
 instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF

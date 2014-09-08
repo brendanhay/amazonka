@@ -88,6 +88,8 @@ module Network.AWS.Route53Domains.V2014_05_15.TransferDomain
 
     -- * Response
     , TransferDomainResponse
+    -- ** Response constructor
+    , mkTransferDomainResponse
     -- ** Response lenses
     , tdrOperationId
     ) where
@@ -232,6 +234,16 @@ instance ToJSON TransferDomain
 newtype TransferDomainResponse = TransferDomainResponse
     { _tdrOperationId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TransferDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTransferDomainResponse :: Text -- ^ 'tdrOperationId'
+                         -> TransferDomainResponse
+mkTransferDomainResponse p1 = TransferDomainResponse
+    { _tdrOperationId = p1
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:

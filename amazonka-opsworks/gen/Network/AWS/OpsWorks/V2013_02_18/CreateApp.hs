@@ -43,6 +43,8 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateApp
 
     -- * Response
     , CreateAppResponse
+    -- ** Response constructor
+    , mkCreateAppResponse
     -- ** Response lenses
     , carAppId
     ) where
@@ -147,6 +149,15 @@ instance ToJSON CreateApp
 newtype CreateAppResponse = CreateAppResponse
     { _carAppId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAppResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateAppResponse :: CreateAppResponse
+mkCreateAppResponse = CreateAppResponse
+    { _carAppId = Nothing
+    }
 
 -- | The app ID.
 carAppId :: Lens' CreateAppResponse (Maybe Text)

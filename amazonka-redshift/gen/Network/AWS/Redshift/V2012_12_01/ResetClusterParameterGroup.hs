@@ -43,6 +43,8 @@ module Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup
 
     -- * Response
     , ResetClusterParameterGroupResponse
+    -- ** Response constructor
+    , mkResetClusterParameterGroupResponse
     -- ** Response lenses
     , rcpgrParameterGroupName
     , rcpgrParameterGroupStatus
@@ -96,6 +98,16 @@ data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     { _rcpgrParameterGroupName :: Maybe Text
     , _rcpgrParameterGroupStatus :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetClusterParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResetClusterParameterGroupResponse :: ResetClusterParameterGroupResponse
+mkResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
+    { _rcpgrParameterGroupName = Nothing
+    , _rcpgrParameterGroupStatus = Nothing
+    }
 
 -- | The name of the cluster parameter group.
 rcpgrParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)

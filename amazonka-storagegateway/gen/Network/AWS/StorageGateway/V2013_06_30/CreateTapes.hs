@@ -32,6 +32,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateTapes
 
     -- * Response
     , CreateTapesResponse
+    -- ** Response constructor
+    , mkCreateTapesResponse
     -- ** Response lenses
     , ctrTapeARNs
     ) where
@@ -95,6 +97,15 @@ instance ToJSON CreateTapes
 newtype CreateTapesResponse = CreateTapesResponse
     { _ctrTapeARNs :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTapesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateTapesResponse :: CreateTapesResponse
+mkCreateTapesResponse = CreateTapesResponse
+    { _ctrTapeARNs = mempty
+    }
 
 ctrTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrTapeARNs = lens _ctrTapeARNs (\s a -> s { _ctrTapeARNs = a })

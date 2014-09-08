@@ -425,7 +425,10 @@ data AlarmHistoryItem = AlarmHistoryItem
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AlarmHistoryItem' data type to populate a request.
+-- a valid 'AlarmHistoryItem' data type.
+--
+-- 'AlarmHistoryItem' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAlarmHistoryItem :: AlarmHistoryItem
 mkAlarmHistoryItem = AlarmHistoryItem
     { _ahiAlarmName = Nothing
@@ -474,7 +477,10 @@ data Datapoint = Datapoint
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Datapoint' data type to populate a request.
+-- a valid 'Datapoint' data type.
+--
+-- 'Datapoint' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDatapoint :: Datapoint
 mkDatapoint = Datapoint
     { _drTimestamp = Nothing
@@ -588,7 +594,10 @@ data Metric = Metric
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Metric' data type to populate a request.
+-- a valid 'Metric' data type.
+--
+-- 'Metric' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMetric :: Metric
 mkMetric = Metric
     { _mNamespace = Nothing
@@ -639,7 +648,10 @@ data MetricAlarm = MetricAlarm
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'MetricAlarm' data type to populate a request.
+-- a valid 'MetricAlarm' data type.
+--
+-- 'MetricAlarm' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMetricAlarm :: MetricAlarm
 mkMetricAlarm = MetricAlarm
     { _maAlarmName = Nothing

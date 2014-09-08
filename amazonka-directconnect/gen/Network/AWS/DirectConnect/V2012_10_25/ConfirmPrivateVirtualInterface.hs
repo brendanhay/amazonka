@@ -33,6 +33,8 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface
 
     -- * Response
     , ConfirmPrivateVirtualInterfaceResponse
+    -- ** Response constructor
+    , mkConfirmPrivateVirtualInterfaceResponse
     -- ** Response lenses
     , cpvirVirtualInterfaceState
     ) where
@@ -83,6 +85,15 @@ instance ToJSON ConfirmPrivateVirtualInterface
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmPrivateVirtualInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkConfirmPrivateVirtualInterfaceResponse :: ConfirmPrivateVirtualInterfaceResponse
+mkConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
+    { _cpvirVirtualInterfaceState = Nothing
+    }
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
 -- interface is pending confirmation from the virtual interface owner. If the

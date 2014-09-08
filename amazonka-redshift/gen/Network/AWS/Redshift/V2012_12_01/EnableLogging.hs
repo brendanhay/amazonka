@@ -32,6 +32,8 @@ module Network.AWS.Redshift.V2012_12_01.EnableLogging
 
     -- * Response
     , EnableLoggingResponse
+    -- ** Response constructor
+    , mkEnableLoggingResponse
     -- ** Response lenses
     , elrLoggingEnabled
     , elrBucketName
@@ -94,6 +96,20 @@ data EnableLoggingResponse = EnableLoggingResponse
     , _elrLastFailureTime :: Maybe ISO8601
     , _elrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableLoggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnableLoggingResponse :: EnableLoggingResponse
+mkEnableLoggingResponse = EnableLoggingResponse
+    { _elrLoggingEnabled = Nothing
+    , _elrBucketName = Nothing
+    , _elrS3KeyPrefix = Nothing
+    , _elrLastSuccessfulDeliveryTime = Nothing
+    , _elrLastFailureTime = Nothing
+    , _elrLastFailureMessage = Nothing
+    }
 
 -- | true if logging is on, false if logging is off.
 elrLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)

@@ -43,6 +43,8 @@ module Network.AWS.IAM.V2010_05_08.PutUserPolicy
 
     -- * Response
     , PutUserPolicyResponse
+    -- ** Response constructor
+    , mkPutUserPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -86,6 +88,13 @@ instance ToQuery PutUserPolicy where
 
 data PutUserPolicyResponse = PutUserPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutUserPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutUserPolicyResponse :: PutUserPolicyResponse
+mkPutUserPolicyResponse = PutUserPolicyResponse
 
 instance AWSRequest PutUserPolicy where
     type Sv PutUserPolicy = IAM

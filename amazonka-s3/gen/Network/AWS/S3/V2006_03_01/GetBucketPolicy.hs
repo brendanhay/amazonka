@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketPolicy
 
     -- * Response
     , GetBucketPolicyResponse
+    -- ** Response constructor
+    , mkGetBucketPolicyResponse
     -- ** Response lenses
     , gbprPolicy
     ) where
@@ -71,6 +73,15 @@ instance ToBody GetBucketPolicy
 newtype GetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbprPolicy :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketPolicyResponse :: GetBucketPolicyResponse
+mkGetBucketPolicyResponse = GetBucketPolicyResponse
+    { _gbprPolicy = Nothing
+    }
 
 -- | The bucket policy as a JSON document.
 gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)

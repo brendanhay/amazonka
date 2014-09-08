@@ -1093,7 +1093,10 @@ data Application = Application
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Application' data type to populate a request.
+-- a valid 'Application' data type.
+--
+-- 'Application' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkApplication :: Application
 mkApplication = Application
     { _aName = Nothing
@@ -1169,7 +1172,10 @@ data Cluster = Cluster
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Cluster' data type to populate a request.
+-- a valid 'Cluster' data type.
+--
+-- 'Cluster' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCluster :: Cluster
 mkCluster = Cluster
     { _cId = Nothing
@@ -1326,7 +1332,10 @@ data ClusterSummary = ClusterSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ClusterSummary' data type to populate a request.
+-- a valid 'ClusterSummary' data type.
+--
+-- 'ClusterSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkClusterSummary :: ClusterSummary
 mkClusterSummary = ClusterSummary
     { _csrId = Nothing
@@ -1390,7 +1399,10 @@ data Command = Command
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Command' data type to populate a request.
+-- a valid 'Command' data type.
+--
+-- 'Command' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCommand :: Command
 mkCommand = Command
     { _crName = Nothing
@@ -1423,7 +1435,10 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Ec2InstanceAttributes' data type to populate a request.
+-- a valid 'Ec2InstanceAttributes' data type.
+--
+-- 'Ec2InstanceAttributes' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEc2InstanceAttributes :: Ec2InstanceAttributes
 mkEc2InstanceAttributes = Ec2InstanceAttributes
     { _eiaEc2KeyName = Nothing
@@ -1510,7 +1525,10 @@ data HadoopStepConfig = HadoopStepConfig
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'HadoopStepConfig' data type to populate a request.
+-- a valid 'HadoopStepConfig' data type.
+--
+-- 'HadoopStepConfig' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkHadoopStepConfig :: HadoopStepConfig
 mkHadoopStepConfig = HadoopStepConfig
     { _hscJar = Nothing
@@ -1552,7 +1570,10 @@ data Instance = Instance
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Instance' data type to populate a request.
+-- a valid 'Instance' data type.
+--
+-- 'Instance' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstance :: Instance
 mkInstance = Instance
     { _iId = Nothing
@@ -1612,7 +1633,10 @@ data InstanceGroup = InstanceGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InstanceGroup' data type to populate a request.
+-- a valid 'InstanceGroup' data type.
+--
+-- 'InstanceGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstanceGroup :: InstanceGroup
 mkInstanceGroup = InstanceGroup
     { _igId = Nothing
@@ -2079,7 +2103,10 @@ data JobFlowDetail = JobFlowDetail
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'JobFlowDetail' data type to populate a request.
+-- a valid 'JobFlowDetail' data type.
+--
+-- 'JobFlowDetail' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkJobFlowDetail :: Text -- ^ 'jfdJobFlowId'
                 -> Text -- ^ 'jfdName'
                 -> JobFlowExecutionStatusDetail -- ^ 'jfdExecutionStatusDetail'
@@ -2505,7 +2532,10 @@ data Step = Step
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Step' data type to populate a request.
+-- a valid 'Step' data type.
+--
+-- 'Step' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStep :: Step
 mkStep = Step
     { _sId = Nothing
@@ -2721,7 +2751,10 @@ data StepSummary = StepSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StepSummary' data type to populate a request.
+-- a valid 'StepSummary' data type.
+--
+-- 'StepSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStepSummary :: StepSummary
 mkStepSummary = StepSummary
     { _ssrId = Nothing

@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume
 
     -- * Response
     , DeregisterVolumeResponse
+    -- ** Response constructor
+    , mkDeregisterVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -66,6 +68,13 @@ instance ToJSON DeregisterVolume
 
 data DeregisterVolumeResponse = DeregisterVolumeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeregisterVolumeResponse :: DeregisterVolumeResponse
+mkDeregisterVolumeResponse = DeregisterVolumeResponse
 
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks

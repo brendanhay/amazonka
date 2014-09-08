@@ -35,6 +35,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment
 
     -- * Response
     , RebuildEnvironmentResponse
+    -- ** Response constructor
+    , mkRebuildEnvironmentResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,6 +75,13 @@ instance ToQuery RebuildEnvironment where
 
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebuildEnvironmentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRebuildEnvironmentResponse :: RebuildEnvironmentResponse
+mkRebuildEnvironmentResponse = RebuildEnvironmentResponse
 
 instance AWSRequest RebuildEnvironment where
     type Sv RebuildEnvironment = ElasticBeanstalk

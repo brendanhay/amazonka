@@ -56,6 +56,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnConnections
 
     -- * Response
     , DescribeVpnConnectionsResponse
+    -- ** Response constructor
+    , mkDescribeVpnConnectionsResponse
     -- ** Response lenses
     , dvcrrVpnConnections
     ) where
@@ -114,6 +116,15 @@ instance ToQuery DescribeVpnConnections where
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrrVpnConnections :: [VpnConnection]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpnConnectionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVpnConnectionsResponse :: DescribeVpnConnectionsResponse
+mkDescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
+    { _dvcrrVpnConnections = mempty
+    }
 
 -- | Information about one or more VPN connections.
 dvcrrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]

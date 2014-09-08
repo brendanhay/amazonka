@@ -44,6 +44,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplicationVersion
 
     -- * Response
     , CreateApplicationVersionResponse
+    -- ** Response constructor
+    , mkCreateApplicationVersionResponse
     -- ** Response lenses
     , cavrApplicationVersion
     ) where
@@ -122,6 +124,15 @@ instance ToQuery CreateApplicationVersion where
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateApplicationVersionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateApplicationVersionResponse :: CreateApplicationVersionResponse
+mkCreateApplicationVersionResponse = CreateApplicationVersionResponse
+    { _cavrApplicationVersion = Nothing
+    }
 
 -- | The ApplicationVersionDescription of the application version.
 cavrApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)

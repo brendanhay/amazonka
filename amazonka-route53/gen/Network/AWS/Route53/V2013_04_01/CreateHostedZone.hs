@@ -43,6 +43,8 @@ module Network.AWS.Route53.V2013_04_01.CreateHostedZone
 
     -- * Response
     , CreateHostedZoneResponse
+    -- ** Response constructor
+    , mkCreateHostedZoneResponse
     -- ** Response lenses
     , chzrHostedZone
     , chzrChangeInfo
@@ -120,6 +122,22 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , _chzrDelegationSet :: DelegationSet
     , _chzrLocation :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateHostedZoneResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateHostedZoneResponse :: HostedZone -- ^ 'chzrHostedZone'
+                           -> ChangeInfo -- ^ 'chzrChangeInfo'
+                           -> DelegationSet -- ^ 'chzrDelegationSet'
+                           -> Text -- ^ 'chzrLocation'
+                           -> CreateHostedZoneResponse
+mkCreateHostedZoneResponse p1 p2 p3 p4 = CreateHostedZoneResponse
+    { _chzrHostedZone = p1
+    , _chzrChangeInfo = p2
+    , _chzrDelegationSet = p3
+    , _chzrLocation = p4
+    }
 
 -- | A complex type that contains identifying information about the hosted zone.
 chzrHostedZone :: Lens' CreateHostedZoneResponse HostedZone

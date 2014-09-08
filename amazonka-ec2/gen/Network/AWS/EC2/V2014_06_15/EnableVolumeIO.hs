@@ -36,6 +36,8 @@ module Network.AWS.EC2.V2014_06_15.EnableVolumeIO
 
     -- * Response
     , EnableVolumeIOResponse
+    -- ** Response constructor
+    , mkEnableVolumeIOResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,6 +66,13 @@ instance ToQuery EnableVolumeIO where
 
 data EnableVolumeIOResponse = EnableVolumeIOResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableVolumeIOResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnableVolumeIOResponse :: EnableVolumeIOResponse
+mkEnableVolumeIOResponse = EnableVolumeIOResponse
 
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2

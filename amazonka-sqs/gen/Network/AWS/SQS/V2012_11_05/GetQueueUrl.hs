@@ -42,6 +42,8 @@ module Network.AWS.SQS.V2012_11_05.GetQueueUrl
 
     -- * Response
     , GetQueueUrlResponse
+    -- ** Response constructor
+    , mkGetQueueUrlResponse
     -- ** Response lenses
     , gqurQueueUrl
     ) where
@@ -83,6 +85,15 @@ instance ToQuery GetQueueUrl where
 newtype GetQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetQueueUrlResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetQueueUrlResponse :: GetQueueUrlResponse
+mkGetQueueUrlResponse = GetQueueUrlResponse
+    { _gqurQueueUrl = Nothing
+    }
 
 -- | The URL for the queue.
 gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)

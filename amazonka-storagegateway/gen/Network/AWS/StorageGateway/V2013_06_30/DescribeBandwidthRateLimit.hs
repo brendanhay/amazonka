@@ -49,6 +49,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit
 
     -- * Response
     , DescribeBandwidthRateLimitResponse
+    -- ** Response constructor
+    , mkDescribeBandwidthRateLimitResponse
     -- ** Response lenses
     , dbrlrrGatewayARN
     , dbrlrrAverageUploadRateLimitInBitsPerSec
@@ -91,6 +93,17 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
     , _dbrlrrAverageUploadRateLimitInBitsPerSec :: Maybe Integer
     , _dbrlrrAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeBandwidthRateLimitResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse
+mkDescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
+    { _dbrlrrGatewayARN = Nothing
+    , _dbrlrrAverageUploadRateLimitInBitsPerSec = Nothing
+    , _dbrlrrAverageDownloadRateLimitInBitsPerSec = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

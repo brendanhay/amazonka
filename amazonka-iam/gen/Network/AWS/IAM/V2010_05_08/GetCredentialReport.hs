@@ -28,6 +28,8 @@ module Network.AWS.IAM.V2010_05_08.GetCredentialReport
     , mkGetCredentialReport
     -- * Response
     , GetCredentialReportResponse
+    -- ** Response constructor
+    , mkGetCredentialReportResponse
     -- ** Response lenses
     , gcrrrContent
     , gcrrrReportFormat
@@ -56,6 +58,17 @@ data GetCredentialReportResponse = GetCredentialReportResponse
     , _gcrrrReportFormat :: Maybe ReportFormatType
     , _gcrrrGeneratedTime :: Maybe ISO8601
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetCredentialReportResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetCredentialReportResponse :: GetCredentialReportResponse
+mkGetCredentialReportResponse = GetCredentialReportResponse
+    { _gcrrrContent = Nothing
+    , _gcrrrReportFormat = Nothing
+    , _gcrrrGeneratedTime = Nothing
+    }
 
 -- | Contains the credential report. The report is Base64-encoded.
 gcrrrContent :: Lens' GetCredentialReportResponse (Maybe ByteString)

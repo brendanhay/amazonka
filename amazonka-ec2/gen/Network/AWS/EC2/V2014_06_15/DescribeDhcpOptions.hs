@@ -54,6 +54,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions
 
     -- * Response
     , DescribeDhcpOptionsResponse
+    -- ** Response constructor
+    , mkDescribeDhcpOptionsResponse
     -- ** Response lenses
     , ddorDhcpOptions
     ) where
@@ -103,6 +105,15 @@ instance ToQuery DescribeDhcpOptions where
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDhcpOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDhcpOptionsResponse :: DescribeDhcpOptionsResponse
+mkDescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
+    { _ddorDhcpOptions = mempty
+    }
 
 -- | Information about one or more DHCP options sets.
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]

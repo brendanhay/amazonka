@@ -34,6 +34,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RestartAppServer
 
     -- * Response
     , RestartAppServerResponse
+    -- ** Response constructor
+    , mkRestartAppServerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,6 +75,13 @@ instance ToQuery RestartAppServer where
 
 data RestartAppServerResponse = RestartAppServerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestartAppServerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRestartAppServerResponse :: RestartAppServerResponse
+mkRestartAppServerResponse = RestartAppServerResponse
 
 instance AWSRequest RestartAppServer where
     type Sv RestartAppServer = ElasticBeanstalk

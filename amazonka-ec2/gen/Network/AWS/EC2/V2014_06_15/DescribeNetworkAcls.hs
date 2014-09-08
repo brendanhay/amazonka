@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls
 
     -- * Response
     , DescribeNetworkAclsResponse
+    -- ** Response constructor
+    , mkDescribeNetworkAclsResponse
     -- ** Response lenses
     , dnarNetworkAcls
     ) where
@@ -101,6 +103,15 @@ instance ToQuery DescribeNetworkAcls where
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: [NetworkAcl]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNetworkAclsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeNetworkAclsResponse :: DescribeNetworkAclsResponse
+mkDescribeNetworkAclsResponse = DescribeNetworkAclsResponse
+    { _dnarNetworkAcls = mempty
+    }
 
 -- | Information about one or more network ACLs.
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]

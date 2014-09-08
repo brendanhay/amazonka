@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistribution
 
     -- * Response
     , GetDistributionResponse
+    -- ** Response constructor
+    , mkGetDistributionResponse
     -- ** Response lenses
     , gdrDistribution
     , gdrETag
@@ -75,6 +77,16 @@ data GetDistributionResponse = GetDistributionResponse
     { _gdrDistribution :: Maybe Distribution
     , _gdrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetDistributionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetDistributionResponse :: GetDistributionResponse
+mkGetDistributionResponse = GetDistributionResponse
+    { _gdrDistribution = Nothing
+    , _gdrETag = Nothing
+    }
 
 -- | The distribution's information.
 gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)

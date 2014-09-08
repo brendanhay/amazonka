@@ -54,6 +54,8 @@ module Network.AWS.EC2.V2014_06_15.CreateSubnet
 
     -- * Response
     , CreateSubnetResponse
+    -- ** Response constructor
+    , mkCreateSubnetResponse
     -- ** Response lenses
     , csr1Subnet
     ) where
@@ -102,6 +104,15 @@ instance ToQuery CreateSubnet where
 newtype CreateSubnetResponse = CreateSubnetResponse
     { _csr1Subnet :: Maybe Subnet
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSubnetResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateSubnetResponse :: CreateSubnetResponse
+mkCreateSubnetResponse = CreateSubnetResponse
+    { _csr1Subnet = Nothing
+    }
 
 -- | Information about the subnet.
 csr1Subnet :: Lens' CreateSubnetResponse (Maybe Subnet)

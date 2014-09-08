@@ -78,6 +78,8 @@ module Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
 
     -- * Response
     , PutPipelineDefinitionResponse
+    -- ** Response constructor
+    , mkPutPipelineDefinitionResponse
     -- ** Response lenses
     , ppdrValidationErrors
     , ppdrValidationWarnings
@@ -128,6 +130,18 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
     , _ppdrValidationWarnings :: [ValidationWarning]
     , _ppdrErrored :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutPipelineDefinitionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutPipelineDefinitionResponse :: Bool -- ^ 'ppdrErrored'
+                                -> PutPipelineDefinitionResponse
+mkPutPipelineDefinitionResponse p3 = PutPipelineDefinitionResponse
+    { _ppdrValidationErrors = mempty
+    , _ppdrValidationWarnings = mempty
+    , _ppdrErrored = p3
+    }
 
 -- | A list of the validation errors that are associated with the objects
 -- defined in pipelineObjects.

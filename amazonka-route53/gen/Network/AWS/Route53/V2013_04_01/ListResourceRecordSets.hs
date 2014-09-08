@@ -64,6 +64,8 @@ module Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
 
     -- * Response
     , ListResourceRecordSetsResponse
+    -- ** Response constructor
+    , mkListResourceRecordSetsResponse
     -- ** Response lenses
     , lrrsrResourceRecordSets
     , lrrsrIsTruncated
@@ -166,6 +168,23 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     , _lrrsrNextRecordIdentifier :: Maybe Text
     , _lrrsrMaxItems :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListResourceRecordSetsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSets'
+                                 -> Bool -- ^ 'lrrsrIsTruncated'
+                                 -> Text -- ^ 'lrrsrMaxItems'
+                                 -> ListResourceRecordSetsResponse
+mkListResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
+    { _lrrsrResourceRecordSets = p1
+    , _lrrsrIsTruncated = p2
+    , _lrrsrNextRecordName = Nothing
+    , _lrrsrNextRecordType = Nothing
+    , _lrrsrNextRecordIdentifier = Nothing
+    , _lrrsrMaxItems = p6
+    }
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.

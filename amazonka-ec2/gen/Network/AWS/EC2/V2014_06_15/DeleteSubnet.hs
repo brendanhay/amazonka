@@ -35,6 +35,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteSubnet
 
     -- * Response
     , DeleteSubnetResponse
+    -- ** Response constructor
+    , mkDeleteSubnetResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,6 +65,13 @@ instance ToQuery DeleteSubnet where
 
 data DeleteSubnetResponse = DeleteSubnetResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSubnetResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSubnetResponse :: DeleteSubnetResponse
+mkDeleteSubnetResponse = DeleteSubnetResponse
 
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2

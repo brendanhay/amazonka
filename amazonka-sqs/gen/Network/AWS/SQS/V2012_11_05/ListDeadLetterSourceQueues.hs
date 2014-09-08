@@ -36,6 +36,8 @@ module Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues
 
     -- * Response
     , ListDeadLetterSourceQueuesResponse
+    -- ** Response constructor
+    , mkListDeadLetterSourceQueuesResponse
     -- ** Response lenses
     , ldlsqrQueueUrls
     ) where
@@ -68,6 +70,16 @@ instance ToQuery ListDeadLetterSourceQueues where
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDeadLetterSourceQueuesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
+                                     -> ListDeadLetterSourceQueuesResponse
+mkListDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
+    { _ldlsqrQueueUrls = p1
+    }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.

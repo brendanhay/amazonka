@@ -50,6 +50,8 @@ module Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers
 
     -- * Response
     , SetVisibleToAllUsersResponse
+    -- ** Response constructor
+    , mkSetVisibleToAllUsersResponse
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -95,6 +97,13 @@ instance ToJSON SetVisibleToAllUsers
 
 data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetVisibleToAllUsersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
+mkSetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
 
 instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR

@@ -46,6 +46,8 @@ module Network.AWS.EC2.V2014_06_15.ReplaceRoute
 
     -- * Response
     , ReplaceRouteResponse
+    -- ** Response constructor
+    , mkReplaceRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -111,6 +113,13 @@ instance ToQuery ReplaceRoute where
 
 data ReplaceRouteResponse = ReplaceRouteResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReplaceRouteResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReplaceRouteResponse :: ReplaceRouteResponse
+mkReplaceRouteResponse = ReplaceRouteResponse
 
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2

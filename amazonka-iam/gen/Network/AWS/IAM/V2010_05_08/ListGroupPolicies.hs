@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.ListGroupPolicies
 
     -- * Response
     , ListGroupPoliciesResponse
+    -- ** Response constructor
+    , mkListGroupPoliciesResponse
     -- ** Response lenses
     , lgprPolicyNames
     , lgprIsTruncated
@@ -89,6 +91,19 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     , _lgprIsTruncated :: Bool
     , _lgprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGroupPoliciesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListGroupPoliciesResponse :: [Text] -- ^ 'lgprPolicyNames'
+                            -> Bool -- ^ 'lgprIsTruncated'
+                            -> ListGroupPoliciesResponse
+mkListGroupPoliciesResponse p1 p2 = ListGroupPoliciesResponse
+    { _lgprPolicyNames = p1
+    , _lgprIsTruncated = p2
+    , _lgprMarker = Nothing
+    }
 
 -- | A list of policy names.
 lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]

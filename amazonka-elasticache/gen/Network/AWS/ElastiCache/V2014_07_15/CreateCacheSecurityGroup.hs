@@ -41,6 +41,8 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup
 
     -- * Response
     , CreateCacheSecurityGroupResponse
+    -- ** Response constructor
+    , mkCreateCacheSecurityGroupResponse
     -- ** Response lenses
     , ccsgrCacheSecurityGroup
     ) where
@@ -83,6 +85,15 @@ instance ToQuery CreateCacheSecurityGroup where
 newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCacheSecurityGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateCacheSecurityGroupResponse :: CreateCacheSecurityGroupResponse
+mkCreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
+    { _ccsgrCacheSecurityGroup = Nothing
+    }
 
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup

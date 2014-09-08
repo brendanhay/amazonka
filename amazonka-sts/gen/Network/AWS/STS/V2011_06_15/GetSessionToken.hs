@@ -65,6 +65,8 @@ module Network.AWS.STS.V2011_06_15.GetSessionToken
 
     -- * Response
     , GetSessionTokenResponse
+    -- ** Response constructor
+    , mkGetSessionTokenResponse
     -- ** Response lenses
     , gstrCredentials
     ) where
@@ -126,6 +128,15 @@ instance ToQuery GetSessionToken where
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSessionTokenResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetSessionTokenResponse :: GetSessionTokenResponse
+mkGetSessionTokenResponse = GetSessionTokenResponse
+    { _gstrCredentials = Nothing
+    }
 
 -- | The session credentials for API authentication.
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)

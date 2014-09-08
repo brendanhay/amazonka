@@ -41,6 +41,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings
 
     -- * Response
     , DescribeReservedInstancesListingsResponse
+    -- ** Response constructor
+    , mkDescribeReservedInstancesListingsResponse
     -- ** Response lenses
     , drilrReservedInstancesListings
     ) where
@@ -91,6 +93,15 @@ instance ToQuery DescribeReservedInstancesListings where
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedInstancesListingsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
+mkDescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
+    { _drilrReservedInstancesListings = mempty
+    }
 
 -- | Information about the Reserved Instance listing.
 drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]

@@ -31,6 +31,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField
 
     -- * Response
     , DeleteIndexFieldResponse
+    -- ** Response constructor
+    , mkDeleteIndexFieldResponse
     -- ** Response lenses
     , difrrIndexField
     ) where
@@ -77,6 +79,16 @@ instance ToQuery DeleteIndexField where
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrrIndexField :: IndexFieldStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteIndexFieldResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteIndexFieldResponse :: IndexFieldStatus -- ^ 'difrrIndexField'
+                           -> DeleteIndexFieldResponse
+mkDeleteIndexFieldResponse p1 = DeleteIndexFieldResponse
+    { _difrrIndexField = p1
+    }
 
 -- | The status of the index field being deleted.
 difrrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus

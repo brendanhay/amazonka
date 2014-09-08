@@ -51,6 +51,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumes
 
     -- * Response
     , DescribeVolumesResponse
+    -- ** Response constructor
+    , mkDescribeVolumesResponse
     -- ** Response lenses
     , dvrVolumes
     ) where
@@ -110,6 +112,15 @@ instance ToQuery DescribeVolumes where
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVolumesResponse :: DescribeVolumesResponse
+mkDescribeVolumesResponse = DescribeVolumesResponse
+    { _dvrVolumes = mempty
+    }
 
 -- | 
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]

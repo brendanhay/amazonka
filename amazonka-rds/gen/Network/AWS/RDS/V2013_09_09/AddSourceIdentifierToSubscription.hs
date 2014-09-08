@@ -39,6 +39,8 @@ module Network.AWS.RDS.V2013_09_09.AddSourceIdentifierToSubscription
 
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
+    -- ** Response constructor
+    , mkAddSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
     , asitsrEventSubscription
     ) where
@@ -87,6 +89,15 @@ instance ToQuery AddSourceIdentifierToSubscription where
 newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddSourceIdentifierToSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse
+mkAddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
+    { _asitsrEventSubscription = Nothing
+    }
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.

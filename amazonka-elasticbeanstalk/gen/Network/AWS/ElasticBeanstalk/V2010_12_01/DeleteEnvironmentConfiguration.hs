@@ -39,6 +39,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteEnvironmentConfiguration
 
     -- * Response
     , DeleteEnvironmentConfigurationResponse
+    -- ** Response constructor
+    , mkDeleteEnvironmentConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -76,6 +78,13 @@ instance ToQuery DeleteEnvironmentConfiguration where
 
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEnvironmentConfigurationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
+mkDeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
 
 instance AWSRequest DeleteEnvironmentConfiguration where
     type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk

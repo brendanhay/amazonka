@@ -42,6 +42,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateUser
 
     -- * Response
     , UpdateUserResponse
+    -- ** Response constructor
+    , mkUpdateUserResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -85,6 +87,13 @@ instance ToQuery UpdateUser where
 
 data UpdateUserResponse = UpdateUserResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateUserResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateUserResponse :: UpdateUserResponse
+mkUpdateUserResponse = UpdateUserResponse
 
 instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM

@@ -70,6 +70,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines
 
     -- * Response
     , ListPipelinesResponse
+    -- ** Response constructor
+    , mkListPipelinesResponse
     -- ** Response lenses
     , lprPipelines
     , lprNextPageToken
@@ -123,6 +125,16 @@ data ListPipelinesResponse = ListPipelinesResponse
     { _lprPipelines :: [Pipeline]
     , _lprNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPipelinesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListPipelinesResponse :: ListPipelinesResponse
+mkListPipelinesResponse = ListPipelinesResponse
+    { _lprPipelines = mempty
+    , _lprNextPageToken = Nothing
+    }
 
 -- | An array of Pipeline objects.
 lprPipelines :: Lens' ListPipelinesResponse [Pipeline]

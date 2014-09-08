@@ -51,6 +51,8 @@ module Network.AWS.S3.V2006_03_01.PutObject
 
     -- * Response
     , PutObjectResponse
+    -- ** Response constructor
+    , mkPutObjectResponse
     -- ** Response lenses
     , porExpiration
     , porETag
@@ -278,6 +280,20 @@ data PutObjectResponse = PutObjectResponse
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutObjectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutObjectResponse :: PutObjectResponse
+mkPutObjectResponse = PutObjectResponse
+    { _porExpiration = Nothing
+    , _porETag = Nothing
+    , _porServerSideEncryption = Nothing
+    , _porVersionId = Nothing
+    , _porSSECustomerAlgorithm = Nothing
+    , _porSSECustomerKeyMD5 = Nothing
+    }
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL

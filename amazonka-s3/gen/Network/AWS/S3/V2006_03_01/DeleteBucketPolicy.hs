@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketPolicy
 
     -- * Response
     , DeleteBucketPolicyResponse
+    -- ** Response constructor
+    , mkDeleteBucketPolicyResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -68,6 +70,13 @@ instance ToBody DeleteBucketPolicy
 
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteBucketPolicyResponse :: DeleteBucketPolicyResponse
+mkDeleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3

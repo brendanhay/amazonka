@@ -31,6 +31,8 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
 
     -- * Response
     , ConfirmPublicVirtualInterfaceResponse
+    -- ** Response constructor
+    , mkConfirmPublicVirtualInterfaceResponse
     -- ** Response lenses
     , cpvirrVirtualInterfaceState
     ) where
@@ -71,6 +73,15 @@ instance ToJSON ConfirmPublicVirtualInterface
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
     { _cpvirrVirtualInterfaceState :: Maybe VirtualInterfaceState
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmPublicVirtualInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkConfirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
+mkConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
+    { _cpvirrVirtualInterfaceState = Nothing
+    }
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
 -- interface is pending confirmation from the virtual interface owner. If the

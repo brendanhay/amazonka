@@ -38,6 +38,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RetrieveEnvironmentInfo
 
     -- * Response
     , RetrieveEnvironmentInfoResponse
+    -- ** Response constructor
+    , mkRetrieveEnvironmentInfoResponse
     -- ** Response lenses
     , reirEnvironmentInfo
     ) where
@@ -90,6 +92,15 @@ instance ToQuery RetrieveEnvironmentInfo where
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveEnvironmentInfoResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRetrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
+mkRetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
+    { _reirEnvironmentInfo = mempty
+    }
 
 -- | The EnvironmentInfoDescription of the environment.
 reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]

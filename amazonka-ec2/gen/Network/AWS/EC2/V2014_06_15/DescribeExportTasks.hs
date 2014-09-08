@@ -48,6 +48,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeExportTasks
 
     -- * Response
     , DescribeExportTasksResponse
+    -- ** Response constructor
+    , mkDescribeExportTasksResponse
     -- ** Response lenses
     , detrExportTasks
     ) where
@@ -80,6 +82,15 @@ instance ToQuery DescribeExportTasks where
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: [ExportTask]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeExportTasksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeExportTasksResponse :: DescribeExportTasksResponse
+mkDescribeExportTasksResponse = DescribeExportTasksResponse
+    { _detrExportTasks = mempty
+    }
 
 -- | 
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]

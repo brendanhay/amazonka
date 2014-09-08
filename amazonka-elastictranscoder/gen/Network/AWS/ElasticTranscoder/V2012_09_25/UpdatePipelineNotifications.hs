@@ -50,6 +50,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications
 
     -- * Response
     , UpdatePipelineNotificationsResponse
+    -- ** Response constructor
+    , mkUpdatePipelineNotificationsResponse
     -- ** Response lenses
     , upnrPipeline
     ) where
@@ -115,6 +117,15 @@ instance ToJSON UpdatePipelineNotifications
 newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     { _upnrPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdatePipelineNotificationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse
+mkUpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
+    { _upnrPipeline = Nothing
+    }
 
 -- | A section of the response body that provides information about the
 -- pipeline.

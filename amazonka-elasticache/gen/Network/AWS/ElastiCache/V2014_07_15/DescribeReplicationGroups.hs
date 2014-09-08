@@ -42,6 +42,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups
 
     -- * Response
     , DescribeReplicationGroupsResponse
+    -- ** Response constructor
+    , mkDescribeReplicationGroupsResponse
     -- ** Response lenses
     , drgrrMarker
     , drgrrReplicationGroups
@@ -96,6 +98,16 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrrMarker :: Maybe Text
     , _drgrrReplicationGroups :: [ReplicationGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReplicationGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
+mkDescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
+    { _drgrrMarker = Nothing
+    , _drgrrReplicationGroups = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drgrrMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)

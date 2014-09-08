@@ -45,6 +45,8 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute
 
     -- * Response
     , CreateVpnConnectionRouteResponse
+    -- ** Response constructor
+    , mkCreateVpnConnectionRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -83,6 +85,13 @@ instance ToQuery CreateVpnConnectionRoute where
 
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpnConnectionRouteResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateVpnConnectionRouteResponse :: CreateVpnConnectionRouteResponse
+mkCreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2

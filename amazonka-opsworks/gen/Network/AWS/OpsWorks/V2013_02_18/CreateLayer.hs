@@ -52,6 +52,8 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateLayer
 
     -- * Response
     , CreateLayerResponse
+    -- ** Response constructor
+    , mkCreateLayerResponse
     -- ** Response lenses
     , clrLayerId
     ) where
@@ -207,6 +209,15 @@ instance ToJSON CreateLayer
 newtype CreateLayerResponse = CreateLayerResponse
     { _clrLayerId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLayerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLayerResponse :: CreateLayerResponse
+mkCreateLayerResponse = CreateLayerResponse
+    { _clrLayerId = Nothing
+    }
 
 -- | The layer ID.
 clrLayerId :: Lens' CreateLayerResponse (Maybe Text)

@@ -61,6 +61,8 @@ module Network.AWS.EC2.V2014_06_15.ModifySnapshotAttribute
 
     -- * Response
     , ModifySnapshotAttributeResponse
+    -- ** Response constructor
+    , mkModifySnapshotAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -122,6 +124,13 @@ instance ToQuery ModifySnapshotAttribute where
 
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifySnapshotAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
+mkModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 
 instance AWSRequest ModifySnapshotAttribute where
     type Sv ModifySnapshotAttribute = EC2

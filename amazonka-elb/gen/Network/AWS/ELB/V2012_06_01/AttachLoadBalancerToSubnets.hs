@@ -38,6 +38,8 @@ module Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets
 
     -- * Response
     , AttachLoadBalancerToSubnetsResponse
+    -- ** Response constructor
+    , mkAttachLoadBalancerToSubnetsResponse
     -- ** Response lenses
     , albtsrSubnets
     ) where
@@ -80,6 +82,15 @@ instance ToQuery AttachLoadBalancerToSubnets where
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachLoadBalancerToSubnetsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAttachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
+mkAttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
+    { _albtsrSubnets = mempty
+    }
 
 -- | A list of subnet IDs attached to the load balancer.
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]

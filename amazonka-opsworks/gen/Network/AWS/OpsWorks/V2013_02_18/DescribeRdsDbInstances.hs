@@ -30,6 +30,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeRdsDbInstances
 
     -- * Response
     , DescribeRdsDbInstancesResponse
+    -- ** Response constructor
+    , mkDescribeRdsDbInstancesResponse
     -- ** Response lenses
     , drdirRdsDbInstances
     ) where
@@ -74,6 +76,15 @@ instance ToJSON DescribeRdsDbInstances
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances :: [RdsDbInstance]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRdsDbInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeRdsDbInstancesResponse :: DescribeRdsDbInstancesResponse
+mkDescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
+    { _drdirRdsDbInstances = mempty
+    }
 
 -- | An a array of RdsDbInstance objects that describe the instances.
 drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]

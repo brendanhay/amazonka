@@ -37,6 +37,8 @@ module Network.AWS.IAM.V2010_05_08.ListMFADevices
 
     -- * Response
     , ListMFADevicesResponse
+    -- ** Response constructor
+    , mkListMFADevicesResponse
     -- ** Response lenses
     , lmfadrMFADevices
     , lmfadrIsTruncated
@@ -90,6 +92,19 @@ data ListMFADevicesResponse = ListMFADevicesResponse
     , _lmfadrIsTruncated :: Bool
     , _lmfadrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListMFADevicesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListMFADevicesResponse :: [MFADevice] -- ^ 'lmfadrMFADevices'
+                         -> Bool -- ^ 'lmfadrIsTruncated'
+                         -> ListMFADevicesResponse
+mkListMFADevicesResponse p1 p2 = ListMFADevicesResponse
+    { _lmfadrMFADevices = p1
+    , _lmfadrIsTruncated = p2
+    , _lmfadrMarker = Nothing
+    }
 
 -- | A list of MFA devices.
 lmfadrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]

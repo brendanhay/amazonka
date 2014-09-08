@@ -930,7 +930,10 @@ data App = App
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'App' data type to populate a request.
+-- a valid 'App' data type.
+--
+-- 'App' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkApp :: App
 mkApp = App
     { _aAppId = Nothing
@@ -1115,7 +1118,10 @@ data Command = Command
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Command' data type to populate a request.
+-- a valid 'Command' data type.
+--
+-- 'Command' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCommand :: Command
 mkCommand = Command
     { _cCommandId = Nothing
@@ -1224,7 +1230,10 @@ data Deployment = Deployment
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Deployment' data type to populate a request.
+-- a valid 'Deployment' data type.
+--
+-- 'Deployment' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDeployment :: Deployment
 mkDeployment = Deployment
     { _dDeploymentId = Nothing
@@ -1350,7 +1359,10 @@ data ElasticIp = ElasticIp
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ElasticIp' data type to populate a request.
+-- a valid 'ElasticIp' data type.
+--
+-- 'ElasticIp' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkElasticIp :: ElasticIp
 mkElasticIp = ElasticIp
     { _eiIp = Nothing
@@ -1396,7 +1408,10 @@ data ElasticLoadBalancer = ElasticLoadBalancer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ElasticLoadBalancer' data type to populate a request.
+-- a valid 'ElasticLoadBalancer' data type.
+--
+-- 'ElasticLoadBalancer' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkElasticLoadBalancer :: ElasticLoadBalancer
 mkElasticLoadBalancer = ElasticLoadBalancer
     { _elbElasticLoadBalancerName = Nothing
@@ -1488,7 +1503,10 @@ data Instance = Instance
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Instance' data type to populate a request.
+-- a valid 'Instance' data type.
+--
+-- 'Instance' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstance :: Instance
 mkInstance = Instance
     { _iInstanceId = Nothing
@@ -1697,7 +1715,10 @@ data InstancesCount = InstancesCount
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InstancesCount' data type to populate a request.
+-- a valid 'InstancesCount' data type.
+--
+-- 'InstancesCount' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstancesCount :: InstancesCount
 mkInstancesCount = InstancesCount
     { _icBooting = Nothing
@@ -1799,7 +1820,10 @@ data Layer = Layer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Layer' data type to populate a request.
+-- a valid 'Layer' data type.
+--
+-- 'Layer' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLayer :: Layer
 mkLayer = Layer
     { _lStackId = Nothing
@@ -1945,7 +1969,10 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LoadBasedAutoScalingConfiguration' data type to populate a request.
+-- a valid 'LoadBasedAutoScalingConfiguration' data type.
+--
+-- 'LoadBasedAutoScalingConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLoadBasedAutoScalingConfiguration :: LoadBasedAutoScalingConfiguration
 mkLoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     { _lbascLayerId = Nothing
@@ -1987,7 +2014,10 @@ data Permission = Permission
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Permission' data type to populate a request.
+-- a valid 'Permission' data type.
+--
+-- 'Permission' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPermission :: Permission
 mkPermission = Permission
     { _pStackId = Nothing
@@ -2039,7 +2069,10 @@ data RaidArray = RaidArray
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'RaidArray' data type to populate a request.
+-- a valid 'RaidArray' data type.
+--
+-- 'RaidArray' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkRaidArray :: RaidArray
 mkRaidArray = RaidArray
     { _raRaidArrayId = Nothing
@@ -2122,7 +2155,10 @@ data RdsDbInstance = RdsDbInstance
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'RdsDbInstance' data type to populate a request.
+-- a valid 'RdsDbInstance' data type.
+--
+-- 'RdsDbInstance' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkRdsDbInstance :: RdsDbInstance
 mkRdsDbInstance = RdsDbInstance
     { _rdiRdsDbInstanceArn = Nothing
@@ -2232,7 +2268,10 @@ data SelfUserProfile = SelfUserProfile
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SelfUserProfile' data type to populate a request.
+-- a valid 'SelfUserProfile' data type.
+--
+-- 'SelfUserProfile' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSelfUserProfile :: SelfUserProfile
 mkSelfUserProfile = SelfUserProfile
     { _supIamUserArn = Nothing
@@ -2270,7 +2309,10 @@ data ServiceError = ServiceError
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ServiceError' data type to populate a request.
+-- a valid 'ServiceError' data type.
+--
+-- 'ServiceError' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkServiceError :: ServiceError
 mkServiceError = ServiceError
     { _seServiceErrorId = Nothing
@@ -2429,7 +2471,10 @@ data Stack = Stack
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Stack' data type to populate a request.
+-- a valid 'Stack' data type.
+--
+-- 'Stack' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStack :: Stack
 mkStack = Stack
     { _srStackId = Nothing
@@ -2613,7 +2658,10 @@ data StackSummary = StackSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StackSummary' data type to populate a request.
+-- a valid 'StackSummary' data type.
+--
+-- 'StackSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStackSummary :: StackSummary
 mkStackSummary = StackSummary
     { _ssStackId = Nothing
@@ -2658,7 +2706,10 @@ data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TimeBasedAutoScalingConfiguration' data type to populate a request.
+-- a valid 'TimeBasedAutoScalingConfiguration' data type.
+--
+-- 'TimeBasedAutoScalingConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTimeBasedAutoScalingConfiguration :: TimeBasedAutoScalingConfiguration
 mkTimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascInstanceId = Nothing
@@ -2687,7 +2738,10 @@ data UserProfile = UserProfile
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'UserProfile' data type to populate a request.
+-- a valid 'UserProfile' data type.
+--
+-- 'UserProfile' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkUserProfile :: UserProfile
 mkUserProfile = UserProfile
     { _upIamUserArn = Nothing
@@ -2739,7 +2793,10 @@ data Volume = Volume
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Volume' data type to populate a request.
+-- a valid 'Volume' data type.
+--
+-- 'Volume' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVolume :: Volume
 mkVolume = Volume
     { _vVolumeId = Nothing

@@ -98,6 +98,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus
 
     -- * Response
     , DescribeInstanceStatusResponse
+    -- ** Response constructor
+    , mkDescribeInstanceStatusResponse
     -- ** Response lenses
     , disrInstanceStatuses
     , disrNextToken
@@ -177,6 +179,16 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses :: [InstanceStatus]
     , _disrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstanceStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeInstanceStatusResponse :: DescribeInstanceStatusResponse
+mkDescribeInstanceStatusResponse = DescribeInstanceStatusResponse
+    { _disrInstanceStatuses = mempty
+    , _disrNextToken = Nothing
+    }
 
 -- | One or more instance status descriptions.
 disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]

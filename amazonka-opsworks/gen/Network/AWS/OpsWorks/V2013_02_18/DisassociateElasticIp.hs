@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp
 
     -- * Response
     , DisassociateElasticIpResponse
+    -- ** Response constructor
+    , mkDisassociateElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -66,6 +68,13 @@ instance ToJSON DisassociateElasticIp
 
 data DisassociateElasticIpResponse = DisassociateElasticIpResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisassociateElasticIpResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisassociateElasticIpResponse :: DisassociateElasticIpResponse
+mkDisassociateElasticIpResponse = DisassociateElasticIpResponse
 
 instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks

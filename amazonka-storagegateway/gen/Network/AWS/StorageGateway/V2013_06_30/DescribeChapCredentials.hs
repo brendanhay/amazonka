@@ -45,6 +45,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials
 
     -- * Response
     , DescribeChapCredentialsResponse
+    -- ** Response constructor
+    , mkDescribeChapCredentialsResponse
     -- ** Response lenses
     , dccrrChapCredentials
     ) where
@@ -85,6 +87,15 @@ instance ToJSON DescribeChapCredentials
 newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrrChapCredentials :: [ChapInfo]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeChapCredentialsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeChapCredentialsResponse :: DescribeChapCredentialsResponse
+mkDescribeChapCredentialsResponse = DescribeChapCredentialsResponse
+    { _dccrrChapCredentials = mempty
+    }
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each object
 -- in the array contains CHAP credential information for one target-initiator

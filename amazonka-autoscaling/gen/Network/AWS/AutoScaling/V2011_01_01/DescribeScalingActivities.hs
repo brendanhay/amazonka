@@ -49,6 +49,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities
 
     -- * Response
     , DescribeScalingActivitiesResponse
+    -- ** Response constructor
+    , mkDescribeScalingActivitiesResponse
     -- ** Response lenses
     , dsarActivities
     , dsarNextToken
@@ -107,6 +109,17 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     { _dsarActivities :: [Activity]
     , _dsarNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScalingActivitiesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeScalingActivitiesResponse :: [Activity] -- ^ 'dsarActivities'
+                                    -> DescribeScalingActivitiesResponse
+mkDescribeScalingActivitiesResponse p1 = DescribeScalingActivitiesResponse
+    { _dsarActivities = p1
+    , _dsarNextToken = Nothing
+    }
 
 -- | A list of the requested scaling activities.
 dsarActivities :: Lens' DescribeScalingActivitiesResponse [Activity]

@@ -122,7 +122,10 @@ data AssumedRoleUser = AssumedRoleUser
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AssumedRoleUser' data type to populate a request.
+-- a valid 'AssumedRoleUser' data type.
+--
+-- 'AssumedRoleUser' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAssumedRoleUser :: Text -- ^ 'aruAssumedRoleId'
                   -> Text -- ^ 'aruArn'
                   -> AssumedRoleUser
@@ -158,7 +161,10 @@ data Credentials = Credentials
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Credentials' data type to populate a request.
+-- a valid 'Credentials' data type.
+--
+-- 'Credentials' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCredentials :: Text -- ^ 'cAccessKeyId'
               -> Text -- ^ 'cSecretAccessKey'
               -> Text -- ^ 'cSessionToken'
@@ -203,7 +209,10 @@ data FederatedUser = FederatedUser
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'FederatedUser' data type to populate a request.
+-- a valid 'FederatedUser' data type.
+--
+-- 'FederatedUser' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkFederatedUser :: Text -- ^ 'fuFederatedUserId'
                 -> Text -- ^ 'fuArn'
                 -> FederatedUser

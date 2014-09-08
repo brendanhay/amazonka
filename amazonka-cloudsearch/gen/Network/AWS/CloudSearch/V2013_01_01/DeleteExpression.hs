@@ -31,6 +31,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteExpression
 
     -- * Response
     , DeleteExpressionResponse
+    -- ** Response constructor
+    , mkDeleteExpressionResponse
     -- ** Response lenses
     , derrExpression
     ) where
@@ -77,6 +79,16 @@ instance ToQuery DeleteExpression where
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _derrExpression :: ExpressionStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteExpressionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteExpressionResponse :: ExpressionStatus -- ^ 'derrExpression'
+                           -> DeleteExpressionResponse
+mkDeleteExpressionResponse p1 = DeleteExpressionResponse
+    { _derrExpression = p1
+    }
 
 -- | The status of the expression being deleted.
 derrExpression :: Lens' DeleteExpressionResponse ExpressionStatus

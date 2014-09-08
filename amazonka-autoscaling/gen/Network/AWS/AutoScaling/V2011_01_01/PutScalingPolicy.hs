@@ -44,6 +44,8 @@ module Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy
 
     -- * Response
     , PutScalingPolicyResponse
+    -- ** Response constructor
+    , mkPutScalingPolicyResponse
     -- ** Response lenses
     , psprPolicyARN
     ) where
@@ -127,6 +129,15 @@ instance ToQuery PutScalingPolicy where
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutScalingPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutScalingPolicyResponse :: PutScalingPolicyResponse
+mkPutScalingPolicyResponse = PutScalingPolicyResponse
+    { _psprPolicyARN = Nothing
+    }
 
 -- | A policy's Amazon Resource Name (ARN).
 psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)

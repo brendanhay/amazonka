@@ -33,6 +33,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteAccountAlias
 
     -- * Response
     , DeleteAccountAliasResponse
+    -- ** Response constructor
+    , mkDeleteAccountAliasResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,6 +63,13 @@ instance ToQuery DeleteAccountAlias where
 
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAccountAliasResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAccountAliasResponse :: DeleteAccountAliasResponse
+mkDeleteAccountAliasResponse = DeleteAccountAliasResponse
 
 instance AWSRequest DeleteAccountAlias where
     type Sv DeleteAccountAlias = IAM

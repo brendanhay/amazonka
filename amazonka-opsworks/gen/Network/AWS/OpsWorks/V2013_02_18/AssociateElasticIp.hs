@@ -36,6 +36,8 @@ module Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp
 
     -- * Response
     , AssociateElasticIpResponse
+    -- ** Response constructor
+    , mkAssociateElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -74,6 +76,13 @@ instance ToJSON AssociateElasticIp
 
 data AssociateElasticIpResponse = AssociateElasticIpResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateElasticIpResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssociateElasticIpResponse :: AssociateElasticIpResponse
+mkAssociateElasticIpResponse = AssociateElasticIpResponse
 
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks

@@ -39,6 +39,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RequestEnvironmentInfo
 
     -- * Response
     , RequestEnvironmentInfoResponse
+    -- ** Response constructor
+    , mkRequestEnvironmentInfoResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -89,6 +91,13 @@ instance ToQuery RequestEnvironmentInfo where
 
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RequestEnvironmentInfoResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRequestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
+mkRequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 
 instance AWSRequest RequestEnvironmentInfo where
     type Sv RequestEnvironmentInfo = ElasticBeanstalk

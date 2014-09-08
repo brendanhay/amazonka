@@ -33,6 +33,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStacks
 
     -- * Response
     , DescribeStacksResponse
+    -- ** Response constructor
+    , mkDescribeStacksResponse
     -- ** Response lenses
     , dsrStacks
     ) where
@@ -69,6 +71,15 @@ instance ToJSON DescribeStacks
 newtype DescribeStacksResponse = DescribeStacksResponse
     { _dsrStacks :: [Stack]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStacksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStacksResponse :: DescribeStacksResponse
+mkDescribeStacksResponse = DescribeStacksResponse
+    { _dsrStacks = mempty
+    }
 
 -- | An array of Stack objects that describe the stacks.
 dsrStacks :: Lens' DescribeStacksResponse [Stack]

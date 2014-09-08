@@ -52,6 +52,8 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials
 
     -- * Response
     , UpdateChapCredentialsResponse
+    -- ** Response constructor
+    , mkUpdateChapCredentialsResponse
     -- ** Response lenses
     , uccrTargetARN
     , uccrInitiatorName
@@ -124,6 +126,16 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
     { _uccrTargetARN :: Maybe Text
     , _uccrInitiatorName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateChapCredentialsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateChapCredentialsResponse :: UpdateChapCredentialsResponse
+mkUpdateChapCredentialsResponse = UpdateChapCredentialsResponse
+    { _uccrTargetARN = Nothing
+    , _uccrInitiatorName = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.

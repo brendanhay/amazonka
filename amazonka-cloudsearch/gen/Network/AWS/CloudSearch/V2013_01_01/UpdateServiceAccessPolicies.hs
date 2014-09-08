@@ -32,6 +32,8 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies
 
     -- * Response
     , UpdateServiceAccessPoliciesResponse
+    -- ** Response constructor
+    , mkUpdateServiceAccessPoliciesResponse
     -- ** Response lenses
     , usaprAccessPolicies
     ) where
@@ -79,6 +81,16 @@ instance ToQuery UpdateServiceAccessPolicies where
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateServiceAccessPoliciesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'usaprAccessPolicies'
+                                      -> UpdateServiceAccessPoliciesResponse
+mkUpdateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
+    { _usaprAccessPolicies = p1
+    }
 
 -- | The access rules configured for the domain.
 usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus

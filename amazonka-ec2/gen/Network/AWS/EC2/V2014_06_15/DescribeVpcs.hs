@@ -47,6 +47,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcs
 
     -- * Response
     , DescribeVpcsResponse
+    -- ** Response constructor
+    , mkDescribeVpcsResponse
     -- ** Response lenses
     , dvrrVpcs
     ) where
@@ -97,6 +99,15 @@ instance ToQuery DescribeVpcs where
 newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrrVpcs :: [Vpc]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpcsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVpcsResponse :: DescribeVpcsResponse
+mkDescribeVpcsResponse = DescribeVpcsResponse
+    { _dvrrVpcs = mempty
+    }
 
 -- | Information about one or more VPCs.
 dvrrVpcs :: Lens' DescribeVpcsResponse [Vpc]

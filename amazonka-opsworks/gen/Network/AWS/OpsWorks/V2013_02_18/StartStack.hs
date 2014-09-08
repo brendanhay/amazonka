@@ -32,6 +32,8 @@ module Network.AWS.OpsWorks.V2013_02_18.StartStack
 
     -- * Response
     , StartStackResponse
+    -- ** Response constructor
+    , mkStartStackResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -64,6 +66,13 @@ instance ToJSON StartStack
 
 data StartStackResponse = StartStackResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStartStackResponse :: StartStackResponse
+mkStartStackResponse = StartStackResponse
 
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks

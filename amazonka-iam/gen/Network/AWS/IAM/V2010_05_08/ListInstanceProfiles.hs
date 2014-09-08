@@ -42,6 +42,8 @@ module Network.AWS.IAM.V2010_05_08.ListInstanceProfiles
 
     -- * Response
     , ListInstanceProfilesResponse
+    -- ** Response constructor
+    , mkListInstanceProfilesResponse
     -- ** Response lenses
     , liprInstanceProfiles
     , liprIsTruncated
@@ -101,6 +103,19 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     , _liprIsTruncated :: Bool
     , _liprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstanceProfilesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListInstanceProfilesResponse :: [InstanceProfile] -- ^ 'liprInstanceProfiles'
+                               -> Bool -- ^ 'liprIsTruncated'
+                               -> ListInstanceProfilesResponse
+mkListInstanceProfilesResponse p1 p2 = ListInstanceProfilesResponse
+    { _liprInstanceProfiles = p1
+    , _liprIsTruncated = p2
+    , _liprMarker = Nothing
+    }
 
 -- | A list of instance profiles.
 liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]

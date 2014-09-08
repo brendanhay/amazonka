@@ -52,6 +52,8 @@ module Network.AWS.RDS.V2013_09_09.CreateDBInstanceReadReplica
 
     -- * Response
     , CreateDBInstanceReadReplicaResponse
+    -- ** Response constructor
+    , mkCreateDBInstanceReadReplicaResponse
     -- ** Response lenses
     , cdbirrrDBInstance
     ) where
@@ -186,6 +188,15 @@ instance ToQuery CreateDBInstanceReadReplica where
 newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBInstanceReadReplicaResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse
+mkCreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
+    { _cdbirrrDBInstance = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used

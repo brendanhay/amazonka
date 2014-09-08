@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.ChangePassword
 
     -- * Response
     , ChangePasswordResponse
+    -- ** Response constructor
+    , mkChangePasswordResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -71,6 +73,13 @@ instance ToQuery ChangePassword where
 
 data ChangePasswordResponse = ChangePasswordResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangePasswordResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkChangePasswordResponse :: ChangePasswordResponse
+mkChangePasswordResponse = ChangePasswordResponse
 
 instance AWSRequest ChangePassword where
     type Sv ChangePassword = IAM

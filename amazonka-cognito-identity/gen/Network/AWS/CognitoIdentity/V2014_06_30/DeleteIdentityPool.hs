@@ -32,6 +32,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool
 
     -- * Response
     , DeleteIdentityPoolResponse
+    -- ** Response constructor
+    , mkDeleteIdentityPoolResponse
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -66,6 +68,13 @@ instance ToJSON DeleteIdentityPool
 
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteIdentityPoolResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteIdentityPoolResponse :: DeleteIdentityPoolResponse
+mkDeleteIdentityPoolResponse = DeleteIdentityPoolResponse
 
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity

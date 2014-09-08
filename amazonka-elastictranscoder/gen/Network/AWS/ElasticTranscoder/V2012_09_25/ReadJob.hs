@@ -45,6 +45,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob
 
     -- * Response
     , ReadJobResponse
+    -- ** Response constructor
+    , mkReadJobResponse
     -- ** Response lenses
     , rjrJob
     ) where
@@ -86,6 +88,15 @@ instance ToJSON ReadJob
 newtype ReadJobResponse = ReadJobResponse
     { _rjrJob :: Maybe Job
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadJobResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReadJobResponse :: ReadJobResponse
+mkReadJobResponse = ReadJobResponse
+    { _rjrJob = Nothing
+    }
 
 -- | A section of the response body that provides information about the job.
 rjrJob :: Lens' ReadJobResponse (Maybe Job)

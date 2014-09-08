@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.CreateDistribution
 
     -- * Response
     , CreateDistributionResponse
+    -- ** Response constructor
+    , mkCreateDistributionResponse
     -- ** Response lenses
     , cdrDistribution
     , cdrLocation
@@ -75,6 +77,17 @@ data CreateDistributionResponse = CreateDistributionResponse
     , _cdrLocation :: Maybe Text
     , _cdrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDistributionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDistributionResponse :: CreateDistributionResponse
+mkCreateDistributionResponse = CreateDistributionResponse
+    { _cdrDistribution = Nothing
+    , _cdrLocation = Nothing
+    , _cdrETag = Nothing
+    }
 
 -- | The distribution's information.
 cdrDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)

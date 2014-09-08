@@ -41,6 +41,8 @@ module Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
 
     -- * Response
     , EstimateTemplateCostResponse
+    -- ** Response constructor
+    , mkEstimateTemplateCostResponse
     -- ** Response lenses
     , etcrUrl
     ) where
@@ -91,6 +93,15 @@ instance ToQuery EstimateTemplateCost where
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
     { _etcrUrl :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EstimateTemplateCostResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEstimateTemplateCostResponse :: EstimateTemplateCostResponse
+mkEstimateTemplateCostResponse = EstimateTemplateCostResponse
+    { _etcrUrl = Nothing
+    }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.

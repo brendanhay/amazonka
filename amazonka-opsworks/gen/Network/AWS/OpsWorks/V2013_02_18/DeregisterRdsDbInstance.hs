@@ -29,6 +29,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance
 
     -- * Response
     , DeregisterRdsDbInstanceResponse
+    -- ** Response constructor
+    , mkDeregisterRdsDbInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -62,6 +64,13 @@ instance ToJSON DeregisterRdsDbInstance
 
 data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterRdsDbInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeregisterRdsDbInstanceResponse :: DeregisterRdsDbInstanceResponse
+mkDeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
 
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks

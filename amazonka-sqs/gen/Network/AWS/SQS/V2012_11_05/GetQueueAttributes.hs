@@ -78,6 +78,8 @@ module Network.AWS.SQS.V2012_11_05.GetQueueAttributes
 
     -- * Response
     , GetQueueAttributesResponse
+    -- ** Response constructor
+    , mkGetQueueAttributesResponse
     -- ** Response lenses
     , gqarAttributes
     ) where
@@ -117,6 +119,15 @@ instance ToQuery GetQueueAttributes where
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes :: Map QueueAttributeName Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetQueueAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetQueueAttributesResponse :: GetQueueAttributesResponse
+mkGetQueueAttributesResponse = GetQueueAttributesResponse
+    { _gqarAttributes = mempty
+    }
 
 -- | A map of attributes to the respective values.
 gqarAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)

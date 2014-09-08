@@ -34,6 +34,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeInternetGateways
 
     -- * Response
     , DescribeInternetGatewaysResponse
+    -- ** Response constructor
+    , mkDescribeInternetGatewaysResponse
     -- ** Response lenses
     , digrInternetGateways
     ) where
@@ -84,6 +86,15 @@ instance ToQuery DescribeInternetGateways where
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: [InternetGateway]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInternetGatewaysResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
+mkDescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
+    { _digrInternetGateways = mempty
+    }
 
 -- | Information about one or more Internet gateways.
 digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]

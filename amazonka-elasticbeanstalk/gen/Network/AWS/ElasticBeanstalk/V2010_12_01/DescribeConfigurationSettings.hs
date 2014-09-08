@@ -81,6 +81,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings
 
     -- * Response
     , DescribeConfigurationSettingsResponse
+    -- ** Response constructor
+    , mkDescribeConfigurationSettingsResponse
     -- ** Response lenses
     , dcsrConfigurationSettings
     ) where
@@ -137,6 +139,15 @@ instance ToQuery DescribeConfigurationSettings where
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConfigurationSettingsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
+mkDescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
+    { _dcsrConfigurationSettings = mempty
+    }
 
 -- | A list of ConfigurationSettingsDescription.
 dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]

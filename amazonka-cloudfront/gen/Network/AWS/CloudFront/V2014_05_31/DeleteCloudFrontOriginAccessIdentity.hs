@@ -30,6 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity
 
     -- * Response
     , DeleteCloudFrontOriginAccessIdentityResponse
+    -- ** Response constructor
+    , mkDeleteCloudFrontOriginAccessIdentityResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -80,6 +82,13 @@ instance ToXML DeleteCloudFrontOriginAccessIdentity where
 
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCloudFrontOriginAccessIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
+mkDeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
 
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront

@@ -31,6 +31,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription
     , mkDescribeSpotDatafeedSubscription
     -- * Response
     , DescribeSpotDatafeedSubscriptionResponse
+    -- ** Response constructor
+    , mkDescribeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , dsdsrSpotDatafeedSubscription
     ) where
@@ -55,6 +57,15 @@ instance ToQuery DescribeSpotDatafeedSubscription where
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSpotDatafeedSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse
+mkDescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
+    { _dsdsrSpotDatafeedSubscription = Nothing
+    }
 
 -- | The Spot Instance datafeed subscription.
 dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)

@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing
 
     -- * Response
     , CancelReservedInstancesListingResponse
+    -- ** Response constructor
+    , mkCancelReservedInstancesListingResponse
     -- ** Response lenses
     , crilrReservedInstancesListings
     ) where
@@ -74,6 +76,15 @@ instance ToQuery CancelReservedInstancesListing where
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelReservedInstancesListingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
+mkCancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
+    { _crilrReservedInstancesListings = mempty
+    }
 
 -- | The Reserved Instance listing.
 crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]

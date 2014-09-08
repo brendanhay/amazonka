@@ -49,6 +49,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage
 
     -- * Response
     , DescribeWorkingStorageResponse
+    -- ** Response constructor
+    , mkDescribeWorkingStorageResponse
     -- ** Response lenses
     , dwsrGatewayARN
     , dwsrDiskIds
@@ -93,6 +95,18 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
     , _dwsrWorkingStorageUsedInBytes :: Maybe Integer
     , _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeWorkingStorageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeWorkingStorageResponse :: DescribeWorkingStorageResponse
+mkDescribeWorkingStorageResponse = DescribeWorkingStorageResponse
+    { _dwsrGatewayARN = Nothing
+    , _dwsrDiskIds = mempty
+    , _dwsrWorkingStorageUsedInBytes = Nothing
+    , _dwsrWorkingStorageAllocatedInBytes = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

@@ -29,6 +29,8 @@ module Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate
 
     -- * Response
     , DeleteHsmClientCertificateResponse
+    -- ** Response constructor
+    , mkDeleteHsmClientCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,6 +61,13 @@ instance ToQuery DeleteHsmClientCertificate where
 
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHsmClientCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
+mkDeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 
 instance AWSRequest DeleteHsmClientCertificate where
     type Sv DeleteHsmClientCertificate = Redshift

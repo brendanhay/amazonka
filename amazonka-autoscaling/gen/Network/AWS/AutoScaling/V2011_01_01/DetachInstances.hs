@@ -42,6 +42,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DetachInstances
 
     -- * Response
     , DetachInstancesResponse
+    -- ** Response constructor
+    , mkDetachInstancesResponse
     -- ** Response lenses
     , dirActivities
     ) where
@@ -93,6 +95,15 @@ instance ToQuery DetachInstances where
 newtype DetachInstancesResponse = DetachInstancesResponse
     { _dirActivities :: [Activity]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDetachInstancesResponse :: DetachInstancesResponse
+mkDetachInstancesResponse = DetachInstancesResponse
+    { _dirActivities = mempty
+    }
 
 -- | A list describing the activities related to detaching the instances from
 -- the Auto Scaling group.

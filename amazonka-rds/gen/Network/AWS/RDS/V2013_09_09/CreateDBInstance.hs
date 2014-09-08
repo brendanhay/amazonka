@@ -64,6 +64,8 @@ module Network.AWS.RDS.V2013_09_09.CreateDBInstance
 
     -- * Response
     , CreateDBInstanceResponse
+    -- ** Response constructor
+    , mkCreateDBInstanceResponse
     -- ** Response lenses
     , cdbirDBInstance
     ) where
@@ -352,6 +354,15 @@ instance ToQuery CreateDBInstance where
 newtype CreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDBInstanceResponse :: CreateDBInstanceResponse
+mkCreateDBInstanceResponse = CreateDBInstanceResponse
+    { _cdbirDBInstance = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used

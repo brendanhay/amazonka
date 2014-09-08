@@ -53,6 +53,8 @@ module Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing
 
     -- * Response
     , CreateReservedInstancesListingResponse
+    -- ** Response constructor
+    , mkCreateReservedInstancesListingResponse
     -- ** Response lenses
     , crilrrReservedInstancesListings
     ) where
@@ -117,6 +119,15 @@ instance ToQuery CreateReservedInstancesListing where
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilrrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateReservedInstancesListingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
+mkCreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
+    { _crilrrReservedInstancesListings = mempty
+    }
 
 -- | Information about the Reserved Instances listing.
 crilrrReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]

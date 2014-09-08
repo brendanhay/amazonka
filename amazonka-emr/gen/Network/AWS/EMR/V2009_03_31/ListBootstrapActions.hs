@@ -30,6 +30,8 @@ module Network.AWS.EMR.V2009_03_31.ListBootstrapActions
 
     -- * Response
     , ListBootstrapActionsResponse
+    -- ** Response constructor
+    , mkListBootstrapActionsResponse
     -- ** Response lenses
     , lbarBootstrapActions
     , lbarMarker
@@ -75,6 +77,16 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse
     { _lbarBootstrapActions :: [Command]
     , _lbarMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListBootstrapActionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListBootstrapActionsResponse :: ListBootstrapActionsResponse
+mkListBootstrapActionsResponse = ListBootstrapActionsResponse
+    { _lbarBootstrapActions = mempty
+    , _lbarMarker = Nothing
+    }
 
 -- | The bootstrap actions associated with the cluster .
 lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]

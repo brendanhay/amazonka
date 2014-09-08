@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.DetachVpnGateway
 
     -- * Response
     , DetachVpnGatewayResponse
+    -- ** Response constructor
+    , mkDetachVpnGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -79,6 +81,13 @@ instance ToQuery DetachVpnGateway where
 
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachVpnGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDetachVpnGatewayResponse :: DetachVpnGatewayResponse
+mkDetachVpnGatewayResponse = DetachVpnGatewayResponse
 
 instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2

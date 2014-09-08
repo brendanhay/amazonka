@@ -38,6 +38,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteVolume
 
     -- * Response
     , DeleteVolumeResponse
+    -- ** Response constructor
+    , mkDeleteVolumeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,6 +68,13 @@ instance ToQuery DeleteVolume where
 
 data DeleteVolumeResponse = DeleteVolumeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVolumeResponse :: DeleteVolumeResponse
+mkDeleteVolumeResponse = DeleteVolumeResponse
 
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2

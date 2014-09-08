@@ -30,6 +30,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
 
     -- * Response
     , DescribeTapeArchivesResponse
+    -- ** Response constructor
+    , mkDescribeTapeArchivesResponse
     -- ** Response lenses
     , dtarrTapeArchives
     , dtarrMarker
@@ -75,6 +77,16 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
     { _dtarrTapeArchives :: [TapeArchive]
     , _dtarrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTapeArchivesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTapeArchivesResponse :: DescribeTapeArchivesResponse
+mkDescribeTapeArchivesResponse = DescribeTapeArchivesResponse
+    { _dtarrTapeArchives = mempty
+    , _dtarrMarker = Nothing
+    }
 
 dtarrTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
 dtarrTapeArchives =

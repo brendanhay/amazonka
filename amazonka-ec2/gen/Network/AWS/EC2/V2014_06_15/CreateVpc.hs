@@ -59,6 +59,8 @@ module Network.AWS.EC2.V2014_06_15.CreateVpc
 
     -- * Response
     , CreateVpcResponse
+    -- ** Response constructor
+    , mkCreateVpcResponse
     -- ** Response lenses
     , cvrrVpc
     ) where
@@ -103,6 +105,15 @@ instance ToQuery CreateVpc where
 newtype CreateVpcResponse = CreateVpcResponse
     { _cvrrVpc :: Maybe Vpc
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpcResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateVpcResponse :: CreateVpcResponse
+mkCreateVpcResponse = CreateVpcResponse
+    { _cvrrVpc = Nothing
+    }
 
 -- | Information about the VPC.
 cvrrVpc :: Lens' CreateVpcResponse (Maybe Vpc)

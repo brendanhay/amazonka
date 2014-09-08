@@ -29,6 +29,8 @@ module Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
 
     -- * Response
     , BuildSuggestersResponse
+    -- ** Response constructor
+    , mkBuildSuggestersResponse
     -- ** Response lenses
     , bsrFieldNames
     ) where
@@ -66,6 +68,15 @@ instance ToQuery BuildSuggesters where
 newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BuildSuggestersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkBuildSuggestersResponse :: BuildSuggestersResponse
+mkBuildSuggestersResponse = BuildSuggestersResponse
+    { _bsrFieldNames = mempty
+    }
 
 -- | A list of field names.
 bsrFieldNames :: Lens' BuildSuggestersResponse [Text]

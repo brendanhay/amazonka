@@ -48,6 +48,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutMetricFilter
 
     -- * Response
     , PutMetricFilterResponse
+    -- ** Response constructor
+    , mkPutMetricFilterResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -101,6 +103,13 @@ instance ToJSON PutMetricFilter
 
 data PutMetricFilterResponse = PutMetricFilterResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutMetricFilterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutMetricFilterResponse :: PutMetricFilterResponse
+mkPutMetricFilterResponse = PutMetricFilterResponse
 
 instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs

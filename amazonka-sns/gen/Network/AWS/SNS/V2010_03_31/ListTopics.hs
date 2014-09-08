@@ -42,6 +42,8 @@ module Network.AWS.SNS.V2010_03_31.ListTopics
 
     -- * Response
     , ListTopicsResponse
+    -- ** Response constructor
+    , mkListTopicsResponse
     -- ** Response lenses
     , ltrTopics
     , ltrNextToken
@@ -74,6 +76,16 @@ data ListTopicsResponse = ListTopicsResponse
     { _ltrTopics :: [Topic]
     , _ltrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTopicsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListTopicsResponse :: ListTopicsResponse
+mkListTopicsResponse = ListTopicsResponse
+    { _ltrTopics = mempty
+    , _ltrNextToken = Nothing
+    }
 
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]

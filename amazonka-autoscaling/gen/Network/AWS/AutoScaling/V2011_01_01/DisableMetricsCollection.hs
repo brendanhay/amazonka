@@ -32,6 +32,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection
 
     -- * Response
     , DisableMetricsCollectionResponse
+    -- ** Response constructor
+    , mkDisableMetricsCollectionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery DisableMetricsCollection where
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableMetricsCollectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisableMetricsCollectionResponse :: DisableMetricsCollectionResponse
+mkDisableMetricsCollectionResponse = DisableMetricsCollectionResponse
 
 instance AWSRequest DisableMetricsCollection where
     type Sv DisableMetricsCollection = AutoScaling

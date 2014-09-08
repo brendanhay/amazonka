@@ -40,6 +40,8 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup
 
     -- * Response
     , CreateDBSubnetGroupResponse
+    -- ** Response constructor
+    , mkCreateDBSubnetGroupResponse
     -- ** Response lenses
     , cdbsgrrDBSubnetGroup
     ) where
@@ -97,6 +99,15 @@ instance ToQuery CreateDBSubnetGroup where
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrrDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
+mkCreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
+    { _cdbsgrrDBSubnetGroup = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups

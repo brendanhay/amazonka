@@ -35,6 +35,8 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateVolume
 
     -- * Response
     , UpdateVolumeResponse
+    -- ** Response constructor
+    , mkUpdateVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -79,6 +81,13 @@ instance ToJSON UpdateVolume
 
 data UpdateVolumeResponse = UpdateVolumeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateVolumeResponse :: UpdateVolumeResponse
+mkUpdateVolumeResponse = UpdateVolumeResponse
 
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks

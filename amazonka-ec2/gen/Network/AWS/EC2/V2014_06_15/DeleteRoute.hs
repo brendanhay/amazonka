@@ -37,6 +37,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteRoute
 
     -- * Response
     , DeleteRouteResponse
+    -- ** Response constructor
+    , mkDeleteRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -74,6 +76,13 @@ instance ToQuery DeleteRoute where
 
 data DeleteRouteResponse = DeleteRouteResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRouteResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteRouteResponse :: DeleteRouteResponse
+mkDeleteRouteResponse = DeleteRouteResponse
 
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2

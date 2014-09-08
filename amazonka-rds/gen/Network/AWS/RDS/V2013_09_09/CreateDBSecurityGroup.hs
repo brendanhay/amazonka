@@ -38,6 +38,8 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup
 
     -- * Response
     , CreateDBSecurityGroupResponse
+    -- ** Response constructor
+    , mkCreateDBSecurityGroupResponse
     -- ** Response lenses
     , cdbsgrDBSecurityGroup
     ) where
@@ -90,6 +92,15 @@ instance ToQuery CreateDBSecurityGroup where
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBSecurityGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDBSecurityGroupResponse :: CreateDBSecurityGroupResponse
+mkCreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
+    { _cdbsgrDBSecurityGroup = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress

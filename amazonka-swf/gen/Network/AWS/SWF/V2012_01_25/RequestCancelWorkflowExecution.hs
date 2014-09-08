@@ -64,6 +64,8 @@ module Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution
 
     -- * Response
     , RequestCancelWorkflowExecutionResponse
+    -- ** Response constructor
+    , mkRequestCancelWorkflowExecutionResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -109,6 +111,13 @@ instance ToJSON RequestCancelWorkflowExecution
 
 data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RequestCancelWorkflowExecutionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRequestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse
+mkRequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
 
 instance AWSRequest RequestCancelWorkflowExecution where
     type Sv RequestCancelWorkflowExecution = SWF

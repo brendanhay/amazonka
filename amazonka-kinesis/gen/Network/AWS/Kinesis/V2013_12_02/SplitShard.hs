@@ -75,6 +75,8 @@ module Network.AWS.Kinesis.V2013_12_02.SplitShard
 
     -- * Response
     , SplitShardResponse
+    -- ** Response constructor
+    , mkSplitShardResponse
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -129,6 +131,13 @@ instance ToJSON SplitShard
 
 data SplitShardResponse = SplitShardResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SplitShardResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSplitShardResponse :: SplitShardResponse
+mkSplitShardResponse = SplitShardResponse
 
 instance AWSRequest SplitShard where
     type Sv SplitShard = Kinesis

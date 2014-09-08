@@ -46,6 +46,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteBandwidthRateLimit
 
     -- * Response
     , DeleteBandwidthRateLimitResponse
+    -- ** Response constructor
+    , mkDeleteBandwidthRateLimitResponse
     -- ** Response lenses
     , dbrlrGatewayARN
     ) where
@@ -91,6 +93,15 @@ instance ToJSON DeleteBandwidthRateLimit
 newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
     { _dbrlrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBandwidthRateLimitResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse
+mkDeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
+    { _dbrlrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

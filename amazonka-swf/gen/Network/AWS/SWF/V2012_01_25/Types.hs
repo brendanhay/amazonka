@@ -1932,7 +1932,10 @@ newtype DomainConfiguration = DomainConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DomainConfiguration' data type to populate a request.
+-- a valid 'DomainConfiguration' data type.
+--
+-- 'DomainConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDomainConfiguration :: Text -- ^ 'dcWorkflowExecutionRetentionPeriodInDays'
                       -> DomainConfiguration
 mkDomainConfiguration p1 = DomainConfiguration
@@ -2437,7 +2440,10 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ActivityTypeConfiguration' data type to populate a request.
+-- a valid 'ActivityTypeConfiguration' data type.
+--
+-- 'ActivityTypeConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkActivityTypeConfiguration :: ActivityTypeConfiguration
 mkActivityTypeConfiguration = ActivityTypeConfiguration
     { _atcDefaultTaskStartToCloseTimeout = Nothing
@@ -2522,7 +2528,10 @@ data ActivityTypeInfo = ActivityTypeInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ActivityTypeInfo' data type to populate a request.
+-- a valid 'ActivityTypeInfo' data type.
+--
+-- 'ActivityTypeInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkActivityTypeInfo :: ActivityType -- ^ 'atiActivityType'
                    -> RegistrationStatus -- ^ 'atiStatus'
                    -> POSIX -- ^ 'atiCreationDate'
@@ -3565,7 +3574,10 @@ data DomainInfo = DomainInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DomainInfo' data type to populate a request.
+-- a valid 'DomainInfo' data type.
+--
+-- 'DomainInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDomainInfo :: Text -- ^ 'diName'
              -> RegistrationStatus -- ^ 'diStatus'
              -> DomainInfo
@@ -3885,7 +3897,10 @@ data HistoryEvent = HistoryEvent
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'HistoryEvent' data type to populate a request.
+-- a valid 'HistoryEvent' data type.
+--
+-- 'HistoryEvent' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkHistoryEvent :: POSIX -- ^ 'heEventTimestamp'
                -> EventType -- ^ 'heEventType'
                -> Integer -- ^ 'heEventId'
@@ -5695,7 +5710,10 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'WorkflowExecutionConfiguration' data type to populate a request.
+-- a valid 'WorkflowExecutionConfiguration' data type.
+--
+-- 'WorkflowExecutionConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkWorkflowExecutionConfiguration :: Text -- ^ 'wecTaskStartToCloseTimeout'
                                  -> Text -- ^ 'wecExecutionStartToCloseTimeout'
                                  -> TaskList -- ^ 'wecTaskList'
@@ -5901,7 +5919,10 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'WorkflowExecutionInfo' data type to populate a request.
+-- a valid 'WorkflowExecutionInfo' data type.
+--
+-- 'WorkflowExecutionInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkWorkflowExecutionInfo :: WorkflowExecution -- ^ 'weiExecution'
                         -> WorkflowType -- ^ 'weiWorkflowType'
                         -> POSIX -- ^ 'weiStartTimestamp'
@@ -5983,7 +6004,10 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'WorkflowExecutionOpenCounts' data type to populate a request.
+-- a valid 'WorkflowExecutionOpenCounts' data type.
+--
+-- 'WorkflowExecutionOpenCounts' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkWorkflowExecutionOpenCounts :: Integer -- ^ 'weocOpenActivityTasks'
                               -> Integer -- ^ 'weocOpenDecisionTasks'
                               -> Integer -- ^ 'weocOpenTimers'
@@ -6321,7 +6345,10 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'WorkflowTypeConfiguration' data type to populate a request.
+-- a valid 'WorkflowTypeConfiguration' data type.
+--
+-- 'WorkflowTypeConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkWorkflowTypeConfiguration :: WorkflowTypeConfiguration
 mkWorkflowTypeConfiguration = WorkflowTypeConfiguration
     { _wtcDefaultTaskStartToCloseTimeout = Nothing
@@ -6425,7 +6452,10 @@ data WorkflowTypeInfo = WorkflowTypeInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'WorkflowTypeInfo' data type to populate a request.
+-- a valid 'WorkflowTypeInfo' data type.
+--
+-- 'WorkflowTypeInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkWorkflowTypeInfo :: WorkflowType -- ^ 'wtiWorkflowType'
                    -> RegistrationStatus -- ^ 'wtiStatus'
                    -> POSIX -- ^ 'wtiCreationDate'

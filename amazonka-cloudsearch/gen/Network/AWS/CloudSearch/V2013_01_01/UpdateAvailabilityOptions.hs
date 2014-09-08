@@ -35,6 +35,8 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions
 
     -- * Response
     , UpdateAvailabilityOptionsResponse
+    -- ** Response constructor
+    , mkUpdateAvailabilityOptionsResponse
     -- ** Response lenses
     , uaorAvailabilityOptions
     ) where
@@ -83,6 +85,15 @@ instance ToQuery UpdateAvailabilityOptions where
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAvailabilityOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateAvailabilityOptionsResponse :: UpdateAvailabilityOptionsResponse
+mkUpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
+    { _uaorAvailabilityOptions = Nothing
+    }
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.

@@ -91,7 +91,10 @@ data Trail = Trail
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Trail' data type to populate a request.
+-- a valid 'Trail' data type.
+--
+-- 'Trail' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTrail :: Trail
 mkTrail = Trail
     { _tName = Nothing

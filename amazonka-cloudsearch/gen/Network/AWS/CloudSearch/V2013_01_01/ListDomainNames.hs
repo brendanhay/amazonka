@@ -26,6 +26,8 @@ module Network.AWS.CloudSearch.V2013_01_01.ListDomainNames
     , mkListDomainNames
     -- * Response
     , ListDomainNamesResponse
+    -- ** Response constructor
+    , mkListDomainNamesResponse
     -- ** Response lenses
     , ldnrDomainNames
     ) where
@@ -50,6 +52,15 @@ instance ToQuery ListDomainNames where
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDomainNamesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListDomainNamesResponse :: ListDomainNamesResponse
+mkListDomainNamesResponse = ListDomainNamesResponse
+    { _ldnrDomainNames = mempty
+    }
 
 -- | The names of the search domains owned by an account.
 ldnrDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)

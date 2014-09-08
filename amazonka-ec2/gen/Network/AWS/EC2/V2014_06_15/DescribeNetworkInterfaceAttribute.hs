@@ -41,6 +41,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute
 
     -- * Response
     , DescribeNetworkInterfaceAttributeResponse
+    -- ** Response constructor
+    , mkDescribeNetworkInterfaceAttributeResponse
     -- ** Response lenses
     , dniarNetworkInterfaceId
     , dniarDescription
@@ -88,6 +90,19 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarGroups :: [GroupIdentifier]
     , _dniarAttachment :: Maybe NetworkInterfaceAttachment
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeNetworkInterfaceAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
+mkDescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
+    { _dniarNetworkInterfaceId = Nothing
+    , _dniarDescription = Nothing
+    , _dniarSourceDestCheck = Nothing
+    , _dniarGroups = mempty
+    , _dniarAttachment = Nothing
+    }
 
 -- | The ID of the network interface.
 dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)

@@ -60,6 +60,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateStorediSCSIVolume
 
     -- * Response
     , CreateStorediSCSIVolumeResponse
+    -- ** Response constructor
+    , mkCreateStorediSCSIVolumeResponse
     -- ** Response lenses
     , csscsivrVolumeARN
     , csscsivrVolumeSizeInBytes
@@ -162,6 +164,17 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
     , _csscsivrVolumeSizeInBytes :: Maybe Integer
     , _csscsivrTargetARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStorediSCSIVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateStorediSCSIVolumeResponse :: CreateStorediSCSIVolumeResponse
+mkCreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
+    { _csscsivrVolumeARN = Nothing
+    , _csscsivrVolumeSizeInBytes = Nothing
+    , _csscsivrTargetARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the configured volume.
 csscsivrVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)

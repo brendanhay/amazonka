@@ -43,6 +43,8 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners
 
     -- * Response
     , CreateLoadBalancerListenersResponse
+    -- ** Response constructor
+    , mkCreateLoadBalancerListenersResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -81,6 +83,13 @@ instance ToQuery CreateLoadBalancerListeners where
 -- | The output for the CreateLoadBalancerListeners action.
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoadBalancerListenersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
+mkCreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 
 instance AWSRequest CreateLoadBalancerListeners where
     type Sv CreateLoadBalancerListeners = ELB

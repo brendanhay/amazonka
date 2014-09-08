@@ -36,6 +36,8 @@ module Network.AWS.RDS.V2013_09_09.DeleteEventSubscription
 
     -- * Response
     , DeleteEventSubscriptionResponse
+    -- ** Response constructor
+    , mkDeleteEventSubscriptionResponse
     -- ** Response lenses
     , desrEventSubscription
     ) where
@@ -68,6 +70,15 @@ instance ToQuery DeleteEventSubscription where
 newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEventSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
+mkDeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
+    { _desrEventSubscription = Nothing
+    }
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.

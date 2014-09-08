@@ -42,6 +42,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterVersions
 
     -- * Response
     , DescribeClusterVersionsResponse
+    -- ** Response constructor
+    , mkDescribeClusterVersionsResponse
     -- ** Response lenses
     , dcvrMarker
     , dcvrClusterVersions
@@ -108,6 +110,16 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrMarker :: Maybe Text
     , _dcvrClusterVersions :: [ClusterVersion]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterVersionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeClusterVersionsResponse :: DescribeClusterVersionsResponse
+mkDescribeClusterVersionsResponse = DescribeClusterVersionsResponse
+    { _dcvrMarker = Nothing
+    , _dcvrClusterVersions = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

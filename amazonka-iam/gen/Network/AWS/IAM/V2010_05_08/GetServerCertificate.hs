@@ -50,6 +50,8 @@ module Network.AWS.IAM.V2010_05_08.GetServerCertificate
 
     -- * Response
     , GetServerCertificateResponse
+    -- ** Response constructor
+    , mkGetServerCertificateResponse
     -- ** Response lenses
     , gscrServerCertificate
     ) where
@@ -85,6 +87,16 @@ instance ToQuery GetServerCertificate where
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetServerCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetServerCertificateResponse :: ServerCertificate -- ^ 'gscrServerCertificate'
+                               -> GetServerCertificateResponse
+mkGetServerCertificateResponse p1 = GetServerCertificateResponse
+    { _gscrServerCertificate = p1
+    }
 
 -- | Information about the server certificate.
 gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate

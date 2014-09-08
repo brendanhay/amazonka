@@ -44,6 +44,8 @@ module Network.AWS.DynamoDB.V2012_08_10.DescribeTable
 
     -- * Response
     , DescribeTableResponse
+    -- ** Response constructor
+    , mkDescribeTableResponse
     -- ** Response lenses
     , dtrrTable
     ) where
@@ -81,6 +83,15 @@ instance ToJSON DescribeTable
 newtype DescribeTableResponse = DescribeTableResponse
     { _dtrrTable :: Maybe TableDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTableResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTableResponse :: DescribeTableResponse
+mkDescribeTableResponse = DescribeTableResponse
+    { _dtrrTable = Nothing
+    }
 
 -- | Represents the properties of a table.
 dtrrTable :: Lens' DescribeTableResponse (Maybe TableDescription)

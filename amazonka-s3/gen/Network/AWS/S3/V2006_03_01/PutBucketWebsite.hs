@@ -31,6 +31,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketWebsite
 
     -- * Response
     , PutBucketWebsiteResponse
+    -- ** Response constructor
+    , mkPutBucketWebsiteResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -87,6 +89,13 @@ instance ToBody PutBucketWebsite where
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketWebsiteResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketWebsiteResponse :: PutBucketWebsiteResponse
+mkPutBucketWebsiteResponse = PutBucketWebsiteResponse
 
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3

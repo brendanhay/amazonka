@@ -32,6 +32,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteGroup
 
     -- * Response
     , DeleteGroupResponse
+    -- ** Response constructor
+    , mkDeleteGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,6 +62,13 @@ instance ToQuery DeleteGroup where
 
 data DeleteGroupResponse = DeleteGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteGroupResponse :: DeleteGroupResponse
+mkDeleteGroupResponse = DeleteGroupResponse
 
 instance AWSRequest DeleteGroup where
     type Sv DeleteGroup = IAM

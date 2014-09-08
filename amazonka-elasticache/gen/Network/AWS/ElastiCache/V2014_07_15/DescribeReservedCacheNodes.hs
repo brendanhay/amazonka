@@ -44,6 +44,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodes
 
     -- * Response
     , DescribeReservedCacheNodesResponse
+    -- ** Response constructor
+    , mkDescribeReservedCacheNodesResponse
     -- ** Response lenses
     , drcnrMarker
     , drcnrReservedCacheNodes
@@ -140,6 +142,16 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker :: Maybe Text
     , _drcnrReservedCacheNodes :: [ReservedCacheNode]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedCacheNodesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse
+mkDescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
+    { _drcnrMarker = Nothing
+    , _drcnrReservedCacheNodes = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnrMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)

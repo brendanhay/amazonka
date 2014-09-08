@@ -66,6 +66,8 @@ module Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted
 
     -- * Response
     , RespondActivityTaskCompletedResponse
+    -- ** Response constructor
+    , mkRespondActivityTaskCompletedResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -108,6 +110,13 @@ instance ToJSON RespondActivityTaskCompleted
 
 data RespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RespondActivityTaskCompletedResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRespondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse
+mkRespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
 
 instance AWSRequest RespondActivityTaskCompleted where
     type Sv RespondActivityTaskCompleted = SWF

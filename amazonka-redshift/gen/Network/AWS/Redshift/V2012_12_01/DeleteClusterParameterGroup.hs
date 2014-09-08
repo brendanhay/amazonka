@@ -37,6 +37,8 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup
 
     -- * Response
     , DeleteClusterParameterGroupResponse
+    -- ** Response constructor
+    , mkDeleteClusterParameterGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,6 +70,13 @@ instance ToQuery DeleteClusterParameterGroup where
 
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
+mkDeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 
 instance AWSRequest DeleteClusterParameterGroup where
     type Sv DeleteClusterParameterGroup = Redshift

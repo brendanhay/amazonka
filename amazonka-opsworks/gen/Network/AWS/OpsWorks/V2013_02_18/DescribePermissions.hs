@@ -33,6 +33,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribePermissions
 
     -- * Response
     , DescribePermissionsResponse
+    -- ** Response constructor
+    , mkDescribePermissionsResponse
     -- ** Response lenses
     , dprPermissions
     ) where
@@ -75,6 +77,15 @@ instance ToJSON DescribePermissions
 newtype DescribePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions :: [Permission]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribePermissionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribePermissionsResponse :: DescribePermissionsResponse
+mkDescribePermissionsResponse = DescribePermissionsResponse
+    { _dprPermissions = mempty
+    }
 
 -- | An array of Permission objects that describe the stack permissions. If the
 -- request object contains only a stack ID, the array contains a Permission

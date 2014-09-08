@@ -41,6 +41,8 @@ module Network.AWS.DataPipeline.V2012_10_29.SetStatus
 
     -- * Response
     , SetStatusResponse
+    -- ** Response constructor
+    , mkSetStatusResponse
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -91,6 +93,13 @@ instance ToJSON SetStatus
 
 data SetStatusResponse = SetStatusResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetStatusResponse :: SetStatusResponse
+mkSetStatusResponse = SetStatusResponse
 
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline

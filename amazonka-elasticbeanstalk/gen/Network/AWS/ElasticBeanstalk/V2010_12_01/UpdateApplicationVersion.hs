@@ -38,6 +38,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplicationVersion
 
     -- * Response
     , UpdateApplicationVersionResponse
+    -- ** Response constructor
+    , mkUpdateApplicationVersionResponse
     -- ** Response lenses
     , uavrApplicationVersion
     ) where
@@ -87,6 +89,15 @@ instance ToQuery UpdateApplicationVersion where
 newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateApplicationVersionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateApplicationVersionResponse :: UpdateApplicationVersionResponse
+mkUpdateApplicationVersionResponse = UpdateApplicationVersionResponse
+    { _uavrApplicationVersion = Nothing
+    }
 
 -- | The ApplicationVersionDescription of the application version.
 uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)

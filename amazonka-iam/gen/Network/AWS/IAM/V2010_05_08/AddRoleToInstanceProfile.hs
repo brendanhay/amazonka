@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
 
     -- * Response
     , AddRoleToInstanceProfileResponse
+    -- ** Response constructor
+    , mkAddRoleToInstanceProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery AddRoleToInstanceProfile where
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddRoleToInstanceProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
+mkAddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 
 instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM

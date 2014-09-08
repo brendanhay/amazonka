@@ -47,6 +47,8 @@ module Network.AWS.EC2.V2014_06_15.ImportInstance
 
     -- * Response
     , ImportInstanceResponse
+    -- ** Response constructor
+    , mkImportInstanceResponse
     -- ** Response lenses
     , iirConversionTask
     ) where
@@ -98,6 +100,15 @@ instance ToQuery ImportInstance where
 newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkImportInstanceResponse :: ImportInstanceResponse
+mkImportInstanceResponse = ImportInstanceResponse
+    { _iirConversionTask = Nothing
+    }
 
 -- | 
 iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)

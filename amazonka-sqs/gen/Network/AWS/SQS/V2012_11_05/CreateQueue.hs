@@ -54,6 +54,8 @@ module Network.AWS.SQS.V2012_11_05.CreateQueue
 
     -- * Response
     , CreateQueueResponse
+    -- ** Response constructor
+    , mkCreateQueueResponse
     -- ** Response lenses
     , cqrQueueUrl
     ) where
@@ -112,6 +114,15 @@ instance ToQuery CreateQueue where
 newtype CreateQueueResponse = CreateQueueResponse
     { _cqrQueueUrl :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateQueueResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateQueueResponse :: CreateQueueResponse
+mkCreateQueueResponse = CreateQueueResponse
+    { _cqrQueueUrl = Nothing
+    }
 
 -- | The URL for the created Amazon SQS queue.
 cqrQueueUrl :: Lens' CreateQueueResponse (Maybe Text)

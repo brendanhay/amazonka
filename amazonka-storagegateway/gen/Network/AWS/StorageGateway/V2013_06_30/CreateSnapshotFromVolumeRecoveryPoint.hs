@@ -62,6 +62,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPo
 
     -- * Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
+    -- ** Response constructor
+    , mkCreateSnapshotFromVolumeRecoveryPointResponse
     -- ** Response lenses
     , csfvrprSnapshotId
     , csfvrprVolumeARN
@@ -108,6 +110,17 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     , _csfvrprVolumeARN :: Maybe Text
     , _csfvrprVolumeRecoveryPointTime :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSnapshotFromVolumeRecoveryPointResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse
+mkCreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
+    { _csfvrprSnapshotId = Nothing
+    , _csfvrprVolumeARN = Nothing
+    , _csfvrprVolumeRecoveryPointTime = Nothing
+    }
 
 csfvrprSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprSnapshotId =

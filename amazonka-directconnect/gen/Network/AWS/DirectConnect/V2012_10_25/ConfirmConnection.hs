@@ -32,6 +32,8 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
 
     -- * Response
     , ConfirmConnectionResponse
+    -- ** Response constructor
+    , mkConfirmConnectionResponse
     -- ** Response lenses
     , ccrConnectionState
     ) where
@@ -69,6 +71,15 @@ instance ToJSON ConfirmConnection
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
     { _ccrConnectionState :: Maybe ConnectionState
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkConfirmConnectionResponse :: ConfirmConnectionResponse
+mkConfirmConnectionResponse = ConfirmConnectionResponse
+    { _ccrConnectionState = Nothing
+    }
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state

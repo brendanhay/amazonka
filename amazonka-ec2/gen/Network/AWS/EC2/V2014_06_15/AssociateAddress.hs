@@ -64,6 +64,8 @@ module Network.AWS.EC2.V2014_06_15.AssociateAddress
 
     -- * Response
     , AssociateAddressResponse
+    -- ** Response constructor
+    , mkAssociateAddressResponse
     -- ** Response lenses
     , aarrAssociationId
     ) where
@@ -135,6 +137,15 @@ instance ToQuery AssociateAddress where
 newtype AssociateAddressResponse = AssociateAddressResponse
     { _aarrAssociationId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssociateAddressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssociateAddressResponse :: AssociateAddressResponse
+mkAssociateAddressResponse = AssociateAddressResponse
+    { _aarrAssociationId = Nothing
+    }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address
 -- with an instance.

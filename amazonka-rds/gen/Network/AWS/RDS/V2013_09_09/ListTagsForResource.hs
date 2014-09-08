@@ -30,6 +30,8 @@ module Network.AWS.RDS.V2013_09_09.ListTagsForResource
 
     -- * Response
     , ListTagsForResourceResponse
+    -- ** Response constructor
+    , mkListTagsForResourceResponse
     -- ** Response lenses
     , ltfrrTagList
     ) where
@@ -65,6 +67,15 @@ instance ToQuery ListTagsForResource where
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList :: [Tag]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTagsForResourceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListTagsForResourceResponse :: ListTagsForResourceResponse
+mkListTagsForResourceResponse = ListTagsForResourceResponse
+    { _ltfrrTagList = mempty
+    }
 
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]

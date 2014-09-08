@@ -35,6 +35,8 @@ module Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer
 
     -- * Response
     , AddUploadBufferResponse
+    -- ** Response constructor
+    , mkAddUploadBufferResponse
     -- ** Response lenses
     , aubrGatewayARN
     ) where
@@ -77,6 +79,15 @@ instance ToJSON AddUploadBuffer
 newtype AddUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddUploadBufferResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddUploadBufferResponse :: AddUploadBufferResponse
+mkAddUploadBufferResponse = AddUploadBufferResponse
+    { _aubrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

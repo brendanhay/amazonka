@@ -54,6 +54,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes
 
     -- * Response
     , DescribeCachediSCSIVolumesResponse
+    -- ** Response constructor
+    , mkDescribeCachediSCSIVolumesResponse
     -- ** Response lenses
     , dcscsivrCachediSCSIVolumes
     ) where
@@ -90,6 +92,15 @@ instance ToJSON DescribeCachediSCSIVolumes
 newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
     { _dcscsivrCachediSCSIVolumes :: [CachediSCSIVolumeInformation]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCachediSCSIVolumesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse
+mkDescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
+    { _dcscsivrCachediSCSIVolumes = mempty
+    }
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.

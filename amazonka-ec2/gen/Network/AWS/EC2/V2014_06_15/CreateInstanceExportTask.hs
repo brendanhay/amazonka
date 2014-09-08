@@ -60,6 +60,8 @@ module Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask
 
     -- * Response
     , CreateInstanceExportTaskResponse
+    -- ** Response constructor
+    , mkCreateInstanceExportTaskResponse
     -- ** Response lenses
     , cietrExportTask
     ) where
@@ -113,6 +115,15 @@ instance ToQuery CreateInstanceExportTask where
 newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask :: Maybe ExportTask
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInstanceExportTaskResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateInstanceExportTaskResponse :: CreateInstanceExportTaskResponse
+mkCreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
+    { _cietrExportTask = Nothing
+    }
 
 -- | 
 cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)

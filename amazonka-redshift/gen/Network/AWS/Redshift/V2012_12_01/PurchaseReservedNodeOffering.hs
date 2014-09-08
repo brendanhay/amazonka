@@ -46,6 +46,8 @@ module Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering
 
     -- * Response
     , PurchaseReservedNodeOfferingResponse
+    -- ** Response constructor
+    , mkPurchaseReservedNodeOfferingResponse
     -- ** Response lenses
     , prnorReservedNode
     ) where
@@ -85,6 +87,15 @@ instance ToQuery PurchaseReservedNodeOffering where
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedNodeOfferingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPurchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResponse
+mkPurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
+    { _prnorReservedNode = Nothing
+    }
 
 -- | Describes a reserved node.
 prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)

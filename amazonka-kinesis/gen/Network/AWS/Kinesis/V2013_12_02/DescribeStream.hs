@@ -73,6 +73,8 @@ module Network.AWS.Kinesis.V2013_12_02.DescribeStream
 
     -- * Response
     , DescribeStreamResponse
+    -- ** Response constructor
+    , mkDescribeStreamResponse
     -- ** Response lenses
     , dsrStreamDescription
     ) where
@@ -124,6 +126,16 @@ instance ToJSON DescribeStream
 newtype DescribeStreamResponse = DescribeStreamResponse
     { _dsrStreamDescription :: StreamDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStreamResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStreamResponse :: StreamDescription -- ^ 'dsrStreamDescription'
+                         -> DescribeStreamResponse
+mkDescribeStreamResponse p1 = DescribeStreamResponse
+    { _dsrStreamDescription = p1
+    }
 
 -- | Contains the current status of the stream, the stream ARN, an array of
 -- shard objects that comprise the stream, and states whether there are more

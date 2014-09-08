@@ -86,6 +86,8 @@ module Network.AWS.EMR.V2009_03_31.DescribeJobFlows
 
     -- * Response
     , DescribeJobFlowsResponse
+    -- ** Response constructor
+    , mkDescribeJobFlowsResponse
     -- ** Response lenses
     , djfrJobFlows
     ) where
@@ -142,6 +144,15 @@ instance ToJSON DescribeJobFlows
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
     { _djfrJobFlows :: [JobFlowDetail]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeJobFlowsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeJobFlowsResponse :: DescribeJobFlowsResponse
+mkDescribeJobFlowsResponse = DescribeJobFlowsResponse
+    { _djfrJobFlows = mempty
+    }
 
 -- | A list of job flows matching the parameters supplied.
 djfrJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]

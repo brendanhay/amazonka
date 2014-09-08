@@ -39,6 +39,8 @@ module Network.AWS.SES.V2010_12_01.VerifyDomainIdentity
 
     -- * Response
     , VerifyDomainIdentityResponse
+    -- ** Response constructor
+    , mkVerifyDomainIdentityResponse
     -- ** Response lenses
     , vdirVerificationToken
     ) where
@@ -71,6 +73,16 @@ instance ToQuery VerifyDomainIdentity where
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdirVerificationToken :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyDomainIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkVerifyDomainIdentityResponse :: Text -- ^ 'vdirVerificationToken'
+                               -> VerifyDomainIdentityResponse
+mkVerifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
+    { _vdirVerificationToken = p1
+    }
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.

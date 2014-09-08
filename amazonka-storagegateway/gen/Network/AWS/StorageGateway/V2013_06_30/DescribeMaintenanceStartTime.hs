@@ -44,6 +44,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime
 
     -- * Response
     , DescribeMaintenanceStartTimeResponse
+    -- ** Response constructor
+    , mkDescribeMaintenanceStartTimeResponse
     -- ** Response lenses
     , dmstrGatewayARN
     , dmstrHourOfDay
@@ -89,6 +91,19 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     , _dmstrDayOfWeek :: Maybe Integer
     , _dmstrTimezone :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMaintenanceStartTimeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeMaintenanceStartTimeResponse :: DescribeMaintenanceStartTimeResponse
+mkDescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
+    { _dmstrGatewayARN = Nothing
+    , _dmstrHourOfDay = Nothing
+    , _dmstrMinuteOfHour = Nothing
+    , _dmstrDayOfWeek = Nothing
+    , _dmstrTimezone = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

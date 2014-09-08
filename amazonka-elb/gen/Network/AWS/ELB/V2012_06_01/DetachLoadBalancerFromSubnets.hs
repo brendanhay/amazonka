@@ -39,6 +39,8 @@ module Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets
 
     -- * Response
     , DetachLoadBalancerFromSubnetsResponse
+    -- ** Response constructor
+    , mkDetachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
     , dlbfsrSubnets
     ) where
@@ -80,6 +82,15 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { _dlbfsrSubnets :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachLoadBalancerFromSubnetsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDetachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse
+mkDetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
+    { _dlbfsrSubnets = mempty
+    }
 
 -- | A list of subnet IDs the load balancer is now attached to.
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]

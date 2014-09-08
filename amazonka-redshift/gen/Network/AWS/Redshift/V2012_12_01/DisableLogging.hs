@@ -30,6 +30,8 @@ module Network.AWS.Redshift.V2012_12_01.DisableLogging
 
     -- * Response
     , DisableLoggingResponse
+    -- ** Response constructor
+    , mkDisableLoggingResponse
     -- ** Response lenses
     , dlrLoggingEnabled
     , dlrBucketName
@@ -74,6 +76,20 @@ data DisableLoggingResponse = DisableLoggingResponse
     , _dlrLastFailureTime :: Maybe ISO8601
     , _dlrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableLoggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisableLoggingResponse :: DisableLoggingResponse
+mkDisableLoggingResponse = DisableLoggingResponse
+    { _dlrLoggingEnabled = Nothing
+    , _dlrBucketName = Nothing
+    , _dlrS3KeyPrefix = Nothing
+    , _dlrLastSuccessfulDeliveryTime = Nothing
+    , _dlrLastFailureTime = Nothing
+    , _dlrLastFailureMessage = Nothing
+    }
 
 -- | true if logging is on, false if logging is off.
 dlrLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)

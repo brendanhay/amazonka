@@ -72,6 +72,8 @@ module Network.AWS.SES.V2010_12_01.SendRawEmail
 
     -- * Response
     , SendRawEmailResponse
+    -- ** Response constructor
+    , mkSendRawEmailResponse
     -- ** Response lenses
     , srerMessageId
     ) where
@@ -134,6 +136,16 @@ instance ToQuery SendRawEmail where
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SendRawEmailResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSendRawEmailResponse :: Text -- ^ 'srerMessageId'
+                       -> SendRawEmailResponse
+mkSendRawEmailResponse p1 = SendRawEmailResponse
+    { _srerMessageId = p1
+    }
 
 -- | The unique message identifier returned from the SendRawEmail action.
 srerMessageId :: Lens' SendRawEmailResponse Text

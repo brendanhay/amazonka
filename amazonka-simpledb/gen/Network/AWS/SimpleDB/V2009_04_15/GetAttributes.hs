@@ -39,6 +39,8 @@ module Network.AWS.SimpleDB.V2009_04_15.GetAttributes
 
     -- * Response
     , GetAttributesResponse
+    -- ** Response constructor
+    , mkGetAttributesResponse
     -- ** Response lenses
     , garAttributes
     ) where
@@ -93,6 +95,15 @@ instance ToQuery GetAttributes where
 newtype GetAttributesResponse = GetAttributesResponse
     { _garAttributes :: [Attribute]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetAttributesResponse :: GetAttributesResponse
+mkGetAttributesResponse = GetAttributesResponse
+    { _garAttributes = mempty
+    }
 
 -- | The list of attributes returned by the operation.
 garAttributes :: Lens' GetAttributesResponse [Attribute]

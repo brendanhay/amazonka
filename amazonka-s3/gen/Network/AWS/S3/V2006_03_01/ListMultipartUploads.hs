@@ -35,6 +35,8 @@ module Network.AWS.S3.V2006_03_01.ListMultipartUploads
 
     -- * Response
     , ListMultipartUploadsResponse
+    -- ** Response constructor
+    , mkListMultipartUploadsResponse
     -- ** Response lenses
     , lmurBucket
     , lmurKeyMarker
@@ -150,6 +152,26 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurCommonPrefixes :: [CommonPrefix]
     , _lmurEncodingType :: Maybe EncodingType
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListMultipartUploadsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListMultipartUploadsResponse :: Bool -- ^ 'lmurIsTruncated'
+                               -> ListMultipartUploadsResponse
+mkListMultipartUploadsResponse p8 = ListMultipartUploadsResponse
+    { _lmurBucket = Nothing
+    , _lmurKeyMarker = Nothing
+    , _lmurUploadIdMarker = Nothing
+    , _lmurNextKeyMarker = Nothing
+    , _lmurPrefix = Nothing
+    , _lmurNextUploadIdMarker = Nothing
+    , _lmurMaxUploads = Nothing
+    , _lmurIsTruncated = p8
+    , _lmurUploads = mempty
+    , _lmurCommonPrefixes = mempty
+    , _lmurEncodingType = Nothing
+    }
 
 -- | Name of the bucket to which the multipart upload was initiated.
 lmurBucket :: Lens' ListMultipartUploadsResponse (Maybe BucketName)

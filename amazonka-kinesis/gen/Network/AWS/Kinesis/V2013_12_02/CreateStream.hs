@@ -67,6 +67,8 @@ module Network.AWS.Kinesis.V2013_12_02.CreateStream
 
     -- * Response
     , CreateStreamResponse
+    -- ** Response constructor
+    , mkCreateStreamResponse
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -115,6 +117,13 @@ instance ToJSON CreateStream
 
 data CreateStreamResponse = CreateStreamResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStreamResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateStreamResponse :: CreateStreamResponse
+mkCreateStreamResponse = CreateStreamResponse
 
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis

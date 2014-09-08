@@ -41,6 +41,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateHsmConfiguration
 
     -- * Response
     , CreateHsmConfigurationResponse
+    -- ** Response constructor
+    , mkCreateHsmConfigurationResponse
     -- ** Response lenses
     , chcrHsmConfiguration
     ) where
@@ -116,6 +118,15 @@ instance ToQuery CreateHsmConfiguration where
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateHsmConfigurationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateHsmConfigurationResponse :: CreateHsmConfigurationResponse
+mkCreateHsmConfigurationResponse = CreateHsmConfigurationResponse
+    { _chcrHsmConfiguration = Nothing
+    }
 
 -- | Returns information about an HSM configuration, which is an object that
 -- describes to Amazon Redshift clusters the information they require to

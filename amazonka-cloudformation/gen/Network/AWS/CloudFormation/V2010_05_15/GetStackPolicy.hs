@@ -37,6 +37,8 @@ module Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
 
     -- * Response
     , GetStackPolicyResponse
+    -- ** Response constructor
+    , mkGetStackPolicyResponse
     -- ** Response lenses
     , gsprStackPolicyBody
     ) where
@@ -70,6 +72,15 @@ instance ToQuery GetStackPolicy where
 newtype GetStackPolicyResponse = GetStackPolicyResponse
     { _gsprStackPolicyBody :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetStackPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetStackPolicyResponse :: GetStackPolicyResponse
+mkGetStackPolicyResponse = GetStackPolicyResponse
+    { _gsprStackPolicyBody = Nothing
+    }
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.).

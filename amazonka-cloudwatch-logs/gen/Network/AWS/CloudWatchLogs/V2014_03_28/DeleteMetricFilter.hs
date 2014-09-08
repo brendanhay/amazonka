@@ -40,6 +40,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter
 
     -- * Response
     , DeleteMetricFilterResponse
+    -- ** Response constructor
+    , mkDeleteMetricFilterResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -78,6 +80,13 @@ instance ToJSON DeleteMetricFilter
 
 data DeleteMetricFilterResponse = DeleteMetricFilterResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMetricFilterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteMetricFilterResponse :: DeleteMetricFilterResponse
+mkDeleteMetricFilterResponse = DeleteMetricFilterResponse
 
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs

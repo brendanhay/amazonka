@@ -29,6 +29,8 @@ module Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeRecoveryPoint
 
     -- * Response
     , RetrieveTapeRecoveryPointResponse
+    -- ** Response constructor
+    , mkRetrieveTapeRecoveryPointResponse
     -- ** Response lenses
     , rtrprTapeARN
     ) where
@@ -71,6 +73,15 @@ instance ToJSON RetrieveTapeRecoveryPoint
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveTapeRecoveryPointResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRetrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse
+mkRetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
+    { _rtrprTapeARN = Nothing
+    }
 
 rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\s a -> s { _rtrprTapeARN = a })

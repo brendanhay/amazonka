@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers
 
     -- * Response
     , DescribeElasticLoadBalancersResponse
+    -- ** Response constructor
+    , mkDescribeElasticLoadBalancersResponse
     -- ** Response lenses
     , delbrElasticLoadBalancers
     ) where
@@ -77,6 +79,15 @@ instance ToJSON DescribeElasticLoadBalancers
 newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbrElasticLoadBalancers :: [ElasticLoadBalancer]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeElasticLoadBalancersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse
+mkDescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
+    { _delbrElasticLoadBalancers = mempty
+    }
 
 -- | A list of ElasticLoadBalancer objects that describe the specified Elastic
 -- Load Balancing instances.

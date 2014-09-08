@@ -51,6 +51,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
 
     -- * Response
     , DescribeStorediSCSIVolumesResponse
+    -- ** Response constructor
+    , mkDescribeStorediSCSIVolumesResponse
     -- ** Response lenses
     , dsscsivrStorediSCSIVolumes
     ) where
@@ -91,6 +93,15 @@ instance ToJSON DescribeStorediSCSIVolumes
 newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivrStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStorediSCSIVolumesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
+mkDescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
+    { _dsscsivrStorediSCSIVolumes = mempty
+    }
 
 dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolumeInformation]
 dsscsivrStorediSCSIVolumes =

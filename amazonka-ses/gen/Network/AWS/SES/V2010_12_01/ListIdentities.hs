@@ -41,6 +41,8 @@ module Network.AWS.SES.V2010_12_01.ListIdentities
 
     -- * Response
     , ListIdentitiesResponse
+    -- ** Response constructor
+    , mkListIdentitiesResponse
     -- ** Response lenses
     , lirIdentities
     , lirNextToken
@@ -89,6 +91,17 @@ data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities :: [Text]
     , _lirNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentitiesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListIdentitiesResponse :: [Text] -- ^ 'lirIdentities'
+                         -> ListIdentitiesResponse
+mkListIdentitiesResponse p1 = ListIdentitiesResponse
+    { _lirIdentities = p1
+    , _lirNextToken = Nothing
+    }
 
 -- | A list of identities.
 lirIdentities :: Lens' ListIdentitiesResponse [Text]

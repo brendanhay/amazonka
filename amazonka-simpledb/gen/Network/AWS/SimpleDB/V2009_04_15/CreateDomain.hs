@@ -36,6 +36,8 @@ module Network.AWS.SimpleDB.V2009_04_15.CreateDomain
 
     -- * Response
     , CreateDomainResponse
+    -- ** Response constructor
+    , mkCreateDomainResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,6 +67,13 @@ instance ToQuery CreateDomain where
 
 data CreateDomainResponse = CreateDomainResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDomainResponse :: CreateDomainResponse
+mkCreateDomainResponse = CreateDomainResponse
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = SimpleDB

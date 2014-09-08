@@ -65,6 +65,8 @@ module Network.AWS.SWF.V2012_01_25.DescribeActivityType
 
     -- * Response
     , DescribeActivityTypeResponse
+    -- ** Response constructor
+    , mkDescribeActivityTypeResponse
     -- ** Response lenses
     , datrTypeInfo
     , datrConfiguration
@@ -111,6 +113,18 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
     { _datrTypeInfo :: ActivityTypeInfo
     , _datrConfiguration :: ActivityTypeConfiguration
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeActivityTypeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeActivityTypeResponse :: ActivityTypeInfo -- ^ 'datrTypeInfo'
+                               -> ActivityTypeConfiguration -- ^ 'datrConfiguration'
+                               -> DescribeActivityTypeResponse
+mkDescribeActivityTypeResponse p1 p2 = DescribeActivityTypeResponse
+    { _datrTypeInfo = p1
+    , _datrConfiguration = p2
+    }
 
 -- | General information about the activity type. The status of activity type
 -- (returned in the ActivityTypeInfo structure) can be one of the following.

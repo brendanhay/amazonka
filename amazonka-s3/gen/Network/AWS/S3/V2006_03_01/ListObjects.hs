@@ -38,6 +38,8 @@ module Network.AWS.S3.V2006_03_01.ListObjects
 
     -- * Response
     , ListObjectsResponse
+    -- ** Response constructor
+    , mkListObjectsResponse
     -- ** Response lenses
     , lorIsTruncated
     , lorMarker
@@ -138,6 +140,25 @@ data ListObjectsResponse = ListObjectsResponse
     , _lorCommonPrefixes :: [CommonPrefix]
     , _lorEncodingType :: Maybe EncodingType
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListObjectsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListObjectsResponse :: Bool -- ^ 'lorIsTruncated'
+                      -> BucketName -- ^ 'lorName'
+                      -> ListObjectsResponse
+mkListObjectsResponse p1 p5 = ListObjectsResponse
+    { _lorIsTruncated = p1
+    , _lorMarker = Nothing
+    , _lorNextMarker = Nothing
+    , _lorContents = mempty
+    , _lorName = p5
+    , _lorPrefix = Nothing
+    , _lorMaxKeys = Nothing
+    , _lorCommonPrefixes = mempty
+    , _lorEncodingType = Nothing
+    }
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the results
 -- that satisfied the search criteria.

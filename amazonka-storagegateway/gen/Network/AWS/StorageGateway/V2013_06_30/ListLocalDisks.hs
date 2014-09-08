@@ -49,6 +49,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks
 
     -- * Response
     , ListLocalDisksResponse
+    -- ** Response constructor
+    , mkListLocalDisksResponse
     -- ** Response lenses
     , lldrGatewayARN
     , lldrDisks
@@ -88,6 +90,16 @@ data ListLocalDisksResponse = ListLocalDisksResponse
     { _lldrGatewayARN :: Maybe Text
     , _lldrDisks :: [DiskInformation]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListLocalDisksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListLocalDisksResponse :: ListLocalDisksResponse
+mkListLocalDisksResponse = ListLocalDisksResponse
+    { _lldrGatewayARN = Nothing
+    , _lldrDisks = mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

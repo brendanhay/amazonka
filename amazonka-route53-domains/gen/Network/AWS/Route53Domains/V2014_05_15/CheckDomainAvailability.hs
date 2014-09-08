@@ -46,6 +46,8 @@ module Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
 
     -- * Response
     , CheckDomainAvailabilityResponse
+    -- ** Response constructor
+    , mkCheckDomainAvailabilityResponse
     -- ** Response lenses
     , cdarAvailability
     ) where
@@ -92,6 +94,16 @@ instance ToJSON CheckDomainAvailability
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
     { _cdarAvailability :: DomainAvailability
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CheckDomainAvailabilityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCheckDomainAvailabilityResponse :: DomainAvailability -- ^ 'cdarAvailability'
+                                  -> CheckDomainAvailabilityResponse
+mkCheckDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
+    { _cdarAvailability = p1
+    }
 
 -- | Whether the domain name is available for registering. You can only register
 -- domains designated as AVAILABLE. Type: String Valid values: AVAILABLE – The

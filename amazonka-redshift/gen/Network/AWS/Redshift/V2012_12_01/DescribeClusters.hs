@@ -44,6 +44,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusters
 
     -- * Response
     , DescribeClustersResponse
+    -- ** Response constructor
+    , mkDescribeClustersResponse
     -- ** Response lenses
     , dcrrMarker
     , dcrrClusters
@@ -102,6 +104,16 @@ data DescribeClustersResponse = DescribeClustersResponse
     { _dcrrMarker :: Maybe Text
     , _dcrrClusters :: [Cluster]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClustersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeClustersResponse :: DescribeClustersResponse
+mkDescribeClustersResponse = DescribeClustersResponse
+    { _dcrrMarker = Nothing
+    , _dcrrClusters = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

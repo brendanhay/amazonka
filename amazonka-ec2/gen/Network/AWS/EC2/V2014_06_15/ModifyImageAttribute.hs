@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.ModifyImageAttribute
 
     -- * Response
     , ModifyImageAttributeResponse
+    -- ** Response constructor
+    , mkModifyImageAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -121,6 +123,13 @@ instance ToQuery ModifyImageAttribute where
 
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyImageAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyImageAttributeResponse :: ModifyImageAttributeResponse
+mkModifyImageAttributeResponse = ModifyImageAttributeResponse
 
 instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2

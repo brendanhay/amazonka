@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.CreatePlacementGroup
 
     -- * Response
     , CreatePlacementGroupResponse
+    -- ** Response constructor
+    , mkCreatePlacementGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,6 +77,13 @@ instance ToQuery CreatePlacementGroup where
 
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePlacementGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreatePlacementGroupResponse :: CreatePlacementGroupResponse
+mkCreatePlacementGroupResponse = CreatePlacementGroupResponse
 
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2

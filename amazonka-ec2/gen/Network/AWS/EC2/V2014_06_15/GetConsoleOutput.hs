@@ -63,6 +63,8 @@ module Network.AWS.EC2.V2014_06_15.GetConsoleOutput
 
     -- * Response
     , GetConsoleOutputResponse
+    -- ** Response constructor
+    , mkGetConsoleOutputResponse
     -- ** Response lenses
     , gcorInstanceId
     , gcorTimestamp
@@ -99,6 +101,17 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
     , _gcorTimestamp :: Maybe ISO8601
     , _gcorOutput :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetConsoleOutputResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetConsoleOutputResponse :: GetConsoleOutputResponse
+mkGetConsoleOutputResponse = GetConsoleOutputResponse
+    { _gcorInstanceId = Nothing
+    , _gcorTimestamp = Nothing
+    , _gcorOutput = Nothing
+    }
 
 -- | The ID of the instance.
 gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)

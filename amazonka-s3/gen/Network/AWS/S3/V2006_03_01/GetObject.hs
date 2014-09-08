@@ -45,6 +45,8 @@ module Network.AWS.S3.V2006_03_01.GetObject
 
     -- * Response
     , GetObjectResponse
+    -- ** Response constructor
+    , mkGetObjectResponse
     -- ** Response lenses
     , gorBody
     , gorDeleteMarker
@@ -268,6 +270,36 @@ data GetObjectResponse = GetObjectResponse
     , _gorSSECustomerAlgorithm :: Maybe Text
     , _gorSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetObjectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetObjectResponse :: RsBody -- ^ 'gorBody'
+                    -> GetObjectResponse
+mkGetObjectResponse p1 = GetObjectResponse
+    { _gorBody = p1
+    , _gorDeleteMarker = Nothing
+    , _gorAcceptRanges = Nothing
+    , _gorExpiration = Nothing
+    , _gorRestore = Nothing
+    , _gorLastModified = Nothing
+    , _gorContentLength = Nothing
+    , _gorETag = Nothing
+    , _gorMissingMeta = Nothing
+    , _gorVersionId = Nothing
+    , _gorCacheControl = Nothing
+    , _gorContentDisposition = Nothing
+    , _gorContentEncoding = Nothing
+    , _gorContentLanguage = Nothing
+    , _gorContentType = Nothing
+    , _gorExpires = Nothing
+    , _gorWebsiteRedirectLocation = Nothing
+    , _gorServerSideEncryption = Nothing
+    , _gorMetadata = mempty
+    , _gorSSECustomerAlgorithm = Nothing
+    , _gorSSECustomerKeyMD5 = Nothing
+    }
 
 -- | Object data.
 gorBody :: Lens' GetObjectResponse RsBody

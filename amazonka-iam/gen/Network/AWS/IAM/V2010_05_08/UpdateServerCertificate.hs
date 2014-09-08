@@ -42,6 +42,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateServerCertificate
 
     -- * Response
     , UpdateServerCertificateResponse
+    -- ** Response constructor
+    , mkUpdateServerCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -88,6 +90,13 @@ instance ToQuery UpdateServerCertificate where
 
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateServerCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateServerCertificateResponse :: UpdateServerCertificateResponse
+mkUpdateServerCertificateResponse = UpdateServerCertificateResponse
 
 instance AWSRequest UpdateServerCertificate where
     type Sv UpdateServerCertificate = IAM

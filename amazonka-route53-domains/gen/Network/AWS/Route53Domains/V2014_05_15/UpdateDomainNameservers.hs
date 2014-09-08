@@ -50,6 +50,8 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers
 
     -- * Response
     , UpdateDomainNameserversResponse
+    -- ** Response constructor
+    , mkUpdateDomainNameserversResponse
     -- ** Response lenses
     , udnrOperationId
     ) where
@@ -98,6 +100,16 @@ instance ToJSON UpdateDomainNameservers
 newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
     { _udnrOperationId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateDomainNameserversResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateDomainNameserversResponse :: Text -- ^ 'udnrOperationId'
+                                  -> UpdateDomainNameserversResponse
+mkUpdateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
+    { _udnrOperationId = p1
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:

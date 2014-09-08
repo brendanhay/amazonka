@@ -38,6 +38,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups
 
     -- * Response
     , DescribeCacheSecurityGroupsResponse
+    -- ** Response constructor
+    , mkDescribeCacheSecurityGroupsResponse
     -- ** Response lenses
     , dcsgrMarker
     , dcsgrCacheSecurityGroups
@@ -91,6 +93,16 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgrMarker :: Maybe Text
     , _dcsgrCacheSecurityGroups :: [CacheSecurityGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheSecurityGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
+mkDescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
+    { _dcsgrMarker = Nothing
+    , _dcsgrCacheSecurityGroups = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)

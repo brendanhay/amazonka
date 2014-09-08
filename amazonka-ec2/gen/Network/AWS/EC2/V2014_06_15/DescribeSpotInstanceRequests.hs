@@ -51,6 +51,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotInstanceRequests
 
     -- * Response
     , DescribeSpotInstanceRequestsResponse
+    -- ** Response constructor
+    , mkDescribeSpotInstanceRequestsResponse
     -- ** Response lenses
     , dsirrSpotInstanceRequests
     ) where
@@ -140,6 +142,15 @@ instance ToQuery DescribeSpotInstanceRequests where
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSpotInstanceRequestsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
+mkDescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
+    { _dsirrSpotInstanceRequests = mempty
+    }
 
 -- | One or more Spot Instance requests.
 dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]

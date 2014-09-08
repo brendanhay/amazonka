@@ -45,6 +45,8 @@ module Network.AWS.IAM.V2010_05_08.CreateRole
 
     -- * Response
     , CreateRoleResponse
+    -- ** Response constructor
+    , mkCreateRoleResponse
     -- ** Response lenses
     , crrRole
     ) where
@@ -94,6 +96,16 @@ instance ToQuery CreateRole where
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateRoleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateRoleResponse :: Role -- ^ 'crrRole'
+                     -> CreateRoleResponse
+mkCreateRoleResponse p1 = CreateRoleResponse
+    { _crrRole = p1
+    }
 
 -- | Information about the role.
 crrRole :: Lens' CreateRoleResponse Role

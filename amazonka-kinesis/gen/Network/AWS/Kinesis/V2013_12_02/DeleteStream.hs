@@ -49,6 +49,8 @@ module Network.AWS.Kinesis.V2013_12_02.DeleteStream
 
     -- * Response
     , DeleteStreamResponse
+    -- ** Response constructor
+    , mkDeleteStreamResponse
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -82,6 +84,13 @@ instance ToJSON DeleteStream
 
 data DeleteStreamResponse = DeleteStreamResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStreamResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteStreamResponse :: DeleteStreamResponse
+mkDeleteStreamResponse = DeleteStreamResponse
 
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis

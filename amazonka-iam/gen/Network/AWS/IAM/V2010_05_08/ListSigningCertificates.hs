@@ -57,6 +57,8 @@ module Network.AWS.IAM.V2010_05_08.ListSigningCertificates
 
     -- * Response
     , ListSigningCertificatesResponse
+    -- ** Response constructor
+    , mkListSigningCertificatesResponse
     -- ** Response lenses
     , lscrrCertificates
     , lscrrIsTruncated
@@ -111,6 +113,19 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     , _lscrrIsTruncated :: Bool
     , _lscrrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSigningCertificatesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListSigningCertificatesResponse :: [SigningCertificate] -- ^ 'lscrrCertificates'
+                                  -> Bool -- ^ 'lscrrIsTruncated'
+                                  -> ListSigningCertificatesResponse
+mkListSigningCertificatesResponse p1 p2 = ListSigningCertificatesResponse
+    { _lscrrCertificates = p1
+    , _lscrrIsTruncated = p2
+    , _lscrrMarker = Nothing
+    }
 
 -- | A list of the user's signing certificate information.
 lscrrCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]

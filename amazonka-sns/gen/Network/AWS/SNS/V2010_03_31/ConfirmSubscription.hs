@@ -49,6 +49,8 @@ module Network.AWS.SNS.V2010_03_31.ConfirmSubscription
 
     -- * Response
     , ConfirmSubscriptionResponse
+    -- ** Response constructor
+    , mkConfirmSubscriptionResponse
     -- ** Response lenses
     , csrSubscriptionArn
     ) where
@@ -99,6 +101,15 @@ instance ToQuery ConfirmSubscription where
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkConfirmSubscriptionResponse :: ConfirmSubscriptionResponse
+mkConfirmSubscriptionResponse = ConfirmSubscriptionResponse
+    { _csrSubscriptionArn = Nothing
+    }
 
 -- | The ARN of the created subscription.
 csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)

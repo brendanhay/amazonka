@@ -50,6 +50,8 @@ module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
 
     -- * Response
     , DeleteMessageBatchResponse
+    -- ** Response constructor
+    , mkDeleteMessageBatchResponse
     -- ** Response lenses
     , dmbrSuccessful
     , dmbrFailed
@@ -93,6 +95,18 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
     { _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
     , _dmbrFailed :: [BatchResultErrorEntry]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMessageBatchResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -- ^ 'dmbrSuccessful'
+                             -> [BatchResultErrorEntry] -- ^ 'dmbrFailed'
+                             -> DeleteMessageBatchResponse
+mkDeleteMessageBatchResponse p1 p2 = DeleteMessageBatchResponse
+    { _dmbrSuccessful = p1
+    , _dmbrFailed = p2
+    }
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]

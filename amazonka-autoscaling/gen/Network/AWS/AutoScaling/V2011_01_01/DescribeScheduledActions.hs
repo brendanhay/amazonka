@@ -36,6 +36,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions
 
     -- * Response
     , DescribeScheduledActionsResponse
+    -- ** Response constructor
+    , mkDescribeScheduledActionsResponse
     -- ** Response lenses
     , dsarrScheduledUpdateGroupActions
     , dsarrNextToken
@@ -112,6 +114,16 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarrScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
     , _dsarrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScheduledActionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeScheduledActionsResponse :: DescribeScheduledActionsResponse
+mkDescribeScheduledActionsResponse = DescribeScheduledActionsResponse
+    { _dsarrScheduledUpdateGroupActions = mempty
+    , _dsarrNextToken = Nothing
+    }
 
 -- | A list of scheduled actions designed to update an Auto Scaling group.
 dsarrScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]

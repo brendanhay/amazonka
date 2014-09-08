@@ -48,6 +48,8 @@ module Network.AWS.SNS.V2010_03_31.ListSubscriptions
 
     -- * Response
     , ListSubscriptionsResponse
+    -- ** Response constructor
+    , mkListSubscriptionsResponse
     -- ** Response lenses
     , lsrSubscriptions
     , lsrNextToken
@@ -81,6 +83,16 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrSubscriptions :: [Subscription]
     , _lsrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListSubscriptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListSubscriptionsResponse :: ListSubscriptionsResponse
+mkListSubscriptionsResponse = ListSubscriptionsResponse
+    { _lsrSubscriptions = mempty
+    , _lsrNextToken = Nothing
+    }
 
 -- | A list of subscriptions.
 lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]

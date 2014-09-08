@@ -31,6 +31,8 @@ module Network.AWS.EMR.V2009_03_31.ListSteps
 
     -- * Response
     , ListStepsResponse
+    -- ** Response constructor
+    , mkListStepsResponse
     -- ** Response lenses
     , lsrSteps
     , lsrMarker
@@ -82,6 +84,16 @@ data ListStepsResponse = ListStepsResponse
     { _lsrSteps :: [StepSummary]
     , _lsrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStepsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListStepsResponse :: ListStepsResponse
+mkListStepsResponse = ListStepsResponse
+    { _lsrSteps = mempty
+    , _lsrMarker = Nothing
+    }
 
 -- | The filtered list of steps for the cluster.
 lsrSteps :: Lens' ListStepsResponse [StepSummary]

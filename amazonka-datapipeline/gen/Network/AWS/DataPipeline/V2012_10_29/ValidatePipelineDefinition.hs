@@ -67,6 +67,8 @@ module Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
 
     -- * Response
     , ValidatePipelineDefinitionResponse
+    -- ** Response constructor
+    , mkValidatePipelineDefinitionResponse
     -- ** Response lenses
     , vpdrValidationErrors
     , vpdrValidationWarnings
@@ -117,6 +119,18 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
     , _vpdrValidationWarnings :: [ValidationWarning]
     , _vpdrErrored :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ValidatePipelineDefinitionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkValidatePipelineDefinitionResponse :: Bool -- ^ 'vpdrErrored'
+                                     -> ValidatePipelineDefinitionResponse
+mkValidatePipelineDefinitionResponse p3 = ValidatePipelineDefinitionResponse
+    { _vpdrValidationErrors = mempty
+    , _vpdrValidationWarnings = mempty
+    , _vpdrErrored = p3
+    }
 
 -- | Lists the validation errors that were found by ValidatePipelineDefinition.
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]

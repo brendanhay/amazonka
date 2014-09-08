@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute
 
     -- * Response
     , ResetInstanceAttributeResponse
+    -- ** Response constructor
+    , mkResetInstanceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -78,6 +80,13 @@ instance ToQuery ResetInstanceAttribute where
 
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetInstanceAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResetInstanceAttributeResponse :: ResetInstanceAttributeResponse
+mkResetInstanceAttributeResponse = ResetInstanceAttributeResponse
 
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2

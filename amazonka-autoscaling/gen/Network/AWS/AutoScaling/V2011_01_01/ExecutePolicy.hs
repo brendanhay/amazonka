@@ -31,6 +31,8 @@ module Network.AWS.AutoScaling.V2011_01_01.ExecutePolicy
 
     -- * Response
     , ExecutePolicyResponse
+    -- ** Response constructor
+    , mkExecutePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -77,6 +79,13 @@ instance ToQuery ExecutePolicy where
 
 data ExecutePolicyResponse = ExecutePolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ExecutePolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkExecutePolicyResponse :: ExecutePolicyResponse
+mkExecutePolicyResponse = ExecutePolicyResponse
 
 instance AWSRequest ExecutePolicy where
     type Sv ExecutePolicy = AutoScaling

@@ -58,6 +58,8 @@ module Network.AWS.EC2.V2014_06_15.RequestSpotInstances
 
     -- * Response
     , RequestSpotInstancesResponse
+    -- ** Response constructor
+    , mkRequestSpotInstancesResponse
     -- ** Response lenses
     , rsirSpotInstanceRequests
     ) where
@@ -163,6 +165,15 @@ instance ToQuery RequestSpotInstances where
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RequestSpotInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRequestSpotInstancesResponse :: RequestSpotInstancesResponse
+mkRequestSpotInstancesResponse = RequestSpotInstancesResponse
+    { _rsirSpotInstanceRequests = mempty
+    }
 
 -- | Information about the Spot Instance request.
 rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]

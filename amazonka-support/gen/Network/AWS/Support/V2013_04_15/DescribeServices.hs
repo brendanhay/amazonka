@@ -39,6 +39,8 @@ module Network.AWS.Support.V2013_04_15.DescribeServices
 
     -- * Response
     , DescribeServicesResponse
+    -- ** Response constructor
+    , mkDescribeServicesResponse
     -- ** Response lenses
     , dsrServices
     ) where
@@ -84,6 +86,15 @@ instance ToJSON DescribeServices
 newtype DescribeServicesResponse = DescribeServicesResponse
     { _dsrServices :: [Service]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeServicesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeServicesResponse :: DescribeServicesResponse
+mkDescribeServicesResponse = DescribeServicesResponse
+    { _dsrServices = mempty
+    }
 
 -- | A JSON-formatted list of AWS services.
 dsrServices :: Lens' DescribeServicesResponse [Service]

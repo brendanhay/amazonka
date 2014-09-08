@@ -34,6 +34,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration
 
     -- * Response
     , DeleteLaunchConfigurationResponse
+    -- ** Response constructor
+    , mkDeleteLaunchConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,6 +66,13 @@ instance ToQuery DeleteLaunchConfiguration where
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLaunchConfigurationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
+mkDeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 
 instance AWSRequest DeleteLaunchConfiguration where
     type Sv DeleteLaunchConfiguration = AutoScaling

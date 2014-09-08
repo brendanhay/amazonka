@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation
 
     -- * Response
     , ReplaceRouteTableAssociationResponse
+    -- ** Response constructor
+    , mkReplaceRouteTableAssociationResponse
     -- ** Response lenses
     , rrtarNewAssociationId
     ) where
@@ -84,6 +86,15 @@ instance ToQuery ReplaceRouteTableAssociation where
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReplaceRouteTableAssociationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse
+mkReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
+    { _rrtarNewAssociationId = Nothing
+    }
 
 -- | The ID of the new association.
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)

@@ -33,6 +33,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity
 
     -- * Response
     , UnlinkIdentityResponse
+    -- ** Response constructor
+    , mkUnlinkIdentityResponse
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -82,6 +84,13 @@ instance ToJSON UnlinkIdentity
 
 data UnlinkIdentityResponse = UnlinkIdentityResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnlinkIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUnlinkIdentityResponse :: UnlinkIdentityResponse
+mkUnlinkIdentityResponse = UnlinkIdentityResponse
 
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity

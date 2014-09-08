@@ -37,6 +37,8 @@ module Network.AWS.IAM.V2010_05_08.GetRolePolicy
 
     -- * Response
     , GetRolePolicyResponse
+    -- ** Response constructor
+    , mkGetRolePolicyResponse
     -- ** Response lenses
     , grprRoleName
     , grprPolicyName
@@ -80,6 +82,20 @@ data GetRolePolicyResponse = GetRolePolicyResponse
     , _grprPolicyName :: Text
     , _grprPolicyDocument :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRolePolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetRolePolicyResponse :: Text -- ^ 'grprRoleName'
+                        -> Text -- ^ 'grprPolicyName'
+                        -> Text -- ^ 'grprPolicyDocument'
+                        -> GetRolePolicyResponse
+mkGetRolePolicyResponse p1 p2 p3 = GetRolePolicyResponse
+    { _grprRoleName = p1
+    , _grprPolicyName = p2
+    , _grprPolicyDocument = p3
+    }
 
 -- | The role the policy is associated with.
 grprRoleName :: Lens' GetRolePolicyResponse Text

@@ -44,6 +44,8 @@ module Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole
 
     -- * Response
     , ListInstanceProfilesForRoleResponse
+    -- ** Response constructor
+    , mkListInstanceProfilesForRoleResponse
     -- ** Response lenses
     , lipfrrInstanceProfiles
     , lipfrrIsTruncated
@@ -100,6 +102,19 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     , _lipfrrIsTruncated :: Bool
     , _lipfrrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstanceProfilesForRoleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListInstanceProfilesForRoleResponse :: [InstanceProfile] -- ^ 'lipfrrInstanceProfiles'
+                                      -> Bool -- ^ 'lipfrrIsTruncated'
+                                      -> ListInstanceProfilesForRoleResponse
+mkListInstanceProfilesForRoleResponse p1 p2 = ListInstanceProfilesForRoleResponse
+    { _lipfrrInstanceProfiles = p1
+    , _lipfrrIsTruncated = p2
+    , _lipfrrMarker = Nothing
+    }
 
 -- | A list of instance profiles.
 lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]

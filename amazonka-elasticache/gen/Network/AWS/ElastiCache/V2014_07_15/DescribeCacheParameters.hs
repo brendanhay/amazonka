@@ -43,6 +43,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameters
 
     -- * Response
     , DescribeCacheParametersResponse
+    -- ** Response constructor
+    , mkDescribeCacheParametersResponse
     -- ** Response lenses
     , dcprMarker
     , dcprParameters
@@ -106,6 +108,17 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
     , _dcprParameters :: [Parameter]
     , _dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheParametersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCacheParametersResponse :: DescribeCacheParametersResponse
+mkDescribeCacheParametersResponse = DescribeCacheParametersResponse
+    { _dcprMarker = Nothing
+    , _dcprParameters = mempty
+    , _dcprCacheNodeTypeSpecificParameters = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)

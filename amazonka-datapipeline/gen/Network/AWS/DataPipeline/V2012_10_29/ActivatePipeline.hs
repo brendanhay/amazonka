@@ -40,6 +40,8 @@ module Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline
 
     -- * Response
     , ActivatePipelineResponse
+    -- ** Response constructor
+    , mkActivatePipelineResponse
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -74,6 +76,13 @@ instance ToJSON ActivatePipeline
 -- | Contains the output from the ActivatePipeline action.
 data ActivatePipelineResponse = ActivatePipelineResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ActivatePipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkActivatePipelineResponse :: ActivatePipelineResponse
+mkActivatePipelineResponse = ActivatePipelineResponse
 
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline

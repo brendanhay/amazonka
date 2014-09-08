@@ -59,6 +59,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.TestRole
 
     -- * Response
     , TestRoleResponse
+    -- ** Response constructor
+    , mkTestRoleResponse
     -- ** Response lenses
     , trrSuccess
     , trrMessages
@@ -124,6 +126,16 @@ data TestRoleResponse = TestRoleResponse
     { _trrSuccess :: Maybe Text
     , _trrMessages :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TestRoleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTestRoleResponse :: TestRoleResponse
+mkTestRoleResponse = TestRoleResponse
+    { _trrSuccess = Nothing
+    , _trrMessages = mempty
+    }
 
 -- | If the operation is successful, this value is true; otherwise, the value is
 -- false.

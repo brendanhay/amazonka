@@ -45,6 +45,8 @@ module Network.AWS.SNS.V2010_03_31.Unsubscribe
 
     -- * Response
     , UnsubscribeResponse
+    -- ** Response constructor
+    , mkUnsubscribeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -74,6 +76,13 @@ instance ToQuery Unsubscribe where
 
 data UnsubscribeResponse = UnsubscribeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnsubscribeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUnsubscribeResponse :: UnsubscribeResponse
+mkUnsubscribeResponse = UnsubscribeResponse
 
 instance AWSRequest Unsubscribe where
     type Sv Unsubscribe = SNS

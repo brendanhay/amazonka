@@ -45,6 +45,8 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
 
     -- * Response
     , UpdateGatewayInformationResponse
+    -- ** Response constructor
+    , mkUpdateGatewayInformationResponse
     -- ** Response lenses
     , ugirGatewayARN
     ) where
@@ -96,6 +98,15 @@ instance ToJSON UpdateGatewayInformation
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateGatewayInformationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateGatewayInformationResponse :: UpdateGatewayInformationResponse
+mkUpdateGatewayInformationResponse = UpdateGatewayInformationResponse
+    { _ugirGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

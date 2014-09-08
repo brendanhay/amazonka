@@ -3660,7 +3660,10 @@ data AccountAttribute = AccountAttribute
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AccountAttribute' data type to populate a request.
+-- a valid 'AccountAttribute' data type.
+--
+-- 'AccountAttribute' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAccountAttribute :: AccountAttribute
 mkAccountAttribute = AccountAttribute
     { _aa1rAttributeName = Nothing
@@ -3694,7 +3697,10 @@ data Address = Address
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Address' data type to populate a request.
+-- a valid 'Address' data type.
+--
+-- 'Address' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAddress :: Address
 mkAddress = Address
     { _aInstanceId = Nothing
@@ -3758,7 +3764,10 @@ data AvailabilityZone = AvailabilityZone
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AvailabilityZone' data type to populate a request.
+-- a valid 'AvailabilityZone' data type.
+--
+-- 'AvailabilityZone' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAvailabilityZone :: AvailabilityZone
 mkAvailabilityZone = AvailabilityZone
     { _azZoneName = Nothing
@@ -3844,7 +3853,10 @@ data BundleTask = BundleTask
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'BundleTask' data type to populate a request.
+-- a valid 'BundleTask' data type.
+--
+-- 'BundleTask' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkBundleTask :: BundleTask
 mkBundleTask = BundleTask
     { _btInstanceId = Nothing
@@ -3930,7 +3942,10 @@ data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CancelledSpotInstanceRequest' data type to populate a request.
+-- a valid 'CancelledSpotInstanceRequest' data type.
+--
+-- 'CancelledSpotInstanceRequest' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
 mkCancelledSpotInstanceRequest = CancelledSpotInstanceRequest
     { _csir1SpotInstanceRequestId = Nothing
@@ -3963,7 +3978,10 @@ data ConversionTask = ConversionTask
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ConversionTask' data type to populate a request.
+-- a valid 'ConversionTask' data type.
+--
+-- 'ConversionTask' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkConversionTask :: Text -- ^ 'ctrConversionTaskId'
                  -> ConversionTaskState -- ^ 'ctrState'
                  -> ConversionTask
@@ -4085,7 +4103,10 @@ data CustomerGateway = CustomerGateway
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CustomerGateway' data type to populate a request.
+-- a valid 'CustomerGateway' data type.
+--
+-- 'CustomerGateway' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCustomerGateway :: CustomerGateway
 mkCustomerGateway = CustomerGateway
     { _cgCustomerGatewayId = Nothing
@@ -4164,7 +4185,10 @@ data DhcpOptions = DhcpOptions
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DhcpOptions' data type to populate a request.
+-- a valid 'DhcpOptions' data type.
+--
+-- 'DhcpOptions' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDhcpOptions :: DhcpOptions
 mkDhcpOptions = DhcpOptions
     { _doDhcpOptionsId = Nothing
@@ -4499,7 +4523,10 @@ data ExportTask = ExportTask
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ExportTask' data type to populate a request.
+-- a valid 'ExportTask' data type.
+--
+-- 'ExportTask' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkExportTask :: ExportTask
 mkExportTask = ExportTask
     { _etExportTaskId = Nothing
@@ -4796,7 +4823,10 @@ data Image = Image
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Image' data type to populate a request.
+-- a valid 'Image' data type.
+--
+-- 'Image' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkImage :: Text -- ^ 'iImageId'
         -> Text -- ^ 'iName'
         -> DeviceType -- ^ 'iRootDeviceType'
@@ -5593,7 +5623,10 @@ data InstanceMonitoring = InstanceMonitoring
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InstanceMonitoring' data type to populate a request.
+-- a valid 'InstanceMonitoring' data type.
+--
+-- 'InstanceMonitoring' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstanceMonitoring :: InstanceMonitoring
 mkInstanceMonitoring = InstanceMonitoring
     { _imInstanceId = Nothing
@@ -5981,7 +6014,10 @@ data InstanceStateChange = InstanceStateChange
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InstanceStateChange' data type to populate a request.
+-- a valid 'InstanceStateChange' data type.
+--
+-- 'InstanceStateChange' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstanceStateChange :: InstanceStateChange
 mkInstanceStateChange = InstanceStateChange
     { _iscInstanceId = Nothing
@@ -6017,7 +6053,10 @@ data InstanceStatus = InstanceStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InstanceStatus' data type to populate a request.
+-- a valid 'InstanceStatus' data type.
+--
+-- 'InstanceStatus' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstanceStatus :: InstanceStatus
 mkInstanceStatus = InstanceStatus
     { _isInstanceId = Nothing
@@ -6179,7 +6218,10 @@ data InternetGateway = InternetGateway
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InternetGateway' data type to populate a request.
+-- a valid 'InternetGateway' data type.
+--
+-- 'InternetGateway' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInternetGateway :: Text -- ^ 'igInternetGatewayId'
                   -> InternetGateway
 mkInternetGateway p1 = InternetGateway
@@ -6299,7 +6341,10 @@ data KeyPairInfo = KeyPairInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'KeyPairInfo' data type to populate a request.
+-- a valid 'KeyPairInfo' data type.
+--
+-- 'KeyPairInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkKeyPairInfo :: KeyPairInfo
 mkKeyPairInfo = KeyPairInfo
     { _kpiKeyName = Nothing
@@ -6505,7 +6550,10 @@ data NetworkAcl = NetworkAcl
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'NetworkAcl' data type to populate a request.
+-- a valid 'NetworkAcl' data type.
+--
+-- 'NetworkAcl' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkNetworkAcl :: NetworkAcl
 mkNetworkAcl = NetworkAcl
     { _naNetworkAclId = Nothing
@@ -6665,7 +6713,10 @@ data NetworkInterface = NetworkInterface
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'NetworkInterface' data type to populate a request.
+-- a valid 'NetworkInterface' data type.
+--
+-- 'NetworkInterface' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkNetworkInterface :: NetworkInterface
 mkNetworkInterface = NetworkInterface
     { _niNetworkInterfaceId = Nothing
@@ -7007,7 +7058,10 @@ data PlacementGroup = PlacementGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'PlacementGroup' data type to populate a request.
+-- a valid 'PlacementGroup' data type.
+--
+-- 'PlacementGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPlacementGroup :: PlacementGroup
 mkPlacementGroup = PlacementGroup
     { _pgGroupName = Nothing
@@ -7269,7 +7323,10 @@ data Region = Region
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Region' data type to populate a request.
+-- a valid 'Region' data type.
+--
+-- 'Region' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkRegion :: Region
 mkRegion = Region
     { _r1RegionName = Nothing
@@ -7298,7 +7355,10 @@ data Reservation = Reservation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Reservation' data type to populate a request.
+-- a valid 'Reservation' data type.
+--
+-- 'Reservation' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservation :: Reservation
 mkReservation = Reservation
     { _rrReservationId = Nothing
@@ -7384,7 +7444,10 @@ data ReservedInstances = ReservedInstances
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedInstances' data type to populate a request.
+-- a valid 'ReservedInstances' data type.
+--
+-- 'ReservedInstances' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedInstances :: ReservedInstances
 mkReservedInstances = ReservedInstances
     { _riReservedInstancesId = Nothing
@@ -7539,7 +7602,10 @@ data ReservedInstancesListing = ReservedInstancesListing
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedInstancesListing' data type to populate a request.
+-- a valid 'ReservedInstancesListing' data type.
+--
+-- 'ReservedInstancesListing' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedInstancesListing :: ReservedInstancesListing
 mkReservedInstancesListing = ReservedInstancesListing
     { _rilReservedInstancesListingId = Nothing
@@ -7619,7 +7685,10 @@ data ReservedInstancesModification = ReservedInstancesModification
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedInstancesModification' data type to populate a request.
+-- a valid 'ReservedInstancesModification' data type.
+--
+-- 'ReservedInstancesModification' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedInstancesModification :: ReservedInstancesModification
 mkReservedInstancesModification = ReservedInstancesModification
     { _rimReservedInstancesModificationId = Nothing
@@ -7736,7 +7805,10 @@ data ReservedInstancesOffering = ReservedInstancesOffering
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedInstancesOffering' data type to populate a request.
+-- a valid 'ReservedInstancesOffering' data type.
+--
+-- 'ReservedInstancesOffering' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedInstancesOffering :: ReservedInstancesOffering
 mkReservedInstancesOffering = ReservedInstancesOffering
     { _rioReservedInstancesOfferingId = Nothing
@@ -7908,7 +7980,10 @@ data RouteTable = RouteTable
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'RouteTable' data type to populate a request.
+-- a valid 'RouteTable' data type.
+--
+-- 'RouteTable' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkRouteTable :: RouteTable
 mkRouteTable = RouteTable
     { _rtRouteTableId = Nothing
@@ -8059,7 +8134,10 @@ data SecurityGroup = SecurityGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SecurityGroup' data type to populate a request.
+-- a valid 'SecurityGroup' data type.
+--
+-- 'SecurityGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSecurityGroup :: Text -- ^ 'sgOwnerId'
                 -> Text -- ^ 'sgGroupName'
                 -> Text -- ^ 'sgGroupId'
@@ -8129,7 +8207,10 @@ data Snapshot = Snapshot
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Snapshot' data type to populate a request.
+-- a valid 'Snapshot' data type.
+--
+-- 'Snapshot' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSnapshot :: Snapshot
 mkSnapshot = Snapshot
     { _s1SnapshotId = Nothing
@@ -8204,7 +8285,10 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SpotDatafeedSubscription' data type to populate a request.
+-- a valid 'SpotDatafeedSubscription' data type.
+--
+-- 'SpotDatafeedSubscription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSpotDatafeedSubscription :: SpotDatafeedSubscription
 mkSpotDatafeedSubscription = SpotDatafeedSubscription
     { _sdsOwnerId = Nothing
@@ -8259,7 +8343,10 @@ data SpotInstanceRequest = SpotInstanceRequest
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SpotInstanceRequest' data type to populate a request.
+-- a valid 'SpotInstanceRequest' data type.
+--
+-- 'SpotInstanceRequest' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSpotInstanceRequest :: SpotInstanceRequest
 mkSpotInstanceRequest = SpotInstanceRequest
     { _sirSpotInstanceRequestId = Nothing
@@ -8475,7 +8562,10 @@ data SpotPrice = SpotPrice
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SpotPrice' data type to populate a request.
+-- a valid 'SpotPrice' data type.
+--
+-- 'SpotPrice' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSpotPrice :: SpotPrice
 mkSpotPrice = SpotPrice
     { _sprInstanceType = Nothing
@@ -8564,7 +8654,10 @@ data Subnet = Subnet
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Subnet' data type to populate a request.
+-- a valid 'Subnet' data type.
+--
+-- 'Subnet' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSubnet :: Subnet
 mkSubnet = Subnet
     { _srSubnetId = Nothing
@@ -8666,7 +8759,10 @@ data TagDescription = TagDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TagDescription' data type to populate a request.
+-- a valid 'TagDescription' data type.
+--
+-- 'TagDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTagDescription :: Text -- ^ 'tdResourceId'
                  -> ResourceType -- ^ 'tdResourceType'
                  -> Text -- ^ 'tdKey'
@@ -8801,7 +8897,10 @@ data Volume = Volume
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Volume' data type to populate a request.
+-- a valid 'Volume' data type.
+--
+-- 'Volume' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVolume :: Volume
 mkVolume = Volume
     { _vrVolumeId = Nothing
@@ -9087,7 +9186,10 @@ data VolumeStatusItem = VolumeStatusItem
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VolumeStatusItem' data type to populate a request.
+-- a valid 'VolumeStatusItem' data type.
+--
+-- 'VolumeStatusItem' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVolumeStatusItem :: VolumeStatusItem
 mkVolumeStatusItem = VolumeStatusItem
     { _vsiVolumeId = Nothing
@@ -9134,7 +9236,10 @@ data Vpc = Vpc
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Vpc' data type to populate a request.
+-- a valid 'Vpc' data type.
+--
+-- 'Vpc' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVpc :: Vpc
 mkVpc = Vpc
     { _vVpcId = Nothing
@@ -9220,7 +9325,10 @@ data VpcPeeringConnection = VpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VpcPeeringConnection' data type to populate a request.
+-- a valid 'VpcPeeringConnection' data type.
+--
+-- 'VpcPeeringConnection' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVpcPeeringConnection :: VpcPeeringConnection
 mkVpcPeeringConnection = VpcPeeringConnection
     { _vpcAccepterVpcInfo = Nothing
@@ -9343,7 +9451,10 @@ data VpnConnection = VpnConnection
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VpnConnection' data type to populate a request.
+-- a valid 'VpnConnection' data type.
+--
+-- 'VpnConnection' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVpnConnection :: VpnConnection
 mkVpnConnection = VpnConnection
     { _vcVpnConnectionId = Nothing
@@ -9422,7 +9533,10 @@ data VpnGateway = VpnGateway
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VpnGateway' data type to populate a request.
+-- a valid 'VpnGateway' data type.
+--
+-- 'VpnGateway' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVpnGateway :: VpnGateway
 mkVpnGateway = VpnGateway
     { _vgVpnGatewayId = Nothing

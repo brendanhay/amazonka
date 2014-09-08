@@ -248,7 +248,10 @@ data Item = Item
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Item' data type to populate a request.
+-- a valid 'Item' data type.
+--
+-- 'Item' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkItem :: Text -- ^ 'iName'
        -> [Attribute] -- ^ 'iAttributes'
        -> Item

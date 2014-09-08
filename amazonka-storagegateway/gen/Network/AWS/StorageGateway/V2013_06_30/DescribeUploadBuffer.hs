@@ -50,6 +50,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer
 
     -- * Response
     , DescribeUploadBufferResponse
+    -- ** Response constructor
+    , mkDescribeUploadBufferResponse
     -- ** Response lenses
     , dubrGatewayARN
     , dubrDiskIds
@@ -92,6 +94,18 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
     , _dubrUploadBufferUsedInBytes :: Maybe Integer
     , _dubrUploadBufferAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeUploadBufferResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeUploadBufferResponse :: DescribeUploadBufferResponse
+mkDescribeUploadBufferResponse = DescribeUploadBufferResponse
+    { _dubrGatewayARN = Nothing
+    , _dubrDiskIds = mempty
+    , _dubrUploadBufferUsedInBytes = Nothing
+    , _dubrUploadBufferAllocatedInBytes = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

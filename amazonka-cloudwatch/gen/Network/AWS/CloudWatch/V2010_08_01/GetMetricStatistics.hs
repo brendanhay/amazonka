@@ -53,6 +53,8 @@ module Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
 
     -- * Response
     , GetMetricStatisticsResponse
+    -- ** Response constructor
+    , mkGetMetricStatisticsResponse
     -- ** Response lenses
     , gmsrLabel
     , gmsrDatapoints
@@ -142,6 +144,16 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { _gmsrLabel :: Maybe Text
     , _gmsrDatapoints :: [Datapoint]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetMetricStatisticsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetMetricStatisticsResponse :: GetMetricStatisticsResponse
+mkGetMetricStatisticsResponse = GetMetricStatisticsResponse
+    { _gmsrLabel = Nothing
+    , _gmsrDatapoints = mempty
+    }
 
 -- | A label describing the specified metric.
 gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)

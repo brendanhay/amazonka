@@ -44,6 +44,8 @@ module Network.AWS.SNS.V2010_03_31.CreateTopic
 
     -- * Response
     , CreateTopicResponse
+    -- ** Response constructor
+    , mkCreateTopicResponse
     -- ** Response lenses
     , ctrTopicArn
     ) where
@@ -78,6 +80,15 @@ instance ToQuery CreateTopic where
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTopicResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateTopicResponse :: CreateTopicResponse
+mkCreateTopicResponse = CreateTopicResponse
+    { _ctrTopicArn = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)

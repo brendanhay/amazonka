@@ -62,6 +62,8 @@ module Network.AWS.Support.V2013_04_15.CreateCase
 
     -- * Response
     , CreateCaseResponse
+    -- ** Response constructor
+    , mkCreateCaseResponse
     -- ** Response lenses
     , ccrCaseId
     ) where
@@ -161,6 +163,15 @@ instance ToJSON CreateCase
 newtype CreateCaseResponse = CreateCaseResponse
     { _ccrCaseId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCaseResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateCaseResponse :: CreateCaseResponse
+mkCreateCaseResponse = CreateCaseResponse
+    { _ccrCaseId = Nothing
+    }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:

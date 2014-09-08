@@ -33,6 +33,8 @@ module Network.AWS.OpsWorks.V2013_02_18.StartInstance
 
     -- * Response
     , StartInstanceResponse
+    -- ** Response constructor
+    , mkStartInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -65,6 +67,13 @@ instance ToJSON StartInstance
 
 data StartInstanceResponse = StartInstanceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStartInstanceResponse :: StartInstanceResponse
+mkStartInstanceResponse = StartInstanceResponse
 
 instance AWSRequest StartInstance where
     type Sv StartInstance = OpsWorks

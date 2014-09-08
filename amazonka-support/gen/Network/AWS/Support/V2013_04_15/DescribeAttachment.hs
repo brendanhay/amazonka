@@ -33,6 +33,8 @@ module Network.AWS.Support.V2013_04_15.DescribeAttachment
 
     -- * Response
     , DescribeAttachmentResponse
+    -- ** Response constructor
+    , mkDescribeAttachmentResponse
     -- ** Response lenses
     , darAttachment
     ) where
@@ -72,6 +74,15 @@ instance ToJSON DescribeAttachment
 newtype DescribeAttachmentResponse = DescribeAttachmentResponse
     { _darAttachment :: Maybe Attachment
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAttachmentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAttachmentResponse :: DescribeAttachmentResponse
+mkDescribeAttachmentResponse = DescribeAttachmentResponse
+    { _darAttachment = Nothing
+    }
 
 -- | The attachment content and file name.
 darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)

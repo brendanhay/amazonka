@@ -32,6 +32,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketPolicy
 
     -- * Response
     , PutBucketPolicyResponse
+    -- ** Response constructor
+    , mkPutBucketPolicyResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -87,6 +89,13 @@ instance ToBody PutBucketPolicy where
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketPolicyResponse :: PutBucketPolicyResponse
+mkPutBucketPolicyResponse = PutBucketPolicyResponse
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3

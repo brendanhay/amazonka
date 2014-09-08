@@ -51,6 +51,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeDefaultClusterParameters
 
     -- * Response
     , DescribeDefaultClusterParametersResponse
+    -- ** Response constructor
+    , mkDescribeDefaultClusterParametersResponse
     -- ** Response lenses
     , ddcprDefaultClusterParameters
     ) where
@@ -105,6 +107,16 @@ instance ToQuery DescribeDefaultClusterParameters where
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters :: DefaultClusterParameters
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDefaultClusterParametersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDefaultClusterParametersResponse :: DefaultClusterParameters -- ^ 'ddcprDefaultClusterParameters'
+                                           -> DescribeDefaultClusterParametersResponse
+mkDescribeDefaultClusterParametersResponse p1 = DescribeDefaultClusterParametersResponse
+    { _ddcprDefaultClusterParameters = p1
+    }
 
 -- | Describes the default cluster parameters for a parameter group family.
 ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters

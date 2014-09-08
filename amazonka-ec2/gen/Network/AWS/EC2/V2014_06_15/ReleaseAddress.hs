@@ -47,6 +47,8 @@ module Network.AWS.EC2.V2014_06_15.ReleaseAddress
 
     -- * Response
     , ReleaseAddressResponse
+    -- ** Response constructor
+    , mkReleaseAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -80,6 +82,13 @@ instance ToQuery ReleaseAddress where
 
 data ReleaseAddressResponse = ReleaseAddressResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReleaseAddressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReleaseAddressResponse :: ReleaseAddressResponse
+mkReleaseAddressResponse = ReleaseAddressResponse
 
 instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2

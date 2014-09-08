@@ -33,6 +33,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteStack
 
     -- * Response
     , DeleteStackResponse
+    -- ** Response constructor
+    , mkDeleteStackResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -65,6 +67,13 @@ instance ToJSON DeleteStack
 
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteStackResponse :: DeleteStackResponse
+mkDeleteStackResponse = DeleteStackResponse
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks

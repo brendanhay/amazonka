@@ -46,6 +46,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline
 
     -- * Response
     , ReadPipelineResponse
+    -- ** Response constructor
+    , mkReadPipelineResponse
     -- ** Response lenses
     , rprPipeline
     ) where
@@ -87,6 +89,15 @@ instance ToJSON ReadPipeline
 newtype ReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReadPipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReadPipelineResponse :: ReadPipelineResponse
+mkReadPipelineResponse = ReadPipelineResponse
+    { _rprPipeline = Nothing
+    }
 
 -- | A section of the response body that provides information about the
 -- pipeline.

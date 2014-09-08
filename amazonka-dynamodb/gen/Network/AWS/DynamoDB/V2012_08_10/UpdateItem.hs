@@ -45,6 +45,8 @@ module Network.AWS.DynamoDB.V2012_08_10.UpdateItem
 
     -- * Response
     , UpdateItemResponse
+    -- ** Response constructor
+    , mkUpdateItemResponse
     -- ** Response lenses
     , uirAttributes
     , uirConsumedCapacity
@@ -227,6 +229,17 @@ data UpdateItemResponse = UpdateItemResponse
     , _uirConsumedCapacity :: Maybe ConsumedCapacity
     , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateItemResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateItemResponse :: UpdateItemResponse
+mkUpdateItemResponse = UpdateItemResponse
+    { _uirAttributes = mempty
+    , _uirConsumedCapacity = Nothing
+    , _uirItemCollectionMetrics = Nothing
+    }
 
 -- | A map of attribute values as they appeared before the UpdateItem operation,
 -- but only if ReturnValues was specified as something other than NONE in the

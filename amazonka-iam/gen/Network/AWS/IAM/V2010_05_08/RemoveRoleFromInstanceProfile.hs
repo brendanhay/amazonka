@@ -39,6 +39,8 @@ module Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile
 
     -- * Response
     , RemoveRoleFromInstanceProfileResponse
+    -- ** Response constructor
+    , mkRemoveRoleFromInstanceProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -76,6 +78,13 @@ instance ToQuery RemoveRoleFromInstanceProfile where
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveRoleFromInstanceProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRemoveRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
+mkRemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
 
 instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM

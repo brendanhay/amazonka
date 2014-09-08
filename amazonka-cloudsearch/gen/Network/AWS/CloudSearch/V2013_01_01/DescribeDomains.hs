@@ -35,6 +35,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeDomains
 
     -- * Response
     , DescribeDomainsResponse
+    -- ** Response constructor
+    , mkDescribeDomainsResponse
     -- ** Response lenses
     , ddrrDomainStatusList
     ) where
@@ -69,6 +71,16 @@ instance ToQuery DescribeDomains where
 newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrrDomainStatusList :: [DomainStatus]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDomainsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDomainsResponse :: [DomainStatus] -- ^ 'ddrrDomainStatusList'
+                          -> DescribeDomainsResponse
+mkDescribeDomainsResponse p1 = DescribeDomainsResponse
+    { _ddrrDomainStatusList = p1
+    }
 
 -- | A list that contains the status of each requested domain.
 ddrrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]

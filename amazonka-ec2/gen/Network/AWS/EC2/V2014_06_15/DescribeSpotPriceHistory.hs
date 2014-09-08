@@ -61,6 +61,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory
 
     -- * Response
     , DescribeSpotPriceHistoryResponse
+    -- ** Response constructor
+    , mkDescribeSpotPriceHistoryResponse
     -- ** Response lenses
     , dsphrSpotPriceHistory
     , dsphrNextToken
@@ -148,6 +150,16 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrSpotPriceHistory :: [SpotPrice]
     , _dsphrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSpotPriceHistoryResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
+mkDescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
+    { _dsphrSpotPriceHistory = mempty
+    , _dsphrNextToken = Nothing
+    }
 
 -- | The historical Spot Prices.
 dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]

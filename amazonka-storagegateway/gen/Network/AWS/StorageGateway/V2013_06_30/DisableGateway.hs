@@ -28,6 +28,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DisableGateway
 
     -- * Response
     , DisableGatewayResponse
+    -- ** Response constructor
+    , mkDisableGatewayResponse
     -- ** Response lenses
     , dgrrGatewayARN
     ) where
@@ -64,6 +66,15 @@ instance ToJSON DisableGateway
 newtype DisableGatewayResponse = DisableGatewayResponse
     { _dgrrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisableGatewayResponse :: DisableGatewayResponse
+mkDisableGatewayResponse = DisableGatewayResponse
+    { _dgrrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

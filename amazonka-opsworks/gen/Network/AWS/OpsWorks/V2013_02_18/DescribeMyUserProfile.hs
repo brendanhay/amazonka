@@ -29,6 +29,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
     , mkDescribeMyUserProfile
     -- * Response
     , DescribeMyUserProfileResponse
+    -- ** Response constructor
+    , mkDescribeMyUserProfileResponse
     -- ** Response lenses
     , dmuprUserProfile
     ) where
@@ -57,6 +59,15 @@ instance ToJSON DescribeMyUserProfile
 newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile :: Maybe SelfUserProfile
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeMyUserProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeMyUserProfileResponse :: DescribeMyUserProfileResponse
+mkDescribeMyUserProfileResponse = DescribeMyUserProfileResponse
+    { _dmuprUserProfile = Nothing
+    }
 
 -- | A UserProfile object that describes the user's SSH information.
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)

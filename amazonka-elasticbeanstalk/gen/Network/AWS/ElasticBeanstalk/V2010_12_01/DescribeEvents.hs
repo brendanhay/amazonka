@@ -54,6 +54,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents
 
     -- * Response
     , DescribeEventsResponse
+    -- ** Response constructor
+    , mkDescribeEventsResponse
     -- ** Response lenses
     , der1rEvents
     , der1rNextToken
@@ -161,6 +163,16 @@ data DescribeEventsResponse = DescribeEventsResponse
     { _der1rEvents :: [EventDescription]
     , _der1rNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEventsResponse :: DescribeEventsResponse
+mkDescribeEventsResponse = DescribeEventsResponse
+    { _der1rEvents = mempty
+    , _der1rNextToken = Nothing
+    }
 
 -- | A list of EventDescription.
 der1rEvents :: Lens' DescribeEventsResponse [EventDescription]

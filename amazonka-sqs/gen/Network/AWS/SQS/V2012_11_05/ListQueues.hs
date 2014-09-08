@@ -39,6 +39,8 @@ module Network.AWS.SQS.V2012_11_05.ListQueues
 
     -- * Response
     , ListQueuesResponse
+    -- ** Response constructor
+    , mkListQueuesResponse
     -- ** Response lenses
     , lqrQueueUrls
     ) where
@@ -72,6 +74,15 @@ instance ToQuery ListQueues where
 newtype ListQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListQueuesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListQueuesResponse :: ListQueuesResponse
+mkListQueuesResponse = ListQueuesResponse
+    { _lqrQueueUrls = mempty
+    }
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]

@@ -56,6 +56,8 @@ module Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupEgress
 
     -- * Response
     , RevokeSecurityGroupEgressResponse
+    -- ** Response constructor
+    , mkRevokeSecurityGroupEgressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -138,6 +140,13 @@ instance ToQuery RevokeSecurityGroupEgress where
 
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeSecurityGroupEgressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRevokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse
+mkRevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
 
 instance AWSRequest RevokeSecurityGroupEgress where
     type Sv RevokeSecurityGroupEgress = EC2

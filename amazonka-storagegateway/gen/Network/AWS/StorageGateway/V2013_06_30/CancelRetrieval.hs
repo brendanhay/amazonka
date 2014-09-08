@@ -29,6 +29,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CancelRetrieval
 
     -- * Response
     , CancelRetrievalResponse
+    -- ** Response constructor
+    , mkCancelRetrievalResponse
     -- ** Response lenses
     , crrTapeARN
     ) where
@@ -71,6 +73,15 @@ instance ToJSON CancelRetrieval
 newtype CancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelRetrievalResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelRetrievalResponse :: CancelRetrievalResponse
+mkCancelRetrievalResponse = CancelRetrievalResponse
+    { _crrTapeARN = Nothing
+    }
 
 crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\s a -> s { _crrTapeARN = a })

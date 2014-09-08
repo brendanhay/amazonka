@@ -29,6 +29,8 @@ module Network.AWS.CloudTrail.V2013_11_01.DeleteTrail
 
     -- * Response
     , DeleteTrailResponse
+    -- ** Response constructor
+    , mkDeleteTrailResponse
     ) where
 
 import Network.AWS.CloudTrail.V2013_11_01.Types
@@ -64,6 +66,13 @@ instance ToJSON DeleteTrail
 -- an error.
 data DeleteTrailResponse = DeleteTrailResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTrailResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteTrailResponse :: DeleteTrailResponse
+mkDeleteTrailResponse = DeleteTrailResponse
 
 instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail

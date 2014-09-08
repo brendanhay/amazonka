@@ -64,6 +64,8 @@ module Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot
 
     -- * Response
     , RestoreFromClusterSnapshotResponse
+    -- ** Response constructor
+    , mkRestoreFromClusterSnapshotResponse
     -- ** Response lenses
     , rfcsrCluster
     ) where
@@ -254,6 +256,15 @@ instance ToQuery RestoreFromClusterSnapshot where
 newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestoreFromClusterSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRestoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResponse
+mkRestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
+    { _rfcsrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 rfcsrCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)

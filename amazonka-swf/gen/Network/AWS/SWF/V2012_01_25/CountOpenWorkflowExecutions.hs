@@ -64,6 +64,8 @@ module Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions
 
     -- * Response
     , CountOpenWorkflowExecutionsResponse
+    -- ** Response constructor
+    , mkCountOpenWorkflowExecutionsResponse
     -- ** Response lenses
     , cowerCount
     , cowerTruncated
@@ -137,6 +139,17 @@ data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
     { _cowerCount :: Integer
     , _cowerTruncated :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountOpenWorkflowExecutionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCountOpenWorkflowExecutionsResponse :: Integer -- ^ 'cowerCount'
+                                      -> CountOpenWorkflowExecutionsResponse
+mkCountOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
+    { _cowerCount = p1
+    , _cowerTruncated = Nothing
+    }
 
 -- | The number of workflow executions.
 cowerCount :: Lens' CountOpenWorkflowExecutionsResponse Integer

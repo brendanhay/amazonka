@@ -41,6 +41,8 @@ module Network.AWS.SES.V2010_12_01.VerifyEmailAddress
 
     -- * Response
     , VerifyEmailAddressResponse
+    -- ** Response constructor
+    , mkVerifyEmailAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,6 +72,13 @@ instance ToQuery VerifyEmailAddress where
 
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyEmailAddressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkVerifyEmailAddressResponse :: VerifyEmailAddressResponse
+mkVerifyEmailAddressResponse = VerifyEmailAddressResponse
 
 instance AWSRequest VerifyEmailAddress where
     type Sv VerifyEmailAddress = SES

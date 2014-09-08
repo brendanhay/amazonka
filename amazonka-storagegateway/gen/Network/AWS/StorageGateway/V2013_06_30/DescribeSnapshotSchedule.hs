@@ -45,6 +45,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule
 
     -- * Response
     , DescribeSnapshotScheduleResponse
+    -- ** Response constructor
+    , mkDescribeSnapshotScheduleResponse
     -- ** Response lenses
     , dssrrVolumeARN
     , dssrrStartAt
@@ -91,6 +93,19 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     , _dssrrDescription :: Maybe Text
     , _dssrrTimezone :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSnapshotScheduleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse
+mkDescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
+    { _dssrrVolumeARN = Nothing
+    , _dssrrStartAt = Nothing
+    , _dssrrRecurrenceInHours = Nothing
+    , _dssrrDescription = Nothing
+    , _dssrrTimezone = Nothing
+    }
 
 dssrrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrrVolumeARN = lens _dssrrVolumeARN (\s a -> s { _dssrrVolumeARN = a })

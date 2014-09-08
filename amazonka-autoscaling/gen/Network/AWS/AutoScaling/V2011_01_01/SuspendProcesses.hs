@@ -37,6 +37,8 @@ module Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses
 
     -- * Response
     , SuspendProcessesResponse
+    -- ** Response constructor
+    , mkSuspendProcessesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -77,6 +79,13 @@ instance ToQuery SuspendProcesses where
 
 data SuspendProcessesResponse = SuspendProcessesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SuspendProcessesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSuspendProcessesResponse :: SuspendProcessesResponse
+mkSuspendProcessesResponse = SuspendProcessesResponse
 
 instance AWSRequest SuspendProcesses where
     type Sv SuspendProcesses = AutoScaling

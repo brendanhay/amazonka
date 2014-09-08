@@ -38,6 +38,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeRegions
 
     -- * Response
     , DescribeRegionsResponse
+    -- ** Response constructor
+    , mkDescribeRegionsResponse
     -- ** Response lenses
     , drrRegions
     ) where
@@ -77,6 +79,15 @@ instance ToQuery DescribeRegions where
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRegionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeRegionsResponse :: DescribeRegionsResponse
+mkDescribeRegionsResponse = DescribeRegionsResponse
+    { _drrRegions = mempty
+    }
 
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResponse [Region]

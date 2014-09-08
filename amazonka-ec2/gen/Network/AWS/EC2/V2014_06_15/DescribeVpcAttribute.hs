@@ -51,6 +51,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute
 
     -- * Response
     , DescribeVpcAttributeResponse
+    -- ** Response constructor
+    , mkDescribeVpcAttributeResponse
     -- ** Response lenses
     , dvarrVpcId
     , dvarrEnableDnsSupport
@@ -93,6 +95,17 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     , _dvarrEnableDnsSupport :: Maybe AttributeBooleanValue
     , _dvarrEnableDnsHostnames :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpcAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVpcAttributeResponse :: DescribeVpcAttributeResponse
+mkDescribeVpcAttributeResponse = DescribeVpcAttributeResponse
+    { _dvarrVpcId = Nothing
+    , _dvarrEnableDnsSupport = Nothing
+    , _dvarrEnableDnsHostnames = Nothing
+    }
 
 -- | The ID of the VPC.
 dvarrVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)

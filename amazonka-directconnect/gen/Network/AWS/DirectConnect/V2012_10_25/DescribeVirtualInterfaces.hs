@@ -39,6 +39,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
 
     -- * Response
     , DescribeVirtualInterfacesResponse
+    -- ** Response constructor
+    , mkDescribeVirtualInterfacesResponse
     -- ** Response lenses
     , dvirrVirtualInterfaces
     ) where
@@ -83,6 +85,15 @@ instance ToJSON DescribeVirtualInterfaces
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _dvirrVirtualInterfaces :: [VirtualInterface]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVirtualInterfacesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
+mkDescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
+    { _dvirrVirtualInterfaces = mempty
+    }
 
 -- | A list of virtual interfaces.
 dvirrVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]

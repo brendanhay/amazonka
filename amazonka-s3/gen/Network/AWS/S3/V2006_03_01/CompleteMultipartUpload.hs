@@ -32,6 +32,8 @@ module Network.AWS.S3.V2006_03_01.CompleteMultipartUpload
 
     -- * Response
     , CompleteMultipartUploadResponse
+    -- ** Response constructor
+    , mkCompleteMultipartUploadResponse
     -- ** Response lenses
     , cmurLocation
     , cmurBucket
@@ -107,6 +109,21 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmurServerSideEncryption :: Maybe ServerSideEncryption
     , _cmurVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CompleteMultipartUploadResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCompleteMultipartUploadResponse :: CompleteMultipartUploadResponse
+mkCompleteMultipartUploadResponse = CompleteMultipartUploadResponse
+    { _cmurLocation = Nothing
+    , _cmurBucket = Nothing
+    , _cmurKey = Nothing
+    , _cmurExpiration = Nothing
+    , _cmurETag = Nothing
+    , _cmurServerSideEncryption = Nothing
+    , _cmurVersionId = Nothing
+    }
 
 cmurLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmurLocation = lens _cmurLocation (\s a -> s { _cmurLocation = a })

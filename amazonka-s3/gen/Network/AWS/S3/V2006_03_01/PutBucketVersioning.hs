@@ -33,6 +33,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketVersioning
 
     -- * Response
     , PutBucketVersioningResponse
+    -- ** Response constructor
+    , mkPutBucketVersioningResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -97,6 +99,13 @@ instance ToBody PutBucketVersioning where
 
 data PutBucketVersioningResponse = PutBucketVersioningResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketVersioningResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketVersioningResponse :: PutBucketVersioningResponse
+mkPutBucketVersioningResponse = PutBucketVersioningResponse
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3

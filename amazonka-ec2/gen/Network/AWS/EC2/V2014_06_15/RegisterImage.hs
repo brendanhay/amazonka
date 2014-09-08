@@ -82,6 +82,8 @@ module Network.AWS.EC2.V2014_06_15.RegisterImage
 
     -- * Response
     , RegisterImageResponse
+    -- ** Response constructor
+    , mkRegisterImageResponse
     -- ** Response lenses
     , rirImageId
     ) where
@@ -180,6 +182,15 @@ instance ToQuery RegisterImage where
 newtype RegisterImageResponse = RegisterImageResponse
     { _rirImageId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterImageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterImageResponse :: RegisterImageResponse
+mkRegisterImageResponse = RegisterImageResponse
+    { _rirImageId = Nothing
+    }
 
 -- | The ID of the newly registered AMI.
 rirImageId :: Lens' RegisterImageResponse (Maybe Text)

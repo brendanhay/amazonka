@@ -43,6 +43,8 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
 
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
+    -- ** Response constructor
+    , mkReportTaskRunnerHeartbeatResponse
     -- ** Response lenses
     , rtrhrTerminate
     ) where
@@ -102,6 +104,16 @@ instance ToJSON ReportTaskRunnerHeartbeat
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReportTaskRunnerHeartbeatResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReportTaskRunnerHeartbeatResponse :: Bool -- ^ 'rtrhrTerminate'
+                                    -> ReportTaskRunnerHeartbeatResponse
+mkReportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
+    { _rtrhrTerminate = p1
+    }
 
 -- | Indicates whether the calling task runner should terminate. If True, the
 -- task runner that called ReportTaskRunnerHeartbeat should terminate.

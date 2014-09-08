@@ -68,6 +68,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeTags
 
     -- * Response
     , DescribeTagsResponse
+    -- ** Response constructor
+    , mkDescribeTagsResponse
     -- ** Response lenses
     , dtrTags
     , dtrNextToken
@@ -121,6 +123,16 @@ data DescribeTagsResponse = DescribeTagsResponse
     { _dtrTags :: [TagDescription]
     , _dtrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTagsResponse :: DescribeTagsResponse
+mkDescribeTagsResponse = DescribeTagsResponse
+    { _dtrTags = mempty
+    , _dtrNextToken = Nothing
+    }
 
 -- | A list of tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]

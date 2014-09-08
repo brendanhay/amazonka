@@ -44,6 +44,8 @@ module Network.AWS.S3.V2006_03_01.UploadPartCopy
 
     -- * Response
     , UploadPartCopyResponse
+    -- ** Response constructor
+    , mkUploadPartCopyResponse
     -- ** Response lenses
     , upcrCopySourceVersionId
     , upcrCopyPartResult
@@ -242,6 +244,19 @@ data UploadPartCopyResponse = UploadPartCopyResponse
     , _upcrSSECustomerAlgorithm :: Maybe Text
     , _upcrSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UploadPartCopyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUploadPartCopyResponse :: UploadPartCopyResponse
+mkUploadPartCopyResponse = UploadPartCopyResponse
+    { _upcrCopySourceVersionId = Nothing
+    , _upcrCopyPartResult = Nothing
+    , _upcrServerSideEncryption = Nothing
+    , _upcrSSECustomerAlgorithm = Nothing
+    , _upcrSSECustomerKeyMD5 = Nothing
+    }
 
 -- | The version of the source object that was copied, if you have enabled
 -- versioning on the source bucket.

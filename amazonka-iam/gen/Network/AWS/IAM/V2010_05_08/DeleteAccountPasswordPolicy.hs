@@ -28,6 +28,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy
     , mkDeleteAccountPasswordPolicy
     -- * Response
     , DeleteAccountPasswordPolicyResponse
+    -- ** Response constructor
+    , mkDeleteAccountPasswordPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -47,6 +49,13 @@ instance ToQuery DeleteAccountPasswordPolicy where
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAccountPasswordPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
+mkDeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 
 instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM

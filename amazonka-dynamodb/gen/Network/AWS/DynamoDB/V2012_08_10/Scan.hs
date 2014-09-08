@@ -59,6 +59,8 @@ module Network.AWS.DynamoDB.V2012_08_10.Scan
 
     -- * Response
     , ScanResponse
+    -- ** Response constructor
+    , mkScanResponse
     -- ** Response lenses
     , srItems
     , srCount
@@ -289,6 +291,19 @@ data ScanResponse = ScanResponse
     , _srLastEvaluatedKey :: Map Text AttributeValue
     , _srConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ScanResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkScanResponse :: ScanResponse
+mkScanResponse = ScanResponse
+    { _srItems = mempty
+    , _srCount = Nothing
+    , _srScannedCount = Nothing
+    , _srLastEvaluatedKey = mempty
+    , _srConsumedCapacity = Nothing
+    }
 
 -- | An array of item attributes that match the scan criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.

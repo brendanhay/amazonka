@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute
 
     -- * Response
     , ModifyVolumeAttributeResponse
+    -- ** Response constructor
+    , mkModifyVolumeAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -77,6 +79,13 @@ instance ToQuery ModifyVolumeAttribute where
 
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyVolumeAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
+mkModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2

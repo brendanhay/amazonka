@@ -50,6 +50,8 @@ module Network.AWS.SES.V2010_12_01.VerifyDomainDkim
 
     -- * Response
     , VerifyDomainDkimResponse
+    -- ** Response constructor
+    , mkVerifyDomainDkimResponse
     -- ** Response lenses
     , vddrDkimTokens
     ) where
@@ -84,6 +86,16 @@ instance ToQuery VerifyDomainDkim where
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'VerifyDomainDkimResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkVerifyDomainDkimResponse :: [Text] -- ^ 'vddrDkimTokens'
+                           -> VerifyDomainDkimResponse
+mkVerifyDomainDkimResponse p1 = VerifyDomainDkimResponse
+    { _vddrDkimTokens = p1
+    }
 
 -- | A set of character strings that represent the domain's identity. If the
 -- identity is an email address, the tokens represent the domain of that

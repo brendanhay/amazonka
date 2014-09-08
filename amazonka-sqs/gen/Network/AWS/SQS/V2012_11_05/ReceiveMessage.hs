@@ -71,6 +71,8 @@ module Network.AWS.SQS.V2012_11_05.ReceiveMessage
 
     -- * Response
     , ReceiveMessageResponse
+    -- ** Response constructor
+    , mkReceiveMessageResponse
     -- ** Response lenses
     , rmrMessages
     ) where
@@ -160,6 +162,15 @@ instance ToQuery ReceiveMessage where
 newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: [Message]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReceiveMessageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReceiveMessageResponse :: ReceiveMessageResponse
+mkReceiveMessageResponse = ReceiveMessageResponse
+    { _rmrMessages = mempty
+    }
 
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResponse [Message]

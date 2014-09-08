@@ -72,6 +72,8 @@ module Network.AWS.SWF.V2012_01_25.PollForActivityTask
 
     -- * Response
     , PollForActivityTaskResponse
+    -- ** Response constructor
+    , mkPollForActivityTaskResponse
     -- ** Response lenses
     , pfatrTaskToken
     , pfatrActivityId
@@ -137,6 +139,25 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
     , _pfatrActivityType :: ActivityType
     , _pfatrInput :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PollForActivityTaskResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPollForActivityTaskResponse :: Text -- ^ 'pfatrTaskToken'
+                              -> Text -- ^ 'pfatrActivityId'
+                              -> Integer -- ^ 'pfatrStartedEventId'
+                              -> WorkflowExecution -- ^ 'pfatrWorkflowExecution'
+                              -> ActivityType -- ^ 'pfatrActivityType'
+                              -> PollForActivityTaskResponse
+mkPollForActivityTaskResponse p1 p2 p3 p4 p5 = PollForActivityTaskResponse
+    { _pfatrTaskToken = p1
+    , _pfatrActivityId = p2
+    , _pfatrStartedEventId = p3
+    , _pfatrWorkflowExecution = p4
+    , _pfatrActivityType = p5
+    , _pfatrInput = Nothing
+    }
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system

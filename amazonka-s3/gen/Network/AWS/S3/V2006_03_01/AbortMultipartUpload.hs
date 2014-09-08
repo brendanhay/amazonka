@@ -33,6 +33,8 @@ module Network.AWS.S3.V2006_03_01.AbortMultipartUpload
 
     -- * Response
     , AbortMultipartUploadResponse
+    -- ** Response constructor
+    , mkAbortMultipartUploadResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -86,6 +88,13 @@ instance ToBody AbortMultipartUpload
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AbortMultipartUploadResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAbortMultipartUploadResponse :: AbortMultipartUploadResponse
+mkAbortMultipartUploadResponse = AbortMultipartUploadResponse
 
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3

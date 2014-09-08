@@ -35,6 +35,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteKeyPair
 
     -- * Response
     , DeleteKeyPairResponse
+    -- ** Response constructor
+    , mkDeleteKeyPairResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,6 +65,13 @@ instance ToQuery DeleteKeyPair where
 
 data DeleteKeyPairResponse = DeleteKeyPairResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteKeyPairResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteKeyPairResponse :: DeleteKeyPairResponse
+mkDeleteKeyPairResponse = DeleteKeyPairResponse
 
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2

@@ -35,6 +35,8 @@ module Network.AWS.SimpleDB.V2009_04_15.ListDomains
 
     -- * Response
     , ListDomainsResponse
+    -- ** Response constructor
+    , mkListDomainsResponse
     -- ** Response lenses
     , ldrDomainNames
     , ldrNextToken
@@ -75,6 +77,16 @@ data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames :: [Text]
     , _ldrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListDomainsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListDomainsResponse :: ListDomainsResponse
+mkListDomainsResponse = ListDomainsResponse
+    { _ldrDomainNames = mempty
+    , _ldrNextToken = Nothing
+    }
 
 -- | A list of domain names that match the expression.
 ldrDomainNames :: Lens' ListDomainsResponse [Text]

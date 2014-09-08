@@ -46,6 +46,8 @@ module Network.AWS.EC2.V2014_06_15.CreateImage
 
     -- * Response
     , CreateImageResponse
+    -- ** Response constructor
+    , mkCreateImageResponse
     -- ** Response lenses
     , cirrImageId
     ) where
@@ -109,6 +111,15 @@ instance ToQuery CreateImage where
 newtype CreateImageResponse = CreateImageResponse
     { _cirrImageId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateImageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateImageResponse :: CreateImageResponse
+mkCreateImageResponse = CreateImageResponse
+    { _cirrImageId = Nothing
+    }
 
 -- | The ID of the new AMI.
 cirrImageId :: Lens' CreateImageResponse (Maybe Text)

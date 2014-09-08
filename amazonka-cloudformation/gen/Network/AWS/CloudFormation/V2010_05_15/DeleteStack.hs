@@ -35,6 +35,8 @@ module Network.AWS.CloudFormation.V2010_05_15.DeleteStack
 
     -- * Response
     , DeleteStackResponse
+    -- ** Response constructor
+    , mkDeleteStackResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,6 +65,13 @@ instance ToQuery DeleteStack where
 
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteStackResponse :: DeleteStackResponse
+mkDeleteStackResponse = DeleteStackResponse
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = CloudFormation

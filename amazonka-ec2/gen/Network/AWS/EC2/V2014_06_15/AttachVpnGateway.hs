@@ -41,6 +41,8 @@ module Network.AWS.EC2.V2014_06_15.AttachVpnGateway
 
     -- * Response
     , AttachVpnGatewayResponse
+    -- ** Response constructor
+    , mkAttachVpnGatewayResponse
     -- ** Response lenses
     , avgrVpcAttachment
     ) where
@@ -80,6 +82,15 @@ instance ToQuery AttachVpnGateway where
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment :: Maybe VpcAttachment
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachVpnGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAttachVpnGatewayResponse :: AttachVpnGatewayResponse
+mkAttachVpnGatewayResponse = AttachVpnGatewayResponse
+    { _avgrVpcAttachment = Nothing
+    }
 
 -- | Information about the attachment.
 avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)

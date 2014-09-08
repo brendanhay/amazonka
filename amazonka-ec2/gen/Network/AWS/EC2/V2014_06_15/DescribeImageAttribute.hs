@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeImageAttribute
 
     -- * Response
     , DescribeImageAttributeResponse
+    -- ** Response constructor
+    , mkDescribeImageAttributeResponse
     -- ** Response lenses
     , diarImageId
     , diarLaunchPermissions
@@ -93,6 +95,22 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     , _diarSriovNetSupport :: Maybe AttributeValue
     , _diarBlockDeviceMappings :: [BlockDeviceMapping]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeImageAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeImageAttributeResponse :: DescribeImageAttributeResponse
+mkDescribeImageAttributeResponse = DescribeImageAttributeResponse
+    { _diarImageId = Nothing
+    , _diarLaunchPermissions = mempty
+    , _diarProductCodes = mempty
+    , _diarKernelId = Nothing
+    , _diarRamdiskId = Nothing
+    , _diarDescription = Nothing
+    , _diarSriovNetSupport = Nothing
+    , _diarBlockDeviceMappings = mempty
+    }
 
 -- | The ID of the AMI.
 diarImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)

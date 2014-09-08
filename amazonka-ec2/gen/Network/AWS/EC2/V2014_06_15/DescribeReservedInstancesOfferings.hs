@@ -87,6 +87,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings
 
     -- * Response
     , DescribeReservedInstancesOfferingsResponse
+    -- ** Response constructor
+    , mkDescribeReservedInstancesOfferingsResponse
     -- ** Response lenses
     , driorReservedInstancesOfferings
     , driorNextToken
@@ -218,6 +220,16 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
     { _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
     , _driorNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedInstancesOfferingsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
+mkDescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
+    { _driorReservedInstancesOfferings = mempty
+    , _driorNextToken = Nothing
+    }
 
 -- | A list of Reserved Instances offerings.
 driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]

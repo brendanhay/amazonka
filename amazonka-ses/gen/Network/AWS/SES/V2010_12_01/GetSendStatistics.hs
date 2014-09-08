@@ -37,6 +37,8 @@ module Network.AWS.SES.V2010_12_01.GetSendStatistics
     , mkGetSendStatistics
     -- * Response
     , GetSendStatisticsResponse
+    -- ** Response constructor
+    , mkGetSendStatisticsResponse
     -- ** Response lenses
     , gssrSendDataPoints
     ) where
@@ -62,6 +64,15 @@ instance ToQuery GetSendStatistics where
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSendStatisticsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetSendStatisticsResponse :: GetSendStatisticsResponse
+mkGetSendStatisticsResponse = GetSendStatisticsResponse
+    { _gssrSendDataPoints = mempty
+    }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]

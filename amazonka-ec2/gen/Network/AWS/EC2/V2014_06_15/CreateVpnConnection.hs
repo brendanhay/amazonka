@@ -83,6 +83,8 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnection
 
     -- * Response
     , CreateVpnConnectionResponse
+    -- ** Response constructor
+    , mkCreateVpnConnectionResponse
     -- ** Response lenses
     , cvcrVpnConnection
     ) where
@@ -138,6 +140,15 @@ instance ToQuery CreateVpnConnection where
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection :: Maybe VpnConnection
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVpnConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateVpnConnectionResponse :: CreateVpnConnectionResponse
+mkCreateVpnConnectionResponse = CreateVpnConnectionResponse
+    { _cvcrVpnConnection = Nothing
+    }
 
 -- | Information about the VPN connection.
 cvcrVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)

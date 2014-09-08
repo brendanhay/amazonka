@@ -38,6 +38,8 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult
 
     -- * Response
     , DescribeTrustedAdvisorCheckResultResponse
+    -- ** Response constructor
+    , mkDescribeTrustedAdvisorCheckResultResponse
     -- ** Response lenses
     , dtacrrResult
     ) where
@@ -84,6 +86,15 @@ instance ToJSON DescribeTrustedAdvisorCheckResult
 newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrustedAdvisorCheckResultResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse
+mkDescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
+    { _dtacrrResult = Nothing
+    }
 
 -- | The detailed results of the Trusted Advisor check.
 dtacrrResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)

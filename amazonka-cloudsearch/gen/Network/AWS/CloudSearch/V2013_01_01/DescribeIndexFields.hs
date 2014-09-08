@@ -36,6 +36,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeIndexFields
 
     -- * Response
     , DescribeIndexFieldsResponse
+    -- ** Response constructor
+    , mkDescribeIndexFieldsResponse
     -- ** Response lenses
     , difr1IndexFields
     ) where
@@ -87,6 +89,16 @@ instance ToQuery DescribeIndexFields where
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difr1IndexFields :: [IndexFieldStatus]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeIndexFieldsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeIndexFieldsResponse :: [IndexFieldStatus] -- ^ 'difr1IndexFields'
+                              -> DescribeIndexFieldsResponse
+mkDescribeIndexFieldsResponse p1 = DescribeIndexFieldsResponse
+    { _difr1IndexFields = p1
+    }
 
 -- | The index fields configured for the domain.
 difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]

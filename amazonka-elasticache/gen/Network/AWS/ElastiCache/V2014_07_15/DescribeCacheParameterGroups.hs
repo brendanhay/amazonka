@@ -41,6 +41,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups
 
     -- * Response
     , DescribeCacheParameterGroupsResponse
+    -- ** Response constructor
+    , mkDescribeCacheParameterGroupsResponse
     -- ** Response lenses
     , dcpgrMarker
     , dcpgrCacheParameterGroups
@@ -94,6 +96,16 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrMarker :: Maybe Text
     , _dcpgrCacheParameterGroups :: [CacheParameterGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheParameterGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
+mkDescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
+    { _dcpgrMarker = Nothing
+    , _dcpgrCacheParameterGroups = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)

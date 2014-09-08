@@ -47,6 +47,8 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateInstance
 
     -- * Response
     , CreateInstanceResponse
+    -- ** Response constructor
+    , mkCreateInstanceResponse
     -- ** Response lenses
     , cirInstanceId
     ) where
@@ -206,6 +208,15 @@ instance ToJSON CreateInstance
 newtype CreateInstanceResponse = CreateInstanceResponse
     { _cirInstanceId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateInstanceResponse :: CreateInstanceResponse
+mkCreateInstanceResponse = CreateInstanceResponse
+    { _cirInstanceId = Nothing
+    }
 
 -- | The instance ID.
 cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)

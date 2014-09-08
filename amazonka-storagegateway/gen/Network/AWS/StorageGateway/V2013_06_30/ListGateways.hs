@@ -51,6 +51,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ListGateways
 
     -- * Response
     , ListGatewaysResponse
+    -- ** Response constructor
+    , mkListGatewaysResponse
     -- ** Response lenses
     , lgrGateways
     , lgrMarker
@@ -97,6 +99,16 @@ data ListGatewaysResponse = ListGatewaysResponse
     { _lgrGateways :: [GatewayInformation]
     , _lgrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGatewaysResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListGatewaysResponse :: ListGatewaysResponse
+mkListGatewaysResponse = ListGatewaysResponse
+    { _lgrGateways = mempty
+    , _lgrMarker = Nothing
+    }
 
 lgrGateways :: Lens' ListGatewaysResponse [GatewayInformation]
 lgrGateways = lens _lgrGateways (\s a -> s { _lgrGateways = a })

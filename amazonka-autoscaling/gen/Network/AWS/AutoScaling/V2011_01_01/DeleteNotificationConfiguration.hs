@@ -30,6 +30,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteNotificationConfiguration
 
     -- * Response
     , DeleteNotificationConfigurationResponse
+    -- ** Response constructor
+    , mkDeleteNotificationConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,6 +70,13 @@ instance ToQuery DeleteNotificationConfiguration where
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteNotificationConfigurationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
+mkDeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
 
 instance AWSRequest DeleteNotificationConfiguration where
     type Sv DeleteNotificationConfiguration = AutoScaling

@@ -39,6 +39,8 @@ module Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags
 
     -- * Response
     , CreateOrUpdateTagsResponse
+    -- ** Response constructor
+    , mkCreateOrUpdateTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -80,6 +82,13 @@ instance ToQuery CreateOrUpdateTags where
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateOrUpdateTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
+mkCreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 
 instance AWSRequest CreateOrUpdateTags where
     type Sv CreateOrUpdateTags = AutoScaling

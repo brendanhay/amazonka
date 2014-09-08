@@ -48,6 +48,8 @@ module Network.AWS.IAM.V2010_05_08.CreateSAMLProvider
 
     -- * Response
     , CreateSAMLProviderResponse
+    -- ** Response constructor
+    , mkCreateSAMLProviderResponse
     -- ** Response lenses
     , csamlprSAMLProviderArn
     ) where
@@ -97,6 +99,15 @@ instance ToQuery CreateSAMLProvider where
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateSAMLProviderResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateSAMLProviderResponse :: CreateSAMLProviderResponse
+mkCreateSAMLProviderResponse = CreateSAMLProviderResponse
+    { _csamlprSAMLProviderArn = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
 csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)

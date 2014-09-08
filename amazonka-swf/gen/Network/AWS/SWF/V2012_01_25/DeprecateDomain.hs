@@ -58,6 +58,8 @@ module Network.AWS.SWF.V2012_01_25.DeprecateDomain
 
     -- * Response
     , DeprecateDomainResponse
+    -- ** Response constructor
+    , mkDeprecateDomainResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -90,6 +92,13 @@ instance ToJSON DeprecateDomain
 
 data DeprecateDomainResponse = DeprecateDomainResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeprecateDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeprecateDomainResponse :: DeprecateDomainResponse
+mkDeprecateDomainResponse = DeprecateDomainResponse
 
 instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF

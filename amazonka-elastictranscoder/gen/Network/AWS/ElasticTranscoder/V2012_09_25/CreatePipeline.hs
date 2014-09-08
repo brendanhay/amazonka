@@ -69,6 +69,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePipeline
 
     -- * Response
     , CreatePipelineResponse
+    -- ** Response constructor
+    , mkCreatePipelineResponse
     -- ** Response lenses
     , cprPipeline
     ) where
@@ -257,6 +259,15 @@ instance ToJSON CreatePipeline
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreatePipelineResponse :: CreatePipelineResponse
+mkCreatePipelineResponse = CreatePipelineResponse
+    { _cprPipeline = Nothing
+    }
 
 -- | A section of the response body that provides information about the pipeline
 -- that is created.

@@ -42,6 +42,8 @@ module Network.AWS.AutoScaling.V2011_01_01.RecordLifecycleActionHeartbeat
 
     -- * Response
     , RecordLifecycleActionHeartbeatResponse
+    -- ** Response constructor
+    , mkRecordLifecycleActionHeartbeatResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -92,6 +94,13 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 -- | The output of the RecordLifecycleActionHeartbeat action.
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RecordLifecycleActionHeartbeatResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRecordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
+mkRecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
 
 instance AWSRequest RecordLifecycleActionHeartbeat where
     type Sv RecordLifecycleActionHeartbeat = AutoScaling

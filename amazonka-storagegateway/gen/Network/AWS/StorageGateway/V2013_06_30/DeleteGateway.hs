@@ -53,6 +53,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteGateway
 
     -- * Response
     , DeleteGatewayResponse
+    -- ** Response constructor
+    , mkDeleteGatewayResponse
     -- ** Response lenses
     , dgrGatewayARN
     ) where
@@ -91,6 +93,15 @@ instance ToJSON DeleteGateway
 newtype DeleteGatewayResponse = DeleteGatewayResponse
     { _dgrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteGatewayResponse :: DeleteGatewayResponse
+mkDeleteGatewayResponse = DeleteGatewayResponse
+    { _dgrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

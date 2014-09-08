@@ -35,6 +35,8 @@ module Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute
 
     -- * Response
     , ModifySubnetAttributeResponse
+    -- ** Response constructor
+    , mkModifySubnetAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -71,6 +73,13 @@ instance ToQuery ModifySubnetAttribute where
 
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifySubnetAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifySubnetAttributeResponse :: ModifySubnetAttributeResponse
+mkModifySubnetAttributeResponse = ModifySubnetAttributeResponse
 
 instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2

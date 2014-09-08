@@ -39,6 +39,8 @@ module Network.AWS.AutoScaling.V2011_01_01.ExitStandby
 
     -- * Response
     , ExitStandbyResponse
+    -- ** Response constructor
+    , mkExitStandbyResponse
     -- ** Response lenses
     , esrrActivities
     ) where
@@ -81,6 +83,15 @@ instance ToQuery ExitStandby where
 newtype ExitStandbyResponse = ExitStandbyResponse
     { _esrrActivities :: [Activity]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ExitStandbyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkExitStandbyResponse :: ExitStandbyResponse
+mkExitStandbyResponse = ExitStandbyResponse
+    { _esrrActivities = mempty
+    }
 
 -- | A list describing the activities related to moving instances out of Standby
 -- mode.

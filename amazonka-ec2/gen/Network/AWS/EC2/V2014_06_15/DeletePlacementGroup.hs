@@ -38,6 +38,8 @@ module Network.AWS.EC2.V2014_06_15.DeletePlacementGroup
 
     -- * Response
     , DeletePlacementGroupResponse
+    -- ** Response constructor
+    , mkDeletePlacementGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,6 +68,13 @@ instance ToQuery DeletePlacementGroup where
 
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePlacementGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeletePlacementGroupResponse :: DeletePlacementGroupResponse
+mkDeletePlacementGroupResponse = DeletePlacementGroupResponse
 
 instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2

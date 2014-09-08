@@ -61,6 +61,8 @@ module Network.AWS.EC2.V2014_06_15.CreateKeyPair
 
     -- * Response
     , CreateKeyPairResponse
+    -- ** Response constructor
+    , mkCreateKeyPairResponse
     -- ** Response lenses
     , ckprKeyName
     , ckprKeyFingerprint
@@ -97,6 +99,17 @@ data CreateKeyPairResponse = CreateKeyPairResponse
     , _ckprKeyFingerprint :: Maybe Text
     , _ckprKeyMaterial :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateKeyPairResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateKeyPairResponse :: CreateKeyPairResponse
+mkCreateKeyPairResponse = CreateKeyPairResponse
+    { _ckprKeyName = Nothing
+    , _ckprKeyFingerprint = Nothing
+    , _ckprKeyMaterial = Nothing
+    }
 
 -- | The name of the key pair.
 ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)

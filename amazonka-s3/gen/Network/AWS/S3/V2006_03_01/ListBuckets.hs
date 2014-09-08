@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.ListBuckets
     , mkListBuckets
     -- * Response
     , ListBucketsResponse
+    -- ** Response constructor
+    , mkListBucketsResponse
     -- ** Response lenses
     , lbrBuckets
     , lbrOwner
@@ -62,6 +64,16 @@ data ListBucketsResponse = ListBucketsResponse
     { _lbrBuckets :: [Bucket]
     , _lbrOwner :: Maybe Owner
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListBucketsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListBucketsResponse :: ListBucketsResponse
+mkListBucketsResponse = ListBucketsResponse
+    { _lbrBuckets = mempty
+    , _lbrOwner = Nothing
+    }
 
 lbrBuckets :: Lens' ListBucketsResponse [Bucket]
 lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })

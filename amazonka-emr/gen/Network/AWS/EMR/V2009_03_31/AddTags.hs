@@ -39,6 +39,8 @@ module Network.AWS.EMR.V2009_03_31.AddTags
 
     -- * Response
     , AddTagsResponse
+    -- ** Response constructor
+    , mkAddTagsResponse
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -84,6 +86,13 @@ instance ToJSON AddTags
 -- | This output indicates the result of adding tags to a resource.
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddTagsResponse :: AddTagsResponse
+mkAddTagsResponse = AddTagsResponse
 
 instance AWSRequest AddTags where
     type Sv AddTags = EMR

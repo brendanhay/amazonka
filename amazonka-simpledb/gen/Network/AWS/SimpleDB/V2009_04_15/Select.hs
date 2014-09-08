@@ -39,6 +39,8 @@ module Network.AWS.SimpleDB.V2009_04_15.Select
 
     -- * Response
     , SelectResponse
+    -- ** Response constructor
+    , mkSelectResponse
     -- ** Response lenses
     , srItems
     , srNextToken
@@ -88,6 +90,16 @@ data SelectResponse = SelectResponse
     { _srItems :: [Item]
     , _srNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SelectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSelectResponse :: SelectResponse
+mkSelectResponse = SelectResponse
+    { _srItems = mempty
+    , _srNextToken = Nothing
+    }
 
 -- | A list of items that match the select expression.
 srItems :: Lens' SelectResponse [Item]

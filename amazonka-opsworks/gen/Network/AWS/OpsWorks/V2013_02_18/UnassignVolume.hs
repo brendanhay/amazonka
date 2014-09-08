@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.UnassignVolume
 
     -- * Response
     , UnassignVolumeResponse
+    -- ** Response constructor
+    , mkUnassignVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -66,6 +68,13 @@ instance ToJSON UnassignVolume
 
 data UnassignVolumeResponse = UnassignVolumeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnassignVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUnassignVolumeResponse :: UnassignVolumeResponse
+mkUnassignVolumeResponse = UnassignVolumeResponse
 
 instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks

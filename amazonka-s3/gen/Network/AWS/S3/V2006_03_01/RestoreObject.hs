@@ -34,6 +34,8 @@ module Network.AWS.S3.V2006_03_01.RestoreObject
 
     -- * Response
     , RestoreObjectResponse
+    -- ** Response constructor
+    , mkRestoreObjectResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -95,6 +97,13 @@ instance ToBody RestoreObject where
 
 data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestoreObjectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRestoreObjectResponse :: RestoreObjectResponse
+mkRestoreObjectResponse = RestoreObjectResponse
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3

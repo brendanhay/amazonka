@@ -54,6 +54,8 @@ module Network.AWS.DynamoDB.V2012_08_10.PutItem
 
     -- * Response
     , PutItemResponse
+    -- ** Response constructor
+    , mkPutItemResponse
     -- ** Response lenses
     , pirAttributes
     , pirConsumedCapacity
@@ -177,6 +179,17 @@ data PutItemResponse = PutItemResponse
     , _pirConsumedCapacity :: Maybe ConsumedCapacity
     , _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutItemResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutItemResponse :: PutItemResponse
+mkPutItemResponse = PutItemResponse
+    { _pirAttributes = mempty
+    , _pirConsumedCapacity = Nothing
+    , _pirItemCollectionMetrics = Nothing
+    }
 
 -- | The attribute values as they appeared before the PutItem operation, but
 -- only if ReturnValues is specified as ALL_OLD in the request. Each element

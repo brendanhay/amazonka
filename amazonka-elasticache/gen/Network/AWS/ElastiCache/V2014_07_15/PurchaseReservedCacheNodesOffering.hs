@@ -40,6 +40,8 @@ module Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering
 
     -- * Response
     , PurchaseReservedCacheNodesOfferingResponse
+    -- ** Response constructor
+    , mkPurchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
     , prcnorReservedCacheNode
     ) where
@@ -90,6 +92,15 @@ instance ToQuery PurchaseReservedCacheNodesOffering where
 newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedCacheNodesOfferingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPurchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResponse
+mkPurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
+    { _prcnorReservedCacheNode = Nothing
+    }
 
 -- | Represents the output of a PurchaseReservedCacheNodesOffering operation.
 prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)

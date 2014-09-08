@@ -38,6 +38,8 @@ module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
 
     -- * Response
     , ValidateTemplateResponse
+    -- ** Response constructor
+    , mkValidateTemplateResponse
     -- ** Response lenses
     , vtrParameters
     , vtrDescription
@@ -88,6 +90,18 @@ data ValidateTemplateResponse = ValidateTemplateResponse
     , _vtrCapabilities :: [Capability]
     , _vtrCapabilitiesReason :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ValidateTemplateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkValidateTemplateResponse :: ValidateTemplateResponse
+mkValidateTemplateResponse = ValidateTemplateResponse
+    { _vtrParameters = mempty
+    , _vtrDescription = Nothing
+    , _vtrCapabilities = mempty
+    , _vtrCapabilitiesReason = Nothing
+    }
 
 -- | A list of TemplateParameter structures.
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]

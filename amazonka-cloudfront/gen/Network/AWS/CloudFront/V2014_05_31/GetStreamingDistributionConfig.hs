@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig
 
     -- * Response
     , GetStreamingDistributionConfigResponse
+    -- ** Response constructor
+    , mkGetStreamingDistributionConfigResponse
     -- ** Response lenses
     , gsdcrStreamingDistributionConfig
     , gsdcrETag
@@ -76,6 +78,16 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
     { _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
     , _gsdcrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetStreamingDistributionConfigResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetStreamingDistributionConfigResponse :: GetStreamingDistributionConfigResponse
+mkGetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
+    { _gsdcrStreamingDistributionConfig = Nothing
+    , _gsdcrETag = Nothing
+    }
 
 -- | The streaming distribution's configuration information.
 gsdcrStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)

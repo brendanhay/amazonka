@@ -69,6 +69,8 @@ module Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution
 
     -- * Response
     , TerminateWorkflowExecutionResponse
+    -- ** Response constructor
+    , mkTerminateWorkflowExecutionResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -144,6 +146,13 @@ instance ToJSON TerminateWorkflowExecution
 
 data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateWorkflowExecutionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTerminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse
+mkTerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
 
 instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF

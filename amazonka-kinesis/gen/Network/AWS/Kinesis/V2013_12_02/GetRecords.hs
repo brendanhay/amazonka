@@ -67,6 +67,8 @@ module Network.AWS.Kinesis.V2013_12_02.GetRecords
 
     -- * Response
     , GetRecordsResponse
+    -- ** Response constructor
+    , mkGetRecordsResponse
     -- ** Response lenses
     , grrRecords
     , grrNextShardIterator
@@ -114,6 +116,17 @@ data GetRecordsResponse = GetRecordsResponse
     { _grrRecords :: [Record]
     , _grrNextShardIterator :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRecordsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetRecordsResponse :: [Record] -- ^ 'grrRecords'
+                     -> GetRecordsResponse
+mkGetRecordsResponse p1 = GetRecordsResponse
+    { _grrRecords = p1
+    , _grrNextShardIterator = Nothing
+    }
 
 -- | The data records retrieved from the shard.
 grrRecords :: Lens' GetRecordsResponse [Record]

@@ -30,6 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions
 
     -- * Response
     , ListStreamingDistributionsResponse
+    -- ** Response constructor
+    , mkListStreamingDistributionsResponse
     -- ** Response lenses
     , lsdrStreamingDistributionList
     ) where
@@ -85,6 +87,16 @@ instance ToXML ListStreamingDistributions where
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
     { _lsdrStreamingDistributionList :: StreamingDistributionList
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStreamingDistributionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListStreamingDistributionsResponse :: StreamingDistributionList -- ^ 'lsdrStreamingDistributionList'
+                                     -> ListStreamingDistributionsResponse
+mkListStreamingDistributionsResponse p1 = ListStreamingDistributionsResponse
+    { _lsdrStreamingDistributionList = p1
+    }
 
 -- | The StreamingDistributionList type.
 lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList

@@ -58,6 +58,8 @@ module Network.AWS.SQS.V2012_11_05.SendMessage
 
     -- * Response
     , SendMessageResponse
+    -- ** Response constructor
+    , mkSendMessageResponse
     -- ** Response lenses
     , smrMD5OfMessageBody
     , smrMD5OfMessageAttributes
@@ -119,6 +121,17 @@ data SendMessageResponse = SendMessageResponse
     , _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMessageId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SendMessageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSendMessageResponse :: SendMessageResponse
+mkSendMessageResponse = SendMessageResponse
+    { _smrMD5OfMessageBody = Nothing
+    , _smrMD5OfMessageAttributes = Nothing
+    , _smrMessageId = Nothing
+    }
 
 -- | An MD5 digest of the non-URL-encoded message body string. This can be used
 -- to verify that Amazon SQS received the message correctly. Amazon SQS first

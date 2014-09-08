@@ -52,6 +52,8 @@ module Network.AWS.DynamoDB.V2012_08_10.DeleteItem
 
     -- * Response
     , DeleteItemResponse
+    -- ** Response constructor
+    , mkDeleteItemResponse
     -- ** Response lenses
     , dirAttributes
     , dirConsumedCapacity
@@ -169,6 +171,17 @@ data DeleteItemResponse = DeleteItemResponse
     , _dirConsumedCapacity :: Maybe ConsumedCapacity
     , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteItemResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteItemResponse :: DeleteItemResponse
+mkDeleteItemResponse = DeleteItemResponse
+    { _dirAttributes = mempty
+    , _dirConsumedCapacity = Nothing
+    , _dirItemCollectionMetrics = Nothing
+    }
 
 -- | A map of attribute names to AttributeValue objects, representing the item
 -- as it appeared before the DeleteItem operation. This map appears in the

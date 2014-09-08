@@ -36,6 +36,8 @@ module Network.AWS.ImportExport.V2010_06_01.UpdateJob
 
     -- * Response
     , UpdateJobResponse
+    -- ** Response constructor
+    , mkUpdateJobResponse
     -- ** Response lenses
     , ujrSuccess
     , ujrWarningMessage
@@ -92,6 +94,16 @@ data UpdateJobResponse = UpdateJobResponse
     { _ujrSuccess :: Maybe Bool
     , _ujrWarningMessage :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateJobResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateJobResponse :: UpdateJobResponse
+mkUpdateJobResponse = UpdateJobResponse
+    { _ujrSuccess = Nothing
+    , _ujrWarningMessage = Nothing
+    }
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
 ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)

@@ -36,6 +36,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion
 
     -- * Response
     , DeleteApplicationVersionResponse
+    -- ** Response constructor
+    , mkDeleteApplicationVersionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -82,6 +84,13 @@ instance ToQuery DeleteApplicationVersion where
 
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteApplicationVersionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteApplicationVersionResponse :: DeleteApplicationVersionResponse
+mkDeleteApplicationVersionResponse = DeleteApplicationVersionResponse
 
 instance AWSRequest DeleteApplicationVersion where
     type Sv DeleteApplicationVersion = ElasticBeanstalk

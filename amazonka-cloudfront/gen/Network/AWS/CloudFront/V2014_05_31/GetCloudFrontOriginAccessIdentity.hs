@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityResponse
+    -- ** Response constructor
+    , mkGetCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
     , gcfoairCloudFrontOriginAccessIdentity
     , gcfoairETag
@@ -75,6 +77,16 @@ data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdenti
     { _gcfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _gcfoairETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetCloudFrontOriginAccessIdentityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetCloudFrontOriginAccessIdentityResponse :: GetCloudFrontOriginAccessIdentityResponse
+mkGetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
+    { _gcfoairCloudFrontOriginAccessIdentity = Nothing
+    , _gcfoairETag = Nothing
+    }
 
 -- | The origin access identity's information.
 gcfoairCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)

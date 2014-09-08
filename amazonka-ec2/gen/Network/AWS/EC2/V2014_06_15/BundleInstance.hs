@@ -56,6 +56,8 @@ module Network.AWS.EC2.V2014_06_15.BundleInstance
 
     -- * Response
     , BundleInstanceResponse
+    -- ** Response constructor
+    , mkBundleInstanceResponse
     -- ** Response lenses
     , birBundleTask
     ) where
@@ -97,6 +99,15 @@ instance ToQuery BundleInstance where
 newtype BundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BundleInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkBundleInstanceResponse :: BundleInstanceResponse
+mkBundleInstanceResponse = BundleInstanceResponse
+    { _birBundleTask = Nothing
+    }
 
 -- | Information about the bundle task.
 birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)

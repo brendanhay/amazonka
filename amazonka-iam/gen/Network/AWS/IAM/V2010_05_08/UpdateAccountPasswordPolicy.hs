@@ -44,6 +44,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy
 
     -- * Response
     , UpdateAccountPasswordPolicyResponse
+    -- ** Response constructor
+    , mkUpdateAccountPasswordPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -141,6 +143,13 @@ instance ToQuery UpdateAccountPasswordPolicy where
 
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAccountPasswordPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
+mkUpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 
 instance AWSRequest UpdateAccountPasswordPolicy where
     type Sv UpdateAccountPasswordPolicy = IAM

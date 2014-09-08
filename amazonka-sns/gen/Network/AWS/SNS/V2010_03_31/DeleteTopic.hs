@@ -42,6 +42,8 @@ module Network.AWS.SNS.V2010_03_31.DeleteTopic
 
     -- * Response
     , DeleteTopicResponse
+    -- ** Response constructor
+    , mkDeleteTopicResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -80,6 +82,13 @@ instance ToQuery DeleteTopic where
 
 data DeleteTopicResponse = DeleteTopicResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTopicResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteTopicResponse :: DeleteTopicResponse
+mkDeleteTopicResponse = DeleteTopicResponse
 
 instance AWSRequest DeleteTopic where
     type Sv DeleteTopic = SNS

@@ -96,6 +96,8 @@ module Network.AWS.SWF.V2012_01_25.PollForDecisionTask
 
     -- * Response
     , PollForDecisionTaskResponse
+    -- ** Response constructor
+    , mkPollForDecisionTaskResponse
     -- ** Response lenses
     , pfdtrTaskToken
     , pfdtrStartedEventId
@@ -199,6 +201,26 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse
     , _pfdtrNextPageToken :: Maybe Text
     , _pfdtrPreviousStartedEventId :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PollForDecisionTaskResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPollForDecisionTaskResponse :: Text -- ^ 'pfdtrTaskToken'
+                              -> Integer -- ^ 'pfdtrStartedEventId'
+                              -> WorkflowExecution -- ^ 'pfdtrWorkflowExecution'
+                              -> WorkflowType -- ^ 'pfdtrWorkflowType'
+                              -> [HistoryEvent] -- ^ 'pfdtrEvents'
+                              -> PollForDecisionTaskResponse
+mkPollForDecisionTaskResponse p1 p2 p3 p4 p5 = PollForDecisionTaskResponse
+    { _pfdtrTaskToken = p1
+    , _pfdtrStartedEventId = p2
+    , _pfdtrWorkflowExecution = p3
+    , _pfdtrWorkflowType = p4
+    , _pfdtrEvents = p5
+    , _pfdtrNextPageToken = Nothing
+    , _pfdtrPreviousStartedEventId = Nothing
+    }
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system

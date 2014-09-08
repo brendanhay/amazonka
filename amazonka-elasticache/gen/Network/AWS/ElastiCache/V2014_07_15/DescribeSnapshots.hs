@@ -43,6 +43,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeSnapshots
 
     -- * Response
     , DescribeSnapshotsResponse
+    -- ** Response constructor
+    , mkDescribeSnapshotsResponse
     -- ** Response lenses
     , dsrrMarker
     , dsrrSnapshots
@@ -113,6 +115,16 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrrMarker :: Maybe Text
     , _dsrrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSnapshotsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSnapshotsResponse :: DescribeSnapshotsResponse
+mkDescribeSnapshotsResponse = DescribeSnapshotsResponse
+    { _dsrrMarker = Nothing
+    , _dsrrSnapshots = mempty
+    }
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,

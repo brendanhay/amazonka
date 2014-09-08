@@ -52,6 +52,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
 
     -- * Response
     , DeleteVolumeResponse
+    -- ** Response constructor
+    , mkDeleteVolumeResponse
     -- ** Response lenses
     , dvrVolumeARN
     ) where
@@ -90,6 +92,15 @@ instance ToJSON DeleteVolume
 newtype DeleteVolumeResponse = DeleteVolumeResponse
     { _dvrVolumeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVolumeResponse :: DeleteVolumeResponse
+mkDeleteVolumeResponse = DeleteVolumeResponse
+    { _dvrVolumeARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It
 -- is the same ARN you provided in the request.

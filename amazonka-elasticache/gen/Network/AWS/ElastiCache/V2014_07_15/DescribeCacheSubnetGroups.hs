@@ -39,6 +39,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups
 
     -- * Response
     , DescribeCacheSubnetGroupsResponse
+    -- ** Response constructor
+    , mkDescribeCacheSubnetGroupsResponse
     -- ** Response lenses
     , dcsgrrMarker
     , dcsgrrCacheSubnetGroups
@@ -92,6 +94,16 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrrMarker :: Maybe Text
     , _dcsgrrCacheSubnetGroups :: [CacheSubnetGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheSubnetGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse
+mkDescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
+    { _dcsgrrMarker = Nothing
+    , _dcsgrrCacheSubnetGroups = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)

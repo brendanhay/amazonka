@@ -38,6 +38,8 @@ module Network.AWS.Route53.V2013_04_01.DeleteHostedZone
 
     -- * Response
     , DeleteHostedZoneResponse
+    -- ** Response constructor
+    , mkDeleteHostedZoneResponse
     -- ** Response lenses
     , dhzrChangeInfo
     ) where
@@ -83,6 +85,16 @@ instance ToXML DeleteHostedZone where
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { _dhzrChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHostedZoneResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteHostedZoneResponse :: ChangeInfo -- ^ 'dhzrChangeInfo'
+                           -> DeleteHostedZoneResponse
+mkDeleteHostedZoneResponse p1 = DeleteHostedZoneResponse
+    { _dhzrChangeInfo = p1
+    }
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your delete request.

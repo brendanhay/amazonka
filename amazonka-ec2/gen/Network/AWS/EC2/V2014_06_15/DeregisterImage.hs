@@ -36,6 +36,8 @@ module Network.AWS.EC2.V2014_06_15.DeregisterImage
 
     -- * Response
     , DeregisterImageResponse
+    -- ** Response constructor
+    , mkDeregisterImageResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,6 +66,13 @@ instance ToQuery DeregisterImage where
 
 data DeregisterImageResponse = DeregisterImageResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterImageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeregisterImageResponse :: DeregisterImageResponse
+mkDeregisterImageResponse = DeregisterImageResponse
 
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2

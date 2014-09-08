@@ -41,6 +41,8 @@ module Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
 
     -- * Response
     , UpdateHealthCheckResponse
+    -- ** Response constructor
+    , mkUpdateHealthCheckResponse
     -- ** Response lenses
     , uhcrHealthCheck
     ) where
@@ -151,6 +153,16 @@ instance ToXML UpdateHealthCheck where
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcrHealthCheck :: HealthCheck
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateHealthCheckResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateHealthCheckResponse :: HealthCheck -- ^ 'uhcrHealthCheck'
+                            -> UpdateHealthCheckResponse
+mkUpdateHealthCheckResponse p1 = UpdateHealthCheckResponse
+    { _uhcrHealthCheck = p1
+    }
 
 -- | A complex type that contains identifying information about the health
 -- check.

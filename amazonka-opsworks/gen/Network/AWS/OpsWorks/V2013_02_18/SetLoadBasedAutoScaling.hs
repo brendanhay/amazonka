@@ -41,6 +41,8 @@ module Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling
 
     -- * Response
     , SetLoadBasedAutoScalingResponse
+    -- ** Response constructor
+    , mkSetLoadBasedAutoScalingResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -96,6 +98,13 @@ instance ToJSON SetLoadBasedAutoScaling
 
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBasedAutoScalingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
+mkSetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
 
 instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks

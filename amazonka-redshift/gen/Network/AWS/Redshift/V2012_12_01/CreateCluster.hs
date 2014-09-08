@@ -77,6 +77,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateCluster
 
     -- * Response
     , CreateClusterResponse
+    -- ** Response constructor
+    , mkCreateClusterResponse
     -- ** Response lenses
     , ccrCluster
     ) where
@@ -336,6 +338,15 @@ instance ToQuery CreateCluster where
 newtype CreateClusterResponse = CreateClusterResponse
     { _ccrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateClusterResponse :: CreateClusterResponse
+mkCreateClusterResponse = CreateClusterResponse
+    { _ccrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)

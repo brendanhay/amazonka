@@ -43,6 +43,8 @@ module Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes
 
     -- * Response
     , GetIdentityVerificationAttributesResponse
+    -- ** Response constructor
+    , mkGetIdentityVerificationAttributesResponse
     -- ** Response lenses
     , givarVerificationAttributes
     ) where
@@ -76,6 +78,16 @@ instance ToQuery GetIdentityVerificationAttributes where
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetIdentityVerificationAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetIdentityVerificationAttributesResponse :: Map Text IdentityVerificationAttributes -- ^ 'givarVerificationAttributes'
+                                            -> GetIdentityVerificationAttributesResponse
+mkGetIdentityVerificationAttributesResponse p1 = GetIdentityVerificationAttributesResponse
+    { _givarVerificationAttributes = p1
+    }
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (Map Text IdentityVerificationAttributes)

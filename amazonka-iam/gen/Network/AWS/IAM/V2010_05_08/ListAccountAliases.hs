@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.ListAccountAliases
 
     -- * Response
     , ListAccountAliasesResponse
+    -- ** Response constructor
+    , mkListAccountAliasesResponse
     -- ** Response lenses
     , laarAccountAliases
     , laarIsTruncated
@@ -83,6 +85,19 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
     , _laarIsTruncated :: Bool
     , _laarMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListAccountAliasesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListAccountAliasesResponse :: [Text] -- ^ 'laarAccountAliases'
+                             -> Bool -- ^ 'laarIsTruncated'
+                             -> ListAccountAliasesResponse
+mkListAccountAliasesResponse p1 p2 = ListAccountAliasesResponse
+    { _laarAccountAliases = p1
+    , _laarIsTruncated = p2
+    , _laarMarker = Nothing
+    }
 
 -- | A list of aliases associated with the account.
 laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]

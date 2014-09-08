@@ -30,6 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetInvalidation
 
     -- * Response
     , GetInvalidationResponse
+    -- ** Response constructor
+    , mkGetInvalidationResponse
     -- ** Response lenses
     , girInvalidation
     ) where
@@ -84,6 +86,15 @@ instance ToXML GetInvalidation where
 newtype GetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation :: Maybe Invalidation
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetInvalidationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetInvalidationResponse :: GetInvalidationResponse
+mkGetInvalidationResponse = GetInvalidationResponse
+    { _girInvalidation = Nothing
+    }
 
 -- | The invalidation's information.
 girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)

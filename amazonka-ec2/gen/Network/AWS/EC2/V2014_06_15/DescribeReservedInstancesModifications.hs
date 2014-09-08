@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications
 
     -- * Response
     , DescribeReservedInstancesModificationsResponse
+    -- ** Response constructor
+    , mkDescribeReservedInstancesModificationsResponse
     -- ** Response lenses
     , drimrReservedInstancesModifications
     , drimrNextToken
@@ -104,6 +106,16 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
     { _drimrReservedInstancesModifications :: [ReservedInstancesModification]
     , _drimrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeReservedInstancesModificationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
+mkDescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
+    { _drimrReservedInstancesModifications = mempty
+    , _drimrNextToken = Nothing
+    }
 
 -- | The Reserved Instance modification information.
 drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]

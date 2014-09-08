@@ -41,6 +41,8 @@ module Network.AWS.EC2.V2014_06_15.DescribePlacementGroups
 
     -- * Response
     , DescribePlacementGroupsResponse
+    -- ** Response constructor
+    , mkDescribePlacementGroupsResponse
     -- ** Response lenses
     , dpgrPlacementGroups
     ) where
@@ -81,6 +83,15 @@ instance ToQuery DescribePlacementGroups where
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: [PlacementGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribePlacementGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribePlacementGroupsResponse :: DescribePlacementGroupsResponse
+mkDescribePlacementGroupsResponse = DescribePlacementGroupsResponse
+    { _dpgrPlacementGroups = mempty
+    }
 
 -- | One or more placement groups.
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]

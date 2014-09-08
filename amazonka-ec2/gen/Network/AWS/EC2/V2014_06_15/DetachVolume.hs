@@ -51,6 +51,8 @@ module Network.AWS.EC2.V2014_06_15.DetachVolume
 
     -- * Response
     , DetachVolumeResponse
+    -- ** Response constructor
+    , mkDetachVolumeResponse
     -- ** Response lenses
     , dvr1VolumeId
     , dvr1InstanceId
@@ -117,6 +119,20 @@ data DetachVolumeResponse = DetachVolumeResponse
     , _dvr1AttachTime :: Maybe ISO8601
     , _dvr1DeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DetachVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDetachVolumeResponse :: DetachVolumeResponse
+mkDetachVolumeResponse = DetachVolumeResponse
+    { _dvr1VolumeId = Nothing
+    , _dvr1InstanceId = Nothing
+    , _dvr1Device = Nothing
+    , _dvr1State = Nothing
+    , _dvr1AttachTime = Nothing
+    , _dvr1DeleteOnTermination = Nothing
+    }
 
 -- | The ID of the volume.
 dvr1VolumeId :: Lens' DetachVolumeResponse (Maybe Text)

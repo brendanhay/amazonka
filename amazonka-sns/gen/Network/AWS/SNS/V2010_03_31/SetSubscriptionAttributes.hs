@@ -50,6 +50,8 @@ module Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes
 
     -- * Response
     , SetSubscriptionAttributesResponse
+    -- ** Response constructor
+    , mkSetSubscriptionAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -96,6 +98,13 @@ instance ToQuery SetSubscriptionAttributes where
 
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetSubscriptionAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
+mkSetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 
 instance AWSRequest SetSubscriptionAttributes where
     type Sv SetSubscriptionAttributes = SNS

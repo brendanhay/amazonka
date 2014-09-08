@@ -37,6 +37,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketAcl
 
     -- * Response
     , PutBucketAclResponse
+    -- ** Response constructor
+    , mkPutBucketAclResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -136,6 +138,13 @@ instance ToBody PutBucketAcl where
 
 data PutBucketAclResponse = PutBucketAclResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketAclResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketAclResponse :: PutBucketAclResponse
+mkPutBucketAclResponse = PutBucketAclResponse
 
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3

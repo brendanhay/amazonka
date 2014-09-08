@@ -35,6 +35,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.SwapEnvironmentCNAMEs
 
     -- * Response
     , SwapEnvironmentCNAMEsResponse
+    -- ** Response constructor
+    , mkSwapEnvironmentCNAMEsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -100,6 +102,13 @@ instance ToQuery SwapEnvironmentCNAMEs where
 
 data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SwapEnvironmentCNAMEsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSwapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
+mkSwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 
 instance AWSRequest SwapEnvironmentCNAMEs where
     type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk

@@ -57,6 +57,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ListVolumes
 
     -- * Response
     , ListVolumesResponse
+    -- ** Response constructor
+    , mkListVolumesResponse
     -- ** Response lenses
     , lvrGatewayARN
     , lvrMarker
@@ -114,6 +116,17 @@ data ListVolumesResponse = ListVolumesResponse
     , _lvrMarker :: Maybe Text
     , _lvrVolumeInfos :: [VolumeInformation]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVolumesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListVolumesResponse :: ListVolumesResponse
+mkListVolumesResponse = ListVolumesResponse
+    { _lvrGatewayARN = Nothing
+    , _lvrMarker = Nothing
+    , _lvrVolumeInfos = mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpc
 
     -- * Response
     , DeleteVpcResponse
+    -- ** Response constructor
+    , mkDeleteVpcResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,6 +69,13 @@ instance ToQuery DeleteVpc where
 
 data DeleteVpcResponse = DeleteVpcResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpcResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVpcResponse :: DeleteVpcResponse
+mkDeleteVpcResponse = DeleteVpcResponse
 
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2

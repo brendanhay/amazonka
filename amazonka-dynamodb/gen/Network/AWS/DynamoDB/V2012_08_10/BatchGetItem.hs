@@ -65,6 +65,8 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
 
     -- * Response
     , BatchGetItemResponse
+    -- ** Response constructor
+    , mkBatchGetItemResponse
     -- ** Response lenses
     , bgirResponses
     , bgirUnprocessedKeys
@@ -125,6 +127,17 @@ data BatchGetItemResponse = BatchGetItemResponse
     , _bgirUnprocessedKeys :: Map Text KeysAndAttributes
     , _bgirConsumedCapacity :: [ConsumedCapacity]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchGetItemResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkBatchGetItemResponse :: BatchGetItemResponse
+mkBatchGetItemResponse = BatchGetItemResponse
+    { _bgirResponses = mempty
+    , _bgirUnprocessedKeys = mempty
+    , _bgirConsumedCapacity = mempty
+    }
 
 -- | A map of table name to a list of items. Each object in Responses consists
 -- of a table name, along with a map of attribute data consisting of the data

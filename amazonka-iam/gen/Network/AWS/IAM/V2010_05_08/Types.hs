@@ -416,7 +416,10 @@ data AccessKey = AccessKey
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AccessKey' data type to populate a request.
+-- a valid 'AccessKey' data type.
+--
+-- 'AccessKey' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAccessKey :: Text -- ^ 'akUserName'
             -> Text -- ^ 'akAccessKeyId'
             -> StatusType -- ^ 'akStatus'
@@ -467,7 +470,10 @@ data AccessKeyMetadata = AccessKeyMetadata
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AccessKeyMetadata' data type to populate a request.
+-- a valid 'AccessKeyMetadata' data type.
+--
+-- 'AccessKeyMetadata' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAccessKeyMetadata :: AccessKeyMetadata
 mkAccessKeyMetadata = AccessKeyMetadata
     { _akmUserName = Nothing
@@ -507,7 +513,10 @@ data Group = Group
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Group' data type to populate a request.
+-- a valid 'Group' data type.
+--
+-- 'Group' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkGroup :: Text -- ^ 'gPath'
         -> Text -- ^ 'gGroupName'
         -> Text -- ^ 'gGroupId'
@@ -561,7 +570,10 @@ data InstanceProfile = InstanceProfile
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InstanceProfile' data type to populate a request.
+-- a valid 'InstanceProfile' data type.
+--
+-- 'InstanceProfile' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstanceProfile :: Text -- ^ 'ipPath'
                   -> Text -- ^ 'ipInstanceProfileName'
                   -> Text -- ^ 'ipInstanceProfileId'
@@ -621,7 +633,10 @@ data LoginProfile = LoginProfile
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LoginProfile' data type to populate a request.
+-- a valid 'LoginProfile' data type.
+--
+-- 'LoginProfile' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLoginProfile :: Text -- ^ 'lpUserName'
                -> ISO8601 -- ^ 'lpCreateDate'
                -> LoginProfile
@@ -660,7 +675,10 @@ data MFADevice = MFADevice
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'MFADevice' data type to populate a request.
+-- a valid 'MFADevice' data type.
+--
+-- 'MFADevice' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMFADevice :: Text -- ^ 'mfadUserName'
             -> Text -- ^ 'mfadSerialNumber'
             -> ISO8601 -- ^ 'mfadEnableDate'
@@ -706,7 +724,10 @@ data PasswordPolicy = PasswordPolicy
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'PasswordPolicy' data type to populate a request.
+-- a valid 'PasswordPolicy' data type.
+--
+-- 'PasswordPolicy' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPasswordPolicy :: PasswordPolicy
 mkPasswordPolicy = PasswordPolicy
     { _ppMinimumPasswordLength = Nothing
@@ -858,7 +879,10 @@ data SAMLProviderListEntry = SAMLProviderListEntry
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SAMLProviderListEntry' data type to populate a request.
+-- a valid 'SAMLProviderListEntry' data type.
+--
+-- 'SAMLProviderListEntry' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSAMLProviderListEntry :: SAMLProviderListEntry
 mkSAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn = Nothing
@@ -892,7 +916,10 @@ data ServerCertificate = ServerCertificate
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ServerCertificate' data type to populate a request.
+-- a valid 'ServerCertificate' data type.
+--
+-- 'ServerCertificate' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkServerCertificate :: ServerCertificateMetadata -- ^ 'scServerCertificateMetadata'
                     -> Text -- ^ 'scCertificateBody'
                     -> ServerCertificate
@@ -935,7 +962,10 @@ data ServerCertificateMetadata = ServerCertificateMetadata
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ServerCertificateMetadata' data type to populate a request.
+-- a valid 'ServerCertificateMetadata' data type.
+--
+-- 'ServerCertificateMetadata' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkServerCertificateMetadata :: Text -- ^ 'scmPath'
                             -> Text -- ^ 'scmServerCertificateName'
                             -> Text -- ^ 'scmServerCertificateId'
@@ -998,7 +1028,10 @@ data SigningCertificate = SigningCertificate
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SigningCertificate' data type to populate a request.
+-- a valid 'SigningCertificate' data type.
+--
+-- 'SigningCertificate' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSigningCertificate :: Text -- ^ 'scrUserName'
                      -> Text -- ^ 'scrCertificateId'
                      -> Text -- ^ 'scrCertificateBody'
@@ -1105,7 +1138,10 @@ data VirtualMFADevice = VirtualMFADevice
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VirtualMFADevice' data type to populate a request.
+-- a valid 'VirtualMFADevice' data type.
+--
+-- 'VirtualMFADevice' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVirtualMFADevice :: Text -- ^ 'vmfadSerialNumber'
                    -> VirtualMFADevice
 mkVirtualMFADevice p1 = VirtualMFADevice

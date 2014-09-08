@@ -30,6 +30,8 @@ module Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
 
     -- * Response
     , DeleteAlarmsResponse
+    -- ** Response constructor
+    , mkDeleteAlarmsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -58,6 +60,13 @@ instance ToQuery DeleteAlarms where
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAlarmsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAlarmsResponse :: DeleteAlarmsResponse
+mkDeleteAlarmsResponse = DeleteAlarmsResponse
 
 instance AWSRequest DeleteAlarms where
     type Sv DeleteAlarms = CloudWatch

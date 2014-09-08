@@ -40,6 +40,8 @@ module Network.AWS.IAM.V2010_05_08.GetGroup
 
     -- * Response
     , GetGroupResponse
+    -- ** Response constructor
+    , mkGetGroupResponse
     -- ** Response lenses
     , ggrGroup
     , ggrUsers
@@ -95,6 +97,21 @@ data GetGroupResponse = GetGroupResponse
     , _ggrIsTruncated :: Bool
     , _ggrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetGroupResponse :: Group -- ^ 'ggrGroup'
+                   -> [User] -- ^ 'ggrUsers'
+                   -> Bool -- ^ 'ggrIsTruncated'
+                   -> GetGroupResponse
+mkGetGroupResponse p1 p2 p3 = GetGroupResponse
+    { _ggrGroup = p1
+    , _ggrUsers = p2
+    , _ggrIsTruncated = p3
+    , _ggrMarker = Nothing
+    }
 
 -- | Information about the group.
 ggrGroup :: Lens' GetGroupResponse Group

@@ -30,6 +30,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeConnections
 
     -- * Response
     , DescribeConnectionsResponse
+    -- ** Response constructor
+    , mkDescribeConnectionsResponse
     -- ** Response lenses
     , dcrrConnections
     ) where
@@ -66,6 +68,15 @@ instance ToJSON DescribeConnections
 newtype DescribeConnectionsResponse = DescribeConnectionsResponse
     { _dcrrConnections :: [Connection]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConnectionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeConnectionsResponse :: DescribeConnectionsResponse
+mkDescribeConnectionsResponse = DescribeConnectionsResponse
+    { _dcrrConnections = mempty
+    }
 
 -- | A list of connections.
 dcrrConnections :: Lens' DescribeConnectionsResponse [Connection]

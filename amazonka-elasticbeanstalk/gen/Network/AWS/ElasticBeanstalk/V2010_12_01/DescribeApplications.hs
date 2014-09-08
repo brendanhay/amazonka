@@ -33,6 +33,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications
 
     -- * Response
     , DescribeApplicationsResponse
+    -- ** Response constructor
+    , mkDescribeApplicationsResponse
     -- ** Response lenses
     , darApplications
     ) where
@@ -66,6 +68,15 @@ instance ToQuery DescribeApplications where
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications :: [ApplicationDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeApplicationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeApplicationsResponse :: DescribeApplicationsResponse
+mkDescribeApplicationsResponse = DescribeApplicationsResponse
+    { _darApplications = mempty
+    }
 
 -- | This parameter contains a list of ApplicationDescription.
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]

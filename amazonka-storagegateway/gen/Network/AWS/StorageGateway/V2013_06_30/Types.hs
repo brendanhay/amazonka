@@ -476,7 +476,10 @@ data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CachediSCSIVolumeInformation' data type to populate a request.
+-- a valid 'CachediSCSIVolumeInformation' data type.
+--
+-- 'CachediSCSIVolumeInformation' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCachediSCSIVolumeInformation :: CachediSCSIVolumeInformation
 mkCachediSCSIVolumeInformation = CachediSCSIVolumeInformation
     { _cscsiviVolumeARN = Nothing
@@ -536,7 +539,10 @@ data ChapInfo = ChapInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ChapInfo' data type to populate a request.
+-- a valid 'ChapInfo' data type.
+--
+-- 'ChapInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkChapInfo :: ChapInfo
 mkChapInfo = ChapInfo
     { _ciTargetARN = Nothing
@@ -618,7 +624,10 @@ data DiskInformation = DiskInformation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DiskInformation' data type to populate a request.
+-- a valid 'DiskInformation' data type.
+--
+-- 'DiskInformation' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDiskInformation :: DiskInformation
 mkDiskInformation = DiskInformation
     { _diDiskId = Nothing
@@ -659,7 +668,10 @@ data GatewayInformation = GatewayInformation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'GatewayInformation' data type to populate a request.
+-- a valid 'GatewayInformation' data type.
+--
+-- 'GatewayInformation' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkGatewayInformation :: GatewayInformation
 mkGatewayInformation = GatewayInformation
     { _giGatewayARN = Nothing
@@ -684,7 +696,10 @@ data NetworkInterface = NetworkInterface
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'NetworkInterface' data type to populate a request.
+-- a valid 'NetworkInterface' data type.
+--
+-- 'NetworkInterface' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkNetworkInterface :: NetworkInterface
 mkNetworkInterface = NetworkInterface
     { _niIpv4Address = Nothing
@@ -749,7 +764,10 @@ data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StorediSCSIVolumeInformation' data type to populate a request.
+-- a valid 'StorediSCSIVolumeInformation' data type.
+--
+-- 'StorediSCSIVolumeInformation' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStorediSCSIVolumeInformation :: StorediSCSIVolumeInformation
 mkStorediSCSIVolumeInformation = StorediSCSIVolumeInformation
     { _sscsiviVolumeARN = Nothing
@@ -820,7 +838,10 @@ data Tape = Tape
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Tape' data type to populate a request.
+-- a valid 'Tape' data type.
+--
+-- 'Tape' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTape :: Tape
 mkTape = Tape
     { _tTapeARN = Nothing
@@ -862,7 +883,10 @@ data TapeArchive = TapeArchive
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TapeArchive' data type to populate a request.
+-- a valid 'TapeArchive' data type.
+--
+-- 'TapeArchive' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTapeArchive :: TapeArchive
 mkTapeArchive = TapeArchive
     { _taTapeARN = Nothing
@@ -904,7 +928,10 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TapeRecoveryPointInfo' data type to populate a request.
+-- a valid 'TapeRecoveryPointInfo' data type.
+--
+-- 'TapeRecoveryPointInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTapeRecoveryPointInfo :: TapeRecoveryPointInfo
 mkTapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN = Nothing
@@ -932,7 +959,10 @@ data VTLDevice = VTLDevice
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VTLDevice' data type to populate a request.
+-- a valid 'VTLDevice' data type.
+--
+-- 'VTLDevice' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVTLDevice :: VTLDevice
 mkVTLDevice = VTLDevice
     { _vtldVTLDeviceARN = Nothing
@@ -956,7 +986,10 @@ data VolumeInformation = VolumeInformation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VolumeInformation' data type to populate a request.
+-- a valid 'VolumeInformation' data type.
+--
+-- 'VolumeInformation' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVolumeInformation :: VolumeInformation
 mkVolumeInformation = VolumeInformation
     { _viVolumeARN = Nothing
@@ -979,7 +1012,10 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VolumeRecoveryPointInfo' data type to populate a request.
+-- a valid 'VolumeRecoveryPointInfo' data type.
+--
+-- 'VolumeRecoveryPointInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVolumeRecoveryPointInfo :: VolumeRecoveryPointInfo
 mkVolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     { _vrpiVolumeARN = Nothing

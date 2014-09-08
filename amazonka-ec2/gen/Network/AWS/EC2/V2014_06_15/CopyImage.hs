@@ -46,6 +46,8 @@ module Network.AWS.EC2.V2014_06_15.CopyImage
 
     -- * Response
     , CopyImageResponse
+    -- ** Response constructor
+    , mkCopyImageResponse
     -- ** Response lenses
     , cirImageId
     ) where
@@ -105,6 +107,15 @@ instance ToQuery CopyImage where
 newtype CopyImageResponse = CopyImageResponse
     { _cirImageId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopyImageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCopyImageResponse :: CopyImageResponse
+mkCopyImageResponse = CopyImageResponse
+    { _cirImageId = Nothing
+    }
 
 -- | The ID of the new AMI.
 cirImageId :: Lens' CopyImageResponse (Maybe Text)

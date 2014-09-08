@@ -67,6 +67,8 @@ module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility
 
     -- * Response
     , ChangeMessageVisibilityResponse
+    -- ** Response constructor
+    , mkChangeMessageVisibilityResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -112,6 +114,13 @@ instance ToQuery ChangeMessageVisibility where
 
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ChangeMessageVisibilityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
+mkChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 
 instance AWSRequest ChangeMessageVisibility where
     type Sv ChangeMessageVisibility = SQS

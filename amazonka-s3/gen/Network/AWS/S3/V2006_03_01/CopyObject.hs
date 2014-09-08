@@ -59,6 +59,8 @@ module Network.AWS.S3.V2006_03_01.CopyObject
 
     -- * Response
     , CopyObjectResponse
+    -- ** Response constructor
+    , mkCopyObjectResponse
     -- ** Response lenses
     , corCopyObjectResult
     , corExpiration
@@ -353,6 +355,20 @@ data CopyObjectResponse = CopyObjectResponse
     , _corSSECustomerAlgorithm :: Maybe Text
     , _corSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopyObjectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCopyObjectResponse :: CopyObjectResponse
+mkCopyObjectResponse = CopyObjectResponse
+    { _corCopyObjectResult = Nothing
+    , _corExpiration = Nothing
+    , _corCopySourceVersionId = Nothing
+    , _corServerSideEncryption = Nothing
+    , _corSSECustomerAlgorithm = Nothing
+    , _corSSECustomerKeyMD5 = Nothing
+    }
 
 corCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corCopyObjectResult =

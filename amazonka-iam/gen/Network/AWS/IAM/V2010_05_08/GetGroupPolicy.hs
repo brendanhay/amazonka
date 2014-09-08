@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.GetGroupPolicy
 
     -- * Response
     , GetGroupPolicyResponse
+    -- ** Response constructor
+    , mkGetGroupPolicyResponse
     -- ** Response lenses
     , ggprGroupName
     , ggprPolicyName
@@ -80,6 +82,20 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
     , _ggprPolicyName :: Text
     , _ggprPolicyDocument :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetGroupPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetGroupPolicyResponse :: Text -- ^ 'ggprGroupName'
+                         -> Text -- ^ 'ggprPolicyName'
+                         -> Text -- ^ 'ggprPolicyDocument'
+                         -> GetGroupPolicyResponse
+mkGetGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
+    { _ggprGroupName = p1
+    , _ggprPolicyName = p2
+    , _ggprPolicyDocument = p3
+    }
 
 -- | The group the policy is associated with.
 ggprGroupName :: Lens' GetGroupPolicyResponse Text

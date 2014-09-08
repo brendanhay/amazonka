@@ -504,7 +504,10 @@ data CacheCluster = CacheCluster
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CacheCluster' data type to populate a request.
+-- a valid 'CacheCluster' data type.
+--
+-- 'CacheCluster' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCacheCluster :: CacheCluster
 mkCacheCluster = CacheCluster
     { _ccCacheClusterId = Nothing
@@ -676,7 +679,10 @@ data CacheEngineVersion = CacheEngineVersion
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CacheEngineVersion' data type to populate a request.
+-- a valid 'CacheEngineVersion' data type.
+--
+-- 'CacheEngineVersion' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCacheEngineVersion :: CacheEngineVersion
 mkCacheEngineVersion = CacheEngineVersion
     { _cevEngine = Nothing
@@ -804,7 +810,10 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CacheNodeTypeSpecificParameter' data type to populate a request.
+-- a valid 'CacheNodeTypeSpecificParameter' data type.
+--
+-- 'CacheNodeTypeSpecificParameter' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
 mkCacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     { _cntspParameterName = Nothing
@@ -902,7 +911,10 @@ data CacheParameterGroup = CacheParameterGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CacheParameterGroup' data type to populate a request.
+-- a valid 'CacheParameterGroup' data type.
+--
+-- 'CacheParameterGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCacheParameterGroup :: CacheParameterGroup
 mkCacheParameterGroup = CacheParameterGroup
     { _cpgCacheParameterGroupName = Nothing
@@ -985,7 +997,10 @@ data CacheSecurityGroup = CacheSecurityGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CacheSecurityGroup' data type to populate a request.
+-- a valid 'CacheSecurityGroup' data type.
+--
+-- 'CacheSecurityGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCacheSecurityGroup :: CacheSecurityGroup
 mkCacheSecurityGroup = CacheSecurityGroup
     { _csgOwnerId = Nothing
@@ -1062,7 +1077,10 @@ data CacheSubnetGroup = CacheSubnetGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CacheSubnetGroup' data type to populate a request.
+-- a valid 'CacheSubnetGroup' data type.
+--
+-- 'CacheSubnetGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCacheSubnetGroup :: CacheSubnetGroup
 mkCacheSubnetGroup = CacheSubnetGroup
     { _csgrCacheSubnetGroupName = Nothing
@@ -1174,7 +1192,10 @@ data EngineDefaults = EngineDefaults
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EngineDefaults' data type to populate a request.
+-- a valid 'EngineDefaults' data type.
+--
+-- 'EngineDefaults' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEngineDefaults :: EngineDefaults
 mkEngineDefaults = EngineDefaults
     { _edCacheParameterGroupFamily = Nothing
@@ -1220,7 +1241,10 @@ data Event = Event
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Event' data type to populate a request.
+-- a valid 'Event' data type.
+--
+-- 'Event' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEvent :: Event
 mkEvent = Event
     { _erSourceIdentifier = Nothing
@@ -1440,7 +1464,10 @@ data Parameter = Parameter
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Parameter' data type to populate a request.
+-- a valid 'Parameter' data type.
+--
+-- 'Parameter' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkParameter :: Parameter
 mkParameter = Parameter
     { _pParameterName = Nothing
@@ -1607,7 +1634,10 @@ data ReplicationGroup = ReplicationGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReplicationGroup' data type to populate a request.
+-- a valid 'ReplicationGroup' data type.
+--
+-- 'ReplicationGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReplicationGroup :: ReplicationGroup
 mkReplicationGroup = ReplicationGroup
     { _rgReplicationGroupId = Nothing
@@ -1678,7 +1708,10 @@ data ReservedCacheNode = ReservedCacheNode
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedCacheNode' data type to populate a request.
+-- a valid 'ReservedCacheNode' data type.
+--
+-- 'ReservedCacheNode' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedCacheNode :: ReservedCacheNode
 mkReservedCacheNode = ReservedCacheNode
     { _rcnReservedCacheNodeId = Nothing
@@ -1767,7 +1800,10 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedCacheNodesOffering' data type to populate a request.
+-- a valid 'ReservedCacheNodesOffering' data type.
+--
+-- 'ReservedCacheNodesOffering' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedCacheNodesOffering :: ReservedCacheNodesOffering
 mkReservedCacheNodesOffering = ReservedCacheNodesOffering
     { _rcnoReservedCacheNodesOfferingId = Nothing
@@ -1880,7 +1916,10 @@ data Snapshot = Snapshot
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Snapshot' data type to populate a request.
+-- a valid 'Snapshot' data type.
+--
+-- 'Snapshot' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSnapshot :: Snapshot
 mkSnapshot = Snapshot
     { _sSnapshotName = Nothing

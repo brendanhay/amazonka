@@ -58,6 +58,8 @@ module Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes
 
     -- * Response
     , ModifyLoadBalancerAttributesResponse
+    -- ** Response constructor
+    , mkModifyLoadBalancerAttributesResponse
     -- ** Response lenses
     , mlbarLoadBalancerName
     , mlbarLoadBalancerAttributes
@@ -102,6 +104,16 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerName :: Maybe Text
     , _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyLoadBalancerAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse
+mkModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
+    { _mlbarLoadBalancerName = Nothing
+    , _mlbarLoadBalancerAttributes = Nothing
+    }
 
 -- | The name of the load balancer.
 mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)

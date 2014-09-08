@@ -42,6 +42,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeEventSubscriptions
 
     -- * Response
     , DescribeEventSubscriptionsResponse
+    -- ** Response constructor
+    , mkDescribeEventSubscriptionsResponse
     -- ** Response lenses
     , desrrMarker
     , desrrEventSubscriptionsList
@@ -94,6 +96,16 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrrMarker :: Maybe Text
     , _desrrEventSubscriptionsList :: [EventSubscription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventSubscriptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
+mkDescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
+    { _desrrMarker = Nothing
+    , _desrrEventSubscriptionsList = mempty
+    }
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,

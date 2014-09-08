@@ -45,6 +45,8 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateLayer
 
     -- * Response
     , UpdateLayerResponse
+    -- ** Response constructor
+    , mkUpdateLayerResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -181,6 +183,13 @@ instance ToJSON UpdateLayer
 
 data UpdateLayerResponse = UpdateLayerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateLayerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateLayerResponse :: UpdateLayerResponse
+mkUpdateLayerResponse = UpdateLayerResponse
 
 instance AWSRequest UpdateLayer where
     type Sv UpdateLayer = OpsWorks

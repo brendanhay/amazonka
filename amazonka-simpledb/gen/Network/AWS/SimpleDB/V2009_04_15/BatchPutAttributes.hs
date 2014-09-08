@@ -64,6 +64,8 @@ module Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes
 
     -- * Response
     , BatchPutAttributesResponse
+    -- ** Response constructor
+    , mkBatchPutAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -98,6 +100,13 @@ instance ToQuery BatchPutAttributes where
 
 data BatchPutAttributesResponse = BatchPutAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'BatchPutAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkBatchPutAttributesResponse :: BatchPutAttributesResponse
+mkBatchPutAttributesResponse = BatchPutAttributesResponse
 
 instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SimpleDB

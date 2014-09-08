@@ -52,6 +52,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnGateways
 
     -- * Response
     , DescribeVpnGatewaysResponse
+    -- ** Response constructor
+    , mkDescribeVpnGatewaysResponse
     -- ** Response lenses
     , dvgrVpnGateways
     ) where
@@ -106,6 +108,15 @@ instance ToQuery DescribeVpnGateways where
 newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: [VpnGateway]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVpnGatewaysResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVpnGatewaysResponse :: DescribeVpnGatewaysResponse
+mkDescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
+    { _dvgrVpnGateways = mempty
+    }
 
 -- | Information about one or more virtual private gateways.
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]

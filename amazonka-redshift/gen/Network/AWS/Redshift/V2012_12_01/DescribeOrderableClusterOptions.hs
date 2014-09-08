@@ -48,6 +48,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions
 
     -- * Response
     , DescribeOrderableClusterOptionsResponse
+    -- ** Response constructor
+    , mkDescribeOrderableClusterOptionsResponse
     -- ** Response lenses
     , docorOrderableClusterOptions
     , docorMarker
@@ -113,6 +115,16 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
     { _docorOrderableClusterOptions :: [OrderableClusterOption]
     , _docorMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeOrderableClusterOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
+mkDescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
+    { _docorOrderableClusterOptions = mempty
+    , _docorMarker = Nothing
+    }
 
 -- | An OrderableClusterOption structure containing information about orderable
 -- options for the Cluster.

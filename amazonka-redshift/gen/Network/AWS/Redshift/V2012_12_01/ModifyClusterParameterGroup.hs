@@ -43,6 +43,8 @@ module Network.AWS.Redshift.V2012_12_01.ModifyClusterParameterGroup
 
     -- * Response
     , ModifyClusterParameterGroupResponse
+    -- ** Response constructor
+    , mkModifyClusterParameterGroupResponse
     -- ** Response lenses
     , mcpgrParameterGroupName
     , mcpgrParameterGroupStatus
@@ -92,6 +94,16 @@ data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     { _mcpgrParameterGroupName :: Maybe Text
     , _mcpgrParameterGroupStatus :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyClusterParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyClusterParameterGroupResponse :: ModifyClusterParameterGroupResponse
+mkModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
+    { _mcpgrParameterGroupName = Nothing
+    , _mcpgrParameterGroupStatus = Nothing
+    }
 
 -- | The name of the cluster parameter group.
 mcpgrParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)

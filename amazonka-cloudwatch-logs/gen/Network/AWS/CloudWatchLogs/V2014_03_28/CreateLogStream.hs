@@ -44,6 +44,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream
 
     -- * Response
     , CreateLogStreamResponse
+    -- ** Response constructor
+    , mkCreateLogStreamResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -82,6 +84,13 @@ instance ToJSON CreateLogStream
 
 data CreateLogStreamResponse = CreateLogStreamResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLogStreamResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLogStreamResponse :: CreateLogStreamResponse
+mkCreateLogStreamResponse = CreateLogStreamResponse
 
 instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs

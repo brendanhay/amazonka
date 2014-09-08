@@ -37,6 +37,8 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory
 
     -- * Response
     , DescribeAlarmHistoryResponse
+    -- ** Response constructor
+    , mkDescribeAlarmHistoryResponse
     -- ** Response lenses
     , dahrAlarmHistoryItems
     , dahrNextToken
@@ -102,6 +104,16 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems :: [AlarmHistoryItem]
     , _dahrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAlarmHistoryResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
+mkDescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
+    { _dahrAlarmHistoryItems = mempty
+    , _dahrNextToken = Nothing
+    }
 
 -- | A list of alarm histories in JSON format.
 dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]

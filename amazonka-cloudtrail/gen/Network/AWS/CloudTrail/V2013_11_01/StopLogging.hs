@@ -32,6 +32,8 @@ module Network.AWS.CloudTrail.V2013_11_01.StopLogging
 
     -- * Response
     , StopLoggingResponse
+    -- ** Response constructor
+    , mkStopLoggingResponse
     ) where
 
 import Network.AWS.CloudTrail.V2013_11_01.Types
@@ -69,6 +71,13 @@ instance ToJSON StopLogging
 -- an error.
 data StopLoggingResponse = StopLoggingResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StopLoggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStopLoggingResponse :: StopLoggingResponse
+mkStopLoggingResponse = StopLoggingResponse
 
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail

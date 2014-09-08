@@ -84,6 +84,8 @@ module Network.AWS.EMR.V2009_03_31.RunJobFlow
 
     -- * Response
     , RunJobFlowResponse
+    -- ** Response constructor
+    , mkRunJobFlowResponse
     -- ** Response lenses
     , rjfrJobFlowId
     ) where
@@ -230,6 +232,15 @@ instance ToJSON RunJobFlow
 newtype RunJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RunJobFlowResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRunJobFlowResponse :: RunJobFlowResponse
+mkRunJobFlowResponse = RunJobFlowResponse
+    { _rjfrJobFlowId = Nothing
+    }
 
 -- | An unique identifier for the job flow.
 rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)

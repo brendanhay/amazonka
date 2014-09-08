@@ -30,6 +30,8 @@ module Network.AWS.ElastiCache.V2014_07_15.CopySnapshot
 
     -- * Response
     , CopySnapshotResponse
+    -- ** Response constructor
+    , mkCopySnapshotResponse
     -- ** Response lenses
     , csrSnapshot
     ) where
@@ -70,6 +72,15 @@ instance ToQuery CopySnapshot where
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopySnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCopySnapshotResponse :: CopySnapshotResponse
+mkCopySnapshotResponse = CopySnapshotResponse
+    { _csrSnapshot = Nothing
+    }
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.

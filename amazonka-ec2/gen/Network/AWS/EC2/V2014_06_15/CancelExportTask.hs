@@ -36,6 +36,8 @@ module Network.AWS.EC2.V2014_06_15.CancelExportTask
 
     -- * Response
     , CancelExportTaskResponse
+    -- ** Response constructor
+    , mkCancelExportTaskResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,6 +67,13 @@ instance ToQuery CancelExportTask where
 
 data CancelExportTaskResponse = CancelExportTaskResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelExportTaskResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelExportTaskResponse :: CancelExportTaskResponse
+mkCancelExportTaskResponse = CancelExportTaskResponse
 
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2

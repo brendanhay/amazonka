@@ -30,6 +30,8 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheck
 
     -- * Response
     , GetHealthCheckResponse
+    -- ** Response constructor
+    , mkGetHealthCheckResponse
     -- ** Response lenses
     , ghcrHealthCheck
     ) where
@@ -76,6 +78,16 @@ instance ToXML GetHealthCheck where
 newtype GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcrHealthCheck :: HealthCheck
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHealthCheckResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetHealthCheckResponse :: HealthCheck -- ^ 'ghcrHealthCheck'
+                         -> GetHealthCheckResponse
+mkGetHealthCheckResponse p1 = GetHealthCheckResponse
+    { _ghcrHealthCheck = p1
+    }
 
 -- | A complex type that contains the information about the specified health
 -- check.

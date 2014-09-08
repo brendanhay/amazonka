@@ -31,6 +31,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketCors
 
     -- * Response
     , PutBucketCorsResponse
+    -- ** Response constructor
+    , mkPutBucketCorsResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -85,6 +87,13 @@ instance ToBody PutBucketCors where
 
 data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketCorsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketCorsResponse :: PutBucketCorsResponse
+mkPutBucketCorsResponse = PutBucketCorsResponse
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3

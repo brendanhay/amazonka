@@ -61,6 +61,8 @@ module Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
 
     -- * Response
     , CreatePlatformApplicationResponse
+    -- ** Response constructor
+    , mkCreatePlatformApplicationResponse
     -- ** Response lenses
     , cparPlatformApplicationArn
     ) where
@@ -111,6 +113,15 @@ instance ToQuery CreatePlatformApplication where
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePlatformApplicationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreatePlatformApplicationResponse :: CreatePlatformApplicationResponse
+mkCreatePlatformApplicationResponse = CreatePlatformApplicationResponse
+    { _cparPlatformApplicationArn = Nothing
+    }
 
 -- | PlatformApplicationArn is returned.
 cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Text)

@@ -53,6 +53,8 @@ module Network.AWS.AutoScaling.V2011_01_01.CreateLaunchConfiguration
 
     -- * Response
     , CreateLaunchConfigurationResponse
+    -- ** Response constructor
+    , mkCreateLaunchConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -250,6 +252,13 @@ instance ToQuery CreateLaunchConfiguration where
 
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLaunchConfigurationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
+mkCreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 
 instance AWSRequest CreateLaunchConfiguration where
     type Sv CreateLaunchConfiguration = AutoScaling

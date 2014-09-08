@@ -49,6 +49,8 @@ module Network.AWS.StorageGateway.V2013_06_30.StartGateway
 
     -- * Response
     , StartGatewayResponse
+    -- ** Response constructor
+    , mkStartGatewayResponse
     -- ** Response lenses
     , sgrrGatewayARN
     ) where
@@ -87,6 +89,15 @@ instance ToJSON StartGateway
 newtype StartGatewayResponse = StartGatewayResponse
     { _sgrrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStartGatewayResponse :: StartGatewayResponse
+mkStartGatewayResponse = StartGatewayResponse
+    { _sgrrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

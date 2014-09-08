@@ -41,6 +41,8 @@ module Network.AWS.SNS.V2010_03_31.RemovePermission
 
     -- * Response
     , RemovePermissionResponse
+    -- ** Response constructor
+    , mkRemovePermissionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -76,6 +78,13 @@ instance ToQuery RemovePermission where
 
 data RemovePermissionResponse = RemovePermissionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemovePermissionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRemovePermissionResponse :: RemovePermissionResponse
+mkRemovePermissionResponse = RemovePermissionResponse
 
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SNS

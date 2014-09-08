@@ -32,6 +32,8 @@ module Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup
 
     -- * Response
     , TerminateInstanceInAutoScalingGroupResponse
+    -- ** Response constructor
+    , mkTerminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
     , tiiasgrActivity
     ) where
@@ -75,6 +77,15 @@ instance ToQuery TerminateInstanceInAutoScalingGroup where
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity :: Maybe Activity
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateInstanceInAutoScalingGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTerminateInstanceInAutoScalingGroupResponse :: TerminateInstanceInAutoScalingGroupResponse
+mkTerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
+    { _tiiasgrActivity = Nothing
+    }
 
 -- | A scaling Activity.
 tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)

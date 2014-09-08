@@ -40,6 +40,8 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBSubnetGroup
 
     -- * Response
     , ModifyDBSubnetGroupResponse
+    -- ** Response constructor
+    , mkModifyDBSubnetGroupResponse
     -- ** Response lenses
     , mdbsgrDBSubnetGroup
     ) where
@@ -89,6 +91,15 @@ instance ToQuery ModifyDBSubnetGroup where
 newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyDBSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResponse
+mkModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
+    { _mdbsgrDBSubnetGroup = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups

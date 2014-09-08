@@ -38,6 +38,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
 
     -- * Response
     , ListIdentitiesResponse
+    -- ** Response constructor
+    , mkListIdentitiesResponse
     -- ** Response lenses
     , lirIdentityPoolId
     , lirIdentities
@@ -93,6 +95,17 @@ data ListIdentitiesResponse = ListIdentitiesResponse
     , _lirIdentities :: [IdentityDescription]
     , _lirNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListIdentitiesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListIdentitiesResponse :: ListIdentitiesResponse
+mkListIdentitiesResponse = ListIdentitiesResponse
+    { _lirIdentityPoolId = Nothing
+    , _lirIdentities = mempty
+    , _lirNextToken = Nothing
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)

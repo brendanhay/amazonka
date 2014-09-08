@@ -54,6 +54,8 @@ module Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer
 
     -- * Response
     , RegisterInstancesWithLoadBalancerResponse
+    -- ** Response constructor
+    , mkRegisterInstancesWithLoadBalancerResponse
     -- ** Response lenses
     , riwlbrInstances
     ) where
@@ -95,6 +97,15 @@ instance ToQuery RegisterInstancesWithLoadBalancer where
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _riwlbrInstances :: [Instance]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterInstancesWithLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
+mkRegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
+    { _riwlbrInstances = mempty
+    }
 
 -- | An updated list of instances for the load balancer.
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]

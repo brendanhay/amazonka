@@ -107,7 +107,10 @@ data IdentityDescription = IdentityDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'IdentityDescription' data type to populate a request.
+-- a valid 'IdentityDescription' data type.
+--
+-- 'IdentityDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkIdentityDescription :: IdentityDescription
 mkIdentityDescription = IdentityDescription
     { _idIdentityId = Nothing
@@ -132,7 +135,10 @@ data IdentityPoolShortDescription = IdentityPoolShortDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'IdentityPoolShortDescription' data type to populate a request.
+-- a valid 'IdentityPoolShortDescription' data type.
+--
+-- 'IdentityPoolShortDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkIdentityPoolShortDescription :: IdentityPoolShortDescription
 mkIdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId = Nothing

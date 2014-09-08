@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.MonitorInstances
 
     -- * Response
     , MonitorInstancesResponse
+    -- ** Response constructor
+    , mkMonitorInstancesResponse
     -- ** Response lenses
     , mirInstanceMonitorings
     ) where
@@ -75,6 +77,15 @@ instance ToQuery MonitorInstances where
 newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'MonitorInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkMonitorInstancesResponse :: MonitorInstancesResponse
+mkMonitorInstancesResponse = MonitorInstancesResponse
+    { _mirInstanceMonitorings = mempty
+    }
 
 -- | Monitoring information for one or more instances.
 mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]

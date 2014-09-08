@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.ListGroupsForUser
 
     -- * Response
     , ListGroupsForUserResponse
+    -- ** Response constructor
+    , mkListGroupsForUserResponse
     -- ** Response lenses
     , lgfurGroups
     , lgfurIsTruncated
@@ -90,6 +92,19 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
     , _lgfurIsTruncated :: Bool
     , _lgfurMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGroupsForUserResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListGroupsForUserResponse :: [Group] -- ^ 'lgfurGroups'
+                            -> Bool -- ^ 'lgfurIsTruncated'
+                            -> ListGroupsForUserResponse
+mkListGroupsForUserResponse p1 p2 = ListGroupsForUserResponse
+    { _lgfurGroups = p1
+    , _lgfurIsTruncated = p2
+    , _lgfurMarker = Nothing
+    }
 
 -- | A list of groups.
 lgfurGroups :: Lens' ListGroupsForUserResponse [Group]

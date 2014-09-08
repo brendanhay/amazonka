@@ -41,6 +41,8 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateApp
 
     -- * Response
     , UpdateAppResponse
+    -- ** Response constructor
+    , mkUpdateAppResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -130,6 +132,13 @@ instance ToJSON UpdateApp
 
 data UpdateAppResponse = UpdateAppResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAppResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateAppResponse :: UpdateAppResponse
+mkUpdateAppResponse = UpdateAppResponse
 
 instance AWSRequest UpdateApp where
     type Sv UpdateApp = OpsWorks

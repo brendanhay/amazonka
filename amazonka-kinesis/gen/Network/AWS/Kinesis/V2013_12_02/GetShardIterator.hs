@@ -75,6 +75,8 @@ module Network.AWS.Kinesis.V2013_12_02.GetShardIterator
 
     -- * Response
     , GetShardIteratorResponse
+    -- ** Response constructor
+    , mkGetShardIteratorResponse
     -- ** Response lenses
     , gsirShardIterator
     ) where
@@ -144,6 +146,15 @@ instance ToJSON GetShardIterator
 newtype GetShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetShardIteratorResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetShardIteratorResponse :: GetShardIteratorResponse
+mkGetShardIteratorResponse = GetShardIteratorResponse
+    { _gsirShardIterator = Nothing
+    }
 
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the sequence

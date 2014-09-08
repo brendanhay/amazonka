@@ -57,6 +57,8 @@ module Network.AWS.SNS.V2010_03_31.SetTopicAttributes
 
     -- * Response
     , SetTopicAttributesResponse
+    -- ** Response constructor
+    , mkSetTopicAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -102,6 +104,13 @@ instance ToQuery SetTopicAttributes where
 
 data SetTopicAttributesResponse = SetTopicAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetTopicAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetTopicAttributesResponse :: SetTopicAttributesResponse
+mkSetTopicAttributesResponse = SetTopicAttributesResponse
 
 instance AWSRequest SetTopicAttributes where
     type Sv SetTopicAttributes = SNS

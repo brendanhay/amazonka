@@ -34,6 +34,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup
 
     -- * Response
     , DeleteCacheSubnetGroupResponse
+    -- ** Response constructor
+    , mkDeleteCacheSubnetGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,6 +67,13 @@ instance ToQuery DeleteCacheSubnetGroup where
 
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCacheSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
+mkDeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
 
 instance AWSRequest DeleteCacheSubnetGroup where
     type Sv DeleteCacheSubnetGroup = ElastiCache

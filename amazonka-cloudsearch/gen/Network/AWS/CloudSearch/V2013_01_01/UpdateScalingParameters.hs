@@ -36,6 +36,8 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters
 
     -- * Response
     , UpdateScalingParametersResponse
+    -- ** Response constructor
+    , mkUpdateScalingParametersResponse
     -- ** Response lenses
     , usprScalingParameters
     ) where
@@ -83,6 +85,16 @@ instance ToQuery UpdateScalingParameters where
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateScalingParametersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateScalingParametersResponse :: ScalingParametersStatus -- ^ 'usprScalingParameters'
+                                  -> UpdateScalingParametersResponse
+mkUpdateScalingParametersResponse p1 = UpdateScalingParametersResponse
+    { _usprScalingParameters = p1
+    }
 
 -- | The status and configuration of a search domain's scaling parameters.
 usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus

@@ -585,7 +585,10 @@ data InstanceState = InstanceState
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InstanceState' data type to populate a request.
+-- a valid 'InstanceState' data type.
+--
+-- 'InstanceState' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstanceState :: InstanceState
 mkInstanceState = InstanceState
     { _isInstanceId = Nothing
@@ -829,7 +832,10 @@ data LoadBalancerDescription = LoadBalancerDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LoadBalancerDescription' data type to populate a request.
+-- a valid 'LoadBalancerDescription' data type.
+--
+-- 'LoadBalancerDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLoadBalancerDescription :: LoadBalancerDescription
 mkLoadBalancerDescription = LoadBalancerDescription
     { _lbdLoadBalancerName = Nothing
@@ -1107,7 +1113,10 @@ data PolicyDescription = PolicyDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'PolicyDescription' data type to populate a request.
+-- a valid 'PolicyDescription' data type.
+--
+-- 'PolicyDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPolicyDescription :: PolicyDescription
 mkPolicyDescription = PolicyDescription
     { _pdPolicyName = Nothing
@@ -1142,7 +1151,10 @@ data PolicyTypeDescription = PolicyTypeDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'PolicyTypeDescription' data type to populate a request.
+-- a valid 'PolicyTypeDescription' data type.
+--
+-- 'PolicyTypeDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPolicyTypeDescription :: PolicyTypeDescription
 mkPolicyTypeDescription = PolicyTypeDescription
     { _ptdPolicyTypeName = Nothing
@@ -1243,7 +1255,10 @@ data TagDescription = TagDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TagDescription' data type to populate a request.
+-- a valid 'TagDescription' data type.
+--
+-- 'TagDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTagDescription :: TagDescription
 mkTagDescription = TagDescription
     { _tdLoadBalancerName = Nothing

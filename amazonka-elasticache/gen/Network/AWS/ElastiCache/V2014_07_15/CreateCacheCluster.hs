@@ -65,6 +65,8 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheCluster
 
     -- * Response
     , CreateCacheClusterResponse
+    -- ** Response constructor
+    , mkCreateCacheClusterResponse
     -- ** Response lenses
     , cccrCacheCluster
     ) where
@@ -314,6 +316,15 @@ instance ToQuery CreateCacheCluster where
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCacheClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateCacheClusterResponse :: CreateCacheClusterResponse
+mkCreateCacheClusterResponse = CreateCacheClusterResponse
+    { _cccrCacheCluster = Nothing
+    }
 
 -- | Contains all of the attributes of a specific cache cluster.
 cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)

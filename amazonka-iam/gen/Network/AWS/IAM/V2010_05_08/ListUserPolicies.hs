@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.ListUserPolicies
 
     -- * Response
     , ListUserPoliciesResponse
+    -- ** Response constructor
+    , mkListUserPoliciesResponse
     -- ** Response lenses
     , luprPolicyNames
     , luprIsTruncated
@@ -90,6 +92,19 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
     , _luprIsTruncated :: Bool
     , _luprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListUserPoliciesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListUserPoliciesResponse :: [Text] -- ^ 'luprPolicyNames'
+                           -> Bool -- ^ 'luprIsTruncated'
+                           -> ListUserPoliciesResponse
+mkListUserPoliciesResponse p1 p2 = ListUserPoliciesResponse
+    { _luprPolicyNames = p1
+    , _luprIsTruncated = p2
+    , _luprMarker = Nothing
+    }
 
 -- | A list of policy names.
 luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]

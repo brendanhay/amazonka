@@ -37,6 +37,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface
 
     -- * Response
     , DeleteNetworkInterfaceResponse
+    -- ** Response constructor
+    , mkDeleteNetworkInterfaceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,6 +68,13 @@ instance ToQuery DeleteNetworkInterface where
 
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteNetworkInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
+mkDeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2

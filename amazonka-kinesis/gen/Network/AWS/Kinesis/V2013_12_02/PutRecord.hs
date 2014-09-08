@@ -69,6 +69,8 @@ module Network.AWS.Kinesis.V2013_12_02.PutRecord
 
     -- * Response
     , PutRecordResponse
+    -- ** Response constructor
+    , mkPutRecordResponse
     -- ** Response lenses
     , prrShardId
     , prrSequenceNumber
@@ -152,6 +154,18 @@ data PutRecordResponse = PutRecordResponse
     { _prrShardId :: Text
     , _prrSequenceNumber :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutRecordResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutRecordResponse :: Text -- ^ 'prrShardId'
+                    -> Text -- ^ 'prrSequenceNumber'
+                    -> PutRecordResponse
+mkPutRecordResponse p1 p2 = PutRecordResponse
+    { _prrShardId = p1
+    , _prrSequenceNumber = p2
+    }
 
 -- | The shard ID of the shard where the data record was placed.
 prrShardId :: Lens' PutRecordResponse Text

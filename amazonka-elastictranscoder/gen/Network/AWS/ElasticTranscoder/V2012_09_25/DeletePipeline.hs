@@ -43,6 +43,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePipeline
 
     -- * Response
     , DeletePipelineResponse
+    -- ** Response constructor
+    , mkDeletePipelineResponse
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -81,6 +83,13 @@ instance ToJSON DeletePipeline
 -- | The DeletePipelineResponse structure.
 data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeletePipelineResponse :: DeletePipelineResponse
+mkDeletePipelineResponse = DeletePipelineResponse
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = ElasticTranscoder

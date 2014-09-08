@@ -84,6 +84,8 @@ module Network.AWS.Route53Domains.V2014_05_15.RegisterDomain
 
     -- * Response
     , RegisterDomainResponse
+    -- ** Response constructor
+    , mkRegisterDomainResponse
     -- ** Response lenses
     , rdrOperationId
     ) where
@@ -213,6 +215,16 @@ instance ToJSON RegisterDomain
 newtype RegisterDomainResponse = RegisterDomainResponse
     { _rdrOperationId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterDomainResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterDomainResponse :: Text -- ^ 'rdrOperationId'
+                         -> RegisterDomainResponse
+mkRegisterDomainResponse p1 = RegisterDomainResponse
+    { _rdrOperationId = p1
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:

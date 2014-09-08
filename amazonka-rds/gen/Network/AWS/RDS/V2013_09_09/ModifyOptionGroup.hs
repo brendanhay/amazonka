@@ -40,6 +40,8 @@ module Network.AWS.RDS.V2013_09_09.ModifyOptionGroup
 
     -- * Response
     , ModifyOptionGroupResponse
+    -- ** Response constructor
+    , mkModifyOptionGroupResponse
     -- ** Response lenses
     , mogrOptionGroup
     ) where
@@ -99,6 +101,15 @@ instance ToQuery ModifyOptionGroup where
 newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup :: Maybe OptionGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyOptionGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyOptionGroupResponse :: ModifyOptionGroupResponse
+mkModifyOptionGroupResponse = ModifyOptionGroupResponse
+    { _mogrOptionGroup = Nothing
+    }
 
 -- | 
 mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)

@@ -27,6 +27,8 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
     , mkGetHealthCheckCount
     -- * Response
     , GetHealthCheckCountResponse
+    -- ** Response constructor
+    , mkGetHealthCheckCountResponse
     -- ** Response lenses
     , ghccrHealthCheckCount
     ) where
@@ -62,6 +64,16 @@ instance ToXML GetHealthCheckCount where
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHealthCheckCountResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetHealthCheckCountResponse :: Integer -- ^ 'ghccrHealthCheckCount'
+                              -> GetHealthCheckCountResponse
+mkGetHealthCheckCountResponse p1 = GetHealthCheckCountResponse
+    { _ghccrHealthCheckCount = p1
+    }
 
 -- | The number of health checks associated with the current AWS account.
 ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer

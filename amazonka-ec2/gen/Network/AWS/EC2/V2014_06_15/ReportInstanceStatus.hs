@@ -47,6 +47,8 @@ module Network.AWS.EC2.V2014_06_15.ReportInstanceStatus
 
     -- * Response
     , ReportInstanceStatusResponse
+    -- ** Response constructor
+    , mkReportInstanceStatusResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -118,6 +120,13 @@ instance ToQuery ReportInstanceStatus where
 
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReportInstanceStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReportInstanceStatusResponse :: ReportInstanceStatusResponse
+mkReportInstanceStatusResponse = ReportInstanceStatusResponse
 
 instance AWSRequest ReportInstanceStatus where
     type Sv ReportInstanceStatus = EC2

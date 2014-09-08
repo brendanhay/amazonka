@@ -42,6 +42,8 @@ module Network.AWS.EC2.V2014_06_15.RebootInstances
 
     -- * Response
     , RebootInstancesResponse
+    -- ** Response constructor
+    , mkRebootInstancesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,6 +72,13 @@ instance ToQuery RebootInstances where
 
 data RebootInstancesResponse = RebootInstancesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRebootInstancesResponse :: RebootInstancesResponse
+mkRebootInstancesResponse = RebootInstancesResponse
 
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2

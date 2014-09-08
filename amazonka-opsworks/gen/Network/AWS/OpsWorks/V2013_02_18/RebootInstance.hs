@@ -33,6 +33,8 @@ module Network.AWS.OpsWorks.V2013_02_18.RebootInstance
 
     -- * Response
     , RebootInstanceResponse
+    -- ** Response constructor
+    , mkRebootInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -65,6 +67,13 @@ instance ToJSON RebootInstance
 
 data RebootInstanceResponse = RebootInstanceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRebootInstanceResponse :: RebootInstanceResponse
+mkRebootInstanceResponse = RebootInstanceResponse
 
 instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks

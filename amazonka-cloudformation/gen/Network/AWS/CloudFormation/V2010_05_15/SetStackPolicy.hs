@@ -36,6 +36,8 @@ module Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy
 
     -- * Response
     , SetStackPolicyResponse
+    -- ** Response constructor
+    , mkSetStackPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -84,6 +86,13 @@ instance ToQuery SetStackPolicy where
 
 data SetStackPolicyResponse = SetStackPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetStackPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetStackPolicyResponse :: SetStackPolicyResponse
+mkSetStackPolicyResponse = SetStackPolicyResponse
 
 instance AWSRequest SetStackPolicy where
     type Sv SetStackPolicy = CloudFormation

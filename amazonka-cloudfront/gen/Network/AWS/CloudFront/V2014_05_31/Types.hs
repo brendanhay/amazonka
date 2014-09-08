@@ -881,7 +881,10 @@ data ActiveTrustedSigners = ActiveTrustedSigners
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ActiveTrustedSigners' data type to populate a request.
+-- a valid 'ActiveTrustedSigners' data type.
+--
+-- 'ActiveTrustedSigners' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkActiveTrustedSigners :: Bool -- ^ 'atsEnabled'
                        -> Integer -- ^ 'atsQuantity'
                        -> ActiveTrustedSigners
@@ -1158,7 +1161,10 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CloudFrontOriginAccessIdentity' data type to populate a request.
+-- a valid 'CloudFrontOriginAccessIdentity' data type.
+--
+-- 'CloudFrontOriginAccessIdentity' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCloudFrontOriginAccessIdentity :: Text -- ^ 'cfoaiId'
                                  -> Text -- ^ 'cfoaiS3CanonicalUserId'
                                  -> CloudFrontOriginAccessIdentity
@@ -1244,7 +1250,10 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CloudFrontOriginAccessIdentityList' data type to populate a request.
+-- a valid 'CloudFrontOriginAccessIdentityList' data type.
+--
+-- 'CloudFrontOriginAccessIdentityList' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCloudFrontOriginAccessIdentityList :: Text -- ^ 'cfoailMarker'
                                      -> Integer -- ^ 'cfoailMaxItems'
                                      -> Bool -- ^ 'cfoailIsTruncated'
@@ -1305,7 +1314,10 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'CloudFrontOriginAccessIdentitySummary' data type to populate a request.
+-- a valid 'CloudFrontOriginAccessIdentitySummary' data type.
+--
+-- 'CloudFrontOriginAccessIdentitySummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCloudFrontOriginAccessIdentitySummary :: Text -- ^ 'cfoaisId'
                                         -> Text -- ^ 'cfoaisS3CanonicalUserId'
                                         -> Text -- ^ 'cfoaisComment'
@@ -1668,7 +1680,10 @@ data Distribution = Distribution
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Distribution' data type to populate a request.
+-- a valid 'Distribution' data type.
+--
+-- 'Distribution' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDistribution :: Text -- ^ 'dId'
                -> Text -- ^ 'dStatus'
                -> ISO8601 -- ^ 'dLastModifiedTime'
@@ -1885,7 +1900,10 @@ data DistributionList = DistributionList
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DistributionList' data type to populate a request.
+-- a valid 'DistributionList' data type.
+--
+-- 'DistributionList' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDistributionList :: Text -- ^ 'dlMarker'
                    -> Integer -- ^ 'dlMaxItems'
                    -> Bool -- ^ 'dlIsTruncated'
@@ -1953,7 +1971,10 @@ data DistributionSummary = DistributionSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DistributionSummary' data type to populate a request.
+-- a valid 'DistributionSummary' data type.
+--
+-- 'DistributionSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDistributionSummary :: Text -- ^ 'dsId'
                       -> Text -- ^ 'dsComment'
                       -> PriceClass -- ^ 'dsPriceClass'
@@ -2212,7 +2233,10 @@ data Invalidation = Invalidation
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Invalidation' data type to populate a request.
+-- a valid 'Invalidation' data type.
+--
+-- 'Invalidation' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInvalidation :: Text -- ^ 'iId'
                -> Text -- ^ 'iStatus'
                -> ISO8601 -- ^ 'iCreateTime'
@@ -2305,7 +2329,10 @@ data InvalidationList = InvalidationList
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InvalidationList' data type to populate a request.
+-- a valid 'InvalidationList' data type.
+--
+-- 'InvalidationList' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInvalidationList :: Text -- ^ 'ilMarker'
                    -> Integer -- ^ 'ilMaxItems'
                    -> Bool -- ^ 'ilIsTruncated'
@@ -2363,7 +2390,10 @@ data InvalidationSummary = InvalidationSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'InvalidationSummary' data type to populate a request.
+-- a valid 'InvalidationSummary' data type.
+--
+-- 'InvalidationSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInvalidationSummary :: Text -- ^ 'isId'
                       -> ISO8601 -- ^ 'isCreateTime'
                       -> Text -- ^ 'isStatus'
@@ -2654,7 +2684,10 @@ data Signer = Signer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Signer' data type to populate a request.
+-- a valid 'Signer' data type.
+--
+-- 'Signer' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSigner :: Signer
 mkSigner = Signer
     { _sAwsAccountNumber = Nothing
@@ -2689,7 +2722,10 @@ data StreamingDistribution = StreamingDistribution
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StreamingDistribution' data type to populate a request.
+-- a valid 'StreamingDistribution' data type.
+--
+-- 'StreamingDistribution' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStreamingDistribution :: Text -- ^ 'sdId'
                         -> Text -- ^ 'sdStatus'
                         -> Text -- ^ 'sdDomainName'
@@ -2861,7 +2897,10 @@ data StreamingDistributionList = StreamingDistributionList
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StreamingDistributionList' data type to populate a request.
+-- a valid 'StreamingDistributionList' data type.
+--
+-- 'StreamingDistributionList' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStreamingDistributionList :: Text -- ^ 'sdlMarker'
                             -> Integer -- ^ 'sdlMaxItems'
                             -> Bool -- ^ 'sdlIsTruncated'
@@ -2927,7 +2966,10 @@ data StreamingDistributionSummary = StreamingDistributionSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'StreamingDistributionSummary' data type to populate a request.
+-- a valid 'StreamingDistributionSummary' data type.
+--
+-- 'StreamingDistributionSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkStreamingDistributionSummary :: Text -- ^ 'sdsId'
                                -> Bool -- ^ 'sdsEnabled'
                                -> Text -- ^ 'sdsStatus'

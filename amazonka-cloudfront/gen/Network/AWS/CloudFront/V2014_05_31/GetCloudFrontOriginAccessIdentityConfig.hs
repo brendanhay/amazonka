@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfi
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityConfigResponse
+    -- ** Response constructor
+    , mkGetCloudFrontOriginAccessIdentityConfigResponse
     -- ** Response lenses
     , gcfoaicrCloudFrontOriginAccessIdentityConfig
     , gcfoaicrETag
@@ -76,6 +78,16 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
     , _gcfoaicrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetCloudFrontOriginAccessIdentityConfigResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetCloudFrontOriginAccessIdentityConfigResponse :: GetCloudFrontOriginAccessIdentityConfigResponse
+mkGetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse
+    { _gcfoaicrCloudFrontOriginAccessIdentityConfig = Nothing
+    , _gcfoaicrETag = Nothing
+    }
 
 -- | The origin access identity's configuration information.
 gcfoaicrCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)

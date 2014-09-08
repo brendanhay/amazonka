@@ -51,6 +51,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways
 
     -- * Response
     , DescribeCustomerGatewaysResponse
+    -- ** Response constructor
+    , mkDescribeCustomerGatewaysResponse
     -- ** Response lenses
     , dcgrCustomerGateways
     ) where
@@ -104,6 +106,15 @@ instance ToQuery DescribeCustomerGateways where
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCustomerGatewaysResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
+mkDescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
+    { _dcgrCustomerGateways = mempty
+    }
 
 -- | Information about one or more customer gateways.
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]

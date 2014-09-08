@@ -47,6 +47,8 @@ module Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer
 
     -- * Response
     , SetLoadBalancerPoliciesForBackendServerResponse
+    -- ** Response constructor
+    , mkSetLoadBalancerPoliciesForBackendServerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -96,6 +98,13 @@ instance ToQuery SetLoadBalancerPoliciesForBackendServer where
 -- | The output for the SetLoadBalancerPoliciesForBackendServer action.
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBalancerPoliciesForBackendServerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
+mkSetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
 
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Sv SetLoadBalancerPoliciesForBackendServer = ELB

@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute
 
     -- * Response
     , ResetNetworkInterfaceAttributeResponse
+    -- ** Response constructor
+    , mkResetNetworkInterfaceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -77,6 +79,13 @@ instance ToQuery ResetNetworkInterfaceAttribute where
 
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetNetworkInterfaceAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
+mkResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
 
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2

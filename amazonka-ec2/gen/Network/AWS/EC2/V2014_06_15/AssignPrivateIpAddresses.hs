@@ -58,6 +58,8 @@ module Network.AWS.EC2.V2014_06_15.AssignPrivateIpAddresses
 
     -- * Response
     , AssignPrivateIpAddressesResponse
+    -- ** Response constructor
+    , mkAssignPrivateIpAddressesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -113,6 +115,13 @@ instance ToQuery AssignPrivateIpAddresses where
 
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssignPrivateIpAddressesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssignPrivateIpAddressesResponse :: AssignPrivateIpAddressesResponse
+mkAssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 
 instance AWSRequest AssignPrivateIpAddresses where
     type Sv AssignPrivateIpAddresses = EC2

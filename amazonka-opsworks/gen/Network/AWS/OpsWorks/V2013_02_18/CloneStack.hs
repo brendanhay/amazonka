@@ -52,6 +52,8 @@ module Network.AWS.OpsWorks.V2013_02_18.CloneStack
 
     -- * Response
     , CloneStackResponse
+    -- ** Response constructor
+    , mkCloneStackResponse
     -- ** Response lenses
     , csrStackId
     ) where
@@ -295,6 +297,15 @@ instance ToJSON CloneStack
 newtype CloneStackResponse = CloneStackResponse
     { _csrStackId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CloneStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCloneStackResponse :: CloneStackResponse
+mkCloneStackResponse = CloneStackResponse
+    { _csrStackId = Nothing
+    }
 
 -- | The cloned stack ID.
 csrStackId :: Lens' CloneStackResponse (Maybe Text)

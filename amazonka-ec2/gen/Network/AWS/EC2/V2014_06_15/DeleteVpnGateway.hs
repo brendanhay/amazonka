@@ -38,6 +38,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpnGateway
 
     -- * Response
     , DeleteVpnGatewayResponse
+    -- ** Response constructor
+    , mkDeleteVpnGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,6 +68,13 @@ instance ToQuery DeleteVpnGateway where
 
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVpnGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVpnGatewayResponse :: DeleteVpnGatewayResponse
+mkDeleteVpnGatewayResponse = DeleteVpnGatewayResponse
 
 instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2

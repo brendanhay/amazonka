@@ -31,6 +31,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices
 
     -- * Response
     , DescribeVTLDevicesResponse
+    -- ** Response constructor
+    , mkDescribeVTLDevicesResponse
     -- ** Response lenses
     , dvtldrGatewayARN
     , dvtldrVTLDevices
@@ -87,6 +89,17 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
     , _dvtldrVTLDevices :: [VTLDevice]
     , _dvtldrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVTLDevicesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVTLDevicesResponse :: DescribeVTLDevicesResponse
+mkDescribeVTLDevicesResponse = DescribeVTLDevicesResponse
+    { _dvtldrGatewayARN = Nothing
+    , _dvtldrVTLDevices = mempty
+    , _dvtldrMarker = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

@@ -73,6 +73,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline
 
     -- * Response
     , ListJobsByPipelineResponse
+    -- ** Response constructor
+    , mkListJobsByPipelineResponse
     -- ** Response lenses
     , ljbprJobs
     , ljbprNextPageToken
@@ -136,6 +138,16 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse
     { _ljbprJobs :: [Job]
     , _ljbprNextPageToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListJobsByPipelineResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListJobsByPipelineResponse :: ListJobsByPipelineResponse
+mkListJobsByPipelineResponse = ListJobsByPipelineResponse
+    { _ljbprJobs = mempty
+    , _ljbprNextPageToken = Nothing
+    }
 
 -- | An array of Job objects that are in the specified pipeline.
 ljbprJobs :: Lens' ListJobsByPipelineResponse [Job]

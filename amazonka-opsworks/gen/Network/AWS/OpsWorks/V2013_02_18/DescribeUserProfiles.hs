@@ -31,6 +31,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
 
     -- * Response
     , DescribeUserProfilesResponse
+    -- ** Response constructor
+    , mkDescribeUserProfilesResponse
     -- ** Response lenses
     , duprUserProfiles
     ) where
@@ -66,6 +68,15 @@ instance ToJSON DescribeUserProfiles
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles :: [UserProfile]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeUserProfilesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeUserProfilesResponse :: DescribeUserProfilesResponse
+mkDescribeUserProfilesResponse = DescribeUserProfilesResponse
+    { _duprUserProfiles = mempty
+    }
 
 -- | A Users object that describes the specified users.
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]

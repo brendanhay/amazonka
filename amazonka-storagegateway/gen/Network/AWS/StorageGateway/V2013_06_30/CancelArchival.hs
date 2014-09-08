@@ -29,6 +29,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CancelArchival
 
     -- * Response
     , CancelArchivalResponse
+    -- ** Response constructor
+    , mkCancelArchivalResponse
     -- ** Response lenses
     , carTapeARN
     ) where
@@ -71,6 +73,15 @@ instance ToJSON CancelArchival
 newtype CancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelArchivalResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelArchivalResponse :: CancelArchivalResponse
+mkCancelArchivalResponse = CancelArchivalResponse
+    { _carTapeARN = Nothing
+    }
 
 carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\s a -> s { _carTapeARN = a })

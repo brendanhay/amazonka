@@ -32,6 +32,8 @@ module Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses
 
     -- * Response
     , ResumeProcessesResponse
+    -- ** Response constructor
+    , mkResumeProcessesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -71,6 +73,13 @@ instance ToQuery ResumeProcesses where
 
 data ResumeProcessesResponse = ResumeProcessesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResumeProcessesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResumeProcessesResponse :: ResumeProcessesResponse
+mkResumeProcessesResponse = ResumeProcessesResponse
 
 instance AWSRequest ResumeProcesses where
     type Sv ResumeProcesses = AutoScaling

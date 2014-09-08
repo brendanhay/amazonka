@@ -364,7 +364,10 @@ data Connection = Connection
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Connection' data type to populate a request.
+-- a valid 'Connection' data type.
+--
+-- 'Connection' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkConnection :: Connection
 mkConnection = Connection
     { _cOwnerAccount = Nothing
@@ -446,7 +449,10 @@ data Interconnect = Interconnect
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Interconnect' data type to populate a request.
+-- a valid 'Interconnect' data type.
+--
+-- 'Interconnect' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInterconnect :: Interconnect
 mkInterconnect = Interconnect
     { _iInterconnectId = Nothing
@@ -499,7 +505,10 @@ data Location = Location
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Location' data type to populate a request.
+-- a valid 'Location' data type.
+--
+-- 'Location' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLocation :: Location
 mkLocation = Location
     { _lLocationCode = Nothing
@@ -792,7 +801,10 @@ data VirtualGateway = VirtualGateway
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VirtualGateway' data type to populate a request.
+-- a valid 'VirtualGateway' data type.
+--
+-- 'VirtualGateway' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVirtualGateway :: VirtualGateway
 mkVirtualGateway = VirtualGateway
     { _vgVirtualGatewayId = Nothing
@@ -837,7 +849,10 @@ data VirtualInterface = VirtualInterface
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'VirtualInterface' data type to populate a request.
+-- a valid 'VirtualInterface' data type.
+--
+-- 'VirtualInterface' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkVirtualInterface :: VirtualInterface
 mkVirtualInterface = VirtualInterface
     { _viOwnerAccount = Nothing

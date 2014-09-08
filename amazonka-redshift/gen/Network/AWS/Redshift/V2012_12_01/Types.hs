@@ -562,7 +562,10 @@ data Cluster = Cluster
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Cluster' data type to populate a request.
+-- a valid 'Cluster' data type.
+--
+-- 'Cluster' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkCluster :: Cluster
 mkCluster = Cluster
     { _cClusterIdentifier = Nothing
@@ -802,7 +805,10 @@ data ClusterParameterGroup = ClusterParameterGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ClusterParameterGroup' data type to populate a request.
+-- a valid 'ClusterParameterGroup' data type.
+--
+-- 'ClusterParameterGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkClusterParameterGroup :: ClusterParameterGroup
 mkClusterParameterGroup = ClusterParameterGroup
     { _cpgParameterGroupName = Nothing
@@ -871,7 +877,10 @@ data ClusterSecurityGroup = ClusterSecurityGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ClusterSecurityGroup' data type to populate a request.
+-- a valid 'ClusterSecurityGroup' data type.
+--
+-- 'ClusterSecurityGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkClusterSecurityGroup :: ClusterSecurityGroup
 mkClusterSecurityGroup = ClusterSecurityGroup
     { _csgClusterSecurityGroupName = Nothing
@@ -980,7 +989,10 @@ data ClusterSubnetGroup = ClusterSubnetGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ClusterSubnetGroup' data type to populate a request.
+-- a valid 'ClusterSubnetGroup' data type.
+--
+-- 'ClusterSubnetGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkClusterSubnetGroup :: ClusterSubnetGroup
 mkClusterSubnetGroup = ClusterSubnetGroup
     { _csgrClusterSubnetGroupName = Nothing
@@ -1027,7 +1039,10 @@ data ClusterVersion = ClusterVersion
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ClusterVersion' data type to populate a request.
+-- a valid 'ClusterVersion' data type.
+--
+-- 'ClusterVersion' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkClusterVersion :: ClusterVersion
 mkClusterVersion = ClusterVersion
     { _cvClusterVersion = Nothing
@@ -1062,7 +1077,10 @@ data DefaultClusterParameters = DefaultClusterParameters
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DefaultClusterParameters' data type to populate a request.
+-- a valid 'DefaultClusterParameters' data type.
+--
+-- 'DefaultClusterParameters' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDefaultClusterParameters :: DefaultClusterParameters
 mkDefaultClusterParameters = DefaultClusterParameters
     { _dcp1ParameterGroupFamily = Nothing
@@ -1203,7 +1221,10 @@ data Event = Event
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Event' data type to populate a request.
+-- a valid 'Event' data type.
+--
+-- 'Event' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEvent :: Event
 mkEvent = Event
     { _erSourceIdentifier = Nothing
@@ -1256,7 +1277,10 @@ data EventCategoriesMap = EventCategoriesMap
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EventCategoriesMap' data type to populate a request.
+-- a valid 'EventCategoriesMap' data type.
+--
+-- 'EventCategoriesMap' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEventCategoriesMap :: EventCategoriesMap
 mkEventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
@@ -1334,7 +1358,10 @@ data EventSubscription = EventSubscription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EventSubscription' data type to populate a request.
+-- a valid 'EventSubscription' data type.
+--
+-- 'EventSubscription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEventSubscription :: EventSubscription
 mkEventSubscription = EventSubscription
     { _esCustomerAwsId = Nothing
@@ -1420,7 +1447,10 @@ data HsmClientCertificate = HsmClientCertificate
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'HsmClientCertificate' data type to populate a request.
+-- a valid 'HsmClientCertificate' data type.
+--
+-- 'HsmClientCertificate' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkHsmClientCertificate :: HsmClientCertificate
 mkHsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier = Nothing
@@ -1455,7 +1485,10 @@ data HsmConfiguration = HsmConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'HsmConfiguration' data type to populate a request.
+-- a valid 'HsmConfiguration' data type.
+--
+-- 'HsmConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkHsmConfiguration :: HsmConfiguration
 mkHsmConfiguration = HsmConfiguration
     { _hcHsmConfigurationIdentifier = Nothing
@@ -1571,7 +1604,10 @@ data OrderableClusterOption = OrderableClusterOption
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'OrderableClusterOption' data type to populate a request.
+-- a valid 'OrderableClusterOption' data type.
+--
+-- 'OrderableClusterOption' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkOrderableClusterOption :: OrderableClusterOption
 mkOrderableClusterOption = OrderableClusterOption
     { _ocoClusterVersion = Nothing
@@ -1788,7 +1824,10 @@ data ReservedNode = ReservedNode
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedNode' data type to populate a request.
+-- a valid 'ReservedNode' data type.
+--
+-- 'ReservedNode' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedNode :: ReservedNode
 mkReservedNode = ReservedNode
     { _rnReservedNodeId = Nothing
@@ -1880,7 +1919,10 @@ data ReservedNodeOffering = ReservedNodeOffering
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedNodeOffering' data type to populate a request.
+-- a valid 'ReservedNodeOffering' data type.
+--
+-- 'ReservedNodeOffering' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedNodeOffering :: ReservedNodeOffering
 mkReservedNodeOffering = ReservedNodeOffering
     { _rnoReservedNodeOfferingId = Nothing
@@ -2033,7 +2075,10 @@ data Snapshot = Snapshot
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Snapshot' data type to populate a request.
+-- a valid 'Snapshot' data type.
+--
+-- 'Snapshot' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSnapshot :: Snapshot
 mkSnapshot = Snapshot
     { _sSnapshotIdentifier = Nothing

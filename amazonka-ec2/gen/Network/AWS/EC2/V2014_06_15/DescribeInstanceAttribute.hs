@@ -60,6 +60,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute
 
     -- * Response
     , DescribeInstanceAttributeResponse
+    -- ** Response constructor
+    , mkDescribeInstanceAttributeResponse
     -- ** Response lenses
     , diarrInstanceId
     , diarrInstanceType
@@ -123,6 +125,27 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     , _diarrSriovNetSupport :: Maybe AttributeValue
     , _diarrSourceDestCheck :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInstanceAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse
+mkDescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
+    { _diarrInstanceId = Nothing
+    , _diarrInstanceType = Nothing
+    , _diarrKernelId = Nothing
+    , _diarrRamdiskId = Nothing
+    , _diarrUserData = Nothing
+    , _diarrDisableApiTermination = Nothing
+    , _diarrInstanceInitiatedShutdownBehavior = Nothing
+    , _diarrRootDeviceName = Nothing
+    , _diarrBlockDeviceMappings = mempty
+    , _diarrProductCodes = mempty
+    , _diarrEbsOptimized = Nothing
+    , _diarrSriovNetSupport = Nothing
+    , _diarrSourceDestCheck = Nothing
+    }
 
 -- | The ID of the instance.
 diarrInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)

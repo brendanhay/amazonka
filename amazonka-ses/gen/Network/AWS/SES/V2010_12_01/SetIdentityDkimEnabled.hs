@@ -49,6 +49,8 @@ module Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled
 
     -- * Response
     , SetIdentityDkimEnabledResponse
+    -- ** Response constructor
+    , mkSetIdentityDkimEnabledResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -88,6 +90,13 @@ instance ToQuery SetIdentityDkimEnabled where
 -- completed successfully.
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetIdentityDkimEnabledResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
+mkSetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 
 instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES

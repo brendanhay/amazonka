@@ -32,6 +32,8 @@ module Network.AWS.Route53.V2013_04_01.GetHostedZone
 
     -- * Response
     , GetHostedZoneResponse
+    -- ** Response constructor
+    , mkGetHostedZoneResponse
     -- ** Response lenses
     , ghzrHostedZone
     , ghzrDelegationSet
@@ -79,6 +81,18 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     { _ghzrHostedZone :: HostedZone
     , _ghzrDelegationSet :: DelegationSet
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHostedZoneResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetHostedZoneResponse :: HostedZone -- ^ 'ghzrHostedZone'
+                        -> DelegationSet -- ^ 'ghzrDelegationSet'
+                        -> GetHostedZoneResponse
+mkGetHostedZoneResponse p1 p2 = GetHostedZoneResponse
+    { _ghzrHostedZone = p1
+    , _ghzrDelegationSet = p2
+    }
 
 -- | A complex type that contains the information about the specified hosted
 -- zone.

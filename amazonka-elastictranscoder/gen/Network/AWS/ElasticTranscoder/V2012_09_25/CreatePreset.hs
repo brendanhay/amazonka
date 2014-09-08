@@ -87,6 +87,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset
 
     -- * Response
     , CreatePresetResponse
+    -- ** Response constructor
+    , mkCreatePresetResponse
     -- ** Response lenses
     , cprrPreset
     , cprrWarning
@@ -161,6 +163,16 @@ data CreatePresetResponse = CreatePresetResponse
     { _cprrPreset :: Maybe Preset
     , _cprrWarning :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePresetResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreatePresetResponse :: CreatePresetResponse
+mkCreatePresetResponse = CreatePresetResponse
+    { _cprrPreset = Nothing
+    , _cprrWarning = Nothing
+    }
 
 -- | A section of the response body that provides information about the preset
 -- that is created.

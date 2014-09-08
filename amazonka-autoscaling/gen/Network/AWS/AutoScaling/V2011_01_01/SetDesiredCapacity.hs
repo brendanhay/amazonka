@@ -35,6 +35,8 @@ module Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity
 
     -- * Response
     , SetDesiredCapacityResponse
+    -- ** Response constructor
+    , mkSetDesiredCapacityResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -84,6 +86,13 @@ instance ToQuery SetDesiredCapacity where
 
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetDesiredCapacityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetDesiredCapacityResponse :: SetDesiredCapacityResponse
+mkSetDesiredCapacityResponse = SetDesiredCapacityResponse
 
 instance AWSRequest SetDesiredCapacity where
     type Sv SetDesiredCapacity = AutoScaling

@@ -70,6 +70,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSnapshots
 
     -- * Response
     , DescribeSnapshotsResponse
+    -- ** Response constructor
+    , mkDescribeSnapshotsResponse
     -- ** Response lenses
     , dsrSnapshots
     ) where
@@ -138,6 +140,15 @@ instance ToQuery DescribeSnapshots where
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSnapshotsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSnapshotsResponse :: DescribeSnapshotsResponse
+mkDescribeSnapshotsResponse = DescribeSnapshotsResponse
+    { _dsrSnapshots = mempty
+    }
 
 -- | 
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]

@@ -32,6 +32,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteApp
 
     -- * Response
     , DeleteAppResponse
+    -- ** Response constructor
+    , mkDeleteAppResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -64,6 +66,13 @@ instance ToJSON DeleteApp
 
 data DeleteAppResponse = DeleteAppResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAppResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAppResponse :: DeleteAppResponse
+mkDeleteAppResponse = DeleteAppResponse
 
 instance AWSRequest DeleteApp where
     type Sv DeleteApp = OpsWorks

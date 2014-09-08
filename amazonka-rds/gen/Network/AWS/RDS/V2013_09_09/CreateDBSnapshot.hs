@@ -38,6 +38,8 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSnapshot
 
     -- * Response
     , CreateDBSnapshotResponse
+    -- ** Response constructor
+    , mkCreateDBSnapshotResponse
     -- ** Response lenses
     , cdbsrrDBSnapshot
     ) where
@@ -92,6 +94,15 @@ instance ToQuery CreateDBSnapshot where
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsrrDBSnapshot :: Maybe DBSnapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDBSnapshotResponse :: CreateDBSnapshotResponse
+mkCreateDBSnapshotResponse = CreateDBSnapshotResponse
+    { _cdbsrrDBSnapshot = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response

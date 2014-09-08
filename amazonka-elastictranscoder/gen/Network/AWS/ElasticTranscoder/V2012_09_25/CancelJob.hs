@@ -43,6 +43,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob
 
     -- * Response
     , CancelJobResponse
+    -- ** Response constructor
+    , mkCancelJobResponse
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -84,6 +86,13 @@ instance ToJSON CancelJob
 -- canceled, the value of Success is true.
 data CancelJobResponse = CancelJobResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelJobResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelJobResponse :: CancelJobResponse
+mkCancelJobResponse = CancelJobResponse
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder

@@ -40,6 +40,8 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup
 
     -- * Response
     , CreateCacheSubnetGroupResponse
+    -- ** Response constructor
+    , mkCreateCacheSubnetGroupResponse
     -- ** Response lenses
     , ccsgrrCacheSubnetGroup
     ) where
@@ -91,6 +93,15 @@ instance ToQuery CreateCacheSubnetGroup where
 newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrrCacheSubnetGroup :: Maybe CacheSubnetGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCacheSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateCacheSubnetGroupResponse :: CreateCacheSubnetGroupResponse
+mkCreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
+    { _ccsgrrCacheSubnetGroup = Nothing
+    }
 
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.

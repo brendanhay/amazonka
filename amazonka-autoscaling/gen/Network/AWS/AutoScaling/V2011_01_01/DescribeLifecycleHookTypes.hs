@@ -26,6 +26,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes
     , mkDescribeLifecycleHookTypes
     -- * Response
     , DescribeLifecycleHookTypesResponse
+    -- ** Response constructor
+    , mkDescribeLifecycleHookTypesResponse
     -- ** Response lenses
     , dlhtrLifecycleHookTypes
     ) where
@@ -49,6 +51,15 @@ instance ToQuery DescribeLifecycleHookTypes where
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLifecycleHookTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
+mkDescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
+    { _dlhtrLifecycleHookTypes = mempty
+    }
 
 -- | Returns a list of all notification types supported by Auto Scaling. They
 -- are: autoscaling:EC2_INSTANCE_LAUNCHING

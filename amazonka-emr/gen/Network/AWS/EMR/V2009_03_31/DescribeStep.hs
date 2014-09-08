@@ -30,6 +30,8 @@ module Network.AWS.EMR.V2009_03_31.DescribeStep
 
     -- * Response
     , DescribeStepResponse
+    -- ** Response constructor
+    , mkDescribeStepResponse
     -- ** Response lenses
     , dsrStep
     ) where
@@ -74,6 +76,15 @@ instance ToJSON DescribeStep
 newtype DescribeStepResponse = DescribeStepResponse
     { _dsrStep :: Maybe Step
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStepResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStepResponse :: DescribeStepResponse
+mkDescribeStepResponse = DescribeStepResponse
+    { _dsrStep = Nothing
+    }
 
 -- | The step details for the requested step identifier.
 dsrStep :: Lens' DescribeStepResponse (Maybe Step)

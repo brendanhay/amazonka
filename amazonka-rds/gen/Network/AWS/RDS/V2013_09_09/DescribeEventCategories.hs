@@ -37,6 +37,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeEventCategories
 
     -- * Response
     , DescribeEventCategoriesResponse
+    -- ** Response constructor
+    , mkDescribeEventCategoriesResponse
     -- ** Response lenses
     , decrEventCategoriesMapList
     ) where
@@ -69,6 +71,15 @@ instance ToQuery DescribeEventCategories where
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventCategoriesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEventCategoriesResponse :: DescribeEventCategoriesResponse
+mkDescribeEventCategoriesResponse = DescribeEventCategoriesResponse
+    { _decrEventCategoriesMapList = mempty
+    }
 
 -- | A list of EventCategoriesMap data types.
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]

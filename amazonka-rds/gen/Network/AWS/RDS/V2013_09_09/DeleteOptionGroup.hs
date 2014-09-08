@@ -30,6 +30,8 @@ module Network.AWS.RDS.V2013_09_09.DeleteOptionGroup
 
     -- * Response
     , DeleteOptionGroupResponse
+    -- ** Response constructor
+    , mkDeleteOptionGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,6 +62,13 @@ instance ToQuery DeleteOptionGroup where
 
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteOptionGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteOptionGroupResponse :: DeleteOptionGroupResponse
+mkDeleteOptionGroupResponse = DeleteOptionGroupResponse
 
 instance AWSRequest DeleteOptionGroup where
     type Sv DeleteOptionGroup = RDS

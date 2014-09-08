@@ -35,6 +35,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup
 
     -- * Response
     , DeleteCacheSecurityGroupResponse
+    -- ** Response constructor
+    , mkDeleteCacheSecurityGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,6 +68,13 @@ instance ToQuery DeleteCacheSecurityGroup where
 
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCacheSecurityGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
+mkDeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 
 instance AWSRequest DeleteCacheSecurityGroup where
     type Sv DeleteCacheSecurityGroup = ElastiCache

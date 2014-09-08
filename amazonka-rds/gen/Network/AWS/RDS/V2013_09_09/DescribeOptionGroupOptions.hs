@@ -35,6 +35,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeOptionGroupOptions
 
     -- * Response
     , DescribeOptionGroupOptionsResponse
+    -- ** Response constructor
+    , mkDescribeOptionGroupOptionsResponse
     -- ** Response lenses
     , dogorOptionGroupOptions
     , dogorMarker
@@ -95,6 +97,16 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorOptionGroupOptions :: [OptionGroupOption]
     , _dogorMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeOptionGroupOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
+mkDescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
+    { _dogorOptionGroupOptions = mempty
+    , _dogorMarker = Nothing
+    }
 
 -- | List of available option group options.
 dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]

@@ -36,6 +36,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeleteInstance
 
     -- * Response
     , DeleteInstanceResponse
+    -- ** Response constructor
+    , mkDeleteInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -81,6 +83,13 @@ instance ToJSON DeleteInstance
 
 data DeleteInstanceResponse = DeleteInstanceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteInstanceResponse :: DeleteInstanceResponse
+mkDeleteInstanceResponse = DeleteInstanceResponse
 
 instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks

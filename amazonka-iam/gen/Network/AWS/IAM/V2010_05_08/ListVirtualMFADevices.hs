@@ -45,6 +45,8 @@ module Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
 
     -- * Response
     , ListVirtualMFADevicesResponse
+    -- ** Response constructor
+    , mkListVirtualMFADevicesResponse
     -- ** Response lenses
     , lvmfadrVirtualMFADevices
     , lvmfadrIsTruncated
@@ -103,6 +105,19 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     , _lvmfadrIsTruncated :: Bool
     , _lvmfadrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListVirtualMFADevicesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListVirtualMFADevicesResponse :: [VirtualMFADevice] -- ^ 'lvmfadrVirtualMFADevices'
+                                -> Bool -- ^ 'lvmfadrIsTruncated'
+                                -> ListVirtualMFADevicesResponse
+mkListVirtualMFADevicesResponse p1 p2 = ListVirtualMFADevicesResponse
+    { _lvmfadrVirtualMFADevices = p1
+    , _lvmfadrIsTruncated = p2
+    , _lvmfadrMarker = Nothing
+    }
 
 lvmfadrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmfadrVirtualMFADevices =

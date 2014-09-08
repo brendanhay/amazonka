@@ -68,6 +68,8 @@ module Network.AWS.Kinesis.V2013_12_02.MergeShards
 
     -- * Response
     , MergeShardsResponse
+    -- ** Response constructor
+    , mkMergeShardsResponse
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -116,6 +118,13 @@ instance ToJSON MergeShards
 
 data MergeShardsResponse = MergeShardsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'MergeShardsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkMergeShardsResponse :: MergeShardsResponse
+mkMergeShardsResponse = MergeShardsResponse
 
 instance AWSRequest MergeShards where
     type Sv MergeShards = Kinesis

@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketVersioning
 
     -- * Response
     , GetBucketVersioningResponse
+    -- ** Response constructor
+    , mkGetBucketVersioningResponse
     -- ** Response lenses
     , gbvrStatus
     , gbvrMfaDelete
@@ -73,6 +75,16 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvrStatus :: Maybe (Switch BucketVersioningStatus)
     , _gbvrMfaDelete :: Maybe (Switch MFADeleteStatus)
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketVersioningResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketVersioningResponse :: GetBucketVersioningResponse
+mkGetBucketVersioningResponse = GetBucketVersioningResponse
+    { _gbvrStatus = Nothing
+    , _gbvrMfaDelete = Nothing
+    }
 
 -- | The versioning state of the bucket.
 gbvrStatus :: Lens' GetBucketVersioningResponse (Maybe (Switch BucketVersioningStatus))

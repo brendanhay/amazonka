@@ -58,6 +58,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterParameters
 
     -- * Response
     , DescribeClusterParametersResponse
+    -- ** Response constructor
+    , mkDescribeClusterParametersResponse
     -- ** Response lenses
     , dcprParameters
     , dcprMarker
@@ -123,6 +125,16 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprParameters :: [Parameter]
     , _dcprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterParametersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeClusterParametersResponse :: DescribeClusterParametersResponse
+mkDescribeClusterParametersResponse = DescribeClusterParametersResponse
+    { _dcprParameters = mempty
+    , _dcprMarker = Nothing
+    }
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.

@@ -48,6 +48,8 @@ module Network.AWS.DynamoDB.V2012_08_10.GetItem
 
     -- * Response
     , GetItemResponse
+    -- ** Response constructor
+    , mkGetItemResponse
     -- ** Response lenses
     , girItem
     , girConsumedCapacity
@@ -123,6 +125,16 @@ data GetItemResponse = GetItemResponse
     { _girItem :: Map Text AttributeValue
     , _girConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetItemResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetItemResponse :: GetItemResponse
+mkGetItemResponse = GetItemResponse
+    { _girItem = mempty
+    , _girConsumedCapacity = Nothing
+    }
 
 -- | A map of attribute names to AttributeValue objects, as specified by
 -- AttributesToGet.

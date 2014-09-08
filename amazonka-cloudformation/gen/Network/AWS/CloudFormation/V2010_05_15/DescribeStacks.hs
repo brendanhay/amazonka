@@ -38,6 +38,8 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStacks
 
     -- * Response
     , DescribeStacksResponse
+    -- ** Response constructor
+    , mkDescribeStacksResponse
     -- ** Response lenses
     , dsr1rStacks
     , dsr1rNextToken
@@ -81,6 +83,16 @@ data DescribeStacksResponse = DescribeStacksResponse
     { _dsr1rStacks :: [Stack]
     , _dsr1rNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStacksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStacksResponse :: DescribeStacksResponse
+mkDescribeStacksResponse = DescribeStacksResponse
+    { _dsr1rStacks = mempty
+    , _dsr1rNextToken = Nothing
+    }
 
 -- | A list of stack structures.
 dsr1rStacks :: Lens' DescribeStacksResponse [Stack]

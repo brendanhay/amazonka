@@ -60,6 +60,8 @@ module Network.AWS.DynamoDB.V2012_08_10.CreateTable
 
     -- * Response
     , CreateTableResponse
+    -- ** Response constructor
+    , mkCreateTableResponse
     -- ** Response lenses
     , ctrTableDescription
     ) where
@@ -189,6 +191,15 @@ instance ToJSON CreateTable
 newtype CreateTableResponse = CreateTableResponse
     { _ctrTableDescription :: Maybe TableDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTableResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateTableResponse :: CreateTableResponse
+mkCreateTableResponse = CreateTableResponse
+    { _ctrTableDescription = Nothing
+    }
 
 -- | Represents the properties of a table.
 ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)

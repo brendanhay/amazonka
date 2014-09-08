@@ -32,6 +32,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DeleteLifecycleHook
 
     -- * Response
     , DeleteLifecycleHookResponse
+    -- ** Response constructor
+    , mkDeleteLifecycleHookResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -71,6 +73,13 @@ instance ToQuery DeleteLifecycleHook where
 -- | The output of the DeleteLifecycleHook action.
 data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLifecycleHookResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteLifecycleHookResponse :: DeleteLifecycleHookResponse
+mkDeleteLifecycleHookResponse = DeleteLifecycleHookResponse
 
 instance AWSRequest DeleteLifecycleHook where
     type Sv DeleteLifecycleHook = AutoScaling

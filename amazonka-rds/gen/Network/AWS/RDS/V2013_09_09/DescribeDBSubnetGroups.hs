@@ -41,6 +41,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSubnetGroups
 
     -- * Response
     , DescribeDBSubnetGroupsResponse
+    -- ** Response constructor
+    , mkDescribeDBSubnetGroupsResponse
     -- ** Response lenses
     , ddbsgrrMarker
     , ddbsgrrDBSubnetGroups
@@ -95,6 +97,16 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrrMarker :: Maybe Text
     , _ddbsgrrDBSubnetGroups :: [DBSubnetGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBSubnetGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
+mkDescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
+    { _ddbsgrrMarker = Nothing
+    , _ddbsgrrDBSubnetGroups = mempty
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

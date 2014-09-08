@@ -36,6 +36,8 @@ module Network.AWS.ImportExport.V2010_06_01.CreateJob
 
     -- * Response
     , CreateJobResponse
+    -- ** Response constructor
+    , mkCreateJobResponse
     -- ** Response lenses
     , cjrrJobId
     , cjrrJobType
@@ -100,6 +102,20 @@ data CreateJobResponse = CreateJobResponse
     , _cjrrSignatureFileContents :: Maybe Text
     , _cjrrWarningMessage :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateJobResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateJobResponse :: CreateJobResponse
+mkCreateJobResponse = CreateJobResponse
+    { _cjrrJobId = Nothing
+    , _cjrrJobType = Nothing
+    , _cjrrAwsShippingAddress = Nothing
+    , _cjrrSignature = Nothing
+    , _cjrrSignatureFileContents = Nothing
+    , _cjrrWarningMessage = Nothing
+    }
 
 -- | A unique identifier which refers to a particular job.
 cjrrJobId :: Lens' CreateJobResponse (Maybe Text)

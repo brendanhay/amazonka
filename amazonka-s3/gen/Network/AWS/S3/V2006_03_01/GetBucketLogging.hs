@@ -30,6 +30,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketLogging
 
     -- * Response
     , GetBucketLoggingResponse
+    -- ** Response constructor
+    , mkGetBucketLoggingResponse
     -- ** Response lenses
     , gblr1LoggingEnabled
     ) where
@@ -72,6 +74,15 @@ instance ToBody GetBucketLogging
 newtype GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblr1LoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketLoggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketLoggingResponse :: GetBucketLoggingResponse
+mkGetBucketLoggingResponse = GetBucketLoggingResponse
+    { _gblr1LoggingEnabled = Nothing
+    }
 
 gblr1LoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 gblr1LoggingEnabled =

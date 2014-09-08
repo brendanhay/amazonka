@@ -44,6 +44,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
 
     -- * Response
     , UpdateIdentityPoolResponse
+    -- ** Response constructor
+    , mkUpdateIdentityPoolResponse
     -- ** Response lenses
     , uiprIdentityPoolId
     , uiprIdentityPoolName
@@ -113,6 +115,21 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     , _uiprAllowUnauthenticatedIdentities :: Bool
     , _uiprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateIdentityPoolResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateIdentityPoolResponse :: Text -- ^ 'uiprIdentityPoolId'
+                             -> Text -- ^ 'uiprIdentityPoolName'
+                             -> Bool -- ^ 'uiprAllowUnauthenticatedIdentities'
+                             -> UpdateIdentityPoolResponse
+mkUpdateIdentityPoolResponse p1 p2 p3 = UpdateIdentityPoolResponse
+    { _uiprIdentityPoolId = p1
+    , _uiprIdentityPoolName = p2
+    , _uiprAllowUnauthenticatedIdentities = p3
+    , _uiprSupportedLoginProviders = mempty
+    }
 
 -- | An identity pool ID in the format REGION:GUID.
 uiprIdentityPoolId :: Lens' UpdateIdentityPoolResponse Text

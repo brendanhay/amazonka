@@ -70,6 +70,8 @@ module Network.AWS.RDS.V2013_09_09.CreateEventSubscription
 
     -- * Response
     , CreateEventSubscriptionResponse
+    -- ** Response constructor
+    , mkCreateEventSubscriptionResponse
     -- ** Response lenses
     , cesrEventSubscription
     ) where
@@ -160,6 +162,15 @@ instance ToQuery CreateEventSubscription where
 newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateEventSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateEventSubscriptionResponse :: CreateEventSubscriptionResponse
+mkCreateEventSubscriptionResponse = CreateEventSubscriptionResponse
+    { _cesrEventSubscription = Nothing
+    }
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.

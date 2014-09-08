@@ -30,6 +30,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
 
     -- * Response
     , DescribeConnectionsOnInterconnectResponse
+    -- ** Response constructor
+    , mkDescribeConnectionsOnInterconnectResponse
     -- ** Response lenses
     , dcoirConnections
     ) where
@@ -70,6 +72,15 @@ instance ToJSON DescribeConnectionsOnInterconnect
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _dcoirConnections :: [Connection]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConnectionsOnInterconnectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeConnectionsOnInterconnectResponse :: DescribeConnectionsOnInterconnectResponse
+mkDescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
+    { _dcoirConnections = mempty
+    }
 
 -- | A list of connections.
 dcoirConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]

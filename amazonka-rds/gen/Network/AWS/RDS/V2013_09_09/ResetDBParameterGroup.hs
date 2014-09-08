@@ -45,6 +45,8 @@ module Network.AWS.RDS.V2013_09_09.ResetDBParameterGroup
 
     -- * Response
     , ResetDBParameterGroupResponse
+    -- ** Response constructor
+    , mkResetDBParameterGroupResponse
     -- ** Response lenses
     , rdbpgrDBParameterGroupName
     ) where
@@ -104,6 +106,15 @@ instance ToQuery ResetDBParameterGroup where
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetDBParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResetDBParameterGroupResponse :: ResetDBParameterGroupResponse
+mkResetDBParameterGroupResponse = ResetDBParameterGroupResponse
+    { _rdbpgrDBParameterGroupName = Nothing
+    }
 
 -- | The name of the DB parameter group.
 rdbpgrDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)

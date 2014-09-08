@@ -49,6 +49,8 @@ module Network.AWS.EC2.V2014_06_15.AllocateAddress
 
     -- * Response
     , AllocateAddressResponse
+    -- ** Response constructor
+    , mkAllocateAddressResponse
     -- ** Response lenses
     , aarPublicIp
     , aarDomain
@@ -85,6 +87,17 @@ data AllocateAddressResponse = AllocateAddressResponse
     , _aarDomain :: Maybe DomainType
     , _aarAllocationId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AllocateAddressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAllocateAddressResponse :: AllocateAddressResponse
+mkAllocateAddressResponse = AllocateAddressResponse
+    { _aarPublicIp = Nothing
+    , _aarDomain = Nothing
+    , _aarAllocationId = Nothing
+    }
 
 -- | The Elastic IP address.
 aarPublicIp :: Lens' AllocateAddressResponse (Maybe Text)

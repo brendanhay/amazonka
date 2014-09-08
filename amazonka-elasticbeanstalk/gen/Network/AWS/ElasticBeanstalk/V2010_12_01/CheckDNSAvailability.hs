@@ -33,6 +33,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CheckDNSAvailability
 
     -- * Response
     , CheckDNSAvailabilityResponse
+    -- ** Response constructor
+    , mkCheckDNSAvailabilityResponse
     -- ** Response lenses
     , cdnsarAvailable
     , cdnsarFullyQualifiedCNAME
@@ -68,6 +70,16 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     { _cdnsarAvailable :: Maybe Bool
     , _cdnsarFullyQualifiedCNAME :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CheckDNSAvailabilityResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCheckDNSAvailabilityResponse :: CheckDNSAvailabilityResponse
+mkCheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
+    { _cdnsarAvailable = Nothing
+    , _cdnsarFullyQualifiedCNAME = Nothing
+    }
 
 -- | Indicates if the specified CNAME is available: true : The CNAME is
 -- available. true : The CNAME is not available. true : The CNAME is

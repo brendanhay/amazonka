@@ -75,6 +75,8 @@ module Network.AWS.IAM.V2010_05_08.UploadSigningCertificate
 
     -- * Response
     , UploadSigningCertificateResponse
+    -- ** Response constructor
+    , mkUploadSigningCertificateResponse
     -- ** Response lenses
     , uscrrCertificate
     ) where
@@ -115,6 +117,16 @@ instance ToQuery UploadSigningCertificate where
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { _uscrrCertificate :: SigningCertificate
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UploadSigningCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUploadSigningCertificateResponse :: SigningCertificate -- ^ 'uscrrCertificate'
+                                   -> UploadSigningCertificateResponse
+mkUploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
+    { _uscrrCertificate = p1
+    }
 
 -- | Information about the certificate.
 uscrrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate

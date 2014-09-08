@@ -44,6 +44,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateGroup
 
     -- * Response
     , UpdateGroupResponse
+    -- ** Response constructor
+    , mkUpdateGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -85,6 +87,13 @@ instance ToQuery UpdateGroup where
 
 data UpdateGroupResponse = UpdateGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateGroupResponse :: UpdateGroupResponse
+mkUpdateGroupResponse = UpdateGroupResponse
 
 instance AWSRequest UpdateGroup where
     type Sv UpdateGroup = IAM

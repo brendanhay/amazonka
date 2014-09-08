@@ -31,6 +31,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes
     , mkDescribeScalingProcessTypes
     -- * Response
     , DescribeScalingProcessTypesResponse
+    -- ** Response constructor
+    , mkDescribeScalingProcessTypesResponse
     -- ** Response lenses
     , dsptrProcesses
     ) where
@@ -54,6 +56,15 @@ instance ToQuery DescribeScalingProcessTypes where
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _dsptrProcesses :: [ProcessType]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScalingProcessTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
+mkDescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
+    { _dsptrProcesses = mempty
+    }
 
 -- | A list of ProcessType names.
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]

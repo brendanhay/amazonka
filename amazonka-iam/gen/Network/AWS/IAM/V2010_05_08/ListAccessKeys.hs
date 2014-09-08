@@ -43,6 +43,8 @@ module Network.AWS.IAM.V2010_05_08.ListAccessKeys
 
     -- * Response
     , ListAccessKeysResponse
+    -- ** Response constructor
+    , mkListAccessKeysResponse
     -- ** Response lenses
     , lakrAccessKeyMetadata
     , lakrIsTruncated
@@ -97,6 +99,19 @@ data ListAccessKeysResponse = ListAccessKeysResponse
     , _lakrIsTruncated :: Bool
     , _lakrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListAccessKeysResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListAccessKeysResponse :: [AccessKeyMetadata] -- ^ 'lakrAccessKeyMetadata'
+                         -> Bool -- ^ 'lakrIsTruncated'
+                         -> ListAccessKeysResponse
+mkListAccessKeysResponse p1 p2 = ListAccessKeysResponse
+    { _lakrAccessKeyMetadata = p1
+    , _lakrIsTruncated = p2
+    , _lakrMarker = Nothing
+    }
 
 -- | A list of access key metadata.
 lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]

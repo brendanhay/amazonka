@@ -31,6 +31,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester
 
     -- * Response
     , DeleteSuggesterResponse
+    -- ** Response constructor
+    , mkDeleteSuggesterResponse
     -- ** Response lenses
     , dsrrSuggester
     ) where
@@ -77,6 +79,16 @@ instance ToQuery DeleteSuggester where
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsrrSuggester :: SuggesterStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSuggesterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSuggesterResponse :: SuggesterStatus -- ^ 'dsrrSuggester'
+                          -> DeleteSuggesterResponse
+mkDeleteSuggesterResponse p1 = DeleteSuggesterResponse
+    { _dsrrSuggester = p1
+    }
 
 -- | The status of the suggester being deleted.
 dsrrSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus

@@ -31,6 +31,8 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuse
 
     -- * Response
     , DescribeTrustedAdvisorCheckRefreshStatusesResponse
+    -- ** Response constructor
+    , mkDescribeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response lenses
     , dtacrsrStatuses
     ) where
@@ -69,6 +71,16 @@ instance ToJSON DescribeTrustedAdvisorCheckRefreshStatuses
 newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
     { _dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTrustedAdvisorCheckRefreshStatusesResponse :: [TrustedAdvisorCheckRefreshStatus] -- ^ 'dtacrsrStatuses'
+                                                     -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
+mkDescribeTrustedAdvisorCheckRefreshStatusesResponse p1 = DescribeTrustedAdvisorCheckRefreshStatusesResponse
+    { _dtacrsrStatuses = p1
+    }
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]

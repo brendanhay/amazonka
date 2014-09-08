@@ -48,6 +48,8 @@ module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclEntry
 
     -- * Response
     , ReplaceNetworkAclEntryResponse
+    -- ** Response constructor
+    , mkReplaceNetworkAclEntryResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -126,6 +128,13 @@ instance ToQuery ReplaceNetworkAclEntry where
 
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReplaceNetworkAclEntryResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReplaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse
+mkReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 
 instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2

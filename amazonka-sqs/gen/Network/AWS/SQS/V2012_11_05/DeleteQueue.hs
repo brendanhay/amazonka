@@ -45,6 +45,8 @@ module Network.AWS.SQS.V2012_11_05.DeleteQueue
 
     -- * Response
     , DeleteQueueResponse
+    -- ** Response constructor
+    , mkDeleteQueueResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,6 +75,13 @@ instance ToQuery DeleteQueue where
 
 data DeleteQueueResponse = DeleteQueueResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteQueueResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteQueueResponse :: DeleteQueueResponse
+mkDeleteQueueResponse = DeleteQueueResponse
 
 instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS

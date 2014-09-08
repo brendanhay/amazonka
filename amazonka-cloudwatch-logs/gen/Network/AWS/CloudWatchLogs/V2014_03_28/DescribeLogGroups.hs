@@ -51,6 +51,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups
 
     -- * Response
     , DescribeLogGroupsResponse
+    -- ** Response constructor
+    , mkDescribeLogGroupsResponse
     -- ** Response lenses
     , dlgrLogGroups
     , dlgrNextToken
@@ -102,6 +104,16 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups :: [LogGroup]
     , _dlgrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLogGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLogGroupsResponse :: DescribeLogGroupsResponse
+mkDescribeLogGroupsResponse = DescribeLogGroupsResponse
+    { _dlgrLogGroups = mempty
+    , _dlgrNextToken = Nothing
+    }
 
 -- | A list of log groups.
 dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]

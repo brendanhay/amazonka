@@ -30,6 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
 
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResponse
+    -- ** Response constructor
+    , mkListCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
     , lcfoairCloudFrontOriginAccessIdentityList
     ) where
@@ -85,6 +87,16 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListCloudFrontOriginAccessIdentitiesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -- ^ 'lcfoairCloudFrontOriginAccessIdentityList'
+                                               -> ListCloudFrontOriginAccessIdentitiesResponse
+mkListCloudFrontOriginAccessIdentitiesResponse p1 = ListCloudFrontOriginAccessIdentitiesResponse
+    { _lcfoairCloudFrontOriginAccessIdentityList = p1
+    }
 
 -- | The CloudFrontOriginAccessIdentityList type.
 lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList

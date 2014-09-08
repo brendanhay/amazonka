@@ -45,6 +45,8 @@ module Network.AWS.EMR.V2009_03_31.RemoveTags
 
     -- * Response
     , RemoveTagsResponse
+    -- ** Response constructor
+    , mkRemoveTagsResponse
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -87,6 +89,13 @@ instance ToJSON RemoveTags
 -- | This output indicates the result of removing tags from a resource.
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRemoveTagsResponse :: RemoveTagsResponse
+mkRemoveTagsResponse = RemoveTagsResponse
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = EMR

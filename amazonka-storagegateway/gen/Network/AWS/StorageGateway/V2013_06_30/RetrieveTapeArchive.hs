@@ -29,6 +29,8 @@ module Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeArchive
 
     -- * Response
     , RetrieveTapeArchiveResponse
+    -- ** Response constructor
+    , mkRetrieveTapeArchiveResponse
     -- ** Response lenses
     , rtarTapeARN
     ) where
@@ -71,6 +73,15 @@ instance ToJSON RetrieveTapeArchive
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RetrieveTapeArchiveResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRetrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse
+mkRetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
+    { _rtarTapeARN = Nothing
+    }
 
 rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarTapeARN = lens _rtarTapeARN (\s a -> s { _rtarTapeARN = a })

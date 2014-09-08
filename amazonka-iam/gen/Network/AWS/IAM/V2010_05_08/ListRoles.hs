@@ -47,6 +47,8 @@ module Network.AWS.IAM.V2010_05_08.ListRoles
 
     -- * Response
     , ListRolesResponse
+    -- ** Response constructor
+    , mkListRolesResponse
     -- ** Response lenses
     , lrrRoles
     , lrrIsTruncated
@@ -104,6 +106,19 @@ data ListRolesResponse = ListRolesResponse
     , _lrrIsTruncated :: Bool
     , _lrrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListRolesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListRolesResponse :: [Role] -- ^ 'lrrRoles'
+                    -> Bool -- ^ 'lrrIsTruncated'
+                    -> ListRolesResponse
+mkListRolesResponse p1 p2 = ListRolesResponse
+    { _lrrRoles = p1
+    , _lrrIsTruncated = p2
+    , _lrrMarker = Nothing
+    }
 
 -- | A list of roles.
 lrrRoles :: Lens' ListRolesResponse [Role]

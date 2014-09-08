@@ -36,6 +36,8 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup
 
     -- * Response
     , DeleteClusterSubnetGroupResponse
+    -- ** Response constructor
+    , mkDeleteClusterSubnetGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,6 +68,13 @@ instance ToQuery DeleteClusterSubnetGroup where
 
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteClusterSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
+mkDeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
 
 instance AWSRequest DeleteClusterSubnetGroup where
     type Sv DeleteClusterSubnetGroup = Redshift

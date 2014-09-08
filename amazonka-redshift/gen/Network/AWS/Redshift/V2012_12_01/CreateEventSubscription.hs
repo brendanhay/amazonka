@@ -54,6 +54,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateEventSubscription
 
     -- * Response
     , CreateEventSubscriptionResponse
+    -- ** Response constructor
+    , mkCreateEventSubscriptionResponse
     -- ** Response lenses
     , cesrEventSubscription
     ) where
@@ -143,6 +145,15 @@ instance ToQuery CreateEventSubscription where
 newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateEventSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateEventSubscriptionResponse :: CreateEventSubscriptionResponse
+mkCreateEventSubscriptionResponse = CreateEventSubscriptionResponse
+    { _cesrEventSubscription = Nothing
+    }
 
 -- | 
 cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)

@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays
 
     -- * Response
     , DescribeRaidArraysResponse
+    -- ** Response constructor
+    , mkDescribeRaidArraysResponse
     -- ** Response lenses
     , drarRaidArrays
     ) where
@@ -78,6 +80,15 @@ instance ToJSON DescribeRaidArrays
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays :: [RaidArray]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeRaidArraysResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeRaidArraysResponse :: DescribeRaidArraysResponse
+mkDescribeRaidArraysResponse = DescribeRaidArraysResponse
+    { _drarRaidArrays = mempty
+    }
 
 -- | A RaidArrays object that describes the specified RAID arrays.
 drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]

@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketNotification
 
     -- * Response
     , GetBucketNotificationResponse
+    -- ** Response constructor
+    , mkGetBucketNotificationResponse
     -- ** Response lenses
     , gbnrTopicConfiguration
     ) where
@@ -71,6 +73,15 @@ instance ToBody GetBucketNotification
 newtype GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketNotificationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketNotificationResponse :: GetBucketNotificationResponse
+mkGetBucketNotificationResponse = GetBucketNotificationResponse
+    { _gbnrTopicConfiguration = Nothing
+    }
 
 gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
 gbnrTopicConfiguration =

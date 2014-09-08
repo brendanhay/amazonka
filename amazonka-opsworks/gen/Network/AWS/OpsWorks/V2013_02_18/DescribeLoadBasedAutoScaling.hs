@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling
 
     -- * Response
     , DescribeLoadBasedAutoScalingResponse
+    -- ** Response constructor
+    , mkDescribeLoadBasedAutoScalingResponse
     -- ** Response lenses
     , dlbasrLoadBasedAutoScalingConfigurations
     ) where
@@ -70,6 +72,15 @@ instance ToJSON DescribeLoadBasedAutoScaling
 newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBasedAutoScalingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse
+mkDescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
+    { _dlbasrLoadBasedAutoScalingConfigurations = mempty
+    }
 
 -- | An array of LoadBasedAutoScalingConfiguration objects that describe each
 -- layer's configuration.

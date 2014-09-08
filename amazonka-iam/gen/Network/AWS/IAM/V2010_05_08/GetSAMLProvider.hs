@@ -34,6 +34,8 @@ module Network.AWS.IAM.V2010_05_08.GetSAMLProvider
 
     -- * Response
     , GetSAMLProviderResponse
+    -- ** Response constructor
+    , mkGetSAMLProviderResponse
     -- ** Response lenses
     , gsamlprSAMLMetadataDocument
     , gsamlprCreateDate
@@ -73,6 +75,17 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     , _gsamlprCreateDate :: Maybe ISO8601
     , _gsamlprValidUntil :: Maybe ISO8601
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSAMLProviderResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetSAMLProviderResponse :: GetSAMLProviderResponse
+mkGetSAMLProviderResponse = GetSAMLProviderResponse
+    { _gsamlprSAMLMetadataDocument = Nothing
+    , _gsamlprCreateDate = Nothing
+    , _gsamlprValidUntil = Nothing
+    }
 
 -- | The XML metadata document that includes information about an identity
 -- provider.

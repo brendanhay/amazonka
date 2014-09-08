@@ -41,6 +41,8 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateDeployment
 
     -- * Response
     , CreateDeploymentResponse
+    -- ** Response constructor
+    , mkCreateDeploymentResponse
     -- ** Response lenses
     , cdrDeploymentId
     ) where
@@ -114,6 +116,15 @@ instance ToJSON CreateDeployment
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDeploymentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDeploymentResponse :: CreateDeploymentResponse
+mkCreateDeploymentResponse = CreateDeploymentResponse
+    { _cdrDeploymentId = Nothing
+    }
 
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.

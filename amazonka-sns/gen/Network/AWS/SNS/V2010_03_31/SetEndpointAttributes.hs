@@ -46,6 +46,8 @@ module Network.AWS.SNS.V2010_03_31.SetEndpointAttributes
 
     -- * Response
     , SetEndpointAttributesResponse
+    -- ** Response constructor
+    , mkSetEndpointAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -90,6 +92,13 @@ instance ToQuery SetEndpointAttributes where
 
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetEndpointAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetEndpointAttributesResponse :: SetEndpointAttributesResponse
+mkSetEndpointAttributesResponse = SetEndpointAttributesResponse
 
 instance AWSRequest SetEndpointAttributes where
     type Sv SetEndpointAttributes = SNS

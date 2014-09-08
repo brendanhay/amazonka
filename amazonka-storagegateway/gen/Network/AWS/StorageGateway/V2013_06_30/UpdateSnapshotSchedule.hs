@@ -52,6 +52,8 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule
 
     -- * Response
     , UpdateSnapshotScheduleResponse
+    -- ** Response constructor
+    , mkUpdateSnapshotScheduleResponse
     -- ** Response lenses
     , ussrVolumeARN
     ) where
@@ -117,6 +119,15 @@ instance ToJSON UpdateSnapshotSchedule
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     { _ussrVolumeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateSnapshotScheduleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateSnapshotScheduleResponse :: UpdateSnapshotScheduleResponse
+mkUpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
+    { _ussrVolumeARN = Nothing
+    }
 
 -- | 
 ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)

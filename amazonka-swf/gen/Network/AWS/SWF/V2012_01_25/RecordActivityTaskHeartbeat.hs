@@ -75,6 +75,8 @@ module Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
 
     -- * Response
     , RecordActivityTaskHeartbeatResponse
+    -- ** Response constructor
+    , mkRecordActivityTaskHeartbeatResponse
     -- ** Response lenses
     , rathrCancelRequested
     ) where
@@ -120,6 +122,16 @@ instance ToJSON RecordActivityTaskHeartbeat
 newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RecordActivityTaskHeartbeatResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRecordActivityTaskHeartbeatResponse :: Bool -- ^ 'rathrCancelRequested'
+                                      -> RecordActivityTaskHeartbeatResponse
+mkRecordActivityTaskHeartbeatResponse p1 = RecordActivityTaskHeartbeatResponse
+    { _rathrCancelRequested = p1
+    }
 
 -- | Set to true if cancellation of the task is requested.
 rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool

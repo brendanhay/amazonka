@@ -56,6 +56,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones
 
     -- * Response
     , DescribeAvailabilityZonesResponse
+    -- ** Response constructor
+    , mkDescribeAvailabilityZonesResponse
     -- ** Response lenses
     , dazrAvailabilityZones
     ) where
@@ -97,6 +99,15 @@ instance ToQuery DescribeAvailabilityZones where
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAvailabilityZonesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
+mkDescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
+    { _dazrAvailabilityZones = mempty
+    }
 
 -- | Information about one or more Availability Zones.
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]

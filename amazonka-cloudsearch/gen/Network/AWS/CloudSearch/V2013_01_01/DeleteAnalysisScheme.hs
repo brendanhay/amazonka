@@ -31,6 +31,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme
 
     -- * Response
     , DeleteAnalysisSchemeResponse
+    -- ** Response constructor
+    , mkDeleteAnalysisSchemeResponse
     -- ** Response lenses
     , dasrrAnalysisScheme
     ) where
@@ -77,6 +79,16 @@ instance ToQuery DeleteAnalysisScheme where
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasrrAnalysisScheme :: AnalysisSchemeStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteAnalysisSchemeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrrAnalysisScheme'
+                               -> DeleteAnalysisSchemeResponse
+mkDeleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse
+    { _dasrrAnalysisScheme = p1
+    }
 
 -- | The status of the analysis scheme being deleted.
 dasrrAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus

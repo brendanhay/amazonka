@@ -38,6 +38,8 @@ module Network.AWS.RDS.V2013_09_09.CreateOptionGroup
 
     -- * Response
     , CreateOptionGroupResponse
+    -- ** Response constructor
+    , mkCreateOptionGroupResponse
     -- ** Response lenses
     , cogrOptionGroup
     ) where
@@ -105,6 +107,15 @@ instance ToQuery CreateOptionGroup where
 newtype CreateOptionGroupResponse = CreateOptionGroupResponse
     { _cogrOptionGroup :: Maybe OptionGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateOptionGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateOptionGroupResponse :: CreateOptionGroupResponse
+mkCreateOptionGroupResponse = CreateOptionGroupResponse
+    { _cogrOptionGroup = Nothing
+    }
 
 -- | 
 cogrOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)

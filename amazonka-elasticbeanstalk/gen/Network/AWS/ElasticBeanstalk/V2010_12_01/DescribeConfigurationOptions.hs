@@ -107,6 +107,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions
 
     -- * Response
     , DescribeConfigurationOptionsResponse
+    -- ** Response constructor
+    , mkDescribeConfigurationOptionsResponse
     -- ** Response lenses
     , dcorSolutionStackName
     , dcorOptions
@@ -172,6 +174,16 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorSolutionStackName :: Maybe Text
     , _dcorOptions :: [ConfigurationOptionDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConfigurationOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse
+mkDescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
+    { _dcorSolutionStackName = Nothing
+    , _dcorOptions = mempty
+    }
 
 -- | The name of the solution stack these configuration options belong to.
 dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)

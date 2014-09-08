@@ -31,6 +31,8 @@ module Network.AWS.Route53.V2013_04_01.ListGeoLocations
 
     -- * Response
     , ListGeoLocationsResponse
+    -- ** Response constructor
+    , mkListGeoLocationsResponse
     -- ** Response lenses
     , lglrGeoLocationDetailsList
     , lglrIsTruncated
@@ -119,6 +121,23 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
     , _lglrNextSubdivisionCode :: Maybe Text
     , _lglrMaxItems :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListGeoLocationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListGeoLocationsResponse :: [GeoLocationDetails] -- ^ 'lglrGeoLocationDetailsList'
+                           -> Bool -- ^ 'lglrIsTruncated'
+                           -> Text -- ^ 'lglrMaxItems'
+                           -> ListGeoLocationsResponse
+mkListGeoLocationsResponse p1 p2 p6 = ListGeoLocationsResponse
+    { _lglrGeoLocationDetailsList = p1
+    , _lglrIsTruncated = p2
+    , _lglrNextContinentCode = Nothing
+    , _lglrNextCountryCode = Nothing
+    , _lglrNextSubdivisionCode = Nothing
+    , _lglrMaxItems = p6
+    }
 
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request.

@@ -50,6 +50,8 @@ module Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
 
     -- * Response
     , GetEndpointAttributesResponse
+    -- ** Response constructor
+    , mkGetEndpointAttributesResponse
     -- ** Response lenses
     , gearAttributes
     ) where
@@ -82,6 +84,15 @@ instance ToQuery GetEndpointAttributes where
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetEndpointAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetEndpointAttributesResponse :: GetEndpointAttributesResponse
+mkGetEndpointAttributesResponse = GetEndpointAttributesResponse
+    { _gearAttributes = mempty
+    }
 
 -- | Attributes include the following: CustomUserData -- arbitrary user data to
 -- associate with the endpoint. Amazon SNS does not use this data. The data

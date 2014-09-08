@@ -29,6 +29,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
 
     -- * Response
     , DeleteVirtualInterfaceResponse
+    -- ** Response constructor
+    , mkDeleteVirtualInterfaceResponse
     -- ** Response lenses
     , dvirVirtualInterfaceState
     ) where
@@ -67,6 +69,15 @@ instance ToJSON DeleteVirtualInterface
 newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvirVirtualInterfaceState :: Maybe VirtualInterfaceState
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVirtualInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
+mkDeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
+    { _dvirVirtualInterfaceState = Nothing
+    }
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
 -- interface is pending confirmation from the virtual interface owner. If the

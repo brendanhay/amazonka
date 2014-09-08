@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketTagging
 
     -- * Response
     , GetBucketTaggingResponse
+    -- ** Response constructor
+    , mkGetBucketTaggingResponse
     -- ** Response lenses
     , gbtrTagSet
     ) where
@@ -71,6 +73,16 @@ instance ToBody GetBucketTagging
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtrTagSet :: [Tag]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketTaggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
+                           -> GetBucketTaggingResponse
+mkGetBucketTaggingResponse p1 = GetBucketTaggingResponse
+    { _gbtrTagSet = p1
+    }
 
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })

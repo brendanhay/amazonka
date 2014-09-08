@@ -36,6 +36,8 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterVolume
 
     -- * Response
     , RegisterVolumeResponse
+    -- ** Response constructor
+    , mkRegisterVolumeResponse
     -- ** Response lenses
     , rvrVolumeId
     ) where
@@ -78,6 +80,15 @@ instance ToJSON RegisterVolume
 newtype RegisterVolumeResponse = RegisterVolumeResponse
     { _rvrVolumeId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterVolumeResponse :: RegisterVolumeResponse
+mkRegisterVolumeResponse = RegisterVolumeResponse
+    { _rvrVolumeId = Nothing
+    }
 
 -- | The volume ID.
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)

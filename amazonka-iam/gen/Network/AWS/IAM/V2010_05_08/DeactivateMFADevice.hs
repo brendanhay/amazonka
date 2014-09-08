@@ -33,6 +33,8 @@ module Network.AWS.IAM.V2010_05_08.DeactivateMFADevice
 
     -- * Response
     , DeactivateMFADeviceResponse
+    -- ** Response constructor
+    , mkDeactivateMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,6 +72,13 @@ instance ToQuery DeactivateMFADevice where
 
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeactivateMFADeviceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeactivateMFADeviceResponse :: DeactivateMFADeviceResponse
+mkDeactivateMFADeviceResponse = DeactivateMFADeviceResponse
 
 instance AWSRequest DeactivateMFADevice where
     type Sv DeactivateMFADevice = IAM

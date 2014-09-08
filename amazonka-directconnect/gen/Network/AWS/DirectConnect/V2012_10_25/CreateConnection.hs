@@ -39,6 +39,8 @@ module Network.AWS.DirectConnect.V2012_10_25.CreateConnection
 
     -- * Response
     , CreateConnectionResponse
+    -- ** Response constructor
+    , mkCreateConnectionResponse
     -- ** Response lenses
     , ccrrOwnerAccount
     , ccrrConnectionId
@@ -108,6 +110,23 @@ data CreateConnectionResponse = CreateConnectionResponse
     , _ccrrVlan :: Maybe Integer
     , _ccrrPartnerName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateConnectionResponse :: CreateConnectionResponse
+mkCreateConnectionResponse = CreateConnectionResponse
+    { _ccrrOwnerAccount = Nothing
+    , _ccrrConnectionId = Nothing
+    , _ccrrConnectionName = Nothing
+    , _ccrrConnectionState = Nothing
+    , _ccrrRegion = Nothing
+    , _ccrrLocation = Nothing
+    , _ccrrBandwidth = Nothing
+    , _ccrrVlan = Nothing
+    , _ccrrPartnerName = Nothing
+    }
 
 ccrrOwnerAccount :: Lens' CreateConnectionResponse (Maybe Text)
 ccrrOwnerAccount =

@@ -47,6 +47,8 @@ module Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
 
     -- * Response
     , GetSubscriptionAttributesResponse
+    -- ** Response constructor
+    , mkGetSubscriptionAttributesResponse
     -- ** Response lenses
     , gsarAttributes
     ) where
@@ -80,6 +82,15 @@ instance ToQuery GetSubscriptionAttributes where
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSubscriptionAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
+mkGetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
+    { _gsarAttributes = mempty
+    }
 
 -- | A map of the subscription's attributes. Attributes in this map include the
 -- following: SubscriptionArn -- the subscription's ARN TopicArn -- the topic

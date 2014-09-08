@@ -71,6 +71,8 @@ module Network.AWS.SWF.V2012_01_25.RegisterActivityType
 
     -- * Response
     , RegisterActivityTypeResponse
+    -- ** Response constructor
+    , mkRegisterActivityTypeResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -198,6 +200,13 @@ instance ToJSON RegisterActivityType
 
 data RegisterActivityTypeResponse = RegisterActivityTypeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterActivityTypeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterActivityTypeResponse :: RegisterActivityTypeResponse
+mkRegisterActivityTypeResponse = RegisterActivityTypeResponse
 
 instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF

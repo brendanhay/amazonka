@@ -115,6 +115,8 @@ module Network.AWS.EC2.V2014_06_15.RunInstances
 
     -- * Response
     , RunInstancesResponse
+    -- ** Response constructor
+    , mkRunInstancesResponse
     -- ** Response lenses
     , rirrReservationId
     , rirrOwnerId
@@ -334,6 +336,19 @@ data RunInstancesResponse = RunInstancesResponse
     , _rirrGroups :: [GroupIdentifier]
     , _rirrInstances :: [Instance]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RunInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRunInstancesResponse :: RunInstancesResponse
+mkRunInstancesResponse = RunInstancesResponse
+    { _rirrReservationId = Nothing
+    , _rirrOwnerId = Nothing
+    , _rirrRequesterId = Nothing
+    , _rirrGroups = mempty
+    , _rirrInstances = mempty
+    }
 
 -- | The ID of the reservation.
 rirrReservationId :: Lens' RunInstancesResponse (Maybe Text)

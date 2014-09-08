@@ -37,6 +37,8 @@ module Network.AWS.S3.V2006_03_01.ListObjectVersions
 
     -- * Response
     , ListObjectVersionsResponse
+    -- ** Response constructor
+    , mkListObjectVersionsResponse
     -- ** Response lenses
     , lovrIsTruncated
     , lovrKeyMarker
@@ -151,6 +153,27 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
     , _lovrCommonPrefixes :: [CommonPrefix]
     , _lovrEncodingType :: Maybe EncodingType
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListObjectVersionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListObjectVersionsResponse :: Bool -- ^ 'lovrIsTruncated'
+                             -> ListObjectVersionsResponse
+mkListObjectVersionsResponse p1 = ListObjectVersionsResponse
+    { _lovrIsTruncated = p1
+    , _lovrKeyMarker = Nothing
+    , _lovrVersionIdMarker = Nothing
+    , _lovrNextKeyMarker = Nothing
+    , _lovrNextVersionIdMarker = Nothing
+    , _lovrVersions = mempty
+    , _lovrDeleteMarkers = mempty
+    , _lovrName = Nothing
+    , _lovrPrefix = Nothing
+    , _lovrMaxKeys = Nothing
+    , _lovrCommonPrefixes = mempty
+    , _lovrEncodingType = Nothing
+    }
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the results
 -- that satisfied the search criteria. If your results were truncated, you can

@@ -44,6 +44,8 @@ module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation
 
     -- * Response
     , ReplaceNetworkAclAssociationResponse
+    -- ** Response constructor
+    , mkReplaceNetworkAclAssociationResponse
     -- ** Response lenses
     , rnaarNewAssociationId
     ) where
@@ -86,6 +88,15 @@ instance ToQuery ReplaceNetworkAclAssociation where
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ReplaceNetworkAclAssociationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkReplaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResponse
+mkReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
+    { _rnaarNewAssociationId = Nothing
+    }
 
 -- | The ID of the new association.
 rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)

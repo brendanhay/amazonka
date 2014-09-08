@@ -42,6 +42,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup
 
     -- * Response
     , CreateLogGroupResponse
+    -- ** Response constructor
+    , mkCreateLogGroupResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -73,6 +75,13 @@ instance ToJSON CreateLogGroup
 
 data CreateLogGroupResponse = CreateLogGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLogGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLogGroupResponse :: CreateLogGroupResponse
+mkCreateLogGroupResponse = CreateLogGroupResponse
 
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs

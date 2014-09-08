@@ -33,6 +33,8 @@ module Network.AWS.IAM.V2010_05_08.GetLoginProfile
 
     -- * Response
     , GetLoginProfileResponse
+    -- ** Response constructor
+    , mkGetLoginProfileResponse
     -- ** Response lenses
     , glprLoginProfile
     ) where
@@ -66,6 +68,16 @@ instance ToQuery GetLoginProfile where
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetLoginProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetLoginProfileResponse :: LoginProfile -- ^ 'glprLoginProfile'
+                          -> GetLoginProfileResponse
+mkGetLoginProfileResponse p1 = GetLoginProfileResponse
+    { _glprLoginProfile = p1
+    }
 
 -- | User name and password create date for the user.
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile

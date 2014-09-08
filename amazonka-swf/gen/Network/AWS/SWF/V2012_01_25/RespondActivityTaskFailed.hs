@@ -63,6 +63,8 @@ module Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed
 
     -- * Response
     , RespondActivityTaskFailedResponse
+    -- ** Response constructor
+    , mkRespondActivityTaskFailedResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -110,6 +112,13 @@ instance ToJSON RespondActivityTaskFailed
 
 data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RespondActivityTaskFailedResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRespondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse
+mkRespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
 
 instance AWSRequest RespondActivityTaskFailed where
     type Sv RespondActivityTaskFailed = SWF

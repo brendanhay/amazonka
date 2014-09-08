@@ -41,6 +41,8 @@ module Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer
 
     -- * Response
     , EnableAvailabilityZonesForLoadBalancerResponse
+    -- ** Response constructor
+    , mkEnableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , eazflbrAvailabilityZones
     ) where
@@ -84,6 +86,15 @@ instance ToQuery EnableAvailabilityZonesForLoadBalancer where
 newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { _eazflbrAvailabilityZones :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableAvailabilityZonesForLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
+mkEnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
+    { _eazflbrAvailabilityZones = mempty
+    }
 
 -- | An updated list of Availability Zones for the load balancer.
 eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]

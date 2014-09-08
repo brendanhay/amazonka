@@ -34,6 +34,8 @@ module Network.AWS.ELB.V2012_06_01.RemoveTags
 
     -- * Response
     , RemoveTagsResponse
+    -- ** Response constructor
+    , mkRemoveTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery RemoveTags where
 -- | The output for the RemoveTags action.
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRemoveTagsResponse :: RemoveTagsResponse
+mkRemoveTagsResponse = RemoveTagsResponse
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = ELB

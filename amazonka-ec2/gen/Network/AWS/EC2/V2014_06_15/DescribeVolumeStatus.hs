@@ -75,6 +75,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus
 
     -- * Response
     , DescribeVolumeStatusResponse
+    -- ** Response constructor
+    , mkDescribeVolumeStatusResponse
     -- ** Response lenses
     , dvsrVolumeStatuses
     , dvsrNextToken
@@ -141,6 +143,16 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses :: [VolumeStatusItem]
     , _dvsrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumeStatusResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse
+mkDescribeVolumeStatusResponse = DescribeVolumeStatusResponse
+    { _dvsrVolumeStatuses = mempty
+    , _dvsrNextToken = Nothing
+    }
 
 -- | A list of volumes.
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]

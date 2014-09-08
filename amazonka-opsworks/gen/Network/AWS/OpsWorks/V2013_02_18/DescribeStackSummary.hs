@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary
 
     -- * Response
     , DescribeStackSummaryResponse
+    -- ** Response constructor
+    , mkDescribeStackSummaryResponse
     -- ** Response lenses
     , dssrStackSummary
     ) where
@@ -70,6 +72,15 @@ instance ToJSON DescribeStackSummary
 newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary :: Maybe StackSummary
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackSummaryResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStackSummaryResponse :: DescribeStackSummaryResponse
+mkDescribeStackSummaryResponse = DescribeStackSummaryResponse
+    { _dssrStackSummary = Nothing
+    }
 
 -- | A StackSummary object that contains the results.
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)

@@ -59,6 +59,8 @@ module Network.AWS.SNS.V2010_03_31.ListPlatformApplications
 
     -- * Response
     , ListPlatformApplicationsResponse
+    -- ** Response constructor
+    , mkListPlatformApplicationsResponse
     -- ** Response lenses
     , lparPlatformApplications
     , lparNextToken
@@ -94,6 +96,16 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparPlatformApplications :: [PlatformApplication]
     , _lparNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPlatformApplicationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListPlatformApplicationsResponse :: ListPlatformApplicationsResponse
+mkListPlatformApplicationsResponse = ListPlatformApplicationsResponse
+    { _lparPlatformApplications = mempty
+    , _lparNextToken = Nothing
+    }
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.

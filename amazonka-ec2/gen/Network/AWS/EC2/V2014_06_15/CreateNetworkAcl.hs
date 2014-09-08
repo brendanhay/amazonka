@@ -41,6 +41,8 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkAcl
 
     -- * Response
     , CreateNetworkAclResponse
+    -- ** Response constructor
+    , mkCreateNetworkAclResponse
     -- ** Response lenses
     , cnarNetworkAcl
     ) where
@@ -73,6 +75,15 @@ instance ToQuery CreateNetworkAcl where
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl :: Maybe NetworkAcl
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateNetworkAclResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateNetworkAclResponse :: CreateNetworkAclResponse
+mkCreateNetworkAclResponse = CreateNetworkAclResponse
+    { _cnarNetworkAcl = Nothing
+    }
 
 -- | Information about the network ACL.
 cnarNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)

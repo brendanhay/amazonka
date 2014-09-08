@@ -42,6 +42,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings
 
     -- * Response
     , ValidateConfigurationSettingsResponse
+    -- ** Response constructor
+    , mkValidateConfigurationSettingsResponse
     -- ** Response lenses
     , vcsrMessages
     ) where
@@ -99,6 +101,15 @@ instance ToQuery ValidateConfigurationSettings where
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages :: [ValidationMessage]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ValidateConfigurationSettingsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkValidateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
+mkValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
+    { _vcsrMessages = mempty
+    }
 
 -- | A list of ValidationMessage.
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]

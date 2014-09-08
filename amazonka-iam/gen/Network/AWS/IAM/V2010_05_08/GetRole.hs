@@ -41,6 +41,8 @@ module Network.AWS.IAM.V2010_05_08.GetRole
 
     -- * Response
     , GetRoleResponse
+    -- ** Response constructor
+    , mkGetRoleResponse
     -- ** Response lenses
     , grrRole
     ) where
@@ -73,6 +75,16 @@ instance ToQuery GetRole where
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetRoleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetRoleResponse :: Role -- ^ 'grrRole'
+                  -> GetRoleResponse
+mkGetRoleResponse p1 = GetRoleResponse
+    { _grrRole = p1
+    }
 
 -- | Information about the role.
 grrRole :: Lens' GetRoleResponse Role

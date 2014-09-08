@@ -1084,7 +1084,10 @@ data ConsumedCapacity = ConsumedCapacity
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ConsumedCapacity' data type to populate a request.
+-- a valid 'ConsumedCapacity' data type.
+--
+-- 'ConsumedCapacity' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkConsumedCapacity :: ConsumedCapacity
 mkConsumedCapacity = ConsumedCapacity
     { _ccTableName = Nothing
@@ -1240,7 +1243,10 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'GlobalSecondaryIndexDescription' data type to populate a request.
+-- a valid 'GlobalSecondaryIndexDescription' data type.
+--
+-- 'GlobalSecondaryIndexDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkGlobalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
 mkGlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName = Nothing
@@ -1456,7 +1462,10 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LocalSecondaryIndexDescription' data type to populate a request.
+-- a valid 'LocalSecondaryIndexDescription' data type.
+--
+-- 'LocalSecondaryIndexDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLocalSecondaryIndexDescription :: LocalSecondaryIndexDescription
 mkLocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName = Nothing
@@ -1648,7 +1657,10 @@ data TableDescription = TableDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TableDescription' data type to populate a request.
+-- a valid 'TableDescription' data type.
+--
+-- 'TableDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTableDescription :: TableDescription
 mkTableDescription = TableDescription
     { _tdAttributeDefinitions = mempty

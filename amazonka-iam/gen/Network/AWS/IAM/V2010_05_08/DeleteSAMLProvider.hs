@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider
 
     -- * Response
     , DeleteSAMLProviderResponse
+    -- ** Response constructor
+    , mkDeleteSAMLProviderResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,6 +66,13 @@ instance ToQuery DeleteSAMLProvider where
 
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSAMLProviderResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSAMLProviderResponse :: DeleteSAMLProviderResponse
+mkDeleteSAMLProviderResponse = DeleteSAMLProviderResponse
 
 instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM

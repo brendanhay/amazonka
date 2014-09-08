@@ -32,6 +32,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
 
     -- * Response
     , DeleteConnectionResponse
+    -- ** Response constructor
+    , mkDeleteConnectionResponse
     -- ** Response lenses
     , dcrOwnerAccount
     , dcrConnectionId
@@ -86,6 +88,23 @@ data DeleteConnectionResponse = DeleteConnectionResponse
     , _dcrVlan :: Maybe Integer
     , _dcrPartnerName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteConnectionResponse :: DeleteConnectionResponse
+mkDeleteConnectionResponse = DeleteConnectionResponse
+    { _dcrOwnerAccount = Nothing
+    , _dcrConnectionId = Nothing
+    , _dcrConnectionName = Nothing
+    , _dcrConnectionState = Nothing
+    , _dcrRegion = Nothing
+    , _dcrLocation = Nothing
+    , _dcrBandwidth = Nothing
+    , _dcrVlan = Nothing
+    , _dcrPartnerName = Nothing
+    }
 
 dcrOwnerAccount :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrOwnerAccount = lens _dcrOwnerAccount (\s a -> s { _dcrOwnerAccount = a })

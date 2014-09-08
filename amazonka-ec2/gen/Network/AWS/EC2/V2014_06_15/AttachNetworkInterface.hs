@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.AttachNetworkInterface
 
     -- * Response
     , AttachNetworkInterfaceResponse
+    -- ** Response constructor
+    , mkAttachNetworkInterfaceResponse
     -- ** Response lenses
     , anirAttachmentId
     ) where
@@ -86,6 +88,15 @@ instance ToQuery AttachNetworkInterface where
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachNetworkInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAttachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse
+mkAttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
+    { _anirAttachmentId = Nothing
+    }
 
 -- | The ID of the network interface attachment.
 anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)

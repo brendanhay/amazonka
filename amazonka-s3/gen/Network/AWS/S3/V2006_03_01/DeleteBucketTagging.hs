@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.DeleteBucketTagging
 
     -- * Response
     , DeleteBucketTaggingResponse
+    -- ** Response constructor
+    , mkDeleteBucketTaggingResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -68,6 +70,13 @@ instance ToBody DeleteBucketTagging
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteBucketTaggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteBucketTaggingResponse :: DeleteBucketTaggingResponse
+mkDeleteBucketTaggingResponse = DeleteBucketTaggingResponse
 
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3

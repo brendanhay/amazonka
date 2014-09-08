@@ -44,6 +44,8 @@ module Network.AWS.IAM.V2010_05_08.ListServerCertificates
 
     -- * Response
     , ListServerCertificatesResponse
+    -- ** Response constructor
+    , mkListServerCertificatesResponse
     -- ** Response lenses
     , lscrServerCertificateMetadataList
     , lscrIsTruncated
@@ -101,6 +103,19 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
     , _lscrIsTruncated :: Bool
     , _lscrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListServerCertificatesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListServerCertificatesResponse :: [ServerCertificateMetadata] -- ^ 'lscrServerCertificateMetadataList'
+                                 -> Bool -- ^ 'lscrIsTruncated'
+                                 -> ListServerCertificatesResponse
+mkListServerCertificatesResponse p1 p2 = ListServerCertificatesResponse
+    { _lscrServerCertificateMetadataList = p1
+    , _lscrIsTruncated = p2
+    , _lscrMarker = Nothing
+    }
 
 -- | A list of server certificates.
 lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]

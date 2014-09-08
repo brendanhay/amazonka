@@ -38,6 +38,8 @@ module Network.AWS.Support.V2013_04_15.AddCommunicationToCase
 
     -- * Response
     , AddCommunicationToCaseResponse
+    -- ** Response constructor
+    , mkAddCommunicationToCaseResponse
     -- ** Response lenses
     , actcrResult
     ) where
@@ -100,6 +102,15 @@ instance ToJSON AddCommunicationToCase
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddCommunicationToCaseResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddCommunicationToCaseResponse :: AddCommunicationToCaseResponse
+mkAddCommunicationToCaseResponse = AddCommunicationToCaseResponse
+    { _actcrResult = Nothing
+    }
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)

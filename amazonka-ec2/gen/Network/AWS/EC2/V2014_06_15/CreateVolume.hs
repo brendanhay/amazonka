@@ -57,6 +57,8 @@ module Network.AWS.EC2.V2014_06_15.CreateVolume
 
     -- * Response
     , CreateVolumeResponse
+    -- ** Response constructor
+    , mkCreateVolumeResponse
     -- ** Response lenses
     , cvrVolumeId
     , cvrSize
@@ -148,6 +150,25 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrIops :: Maybe Integer
     , _cvrEncrypted :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateVolumeResponse :: CreateVolumeResponse
+mkCreateVolumeResponse = CreateVolumeResponse
+    { _cvrVolumeId = Nothing
+    , _cvrSize = Nothing
+    , _cvrSnapshotId = Nothing
+    , _cvrAvailabilityZone = Nothing
+    , _cvrState = Nothing
+    , _cvrCreateTime = Nothing
+    , _cvrAttachments = mempty
+    , _cvrTags = mempty
+    , _cvrVolumeType = Nothing
+    , _cvrIops = Nothing
+    , _cvrEncrypted = Nothing
+    }
 
 -- | The ID of the volume.
 cvrVolumeId :: Lens' CreateVolumeResponse (Maybe Text)

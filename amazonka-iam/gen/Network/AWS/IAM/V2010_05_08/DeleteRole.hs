@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteRole
 
     -- * Response
     , DeleteRoleResponse
+    -- ** Response constructor
+    , mkDeleteRoleResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,6 +65,13 @@ instance ToQuery DeleteRole where
 
 data DeleteRoleResponse = DeleteRoleResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteRoleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteRoleResponse :: DeleteRoleResponse
+mkDeleteRoleResponse = DeleteRoleResponse
 
 instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM

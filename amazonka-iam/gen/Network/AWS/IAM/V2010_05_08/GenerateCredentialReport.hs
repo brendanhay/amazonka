@@ -28,6 +28,8 @@ module Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
     , mkGenerateCredentialReport
     -- * Response
     , GenerateCredentialReportResponse
+    -- ** Response constructor
+    , mkGenerateCredentialReportResponse
     -- ** Response lenses
     , gcrrState
     , gcrrDescription
@@ -54,6 +56,16 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrState :: Maybe ReportStateType
     , _gcrrDescription :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GenerateCredentialReportResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGenerateCredentialReportResponse :: GenerateCredentialReportResponse
+mkGenerateCredentialReportResponse = GenerateCredentialReportResponse
+    { _gcrrState = Nothing
+    , _gcrrDescription = Nothing
+    }
 
 -- | Information about the state of a credential report.
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)

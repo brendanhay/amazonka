@@ -46,6 +46,8 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime
 
     -- * Response
     , UpdateMaintenanceStartTimeResponse
+    -- ** Response constructor
+    , mkUpdateMaintenanceStartTimeResponse
     -- ** Response lenses
     , umstrGatewayARN
     ) where
@@ -114,6 +116,16 @@ instance ToJSON UpdateMaintenanceStartTime
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateMaintenanceStartTimeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateMaintenanceStartTimeResponse :: Text -- ^ 'umstrGatewayARN'
+                                     -> UpdateMaintenanceStartTimeResponse
+mkUpdateMaintenanceStartTimeResponse p1 = UpdateMaintenanceStartTimeResponse
+    { _umstrGatewayARN = p1
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

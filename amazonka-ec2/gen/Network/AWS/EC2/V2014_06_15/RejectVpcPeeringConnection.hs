@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection
 
     -- * Response
     , RejectVpcPeeringConnectionResponse
+    -- ** Response constructor
+    , mkRejectVpcPeeringConnectionResponse
     -- ** Response lenses
     , rvpcrReturn
     ) where
@@ -73,6 +75,15 @@ instance ToQuery RejectVpcPeeringConnection where
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RejectVpcPeeringConnectionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResponse
+mkRejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
+    { _rvpcrReturn = Nothing
+    }
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)

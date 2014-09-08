@@ -40,6 +40,8 @@ module Network.AWS.ELB.V2012_06_01.SetLoadBalancerListenerSSLCertificate
 
     -- * Response
     , SetLoadBalancerListenerSSLCertificateResponse
+    -- ** Response constructor
+    , mkSetLoadBalancerListenerSSLCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -91,6 +93,13 @@ instance ToQuery SetLoadBalancerListenerSSLCertificate where
 -- | The output for the SetLoadBalancerListenerSSLCertificate action.
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetLoadBalancerListenerSSLCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
+mkSetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
 
 instance AWSRequest SetLoadBalancerListenerSSLCertificate where
     type Sv SetLoadBalancerListenerSSLCertificate = ELB

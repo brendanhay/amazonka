@@ -43,6 +43,8 @@ module Network.AWS.S3.V2006_03_01.UploadPart
 
     -- * Response
     , UploadPartResponse
+    -- ** Response constructor
+    , mkUploadPartResponse
     -- ** Response lenses
     , uprServerSideEncryption
     , uprETag
@@ -170,6 +172,18 @@ data UploadPartResponse = UploadPartResponse
     , _uprSSECustomerAlgorithm :: Maybe Text
     , _uprSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UploadPartResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUploadPartResponse :: UploadPartResponse
+mkUploadPartResponse = UploadPartResponse
+    { _uprServerSideEncryption = Nothing
+    , _uprETag = Nothing
+    , _uprSSECustomerAlgorithm = Nothing
+    , _uprSSECustomerKeyMD5 = Nothing
+    }
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
 uprServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)

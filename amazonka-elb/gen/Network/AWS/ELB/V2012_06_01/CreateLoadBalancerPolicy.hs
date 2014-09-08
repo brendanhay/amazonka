@@ -41,6 +41,8 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy
 
     -- * Response
     , CreateLoadBalancerPolicyResponse
+    -- ** Response constructor
+    , mkCreateLoadBalancerPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -96,6 +98,13 @@ instance ToQuery CreateLoadBalancerPolicy where
 -- | The output for the CreateLoadBalancerPolicy action.
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLoadBalancerPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
+mkCreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 
 instance AWSRequest CreateLoadBalancerPolicy where
     type Sv CreateLoadBalancerPolicy = ELB

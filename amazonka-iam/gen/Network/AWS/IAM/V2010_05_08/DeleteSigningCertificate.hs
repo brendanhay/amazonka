@@ -37,6 +37,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate
 
     -- * Response
     , DeleteSigningCertificateResponse
+    -- ** Response constructor
+    , mkDeleteSigningCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery DeleteSigningCertificate where
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSigningCertificateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSigningCertificateResponse :: DeleteSigningCertificateResponse
+mkDeleteSigningCertificateResponse = DeleteSigningCertificateResponse
 
 instance AWSRequest DeleteSigningCertificate where
     type Sv DeleteSigningCertificate = IAM

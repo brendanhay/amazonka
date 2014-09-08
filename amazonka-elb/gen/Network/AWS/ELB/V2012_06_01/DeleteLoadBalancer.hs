@@ -37,6 +37,8 @@ module Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer
 
     -- * Response
     , DeleteLoadBalancerResponse
+    -- ** Response constructor
+    , mkDeleteLoadBalancerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,6 +69,13 @@ instance ToQuery DeleteLoadBalancer where
 -- | The output for the DeleteLoadBalancer action.
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteLoadBalancerResponse :: DeleteLoadBalancerResponse
+mkDeleteLoadBalancerResponse = DeleteLoadBalancerResponse
 
 instance AWSRequest DeleteLoadBalancer where
     type Sv DeleteLoadBalancer = ELB

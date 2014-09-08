@@ -36,6 +36,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplication
 
     -- * Response
     , UpdateApplicationResponse
+    -- ** Response constructor
+    , mkUpdateApplicationResponse
     -- ** Response lenses
     , uarApplication
     ) where
@@ -77,6 +79,15 @@ instance ToQuery UpdateApplication where
 newtype UpdateApplicationResponse = UpdateApplicationResponse
     { _uarApplication :: Maybe ApplicationDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateApplicationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateApplicationResponse :: UpdateApplicationResponse
+mkUpdateApplicationResponse = UpdateApplicationResponse
+    { _uarApplication = Nothing
+    }
 
 -- | The ApplicationDescription of the application.
 uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)

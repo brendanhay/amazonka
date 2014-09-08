@@ -58,6 +58,8 @@ module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
 
     -- * Response
     , CountPendingActivityTasksResponse
+    -- ** Response constructor
+    , mkCountPendingActivityTasksResponse
     -- ** Response lenses
     , cpatrCount
     , cpatrTruncated
@@ -103,6 +105,17 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
     { _cpatrCount :: Integer
     , _cpatrTruncated :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CountPendingActivityTasksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCountPendingActivityTasksResponse :: Integer -- ^ 'cpatrCount'
+                                    -> CountPendingActivityTasksResponse
+mkCountPendingActivityTasksResponse p1 = CountPendingActivityTasksResponse
+    { _cpatrCount = p1
+    , _cpatrTruncated = Nothing
+    }
 
 -- | The number of tasks in the task list.
 cpatrCount :: Lens' CountPendingActivityTasksResponse Integer

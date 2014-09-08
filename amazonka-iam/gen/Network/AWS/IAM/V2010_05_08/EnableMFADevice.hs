@@ -37,6 +37,8 @@ module Network.AWS.IAM.V2010_05_08.EnableMFADevice
 
     -- * Response
     , EnableMFADeviceResponse
+    -- ** Response constructor
+    , mkEnableMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -92,6 +94,13 @@ instance ToQuery EnableMFADevice where
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableMFADeviceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnableMFADeviceResponse :: EnableMFADeviceResponse
+mkEnableMFADeviceResponse = EnableMFADeviceResponse
 
 instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM

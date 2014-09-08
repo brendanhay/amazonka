@@ -36,6 +36,8 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms
 
     -- * Response
     , DescribeAlarmsResponse
+    -- ** Response constructor
+    , mkDescribeAlarmsResponse
     -- ** Response lenses
     , darMetricAlarms
     , darNextToken
@@ -102,6 +104,16 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse
     { _darMetricAlarms :: [MetricAlarm]
     , _darNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAlarmsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAlarmsResponse :: DescribeAlarmsResponse
+mkDescribeAlarmsResponse = DescribeAlarmsResponse
+    { _darMetricAlarms = mempty
+    , _darNextToken = Nothing
+    }
 
 -- | A list of information for the specified alarms.
 darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]

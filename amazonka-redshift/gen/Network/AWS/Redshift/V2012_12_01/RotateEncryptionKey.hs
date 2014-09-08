@@ -29,6 +29,8 @@ module Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey
 
     -- * Response
     , RotateEncryptionKeyResponse
+    -- ** Response constructor
+    , mkRotateEncryptionKeyResponse
     -- ** Response lenses
     , rekrCluster
     ) where
@@ -63,6 +65,15 @@ instance ToQuery RotateEncryptionKey where
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RotateEncryptionKeyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
+mkRotateEncryptionKeyResponse = RotateEncryptionKeyResponse
+    { _rekrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)

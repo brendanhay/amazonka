@@ -36,6 +36,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes
 
     -- * Response
     , DescribeVolumesResponse
+    -- ** Response constructor
+    , mkDescribeVolumesResponse
     -- ** Response lenses
     , dvrVolumes
     ) where
@@ -93,6 +95,15 @@ instance ToJSON DescribeVolumes
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVolumesResponse :: DescribeVolumesResponse
+mkDescribeVolumesResponse = DescribeVolumesResponse
+    { _dvrVolumes = mempty
+    }
 
 -- | An array of volume IDs.
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]

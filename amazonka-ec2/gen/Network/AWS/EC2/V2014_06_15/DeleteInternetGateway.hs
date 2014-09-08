@@ -37,6 +37,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteInternetGateway
 
     -- * Response
     , DeleteInternetGatewayResponse
+    -- ** Response constructor
+    , mkDeleteInternetGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,6 +68,13 @@ instance ToQuery DeleteInternetGateway where
 
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteInternetGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteInternetGatewayResponse :: DeleteInternetGatewayResponse
+mkDeleteInternetGatewayResponse = DeleteInternetGatewayResponse
 
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2

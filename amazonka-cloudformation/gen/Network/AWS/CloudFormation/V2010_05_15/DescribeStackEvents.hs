@@ -46,6 +46,8 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
 
     -- * Response
     , DescribeStackEventsResponse
+    -- ** Response constructor
+    , mkDescribeStackEventsResponse
     -- ** Response lenses
     , dserStackEvents
     , dserNextToken
@@ -90,6 +92,16 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse
     { _dserStackEvents :: [StackEvent]
     , _dserNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackEventsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStackEventsResponse :: DescribeStackEventsResponse
+mkDescribeStackEventsResponse = DescribeStackEventsResponse
+    { _dserStackEvents = mempty
+    , _dserNextToken = Nothing
+    }
 
 -- | A list of StackEvents structures.
 dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]

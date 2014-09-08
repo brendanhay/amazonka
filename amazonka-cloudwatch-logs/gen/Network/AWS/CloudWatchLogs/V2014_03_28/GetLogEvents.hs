@@ -60,6 +60,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.GetLogEvents
 
     -- * Response
     , GetLogEventsResponse
+    -- ** Response constructor
+    , mkGetLogEventsResponse
     -- ** Response lenses
     , glerEvents
     , glerNextForwardToken
@@ -141,6 +143,17 @@ data GetLogEventsResponse = GetLogEventsResponse
     , _glerNextForwardToken :: Maybe Text
     , _glerNextBackwardToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetLogEventsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetLogEventsResponse :: GetLogEventsResponse
+mkGetLogEventsResponse = GetLogEventsResponse
+    { _glerEvents = mempty
+    , _glerNextForwardToken = Nothing
+    , _glerNextBackwardToken = Nothing
+    }
 
 glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glerEvents = lens _glerEvents (\s a -> s { _glerEvents = a })

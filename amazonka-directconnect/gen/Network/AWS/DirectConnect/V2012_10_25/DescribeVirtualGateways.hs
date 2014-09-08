@@ -30,6 +30,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
     , mkDescribeVirtualGateways
     -- * Response
     , DescribeVirtualGatewaysResponse
+    -- ** Response constructor
+    , mkDescribeVirtualGatewaysResponse
     -- ** Response lenses
     , dvgrVirtualGateways
     ) where
@@ -58,6 +60,15 @@ instance ToJSON DescribeVirtualGateways
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     { _dvgrVirtualGateways :: [VirtualGateway]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVirtualGatewaysResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
+mkDescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
+    { _dvgrVirtualGateways = mempty
+    }
 
 -- | A list of virtual private gateways.
 dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]

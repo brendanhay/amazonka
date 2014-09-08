@@ -57,6 +57,8 @@ module Network.AWS.EC2.V2014_06_15.CreateCustomerGateway
 
     -- * Response
     , CreateCustomerGatewayResponse
+    -- ** Response constructor
+    , mkCreateCustomerGatewayResponse
     -- ** Response lenses
     , ccgrCustomerGateway
     ) where
@@ -105,6 +107,15 @@ instance ToQuery CreateCustomerGateway where
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway :: Maybe CustomerGateway
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateCustomerGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse
+mkCreateCustomerGatewayResponse = CreateCustomerGatewayResponse
+    { _ccgrCustomerGateway = Nothing
+    }
 
 -- | Information about the customer gateway.
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)

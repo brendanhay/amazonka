@@ -45,6 +45,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSnapshots
 
     -- * Response
     , DescribeDBSnapshotsResponse
+    -- ** Response constructor
+    , mkDescribeDBSnapshotsResponse
     -- ** Response lenses
     , ddbsrrMarker
     , ddbsrrDBSnapshots
@@ -124,6 +126,16 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrrMarker :: Maybe Text
     , _ddbsrrDBSnapshots :: [DBSnapshot]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBSnapshotsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
+mkDescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
+    { _ddbsrrMarker = Nothing
+    , _ddbsrrDBSnapshots = mempty
+    }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

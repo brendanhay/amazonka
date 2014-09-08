@@ -73,6 +73,8 @@ module Network.AWS.SNS.V2010_03_31.Publish
 
     -- * Response
     , PublishResponse
+    -- ** Response constructor
+    , mkPublishResponse
     -- ** Response lenses
     , prMessageId
     ) where
@@ -170,6 +172,15 @@ instance ToQuery Publish where
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PublishResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPublishResponse :: PublishResponse
+mkPublishResponse = PublishResponse
+    { _prMessageId = Nothing
+    }
 
 -- | Unique identifier assigned to the published message. Length Constraint:
 -- Maximum 100 characters.

@@ -36,6 +36,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate
 
     -- * Response
     , DeleteConfigurationTemplateResponse
+    -- ** Response constructor
+    , mkDeleteConfigurationTemplateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery DeleteConfigurationTemplate where
 
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteConfigurationTemplateResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
+mkDeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 
 instance AWSRequest DeleteConfigurationTemplate where
     type Sv DeleteConfigurationTemplate = ElasticBeanstalk

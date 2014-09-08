@@ -57,6 +57,8 @@ module Network.AWS.SQS.V2012_11_05.DeleteMessage
 
     -- * Response
     , DeleteMessageResponse
+    -- ** Response constructor
+    , mkDeleteMessageResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -92,6 +94,13 @@ instance ToQuery DeleteMessage where
 
 data DeleteMessageResponse = DeleteMessageResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteMessageResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteMessageResponse :: DeleteMessageResponse
+mkDeleteMessageResponse = DeleteMessageResponse
 
 instance AWSRequest DeleteMessage where
     type Sv DeleteMessage = SQS

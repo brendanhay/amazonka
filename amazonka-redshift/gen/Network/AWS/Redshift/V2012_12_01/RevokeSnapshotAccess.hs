@@ -35,6 +35,8 @@ module Network.AWS.Redshift.V2012_12_01.RevokeSnapshotAccess
 
     -- * Response
     , RevokeSnapshotAccessResponse
+    -- ** Response constructor
+    , mkRevokeSnapshotAccessResponse
     -- ** Response lenses
     , rsarSnapshot
     ) where
@@ -87,6 +89,15 @@ instance ToQuery RevokeSnapshotAccess where
 newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeSnapshotAccessResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRevokeSnapshotAccessResponse :: RevokeSnapshotAccessResponse
+mkRevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
+    { _rsarSnapshot = Nothing
+    }
 
 -- | Describes a snapshot.
 rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)

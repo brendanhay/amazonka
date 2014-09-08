@@ -50,6 +50,8 @@ module Network.AWS.RDS.V2013_09_09.AuthorizeDBSecurityGroupIngress
 
     -- * Response
     , AuthorizeDBSecurityGroupIngressResponse
+    -- ** Response constructor
+    , mkAuthorizeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , adbsgirDBSecurityGroup
     ) where
@@ -121,6 +123,15 @@ instance ToQuery AuthorizeDBSecurityGroupIngress where
 newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AuthorizeDBSecurityGroupIngressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAuthorizeDBSecurityGroupIngressResponse :: AuthorizeDBSecurityGroupIngressResponse
+mkAuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
+    { _adbsgirDBSecurityGroup = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress

@@ -30,6 +30,8 @@ module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
     , mkGetCheckerIpRanges
     -- * Response
     , GetCheckerIpRangesResponse
+    -- ** Response constructor
+    , mkGetCheckerIpRangesResponse
     -- ** Response lenses
     , gcirrCheckerIpRanges
     ) where
@@ -63,6 +65,16 @@ instance ToXML GetCheckerIpRanges where
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetCheckerIpRangesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetCheckerIpRangesResponse :: [Text] -- ^ 'gcirrCheckerIpRanges'
+                             -> GetCheckerIpRangesResponse
+mkGetCheckerIpRangesResponse p1 = GetCheckerIpRangesResponse
+    { _gcirrCheckerIpRanges = p1
+    }
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.

@@ -47,6 +47,8 @@ module Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
 
     -- * Response
     , GetPlatformApplicationAttributesResponse
+    -- ** Response constructor
+    , mkGetPlatformApplicationAttributesResponse
     -- ** Response lenses
     , gpaarAttributes
     ) where
@@ -81,6 +83,15 @@ instance ToQuery GetPlatformApplicationAttributes where
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map Text Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetPlatformApplicationAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse
+mkGetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
+    { _gpaarAttributes = mempty
+    }
 
 -- | Attributes include the following: EventEndpointCreated -- Topic ARN to
 -- which EndpointCreated event notifications should be sent.

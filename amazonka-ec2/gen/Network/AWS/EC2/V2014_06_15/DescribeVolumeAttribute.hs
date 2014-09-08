@@ -53,6 +53,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute
 
     -- * Response
     , DescribeVolumeAttributeResponse
+    -- ** Response constructor
+    , mkDescribeVolumeAttributeResponse
     -- ** Response lenses
     , dvarVolumeId
     , dvarAutoEnableIO
@@ -95,6 +97,17 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: [ProductCode]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeVolumeAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
+mkDescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
+    { _dvarVolumeId = Nothing
+    , _dvarAutoEnableIO = Nothing
+    , _dvarProductCodes = mempty
+    }
 
 -- | The ID of the volume.
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)

@@ -47,6 +47,8 @@ module Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes
 
     -- * Response
     , SetPlatformApplicationAttributesResponse
+    -- ** Response constructor
+    , mkSetPlatformApplicationAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -98,6 +100,13 @@ instance ToQuery SetPlatformApplicationAttributes where
 
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SetPlatformApplicationAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSetPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
+mkSetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
 
 instance AWSRequest SetPlatformApplicationAttributes where
     type Sv SetPlatformApplicationAttributes = SNS

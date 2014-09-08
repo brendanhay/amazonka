@@ -50,6 +50,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeEvents
 
     -- * Response
     , DescribeEventsResponse
+    -- ** Response constructor
+    , mkDescribeEventsResponse
     -- ** Response lenses
     , derMarker
     , derEvents
@@ -146,6 +148,16 @@ data DescribeEventsResponse = DescribeEventsResponse
     { _derMarker :: Maybe Text
     , _derEvents :: [Event]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEventsResponse :: DescribeEventsResponse
+mkDescribeEventsResponse = DescribeEventsResponse
+    { _derMarker = Nothing
+    , _derEvents = mempty
+    }
 
 -- | An optional pagination token provided by a previous Events request. If this
 -- parameter is specified, the response includes only records beyond the

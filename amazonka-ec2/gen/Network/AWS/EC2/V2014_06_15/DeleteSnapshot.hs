@@ -44,6 +44,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteSnapshot
 
     -- * Response
     , DeleteSnapshotResponse
+    -- ** Response constructor
+    , mkDeleteSnapshotResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -72,6 +74,13 @@ instance ToQuery DeleteSnapshot where
 
 data DeleteSnapshotResponse = DeleteSnapshotResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSnapshotResponse :: DeleteSnapshotResponse
+mkDeleteSnapshotResponse = DeleteSnapshotResponse
 
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2

@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeApps
 
     -- * Response
     , DescribeAppsResponse
+    -- ** Response constructor
+    , mkDescribeAppsResponse
     -- ** Response lenses
     , darApps
     ) where
@@ -78,6 +80,15 @@ instance ToJSON DescribeApps
 newtype DescribeAppsResponse = DescribeAppsResponse
     { _darApps :: [App]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAppsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAppsResponse :: DescribeAppsResponse
+mkDescribeAppsResponse = DescribeAppsResponse
+    { _darApps = mempty
+    }
 
 -- | An array of App objects that describe the specified apps.
 darApps :: Lens' DescribeAppsResponse [App]

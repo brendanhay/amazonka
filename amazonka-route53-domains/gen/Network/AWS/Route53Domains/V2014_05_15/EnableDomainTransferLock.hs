@@ -46,6 +46,8 @@ module Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock
 
     -- * Response
     , EnableDomainTransferLockResponse
+    -- ** Response constructor
+    , mkEnableDomainTransferLockResponse
     -- ** Response lenses
     , edtlrOperationId
     ) where
@@ -86,6 +88,16 @@ instance ToJSON EnableDomainTransferLock
 newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
     { _edtlrOperationId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableDomainTransferLockResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnableDomainTransferLockResponse :: Text -- ^ 'edtlrOperationId'
+                                   -> EnableDomainTransferLockResponse
+mkEnableDomainTransferLockResponse p1 = EnableDomainTransferLockResponse
+    { _edtlrOperationId = p1
+    }
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:

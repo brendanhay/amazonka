@@ -55,6 +55,8 @@ module Network.AWS.S3.V2006_03_01.CreateMultipartUpload
 
     -- * Response
     , CreateMultipartUploadResponse
+    -- ** Response constructor
+    , mkCreateMultipartUploadResponse
     -- ** Response lenses
     , cmurrBucket
     , cmurrKey
@@ -272,6 +274,20 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurrSSECustomerAlgorithm :: Maybe Text
     , _cmurrSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateMultipartUploadResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateMultipartUploadResponse :: CreateMultipartUploadResponse
+mkCreateMultipartUploadResponse = CreateMultipartUploadResponse
+    { _cmurrBucket = Nothing
+    , _cmurrKey = Nothing
+    , _cmurrUploadId = Nothing
+    , _cmurrServerSideEncryption = Nothing
+    , _cmurrSSECustomerAlgorithm = Nothing
+    , _cmurrSSECustomerKeyMD5 = Nothing
+    }
 
 -- | Name of the bucket to which the multipart upload was initiated.
 cmurrBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)

@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute
 
     -- * Response
     , ResetSnapshotAttributeResponse
+    -- ** Response constructor
+    , mkResetSnapshotAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -76,6 +78,13 @@ instance ToQuery ResetSnapshotAttribute where
 
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetSnapshotAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
+mkResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2

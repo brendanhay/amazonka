@@ -38,6 +38,8 @@ module Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription
 
     -- * Response
     , RemoveSourceIdentifierFromSubscriptionResponse
+    -- ** Response constructor
+    , mkRemoveSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
     , rsifsrEventSubscription
     ) where
@@ -80,6 +82,15 @@ instance ToQuery RemoveSourceIdentifierFromSubscription where
 newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveSourceIdentifierFromSubscriptionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRemoveSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResponse
+mkRemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
+    { _rsifsrEventSubscription = Nothing
+    }
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.

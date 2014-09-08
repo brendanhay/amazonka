@@ -40,6 +40,8 @@ module Network.AWS.CloudWatch.V2010_08_01.PutMetricData
 
     -- * Response
     , PutMetricDataResponse
+    -- ** Response constructor
+    , mkPutMetricDataResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,6 +77,13 @@ instance ToQuery PutMetricData where
 
 data PutMetricDataResponse = PutMetricDataResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutMetricDataResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutMetricDataResponse :: PutMetricDataResponse
+mkPutMetricDataResponse = PutMetricDataResponse
 
 instance AWSRequest PutMetricData where
     type Sv PutMetricData = CloudWatch

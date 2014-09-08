@@ -44,6 +44,8 @@ module Network.AWS.Redshift.V2012_12_01.RevokeClusterSecurityGroupIngress
 
     -- * Response
     , RevokeClusterSecurityGroupIngressResponse
+    -- ** Response constructor
+    , mkRevokeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirClusterSecurityGroup
     ) where
@@ -107,6 +109,15 @@ instance ToQuery RevokeClusterSecurityGroupIngress where
 newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeClusterSecurityGroupIngressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRevokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResponse
+mkRevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
+    { _rcsgirClusterSecurityGroup = Nothing
+    }
 
 -- | Describes a security group.
 rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)

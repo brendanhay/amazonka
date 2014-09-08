@@ -36,6 +36,8 @@ module Network.AWS.OpsWorks.V2013_02_18.AssignVolume
 
     -- * Response
     , AssignVolumeResponse
+    -- ** Response constructor
+    , mkAssignVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -74,6 +76,13 @@ instance ToJSON AssignVolume
 
 data AssignVolumeResponse = AssignVolumeResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssignVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssignVolumeResponse :: AssignVolumeResponse
+mkAssignVolumeResponse = AssignVolumeResponse
 
 instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks

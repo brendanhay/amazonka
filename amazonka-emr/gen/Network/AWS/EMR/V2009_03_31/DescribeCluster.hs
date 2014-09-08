@@ -31,6 +31,8 @@ module Network.AWS.EMR.V2009_03_31.DescribeCluster
 
     -- * Response
     , DescribeClusterResponse
+    -- ** Response constructor
+    , mkDescribeClusterResponse
     -- ** Response lenses
     , dcrCluster
     ) where
@@ -68,6 +70,15 @@ instance ToJSON DescribeCluster
 newtype DescribeClusterResponse = DescribeClusterResponse
     { _dcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeClusterResponse :: DescribeClusterResponse
+mkDescribeClusterResponse = DescribeClusterResponse
+    { _dcrCluster = Nothing
+    }
 
 -- | This output contains the details for the requested cluster.
 dcrCluster :: Lens' DescribeClusterResponse (Maybe Cluster)

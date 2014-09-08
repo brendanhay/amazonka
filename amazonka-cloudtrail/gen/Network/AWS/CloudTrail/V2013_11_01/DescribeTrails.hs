@@ -30,6 +30,8 @@ module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
 
     -- * Response
     , DescribeTrailsResponse
+    -- ** Response constructor
+    , mkDescribeTrailsResponse
     -- ** Response lenses
     , dtrrTrailList
     ) where
@@ -68,6 +70,15 @@ instance ToJSON DescribeTrails
 newtype DescribeTrailsResponse = DescribeTrailsResponse
     { _dtrrTrailList :: [Trail]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTrailsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTrailsResponse :: DescribeTrailsResponse
+mkDescribeTrailsResponse = DescribeTrailsResponse
+    { _dtrrTrailList = mempty
+    }
 
 -- | The list of trails.
 dtrrTrailList :: Lens' DescribeTrailsResponse [Trail]

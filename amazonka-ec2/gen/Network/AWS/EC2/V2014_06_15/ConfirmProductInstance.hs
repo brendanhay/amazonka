@@ -42,6 +42,8 @@ module Network.AWS.EC2.V2014_06_15.ConfirmProductInstance
 
     -- * Response
     , ConfirmProductInstanceResponse
+    -- ** Response constructor
+    , mkConfirmProductInstanceResponse
     -- ** Response lenses
     , cpirOwnerId
     ) where
@@ -81,6 +83,15 @@ instance ToQuery ConfirmProductInstance where
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfirmProductInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkConfirmProductInstanceResponse :: ConfirmProductInstanceResponse
+mkConfirmProductInstanceResponse = ConfirmProductInstanceResponse
+    { _cpirOwnerId = Nothing
+    }
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.

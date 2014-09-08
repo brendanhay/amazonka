@@ -62,6 +62,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSubnets
 
     -- * Response
     , DescribeSubnetsResponse
+    -- ** Response constructor
+    , mkDescribeSubnetsResponse
     -- ** Response lenses
     , dsrrSubnets
     ) where
@@ -117,6 +119,15 @@ instance ToQuery DescribeSubnets where
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrrSubnets :: [Subnet]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSubnetsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSubnetsResponse :: DescribeSubnetsResponse
+mkDescribeSubnetsResponse = DescribeSubnetsResponse
+    { _dsrrSubnets = mempty
+    }
 
 -- | Information about one or more subnets.
 dsrrSubnets :: Lens' DescribeSubnetsResponse [Subnet]

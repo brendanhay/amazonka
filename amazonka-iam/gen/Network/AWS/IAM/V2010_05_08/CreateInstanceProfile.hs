@@ -38,6 +38,8 @@ module Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
 
     -- * Response
     , CreateInstanceProfileResponse
+    -- ** Response constructor
+    , mkCreateInstanceProfileResponse
     -- ** Response lenses
     , ciprInstanceProfile
     ) where
@@ -80,6 +82,16 @@ instance ToQuery CreateInstanceProfile where
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInstanceProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateInstanceProfileResponse :: InstanceProfile -- ^ 'ciprInstanceProfile'
+                                -> CreateInstanceProfileResponse
+mkCreateInstanceProfileResponse p1 = CreateInstanceProfileResponse
+    { _ciprInstanceProfile = p1
+    }
 
 -- | Information about the instance profile.
 ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile

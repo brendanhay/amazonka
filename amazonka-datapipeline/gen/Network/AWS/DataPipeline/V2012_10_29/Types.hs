@@ -365,7 +365,10 @@ data PipelineDescription = PipelineDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'PipelineDescription' data type to populate a request.
+-- a valid 'PipelineDescription' data type.
+--
+-- 'PipelineDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPipelineDescription :: Text -- ^ 'pdPipelineId'
                       -> Text -- ^ 'pdName'
                       -> [Field] -- ^ 'pdFields'
@@ -404,7 +407,10 @@ data PipelineIdName = PipelineIdName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'PipelineIdName' data type to populate a request.
+-- a valid 'PipelineIdName' data type.
+--
+-- 'PipelineIdName' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkPipelineIdName :: PipelineIdName
 mkPipelineIdName = PipelineIdName
     { _pinId = Nothing
@@ -502,7 +508,10 @@ data TaskObject = TaskObject
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'TaskObject' data type to populate a request.
+-- a valid 'TaskObject' data type.
+--
+-- 'TaskObject' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTaskObject :: TaskObject
 mkTaskObject = TaskObject
     { _toTaskId = Nothing
@@ -542,7 +551,10 @@ data ValidationError = ValidationError
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ValidationError' data type to populate a request.
+-- a valid 'ValidationError' data type.
+--
+-- 'ValidationError' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkValidationError :: ValidationError
 mkValidationError = ValidationError
     { _veId = Nothing
@@ -569,7 +581,10 @@ data ValidationWarning = ValidationWarning
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ValidationWarning' data type to populate a request.
+-- a valid 'ValidationWarning' data type.
+--
+-- 'ValidationWarning' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkValidationWarning :: ValidationWarning
 mkValidationWarning = ValidationWarning
     { _vwId = Nothing

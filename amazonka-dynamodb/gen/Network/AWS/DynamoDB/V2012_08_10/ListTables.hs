@@ -34,6 +34,8 @@ module Network.AWS.DynamoDB.V2012_08_10.ListTables
 
     -- * Response
     , ListTablesResponse
+    -- ** Response constructor
+    , mkListTablesResponse
     -- ** Response lenses
     , ltrTableNames
     , ltrLastEvaluatedTableName
@@ -82,6 +84,16 @@ data ListTablesResponse = ListTablesResponse
     { _ltrTableNames :: [Text]
     , _ltrLastEvaluatedTableName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTablesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListTablesResponse :: ListTablesResponse
+mkListTablesResponse = ListTablesResponse
+    { _ltrTableNames = mempty
+    , _ltrLastEvaluatedTableName = Nothing
+    }
 
 -- | The names of the tables associated with the current account at the current
 -- endpoint.

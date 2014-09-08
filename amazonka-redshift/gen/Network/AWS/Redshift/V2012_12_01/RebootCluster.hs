@@ -44,6 +44,8 @@ module Network.AWS.Redshift.V2012_12_01.RebootCluster
 
     -- * Response
     , RebootClusterResponse
+    -- ** Response constructor
+    , mkRebootClusterResponse
     -- ** Response lenses
     , rcrCluster
     ) where
@@ -76,6 +78,15 @@ instance ToQuery RebootCluster where
 newtype RebootClusterResponse = RebootClusterResponse
     { _rcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRebootClusterResponse :: RebootClusterResponse
+mkRebootClusterResponse = RebootClusterResponse
+    { _rcrCluster = Nothing
+    }
 
 -- | Describes a cluster.
 rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)

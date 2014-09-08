@@ -52,6 +52,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
 
     -- * Response
     , ActivateGatewayResponse
+    -- ** Response constructor
+    , mkActivateGatewayResponse
     -- ** Response lenses
     , agrGatewayARN
     ) where
@@ -141,6 +143,15 @@ instance ToJSON ActivateGateway
 newtype ActivateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ActivateGatewayResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkActivateGatewayResponse :: ActivateGatewayResponse
+mkActivateGatewayResponse = ActivateGatewayResponse
+    { _agrGatewayARN = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.

@@ -34,6 +34,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions
 
     -- * Response
     , DescribeAvailabilityOptionsResponse
+    -- ** Response constructor
+    , mkDescribeAvailabilityOptionsResponse
     -- ** Response lenses
     , daorrAvailabilityOptions
     ) where
@@ -77,6 +79,15 @@ instance ToQuery DescribeAvailabilityOptions where
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorrAvailabilityOptions :: Maybe AvailabilityOptionsStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAvailabilityOptionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse
+mkDescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
+    { _daorrAvailabilityOptions = Nothing
+    }
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.

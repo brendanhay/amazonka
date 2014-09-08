@@ -57,6 +57,8 @@ module Network.AWS.SimpleDB.V2009_04_15.PutAttributes
 
     -- * Response
     , PutAttributesResponse
+    -- ** Response constructor
+    , mkPutAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -106,6 +108,13 @@ instance ToQuery PutAttributes where
 
 data PutAttributesResponse = PutAttributesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutAttributesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutAttributesResponse :: PutAttributesResponse
+mkPutAttributesResponse = PutAttributesResponse
 
 instance AWSRequest PutAttributes where
     type Sv PutAttributes = SimpleDB

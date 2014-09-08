@@ -53,6 +53,8 @@ module Network.AWS.Kinesis.V2013_12_02.ListStreams
 
     -- * Response
     , ListStreamsResponse
+    -- ** Response constructor
+    , mkListStreamsResponse
     -- ** Response lenses
     , lsrStreamNames
     , lsrHasMoreStreams
@@ -99,6 +101,18 @@ data ListStreamsResponse = ListStreamsResponse
     { _lsrStreamNames :: [Text]
     , _lsrHasMoreStreams :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStreamsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListStreamsResponse :: [Text] -- ^ 'lsrStreamNames'
+                      -> Bool -- ^ 'lsrHasMoreStreams'
+                      -> ListStreamsResponse
+mkListStreamsResponse p1 p2 = ListStreamsResponse
+    { _lsrStreamNames = p1
+    , _lsrHasMoreStreams = p2
+    }
 
 -- | The names of the streams that are associated with the AWS account making
 -- the ListStreams request.

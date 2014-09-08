@@ -44,6 +44,8 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers
 
     -- * Response
     , DescribeLoadBalancersResponse
+    -- ** Response constructor
+    , mkDescribeLoadBalancersResponse
     -- ** Response lenses
     , dlbrrLoadBalancerDescriptions
     , dlbrrNextMarker
@@ -92,6 +94,16 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { _dlbrrLoadBalancerDescriptions :: [LoadBalancerDescription]
     , _dlbrrNextMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeLoadBalancersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeLoadBalancersResponse :: DescribeLoadBalancersResponse
+mkDescribeLoadBalancersResponse = DescribeLoadBalancersResponse
+    { _dlbrrLoadBalancerDescriptions = mempty
+    , _dlbrrNextMarker = Nothing
+    }
 
 -- | A list of load balancer description structures.
 dlbrrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]

@@ -37,6 +37,8 @@ module Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck
 
     -- * Response
     , ConfigureHealthCheckResponse
+    -- ** Response constructor
+    , mkConfigureHealthCheckResponse
     -- ** Response lenses
     , chcrHealthCheck
     ) where
@@ -79,6 +81,15 @@ instance ToQuery ConfigureHealthCheck where
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck :: Maybe HealthCheck
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ConfigureHealthCheckResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkConfigureHealthCheckResponse :: ConfigureHealthCheckResponse
+mkConfigureHealthCheckResponse = ConfigureHealthCheckResponse
+    { _chcrHealthCheck = Nothing
+    }
 
 -- | The updated healthcheck for the instances.
 chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)

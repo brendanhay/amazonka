@@ -47,6 +47,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeEvents
 
     -- * Response
     , DescribeEventsResponse
+    -- ** Response constructor
+    , mkDescribeEventsResponse
     -- ** Response lenses
     , derMarker
     , derEvents
@@ -147,6 +149,16 @@ data DescribeEventsResponse = DescribeEventsResponse
     { _derMarker :: Maybe Text
     , _derEvents :: [Event]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeEventsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeEventsResponse :: DescribeEventsResponse
+mkDescribeEventsResponse = DescribeEventsResponse
+    { _derMarker = Nothing
+    , _derEvents = mempty
+    }
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

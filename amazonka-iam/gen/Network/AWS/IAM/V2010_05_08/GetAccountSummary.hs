@@ -34,6 +34,8 @@ module Network.AWS.IAM.V2010_05_08.GetAccountSummary
     , mkGetAccountSummary
     -- * Response
     , GetAccountSummaryResponse
+    -- ** Response constructor
+    , mkGetAccountSummaryResponse
     -- ** Response lenses
     , gasrSummaryMap
     ) where
@@ -58,6 +60,15 @@ instance ToQuery GetAccountSummary where
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map SummaryKeyType Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetAccountSummaryResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetAccountSummaryResponse :: GetAccountSummaryResponse
+mkGetAccountSummaryResponse = GetAccountSummaryResponse
+    { _gasrSummaryMap = mempty
+    }
 
 -- | A set of key value pairs containing account-level information. SummaryMap
 -- contains the following keys: AccessKeysPerUserQuota - Maximum number of

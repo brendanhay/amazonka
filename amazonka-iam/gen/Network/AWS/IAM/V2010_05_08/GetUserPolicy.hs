@@ -36,6 +36,8 @@ module Network.AWS.IAM.V2010_05_08.GetUserPolicy
 
     -- * Response
     , GetUserPolicyResponse
+    -- ** Response constructor
+    , mkGetUserPolicyResponse
     -- ** Response lenses
     , guprUserName
     , guprPolicyName
@@ -79,6 +81,20 @@ data GetUserPolicyResponse = GetUserPolicyResponse
     , _guprPolicyName :: Text
     , _guprPolicyDocument :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetUserPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetUserPolicyResponse :: Text -- ^ 'guprUserName'
+                        -> Text -- ^ 'guprPolicyName'
+                        -> Text -- ^ 'guprPolicyDocument'
+                        -> GetUserPolicyResponse
+mkGetUserPolicyResponse p1 p2 p3 = GetUserPolicyResponse
+    { _guprUserName = p1
+    , _guprPolicyName = p2
+    , _guprPolicyDocument = p3
+    }
 
 -- | The user the policy is associated with.
 guprUserName :: Lens' GetUserPolicyResponse Text

@@ -44,6 +44,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSubnetGroup
 
     -- * Response
     , CreateClusterSubnetGroupResponse
+    -- ** Response constructor
+    , mkCreateClusterSubnetGroupResponse
     -- ** Response lenses
     , ccsgrrClusterSubnetGroup
     ) where
@@ -96,6 +98,15 @@ instance ToQuery CreateClusterSubnetGroup where
 newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _ccsgrrClusterSubnetGroup :: Maybe ClusterSubnetGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateClusterSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateClusterSubnetGroupResponse :: CreateClusterSubnetGroupResponse
+mkCreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
+    { _ccsgrrClusterSubnetGroup = Nothing
+    }
 
 -- | Describes a subnet group.
 ccsgrrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)

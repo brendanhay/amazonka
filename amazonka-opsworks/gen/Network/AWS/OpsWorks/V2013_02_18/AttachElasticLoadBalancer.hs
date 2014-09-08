@@ -37,6 +37,8 @@ module Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer
 
     -- * Response
     , AttachElasticLoadBalancerResponse
+    -- ** Response constructor
+    , mkAttachElasticLoadBalancerResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -79,6 +81,13 @@ instance ToJSON AttachElasticLoadBalancer
 
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AttachElasticLoadBalancerResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAttachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
+mkAttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
 
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks

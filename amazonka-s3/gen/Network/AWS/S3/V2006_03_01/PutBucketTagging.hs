@@ -31,6 +31,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketTagging
 
     -- * Response
     , PutBucketTaggingResponse
+    -- ** Response constructor
+    , mkPutBucketTaggingResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -85,6 +87,13 @@ instance ToBody PutBucketTagging where
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketTaggingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketTaggingResponse :: PutBucketTaggingResponse
+mkPutBucketTaggingResponse = PutBucketTaggingResponse
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3

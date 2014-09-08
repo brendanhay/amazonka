@@ -41,6 +41,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateAccessKey
 
     -- * Response
     , UpdateAccessKeyResponse
+    -- ** Response constructor
+    , mkUpdateAccessKeyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -84,6 +86,13 @@ instance ToQuery UpdateAccessKey where
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAccessKeyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateAccessKeyResponse :: UpdateAccessKeyResponse
+mkUpdateAccessKeyResponse = UpdateAccessKeyResponse
 
 instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM

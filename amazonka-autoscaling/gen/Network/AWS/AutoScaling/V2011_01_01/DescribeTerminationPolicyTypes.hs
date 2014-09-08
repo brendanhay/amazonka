@@ -30,6 +30,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes
     , mkDescribeTerminationPolicyTypes
     -- * Response
     , DescribeTerminationPolicyTypesResponse
+    -- ** Response constructor
+    , mkDescribeTerminationPolicyTypesResponse
     -- ** Response lenses
     , dtptrTerminationPolicyTypes
     ) where
@@ -53,6 +55,15 @@ instance ToQuery DescribeTerminationPolicyTypes where
 newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTerminationPolicyTypesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
+mkDescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
+    { _dtptrTerminationPolicyTypes = mempty
+    }
 
 -- | Termination policies supported by Auto Scaling. They are: OldestInstance,
 -- OldestLaunchConfiguration, NewestInstance, ClosestToNextInstanceHour,

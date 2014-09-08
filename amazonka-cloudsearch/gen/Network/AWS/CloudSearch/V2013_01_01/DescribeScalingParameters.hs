@@ -32,6 +32,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters
 
     -- * Response
     , DescribeScalingParametersResponse
+    -- ** Response constructor
+    , mkDescribeScalingParametersResponse
     -- ** Response lenses
     , dsprScalingParameters
     ) where
@@ -69,6 +71,16 @@ instance ToQuery DescribeScalingParameters where
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
     { _dsprScalingParameters :: ScalingParametersStatus
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeScalingParametersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeScalingParametersResponse :: ScalingParametersStatus -- ^ 'dsprScalingParameters'
+                                    -> DescribeScalingParametersResponse
+mkDescribeScalingParametersResponse p1 = DescribeScalingParametersResponse
+    { _dsprScalingParameters = p1
+    }
 
 -- | The status and configuration of a search domain's scaling parameters.
 dsprScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus

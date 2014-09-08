@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketAcl
 
     -- * Response
     , GetBucketAclResponse
+    -- ** Response constructor
+    , mkGetBucketAclResponse
     -- ** Response lenses
     , gbarOwner
     , gbarGrants
@@ -73,6 +75,16 @@ data GetBucketAclResponse = GetBucketAclResponse
     { _gbarOwner :: Maybe Owner
     , _gbarGrants :: [Grant]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketAclResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketAclResponse :: GetBucketAclResponse
+mkGetBucketAclResponse = GetBucketAclResponse
+    { _gbarOwner = Nothing
+    , _gbarGrants = mempty
+    }
 
 gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })

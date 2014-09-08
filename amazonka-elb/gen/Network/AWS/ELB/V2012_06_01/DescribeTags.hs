@@ -33,6 +33,8 @@ module Network.AWS.ELB.V2012_06_01.DescribeTags
 
     -- * Response
     , DescribeTagsResponse
+    -- ** Response constructor
+    , mkDescribeTagsResponse
     -- ** Response lenses
     , dtrTagDescriptions
     ) where
@@ -66,6 +68,15 @@ instance ToQuery DescribeTags where
 newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions :: [TagDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTagsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTagsResponse :: DescribeTagsResponse
+mkDescribeTagsResponse = DescribeTagsResponse
+    { _dtrTagDescriptions = mempty
+    }
 
 -- | A list of tag description structures.
 dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]

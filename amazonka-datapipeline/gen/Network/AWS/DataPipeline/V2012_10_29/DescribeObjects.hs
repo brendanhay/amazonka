@@ -48,6 +48,8 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
 
     -- * Response
     , DescribeObjectsResponse
+    -- ** Response constructor
+    , mkDescribeObjectsResponse
     -- ** Response lenses
     , dorPipelineObjects
     , dorMarker
@@ -118,6 +120,19 @@ data DescribeObjectsResponse = DescribeObjectsResponse
     , _dorMarker :: Maybe Text
     , _dorHasMoreResults :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeObjectsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeObjectsResponse :: [PipelineObject] -- ^ 'dorPipelineObjects'
+                          -> Bool -- ^ 'dorHasMoreResults'
+                          -> DescribeObjectsResponse
+mkDescribeObjectsResponse p1 p3 = DescribeObjectsResponse
+    { _dorPipelineObjects = p1
+    , _dorMarker = Nothing
+    , _dorHasMoreResults = p3
+    }
 
 -- | An array of object definitions that are returned by the call to
 -- DescribeObjects.

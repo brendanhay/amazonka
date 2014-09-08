@@ -53,6 +53,8 @@ module Network.AWS.EC2.V2014_06_15.StartInstances
 
     -- * Response
     , StartInstancesResponse
+    -- ** Response constructor
+    , mkStartInstancesResponse
     -- ** Response lenses
     , sirrStartingInstances
     ) where
@@ -92,6 +94,15 @@ instance ToQuery StartInstances where
 newtype StartInstancesResponse = StartInstancesResponse
     { _sirrStartingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'StartInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkStartInstancesResponse :: StartInstancesResponse
+mkStartInstancesResponse = StartInstancesResponse
+    { _sirrStartingInstances = mempty
+    }
 
 -- | Information about one or more started instances.
 sirrStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]

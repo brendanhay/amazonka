@@ -33,6 +33,8 @@ module Network.AWS.IAM.V2010_05_08.CreateAccountAlias
 
     -- * Response
     , CreateAccountAliasResponse
+    -- ** Response constructor
+    , mkCreateAccountAliasResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,6 +63,13 @@ instance ToQuery CreateAccountAlias where
 
 data CreateAccountAliasResponse = CreateAccountAliasResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAccountAliasResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateAccountAliasResponse :: CreateAccountAliasResponse
+mkCreateAccountAliasResponse = CreateAccountAliasResponse
 
 instance AWSRequest CreateAccountAlias where
     type Sv CreateAccountAlias = IAM

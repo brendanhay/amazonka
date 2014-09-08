@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.UnmonitorInstances
 
     -- * Response
     , UnmonitorInstancesResponse
+    -- ** Response constructor
+    , mkUnmonitorInstancesResponse
     -- ** Response lenses
     , uirInstanceMonitorings
     ) where
@@ -75,6 +77,15 @@ instance ToQuery UnmonitorInstances where
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnmonitorInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUnmonitorInstancesResponse :: UnmonitorInstancesResponse
+mkUnmonitorInstancesResponse = UnmonitorInstancesResponse
+    { _uirInstanceMonitorings = mempty
+    }
 
 -- | Monitoring information for one or more instances.
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]

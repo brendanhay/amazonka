@@ -40,6 +40,8 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup
 
     -- * Response
     , CreateClusterSecurityGroupResponse
+    -- ** Response constructor
+    , mkCreateClusterSecurityGroupResponse
     -- ** Response lenses
     , ccsgrClusterSecurityGroup
     ) where
@@ -84,6 +86,15 @@ instance ToQuery CreateClusterSecurityGroup where
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateClusterSecurityGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateClusterSecurityGroupResponse :: CreateClusterSecurityGroupResponse
+mkCreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
+    { _ccsgrClusterSecurityGroup = Nothing
+    }
 
 -- | Describes a security group.
 ccsgrClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)

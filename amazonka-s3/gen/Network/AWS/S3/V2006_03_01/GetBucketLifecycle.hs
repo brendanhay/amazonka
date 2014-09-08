@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketLifecycle
 
     -- * Response
     , GetBucketLifecycleResponse
+    -- ** Response constructor
+    , mkGetBucketLifecycleResponse
     -- ** Response lenses
     , gblrRules
     ) where
@@ -71,6 +73,15 @@ instance ToBody GetBucketLifecycle
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules :: [Rule]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketLifecycleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketLifecycleResponse :: GetBucketLifecycleResponse
+mkGetBucketLifecycleResponse = GetBucketLifecycleResponse
+    { _gblrRules = mempty
+    }
 
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })

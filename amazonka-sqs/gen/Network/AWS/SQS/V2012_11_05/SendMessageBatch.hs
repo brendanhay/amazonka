@@ -67,6 +67,8 @@ module Network.AWS.SQS.V2012_11_05.SendMessageBatch
 
     -- * Response
     , SendMessageBatchResponse
+    -- ** Response constructor
+    , mkSendMessageBatchResponse
     -- ** Response lenses
     , smbrSuccessful
     , smbrFailed
@@ -110,6 +112,18 @@ data SendMessageBatchResponse = SendMessageBatchResponse
     { _smbrSuccessful :: [SendMessageBatchResultEntry]
     , _smbrFailed :: [BatchResultErrorEntry]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SendMessageBatchResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
+                           -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
+                           -> SendMessageBatchResponse
+mkSendMessageBatchResponse p1 p2 = SendMessageBatchResponse
+    { _smbrSuccessful = p1
+    , _smbrFailed = p2
+    }
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]

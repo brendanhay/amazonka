@@ -30,6 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.CreateInvalidation
 
     -- * Response
     , CreateInvalidationResponse
+    -- ** Response constructor
+    , mkCreateInvalidationResponse
     -- ** Response lenses
     , cirLocation
     , cirInvalidation
@@ -86,6 +88,16 @@ data CreateInvalidationResponse = CreateInvalidationResponse
     { _cirLocation :: Maybe Text
     , _cirInvalidation :: Maybe Invalidation
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateInvalidationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateInvalidationResponse :: CreateInvalidationResponse
+mkCreateInvalidationResponse = CreateInvalidationResponse
+    { _cirLocation = Nothing
+    , _cirInvalidation = Nothing
+    }
 
 -- | The fully qualified URI of the distribution and invalidation batch request,
 -- including the Invalidation ID.

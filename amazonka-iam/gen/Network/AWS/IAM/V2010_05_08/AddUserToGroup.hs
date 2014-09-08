@@ -32,6 +32,8 @@ module Network.AWS.IAM.V2010_05_08.AddUserToGroup
 
     -- * Response
     , AddUserToGroupResponse
+    -- ** Response constructor
+    , mkAddUserToGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,6 +69,13 @@ instance ToQuery AddUserToGroup where
 
 data AddUserToGroupResponse = AddUserToGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AddUserToGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAddUserToGroupResponse :: AddUserToGroupResponse
+mkAddUserToGroupResponse = AddUserToGroupResponse
 
 instance AWSRequest AddUserToGroup where
     type Sv AddUserToGroup = IAM

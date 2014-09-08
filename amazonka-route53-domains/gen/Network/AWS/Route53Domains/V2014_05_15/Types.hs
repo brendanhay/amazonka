@@ -1489,7 +1489,10 @@ data DomainSummary = DomainSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DomainSummary' data type to populate a request.
+-- a valid 'DomainSummary' data type.
+--
+-- 'DomainSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDomainSummary :: Text -- ^ 'dsDomainName'
                 -> DomainSummary
 mkDomainSummary p1 = DomainSummary
@@ -1597,7 +1600,10 @@ data OperationSummary = OperationSummary
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'OperationSummary' data type to populate a request.
+-- a valid 'OperationSummary' data type.
+--
+-- 'OperationSummary' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkOperationSummary :: Text -- ^ 'osOperationId'
                    -> OperationStatus -- ^ 'osStatus'
                    -> OperationType -- ^ 'osType'

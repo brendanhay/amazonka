@@ -412,7 +412,10 @@ newtype DelegationSet = DelegationSet
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DelegationSet' data type to populate a request.
+-- a valid 'DelegationSet' data type.
+--
+-- 'DelegationSet' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDelegationSet :: List1 Text -- ^ 'dsNameServers'
                 -> DelegationSet
 mkDelegationSet p1 = DelegationSet
@@ -599,7 +602,10 @@ data ChangeInfo = ChangeInfo
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ChangeInfo' data type to populate a request.
+-- a valid 'ChangeInfo' data type.
+--
+-- 'ChangeInfo' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkChangeInfo :: Text -- ^ 'ciId'
              -> ChangeStatus -- ^ 'ciStatus'
              -> ISO8601 -- ^ 'ciSubmittedAt'
@@ -700,7 +706,10 @@ data GeoLocationDetails = GeoLocationDetails
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'GeoLocationDetails' data type to populate a request.
+-- a valid 'GeoLocationDetails' data type.
+--
+-- 'GeoLocationDetails' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkGeoLocationDetails :: GeoLocationDetails
 mkGeoLocationDetails = GeoLocationDetails
     { _gldContinentCode = Nothing
@@ -761,7 +770,10 @@ data HealthCheck = HealthCheck
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'HealthCheck' data type to populate a request.
+-- a valid 'HealthCheck' data type.
+--
+-- 'HealthCheck' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkHealthCheck :: Text -- ^ 'hcId'
               -> Text -- ^ 'hcCallerReference'
               -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
@@ -894,7 +906,10 @@ data HostedZone = HostedZone
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'HostedZone' data type to populate a request.
+-- a valid 'HostedZone' data type.
+--
+-- 'HostedZone' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkHostedZone :: Text -- ^ 'hzId'
              -> Text -- ^ 'hzName'
              -> Text -- ^ 'hzCallerReference'
@@ -1065,7 +1080,10 @@ data ResourceTagSet = ResourceTagSet
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ResourceTagSet' data type to populate a request.
+-- a valid 'ResourceTagSet' data type.
+--
+-- 'ResourceTagSet' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkResourceTagSet :: ResourceTagSet
 mkResourceTagSet = ResourceTagSet
     { _rtsResourceType = Nothing

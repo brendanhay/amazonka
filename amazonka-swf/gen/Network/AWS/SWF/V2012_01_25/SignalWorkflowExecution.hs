@@ -65,6 +65,8 @@ module Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution
 
     -- * Response
     , SignalWorkflowExecutionResponse
+    -- ** Response constructor
+    , mkSignalWorkflowExecutionResponse
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -125,6 +127,13 @@ instance ToJSON SignalWorkflowExecution
 
 data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SignalWorkflowExecutionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSignalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse
+mkSignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
 
 instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF

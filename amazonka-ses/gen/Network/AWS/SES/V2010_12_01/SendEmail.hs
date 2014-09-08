@@ -59,6 +59,8 @@ module Network.AWS.SES.V2010_12_01.SendEmail
 
     -- * Response
     , SendEmailResponse
+    -- ** Response constructor
+    , mkSendEmailResponse
     -- ** Response lenses
     , serMessageId
     ) where
@@ -131,6 +133,16 @@ instance ToQuery SendEmail where
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'SendEmailResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkSendEmailResponse :: Text -- ^ 'serMessageId'
+                    -> SendEmailResponse
+mkSendEmailResponse p1 = SendEmailResponse
+    { _serMessageId = p1
+    }
 
 -- | The unique message identifier returned from the SendEmail action.
 serMessageId :: Lens' SendEmailResponse Text

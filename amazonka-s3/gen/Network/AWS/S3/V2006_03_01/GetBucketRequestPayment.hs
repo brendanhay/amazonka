@@ -29,6 +29,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
 
     -- * Response
     , GetBucketRequestPaymentResponse
+    -- ** Response constructor
+    , mkGetBucketRequestPaymentResponse
     -- ** Response lenses
     , gbrprPayer
     ) where
@@ -71,6 +73,15 @@ instance ToBody GetBucketRequestPayment
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrprPayer :: Maybe Payer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetBucketRequestPaymentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
+mkGetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
+    { _gbrprPayer = Nothing
+    }
 
 -- | Specifies who pays for the download and request fees.
 gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)

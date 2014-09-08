@@ -31,6 +31,8 @@ module Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
 
     -- * Response
     , DescribeSeverityLevelsResponse
+    -- ** Response constructor
+    , mkDescribeSeverityLevelsResponse
     -- ** Response lenses
     , dslrSeverityLevels
     ) where
@@ -70,6 +72,15 @@ instance ToJSON DescribeSeverityLevels
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels :: [SeverityLevel]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSeverityLevelsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSeverityLevelsResponse :: DescribeSeverityLevelsResponse
+mkDescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
+    { _dslrSeverityLevels = mempty
+    }
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.

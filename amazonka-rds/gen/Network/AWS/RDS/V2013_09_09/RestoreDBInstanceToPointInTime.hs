@@ -58,6 +58,8 @@ module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceToPointInTime
 
     -- * Response
     , RestoreDBInstanceToPointInTimeResponse
+    -- ** Response constructor
+    , mkRestoreDBInstanceToPointInTimeResponse
     -- ** Response lenses
     , rdbitpitrDBInstance
     ) where
@@ -251,6 +253,15 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
     { _rdbitpitrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RestoreDBInstanceToPointInTimeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRestoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResponse
+mkRestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
+    { _rdbitpitrDBInstance = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used

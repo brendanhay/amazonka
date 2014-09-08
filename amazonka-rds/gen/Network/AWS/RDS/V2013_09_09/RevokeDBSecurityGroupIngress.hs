@@ -42,6 +42,8 @@ module Network.AWS.RDS.V2013_09_09.RevokeDBSecurityGroupIngress
 
     -- * Response
     , RevokeDBSecurityGroupIngressResponse
+    -- ** Response constructor
+    , mkRevokeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , rdbsgirDBSecurityGroup
     ) where
@@ -117,6 +119,15 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RevokeDBSecurityGroupIngressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRevokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResponse
+mkRevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
+    { _rdbsgirDBSecurityGroup = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress

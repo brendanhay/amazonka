@@ -512,7 +512,10 @@ newtype AutoScalingGroup = AutoScalingGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AutoScalingGroup' data type to populate a request.
+-- a valid 'AutoScalingGroup' data type.
+--
+-- 'AutoScalingGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAutoScalingGroup :: AutoScalingGroup
 mkAutoScalingGroup = AutoScalingGroup
     { _asgName = Nothing
@@ -555,7 +558,10 @@ newtype Instance = Instance
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Instance' data type to populate a request.
+-- a valid 'Instance' data type.
+--
+-- 'Instance' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkInstance :: Instance
 mkInstance = Instance
     { _iId = Nothing
@@ -575,7 +581,10 @@ newtype LaunchConfiguration = LaunchConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LaunchConfiguration' data type to populate a request.
+-- a valid 'LaunchConfiguration' data type.
+--
+-- 'LaunchConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLaunchConfiguration :: LaunchConfiguration
 mkLaunchConfiguration = LaunchConfiguration
     { _lcName = Nothing
@@ -595,7 +604,10 @@ newtype LoadBalancer = LoadBalancer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LoadBalancer' data type to populate a request.
+-- a valid 'LoadBalancer' data type.
+--
+-- 'LoadBalancer' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLoadBalancer :: LoadBalancer
 mkLoadBalancer = LoadBalancer
     { _lbName = Nothing
@@ -615,7 +627,10 @@ newtype Trigger = Trigger
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Trigger' data type to populate a request.
+-- a valid 'Trigger' data type.
+--
+-- 'Trigger' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkTrigger :: Trigger
 mkTrigger = Trigger
     { _trName = Nothing
@@ -640,7 +655,10 @@ data ApplicationDescription = ApplicationDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ApplicationDescription' data type to populate a request.
+-- a valid 'ApplicationDescription' data type.
+--
+-- 'ApplicationDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkApplicationDescription :: ApplicationDescription
 mkApplicationDescription = ApplicationDescription
     { _adApplicationName = Nothing
@@ -693,7 +711,10 @@ data ApplicationVersionDescription = ApplicationVersionDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ApplicationVersionDescription' data type to populate a request.
+-- a valid 'ApplicationVersionDescription' data type.
+--
+-- 'ApplicationVersionDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkApplicationVersionDescription :: ApplicationVersionDescription
 mkApplicationVersionDescription = ApplicationVersionDescription
     { _avdApplicationName = Nothing
@@ -749,7 +770,10 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ConfigurationOptionDescription' data type to populate a request.
+-- a valid 'ConfigurationOptionDescription' data type.
+--
+-- 'ConfigurationOptionDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkConfigurationOptionDescription :: ConfigurationOptionDescription
 mkConfigurationOptionDescription = ConfigurationOptionDescription
     { _codNamespace = Nothing
@@ -901,7 +925,10 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ConfigurationSettingsDescription' data type to populate a request.
+-- a valid 'ConfigurationSettingsDescription' data type.
+--
+-- 'ConfigurationSettingsDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkConfigurationSettingsDescription :: ConfigurationSettingsDescription
 mkConfigurationSettingsDescription = ConfigurationSettingsDescription
     { _csdSolutionStackName = Nothing
@@ -994,7 +1021,10 @@ data EnvironmentDescription = EnvironmentDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentDescription' data type to populate a request.
+-- a valid 'EnvironmentDescription' data type.
+--
+-- 'EnvironmentDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEnvironmentDescription :: EnvironmentDescription
 mkEnvironmentDescription = EnvironmentDescription
     { _edEnvironmentName = Nothing
@@ -1109,7 +1139,10 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentInfoDescription' data type to populate a request.
+-- a valid 'EnvironmentInfoDescription' data type.
+--
+-- 'EnvironmentInfoDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEnvironmentInfoDescription :: EnvironmentInfoDescription
 mkEnvironmentInfoDescription = EnvironmentInfoDescription
     { _eidInfoType = Nothing
@@ -1152,7 +1185,10 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EnvironmentResourceDescription' data type to populate a request.
+-- a valid 'EnvironmentResourceDescription' data type.
+--
+-- 'EnvironmentResourceDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEnvironmentResourceDescription :: EnvironmentResourceDescription
 mkEnvironmentResourceDescription = EnvironmentResourceDescription
     { _erdrEnvironmentName = Nothing
@@ -1249,7 +1285,10 @@ data EventDescription = EventDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EventDescription' data type to populate a request.
+-- a valid 'EventDescription' data type.
+--
+-- 'EventDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEventDescription :: EventDescription
 mkEventDescription = EventDescription
     { _edrEventDate = Nothing
@@ -1428,7 +1467,10 @@ data Queue = Queue
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Queue' data type to populate a request.
+-- a valid 'Queue' data type.
+--
+-- 'Queue' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkQueue :: Queue
 mkQueue = Queue
     { _qName = Nothing
@@ -1490,7 +1532,10 @@ data SolutionStackDescription = SolutionStackDescription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SolutionStackDescription' data type to populate a request.
+-- a valid 'SolutionStackDescription' data type.
+--
+-- 'SolutionStackDescription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSolutionStackDescription :: SolutionStackDescription
 mkSolutionStackDescription = SolutionStackDescription
     { _ssdSolutionStackName = Nothing
@@ -1579,7 +1624,10 @@ data ValidationMessage = ValidationMessage
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ValidationMessage' data type to populate a request.
+-- a valid 'ValidationMessage' data type.
+--
+-- 'ValidationMessage' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkValidationMessage :: ValidationMessage
 mkValidationMessage = ValidationMessage
     { _vmMessage = Nothing

@@ -37,6 +37,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute
 
     -- * Response
     , DescribeSnapshotAttributeResponse
+    -- ** Response constructor
+    , mkDescribeSnapshotAttributeResponse
     -- ** Response lenses
     , dsarSnapshotId
     , dsarCreateVolumePermissions
@@ -80,6 +82,17 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     , _dsarCreateVolumePermissions :: [CreateVolumePermission]
     , _dsarProductCodes :: [ProductCode]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSnapshotAttributeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
+mkDescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
+    { _dsarSnapshotId = Nothing
+    , _dsarCreateVolumePermissions = mempty
+    , _dsarProductCodes = mempty
+    }
 
 -- | The ID of the Amazon EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)

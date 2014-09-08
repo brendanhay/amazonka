@@ -40,6 +40,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream
 
     -- * Response
     , DeleteLogStreamResponse
+    -- ** Response constructor
+    , mkDeleteLogStreamResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -78,6 +80,13 @@ instance ToJSON DeleteLogStream
 
 data DeleteLogStreamResponse = DeleteLogStreamResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteLogStreamResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteLogStreamResponse :: DeleteLogStreamResponse
+mkDeleteLogStreamResponse = DeleteLogStreamResponse
 
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs

@@ -41,6 +41,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster
 
     -- * Response
     , DeleteCacheClusterResponse
+    -- ** Response constructor
+    , mkDeleteCacheClusterResponse
     -- ** Response lenses
     , dccrCacheCluster
     ) where
@@ -83,6 +85,15 @@ instance ToQuery DeleteCacheCluster where
 newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteCacheClusterResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteCacheClusterResponse :: DeleteCacheClusterResponse
+mkDeleteCacheClusterResponse = DeleteCacheClusterResponse
+    { _dccrCacheCluster = Nothing
+    }
 
 -- | Contains all of the attributes of a specific cache cluster.
 dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)

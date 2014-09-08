@@ -49,6 +49,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
 
     -- * Response
     , DeleteSnapshotScheduleResponse
+    -- ** Response constructor
+    , mkDeleteSnapshotScheduleResponse
     -- ** Response lenses
     , dssrVolumeARN
     ) where
@@ -83,6 +85,15 @@ instance ToJSON DeleteSnapshotSchedule
 newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssrVolumeARN :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSnapshotScheduleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse
+mkDeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
+    { _dssrVolumeARN = Nothing
+    }
 
 dssrVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dssrVolumeARN = lens _dssrVolumeARN (\s a -> s { _dssrVolumeARN = a })

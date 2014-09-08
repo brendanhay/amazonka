@@ -51,6 +51,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups
 
     -- * Response
     , DescribeSecurityGroupsResponse
+    -- ** Response constructor
+    , mkDescribeSecurityGroupsResponse
     -- ** Response lenses
     , dsgrSecurityGroups
     ) where
@@ -110,6 +112,15 @@ instance ToQuery DescribeSecurityGroups where
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeSecurityGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
+mkDescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
+    { _dsgrSecurityGroups = mempty
+    }
 
 -- | Information about one or more security groups.
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]

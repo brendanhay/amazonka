@@ -45,6 +45,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks
 
     -- * Response
     , DescribeBundleTasksResponse
+    -- ** Response constructor
+    , mkDescribeBundleTasksResponse
     -- ** Response lenses
     , dbtrBundleTasks
     ) where
@@ -90,6 +92,15 @@ instance ToQuery DescribeBundleTasks where
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeBundleTasksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeBundleTasksResponse :: DescribeBundleTasksResponse
+mkDescribeBundleTasksResponse = DescribeBundleTasksResponse
+    { _dbtrBundleTasks = mempty
+    }
 
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]

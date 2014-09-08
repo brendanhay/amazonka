@@ -41,6 +41,8 @@ module Network.AWS.S3.V2006_03_01.HeadObject
 
     -- * Response
     , HeadObjectResponse
+    -- ** Response constructor
+    , mkHeadObjectResponse
     -- ** Response lenses
     , horDeleteMarker
     , horAcceptRanges
@@ -211,6 +213,34 @@ data HeadObjectResponse = HeadObjectResponse
     , _horSSECustomerAlgorithm :: Maybe Text
     , _horSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'HeadObjectResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkHeadObjectResponse :: HeadObjectResponse
+mkHeadObjectResponse = HeadObjectResponse
+    { _horDeleteMarker = Nothing
+    , _horAcceptRanges = Nothing
+    , _horExpiration = Nothing
+    , _horRestore = Nothing
+    , _horLastModified = Nothing
+    , _horContentLength = Nothing
+    , _horETag = Nothing
+    , _horMissingMeta = Nothing
+    , _horVersionId = Nothing
+    , _horCacheControl = Nothing
+    , _horContentDisposition = Nothing
+    , _horContentEncoding = Nothing
+    , _horContentLanguage = Nothing
+    , _horContentType = Nothing
+    , _horExpires = Nothing
+    , _horWebsiteRedirectLocation = Nothing
+    , _horServerSideEncryption = Nothing
+    , _horMetadata = mempty
+    , _horSSECustomerAlgorithm = Nothing
+    , _horSSECustomerKeyMD5 = Nothing
+    }
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the

@@ -35,6 +35,8 @@ module Network.AWS.SES.V2010_12_01.GetSendQuota
     , mkGetSendQuota
     -- * Response
     , GetSendQuotaResponse
+    -- ** Response constructor
+    , mkGetSendQuotaResponse
     -- ** Response lenses
     , gsqrMax24HourSend
     , gsqrMaxSendRate
@@ -63,6 +65,17 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     , _gsqrMaxSendRate :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetSendQuotaResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetSendQuotaResponse :: GetSendQuotaResponse
+mkGetSendQuotaResponse = GetSendQuotaResponse
+    { _gsqrMax24HourSend = Nothing
+    , _gsqrMaxSendRate = Nothing
+    , _gsqrSentLast24Hours = Nothing
+    }
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
 -- interval.

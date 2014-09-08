@@ -41,6 +41,8 @@ module Network.AWS.SNS.V2010_03_31.DeleteEndpoint
 
     -- * Response
     , DeleteEndpointResponse
+    -- ** Response constructor
+    , mkDeleteEndpointResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -69,6 +71,13 @@ instance ToQuery DeleteEndpoint where
 
 data DeleteEndpointResponse = DeleteEndpointResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteEndpointResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteEndpointResponse :: DeleteEndpointResponse
+mkDeleteEndpointResponse = DeleteEndpointResponse
 
 instance AWSRequest DeleteEndpoint where
     type Sv DeleteEndpoint = SNS

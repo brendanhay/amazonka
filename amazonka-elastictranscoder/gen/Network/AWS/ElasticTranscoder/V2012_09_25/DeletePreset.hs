@@ -41,6 +41,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.DeletePreset
 
     -- * Response
     , DeletePresetResponse
+    -- ** Response constructor
+    , mkDeletePresetResponse
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -80,6 +82,13 @@ instance ToJSON DeletePreset
 -- | The DeletePresetResponse structure.
 data DeletePresetResponse = DeletePresetResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeletePresetResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeletePresetResponse :: DeletePresetResponse
+mkDeletePresetResponse = DeletePresetResponse
 
 instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder

@@ -37,6 +37,8 @@ module Network.AWS.Route53.V2013_04_01.DeleteHealthCheck
 
     -- * Response
     , DeleteHealthCheckResponse
+    -- ** Response constructor
+    , mkDeleteHealthCheckResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -79,6 +81,13 @@ instance ToXML DeleteHealthCheck where
 -- | Empty response for the request.
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHealthCheckResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteHealthCheckResponse :: DeleteHealthCheckResponse
+mkDeleteHealthCheckResponse = DeleteHealthCheckResponse
 
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53

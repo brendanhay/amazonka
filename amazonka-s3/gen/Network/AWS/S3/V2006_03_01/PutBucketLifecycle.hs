@@ -32,6 +32,8 @@ module Network.AWS.S3.V2006_03_01.PutBucketLifecycle
 
     -- * Response
     , PutBucketLifecycleResponse
+    -- ** Response constructor
+    , mkPutBucketLifecycleResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -87,6 +89,13 @@ instance ToBody PutBucketLifecycle where
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutBucketLifecycleResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutBucketLifecycleResponse :: PutBucketLifecycleResponse
+mkPutBucketLifecycleResponse = PutBucketLifecycleResponse
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3

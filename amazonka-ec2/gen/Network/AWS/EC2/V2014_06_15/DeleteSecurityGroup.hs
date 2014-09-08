@@ -45,6 +45,8 @@ module Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup
 
     -- * Response
     , DeleteSecurityGroupResponse
+    -- ** Response constructor
+    , mkDeleteSecurityGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -78,6 +80,13 @@ instance ToQuery DeleteSecurityGroup where
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteSecurityGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteSecurityGroupResponse :: DeleteSecurityGroupResponse
+mkDeleteSecurityGroupResponse = DeleteSecurityGroupResponse
 
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2

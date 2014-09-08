@@ -42,6 +42,8 @@ module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
 
     -- * Response
     , EvaluateExpressionResponse
+    -- ** Response constructor
+    , mkEvaluateExpressionResponse
     -- ** Response lenses
     , eerEvaluatedExpression
     ) where
@@ -93,6 +95,16 @@ instance ToJSON EvaluateExpression
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
     { _eerEvaluatedExpression :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EvaluateExpressionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEvaluateExpressionResponse :: Text -- ^ 'eerEvaluatedExpression'
+                             -> EvaluateExpressionResponse
+mkEvaluateExpressionResponse p1 = EvaluateExpressionResponse
+    { _eerEvaluatedExpression = p1
+    }
 
 -- | The evaluated expression.
 eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text

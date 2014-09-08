@@ -69,6 +69,8 @@ module Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML
 
     -- * Response
     , AssumeRoleWithSAMLResponse
+    -- ** Response constructor
+    , mkAssumeRoleWithSAMLResponse
     -- ** Response lenses
     , arwsamlrCredentials
     , arwsamlrAssumedRoleUser
@@ -162,6 +164,22 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrAudience :: Maybe Text
     , _arwsamlrNameQualifier :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AssumeRoleWithSAMLResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAssumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse
+mkAssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
+    { _arwsamlrCredentials = Nothing
+    , _arwsamlrAssumedRoleUser = Nothing
+    , _arwsamlrPackedPolicySize = Nothing
+    , _arwsamlrSubject = Nothing
+    , _arwsamlrSubjectType = Nothing
+    , _arwsamlrIssuer = Nothing
+    , _arwsamlrAudience = Nothing
+    , _arwsamlrNameQualifier = Nothing
+    }
 
 -- | AWS credentials for API authentication.
 arwsamlrCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)

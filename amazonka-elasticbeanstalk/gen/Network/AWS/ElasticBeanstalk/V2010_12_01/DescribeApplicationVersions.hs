@@ -34,6 +34,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions
 
     -- * Response
     , DescribeApplicationVersionsResponse
+    -- ** Response constructor
+    , mkDescribeApplicationVersionsResponse
     -- ** Response lenses
     , davrApplicationVersions
     ) where
@@ -75,6 +77,15 @@ instance ToQuery DescribeApplicationVersions where
 newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     { _davrApplicationVersions :: [ApplicationVersionDescription]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeApplicationVersionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
+mkDescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
+    { _davrApplicationVersions = mempty
+    }
 
 -- | A list of ApplicationVersionDescription .
 davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]

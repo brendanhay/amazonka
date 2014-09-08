@@ -32,6 +32,8 @@ module Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup
 
     -- * Response
     , RemoveUserFromGroupResponse
+    -- ** Response constructor
+    , mkRemoveUserFromGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,6 +69,13 @@ instance ToQuery RemoveUserFromGroup where
 
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RemoveUserFromGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRemoveUserFromGroupResponse :: RemoveUserFromGroupResponse
+mkRemoveUserFromGroupResponse = RemoveUserFromGroupResponse
 
 instance AWSRequest RemoveUserFromGroup where
     type Sv RemoveUserFromGroup = IAM

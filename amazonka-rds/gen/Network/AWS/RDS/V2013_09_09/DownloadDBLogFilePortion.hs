@@ -43,6 +43,8 @@ module Network.AWS.RDS.V2013_09_09.DownloadDBLogFilePortion
 
     -- * Response
     , DownloadDBLogFilePortionResponse
+    -- ** Response constructor
+    , mkDownloadDBLogFilePortionResponse
     -- ** Response lenses
     , ddblfprAdditionalDataPending
     , ddblfprLogFileData
@@ -107,6 +109,19 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     , _ddblfprLogFileData :: ByteString
     , _ddblfprMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DownloadDBLogFilePortionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDownloadDBLogFilePortionResponse :: Bool -- ^ 'ddblfprAdditionalDataPending'
+                                   -> ByteString -- ^ 'ddblfprLogFileData'
+                                   -> DownloadDBLogFilePortionResponse
+mkDownloadDBLogFilePortionResponse p1 p2 = DownloadDBLogFilePortionResponse
+    { _ddblfprAdditionalDataPending = p1
+    , _ddblfprLogFileData = p2
+    , _ddblfprMarker = Nothing
+    }
 
 -- | Boolean value that if true, indicates there is more data to be downloaded.
 ddblfprAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse Bool

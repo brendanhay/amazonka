@@ -65,6 +65,8 @@ module Network.AWS.Route53Domains.V2014_05_15.GetDomainDetail
 
     -- * Response
     , GetDomainDetailResponse
+    -- ** Response constructor
+    , mkGetDomainDetailResponse
     -- ** Response lenses
     , gddrDomainName
     , gddrNameservers
@@ -145,6 +147,40 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddrDnsSec :: Maybe Text
     , _gddrStatusList :: [Text]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetDomainDetailResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetDomainDetailResponse :: Text -- ^ 'gddrDomainName'
+                          -> [Nameserver] -- ^ 'gddrNameservers'
+                          -> ContactDetail -- ^ 'gddrAdminContact'
+                          -> ContactDetail -- ^ 'gddrRegistrantContact'
+                          -> ContactDetail -- ^ 'gddrTechContact'
+                          -> GetDomainDetailResponse
+mkGetDomainDetailResponse p1 p2 p4 p5 p6 = GetDomainDetailResponse
+    { _gddrDomainName = p1
+    , _gddrNameservers = p2
+    , _gddrAutoRenew = Nothing
+    , _gddrAdminContact = p4
+    , _gddrRegistrantContact = p5
+    , _gddrTechContact = p6
+    , _gddrAdminPrivacy = Nothing
+    , _gddrRegistrantPrivacy = Nothing
+    , _gddrTechPrivacy = Nothing
+    , _gddrRegistrarName = Nothing
+    , _gddrWhoIsServer = Nothing
+    , _gddrRegistrarUrl = Nothing
+    , _gddrAbuseContactEmail = Nothing
+    , _gddrAbuseContactPhone = Nothing
+    , _gddrRegistryDomainId = Nothing
+    , _gddrCreationDate = Nothing
+    , _gddrUpdatedDate = Nothing
+    , _gddrExpirationDate = Nothing
+    , _gddrReseller = Nothing
+    , _gddrDnsSec = Nothing
+    , _gddrStatusList = mempty
+    }
 
 -- | The name of a domain. Type: String.
 gddrDomainName :: Lens' GetDomainDetailResponse Text

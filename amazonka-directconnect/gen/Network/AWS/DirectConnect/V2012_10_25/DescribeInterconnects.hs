@@ -31,6 +31,8 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
 
     -- * Response
     , DescribeInterconnectsResponse
+    -- ** Response constructor
+    , mkDescribeInterconnectsResponse
     -- ** Response lenses
     , dirrInterconnects
     ) where
@@ -68,6 +70,15 @@ instance ToJSON DescribeInterconnects
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
     { _dirrInterconnects :: [Interconnect]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeInterconnectsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeInterconnectsResponse :: DescribeInterconnectsResponse
+mkDescribeInterconnectsResponse = DescribeInterconnectsResponse
+    { _dirrInterconnects = mempty
+    }
 
 -- | A list of interconnects.
 dirrInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]

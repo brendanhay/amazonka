@@ -48,6 +48,8 @@ module Network.AWS.EC2.V2014_06_15.CopySnapshot
 
     -- * Response
     , CopySnapshotResponse
+    -- ** Response constructor
+    , mkCopySnapshotResponse
     -- ** Response lenses
     , csrSnapshotId
     ) where
@@ -119,6 +121,15 @@ instance ToQuery CopySnapshot where
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CopySnapshotResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCopySnapshotResponse :: CopySnapshotResponse
+mkCopySnapshotResponse = CopySnapshotResponse
+    { _csrSnapshotId = Nothing
+    }
 
 -- | The ID of the new snapshot.
 csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)

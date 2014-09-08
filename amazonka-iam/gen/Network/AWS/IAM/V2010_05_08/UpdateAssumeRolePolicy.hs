@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy
 
     -- * Response
     , UpdateAssumeRolePolicyResponse
+    -- ** Response constructor
+    , mkUpdateAssumeRolePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -71,6 +73,13 @@ instance ToQuery UpdateAssumeRolePolicy where
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateAssumeRolePolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
+mkUpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 
 instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM

@@ -36,6 +36,8 @@ module Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack
 
     -- * Response
     , CancelUpdateStackResponse
+    -- ** Response constructor
+    , mkCancelUpdateStackResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,6 +66,13 @@ instance ToQuery CancelUpdateStack where
 
 data CancelUpdateStackResponse = CancelUpdateStackResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelUpdateStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelUpdateStackResponse :: CancelUpdateStackResponse
+mkCancelUpdateStackResponse = CancelUpdateStackResponse
 
 instance AWSRequest CancelUpdateStack where
     type Sv CancelUpdateStack = CloudFormation

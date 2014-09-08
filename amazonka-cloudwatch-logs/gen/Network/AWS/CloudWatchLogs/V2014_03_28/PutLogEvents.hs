@@ -56,6 +56,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutLogEvents
 
     -- * Response
     , PutLogEventsResponse
+    -- ** Response constructor
+    , mkPutLogEventsResponse
     -- ** Response lenses
     , plerNextSequenceToken
     ) where
@@ -112,6 +114,15 @@ instance ToJSON PutLogEvents
 newtype PutLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PutLogEventsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPutLogEventsResponse :: PutLogEventsResponse
+mkPutLogEventsResponse = PutLogEventsResponse
+    { _plerNextSequenceToken = Nothing
+    }
 
 -- | A string token used for making PutLogEvents requests. A sequenceToken can
 -- only be used once, and PutLogEvents requests must include the sequenceToken

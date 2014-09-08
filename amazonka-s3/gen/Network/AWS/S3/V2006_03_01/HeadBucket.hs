@@ -30,6 +30,8 @@ module Network.AWS.S3.V2006_03_01.HeadBucket
 
     -- * Response
     , HeadBucketResponse
+    -- ** Response constructor
+    , mkHeadBucketResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -66,6 +68,13 @@ instance ToBody HeadBucket
 
 data HeadBucketResponse = HeadBucketResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'HeadBucketResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkHeadBucketResponse :: HeadBucketResponse
+mkHeadBucketResponse = HeadBucketResponse
 
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3

@@ -35,6 +35,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice
 
     -- * Response
     , DeleteVirtualMFADeviceResponse
+    -- ** Response constructor
+    , mkDeleteVirtualMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,6 +67,13 @@ instance ToQuery DeleteVirtualMFADevice where
 
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteVirtualMFADeviceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
+mkDeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
 
 instance AWSRequest DeleteVirtualMFADevice where
     type Sv DeleteVirtualMFADevice = IAM

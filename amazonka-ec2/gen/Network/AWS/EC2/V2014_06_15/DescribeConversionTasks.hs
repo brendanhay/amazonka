@@ -37,6 +37,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeConversionTasks
 
     -- * Response
     , DescribeConversionTasksResponse
+    -- ** Response constructor
+    , mkDescribeConversionTasksResponse
     -- ** Response lenses
     , dctrConversionTasks
     ) where
@@ -75,6 +77,15 @@ instance ToQuery DescribeConversionTasks where
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: [ConversionTask]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeConversionTasksResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeConversionTasksResponse :: DescribeConversionTasksResponse
+mkDescribeConversionTasksResponse = DescribeConversionTasksResponse
+    { _dctrConversionTasks = mempty
+    }
 
 -- | 
 dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]

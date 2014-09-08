@@ -39,6 +39,8 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup
 
     -- * Response
     , ModifyCacheSubnetGroupResponse
+    -- ** Response constructor
+    , mkModifyCacheSubnetGroupResponse
     -- ** Response lenses
     , mcsgrCacheSubnetGroup
     ) where
@@ -88,6 +90,15 @@ instance ToQuery ModifyCacheSubnetGroup where
 newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ModifyCacheSubnetGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkModifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResponse
+mkModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
+    { _mcsgrCacheSubnetGroup = Nothing
+    }
 
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.

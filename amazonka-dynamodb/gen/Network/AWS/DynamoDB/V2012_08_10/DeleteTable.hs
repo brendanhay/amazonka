@@ -43,6 +43,8 @@ module Network.AWS.DynamoDB.V2012_08_10.DeleteTable
 
     -- * Response
     , DeleteTableResponse
+    -- ** Response constructor
+    , mkDeleteTableResponse
     -- ** Response lenses
     , dtrTableDescription
     ) where
@@ -80,6 +82,15 @@ instance ToJSON DeleteTable
 newtype DeleteTableResponse = DeleteTableResponse
     { _dtrTableDescription :: Maybe TableDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteTableResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteTableResponse :: DeleteTableResponse
+mkDeleteTableResponse = DeleteTableResponse
+    { _dtrTableDescription = Nothing
+    }
 
 -- | Represents the properties of a table.
 dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)

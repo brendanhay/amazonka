@@ -41,6 +41,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances
 
     -- * Response
     , DescribeAutoScalingInstancesResponse
+    -- ** Response constructor
+    , mkDescribeAutoScalingInstancesResponse
     -- ** Response lenses
     , dasirAutoScalingInstances
     , dasirNextToken
@@ -91,6 +93,16 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]
     , _dasirNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAutoScalingInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse
+mkDescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
+    { _dasirAutoScalingInstances = mempty
+    , _dasirNextToken = Nothing
+    }
 
 -- | A list of Auto Scaling instances.
 dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]

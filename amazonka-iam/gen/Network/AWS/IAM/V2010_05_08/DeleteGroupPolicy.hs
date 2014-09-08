@@ -32,6 +32,8 @@ module Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy
 
     -- * Response
     , DeleteGroupPolicyResponse
+    -- ** Response constructor
+    , mkDeleteGroupPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,6 +69,13 @@ instance ToQuery DeleteGroupPolicy where
 
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteGroupPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteGroupPolicyResponse :: DeleteGroupPolicyResponse
+mkDeleteGroupPolicyResponse = DeleteGroupPolicyResponse
 
 instance AWSRequest DeleteGroupPolicy where
     type Sv DeleteGroupPolicy = IAM

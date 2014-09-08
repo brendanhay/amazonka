@@ -92,6 +92,8 @@ module Network.AWS.STS.V2011_06_15.GetFederationToken
 
     -- * Response
     , GetFederationTokenResponse
+    -- ** Response constructor
+    , mkGetFederationTokenResponse
     -- ** Response lenses
     , gftrCredentials
     , gftrFederatedUser
@@ -163,6 +165,17 @@ data GetFederationTokenResponse = GetFederationTokenResponse
     , _gftrFederatedUser :: Maybe FederatedUser
     , _gftrPackedPolicySize :: Maybe Integer
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetFederationTokenResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetFederationTokenResponse :: GetFederationTokenResponse
+mkGetFederationTokenResponse = GetFederationTokenResponse
+    { _gftrCredentials = Nothing
+    , _gftrFederatedUser = Nothing
+    , _gftrPackedPolicySize = Nothing
+    }
 
 -- | Credentials for the service API authentication.
 gftrCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)

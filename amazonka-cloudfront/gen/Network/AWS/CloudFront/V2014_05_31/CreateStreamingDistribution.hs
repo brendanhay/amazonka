@@ -29,6 +29,8 @@ module Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution
 
     -- * Response
     , CreateStreamingDistributionResponse
+    -- ** Response constructor
+    , mkCreateStreamingDistributionResponse
     -- ** Response lenses
     , csdrStreamingDistribution
     , csdrLocation
@@ -76,6 +78,17 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     , _csdrLocation :: Maybe Text
     , _csdrETag :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStreamingDistributionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateStreamingDistributionResponse :: CreateStreamingDistributionResponse
+mkCreateStreamingDistributionResponse = CreateStreamingDistributionResponse
+    { _csdrStreamingDistribution = Nothing
+    , _csdrLocation = Nothing
+    , _csdrETag = Nothing
+    }
 
 -- | The streaming distribution's information.
 csdrStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)

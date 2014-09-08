@@ -31,6 +31,8 @@ module Network.AWS.OpsWorks.V2013_02_18.UpdateRdsDbInstance
 
     -- * Response
     , UpdateRdsDbInstanceResponse
+    -- ** Response constructor
+    , mkUpdateRdsDbInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -76,6 +78,13 @@ instance ToJSON UpdateRdsDbInstance
 
 data UpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateRdsDbInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateRdsDbInstanceResponse :: UpdateRdsDbInstanceResponse
+mkUpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
 
 instance AWSRequest UpdateRdsDbInstance where
     type Sv UpdateRdsDbInstance = OpsWorks

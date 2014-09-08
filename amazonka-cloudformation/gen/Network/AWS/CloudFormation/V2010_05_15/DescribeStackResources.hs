@@ -53,6 +53,8 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources
 
     -- * Response
     , DescribeStackResourcesResponse
+    -- ** Response constructor
+    , mkDescribeStackResourcesResponse
     -- ** Response lenses
     , dsrrrStackResources
     ) where
@@ -110,6 +112,15 @@ instance ToQuery DescribeStackResources where
 newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrrrStackResources :: [StackResource]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeStackResourcesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeStackResourcesResponse :: DescribeStackResourcesResponse
+mkDescribeStackResourcesResponse = DescribeStackResourcesResponse
+    { _dsrrrStackResources = mempty
+    }
 
 -- | A list of StackResource structures.
 dsrrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]

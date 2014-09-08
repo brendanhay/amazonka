@@ -36,6 +36,8 @@ module Network.AWS.EMR.V2009_03_31.ListClusters
 
     -- * Response
     , ListClustersResponse
+    -- ** Response constructor
+    , mkListClustersResponse
     -- ** Response lenses
     , lcrClusters
     , lcrMarker
@@ -94,6 +96,16 @@ data ListClustersResponse = ListClustersResponse
     { _lcrClusters :: [ClusterSummary]
     , _lcrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListClustersResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListClustersResponse :: ListClustersResponse
+mkListClustersResponse = ListClustersResponse
+    { _lcrClusters = mempty
+    , _lcrMarker = Nothing
+    }
 
 -- | The list of clusters for the account based on the given filters.
 lcrClusters :: Lens' ListClustersResponse [ClusterSummary]

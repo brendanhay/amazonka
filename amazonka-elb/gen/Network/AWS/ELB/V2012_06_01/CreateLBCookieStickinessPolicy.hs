@@ -48,6 +48,8 @@ module Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy
 
     -- * Response
     , CreateLBCookieStickinessPolicyResponse
+    -- ** Response constructor
+    , mkCreateLBCookieStickinessPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -97,6 +99,13 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 -- | The output for the CreateLBCookieStickinessPolicy action.
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateLBCookieStickinessPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
+mkCreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
 
 instance AWSRequest CreateLBCookieStickinessPolicy where
     type Sv CreateLBCookieStickinessPolicy = ELB

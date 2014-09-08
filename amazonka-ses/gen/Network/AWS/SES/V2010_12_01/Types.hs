@@ -342,7 +342,10 @@ data IdentityDkimAttributes = IdentityDkimAttributes
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'IdentityDkimAttributes' data type to populate a request.
+-- a valid 'IdentityDkimAttributes' data type.
+--
+-- 'IdentityDkimAttributes' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkIdentityDkimAttributes :: Bool -- ^ 'idaDkimEnabled'
                          -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
                          -> IdentityDkimAttributes
@@ -393,7 +396,10 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'IdentityNotificationAttributes' data type to populate a request.
+-- a valid 'IdentityNotificationAttributes' data type.
+--
+-- 'IdentityNotificationAttributes' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkIdentityNotificationAttributes :: Text -- ^ 'inaBounceTopic'
                                  -> Text -- ^ 'inaComplaintTopic'
                                  -> Text -- ^ 'inaDeliveryTopic'
@@ -443,7 +449,10 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'IdentityVerificationAttributes' data type to populate a request.
+-- a valid 'IdentityVerificationAttributes' data type.
+--
+-- 'IdentityVerificationAttributes' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkIdentityVerificationAttributes :: VerificationStatus -- ^ 'ivaVerificationStatus'
                                  -> IdentityVerificationAttributes
 mkIdentityVerificationAttributes p1 = IdentityVerificationAttributes
@@ -506,7 +515,10 @@ data SendDataPoint = SendDataPoint
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'SendDataPoint' data type to populate a request.
+-- a valid 'SendDataPoint' data type.
+--
+-- 'SendDataPoint' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkSendDataPoint :: SendDataPoint
 mkSendDataPoint = SendDataPoint
     { _sdpTimestamp = Nothing

@@ -43,6 +43,8 @@ module Network.AWS.EC2.V2014_06_15.CancelBundleTask
 
     -- * Response
     , CancelBundleTaskResponse
+    -- ** Response constructor
+    , mkCancelBundleTaskResponse
     -- ** Response lenses
     , cbtrBundleTask
     ) where
@@ -75,6 +77,15 @@ instance ToQuery CancelBundleTask where
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CancelBundleTaskResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCancelBundleTaskResponse :: CancelBundleTaskResponse
+mkCancelBundleTaskResponse = CancelBundleTaskResponse
+    { _cbtrBundleTask = Nothing
+    }
 
 -- | The bundle task.
 cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)

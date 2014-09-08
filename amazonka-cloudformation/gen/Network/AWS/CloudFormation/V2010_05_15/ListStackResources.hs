@@ -47,6 +47,8 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStackResources
 
     -- * Response
     , ListStackResourcesResponse
+    -- ** Response constructor
+    , mkListStackResourcesResponse
     -- ** Response lenses
     , lsrrStackResourceSummaries
     , lsrrNextToken
@@ -91,6 +93,16 @@ data ListStackResourcesResponse = ListStackResourcesResponse
     { _lsrrStackResourceSummaries :: [StackResourceSummary]
     , _lsrrNextToken :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListStackResourcesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListStackResourcesResponse :: ListStackResourcesResponse
+mkListStackResourcesResponse = ListStackResourcesResponse
+    { _lsrrStackResourceSummaries = mempty
+    , _lsrrNextToken = Nothing
+    }
 
 -- | A list of StackResourceSummary structures.
 lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]

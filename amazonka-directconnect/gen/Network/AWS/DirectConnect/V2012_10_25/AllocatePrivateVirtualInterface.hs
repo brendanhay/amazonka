@@ -37,6 +37,8 @@ module Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface
 
     -- * Response
     , AllocatePrivateVirtualInterfaceResponse
+    -- ** Response constructor
+    , mkAllocatePrivateVirtualInterfaceResponse
     -- ** Response lenses
     , apvirOwnerAccount
     , apvirVirtualInterfaceId
@@ -125,6 +127,29 @@ data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceRe
     , _apvirVirtualGatewayId :: Maybe Text
     , _apvirRouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'AllocatePrivateVirtualInterfaceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkAllocatePrivateVirtualInterfaceResponse :: AllocatePrivateVirtualInterfaceResponse
+mkAllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceResponse
+    { _apvirOwnerAccount = Nothing
+    , _apvirVirtualInterfaceId = Nothing
+    , _apvirLocation = Nothing
+    , _apvirConnectionId = Nothing
+    , _apvirVirtualInterfaceType = Nothing
+    , _apvirVirtualInterfaceName = Nothing
+    , _apvirVlan = Nothing
+    , _apvirAsn = Nothing
+    , _apvirAuthKey = Nothing
+    , _apvirAmazonAddress = Nothing
+    , _apvirCustomerAddress = Nothing
+    , _apvirVirtualInterfaceState = Nothing
+    , _apvirCustomerRouterConfig = Nothing
+    , _apvirVirtualGatewayId = Nothing
+    , _apvirRouteFilterPrefixes = mempty
+    }
 
 apvirOwnerAccount :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 apvirOwnerAccount =

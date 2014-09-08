@@ -48,6 +48,8 @@ module Network.AWS.ELB.V2012_06_01.CreateAppCookieStickinessPolicy
 
     -- * Response
     , CreateAppCookieStickinessPolicyResponse
+    -- ** Response constructor
+    , mkCreateAppCookieStickinessPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -93,6 +95,13 @@ instance ToQuery CreateAppCookieStickinessPolicy where
 -- | The output for the CreateAppCookieStickinessPolicy action.
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateAppCookieStickinessPolicyResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse
+mkCreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
 
 instance AWSRequest CreateAppCookieStickinessPolicy where
     type Sv CreateAppCookieStickinessPolicy = ELB

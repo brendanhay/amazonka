@@ -414,7 +414,10 @@ newtype AdjustmentType = AdjustmentType
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AdjustmentType' data type to populate a request.
+-- a valid 'AdjustmentType' data type.
+--
+-- 'AdjustmentType' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAdjustmentType :: AdjustmentType
 mkAdjustmentType = AdjustmentType
     { _atAdjustmentType = Nothing
@@ -465,7 +468,10 @@ newtype MetricCollectionType = MetricCollectionType
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'MetricCollectionType' data type to populate a request.
+-- a valid 'MetricCollectionType' data type.
+--
+-- 'MetricCollectionType' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMetricCollectionType :: MetricCollectionType
 mkMetricCollectionType = MetricCollectionType
     { _mctMetric = Nothing
@@ -485,7 +491,10 @@ newtype MetricGranularityType = MetricGranularityType
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'MetricGranularityType' data type to populate a request.
+-- a valid 'MetricGranularityType' data type.
+--
+-- 'MetricGranularityType' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkMetricGranularityType :: MetricGranularityType
 mkMetricGranularityType = MetricGranularityType
     { _mgtGranularity = Nothing
@@ -563,7 +572,10 @@ newtype ProcessType = ProcessType
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ProcessType' data type to populate a request.
+-- a valid 'ProcessType' data type.
+--
+-- 'ProcessType' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkProcessType :: Text -- ^ 'ptProcessName'
               -> ProcessType
 mkProcessType p1 = ProcessType
@@ -596,7 +608,10 @@ data Activity = Activity
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Activity' data type to populate a request.
+-- a valid 'Activity' data type.
+--
+-- 'Activity' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkActivity :: Text -- ^ 'arActivityId'
            -> Text -- ^ 'arAutoScalingGroupName'
            -> Text -- ^ 'arCause'
@@ -716,7 +731,10 @@ data AutoScalingGroup = AutoScalingGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AutoScalingGroup' data type to populate a request.
+-- a valid 'AutoScalingGroup' data type.
+--
+-- 'AutoScalingGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAutoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
                    -> Text -- ^ 'asgHealthCheckType'
                    -> ISO8601 -- ^ 'asgCreatedTime'
@@ -871,7 +889,10 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'AutoScalingInstanceDetails' data type to populate a request.
+-- a valid 'AutoScalingInstanceDetails' data type.
+--
+-- 'AutoScalingInstanceDetails' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkAutoScalingInstanceDetails :: Text -- ^ 'asidInstanceId'
                              -> Text -- ^ 'asidAutoScalingGroupName'
                              -> Text -- ^ 'asidAvailabilityZone'
@@ -1158,7 +1179,10 @@ data LaunchConfiguration = LaunchConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LaunchConfiguration' data type to populate a request.
+-- a valid 'LaunchConfiguration' data type.
+--
+-- 'LaunchConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLaunchConfiguration :: Text -- ^ 'lcLaunchConfigurationName'
                       -> ISO8601 -- ^ 'lcCreatedTime'
                       -> Text -- ^ 'lcImageId'
@@ -1296,7 +1320,10 @@ data LifecycleHook = LifecycleHook
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'LifecycleHook' data type to populate a request.
+-- a valid 'LifecycleHook' data type.
+--
+-- 'LifecycleHook' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkLifecycleHook :: LifecycleHook
 mkLifecycleHook = LifecycleHook
     { _lhLifecycleHookName = Nothing
@@ -1381,7 +1408,10 @@ data NotificationConfiguration = NotificationConfiguration
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'NotificationConfiguration' data type to populate a request.
+-- a valid 'NotificationConfiguration' data type.
+--
+-- 'NotificationConfiguration' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkNotificationConfiguration :: NotificationConfiguration
 mkNotificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName = Nothing
@@ -1421,7 +1451,10 @@ data ScalingPolicy = ScalingPolicy
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ScalingPolicy' data type to populate a request.
+-- a valid 'ScalingPolicy' data type.
+--
+-- 'ScalingPolicy' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkScalingPolicy :: ScalingPolicy
 mkScalingPolicy = ScalingPolicy
     { _sprAutoScalingGroupName = Nothing
@@ -1497,7 +1530,10 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ScheduledUpdateGroupAction' data type to populate a request.
+-- a valid 'ScheduledUpdateGroupAction' data type.
+--
+-- 'ScheduledUpdateGroupAction' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkScheduledUpdateGroupAction :: ScheduledUpdateGroupAction
 mkScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     { _sugaAutoScalingGroupName = Nothing

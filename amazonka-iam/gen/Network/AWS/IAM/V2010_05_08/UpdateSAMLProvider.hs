@@ -37,6 +37,8 @@ module Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider
 
     -- * Response
     , UpdateSAMLProviderResponse
+    -- ** Response constructor
+    , mkUpdateSAMLProviderResponse
     -- ** Response lenses
     , usamlprSAMLProviderArn
     ) where
@@ -85,6 +87,15 @@ instance ToQuery UpdateSAMLProvider where
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UpdateSAMLProviderResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUpdateSAMLProviderResponse :: UpdateSAMLProviderResponse
+mkUpdateSAMLProviderResponse = UpdateSAMLProviderResponse
+    { _usamlprSAMLProviderArn = Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
 usamlprSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)

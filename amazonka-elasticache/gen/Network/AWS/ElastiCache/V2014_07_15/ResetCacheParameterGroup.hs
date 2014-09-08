@@ -41,6 +41,8 @@ module Network.AWS.ElastiCache.V2014_07_15.ResetCacheParameterGroup
 
     -- * Response
     , ResetCacheParameterGroupResponse
+    -- ** Response constructor
+    , mkResetCacheParameterGroupResponse
     -- ** Response lenses
     , rcpgrCacheParameterGroupName
     ) where
@@ -95,6 +97,15 @@ instance ToQuery ResetCacheParameterGroup where
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _rcpgrCacheParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ResetCacheParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkResetCacheParameterGroupResponse :: ResetCacheParameterGroupResponse
+mkResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
+    { _rcpgrCacheParameterGroupName = Nothing
+    }
 
 -- | The name of the cache parameter group.
 rcpgrCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)

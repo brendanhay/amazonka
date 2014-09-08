@@ -31,6 +31,8 @@ module Network.AWS.CloudFront.V2014_05_31.ListInvalidations
 
     -- * Response
     , ListInvalidationsResponse
+    -- ** Response constructor
+    , mkListInvalidationsResponse
     -- ** Response lenses
     , lirInvalidationList
     ) where
@@ -99,6 +101,16 @@ instance ToXML ListInvalidations where
 newtype ListInvalidationsResponse = ListInvalidationsResponse
     { _lirInvalidationList :: InvalidationList
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInvalidationsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
+                            -> ListInvalidationsResponse
+mkListInvalidationsResponse p1 = ListInvalidationsResponse
+    { _lirInvalidationList = p1
+    }
 
 -- | Information about invalidation batches.
 lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList

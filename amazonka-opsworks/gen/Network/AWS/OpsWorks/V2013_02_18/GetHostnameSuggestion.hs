@@ -33,6 +33,8 @@ module Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion
 
     -- * Response
     , GetHostnameSuggestionResponse
+    -- ** Response constructor
+    , mkGetHostnameSuggestionResponse
     -- ** Response lenses
     , ghsrLayerId
     , ghsrHostname
@@ -71,6 +73,16 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
     { _ghsrLayerId :: Maybe Text
     , _ghsrHostname :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetHostnameSuggestionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetHostnameSuggestionResponse :: GetHostnameSuggestionResponse
+mkGetHostnameSuggestionResponse = GetHostnameSuggestionResponse
+    { _ghsrLayerId = Nothing
+    , _ghsrHostname = Nothing
+    }
 
 -- | The layer ID.
 ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)

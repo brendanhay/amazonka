@@ -34,6 +34,8 @@ module Network.AWS.Route53.V2013_04_01.CreateHealthCheck
 
     -- * Response
     , CreateHealthCheckResponse
+    -- ** Response constructor
+    , mkCreateHealthCheckResponse
     -- ** Response lenses
     , chcrHealthCheck
     , chcrLocation
@@ -94,6 +96,18 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
     { _chcrHealthCheck :: HealthCheck
     , _chcrLocation :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateHealthCheckResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateHealthCheckResponse :: HealthCheck -- ^ 'chcrHealthCheck'
+                            -> Text -- ^ 'chcrLocation'
+                            -> CreateHealthCheckResponse
+mkCreateHealthCheckResponse p1 p2 = CreateHealthCheckResponse
+    { _chcrHealthCheck = p1
+    , _chcrLocation = p2
+    }
 
 -- | A complex type that contains identifying information about the health
 -- check.

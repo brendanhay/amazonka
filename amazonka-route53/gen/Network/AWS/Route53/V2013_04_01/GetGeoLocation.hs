@@ -30,6 +30,8 @@ module Network.AWS.Route53.V2013_04_01.GetGeoLocation
 
     -- * Response
     , GetGeoLocationResponse
+    -- ** Response constructor
+    , mkGetGeoLocationResponse
     -- ** Response lenses
     , gglrGeoLocationDetails
     ) where
@@ -99,6 +101,16 @@ instance ToXML GetGeoLocation where
 newtype GetGeoLocationResponse = GetGeoLocationResponse
     { _gglrGeoLocationDetails :: GeoLocationDetails
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'GetGeoLocationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkGetGeoLocationResponse :: GeoLocationDetails -- ^ 'gglrGeoLocationDetails'
+                         -> GetGeoLocationResponse
+mkGetGeoLocationResponse p1 = GetGeoLocationResponse
+    { _gglrGeoLocationDetails = p1
+    }
 
 -- | A complex type that contains the information about the specified geo
 -- location.

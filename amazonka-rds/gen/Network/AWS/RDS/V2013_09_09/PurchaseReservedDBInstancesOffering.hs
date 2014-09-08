@@ -40,6 +40,8 @@ module Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering
 
     -- * Response
     , PurchaseReservedDBInstancesOfferingResponse
+    -- ** Response constructor
+    , mkPurchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
     , prdbiorReservedDBInstance
     ) where
@@ -96,6 +98,15 @@ instance ToQuery PurchaseReservedDBInstancesOffering where
 newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'PurchaseReservedDBInstancesOfferingResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkPurchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResponse
+mkPurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
+    { _prdbiorReservedDBInstance = Nothing
+    }
 
 -- | This data type is used as a response element in the
 -- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering

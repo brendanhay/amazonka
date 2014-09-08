@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DisableVgwRoutePropagation
 
     -- * Response
     , DisableVgwRoutePropagationResponse
+    -- ** Response constructor
+    , mkDisableVgwRoutePropagationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -76,6 +78,13 @@ instance ToQuery DisableVgwRoutePropagation where
 
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisableVgwRoutePropagationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
+mkDisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 
 instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2

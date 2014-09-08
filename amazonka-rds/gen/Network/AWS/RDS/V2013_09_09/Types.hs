@@ -623,7 +623,10 @@ data DBEngineVersion = DBEngineVersion
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DBEngineVersion' data type to populate a request.
+-- a valid 'DBEngineVersion' data type.
+--
+-- 'DBEngineVersion' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDBEngineVersion :: DBEngineVersion
 mkDBEngineVersion = DBEngineVersion
     { _dbevEngine = Nothing
@@ -718,7 +721,10 @@ data DBInstance = DBInstance
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DBInstance' data type to populate a request.
+-- a valid 'DBInstance' data type.
+--
+-- 'DBInstance' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDBInstance :: DBInstance
 mkDBInstance = DBInstance
     { _dbiDBInstanceIdentifier = Nothing
@@ -1006,7 +1012,10 @@ data DBParameterGroup = DBParameterGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DBParameterGroup' data type to populate a request.
+-- a valid 'DBParameterGroup' data type.
+--
+-- 'DBParameterGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDBParameterGroup :: DBParameterGroup
 mkDBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupName = Nothing
@@ -1085,7 +1094,10 @@ data DBSecurityGroup = DBSecurityGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DBSecurityGroup' data type to populate a request.
+-- a valid 'DBSecurityGroup' data type.
+--
+-- 'DBSecurityGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDBSecurityGroup :: DBSecurityGroup
 mkDBSecurityGroup = DBSecurityGroup
     { _dbsgOwnerId = Nothing
@@ -1187,7 +1199,10 @@ data DBSnapshot = DBSnapshot
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DBSnapshot' data type to populate a request.
+-- a valid 'DBSnapshot' data type.
+--
+-- 'DBSnapshot' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDBSnapshot :: DBSnapshot
 mkDBSnapshot = DBSnapshot
     { _dbsDBSnapshotIdentifier = Nothing
@@ -1362,7 +1377,10 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'DescribeDBLogFilesDetails' data type to populate a request.
+-- a valid 'DescribeDBLogFilesDetails' data type.
+--
+-- 'DescribeDBLogFilesDetails' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkDescribeDBLogFilesDetails :: DescribeDBLogFilesDetails
 mkDescribeDBLogFilesDetails = DescribeDBLogFilesDetails
     { _ddblfdLogFileName = Nothing
@@ -1476,7 +1494,10 @@ data EngineDefaults = EngineDefaults
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EngineDefaults' data type to populate a request.
+-- a valid 'EngineDefaults' data type.
+--
+-- 'EngineDefaults' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEngineDefaults :: EngineDefaults
 mkEngineDefaults = EngineDefaults
     { _edDBParameterGroupFamily = Nothing
@@ -1515,7 +1536,10 @@ data Event = Event
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Event' data type to populate a request.
+-- a valid 'Event' data type.
+--
+-- 'Event' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEvent :: Event
 mkEvent = Event
     { _erSourceIdentifier = Nothing
@@ -1559,7 +1583,10 @@ data EventCategoriesMap = EventCategoriesMap
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EventCategoriesMap' data type to populate a request.
+-- a valid 'EventCategoriesMap' data type.
+--
+-- 'EventCategoriesMap' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEventCategoriesMap :: EventCategoriesMap
 mkEventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
@@ -1594,7 +1621,10 @@ data EventSubscription = EventSubscription
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'EventSubscription' data type to populate a request.
+-- a valid 'EventSubscription' data type.
+--
+-- 'EventSubscription' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkEventSubscription :: EventSubscription
 mkEventSubscription = EventSubscription
     { _esCustomerAwsId = Nothing
@@ -1823,7 +1853,10 @@ data OptionGroup = OptionGroup
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionGroup' data type to populate a request.
+-- a valid 'OptionGroup' data type.
+--
+-- 'OptionGroup' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkOptionGroup :: OptionGroup
 mkOptionGroup = OptionGroup
     { _ogOptionGroupName = Nothing
@@ -1926,7 +1959,10 @@ data OptionGroupOption = OptionGroupOption
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'OptionGroupOption' data type to populate a request.
+-- a valid 'OptionGroupOption' data type.
+--
+-- 'OptionGroupOption' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkOptionGroupOption :: OptionGroupOption
 mkOptionGroupOption = OptionGroupOption
     { _ogoName = Nothing
@@ -2152,7 +2188,10 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'OrderableDBInstanceOption' data type to populate a request.
+-- a valid 'OrderableDBInstanceOption' data type.
+--
+-- 'OrderableDBInstanceOption' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkOrderableDBInstanceOption :: OrderableDBInstanceOption
 mkOrderableDBInstanceOption = OrderableDBInstanceOption
     { _odbioEngine = Nothing
@@ -2435,7 +2474,10 @@ data ReservedDBInstance = ReservedDBInstance
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedDBInstance' data type to populate a request.
+-- a valid 'ReservedDBInstance' data type.
+--
+-- 'ReservedDBInstance' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedDBInstance :: ReservedDBInstance
 mkReservedDBInstance = ReservedDBInstance
     { _rdbiReservedDBInstanceId = Nothing
@@ -2540,7 +2582,10 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'ReservedDBInstancesOffering' data type to populate a request.
+-- a valid 'ReservedDBInstancesOffering' data type.
+--
+-- 'ReservedDBInstancesOffering' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
 mkReservedDBInstancesOffering :: ReservedDBInstancesOffering
 mkReservedDBInstancesOffering = ReservedDBInstancesOffering
     { _rdbioReservedDBInstancesOfferingId = Nothing

@@ -37,6 +37,8 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeAnalysisSchemes
 
     -- * Response
     , DescribeAnalysisSchemesResponse
+    -- ** Response constructor
+    , mkDescribeAnalysisSchemesResponse
     -- ** Response lenses
     , dasr1AnalysisSchemes
     ) where
@@ -89,6 +91,16 @@ instance ToQuery DescribeAnalysisSchemes where
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasr1AnalysisSchemes :: [AnalysisSchemeStatus]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeAnalysisSchemesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeAnalysisSchemesResponse :: [AnalysisSchemeStatus] -- ^ 'dasr1AnalysisSchemes'
+                                  -> DescribeAnalysisSchemesResponse
+mkDescribeAnalysisSchemesResponse p1 = DescribeAnalysisSchemesResponse
+    { _dasr1AnalysisSchemes = p1
+    }
 
 -- | The analysis scheme descriptions.
 dasr1AnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]

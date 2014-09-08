@@ -46,6 +46,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBLogFiles
 
     -- * Response
     , DescribeDBLogFilesResponse
+    -- ** Response constructor
+    , mkDescribeDBLogFilesResponse
     -- ** Response lenses
     , ddblfrDescribeDBLogFiles
     , ddblfrMarker
@@ -124,6 +126,16 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
     , _ddblfrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeDBLogFilesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeDBLogFilesResponse :: DescribeDBLogFilesResponse
+mkDescribeDBLogFilesResponse = DescribeDBLogFilesResponse
+    { _ddblfrDescribeDBLogFiles = mempty
+    , _ddblfrMarker = Nothing
+    }
 
 -- | The DB log files returned.
 ddblfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]

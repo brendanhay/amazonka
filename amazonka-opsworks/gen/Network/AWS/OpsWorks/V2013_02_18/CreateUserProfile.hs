@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile
 
     -- * Response
     , CreateUserProfileResponse
+    -- ** Response constructor
+    , mkCreateUserProfileResponse
     -- ** Response lenses
     , cuprIamUserArn
     ) where
@@ -94,6 +96,15 @@ instance ToJSON CreateUserProfile
 newtype CreateUserProfileResponse = CreateUserProfileResponse
     { _cuprIamUserArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateUserProfileResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateUserProfileResponse :: CreateUserProfileResponse
+mkCreateUserProfileResponse = CreateUserProfileResponse
+    { _cuprIamUserArn = Nothing
+    }
 
 -- | The user's IAM ARN.
 cuprIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)

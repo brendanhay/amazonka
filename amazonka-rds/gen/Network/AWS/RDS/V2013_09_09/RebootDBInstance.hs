@@ -52,6 +52,8 @@ module Network.AWS.RDS.V2013_09_09.RebootDBInstance
 
     -- * Response
     , RebootDBInstanceResponse
+    -- ** Response constructor
+    , mkRebootDBInstanceResponse
     -- ** Response lenses
     , rdbirDBInstance
     ) where
@@ -97,6 +99,15 @@ instance ToQuery RebootDBInstance where
 newtype RebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RebootDBInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRebootDBInstanceResponse :: RebootDBInstanceResponse
+mkRebootDBInstanceResponse = RebootDBInstanceResponse
+    { _rdbirDBInstance = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used

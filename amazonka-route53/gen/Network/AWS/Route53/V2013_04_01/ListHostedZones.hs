@@ -38,6 +38,8 @@ module Network.AWS.Route53.V2013_04_01.ListHostedZones
 
     -- * Response
     , ListHostedZonesResponse
+    -- ** Response constructor
+    , mkListHostedZonesResponse
     -- ** Response lenses
     , lhzrHostedZones
     , lhzrMarker
@@ -107,6 +109,23 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , _lhzrNextMarker :: Maybe Text
     , _lhzrMaxItems :: Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListHostedZonesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListHostedZonesResponse :: [HostedZone] -- ^ 'lhzrHostedZones'
+                          -> Text -- ^ 'lhzrMarker'
+                          -> Bool -- ^ 'lhzrIsTruncated'
+                          -> Text -- ^ 'lhzrMaxItems'
+                          -> ListHostedZonesResponse
+mkListHostedZonesResponse p1 p2 p3 p5 = ListHostedZonesResponse
+    { _lhzrHostedZones = p1
+    , _lhzrMarker = p2
+    , _lhzrIsTruncated = p3
+    , _lhzrNextMarker = Nothing
+    , _lhzrMaxItems = p5
+    }
 
 -- | A complex type that contains information about the hosted zones associated
 -- with the current AWS account.

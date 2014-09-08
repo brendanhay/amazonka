@@ -39,6 +39,8 @@ module Network.AWS.EC2.V2014_06_15.UnassignPrivateIpAddresses
 
     -- * Response
     , UnassignPrivateIpAddressesResponse
+    -- ** Response constructor
+    , mkUnassignPrivateIpAddressesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -78,6 +80,13 @@ instance ToQuery UnassignPrivateIpAddresses where
 
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'UnassignPrivateIpAddressesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkUnassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
+mkUnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 
 instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2

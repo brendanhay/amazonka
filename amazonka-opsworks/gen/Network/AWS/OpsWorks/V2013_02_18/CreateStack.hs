@@ -49,6 +49,8 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateStack
 
     -- * Response
     , CreateStackResponse
+    -- ** Response constructor
+    , mkCreateStackResponse
     -- ** Response lenses
     , csrrStackId
     ) where
@@ -273,6 +275,15 @@ instance ToJSON CreateStack
 newtype CreateStackResponse = CreateStackResponse
     { _csrrStackId :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateStackResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateStackResponse :: CreateStackResponse
+mkCreateStackResponse = CreateStackResponse
+    { _csrrStackId = Nothing
+    }
 
 -- | The stack ID, which is an opaque string that you use to identify the stack
 -- when performing actions such as DescribeStacks.

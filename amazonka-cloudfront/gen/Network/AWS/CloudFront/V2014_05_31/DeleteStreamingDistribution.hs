@@ -30,6 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution
 
     -- * Response
     , DeleteStreamingDistributionResponse
+    -- ** Response constructor
+    , mkDeleteStreamingDistributionResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -80,6 +82,13 @@ instance ToXML DeleteStreamingDistribution where
 
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteStreamingDistributionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
+mkDeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
 
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront

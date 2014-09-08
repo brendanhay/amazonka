@@ -60,6 +60,8 @@ module Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
 
     -- * Response
     , CreatePlatformEndpointResponse
+    -- ** Response constructor
+    , mkCreatePlatformEndpointResponse
     -- ** Response lenses
     , cperEndpointArn
     ) where
@@ -120,6 +122,15 @@ instance ToQuery CreatePlatformEndpoint where
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreatePlatformEndpointResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreatePlatformEndpointResponse :: CreatePlatformEndpointResponse
+mkCreatePlatformEndpointResponse = CreatePlatformEndpointResponse
+    { _cperEndpointArn = Nothing
+    }
 
 -- | EndpointArn returned from CreateEndpoint action.
 cperEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)

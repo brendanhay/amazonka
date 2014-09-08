@@ -34,6 +34,8 @@ module Network.AWS.CloudTrail.V2013_11_01.CreateTrail
 
     -- * Response
     , CreateTrailResponse
+    -- ** Response constructor
+    , mkCreateTrailResponse
     -- ** Response lenses
     , ctrName
     , ctrS3BucketName
@@ -111,6 +113,19 @@ data CreateTrailResponse = CreateTrailResponse
     , _ctrSnsTopicName :: Maybe Text
     , _ctrIncludeGlobalServiceEvents :: Maybe Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateTrailResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateTrailResponse :: CreateTrailResponse
+mkCreateTrailResponse = CreateTrailResponse
+    { _ctrName = Nothing
+    , _ctrS3BucketName = Nothing
+    , _ctrS3KeyPrefix = Nothing
+    , _ctrSnsTopicName = Nothing
+    , _ctrIncludeGlobalServiceEvents = Nothing
+    }
 
 -- | Specifies the name of the trail.
 ctrName :: Lens' CreateTrailResponse (Maybe Text)

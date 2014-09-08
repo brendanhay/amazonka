@@ -40,6 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DisassociateAddress
 
     -- * Response
     , DisassociateAddressResponse
+    -- ** Response constructor
+    , mkDisassociateAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -74,6 +76,13 @@ instance ToQuery DisassociateAddress where
 
 data DisassociateAddressResponse = DisassociateAddressResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DisassociateAddressResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDisassociateAddressResponse :: DisassociateAddressResponse
+mkDisassociateAddressResponse = DisassociateAddressResponse
 
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2

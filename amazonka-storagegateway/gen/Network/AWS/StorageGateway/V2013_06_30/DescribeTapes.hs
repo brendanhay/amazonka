@@ -31,6 +31,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapes
 
     -- * Response
     , DescribeTapesResponse
+    -- ** Response constructor
+    , mkDescribeTapesResponse
     -- ** Response lenses
     , dtrrTapes
     , dtrrMarker
@@ -84,6 +86,16 @@ data DescribeTapesResponse = DescribeTapesResponse
     { _dtrrTapes :: [Tape]
     , _dtrrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeTapesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeTapesResponse :: DescribeTapesResponse
+mkDescribeTapesResponse = DescribeTapesResponse
+    { _dtrrTapes = mempty
+    , _dtrrMarker = Nothing
+    }
 
 dtrrTapes :: Lens' DescribeTapesResponse [Tape]
 dtrrTapes = lens _dtrrTapes (\s a -> s { _dtrrTapes = a })

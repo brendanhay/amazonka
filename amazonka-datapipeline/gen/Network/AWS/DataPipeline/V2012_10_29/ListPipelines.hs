@@ -39,6 +39,8 @@ module Network.AWS.DataPipeline.V2012_10_29.ListPipelines
 
     -- * Response
     , ListPipelinesResponse
+    -- ** Response constructor
+    , mkListPipelinesResponse
     -- ** Response lenses
     , lprPipelineIdList
     , lprMarker
@@ -82,6 +84,19 @@ data ListPipelinesResponse = ListPipelinesResponse
     , _lprMarker :: Maybe Text
     , _lprHasMoreResults :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListPipelinesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListPipelinesResponse :: [PipelineIdName] -- ^ 'lprPipelineIdList'
+                        -> Bool -- ^ 'lprHasMoreResults'
+                        -> ListPipelinesResponse
+mkListPipelinesResponse p1 p3 = ListPipelinesResponse
+    { _lprPipelineIdList = p1
+    , _lprMarker = Nothing
+    , _lprHasMoreResults = p3
+    }
 
 -- | A list of all the pipeline identifiers that your account has permission to
 -- access. If you require additional information about the pipelines, you can

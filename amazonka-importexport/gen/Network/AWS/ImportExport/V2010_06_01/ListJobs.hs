@@ -34,6 +34,8 @@ module Network.AWS.ImportExport.V2010_06_01.ListJobs
 
     -- * Response
     , ListJobsResponse
+    -- ** Response constructor
+    , mkListJobsResponse
     -- ** Response lenses
     , ljrJobs
     , ljrIsTruncated
@@ -78,6 +80,17 @@ data ListJobsResponse = ListJobsResponse
     { _ljrJobs :: [Job]
     , _ljrIsTruncated :: Bool
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListJobsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListJobsResponse :: Bool -- ^ 'ljrIsTruncated'
+                   -> ListJobsResponse
+mkListJobsResponse p2 = ListJobsResponse
+    { _ljrJobs = mempty
+    , _ljrIsTruncated = p2
+    }
 
 -- | A list container for Jobs returned by the ListJobs operation.
 ljrJobs :: Lens' ListJobsResponse [Job]

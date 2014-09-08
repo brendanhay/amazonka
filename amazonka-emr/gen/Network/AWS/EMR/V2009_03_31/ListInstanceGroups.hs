@@ -30,6 +30,8 @@ module Network.AWS.EMR.V2009_03_31.ListInstanceGroups
 
     -- * Response
     , ListInstanceGroupsResponse
+    -- ** Response constructor
+    , mkListInstanceGroupsResponse
     -- ** Response lenses
     , ligrInstanceGroups
     , ligrMarker
@@ -75,6 +77,16 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse
     { _ligrInstanceGroups :: [InstanceGroup]
     , _ligrMarker :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListInstanceGroupsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListInstanceGroupsResponse :: ListInstanceGroupsResponse
+mkListInstanceGroupsResponse = ListInstanceGroupsResponse
+    { _ligrInstanceGroups = mempty
+    , _ligrMarker = Nothing
+    }
 
 -- | The list of instance groups for the cluster and given filters.
 ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]

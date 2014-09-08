@@ -58,6 +58,8 @@ module Network.AWS.EC2.V2014_06_15.ImportKeyPair
 
     -- * Response
     , ImportKeyPairResponse
+    -- ** Response constructor
+    , mkImportKeyPairResponse
     -- ** Response lenses
     , ikprKeyName
     , ikprKeyFingerprint
@@ -101,6 +103,16 @@ data ImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyName :: Maybe Text
     , _ikprKeyFingerprint :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportKeyPairResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkImportKeyPairResponse :: ImportKeyPairResponse
+mkImportKeyPairResponse = ImportKeyPairResponse
+    { _ikprKeyName = Nothing
+    , _ikprKeyFingerprint = Nothing
+    }
 
 -- | The key pair name you provided.
 ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)

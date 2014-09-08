@@ -46,6 +46,8 @@ module Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup
 
     -- * Response
     , CreateDBParameterGroupResponse
+    -- ** Response constructor
+    , mkCreateDBParameterGroupResponse
     -- ** Response lenses
     , cdbpgrDBParameterGroup
     ) where
@@ -108,6 +110,15 @@ instance ToQuery CreateDBParameterGroup where
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateDBParameterGroupResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateDBParameterGroupResponse :: CreateDBParameterGroupResponse
+mkCreateDBParameterGroupResponse = CreateDBParameterGroupResponse
+    { _cdbpgrDBParameterGroup = Nothing
+    }
 
 -- | Contains the result of a successful invocation of the
 -- CreateDBParameterGroup action. This data type is used as a request

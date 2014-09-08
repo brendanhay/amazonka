@@ -46,6 +46,8 @@ module Network.AWS.EC2.V2014_06_15.ImportVolume
 
     -- * Response
     , ImportVolumeResponse
+    -- ** Response constructor
+    , mkImportVolumeResponse
     -- ** Response lenses
     , ivrConversionTask
     ) where
@@ -99,6 +101,15 @@ instance ToQuery ImportVolume where
 newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ImportVolumeResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkImportVolumeResponse :: ImportVolumeResponse
+mkImportVolumeResponse = ImportVolumeResponse
+    { _ivrConversionTask = Nothing
+    }
 
 -- | 
 ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)

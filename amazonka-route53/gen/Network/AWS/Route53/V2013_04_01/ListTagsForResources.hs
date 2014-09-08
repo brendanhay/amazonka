@@ -29,6 +29,8 @@ module Network.AWS.Route53.V2013_04_01.ListTagsForResources
 
     -- * Response
     , ListTagsForResourcesResponse
+    -- ** Response constructor
+    , mkListTagsForResourcesResponse
     -- ** Response lenses
     , ltfrrrResourceTagSets
     ) where
@@ -85,6 +87,16 @@ instance ToXML ListTagsForResources where
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrrResourceTagSets :: [ResourceTagSet]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'ListTagsForResourcesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkListTagsForResourcesResponse :: [ResourceTagSet] -- ^ 'ltfrrrResourceTagSets'
+                               -> ListTagsForResourcesResponse
+mkListTagsForResourcesResponse p1 = ListTagsForResourcesResponse
+    { _ltfrrrResourceTagSets = p1
+    }
 
 -- | A list of ResourceTagSets containing tags associated with the specified
 -- resources.

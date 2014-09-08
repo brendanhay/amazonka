@@ -29,6 +29,8 @@ module Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions
 
     -- * Response
     , EnableAlarmActionsResponse
+    -- ** Response constructor
+    , mkEnableAlarmActionsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,6 +59,13 @@ instance ToQuery EnableAlarmActions where
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'EnableAlarmActionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkEnableAlarmActionsResponse :: EnableAlarmActionsResponse
+mkEnableAlarmActionsResponse = EnableAlarmActionsResponse
 
 instance AWSRequest EnableAlarmActions where
     type Sv EnableAlarmActions = CloudWatch

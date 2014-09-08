@@ -38,6 +38,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication
 
     -- * Response
     , CreateApplicationResponse
+    -- ** Response constructor
+    , mkCreateApplicationResponse
     -- ** Response lenses
     , carApplication
     ) where
@@ -79,6 +81,15 @@ instance ToQuery CreateApplication where
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplication :: Maybe ApplicationDescription
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateApplicationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateApplicationResponse :: CreateApplicationResponse
+mkCreateApplicationResponse = CreateApplicationResponse
+    { _carApplication = Nothing
+    }
 
 -- | The ApplicationDescription of the application.
 carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)

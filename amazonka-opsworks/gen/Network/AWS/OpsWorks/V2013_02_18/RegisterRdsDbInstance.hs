@@ -32,6 +32,8 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance
 
     -- * Response
     , RegisterRdsDbInstanceResponse
+    -- ** Response constructor
+    , mkRegisterRdsDbInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -86,6 +88,13 @@ instance ToJSON RegisterRdsDbInstance
 
 data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'RegisterRdsDbInstanceResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkRegisterRdsDbInstanceResponse :: RegisterRdsDbInstanceResponse
+mkRegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
 
 instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks

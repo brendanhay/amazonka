@@ -29,6 +29,8 @@ module Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration
 
     -- * Response
     , DeleteHsmConfigurationResponse
+    -- ** Response constructor
+    , mkDeleteHsmConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,6 +61,13 @@ instance ToQuery DeleteHsmConfiguration where
 
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeleteHsmConfigurationResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
+mkDeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 
 instance AWSRequest DeleteHsmConfiguration where
     type Sv DeleteHsmConfiguration = Redshift

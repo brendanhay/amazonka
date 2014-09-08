@@ -47,6 +47,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateEnvironment
 
     -- * Response
     , CreateEnvironmentResponse
+    -- ** Response constructor
+    , mkCreateEnvironmentResponse
     -- ** Response lenses
     , cerEnvironmentName
     , cerEnvironmentId
@@ -204,6 +206,29 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
     , _cerResources :: Maybe EnvironmentResourcesDescription
     , _cerTier :: Maybe EnvironmentTier
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'CreateEnvironmentResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkCreateEnvironmentResponse :: CreateEnvironmentResponse
+mkCreateEnvironmentResponse = CreateEnvironmentResponse
+    { _cerEnvironmentName = Nothing
+    , _cerEnvironmentId = Nothing
+    , _cerApplicationName = Nothing
+    , _cerVersionLabel = Nothing
+    , _cerSolutionStackName = Nothing
+    , _cerTemplateName = Nothing
+    , _cerDescription = Nothing
+    , _cerEndpointURL = Nothing
+    , _cerCNAME = Nothing
+    , _cerDateCreated = Nothing
+    , _cerDateUpdated = Nothing
+    , _cerStatus = Nothing
+    , _cerHealth = Nothing
+    , _cerResources = Nothing
+    , _cerTier = Nothing
+    }
 
 -- | The name of this environment.
 cerEnvironmentName :: Lens' CreateEnvironmentResponse (Maybe Text)

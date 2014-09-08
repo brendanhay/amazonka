@@ -34,6 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp
 
     -- * Response
     , DeregisterElasticIpResponse
+    -- ** Response constructor
+    , mkDeregisterElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -66,6 +68,13 @@ instance ToJSON DeregisterElasticIp
 
 data DeregisterElasticIpResponse = DeregisterElasticIpResponse
     deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DeregisterElasticIpResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDeregisterElasticIpResponse :: DeregisterElasticIpResponse
+mkDeregisterElasticIpResponse = DeregisterElasticIpResponse
 
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks

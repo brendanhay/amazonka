@@ -41,6 +41,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheEngineVersions
 
     -- * Response
     , DescribeCacheEngineVersionsResponse
+    -- ** Response constructor
+    , mkDescribeCacheEngineVersionsResponse
     -- ** Response lenses
     , dcevrMarker
     , dcevrCacheEngineVersions
@@ -116,6 +118,16 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrMarker :: Maybe Text
     , _dcevrCacheEngineVersions :: [CacheEngineVersion]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeCacheEngineVersionsResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
+mkDescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
+    { _dcevrMarker = Nothing
+    , _dcevrCacheEngineVersions = mempty
+    }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)

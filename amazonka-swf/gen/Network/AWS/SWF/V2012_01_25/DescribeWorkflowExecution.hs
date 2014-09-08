@@ -66,6 +66,8 @@ module Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
 
     -- * Response
     , DescribeWorkflowExecutionResponse
+    -- ** Response constructor
+    , mkDescribeWorkflowExecutionResponse
     -- ** Response lenses
     , dwerExecutionInfo
     , dwerExecutionConfiguration
@@ -117,6 +119,22 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
     , _dwerLatestActivityTaskTimestamp :: Maybe POSIX
     , _dwerLatestExecutionContext :: Maybe Text
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'DescribeWorkflowExecutionResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkDescribeWorkflowExecutionResponse :: WorkflowExecutionInfo -- ^ 'dwerExecutionInfo'
+                                    -> WorkflowExecutionConfiguration -- ^ 'dwerExecutionConfiguration'
+                                    -> WorkflowExecutionOpenCounts -- ^ 'dwerOpenCounts'
+                                    -> DescribeWorkflowExecutionResponse
+mkDescribeWorkflowExecutionResponse p1 p2 p3 = DescribeWorkflowExecutionResponse
+    { _dwerExecutionInfo = p1
+    , _dwerExecutionConfiguration = p2
+    , _dwerOpenCounts = p3
+    , _dwerLatestActivityTaskTimestamp = Nothing
+    , _dwerLatestExecutionContext = Nothing
+    }
 
 -- | Information about the workflow execution.
 dwerExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo

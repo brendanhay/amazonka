@@ -54,6 +54,8 @@ module Network.AWS.EC2.V2014_06_15.TerminateInstances
 
     -- * Response
     , TerminateInstancesResponse
+    -- ** Response constructor
+    , mkTerminateInstancesResponse
     -- ** Response lenses
     , tirTerminatingInstances
     ) where
@@ -86,6 +88,15 @@ instance ToQuery TerminateInstances where
 newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid 'TerminateInstancesResponse' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+mkTerminateInstancesResponse :: TerminateInstancesResponse
+mkTerminateInstancesResponse = TerminateInstancesResponse
+    { _tirTerminatingInstances = mempty
+    }
 
 -- | Information about one or more terminated instances.
 tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]

@@ -157,17 +157,17 @@ filters = EDE.defaultFilters
       ++ funN "wrap"    (wrap "")   [66, 76, 80]
       ++ funN "above"   (wrap "| ") [66, 76]
       ++ funN "below"   (wrap "^ ") [66, 76]
-      ++ funN "haddock" haddock     [74]
 
-    gs = [ ("lens",   Fun TText TText lensPrefix)
-         , ("iso",    Fun TText TText isoPrefix)
-         , ("field",  Fun TText TText fieldPrefix)
+    gs = [ ("lens",    Fun TText TText lensPrefix)
+         , ("iso",     Fun TText TText isoPrefix)
+         , ("field",   Fun TText TText fieldPrefix)
+         , ("haddock", Fun TText TText haddock)
          ]
 
-    haddock n t =
-        case normalise n t of
+    haddock t =
+        case Text.splitOn "." t of
             [] -> ""
-            xs -> Text.intercalate "\n" (intersperse "." xs)
+            xs -> Text.intercalate "\n" . intersperse "." $ map ((<> ".") . Text.strip) xs
 
     wrap p n t =
         case normalise n t of

@@ -61,7 +61,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeImages
     -- * Response
     , DescribeImagesResponse
     -- ** Response lenses
-    , dirsImages
+    , dirImages
     ) where
 
 import Network.AWS.Request.Query
@@ -143,12 +143,12 @@ instance ToQuery DescribeImages where
 
 -- | 
 newtype DescribeImagesResponse = DescribeImagesResponse
-    { _dirsImages :: [Image]
+    { _dirImages :: [Image]
     } deriving (Show, Generic)
 
 -- | Information about one or more images.
-dirsImages :: Lens' DescribeImagesResponse [Image]
-dirsImages = lens _dirsImages (\s a -> s { _dirsImages = a })
+dirImages :: Lens' DescribeImagesResponse [Image]
+dirImages = lens _dirImages (\s a -> s { _dirImages = a })
 
 instance FromXML DescribeImagesResponse where
     fromXMLOptions = xmlOptions

@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeSuggesters
     -- * Response
     , DescribeSuggestersResponse
     -- ** Response lenses
-    , dsrs1Suggesters
+    , dsr1Suggesters
     ) where
 
 import Network.AWS.Request.Query
@@ -85,12 +85,12 @@ instance ToQuery DescribeSuggesters where
 
 -- | The result of a DescribeSuggesters request.
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
-    { _dsrs1Suggesters :: [SuggesterStatus]
+    { _dsr1Suggesters :: [SuggesterStatus]
     } deriving (Show, Generic)
 
 -- | The suggesters configured for the domain specified in the request.
-dsrs1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsrs1Suggesters = lens _dsrs1Suggesters (\s a -> s { _dsrs1Suggesters = a })
+dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dsr1Suggesters = lens _dsr1Suggesters (\s a -> s { _dsr1Suggesters = a })
 
 instance FromXML DescribeSuggestersResponse where
     fromXMLOptions = xmlOptions

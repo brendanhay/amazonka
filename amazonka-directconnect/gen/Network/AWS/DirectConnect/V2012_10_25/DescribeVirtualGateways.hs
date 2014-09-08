@@ -31,7 +31,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways
     -- * Response
     , DescribeVirtualGatewaysResponse
     -- ** Response lenses
-    , dvgrsVirtualGateways
+    , dvgrVirtualGateways
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -56,13 +56,13 @@ instance ToJSON DescribeVirtualGateways
 
 -- | A structure containing a list of virtual private gateways.
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
-    { _dvgrsVirtualGateways :: [VirtualGateway]
+    { _dvgrVirtualGateways :: [VirtualGateway]
     } deriving (Show, Generic)
 
 -- | A list of virtual private gateways.
-dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrsVirtualGateways =
-    lens _dvgrsVirtualGateways (\s a -> s { _dvgrsVirtualGateways = a })
+dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrVirtualGateways =
+    lens _dvgrVirtualGateways (\s a -> s { _dvgrVirtualGateways = a })
 
 instance FromJSON DescribeVirtualGatewaysResponse
 

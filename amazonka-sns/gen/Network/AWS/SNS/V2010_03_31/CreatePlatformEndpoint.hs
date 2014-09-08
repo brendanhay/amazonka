@@ -61,7 +61,7 @@ module Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint
     -- * Response
     , CreatePlatformEndpointResponse
     -- ** Response lenses
-    , cpersEndpointArn
+    , cperEndpointArn
     ) where
 
 import Network.AWS.Request.Query
@@ -118,13 +118,12 @@ instance ToQuery CreatePlatformEndpoint where
 
 -- | Response from CreateEndpoint action.
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
-    { _cpersEndpointArn :: Maybe Text
+    { _cperEndpointArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | EndpointArn returned from CreateEndpoint action.
-cpersEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
-cpersEndpointArn =
-    lens _cpersEndpointArn (\s a -> s { _cpersEndpointArn = a })
+cperEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
+cperEndpointArn = lens _cperEndpointArn (\s a -> s { _cperEndpointArn = a })
 
 instance FromXML CreatePlatformEndpointResponse where
     fromXMLOptions = xmlOptions

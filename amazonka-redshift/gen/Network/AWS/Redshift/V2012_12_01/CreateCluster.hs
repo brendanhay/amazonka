@@ -78,7 +78,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateCluster
     -- * Response
     , CreateClusterResponse
     -- ** Response lenses
-    , ccrsCluster
+    , ccrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -334,12 +334,12 @@ instance ToQuery CreateCluster where
     toQuery = genericQuery def
 
 newtype CreateClusterResponse = CreateClusterResponse
-    { _ccrsCluster :: Maybe Cluster
+    { _ccrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
-ccrsCluster = lens _ccrsCluster (\s a -> s { _ccrsCluster = a })
+ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
+ccrCluster = lens _ccrCluster (\s a -> s { _ccrCluster = a })
 
 instance FromXML CreateClusterResponse where
     fromXMLOptions = xmlOptions

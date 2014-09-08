@@ -32,7 +32,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles
     -- * Response
     , DescribeUserProfilesResponse
     -- ** Response lenses
-    , duprsUserProfiles
+    , duprUserProfiles
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -64,13 +64,13 @@ instance ToJSON DescribeUserProfiles
 
 -- | Contains the response to a DescribeUserProfiles request.
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
-    { _duprsUserProfiles :: [UserProfile]
+    { _duprUserProfiles :: [UserProfile]
     } deriving (Show, Generic)
 
 -- | A Users object that describes the specified users.
-duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprsUserProfiles =
-    lens _duprsUserProfiles (\s a -> s { _duprsUserProfiles = a })
+duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
+duprUserProfiles =
+    lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a })
 
 instance FromJSON DescribeUserProfilesResponse
 

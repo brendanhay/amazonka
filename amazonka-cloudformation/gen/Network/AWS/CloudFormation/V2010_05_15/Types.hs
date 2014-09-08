@@ -33,8 +33,6 @@ module Network.AWS.CloudFormation.V2010_05_15.Types
     (
     -- * Service
       CloudFormation
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

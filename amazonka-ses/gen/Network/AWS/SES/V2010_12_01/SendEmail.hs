@@ -60,7 +60,7 @@ module Network.AWS.SES.V2010_12_01.SendEmail
     -- * Response
     , SendEmailResponse
     -- ** Response lenses
-    , sersMessageId
+    , serMessageId
     ) where
 
 import Network.AWS.Request.Query
@@ -129,12 +129,12 @@ instance ToQuery SendEmail where
 -- | Represents a unique message ID returned from a successful SendEmail
 -- request.
 newtype SendEmailResponse = SendEmailResponse
-    { _sersMessageId :: Text
+    { _serMessageId :: Text
     } deriving (Show, Generic)
 
 -- | The unique message identifier returned from the SendEmail action.
-sersMessageId :: Lens' SendEmailResponse Text
-sersMessageId = lens _sersMessageId (\s a -> s { _sersMessageId = a })
+serMessageId :: Lens' SendEmailResponse Text
+serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
 
 instance FromXML SendEmailResponse where
     fromXMLOptions = xmlOptions

@@ -51,8 +51,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeEvents
     -- * Response
     , DescribeEventsResponse
     -- ** Response lenses
-    , dersMarker
-    , dersEvents
+    , derMarker
+    , derEvents
     ) where
 
 import Network.AWS.Request.Query
@@ -143,19 +143,19 @@ instance ToQuery DescribeEvents where
 -- | Contains the result of a successful invocation of the DescribeEvents
 -- action.
 data DescribeEventsResponse = DescribeEventsResponse
-    { _dersMarker :: Maybe Text
-    , _dersEvents :: [Event]
+    { _derMarker :: Maybe Text
+    , _derEvents :: [Event]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous Events request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords .
-dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
-dersMarker = lens _dersMarker (\s a -> s { _dersMarker = a })
+derMarker :: Lens' DescribeEventsResponse (Maybe Text)
+derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 
 -- | A list of Event instances.
-dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\s a -> s { _dersEvents = a })
+derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -169,4 +169,4 @@ instance AWSRequest DescribeEvents where
 
 instance AWSPager DescribeEvents where
     next rq rs = (\x -> rq & deMarker ?~ x)
-        <$> (rs ^. dersMarker)
+        <$> (rs ^. derMarker)

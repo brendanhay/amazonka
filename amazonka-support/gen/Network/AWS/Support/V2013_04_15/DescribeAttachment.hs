@@ -34,7 +34,7 @@ module Network.AWS.Support.V2013_04_15.DescribeAttachment
     -- * Response
     , DescribeAttachmentResponse
     -- ** Response lenses
-    , darsAttachment
+    , darAttachment
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -70,12 +70,12 @@ instance ToJSON DescribeAttachment
 -- | The content and file name of the attachment returned by the
 -- DescribeAttachment operation.
 newtype DescribeAttachmentResponse = DescribeAttachmentResponse
-    { _darsAttachment :: Maybe Attachment
+    { _darAttachment :: Maybe Attachment
     } deriving (Show, Generic)
 
 -- | The attachment content and file name.
-darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
-darsAttachment = lens _darsAttachment (\s a -> s { _darsAttachment = a })
+darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
+darAttachment = lens _darAttachment (\s a -> s { _darAttachment = a })
 
 instance FromJSON DescribeAttachmentResponse
 

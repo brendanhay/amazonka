@@ -33,8 +33,8 @@ module Network.AWS.Route53.V2013_04_01.GetHostedZone
     -- * Response
     , GetHostedZoneResponse
     -- ** Response lenses
-    , ghzrsHostedZone
-    , ghzrsDelegationSet
+    , ghzrHostedZone
+    , ghzrDelegationSet
     ) where
 
 import Network.AWS.Request.RestXML
@@ -76,20 +76,20 @@ instance ToXML GetHostedZone where
 
 -- | A complex type containing information about the specified hosted zone.
 data GetHostedZoneResponse = GetHostedZoneResponse
-    { _ghzrsHostedZone :: HostedZone
-    , _ghzrsDelegationSet :: DelegationSet
+    { _ghzrHostedZone :: HostedZone
+    , _ghzrDelegationSet :: DelegationSet
     } deriving (Show, Generic)
 
 -- | A complex type that contains the information about the specified hosted
 -- zone.
-ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
-ghzrsHostedZone = lens _ghzrsHostedZone (\s a -> s { _ghzrsHostedZone = a })
+ghzrHostedZone :: Lens' GetHostedZoneResponse HostedZone
+ghzrHostedZone = lens _ghzrHostedZone (\s a -> s { _ghzrHostedZone = a })
 
 -- | A complex type that contains information about the name servers for the
 -- specified hosted zone.
-ghzrsDelegationSet :: Lens' GetHostedZoneResponse DelegationSet
-ghzrsDelegationSet =
-    lens _ghzrsDelegationSet (\s a -> s { _ghzrsDelegationSet = a })
+ghzrDelegationSet :: Lens' GetHostedZoneResponse DelegationSet
+ghzrDelegationSet =
+    lens _ghzrDelegationSet (\s a -> s { _ghzrDelegationSet = a })
 
 instance FromXML GetHostedZoneResponse where
     fromXMLOptions = xmlOptions

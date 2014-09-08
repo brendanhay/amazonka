@@ -45,7 +45,7 @@ module Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters
     -- * Response
     , DescribeEngineDefaultParametersResponse
     -- ** Response lenses
-    , dedprsEngineDefaults
+    , dedprEngineDefaults
     ) where
 
 import Network.AWS.Request.Query
@@ -93,14 +93,14 @@ instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprsEngineDefaults :: EngineDefaults
+    { _dedprEngineDefaults :: EngineDefaults
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the
 -- DescribeEngineDefaultParameters action.
-dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
-dedprsEngineDefaults =
-    lens _dedprsEngineDefaults (\s a -> s { _dedprsEngineDefaults = a })
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+dedprEngineDefaults =
+    lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
@@ -114,4 +114,4 @@ instance AWSRequest DescribeEngineDefaultParameters where
 
 instance AWSPager DescribeEngineDefaultParameters where
     next rq rs = (\x -> rq & dedpMarker ?~ x)
-        <$> (rs ^. dedprsEngineDefaults . edMarker)
+        <$> (rs ^. dedprEngineDefaults . edMarker)

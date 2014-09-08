@@ -52,7 +52,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups
     -- * Response
     , DescribeSecurityGroupsResponse
     -- ** Response lenses
-    , dsgrsSecurityGroups
+    , dsgrSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -108,13 +108,13 @@ instance ToQuery DescribeSecurityGroups where
 
 -- | 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
-    { _dsgrsSecurityGroups :: [SecurityGroup]
+    { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Show, Generic)
 
 -- | Information about one or more security groups.
-dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
-dsgrsSecurityGroups =
-    lens _dsgrsSecurityGroups (\s a -> s { _dsgrsSecurityGroups = a })
+dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
+dsgrSecurityGroups =
+    lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
 
 instance FromXML DescribeSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

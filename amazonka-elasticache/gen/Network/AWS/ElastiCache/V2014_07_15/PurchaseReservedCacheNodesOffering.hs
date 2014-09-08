@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering
     -- * Response
     , PurchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
-    , prcnorsReservedCacheNode
+    , prcnorReservedCacheNode
     ) where
 
 import Network.AWS.Request.Query
@@ -88,14 +88,14 @@ instance ToQuery PurchaseReservedCacheNodesOffering where
     toQuery = genericQuery def
 
 newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
-    { _prcnorsReservedCacheNode :: Maybe ReservedCacheNode
+    { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
     } deriving (Show, Generic)
 
 -- | Represents the output of a PurchaseReservedCacheNodesOffering operation.
-prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
-prcnorsReservedCacheNode =
-    lens _prcnorsReservedCacheNode
-         (\s a -> s { _prcnorsReservedCacheNode = a })
+prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
+prcnorReservedCacheNode =
+    lens _prcnorReservedCacheNode
+         (\s a -> s { _prcnorReservedCacheNode = a })
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
     fromXMLOptions = xmlOptions

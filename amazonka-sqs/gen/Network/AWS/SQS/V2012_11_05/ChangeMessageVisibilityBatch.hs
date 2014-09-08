@@ -55,8 +55,8 @@ module Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch
     -- * Response
     , ChangeMessageVisibilityBatchResponse
     -- ** Response lenses
-    , cmvbrsSuccessful
-    , cmvbrsFailed
+    , cmvbrSuccessful
+    , cmvbrFailed
     ) where
 
 import Network.AWS.Request.Query
@@ -95,18 +95,17 @@ instance ToQuery ChangeMessageVisibilityBatch where
 -- ChangeMessageVisibilityBatchResultEntry tag if the message succeeds or a
 -- BatchResultErrorEntry tag if the message fails.
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
-    { _cmvbrsSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
-    , _cmvbrsFailed :: [BatchResultErrorEntry]
+    { _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
+    , _cmvbrFailed :: [BatchResultErrorEntry]
     } deriving (Show, Generic)
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
-cmvbrsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
-cmvbrsSuccessful =
-    lens _cmvbrsSuccessful (\s a -> s { _cmvbrsSuccessful = a })
+cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
+cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
 
 -- | A list of BatchResultErrorEntry items.
-cmvbrsFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
-cmvbrsFailed = lens _cmvbrsFailed (\s a -> s { _cmvbrsFailed = a })
+cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
+cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
     fromXMLOptions = xmlOptions

@@ -64,7 +64,7 @@ module Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection
     -- * Response
     , CreateVpcPeeringConnectionResponse
     -- ** Response lenses
-    , cvpcrsVpcPeeringConnection
+    , cvpcrVpcPeeringConnection
     ) where
 
 import Network.AWS.Request.Query
@@ -105,14 +105,14 @@ instance ToQuery CreateVpcPeeringConnection where
 
 -- | 
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
-    { _cvpcrsVpcPeeringConnection :: Maybe VpcPeeringConnection
+    { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connection.
-cvpcrsVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
-cvpcrsVpcPeeringConnection =
-    lens _cvpcrsVpcPeeringConnection
-         (\s a -> s { _cvpcrsVpcPeeringConnection = a })
+cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
+cvpcrVpcPeeringConnection =
+    lens _cvpcrVpcPeeringConnection
+         (\s a -> s { _cvpcrVpcPeeringConnection = a })
 
 instance FromXML CreateVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

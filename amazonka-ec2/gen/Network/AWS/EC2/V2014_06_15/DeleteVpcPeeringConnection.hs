@@ -41,7 +41,7 @@ module Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection
     -- * Response
     , DeleteVpcPeeringConnectionResponse
     -- ** Response lenses
-    , dvpcrsReturn
+    , dvpcrReturn
     ) where
 
 import Network.AWS.Request.Query
@@ -72,12 +72,12 @@ instance ToQuery DeleteVpcPeeringConnection where
 
 -- | 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
-    { _dvpcrsReturn :: Maybe Bool
+    { _dvpcrReturn :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
-dvpcrsReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
-dvpcrsReturn = lens _dvpcrsReturn (\s a -> s { _dvpcrsReturn = a })
+dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
+dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
 
 instance FromXML DeleteVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

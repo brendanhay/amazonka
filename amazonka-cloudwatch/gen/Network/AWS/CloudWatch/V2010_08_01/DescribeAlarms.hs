@@ -37,8 +37,8 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms
     -- * Response
     , DescribeAlarmsResponse
     -- ** Response lenses
-    , darsMetricAlarms
-    , darsNextToken
+    , darMetricAlarms
+    , darNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -99,18 +99,17 @@ instance ToQuery DescribeAlarms where
 
 -- | The output for the DescribeAlarms action.
 data DescribeAlarmsResponse = DescribeAlarmsResponse
-    { _darsMetricAlarms :: [MetricAlarm]
-    , _darsNextToken :: Maybe Text
+    { _darMetricAlarms :: [MetricAlarm]
+    , _darNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of information for the specified alarms.
-darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
-darsMetricAlarms =
-    lens _darsMetricAlarms (\s a -> s { _darsMetricAlarms = a })
+darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
+darMetricAlarms = lens _darMetricAlarms (\s a -> s { _darMetricAlarms = a })
 
 -- | A string that marks the start of the next batch of returned results.
-darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
-darsNextToken = lens _darsNextToken (\s a -> s { _darsNextToken = a })
+darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
+darNextToken = lens _darNextToken (\s a -> s { _darNextToken = a })
 
 instance FromXML DescribeAlarmsResponse where
     fromXMLOptions = xmlOptions
@@ -124,4 +123,4 @@ instance AWSRequest DescribeAlarms where
 
 instance AWSPager DescribeAlarms where
     next rq rs = (\x -> rq & da1NextToken ?~ x)
-        <$> (rs ^. darsNextToken)
+        <$> (rs ^. darNextToken)

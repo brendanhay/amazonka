@@ -26,8 +26,6 @@ module Network.AWS.STS.V2011_06_15.Types
     (
     -- * Service
       STS
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

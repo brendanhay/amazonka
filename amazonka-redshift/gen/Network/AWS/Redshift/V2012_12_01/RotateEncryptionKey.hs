@@ -30,7 +30,7 @@ module Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey
     -- * Response
     , RotateEncryptionKeyResponse
     -- ** Response lenses
-    , rekrsCluster
+    , rekrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -61,12 +61,12 @@ instance ToQuery RotateEncryptionKey where
     toQuery = genericQuery def
 
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
-    { _rekrsCluster :: Maybe Cluster
+    { _rekrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-rekrsCluster = lens _rekrsCluster (\s a -> s { _rekrsCluster = a })
+rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
+rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
 
 instance FromXML RotateEncryptionKeyResponse where
     fromXMLOptions = xmlOptions

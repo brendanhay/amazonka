@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot
     -- * Response
     , CreateSnapshotResponse
     -- ** Response lenses
-    , csrsrsSnapshot
+    , csrrSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -76,13 +76,13 @@ instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
 newtype CreateSnapshotResponse = CreateSnapshotResponse
-    { _csrsrsSnapshot :: Maybe Snapshot
+    { _csrrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-csrsrsSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
-csrsrsSnapshot = lens _csrsrsSnapshot (\s a -> s { _csrsrsSnapshot = a })
+csrrSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
+csrrSnapshot = lens _csrrSnapshot (\s a -> s { _csrrSnapshot = a })
 
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions

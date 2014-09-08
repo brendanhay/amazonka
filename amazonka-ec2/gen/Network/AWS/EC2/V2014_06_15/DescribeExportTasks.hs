@@ -49,7 +49,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeExportTasks
     -- * Response
     , DescribeExportTasksResponse
     -- ** Response lenses
-    , detrsExportTasks
+    , detrExportTasks
     ) where
 
 import Network.AWS.Request.Query
@@ -78,13 +78,12 @@ instance ToQuery DescribeExportTasks where
 
 -- | 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
-    { _detrsExportTasks :: [ExportTask]
+    { _detrExportTasks :: [ExportTask]
     } deriving (Show, Generic)
 
 -- | 
-detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrsExportTasks =
-    lens _detrsExportTasks (\s a -> s { _detrsExportTasks = a })
+detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
+detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
 
 instance FromXML DescribeExportTasksResponse where
     fromXMLOptions = xmlOptions

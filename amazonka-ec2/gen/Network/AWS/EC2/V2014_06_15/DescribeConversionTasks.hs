@@ -38,7 +38,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeConversionTasks
     -- * Response
     , DescribeConversionTasksResponse
     -- ** Response lenses
-    , dctrsConversionTasks
+    , dctrConversionTasks
     ) where
 
 import Network.AWS.Request.Query
@@ -73,13 +73,13 @@ instance ToQuery DescribeConversionTasks where
 
 -- | 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
-    { _dctrsConversionTasks :: [ConversionTask]
+    { _dctrConversionTasks :: [ConversionTask]
     } deriving (Show, Generic)
 
 -- | 
-dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrsConversionTasks =
-    lens _dctrsConversionTasks (\s a -> s { _dctrsConversionTasks = a })
+dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
+dctrConversionTasks =
+    lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
 
 instance FromXML DescribeConversionTasksResponse where
     fromXMLOptions = xmlOptions

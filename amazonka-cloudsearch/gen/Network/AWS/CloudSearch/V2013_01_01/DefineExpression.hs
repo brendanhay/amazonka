@@ -34,7 +34,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineExpression
     -- * Response
     , DefineExpressionResponse
     -- ** Response lenses
-    , dersExpression
+    , derExpression
     ) where
 
 import Network.AWS.Request.Query
@@ -77,12 +77,12 @@ instance ToQuery DefineExpression where
 -- | The result of a DefineExpression request. Contains the status of the
 -- newly-configured expression.
 newtype DefineExpressionResponse = DefineExpressionResponse
-    { _dersExpression :: ExpressionStatus
+    { _derExpression :: ExpressionStatus
     } deriving (Show, Generic)
 
 -- | The value of an Expression and its current status.
-dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
-dersExpression = lens _dersExpression (\s a -> s { _dersExpression = a })
+derExpression :: Lens' DefineExpressionResponse ExpressionStatus
+derExpression = lens _derExpression (\s a -> s { _derExpression = a })
 
 instance FromXML DefineExpressionResponse where
     fromXMLOptions = xmlOptions

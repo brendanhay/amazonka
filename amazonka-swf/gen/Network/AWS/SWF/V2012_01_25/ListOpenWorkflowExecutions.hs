@@ -75,8 +75,8 @@ module Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions
     -- * Response
     , ListOpenWorkflowExecutionsResponse
     -- ** Response lenses
-    , lowersExecutionInfos
-    , lowersNextPageToken
+    , lowerExecutionInfos
+    , lowerNextPageToken
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -173,21 +173,21 @@ instance ToJSON ListOpenWorkflowExecutions
 
 -- | Contains a paginated list of information about workflow executions.
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
-    { _lowersExecutionInfos :: [WorkflowExecutionInfo]
-    , _lowersNextPageToken :: Maybe Text
+    { _lowerExecutionInfos :: [WorkflowExecutionInfo]
+    , _lowerNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of workflow information structures.
-lowersExecutionInfos :: Lens' ListOpenWorkflowExecutionsResponse [WorkflowExecutionInfo]
-lowersExecutionInfos =
-    lens _lowersExecutionInfos (\s a -> s { _lowersExecutionInfos = a })
+lowerExecutionInfos :: Lens' ListOpenWorkflowExecutionsResponse [WorkflowExecutionInfo]
+lowerExecutionInfos =
+    lens _lowerExecutionInfos (\s a -> s { _lowerExecutionInfos = a })
 
 -- | The token of the next page in the result. If set, the results have more
 -- than one page. The next page can be retrieved by repeating the request with
 -- this token and all other arguments unchanged.
-lowersNextPageToken :: Lens' ListOpenWorkflowExecutionsResponse (Maybe Text)
-lowersNextPageToken =
-    lens _lowersNextPageToken (\s a -> s { _lowersNextPageToken = a })
+lowerNextPageToken :: Lens' ListOpenWorkflowExecutionsResponse (Maybe Text)
+lowerNextPageToken =
+    lens _lowerNextPageToken (\s a -> s { _lowerNextPageToken = a })
 
 instance FromJSON ListOpenWorkflowExecutionsResponse
 
@@ -200,4 +200,4 @@ instance AWSRequest ListOpenWorkflowExecutions where
 
 instance AWSPager ListOpenWorkflowExecutions where
     next rq rs = (\x -> rq & loweNextPageToken ?~ x)
-        <$> (rs ^. lowersNextPageToken)
+        <$> (rs ^. lowerNextPageToken)

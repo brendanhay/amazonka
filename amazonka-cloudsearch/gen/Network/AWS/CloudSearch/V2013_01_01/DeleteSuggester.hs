@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester
     -- * Response
     , DeleteSuggesterResponse
     -- ** Response lenses
-    , dsrsrsSuggester
+    , dsrrSuggester
     ) where
 
 import Network.AWS.Request.Query
@@ -75,12 +75,12 @@ instance ToQuery DeleteSuggester where
 -- | The result of a DeleteSuggester request. Contains the status of the deleted
 -- suggester.
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
-    { _dsrsrsSuggester :: SuggesterStatus
+    { _dsrrSuggester :: SuggesterStatus
     } deriving (Show, Generic)
 
 -- | The status of the suggester being deleted.
-dsrsrsSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-dsrsrsSuggester = lens _dsrsrsSuggester (\s a -> s { _dsrsrsSuggester = a })
+dsrrSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
+dsrrSuggester = lens _dsrrSuggester (\s a -> s { _dsrrSuggester = a })
 
 instance FromXML DeleteSuggesterResponse where
     fromXMLOptions = xmlOptions

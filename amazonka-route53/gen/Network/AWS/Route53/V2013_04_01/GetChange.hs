@@ -34,7 +34,7 @@ module Network.AWS.Route53.V2013_04_01.GetChange
     -- * Response
     , GetChangeResponse
     -- ** Response lenses
-    , gcrsChangeInfo
+    , gcrChangeInfo
     ) where
 
 import Network.AWS.Request.RestXML
@@ -77,14 +77,14 @@ instance ToXML GetChange where
 
 -- | A complex type that contains the ChangeInfo element.
 newtype GetChangeResponse = GetChangeResponse
-    { _gcrsChangeInfo :: ChangeInfo
+    { _gcrChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
 
 -- | A complex type that contains information about the specified change batch,
 -- including the change batch ID, the status of the change, and the date and
 -- time of the request.
-gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
-gcrsChangeInfo = lens _gcrsChangeInfo (\s a -> s { _gcrsChangeInfo = a })
+gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
+gcrChangeInfo = lens _gcrChangeInfo (\s a -> s { _gcrChangeInfo = a })
 
 instance FromXML GetChangeResponse where
     fromXMLOptions = xmlOptions

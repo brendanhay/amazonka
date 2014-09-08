@@ -39,7 +39,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup
     -- * Response
     , CreateDBSecurityGroupResponse
     -- ** Response lenses
-    , cdbsgrsDBSecurityGroup
+    , cdbsgrDBSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -88,16 +88,16 @@ instance ToQuery CreateDBSecurityGroup where
     toQuery = genericQuery def
 
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
-    { _cdbsgrsDBSecurityGroup :: Maybe DBSecurityGroup
+    { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
-cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-cdbsgrsDBSecurityGroup =
-    lens _cdbsgrsDBSecurityGroup (\s a -> s { _cdbsgrsDBSecurityGroup = a })
+cdbsgrDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
+cdbsgrDBSecurityGroup =
+    lens _cdbsgrDBSecurityGroup (\s a -> s { _cdbsgrDBSecurityGroup = a })
 
 instance FromXML CreateDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions

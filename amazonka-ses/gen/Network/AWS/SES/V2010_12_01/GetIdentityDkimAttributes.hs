@@ -54,7 +54,7 @@ module Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes
     -- * Response
     , GetIdentityDkimAttributesResponse
     -- ** Response lenses
-    , gidarsDkimAttributes
+    , gidarDkimAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -89,13 +89,13 @@ instance ToQuery GetIdentityDkimAttributes where
 
 -- | Represents a list of all the DKIM attributes for the specified identity.
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
-    { _gidarsDkimAttributes :: Map Text IdentityDkimAttributes
+    { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
     } deriving (Show, Generic)
 
 -- | The DKIM attributes for an email address or a domain.
-gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
-gidarsDkimAttributes =
-    lens _gidarsDkimAttributes (\s a -> s { _gidarsDkimAttributes = a })
+gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
+gidarDkimAttributes =
+    lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })
 
 instance FromXML GetIdentityDkimAttributesResponse where
     fromXMLOptions = xmlOptions

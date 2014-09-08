@@ -32,7 +32,7 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuse
     -- * Response
     , DescribeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response lenses
-    , dtacrsrsStatuses
+    , dtacrsrStatuses
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -67,13 +67,12 @@ instance ToJSON DescribeTrustedAdvisorCheckRefreshStatuses
 -- | The statuses of the Trusted Advisor checks returned by the
 -- DescribeTrustedAdvisorCheckRefreshStatuses operation.
 newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
-    { _dtacrsrsStatuses :: [TrustedAdvisorCheckRefreshStatus]
+    { _dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]
     } deriving (Show, Generic)
 
 -- | The refresh status of the specified Trusted Advisor checks.
-dtacrsrsStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-dtacrsrsStatuses =
-    lens _dtacrsrsStatuses (\s a -> s { _dtacrsrsStatuses = a })
+dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
+dtacrsrStatuses = lens _dtacrsrStatuses (\s a -> s { _dtacrsrStatuses = a })
 
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse
 

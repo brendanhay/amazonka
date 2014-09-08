@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup
     -- * Response
     , CreateCacheSubnetGroupResponse
     -- ** Response lenses
-    , ccsgrsrsCacheSubnetGroup
+    , ccsgrrCacheSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -89,15 +89,14 @@ instance ToQuery CreateCacheSubnetGroup where
     toQuery = genericQuery def
 
 newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
-    { _ccsgrsrsCacheSubnetGroup :: Maybe CacheSubnetGroup
+    { _ccsgrrCacheSubnetGroup :: Maybe CacheSubnetGroup
     } deriving (Show, Generic)
 
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
-ccsgrsrsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-ccsgrsrsCacheSubnetGroup =
-    lens _ccsgrsrsCacheSubnetGroup
-         (\s a -> s { _ccsgrsrsCacheSubnetGroup = a })
+ccsgrrCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
+ccsgrrCacheSubnetGroup =
+    lens _ccsgrrCacheSubnetGroup (\s a -> s { _ccsgrrCacheSubnetGroup = a })
 
 instance FromXML CreateCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions

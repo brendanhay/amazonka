@@ -32,7 +32,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects
     -- * Response
     , DescribeInterconnectsResponse
     -- ** Response lenses
-    , dirsrsInterconnects
+    , dirrInterconnects
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -66,13 +66,13 @@ instance ToJSON DescribeInterconnects
 
 -- | A structure containing a list of interconnects.
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
-    { _dirsrsInterconnects :: [Interconnect]
+    { _dirrInterconnects :: [Interconnect]
     } deriving (Show, Generic)
 
 -- | A list of interconnects.
-dirsrsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirsrsInterconnects =
-    lens _dirsrsInterconnects (\s a -> s { _dirsrsInterconnects = a })
+dirrInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirrInterconnects =
+    lens _dirrInterconnects (\s a -> s { _dirrInterconnects = a })
 
 instance FromJSON DescribeInterconnectsResponse
 

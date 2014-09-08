@@ -52,7 +52,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotInstanceRequests
     -- * Response
     , DescribeSpotInstanceRequestsResponse
     -- ** Response lenses
-    , dsirrsSpotInstanceRequests
+    , dsirrSpotInstanceRequests
     ) where
 
 import Network.AWS.Request.Query
@@ -138,14 +138,14 @@ instance ToQuery DescribeSpotInstanceRequests where
 
 -- | 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
-    { _dsirrsSpotInstanceRequests :: [SpotInstanceRequest]
+    { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
-dsirrsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
-dsirrsSpotInstanceRequests =
-    lens _dsirrsSpotInstanceRequests
-         (\s a -> s { _dsirrsSpotInstanceRequests = a })
+dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
+dsirrSpotInstanceRequests =
+    lens _dsirrSpotInstanceRequests
+         (\s a -> s { _dsirrSpotInstanceRequests = a })
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions

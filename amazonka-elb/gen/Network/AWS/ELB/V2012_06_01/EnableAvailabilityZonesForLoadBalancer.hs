@@ -42,7 +42,7 @@ module Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer
     -- * Response
     , EnableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
-    , eazflbrsAvailabilityZones
+    , eazflbrAvailabilityZones
     ) where
 
 import Network.AWS.Request.Query
@@ -82,14 +82,14 @@ instance ToQuery EnableAvailabilityZonesForLoadBalancer where
 
 -- | The output for the EnableAvailabilityZonesForLoadBalancer action.
 newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
-    { _eazflbrsAvailabilityZones :: [Text]
+    { _eazflbrAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 
 -- | An updated list of Availability Zones for the load balancer.
-eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
-eazflbrsAvailabilityZones =
-    lens _eazflbrsAvailabilityZones
-         (\s a -> s { _eazflbrsAvailabilityZones = a })
+eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
+eazflbrAvailabilityZones =
+    lens _eazflbrAvailabilityZones
+         (\s a -> s { _eazflbrAvailabilityZones = a })
 
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions

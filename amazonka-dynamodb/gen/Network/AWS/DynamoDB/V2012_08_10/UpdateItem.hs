@@ -46,9 +46,9 @@ module Network.AWS.DynamoDB.V2012_08_10.UpdateItem
     -- * Response
     , UpdateItemResponse
     -- ** Response lenses
-    , uirsAttributes
-    , uirsConsumedCapacity
-    , uirsItemCollectionMetrics
+    , uirAttributes
+    , uirConsumedCapacity
+    , uirItemCollectionMetrics
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -223,34 +223,34 @@ instance ToJSON UpdateItem
 
 -- | Represents the output of an UpdateItem operation.
 data UpdateItemResponse = UpdateItemResponse
-    { _uirsAttributes :: Map Text AttributeValue
-    , _uirsConsumedCapacity :: Maybe ConsumedCapacity
-    , _uirsItemCollectionMetrics :: Maybe ItemCollectionMetrics
+    { _uirAttributes :: Map Text AttributeValue
+    , _uirConsumedCapacity :: Maybe ConsumedCapacity
+    , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Show, Generic)
 
 -- | A map of attribute values as they appeared before the UpdateItem operation,
 -- but only if ReturnValues was specified as something other than NONE in the
 -- request. Each element represents one attribute.
-uirsAttributes :: Lens' UpdateItemResponse (Map Text AttributeValue)
-uirsAttributes = lens _uirsAttributes (\s a -> s { _uirsAttributes = a })
+uirAttributes :: Lens' UpdateItemResponse (Map Text AttributeValue)
+uirAttributes = lens _uirAttributes (\s a -> s { _uirAttributes = a })
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-uirsConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
-uirsConsumedCapacity =
-    lens _uirsConsumedCapacity (\s a -> s { _uirsConsumedCapacity = a })
+uirConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
+uirConsumedCapacity =
+    lens _uirConsumedCapacity (\s a -> s { _uirConsumedCapacity = a })
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
 -- the request. If the table does not have any local secondary indexes, this
 -- information is not returned in the response.
-uirsItemCollectionMetrics :: Lens' UpdateItemResponse (Maybe ItemCollectionMetrics)
-uirsItemCollectionMetrics =
-    lens _uirsItemCollectionMetrics
-         (\s a -> s { _uirsItemCollectionMetrics = a })
+uirItemCollectionMetrics :: Lens' UpdateItemResponse (Maybe ItemCollectionMetrics)
+uirItemCollectionMetrics =
+    lens _uirItemCollectionMetrics
+         (\s a -> s { _uirItemCollectionMetrics = a })
 
 instance FromJSON UpdateItemResponse
 

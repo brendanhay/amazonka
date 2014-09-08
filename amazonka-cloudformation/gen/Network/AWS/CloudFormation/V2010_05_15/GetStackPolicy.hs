@@ -38,7 +38,7 @@ module Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy
     -- * Response
     , GetStackPolicyResponse
     -- ** Response lenses
-    , gsprsStackPolicyBody
+    , gsprStackPolicyBody
     ) where
 
 import Network.AWS.Request.Query
@@ -68,14 +68,14 @@ instance ToQuery GetStackPolicy where
 
 -- | The output for the GetStackPolicy action.
 newtype GetStackPolicyResponse = GetStackPolicyResponse
-    { _gsprsStackPolicyBody :: Maybe Text
+    { _gsprStackPolicyBody :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.).
-gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
-gsprsStackPolicyBody =
-    lens _gsprsStackPolicyBody (\s a -> s { _gsprsStackPolicyBody = a })
+gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
+gsprStackPolicyBody =
+    lens _gsprStackPolicyBody (\s a -> s { _gsprStackPolicyBody = a })
 
 instance FromXML GetStackPolicyResponse where
     fromXMLOptions = xmlOptions

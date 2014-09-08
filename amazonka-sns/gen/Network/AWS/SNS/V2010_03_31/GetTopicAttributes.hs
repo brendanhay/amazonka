@@ -55,7 +55,7 @@ module Network.AWS.SNS.V2010_03_31.GetTopicAttributes
     -- * Response
     , GetTopicAttributesResponse
     -- ** Response lenses
-    , gtarsAttributes
+    , gtarAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -84,7 +84,7 @@ instance ToQuery GetTopicAttributes where
 
 -- | Response for GetTopicAttributes action.
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
-    { _gtarsAttributes :: Map Text Text
+    { _gtarAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | A map of the topic's attributes. Attributes in this map include the
@@ -98,8 +98,8 @@ newtype GetTopicAttributesResponse = GetTopicAttributesResponse
 -- on this topic DeliveryPolicy -- the JSON serialization of the topic's
 -- delivery policy EffectiveDeliveryPolicy -- the JSON serialization of the
 -- effective delivery policy that takes into account system defaults.
-gtarsAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
-gtarsAttributes = lens _gtarsAttributes (\s a -> s { _gtarsAttributes = a })
+gtarAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
+gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
 
 instance FromXML GetTopicAttributesResponse where
     fromXMLOptions = xmlOptions

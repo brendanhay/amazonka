@@ -40,7 +40,7 @@ module Network.AWS.Support.V2013_04_15.DescribeServices
     -- * Response
     , DescribeServicesResponse
     -- ** Response lenses
-    , dsrsServices
+    , dsrServices
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -82,12 +82,12 @@ instance ToJSON DescribeServices
 
 -- | The list of AWS services returned by the DescribeServices operation.
 newtype DescribeServicesResponse = DescribeServicesResponse
-    { _dsrsServices :: [Service]
+    { _dsrServices :: [Service]
     } deriving (Show, Generic)
 
 -- | A JSON-formatted list of AWS services.
-dsrsServices :: Lens' DescribeServicesResponse [Service]
-dsrsServices = lens _dsrsServices (\s a -> s { _dsrsServices = a })
+dsrServices :: Lens' DescribeServicesResponse [Service]
+dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a })
 
 instance FromJSON DescribeServicesResponse
 

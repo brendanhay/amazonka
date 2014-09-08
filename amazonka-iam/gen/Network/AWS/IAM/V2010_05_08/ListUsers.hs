@@ -43,9 +43,9 @@ module Network.AWS.IAM.V2010_05_08.ListUsers
     -- * Response
     , ListUsersResponse
     -- ** Response lenses
-    , lursUsers
-    , lursIsTruncated
-    , lursMarker
+    , lurUsers
+    , lurIsTruncated
+    , lurMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -95,25 +95,25 @@ instance ToQuery ListUsers where
 
 -- | Contains the result of a successful invocation of the ListUsers action.
 data ListUsersResponse = ListUsersResponse
-    { _lursUsers :: [User]
-    , _lursIsTruncated :: Bool
-    , _lursMarker :: Maybe Text
+    { _lurUsers :: [User]
+    , _lurIsTruncated :: Bool
+    , _lurMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of users.
-lursUsers :: Lens' ListUsersResponse [User]
-lursUsers = lens _lursUsers (\s a -> s { _lursUsers = a })
+lurUsers :: Lens' ListUsersResponse [User]
+lurUsers = lens _lurUsers (\s a -> s { _lurUsers = a })
 
 -- | A flag that indicates whether there are more user names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more users in the list.
-lursIsTruncated :: Lens' ListUsersResponse Bool
-lursIsTruncated = lens _lursIsTruncated (\s a -> s { _lursIsTruncated = a })
+lurIsTruncated :: Lens' ListUsersResponse Bool
+lurIsTruncated = lens _lurIsTruncated (\s a -> s { _lurIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lursMarker :: Lens' ListUsersResponse (Maybe Text)
-lursMarker = lens _lursMarker (\s a -> s { _lursMarker = a })
+lurMarker :: Lens' ListUsersResponse (Maybe Text)
+lurMarker = lens _lurMarker (\s a -> s { _lurMarker = a })
 
 instance FromXML ListUsersResponse where
     fromXMLOptions = xmlOptions
@@ -127,6 +127,6 @@ instance AWSRequest ListUsers where
 
 instance AWSPager ListUsers where
     next rq rs
-        | not (rs ^. lursIsTruncated) = Nothing
+        | not (rs ^. lurIsTruncated) = Nothing
         | otherwise = Just $
-            rq & luMarker .~ rs ^. lursMarker
+            rq & luMarker .~ rs ^. lurMarker

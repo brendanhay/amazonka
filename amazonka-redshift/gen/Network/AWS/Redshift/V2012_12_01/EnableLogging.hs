@@ -33,12 +33,12 @@ module Network.AWS.Redshift.V2012_12_01.EnableLogging
     -- * Response
     , EnableLoggingResponse
     -- ** Response lenses
-    , elrsLoggingEnabled
-    , elrsBucketName
-    , elrsS3KeyPrefix
-    , elrsLastSuccessfulDeliveryTime
-    , elrsLastFailureTime
-    , elrsLastFailureMessage
+    , elrLoggingEnabled
+    , elrBucketName
+    , elrS3KeyPrefix
+    , elrLastSuccessfulDeliveryTime
+    , elrLastFailureTime
+    , elrLastFailureMessage
     ) where
 
 import Network.AWS.Request.Query
@@ -87,42 +87,42 @@ instance ToQuery EnableLogging where
 
 -- | Describes the status of logging for a cluster.
 data EnableLoggingResponse = EnableLoggingResponse
-    { _elrsLoggingEnabled :: Maybe Bool
-    , _elrsBucketName :: Maybe Text
-    , _elrsS3KeyPrefix :: Maybe Text
-    , _elrsLastSuccessfulDeliveryTime :: Maybe ISO8601
-    , _elrsLastFailureTime :: Maybe ISO8601
-    , _elrsLastFailureMessage :: Maybe Text
+    { _elrLoggingEnabled :: Maybe Bool
+    , _elrBucketName :: Maybe Text
+    , _elrS3KeyPrefix :: Maybe Text
+    , _elrLastSuccessfulDeliveryTime :: Maybe ISO8601
+    , _elrLastFailureTime :: Maybe ISO8601
+    , _elrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
-elrsLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
-elrsLoggingEnabled =
-    lens _elrsLoggingEnabled (\s a -> s { _elrsLoggingEnabled = a })
+elrLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
+elrLoggingEnabled =
+    lens _elrLoggingEnabled (\s a -> s { _elrLoggingEnabled = a })
 
 -- | The name of the S3 bucket where the log files are stored.
-elrsBucketName :: Lens' EnableLoggingResponse (Maybe Text)
-elrsBucketName = lens _elrsBucketName (\s a -> s { _elrsBucketName = a })
+elrBucketName :: Lens' EnableLoggingResponse (Maybe Text)
+elrBucketName = lens _elrBucketName (\s a -> s { _elrBucketName = a })
 
 -- | The prefix applied to the log file names.
-elrsS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
-elrsS3KeyPrefix = lens _elrsS3KeyPrefix (\s a -> s { _elrsS3KeyPrefix = a })
+elrS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
+elrS3KeyPrefix = lens _elrS3KeyPrefix (\s a -> s { _elrS3KeyPrefix = a })
 
 -- | The last time when logs were delivered.
-elrsLastSuccessfulDeliveryTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
-elrsLastSuccessfulDeliveryTime =
-    lens _elrsLastSuccessfulDeliveryTime
-         (\s a -> s { _elrsLastSuccessfulDeliveryTime = a })
+elrLastSuccessfulDeliveryTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
+elrLastSuccessfulDeliveryTime =
+    lens _elrLastSuccessfulDeliveryTime
+         (\s a -> s { _elrLastSuccessfulDeliveryTime = a })
 
 -- | The last time when logs failed to be delivered.
-elrsLastFailureTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
-elrsLastFailureTime =
-    lens _elrsLastFailureTime (\s a -> s { _elrsLastFailureTime = a })
+elrLastFailureTime :: Lens' EnableLoggingResponse (Maybe ISO8601)
+elrLastFailureTime =
+    lens _elrLastFailureTime (\s a -> s { _elrLastFailureTime = a })
 
 -- | The message indicating that logs failed to be delivered.
-elrsLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
-elrsLastFailureMessage =
-    lens _elrsLastFailureMessage (\s a -> s { _elrsLastFailureMessage = a })
+elrLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
+elrLastFailureMessage =
+    lens _elrLastFailureMessage (\s a -> s { _elrLastFailureMessage = a })
 
 instance FromXML EnableLoggingResponse where
     fromXMLOptions = xmlOptions

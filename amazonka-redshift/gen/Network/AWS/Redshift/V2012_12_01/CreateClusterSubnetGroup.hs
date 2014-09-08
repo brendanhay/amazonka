@@ -45,7 +45,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSubnetGroup
     -- * Response
     , CreateClusterSubnetGroupResponse
     -- ** Response lenses
-    , ccsgrsrsClusterSubnetGroup
+    , ccsgrrClusterSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -94,14 +94,14 @@ instance ToQuery CreateClusterSubnetGroup where
     toQuery = genericQuery def
 
 newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
-    { _ccsgrsrsClusterSubnetGroup :: Maybe ClusterSubnetGroup
+    { _ccsgrrClusterSubnetGroup :: Maybe ClusterSubnetGroup
     } deriving (Show, Generic)
 
 -- | Describes a subnet group.
-ccsgrsrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-ccsgrsrsClusterSubnetGroup =
-    lens _ccsgrsrsClusterSubnetGroup
-         (\s a -> s { _ccsgrsrsClusterSubnetGroup = a })
+ccsgrrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
+ccsgrrClusterSubnetGroup =
+    lens _ccsgrrClusterSubnetGroup
+         (\s a -> s { _ccsgrrClusterSubnetGroup = a })
 
 instance FromXML CreateClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions

@@ -44,7 +44,7 @@ module Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes
     -- * Response
     , GetIdentityVerificationAttributesResponse
     -- ** Response lenses
-    , givarsVerificationAttributes
+    , givarVerificationAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -74,14 +74,14 @@ instance ToQuery GetIdentityVerificationAttributes where
 
 -- | Represents the verification attributes for a list of identities.
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
-    { _givarsVerificationAttributes :: Map Text IdentityVerificationAttributes
+    { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
     } deriving (Show, Generic)
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
-givarsVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (Map Text IdentityVerificationAttributes)
-givarsVerificationAttributes =
-    lens _givarsVerificationAttributes
-         (\s a -> s { _givarsVerificationAttributes = a })
+givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (Map Text IdentityVerificationAttributes)
+givarVerificationAttributes =
+    lens _givarVerificationAttributes
+         (\s a -> s { _givarVerificationAttributes = a })
 
 instance FromXML GetIdentityVerificationAttributesResponse where
     fromXMLOptions = xmlOptions

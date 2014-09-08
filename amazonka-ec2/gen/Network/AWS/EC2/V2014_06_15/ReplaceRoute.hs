@@ -37,12 +37,12 @@ module Network.AWS.EC2.V2014_06_15.ReplaceRoute
     -- ** Request constructor
     , mkReplaceRoute
     -- ** Request lenses
-    , rrRouteTableId
-    , rrDestinationCidrBlock
-    , rrGatewayId
-    , rrInstanceId
-    , rrNetworkInterfaceId
-    , rrVpcPeeringConnectionId
+    , rr1RouteTableId
+    , rr1DestinationCidrBlock
+    , rr1GatewayId
+    , rr1InstanceId
+    , rr1NetworkInterfaceId
+    , rr1VpcPeeringConnectionId
 
     -- * Response
     , ReplaceRouteResponse
@@ -54,56 +54,57 @@ import Network.AWS.Prelude
 
 -- | 
 data ReplaceRoute = ReplaceRoute
-    { _rrRouteTableId :: Text
-    , _rrDestinationCidrBlock :: Text
-    , _rrGatewayId :: Maybe Text
-    , _rrInstanceId :: Maybe Text
-    , _rrNetworkInterfaceId :: Maybe Text
-    , _rrVpcPeeringConnectionId :: Maybe Text
+    { _rr1RouteTableId :: Text
+    , _rr1DestinationCidrBlock :: Text
+    , _rr1GatewayId :: Maybe Text
+    , _rr1InstanceId :: Maybe Text
+    , _rr1NetworkInterfaceId :: Maybe Text
+    , _rr1VpcPeeringConnectionId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRoute' request.
-mkReplaceRoute :: Text -- ^ 'rrRouteTableId'
-               -> Text -- ^ 'rrDestinationCidrBlock'
+mkReplaceRoute :: Text -- ^ 'rr1RouteTableId'
+               -> Text -- ^ 'rr1DestinationCidrBlock'
                -> ReplaceRoute
 mkReplaceRoute p1 p2 = ReplaceRoute
-    { _rrRouteTableId = p1
-    , _rrDestinationCidrBlock = p2
-    , _rrGatewayId = Nothing
-    , _rrInstanceId = Nothing
-    , _rrNetworkInterfaceId = Nothing
-    , _rrVpcPeeringConnectionId = Nothing
+    { _rr1RouteTableId = p1
+    , _rr1DestinationCidrBlock = p2
+    , _rr1GatewayId = Nothing
+    , _rr1InstanceId = Nothing
+    , _rr1NetworkInterfaceId = Nothing
+    , _rr1VpcPeeringConnectionId = Nothing
     }
 
 -- | The ID of the route table.
-rrRouteTableId :: Lens' ReplaceRoute Text
-rrRouteTableId = lens _rrRouteTableId (\s a -> s { _rrRouteTableId = a })
+rr1RouteTableId :: Lens' ReplaceRoute Text
+rr1RouteTableId = lens _rr1RouteTableId (\s a -> s { _rr1RouteTableId = a })
 
 -- | The CIDR address block used for the destination match. The value you
 -- provide must match the CIDR of an existing route in the table.
-rrDestinationCidrBlock :: Lens' ReplaceRoute Text
-rrDestinationCidrBlock =
-    lens _rrDestinationCidrBlock (\s a -> s { _rrDestinationCidrBlock = a })
+rr1DestinationCidrBlock :: Lens' ReplaceRoute Text
+rr1DestinationCidrBlock =
+    lens _rr1DestinationCidrBlock
+         (\s a -> s { _rr1DestinationCidrBlock = a })
 
 -- | The ID of an Internet gateway attached to your VPC.
-rrGatewayId :: Lens' ReplaceRoute (Maybe Text)
-rrGatewayId = lens _rrGatewayId (\s a -> s { _rrGatewayId = a })
+rr1GatewayId :: Lens' ReplaceRoute (Maybe Text)
+rr1GatewayId = lens _rr1GatewayId (\s a -> s { _rr1GatewayId = a })
 
 -- | The ID of a NAT instance in your VPC.
-rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
-rrInstanceId = lens _rrInstanceId (\s a -> s { _rrInstanceId = a })
+rr1InstanceId :: Lens' ReplaceRoute (Maybe Text)
+rr1InstanceId = lens _rr1InstanceId (\s a -> s { _rr1InstanceId = a })
 
 -- | The ID of a network interface.
-rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
-rrNetworkInterfaceId =
-    lens _rrNetworkInterfaceId (\s a -> s { _rrNetworkInterfaceId = a })
+rr1NetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
+rr1NetworkInterfaceId =
+    lens _rr1NetworkInterfaceId (\s a -> s { _rr1NetworkInterfaceId = a })
 
 -- | The ID of a VPC peering connection.
-rrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
-rrVpcPeeringConnectionId =
-    lens _rrVpcPeeringConnectionId
-         (\s a -> s { _rrVpcPeeringConnectionId = a })
+rr1VpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
+rr1VpcPeeringConnectionId =
+    lens _rr1VpcPeeringConnectionId
+         (\s a -> s { _rr1VpcPeeringConnectionId = a })
 
 instance ToQuery ReplaceRoute where
     toQuery = genericQuery def

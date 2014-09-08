@@ -64,8 +64,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume
     -- * Response
     , CreateCachediSCSIVolumeResponse
     -- ** Response lenses
-    , ccscsivrsVolumeARN
-    , ccscsivrsTargetARN
+    , ccscsivrVolumeARN
+    , ccscsivrTargetARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -135,17 +135,17 @@ instance ToHeaders CreateCachediSCSIVolume
 instance ToJSON CreateCachediSCSIVolume
 
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
-    { _ccscsivrsVolumeARN :: Maybe Text
-    , _ccscsivrsTargetARN :: Maybe Text
+    { _ccscsivrVolumeARN :: Maybe Text
+    , _ccscsivrTargetARN :: Maybe Text
     } deriving (Show, Generic)
 
-ccscsivrsVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
-ccscsivrsVolumeARN =
-    lens _ccscsivrsVolumeARN (\s a -> s { _ccscsivrsVolumeARN = a })
+ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
+ccscsivrVolumeARN =
+    lens _ccscsivrVolumeARN (\s a -> s { _ccscsivrVolumeARN = a })
 
-ccscsivrsTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
-ccscsivrsTargetARN =
-    lens _ccscsivrsTargetARN (\s a -> s { _ccscsivrsTargetARN = a })
+ccscsivrTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
+ccscsivrTargetARN =
+    lens _ccscsivrTargetARN (\s a -> s { _ccscsivrTargetARN = a })
 
 instance FromJSON CreateCachediSCSIVolumeResponse
 

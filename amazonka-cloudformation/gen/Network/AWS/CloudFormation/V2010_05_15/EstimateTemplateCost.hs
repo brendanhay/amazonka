@@ -42,7 +42,7 @@ module Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost
     -- * Response
     , EstimateTemplateCostResponse
     -- ** Response lenses
-    , etcrsUrl
+    , etcrUrl
     ) where
 
 import Network.AWS.Request.Query
@@ -89,13 +89,13 @@ instance ToQuery EstimateTemplateCost where
 
 -- | The output for a EstimateTemplateCost action.
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
-    { _etcrsUrl :: Maybe Text
+    { _etcrUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
-etcrsUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
-etcrsUrl = lens _etcrsUrl (\s a -> s { _etcrsUrl = a })
+etcrUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
+etcrUrl = lens _etcrUrl (\s a -> s { _etcrUrl = a })
 
 instance FromXML EstimateTemplateCostResponse where
     fromXMLOptions = xmlOptions

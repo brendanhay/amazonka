@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime
     -- * Response
     , UpdateMaintenanceStartTimeResponse
     -- ** Response lenses
-    , umstrsGatewayARN
+    , umstrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -112,14 +112,13 @@ instance ToJSON UpdateMaintenanceStartTime
 -- | A JSON object containing the of the gateway whose maintenance start time is
 -- updated.
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
-    { _umstrsGatewayARN :: Text
+    { _umstrGatewayARN :: Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse Text
-umstrsGatewayARN =
-    lens _umstrsGatewayARN (\s a -> s { _umstrsGatewayARN = a })
+umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse Text
+umstrGatewayARN = lens _umstrGatewayARN (\s a -> s { _umstrGatewayARN = a })
 
 instance FromJSON UpdateMaintenanceStartTimeResponse
 

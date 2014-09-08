@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.V2014_07_15.ResetCacheParameterGroup
     -- * Response
     , ResetCacheParameterGroupResponse
     -- ** Response lenses
-    , rcpgrsCacheParameterGroupName
+    , rcpgrCacheParameterGroupName
     ) where
 
 import Network.AWS.Request.Query
@@ -93,14 +93,14 @@ instance ToQuery ResetCacheParameterGroup where
 -- | Represents the output of one of the following operations:
 -- ModifyCacheParameterGroup ResetCacheParameterGroup.
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
-    { _rcpgrsCacheParameterGroupName :: Maybe Text
+    { _rcpgrCacheParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
-rcpgrsCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)
-rcpgrsCacheParameterGroupName =
-    lens _rcpgrsCacheParameterGroupName
-         (\s a -> s { _rcpgrsCacheParameterGroupName = a })
+rcpgrCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)
+rcpgrCacheParameterGroupName =
+    lens _rcpgrCacheParameterGroupName
+         (\s a -> s { _rcpgrCacheParameterGroupName = a })
 
 instance FromXML ResetCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions

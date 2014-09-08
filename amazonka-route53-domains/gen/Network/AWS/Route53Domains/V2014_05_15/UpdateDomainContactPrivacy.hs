@@ -55,7 +55,7 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy
     -- * Response
     , UpdateDomainContactPrivacyResponse
     -- ** Response lenses
-    , udcprsOperationId
+    , udcprOperationId
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -121,15 +121,15 @@ instance ToJSON UpdateDomainContactPrivacy
 
 -- | The UpdateDomainContactPrivacy response includes the following element.
 newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
-    { _udcprsOperationId :: Text
+    { _udcprOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udcprsOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
-udcprsOperationId =
-    lens _udcprsOperationId (\s a -> s { _udcprsOperationId = a })
+udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
+udcprOperationId =
+    lens _udcprOperationId (\s a -> s { _udcprOperationId = a })
 
 instance FromJSON UpdateDomainContactPrivacyResponse
 

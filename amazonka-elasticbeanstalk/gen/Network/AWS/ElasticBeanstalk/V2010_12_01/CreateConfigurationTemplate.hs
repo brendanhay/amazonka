@@ -85,15 +85,15 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateConfigurationTemplate
     -- * Response
     , CreateConfigurationTemplateResponse
     -- ** Response lenses
-    , cctrsSolutionStackName
-    , cctrsApplicationName
-    , cctrsTemplateName
-    , cctrsDescription
-    , cctrsEnvironmentName
-    , cctrsDeploymentStatus
-    , cctrsDateCreated
-    , cctrsDateUpdated
-    , cctrsOptionSettings
+    , cctrSolutionStackName
+    , cctrApplicationName
+    , cctrTemplateName
+    , cctrDescription
+    , cctrEnvironmentName
+    , cctrDeploymentStatus
+    , cctrDateCreated
+    , cctrDateUpdated
+    , cctrOptionSettings
     ) where
 
 import Network.AWS.Request.Query
@@ -188,42 +188,41 @@ instance ToQuery CreateConfigurationTemplate where
 
 -- | Describes the settings for a configuration set.
 data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
-    { _cctrsSolutionStackName :: Maybe Text
-    , _cctrsApplicationName :: Maybe Text
-    , _cctrsTemplateName :: Maybe Text
-    , _cctrsDescription :: Maybe Text
-    , _cctrsEnvironmentName :: Maybe Text
-    , _cctrsDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _cctrsDateCreated :: Maybe ISO8601
-    , _cctrsDateUpdated :: Maybe ISO8601
-    , _cctrsOptionSettings :: [ConfigurationOptionSetting]
+    { _cctrSolutionStackName :: Maybe Text
+    , _cctrApplicationName :: Maybe Text
+    , _cctrTemplateName :: Maybe Text
+    , _cctrDescription :: Maybe Text
+    , _cctrEnvironmentName :: Maybe Text
+    , _cctrDeploymentStatus :: Maybe ConfigurationDeploymentStatus
+    , _cctrDateCreated :: Maybe ISO8601
+    , _cctrDateUpdated :: Maybe ISO8601
+    , _cctrOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
 
 -- | The name of the solution stack this configuration set uses.
-cctrsSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-cctrsSolutionStackName =
-    lens _cctrsSolutionStackName (\s a -> s { _cctrsSolutionStackName = a })
+cctrSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrSolutionStackName =
+    lens _cctrSolutionStackName (\s a -> s { _cctrSolutionStackName = a })
 
 -- | The name of the application associated with this configuration set.
-cctrsApplicationName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-cctrsApplicationName =
-    lens _cctrsApplicationName (\s a -> s { _cctrsApplicationName = a })
+cctrApplicationName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrApplicationName =
+    lens _cctrApplicationName (\s a -> s { _cctrApplicationName = a })
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
-cctrsTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-cctrsTemplateName =
-    lens _cctrsTemplateName (\s a -> s { _cctrsTemplateName = a })
+cctrTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrTemplateName =
+    lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })
 
 -- | Describes this configuration set.
-cctrsDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-cctrsDescription =
-    lens _cctrsDescription (\s a -> s { _cctrsDescription = a })
+cctrDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrDescription = lens _cctrDescription (\s a -> s { _cctrDescription = a })
 
 -- | If not null, the name of the environment for this configuration set.
-cctrsEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
-cctrsEnvironmentName =
-    lens _cctrsEnvironmentName (\s a -> s { _cctrsEnvironmentName = a })
+cctrEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrEnvironmentName =
+    lens _cctrEnvironmentName (\s a -> s { _cctrEnvironmentName = a })
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -238,25 +237,23 @@ cctrsEnvironmentName =
 -- deploying. deployed: This is the configuration that is currently deployed
 -- to the associated running environment. failed: This is a draft
 -- configuration that failed to successfully deploy.
-cctrsDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
-cctrsDeploymentStatus =
-    lens _cctrsDeploymentStatus (\s a -> s { _cctrsDeploymentStatus = a })
+cctrDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
+cctrDeploymentStatus =
+    lens _cctrDeploymentStatus (\s a -> s { _cctrDeploymentStatus = a })
 
 -- | The date (in UTC time) when this configuration set was created.
-cctrsDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
-cctrsDateCreated =
-    lens _cctrsDateCreated (\s a -> s { _cctrsDateCreated = a })
+cctrDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
+cctrDateCreated = lens _cctrDateCreated (\s a -> s { _cctrDateCreated = a })
 
 -- | The date (in UTC time) when this configuration set was last modified.
-cctrsDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
-cctrsDateUpdated =
-    lens _cctrsDateUpdated (\s a -> s { _cctrsDateUpdated = a })
+cctrDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe ISO8601)
+cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a })
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
-cctrsOptionSettings :: Lens' CreateConfigurationTemplateResponse [ConfigurationOptionSetting]
-cctrsOptionSettings =
-    lens _cctrsOptionSettings (\s a -> s { _cctrsOptionSettings = a })
+cctrOptionSettings :: Lens' CreateConfigurationTemplateResponse [ConfigurationOptionSetting]
+cctrOptionSettings =
+    lens _cctrOptionSettings (\s a -> s { _cctrOptionSettings = a })
 
 instance FromXML CreateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions

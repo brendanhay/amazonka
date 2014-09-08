@@ -88,8 +88,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings
     -- * Response
     , DescribeReservedInstancesOfferingsResponse
     -- ** Response lenses
-    , driorsReservedInstancesOfferings
-    , driorsNextToken
+    , driorReservedInstancesOfferings
+    , driorNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -215,19 +215,19 @@ instance ToQuery DescribeReservedInstancesOfferings where
 
 -- | 
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
-    { _driorsReservedInstancesOfferings :: [ReservedInstancesOffering]
-    , _driorsNextToken :: Maybe Text
+    { _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
+    , _driorNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of Reserved Instances offerings.
-driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
-driorsReservedInstancesOfferings =
-    lens _driorsReservedInstancesOfferings
-         (\s a -> s { _driorsReservedInstancesOfferings = a })
+driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
+driorReservedInstancesOfferings =
+    lens _driorReservedInstancesOfferings
+         (\s a -> s { _driorReservedInstancesOfferings = a })
 
 -- | The next paginated set of results to return.
-driorsNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
-driorsNextToken = lens _driorsNextToken (\s a -> s { _driorsNextToken = a })
+driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
+driorNextToken = lens _driorNextToken (\s a -> s { _driorNextToken = a })
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -241,4 +241,4 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 
 instance AWSPager DescribeReservedInstancesOfferings where
     next rq rs = (\x -> rq & drioNextToken ?~ x)
-        <$> (rs ^. driorsNextToken)
+        <$> (rs ^. driorNextToken)

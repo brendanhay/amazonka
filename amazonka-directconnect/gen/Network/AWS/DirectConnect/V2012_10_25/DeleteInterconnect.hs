@@ -30,7 +30,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect
     -- * Response
     , DeleteInterconnectResponse
     -- ** Response lenses
-    , dirsInterconnectState
+    , dirInterconnectState
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -65,7 +65,7 @@ instance ToJSON DeleteInterconnect
 
 -- | The response received when DeleteInterconnect is called.
 newtype DeleteInterconnectResponse = DeleteInterconnectResponse
-    { _dirsInterconnectState :: Maybe InterconnectState
+    { _dirInterconnectState :: Maybe InterconnectState
     } deriving (Show, Generic)
 
 -- | State of the interconnect. Requested: The initial state of an interconnect.
@@ -74,9 +74,9 @@ newtype DeleteInterconnectResponse = DeleteInterconnectResponse
 -- been approved, and is being initialized. Available: The network link is up,
 -- and the interconnect is ready for use. Down: The network link is down.
 -- Deleted: The interconnect has been deleted.
-dirsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-dirsInterconnectState =
-    lens _dirsInterconnectState (\s a -> s { _dirsInterconnectState = a })
+dirInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
+dirInterconnectState =
+    lens _dirInterconnectState (\s a -> s { _dirInterconnectState = a })
 
 instance FromJSON DeleteInterconnectResponse
 

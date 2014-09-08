@@ -50,7 +50,7 @@ module Network.AWS.Redshift.V2012_12_01.CopyClusterSnapshot
     -- * Response
     , CopyClusterSnapshotResponse
     -- ** Response lenses
-    , ccsrsSnapshot
+    , ccsrSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -105,12 +105,12 @@ instance ToQuery CopyClusterSnapshot where
     toQuery = genericQuery def
 
 newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
-    { _ccsrsSnapshot :: Maybe Snapshot
+    { _ccsrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
-ccsrsSnapshot = lens _ccsrsSnapshot (\s a -> s { _ccsrsSnapshot = a })
+ccsrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
+ccsrSnapshot = lens _ccsrSnapshot (\s a -> s { _ccsrSnapshot = a })
 
 instance FromXML CopyClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

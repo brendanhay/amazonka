@@ -34,7 +34,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme
     -- * Response
     , DefineAnalysisSchemeResponse
     -- ** Response lenses
-    , dasrsAnalysisScheme
+    , dasrAnalysisScheme
     ) where
 
 import Network.AWS.Request.Query
@@ -80,13 +80,13 @@ instance ToQuery DefineAnalysisScheme where
 -- | The result of a DefineAnalysisScheme request. Contains the status of the
 -- newly-configured analysis scheme.
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
-    { _dasrsAnalysisScheme :: AnalysisSchemeStatus
+    { _dasrAnalysisScheme :: AnalysisSchemeStatus
     } deriving (Show, Generic)
 
 -- | The status and configuration of an AnalysisScheme.
-dasrsAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-dasrsAnalysisScheme =
-    lens _dasrsAnalysisScheme (\s a -> s { _dasrsAnalysisScheme = a })
+dasrAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+dasrAnalysisScheme =
+    lens _dasrAnalysisScheme (\s a -> s { _dasrAnalysisScheme = a })
 
 instance FromXML DefineAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions

@@ -30,7 +30,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketPolicy
     -- * Response
     , GetBucketPolicyResponse
     -- ** Response lenses
-    , gbprsPolicy
+    , gbprPolicy
     ) where
 
 import Network.AWS.Request.RestS3
@@ -69,12 +69,12 @@ instance ToHeaders GetBucketPolicy
 instance ToBody GetBucketPolicy
 
 newtype GetBucketPolicyResponse = GetBucketPolicyResponse
-    { _gbprsPolicy :: Maybe Text
+    { _gbprPolicy :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The bucket policy as a JSON document.
-gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
-gbprsPolicy = lens _gbprsPolicy (\s a -> s { _gbprsPolicy = a })
+gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
+gbprPolicy = lens _gbprPolicy (\s a -> s { _gbprPolicy = a })
 
 instance FromXML GetBucketPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeCommands
     -- * Response
     , DescribeCommandsResponse
     -- ** Response lenses
-    , dcrsCommands
+    , dcrCommands
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -84,12 +84,12 @@ instance ToJSON DescribeCommands
 
 -- | Contains the response to a DescribeCommands request.
 newtype DescribeCommandsResponse = DescribeCommandsResponse
-    { _dcrsCommands :: [Command]
+    { _dcrCommands :: [Command]
     } deriving (Show, Generic)
 
 -- | An array of Command objects that describe each of the specified commands.
-dcrsCommands :: Lens' DescribeCommandsResponse [Command]
-dcrsCommands = lens _dcrsCommands (\s a -> s { _dcrsCommands = a })
+dcrCommands :: Lens' DescribeCommandsResponse [Command]
+dcrCommands = lens _dcrCommands (\s a -> s { _dcrCommands = a })
 
 instance FromJSON DescribeCommandsResponse
 

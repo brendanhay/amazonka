@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.V2011_01_01.EnterStandby
     -- * Response
     , EnterStandbyResponse
     -- ** Response lenses
-    , esrsActivities
+    , esrActivities
     ) where
 
 import Network.AWS.Request.Query
@@ -92,13 +92,13 @@ instance ToQuery EnterStandby where
 
 -- | The output of the EnterStandby action.
 newtype EnterStandbyResponse = EnterStandbyResponse
-    { _esrsActivities :: [Activity]
+    { _esrActivities :: [Activity]
     } deriving (Show, Generic)
 
 -- | A list describing the activities related to moving instances into Standby
 -- mode.
-esrsActivities :: Lens' EnterStandbyResponse [Activity]
-esrsActivities = lens _esrsActivities (\s a -> s { _esrsActivities = a })
+esrActivities :: Lens' EnterStandbyResponse [Activity]
+esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a })
 
 instance FromXML EnterStandbyResponse where
     fromXMLOptions = xmlOptions

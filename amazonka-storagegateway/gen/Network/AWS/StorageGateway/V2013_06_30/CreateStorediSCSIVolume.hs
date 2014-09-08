@@ -61,9 +61,9 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateStorediSCSIVolume
     -- * Response
     , CreateStorediSCSIVolumeResponse
     -- ** Response lenses
-    , csscsivrsVolumeARN
-    , csscsivrsVolumeSizeInBytes
-    , csscsivrsTargetARN
+    , csscsivrVolumeARN
+    , csscsivrVolumeSizeInBytes
+    , csscsivrTargetARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -158,27 +158,27 @@ instance ToJSON CreateStorediSCSIVolume
 
 -- | A JSON object containing the following fields:.
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
-    { _csscsivrsVolumeARN :: Maybe Text
-    , _csscsivrsVolumeSizeInBytes :: Maybe Integer
-    , _csscsivrsTargetARN :: Maybe Text
+    { _csscsivrVolumeARN :: Maybe Text
+    , _csscsivrVolumeSizeInBytes :: Maybe Integer
+    , _csscsivrTargetARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the configured volume.
-csscsivrsVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
-csscsivrsVolumeARN =
-    lens _csscsivrsVolumeARN (\s a -> s { _csscsivrsVolumeARN = a })
+csscsivrVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
+csscsivrVolumeARN =
+    lens _csscsivrVolumeARN (\s a -> s { _csscsivrVolumeARN = a })
 
 -- | The size of the volume in bytes.
-csscsivrsVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integer)
-csscsivrsVolumeSizeInBytes =
-    lens _csscsivrsVolumeSizeInBytes
-         (\s a -> s { _csscsivrsVolumeSizeInBytes = a })
+csscsivrVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integer)
+csscsivrVolumeSizeInBytes =
+    lens _csscsivrVolumeSizeInBytes
+         (\s a -> s { _csscsivrVolumeSizeInBytes = a })
 
 -- | he Amazon Resource Name (ARN) of the volume target that includes the iSCSI
 -- name that initiators can use to connect to the target.
-csscsivrsTargetARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
-csscsivrsTargetARN =
-    lens _csscsivrsTargetARN (\s a -> s { _csscsivrsTargetARN = a })
+csscsivrTargetARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
+csscsivrTargetARN =
+    lens _csscsivrTargetARN (\s a -> s { _csscsivrTargetARN = a })
 
 instance FromJSON CreateStorediSCSIVolumeResponse
 

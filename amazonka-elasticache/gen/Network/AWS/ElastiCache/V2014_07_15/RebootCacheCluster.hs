@@ -47,7 +47,7 @@ module Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster
     -- * Response
     , RebootCacheClusterResponse
     -- ** Response lenses
-    , rccrsCacheCluster
+    , rccrCacheCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -88,13 +88,13 @@ instance ToQuery RebootCacheCluster where
     toQuery = genericQuery def
 
 newtype RebootCacheClusterResponse = RebootCacheClusterResponse
-    { _rccrsCacheCluster :: Maybe CacheCluster
+    { _rccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
-rccrsCacheCluster =
-    lens _rccrsCacheCluster (\s a -> s { _rccrsCacheCluster = a })
+rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
+rccrCacheCluster =
+    lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
 
 instance FromXML RebootCacheClusterResponse where
     fromXMLOptions = xmlOptions

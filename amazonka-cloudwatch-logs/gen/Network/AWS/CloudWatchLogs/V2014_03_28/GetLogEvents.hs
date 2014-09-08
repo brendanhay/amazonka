@@ -61,9 +61,9 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.GetLogEvents
     -- * Response
     , GetLogEventsResponse
     -- ** Response lenses
-    , glersEvents
-    , glersNextForwardToken
-    , glersNextBackwardToken
+    , glerEvents
+    , glerNextForwardToken
+    , glerNextBackwardToken
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -137,27 +137,27 @@ instance ToHeaders GetLogEvents
 instance ToJSON GetLogEvents
 
 data GetLogEventsResponse = GetLogEventsResponse
-    { _glersEvents :: [OutputLogEvent]
-    , _glersNextForwardToken :: Maybe Text
-    , _glersNextBackwardToken :: Maybe Text
+    { _glerEvents :: [OutputLogEvent]
+    , _glerNextForwardToken :: Maybe Text
+    , _glerNextBackwardToken :: Maybe Text
     } deriving (Show, Generic)
 
-glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
-glersEvents = lens _glersEvents (\s a -> s { _glersEvents = a })
+glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
+glerEvents = lens _glerEvents (\s a -> s { _glerEvents = a })
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-glersNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glersNextForwardToken =
-    lens _glersNextForwardToken (\s a -> s { _glersNextForwardToken = a })
+glerNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
+glerNextForwardToken =
+    lens _glerNextForwardToken (\s a -> s { _glerNextForwardToken = a })
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glersNextBackwardToken =
-    lens _glersNextBackwardToken (\s a -> s { _glersNextBackwardToken = a })
+glerNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
+glerNextBackwardToken =
+    lens _glerNextBackwardToken (\s a -> s { _glerNextBackwardToken = a })
 
 instance FromJSON GetLogEventsResponse
 

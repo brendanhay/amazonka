@@ -74,7 +74,7 @@ module Network.AWS.Kinesis.V2013_12_02.DescribeStream
     -- * Response
     , DescribeStreamResponse
     -- ** Response lenses
-    , dsrsStreamDescription
+    , dsrStreamDescription
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -122,15 +122,15 @@ instance ToJSON DescribeStream
 
 -- | Represents the output of a DescribeStream operation.
 newtype DescribeStreamResponse = DescribeStreamResponse
-    { _dsrsStreamDescription :: StreamDescription
+    { _dsrStreamDescription :: StreamDescription
     } deriving (Show, Generic)
 
 -- | Contains the current status of the stream, the stream ARN, an array of
 -- shard objects that comprise the stream, and states whether there are more
 -- shards available.
-dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
-dsrsStreamDescription =
-    lens _dsrsStreamDescription (\s a -> s { _dsrsStreamDescription = a })
+dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
+dsrStreamDescription =
+    lens _dsrStreamDescription (\s a -> s { _dsrStreamDescription = a })
 
 instance FromJSON DescribeStreamResponse
 
@@ -143,6 +143,6 @@ instance AWSRequest DescribeStream where
 
 instance AWSPager DescribeStream where
     next rq rs
-        | not (rs ^. dsrsStreamDescription . sdHasMoreShards) = Nothing
+        | not (rs ^. dsrStreamDescription . sdHasMoreShards) = Nothing
         | otherwise = Just $
-            rq & ds1ExclusiveStartShardId .~ index (dsrsStreamDescription . sdShards) sShardId rs
+            rq & ds1ExclusiveStartShardId .~ index (dsrStreamDescription . sdShards) sShardId rs

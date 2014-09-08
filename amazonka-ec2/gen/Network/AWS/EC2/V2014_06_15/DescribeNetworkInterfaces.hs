@@ -93,7 +93,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaces
     -- * Response
     , DescribeNetworkInterfacesResponse
     -- ** Response lenses
-    , dnirsNetworkInterfaces
+    , dnirNetworkInterfaces
     ) where
 
 import Network.AWS.Request.Query
@@ -182,13 +182,13 @@ instance ToQuery DescribeNetworkInterfaces where
 
 -- | 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
-    { _dnirsNetworkInterfaces :: [NetworkInterface]
+    { _dnirNetworkInterfaces :: [NetworkInterface]
     } deriving (Show, Generic)
 
 -- | Information about one or more network interfaces.
-dnirsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
-dnirsNetworkInterfaces =
-    lens _dnirsNetworkInterfaces (\s a -> s { _dnirsNetworkInterfaces = a })
+dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
+dnirNetworkInterfaces =
+    lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
 
 instance FromXML DescribeNetworkInterfacesResponse where
     fromXMLOptions = xmlOptions

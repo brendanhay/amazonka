@@ -28,7 +28,7 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheckCount
     -- * Response
     , GetHealthCheckCountResponse
     -- ** Response lenses
-    , ghccrsHealthCheckCount
+    , ghccrHealthCheckCount
     ) where
 
 import Network.AWS.Request.RestXML
@@ -60,13 +60,13 @@ instance ToXML GetHealthCheckCount where
 -- | A complex type that contains the count of health checks associated with the
 -- current AWS account.
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
-    { _ghccrsHealthCheckCount :: Integer
+    { _ghccrHealthCheckCount :: Integer
     } deriving (Show, Generic)
 
 -- | The number of health checks associated with the current AWS account.
-ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
-ghccrsHealthCheckCount =
-    lens _ghccrsHealthCheckCount (\s a -> s { _ghccrsHealthCheckCount = a })
+ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
+ghccrHealthCheckCount =
+    lens _ghccrHealthCheckCount (\s a -> s { _ghccrHealthCheckCount = a })
 
 instance FromXML GetHealthCheckCountResponse where
     fromXMLOptions = xmlOptions

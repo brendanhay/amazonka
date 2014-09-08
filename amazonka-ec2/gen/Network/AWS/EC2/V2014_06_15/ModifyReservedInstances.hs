@@ -44,7 +44,7 @@ module Network.AWS.EC2.V2014_06_15.ModifyReservedInstances
     -- * Response
     , ModifyReservedInstancesResponse
     -- ** Response lenses
-    , mrirsReservedInstancesModificationId
+    , mrirReservedInstancesModificationId
     ) where
 
 import Network.AWS.Request.Query
@@ -91,14 +91,14 @@ instance ToQuery ModifyReservedInstances where
 
 -- | 
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
-    { _mrirsReservedInstancesModificationId :: Maybe Text
+    { _mrirReservedInstancesModificationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID for the modification.
-mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
-mrirsReservedInstancesModificationId =
-    lens _mrirsReservedInstancesModificationId
-         (\s a -> s { _mrirsReservedInstancesModificationId = a })
+mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
+mrirReservedInstancesModificationId =
+    lens _mrirReservedInstancesModificationId
+         (\s a -> s { _mrirReservedInstancesModificationId = a })
 
 instance FromXML ModifyReservedInstancesResponse where
     fromXMLOptions = xmlOptions

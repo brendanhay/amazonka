@@ -31,12 +31,12 @@ module Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus
     -- * Response
     , DescribeLoggingStatusResponse
     -- ** Response lenses
-    , dlsrsLoggingEnabled
-    , dlsrsBucketName
-    , dlsrsS3KeyPrefix
-    , dlsrsLastSuccessfulDeliveryTime
-    , dlsrsLastFailureTime
-    , dlsrsLastFailureMessage
+    , dlsrLoggingEnabled
+    , dlsrBucketName
+    , dlsrS3KeyPrefix
+    , dlsrLastSuccessfulDeliveryTime
+    , dlsrLastFailureTime
+    , dlsrLastFailureMessage
     ) where
 
 import Network.AWS.Request.Query
@@ -67,44 +67,42 @@ instance ToQuery DescribeLoggingStatus where
 
 -- | Describes the status of logging for a cluster.
 data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
-    { _dlsrsLoggingEnabled :: Maybe Bool
-    , _dlsrsBucketName :: Maybe Text
-    , _dlsrsS3KeyPrefix :: Maybe Text
-    , _dlsrsLastSuccessfulDeliveryTime :: Maybe ISO8601
-    , _dlsrsLastFailureTime :: Maybe ISO8601
-    , _dlsrsLastFailureMessage :: Maybe Text
+    { _dlsrLoggingEnabled :: Maybe Bool
+    , _dlsrBucketName :: Maybe Text
+    , _dlsrS3KeyPrefix :: Maybe Text
+    , _dlsrLastSuccessfulDeliveryTime :: Maybe ISO8601
+    , _dlsrLastFailureTime :: Maybe ISO8601
+    , _dlsrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
-dlsrsLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)
-dlsrsLoggingEnabled =
-    lens _dlsrsLoggingEnabled (\s a -> s { _dlsrsLoggingEnabled = a })
+dlsrLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)
+dlsrLoggingEnabled =
+    lens _dlsrLoggingEnabled (\s a -> s { _dlsrLoggingEnabled = a })
 
 -- | The name of the S3 bucket where the log files are stored.
-dlsrsBucketName :: Lens' DescribeLoggingStatusResponse (Maybe Text)
-dlsrsBucketName = lens _dlsrsBucketName (\s a -> s { _dlsrsBucketName = a })
+dlsrBucketName :: Lens' DescribeLoggingStatusResponse (Maybe Text)
+dlsrBucketName = lens _dlsrBucketName (\s a -> s { _dlsrBucketName = a })
 
 -- | The prefix applied to the log file names.
-dlsrsS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
-dlsrsS3KeyPrefix =
-    lens _dlsrsS3KeyPrefix (\s a -> s { _dlsrsS3KeyPrefix = a })
+dlsrS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
+dlsrS3KeyPrefix = lens _dlsrS3KeyPrefix (\s a -> s { _dlsrS3KeyPrefix = a })
 
 -- | The last time when logs were delivered.
-dlsrsLastSuccessfulDeliveryTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
-dlsrsLastSuccessfulDeliveryTime =
-    lens _dlsrsLastSuccessfulDeliveryTime
-         (\s a -> s { _dlsrsLastSuccessfulDeliveryTime = a })
+dlsrLastSuccessfulDeliveryTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
+dlsrLastSuccessfulDeliveryTime =
+    lens _dlsrLastSuccessfulDeliveryTime
+         (\s a -> s { _dlsrLastSuccessfulDeliveryTime = a })
 
 -- | The last time when logs failed to be delivered.
-dlsrsLastFailureTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
-dlsrsLastFailureTime =
-    lens _dlsrsLastFailureTime (\s a -> s { _dlsrsLastFailureTime = a })
+dlsrLastFailureTime :: Lens' DescribeLoggingStatusResponse (Maybe ISO8601)
+dlsrLastFailureTime =
+    lens _dlsrLastFailureTime (\s a -> s { _dlsrLastFailureTime = a })
 
 -- | The message indicating that logs failed to be delivered.
-dlsrsLastFailureMessage :: Lens' DescribeLoggingStatusResponse (Maybe Text)
-dlsrsLastFailureMessage =
-    lens _dlsrsLastFailureMessage
-         (\s a -> s { _dlsrsLastFailureMessage = a })
+dlsrLastFailureMessage :: Lens' DescribeLoggingStatusResponse (Maybe Text)
+dlsrLastFailureMessage =
+    lens _dlsrLastFailureMessage (\s a -> s { _dlsrLastFailureMessage = a })
 
 instance FromXML DescribeLoggingStatusResponse where
     fromXMLOptions = xmlOptions

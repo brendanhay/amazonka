@@ -39,7 +39,7 @@ module Network.AWS.IAM.V2010_05_08.CreateInstanceProfile
     -- * Response
     , CreateInstanceProfileResponse
     -- ** Response lenses
-    , ciprsInstanceProfile
+    , ciprInstanceProfile
     ) where
 
 import Network.AWS.Request.Query
@@ -78,13 +78,13 @@ instance ToQuery CreateInstanceProfile where
 -- | Contains the result of a successful invocation of the CreateInstanceProfile
 -- action.
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
-    { _ciprsInstanceProfile :: InstanceProfile
+    { _ciprInstanceProfile :: InstanceProfile
     } deriving (Show, Generic)
 
 -- | Information about the instance profile.
-ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
-ciprsInstanceProfile =
-    lens _ciprsInstanceProfile (\s a -> s { _ciprsInstanceProfile = a })
+ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
+ciprInstanceProfile =
+    lens _ciprInstanceProfile (\s a -> s { _ciprInstanceProfile = a })
 
 instance FromXML CreateInstanceProfileResponse where
     fromXMLOptions = xmlOptions

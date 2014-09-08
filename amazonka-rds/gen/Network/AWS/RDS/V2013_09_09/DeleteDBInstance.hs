@@ -49,7 +49,7 @@ module Network.AWS.RDS.V2013_09_09.DeleteDBInstance
     -- * Response
     , DeleteDBInstanceResponse
     -- ** Response lenses
-    , ddbirsDBInstance
+    , ddbirDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -106,15 +106,14 @@ instance ToQuery DeleteDBInstance where
     toQuery = genericQuery def
 
 newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
-    { _ddbirsDBInstance :: Maybe DBInstance
+    { _ddbirDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-ddbirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
-ddbirsDBInstance =
-    lens _ddbirsDBInstance (\s a -> s { _ddbirsDBInstance = a })
+ddbirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
+ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
 
 instance FromXML DeleteDBInstanceResponse where
     fromXMLOptions = xmlOptions

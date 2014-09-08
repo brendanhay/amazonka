@@ -62,11 +62,11 @@ module Network.AWS.DynamoDB.V2012_08_10.Query
     -- * Response
     , QueryResponse
     -- ** Response lenses
-    , qrsItems
-    , qrsCount
-    , qrsScannedCount
-    , qrsLastEvaluatedKey
-    , qrsConsumedCapacity
+    , qrItems
+    , qrCount
+    , qrScannedCount
+    , qrLastEvaluatedKey
+    , qrConsumedCapacity
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -299,24 +299,24 @@ instance ToJSON Query
 
 -- | Represents the output of a Query operation.
 data QueryResponse = QueryResponse
-    { _qrsItems :: [Map Text AttributeValue]
-    , _qrsCount :: Maybe Integer
-    , _qrsScannedCount :: Maybe Integer
-    , _qrsLastEvaluatedKey :: Map Text AttributeValue
-    , _qrsConsumedCapacity :: Maybe ConsumedCapacity
+    { _qrItems :: [Map Text AttributeValue]
+    , _qrCount :: Maybe Integer
+    , _qrScannedCount :: Maybe Integer
+    , _qrLastEvaluatedKey :: Map Text AttributeValue
+    , _qrConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)
 
 -- | An array of item attributes that match the query criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.
-qrsItems :: Lens' QueryResponse [Map Text AttributeValue]
-qrsItems = lens _qrsItems (\s a -> s { _qrsItems = a })
+qrItems :: Lens' QueryResponse [Map Text AttributeValue]
+qrItems = lens _qrItems (\s a -> s { _qrItems = a })
 
 -- | The number of items in the response.
-qrsCount :: Lens' QueryResponse (Maybe Integer)
-qrsCount = lens _qrsCount (\s a -> s { _qrsCount = a })
+qrCount :: Lens' QueryResponse (Maybe Integer)
+qrCount = lens _qrCount (\s a -> s { _qrCount = a })
 
-qrsScannedCount :: Lens' QueryResponse (Maybe Integer)
-qrsScannedCount = lens _qrsScannedCount (\s a -> s { _qrsScannedCount = a })
+qrScannedCount :: Lens' QueryResponse (Maybe Integer)
+qrScannedCount = lens _qrScannedCount (\s a -> s { _qrScannedCount = a })
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -326,18 +326,18 @@ qrsScannedCount = lens _qrsScannedCount (\s a -> s { _qrsScannedCount = a })
 -- necessarily mean that there is more data in the result set. The only way to
 -- know when you have reached the end of the result set is when
 -- LastEvaluatedKey is null.
-qrsLastEvaluatedKey :: Lens' QueryResponse (Map Text AttributeValue)
-qrsLastEvaluatedKey =
-    lens _qrsLastEvaluatedKey (\s a -> s { _qrsLastEvaluatedKey = a })
+qrLastEvaluatedKey :: Lens' QueryResponse (Map Text AttributeValue)
+qrLastEvaluatedKey =
+    lens _qrLastEvaluatedKey (\s a -> s { _qrLastEvaluatedKey = a })
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-qrsConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
-qrsConsumedCapacity =
-    lens _qrsConsumedCapacity (\s a -> s { _qrsConsumedCapacity = a })
+qrConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
+qrConsumedCapacity =
+    lens _qrConsumedCapacity (\s a -> s { _qrConsumedCapacity = a })
 
 instance FromJSON QueryResponse
 
@@ -351,6 +351,6 @@ instance AWSRequest Query where
 instance AWSPager Query where
     next rq rs
         | nullMap k = Nothing
-        | otherwise  = Just (rq & qExclusiveStartKey .~ k)
+        | otherwise = Just (rq & qExclusiveStartKey .~ k)
       where
-        k = rs ^. qrsLastEvaluatedKey
+        k = rs ^. qrLastEvaluatedKey

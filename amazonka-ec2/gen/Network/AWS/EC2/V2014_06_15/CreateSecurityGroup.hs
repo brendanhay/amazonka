@@ -67,7 +67,7 @@ module Network.AWS.EC2.V2014_06_15.CreateSecurityGroup
     -- * Response
     , CreateSecurityGroupResponse
     -- ** Response lenses
-    , csgrsGroupId
+    , csgrGroupId
     ) where
 
 import Network.AWS.Request.Query
@@ -111,12 +111,12 @@ instance ToQuery CreateSecurityGroup where
 
 -- | 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
-    { _csgrsGroupId :: Maybe Text
+    { _csgrGroupId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the security group.
-csgrsGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
-csgrsGroupId = lens _csgrsGroupId (\s a -> s { _csgrsGroupId = a })
+csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
+csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
 
 instance FromXML CreateSecurityGroupResponse where
     fromXMLOptions = xmlOptions

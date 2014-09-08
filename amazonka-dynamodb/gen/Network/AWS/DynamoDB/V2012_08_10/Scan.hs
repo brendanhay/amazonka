@@ -60,11 +60,11 @@ module Network.AWS.DynamoDB.V2012_08_10.Scan
     -- * Response
     , ScanResponse
     -- ** Response lenses
-    , srsItems
-    , srsCount
-    , srsScannedCount
-    , srsLastEvaluatedKey
-    , srsConsumedCapacity
+    , srItems
+    , srCount
+    , srScannedCount
+    , srLastEvaluatedKey
+    , srConsumedCapacity
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -283,28 +283,28 @@ instance ToJSON Scan
 
 -- | Represents the output of a Scan operation.
 data ScanResponse = ScanResponse
-    { _srsItems :: [Map Text AttributeValue]
-    , _srsCount :: Maybe Integer
-    , _srsScannedCount :: Maybe Integer
-    , _srsLastEvaluatedKey :: Map Text AttributeValue
-    , _srsConsumedCapacity :: Maybe ConsumedCapacity
+    { _srItems :: [Map Text AttributeValue]
+    , _srCount :: Maybe Integer
+    , _srScannedCount :: Maybe Integer
+    , _srLastEvaluatedKey :: Map Text AttributeValue
+    , _srConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)
 
 -- | An array of item attributes that match the scan criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.
-srsItems :: Lens' ScanResponse [Map Text AttributeValue]
-srsItems = lens _srsItems (\s a -> s { _srsItems = a })
+srItems :: Lens' ScanResponse [Map Text AttributeValue]
+srItems = lens _srItems (\s a -> s { _srItems = a })
 
 -- | The number of items in the response.
-srsCount :: Lens' ScanResponse (Maybe Integer)
-srsCount = lens _srsCount (\s a -> s { _srsCount = a })
+srCount :: Lens' ScanResponse (Maybe Integer)
+srCount = lens _srCount (\s a -> s { _srCount = a })
 
 -- | The number of items in the complete scan, before any filters are applied. A
 -- high ScannedCount value with few, or no, Count results indicates an
 -- inefficient Scan operation. For more information, see Count and
 -- ScannedCount in the Amazon DynamoDB Developer Guide.
-srsScannedCount :: Lens' ScanResponse (Maybe Integer)
-srsScannedCount = lens _srsScannedCount (\s a -> s { _srsScannedCount = a })
+srScannedCount :: Lens' ScanResponse (Maybe Integer)
+srScannedCount = lens _srScannedCount (\s a -> s { _srScannedCount = a })
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -314,18 +314,18 @@ srsScannedCount = lens _srsScannedCount (\s a -> s { _srsScannedCount = a })
 -- necessarily mean that there is more data in the result set. The only way to
 -- know when you have reached the end of the result set is when
 -- LastEvaluatedKey is null.
-srsLastEvaluatedKey :: Lens' ScanResponse (Map Text AttributeValue)
-srsLastEvaluatedKey =
-    lens _srsLastEvaluatedKey (\s a -> s { _srsLastEvaluatedKey = a })
+srLastEvaluatedKey :: Lens' ScanResponse (Map Text AttributeValue)
+srLastEvaluatedKey =
+    lens _srLastEvaluatedKey (\s a -> s { _srLastEvaluatedKey = a })
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-srsConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
-srsConsumedCapacity =
-    lens _srsConsumedCapacity (\s a -> s { _srsConsumedCapacity = a })
+srConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
+srConsumedCapacity =
+    lens _srConsumedCapacity (\s a -> s { _srConsumedCapacity = a })
 
 instance FromJSON ScanResponse
 
@@ -339,6 +339,6 @@ instance AWSRequest Scan where
 instance AWSPager Scan where
     next rq rs
         | nullMap k = Nothing
-        | otherwise  = Just (rq & sExclusiveStartKey .~ k)
+        | otherwise = Just (rq & sExclusiveStartKey .~ k)
       where
-        k = rs ^. srsLastEvaluatedKey
+        k = rs ^. srLastEvaluatedKey

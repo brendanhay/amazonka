@@ -33,8 +33,6 @@ module Network.AWS.CloudFront.V2014_05_31.Types
     (
     -- * Service
       CloudFront
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

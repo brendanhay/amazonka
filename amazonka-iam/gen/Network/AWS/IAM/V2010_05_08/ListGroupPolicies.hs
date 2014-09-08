@@ -36,9 +36,9 @@ module Network.AWS.IAM.V2010_05_08.ListGroupPolicies
     -- * Response
     , ListGroupPoliciesResponse
     -- ** Response lenses
-    , lgprsPolicyNames
-    , lgprsIsTruncated
-    , lgprsMarker
+    , lgprPolicyNames
+    , lgprIsTruncated
+    , lgprMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -85,27 +85,25 @@ instance ToQuery ListGroupPolicies where
 -- | Contains the result of a successful invocation of the ListGroupPolicies
 -- action.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
-    { _lgprsPolicyNames :: [Text]
-    , _lgprsIsTruncated :: Bool
-    , _lgprsMarker :: Maybe Text
+    { _lgprPolicyNames :: [Text]
+    , _lgprIsTruncated :: Bool
+    , _lgprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of policy names.
-lgprsPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
-lgprsPolicyNames =
-    lens _lgprsPolicyNames (\s a -> s { _lgprsPolicyNames = a })
+lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
+lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a })
 
 -- | A flag that indicates whether there are more policy names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more policy names in the list.
-lgprsIsTruncated :: Lens' ListGroupPoliciesResponse Bool
-lgprsIsTruncated =
-    lens _lgprsIsTruncated (\s a -> s { _lgprsIsTruncated = a })
+lgprIsTruncated :: Lens' ListGroupPoliciesResponse Bool
+lgprIsTruncated = lens _lgprIsTruncated (\s a -> s { _lgprIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lgprsMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
-lgprsMarker = lens _lgprsMarker (\s a -> s { _lgprsMarker = a })
+lgprMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
+lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 
 instance FromXML ListGroupPoliciesResponse where
     fromXMLOptions = xmlOptions
@@ -119,6 +117,6 @@ instance AWSRequest ListGroupPolicies where
 
 instance AWSPager ListGroupPolicies where
     next rq rs
-        | not (rs ^. lgprsIsTruncated) = Nothing
+        | not (rs ^. lgprIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lgpMarker .~ rs ^. lgprsMarker
+            rq & lgpMarker .~ rs ^. lgprMarker

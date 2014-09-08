@@ -53,9 +53,9 @@ module Network.AWS.DynamoDB.V2012_08_10.DeleteItem
     -- * Response
     , DeleteItemResponse
     -- ** Response lenses
-    , dirsAttributes
-    , dirsConsumedCapacity
-    , dirsItemCollectionMetrics
+    , dirAttributes
+    , dirConsumedCapacity
+    , dirItemCollectionMetrics
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -165,25 +165,25 @@ instance ToJSON DeleteItem
 
 -- | Represents the output of a DeleteItem operation.
 data DeleteItemResponse = DeleteItemResponse
-    { _dirsAttributes :: Map Text AttributeValue
-    , _dirsConsumedCapacity :: Maybe ConsumedCapacity
-    , _dirsItemCollectionMetrics :: Maybe ItemCollectionMetrics
+    { _dirAttributes :: Map Text AttributeValue
+    , _dirConsumedCapacity :: Maybe ConsumedCapacity
+    , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Show, Generic)
 
 -- | A map of attribute names to AttributeValue objects, representing the item
 -- as it appeared before the DeleteItem operation. This map appears in the
 -- response only if ReturnValues was specified as ALL_OLD in the request.
-dirsAttributes :: Lens' DeleteItemResponse (Map Text AttributeValue)
-dirsAttributes = lens _dirsAttributes (\s a -> s { _dirsAttributes = a })
+dirAttributes :: Lens' DeleteItemResponse (Map Text AttributeValue)
+dirAttributes = lens _dirAttributes (\s a -> s { _dirAttributes = a })
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-dirsConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
-dirsConsumedCapacity =
-    lens _dirsConsumedCapacity (\s a -> s { _dirsConsumedCapacity = a })
+dirConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
+dirConsumedCapacity =
+    lens _dirConsumedCapacity (\s a -> s { _dirConsumedCapacity = a })
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
@@ -199,10 +199,10 @@ dirsConsumedCapacity =
 -- secondary index is approaching its size limit. The estimate is subject to
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
-dirsItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
-dirsItemCollectionMetrics =
-    lens _dirsItemCollectionMetrics
-         (\s a -> s { _dirsItemCollectionMetrics = a })
+dirItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
+dirItemCollectionMetrics =
+    lens _dirItemCollectionMetrics
+         (\s a -> s { _dirItemCollectionMetrics = a })
 
 instance FromJSON DeleteItemResponse
 

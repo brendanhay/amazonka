@@ -49,7 +49,7 @@ module Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition
     -- * Response
     , GetPipelineDefinitionResponse
     -- ** Response lenses
-    , gpdrsPipelineObjects
+    , gpdrPipelineObjects
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -92,13 +92,13 @@ instance ToJSON GetPipelineDefinition
 
 -- | Contains the output from the GetPipelineDefinition action.
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
-    { _gpdrsPipelineObjects :: [PipelineObject]
+    { _gpdrPipelineObjects :: [PipelineObject]
     } deriving (Show, Generic)
 
 -- | An array of objects defined in the pipeline.
-gpdrsPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
-gpdrsPipelineObjects =
-    lens _gpdrsPipelineObjects (\s a -> s { _gpdrsPipelineObjects = a })
+gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
+gpdrPipelineObjects =
+    lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })
 
 instance FromJSON GetPipelineDefinitionResponse
 

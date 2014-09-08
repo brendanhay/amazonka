@@ -68,8 +68,8 @@ module Network.AWS.SQS.V2012_11_05.SendMessageBatch
     -- * Response
     , SendMessageBatchResponse
     -- ** Response lenses
-    , smbrsSuccessful
-    , smbrsFailed
+    , smbrSuccessful
+    , smbrFailed
     ) where
 
 import Network.AWS.Request.Query
@@ -107,18 +107,18 @@ instance ToQuery SendMessageBatch where
 -- SendMessageBatchResultEntry tag if the message succeeds or a
 -- BatchResultErrorEntry tag if the message fails.
 data SendMessageBatchResponse = SendMessageBatchResponse
-    { _smbrsSuccessful :: [SendMessageBatchResultEntry]
-    , _smbrsFailed :: [BatchResultErrorEntry]
+    { _smbrSuccessful :: [SendMessageBatchResultEntry]
+    , _smbrFailed :: [BatchResultErrorEntry]
     } deriving (Show, Generic)
 
 -- | A list of SendMessageBatchResultEntry items.
-smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-smbrsSuccessful = lens _smbrsSuccessful (\s a -> s { _smbrsSuccessful = a })
+smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
+smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
 
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
-smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-smbrsFailed = lens _smbrsFailed (\s a -> s { _smbrsFailed = a })
+smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
+smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
 
 instance FromXML SendMessageBatchResponse where
     fromXMLOptions = xmlOptions

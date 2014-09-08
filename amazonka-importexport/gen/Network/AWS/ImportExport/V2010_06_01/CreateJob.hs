@@ -37,12 +37,12 @@ module Network.AWS.ImportExport.V2010_06_01.CreateJob
     -- * Response
     , CreateJobResponse
     -- ** Response lenses
-    , cjrsrsJobId
-    , cjrsrsJobType
-    , cjrsrsAwsShippingAddress
-    , cjrsrsSignature
-    , cjrsrsSignatureFileContents
-    , cjrsrsWarningMessage
+    , cjrrJobId
+    , cjrrJobType
+    , cjrrAwsShippingAddress
+    , cjrrSignature
+    , cjrrSignatureFileContents
+    , cjrrWarningMessage
     ) where
 
 import Network.AWS.Request.Query
@@ -93,46 +93,45 @@ instance ToQuery CreateJob where
 
 -- | Output structure for the CreateJob operation.
 data CreateJobResponse = CreateJobResponse
-    { _cjrsrsJobId :: Maybe Text
-    , _cjrsrsJobType :: Maybe JobType
-    , _cjrsrsAwsShippingAddress :: Maybe Text
-    , _cjrsrsSignature :: Maybe Text
-    , _cjrsrsSignatureFileContents :: Maybe Text
-    , _cjrsrsWarningMessage :: Maybe Text
+    { _cjrrJobId :: Maybe Text
+    , _cjrrJobType :: Maybe JobType
+    , _cjrrAwsShippingAddress :: Maybe Text
+    , _cjrrSignature :: Maybe Text
+    , _cjrrSignatureFileContents :: Maybe Text
+    , _cjrrWarningMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A unique identifier which refers to a particular job.
-cjrsrsJobId :: Lens' CreateJobResponse (Maybe Text)
-cjrsrsJobId = lens _cjrsrsJobId (\s a -> s { _cjrsrsJobId = a })
+cjrrJobId :: Lens' CreateJobResponse (Maybe Text)
+cjrrJobId = lens _cjrrJobId (\s a -> s { _cjrrJobId = a })
 
 -- | Specifies whether the job to initiate is an import or export job.
-cjrsrsJobType :: Lens' CreateJobResponse (Maybe JobType)
-cjrsrsJobType = lens _cjrsrsJobType (\s a -> s { _cjrsrsJobType = a })
+cjrrJobType :: Lens' CreateJobResponse (Maybe JobType)
+cjrrJobType = lens _cjrrJobType (\s a -> s { _cjrrJobType = a })
 
 -- | Address you ship your storage device to.
-cjrsrsAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
-cjrsrsAwsShippingAddress =
-    lens _cjrsrsAwsShippingAddress
-         (\s a -> s { _cjrsrsAwsShippingAddress = a })
+cjrrAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
+cjrrAwsShippingAddress =
+    lens _cjrrAwsShippingAddress (\s a -> s { _cjrrAwsShippingAddress = a })
 
 -- | An encrypted code used to authenticate the request and response, for
 -- example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to
 -- create the signature file yourself. Generally you should use the
 -- SignatureFileContents value.
-cjrsrsSignature :: Lens' CreateJobResponse (Maybe Text)
-cjrsrsSignature = lens _cjrsrsSignature (\s a -> s { _cjrsrsSignature = a })
+cjrrSignature :: Lens' CreateJobResponse (Maybe Text)
+cjrrSignature = lens _cjrrSignature (\s a -> s { _cjrrSignature = a })
 
 -- | The actual text of the SIGNATURE file to be written to disk.
-cjrsrsSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
-cjrsrsSignatureFileContents =
-    lens _cjrsrsSignatureFileContents
-         (\s a -> s { _cjrsrsSignatureFileContents = a })
+cjrrSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
+cjrrSignatureFileContents =
+    lens _cjrrSignatureFileContents
+         (\s a -> s { _cjrrSignatureFileContents = a })
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
-cjrsrsWarningMessage :: Lens' CreateJobResponse (Maybe Text)
-cjrsrsWarningMessage =
-    lens _cjrsrsWarningMessage (\s a -> s { _cjrsrsWarningMessage = a })
+cjrrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
+cjrrWarningMessage =
+    lens _cjrrWarningMessage (\s a -> s { _cjrrWarningMessage = a })
 
 instance FromXML CreateJobResponse where
     fromXMLOptions = xmlOptions

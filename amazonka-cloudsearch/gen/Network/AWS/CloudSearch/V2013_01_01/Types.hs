@@ -27,8 +27,6 @@ module Network.AWS.CloudSearch.V2013_01_01.Types
     (
     -- * Service
       CloudSearch
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

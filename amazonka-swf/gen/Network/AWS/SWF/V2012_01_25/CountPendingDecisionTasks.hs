@@ -59,8 +59,8 @@ module Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks
     -- * Response
     , CountPendingDecisionTasksResponse
     -- ** Response lenses
-    , cpdtrsCount
-    , cpdtrsTruncated
+    , cpdtrCount
+    , cpdtrTruncated
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -100,18 +100,18 @@ instance ToJSON CountPendingDecisionTasks
 
 -- | Contains the count of tasks in a task list.
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
-    { _cpdtrsCount :: Integer
-    , _cpdtrsTruncated :: Maybe Bool
+    { _cpdtrCount :: Integer
+    , _cpdtrTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The number of tasks in the task list.
-cpdtrsCount :: Lens' CountPendingDecisionTasksResponse Integer
-cpdtrsCount = lens _cpdtrsCount (\s a -> s { _cpdtrsCount = a })
+cpdtrCount :: Lens' CountPendingDecisionTasksResponse Integer
+cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a })
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-cpdtrsTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
-cpdtrsTruncated = lens _cpdtrsTruncated (\s a -> s { _cpdtrsTruncated = a })
+cpdtrTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
+cpdtrTruncated = lens _cpdtrTruncated (\s a -> s { _cpdtrTruncated = a })
 
 instance FromJSON CountPendingDecisionTasksResponse
 

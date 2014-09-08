@@ -31,8 +31,8 @@ module Network.AWS.CloudFront.V2014_05_31.CreateInvalidation
     -- * Response
     , CreateInvalidationResponse
     -- ** Response lenses
-    , cirsLocation
-    , cirsInvalidation
+    , cirLocation
+    , cirInvalidation
     ) where
 
 import Network.AWS.Request.RestXML
@@ -83,19 +83,18 @@ instance ToXML CreateInvalidation where
 
 -- | The returned result of the corresponding request.
 data CreateInvalidationResponse = CreateInvalidationResponse
-    { _cirsLocation :: Maybe Text
-    , _cirsInvalidation :: Maybe Invalidation
+    { _cirLocation :: Maybe Text
+    , _cirInvalidation :: Maybe Invalidation
     } deriving (Show, Generic)
 
 -- | The fully qualified URI of the distribution and invalidation batch request,
 -- including the Invalidation ID.
-cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
-cirsLocation = lens _cirsLocation (\s a -> s { _cirsLocation = a })
+cirLocation :: Lens' CreateInvalidationResponse (Maybe Text)
+cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 
 -- | The invalidation's information.
-cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
-cirsInvalidation =
-    lens _cirsInvalidation (\s a -> s { _cirsInvalidation = a })
+cirInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
+cirInvalidation = lens _cirInvalidation (\s a -> s { _cirInvalidation = a })
 
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront

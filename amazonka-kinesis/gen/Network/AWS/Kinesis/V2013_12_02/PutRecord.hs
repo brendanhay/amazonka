@@ -70,8 +70,8 @@ module Network.AWS.Kinesis.V2013_12_02.PutRecord
     -- * Response
     , PutRecordResponse
     -- ** Response lenses
-    , prrsShardId
-    , prrsSequenceNumber
+    , prrShardId
+    , prrSequenceNumber
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -149,21 +149,21 @@ instance ToJSON PutRecord
 
 -- | Represents the output of a PutRecord operation.
 data PutRecordResponse = PutRecordResponse
-    { _prrsShardId :: Text
-    , _prrsSequenceNumber :: Text
+    { _prrShardId :: Text
+    , _prrSequenceNumber :: Text
     } deriving (Show, Generic)
 
 -- | The shard ID of the shard where the data record was placed.
-prrsShardId :: Lens' PutRecordResponse Text
-prrsShardId = lens _prrsShardId (\s a -> s { _prrsShardId = a })
+prrShardId :: Lens' PutRecordResponse Text
+prrShardId = lens _prrShardId (\s a -> s { _prrShardId = a })
 
 -- | The sequence number identifier that was assigned to the put data record.
 -- The sequence number for the record is unique across all records in the
 -- stream. A sequence number is the identifier associated with every record
 -- put into the stream.
-prrsSequenceNumber :: Lens' PutRecordResponse Text
-prrsSequenceNumber =
-    lens _prrsSequenceNumber (\s a -> s { _prrsSequenceNumber = a })
+prrSequenceNumber :: Lens' PutRecordResponse Text
+prrSequenceNumber =
+    lens _prrSequenceNumber (\s a -> s { _prrSequenceNumber = a })
 
 instance FromJSON PutRecordResponse
 

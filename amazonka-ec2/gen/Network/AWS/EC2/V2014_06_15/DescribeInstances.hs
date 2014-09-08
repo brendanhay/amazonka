@@ -139,8 +139,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstances
     -- * Response
     , DescribeInstancesResponse
     -- ** Response lenses
-    , dirsrsReservations
-    , dirsrsNextToken
+    , dirrReservations
+    , dirrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -310,19 +310,19 @@ instance ToQuery DescribeInstances where
 
 -- | 
 data DescribeInstancesResponse = DescribeInstancesResponse
-    { _dirsrsReservations :: [Reservation]
-    , _dirsrsNextToken :: Maybe Text
+    { _dirrReservations :: [Reservation]
+    , _dirrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | One or more reservations.
-dirsrsReservations :: Lens' DescribeInstancesResponse [Reservation]
-dirsrsReservations =
-    lens _dirsrsReservations (\s a -> s { _dirsrsReservations = a })
+dirrReservations :: Lens' DescribeInstancesResponse [Reservation]
+dirrReservations =
+    lens _dirrReservations (\s a -> s { _dirrReservations = a })
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dirsrsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
-dirsrsNextToken = lens _dirsrsNextToken (\s a -> s { _dirsrsNextToken = a })
+dirrNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
+dirrNextToken = lens _dirrNextToken (\s a -> s { _dirrNextToken = a })
 
 instance FromXML DescribeInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -336,4 +336,4 @@ instance AWSRequest DescribeInstances where
 
 instance AWSPager DescribeInstances where
     next rq rs = (\x -> rq & di2NextToken ?~ x)
-        <$> (rs ^. dirsrsNextToken)
+        <$> (rs ^. dirrNextToken)

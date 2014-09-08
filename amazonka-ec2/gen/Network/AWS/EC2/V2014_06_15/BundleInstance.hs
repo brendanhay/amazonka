@@ -57,7 +57,7 @@ module Network.AWS.EC2.V2014_06_15.BundleInstance
     -- * Response
     , BundleInstanceResponse
     -- ** Response lenses
-    , birsBundleTask
+    , birBundleTask
     ) where
 
 import Network.AWS.Request.Query
@@ -95,12 +95,12 @@ instance ToQuery BundleInstance where
 
 -- | 
 newtype BundleInstanceResponse = BundleInstanceResponse
-    { _birsBundleTask :: Maybe BundleTask
+    { _birBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
 
 -- | Information about the bundle task.
-birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
-birsBundleTask = lens _birsBundleTask (\s a -> s { _birsBundleTask = a })
+birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
+birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
 
 instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions

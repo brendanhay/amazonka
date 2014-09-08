@@ -58,9 +58,9 @@ module Network.AWS.StorageGateway.V2013_06_30.ListVolumes
     -- * Response
     , ListVolumesResponse
     -- ** Response lenses
-    , lvrsGatewayARN
-    , lvrsMarker
-    , lvrsVolumeInfos
+    , lvrGatewayARN
+    , lvrMarker
+    , lvrVolumeInfos
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -110,21 +110,21 @@ instance ToHeaders ListVolumes
 instance ToJSON ListVolumes
 
 data ListVolumesResponse = ListVolumesResponse
-    { _lvrsGatewayARN :: Maybe Text
-    , _lvrsMarker :: Maybe Text
-    , _lvrsVolumeInfos :: [VolumeInformation]
+    { _lvrGatewayARN :: Maybe Text
+    , _lvrMarker :: Maybe Text
+    , _lvrVolumeInfos :: [VolumeInformation]
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
-lvrsGatewayARN = lens _lvrsGatewayARN (\s a -> s { _lvrsGatewayARN = a })
+lvrGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
+lvrGatewayARN = lens _lvrGatewayARN (\s a -> s { _lvrGatewayARN = a })
 
-lvrsMarker :: Lens' ListVolumesResponse (Maybe Text)
-lvrsMarker = lens _lvrsMarker (\s a -> s { _lvrsMarker = a })
+lvrMarker :: Lens' ListVolumesResponse (Maybe Text)
+lvrMarker = lens _lvrMarker (\s a -> s { _lvrMarker = a })
 
-lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInformation]
-lvrsVolumeInfos = lens _lvrsVolumeInfos (\s a -> s { _lvrsVolumeInfos = a })
+lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInformation]
+lvrVolumeInfos = lens _lvrVolumeInfos (\s a -> s { _lvrVolumeInfos = a })
 
 instance FromJSON ListVolumesResponse
 
@@ -137,4 +137,4 @@ instance AWSRequest ListVolumes where
 
 instance AWSPager ListVolumes where
     next rq rs = (\x -> rq & lvMarker ?~ x)
-        <$> (rs ^. lvrsMarker)
+        <$> (rs ^. lvrMarker)

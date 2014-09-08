@@ -42,7 +42,7 @@ module Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer
     -- * Response
     , DeregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
-    , diflbrsInstances
+    , diflbrInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -79,13 +79,12 @@ instance ToQuery DeregisterInstancesFromLoadBalancer where
 
 -- | The output for the DeregisterInstancesFromLoadBalancer action.
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
-    { _diflbrsInstances :: [Instance]
+    { _diflbrInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | An updated list of remaining instances registered with the load balancer.
-diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
-diflbrsInstances =
-    lens _diflbrsInstances (\s a -> s { _diflbrsInstances = a })
+diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
+diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a })
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
     fromXMLOptions = xmlOptions

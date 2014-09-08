@@ -45,10 +45,10 @@ module Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool
     -- * Response
     , UpdateIdentityPoolResponse
     -- ** Response lenses
-    , uiprsIdentityPoolId
-    , uiprsIdentityPoolName
-    , uiprsAllowUnauthenticatedIdentities
-    , uiprsSupportedLoginProviders
+    , uiprIdentityPoolId
+    , uiprIdentityPoolName
+    , uiprAllowUnauthenticatedIdentities
+    , uiprSupportedLoginProviders
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -108,33 +108,33 @@ instance ToJSON UpdateIdentityPool
 
 -- | An object representing a Cognito identity pool.
 data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
-    { _uiprsIdentityPoolId :: Text
-    , _uiprsIdentityPoolName :: Text
-    , _uiprsAllowUnauthenticatedIdentities :: Bool
-    , _uiprsSupportedLoginProviders :: Map Text Text
+    { _uiprIdentityPoolId :: Text
+    , _uiprIdentityPoolName :: Text
+    , _uiprAllowUnauthenticatedIdentities :: Bool
+    , _uiprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-uiprsIdentityPoolId :: Lens' UpdateIdentityPoolResponse Text
-uiprsIdentityPoolId =
-    lens _uiprsIdentityPoolId (\s a -> s { _uiprsIdentityPoolId = a })
+uiprIdentityPoolId :: Lens' UpdateIdentityPoolResponse Text
+uiprIdentityPoolId =
+    lens _uiprIdentityPoolId (\s a -> s { _uiprIdentityPoolId = a })
 
 -- | A string that you provide.
-uiprsIdentityPoolName :: Lens' UpdateIdentityPoolResponse Text
-uiprsIdentityPoolName =
-    lens _uiprsIdentityPoolName (\s a -> s { _uiprsIdentityPoolName = a })
+uiprIdentityPoolName :: Lens' UpdateIdentityPoolResponse Text
+uiprIdentityPoolName =
+    lens _uiprIdentityPoolName (\s a -> s { _uiprIdentityPoolName = a })
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-uiprsAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPoolResponse Bool
-uiprsAllowUnauthenticatedIdentities =
-    lens _uiprsAllowUnauthenticatedIdentities
-         (\s a -> s { _uiprsAllowUnauthenticatedIdentities = a })
+uiprAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPoolResponse Bool
+uiprAllowUnauthenticatedIdentities =
+    lens _uiprAllowUnauthenticatedIdentities
+         (\s a -> s { _uiprAllowUnauthenticatedIdentities = a })
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-uiprsSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (Map Text Text)
-uiprsSupportedLoginProviders =
-    lens _uiprsSupportedLoginProviders
-         (\s a -> s { _uiprsSupportedLoginProviders = a })
+uiprSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (Map Text Text)
+uiprSupportedLoginProviders =
+    lens _uiprSupportedLoginProviders
+         (\s a -> s { _uiprSupportedLoginProviders = a })
 
 instance FromJSON UpdateIdentityPoolResponse
 

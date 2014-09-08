@@ -32,13 +32,13 @@ module Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus
     -- * Response
     , GetTrailStatusResponse
     -- ** Response lenses
-    , gtsrsIsLogging
-    , gtsrsLatestDeliveryError
-    , gtsrsLatestNotificationError
-    , gtsrsLatestDeliveryTime
-    , gtsrsLatestNotificationTime
-    , gtsrsStartLoggingTime
-    , gtsrsStopLoggingTime
+    , gtsrIsLogging
+    , gtsrLatestDeliveryError
+    , gtsrLatestNotificationError
+    , gtsrLatestDeliveryTime
+    , gtsrLatestNotificationTime
+    , gtsrStartLoggingTime
+    , gtsrStopLoggingTime
     ) where
 
 import Network.AWS.CloudTrail.V2013_11_01.Types
@@ -73,60 +73,59 @@ instance ToJSON GetTrailStatus
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
 data GetTrailStatusResponse = GetTrailStatusResponse
-    { _gtsrsIsLogging :: Maybe Bool
-    , _gtsrsLatestDeliveryError :: Maybe Text
-    , _gtsrsLatestNotificationError :: Maybe Text
-    , _gtsrsLatestDeliveryTime :: Maybe ISO8601
-    , _gtsrsLatestNotificationTime :: Maybe ISO8601
-    , _gtsrsStartLoggingTime :: Maybe ISO8601
-    , _gtsrsStopLoggingTime :: Maybe ISO8601
+    { _gtsrIsLogging :: Maybe Bool
+    , _gtsrLatestDeliveryError :: Maybe Text
+    , _gtsrLatestNotificationError :: Maybe Text
+    , _gtsrLatestDeliveryTime :: Maybe ISO8601
+    , _gtsrLatestNotificationTime :: Maybe ISO8601
+    , _gtsrStartLoggingTime :: Maybe ISO8601
+    , _gtsrStopLoggingTime :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Whether the CloudTrail is currently logging AWS API calls.
-gtsrsIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)
-gtsrsIsLogging = lens _gtsrsIsLogging (\s a -> s { _gtsrsIsLogging = a })
+gtsrIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)
+gtsrIsLogging = lens _gtsrIsLogging (\s a -> s { _gtsrIsLogging = a })
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting to
 -- deliver log files to the designated bucket. For more information see the
 -- topic Error Responses in the Amazon S3 API Reference.
-gtsrsLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
-gtsrsLatestDeliveryError =
-    lens _gtsrsLatestDeliveryError
-         (\s a -> s { _gtsrsLatestDeliveryError = a })
+gtsrLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrLatestDeliveryError =
+    lens _gtsrLatestDeliveryError
+         (\s a -> s { _gtsrLatestDeliveryError = a })
 
 -- | Displays any Amazon SNS error that CloudTrail encountered when attempting
 -- to send a notification. For more information about Amazon SNS errors, see
 -- the Amazon SNS Developer Guide.
-gtsrsLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
-gtsrsLatestNotificationError =
-    lens _gtsrsLatestNotificationError
-         (\s a -> s { _gtsrsLatestNotificationError = a })
+gtsrLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrLatestNotificationError =
+    lens _gtsrLatestNotificationError
+         (\s a -> s { _gtsrLatestNotificationError = a })
 
 -- | Specifies the date and time that CloudTrail last delivered log files to an
 -- account's Amazon S3 bucket.
-gtsrsLatestDeliveryTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtsrsLatestDeliveryTime =
-    lens _gtsrsLatestDeliveryTime
-         (\s a -> s { _gtsrsLatestDeliveryTime = a })
+gtsrLatestDeliveryTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrLatestDeliveryTime =
+    lens _gtsrLatestDeliveryTime (\s a -> s { _gtsrLatestDeliveryTime = a })
 
 -- | Specifies the date and time of the most recent Amazon SNS notification that
 -- CloudTrail has written a new log file to an account's Amazon S3 bucket.
-gtsrsLatestNotificationTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtsrsLatestNotificationTime =
-    lens _gtsrsLatestNotificationTime
-         (\s a -> s { _gtsrsLatestNotificationTime = a })
+gtsrLatestNotificationTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrLatestNotificationTime =
+    lens _gtsrLatestNotificationTime
+         (\s a -> s { _gtsrLatestNotificationTime = a })
 
 -- | Specifies the most recent date and time when CloudTrail started recording
 -- API calls for an AWS account.
-gtsrsStartLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtsrsStartLoggingTime =
-    lens _gtsrsStartLoggingTime (\s a -> s { _gtsrsStartLoggingTime = a })
+gtsrStartLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrStartLoggingTime =
+    lens _gtsrStartLoggingTime (\s a -> s { _gtsrStartLoggingTime = a })
 
 -- | Specifies the most recent date and time when CloudTrail stopped recording
 -- API calls for an AWS account.
-gtsrsStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
-gtsrsStopLoggingTime =
-    lens _gtsrsStopLoggingTime (\s a -> s { _gtsrsStopLoggingTime = a })
+gtsrStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe ISO8601)
+gtsrStopLoggingTime =
+    lens _gtsrStopLoggingTime (\s a -> s { _gtsrStopLoggingTime = a })
 
 instance FromJSON GetTrailStatusResponse
 

@@ -54,8 +54,8 @@ module Network.AWS.Kinesis.V2013_12_02.ListStreams
     -- * Response
     , ListStreamsResponse
     -- ** Response lenses
-    , lsrsStreamNames
-    , lsrsHasMoreStreams
+    , lsrStreamNames
+    , lsrHasMoreStreams
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -96,19 +96,19 @@ instance ToJSON ListStreams
 
 -- | Represents the output of a ListStreams operation.
 data ListStreamsResponse = ListStreamsResponse
-    { _lsrsStreamNames :: [Text]
-    , _lsrsHasMoreStreams :: Bool
+    { _lsrStreamNames :: [Text]
+    , _lsrHasMoreStreams :: Bool
     } deriving (Show, Generic)
 
 -- | The names of the streams that are associated with the AWS account making
 -- the ListStreams request.
-lsrsStreamNames :: Lens' ListStreamsResponse [Text]
-lsrsStreamNames = lens _lsrsStreamNames (\s a -> s { _lsrsStreamNames = a })
+lsrStreamNames :: Lens' ListStreamsResponse [Text]
+lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a })
 
 -- | If set to true, there are more streams available to list.
-lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
-lsrsHasMoreStreams =
-    lens _lsrsHasMoreStreams (\s a -> s { _lsrsHasMoreStreams = a })
+lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
+lsrHasMoreStreams =
+    lens _lsrHasMoreStreams (\s a -> s { _lsrHasMoreStreams = a })
 
 instance FromJSON ListStreamsResponse
 
@@ -121,6 +121,6 @@ instance AWSRequest ListStreams where
 
 instance AWSPager ListStreams where
     next rq rs
-        | not (rs ^. lsrsHasMoreStreams) = Nothing
+        | not (rs ^. lsrHasMoreStreams) = Nothing
         | otherwise = Just $
-            rq & lsExclusiveStartStreamName .~ index lsrsStreamNames (to id) rs
+            rq & lsExclusiveStartStreamName .~ index lsrStreamNames (to id) rs

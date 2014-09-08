@@ -41,7 +41,7 @@ module Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering
     -- * Response
     , PurchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
-    , prdbiorsReservedDBInstance
+    , prdbiorReservedDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -94,16 +94,16 @@ instance ToQuery PurchaseReservedDBInstancesOffering where
     toQuery = genericQuery def
 
 newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
-    { _prdbiorsReservedDBInstance :: Maybe ReservedDBInstance
+    { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
     } deriving (Show, Generic)
 
 -- | This data type is used as a response element in the
 -- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
 -- actions.
-prdbiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
-prdbiorsReservedDBInstance =
-    lens _prdbiorsReservedDBInstance
-         (\s a -> s { _prdbiorsReservedDBInstance = a })
+prdbiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
+prdbiorReservedDBInstance =
+    lens _prdbiorReservedDBInstance
+         (\s a -> s { _prdbiorReservedDBInstance = a })
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     fromXMLOptions = xmlOptions

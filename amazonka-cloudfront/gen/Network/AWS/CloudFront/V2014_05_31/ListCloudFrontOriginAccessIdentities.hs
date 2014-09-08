@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
-    , lcfoairsCloudFrontOriginAccessIdentityList
+    , lcfoairCloudFrontOriginAccessIdentityList
     ) where
 
 import Network.AWS.Request.RestXML
@@ -83,14 +83,14 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
 
 -- | The returned result of the corresponding request.
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoairsCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
+    { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
     } deriving (Show, Generic)
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
-lcfoairsCloudFrontOriginAccessIdentityList =
-    lens _lcfoairsCloudFrontOriginAccessIdentityList
-         (\s a -> s { _lcfoairsCloudFrontOriginAccessIdentityList = a })
+lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
+lcfoairCloudFrontOriginAccessIdentityList =
+    lens _lcfoairCloudFrontOriginAccessIdentityList
+         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     fromXMLOptions = xmlOptions
@@ -104,6 +104,6 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs
-        | not (rs ^. lcfoairsCloudFrontOriginAccessIdentityList . cfoailIsTruncated) = Nothing
+        | not (rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lcfoaiMarker .~ rs ^. lcfoairsCloudFrontOriginAccessIdentityList . cfoailNextMarker
+            rq & lcfoaiMarker .~ rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker

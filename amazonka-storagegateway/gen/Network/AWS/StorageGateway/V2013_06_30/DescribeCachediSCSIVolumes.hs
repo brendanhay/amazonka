@@ -55,7 +55,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes
     -- * Response
     , DescribeCachediSCSIVolumesResponse
     -- ** Response lenses
-    , dcscsivrsCachediSCSIVolumes
+    , dcscsivrCachediSCSIVolumes
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -88,15 +88,15 @@ instance ToJSON DescribeCachediSCSIVolumes
 
 -- | A JSON object containing the following fields:.
 newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
-    { _dcscsivrsCachediSCSIVolumes :: [CachediSCSIVolumeInformation]
+    { _dcscsivrCachediSCSIVolumes :: [CachediSCSIVolumeInformation]
     } deriving (Show, Generic)
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
-dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolumeInformation]
-dcscsivrsCachediSCSIVolumes =
-    lens _dcscsivrsCachediSCSIVolumes
-         (\s a -> s { _dcscsivrsCachediSCSIVolumes = a })
+dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolumeInformation]
+dcscsivrCachediSCSIVolumes =
+    lens _dcscsivrCachediSCSIVolumes
+         (\s a -> s { _dcscsivrCachediSCSIVolumes = a })
 
 instance FromJSON DescribeCachediSCSIVolumesResponse
 

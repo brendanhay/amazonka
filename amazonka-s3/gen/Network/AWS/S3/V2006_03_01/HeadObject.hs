@@ -42,26 +42,26 @@ module Network.AWS.S3.V2006_03_01.HeadObject
     -- * Response
     , HeadObjectResponse
     -- ** Response lenses
-    , horsDeleteMarker
-    , horsAcceptRanges
-    , horsExpiration
-    , horsRestore
-    , horsLastModified
-    , horsContentLength
-    , horsETag
-    , horsMissingMeta
-    , horsVersionId
-    , horsCacheControl
-    , horsContentDisposition
-    , horsContentEncoding
-    , horsContentLanguage
-    , horsContentType
-    , horsExpires
-    , horsWebsiteRedirectLocation
-    , horsServerSideEncryption
-    , horsMetadata
-    , horsSSECustomerAlgorithm
-    , horsSSECustomerKeyMD5
+    , horDeleteMarker
+    , horAcceptRanges
+    , horExpiration
+    , horRestore
+    , horLastModified
+    , horContentLength
+    , horETag
+    , horMissingMeta
+    , horVersionId
+    , horCacheControl
+    , horContentDisposition
+    , horContentEncoding
+    , horContentLanguage
+    , horContentType
+    , horExpires
+    , horWebsiteRedirectLocation
+    , horServerSideEncryption
+    , horMetadata
+    , horSSECustomerAlgorithm
+    , horSSECustomerKeyMD5
     ) where
 
 import Network.AWS.Request.RestS3
@@ -190,139 +190,135 @@ instance ToHeaders HeadObject where
 instance ToBody HeadObject
 
 data HeadObjectResponse = HeadObjectResponse
-    { _horsDeleteMarker :: Maybe Bool
-    , _horsAcceptRanges :: Maybe Text
-    , _horsExpiration :: Maybe RFC822
-    , _horsRestore :: Maybe Text
-    , _horsLastModified :: Maybe RFC822
-    , _horsContentLength :: Maybe Integer
-    , _horsETag :: Maybe ETag
-    , _horsMissingMeta :: Maybe Integer
-    , _horsVersionId :: Maybe ObjectVersionId
-    , _horsCacheControl :: Maybe Text
-    , _horsContentDisposition :: Maybe Text
-    , _horsContentEncoding :: Maybe Text
-    , _horsContentLanguage :: Maybe Text
-    , _horsContentType :: Maybe Text
-    , _horsExpires :: Maybe RFC822
-    , _horsWebsiteRedirectLocation :: Maybe Text
-    , _horsServerSideEncryption :: Maybe ServerSideEncryption
-    , _horsMetadata :: Map Text Text
-    , _horsSSECustomerAlgorithm :: Maybe Text
-    , _horsSSECustomerKeyMD5 :: Maybe Text
+    { _horDeleteMarker :: Maybe Bool
+    , _horAcceptRanges :: Maybe Text
+    , _horExpiration :: Maybe RFC822
+    , _horRestore :: Maybe Text
+    , _horLastModified :: Maybe RFC822
+    , _horContentLength :: Maybe Integer
+    , _horETag :: Maybe ETag
+    , _horMissingMeta :: Maybe Integer
+    , _horVersionId :: Maybe ObjectVersionId
+    , _horCacheControl :: Maybe Text
+    , _horContentDisposition :: Maybe Text
+    , _horContentEncoding :: Maybe Text
+    , _horContentLanguage :: Maybe Text
+    , _horContentType :: Maybe Text
+    , _horExpires :: Maybe RFC822
+    , _horWebsiteRedirectLocation :: Maybe Text
+    , _horServerSideEncryption :: Maybe ServerSideEncryption
+    , _horMetadata :: Map Text Text
+    , _horSSECustomerAlgorithm :: Maybe Text
+    , _horSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
 -- response.
-horsDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
-horsDeleteMarker =
-    lens _horsDeleteMarker (\s a -> s { _horsDeleteMarker = a })
+horDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
+horDeleteMarker = lens _horDeleteMarker (\s a -> s { _horDeleteMarker = a })
 
-horsAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
-horsAcceptRanges =
-    lens _horsAcceptRanges (\s a -> s { _horsAcceptRanges = a })
+horAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
+horAcceptRanges = lens _horAcceptRanges (\s a -> s { _horAcceptRanges = a })
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id key
 -- value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
-horsExpiration :: Lens' HeadObjectResponse (Maybe RFC822)
-horsExpiration = lens _horsExpiration (\s a -> s { _horsExpiration = a })
+horExpiration :: Lens' HeadObjectResponse (Maybe RFC822)
+horExpiration = lens _horExpiration (\s a -> s { _horExpiration = a })
 
 -- | Provides information about object restoration operation and expiration time
 -- of the restored object copy.
-horsRestore :: Lens' HeadObjectResponse (Maybe Text)
-horsRestore = lens _horsRestore (\s a -> s { _horsRestore = a })
+horRestore :: Lens' HeadObjectResponse (Maybe Text)
+horRestore = lens _horRestore (\s a -> s { _horRestore = a })
 
 -- | Last modified date of the object.
-horsLastModified :: Lens' HeadObjectResponse (Maybe RFC822)
-horsLastModified =
-    lens _horsLastModified (\s a -> s { _horsLastModified = a })
+horLastModified :: Lens' HeadObjectResponse (Maybe RFC822)
+horLastModified = lens _horLastModified (\s a -> s { _horLastModified = a })
 
 -- | Size of the body in bytes.
-horsContentLength :: Lens' HeadObjectResponse (Maybe Integer)
-horsContentLength =
-    lens _horsContentLength (\s a -> s { _horsContentLength = a })
+horContentLength :: Lens' HeadObjectResponse (Maybe Integer)
+horContentLength =
+    lens _horContentLength (\s a -> s { _horContentLength = a })
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-horsETag :: Lens' HeadObjectResponse (Maybe ETag)
-horsETag = lens _horsETag (\s a -> s { _horsETag = a })
+horETag :: Lens' HeadObjectResponse (Maybe ETag)
+horETag = lens _horETag (\s a -> s { _horETag = a })
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP that
 -- supports more flexible metadata than the REST API. For example, using SOAP,
 -- you can create metadata whose values are not legal HTTP headers.
-horsMissingMeta :: Lens' HeadObjectResponse (Maybe Integer)
-horsMissingMeta = lens _horsMissingMeta (\s a -> s { _horsMissingMeta = a })
+horMissingMeta :: Lens' HeadObjectResponse (Maybe Integer)
+horMissingMeta = lens _horMissingMeta (\s a -> s { _horMissingMeta = a })
 
 -- | Version of the object.
-horsVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
-horsVersionId = lens _horsVersionId (\s a -> s { _horsVersionId = a })
+horVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
+horVersionId = lens _horVersionId (\s a -> s { _horVersionId = a })
 
 -- | Specifies caching behavior along the request/reply chain.
-horsCacheControl :: Lens' HeadObjectResponse (Maybe Text)
-horsCacheControl =
-    lens _horsCacheControl (\s a -> s { _horsCacheControl = a })
+horCacheControl :: Lens' HeadObjectResponse (Maybe Text)
+horCacheControl = lens _horCacheControl (\s a -> s { _horCacheControl = a })
 
 -- | Specifies presentational information for the object.
-horsContentDisposition :: Lens' HeadObjectResponse (Maybe Text)
-horsContentDisposition =
-    lens _horsContentDisposition (\s a -> s { _horsContentDisposition = a })
+horContentDisposition :: Lens' HeadObjectResponse (Maybe Text)
+horContentDisposition =
+    lens _horContentDisposition (\s a -> s { _horContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-horsContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
-horsContentEncoding =
-    lens _horsContentEncoding (\s a -> s { _horsContentEncoding = a })
+horContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
+horContentEncoding =
+    lens _horContentEncoding (\s a -> s { _horContentEncoding = a })
 
 -- | The language the content is in.
-horsContentLanguage :: Lens' HeadObjectResponse (Maybe Text)
-horsContentLanguage =
-    lens _horsContentLanguage (\s a -> s { _horsContentLanguage = a })
+horContentLanguage :: Lens' HeadObjectResponse (Maybe Text)
+horContentLanguage =
+    lens _horContentLanguage (\s a -> s { _horContentLanguage = a })
 
 -- | A standard MIME type describing the format of the object data.
-horsContentType :: Lens' HeadObjectResponse (Maybe Text)
-horsContentType = lens _horsContentType (\s a -> s { _horsContentType = a })
+horContentType :: Lens' HeadObjectResponse (Maybe Text)
+horContentType = lens _horContentType (\s a -> s { _horContentType = a })
 
 -- | The date and time at which the object is no longer cacheable.
-horsExpires :: Lens' HeadObjectResponse (Maybe RFC822)
-horsExpires = lens _horsExpires (\s a -> s { _horsExpires = a })
+horExpires :: Lens' HeadObjectResponse (Maybe RFC822)
+horExpires = lens _horExpires (\s a -> s { _horExpires = a })
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-horsWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
-horsWebsiteRedirectLocation =
-    lens _horsWebsiteRedirectLocation
-         (\s a -> s { _horsWebsiteRedirectLocation = a })
+horWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
+horWebsiteRedirectLocation =
+    lens _horWebsiteRedirectLocation
+         (\s a -> s { _horWebsiteRedirectLocation = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-horsServerSideEncryption :: Lens' HeadObjectResponse (Maybe ServerSideEncryption)
-horsServerSideEncryption =
-    lens _horsServerSideEncryption
-         (\s a -> s { _horsServerSideEncryption = a })
+horServerSideEncryption :: Lens' HeadObjectResponse (Maybe ServerSideEncryption)
+horServerSideEncryption =
+    lens _horServerSideEncryption
+         (\s a -> s { _horServerSideEncryption = a })
 
 -- | A map of metadata to store with the object in S3.
-horsMetadata :: Lens' HeadObjectResponse (Map Text Text)
-horsMetadata = lens _horsMetadata (\s a -> s { _horsMetadata = a })
+horMetadata :: Lens' HeadObjectResponse (Map Text Text)
+horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-horsSSECustomerAlgorithm :: Lens' HeadObjectResponse (Maybe Text)
-horsSSECustomerAlgorithm =
-    lens _horsSSECustomerAlgorithm
-         (\s a -> s { _horsSSECustomerAlgorithm = a })
+horSSECustomerAlgorithm :: Lens' HeadObjectResponse (Maybe Text)
+horSSECustomerAlgorithm =
+    lens _horSSECustomerAlgorithm
+         (\s a -> s { _horSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-horsSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
-horsSSECustomerKeyMD5 =
-    lens _horsSSECustomerKeyMD5 (\s a -> s { _horsSSECustomerKeyMD5 = a })
+horSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
+horSSECustomerKeyMD5 =
+    lens _horSSECustomerKeyMD5 (\s a -> s { _horSSECustomerKeyMD5 = a })
 
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3

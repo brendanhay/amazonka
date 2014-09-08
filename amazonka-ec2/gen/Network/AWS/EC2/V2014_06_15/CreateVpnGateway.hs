@@ -45,7 +45,7 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnGateway
     -- * Response
     , CreateVpnGatewayResponse
     -- ** Response lenses
-    , cvgrsVpnGateway
+    , cvgrVpnGateway
     ) where
 
 import Network.AWS.Request.Query
@@ -81,12 +81,12 @@ instance ToQuery CreateVpnGateway where
 
 -- | 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
-    { _cvgrsVpnGateway :: Maybe VpnGateway
+    { _cvgrVpnGateway :: Maybe VpnGateway
     } deriving (Show, Generic)
 
 -- | Information about the virtual private gateway.
-cvgrsVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
-cvgrsVpnGateway = lens _cvgrsVpnGateway (\s a -> s { _cvgrsVpnGateway = a })
+cvgrVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
+cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
 
 instance FromXML CreateVpnGatewayResponse where
     fromXMLOptions = xmlOptions

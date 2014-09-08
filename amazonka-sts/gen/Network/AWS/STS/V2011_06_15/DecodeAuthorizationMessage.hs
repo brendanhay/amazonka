@@ -61,7 +61,7 @@ module Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage
     -- * Response
     , DecodeAuthorizationMessageResponse
     -- ** Response lenses
-    , damrsDecodedMessage
+    , damrDecodedMessage
     ) where
 
 import Network.AWS.Request.Query
@@ -92,14 +92,14 @@ instance ToQuery DecodeAuthorizationMessage where
 -- status of a request from an encoded message that is returned in response to
 -- an AWS request.
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
-    { _damrsDecodedMessage :: Maybe Text
+    { _damrDecodedMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An XML document that contains the decoded message. For more information,
 -- see DecodeAuthorizationMessage.
-damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
-damrsDecodedMessage =
-    lens _damrsDecodedMessage (\s a -> s { _damrsDecodedMessage = a })
+damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
+damrDecodedMessage =
+    lens _damrDecodedMessage (\s a -> s { _damrDecodedMessage = a })
 
 instance FromXML DecodeAuthorizationMessageResponse where
     fromXMLOptions = xmlOptions

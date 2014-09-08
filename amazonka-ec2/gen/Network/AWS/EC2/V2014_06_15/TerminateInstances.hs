@@ -55,7 +55,7 @@ module Network.AWS.EC2.V2014_06_15.TerminateInstances
     -- * Response
     , TerminateInstancesResponse
     -- ** Response lenses
-    , tirsTerminatingInstances
+    , tirTerminatingInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -84,14 +84,14 @@ instance ToQuery TerminateInstances where
 
 -- | 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
-    { _tirsTerminatingInstances :: [InstanceStateChange]
+    { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
 
 -- | Information about one or more terminated instances.
-tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
-tirsTerminatingInstances =
-    lens _tirsTerminatingInstances
-         (\s a -> s { _tirsTerminatingInstances = a })
+tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
+tirTerminatingInstances =
+    lens _tirTerminatingInstances
+         (\s a -> s { _tirTerminatingInstances = a })
 
 instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions

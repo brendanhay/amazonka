@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters
     -- * Response
     , DescribeEngineDefaultParametersResponse
     -- ** Response lenses
-    , dedprsEngineDefaults
+    , dedprEngineDefaults
     ) where
 
 import Network.AWS.Request.Query
@@ -93,13 +93,13 @@ instance ToQuery DescribeEngineDefaultParameters where
     toQuery = genericQuery def
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprsEngineDefaults :: EngineDefaults
+    { _dedprEngineDefaults :: EngineDefaults
     } deriving (Show, Generic)
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
-dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
-dedprsEngineDefaults =
-    lens _dedprsEngineDefaults (\s a -> s { _dedprsEngineDefaults = a })
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+dedprEngineDefaults =
+    lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
@@ -113,4 +113,4 @@ instance AWSRequest DescribeEngineDefaultParameters where
 
 instance AWSPager DescribeEngineDefaultParameters where
     next rq rs = (\x -> rq & dedpMarker ?~ x)
-        <$> (rs ^. dedprsEngineDefaults . edMarker)
+        <$> (rs ^. dedprEngineDefaults . edMarker)

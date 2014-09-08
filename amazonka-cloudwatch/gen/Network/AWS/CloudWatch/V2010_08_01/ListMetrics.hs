@@ -39,8 +39,8 @@ module Network.AWS.CloudWatch.V2010_08_01.ListMetrics
     -- * Response
     , ListMetricsResponse
     -- ** Response lenses
-    , lmrsMetrics
-    , lmrsNextToken
+    , lmrMetrics
+    , lmrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -87,17 +87,17 @@ instance ToQuery ListMetrics where
 
 -- | The output for the ListMetrics action.
 data ListMetricsResponse = ListMetricsResponse
-    { _lmrsMetrics :: [Metric]
-    , _lmrsNextToken :: Maybe Text
+    { _lmrMetrics :: [Metric]
+    , _lmrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of metrics used to generate statistics for an AWS account.
-lmrsMetrics :: Lens' ListMetricsResponse [Metric]
-lmrsMetrics = lens _lmrsMetrics (\s a -> s { _lmrsMetrics = a })
+lmrMetrics :: Lens' ListMetricsResponse [Metric]
+lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a })
 
 -- | A string that marks the start of the next batch of returned results.
-lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
-lmrsNextToken = lens _lmrsNextToken (\s a -> s { _lmrsNextToken = a })
+lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
+lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
 
 instance FromXML ListMetricsResponse where
     fromXMLOptions = xmlOptions
@@ -111,4 +111,4 @@ instance AWSRequest ListMetrics where
 
 instance AWSPager ListMetrics where
     next rq rs = (\x -> rq & lmNextToken ?~ x)
-        <$> (rs ^. lmrsNextToken)
+        <$> (rs ^. lmrNextToken)

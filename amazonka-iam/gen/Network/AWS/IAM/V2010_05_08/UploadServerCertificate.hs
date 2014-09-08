@@ -76,7 +76,7 @@ module Network.AWS.IAM.V2010_05_08.UploadServerCertificate
     -- * Response
     , UploadServerCertificateResponse
     -- ** Response lenses
-    , uscrsServerCertificateMetadata
+    , uscrServerCertificateMetadata
     ) where
 
 import Network.AWS.Request.Query
@@ -143,15 +143,15 @@ instance ToQuery UploadServerCertificate where
 -- | Contains the result of a successful invocation of the
 -- UploadServerCertificate action.
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
-    { _uscrsServerCertificateMetadata :: Maybe ServerCertificateMetadata
+    { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
     } deriving (Show, Generic)
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
-uscrsServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
-uscrsServerCertificateMetadata =
-    lens _uscrsServerCertificateMetadata
-         (\s a -> s { _uscrsServerCertificateMetadata = a })
+uscrServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
+uscrServerCertificateMetadata =
+    lens _uscrServerCertificateMetadata
+         (\s a -> s { _uscrServerCertificateMetadata = a })
 
 instance FromXML UploadServerCertificateResponse where
     fromXMLOptions = xmlOptions

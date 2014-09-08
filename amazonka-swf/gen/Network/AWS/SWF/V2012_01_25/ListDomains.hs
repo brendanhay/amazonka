@@ -71,8 +71,8 @@ module Network.AWS.SWF.V2012_01_25.ListDomains
     -- * Response
     , ListDomainsResponse
     -- ** Response lenses
-    , ldrsDomainInfos
-    , ldrsNextPageToken
+    , ldrDomainInfos
+    , ldrNextPageToken
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -134,20 +134,20 @@ instance ToJSON ListDomains
 
 -- | Contains a paginated collection of DomainInfo structures.
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrsDomainInfos :: [DomainInfo]
-    , _ldrsNextPageToken :: Maybe Text
+    { _ldrDomainInfos :: [DomainInfo]
+    , _ldrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of DomainInfo structures.
-ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
-ldrsDomainInfos = lens _ldrsDomainInfos (\s a -> s { _ldrsDomainInfos = a })
+ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
+ldrDomainInfos = lens _ldrDomainInfos (\s a -> s { _ldrDomainInfos = a })
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
-ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextPageToken =
-    lens _ldrsNextPageToken (\s a -> s { _ldrsNextPageToken = a })
+ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
+ldrNextPageToken =
+    lens _ldrNextPageToken (\s a -> s { _ldrNextPageToken = a })
 
 instance FromJSON ListDomainsResponse
 
@@ -160,4 +160,4 @@ instance AWSRequest ListDomains where
 
 instance AWSPager ListDomains where
     next rq rs = (\x -> rq & ldNextPageToken ?~ x)
-        <$> (rs ^. ldrsNextPageToken)
+        <$> (rs ^. ldrNextPageToken)

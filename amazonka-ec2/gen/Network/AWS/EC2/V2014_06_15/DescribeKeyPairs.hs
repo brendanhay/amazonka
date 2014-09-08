@@ -40,7 +40,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeKeyPairs
     -- * Response
     , DescribeKeyPairsResponse
     -- ** Response lenses
-    , dkprsKeyPairs
+    , dkprKeyPairs
     ) where
 
 import Network.AWS.Request.Query
@@ -75,12 +75,12 @@ instance ToQuery DescribeKeyPairs where
 
 -- | 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
-    { _dkprsKeyPairs :: [KeyPairInfo]
+    { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Show, Generic)
 
 -- | Information about one or more key pairs.
-dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkprsKeyPairs = lens _dkprsKeyPairs (\s a -> s { _dkprsKeyPairs = a })
+dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
 
 instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions

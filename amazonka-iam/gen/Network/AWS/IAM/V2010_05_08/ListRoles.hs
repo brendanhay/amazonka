@@ -48,9 +48,9 @@ module Network.AWS.IAM.V2010_05_08.ListRoles
     -- * Response
     , ListRolesResponse
     -- ** Response lenses
-    , lrrsRoles
-    , lrrsIsTruncated
-    , lrrsMarker
+    , lrrRoles
+    , lrrIsTruncated
+    , lrrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -100,25 +100,25 @@ instance ToQuery ListRoles where
 
 -- | Contains the result of a successful invocation of the ListRoles action.
 data ListRolesResponse = ListRolesResponse
-    { _lrrsRoles :: [Role]
-    , _lrrsIsTruncated :: Bool
-    , _lrrsMarker :: Maybe Text
+    { _lrrRoles :: [Role]
+    , _lrrIsTruncated :: Bool
+    , _lrrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of roles.
-lrrsRoles :: Lens' ListRolesResponse [Role]
-lrrsRoles = lens _lrrsRoles (\s a -> s { _lrrsRoles = a })
+lrrRoles :: Lens' ListRolesResponse [Role]
+lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
 
 -- | A flag that indicates whether there are more roles to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more roles in the list.
-lrrsIsTruncated :: Lens' ListRolesResponse Bool
-lrrsIsTruncated = lens _lrrsIsTruncated (\s a -> s { _lrrsIsTruncated = a })
+lrrIsTruncated :: Lens' ListRolesResponse Bool
+lrrIsTruncated = lens _lrrIsTruncated (\s a -> s { _lrrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lrrsMarker :: Lens' ListRolesResponse (Maybe Text)
-lrrsMarker = lens _lrrsMarker (\s a -> s { _lrrsMarker = a })
+lrrMarker :: Lens' ListRolesResponse (Maybe Text)
+lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
 
 instance FromXML ListRolesResponse where
     fromXMLOptions = xmlOptions
@@ -132,6 +132,6 @@ instance AWSRequest ListRoles where
 
 instance AWSPager ListRoles where
     next rq rs
-        | not (rs ^. lrrsIsTruncated) = Nothing
+        | not (rs ^. lrrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lrMarker .~ rs ^. lrrsMarker
+            rq & lrMarker .~ rs ^. lrrMarker

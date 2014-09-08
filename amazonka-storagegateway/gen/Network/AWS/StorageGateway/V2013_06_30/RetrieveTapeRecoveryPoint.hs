@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeRecoveryPoint
     -- * Response
     , RetrieveTapeRecoveryPointResponse
     -- ** Response lenses
-    , rtrprsTapeARN
+    , rtrprTapeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -69,11 +69,11 @@ instance ToHeaders RetrieveTapeRecoveryPoint
 instance ToJSON RetrieveTapeRecoveryPoint
 
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
-    { _rtrprsTapeARN :: Maybe Text
+    { _rtrprTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
-rtrprsTapeARN = lens _rtrprsTapeARN (\s a -> s { _rtrprsTapeARN = a })
+rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
+rtrprTapeARN = lens _rtrprTapeARN (\s a -> s { _rtrprTapeARN = a })
 
 instance FromJSON RetrieveTapeRecoveryPointResponse
 

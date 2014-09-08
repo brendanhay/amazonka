@@ -43,7 +43,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings
     -- * Response
     , ValidateConfigurationSettingsResponse
     -- ** Response lenses
-    , vcsrsMessages
+    , vcsrMessages
     ) where
 
 import Network.AWS.Request.Query
@@ -97,12 +97,12 @@ instance ToQuery ValidateConfigurationSettings where
 
 -- | Provides a list of validation messages.
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
-    { _vcsrsMessages :: [ValidationMessage]
+    { _vcsrMessages :: [ValidationMessage]
     } deriving (Show, Generic)
 
 -- | A list of ValidationMessage.
-vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
-vcsrsMessages = lens _vcsrsMessages (\s a -> s { _vcsrsMessages = a })
+vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
+vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a })
 
 instance FromXML ValidateConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions

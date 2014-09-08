@@ -89,8 +89,8 @@ module Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions
     -- * Response
     , ListClosedWorkflowExecutionsResponse
     -- ** Response lenses
-    , lcwersExecutionInfos
-    , lcwersNextPageToken
+    , lcwerExecutionInfos
+    , lcwerNextPageToken
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -214,21 +214,21 @@ instance ToJSON ListClosedWorkflowExecutions
 
 -- | Contains a paginated list of information about workflow executions.
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
-    { _lcwersExecutionInfos :: [WorkflowExecutionInfo]
-    , _lcwersNextPageToken :: Maybe Text
+    { _lcwerExecutionInfos :: [WorkflowExecutionInfo]
+    , _lcwerNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of workflow information structures.
-lcwersExecutionInfos :: Lens' ListClosedWorkflowExecutionsResponse [WorkflowExecutionInfo]
-lcwersExecutionInfos =
-    lens _lcwersExecutionInfos (\s a -> s { _lcwersExecutionInfos = a })
+lcwerExecutionInfos :: Lens' ListClosedWorkflowExecutionsResponse [WorkflowExecutionInfo]
+lcwerExecutionInfos =
+    lens _lcwerExecutionInfos (\s a -> s { _lcwerExecutionInfos = a })
 
 -- | The token of the next page in the result. If set, the results have more
 -- than one page. The next page can be retrieved by repeating the request with
 -- this token and all other arguments unchanged.
-lcwersNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
-lcwersNextPageToken =
-    lens _lcwersNextPageToken (\s a -> s { _lcwersNextPageToken = a })
+lcwerNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
+lcwerNextPageToken =
+    lens _lcwerNextPageToken (\s a -> s { _lcwerNextPageToken = a })
 
 instance FromJSON ListClosedWorkflowExecutionsResponse
 
@@ -241,4 +241,4 @@ instance AWSRequest ListClosedWorkflowExecutions where
 
 instance AWSPager ListClosedWorkflowExecutions where
     next rq rs = (\x -> rq & lcweNextPageToken ?~ x)
-        <$> (rs ^. lcwersNextPageToken)
+        <$> (rs ^. lcwerNextPageToken)

@@ -31,7 +31,7 @@ module Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges
     -- * Response
     , GetCheckerIpRangesResponse
     -- ** Response lenses
-    , gcirrsCheckerIpRanges
+    , gcirrCheckerIpRanges
     ) where
 
 import Network.AWS.Request.RestXML
@@ -61,14 +61,14 @@ instance ToXML GetCheckerIpRanges where
 
 -- | A complex type that contains the CheckerIpRanges element.
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
-    { _gcirrsCheckerIpRanges :: [Text]
+    { _gcirrCheckerIpRanges :: [Text]
     } deriving (Show, Generic)
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
-gcirrsCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
-gcirrsCheckerIpRanges =
-    lens _gcirrsCheckerIpRanges (\s a -> s { _gcirrsCheckerIpRanges = a })
+gcirrCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
+gcirrCheckerIpRanges =
+    lens _gcirrCheckerIpRanges (\s a -> s { _gcirrCheckerIpRanges = a })
 
 instance FromXML GetCheckerIpRangesResponse where
     fromXMLOptions = xmlOptions

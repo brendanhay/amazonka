@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.V2014_07_15.RevokeCacheSecurityGroupIngress
     -- * Response
     , RevokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
-    , rcsgirsCacheSecurityGroup
+    , rcsgirCacheSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -91,16 +91,16 @@ instance ToQuery RevokeCacheSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
-    { _rcsgirsCacheSecurityGroup :: Maybe CacheSecurityGroup
+    { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Show, Generic)
 
 -- | Represents the output of one of the following operations:
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
-rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
-rcsgirsCacheSecurityGroup =
-    lens _rcsgirsCacheSecurityGroup
-         (\s a -> s { _rcsgirsCacheSecurityGroup = a })
+rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
+rcsgirCacheSecurityGroup =
+    lens _rcsgirCacheSecurityGroup
+         (\s a -> s { _rcsgirCacheSecurityGroup = a })
 
 instance FromXML RevokeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

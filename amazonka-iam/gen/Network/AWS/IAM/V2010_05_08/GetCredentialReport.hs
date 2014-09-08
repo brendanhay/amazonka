@@ -29,9 +29,9 @@ module Network.AWS.IAM.V2010_05_08.GetCredentialReport
     -- * Response
     , GetCredentialReportResponse
     -- ** Response lenses
-    , gcrrsrsContent
-    , gcrrsrsReportFormat
-    , gcrrsrsGeneratedTime
+    , gcrrrContent
+    , gcrrrReportFormat
+    , gcrrrGeneratedTime
     ) where
 
 import Network.AWS.Request.Query
@@ -52,25 +52,25 @@ instance ToQuery GetCredentialReport where
 -- | Contains the result of a successful invocation of the GetCredentialReport
 -- action.
 data GetCredentialReportResponse = GetCredentialReportResponse
-    { _gcrrsrsContent :: Maybe ByteString
-    , _gcrrsrsReportFormat :: Maybe ReportFormatType
-    , _gcrrsrsGeneratedTime :: Maybe ISO8601
+    { _gcrrrContent :: Maybe ByteString
+    , _gcrrrReportFormat :: Maybe ReportFormatType
+    , _gcrrrGeneratedTime :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Contains the credential report. The report is Base64-encoded.
-gcrrsrsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
-gcrrsrsContent = lens _gcrrsrsContent (\s a -> s { _gcrrsrsContent = a })
+gcrrrContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
+gcrrrContent = lens _gcrrrContent (\s a -> s { _gcrrrContent = a })
 
 -- | The format (MIME type) of the credential report.
-gcrrsrsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
-gcrrsrsReportFormat =
-    lens _gcrrsrsReportFormat (\s a -> s { _gcrrsrsReportFormat = a })
+gcrrrReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
+gcrrrReportFormat =
+    lens _gcrrrReportFormat (\s a -> s { _gcrrrReportFormat = a })
 
 -- | The time and date when the credential report was created, in ISO 8601
 -- date-time format.
-gcrrsrsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe ISO8601)
-gcrrsrsGeneratedTime =
-    lens _gcrrsrsGeneratedTime (\s a -> s { _gcrrsrsGeneratedTime = a })
+gcrrrGeneratedTime :: Lens' GetCredentialReportResponse (Maybe ISO8601)
+gcrrrGeneratedTime =
+    lens _gcrrrGeneratedTime (\s a -> s { _gcrrrGeneratedTime = a })
 
 instance FromXML GetCredentialReportResponse where
     fromXMLOptions = xmlOptions

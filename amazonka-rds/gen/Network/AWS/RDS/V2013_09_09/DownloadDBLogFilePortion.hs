@@ -44,9 +44,9 @@ module Network.AWS.RDS.V2013_09_09.DownloadDBLogFilePortion
     -- * Response
     , DownloadDBLogFilePortionResponse
     -- ** Response lenses
-    , ddblfprsAdditionalDataPending
-    , ddblfprsLogFileData
-    , ddblfprsMarker
+    , ddblfprAdditionalDataPending
+    , ddblfprLogFileData
+    , ddblfprMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -103,26 +103,26 @@ instance ToQuery DownloadDBLogFilePortion where
 
 -- | This data type is used as a response element to DownloadDBLogFilePortion.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
-    { _ddblfprsAdditionalDataPending :: Bool
-    , _ddblfprsLogFileData :: ByteString
-    , _ddblfprsMarker :: Maybe Text
+    { _ddblfprAdditionalDataPending :: Bool
+    , _ddblfprLogFileData :: ByteString
+    , _ddblfprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Boolean value that if true, indicates there is more data to be downloaded.
-ddblfprsAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse Bool
-ddblfprsAdditionalDataPending =
-    lens _ddblfprsAdditionalDataPending
-         (\s a -> s { _ddblfprsAdditionalDataPending = a })
+ddblfprAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse Bool
+ddblfprAdditionalDataPending =
+    lens _ddblfprAdditionalDataPending
+         (\s a -> s { _ddblfprAdditionalDataPending = a })
 
 -- | Entries from the specified log file.
-ddblfprsLogFileData :: Lens' DownloadDBLogFilePortionResponse ByteString
-ddblfprsLogFileData =
-    lens _ddblfprsLogFileData (\s a -> s { _ddblfprsLogFileData = a })
+ddblfprLogFileData :: Lens' DownloadDBLogFilePortionResponse ByteString
+ddblfprLogFileData =
+    lens _ddblfprLogFileData (\s a -> s { _ddblfprLogFileData = a })
 
 -- | An optional pagination token provided by a previous
 -- DownloadDBLogFilePortion request.
-ddblfprsMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
-ddblfprsMarker = lens _ddblfprsMarker (\s a -> s { _ddblfprsMarker = a })
+ddblfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
+ddblfprMarker = lens _ddblfprMarker (\s a -> s { _ddblfprMarker = a })
 
 instance FromXML DownloadDBLogFilePortionResponse where
     fromXMLOptions = xmlOptions
@@ -136,6 +136,6 @@ instance AWSRequest DownloadDBLogFilePortion where
 
 instance AWSPager DownloadDBLogFilePortion where
     next rq rs
-        | not (rs ^. ddblfprsAdditionalDataPending) = Nothing
+        | not (rs ^. ddblfprAdditionalDataPending) = Nothing
         | otherwise = Just $
-            rq & ddblfpMarker .~ rs ^. ddblfprsMarker
+            rq & ddblfpMarker .~ rs ^. ddblfprMarker

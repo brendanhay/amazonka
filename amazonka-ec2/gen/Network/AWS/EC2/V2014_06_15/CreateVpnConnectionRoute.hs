@@ -40,8 +40,8 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute
     -- ** Request constructor
     , mkCreateVpnConnectionRoute
     -- ** Request lenses
-    , cvcrVpnConnectionId
-    , cvcrDestinationCidrBlock
+    , cvcr1VpnConnectionId
+    , cvcr1DestinationCidrBlock
 
     -- * Response
     , CreateVpnConnectionRouteResponse
@@ -53,30 +53,30 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
-    { _cvcrVpnConnectionId :: Text
-    , _cvcrDestinationCidrBlock :: Text
+    { _cvcr1VpnConnectionId :: Text
+    , _cvcr1DestinationCidrBlock :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnConnectionRoute' request.
-mkCreateVpnConnectionRoute :: Text -- ^ 'cvcrVpnConnectionId'
-                           -> Text -- ^ 'cvcrDestinationCidrBlock'
+mkCreateVpnConnectionRoute :: Text -- ^ 'cvcr1VpnConnectionId'
+                           -> Text -- ^ 'cvcr1DestinationCidrBlock'
                            -> CreateVpnConnectionRoute
 mkCreateVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
-    { _cvcrVpnConnectionId = p1
-    , _cvcrDestinationCidrBlock = p2
+    { _cvcr1VpnConnectionId = p1
+    , _cvcr1DestinationCidrBlock = p2
     }
 
 -- | The ID of the VPN connection.
-cvcrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
-cvcrVpnConnectionId =
-    lens _cvcrVpnConnectionId (\s a -> s { _cvcrVpnConnectionId = a })
+cvcr1VpnConnectionId :: Lens' CreateVpnConnectionRoute Text
+cvcr1VpnConnectionId =
+    lens _cvcr1VpnConnectionId (\s a -> s { _cvcr1VpnConnectionId = a })
 
 -- | The CIDR block associated with the local subnet of the customer network.
-cvcrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute Text
-cvcrDestinationCidrBlock =
-    lens _cvcrDestinationCidrBlock
-         (\s a -> s { _cvcrDestinationCidrBlock = a })
+cvcr1DestinationCidrBlock :: Lens' CreateVpnConnectionRoute Text
+cvcr1DestinationCidrBlock =
+    lens _cvcr1DestinationCidrBlock
+         (\s a -> s { _cvcr1DestinationCidrBlock = a })
 
 instance ToQuery CreateVpnConnectionRoute where
     toQuery = genericQuery def

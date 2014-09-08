@@ -32,9 +32,9 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices
     -- * Response
     , DescribeVTLDevicesResponse
     -- ** Response lenses
-    , dvtldrsGatewayARN
-    , dvtldrsVTLDevices
-    , dvtldrsMarker
+    , dvtldrGatewayARN
+    , dvtldrVTLDevices
+    , dvtldrMarker
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -83,23 +83,23 @@ instance ToHeaders DescribeVTLDevices
 instance ToJSON DescribeVTLDevices
 
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
-    { _dvtldrsGatewayARN :: Maybe Text
-    , _dvtldrsVTLDevices :: [VTLDevice]
-    , _dvtldrsMarker :: Maybe Text
+    { _dvtldrGatewayARN :: Maybe Text
+    , _dvtldrVTLDevices :: [VTLDevice]
+    , _dvtldrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dvtldrsGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrsGatewayARN =
-    lens _dvtldrsGatewayARN (\s a -> s { _dvtldrsGatewayARN = a })
+dvtldrGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrGatewayARN =
+    lens _dvtldrGatewayARN (\s a -> s { _dvtldrGatewayARN = a })
 
-dvtldrsVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
-dvtldrsVTLDevices =
-    lens _dvtldrsVTLDevices (\s a -> s { _dvtldrsVTLDevices = a })
+dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
+dvtldrVTLDevices =
+    lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a })
 
-dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrsMarker = lens _dvtldrsMarker (\s a -> s { _dvtldrsMarker = a })
+dvtldrMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrMarker = lens _dvtldrMarker (\s a -> s { _dvtldrMarker = a })
 
 instance FromJSON DescribeVTLDevicesResponse
 
@@ -112,4 +112,4 @@ instance AWSRequest DescribeVTLDevices where
 
 instance AWSPager DescribeVTLDevices where
     next rq rs = (\x -> rq & dvtldMarker ?~ x)
-        <$> (rs ^. dvtldrsMarker)
+        <$> (rs ^. dvtldrMarker)

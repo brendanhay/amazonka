@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeAnalysisSchemes
     -- * Response
     , DescribeAnalysisSchemesResponse
     -- ** Response lenses
-    , dasrs1AnalysisSchemes
+    , dasr1AnalysisSchemes
     ) where
 
 import Network.AWS.Request.Query
@@ -87,13 +87,13 @@ instance ToQuery DescribeAnalysisSchemes where
 -- | The result of a DescribeAnalysisSchemes request. Contains the analysis
 -- schemes configured for the domain specified in the request.
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
-    { _dasrs1AnalysisSchemes :: [AnalysisSchemeStatus]
+    { _dasr1AnalysisSchemes :: [AnalysisSchemeStatus]
     } deriving (Show, Generic)
 
 -- | The analysis scheme descriptions.
-dasrs1AnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dasrs1AnalysisSchemes =
-    lens _dasrs1AnalysisSchemes (\s a -> s { _dasrs1AnalysisSchemes = a })
+dasr1AnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
+dasr1AnalysisSchemes =
+    lens _dasr1AnalysisSchemes (\s a -> s { _dasr1AnalysisSchemes = a })
 
 instance FromXML DescribeAnalysisSchemesResponse where
     fromXMLOptions = xmlOptions

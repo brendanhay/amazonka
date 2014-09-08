@@ -42,7 +42,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironments
     -- * Response
     , DescribeEnvironmentsResponse
     -- ** Response lenses
-    , dersEnvironments
+    , der1Environments
     ) where
 
 import Network.AWS.Request.Query
@@ -113,13 +113,13 @@ instance ToQuery DescribeEnvironments where
 
 -- | Result message containing a list of environment descriptions.
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
-    { _dersEnvironments :: [EnvironmentDescription]
+    { _der1Environments :: [EnvironmentDescription]
     } deriving (Show, Generic)
 
 -- | Returns an EnvironmentDescription list.
-dersEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
-dersEnvironments =
-    lens _dersEnvironments (\s a -> s { _dersEnvironments = a })
+der1Environments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
+der1Environments =
+    lens _der1Environments (\s a -> s { _der1Environments = a })
 
 instance FromXML DescribeEnvironmentsResponse where
     fromXMLOptions = xmlOptions

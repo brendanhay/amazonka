@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.V2011_01_01.ExitStandby
     -- * Response
     , ExitStandbyResponse
     -- ** Response lenses
-    , esrsrsActivities
+    , esrrActivities
     ) where
 
 import Network.AWS.Request.Query
@@ -79,14 +79,13 @@ instance ToQuery ExitStandby where
 
 -- | The output of the ExitStandby action.
 newtype ExitStandbyResponse = ExitStandbyResponse
-    { _esrsrsActivities :: [Activity]
+    { _esrrActivities :: [Activity]
     } deriving (Show, Generic)
 
 -- | A list describing the activities related to moving instances out of Standby
 -- mode.
-esrsrsActivities :: Lens' ExitStandbyResponse [Activity]
-esrsrsActivities =
-    lens _esrsrsActivities (\s a -> s { _esrsrsActivities = a })
+esrrActivities :: Lens' ExitStandbyResponse [Activity]
+esrrActivities = lens _esrrActivities (\s a -> s { _esrrActivities = a })
 
 instance FromXML ExitStandbyResponse where
     fromXMLOptions = xmlOptions

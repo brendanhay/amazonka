@@ -77,7 +77,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes
     -- * Response
     , DescribeAccountAttributesResponse
     -- ** Response lenses
-    , daarsAccountAttributes
+    , daarAccountAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -106,13 +106,13 @@ instance ToQuery DescribeAccountAttributes where
 
 -- | 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
-    { _daarsAccountAttributes :: [AccountAttribute]
+    { _daarAccountAttributes :: [AccountAttribute]
     } deriving (Show, Generic)
 
 -- | Information about one or more account attributes.
-daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
-daarsAccountAttributes =
-    lens _daarsAccountAttributes (\s a -> s { _daarsAccountAttributes = a })
+daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
+daarAccountAttributes =
+    lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
 
 instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions

@@ -30,7 +30,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketLifecycle
     -- * Response
     , GetBucketLifecycleResponse
     -- ** Response lenses
-    , gblrsRules
+    , gblrRules
     ) where
 
 import Network.AWS.Request.RestS3
@@ -69,11 +69,11 @@ instance ToHeaders GetBucketLifecycle
 instance ToBody GetBucketLifecycle
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrsRules :: [Rule]
+    { _gblrRules :: [Rule]
     } deriving (Show, Generic)
 
-gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
-gblrsRules = lens _gblrsRules (\s a -> s { _gblrsRules = a })
+gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
+gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
 
 instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions

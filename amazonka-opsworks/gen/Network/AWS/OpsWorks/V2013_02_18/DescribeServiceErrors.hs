@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors
     -- * Response
     , DescribeServiceErrorsResponse
     -- ** Response lenses
-    , dsersServiceErrors
+    , dserServiceErrors
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -84,14 +84,14 @@ instance ToJSON DescribeServiceErrors
 
 -- | Contains the response to a DescribeServiceErrors request.
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
-    { _dsersServiceErrors :: [ServiceError]
+    { _dserServiceErrors :: [ServiceError]
     } deriving (Show, Generic)
 
 -- | An array of ServiceError objects that describe the specified service
 -- errors.
-dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError]
-dsersServiceErrors =
-    lens _dsersServiceErrors (\s a -> s { _dsersServiceErrors = a })
+dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError]
+dserServiceErrors =
+    lens _dserServiceErrors (\s a -> s { _dserServiceErrors = a })
 
 instance FromJSON DescribeServiceErrorsResponse
 

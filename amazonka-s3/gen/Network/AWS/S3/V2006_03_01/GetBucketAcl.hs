@@ -30,8 +30,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketAcl
     -- * Response
     , GetBucketAclResponse
     -- ** Response lenses
-    , gbarsOwner
-    , gbarsGrants
+    , gbarOwner
+    , gbarGrants
     ) where
 
 import Network.AWS.Request.RestS3
@@ -70,16 +70,16 @@ instance ToHeaders GetBucketAcl
 instance ToBody GetBucketAcl
 
 data GetBucketAclResponse = GetBucketAclResponse
-    { _gbarsOwner :: Maybe Owner
-    , _gbarsGrants :: [Grant]
+    { _gbarOwner :: Maybe Owner
+    , _gbarGrants :: [Grant]
     } deriving (Show, Generic)
 
-gbarsOwner :: Lens' GetBucketAclResponse (Maybe Owner)
-gbarsOwner = lens _gbarsOwner (\s a -> s { _gbarsOwner = a })
+gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
+gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
 
 -- | A list of grants.
-gbarsGrants :: Lens' GetBucketAclResponse [Grant]
-gbarsGrants = lens _gbarsGrants (\s a -> s { _gbarsGrants = a })
+gbarGrants :: Lens' GetBucketAclResponse [Grant]
+gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
 
 instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions

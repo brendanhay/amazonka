@@ -50,8 +50,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks
     -- * Response
     , ListLocalDisksResponse
     -- ** Response lenses
-    , lldrsGatewayARN
-    , lldrsDisks
+    , lldrGatewayARN
+    , lldrDisks
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -85,17 +85,17 @@ instance ToHeaders ListLocalDisks
 instance ToJSON ListLocalDisks
 
 data ListLocalDisksResponse = ListLocalDisksResponse
-    { _lldrsGatewayARN :: Maybe Text
-    , _lldrsDisks :: [DiskInformation]
+    { _lldrGatewayARN :: Maybe Text
+    , _lldrDisks :: [DiskInformation]
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lldrsGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
-lldrsGatewayARN = lens _lldrsGatewayARN (\s a -> s { _lldrsGatewayARN = a })
+lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
+lldrGatewayARN = lens _lldrGatewayARN (\s a -> s { _lldrGatewayARN = a })
 
-lldrsDisks :: Lens' ListLocalDisksResponse [DiskInformation]
-lldrsDisks = lens _lldrsDisks (\s a -> s { _lldrsDisks = a })
+lldrDisks :: Lens' ListLocalDisksResponse [DiskInformation]
+lldrDisks = lens _lldrDisks (\s a -> s { _lldrDisks = a })
 
 instance FromJSON ListLocalDisksResponse
 

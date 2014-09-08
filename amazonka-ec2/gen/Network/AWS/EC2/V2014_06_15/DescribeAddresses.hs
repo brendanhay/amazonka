@@ -71,7 +71,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeAddresses
     -- * Response
     , DescribeAddressesResponse
     -- ** Response lenses
-    , darsAddresses
+    , darAddresses
     ) where
 
 import Network.AWS.Request.Query
@@ -121,12 +121,12 @@ instance ToQuery DescribeAddresses where
 
 -- | 
 newtype DescribeAddressesResponse = DescribeAddressesResponse
-    { _darsAddresses :: [Address]
+    { _darAddresses :: [Address]
     } deriving (Show, Generic)
 
 -- | Information about one or more Elastic IP addresses.
-darsAddresses :: Lens' DescribeAddressesResponse [Address]
-darsAddresses = lens _darsAddresses (\s a -> s { _darsAddresses = a })
+darAddresses :: Lens' DescribeAddressesResponse [Address]
+darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
 
 instance FromXML DescribeAddressesResponse where
     fromXMLOptions = xmlOptions

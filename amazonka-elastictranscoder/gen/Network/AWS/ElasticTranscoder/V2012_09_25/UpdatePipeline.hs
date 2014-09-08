@@ -40,7 +40,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipeline
     -- * Response
     , UpdatePipelineResponse
     -- ** Response lenses
-    , uprsPipeline
+    , uprPipeline
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -197,12 +197,12 @@ instance ToJSON UpdatePipeline
 -- | When you update a pipeline, Elastic Transcoder returns the values that you
 -- specified in the request.
 newtype UpdatePipelineResponse = UpdatePipelineResponse
-    { _uprsPipeline :: Pipeline
+    { _uprPipeline :: Pipeline
     } deriving (Show, Generic)
 
 -- | The pipeline (queue) that is used to manage jobs.
-uprsPipeline :: Lens' UpdatePipelineResponse Pipeline
-uprsPipeline = lens _uprsPipeline (\s a -> s { _uprsPipeline = a })
+uprPipeline :: Lens' UpdatePipelineResponse Pipeline
+uprPipeline = lens _uprPipeline (\s a -> s { _uprPipeline = a })
 
 instance FromJSON UpdatePipelineResponse
 

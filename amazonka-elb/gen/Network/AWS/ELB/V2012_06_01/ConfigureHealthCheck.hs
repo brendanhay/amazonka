@@ -38,7 +38,7 @@ module Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck
     -- * Response
     , ConfigureHealthCheckResponse
     -- ** Response lenses
-    , chcrsHealthCheck
+    , chcrHealthCheck
     ) where
 
 import Network.AWS.Request.Query
@@ -77,13 +77,12 @@ instance ToQuery ConfigureHealthCheck where
 
 -- | The output for the ConfigureHealthCheck action.
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
-    { _chcrsHealthCheck :: Maybe HealthCheck
+    { _chcrHealthCheck :: Maybe HealthCheck
     } deriving (Show, Generic)
 
 -- | The updated healthcheck for the instances.
-chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcrsHealthCheck =
-    lens _chcrsHealthCheck (\s a -> s { _chcrsHealthCheck = a })
+chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
+chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 
 instance FromXML ConfigureHealthCheckResponse where
     fromXMLOptions = xmlOptions

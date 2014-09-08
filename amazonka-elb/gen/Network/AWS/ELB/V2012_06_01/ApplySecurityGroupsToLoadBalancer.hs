@@ -39,7 +39,7 @@ module Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer
     -- * Response
     , ApplySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
-    , asgtlbrsSecurityGroups
+    , asgtlbrSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -80,13 +80,13 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer where
 
 -- | The out for the ApplySecurityGroupsToLoadBalancer action.
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
-    { _asgtlbrsSecurityGroups :: [Text]
+    { _asgtlbrSecurityGroups :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of security group IDs associated with your load balancer.
-asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
-asgtlbrsSecurityGroups =
-    lens _asgtlbrsSecurityGroups (\s a -> s { _asgtlbrsSecurityGroups = a })
+asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
+asgtlbrSecurityGroups =
+    lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })
 
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
     fromXMLOptions = xmlOptions

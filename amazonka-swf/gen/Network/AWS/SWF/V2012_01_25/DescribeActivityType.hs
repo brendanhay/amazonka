@@ -66,8 +66,8 @@ module Network.AWS.SWF.V2012_01_25.DescribeActivityType
     -- * Response
     , DescribeActivityTypeResponse
     -- ** Response lenses
-    , datrsTypeInfo
-    , datrsConfiguration
+    , datrTypeInfo
+    , datrConfiguration
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -108,8 +108,8 @@ instance ToJSON DescribeActivityType
 
 -- | Detailed information about an activity type.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse
-    { _datrsTypeInfo :: ActivityTypeInfo
-    , _datrsConfiguration :: ActivityTypeConfiguration
+    { _datrTypeInfo :: ActivityTypeInfo
+    , _datrConfiguration :: ActivityTypeConfiguration
     } deriving (Show, Generic)
 
 -- | General information about the activity type. The status of activity type
@@ -118,13 +118,13 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
 -- type should be running. DEPRECATED: The type was deprecated using
 -- DeprecateActivityType, but is still in use. You should keep workers
 -- supporting this type running. You cannot create new tasks of this type.
-datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
-datrsTypeInfo = lens _datrsTypeInfo (\s a -> s { _datrsTypeInfo = a })
+datrTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
+datrTypeInfo = lens _datrTypeInfo (\s a -> s { _datrTypeInfo = a })
 
 -- | The configuration settings registered with the activity type.
-datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
-datrsConfiguration =
-    lens _datrsConfiguration (\s a -> s { _datrsConfiguration = a })
+datrConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
+datrConfiguration =
+    lens _datrConfiguration (\s a -> s { _datrConfiguration = a })
 
 instance FromJSON DescribeActivityTypeResponse
 

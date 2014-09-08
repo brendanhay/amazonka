@@ -31,8 +31,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.ListAvailableSolutionStacks
     -- * Response
     , ListAvailableSolutionStacksResponse
     -- ** Response lenses
-    , lassrsSolutionStacks
-    , lassrsSolutionStackDetails
+    , lassrSolutionStacks
+    , lassrSolutionStackDetails
     ) where
 
 import Network.AWS.Request.Query
@@ -52,20 +52,20 @@ instance ToQuery ListAvailableSolutionStacks where
 
 -- | A list of available AWS Elastic Beanstalk solution stacks.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
-    { _lassrsSolutionStacks :: [Text]
-    , _lassrsSolutionStackDetails :: [SolutionStackDescription]
+    { _lassrSolutionStacks :: [Text]
+    , _lassrSolutionStackDetails :: [SolutionStackDescription]
     } deriving (Show, Generic)
 
 -- | A list of available solution stacks.
-lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
-lassrsSolutionStacks =
-    lens _lassrsSolutionStacks (\s a -> s { _lassrsSolutionStacks = a })
+lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
+lassrSolutionStacks =
+    lens _lassrSolutionStacks (\s a -> s { _lassrSolutionStacks = a })
 
 -- | A list of available solution stacks and their SolutionStackDescription.
-lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
-lassrsSolutionStackDetails =
-    lens _lassrsSolutionStackDetails
-         (\s a -> s { _lassrsSolutionStackDetails = a })
+lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
+lassrSolutionStackDetails =
+    lens _lassrSolutionStackDetails
+         (\s a -> s { _lassrSolutionStackDetails = a })
 
 instance FromXML ListAvailableSolutionStacksResponse where
     fromXMLOptions = xmlOptions

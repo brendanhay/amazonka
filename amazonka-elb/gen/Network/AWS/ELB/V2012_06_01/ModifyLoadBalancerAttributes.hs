@@ -59,8 +59,8 @@ module Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes
     -- * Response
     , ModifyLoadBalancerAttributesResponse
     -- ** Response lenses
-    , mlbarsLoadBalancerName
-    , mlbarsLoadBalancerAttributes
+    , mlbarLoadBalancerName
+    , mlbarLoadBalancerAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -99,20 +99,20 @@ instance ToQuery ModifyLoadBalancerAttributes where
 
 -- | The output for the ModifyLoadBalancerAttributes action.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
-    { _mlbarsLoadBalancerName :: Maybe Text
-    , _mlbarsLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+    { _mlbarLoadBalancerName :: Maybe Text
+    , _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Show, Generic)
 
 -- | The name of the load balancer.
-mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
-mlbarsLoadBalancerName =
-    lens _mlbarsLoadBalancerName (\s a -> s { _mlbarsLoadBalancerName = a })
+mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
+mlbarLoadBalancerName =
+    lens _mlbarLoadBalancerName (\s a -> s { _mlbarLoadBalancerName = a })
 
 -- | The LoadBalancerAttributes data type.
-mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-mlbarsLoadBalancerAttributes =
-    lens _mlbarsLoadBalancerAttributes
-         (\s a -> s { _mlbarsLoadBalancerAttributes = a })
+mlbarLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+mlbarLoadBalancerAttributes =
+    lens _mlbarLoadBalancerAttributes
+         (\s a -> s { _mlbarLoadBalancerAttributes = a })
 
 instance FromXML ModifyLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions

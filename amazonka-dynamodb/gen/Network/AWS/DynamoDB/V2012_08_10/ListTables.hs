@@ -35,8 +35,8 @@ module Network.AWS.DynamoDB.V2012_08_10.ListTables
     -- * Response
     , ListTablesResponse
     -- ** Response lenses
-    , ltrsTableNames
-    , ltrsLastEvaluatedTableName
+    , ltrTableNames
+    , ltrLastEvaluatedTableName
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -79,24 +79,24 @@ instance ToJSON ListTables
 
 -- | Represents the output of a ListTables operation.
 data ListTablesResponse = ListTablesResponse
-    { _ltrsTableNames :: [Text]
-    , _ltrsLastEvaluatedTableName :: Maybe Text
+    { _ltrTableNames :: [Text]
+    , _ltrLastEvaluatedTableName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The names of the tables associated with the current account at the current
 -- endpoint.
-ltrsTableNames :: Lens' ListTablesResponse [Text]
-ltrsTableNames = lens _ltrsTableNames (\s a -> s { _ltrsTableNames = a })
+ltrTableNames :: Lens' ListTablesResponse [Text]
+ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a })
 
 -- | The name of the last table in the current list, only if some tables for the
 -- account and endpoint have not been returned. This value does not exist in a
 -- response if all table names are already returned. Use this value as the
 -- ExclusiveStartTableName in a new request to continue the list until all the
 -- table names are returned.
-ltrsLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
-ltrsLastEvaluatedTableName =
-    lens _ltrsLastEvaluatedTableName
-         (\s a -> s { _ltrsLastEvaluatedTableName = a })
+ltrLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
+ltrLastEvaluatedTableName =
+    lens _ltrLastEvaluatedTableName
+         (\s a -> s { _ltrLastEvaluatedTableName = a })
 
 instance FromJSON ListTablesResponse
 
@@ -109,4 +109,4 @@ instance AWSRequest ListTables where
 
 instance AWSPager ListTables where
     next rq rs = (\x -> rq & ltExclusiveStartTableName ?~ x)
-        <$> (rs ^. ltrsLastEvaluatedTableName)
+        <$> (rs ^. ltrLastEvaluatedTableName)

@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies
     -- * Response
     , DescribeServiceAccessPoliciesResponse
     -- ** Response lenses
-    , dsaprsAccessPolicies
+    , dsaprAccessPolicies
     ) where
 
 import Network.AWS.Request.Query
@@ -75,13 +75,13 @@ instance ToQuery DescribeServiceAccessPolicies where
 
 -- | The result of a DescribeServiceAccessPolicies request.
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
-    { _dsaprsAccessPolicies :: AccessPoliciesStatus
+    { _dsaprAccessPolicies :: AccessPoliciesStatus
     } deriving (Show, Generic)
 
 -- | The access rules configured for the domain specified in the request.
-dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
-dsaprsAccessPolicies =
-    lens _dsaprsAccessPolicies (\s a -> s { _dsaprsAccessPolicies = a })
+dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
+dsaprAccessPolicies =
+    lens _dsaprAccessPolicies (\s a -> s { _dsaprAccessPolicies = a })
 
 instance FromXML DescribeServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions

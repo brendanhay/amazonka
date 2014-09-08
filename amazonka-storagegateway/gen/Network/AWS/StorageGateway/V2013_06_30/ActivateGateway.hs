@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
     -- * Response
     , ActivateGatewayResponse
     -- ** Response lenses
-    , agrsGatewayARN
+    , agrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -139,13 +139,13 @@ instance ToJSON ActivateGateway
 -- name, and region. This ARN is used to reference the gateway in other API
 -- operations as well as resource-based authorization.
 newtype ActivateGatewayResponse = ActivateGatewayResponse
-    { _agrsGatewayARN :: Maybe Text
+    { _agrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
-agrsGatewayARN = lens _agrsGatewayARN (\s a -> s { _agrsGatewayARN = a })
+agrGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
+agrGatewayARN = lens _agrGatewayARN (\s a -> s { _agrGatewayARN = a })
 
 instance FromJSON ActivateGatewayResponse
 

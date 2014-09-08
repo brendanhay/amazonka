@@ -62,7 +62,7 @@ module Network.AWS.SNS.V2010_03_31.CreatePlatformApplication
     -- * Response
     , CreatePlatformApplicationResponse
     -- ** Response lenses
-    , cparsPlatformApplicationArn
+    , cparPlatformApplicationArn
     ) where
 
 import Network.AWS.Request.Query
@@ -109,14 +109,14 @@ instance ToQuery CreatePlatformApplication where
 
 -- | Response from CreatePlatformApplication action.
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
-    { _cparsPlatformApplicationArn :: Maybe Text
+    { _cparPlatformApplicationArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | PlatformApplicationArn is returned.
-cparsPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Text)
-cparsPlatformApplicationArn =
-    lens _cparsPlatformApplicationArn
-         (\s a -> s { _cparsPlatformApplicationArn = a })
+cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Text)
+cparPlatformApplicationArn =
+    lens _cparPlatformApplicationArn
+         (\s a -> s { _cparPlatformApplicationArn = a })
 
 instance FromXML CreatePlatformApplicationResponse where
     fromXMLOptions = xmlOptions

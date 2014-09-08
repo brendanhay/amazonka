@@ -40,8 +40,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBParameterGroups
     -- * Response
     , DescribeDBParameterGroupsResponse
     -- ** Response lenses
-    , ddbpgrsMarker
-    , ddbpgrsDBParameterGroups
+    , ddbpgrMarker
+    , ddbpgrDBParameterGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -93,21 +93,21 @@ instance ToQuery DescribeDBParameterGroups where
 -- | Contains the result of a successful invocation of the
 -- DescribeDBParameterGroups action.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
-    { _ddbpgrsMarker :: Maybe Text
-    , _ddbpgrsDBParameterGroups :: [DBParameterGroup]
+    { _ddbpgrMarker :: Maybe Text
+    , _ddbpgrDBParameterGroups :: [DBParameterGroup]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ddbpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
-ddbpgrsMarker = lens _ddbpgrsMarker (\s a -> s { _ddbpgrsMarker = a })
+ddbpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
+ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
 
 -- | A list of DBParameterGroup instances.
-ddbpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
-ddbpgrsDBParameterGroups =
-    lens _ddbpgrsDBParameterGroups
-         (\s a -> s { _ddbpgrsDBParameterGroups = a })
+ddbpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
+ddbpgrDBParameterGroups =
+    lens _ddbpgrDBParameterGroups
+         (\s a -> s { _ddbpgrDBParameterGroups = a })
 
 instance FromXML DescribeDBParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -121,4 +121,4 @@ instance AWSRequest DescribeDBParameterGroups where
 
 instance AWSPager DescribeDBParameterGroups where
     next rq rs = (\x -> rq & ddbpg1Marker ?~ x)
-        <$> (rs ^. ddbpgrsMarker)
+        <$> (rs ^. ddbpgrMarker)

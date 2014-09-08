@@ -26,8 +26,6 @@ module Network.AWS.OpsWorks.V2013_02_18.Types
     (
     -- * Service
       OpsWorks
-    -- ** Errors
-    , Er (..)
     -- * AppAttributesKeys
     , AppAttributesKeys (..)
 
@@ -324,27 +322,27 @@ module Network.AWS.OpsWorks.V2013_02_18.Types
     -- * Stack
     , Stack
     , mkStack
-    , srsStackId
-    , srsName
-    , srsArn
-    , srsRegion
-    , srsVpcId
-    , srsAttributes
-    , srsServiceRoleArn
-    , srsDefaultInstanceProfileArn
-    , srsDefaultOs
-    , srsHostnameTheme
-    , srsDefaultAvailabilityZone
-    , srsDefaultSubnetId
-    , srsCustomJson
-    , srsConfigurationManager
-    , srsChefConfiguration
-    , srsUseCustomCookbooks
-    , srsUseOpsworksSecurityGroups
-    , srsCustomCookbooksSource
-    , srsDefaultSshKeyName
-    , srsCreatedAt
-    , srsDefaultRootDeviceType
+    , srStackId
+    , srName
+    , srArn
+    , srRegion
+    , srVpcId
+    , srAttributes
+    , srServiceRoleArn
+    , srDefaultInstanceProfileArn
+    , srDefaultOs
+    , srHostnameTheme
+    , srDefaultAvailabilityZone
+    , srDefaultSubnetId
+    , srCustomJson
+    , srConfigurationManager
+    , srChefConfiguration
+    , srUseCustomCookbooks
+    , srUseOpsworksSecurityGroups
+    , srCustomCookbooksSource
+    , srDefaultSshKeyName
+    , srCreatedAt
+    , srDefaultRootDeviceType
 
     -- * StackConfigurationManager
     , StackConfigurationManager
@@ -2407,173 +2405,171 @@ instance ToJSON SslConfiguration
 
 -- | Describes a stack.
 data Stack = Stack
-    { _srsStackId :: Maybe Text
-    , _srsName :: Maybe Text
-    , _srsArn :: Maybe Text
-    , _srsRegion :: Maybe Text
-    , _srsVpcId :: Maybe Text
-    , _srsAttributes :: Map StackAttributesKeys Text
-    , _srsServiceRoleArn :: Maybe Text
-    , _srsDefaultInstanceProfileArn :: Maybe Text
-    , _srsDefaultOs :: Maybe Text
-    , _srsHostnameTheme :: Maybe Text
-    , _srsDefaultAvailabilityZone :: Maybe Text
-    , _srsDefaultSubnetId :: Maybe Text
-    , _srsCustomJson :: Maybe Text
-    , _srsConfigurationManager :: Maybe StackConfigurationManager
-    , _srsChefConfiguration :: Maybe ChefConfiguration
-    , _srsUseCustomCookbooks :: Maybe Bool
-    , _srsUseOpsworksSecurityGroups :: Maybe Bool
-    , _srsCustomCookbooksSource :: Maybe Source
-    , _srsDefaultSshKeyName :: Maybe Text
-    , _srsCreatedAt :: Maybe Text
-    , _srsDefaultRootDeviceType :: Maybe RootDeviceType
+    { _srStackId :: Maybe Text
+    , _srName :: Maybe Text
+    , _srArn :: Maybe Text
+    , _srRegion :: Maybe Text
+    , _srVpcId :: Maybe Text
+    , _srAttributes :: Map StackAttributesKeys Text
+    , _srServiceRoleArn :: Maybe Text
+    , _srDefaultInstanceProfileArn :: Maybe Text
+    , _srDefaultOs :: Maybe Text
+    , _srHostnameTheme :: Maybe Text
+    , _srDefaultAvailabilityZone :: Maybe Text
+    , _srDefaultSubnetId :: Maybe Text
+    , _srCustomJson :: Maybe Text
+    , _srConfigurationManager :: Maybe StackConfigurationManager
+    , _srChefConfiguration :: Maybe ChefConfiguration
+    , _srUseCustomCookbooks :: Maybe Bool
+    , _srUseOpsworksSecurityGroups :: Maybe Bool
+    , _srCustomCookbooksSource :: Maybe Source
+    , _srDefaultSshKeyName :: Maybe Text
+    , _srCreatedAt :: Maybe Text
+    , _srDefaultRootDeviceType :: Maybe RootDeviceType
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Stack' data type to populate a request.
 mkStack :: Stack
 mkStack = Stack
-    { _srsStackId = Nothing
-    , _srsName = Nothing
-    , _srsArn = Nothing
-    , _srsRegion = Nothing
-    , _srsVpcId = Nothing
-    , _srsAttributes = mempty
-    , _srsServiceRoleArn = Nothing
-    , _srsDefaultInstanceProfileArn = Nothing
-    , _srsDefaultOs = Nothing
-    , _srsHostnameTheme = Nothing
-    , _srsDefaultAvailabilityZone = Nothing
-    , _srsDefaultSubnetId = Nothing
-    , _srsCustomJson = Nothing
-    , _srsConfigurationManager = Nothing
-    , _srsChefConfiguration = Nothing
-    , _srsUseCustomCookbooks = Nothing
-    , _srsUseOpsworksSecurityGroups = Nothing
-    , _srsCustomCookbooksSource = Nothing
-    , _srsDefaultSshKeyName = Nothing
-    , _srsCreatedAt = Nothing
-    , _srsDefaultRootDeviceType = Nothing
+    { _srStackId = Nothing
+    , _srName = Nothing
+    , _srArn = Nothing
+    , _srRegion = Nothing
+    , _srVpcId = Nothing
+    , _srAttributes = mempty
+    , _srServiceRoleArn = Nothing
+    , _srDefaultInstanceProfileArn = Nothing
+    , _srDefaultOs = Nothing
+    , _srHostnameTheme = Nothing
+    , _srDefaultAvailabilityZone = Nothing
+    , _srDefaultSubnetId = Nothing
+    , _srCustomJson = Nothing
+    , _srConfigurationManager = Nothing
+    , _srChefConfiguration = Nothing
+    , _srUseCustomCookbooks = Nothing
+    , _srUseOpsworksSecurityGroups = Nothing
+    , _srCustomCookbooksSource = Nothing
+    , _srDefaultSshKeyName = Nothing
+    , _srCreatedAt = Nothing
+    , _srDefaultRootDeviceType = Nothing
     }
 
 -- | The stack ID.
-srsStackId :: Lens' Stack (Maybe Text)
-srsStackId = lens _srsStackId (\s a -> s { _srsStackId = a })
+srStackId :: Lens' Stack (Maybe Text)
+srStackId = lens _srStackId (\s a -> s { _srStackId = a })
 
 -- | The stack name.
-srsName :: Lens' Stack (Maybe Text)
-srsName = lens _srsName (\s a -> s { _srsName = a })
+srName :: Lens' Stack (Maybe Text)
+srName = lens _srName (\s a -> s { _srName = a })
 
 -- | The stack's ARN.
-srsArn :: Lens' Stack (Maybe Text)
-srsArn = lens _srsArn (\s a -> s { _srsArn = a })
+srArn :: Lens' Stack (Maybe Text)
+srArn = lens _srArn (\s a -> s { _srArn = a })
 
 -- | The stack AWS region, such as "us-east-1". For more information about AWS
 -- regions, see Regions and Endpoints.
-srsRegion :: Lens' Stack (Maybe Text)
-srsRegion = lens _srsRegion (\s a -> s { _srsRegion = a })
+srRegion :: Lens' Stack (Maybe Text)
+srRegion = lens _srRegion (\s a -> s { _srRegion = a })
 
 -- | The VPC ID, if the stack is running in a VPC.
-srsVpcId :: Lens' Stack (Maybe Text)
-srsVpcId = lens _srsVpcId (\s a -> s { _srsVpcId = a })
+srVpcId :: Lens' Stack (Maybe Text)
+srVpcId = lens _srVpcId (\s a -> s { _srVpcId = a })
 
 -- | The stack's attributes.
-srsAttributes :: Lens' Stack (Map StackAttributesKeys Text)
-srsAttributes = lens _srsAttributes (\s a -> s { _srsAttributes = a })
+srAttributes :: Lens' Stack (Map StackAttributesKeys Text)
+srAttributes = lens _srAttributes (\s a -> s { _srAttributes = a })
 
 -- | The stack AWS Identity and Access Management (IAM) role.
-srsServiceRoleArn :: Lens' Stack (Maybe Text)
-srsServiceRoleArn =
-    lens _srsServiceRoleArn (\s a -> s { _srsServiceRoleArn = a })
+srServiceRoleArn :: Lens' Stack (Maybe Text)
+srServiceRoleArn =
+    lens _srServiceRoleArn (\s a -> s { _srServiceRoleArn = a })
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack's EC2 instances. For more information about IAM ARNs, see Using
 -- Identifiers.
-srsDefaultInstanceProfileArn :: Lens' Stack (Maybe Text)
-srsDefaultInstanceProfileArn =
-    lens _srsDefaultInstanceProfileArn
-         (\s a -> s { _srsDefaultInstanceProfileArn = a })
+srDefaultInstanceProfileArn :: Lens' Stack (Maybe Text)
+srDefaultInstanceProfileArn =
+    lens _srDefaultInstanceProfileArn
+         (\s a -> s { _srDefaultInstanceProfileArn = a })
 
 -- | The stack's default operating system, which must be set to Amazon Linux or
 -- Ubuntu 12.04 LTS. The default option is Amazon Linux.
-srsDefaultOs :: Lens' Stack (Maybe Text)
-srsDefaultOs = lens _srsDefaultOs (\s a -> s { _srsDefaultOs = a })
+srDefaultOs :: Lens' Stack (Maybe Text)
+srDefaultOs = lens _srDefaultOs (\s a -> s { _srDefaultOs = a })
 
 -- | The stack host name theme, with spaces replaced by underscores.
-srsHostnameTheme :: Lens' Stack (Maybe Text)
-srsHostnameTheme =
-    lens _srsHostnameTheme (\s a -> s { _srsHostnameTheme = a })
+srHostnameTheme :: Lens' Stack (Maybe Text)
+srHostnameTheme = lens _srHostnameTheme (\s a -> s { _srHostnameTheme = a })
 
 -- | The stack's default Availability Zone. For more information, see Regions
 -- and Endpoints.
-srsDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
-srsDefaultAvailabilityZone =
-    lens _srsDefaultAvailabilityZone
-         (\s a -> s { _srsDefaultAvailabilityZone = a })
+srDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
+srDefaultAvailabilityZone =
+    lens _srDefaultAvailabilityZone
+         (\s a -> s { _srDefaultAvailabilityZone = a })
 
 -- | The default subnet ID, if the stack is running in a VPC.
-srsDefaultSubnetId :: Lens' Stack (Maybe Text)
-srsDefaultSubnetId =
-    lens _srsDefaultSubnetId (\s a -> s { _srsDefaultSubnetId = a })
+srDefaultSubnetId :: Lens' Stack (Maybe Text)
+srDefaultSubnetId =
+    lens _srDefaultSubnetId (\s a -> s { _srDefaultSubnetId = a })
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as '"'.:
 -- "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more information on
 -- custom JSON, see Use Custom JSON to Modify the Stack Configuration JSON.
-srsCustomJson :: Lens' Stack (Maybe Text)
-srsCustomJson = lens _srsCustomJson (\s a -> s { _srsCustomJson = a })
+srCustomJson :: Lens' Stack (Maybe Text)
+srCustomJson = lens _srCustomJson (\s a -> s { _srCustomJson = a })
 
 -- | The configuration manager.
-srsConfigurationManager :: Lens' Stack (Maybe StackConfigurationManager)
-srsConfigurationManager =
-    lens _srsConfigurationManager
-         (\s a -> s { _srsConfigurationManager = a })
+srConfigurationManager :: Lens' Stack (Maybe StackConfigurationManager)
+srConfigurationManager =
+    lens _srConfigurationManager (\s a -> s { _srConfigurationManager = a })
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version. For more information, see Create a New Stack.
-srsChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
-srsChefConfiguration =
-    lens _srsChefConfiguration (\s a -> s { _srsChefConfiguration = a })
+srChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
+srChefConfiguration =
+    lens _srChefConfiguration (\s a -> s { _srChefConfiguration = a })
 
 -- | Whether the stack uses custom cookbooks.
-srsUseCustomCookbooks :: Lens' Stack (Maybe Bool)
-srsUseCustomCookbooks =
-    lens _srsUseCustomCookbooks (\s a -> s { _srsUseCustomCookbooks = a })
+srUseCustomCookbooks :: Lens' Stack (Maybe Bool)
+srUseCustomCookbooks =
+    lens _srUseCustomCookbooks (\s a -> s { _srUseCustomCookbooks = a })
 
 -- | Whether the stack automatically associates the AWS OpsWorks built-in
 -- security groups with the stack's layers.
-srsUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
-srsUseOpsworksSecurityGroups =
-    lens _srsUseOpsworksSecurityGroups
-         (\s a -> s { _srsUseOpsworksSecurityGroups = a })
+srUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
+srUseOpsworksSecurityGroups =
+    lens _srUseOpsworksSecurityGroups
+         (\s a -> s { _srUseOpsworksSecurityGroups = a })
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-srsCustomCookbooksSource :: Lens' Stack (Maybe Source)
-srsCustomCookbooksSource =
-    lens _srsCustomCookbooksSource
-         (\s a -> s { _srsCustomCookbooksSource = a })
+srCustomCookbooksSource :: Lens' Stack (Maybe Source)
+srCustomCookbooksSource =
+    lens _srCustomCookbooksSource
+         (\s a -> s { _srCustomCookbooksSource = a })
 
 -- | A default SSH key for the stack's instances. You can override this value
 -- when you create or update an instance.
-srsDefaultSshKeyName :: Lens' Stack (Maybe Text)
-srsDefaultSshKeyName =
-    lens _srsDefaultSshKeyName (\s a -> s { _srsDefaultSshKeyName = a })
+srDefaultSshKeyName :: Lens' Stack (Maybe Text)
+srDefaultSshKeyName =
+    lens _srDefaultSshKeyName (\s a -> s { _srDefaultSshKeyName = a })
 
 -- | Date when the stack was created.
-srsCreatedAt :: Lens' Stack (Maybe Text)
-srsCreatedAt = lens _srsCreatedAt (\s a -> s { _srsCreatedAt = a })
+srCreatedAt :: Lens' Stack (Maybe Text)
+srCreatedAt = lens _srCreatedAt (\s a -> s { _srCreatedAt = a })
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see Storage for the Root Device.
-srsDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
-srsDefaultRootDeviceType =
-    lens _srsDefaultRootDeviceType
-         (\s a -> s { _srsDefaultRootDeviceType = a })
+srDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
+srDefaultRootDeviceType =
+    lens _srDefaultRootDeviceType
+         (\s a -> s { _srDefaultRootDeviceType = a })
 
 instance FromJSON Stack
 

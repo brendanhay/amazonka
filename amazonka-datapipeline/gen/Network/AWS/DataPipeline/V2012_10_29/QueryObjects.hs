@@ -48,9 +48,9 @@ module Network.AWS.DataPipeline.V2012_10_29.QueryObjects
     -- * Response
     , QueryObjectsResponse
     -- ** Response lenses
-    , qorsIds
-    , qorsMarker
-    , qorsHasMoreResults
+    , qorIds
+    , qorMarker
+    , qorHasMoreResults
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -117,26 +117,26 @@ instance ToJSON QueryObjects
 
 -- | Contains the output from the QueryObjects action.
 data QueryObjectsResponse = QueryObjectsResponse
-    { _qorsIds :: [Text]
-    , _qorsMarker :: Maybe Text
-    , _qorsHasMoreResults :: Bool
+    { _qorIds :: [Text]
+    , _qorMarker :: Maybe Text
+    , _qorHasMoreResults :: Bool
     } deriving (Show, Generic)
 
 -- | A list of identifiers that match the query selectors.
-qorsIds :: Lens' QueryObjectsResponse [Text]
-qorsIds = lens _qorsIds (\s a -> s { _qorsIds = a })
+qorIds :: Lens' QueryObjectsResponse [Text]
+qorIds = lens _qorIds (\s a -> s { _qorIds = a })
 
 -- | The starting point for the results to be returned. As long as the action
 -- returns HasMoreResults as True, you can call QueryObjects again and pass
 -- the marker value from the response to retrieve the next set of results.
-qorsMarker :: Lens' QueryObjectsResponse (Maybe Text)
-qorsMarker = lens _qorsMarker (\s a -> s { _qorsMarker = a })
+qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
+qorMarker = lens _qorMarker (\s a -> s { _qorMarker = a })
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to QueryObjects.
-qorsHasMoreResults :: Lens' QueryObjectsResponse Bool
-qorsHasMoreResults =
-    lens _qorsHasMoreResults (\s a -> s { _qorsHasMoreResults = a })
+qorHasMoreResults :: Lens' QueryObjectsResponse Bool
+qorHasMoreResults =
+    lens _qorHasMoreResults (\s a -> s { _qorHasMoreResults = a })
 
 instance FromJSON QueryObjectsResponse
 
@@ -149,6 +149,6 @@ instance AWSRequest QueryObjects where
 
 instance AWSPager QueryObjects where
     next rq rs
-        | not (rs ^. qorsHasMoreResults) = Nothing
+        | not (rs ^. qorHasMoreResults) = Nothing
         | otherwise = Just $
-            rq & qoMarker .~ rs ^. qorsMarker
+            rq & qoMarker .~ rs ^. qorMarker

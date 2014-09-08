@@ -54,7 +54,7 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheCluster
     -- * Response
     , ModifyCacheClusterResponse
     -- ** Response lenses
-    , mccrsCacheCluster
+    , mccrCacheCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -293,13 +293,13 @@ instance ToQuery ModifyCacheCluster where
     toQuery = genericQuery def
 
 newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
-    { _mccrsCacheCluster :: Maybe CacheCluster
+    { _mccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-mccrsCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
-mccrsCacheCluster =
-    lens _mccrsCacheCluster (\s a -> s { _mccrsCacheCluster = a })
+mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
+mccrCacheCluster =
+    lens _mccrCacheCluster (\s a -> s { _mccrCacheCluster = a })
 
 instance FromXML ModifyCacheClusterResponse where
     fromXMLOptions = xmlOptions

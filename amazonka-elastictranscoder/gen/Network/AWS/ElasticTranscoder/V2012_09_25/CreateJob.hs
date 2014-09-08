@@ -91,7 +91,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob
     -- * Response
     , CreateJobResponse
     -- ** Response lenses
-    , cjrsrsJob
+    , cjrrJob
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -169,13 +169,13 @@ instance ToJSON CreateJob
 
 -- | The CreateJobResponse structure.
 newtype CreateJobResponse = CreateJobResponse
-    { _cjrsrsJob :: Maybe Job
+    { _cjrrJob :: Maybe Job
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the job that
 -- is created.
-cjrsrsJob :: Lens' CreateJobResponse (Maybe Job)
-cjrsrsJob = lens _cjrsrsJob (\s a -> s { _cjrsrsJob = a })
+cjrrJob :: Lens' CreateJobResponse (Maybe Job)
+cjrrJob = lens _cjrrJob (\s a -> s { _cjrrJob = a })
 
 instance FromJSON CreateJobResponse
 

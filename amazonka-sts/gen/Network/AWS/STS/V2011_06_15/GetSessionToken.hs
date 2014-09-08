@@ -66,7 +66,7 @@ module Network.AWS.STS.V2011_06_15.GetSessionToken
     -- * Response
     , GetSessionTokenResponse
     -- ** Response lenses
-    , gstrsCredentials
+    , gstrCredentials
     ) where
 
 import Network.AWS.Request.Query
@@ -124,13 +124,12 @@ instance ToQuery GetSessionToken where
 -- | Contains the result of a successful call to the GetSessionToken action,
 -- including temporary AWS credentials that can be used to make AWS requests.
 newtype GetSessionTokenResponse = GetSessionTokenResponse
-    { _gstrsCredentials :: Maybe Credentials
+    { _gstrCredentials :: Maybe Credentials
     } deriving (Show, Generic)
 
 -- | The session credentials for API authentication.
-gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
-gstrsCredentials =
-    lens _gstrsCredentials (\s a -> s { _gstrsCredentials = a })
+gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
+gstrCredentials = lens _gstrCredentials (\s a -> s { _gstrCredentials = a })
 
 instance FromXML GetSessionTokenResponse where
     fromXMLOptions = xmlOptions

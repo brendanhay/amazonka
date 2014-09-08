@@ -88,8 +88,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset
     -- * Response
     , CreatePresetResponse
     -- ** Response lenses
-    , cprsrsPreset
-    , cprsrsWarning
+    , cprrPreset
+    , cprrWarning
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -158,21 +158,21 @@ instance ToJSON CreatePreset
 
 -- | The CreatePresetResponse structure.
 data CreatePresetResponse = CreatePresetResponse
-    { _cprsrsPreset :: Maybe Preset
-    , _cprsrsWarning :: Maybe Text
+    { _cprrPreset :: Maybe Preset
+    , _cprrWarning :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the preset
 -- that is created.
-cprsrsPreset :: Lens' CreatePresetResponse (Maybe Preset)
-cprsrsPreset = lens _cprsrsPreset (\s a -> s { _cprsrsPreset = a })
+cprrPreset :: Lens' CreatePresetResponse (Maybe Preset)
+cprrPreset = lens _cprrPreset (\s a -> s { _cprrPreset = a })
 
 -- | If the preset settings don't comply with the standards for the video codec
 -- but Elastic Transcoder created the preset, this message explains the reason
 -- the preset settings don't meet the standard. Elastic Transcoder created the
 -- preset because the settings might produce acceptable output.
-cprsrsWarning :: Lens' CreatePresetResponse (Maybe Text)
-cprsrsWarning = lens _cprsrsWarning (\s a -> s { _cprsrsWarning = a })
+cprrWarning :: Lens' CreatePresetResponse (Maybe Text)
+cprrWarning = lens _cprrWarning (\s a -> s { _cprrWarning = a })
 
 instance FromJSON CreatePresetResponse
 

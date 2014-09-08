@@ -133,7 +133,7 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkInterface
     -- * Response
     , CreateNetworkInterfaceResponse
     -- ** Response lenses
-    , cnirsNetworkInterface
+    , cnirNetworkInterface
     ) where
 
 import Network.AWS.Request.Query
@@ -203,13 +203,13 @@ instance ToQuery CreateNetworkInterface where
 
 -- | 
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
-    { _cnirsNetworkInterface :: Maybe NetworkInterface
+    { _cnirNetworkInterface :: Maybe NetworkInterface
     } deriving (Show, Generic)
 
 -- | Information about the network interface.
-cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
-cnirsNetworkInterface =
-    lens _cnirsNetworkInterface (\s a -> s { _cnirsNetworkInterface = a })
+cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
+cnirNetworkInterface =
+    lens _cnirNetworkInterface (\s a -> s { _cnirNetworkInterface = a })
 
 instance FromXML CreateNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions

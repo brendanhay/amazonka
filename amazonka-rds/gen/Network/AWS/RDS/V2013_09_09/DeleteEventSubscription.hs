@@ -37,7 +37,7 @@ module Network.AWS.RDS.V2013_09_09.DeleteEventSubscription
     -- * Response
     , DeleteEventSubscriptionResponse
     -- ** Response lenses
-    , desrsEventSubscription
+    , desrEventSubscription
     ) where
 
 import Network.AWS.Request.Query
@@ -66,14 +66,14 @@ instance ToQuery DeleteEventSubscription where
     toQuery = genericQuery def
 
 newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-    { _desrsEventSubscription :: Maybe EventSubscription
+    { _desrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-desrsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-desrsEventSubscription =
-    lens _desrsEventSubscription (\s a -> s { _desrsEventSubscription = a })
+desrEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
+desrEventSubscription =
+    lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
 
 instance FromXML DeleteEventSubscriptionResponse where
     fromXMLOptions = xmlOptions

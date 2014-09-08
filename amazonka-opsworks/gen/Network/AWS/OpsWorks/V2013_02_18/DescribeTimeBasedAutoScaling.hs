@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling
     -- * Response
     , DescribeTimeBasedAutoScalingResponse
     -- ** Response lenses
-    , dtbasrsTimeBasedAutoScalingConfigurations
+    , dtbasrTimeBasedAutoScalingConfigurations
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -69,15 +69,15 @@ instance ToJSON DescribeTimeBasedAutoScaling
 
 -- | Contains the response to a DescribeTimeBasedAutoScaling request.
 newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
-    { _dtbasrsTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
+    { _dtbasrTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
     } deriving (Show, Generic)
 
 -- | An array of TimeBasedAutoScalingConfiguration objects that describe the
 -- configuration for the specified instances.
-dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
-dtbasrsTimeBasedAutoScalingConfigurations =
-    lens _dtbasrsTimeBasedAutoScalingConfigurations
-         (\s a -> s { _dtbasrsTimeBasedAutoScalingConfigurations = a })
+dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
+dtbasrTimeBasedAutoScalingConfigurations =
+    lens _dtbasrTimeBasedAutoScalingConfigurations
+         (\s a -> s { _dtbasrTimeBasedAutoScalingConfigurations = a })
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse
 

@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster
     -- * Response
     , DeleteCacheClusterResponse
     -- ** Response lenses
-    , dccrsCacheCluster
+    , dccrCacheCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -81,13 +81,13 @@ instance ToQuery DeleteCacheCluster where
     toQuery = genericQuery def
 
 newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
-    { _dccrsCacheCluster :: Maybe CacheCluster
+    { _dccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
-dccrsCacheCluster =
-    lens _dccrsCacheCluster (\s a -> s { _dccrsCacheCluster = a })
+dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
+dccrCacheCluster =
+    lens _dccrCacheCluster (\s a -> s { _dccrCacheCluster = a })
 
 instance FromXML DeleteCacheClusterResponse where
     fromXMLOptions = xmlOptions

@@ -30,8 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution
     -- * Response
     , GetStreamingDistributionResponse
     -- ** Response lenses
-    , gsdrsStreamingDistribution
-    , gsdrsETag
+    , gsdrStreamingDistribution
+    , gsdrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -72,20 +72,20 @@ instance ToXML GetStreamingDistribution where
 
 -- | The returned result of the corresponding request.
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse
-    { _gsdrsStreamingDistribution :: Maybe StreamingDistribution
-    , _gsdrsETag :: Maybe Text
+    { _gsdrStreamingDistribution :: Maybe StreamingDistribution
+    , _gsdrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
-gsdrsStreamingDistribution =
-    lens _gsdrsStreamingDistribution
-         (\s a -> s { _gsdrsStreamingDistribution = a })
+gsdrStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
+gsdrStreamingDistribution =
+    lens _gsdrStreamingDistribution
+         (\s a -> s { _gsdrStreamingDistribution = a })
 
 -- | The current version of the streaming distribution's information. For
 -- example: E2QWRUHAPOMQZL.
-gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
-gsdrsETag = lens _gsdrsETag (\s a -> s { _gsdrsETag = a })
+gsdrETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
+gsdrETag = lens _gsdrETag (\s a -> s { _gsdrETag = a })
 
 instance AWSRequest GetStreamingDistribution where
     type Sv GetStreamingDistribution = CloudFront

@@ -60,12 +60,12 @@ module Network.AWS.S3.V2006_03_01.CopyObject
     -- * Response
     , CopyObjectResponse
     -- ** Response lenses
-    , corsCopyObjectResult
-    , corsExpiration
-    , corsCopySourceVersionId
-    , corsServerSideEncryption
-    , corsSSECustomerAlgorithm
-    , corsSSECustomerKeyMD5
+    , corCopyObjectResult
+    , corExpiration
+    , corCopySourceVersionId
+    , corServerSideEncryption
+    , corSSECustomerAlgorithm
+    , corSSECustomerKeyMD5
     ) where
 
 import Network.AWS.Request.RestS3
@@ -346,47 +346,46 @@ instance ToHeaders CopyObject where
 instance ToBody CopyObject
 
 data CopyObjectResponse = CopyObjectResponse
-    { _corsCopyObjectResult :: Maybe CopyObjectResult
-    , _corsExpiration :: Maybe RFC822
-    , _corsCopySourceVersionId :: Maybe Text
-    , _corsServerSideEncryption :: Maybe ServerSideEncryption
-    , _corsSSECustomerAlgorithm :: Maybe Text
-    , _corsSSECustomerKeyMD5 :: Maybe Text
+    { _corCopyObjectResult :: Maybe CopyObjectResult
+    , _corExpiration :: Maybe RFC822
+    , _corCopySourceVersionId :: Maybe Text
+    , _corServerSideEncryption :: Maybe ServerSideEncryption
+    , _corSSECustomerAlgorithm :: Maybe Text
+    , _corSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
-corsCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
-corsCopyObjectResult =
-    lens _corsCopyObjectResult (\s a -> s { _corsCopyObjectResult = a })
+corCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
+corCopyObjectResult =
+    lens _corCopyObjectResult (\s a -> s { _corCopyObjectResult = a })
 
 -- | If the object expiration is configured, the response includes this header.
-corsExpiration :: Lens' CopyObjectResponse (Maybe RFC822)
-corsExpiration = lens _corsExpiration (\s a -> s { _corsExpiration = a })
+corExpiration :: Lens' CopyObjectResponse (Maybe RFC822)
+corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a })
 
-corsCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
-corsCopySourceVersionId =
-    lens _corsCopySourceVersionId
-         (\s a -> s { _corsCopySourceVersionId = a })
+corCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
+corCopySourceVersionId =
+    lens _corCopySourceVersionId (\s a -> s { _corCopySourceVersionId = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-corsServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
-corsServerSideEncryption =
-    lens _corsServerSideEncryption
-         (\s a -> s { _corsServerSideEncryption = a })
+corServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
+corServerSideEncryption =
+    lens _corServerSideEncryption
+         (\s a -> s { _corServerSideEncryption = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-corsSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
-corsSSECustomerAlgorithm =
-    lens _corsSSECustomerAlgorithm
-         (\s a -> s { _corsSSECustomerAlgorithm = a })
+corSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
+corSSECustomerAlgorithm =
+    lens _corSSECustomerAlgorithm
+         (\s a -> s { _corSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-corsSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
-corsSSECustomerKeyMD5 =
-    lens _corsSSECustomerKeyMD5 (\s a -> s { _corsSSECustomerKeyMD5 = a })
+corSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
+corSSECustomerKeyMD5 =
+    lens _corSSECustomerKeyMD5 (\s a -> s { _corSSECustomerKeyMD5 = a })
 
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3

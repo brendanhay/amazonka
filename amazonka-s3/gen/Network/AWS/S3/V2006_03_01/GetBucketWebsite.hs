@@ -30,10 +30,10 @@ module Network.AWS.S3.V2006_03_01.GetBucketWebsite
     -- * Response
     , GetBucketWebsiteResponse
     -- ** Response lenses
-    , gbwrsRedirectAllRequestsTo
-    , gbwrsIndexDocument
-    , gbwrsErrorDocument
-    , gbwrsRoutingRules
+    , gbwrRedirectAllRequestsTo
+    , gbwrIndexDocument
+    , gbwrErrorDocument
+    , gbwrRoutingRules
     ) where
 
 import Network.AWS.Request.RestS3
@@ -72,28 +72,28 @@ instance ToHeaders GetBucketWebsite
 instance ToBody GetBucketWebsite
 
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse
-    { _gbwrsRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _gbwrsIndexDocument :: Maybe IndexDocument
-    , _gbwrsErrorDocument :: Maybe ErrorDocument
-    , _gbwrsRoutingRules :: [RoutingRule]
+    { _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+    , _gbwrIndexDocument :: Maybe IndexDocument
+    , _gbwrErrorDocument :: Maybe ErrorDocument
+    , _gbwrRoutingRules :: [RoutingRule]
     } deriving (Show, Generic)
 
-gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
-gbwrsRedirectAllRequestsTo =
-    lens _gbwrsRedirectAllRequestsTo
-         (\s a -> s { _gbwrsRedirectAllRequestsTo = a })
+gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
+gbwrRedirectAllRequestsTo =
+    lens _gbwrRedirectAllRequestsTo
+         (\s a -> s { _gbwrRedirectAllRequestsTo = a })
 
-gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
-gbwrsIndexDocument =
-    lens _gbwrsIndexDocument (\s a -> s { _gbwrsIndexDocument = a })
+gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
+gbwrIndexDocument =
+    lens _gbwrIndexDocument (\s a -> s { _gbwrIndexDocument = a })
 
-gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
-gbwrsErrorDocument =
-    lens _gbwrsErrorDocument (\s a -> s { _gbwrsErrorDocument = a })
+gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
+gbwrErrorDocument =
+    lens _gbwrErrorDocument (\s a -> s { _gbwrErrorDocument = a })
 
-gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrsRoutingRules =
-    lens _gbwrsRoutingRules (\s a -> s { _gbwrsRoutingRules = a })
+gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrRoutingRules =
+    lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
 
 instance FromXML GetBucketWebsiteResponse where
     fromXMLOptions = xmlOptions

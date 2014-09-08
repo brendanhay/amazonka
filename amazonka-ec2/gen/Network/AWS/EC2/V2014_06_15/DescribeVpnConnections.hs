@@ -57,7 +57,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnConnections
     -- * Response
     , DescribeVpnConnectionsResponse
     -- ** Response lenses
-    , dvcrsVpnConnections
+    , dvcrrVpnConnections
     ) where
 
 import Network.AWS.Request.Query
@@ -112,13 +112,13 @@ instance ToQuery DescribeVpnConnections where
 
 -- | 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
-    { _dvcrsVpnConnections :: [VpnConnection]
+    { _dvcrrVpnConnections :: [VpnConnection]
     } deriving (Show, Generic)
 
 -- | Information about one or more VPN connections.
-dvcrsVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
-dvcrsVpnConnections =
-    lens _dvcrsVpnConnections (\s a -> s { _dvcrsVpnConnections = a })
+dvcrrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
+dvcrrVpnConnections =
+    lens _dvcrrVpnConnections (\s a -> s { _dvcrrVpnConnections = a })
 
 instance FromXML DescribeVpnConnectionsResponse where
     fromXMLOptions = xmlOptions

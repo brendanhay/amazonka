@@ -41,7 +41,7 @@ module Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing
     -- * Response
     , CancelReservedInstancesListingResponse
     -- ** Response lenses
-    , crilrsReservedInstancesListings
+    , crilrReservedInstancesListings
     ) where
 
 import Network.AWS.Request.Query
@@ -72,14 +72,14 @@ instance ToQuery CancelReservedInstancesListing where
 
 -- | 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
-    { _crilrsReservedInstancesListings :: [ReservedInstancesListing]
+    { _crilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
 
 -- | The Reserved Instance listing.
-crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
-crilrsReservedInstancesListings =
-    lens _crilrsReservedInstancesListings
-         (\s a -> s { _crilrsReservedInstancesListings = a })
+crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
+crilrReservedInstancesListings =
+    lens _crilrReservedInstancesListings
+         (\s a -> s { _crilrReservedInstancesListings = a })
 
 instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions

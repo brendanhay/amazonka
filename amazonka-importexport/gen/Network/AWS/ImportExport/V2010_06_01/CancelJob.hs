@@ -31,7 +31,7 @@ module Network.AWS.ImportExport.V2010_06_01.CancelJob
     -- * Response
     , CancelJobResponse
     -- ** Response lenses
-    , cjrsSuccess
+    , cjrSuccess
     ) where
 
 import Network.AWS.Request.Query
@@ -60,12 +60,12 @@ instance ToQuery CancelJob where
 
 -- | Output structure for the CancelJob operation.
 newtype CancelJobResponse = CancelJobResponse
-    { _cjrsSuccess :: Maybe Bool
+    { _cjrSuccess :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
-cjrsSuccess :: Lens' CancelJobResponse (Maybe Bool)
-cjrsSuccess = lens _cjrsSuccess (\s a -> s { _cjrsSuccess = a })
+cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)
+cjrSuccess = lens _cjrSuccess (\s a -> s { _cjrSuccess = a })
 
 instance FromXML CancelJobResponse where
     fromXMLOptions = xmlOptions

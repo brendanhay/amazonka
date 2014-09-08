@@ -39,21 +39,21 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.TerminateEnvironment
     -- * Response
     , TerminateEnvironmentResponse
     -- ** Response lenses
-    , tersEnvironmentName
-    , tersEnvironmentId
-    , tersApplicationName
-    , tersVersionLabel
-    , tersSolutionStackName
-    , tersTemplateName
-    , tersDescription
-    , tersEndpointURL
-    , tersCNAME
-    , tersDateCreated
-    , tersDateUpdated
-    , tersStatus
-    , tersHealth
-    , tersResources
-    , tersTier
+    , terEnvironmentName
+    , terEnvironmentId
+    , terApplicationName
+    , terVersionLabel
+    , terSolutionStackName
+    , terTemplateName
+    , terDescription
+    , terEndpointURL
+    , terCNAME
+    , terDateCreated
+    , terDateUpdated
+    , terStatus
+    , terHealth
+    , terResources
+    , terTier
     ) where
 
 import Network.AWS.Request.Query
@@ -108,74 +108,72 @@ instance ToQuery TerminateEnvironment where
 
 -- | Describes the properties of an environment.
 data TerminateEnvironmentResponse = TerminateEnvironmentResponse
-    { _tersEnvironmentName :: Maybe Text
-    , _tersEnvironmentId :: Maybe Text
-    , _tersApplicationName :: Maybe Text
-    , _tersVersionLabel :: Maybe Text
-    , _tersSolutionStackName :: Maybe Text
-    , _tersTemplateName :: Maybe Text
-    , _tersDescription :: Maybe Text
-    , _tersEndpointURL :: Maybe Text
-    , _tersCNAME :: Maybe Text
-    , _tersDateCreated :: Maybe ISO8601
-    , _tersDateUpdated :: Maybe ISO8601
-    , _tersStatus :: Maybe EnvironmentStatus
-    , _tersHealth :: Maybe EnvironmentHealth
-    , _tersResources :: Maybe EnvironmentResourcesDescription
-    , _tersTier :: Maybe EnvironmentTier
+    { _terEnvironmentName :: Maybe Text
+    , _terEnvironmentId :: Maybe Text
+    , _terApplicationName :: Maybe Text
+    , _terVersionLabel :: Maybe Text
+    , _terSolutionStackName :: Maybe Text
+    , _terTemplateName :: Maybe Text
+    , _terDescription :: Maybe Text
+    , _terEndpointURL :: Maybe Text
+    , _terCNAME :: Maybe Text
+    , _terDateCreated :: Maybe ISO8601
+    , _terDateUpdated :: Maybe ISO8601
+    , _terStatus :: Maybe EnvironmentStatus
+    , _terHealth :: Maybe EnvironmentHealth
+    , _terResources :: Maybe EnvironmentResourcesDescription
+    , _terTier :: Maybe EnvironmentTier
     } deriving (Show, Generic)
 
 -- | The name of this environment.
-tersEnvironmentName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersEnvironmentName =
-    lens _tersEnvironmentName (\s a -> s { _tersEnvironmentName = a })
+terEnvironmentName :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terEnvironmentName =
+    lens _terEnvironmentName (\s a -> s { _terEnvironmentName = a })
 
 -- | The ID of this environment.
-tersEnvironmentId :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersEnvironmentId =
-    lens _tersEnvironmentId (\s a -> s { _tersEnvironmentId = a })
+terEnvironmentId :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terEnvironmentId =
+    lens _terEnvironmentId (\s a -> s { _terEnvironmentId = a })
 
 -- | The name of the application associated with this environment.
-tersApplicationName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersApplicationName =
-    lens _tersApplicationName (\s a -> s { _tersApplicationName = a })
+terApplicationName :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terApplicationName =
+    lens _terApplicationName (\s a -> s { _terApplicationName = a })
 
 -- | The application version deployed in this environment.
-tersVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersVersionLabel =
-    lens _tersVersionLabel (\s a -> s { _tersVersionLabel = a })
+terVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terVersionLabel = lens _terVersionLabel (\s a -> s { _terVersionLabel = a })
 
 -- | The name of the SolutionStack deployed with this environment.
-tersSolutionStackName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersSolutionStackName =
-    lens _tersSolutionStackName (\s a -> s { _tersSolutionStackName = a })
+terSolutionStackName :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terSolutionStackName =
+    lens _terSolutionStackName (\s a -> s { _terSolutionStackName = a })
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-tersTemplateName :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersTemplateName =
-    lens _tersTemplateName (\s a -> s { _tersTemplateName = a })
+terTemplateName :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terTemplateName = lens _terTemplateName (\s a -> s { _terTemplateName = a })
 
 -- | Describes this environment.
-tersDescription :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersDescription = lens _tersDescription (\s a -> s { _tersDescription = a })
+terDescription :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terDescription = lens _terDescription (\s a -> s { _terDescription = a })
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
-tersEndpointURL :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersEndpointURL = lens _tersEndpointURL (\s a -> s { _tersEndpointURL = a })
+terEndpointURL :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terEndpointURL = lens _terEndpointURL (\s a -> s { _terEndpointURL = a })
 
 -- | The URL to the CNAME for this environment.
-tersCNAME :: Lens' TerminateEnvironmentResponse (Maybe Text)
-tersCNAME = lens _tersCNAME (\s a -> s { _tersCNAME = a })
+terCNAME :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terCNAME = lens _terCNAME (\s a -> s { _terCNAME = a })
 
 -- | The creation date for this environment.
-tersDateCreated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
-tersDateCreated = lens _tersDateCreated (\s a -> s { _tersDateCreated = a })
+terDateCreated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
+terDateCreated = lens _terDateCreated (\s a -> s { _terDateCreated = a })
 
 -- | The last modified date for this environment.
-tersDateUpdated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
-tersDateUpdated = lens _tersDateUpdated (\s a -> s { _tersDateUpdated = a })
+terDateUpdated :: Lens' TerminateEnvironmentResponse (Maybe ISO8601)
+terDateUpdated = lens _terDateUpdated (\s a -> s { _terDateUpdated = a })
 
 -- | The current operational status of the environment: Launching: Environment
 -- is in the process of initial deployment. Updating: Environment is in the
@@ -183,8 +181,8 @@ tersDateUpdated = lens _tersDateUpdated (\s a -> s { _tersDateUpdated = a })
 -- Ready: Environment is available to have an action performed on it, such as
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
-tersStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
-tersStatus = lens _tersStatus (\s a -> s { _tersStatus = a })
+terStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
+terStatus = lens _terStatus (\s a -> s { _terStatus = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment: Red : Indicates the
@@ -199,16 +197,16 @@ tersStatus = lens _tersStatus (\s a -> s { _tersStatus = a })
 -- not fully launched and health checks have not started or health checks are
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
-tersHealth :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentHealth)
-tersHealth = lens _tersHealth (\s a -> s { _tersHealth = a })
+terHealth :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentHealth)
+terHealth = lens _terHealth (\s a -> s { _terHealth = a })
 
 -- | The description of the AWS resources used by this environment.
-tersResources :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
-tersResources = lens _tersResources (\s a -> s { _tersResources = a })
+terResources :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
+terResources = lens _terResources (\s a -> s { _terResources = a })
 
 -- | Describes the current tier of this environment.
-tersTier :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentTier)
-tersTier = lens _tersTier (\s a -> s { _tersTier = a })
+terTier :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentTier)
+terTier = lens _terTier (\s a -> s { _terTier = a })
 
 instance FromXML TerminateEnvironmentResponse where
     fromXMLOptions = xmlOptions

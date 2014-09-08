@@ -47,7 +47,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline
     -- * Response
     , ReadPipelineResponse
     -- ** Response lenses
-    , rprsPipeline
+    , rprPipeline
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -85,13 +85,13 @@ instance ToJSON ReadPipeline
 
 -- | The ReadPipelineResponse structure.
 newtype ReadPipelineResponse = ReadPipelineResponse
-    { _rprsPipeline :: Maybe Pipeline
+    { _rprPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-rprsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
-rprsPipeline = lens _rprsPipeline (\s a -> s { _rprsPipeline = a })
+rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
+rprPipeline = lens _rprPipeline (\s a -> s { _rprPipeline = a })
 
 instance FromJSON ReadPipelineResponse
 

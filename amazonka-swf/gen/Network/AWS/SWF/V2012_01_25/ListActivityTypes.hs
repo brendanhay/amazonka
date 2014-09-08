@@ -55,8 +55,8 @@ module Network.AWS.SWF.V2012_01_25.ListActivityTypes
     -- * Response
     , ListActivityTypesResponse
     -- ** Response lenses
-    , latrsTypeInfos
-    , latrsNextPageToken
+    , latrTypeInfos
+    , latrNextPageToken
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -131,20 +131,20 @@ instance ToJSON ListActivityTypes
 
 -- | Contains a paginated list of activity type information structures.
 data ListActivityTypesResponse = ListActivityTypesResponse
-    { _latrsTypeInfos :: [ActivityTypeInfo]
-    , _latrsNextPageToken :: Maybe Text
+    { _latrTypeInfos :: [ActivityTypeInfo]
+    , _latrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | List of activity type information.
-latrsTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
-latrsTypeInfos = lens _latrsTypeInfos (\s a -> s { _latrsTypeInfos = a })
+latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
+latrTypeInfos = lens _latrTypeInfos (\s a -> s { _latrTypeInfos = a })
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
-latrsNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
-latrsNextPageToken =
-    lens _latrsNextPageToken (\s a -> s { _latrsNextPageToken = a })
+latrNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
+latrNextPageToken =
+    lens _latrNextPageToken (\s a -> s { _latrNextPageToken = a })
 
 instance FromJSON ListActivityTypesResponse
 
@@ -157,4 +157,4 @@ instance AWSRequest ListActivityTypes where
 
 instance AWSPager ListActivityTypes where
     next rq rs = (\x -> rq & latNextPageToken ?~ x)
-        <$> (rs ^. latrsNextPageToken)
+        <$> (rs ^. latrNextPageToken)

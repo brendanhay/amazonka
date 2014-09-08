@@ -47,8 +47,8 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStacks
     -- * Response
     , ListStacksResponse
     -- ** Response lenses
-    , lsrsStackSummaries
-    , lsrsNextToken
+    , lsr1StackSummaries
+    , lsr1NextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -86,20 +86,20 @@ instance ToQuery ListStacks where
 
 -- | The output for ListStacks action.
 data ListStacksResponse = ListStacksResponse
-    { _lsrsStackSummaries :: [StackSummary]
-    , _lsrsNextToken :: Maybe Text
+    { _lsr1StackSummaries :: [StackSummary]
+    , _lsr1NextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of StackSummary structures containing information about the
 -- specified stacks.
-lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
-lsrsStackSummaries =
-    lens _lsrsStackSummaries (\s a -> s { _lsrsStackSummaries = a })
+lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
+lsr1StackSummaries =
+    lens _lsr1StackSummaries (\s a -> s { _lsr1StackSummaries = a })
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\s a -> s { _lsrsNextToken = a })
+lsr1NextToken :: Lens' ListStacksResponse (Maybe Text)
+lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
 
 instance FromXML ListStacksResponse where
     fromXMLOptions = xmlOptions
@@ -113,4 +113,4 @@ instance AWSRequest ListStacks where
 
 instance AWSPager ListStacks where
     next rq rs = (\x -> rq & lsNextToken ?~ x)
-        <$> (rs ^. lsrsNextToken)
+        <$> (rs ^. lsr1NextToken)

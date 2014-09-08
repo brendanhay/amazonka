@@ -50,8 +50,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities
     -- * Response
     , DescribeScalingActivitiesResponse
     -- ** Response lenses
-    , dsarsActivities
-    , dsarsNextToken
+    , dsarActivities
+    , dsarNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -104,19 +104,19 @@ instance ToQuery DescribeScalingActivities where
 
 -- | The output for the DescribeScalingActivities action.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
-    { _dsarsActivities :: [Activity]
-    , _dsarsNextToken :: Maybe Text
+    { _dsarActivities :: [Activity]
+    , _dsarNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of the requested scaling activities.
-dsarsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
-dsarsActivities = lens _dsarsActivities (\s a -> s { _dsarsActivities = a })
+dsarActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
+dsarActivities = lens _dsarActivities (\s a -> s { _dsarActivities = a })
 
 -- | Acts as a paging mechanism for large result sets. Set to a non-empty string
 -- if there are additional results waiting to be returned. Pass this in to
 -- subsequent calls to return additional results.
-dsarsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
-dsarsNextToken = lens _dsarsNextToken (\s a -> s { _dsarsNextToken = a })
+dsarNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
+dsarNextToken = lens _dsarNextToken (\s a -> s { _dsarNextToken = a })
 
 instance FromXML DescribeScalingActivitiesResponse where
     fromXMLOptions = xmlOptions
@@ -130,4 +130,4 @@ instance AWSRequest DescribeScalingActivities where
 
 instance AWSPager DescribeScalingActivities where
     next rq rs = (\x -> rq & dsa1NextToken ?~ x)
-        <$> (rs ^. dsarsNextToken)
+        <$> (rs ^. dsarNextToken)

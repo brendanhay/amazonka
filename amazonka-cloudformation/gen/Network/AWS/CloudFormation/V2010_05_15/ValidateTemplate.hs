@@ -39,10 +39,10 @@ module Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate
     -- * Response
     , ValidateTemplateResponse
     -- ** Response lenses
-    , vtrsParameters
-    , vtrsDescription
-    , vtrsCapabilities
-    , vtrsCapabilitiesReason
+    , vtrParameters
+    , vtrDescription
+    , vtrCapabilities
+    , vtrCapabilitiesReason
     ) where
 
 import Network.AWS.Request.Query
@@ -83,33 +83,32 @@ instance ToQuery ValidateTemplate where
 
 -- | The output for ValidateTemplate action.
 data ValidateTemplateResponse = ValidateTemplateResponse
-    { _vtrsParameters :: [TemplateParameter]
-    , _vtrsDescription :: Maybe Text
-    , _vtrsCapabilities :: [Capability]
-    , _vtrsCapabilitiesReason :: Maybe Text
+    { _vtrParameters :: [TemplateParameter]
+    , _vtrDescription :: Maybe Text
+    , _vtrCapabilities :: [Capability]
+    , _vtrCapabilitiesReason :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of TemplateParameter structures.
-vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
-vtrsParameters = lens _vtrsParameters (\s a -> s { _vtrsParameters = a })
+vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a })
 
 -- | The description found within the template.
-vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
-vtrsDescription = lens _vtrsDescription (\s a -> s { _vtrsDescription = a })
+vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
 
 -- | The capabilities found within the template. Currently, CAPABILITY_IAM is
 -- the only capability detected. If your template contains IAM resources, you
 -- must specify the CAPABILITY_IAM value for this parameter when you use the
 -- CreateStack or UpdateStack actions with your template; otherwise, those
 -- actions return an InsufficientCapabilities error.
-vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
-vtrsCapabilities =
-    lens _vtrsCapabilities (\s a -> s { _vtrsCapabilities = a })
+vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
+vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a })
 
 -- | The capabilities reason found within the template.
-vtrsCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
-vtrsCapabilitiesReason =
-    lens _vtrsCapabilitiesReason (\s a -> s { _vtrsCapabilitiesReason = a })
+vtrCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrCapabilitiesReason =
+    lens _vtrCapabilitiesReason (\s a -> s { _vtrCapabilitiesReason = a })
 
 instance FromXML ValidateTemplateResponse where
     fromXMLOptions = xmlOptions

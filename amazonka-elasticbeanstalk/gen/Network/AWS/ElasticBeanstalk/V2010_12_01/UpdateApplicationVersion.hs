@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplicationVersion
     -- * Response
     , UpdateApplicationVersionResponse
     -- ** Response lenses
-    , uavrsApplicationVersion
+    , uavrApplicationVersion
     ) where
 
 import Network.AWS.Request.Query
@@ -85,14 +85,13 @@ instance ToQuery UpdateApplicationVersion where
 
 -- | Result message wrapping a single description of an application version.
 newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
-    { _uavrsApplicationVersion :: Maybe ApplicationVersionDescription
+    { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
     } deriving (Show, Generic)
 
 -- | The ApplicationVersionDescription of the application version.
-uavrsApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
-uavrsApplicationVersion =
-    lens _uavrsApplicationVersion
-         (\s a -> s { _uavrsApplicationVersion = a })
+uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
+uavrApplicationVersion =
+    lens _uavrApplicationVersion (\s a -> s { _uavrApplicationVersion = a })
 
 instance FromXML UpdateApplicationVersionResponse where
     fromXMLOptions = xmlOptions

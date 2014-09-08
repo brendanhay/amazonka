@@ -36,8 +36,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeOptionGroupOptions
     -- * Response
     , DescribeOptionGroupOptionsResponse
     -- ** Response lenses
-    , dogorsOptionGroupOptions
-    , dogorsMarker
+    , dogorOptionGroupOptions
+    , dogorMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -92,21 +92,21 @@ instance ToQuery DescribeOptionGroupOptions where
 
 -- | 
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
-    { _dogorsOptionGroupOptions :: [OptionGroupOption]
-    , _dogorsMarker :: Maybe Text
+    { _dogorOptionGroupOptions :: [OptionGroupOption]
+    , _dogorMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | List of available option group options.
-dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
-dogorsOptionGroupOptions =
-    lens _dogorsOptionGroupOptions
-         (\s a -> s { _dogorsOptionGroupOptions = a })
+dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
+dogorOptionGroupOptions =
+    lens _dogorOptionGroupOptions
+         (\s a -> s { _dogorOptionGroupOptions = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dogorsMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
-dogorsMarker = lens _dogorsMarker (\s a -> s { _dogorsMarker = a })
+dogorMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
+dogorMarker = lens _dogorMarker (\s a -> s { _dogorMarker = a })
 
 instance FromXML DescribeOptionGroupOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -120,4 +120,4 @@ instance AWSRequest DescribeOptionGroupOptions where
 
 instance AWSPager DescribeOptionGroupOptions where
     next rq rs = (\x -> rq & dogoMarker ?~ x)
-        <$> (rs ^. dogorsMarker)
+        <$> (rs ^. dogorMarker)

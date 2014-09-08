@@ -36,7 +36,7 @@ module Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer
     -- * Response
     , AddUploadBufferResponse
     -- ** Response lenses
-    , aubrsGatewayARN
+    , aubrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -75,13 +75,13 @@ instance ToHeaders AddUploadBuffer
 instance ToJSON AddUploadBuffer
 
 newtype AddUploadBufferResponse = AddUploadBufferResponse
-    { _aubrsGatewayARN :: Maybe Text
+    { _aubrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
-aubrsGatewayARN = lens _aubrsGatewayARN (\s a -> s { _aubrsGatewayARN = a })
+aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
+aubrGatewayARN = lens _aubrGatewayARN (\s a -> s { _aubrGatewayARN = a })
 
 instance FromJSON AddUploadBufferResponse
 

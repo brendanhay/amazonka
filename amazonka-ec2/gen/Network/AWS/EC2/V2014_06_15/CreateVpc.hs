@@ -60,7 +60,7 @@ module Network.AWS.EC2.V2014_06_15.CreateVpc
     -- * Response
     , CreateVpcResponse
     -- ** Response lenses
-    , cvrsrsVpc
+    , cvrrVpc
     ) where
 
 import Network.AWS.Request.Query
@@ -101,12 +101,12 @@ instance ToQuery CreateVpc where
 
 -- | 
 newtype CreateVpcResponse = CreateVpcResponse
-    { _cvrsrsVpc :: Maybe Vpc
+    { _cvrrVpc :: Maybe Vpc
     } deriving (Show, Generic)
 
 -- | Information about the VPC.
-cvrsrsVpc :: Lens' CreateVpcResponse (Maybe Vpc)
-cvrsrsVpc = lens _cvrsrsVpc (\s a -> s { _cvrsrsVpc = a })
+cvrrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
+cvrrVpc = lens _cvrrVpc (\s a -> s { _cvrrVpc = a })
 
 instance FromXML CreateVpcResponse where
     fromXMLOptions = xmlOptions

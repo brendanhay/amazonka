@@ -40,7 +40,7 @@ module Network.AWS.SQS.V2012_11_05.ListQueues
     -- * Response
     , ListQueuesResponse
     -- ** Response lenses
-    , lqrsQueueUrls
+    , lqrQueueUrls
     ) where
 
 import Network.AWS.Request.Query
@@ -70,12 +70,12 @@ instance ToQuery ListQueues where
 
 -- | A list of your queues.
 newtype ListQueuesResponse = ListQueuesResponse
-    { _lqrsQueueUrls :: [Text]
+    { _lqrQueueUrls :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of queue URLs, up to 1000 entries.
-lqrsQueueUrls :: Lens' ListQueuesResponse [Text]
-lqrsQueueUrls = lens _lqrsQueueUrls (\s a -> s { _lqrsQueueUrls = a })
+lqrQueueUrls :: Lens' ListQueuesResponse [Text]
+lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
 
 instance FromXML ListQueuesResponse where
     fromXMLOptions = xmlOptions

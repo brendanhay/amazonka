@@ -31,8 +31,6 @@ module Network.AWS.Support.V2013_04_15.Types
     (
     -- * Service
       Support
-    -- ** Errors
-    , Er (..)
     -- * TrustedAdvisorCategorySpecificSummary
     , TrustedAdvisorCategorySpecificSummary
     , mkTrustedAdvisorCategorySpecificSummary

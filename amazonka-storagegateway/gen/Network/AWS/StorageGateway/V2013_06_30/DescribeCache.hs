@@ -50,13 +50,13 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeCache
     -- * Response
     , DescribeCacheResponse
     -- ** Response lenses
-    , dcrsGatewayARN
-    , dcrsDiskIds
-    , dcrsCacheAllocatedInBytes
-    , dcrsCacheUsedPercentage
-    , dcrsCacheDirtyPercentage
-    , dcrsCacheHitPercentage
-    , dcrsCacheMissPercentage
+    , dcrGatewayARN
+    , dcrDiskIds
+    , dcrCacheAllocatedInBytes
+    , dcrCacheUsedPercentage
+    , dcrCacheDirtyPercentage
+    , dcrCacheHitPercentage
+    , dcrCacheMissPercentage
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -89,46 +89,44 @@ instance ToHeaders DescribeCache
 instance ToJSON DescribeCache
 
 data DescribeCacheResponse = DescribeCacheResponse
-    { _dcrsGatewayARN :: Maybe Text
-    , _dcrsDiskIds :: [Text]
-    , _dcrsCacheAllocatedInBytes :: Maybe Integer
-    , _dcrsCacheUsedPercentage :: Maybe Double
-    , _dcrsCacheDirtyPercentage :: Maybe Double
-    , _dcrsCacheHitPercentage :: Maybe Double
-    , _dcrsCacheMissPercentage :: Maybe Double
+    { _dcrGatewayARN :: Maybe Text
+    , _dcrDiskIds :: [Text]
+    , _dcrCacheAllocatedInBytes :: Maybe Integer
+    , _dcrCacheUsedPercentage :: Maybe Double
+    , _dcrCacheDirtyPercentage :: Maybe Double
+    , _dcrCacheHitPercentage :: Maybe Double
+    , _dcrCacheMissPercentage :: Maybe Double
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
-dcrsGatewayARN = lens _dcrsGatewayARN (\s a -> s { _dcrsGatewayARN = a })
+dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
+dcrGatewayARN = lens _dcrGatewayARN (\s a -> s { _dcrGatewayARN = a })
 
-dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrsDiskIds = lens _dcrsDiskIds (\s a -> s { _dcrsDiskIds = a })
+dcrDiskIds :: Lens' DescribeCacheResponse [Text]
+dcrDiskIds = lens _dcrDiskIds (\s a -> s { _dcrDiskIds = a })
 
-dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
-dcrsCacheAllocatedInBytes =
-    lens _dcrsCacheAllocatedInBytes
-         (\s a -> s { _dcrsCacheAllocatedInBytes = a })
+dcrCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
+dcrCacheAllocatedInBytes =
+    lens _dcrCacheAllocatedInBytes
+         (\s a -> s { _dcrCacheAllocatedInBytes = a })
 
-dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheUsedPercentage =
-    lens _dcrsCacheUsedPercentage
-         (\s a -> s { _dcrsCacheUsedPercentage = a })
+dcrCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrCacheUsedPercentage =
+    lens _dcrCacheUsedPercentage (\s a -> s { _dcrCacheUsedPercentage = a })
 
-dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheDirtyPercentage =
-    lens _dcrsCacheDirtyPercentage
-         (\s a -> s { _dcrsCacheDirtyPercentage = a })
+dcrCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrCacheDirtyPercentage =
+    lens _dcrCacheDirtyPercentage
+         (\s a -> s { _dcrCacheDirtyPercentage = a })
 
-dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheHitPercentage =
-    lens _dcrsCacheHitPercentage (\s a -> s { _dcrsCacheHitPercentage = a })
+dcrCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrCacheHitPercentage =
+    lens _dcrCacheHitPercentage (\s a -> s { _dcrCacheHitPercentage = a })
 
-dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheMissPercentage =
-    lens _dcrsCacheMissPercentage
-         (\s a -> s { _dcrsCacheMissPercentage = a })
+dcrCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrCacheMissPercentage =
+    lens _dcrCacheMissPercentage (\s a -> s { _dcrCacheMissPercentage = a })
 
 instance FromJSON DescribeCacheResponse
 

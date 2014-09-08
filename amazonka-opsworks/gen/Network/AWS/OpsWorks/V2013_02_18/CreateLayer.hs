@@ -53,7 +53,7 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateLayer
     -- * Response
     , CreateLayerResponse
     -- ** Response lenses
-    , clrsLayerId
+    , clrLayerId
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -205,12 +205,12 @@ instance ToJSON CreateLayer
 
 -- | Contains the response to a CreateLayer request.
 newtype CreateLayerResponse = CreateLayerResponse
-    { _clrsLayerId :: Maybe Text
+    { _clrLayerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The layer ID.
-clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
-clrsLayerId = lens _clrsLayerId (\s a -> s { _clrsLayerId = a })
+clrLayerId :: Lens' CreateLayerResponse (Maybe Text)
+clrLayerId = lens _clrLayerId (\s a -> s { _clrLayerId = a })
 
 instance FromJSON CreateLayerResponse
 

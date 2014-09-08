@@ -55,8 +55,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents
     -- * Response
     , DescribeEventsResponse
     -- ** Response lenses
-    , dersrsEvents
-    , dersrsNextToken
+    , der1rEvents
+    , der1rNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -158,18 +158,18 @@ instance ToQuery DescribeEvents where
 
 -- | Result message wrapping a list of event descriptions.
 data DescribeEventsResponse = DescribeEventsResponse
-    { _dersrsEvents :: [EventDescription]
-    , _dersrsNextToken :: Maybe Text
+    { _der1rEvents :: [EventDescription]
+    , _der1rNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of EventDescription.
-dersrsEvents :: Lens' DescribeEventsResponse [EventDescription]
-dersrsEvents = lens _dersrsEvents (\s a -> s { _dersrsEvents = a })
+der1rEvents :: Lens' DescribeEventsResponse [EventDescription]
+der1rEvents = lens _der1rEvents (\s a -> s { _der1rEvents = a })
 
 -- | If returned, this indicates that there are more results to obtain. Use this
 -- token in the next DescribeEvents call to get the next batch of events.
-dersrsNextToken :: Lens' DescribeEventsResponse (Maybe Text)
-dersrsNextToken = lens _dersrsNextToken (\s a -> s { _dersrsNextToken = a })
+der1rNextToken :: Lens' DescribeEventsResponse (Maybe Text)
+der1rNextToken = lens _der1rNextToken (\s a -> s { _der1rNextToken = a })
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -183,4 +183,4 @@ instance AWSRequest DescribeEvents where
 
 instance AWSPager DescribeEvents where
     next rq rs = (\x -> rq & de1NextToken ?~ x)
-        <$> (rs ^. dersrsNextToken)
+        <$> (rs ^. der1rNextToken)

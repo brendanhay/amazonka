@@ -40,7 +40,7 @@ module Network.AWS.EC2.V2014_06_15.AttachNetworkInterface
     -- * Response
     , AttachNetworkInterfaceResponse
     -- ** Response lenses
-    , anirsAttachmentId
+    , anirAttachmentId
     ) where
 
 import Network.AWS.Request.Query
@@ -84,13 +84,13 @@ instance ToQuery AttachNetworkInterface where
 
 -- | 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
-    { _anirsAttachmentId :: Maybe Text
+    { _anirAttachmentId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the network interface attachment.
-anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
-anirsAttachmentId =
-    lens _anirsAttachmentId (\s a -> s { _anirsAttachmentId = a })
+anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
+anirAttachmentId =
+    lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
 
 instance FromXML AttachNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions

@@ -39,7 +39,7 @@ module Network.AWS.CloudFormation.V2010_05_15.GetTemplate
     -- * Response
     , GetTemplateResponse
     -- ** Response lenses
-    , gtrsTemplateBody
+    , gtrTemplateBody
     ) where
 
 import Network.AWS.Request.Query
@@ -71,14 +71,13 @@ instance ToQuery GetTemplate where
 
 -- | The output for GetTemplate action.
 newtype GetTemplateResponse = GetTemplateResponse
-    { _gtrsTemplateBody :: Maybe Text
+    { _gtrTemplateBody :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Structure containing the template body. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.).
-gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
-gtrsTemplateBody =
-    lens _gtrsTemplateBody (\s a -> s { _gtrsTemplateBody = a })
+gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
+gtrTemplateBody = lens _gtrTemplateBody (\s a -> s { _gtrTemplateBody = a })
 
 instance FromXML GetTemplateResponse where
     fromXMLOptions = xmlOptions

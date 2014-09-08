@@ -45,7 +45,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplicationVersion
     -- * Response
     , CreateApplicationVersionResponse
     -- ** Response lenses
-    , cavrsApplicationVersion
+    , cavrApplicationVersion
     ) where
 
 import Network.AWS.Request.Query
@@ -120,14 +120,13 @@ instance ToQuery CreateApplicationVersion where
 
 -- | Result message wrapping a single description of an application version.
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
-    { _cavrsApplicationVersion :: Maybe ApplicationVersionDescription
+    { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
     } deriving (Show, Generic)
 
 -- | The ApplicationVersionDescription of the application version.
-cavrsApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
-cavrsApplicationVersion =
-    lens _cavrsApplicationVersion
-         (\s a -> s { _cavrsApplicationVersion = a })
+cavrApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
+cavrApplicationVersion =
+    lens _cavrApplicationVersion (\s a -> s { _cavrApplicationVersion = a })
 
 instance FromXML CreateApplicationVersionResponse where
     fromXMLOptions = xmlOptions

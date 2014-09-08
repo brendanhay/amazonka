@@ -31,7 +31,7 @@ module Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy
     -- * Response
     , GetAccountPasswordPolicyResponse
     -- ** Response lenses
-    , gapprsPasswordPolicy
+    , gapprPasswordPolicy
     ) where
 
 import Network.AWS.Request.Query
@@ -52,15 +52,15 @@ instance ToQuery GetAccountPasswordPolicy where
 -- | Contains the result of a successful invocation of the
 -- GetAccountPasswordPolicy action.
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
-    { _gapprsPasswordPolicy :: PasswordPolicy
+    { _gapprPasswordPolicy :: PasswordPolicy
     } deriving (Show, Generic)
 
 -- | The PasswordPolicy data type contains information about the account
 -- password policy. This data type is used as a response element in the action
 -- GetAccountPasswordPolicy.
-gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
-gapprsPasswordPolicy =
-    lens _gapprsPasswordPolicy (\s a -> s { _gapprsPasswordPolicy = a })
+gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
+gapprPasswordPolicy =
+    lens _gapprPasswordPolicy (\s a -> s { _gapprPasswordPolicy = a })
 
 instance FromXML GetAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions

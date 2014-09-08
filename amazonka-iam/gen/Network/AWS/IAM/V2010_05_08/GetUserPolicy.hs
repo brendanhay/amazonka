@@ -37,9 +37,9 @@ module Network.AWS.IAM.V2010_05_08.GetUserPolicy
     -- * Response
     , GetUserPolicyResponse
     -- ** Response lenses
-    , guprsUserName
-    , guprsPolicyName
-    , guprsPolicyDocument
+    , guprUserName
+    , guprPolicyName
+    , guprPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
@@ -75,23 +75,23 @@ instance ToQuery GetUserPolicy where
 
 -- | Contains the result of a successful invocation of the GetUserPolicy action.
 data GetUserPolicyResponse = GetUserPolicyResponse
-    { _guprsUserName :: Text
-    , _guprsPolicyName :: Text
-    , _guprsPolicyDocument :: Text
+    { _guprUserName :: Text
+    , _guprPolicyName :: Text
+    , _guprPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | The user the policy is associated with.
-guprsUserName :: Lens' GetUserPolicyResponse Text
-guprsUserName = lens _guprsUserName (\s a -> s { _guprsUserName = a })
+guprUserName :: Lens' GetUserPolicyResponse Text
+guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
 
 -- | The name of the policy.
-guprsPolicyName :: Lens' GetUserPolicyResponse Text
-guprsPolicyName = lens _guprsPolicyName (\s a -> s { _guprsPolicyName = a })
+guprPolicyName :: Lens' GetUserPolicyResponse Text
+guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 
 -- | The policy document.
-guprsPolicyDocument :: Lens' GetUserPolicyResponse Text
-guprsPolicyDocument =
-    lens _guprsPolicyDocument (\s a -> s { _guprsPolicyDocument = a })
+guprPolicyDocument :: Lens' GetUserPolicyResponse Text
+guprPolicyDocument =
+    lens _guprPolicyDocument (\s a -> s { _guprPolicyDocument = a })
 
 instance FromXML GetUserPolicyResponse where
     fromXMLOptions = xmlOptions

@@ -39,7 +39,7 @@ module Network.AWS.EC2.V2014_06_15.CreateRouteTable
     -- * Response
     , CreateRouteTableResponse
     -- ** Response lenses
-    , crtrsRouteTable
+    , crtrRouteTable
     ) where
 
 import Network.AWS.Request.Query
@@ -68,12 +68,12 @@ instance ToQuery CreateRouteTable where
 
 -- | 
 newtype CreateRouteTableResponse = CreateRouteTableResponse
-    { _crtrsRouteTable :: Maybe RouteTable
+    { _crtrRouteTable :: Maybe RouteTable
     } deriving (Show, Generic)
 
 -- | Information about the route table.
-crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
-crtrsRouteTable = lens _crtrsRouteTable (\s a -> s { _crtrsRouteTable = a })
+crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
+crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
 
 instance FromXML CreateRouteTableResponse where
     fromXMLOptions = xmlOptions

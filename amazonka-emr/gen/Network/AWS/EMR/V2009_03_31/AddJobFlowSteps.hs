@@ -69,7 +69,7 @@ module Network.AWS.EMR.V2009_03_31.AddJobFlowSteps
     -- * Response
     , AddJobFlowStepsResponse
     -- ** Response lenses
-    , ajfsrsStepIds
+    , ajfsrStepIds
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -111,12 +111,12 @@ instance ToJSON AddJobFlowSteps
 
 -- | The output for the AddJobFlowSteps operation.
 newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
-    { _ajfsrsStepIds :: [Text]
+    { _ajfsrStepIds :: [Text]
     } deriving (Show, Generic)
 
 -- | The identifiers of the list of steps added to the job flow.
-ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
-ajfsrsStepIds = lens _ajfsrsStepIds (\s a -> s { _ajfsrsStepIds = a })
+ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
+ajfsrStepIds = lens _ajfsrStepIds (\s a -> s { _ajfsrStepIds = a })
 
 instance FromJSON AddJobFlowStepsResponse
 

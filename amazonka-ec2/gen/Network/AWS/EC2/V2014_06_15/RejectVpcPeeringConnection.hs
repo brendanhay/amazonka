@@ -40,7 +40,7 @@ module Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection
     -- * Response
     , RejectVpcPeeringConnectionResponse
     -- ** Response lenses
-    , rvpcrsReturn
+    , rvpcrReturn
     ) where
 
 import Network.AWS.Request.Query
@@ -71,12 +71,12 @@ instance ToQuery RejectVpcPeeringConnection where
 
 -- | 
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
-    { _rvpcrsReturn :: Maybe Bool
+    { _rvpcrReturn :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
-rvpcrsReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
-rvpcrsReturn = lens _rvpcrsReturn (\s a -> s { _rvpcrsReturn = a })
+rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
+rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
 
 instance FromXML RejectVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

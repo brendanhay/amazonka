@@ -38,7 +38,7 @@ module Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider
     -- * Response
     , UpdateSAMLProviderResponse
     -- ** Response lenses
-    , usamlprsSAMLProviderArn
+    , usamlprSAMLProviderArn
     ) where
 
 import Network.AWS.Request.Query
@@ -83,14 +83,13 @@ instance ToQuery UpdateSAMLProvider where
 -- | Contains the result of a successful invocation of the UpdateSAMLProvider
 -- action.
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
-    { _usamlprsSAMLProviderArn :: Maybe Text
+    { _usamlprSAMLProviderArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
-usamlprsSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)
-usamlprsSAMLProviderArn =
-    lens _usamlprsSAMLProviderArn
-         (\s a -> s { _usamlprsSAMLProviderArn = a })
+usamlprSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)
+usamlprSAMLProviderArn =
+    lens _usamlprSAMLProviderArn (\s a -> s { _usamlprSAMLProviderArn = a })
 
 instance FromXML UpdateSAMLProviderResponse where
     fromXMLOptions = xmlOptions

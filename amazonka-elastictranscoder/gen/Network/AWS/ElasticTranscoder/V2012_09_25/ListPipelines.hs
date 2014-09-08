@@ -71,8 +71,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines
     -- * Response
     , ListPipelinesResponse
     -- ** Response lenses
-    , lprsPipelines
-    , lprsNextPageToken
+    , lprPipelines
+    , lprNextPageToken
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -120,20 +120,20 @@ instance ToJSON ListPipelines
 
 -- | A list of the pipelines associated with the current AWS account.
 data ListPipelinesResponse = ListPipelinesResponse
-    { _lprsPipelines :: [Pipeline]
-    , _lprsNextPageToken :: Maybe Text
+    { _lprPipelines :: [Pipeline]
+    , _lprNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An array of Pipeline objects.
-lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
-lprsPipelines = lens _lprsPipelines (\s a -> s { _lprsPipelines = a })
+lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
+lprPipelines = lens _lprPipelines (\s a -> s { _lprPipelines = a })
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the pipelines fit on one page or when you've reached the last
 -- page of results, the value of NextPageToken is null.
-lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
-lprsNextPageToken =
-    lens _lprsNextPageToken (\s a -> s { _lprsNextPageToken = a })
+lprNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
+lprNextPageToken =
+    lens _lprNextPageToken (\s a -> s { _lprNextPageToken = a })
 
 instance FromJSON ListPipelinesResponse
 
@@ -146,4 +146,4 @@ instance AWSRequest ListPipelines where
 
 instance AWSPager ListPipelines where
     next rq rs = (\x -> rq & lpPageToken ?~ x)
-        <$> (rs ^. lprsNextPageToken)
+        <$> (rs ^. lprNextPageToken)

@@ -31,12 +31,12 @@ module Network.AWS.Redshift.V2012_12_01.DisableLogging
     -- * Response
     , DisableLoggingResponse
     -- ** Response lenses
-    , dlrsLoggingEnabled
-    , dlrsBucketName
-    , dlrsS3KeyPrefix
-    , dlrsLastSuccessfulDeliveryTime
-    , dlrsLastFailureTime
-    , dlrsLastFailureMessage
+    , dlrLoggingEnabled
+    , dlrBucketName
+    , dlrS3KeyPrefix
+    , dlrLastSuccessfulDeliveryTime
+    , dlrLastFailureTime
+    , dlrLastFailureMessage
     ) where
 
 import Network.AWS.Request.Query
@@ -67,42 +67,42 @@ instance ToQuery DisableLogging where
 
 -- | Describes the status of logging for a cluster.
 data DisableLoggingResponse = DisableLoggingResponse
-    { _dlrsLoggingEnabled :: Maybe Bool
-    , _dlrsBucketName :: Maybe Text
-    , _dlrsS3KeyPrefix :: Maybe Text
-    , _dlrsLastSuccessfulDeliveryTime :: Maybe ISO8601
-    , _dlrsLastFailureTime :: Maybe ISO8601
-    , _dlrsLastFailureMessage :: Maybe Text
+    { _dlrLoggingEnabled :: Maybe Bool
+    , _dlrBucketName :: Maybe Text
+    , _dlrS3KeyPrefix :: Maybe Text
+    , _dlrLastSuccessfulDeliveryTime :: Maybe ISO8601
+    , _dlrLastFailureTime :: Maybe ISO8601
+    , _dlrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | true if logging is on, false if logging is off.
-dlrsLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)
-dlrsLoggingEnabled =
-    lens _dlrsLoggingEnabled (\s a -> s { _dlrsLoggingEnabled = a })
+dlrLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)
+dlrLoggingEnabled =
+    lens _dlrLoggingEnabled (\s a -> s { _dlrLoggingEnabled = a })
 
 -- | The name of the S3 bucket where the log files are stored.
-dlrsBucketName :: Lens' DisableLoggingResponse (Maybe Text)
-dlrsBucketName = lens _dlrsBucketName (\s a -> s { _dlrsBucketName = a })
+dlrBucketName :: Lens' DisableLoggingResponse (Maybe Text)
+dlrBucketName = lens _dlrBucketName (\s a -> s { _dlrBucketName = a })
 
 -- | The prefix applied to the log file names.
-dlrsS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
-dlrsS3KeyPrefix = lens _dlrsS3KeyPrefix (\s a -> s { _dlrsS3KeyPrefix = a })
+dlrS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
+dlrS3KeyPrefix = lens _dlrS3KeyPrefix (\s a -> s { _dlrS3KeyPrefix = a })
 
 -- | The last time when logs were delivered.
-dlrsLastSuccessfulDeliveryTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
-dlrsLastSuccessfulDeliveryTime =
-    lens _dlrsLastSuccessfulDeliveryTime
-         (\s a -> s { _dlrsLastSuccessfulDeliveryTime = a })
+dlrLastSuccessfulDeliveryTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
+dlrLastSuccessfulDeliveryTime =
+    lens _dlrLastSuccessfulDeliveryTime
+         (\s a -> s { _dlrLastSuccessfulDeliveryTime = a })
 
 -- | The last time when logs failed to be delivered.
-dlrsLastFailureTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
-dlrsLastFailureTime =
-    lens _dlrsLastFailureTime (\s a -> s { _dlrsLastFailureTime = a })
+dlrLastFailureTime :: Lens' DisableLoggingResponse (Maybe ISO8601)
+dlrLastFailureTime =
+    lens _dlrLastFailureTime (\s a -> s { _dlrLastFailureTime = a })
 
 -- | The message indicating that logs failed to be delivered.
-dlrsLastFailureMessage :: Lens' DisableLoggingResponse (Maybe Text)
-dlrsLastFailureMessage =
-    lens _dlrsLastFailureMessage (\s a -> s { _dlrsLastFailureMessage = a })
+dlrLastFailureMessage :: Lens' DisableLoggingResponse (Maybe Text)
+dlrLastFailureMessage =
+    lens _dlrLastFailureMessage (\s a -> s { _dlrLastFailureMessage = a })
 
 instance FromXML DisableLoggingResponse where
     fromXMLOptions = xmlOptions

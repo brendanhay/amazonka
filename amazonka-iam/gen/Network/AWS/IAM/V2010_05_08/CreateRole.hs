@@ -46,7 +46,7 @@ module Network.AWS.IAM.V2010_05_08.CreateRole
     -- * Response
     , CreateRoleResponse
     -- ** Response lenses
-    , crrsRole
+    , crrRole
     ) where
 
 import Network.AWS.Request.Query
@@ -92,12 +92,12 @@ instance ToQuery CreateRole where
 
 -- | Contains the result of a successful invocation of the CreateRole action.
 newtype CreateRoleResponse = CreateRoleResponse
-    { _crrsRole :: Role
+    { _crrRole :: Role
     } deriving (Show, Generic)
 
 -- | Information about the role.
-crrsRole :: Lens' CreateRoleResponse Role
-crrsRole = lens _crrsRole (\s a -> s { _crrsRole = a })
+crrRole :: Lens' CreateRoleResponse Role
+crrRole = lens _crrRole (\s a -> s { _crrRole = a })
 
 instance FromXML CreateRoleResponse where
     fromXMLOptions = xmlOptions

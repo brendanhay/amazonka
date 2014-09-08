@@ -32,8 +32,8 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity
     -- * Response
     , UpdateCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
-    , ucfoairsCloudFrontOriginAccessIdentity
-    , ucfoairsETag
+    , ucfoairCloudFrontOriginAccessIdentity
+    , ucfoairETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -94,19 +94,19 @@ instance ToXML UpdateCloudFrontOriginAccessIdentity where
 
 -- | The returned result of the corresponding request.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
-    { _ucfoairsCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-    , _ucfoairsETag :: Maybe Text
+    { _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    , _ucfoairETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The origin access identity's information.
-ucfoairsCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ucfoairsCloudFrontOriginAccessIdentity =
-    lens _ucfoairsCloudFrontOriginAccessIdentity
-         (\s a -> s { _ucfoairsCloudFrontOriginAccessIdentity = a })
+ucfoairCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
+ucfoairCloudFrontOriginAccessIdentity =
+    lens _ucfoairCloudFrontOriginAccessIdentity
+         (\s a -> s { _ucfoairCloudFrontOriginAccessIdentity = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-ucfoairsETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ucfoairsETag = lens _ucfoairsETag (\s a -> s { _ucfoairsETag = a })
+ucfoairETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
+ucfoairETag = lens _ucfoairETag (\s a -> s { _ucfoairETag = a })
 
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Sv UpdateCloudFrontOriginAccessIdentity = CloudFront

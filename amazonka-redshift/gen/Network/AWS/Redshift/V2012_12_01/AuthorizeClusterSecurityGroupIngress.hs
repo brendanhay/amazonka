@@ -53,7 +53,7 @@ module Network.AWS.Redshift.V2012_12_01.AuthorizeClusterSecurityGroupIngress
     -- * Response
     , AuthorizeClusterSecurityGroupIngressResponse
     -- ** Response lenses
-    , acsgirsClusterSecurityGroup
+    , acsgirClusterSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -107,14 +107,14 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
-    { _acsgirsClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
-acsgirsClusterSecurityGroup =
-    lens _acsgirsClusterSecurityGroup
-         (\s a -> s { _acsgirsClusterSecurityGroup = a })
+acsgirClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
+acsgirClusterSecurityGroup =
+    lens _acsgirClusterSecurityGroup
+         (\s a -> s { _acsgirClusterSecurityGroup = a })
 
 instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

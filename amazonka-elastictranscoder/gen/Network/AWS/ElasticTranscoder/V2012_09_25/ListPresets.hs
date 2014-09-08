@@ -52,8 +52,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets
     -- * Response
     , ListPresetsResponse
     -- ** Response lenses
-    , lprsrsPresets
-    , lprsrsNextPageToken
+    , lprrPresets
+    , lprrNextPageToken
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -101,20 +101,20 @@ instance ToJSON ListPresets
 
 -- | The ListPresetsResponse structure.
 data ListPresetsResponse = ListPresetsResponse
-    { _lprsrsPresets :: [Preset]
-    , _lprsrsNextPageToken :: Maybe Text
+    { _lprrPresets :: [Preset]
+    , _lprrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An array of Preset objects.
-lprsrsPresets :: Lens' ListPresetsResponse [Preset]
-lprsrsPresets = lens _lprsrsPresets (\s a -> s { _lprsrsPresets = a })
+lprrPresets :: Lens' ListPresetsResponse [Preset]
+lprrPresets = lens _lprrPresets (\s a -> s { _lprrPresets = a })
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the presets fit on one page or when you've reached the last
 -- page of results, the value of NextPageToken is null.
-lprsrsNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
-lprsrsNextPageToken =
-    lens _lprsrsNextPageToken (\s a -> s { _lprsrsNextPageToken = a })
+lprrNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
+lprrNextPageToken =
+    lens _lprrNextPageToken (\s a -> s { _lprrNextPageToken = a })
 
 instance FromJSON ListPresetsResponse
 
@@ -127,4 +127,4 @@ instance AWSRequest ListPresets where
 
 instance AWSPager ListPresets where
     next rq rs = (\x -> rq & lp1PageToken ?~ x)
-        <$> (rs ^. lprsrsNextPageToken)
+        <$> (rs ^. lprrNextPageToken)

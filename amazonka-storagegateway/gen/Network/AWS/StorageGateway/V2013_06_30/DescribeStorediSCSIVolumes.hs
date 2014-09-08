@@ -52,7 +52,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes
     -- * Response
     , DescribeStorediSCSIVolumesResponse
     -- ** Response lenses
-    , dsscsivrsStorediSCSIVolumes
+    , dsscsivrStorediSCSIVolumes
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -89,13 +89,13 @@ instance ToHeaders DescribeStorediSCSIVolumes
 instance ToJSON DescribeStorediSCSIVolumes
 
 newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
-    { _dsscsivrsStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
+    { _dsscsivrStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
     } deriving (Show, Generic)
 
-dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolumeInformation]
-dsscsivrsStorediSCSIVolumes =
-    lens _dsscsivrsStorediSCSIVolumes
-         (\s a -> s { _dsscsivrsStorediSCSIVolumes = a })
+dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolumeInformation]
+dsscsivrStorediSCSIVolumes =
+    lens _dsscsivrStorediSCSIVolumes
+         (\s a -> s { _dsscsivrStorediSCSIVolumes = a })
 
 instance FromJSON DescribeStorediSCSIVolumesResponse
 

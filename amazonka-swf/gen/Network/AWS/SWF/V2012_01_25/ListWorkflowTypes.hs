@@ -63,8 +63,8 @@ module Network.AWS.SWF.V2012_01_25.ListWorkflowTypes
     -- * Response
     , ListWorkflowTypesResponse
     -- ** Response lenses
-    , lwtrsTypeInfos
-    , lwtrsNextPageToken
+    , lwtrTypeInfos
+    , lwtrNextPageToken
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -139,21 +139,21 @@ instance ToJSON ListWorkflowTypes
 
 -- | Contains a paginated list of information structures about workflow types.
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
-    { _lwtrsTypeInfos :: [WorkflowTypeInfo]
-    , _lwtrsNextPageToken :: Maybe Text
+    { _lwtrTypeInfos :: [WorkflowTypeInfo]
+    , _lwtrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of workflow type information.
-lwtrsTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
-lwtrsTypeInfos = lens _lwtrsTypeInfos (\s a -> s { _lwtrsTypeInfos = a })
+lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
+lwtrTypeInfos = lens _lwtrTypeInfos (\s a -> s { _lwtrTypeInfos = a })
 
 -- | The token for the next page of type information. If set then the list
 -- consists of more than one page. You can retrieve the next page by repeating
 -- the request (that returned the structure) with the this token and all other
 -- arguments unchanged.
-lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
-lwtrsNextPageToken =
-    lens _lwtrsNextPageToken (\s a -> s { _lwtrsNextPageToken = a })
+lwtrNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
+lwtrNextPageToken =
+    lens _lwtrNextPageToken (\s a -> s { _lwtrNextPageToken = a })
 
 instance FromJSON ListWorkflowTypesResponse
 
@@ -166,4 +166,4 @@ instance AWSRequest ListWorkflowTypes where
 
 instance AWSPager ListWorkflowTypes where
     next rq rs = (\x -> rq & lwtNextPageToken ?~ x)
-        <$> (rs ^. lwtrsNextPageToken)
+        <$> (rs ^. lwtrNextPageToken)

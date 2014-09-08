@@ -30,7 +30,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketCors
     -- * Response
     , GetBucketCorsResponse
     -- ** Response lenses
-    , gbcrsCORSRules
+    , gbcrCORSRules
     ) where
 
 import Network.AWS.Request.RestS3
@@ -69,11 +69,11 @@ instance ToHeaders GetBucketCors
 instance ToBody GetBucketCors
 
 newtype GetBucketCorsResponse = GetBucketCorsResponse
-    { _gbcrsCORSRules :: [CORSRule]
+    { _gbcrCORSRules :: [CORSRule]
     } deriving (Show, Generic)
 
-gbcrsCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
-gbcrsCORSRules = lens _gbcrsCORSRules (\s a -> s { _gbcrsCORSRules = a })
+gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
+gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
 
 instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions

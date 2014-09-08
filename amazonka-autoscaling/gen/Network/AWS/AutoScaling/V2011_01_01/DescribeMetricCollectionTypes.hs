@@ -35,8 +35,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes
     -- * Response
     , DescribeMetricCollectionTypesResponse
     -- ** Response lenses
-    , dmctrsMetrics
-    , dmctrsGranularities
+    , dmctrMetrics
+    , dmctrGranularities
     ) where
 
 import Network.AWS.Request.Query
@@ -56,8 +56,8 @@ instance ToQuery DescribeMetricCollectionTypes where
 
 -- | The output of the DescribeMetricCollectionTypes action.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
-    { _dmctrsMetrics :: [MetricCollectionType]
-    , _dmctrsGranularities :: [MetricGranularityType]
+    { _dmctrMetrics :: [MetricCollectionType]
+    , _dmctrGranularities :: [MetricGranularityType]
     } deriving (Show, Generic)
 
 -- | The list of Metrics collected. The following metrics are supported:
@@ -66,13 +66,13 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- GroupTotalInstances The GroupStandbyInstances metric is not returned by
 -- default. You must explicitly request it when calling
 -- EnableMetricsCollection.
-dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
-dmctrsMetrics = lens _dmctrsMetrics (\s a -> s { _dmctrsMetrics = a })
+dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
+dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a })
 
 -- | A list of granularities for the listed Metrics.
-dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
-dmctrsGranularities =
-    lens _dmctrsGranularities (\s a -> s { _dmctrsGranularities = a })
+dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
+dmctrGranularities =
+    lens _dmctrGranularities (\s a -> s { _dmctrGranularities = a })
 
 instance FromXML DescribeMetricCollectionTypesResponse where
     fromXMLOptions = xmlOptions

@@ -44,7 +44,7 @@ module Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation
     -- * Response
     , ReplaceRouteTableAssociationResponse
     -- ** Response lenses
-    , rrtarsNewAssociationId
+    , rrtarNewAssociationId
     ) where
 
 import Network.AWS.Request.Query
@@ -82,13 +82,13 @@ instance ToQuery ReplaceRouteTableAssociation where
 
 -- | 
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
-    { _rrtarsNewAssociationId :: Maybe Text
+    { _rrtarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new association.
-rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
-rrtarsNewAssociationId =
-    lens _rrtarsNewAssociationId (\s a -> s { _rrtarsNewAssociationId = a })
+rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
+rrtarNewAssociationId =
+    lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })
 
 instance FromXML ReplaceRouteTableAssociationResponse where
     fromXMLOptions = xmlOptions

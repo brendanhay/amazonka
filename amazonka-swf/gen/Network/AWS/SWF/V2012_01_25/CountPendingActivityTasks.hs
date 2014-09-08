@@ -59,8 +59,8 @@ module Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks
     -- * Response
     , CountPendingActivityTasksResponse
     -- ** Response lenses
-    , cpatrsCount
-    , cpatrsTruncated
+    , cpatrCount
+    , cpatrTruncated
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -100,18 +100,18 @@ instance ToJSON CountPendingActivityTasks
 
 -- | Contains the count of tasks in a task list.
 data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
-    { _cpatrsCount :: Integer
-    , _cpatrsTruncated :: Maybe Bool
+    { _cpatrCount :: Integer
+    , _cpatrTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The number of tasks in the task list.
-cpatrsCount :: Lens' CountPendingActivityTasksResponse Integer
-cpatrsCount = lens _cpatrsCount (\s a -> s { _cpatrsCount = a })
+cpatrCount :: Lens' CountPendingActivityTasksResponse Integer
+cpatrCount = lens _cpatrCount (\s a -> s { _cpatrCount = a })
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-cpatrsTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
-cpatrsTruncated = lens _cpatrsTruncated (\s a -> s { _cpatrsTruncated = a })
+cpatrTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
+cpatrTruncated = lens _cpatrTruncated (\s a -> s { _cpatrTruncated = a })
 
 instance FromJSON CountPendingActivityTasksResponse
 

@@ -34,8 +34,6 @@ module Network.AWS.EC2.V2014_06_15.Types
     (
     -- * Service
       EC2
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -311,8 +309,8 @@ module Network.AWS.EC2.V2014_06_15.Types
     -- * AccountAttribute
     , AccountAttribute
     , mkAccountAttribute
-    , aa1rsAttributeName
-    , aa1rsAttributeValues
+    , aa1rAttributeName
+    , aa1rAttributeValues
 
     -- * Address
     , Address
@@ -369,13 +367,13 @@ module Network.AWS.EC2.V2014_06_15.Types
     -- * ConversionTask
     , ConversionTask
     , mkConversionTask
-    , ctrsConversionTaskId
-    , ctrsExpirationTime
-    , ctrsImportInstance
-    , ctrsImportVolume
-    , ctrsState
-    , ctrsStatusMessage
-    , ctrsTags
+    , ctrConversionTaskId
+    , ctrExpirationTime
+    , ctrImportInstance
+    , ctrImportVolume
+    , ctrState
+    , ctrStatusMessage
+    , ctrTags
 
     -- * CreateVolumePermission
     , CreateVolumePermission
@@ -872,11 +870,11 @@ module Network.AWS.EC2.V2014_06_15.Types
     -- * NetworkInterfaceAssociation
     , NetworkInterfaceAssociation
     , mkNetworkInterfaceAssociation
-    , niarsPublicIp
-    , niarsPublicDnsName
-    , niarsIpOwnerId
-    , niarsAllocationId
-    , niarsAssociationId
+    , niarPublicIp
+    , niarPublicDnsName
+    , niarIpOwnerId
+    , niarAllocationId
+    , niarAssociationId
 
     -- * NetworkInterfaceAttachment
     , NetworkInterfaceAttachment
@@ -971,11 +969,11 @@ module Network.AWS.EC2.V2014_06_15.Types
     -- * Reservation
     , Reservation
     , mkReservation
-    , rrsReservationId
-    , rrsOwnerId
-    , rrsRequesterId
-    , rrsGroups
-    , rrsInstances
+    , rrReservationId
+    , rrOwnerId
+    , rrRequesterId
+    , rrGroups
+    , rrInstances
 
     -- * ReservedInstanceLimitPrice
     , ReservedInstanceLimitPrice
@@ -1178,30 +1176,30 @@ module Network.AWS.EC2.V2014_06_15.Types
     -- * SpotPrice
     , SpotPrice
     , mkSpotPrice
-    , sprsInstanceType
-    , sprsProductDescription
-    , sprsSpotPrice
-    , sprsTimestamp
-    , sprsAvailabilityZone
+    , sprInstanceType
+    , sprProductDescription
+    , sprSpotPrice
+    , sprTimestamp
+    , sprAvailabilityZone
 
     -- * StateReason
     , StateReason
     , mkStateReason
-    , srCode
-    , srMessage
+    , sr1Code
+    , sr1Message
 
     -- * Subnet
     , Subnet
     , mkSubnet
-    , srsSubnetId
-    , srsState
-    , srsVpcId
-    , srsCidrBlock
-    , srsAvailableIpAddressCount
-    , srsAvailabilityZone
-    , srsDefaultForAz
-    , srsMapPublicIpOnLaunch
-    , srsTags
+    , srSubnetId
+    , srState
+    , srVpcId
+    , srCidrBlock
+    , srAvailableIpAddressCount
+    , srAvailabilityZone
+    , srDefaultForAz
+    , srMapPublicIpOnLaunch
+    , srTags
 
     -- * Tag
     , Tag
@@ -1236,27 +1234,27 @@ module Network.AWS.EC2.V2014_06_15.Types
     -- * Volume
     , Volume
     , mkVolume
-    , vrsVolumeId
-    , vrsSize
-    , vrsSnapshotId
-    , vrsAvailabilityZone
-    , vrsState
-    , vrsCreateTime
-    , vrsAttachments
-    , vrsTags
-    , vrsVolumeType
-    , vrsIops
-    , vrsEncrypted
+    , vrVolumeId
+    , vrSize
+    , vrSnapshotId
+    , vrAvailabilityZone
+    , vrState
+    , vrCreateTime
+    , vrAttachments
+    , vrTags
+    , vrVolumeType
+    , vrIops
+    , vrEncrypted
 
     -- * VolumeAttachment
     , VolumeAttachment
     , mkVolumeAttachment
-    , varsVolumeId
-    , varsInstanceId
-    , varsDevice
-    , varsState
-    , varsAttachTime
-    , varsDeleteOnTermination
+    , varVolumeId
+    , varInstanceId
+    , varDevice
+    , varState
+    , varAttachTime
+    , varDeleteOnTermination
 
     -- * VolumeStatusAction
     , VolumeStatusAction
@@ -3657,27 +3655,27 @@ instance ToQuery VpnConnectionOptionsSpecification where
 
 -- | Describes an account attribute.
 data AccountAttribute = AccountAttribute
-    { _aa1rsAttributeName :: Maybe Text
-    , _aa1rsAttributeValues :: [AccountAttributeValue]
+    { _aa1rAttributeName :: Maybe Text
+    , _aa1rAttributeValues :: [AccountAttributeValue]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccountAttribute' data type to populate a request.
 mkAccountAttribute :: AccountAttribute
 mkAccountAttribute = AccountAttribute
-    { _aa1rsAttributeName = Nothing
-    , _aa1rsAttributeValues = mempty
+    { _aa1rAttributeName = Nothing
+    , _aa1rAttributeValues = mempty
     }
 
 -- | The name of the account attribute.
-aa1rsAttributeName :: Lens' AccountAttribute (Maybe Text)
-aa1rsAttributeName =
-    lens _aa1rsAttributeName (\s a -> s { _aa1rsAttributeName = a })
+aa1rAttributeName :: Lens' AccountAttribute (Maybe Text)
+aa1rAttributeName =
+    lens _aa1rAttributeName (\s a -> s { _aa1rAttributeName = a })
 
 -- | One or more values for the account attribute.
-aa1rsAttributeValues :: Lens' AccountAttribute [AccountAttributeValue]
-aa1rsAttributeValues =
-    lens _aa1rsAttributeValues (\s a -> s { _aa1rsAttributeValues = a })
+aa1rAttributeValues :: Lens' AccountAttribute [AccountAttributeValue]
+aa1rAttributeValues =
+    lens _aa1rAttributeValues (\s a -> s { _aa1rAttributeValues = a })
 
 instance FromXML AccountAttribute where
     fromXMLOptions = xmlOptions
@@ -3955,65 +3953,64 @@ instance FromXML CancelledSpotInstanceRequest where
 
 -- | Describes a conversion task.
 data ConversionTask = ConversionTask
-    { _ctrsConversionTaskId :: Text
-    , _ctrsExpirationTime :: Maybe Text
-    , _ctrsImportInstance :: Maybe ImportInstanceTaskDetails
-    , _ctrsImportVolume :: Maybe ImportVolumeTaskDetails
-    , _ctrsState :: ConversionTaskState
-    , _ctrsStatusMessage :: Maybe Text
-    , _ctrsTags :: [Tag]
+    { _ctrConversionTaskId :: Text
+    , _ctrExpirationTime :: Maybe Text
+    , _ctrImportInstance :: Maybe ImportInstanceTaskDetails
+    , _ctrImportVolume :: Maybe ImportVolumeTaskDetails
+    , _ctrState :: ConversionTaskState
+    , _ctrStatusMessage :: Maybe Text
+    , _ctrTags :: [Tag]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConversionTask' data type to populate a request.
-mkConversionTask :: Text -- ^ 'ctrsConversionTaskId'
-                 -> ConversionTaskState -- ^ 'ctrsState'
+mkConversionTask :: Text -- ^ 'ctrConversionTaskId'
+                 -> ConversionTaskState -- ^ 'ctrState'
                  -> ConversionTask
 mkConversionTask p1 p5 = ConversionTask
-    { _ctrsConversionTaskId = p1
-    , _ctrsExpirationTime = Nothing
-    , _ctrsImportInstance = Nothing
-    , _ctrsImportVolume = Nothing
-    , _ctrsState = p5
-    , _ctrsStatusMessage = Nothing
-    , _ctrsTags = mempty
+    { _ctrConversionTaskId = p1
+    , _ctrExpirationTime = Nothing
+    , _ctrImportInstance = Nothing
+    , _ctrImportVolume = Nothing
+    , _ctrState = p5
+    , _ctrStatusMessage = Nothing
+    , _ctrTags = mempty
     }
 
 -- | The ID of the conversion task.
-ctrsConversionTaskId :: Lens' ConversionTask Text
-ctrsConversionTaskId =
-    lens _ctrsConversionTaskId (\s a -> s { _ctrsConversionTaskId = a })
+ctrConversionTaskId :: Lens' ConversionTask Text
+ctrConversionTaskId =
+    lens _ctrConversionTaskId (\s a -> s { _ctrConversionTaskId = a })
 
 -- | The time when the task expires. If the upload isn't complete before the
 -- expiration time, we automatically cancel the task.
-ctrsExpirationTime :: Lens' ConversionTask (Maybe Text)
-ctrsExpirationTime =
-    lens _ctrsExpirationTime (\s a -> s { _ctrsExpirationTime = a })
+ctrExpirationTime :: Lens' ConversionTask (Maybe Text)
+ctrExpirationTime =
+    lens _ctrExpirationTime (\s a -> s { _ctrExpirationTime = a })
 
 -- | If the task is for importing an instance, this contains information about
 -- the import instance task.
-ctrsImportInstance :: Lens' ConversionTask (Maybe ImportInstanceTaskDetails)
-ctrsImportInstance =
-    lens _ctrsImportInstance (\s a -> s { _ctrsImportInstance = a })
+ctrImportInstance :: Lens' ConversionTask (Maybe ImportInstanceTaskDetails)
+ctrImportInstance =
+    lens _ctrImportInstance (\s a -> s { _ctrImportInstance = a })
 
 -- | If the task is for importing a volume, this contains information about the
 -- import volume task.
-ctrsImportVolume :: Lens' ConversionTask (Maybe ImportVolumeTaskDetails)
-ctrsImportVolume =
-    lens _ctrsImportVolume (\s a -> s { _ctrsImportVolume = a })
+ctrImportVolume :: Lens' ConversionTask (Maybe ImportVolumeTaskDetails)
+ctrImportVolume = lens _ctrImportVolume (\s a -> s { _ctrImportVolume = a })
 
 -- | The state of the conversion task.
-ctrsState :: Lens' ConversionTask ConversionTaskState
-ctrsState = lens _ctrsState (\s a -> s { _ctrsState = a })
+ctrState :: Lens' ConversionTask ConversionTaskState
+ctrState = lens _ctrState (\s a -> s { _ctrState = a })
 
 -- | The status message related to the conversion task.
-ctrsStatusMessage :: Lens' ConversionTask (Maybe Text)
-ctrsStatusMessage =
-    lens _ctrsStatusMessage (\s a -> s { _ctrsStatusMessage = a })
+ctrStatusMessage :: Lens' ConversionTask (Maybe Text)
+ctrStatusMessage =
+    lens _ctrStatusMessage (\s a -> s { _ctrStatusMessage = a })
 
 -- | 
-ctrsTags :: Lens' ConversionTask [Tag]
-ctrsTags = lens _ctrsTags (\s a -> s { _ctrsTags = a })
+ctrTags :: Lens' ConversionTask [Tag]
+ctrTags = lens _ctrTags (\s a -> s { _ctrTags = a })
 
 instance FromXML ConversionTask where
     fromXMLOptions = xmlOptions
@@ -6779,46 +6776,46 @@ instance FromXML NetworkInterface where
 -- | The association information for an Elastic IP associated with the network
 -- interface.
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation
-    { _niarsPublicIp :: Maybe Text
-    , _niarsPublicDnsName :: Maybe Text
-    , _niarsIpOwnerId :: Maybe Text
-    , _niarsAllocationId :: Maybe Text
-    , _niarsAssociationId :: Maybe Text
+    { _niarPublicIp :: Maybe Text
+    , _niarPublicDnsName :: Maybe Text
+    , _niarIpOwnerId :: Maybe Text
+    , _niarAllocationId :: Maybe Text
+    , _niarAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfaceAssociation' data type to populate a request.
 mkNetworkInterfaceAssociation :: NetworkInterfaceAssociation
 mkNetworkInterfaceAssociation = NetworkInterfaceAssociation
-    { _niarsPublicIp = Nothing
-    , _niarsPublicDnsName = Nothing
-    , _niarsIpOwnerId = Nothing
-    , _niarsAllocationId = Nothing
-    , _niarsAssociationId = Nothing
+    { _niarPublicIp = Nothing
+    , _niarPublicDnsName = Nothing
+    , _niarIpOwnerId = Nothing
+    , _niarAllocationId = Nothing
+    , _niarAssociationId = Nothing
     }
 
 -- | The address of the Elastic IP address bound to the network interface.
-niarsPublicIp :: Lens' NetworkInterfaceAssociation (Maybe Text)
-niarsPublicIp = lens _niarsPublicIp (\s a -> s { _niarsPublicIp = a })
+niarPublicIp :: Lens' NetworkInterfaceAssociation (Maybe Text)
+niarPublicIp = lens _niarPublicIp (\s a -> s { _niarPublicIp = a })
 
 -- | The public DNS name.
-niarsPublicDnsName :: Lens' NetworkInterfaceAssociation (Maybe Text)
-niarsPublicDnsName =
-    lens _niarsPublicDnsName (\s a -> s { _niarsPublicDnsName = a })
+niarPublicDnsName :: Lens' NetworkInterfaceAssociation (Maybe Text)
+niarPublicDnsName =
+    lens _niarPublicDnsName (\s a -> s { _niarPublicDnsName = a })
 
 -- | The ID of the Elastic IP address owner.
-niarsIpOwnerId :: Lens' NetworkInterfaceAssociation (Maybe Text)
-niarsIpOwnerId = lens _niarsIpOwnerId (\s a -> s { _niarsIpOwnerId = a })
+niarIpOwnerId :: Lens' NetworkInterfaceAssociation (Maybe Text)
+niarIpOwnerId = lens _niarIpOwnerId (\s a -> s { _niarIpOwnerId = a })
 
 -- | The allocation ID.
-niarsAllocationId :: Lens' NetworkInterfaceAssociation (Maybe Text)
-niarsAllocationId =
-    lens _niarsAllocationId (\s a -> s { _niarsAllocationId = a })
+niarAllocationId :: Lens' NetworkInterfaceAssociation (Maybe Text)
+niarAllocationId =
+    lens _niarAllocationId (\s a -> s { _niarAllocationId = a })
 
 -- | The association ID.
-niarsAssociationId :: Lens' NetworkInterfaceAssociation (Maybe Text)
-niarsAssociationId =
-    lens _niarsAssociationId (\s a -> s { _niarsAssociationId = a })
+niarAssociationId :: Lens' NetworkInterfaceAssociation (Maybe Text)
+niarAssociationId =
+    lens _niarAssociationId (\s a -> s { _niarAssociationId = a })
 
 instance FromXML NetworkInterfaceAssociation where
     fromXMLOptions = xmlOptions
@@ -7293,45 +7290,44 @@ instance FromXML Region where
 
 -- | Describes a reservation.
 data Reservation = Reservation
-    { _rrsReservationId :: Maybe Text
-    , _rrsOwnerId :: Maybe Text
-    , _rrsRequesterId :: Maybe Text
-    , _rrsGroups :: [GroupIdentifier]
-    , _rrsInstances :: [Instance]
+    { _rrReservationId :: Maybe Text
+    , _rrOwnerId :: Maybe Text
+    , _rrRequesterId :: Maybe Text
+    , _rrGroups :: [GroupIdentifier]
+    , _rrInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Reservation' data type to populate a request.
 mkReservation :: Reservation
 mkReservation = Reservation
-    { _rrsReservationId = Nothing
-    , _rrsOwnerId = Nothing
-    , _rrsRequesterId = Nothing
-    , _rrsGroups = mempty
-    , _rrsInstances = mempty
+    { _rrReservationId = Nothing
+    , _rrOwnerId = Nothing
+    , _rrRequesterId = Nothing
+    , _rrGroups = mempty
+    , _rrInstances = mempty
     }
 
 -- | The ID of the reservation.
-rrsReservationId :: Lens' Reservation (Maybe Text)
-rrsReservationId =
-    lens _rrsReservationId (\s a -> s { _rrsReservationId = a })
+rrReservationId :: Lens' Reservation (Maybe Text)
+rrReservationId = lens _rrReservationId (\s a -> s { _rrReservationId = a })
 
 -- | The ID of the AWS account that owns the reservation.
-rrsOwnerId :: Lens' Reservation (Maybe Text)
-rrsOwnerId = lens _rrsOwnerId (\s a -> s { _rrsOwnerId = a })
+rrOwnerId :: Lens' Reservation (Maybe Text)
+rrOwnerId = lens _rrOwnerId (\s a -> s { _rrOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
-rrsRequesterId :: Lens' Reservation (Maybe Text)
-rrsRequesterId = lens _rrsRequesterId (\s a -> s { _rrsRequesterId = a })
+rrRequesterId :: Lens' Reservation (Maybe Text)
+rrRequesterId = lens _rrRequesterId (\s a -> s { _rrRequesterId = a })
 
 -- | One or more security groups.
-rrsGroups :: Lens' Reservation [GroupIdentifier]
-rrsGroups = lens _rrsGroups (\s a -> s { _rrsGroups = a })
+rrGroups :: Lens' Reservation [GroupIdentifier]
+rrGroups = lens _rrGroups (\s a -> s { _rrGroups = a })
 
 -- | One or more instances.
-rrsInstances :: Lens' Reservation [Instance]
-rrsInstances = lens _rrsInstances (\s a -> s { _rrsInstances = a })
+rrInstances :: Lens' Reservation [Instance]
+rrInstances = lens _rrInstances (\s a -> s { _rrInstances = a })
 
 instance FromXML Reservation where
     fromXMLOptions = xmlOptions
@@ -8471,46 +8467,45 @@ instance ToQuery SpotPlacement where
 
 -- | Describes the Spot Price.
 data SpotPrice = SpotPrice
-    { _sprsInstanceType :: Maybe InstanceType
-    , _sprsProductDescription :: Maybe RIProductDescription
-    , _sprsSpotPrice :: Maybe Text
-    , _sprsTimestamp :: Maybe ISO8601
-    , _sprsAvailabilityZone :: Maybe Text
+    { _sprInstanceType :: Maybe InstanceType
+    , _sprProductDescription :: Maybe RIProductDescription
+    , _sprSpotPrice :: Maybe Text
+    , _sprTimestamp :: Maybe ISO8601
+    , _sprAvailabilityZone :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotPrice' data type to populate a request.
 mkSpotPrice :: SpotPrice
 mkSpotPrice = SpotPrice
-    { _sprsInstanceType = Nothing
-    , _sprsProductDescription = Nothing
-    , _sprsSpotPrice = Nothing
-    , _sprsTimestamp = Nothing
-    , _sprsAvailabilityZone = Nothing
+    { _sprInstanceType = Nothing
+    , _sprProductDescription = Nothing
+    , _sprSpotPrice = Nothing
+    , _sprTimestamp = Nothing
+    , _sprAvailabilityZone = Nothing
     }
 
 -- | The instance type.
-sprsInstanceType :: Lens' SpotPrice (Maybe InstanceType)
-sprsInstanceType =
-    lens _sprsInstanceType (\s a -> s { _sprsInstanceType = a })
+sprInstanceType :: Lens' SpotPrice (Maybe InstanceType)
+sprInstanceType = lens _sprInstanceType (\s a -> s { _sprInstanceType = a })
 
 -- | A general description of the AMI.
-sprsProductDescription :: Lens' SpotPrice (Maybe RIProductDescription)
-sprsProductDescription =
-    lens _sprsProductDescription (\s a -> s { _sprsProductDescription = a })
+sprProductDescription :: Lens' SpotPrice (Maybe RIProductDescription)
+sprProductDescription =
+    lens _sprProductDescription (\s a -> s { _sprProductDescription = a })
 
 -- | The maximum price you will pay to launch one or more Spot Instances.
-sprsSpotPrice :: Lens' SpotPrice (Maybe Text)
-sprsSpotPrice = lens _sprsSpotPrice (\s a -> s { _sprsSpotPrice = a })
+sprSpotPrice :: Lens' SpotPrice (Maybe Text)
+sprSpotPrice = lens _sprSpotPrice (\s a -> s { _sprSpotPrice = a })
 
 -- | The date and time the request was created.
-sprsTimestamp :: Lens' SpotPrice (Maybe ISO8601)
-sprsTimestamp = lens _sprsTimestamp (\s a -> s { _sprsTimestamp = a })
+sprTimestamp :: Lens' SpotPrice (Maybe ISO8601)
+sprTimestamp = lens _sprTimestamp (\s a -> s { _sprTimestamp = a })
 
 -- | The Availability Zone.
-sprsAvailabilityZone :: Lens' SpotPrice (Maybe Text)
-sprsAvailabilityZone =
-    lens _sprsAvailabilityZone (\s a -> s { _sprsAvailabilityZone = a })
+sprAvailabilityZone :: Lens' SpotPrice (Maybe Text)
+sprAvailabilityZone =
+    lens _sprAvailabilityZone (\s a -> s { _sprAvailabilityZone = a })
 
 instance FromXML SpotPrice where
     fromXMLOptions = xmlOptions
@@ -8518,21 +8513,21 @@ instance FromXML SpotPrice where
 
 -- | The reason for the state change.
 data StateReason = StateReason
-    { _srCode :: Maybe Text
-    , _srMessage :: Maybe Text
+    { _sr1Code :: Maybe Text
+    , _sr1Message :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StateReason' data type to populate a request.
 mkStateReason :: StateReason
 mkStateReason = StateReason
-    { _srCode = Nothing
-    , _srMessage = Nothing
+    { _sr1Code = Nothing
+    , _sr1Message = Nothing
     }
 
 -- | The reason code for the state change.
-srCode :: Lens' StateReason (Maybe Text)
-srCode = lens _srCode (\s a -> s { _srCode = a })
+sr1Code :: Lens' StateReason (Maybe Text)
+sr1Code = lens _sr1Code (\s a -> s { _sr1Code = a })
 
 -- | The message for the state change. Server.SpotInstanceTermination: A Spot
 -- Instance was terminated due to an increase in the market price.
@@ -8545,8 +8540,8 @@ srCode = lens _srCode (\s a -> s { _srCode = a })
 -- The instance was shut down using the Amazon EC2 API.
 -- Client.VolumeLimitExceeded: The volume limit was exceeded.
 -- Client.InvalidSnapshot.NotFound: The specified snapshot was not found.
-srMessage :: Lens' StateReason (Maybe Text)
-srMessage = lens _srMessage (\s a -> s { _srMessage = a })
+sr1Message :: Lens' StateReason (Maybe Text)
+sr1Message = lens _sr1Message (\s a -> s { _sr1Message = a })
 
 instance FromXML StateReason where
     fromXMLOptions = xmlOptions
@@ -8557,73 +8552,73 @@ instance ToQuery StateReason where
 
 -- | Information about the subnet.
 data Subnet = Subnet
-    { _srsSubnetId :: Maybe Text
-    , _srsState :: Maybe SubnetState
-    , _srsVpcId :: Maybe Text
-    , _srsCidrBlock :: Maybe Text
-    , _srsAvailableIpAddressCount :: Maybe Integer
-    , _srsAvailabilityZone :: Maybe Text
-    , _srsDefaultForAz :: Maybe Bool
-    , _srsMapPublicIpOnLaunch :: Maybe Bool
-    , _srsTags :: [Tag]
+    { _srSubnetId :: Maybe Text
+    , _srState :: Maybe SubnetState
+    , _srVpcId :: Maybe Text
+    , _srCidrBlock :: Maybe Text
+    , _srAvailableIpAddressCount :: Maybe Integer
+    , _srAvailabilityZone :: Maybe Text
+    , _srDefaultForAz :: Maybe Bool
+    , _srMapPublicIpOnLaunch :: Maybe Bool
+    , _srTags :: [Tag]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
 mkSubnet :: Subnet
 mkSubnet = Subnet
-    { _srsSubnetId = Nothing
-    , _srsState = Nothing
-    , _srsVpcId = Nothing
-    , _srsCidrBlock = Nothing
-    , _srsAvailableIpAddressCount = Nothing
-    , _srsAvailabilityZone = Nothing
-    , _srsDefaultForAz = Nothing
-    , _srsMapPublicIpOnLaunch = Nothing
-    , _srsTags = mempty
+    { _srSubnetId = Nothing
+    , _srState = Nothing
+    , _srVpcId = Nothing
+    , _srCidrBlock = Nothing
+    , _srAvailableIpAddressCount = Nothing
+    , _srAvailabilityZone = Nothing
+    , _srDefaultForAz = Nothing
+    , _srMapPublicIpOnLaunch = Nothing
+    , _srTags = mempty
     }
 
 -- | The ID of the subnet.
-srsSubnetId :: Lens' Subnet (Maybe Text)
-srsSubnetId = lens _srsSubnetId (\s a -> s { _srsSubnetId = a })
+srSubnetId :: Lens' Subnet (Maybe Text)
+srSubnetId = lens _srSubnetId (\s a -> s { _srSubnetId = a })
 
 -- | The current state of the subnet.
-srsState :: Lens' Subnet (Maybe SubnetState)
-srsState = lens _srsState (\s a -> s { _srsState = a })
+srState :: Lens' Subnet (Maybe SubnetState)
+srState = lens _srState (\s a -> s { _srState = a })
 
 -- | The ID of the VPC the subnet is in.
-srsVpcId :: Lens' Subnet (Maybe Text)
-srsVpcId = lens _srsVpcId (\s a -> s { _srsVpcId = a })
+srVpcId :: Lens' Subnet (Maybe Text)
+srVpcId = lens _srVpcId (\s a -> s { _srVpcId = a })
 
 -- | The CIDR block assigned to the subnet.
-srsCidrBlock :: Lens' Subnet (Maybe Text)
-srsCidrBlock = lens _srsCidrBlock (\s a -> s { _srsCidrBlock = a })
+srCidrBlock :: Lens' Subnet (Maybe Text)
+srCidrBlock = lens _srCidrBlock (\s a -> s { _srCidrBlock = a })
 
 -- | The number of unused IP addresses in the subnet. Note that the IP addresses
 -- for any stopped instances are considered unavailable.
-srsAvailableIpAddressCount :: Lens' Subnet (Maybe Integer)
-srsAvailableIpAddressCount =
-    lens _srsAvailableIpAddressCount
-         (\s a -> s { _srsAvailableIpAddressCount = a })
+srAvailableIpAddressCount :: Lens' Subnet (Maybe Integer)
+srAvailableIpAddressCount =
+    lens _srAvailableIpAddressCount
+         (\s a -> s { _srAvailableIpAddressCount = a })
 
 -- | The Availability Zone of the subnet.
-srsAvailabilityZone :: Lens' Subnet (Maybe Text)
-srsAvailabilityZone =
-    lens _srsAvailabilityZone (\s a -> s { _srsAvailabilityZone = a })
+srAvailabilityZone :: Lens' Subnet (Maybe Text)
+srAvailabilityZone =
+    lens _srAvailabilityZone (\s a -> s { _srAvailabilityZone = a })
 
 -- | Indicates whether this is the default subnet for the Availability Zone.
-srsDefaultForAz :: Lens' Subnet (Maybe Bool)
-srsDefaultForAz = lens _srsDefaultForAz (\s a -> s { _srsDefaultForAz = a })
+srDefaultForAz :: Lens' Subnet (Maybe Bool)
+srDefaultForAz = lens _srDefaultForAz (\s a -> s { _srDefaultForAz = a })
 
 -- | Indicates whether instances launched in this subnet receive a public IP
 -- address.
-srsMapPublicIpOnLaunch :: Lens' Subnet (Maybe Bool)
-srsMapPublicIpOnLaunch =
-    lens _srsMapPublicIpOnLaunch (\s a -> s { _srsMapPublicIpOnLaunch = a })
+srMapPublicIpOnLaunch :: Lens' Subnet (Maybe Bool)
+srMapPublicIpOnLaunch =
+    lens _srMapPublicIpOnLaunch (\s a -> s { _srMapPublicIpOnLaunch = a })
 
 -- | Any tags assigned to the subnet.
-srsTags :: Lens' Subnet [Tag]
-srsTags = lens _srsTags (\s a -> s { _srsTags = a })
+srTags :: Lens' Subnet [Tag]
+srTags = lens _srTags (\s a -> s { _srTags = a })
 
 instance FromXML Subnet where
     fromXMLOptions = xmlOptions
@@ -8792,73 +8787,73 @@ instance ToQuery VgwTelemetry where
 
 -- | Describes a volume.
 data Volume = Volume
-    { _vrsVolumeId :: Maybe Text
-    , _vrsSize :: Maybe Integer
-    , _vrsSnapshotId :: Maybe Text
-    , _vrsAvailabilityZone :: Maybe Text
-    , _vrsState :: Maybe VolumeState
-    , _vrsCreateTime :: Maybe ISO8601
-    , _vrsAttachments :: [VolumeAttachment]
-    , _vrsTags :: [Tag]
-    , _vrsVolumeType :: Maybe VolumeType
-    , _vrsIops :: Maybe Integer
-    , _vrsEncrypted :: Maybe Bool
+    { _vrVolumeId :: Maybe Text
+    , _vrSize :: Maybe Integer
+    , _vrSnapshotId :: Maybe Text
+    , _vrAvailabilityZone :: Maybe Text
+    , _vrState :: Maybe VolumeState
+    , _vrCreateTime :: Maybe ISO8601
+    , _vrAttachments :: [VolumeAttachment]
+    , _vrTags :: [Tag]
+    , _vrVolumeType :: Maybe VolumeType
+    , _vrIops :: Maybe Integer
+    , _vrEncrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Volume' data type to populate a request.
 mkVolume :: Volume
 mkVolume = Volume
-    { _vrsVolumeId = Nothing
-    , _vrsSize = Nothing
-    , _vrsSnapshotId = Nothing
-    , _vrsAvailabilityZone = Nothing
-    , _vrsState = Nothing
-    , _vrsCreateTime = Nothing
-    , _vrsAttachments = mempty
-    , _vrsTags = mempty
-    , _vrsVolumeType = Nothing
-    , _vrsIops = Nothing
-    , _vrsEncrypted = Nothing
+    { _vrVolumeId = Nothing
+    , _vrSize = Nothing
+    , _vrSnapshotId = Nothing
+    , _vrAvailabilityZone = Nothing
+    , _vrState = Nothing
+    , _vrCreateTime = Nothing
+    , _vrAttachments = mempty
+    , _vrTags = mempty
+    , _vrVolumeType = Nothing
+    , _vrIops = Nothing
+    , _vrEncrypted = Nothing
     }
 
 -- | The ID of the volume.
-vrsVolumeId :: Lens' Volume (Maybe Text)
-vrsVolumeId = lens _vrsVolumeId (\s a -> s { _vrsVolumeId = a })
+vrVolumeId :: Lens' Volume (Maybe Text)
+vrVolumeId = lens _vrVolumeId (\s a -> s { _vrVolumeId = a })
 
 -- | The size of the volume, in GiBs.
-vrsSize :: Lens' Volume (Maybe Integer)
-vrsSize = lens _vrsSize (\s a -> s { _vrsSize = a })
+vrSize :: Lens' Volume (Maybe Integer)
+vrSize = lens _vrSize (\s a -> s { _vrSize = a })
 
 -- | The snapshot from which the volume was created, if applicable.
-vrsSnapshotId :: Lens' Volume (Maybe Text)
-vrsSnapshotId = lens _vrsSnapshotId (\s a -> s { _vrsSnapshotId = a })
+vrSnapshotId :: Lens' Volume (Maybe Text)
+vrSnapshotId = lens _vrSnapshotId (\s a -> s { _vrSnapshotId = a })
 
 -- | The Availability Zone for the volume.
-vrsAvailabilityZone :: Lens' Volume (Maybe Text)
-vrsAvailabilityZone =
-    lens _vrsAvailabilityZone (\s a -> s { _vrsAvailabilityZone = a })
+vrAvailabilityZone :: Lens' Volume (Maybe Text)
+vrAvailabilityZone =
+    lens _vrAvailabilityZone (\s a -> s { _vrAvailabilityZone = a })
 
 -- | The volume state.
-vrsState :: Lens' Volume (Maybe VolumeState)
-vrsState = lens _vrsState (\s a -> s { _vrsState = a })
+vrState :: Lens' Volume (Maybe VolumeState)
+vrState = lens _vrState (\s a -> s { _vrState = a })
 
 -- | The time stamp when volume creation was initiated.
-vrsCreateTime :: Lens' Volume (Maybe ISO8601)
-vrsCreateTime = lens _vrsCreateTime (\s a -> s { _vrsCreateTime = a })
+vrCreateTime :: Lens' Volume (Maybe ISO8601)
+vrCreateTime = lens _vrCreateTime (\s a -> s { _vrCreateTime = a })
 
 -- | 
-vrsAttachments :: Lens' Volume [VolumeAttachment]
-vrsAttachments = lens _vrsAttachments (\s a -> s { _vrsAttachments = a })
+vrAttachments :: Lens' Volume [VolumeAttachment]
+vrAttachments = lens _vrAttachments (\s a -> s { _vrAttachments = a })
 
 -- | Any tags assigned to the volume.
-vrsTags :: Lens' Volume [Tag]
-vrsTags = lens _vrsTags (\s a -> s { _vrsTags = a })
+vrTags :: Lens' Volume [Tag]
+vrTags = lens _vrTags (\s a -> s { _vrTags = a })
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
-vrsVolumeType :: Lens' Volume (Maybe VolumeType)
-vrsVolumeType = lens _vrsVolumeType (\s a -> s { _vrsVolumeType = a })
+vrVolumeType :: Lens' Volume (Maybe VolumeType)
+vrVolumeType = lens _vrVolumeType (\s a -> s { _vrVolumeType = a })
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
 -- For Provisioned IOPS (SSD) volumes, this represents the number of IOPS that
@@ -8871,12 +8866,12 @@ vrsVolumeType = lens _vrsVolumeType (\s a -> s { _vrsVolumeType = a })
 -- to 3072 for General Purpose (SSD) volumes. Condition: This parameter is
 -- required for requests to create io1 volumes; it is not used in requests to
 -- create standard or gp2 volumes.
-vrsIops :: Lens' Volume (Maybe Integer)
-vrsIops = lens _vrsIops (\s a -> s { _vrsIops = a })
+vrIops :: Lens' Volume (Maybe Integer)
+vrIops = lens _vrIops (\s a -> s { _vrIops = a })
 
 -- | Indicates whether the volume is encrypted.
-vrsEncrypted :: Lens' Volume (Maybe Bool)
-vrsEncrypted = lens _vrsEncrypted (\s a -> s { _vrsEncrypted = a })
+vrEncrypted :: Lens' Volume (Maybe Bool)
+vrEncrypted = lens _vrEncrypted (\s a -> s { _vrEncrypted = a })
 
 instance FromXML Volume where
     fromXMLOptions = xmlOptions
@@ -8884,51 +8879,50 @@ instance FromXML Volume where
 
 -- | Describes volume attachment details.
 data VolumeAttachment = VolumeAttachment
-    { _varsVolumeId :: Maybe Text
-    , _varsInstanceId :: Maybe Text
-    , _varsDevice :: Maybe Text
-    , _varsState :: Maybe VolumeAttachmentState
-    , _varsAttachTime :: Maybe ISO8601
-    , _varsDeleteOnTermination :: Maybe Bool
+    { _varVolumeId :: Maybe Text
+    , _varInstanceId :: Maybe Text
+    , _varDevice :: Maybe Text
+    , _varState :: Maybe VolumeAttachmentState
+    , _varAttachTime :: Maybe ISO8601
+    , _varDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeAttachment' data type to populate a request.
 mkVolumeAttachment :: VolumeAttachment
 mkVolumeAttachment = VolumeAttachment
-    { _varsVolumeId = Nothing
-    , _varsInstanceId = Nothing
-    , _varsDevice = Nothing
-    , _varsState = Nothing
-    , _varsAttachTime = Nothing
-    , _varsDeleteOnTermination = Nothing
+    { _varVolumeId = Nothing
+    , _varInstanceId = Nothing
+    , _varDevice = Nothing
+    , _varState = Nothing
+    , _varAttachTime = Nothing
+    , _varDeleteOnTermination = Nothing
     }
 
 -- | The ID of the volume.
-varsVolumeId :: Lens' VolumeAttachment (Maybe Text)
-varsVolumeId = lens _varsVolumeId (\s a -> s { _varsVolumeId = a })
+varVolumeId :: Lens' VolumeAttachment (Maybe Text)
+varVolumeId = lens _varVolumeId (\s a -> s { _varVolumeId = a })
 
 -- | The ID of the instance.
-varsInstanceId :: Lens' VolumeAttachment (Maybe Text)
-varsInstanceId = lens _varsInstanceId (\s a -> s { _varsInstanceId = a })
+varInstanceId :: Lens' VolumeAttachment (Maybe Text)
+varInstanceId = lens _varInstanceId (\s a -> s { _varInstanceId = a })
 
 -- | The device name.
-varsDevice :: Lens' VolumeAttachment (Maybe Text)
-varsDevice = lens _varsDevice (\s a -> s { _varsDevice = a })
+varDevice :: Lens' VolumeAttachment (Maybe Text)
+varDevice = lens _varDevice (\s a -> s { _varDevice = a })
 
 -- | The attachment state of the volume.
-varsState :: Lens' VolumeAttachment (Maybe VolumeAttachmentState)
-varsState = lens _varsState (\s a -> s { _varsState = a })
+varState :: Lens' VolumeAttachment (Maybe VolumeAttachmentState)
+varState = lens _varState (\s a -> s { _varState = a })
 
 -- | The time stamp when the attachment initiated.
-varsAttachTime :: Lens' VolumeAttachment (Maybe ISO8601)
-varsAttachTime = lens _varsAttachTime (\s a -> s { _varsAttachTime = a })
+varAttachTime :: Lens' VolumeAttachment (Maybe ISO8601)
+varAttachTime = lens _varAttachTime (\s a -> s { _varAttachTime = a })
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-varsDeleteOnTermination :: Lens' VolumeAttachment (Maybe Bool)
-varsDeleteOnTermination =
-    lens _varsDeleteOnTermination
-         (\s a -> s { _varsDeleteOnTermination = a })
+varDeleteOnTermination :: Lens' VolumeAttachment (Maybe Bool)
+varDeleteOnTermination =
+    lens _varDeleteOnTermination (\s a -> s { _varDeleteOnTermination = a })
 
 instance FromXML VolumeAttachment where
     fromXMLOptions = xmlOptions

@@ -52,7 +52,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways
     -- * Response
     , DescribeCustomerGatewaysResponse
     -- ** Response lenses
-    , dcgrsCustomerGateways
+    , dcgrCustomerGateways
     ) where
 
 import Network.AWS.Request.Query
@@ -102,13 +102,13 @@ instance ToQuery DescribeCustomerGateways where
 
 -- | 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgrsCustomerGateways :: [CustomerGateway]
+    { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Show, Generic)
 
 -- | Information about one or more customer gateways.
-dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
-dcgrsCustomerGateways =
-    lens _dcgrsCustomerGateways (\s a -> s { _dcgrsCustomerGateways = a })
+dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgrCustomerGateways =
+    lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
 
 instance FromXML DescribeCustomerGatewaysResponse where
     fromXMLOptions = xmlOptions

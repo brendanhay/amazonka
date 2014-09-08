@@ -64,9 +64,9 @@ module Network.AWS.EC2.V2014_06_15.GetConsoleOutput
     -- * Response
     , GetConsoleOutputResponse
     -- ** Response lenses
-    , gcorsInstanceId
-    , gcorsTimestamp
-    , gcorsOutput
+    , gcorInstanceId
+    , gcorTimestamp
+    , gcorOutput
     ) where
 
 import Network.AWS.Request.Query
@@ -95,22 +95,22 @@ instance ToQuery GetConsoleOutput where
 
 -- | 
 data GetConsoleOutputResponse = GetConsoleOutputResponse
-    { _gcorsInstanceId :: Maybe Text
-    , _gcorsTimestamp :: Maybe ISO8601
-    , _gcorsOutput :: Maybe Text
+    { _gcorInstanceId :: Maybe Text
+    , _gcorTimestamp :: Maybe ISO8601
+    , _gcorOutput :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-gcorsInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
-gcorsInstanceId = lens _gcorsInstanceId (\s a -> s { _gcorsInstanceId = a })
+gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
+gcorInstanceId = lens _gcorInstanceId (\s a -> s { _gcorInstanceId = a })
 
 -- | The time the output was last updated.
-gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
-gcorsTimestamp = lens _gcorsTimestamp (\s a -> s { _gcorsTimestamp = a })
+gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe ISO8601)
+gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
 
 -- | The console output, Base64 encoded.
-gcorsOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
-gcorsOutput = lens _gcorsOutput (\s a -> s { _gcorsOutput = a })
+gcorOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
+gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 
 instance FromXML GetConsoleOutputResponse where
     fromXMLOptions = xmlOptions

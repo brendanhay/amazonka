@@ -39,7 +39,7 @@ module Network.AWS.S3.V2006_03_01.CreateBucket
     -- * Response
     , CreateBucketResponse
     -- ** Response lenses
-    , cbrsLocation
+    , cbrLocation
     ) where
 
 import Network.AWS.Request.RestS3
@@ -131,11 +131,11 @@ instance ToBody CreateBucket where
     toBody = toBody . encodeXML . _cbCreateBucketConfiguration
 
 newtype CreateBucketResponse = CreateBucketResponse
-    { _cbrsLocation :: Maybe Text
+    { _cbrLocation :: Maybe Text
     } deriving (Show, Generic)
 
-cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
-cbrsLocation = lens _cbrsLocation (\s a -> s { _cbrsLocation = a })
+cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
+cbrLocation = lens _cbrLocation (\s a -> s { _cbrLocation = a })
 
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3

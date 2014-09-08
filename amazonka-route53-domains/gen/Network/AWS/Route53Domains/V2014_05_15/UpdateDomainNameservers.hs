@@ -51,7 +51,7 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers
     -- * Response
     , UpdateDomainNameserversResponse
     -- ** Response lenses
-    , udnrsOperationId
+    , udnrOperationId
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -96,15 +96,14 @@ instance ToJSON UpdateDomainNameservers
 
 -- | The UpdateDomainNameservers response includes the following element.
 newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
-    { _udnrsOperationId :: Text
+    { _udnrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
-udnrsOperationId =
-    lens _udnrsOperationId (\s a -> s { _udnrsOperationId = a })
+udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
+udnrOperationId = lens _udnrOperationId (\s a -> s { _udnrOperationId = a })
 
 instance FromJSON UpdateDomainNameserversResponse
 

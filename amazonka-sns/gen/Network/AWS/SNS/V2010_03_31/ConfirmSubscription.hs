@@ -50,7 +50,7 @@ module Network.AWS.SNS.V2010_03_31.ConfirmSubscription
     -- * Response
     , ConfirmSubscriptionResponse
     -- ** Response lenses
-    , csrsSubscriptionArn
+    , csrSubscriptionArn
     ) where
 
 import Network.AWS.Request.Query
@@ -97,13 +97,13 @@ instance ToQuery ConfirmSubscription where
 
 -- | Response for ConfirmSubscriptions action.
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
-    { _csrsSubscriptionArn :: Maybe Text
+    { _csrSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ARN of the created subscription.
-csrsSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
-csrsSubscriptionArn =
-    lens _csrsSubscriptionArn (\s a -> s { _csrsSubscriptionArn = a })
+csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
+csrSubscriptionArn =
+    lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })
 
 instance FromXML ConfirmSubscriptionResponse where
     fromXMLOptions = xmlOptions

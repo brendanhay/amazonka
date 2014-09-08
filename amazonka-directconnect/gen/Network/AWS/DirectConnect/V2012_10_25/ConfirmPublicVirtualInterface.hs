@@ -32,7 +32,7 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface
     -- * Response
     , ConfirmPublicVirtualInterfaceResponse
     -- ** Response lenses
-    , cpvirsrsVirtualInterfaceState
+    , cpvirrVirtualInterfaceState
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -69,7 +69,7 @@ instance ToJSON ConfirmPublicVirtualInterface
 
 -- | The response received when ConfirmPublicVirtualInterface is called.
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
-    { _cpvirsrsVirtualInterfaceState :: Maybe VirtualInterfaceState
+    { _cpvirrVirtualInterfaceState :: Maybe VirtualInterfaceState
     } deriving (Show, Generic)
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
@@ -88,10 +88,10 @@ newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRes
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-cpvirsrsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvirsrsVirtualInterfaceState =
-    lens _cpvirsrsVirtualInterfaceState
-         (\s a -> s { _cpvirsrsVirtualInterfaceState = a })
+cpvirrVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+cpvirrVirtualInterfaceState =
+    lens _cpvirrVirtualInterfaceState
+         (\s a -> s { _cpvirrVirtualInterfaceState = a })
 
 instance FromJSON ConfirmPublicVirtualInterfaceResponse
 

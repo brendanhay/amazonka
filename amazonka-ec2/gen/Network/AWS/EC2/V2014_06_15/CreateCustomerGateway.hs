@@ -58,7 +58,7 @@ module Network.AWS.EC2.V2014_06_15.CreateCustomerGateway
     -- * Response
     , CreateCustomerGatewayResponse
     -- ** Response lenses
-    , ccgrsCustomerGateway
+    , ccgrCustomerGateway
     ) where
 
 import Network.AWS.Request.Query
@@ -103,13 +103,13 @@ instance ToQuery CreateCustomerGateway where
 
 -- | 
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
-    { _ccgrsCustomerGateway :: Maybe CustomerGateway
+    { _ccgrCustomerGateway :: Maybe CustomerGateway
     } deriving (Show, Generic)
 
 -- | Information about the customer gateway.
-ccgrsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
-ccgrsCustomerGateway =
-    lens _ccgrsCustomerGateway (\s a -> s { _ccgrsCustomerGateway = a })
+ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
+ccgrCustomerGateway =
+    lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })
 
 instance FromXML CreateCustomerGatewayResponse where
     fromXMLOptions = xmlOptions

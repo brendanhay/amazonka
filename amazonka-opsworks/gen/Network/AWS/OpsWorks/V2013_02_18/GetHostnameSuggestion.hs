@@ -34,8 +34,8 @@ module Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion
     -- * Response
     , GetHostnameSuggestionResponse
     -- ** Response lenses
-    , ghsrsLayerId
-    , ghsrsHostname
+    , ghsrLayerId
+    , ghsrHostname
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -68,17 +68,17 @@ instance ToJSON GetHostnameSuggestion
 
 -- | Contains the response to a GetHostnameSuggestion request.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
-    { _ghsrsLayerId :: Maybe Text
-    , _ghsrsHostname :: Maybe Text
+    { _ghsrLayerId :: Maybe Text
+    , _ghsrHostname :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The layer ID.
-ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrsLayerId = lens _ghsrsLayerId (\s a -> s { _ghsrsLayerId = a })
+ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
+ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
 
 -- | The generated host name.
-ghsrsHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrsHostname = lens _ghsrsHostname (\s a -> s { _ghsrsHostname = a })
+ghsrHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
+ghsrHostname = lens _ghsrHostname (\s a -> s { _ghsrHostname = a })
 
 instance FromJSON GetHostnameSuggestionResponse
 

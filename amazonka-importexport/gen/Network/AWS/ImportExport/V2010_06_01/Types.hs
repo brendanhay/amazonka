@@ -28,8 +28,6 @@ module Network.AWS.ImportExport.V2010_06_01.Types
     (
     -- * Service
       ImportExport
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

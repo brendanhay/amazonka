@@ -32,7 +32,7 @@ module Network.AWS.Redshift.V2012_12_01.ModifySnapshotCopyRetentionPeriod
     -- * Response
     , ModifySnapshotCopyRetentionPeriodResponse
     -- ** Response lenses
-    , mscrprsCluster
+    , mscrprCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -77,12 +77,12 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod where
     toQuery = genericQuery def
 
 newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
-    { _mscrprsCluster :: Maybe Cluster
+    { _mscrprCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-mscrprsCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
-mscrprsCluster = lens _mscrprsCluster (\s a -> s { _mscrprsCluster = a })
+mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
+mscrprCluster = lens _mscrprCluster (\s a -> s { _mscrprCluster = a })
 
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
     fromXMLOptions = xmlOptions

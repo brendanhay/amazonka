@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateApp
     -- * Response
     , CreateAppResponse
     -- ** Response lenses
-    , carsAppId
+    , carAppId
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -145,12 +145,12 @@ instance ToJSON CreateApp
 
 -- | Contains the response to a CreateApp request.
 newtype CreateAppResponse = CreateAppResponse
-    { _carsAppId :: Maybe Text
+    { _carAppId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The app ID.
-carsAppId :: Lens' CreateAppResponse (Maybe Text)
-carsAppId = lens _carsAppId (\s a -> s { _carsAppId = a })
+carAppId :: Lens' CreateAppResponse (Maybe Text)
+carAppId = lens _carAppId (\s a -> s { _carAppId = a })
 
 instance FromJSON CreateAppResponse
 

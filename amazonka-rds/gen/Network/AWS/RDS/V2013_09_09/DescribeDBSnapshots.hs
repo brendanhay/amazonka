@@ -46,8 +46,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSnapshots
     -- * Response
     , DescribeDBSnapshotsResponse
     -- ** Response lenses
-    , ddbsrsrsMarker
-    , ddbsrsrsDBSnapshots
+    , ddbsrrMarker
+    , ddbsrrDBSnapshots
     ) where
 
 import Network.AWS.Request.Query
@@ -121,20 +121,20 @@ instance ToQuery DescribeDBSnapshots where
 -- | Contains the result of a successful invocation of the DescribeDBSnapshots
 -- action.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
-    { _ddbsrsrsMarker :: Maybe Text
-    , _ddbsrsrsDBSnapshots :: [DBSnapshot]
+    { _ddbsrrMarker :: Maybe Text
+    , _ddbsrrDBSnapshots :: [DBSnapshot]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ddbsrsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
-ddbsrsrsMarker = lens _ddbsrsrsMarker (\s a -> s { _ddbsrsrsMarker = a })
+ddbsrrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
+ddbsrrMarker = lens _ddbsrrMarker (\s a -> s { _ddbsrrMarker = a })
 
 -- | A list of DBSnapshot instances.
-ddbsrsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
-ddbsrsrsDBSnapshots =
-    lens _ddbsrsrsDBSnapshots (\s a -> s { _ddbsrsrsDBSnapshots = a })
+ddbsrrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
+ddbsrrDBSnapshots =
+    lens _ddbsrrDBSnapshots (\s a -> s { _ddbsrrDBSnapshots = a })
 
 instance FromXML DescribeDBSnapshotsResponse where
     fromXMLOptions = xmlOptions
@@ -148,4 +148,4 @@ instance AWSRequest DescribeDBSnapshots where
 
 instance AWSPager DescribeDBSnapshots where
     next rq rs = (\x -> rq & ddbs1Marker ?~ x)
-        <$> (rs ^. ddbsrsrsMarker)
+        <$> (rs ^. ddbsrrMarker)

@@ -49,8 +49,8 @@ module Network.AWS.EMR.V2009_03_31.AddInstanceGroups
     -- * Response
     , AddInstanceGroupsResponse
     -- ** Response lenses
-    , aigrsJobFlowId
-    , aigrsInstanceGroupIds
+    , aigrJobFlowId
+    , aigrInstanceGroupIds
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -92,18 +92,18 @@ instance ToJSON AddInstanceGroups
 
 -- | Output from an AddInstanceGroups call.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse
-    { _aigrsJobFlowId :: Maybe Text
-    , _aigrsInstanceGroupIds :: [Text]
+    { _aigrJobFlowId :: Maybe Text
+    , _aigrInstanceGroupIds :: [Text]
     } deriving (Show, Generic)
 
 -- | The job flow ID in which the instance groups are added.
-aigrsJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
-aigrsJobFlowId = lens _aigrsJobFlowId (\s a -> s { _aigrsJobFlowId = a })
+aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
+aigrJobFlowId = lens _aigrJobFlowId (\s a -> s { _aigrJobFlowId = a })
 
 -- | Instance group IDs of the newly created instance groups.
-aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
-aigrsInstanceGroupIds =
-    lens _aigrsInstanceGroupIds (\s a -> s { _aigrsInstanceGroupIds = a })
+aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
+aigrInstanceGroupIds =
+    lens _aigrInstanceGroupIds (\s a -> s { _aigrInstanceGroupIds = a })
 
 instance FromJSON AddInstanceGroupsResponse
 

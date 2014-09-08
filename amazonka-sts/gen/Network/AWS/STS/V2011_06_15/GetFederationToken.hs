@@ -93,9 +93,9 @@ module Network.AWS.STS.V2011_06_15.GetFederationToken
     -- * Response
     , GetFederationTokenResponse
     -- ** Response lenses
-    , gftrsCredentials
-    , gftrsFederatedUser
-    , gftrsPackedPolicySize
+    , gftrCredentials
+    , gftrFederatedUser
+    , gftrPackedPolicySize
     ) where
 
 import Network.AWS.Request.Query
@@ -159,30 +159,29 @@ instance ToQuery GetFederationToken where
 -- | Contains the result of a successful call to the GetFederationToken action,
 -- including temporary AWS credentials that can be used to make AWS requests.
 data GetFederationTokenResponse = GetFederationTokenResponse
-    { _gftrsCredentials :: Maybe Credentials
-    , _gftrsFederatedUser :: Maybe FederatedUser
-    , _gftrsPackedPolicySize :: Maybe Integer
+    { _gftrCredentials :: Maybe Credentials
+    , _gftrFederatedUser :: Maybe FederatedUser
+    , _gftrPackedPolicySize :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Credentials for the service API authentication.
-gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
-gftrsCredentials =
-    lens _gftrsCredentials (\s a -> s { _gftrsCredentials = a })
+gftrCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
+gftrCredentials = lens _gftrCredentials (\s a -> s { _gftrCredentials = a })
 
 -- | Identifiers for the federated user associated with the credentials (such as
 -- arn:aws:sts::123456789012:federated-user/Bob or 123456789012:Bob). You can
 -- use the federated user's ARN in your resource-based policies, such as an
 -- Amazon S3 bucket policy.
-gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
-gftrsFederatedUser =
-    lens _gftrsFederatedUser (\s a -> s { _gftrsFederatedUser = a })
+gftrFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
+gftrFederatedUser =
+    lens _gftrFederatedUser (\s a -> s { _gftrFederatedUser = a })
 
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
 -- percent of the allowed value.
-gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Integer)
-gftrsPackedPolicySize =
-    lens _gftrsPackedPolicySize (\s a -> s { _gftrsPackedPolicySize = a })
+gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Integer)
+gftrPackedPolicySize =
+    lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })
 
 instance FromXML GetFederationTokenResponse where
     fromXMLOptions = xmlOptions

@@ -30,7 +30,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketNotification
     -- * Response
     , GetBucketNotificationResponse
     -- ** Response lenses
-    , gbnrsTopicConfiguration
+    , gbnrTopicConfiguration
     ) where
 
 import Network.AWS.Request.RestS3
@@ -69,13 +69,12 @@ instance ToHeaders GetBucketNotification
 instance ToBody GetBucketNotification
 
 newtype GetBucketNotificationResponse = GetBucketNotificationResponse
-    { _gbnrsTopicConfiguration :: Maybe TopicConfiguration
+    { _gbnrTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Show, Generic)
 
-gbnrsTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
-gbnrsTopicConfiguration =
-    lens _gbnrsTopicConfiguration
-         (\s a -> s { _gbnrsTopicConfiguration = a })
+gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
+gbnrTopicConfiguration =
+    lens _gbnrTopicConfiguration (\s a -> s { _gbnrTopicConfiguration = a })
 
 instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions

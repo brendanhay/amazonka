@@ -59,7 +59,7 @@ module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceToPointInTime
     -- * Response
     , RestoreDBInstanceToPointInTimeResponse
     -- ** Response lenses
-    , rdbitpitrsDBInstance
+    , rdbitpitrDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -249,15 +249,15 @@ instance ToQuery RestoreDBInstanceToPointInTime where
     toQuery = genericQuery def
 
 newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
-    { _rdbitpitrsDBInstance :: Maybe DBInstance
+    { _rdbitpitrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-rdbitpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
-rdbitpitrsDBInstance =
-    lens _rdbitpitrsDBInstance (\s a -> s { _rdbitpitrsDBInstance = a })
+rdbitpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
+rdbitpitrDBInstance =
+    lens _rdbitpitrDBInstance (\s a -> s { _rdbitpitrDBInstance = a })
 
 instance FromXML RestoreDBInstanceToPointInTimeResponse where
     fromXMLOptions = xmlOptions

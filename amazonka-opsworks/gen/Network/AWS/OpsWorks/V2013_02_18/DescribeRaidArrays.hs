@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays
     -- * Response
     , DescribeRaidArraysResponse
     -- ** Response lenses
-    , drarsRaidArrays
+    , drarRaidArrays
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -76,12 +76,12 @@ instance ToJSON DescribeRaidArrays
 
 -- | Contains the response to a DescribeRaidArrays request.
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
-    { _drarsRaidArrays :: [RaidArray]
+    { _drarRaidArrays :: [RaidArray]
     } deriving (Show, Generic)
 
 -- | A RaidArrays object that describes the specified RAID arrays.
-drarsRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
-drarsRaidArrays = lens _drarsRaidArrays (\s a -> s { _drarsRaidArrays = a })
+drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
+drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a })
 
 instance FromJSON DescribeRaidArraysResponse
 

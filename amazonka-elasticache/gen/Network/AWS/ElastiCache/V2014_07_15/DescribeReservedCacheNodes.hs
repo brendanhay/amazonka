@@ -45,8 +45,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodes
     -- * Response
     , DescribeReservedCacheNodesResponse
     -- ** Response lenses
-    , drcnrsMarker
-    , drcnrsReservedCacheNodes
+    , drcnrMarker
+    , drcnrReservedCacheNodes
     ) where
 
 import Network.AWS.Request.Query
@@ -137,20 +137,20 @@ instance ToQuery DescribeReservedCacheNodes where
 
 -- | Represents the output of a DescribeReservedCacheNodes operation.
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
-    { _drcnrsMarker :: Maybe Text
-    , _drcnrsReservedCacheNodes :: [ReservedCacheNode]
+    { _drcnrMarker :: Maybe Text
+    , _drcnrReservedCacheNodes :: [ReservedCacheNode]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drcnrsMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
-drcnrsMarker = lens _drcnrsMarker (\s a -> s { _drcnrsMarker = a })
+drcnrMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
+drcnrMarker = lens _drcnrMarker (\s a -> s { _drcnrMarker = a })
 
 -- | A list of reserved cache nodes. Each element in the list contains detailed
 -- information about one node.
-drcnrsReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
-drcnrsReservedCacheNodes =
-    lens _drcnrsReservedCacheNodes
-         (\s a -> s { _drcnrsReservedCacheNodes = a })
+drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
+drcnrReservedCacheNodes =
+    lens _drcnrReservedCacheNodes
+         (\s a -> s { _drcnrReservedCacheNodes = a })
 
 instance FromXML DescribeReservedCacheNodesResponse where
     fromXMLOptions = xmlOptions
@@ -164,4 +164,4 @@ instance AWSRequest DescribeReservedCacheNodes where
 
 instance AWSPager DescribeReservedCacheNodes where
     next rq rs = (\x -> rq & drcnMarker ?~ x)
-        <$> (rs ^. drcnrsMarker)
+        <$> (rs ^. drcnrMarker)

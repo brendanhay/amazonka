@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments
     -- * Response
     , DescribeDeploymentsResponse
     -- ** Response lenses
-    , ddrsDeployments
+    , ddrDeployments
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -84,12 +84,12 @@ instance ToJSON DescribeDeployments
 
 -- | Contains the response to a DescribeDeployments request.
 newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
-    { _ddrsDeployments :: [Deployment]
+    { _ddrDeployments :: [Deployment]
     } deriving (Show, Generic)
 
 -- | An array of Deployment objects that describe the deployments.
-ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
-ddrsDeployments = lens _ddrsDeployments (\s a -> s { _ddrsDeployments = a })
+ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
+ddrDeployments = lens _ddrDeployments (\s a -> s { _ddrDeployments = a })
 
 instance FromJSON DescribeDeploymentsResponse
 

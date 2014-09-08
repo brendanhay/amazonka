@@ -43,8 +43,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeEventSubscriptions
     -- * Response
     , DescribeEventSubscriptionsResponse
     -- ** Response lenses
-    , desrsrsMarker
-    , desrsrsEventSubscriptionsList
+    , desrrMarker
+    , desrrEventSubscriptionsList
     ) where
 
 import Network.AWS.Request.Query
@@ -91,22 +91,22 @@ instance ToQuery DescribeEventSubscriptions where
 
 -- | Data returned by the DescribeEventSubscriptions action.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrsrsMarker :: Maybe Text
-    , _desrsrsEventSubscriptionsList :: [EventSubscription]
+    { _desrrMarker :: Maybe Text
+    , _desrrEventSubscriptionsList :: [EventSubscription]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-desrsrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrsrsMarker = lens _desrsrsMarker (\s a -> s { _desrsrsMarker = a })
+desrrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+desrrMarker = lens _desrrMarker (\s a -> s { _desrrMarker = a })
 
 -- | A list of EventSubscriptions data types.
-desrsrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrsrsEventSubscriptionsList =
-    lens _desrsrsEventSubscriptionsList
-         (\s a -> s { _desrsrsEventSubscriptionsList = a })
+desrrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrrEventSubscriptionsList =
+    lens _desrrEventSubscriptionsList
+         (\s a -> s { _desrrEventSubscriptionsList = a })
 
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions
@@ -120,4 +120,4 @@ instance AWSRequest DescribeEventSubscriptions where
 
 instance AWSPager DescribeEventSubscriptions where
     next rq rs = (\x -> rq & des1Marker ?~ x)
-        <$> (rs ^. desrsrsMarker)
+        <$> (rs ^. desrrMarker)

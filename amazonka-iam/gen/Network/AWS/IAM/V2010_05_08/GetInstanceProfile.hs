@@ -43,7 +43,7 @@ module Network.AWS.IAM.V2010_05_08.GetInstanceProfile
     -- * Response
     , GetInstanceProfileResponse
     -- ** Response lenses
-    , giprsInstanceProfile
+    , giprInstanceProfile
     ) where
 
 import Network.AWS.Request.Query
@@ -74,13 +74,13 @@ instance ToQuery GetInstanceProfile where
 -- | Contains the result of a successful invocation of the GetInstanceProfile
 -- action.
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
-    { _giprsInstanceProfile :: InstanceProfile
+    { _giprInstanceProfile :: InstanceProfile
     } deriving (Show, Generic)
 
 -- | Information about the instance profile.
-giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
-giprsInstanceProfile =
-    lens _giprsInstanceProfile (\s a -> s { _giprsInstanceProfile = a })
+giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
+giprInstanceProfile =
+    lens _giprInstanceProfile (\s a -> s { _giprInstanceProfile = a })
 
 instance FromXML GetInstanceProfileResponse where
     fromXMLOptions = xmlOptions

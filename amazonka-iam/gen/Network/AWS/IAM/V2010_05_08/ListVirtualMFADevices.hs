@@ -46,9 +46,9 @@ module Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices
     -- * Response
     , ListVirtualMFADevicesResponse
     -- ** Response lenses
-    , lvmfadrsVirtualMFADevices
-    , lvmfadrsIsTruncated
-    , lvmfadrsMarker
+    , lvmfadrVirtualMFADevices
+    , lvmfadrIsTruncated
+    , lvmfadrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -99,27 +99,27 @@ instance ToQuery ListVirtualMFADevices where
 -- | Contains the result of a successful invocation of the ListVirtualMFADevices
 -- action.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
-    { _lvmfadrsVirtualMFADevices :: [VirtualMFADevice]
-    , _lvmfadrsIsTruncated :: Bool
-    , _lvmfadrsMarker :: Maybe Text
+    { _lvmfadrVirtualMFADevices :: [VirtualMFADevice]
+    , _lvmfadrIsTruncated :: Bool
+    , _lvmfadrMarker :: Maybe Text
     } deriving (Show, Generic)
 
-lvmfadrsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
-lvmfadrsVirtualMFADevices =
-    lens _lvmfadrsVirtualMFADevices
-         (\s a -> s { _lvmfadrsVirtualMFADevices = a })
+lvmfadrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
+lvmfadrVirtualMFADevices =
+    lens _lvmfadrVirtualMFADevices
+         (\s a -> s { _lvmfadrVirtualMFADevices = a })
 
 -- | A flag that indicates whether there are more items to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more items the list.
-lvmfadrsIsTruncated :: Lens' ListVirtualMFADevicesResponse Bool
-lvmfadrsIsTruncated =
-    lens _lvmfadrsIsTruncated (\s a -> s { _lvmfadrsIsTruncated = a })
+lvmfadrIsTruncated :: Lens' ListVirtualMFADevicesResponse Bool
+lvmfadrIsTruncated =
+    lens _lvmfadrIsTruncated (\s a -> s { _lvmfadrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lvmfadrsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
-lvmfadrsMarker = lens _lvmfadrsMarker (\s a -> s { _lvmfadrsMarker = a })
+lvmfadrMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
+lvmfadrMarker = lens _lvmfadrMarker (\s a -> s { _lvmfadrMarker = a })
 
 instance FromXML ListVirtualMFADevicesResponse where
     fromXMLOptions = xmlOptions
@@ -133,6 +133,6 @@ instance AWSRequest ListVirtualMFADevices where
 
 instance AWSPager ListVirtualMFADevices where
     next rq rs
-        | not (rs ^. lvmfadrsIsTruncated) = Nothing
+        | not (rs ^. lvmfadrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lvmfadMarker .~ rs ^. lvmfadrsMarker
+            rq & lvmfadMarker .~ rs ^. lvmfadrMarker

@@ -50,7 +50,7 @@ module Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
     -- * Response
     , ChangeResourceRecordSetsResponse
     -- ** Response lenses
-    , crrsrsChangeInfo
+    , crrsrChangeInfo
     ) where
 
 import Network.AWS.Request.RestXML
@@ -101,15 +101,14 @@ instance ToXML ChangeResourceRecordSets where
 
 -- | A complex type containing the response for the request.
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
-    { _crrsrsChangeInfo :: ChangeInfo
+    { _crrsrChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
 
 -- | A complex type that contains information about changes made to your hosted
 -- zone. This element contains an ID that you use when performing a GetChange
 -- action to get detailed information about the change.
-crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
-crrsrsChangeInfo =
-    lens _crrsrsChangeInfo (\s a -> s { _crrsrsChangeInfo = a })
+crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
+crrsrChangeInfo = lens _crrsrChangeInfo (\s a -> s { _crrsrChangeInfo = a })
 
 instance FromXML ChangeResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions

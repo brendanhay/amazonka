@@ -31,7 +31,7 @@ module Network.AWS.EMR.V2009_03_31.DescribeStep
     -- * Response
     , DescribeStepResponse
     -- ** Response lenses
-    , dsrsStep
+    , dsrStep
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -72,12 +72,12 @@ instance ToJSON DescribeStep
 
 -- | This output contains the description of the cluster step.
 newtype DescribeStepResponse = DescribeStepResponse
-    { _dsrsStep :: Maybe Step
+    { _dsrStep :: Maybe Step
     } deriving (Show, Generic)
 
 -- | The step details for the requested step identifier.
-dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
-dsrsStep = lens _dsrsStep (\s a -> s { _dsrsStep = a })
+dsrStep :: Lens' DescribeStepResponse (Maybe Step)
+dsrStep = lens _dsrStep (\s a -> s { _dsrStep = a })
 
 instance FromJSON DescribeStepResponse
 

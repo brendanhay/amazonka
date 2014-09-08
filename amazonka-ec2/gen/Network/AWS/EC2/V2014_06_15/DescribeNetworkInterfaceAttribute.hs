@@ -42,11 +42,11 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute
     -- * Response
     , DescribeNetworkInterfaceAttributeResponse
     -- ** Response lenses
-    , dniarsNetworkInterfaceId
-    , dniarsDescription
-    , dniarsSourceDestCheck
-    , dniarsGroups
-    , dniarsAttachment
+    , dniarNetworkInterfaceId
+    , dniarDescription
+    , dniarSourceDestCheck
+    , dniarGroups
+    , dniarAttachment
     ) where
 
 import Network.AWS.Request.Query
@@ -82,37 +82,36 @@ instance ToQuery DescribeNetworkInterfaceAttribute where
 
 -- | 
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
-    { _dniarsNetworkInterfaceId :: Maybe Text
-    , _dniarsDescription :: Maybe AttributeValue
-    , _dniarsSourceDestCheck :: Maybe AttributeBooleanValue
-    , _dniarsGroups :: [GroupIdentifier]
-    , _dniarsAttachment :: Maybe NetworkInterfaceAttachment
+    { _dniarNetworkInterfaceId :: Maybe Text
+    , _dniarDescription :: Maybe AttributeValue
+    , _dniarSourceDestCheck :: Maybe AttributeBooleanValue
+    , _dniarGroups :: [GroupIdentifier]
+    , _dniarAttachment :: Maybe NetworkInterfaceAttachment
     } deriving (Show, Generic)
 
 -- | The ID of the network interface.
-dniarsNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
-dniarsNetworkInterfaceId =
-    lens _dniarsNetworkInterfaceId
-         (\s a -> s { _dniarsNetworkInterfaceId = a })
+dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
+dniarNetworkInterfaceId =
+    lens _dniarNetworkInterfaceId
+         (\s a -> s { _dniarNetworkInterfaceId = a })
 
 -- | The description of the network interface.
-dniarsDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
-dniarsDescription =
-    lens _dniarsDescription (\s a -> s { _dniarsDescription = a })
+dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
+dniarDescription =
+    lens _dniarDescription (\s a -> s { _dniarDescription = a })
 
 -- | Indicates whether source/destination checking is enabled.
-dniarsSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
-dniarsSourceDestCheck =
-    lens _dniarsSourceDestCheck (\s a -> s { _dniarsSourceDestCheck = a })
+dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
+dniarSourceDestCheck =
+    lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
 
 -- | The security groups associated with the network interface.
-dniarsGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
-dniarsGroups = lens _dniarsGroups (\s a -> s { _dniarsGroups = a })
+dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
+dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a })
 
 -- | The attachment (if any) of the network interface.
-dniarsAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
-dniarsAttachment =
-    lens _dniarsAttachment (\s a -> s { _dniarsAttachment = a })
+dniarAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
+dniarAttachment = lens _dniarAttachment (\s a -> s { _dniarAttachment = a })
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions

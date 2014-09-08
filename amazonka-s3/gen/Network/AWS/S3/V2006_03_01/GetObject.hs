@@ -46,27 +46,27 @@ module Network.AWS.S3.V2006_03_01.GetObject
     -- * Response
     , GetObjectResponse
     -- ** Response lenses
-    , gorsBody
-    , gorsDeleteMarker
-    , gorsAcceptRanges
-    , gorsExpiration
-    , gorsRestore
-    , gorsLastModified
-    , gorsContentLength
-    , gorsETag
-    , gorsMissingMeta
-    , gorsVersionId
-    , gorsCacheControl
-    , gorsContentDisposition
-    , gorsContentEncoding
-    , gorsContentLanguage
-    , gorsContentType
-    , gorsExpires
-    , gorsWebsiteRedirectLocation
-    , gorsServerSideEncryption
-    , gorsMetadata
-    , gorsSSECustomerAlgorithm
-    , gorsSSECustomerKeyMD5
+    , gorBody
+    , gorDeleteMarker
+    , gorAcceptRanges
+    , gorExpiration
+    , gorRestore
+    , gorLastModified
+    , gorContentLength
+    , gorETag
+    , gorMissingMeta
+    , gorVersionId
+    , gorCacheControl
+    , gorContentDisposition
+    , gorContentEncoding
+    , gorContentLanguage
+    , gorContentType
+    , gorExpires
+    , gorWebsiteRedirectLocation
+    , gorServerSideEncryption
+    , gorMetadata
+    , gorSSECustomerAlgorithm
+    , gorSSECustomerKeyMD5
     ) where
 
 import Network.AWS.Request.RestS3
@@ -246,144 +246,140 @@ instance ToHeaders GetObject where
 instance ToBody GetObject
 
 data GetObjectResponse = GetObjectResponse
-    { _gorsBody :: RsBody
-    , _gorsDeleteMarker :: Maybe Bool
-    , _gorsAcceptRanges :: Maybe Text
-    , _gorsExpiration :: Maybe RFC822
-    , _gorsRestore :: Maybe Text
-    , _gorsLastModified :: Maybe RFC822
-    , _gorsContentLength :: Maybe Integer
-    , _gorsETag :: Maybe ETag
-    , _gorsMissingMeta :: Maybe Integer
-    , _gorsVersionId :: Maybe ObjectVersionId
-    , _gorsCacheControl :: Maybe Text
-    , _gorsContentDisposition :: Maybe Text
-    , _gorsContentEncoding :: Maybe Text
-    , _gorsContentLanguage :: Maybe Text
-    , _gorsContentType :: Maybe Text
-    , _gorsExpires :: Maybe RFC822
-    , _gorsWebsiteRedirectLocation :: Maybe Text
-    , _gorsServerSideEncryption :: Maybe ServerSideEncryption
-    , _gorsMetadata :: Map Text Text
-    , _gorsSSECustomerAlgorithm :: Maybe Text
-    , _gorsSSECustomerKeyMD5 :: Maybe Text
+    { _gorBody :: RsBody
+    , _gorDeleteMarker :: Maybe Bool
+    , _gorAcceptRanges :: Maybe Text
+    , _gorExpiration :: Maybe RFC822
+    , _gorRestore :: Maybe Text
+    , _gorLastModified :: Maybe RFC822
+    , _gorContentLength :: Maybe Integer
+    , _gorETag :: Maybe ETag
+    , _gorMissingMeta :: Maybe Integer
+    , _gorVersionId :: Maybe ObjectVersionId
+    , _gorCacheControl :: Maybe Text
+    , _gorContentDisposition :: Maybe Text
+    , _gorContentEncoding :: Maybe Text
+    , _gorContentLanguage :: Maybe Text
+    , _gorContentType :: Maybe Text
+    , _gorExpires :: Maybe RFC822
+    , _gorWebsiteRedirectLocation :: Maybe Text
+    , _gorServerSideEncryption :: Maybe ServerSideEncryption
+    , _gorMetadata :: Map Text Text
+    , _gorSSECustomerAlgorithm :: Maybe Text
+    , _gorSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Object data.
-gorsBody :: Lens' GetObjectResponse RsBody
-gorsBody = lens _gorsBody (\s a -> s { _gorsBody = a })
+gorBody :: Lens' GetObjectResponse RsBody
+gorBody = lens _gorBody (\s a -> s { _gorBody = a })
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
 -- response.
-gorsDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
-gorsDeleteMarker =
-    lens _gorsDeleteMarker (\s a -> s { _gorsDeleteMarker = a })
+gorDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
+gorDeleteMarker = lens _gorDeleteMarker (\s a -> s { _gorDeleteMarker = a })
 
-gorsAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
-gorsAcceptRanges =
-    lens _gorsAcceptRanges (\s a -> s { _gorsAcceptRanges = a })
+gorAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
+gorAcceptRanges = lens _gorAcceptRanges (\s a -> s { _gorAcceptRanges = a })
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id key
 -- value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
-gorsExpiration :: Lens' GetObjectResponse (Maybe RFC822)
-gorsExpiration = lens _gorsExpiration (\s a -> s { _gorsExpiration = a })
+gorExpiration :: Lens' GetObjectResponse (Maybe RFC822)
+gorExpiration = lens _gorExpiration (\s a -> s { _gorExpiration = a })
 
 -- | Provides information about object restoration operation and expiration time
 -- of the restored object copy.
-gorsRestore :: Lens' GetObjectResponse (Maybe Text)
-gorsRestore = lens _gorsRestore (\s a -> s { _gorsRestore = a })
+gorRestore :: Lens' GetObjectResponse (Maybe Text)
+gorRestore = lens _gorRestore (\s a -> s { _gorRestore = a })
 
 -- | Last modified date of the object.
-gorsLastModified :: Lens' GetObjectResponse (Maybe RFC822)
-gorsLastModified =
-    lens _gorsLastModified (\s a -> s { _gorsLastModified = a })
+gorLastModified :: Lens' GetObjectResponse (Maybe RFC822)
+gorLastModified = lens _gorLastModified (\s a -> s { _gorLastModified = a })
 
 -- | Size of the body in bytes.
-gorsContentLength :: Lens' GetObjectResponse (Maybe Integer)
-gorsContentLength =
-    lens _gorsContentLength (\s a -> s { _gorsContentLength = a })
+gorContentLength :: Lens' GetObjectResponse (Maybe Integer)
+gorContentLength =
+    lens _gorContentLength (\s a -> s { _gorContentLength = a })
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-gorsETag :: Lens' GetObjectResponse (Maybe ETag)
-gorsETag = lens _gorsETag (\s a -> s { _gorsETag = a })
+gorETag :: Lens' GetObjectResponse (Maybe ETag)
+gorETag = lens _gorETag (\s a -> s { _gorETag = a })
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP that
 -- supports more flexible metadata than the REST API. For example, using SOAP,
 -- you can create metadata whose values are not legal HTTP headers.
-gorsMissingMeta :: Lens' GetObjectResponse (Maybe Integer)
-gorsMissingMeta = lens _gorsMissingMeta (\s a -> s { _gorsMissingMeta = a })
+gorMissingMeta :: Lens' GetObjectResponse (Maybe Integer)
+gorMissingMeta = lens _gorMissingMeta (\s a -> s { _gorMissingMeta = a })
 
 -- | Version of the object.
-gorsVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
-gorsVersionId = lens _gorsVersionId (\s a -> s { _gorsVersionId = a })
+gorVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
+gorVersionId = lens _gorVersionId (\s a -> s { _gorVersionId = a })
 
 -- | Specifies caching behavior along the request/reply chain.
-gorsCacheControl :: Lens' GetObjectResponse (Maybe Text)
-gorsCacheControl =
-    lens _gorsCacheControl (\s a -> s { _gorsCacheControl = a })
+gorCacheControl :: Lens' GetObjectResponse (Maybe Text)
+gorCacheControl = lens _gorCacheControl (\s a -> s { _gorCacheControl = a })
 
 -- | Specifies presentational information for the object.
-gorsContentDisposition :: Lens' GetObjectResponse (Maybe Text)
-gorsContentDisposition =
-    lens _gorsContentDisposition (\s a -> s { _gorsContentDisposition = a })
+gorContentDisposition :: Lens' GetObjectResponse (Maybe Text)
+gorContentDisposition =
+    lens _gorContentDisposition (\s a -> s { _gorContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-gorsContentEncoding :: Lens' GetObjectResponse (Maybe Text)
-gorsContentEncoding =
-    lens _gorsContentEncoding (\s a -> s { _gorsContentEncoding = a })
+gorContentEncoding :: Lens' GetObjectResponse (Maybe Text)
+gorContentEncoding =
+    lens _gorContentEncoding (\s a -> s { _gorContentEncoding = a })
 
 -- | The language the content is in.
-gorsContentLanguage :: Lens' GetObjectResponse (Maybe Text)
-gorsContentLanguage =
-    lens _gorsContentLanguage (\s a -> s { _gorsContentLanguage = a })
+gorContentLanguage :: Lens' GetObjectResponse (Maybe Text)
+gorContentLanguage =
+    lens _gorContentLanguage (\s a -> s { _gorContentLanguage = a })
 
 -- | A standard MIME type describing the format of the object data.
-gorsContentType :: Lens' GetObjectResponse (Maybe Text)
-gorsContentType = lens _gorsContentType (\s a -> s { _gorsContentType = a })
+gorContentType :: Lens' GetObjectResponse (Maybe Text)
+gorContentType = lens _gorContentType (\s a -> s { _gorContentType = a })
 
 -- | The date and time at which the object is no longer cacheable.
-gorsExpires :: Lens' GetObjectResponse (Maybe RFC822)
-gorsExpires = lens _gorsExpires (\s a -> s { _gorsExpires = a })
+gorExpires :: Lens' GetObjectResponse (Maybe RFC822)
+gorExpires = lens _gorExpires (\s a -> s { _gorExpires = a })
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-gorsWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
-gorsWebsiteRedirectLocation =
-    lens _gorsWebsiteRedirectLocation
-         (\s a -> s { _gorsWebsiteRedirectLocation = a })
+gorWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
+gorWebsiteRedirectLocation =
+    lens _gorWebsiteRedirectLocation
+         (\s a -> s { _gorWebsiteRedirectLocation = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-gorsServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
-gorsServerSideEncryption =
-    lens _gorsServerSideEncryption
-         (\s a -> s { _gorsServerSideEncryption = a })
+gorServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
+gorServerSideEncryption =
+    lens _gorServerSideEncryption
+         (\s a -> s { _gorServerSideEncryption = a })
 
 -- | A map of metadata to store with the object in S3.
-gorsMetadata :: Lens' GetObjectResponse (Map Text Text)
-gorsMetadata = lens _gorsMetadata (\s a -> s { _gorsMetadata = a })
+gorMetadata :: Lens' GetObjectResponse (Map Text Text)
+gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-gorsSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
-gorsSSECustomerAlgorithm =
-    lens _gorsSSECustomerAlgorithm
-         (\s a -> s { _gorsSSECustomerAlgorithm = a })
+gorSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
+gorSSECustomerAlgorithm =
+    lens _gorSSECustomerAlgorithm
+         (\s a -> s { _gorSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-gorsSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
-gorsSSECustomerKeyMD5 =
-    lens _gorsSSECustomerKeyMD5 (\s a -> s { _gorsSSECustomerKeyMD5 = a })
+gorSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
+gorSSECustomerKeyMD5 =
+    lens _gorSSECustomerKeyMD5 (\s a -> s { _gorSSECustomerKeyMD5 = a })
 
 instance AWSRequest GetObject where
     type Sv GetObject = S3

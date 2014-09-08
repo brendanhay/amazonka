@@ -47,7 +47,7 @@ module Network.AWS.EC2.V2014_06_15.CreateImage
     -- * Response
     , CreateImageResponse
     -- ** Response lenses
-    , cirsrsImageId
+    , cirrImageId
     ) where
 
 import Network.AWS.Request.Query
@@ -107,12 +107,12 @@ instance ToQuery CreateImage where
 
 -- | 
 newtype CreateImageResponse = CreateImageResponse
-    { _cirsrsImageId :: Maybe Text
+    { _cirrImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new AMI.
-cirsrsImageId :: Lens' CreateImageResponse (Maybe Text)
-cirsrsImageId = lens _cirsrsImageId (\s a -> s { _cirsrsImageId = a })
+cirrImageId :: Lens' CreateImageResponse (Maybe Text)
+cirrImageId = lens _cirrImageId (\s a -> s { _cirrImageId = a })
 
 instance FromXML CreateImageResponse where
     fromXMLOptions = xmlOptions

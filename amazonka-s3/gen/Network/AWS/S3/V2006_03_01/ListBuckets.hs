@@ -30,8 +30,8 @@ module Network.AWS.S3.V2006_03_01.ListBuckets
     -- * Response
     , ListBucketsResponse
     -- ** Response lenses
-    , lbrsBuckets
-    , lbrsOwner
+    , lbrBuckets
+    , lbrOwner
     ) where
 
 import Network.AWS.Request.RestS3
@@ -59,15 +59,15 @@ instance ToHeaders ListBuckets
 instance ToBody ListBuckets
 
 data ListBucketsResponse = ListBucketsResponse
-    { _lbrsBuckets :: [Bucket]
-    , _lbrsOwner :: Maybe Owner
+    { _lbrBuckets :: [Bucket]
+    , _lbrOwner :: Maybe Owner
     } deriving (Show, Generic)
 
-lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
-lbrsBuckets = lens _lbrsBuckets (\s a -> s { _lbrsBuckets = a })
+lbrBuckets :: Lens' ListBucketsResponse [Bucket]
+lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
 
-lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
-lbrsOwner = lens _lbrsOwner (\s a -> s { _lbrsOwner = a })
+lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
+lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })
 
 instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions

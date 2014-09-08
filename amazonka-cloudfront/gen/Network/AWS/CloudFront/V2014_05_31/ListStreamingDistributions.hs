@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions
     -- * Response
     , ListStreamingDistributionsResponse
     -- ** Response lenses
-    , lsdrsStreamingDistributionList
+    , lsdrStreamingDistributionList
     ) where
 
 import Network.AWS.Request.RestXML
@@ -83,14 +83,14 @@ instance ToXML ListStreamingDistributions where
 
 -- | The returned result of the corresponding request.
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdrsStreamingDistributionList :: StreamingDistributionList
+    { _lsdrStreamingDistributionList :: StreamingDistributionList
     } deriving (Show, Generic)
 
 -- | The StreamingDistributionList type.
-lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
-lsdrsStreamingDistributionList =
-    lens _lsdrsStreamingDistributionList
-         (\s a -> s { _lsdrsStreamingDistributionList = a })
+lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
+lsdrStreamingDistributionList =
+    lens _lsdrStreamingDistributionList
+         (\s a -> s { _lsdrStreamingDistributionList = a })
 
 instance FromXML ListStreamingDistributionsResponse where
     fromXMLOptions = xmlOptions
@@ -104,6 +104,6 @@ instance AWSRequest ListStreamingDistributions where
 
 instance AWSPager ListStreamingDistributions where
     next rq rs
-        | not (rs ^. lsdrsStreamingDistributionList . sdlIsTruncated) = Nothing
+        | not (rs ^. lsdrStreamingDistributionList . sdlIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lsdMarker .~ rs ^. lsdrsStreamingDistributionList . sdlNextMarker
+            rq & lsdMarker .~ rs ^. lsdrStreamingDistributionList . sdlNextMarker

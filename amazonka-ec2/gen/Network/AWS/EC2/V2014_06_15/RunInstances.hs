@@ -116,11 +116,11 @@ module Network.AWS.EC2.V2014_06_15.RunInstances
     -- * Response
     , RunInstancesResponse
     -- ** Response lenses
-    , rirsrsReservationId
-    , rirsrsOwnerId
-    , rirsrsRequesterId
-    , rirsrsGroups
-    , rirsrsInstances
+    , rirrReservationId
+    , rirrOwnerId
+    , rirrRequesterId
+    , rirrGroups
+    , rirrInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -328,35 +328,34 @@ instance ToQuery RunInstances where
 
 -- | One or more reservations.
 data RunInstancesResponse = RunInstancesResponse
-    { _rirsrsReservationId :: Maybe Text
-    , _rirsrsOwnerId :: Maybe Text
-    , _rirsrsRequesterId :: Maybe Text
-    , _rirsrsGroups :: [GroupIdentifier]
-    , _rirsrsInstances :: [Instance]
+    { _rirrReservationId :: Maybe Text
+    , _rirrOwnerId :: Maybe Text
+    , _rirrRequesterId :: Maybe Text
+    , _rirrGroups :: [GroupIdentifier]
+    , _rirrInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | The ID of the reservation.
-rirsrsReservationId :: Lens' RunInstancesResponse (Maybe Text)
-rirsrsReservationId =
-    lens _rirsrsReservationId (\s a -> s { _rirsrsReservationId = a })
+rirrReservationId :: Lens' RunInstancesResponse (Maybe Text)
+rirrReservationId =
+    lens _rirrReservationId (\s a -> s { _rirrReservationId = a })
 
 -- | The ID of the AWS account that owns the reservation.
-rirsrsOwnerId :: Lens' RunInstancesResponse (Maybe Text)
-rirsrsOwnerId = lens _rirsrsOwnerId (\s a -> s { _rirsrsOwnerId = a })
+rirrOwnerId :: Lens' RunInstancesResponse (Maybe Text)
+rirrOwnerId = lens _rirrOwnerId (\s a -> s { _rirrOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
-rirsrsRequesterId :: Lens' RunInstancesResponse (Maybe Text)
-rirsrsRequesterId =
-    lens _rirsrsRequesterId (\s a -> s { _rirsrsRequesterId = a })
+rirrRequesterId :: Lens' RunInstancesResponse (Maybe Text)
+rirrRequesterId = lens _rirrRequesterId (\s a -> s { _rirrRequesterId = a })
 
 -- | One or more security groups.
-rirsrsGroups :: Lens' RunInstancesResponse [GroupIdentifier]
-rirsrsGroups = lens _rirsrsGroups (\s a -> s { _rirsrsGroups = a })
+rirrGroups :: Lens' RunInstancesResponse [GroupIdentifier]
+rirrGroups = lens _rirrGroups (\s a -> s { _rirrGroups = a })
 
 -- | One or more instances.
-rirsrsInstances :: Lens' RunInstancesResponse [Instance]
-rirsrsInstances = lens _rirsrsInstances (\s a -> s { _rirsrsInstances = a })
+rirrInstances :: Lens' RunInstancesResponse [Instance]
+rirrInstances = lens _rirrInstances (\s a -> s { _rirrInstances = a })
 
 instance FromXML RunInstancesResponse where
     fromXMLOptions = xmlOptions

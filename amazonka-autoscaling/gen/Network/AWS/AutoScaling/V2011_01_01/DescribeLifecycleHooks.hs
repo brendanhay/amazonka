@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks
     -- * Response
     , DescribeLifecycleHooksResponse
     -- ** Response lenses
-    , dlhrsrsLifecycleHooks
+    , dlhrrLifecycleHooks
     ) where
 
 import Network.AWS.Request.Query
@@ -70,14 +70,14 @@ instance ToQuery DescribeLifecycleHooks where
 
 -- | The output of the DescribeLifecycleHooks action.
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhrsrsLifecycleHooks :: [LifecycleHook]
+    { _dlhrrLifecycleHooks :: [LifecycleHook]
     } deriving (Show, Generic)
 
 -- | A list describing the lifecycle hooks that belong to the specified Auto
 -- Scaling group.
-dlhrsrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
-dlhrsrsLifecycleHooks =
-    lens _dlhrsrsLifecycleHooks (\s a -> s { _dlhrsrsLifecycleHooks = a })
+dlhrrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
+dlhrrLifecycleHooks =
+    lens _dlhrrLifecycleHooks (\s a -> s { _dlhrrLifecycleHooks = a })
 
 instance FromXML DescribeLifecycleHooksResponse where
     fromXMLOptions = xmlOptions

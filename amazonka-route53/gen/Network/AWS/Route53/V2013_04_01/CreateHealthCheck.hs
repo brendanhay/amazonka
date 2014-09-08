@@ -35,8 +35,8 @@ module Network.AWS.Route53.V2013_04_01.CreateHealthCheck
     -- * Response
     , CreateHealthCheckResponse
     -- ** Response lenses
-    , chcrsHealthCheck
-    , chcrsLocation
+    , chcrHealthCheck
+    , chcrLocation
     ) where
 
 import Network.AWS.Request.RestXML
@@ -91,19 +91,18 @@ instance ToXML CreateHealthCheck where
 -- | A complex type containing the response information for the new health
 -- check.
 data CreateHealthCheckResponse = CreateHealthCheckResponse
-    { _chcrsHealthCheck :: HealthCheck
-    , _chcrsLocation :: Text
+    { _chcrHealthCheck :: HealthCheck
+    , _chcrLocation :: Text
     } deriving (Show, Generic)
 
 -- | A complex type that contains identifying information about the health
 -- check.
-chcrsHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
-chcrsHealthCheck =
-    lens _chcrsHealthCheck (\s a -> s { _chcrsHealthCheck = a })
+chcrHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
+chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 
 -- | The unique URL representing the new health check.
-chcrsLocation :: Lens' CreateHealthCheckResponse Text
-chcrsLocation = lens _chcrsLocation (\s a -> s { _chcrsLocation = a })
+chcrLocation :: Lens' CreateHealthCheckResponse Text
+chcrLocation = lens _chcrLocation (\s a -> s { _chcrLocation = a })
 
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53

@@ -37,8 +37,8 @@ module Network.AWS.EMR.V2009_03_31.ListInstances
     -- * Response
     , ListInstancesResponse
     -- ** Response lenses
-    , lirsInstances
-    , lirsMarker
+    , lirInstances
+    , lirMarker
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -92,17 +92,17 @@ instance ToJSON ListInstances
 
 -- | This output contains the list of instances.
 data ListInstancesResponse = ListInstancesResponse
-    { _lirsInstances :: [Instance]
-    , _lirsMarker :: Maybe Text
+    { _lirInstances :: [Instance]
+    , _lirMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of instances for the cluster and given filters.
-lirsInstances :: Lens' ListInstancesResponse [Instance]
-lirsInstances = lens _lirsInstances (\s a -> s { _lirsInstances = a })
+lirInstances :: Lens' ListInstancesResponse [Instance]
+lirInstances = lens _lirInstances (\s a -> s { _lirInstances = a })
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
-lirsMarker = lens _lirsMarker (\s a -> s { _lirsMarker = a })
+lirMarker :: Lens' ListInstancesResponse (Maybe Text)
+lirMarker = lens _lirMarker (\s a -> s { _lirMarker = a })
 
 instance FromJSON ListInstancesResponse
 
@@ -115,4 +115,4 @@ instance AWSRequest ListInstances where
 
 instance AWSPager ListInstances where
     next rq rs = (\x -> rq & liMarker ?~ x)
-        <$> (rs ^. lirsMarker)
+        <$> (rs ^. lirMarker)

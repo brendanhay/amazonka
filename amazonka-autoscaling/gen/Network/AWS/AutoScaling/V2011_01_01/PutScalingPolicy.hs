@@ -45,7 +45,7 @@ module Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy
     -- * Response
     , PutScalingPolicyResponse
     -- ** Response lenses
-    , psprsPolicyARN
+    , psprPolicyARN
     ) where
 
 import Network.AWS.Request.Query
@@ -125,12 +125,12 @@ instance ToQuery PutScalingPolicy where
 
 -- | The PolicyARNType data type.
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
-    { _psprsPolicyARN :: Maybe Text
+    { _psprPolicyARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A policy's Amazon Resource Name (ARN).
-psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
-psprsPolicyARN = lens _psprsPolicyARN (\s a -> s { _psprsPolicyARN = a })
+psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
+psprPolicyARN = lens _psprPolicyARN (\s a -> s { _psprPolicyARN = a })
 
 instance FromXML PutScalingPolicyResponse where
     fromXMLOptions = xmlOptions

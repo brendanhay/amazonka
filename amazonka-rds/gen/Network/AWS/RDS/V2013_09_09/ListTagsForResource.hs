@@ -31,7 +31,7 @@ module Network.AWS.RDS.V2013_09_09.ListTagsForResource
     -- * Response
     , ListTagsForResourceResponse
     -- ** Response lenses
-    , ltfrrsTagList
+    , ltfrrTagList
     ) where
 
 import Network.AWS.Request.Query
@@ -63,12 +63,12 @@ instance ToQuery ListTagsForResource where
 
 -- | 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
-    { _ltfrrsTagList :: [Tag]
+    { _ltfrrTagList :: [Tag]
     } deriving (Show, Generic)
 
 -- | List of tags returned by the ListTagsForResource operation.
-ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTagList = lens _ltfrrsTagList (\s a -> s { _ltfrrsTagList = a })
+ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
+ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a })
 
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions

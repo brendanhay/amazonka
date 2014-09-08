@@ -30,8 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistribution
     -- * Response
     , GetDistributionResponse
     -- ** Response lenses
-    , gdrsDistribution
-    , gdrsETag
+    , gdrDistribution
+    , gdrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -72,19 +72,18 @@ instance ToXML GetDistribution where
 
 -- | The returned result of the corresponding request.
 data GetDistributionResponse = GetDistributionResponse
-    { _gdrsDistribution :: Maybe Distribution
-    , _gdrsETag :: Maybe Text
+    { _gdrDistribution :: Maybe Distribution
+    , _gdrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
-gdrsDistribution =
-    lens _gdrsDistribution (\s a -> s { _gdrsDistribution = a })
+gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
+gdrDistribution = lens _gdrDistribution (\s a -> s { _gdrDistribution = a })
 
 -- | The current version of the distribution's information. For example:
 -- E2QWRUHAPOMQZL.
-gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
-gdrsETag = lens _gdrsETag (\s a -> s { _gdrsETag = a })
+gdrETag :: Lens' GetDistributionResponse (Maybe Text)
+gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
 
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront

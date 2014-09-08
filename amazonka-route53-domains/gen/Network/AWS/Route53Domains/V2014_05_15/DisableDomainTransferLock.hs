@@ -49,7 +49,7 @@ module Network.AWS.Route53Domains.V2014_05_15.DisableDomainTransferLock
     -- * Response
     , DisableDomainTransferLockResponse
     -- ** Response lenses
-    , ddtlrsOperationId
+    , ddtlrOperationId
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -86,15 +86,15 @@ instance ToJSON DisableDomainTransferLock
 
 -- | The DisableDomainTransferLock response includes the following element.
 newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
-    { _ddtlrsOperationId :: Text
+    { _ddtlrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
-ddtlrsOperationId =
-    lens _ddtlrsOperationId (\s a -> s { _ddtlrsOperationId = a })
+ddtlrOperationId :: Lens' DisableDomainTransferLockResponse Text
+ddtlrOperationId =
+    lens _ddtlrOperationId (\s a -> s { _ddtlrOperationId = a })
 
 instance FromJSON DisableDomainTransferLockResponse
 

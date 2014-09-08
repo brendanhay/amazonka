@@ -49,8 +49,8 @@ module Network.AWS.Route53Domains.V2014_05_15.ListOperations
     -- * Response
     , ListOperationsResponse
     -- ** Response lenses
-    , lorsOperations
-    , lorsNextPageMarker
+    , lorOperations
+    , lorNextPageMarker
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -95,21 +95,21 @@ instance ToJSON ListOperations
 
 -- | The ListOperations response includes the following elements.
 data ListOperationsResponse = ListOperationsResponse
-    { _lorsOperations :: [OperationSummary]
-    , _lorsNextPageMarker :: Maybe Text
+    { _lorOperations :: [OperationSummary]
+    , _lorNextPageMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Lists summaries of the operations. Type: Complex type containing a list of
 -- operation summaries Children: OperationId, Status, SubmittedDate, Type.
-lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
-lorsOperations = lens _lorsOperations (\s a -> s { _lorsOperations = a })
+lorOperations :: Lens' ListOperationsResponse [OperationSummary]
+lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a })
 
 -- | If there are more operations than you specified for MaxItems in the
 -- request, submit another request and include the value of NextPageMarker in
 -- the value of Marker. Type: String Parent: Operations.
-lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
-lorsNextPageMarker =
-    lens _lorsNextPageMarker (\s a -> s { _lorsNextPageMarker = a })
+lorNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
+lorNextPageMarker =
+    lens _lorNextPageMarker (\s a -> s { _lorNextPageMarker = a })
 
 instance FromJSON ListOperationsResponse
 

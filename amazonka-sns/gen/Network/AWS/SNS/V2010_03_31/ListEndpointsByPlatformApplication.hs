@@ -62,8 +62,8 @@ module Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication
     -- * Response
     , ListEndpointsByPlatformApplicationResponse
     -- ** Response lenses
-    , lebparsEndpoints
-    , lebparsNextToken
+    , lebparEndpoints
+    , lebparNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -102,21 +102,19 @@ instance ToQuery ListEndpointsByPlatformApplication where
 
 -- | Response for ListEndpointsByPlatformApplication action.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
-    { _lebparsEndpoints :: [Endpoint]
-    , _lebparsNextToken :: Maybe Text
+    { _lebparEndpoints :: [Endpoint]
+    , _lebparNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
-lebparsEndpoints =
-    lens _lebparsEndpoints (\s a -> s { _lebparsEndpoints = a })
+lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
+lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
 -- available after the first page results.
-lebparsNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
-lebparsNextToken =
-    lens _lebparsNextToken (\s a -> s { _lebparsNextToken = a })
+lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
+lebparNextToken = lens _lebparNextToken (\s a -> s { _lebparNextToken = a })
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     fromXMLOptions = xmlOptions
@@ -130,4 +128,4 @@ instance AWSRequest ListEndpointsByPlatformApplication where
 
 instance AWSPager ListEndpointsByPlatformApplication where
     next rq rs = (\x -> rq & lebpaNextToken ?~ x)
-        <$> (rs ^. lebparsNextToken)
+        <$> (rs ^. lebparNextToken)

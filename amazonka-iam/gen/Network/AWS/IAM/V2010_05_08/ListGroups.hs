@@ -44,9 +44,9 @@ module Network.AWS.IAM.V2010_05_08.ListGroups
     -- * Response
     , ListGroupsResponse
     -- ** Response lenses
-    , lgrsGroups
-    , lgrsIsTruncated
-    , lgrsMarker
+    , lgrGroups
+    , lgrIsTruncated
+    , lgrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -94,25 +94,25 @@ instance ToQuery ListGroups where
 
 -- | Contains the result of a successful invocation of the ListGroups action.
 data ListGroupsResponse = ListGroupsResponse
-    { _lgrsGroups :: [Group]
-    , _lgrsIsTruncated :: Bool
-    , _lgrsMarker :: Maybe Text
+    { _lgrGroups :: [Group]
+    , _lgrIsTruncated :: Bool
+    , _lgrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of groups.
-lgrsGroups :: Lens' ListGroupsResponse [Group]
-lgrsGroups = lens _lgrsGroups (\s a -> s { _lgrsGroups = a })
+lgrGroups :: Lens' ListGroupsResponse [Group]
+lgrGroups = lens _lgrGroups (\s a -> s { _lgrGroups = a })
 
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more groups in the list.
-lgrsIsTruncated :: Lens' ListGroupsResponse Bool
-lgrsIsTruncated = lens _lgrsIsTruncated (\s a -> s { _lgrsIsTruncated = a })
+lgrIsTruncated :: Lens' ListGroupsResponse Bool
+lgrIsTruncated = lens _lgrIsTruncated (\s a -> s { _lgrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lgrsMarker :: Lens' ListGroupsResponse (Maybe Text)
-lgrsMarker = lens _lgrsMarker (\s a -> s { _lgrsMarker = a })
+lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
+lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 
 instance FromXML ListGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -126,6 +126,6 @@ instance AWSRequest ListGroups where
 
 instance AWSPager ListGroups where
     next rq rs
-        | not (rs ^. lgrsIsTruncated) = Nothing
+        | not (rs ^. lgrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lgMarker .~ rs ^. lgrsMarker
+            rq & lgMarker .~ rs ^. lgrMarker

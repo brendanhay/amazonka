@@ -45,7 +45,7 @@ module Network.AWS.DynamoDB.V2012_08_10.DescribeTable
     -- * Response
     , DescribeTableResponse
     -- ** Response lenses
-    , dtrsrsTable
+    , dtrrTable
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -79,12 +79,12 @@ instance ToJSON DescribeTable
 
 -- | Represents the output of a DescribeTable operation.
 newtype DescribeTableResponse = DescribeTableResponse
-    { _dtrsrsTable :: Maybe TableDescription
+    { _dtrrTable :: Maybe TableDescription
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-dtrsrsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-dtrsrsTable = lens _dtrsrsTable (\s a -> s { _dtrsrsTable = a })
+dtrrTable :: Lens' DescribeTableResponse (Maybe TableDescription)
+dtrrTable = lens _dtrrTable (\s a -> s { _dtrrTable = a })
 
 instance FromJSON DescribeTableResponse
 

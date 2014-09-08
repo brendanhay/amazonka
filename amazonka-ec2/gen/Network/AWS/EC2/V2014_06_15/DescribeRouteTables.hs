@@ -41,7 +41,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeRouteTables
     -- * Response
     , DescribeRouteTablesResponse
     -- ** Response lenses
-    , drtrsRouteTables
+    , drtrRouteTables
     ) where
 
 import Network.AWS.Request.Query
@@ -100,13 +100,12 @@ instance ToQuery DescribeRouteTables where
 
 -- | 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
-    { _drtrsRouteTables :: [RouteTable]
+    { _drtrRouteTables :: [RouteTable]
     } deriving (Show, Generic)
 
 -- | Information about one or more route tables.
-drtrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
-drtrsRouteTables =
-    lens _drtrsRouteTables (\s a -> s { _drtrsRouteTables = a })
+drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
+drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
 
 instance FromXML DescribeRouteTablesResponse where
     fromXMLOptions = xmlOptions

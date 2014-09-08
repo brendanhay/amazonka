@@ -52,7 +52,7 @@ module Network.AWS.CloudFormation.V2010_05_15.CreateStack
     -- * Response
     , CreateStackResponse
     -- ** Response lenses
-    , csrsStackId
+    , csrStackId
     ) where
 
 import Network.AWS.Request.Query
@@ -186,12 +186,12 @@ instance ToQuery CreateStack where
 
 -- | The output for a CreateStack action.
 newtype CreateStackResponse = CreateStackResponse
-    { _csrsStackId :: Maybe Text
+    { _csrStackId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Unique identifier of the stack.
-csrsStackId :: Lens' CreateStackResponse (Maybe Text)
-csrsStackId = lens _csrsStackId (\s a -> s { _csrsStackId = a })
+csrStackId :: Lens' CreateStackResponse (Maybe Text)
+csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 
 instance FromXML CreateStackResponse where
     fromXMLOptions = xmlOptions

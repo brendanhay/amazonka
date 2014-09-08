@@ -23,8 +23,6 @@ module Network.AWS.Route53Domains.V2014_05_15.Types
     (
     -- * Service
       Route53Domains
-    -- ** Errors
-    , Er (..)
     -- * ContactType
     , ContactType (..)
 

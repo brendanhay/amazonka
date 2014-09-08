@@ -36,9 +36,9 @@ module Network.AWS.SES.V2010_12_01.GetSendQuota
     -- * Response
     , GetSendQuotaResponse
     -- ** Response lenses
-    , gsqrsMax24HourSend
-    , gsqrsMaxSendRate
-    , gsqrsSentLast24Hours
+    , gsqrMax24HourSend
+    , gsqrMaxSendRate
+    , gsqrSentLast24Hours
     ) where
 
 import Network.AWS.Request.Query
@@ -59,26 +59,25 @@ instance ToQuery GetSendQuota where
 -- | Represents the user's current activity limits returned from a successful
 -- GetSendQuota request.
 data GetSendQuotaResponse = GetSendQuotaResponse
-    { _gsqrsMax24HourSend :: Maybe Double
-    , _gsqrsMaxSendRate :: Maybe Double
-    , _gsqrsSentLast24Hours :: Maybe Double
+    { _gsqrMax24HourSend :: Maybe Double
+    , _gsqrMaxSendRate :: Maybe Double
+    , _gsqrSentLast24Hours :: Maybe Double
     } deriving (Show, Generic)
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
 -- interval.
-gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrsMax24HourSend =
-    lens _gsqrsMax24HourSend (\s a -> s { _gsqrsMax24HourSend = a })
+gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrMax24HourSend =
+    lens _gsqrMax24HourSend (\s a -> s { _gsqrMax24HourSend = a })
 
 -- | The maximum number of emails the user is allowed to send per second.
-gsqrsMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrsMaxSendRate =
-    lens _gsqrsMaxSendRate (\s a -> s { _gsqrsMaxSendRate = a })
+gsqrMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrMaxSendRate = lens _gsqrMaxSendRate (\s a -> s { _gsqrMaxSendRate = a })
 
 -- | The number of emails sent during the previous 24 hours.
-gsqrsSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrsSentLast24Hours =
-    lens _gsqrsSentLast24Hours (\s a -> s { _gsqrsSentLast24Hours = a })
+gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrSentLast24Hours =
+    lens _gsqrSentLast24Hours (\s a -> s { _gsqrSentLast24Hours = a })
 
 instance FromXML GetSendQuotaResponse where
     fromXMLOptions = xmlOptions

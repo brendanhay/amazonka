@@ -30,7 +30,7 @@ module Network.AWS.Route53.V2013_04_01.ListTagsForResource
     -- * Response
     , ListTagsForResourceResponse
     -- ** Response lenses
-    , ltfrrsResourceTagSet
+    , ltfrrResourceTagSet
     ) where
 
 import Network.AWS.Request.RestXML
@@ -83,13 +83,13 @@ instance ToXML ListTagsForResource where
 
 -- | A complex type containing tags for the specified resource.
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
-    { _ltfrrsResourceTagSet :: ResourceTagSet
+    { _ltfrrResourceTagSet :: ResourceTagSet
     } deriving (Show, Generic)
 
 -- | A ResourceTagSet containing tags associated with the specified resource.
-ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
-ltfrrsResourceTagSet =
-    lens _ltfrrsResourceTagSet (\s a -> s { _ltfrrsResourceTagSet = a })
+ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
+ltfrrResourceTagSet =
+    lens _ltfrrResourceTagSet (\s a -> s { _ltfrrResourceTagSet = a })
 
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions

@@ -37,7 +37,7 @@ module Network.AWS.IAM.V2010_05_08.CreateUser
     -- * Response
     , CreateUserResponse
     -- ** Response lenses
-    , cursUser
+    , curUser
     ) where
 
 import Network.AWS.Request.Query
@@ -74,12 +74,12 @@ instance ToQuery CreateUser where
 
 -- | Contains the result of a successful invocation of the CreateUser action.
 newtype CreateUserResponse = CreateUserResponse
-    { _cursUser :: Maybe User
+    { _curUser :: Maybe User
     } deriving (Show, Generic)
 
 -- | Information about the user.
-cursUser :: Lens' CreateUserResponse (Maybe User)
-cursUser = lens _cursUser (\s a -> s { _cursUser = a })
+curUser :: Lens' CreateUserResponse (Maybe User)
+curUser = lens _curUser (\s a -> s { _curUser = a })
 
 instance FromXML CreateUserResponse where
     fromXMLOptions = xmlOptions

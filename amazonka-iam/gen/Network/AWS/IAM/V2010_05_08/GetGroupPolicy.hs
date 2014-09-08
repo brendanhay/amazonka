@@ -37,9 +37,9 @@ module Network.AWS.IAM.V2010_05_08.GetGroupPolicy
     -- * Response
     , GetGroupPolicyResponse
     -- ** Response lenses
-    , ggprsGroupName
-    , ggprsPolicyName
-    , ggprsPolicyDocument
+    , ggprGroupName
+    , ggprPolicyName
+    , ggprPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
@@ -76,23 +76,23 @@ instance ToQuery GetGroupPolicy where
 -- | Contains the result of a successful invocation of the GetGroupPolicy
 -- action.
 data GetGroupPolicyResponse = GetGroupPolicyResponse
-    { _ggprsGroupName :: Text
-    , _ggprsPolicyName :: Text
-    , _ggprsPolicyDocument :: Text
+    { _ggprGroupName :: Text
+    , _ggprPolicyName :: Text
+    , _ggprPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | The group the policy is associated with.
-ggprsGroupName :: Lens' GetGroupPolicyResponse Text
-ggprsGroupName = lens _ggprsGroupName (\s a -> s { _ggprsGroupName = a })
+ggprGroupName :: Lens' GetGroupPolicyResponse Text
+ggprGroupName = lens _ggprGroupName (\s a -> s { _ggprGroupName = a })
 
 -- | The name of the policy.
-ggprsPolicyName :: Lens' GetGroupPolicyResponse Text
-ggprsPolicyName = lens _ggprsPolicyName (\s a -> s { _ggprsPolicyName = a })
+ggprPolicyName :: Lens' GetGroupPolicyResponse Text
+ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
 
 -- | The policy document.
-ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
-ggprsPolicyDocument =
-    lens _ggprsPolicyDocument (\s a -> s { _ggprsPolicyDocument = a })
+ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
+ggprPolicyDocument =
+    lens _ggprPolicyDocument (\s a -> s { _ggprPolicyDocument = a })
 
 instance FromXML GetGroupPolicyResponse where
     fromXMLOptions = xmlOptions

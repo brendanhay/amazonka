@@ -108,8 +108,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions
     -- * Response
     , DescribeConfigurationOptionsResponse
     -- ** Response lenses
-    , dcorsSolutionStackName
-    , dcorsOptions
+    , dcorSolutionStackName
+    , dcorOptions
     ) where
 
 import Network.AWS.Request.Query
@@ -169,18 +169,18 @@ instance ToQuery DescribeConfigurationOptions where
 
 -- | Describes the settings for a specified configuration set.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
-    { _dcorsSolutionStackName :: Maybe Text
-    , _dcorsOptions :: [ConfigurationOptionDescription]
+    { _dcorSolutionStackName :: Maybe Text
+    , _dcorOptions :: [ConfigurationOptionDescription]
     } deriving (Show, Generic)
 
 -- | The name of the solution stack these configuration options belong to.
-dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
-dcorsSolutionStackName =
-    lens _dcorsSolutionStackName (\s a -> s { _dcorsSolutionStackName = a })
+dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
+dcorSolutionStackName =
+    lens _dcorSolutionStackName (\s a -> s { _dcorSolutionStackName = a })
 
 -- | A list of ConfigurationOptionDescription.
-dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
-dcorsOptions = lens _dcorsOptions (\s a -> s { _dcorsOptions = a })
+dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
+dcorOptions = lens _dcorOptions (\s a -> s { _dcorOptions = a })
 
 instance FromXML DescribeConfigurationOptionsResponse where
     fromXMLOptions = xmlOptions

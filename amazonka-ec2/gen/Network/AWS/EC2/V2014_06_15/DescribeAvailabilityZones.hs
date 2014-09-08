@@ -57,7 +57,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones
     -- * Response
     , DescribeAvailabilityZonesResponse
     -- ** Response lenses
-    , dazrsAvailabilityZones
+    , dazrAvailabilityZones
     ) where
 
 import Network.AWS.Request.Query
@@ -95,13 +95,13 @@ instance ToQuery DescribeAvailabilityZones where
 
 -- | 
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
-    { _dazrsAvailabilityZones :: [AvailabilityZone]
+    { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Show, Generic)
 
 -- | Information about one or more Availability Zones.
-dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
-dazrsAvailabilityZones =
-    lens _dazrsAvailabilityZones (\s a -> s { _dazrsAvailabilityZones = a })
+dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
+dazrAvailabilityZones =
+    lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
 
 instance FromXML DescribeAvailabilityZonesResponse where
     fromXMLOptions = xmlOptions

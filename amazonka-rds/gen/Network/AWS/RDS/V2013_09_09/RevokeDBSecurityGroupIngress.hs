@@ -43,7 +43,7 @@ module Network.AWS.RDS.V2013_09_09.RevokeDBSecurityGroupIngress
     -- * Response
     , RevokeDBSecurityGroupIngressResponse
     -- ** Response lenses
-    , rdbsgirsDBSecurityGroup
+    , rdbsgirDBSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -115,17 +115,16 @@ instance ToQuery RevokeDBSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
-    { _rdbsgirsDBSecurityGroup :: Maybe DBSecurityGroup
+    { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
-rdbsgirsDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
-rdbsgirsDBSecurityGroup =
-    lens _rdbsgirsDBSecurityGroup
-         (\s a -> s { _rdbsgirsDBSecurityGroup = a })
+rdbsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
+rdbsgirDBSecurityGroup =
+    lens _rdbsgirDBSecurityGroup (\s a -> s { _rdbsgirDBSecurityGroup = a })
 
 instance FromXML RevokeDBSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

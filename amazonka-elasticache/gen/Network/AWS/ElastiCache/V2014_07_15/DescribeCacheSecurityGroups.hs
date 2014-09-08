@@ -39,8 +39,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups
     -- * Response
     , DescribeCacheSecurityGroupsResponse
     -- ** Response lenses
-    , dcsgrsMarker
-    , dcsgrsCacheSecurityGroups
+    , dcsgrMarker
+    , dcsgrCacheSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -88,20 +88,20 @@ instance ToQuery DescribeCacheSecurityGroups where
 
 -- | Represents the output of a DescribeCacheSecurityGroups operation.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
-    { _dcsgrsMarker :: Maybe Text
-    , _dcsgrsCacheSecurityGroups :: [CacheSecurityGroup]
+    { _dcsgrMarker :: Maybe Text
+    , _dcsgrCacheSecurityGroups :: [CacheSecurityGroup]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcsgrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-dcsgrsMarker = lens _dcsgrsMarker (\s a -> s { _dcsgrsMarker = a })
+dcsgrMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
+dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
 -- | A list of cache security groups. Each element in the list contains detailed
 -- information about one group.
-dcsgrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-dcsgrsCacheSecurityGroups =
-    lens _dcsgrsCacheSecurityGroups
-         (\s a -> s { _dcsgrsCacheSecurityGroups = a })
+dcsgrCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+dcsgrCacheSecurityGroups =
+    lens _dcsgrCacheSecurityGroups
+         (\s a -> s { _dcsgrCacheSecurityGroups = a })
 
 instance FromXML DescribeCacheSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -115,4 +115,4 @@ instance AWSRequest DescribeCacheSecurityGroups where
 
 instance AWSPager DescribeCacheSecurityGroups where
     next rq rs = (\x -> rq & dcsg2Marker ?~ x)
-        <$> (rs ^. dcsgrsMarker)
+        <$> (rs ^. dcsgrMarker)

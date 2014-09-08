@@ -46,11 +46,11 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule
     -- * Response
     , DescribeSnapshotScheduleResponse
     -- ** Response lenses
-    , dssrsrsVolumeARN
-    , dssrsrsStartAt
-    , dssrsrsRecurrenceInHours
-    , dssrsrsDescription
-    , dssrsrsTimezone
+    , dssrrVolumeARN
+    , dssrrStartAt
+    , dssrrRecurrenceInHours
+    , dssrrDescription
+    , dssrrTimezone
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -85,31 +85,29 @@ instance ToHeaders DescribeSnapshotSchedule
 instance ToJSON DescribeSnapshotSchedule
 
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dssrsrsVolumeARN :: Maybe Text
-    , _dssrsrsStartAt :: Maybe Integer
-    , _dssrsrsRecurrenceInHours :: Maybe Integer
-    , _dssrsrsDescription :: Maybe Text
-    , _dssrsrsTimezone :: Maybe Text
+    { _dssrrVolumeARN :: Maybe Text
+    , _dssrrStartAt :: Maybe Integer
+    , _dssrrRecurrenceInHours :: Maybe Integer
+    , _dssrrDescription :: Maybe Text
+    , _dssrrTimezone :: Maybe Text
     } deriving (Show, Generic)
 
-dssrsrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsrsVolumeARN =
-    lens _dssrsrsVolumeARN (\s a -> s { _dssrsrsVolumeARN = a })
+dssrrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrrVolumeARN = lens _dssrrVolumeARN (\s a -> s { _dssrrVolumeARN = a })
 
-dssrsrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
-dssrsrsStartAt = lens _dssrsrsStartAt (\s a -> s { _dssrsrsStartAt = a })
+dssrrStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
+dssrrStartAt = lens _dssrrStartAt (\s a -> s { _dssrrStartAt = a })
 
-dssrsrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
-dssrsrsRecurrenceInHours =
-    lens _dssrsrsRecurrenceInHours
-         (\s a -> s { _dssrsrsRecurrenceInHours = a })
+dssrrRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Integer)
+dssrrRecurrenceInHours =
+    lens _dssrrRecurrenceInHours (\s a -> s { _dssrrRecurrenceInHours = a })
 
-dssrsrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsrsDescription =
-    lens _dssrsrsDescription (\s a -> s { _dssrsrsDescription = a })
+dssrrDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrrDescription =
+    lens _dssrrDescription (\s a -> s { _dssrrDescription = a })
 
-dssrsrsTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsrsTimezone = lens _dssrsrsTimezone (\s a -> s { _dssrsrsTimezone = a })
+dssrrTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrrTimezone = lens _dssrrTimezone (\s a -> s { _dssrrTimezone = a })
 
 instance FromJSON DescribeSnapshotScheduleResponse
 

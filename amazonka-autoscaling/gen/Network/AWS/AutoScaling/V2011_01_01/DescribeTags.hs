@@ -41,8 +41,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeTags
     -- * Response
     , DescribeTagsResponse
     -- ** Response lenses
-    , dtrsTags
-    , dtrsNextToken
+    , dtrTags
+    , dtrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -85,17 +85,17 @@ instance ToQuery DescribeTags where
 
 -- | 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dtrsTags :: [TagDescription]
-    , _dtrsNextToken :: Maybe Text
+    { _dtrTags :: [TagDescription]
+    , _dtrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of tags.
-dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTags = lens _dtrsTags (\s a -> s { _dtrsTags = a })
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
 -- | A string used to mark the start of the next batch of returned results.
-dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsNextToken = lens _dtrsNextToken (\s a -> s { _dtrsNextToken = a })
+dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
+dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -109,4 +109,4 @@ instance AWSRequest DescribeTags where
 
 instance AWSPager DescribeTags where
     next rq rs = (\x -> rq & dt1NextToken ?~ x)
-        <$> (rs ^. dtrsNextToken)
+        <$> (rs ^. dtrNextToken)

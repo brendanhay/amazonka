@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.V2013_06_30.AddCache
     -- * Response
     , AddCacheResponse
     -- ** Response lenses
-    , acrsGatewayARN
+    , acrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -89,13 +89,13 @@ instance ToHeaders AddCache
 instance ToJSON AddCache
 
 newtype AddCacheResponse = AddCacheResponse
-    { _acrsGatewayARN :: Maybe Text
+    { _acrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
-acrsGatewayARN = lens _acrsGatewayARN (\s a -> s { _acrsGatewayARN = a })
+acrGatewayARN :: Lens' AddCacheResponse (Maybe Text)
+acrGatewayARN = lens _acrGatewayARN (\s a -> s { _acrGatewayARN = a })
 
 instance FromJSON AddCacheResponse
 

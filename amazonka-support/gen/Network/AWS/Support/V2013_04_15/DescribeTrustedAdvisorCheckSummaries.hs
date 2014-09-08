@@ -33,7 +33,7 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries
     -- * Response
     , DescribeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
-    , dtacsrsSummaries
+    , dtacsrSummaries
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -68,13 +68,12 @@ instance ToJSON DescribeTrustedAdvisorCheckSummaries
 -- | The summaries of the Trusted Advisor checks returned by the
 -- DescribeTrustedAdvisorCheckSummaries operation.
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
-    { _dtacsrsSummaries :: [TrustedAdvisorCheckSummary]
+    { _dtacsrSummaries :: [TrustedAdvisorCheckSummary]
     } deriving (Show, Generic)
 
 -- | The summary information for the requested Trusted Advisor checks.
-dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-dtacsrsSummaries =
-    lens _dtacsrsSummaries (\s a -> s { _dtacsrsSummaries = a })
+dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
+dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a })
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse
 

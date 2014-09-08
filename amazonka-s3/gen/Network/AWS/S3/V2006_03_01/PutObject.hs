@@ -52,12 +52,12 @@ module Network.AWS.S3.V2006_03_01.PutObject
     -- * Response
     , PutObjectResponse
     -- ** Response lenses
-    , porsExpiration
-    , porsETag
-    , porsServerSideEncryption
-    , porsVersionId
-    , porsSSECustomerAlgorithm
-    , porsSSECustomerKeyMD5
+    , porExpiration
+    , porETag
+    , porServerSideEncryption
+    , porVersionId
+    , porSSECustomerAlgorithm
+    , porSSECustomerKeyMD5
     ) where
 
 import Network.AWS.Request.RestS3
@@ -271,48 +271,48 @@ instance ToBody PutObject where
     toBody = toBody . _poBody
 
 data PutObjectResponse = PutObjectResponse
-    { _porsExpiration :: Maybe RFC822
-    , _porsETag :: Maybe ETag
-    , _porsServerSideEncryption :: Maybe ServerSideEncryption
-    , _porsVersionId :: Maybe ObjectVersionId
-    , _porsSSECustomerAlgorithm :: Maybe Text
-    , _porsSSECustomerKeyMD5 :: Maybe Text
+    { _porExpiration :: Maybe RFC822
+    , _porETag :: Maybe ETag
+    , _porServerSideEncryption :: Maybe ServerSideEncryption
+    , _porVersionId :: Maybe ObjectVersionId
+    , _porSSECustomerAlgorithm :: Maybe Text
+    , _porSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
-porsExpiration :: Lens' PutObjectResponse (Maybe RFC822)
-porsExpiration = lens _porsExpiration (\s a -> s { _porsExpiration = a })
+porExpiration :: Lens' PutObjectResponse (Maybe RFC822)
+porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a })
 
 -- | Entity tag for the uploaded object.
-porsETag :: Lens' PutObjectResponse (Maybe ETag)
-porsETag = lens _porsETag (\s a -> s { _porsETag = a })
+porETag :: Lens' PutObjectResponse (Maybe ETag)
+porETag = lens _porETag (\s a -> s { _porETag = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
-porsServerSideEncryption =
-    lens _porsServerSideEncryption
-         (\s a -> s { _porsServerSideEncryption = a })
+porServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
+porServerSideEncryption =
+    lens _porServerSideEncryption
+         (\s a -> s { _porServerSideEncryption = a })
 
 -- | Version of the object.
-porsVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
-porsVersionId = lens _porsVersionId (\s a -> s { _porsVersionId = a })
+porVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
+porVersionId = lens _porVersionId (\s a -> s { _porVersionId = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-porsSSECustomerAlgorithm :: Lens' PutObjectResponse (Maybe Text)
-porsSSECustomerAlgorithm =
-    lens _porsSSECustomerAlgorithm
-         (\s a -> s { _porsSSECustomerAlgorithm = a })
+porSSECustomerAlgorithm :: Lens' PutObjectResponse (Maybe Text)
+porSSECustomerAlgorithm =
+    lens _porSSECustomerAlgorithm
+         (\s a -> s { _porSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-porsSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
-porsSSECustomerKeyMD5 =
-    lens _porsSSECustomerKeyMD5 (\s a -> s { _porsSSECustomerKeyMD5 = a })
+porSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
+porSSECustomerKeyMD5 =
+    lens _porSSECustomerKeyMD5 (\s a -> s { _porSSECustomerKeyMD5 = a })
 
 instance AWSRequest PutObject where
     type Sv PutObject = S3

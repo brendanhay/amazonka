@@ -49,8 +49,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions
     -- * Response
     , DescribeOrderableClusterOptionsResponse
     -- ** Response lenses
-    , docorsOrderableClusterOptions
-    , docorsMarker
+    , docorOrderableClusterOptions
+    , docorMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -110,24 +110,24 @@ instance ToQuery DescribeOrderableClusterOptions where
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
-    { _docorsOrderableClusterOptions :: [OrderableClusterOption]
-    , _docorsMarker :: Maybe Text
+    { _docorOrderableClusterOptions :: [OrderableClusterOption]
+    , _docorMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An OrderableClusterOption structure containing information about orderable
 -- options for the Cluster.
-docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
-docorsOrderableClusterOptions =
-    lens _docorsOrderableClusterOptions
-         (\s a -> s { _docorsOrderableClusterOptions = a })
+docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
+docorOrderableClusterOptions =
+    lens _docorOrderableClusterOptions
+         (\s a -> s { _docorOrderableClusterOptions = a })
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-docorsMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
-docorsMarker = lens _docorsMarker (\s a -> s { _docorsMarker = a })
+docorMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
+docorMarker = lens _docorMarker (\s a -> s { _docorMarker = a })
 
 instance FromXML DescribeOrderableClusterOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -141,4 +141,4 @@ instance AWSRequest DescribeOrderableClusterOptions where
 
 instance AWSPager DescribeOrderableClusterOptions where
     next rq rs = (\x -> rq & docoMarker ?~ x)
-        <$> (rs ^. docorsMarker)
+        <$> (rs ^. docorMarker)

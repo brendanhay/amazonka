@@ -33,13 +33,13 @@ module Network.AWS.S3.V2006_03_01.CompleteMultipartUpload
     -- * Response
     , CompleteMultipartUploadResponse
     -- ** Response lenses
-    , cmursLocation
-    , cmursBucket
-    , cmursKey
-    , cmursExpiration
-    , cmursETag
-    , cmursServerSideEncryption
-    , cmursVersionId
+    , cmurLocation
+    , cmurBucket
+    , cmurKey
+    , cmurExpiration
+    , cmurETag
+    , cmurServerSideEncryption
+    , cmurVersionId
     ) where
 
 import Network.AWS.Request.RestS3
@@ -99,43 +99,43 @@ instance ToBody CompleteMultipartUpload where
     toBody = toBody . encodeXML . _cmuMultipartUpload
 
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
-    { _cmursLocation :: Maybe Text
-    , _cmursBucket :: Maybe BucketName
-    , _cmursKey :: Maybe ObjectKey
-    , _cmursExpiration :: Maybe RFC822
-    , _cmursETag :: Maybe ETag
-    , _cmursServerSideEncryption :: Maybe ServerSideEncryption
-    , _cmursVersionId :: Maybe ObjectVersionId
+    { _cmurLocation :: Maybe Text
+    , _cmurBucket :: Maybe BucketName
+    , _cmurKey :: Maybe ObjectKey
+    , _cmurExpiration :: Maybe RFC822
+    , _cmurETag :: Maybe ETag
+    , _cmurServerSideEncryption :: Maybe ServerSideEncryption
+    , _cmurVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
-cmursLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
-cmursLocation = lens _cmursLocation (\s a -> s { _cmursLocation = a })
+cmurLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+cmurLocation = lens _cmurLocation (\s a -> s { _cmurLocation = a })
 
-cmursBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
-cmursBucket = lens _cmursBucket (\s a -> s { _cmursBucket = a })
+cmurBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
+cmurBucket = lens _cmurBucket (\s a -> s { _cmurBucket = a })
 
-cmursKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
-cmursKey = lens _cmursKey (\s a -> s { _cmursKey = a })
+cmurKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
+cmurKey = lens _cmurKey (\s a -> s { _cmurKey = a })
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
-cmursExpiration :: Lens' CompleteMultipartUploadResponse (Maybe RFC822)
-cmursExpiration = lens _cmursExpiration (\s a -> s { _cmursExpiration = a })
+cmurExpiration :: Lens' CompleteMultipartUploadResponse (Maybe RFC822)
+cmurExpiration = lens _cmurExpiration (\s a -> s { _cmurExpiration = a })
 
 -- | Entity tag of the object.
-cmursETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
-cmursETag = lens _cmursETag (\s a -> s { _cmursETag = a })
+cmurETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
+cmurETag = lens _cmurETag (\s a -> s { _cmurETag = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cmursServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
-cmursServerSideEncryption =
-    lens _cmursServerSideEncryption
-         (\s a -> s { _cmursServerSideEncryption = a })
+cmurServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
+cmurServerSideEncryption =
+    lens _cmurServerSideEncryption
+         (\s a -> s { _cmurServerSideEncryption = a })
 
 -- | Version of the object.
-cmursVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
-cmursVersionId = lens _cmursVersionId (\s a -> s { _cmursVersionId = a })
+cmurVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
+cmurVersionId = lens _cmurVersionId (\s a -> s { _cmurVersionId = a })
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3

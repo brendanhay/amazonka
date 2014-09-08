@@ -54,7 +54,7 @@ module Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing
     -- * Response
     , CreateReservedInstancesListingResponse
     -- ** Response lenses
-    , crilrsrsReservedInstancesListings
+    , crilrrReservedInstancesListings
     ) where
 
 import Network.AWS.Request.Query
@@ -115,14 +115,14 @@ instance ToQuery CreateReservedInstancesListing where
 
 -- | 
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
-    { _crilrsrsReservedInstancesListings :: [ReservedInstancesListing]
+    { _crilrrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
 
 -- | Information about the Reserved Instances listing.
-crilrsrsReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-crilrsrsReservedInstancesListings =
-    lens _crilrsrsReservedInstancesListings
-         (\s a -> s { _crilrsrsReservedInstancesListings = a })
+crilrrReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+crilrrReservedInstancesListings =
+    lens _crilrrReservedInstancesListings
+         (\s a -> s { _crilrrReservedInstancesListings = a })
 
 instance FromXML CreateReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions

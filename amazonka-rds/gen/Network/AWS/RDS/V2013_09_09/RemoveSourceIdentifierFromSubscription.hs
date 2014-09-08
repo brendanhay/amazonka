@@ -39,7 +39,7 @@ module Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription
     -- * Response
     , RemoveSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
-    , rsifsrsEventSubscription
+    , rsifsrEventSubscription
     ) where
 
 import Network.AWS.Request.Query
@@ -78,15 +78,15 @@ instance ToQuery RemoveSourceIdentifierFromSubscription where
     toQuery = genericQuery def
 
 newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
-    { _rsifsrsEventSubscription :: Maybe EventSubscription
+    { _rsifsrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
-rsifsrsEventSubscription =
-    lens _rsifsrsEventSubscription
-         (\s a -> s { _rsifsrsEventSubscription = a })
+rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
+rsifsrEventSubscription =
+    lens _rsifsrEventSubscription
+         (\s a -> s { _rsifsrEventSubscription = a })
 
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
     fromXMLOptions = xmlOptions

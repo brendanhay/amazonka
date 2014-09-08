@@ -40,7 +40,7 @@ module Network.AWS.SES.V2010_12_01.VerifyDomainIdentity
     -- * Response
     , VerifyDomainIdentityResponse
     -- ** Response lenses
-    , vdirsVerificationToken
+    , vdirVerificationToken
     ) where
 
 import Network.AWS.Request.Query
@@ -69,14 +69,14 @@ instance ToQuery VerifyDomainIdentity where
 
 -- | Represents a token used for domain ownership verification.
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
-    { _vdirsVerificationToken :: Text
+    { _vdirVerificationToken :: Text
     } deriving (Show, Generic)
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.
-vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
-vdirsVerificationToken =
-    lens _vdirsVerificationToken (\s a -> s { _vdirsVerificationToken = a })
+vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
+vdirVerificationToken =
+    lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })
 
 instance FromXML VerifyDomainIdentityResponse where
     fromXMLOptions = xmlOptions

@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications
     -- * Response
     , DescribeApplicationsResponse
     -- ** Response lenses
-    , darsApplications
+    , darApplications
     ) where
 
 import Network.AWS.Request.Query
@@ -64,13 +64,12 @@ instance ToQuery DescribeApplications where
 
 -- | Result message containing a list of application descriptions.
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
-    { _darsApplications :: [ApplicationDescription]
+    { _darApplications :: [ApplicationDescription]
     } deriving (Show, Generic)
 
 -- | This parameter contains a list of ApplicationDescription.
-darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
-darsApplications =
-    lens _darsApplications (\s a -> s { _darsApplications = a })
+darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
+darApplications = lens _darApplications (\s a -> s { _darApplications = a })
 
 instance FromXML DescribeApplicationsResponse where
     fromXMLOptions = xmlOptions

@@ -47,7 +47,7 @@ module Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering
     -- * Response
     , PurchaseReservedNodeOfferingResponse
     -- ** Response lenses
-    , prnorsReservedNode
+    , prnorReservedNode
     ) where
 
 import Network.AWS.Request.Query
@@ -83,13 +83,13 @@ instance ToQuery PurchaseReservedNodeOffering where
     toQuery = genericQuery def
 
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
-    { _prnorsReservedNode :: Maybe ReservedNode
+    { _prnorReservedNode :: Maybe ReservedNode
     } deriving (Show, Generic)
 
 -- | Describes a reserved node.
-prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
-prnorsReservedNode =
-    lens _prnorsReservedNode (\s a -> s { _prnorsReservedNode = a })
+prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
+prnorReservedNode =
+    lens _prnorReservedNode (\s a -> s { _prnorReservedNode = a })
 
 instance FromXML PurchaseReservedNodeOfferingResponse where
     fromXMLOptions = xmlOptions

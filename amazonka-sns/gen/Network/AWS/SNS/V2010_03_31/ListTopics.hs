@@ -43,8 +43,8 @@ module Network.AWS.SNS.V2010_03_31.ListTopics
     -- * Response
     , ListTopicsResponse
     -- ** Response lenses
-    , ltrsTopics
-    , ltrsNextToken
+    , ltrTopics
+    , ltrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -71,18 +71,18 @@ instance ToQuery ListTopics where
 
 -- | Response for ListTopics action.
 data ListTopicsResponse = ListTopicsResponse
-    { _ltrsTopics :: [Topic]
-    , _ltrsNextToken :: Maybe Text
+    { _ltrTopics :: [Topic]
+    , _ltrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of topic ARNs.
-ltrsTopics :: Lens' ListTopicsResponse [Topic]
-ltrsTopics = lens _ltrsTopics (\s a -> s { _ltrsTopics = a })
+ltrTopics :: Lens' ListTopicsResponse [Topic]
+ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
 
 -- | Token to pass along to the next ListTopics request. This element is
 -- returned if there are additional topics to retrieve.
-ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s { _ltrsNextToken = a })
+ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
+ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 
 instance FromXML ListTopicsResponse where
     fromXMLOptions = xmlOptions
@@ -96,4 +96,4 @@ instance AWSRequest ListTopics where
 
 instance AWSPager ListTopics where
     next rq rs = (\x -> rq & ltNextToken ?~ x)
-        <$> (rs ^. ltrsNextToken)
+        <$> (rs ^. ltrNextToken)

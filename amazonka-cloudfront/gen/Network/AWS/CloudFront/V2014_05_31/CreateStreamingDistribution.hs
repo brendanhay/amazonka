@@ -30,9 +30,9 @@ module Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution
     -- * Response
     , CreateStreamingDistributionResponse
     -- ** Response lenses
-    , csdrsStreamingDistribution
-    , csdrsLocation
-    , csdrsETag
+    , csdrStreamingDistribution
+    , csdrLocation
+    , csdrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -72,27 +72,27 @@ instance ToXML CreateStreamingDistribution where
 
 -- | The returned result of the corresponding request.
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
-    { _csdrsStreamingDistribution :: Maybe StreamingDistribution
-    , _csdrsLocation :: Maybe Text
-    , _csdrsETag :: Maybe Text
+    { _csdrStreamingDistribution :: Maybe StreamingDistribution
+    , _csdrLocation :: Maybe Text
+    , _csdrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
-csdrsStreamingDistribution =
-    lens _csdrsStreamingDistribution
-         (\s a -> s { _csdrsStreamingDistribution = a })
+csdrStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
+csdrStreamingDistribution =
+    lens _csdrStreamingDistribution
+         (\s a -> s { _csdrStreamingDistribution = a })
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created. For example:
 -- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
 -- 
-csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsLocation = lens _csdrsLocation (\s a -> s { _csdrsLocation = a })
+csdrLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
+csdrLocation = lens _csdrLocation (\s a -> s { _csdrLocation = a })
 
 -- | The current version of the streaming distribution created.
-csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsETag = lens _csdrsETag (\s a -> s { _csdrsETag = a })
+csdrETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
+csdrETag = lens _csdrETag (\s a -> s { _csdrETag = a })
 
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront

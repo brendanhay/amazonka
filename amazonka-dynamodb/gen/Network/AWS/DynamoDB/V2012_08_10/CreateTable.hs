@@ -61,7 +61,7 @@ module Network.AWS.DynamoDB.V2012_08_10.CreateTable
     -- * Response
     , CreateTableResponse
     -- ** Response lenses
-    , ctrsTableDescription
+    , ctrTableDescription
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -187,13 +187,13 @@ instance ToJSON CreateTable
 
 -- | Represents the output of a CreateTable operation.
 newtype CreateTableResponse = CreateTableResponse
-    { _ctrsTableDescription :: Maybe TableDescription
+    { _ctrTableDescription :: Maybe TableDescription
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
-ctrsTableDescription =
-    lens _ctrsTableDescription (\s a -> s { _ctrsTableDescription = a })
+ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
+ctrTableDescription =
+    lens _ctrTableDescription (\s a -> s { _ctrTableDescription = a })
 
 instance FromJSON CreateTableResponse
 

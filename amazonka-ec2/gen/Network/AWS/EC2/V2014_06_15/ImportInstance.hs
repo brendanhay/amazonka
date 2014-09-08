@@ -48,7 +48,7 @@ module Network.AWS.EC2.V2014_06_15.ImportInstance
     -- * Response
     , ImportInstanceResponse
     -- ** Response lenses
-    , iirsConversionTask
+    , iirConversionTask
     ) where
 
 import Network.AWS.Request.Query
@@ -96,13 +96,13 @@ instance ToQuery ImportInstance where
 
 -- | 
 newtype ImportInstanceResponse = ImportInstanceResponse
-    { _iirsConversionTask :: Maybe ConversionTask
+    { _iirConversionTask :: Maybe ConversionTask
     } deriving (Show, Generic)
 
 -- | 
-iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
-iirsConversionTask =
-    lens _iirsConversionTask (\s a -> s { _iirsConversionTask = a })
+iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
+iirConversionTask =
+    lens _iirConversionTask (\s a -> s { _iirConversionTask = a })
 
 instance FromXML ImportInstanceResponse where
     fromXMLOptions = xmlOptions

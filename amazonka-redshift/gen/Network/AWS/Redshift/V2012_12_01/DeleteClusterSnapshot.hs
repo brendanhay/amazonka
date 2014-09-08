@@ -46,7 +46,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot
     -- * Response
     , DeleteClusterSnapshotResponse
     -- ** Response lenses
-    , dcsrsSnapshot
+    , dcsrSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -87,12 +87,12 @@ instance ToQuery DeleteClusterSnapshot where
     toQuery = genericQuery def
 
 newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
-    { _dcsrsSnapshot :: Maybe Snapshot
+    { _dcsrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
-dcsrsSnapshot = lens _dcsrsSnapshot (\s a -> s { _dcsrsSnapshot = a })
+dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
+dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
 
 instance FromXML DeleteClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

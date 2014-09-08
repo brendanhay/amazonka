@@ -66,7 +66,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheCluster
     -- * Response
     , CreateCacheClusterResponse
     -- ** Response lenses
-    , cccrsCacheCluster
+    , cccrCacheCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -312,13 +312,13 @@ instance ToQuery CreateCacheCluster where
     toQuery = genericQuery def
 
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
-    { _cccrsCacheCluster :: Maybe CacheCluster
+    { _cccrCacheCluster :: Maybe CacheCluster
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific cache cluster.
-cccrsCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
-cccrsCacheCluster =
-    lens _cccrsCacheCluster (\s a -> s { _cccrsCacheCluster = a })
+cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
+cccrCacheCluster =
+    lens _cccrCacheCluster (\s a -> s { _cccrCacheCluster = a })
 
 instance FromXML CreateCacheClusterResponse where
     fromXMLOptions = xmlOptions

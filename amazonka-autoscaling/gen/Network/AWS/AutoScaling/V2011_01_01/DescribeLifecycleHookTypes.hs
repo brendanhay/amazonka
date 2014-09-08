@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes
     -- * Response
     , DescribeLifecycleHookTypesResponse
     -- ** Response lenses
-    , dlhtrsLifecycleHookTypes
+    , dlhtrLifecycleHookTypes
     ) where
 
 import Network.AWS.Request.Query
@@ -47,16 +47,16 @@ instance ToQuery DescribeLifecycleHookTypes where
 
 -- | 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
-    { _dlhtrsLifecycleHookTypes :: [Text]
+    { _dlhtrLifecycleHookTypes :: [Text]
     } deriving (Show, Generic)
 
 -- | Returns a list of all notification types supported by Auto Scaling. They
 -- are: autoscaling:EC2_INSTANCE_LAUNCHING
 -- autoscaling:EC2_INSTANCE_TERMINATING.
-dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
-dlhtrsLifecycleHookTypes =
-    lens _dlhtrsLifecycleHookTypes
-         (\s a -> s { _dlhtrsLifecycleHookTypes = a })
+dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
+dlhtrLifecycleHookTypes =
+    lens _dlhtrLifecycleHookTypes
+         (\s a -> s { _dlhtrLifecycleHookTypes = a })
 
 instance FromXML DescribeLifecycleHookTypesResponse where
     fromXMLOptions = xmlOptions

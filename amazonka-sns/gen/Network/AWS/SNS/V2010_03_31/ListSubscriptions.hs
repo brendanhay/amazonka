@@ -49,8 +49,8 @@ module Network.AWS.SNS.V2010_03_31.ListSubscriptions
     -- * Response
     , ListSubscriptionsResponse
     -- ** Response lenses
-    , lsrsSubscriptions
-    , lsrsNextToken
+    , lsrSubscriptions
+    , lsrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -78,19 +78,19 @@ instance ToQuery ListSubscriptions where
 
 -- | Response for ListSubscriptions action.
 data ListSubscriptionsResponse = ListSubscriptionsResponse
-    { _lsrsSubscriptions :: [Subscription]
-    , _lsrsNextToken :: Maybe Text
+    { _lsrSubscriptions :: [Subscription]
+    , _lsrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of subscriptions.
-lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
-lsrsSubscriptions =
-    lens _lsrsSubscriptions (\s a -> s { _lsrsSubscriptions = a })
+lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
+lsrSubscriptions =
+    lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a })
 
 -- | Token to pass along to the next ListSubscriptions request. This element is
 -- returned if there are more subscriptions to retrieve.
-lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\s a -> s { _lsrsNextToken = a })
+lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
+lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 
 instance FromXML ListSubscriptionsResponse where
     fromXMLOptions = xmlOptions
@@ -104,4 +104,4 @@ instance AWSRequest ListSubscriptions where
 
 instance AWSPager ListSubscriptions where
     next rq rs = (\x -> rq & lsNextToken ?~ x)
-        <$> (rs ^. lsrsNextToken)
+        <$> (rs ^. lsrNextToken)

@@ -47,7 +47,7 @@ module Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
     -- * Response
     , CheckDomainAvailabilityResponse
     -- ** Response lenses
-    , cdarsAvailability
+    , cdarAvailability
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -90,7 +90,7 @@ instance ToJSON CheckDomainAvailability
 
 -- | The CheckDomainAvailability response includes the following elements.
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
-    { _cdarsAvailability :: DomainAvailability
+    { _cdarAvailability :: DomainAvailability
     } deriving (Show, Generic)
 
 -- | Whether the domain name is available for registering. You can only register
@@ -101,9 +101,9 @@ newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 -- available. UNAVAILABLE_PREMIUM – The domain name is not available.
 -- UNAVAILABLE_RESTRICTED – The domain name is forbidden. RESERVED – The
 -- domain name has been reserved for another person or organization.
-cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
-cdarsAvailability =
-    lens _cdarsAvailability (\s a -> s { _cdarsAvailability = a })
+cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
+cdarAvailability =
+    lens _cdarAvailability (\s a -> s { _cdarAvailability = a })
 
 instance FromJSON CheckDomainAvailabilityResponse
 

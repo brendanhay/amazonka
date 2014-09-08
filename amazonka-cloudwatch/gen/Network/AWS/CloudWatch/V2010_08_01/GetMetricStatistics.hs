@@ -54,8 +54,8 @@ module Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
     -- * Response
     , GetMetricStatisticsResponse
     -- ** Response lenses
-    , gmsrsLabel
-    , gmsrsDatapoints
+    , gmsrLabel
+    , gmsrDatapoints
     ) where
 
 import Network.AWS.Request.Query
@@ -139,17 +139,17 @@ instance ToQuery GetMetricStatistics where
 
 -- | The output for the GetMetricStatistics action.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
-    { _gmsrsLabel :: Maybe Text
-    , _gmsrsDatapoints :: [Datapoint]
+    { _gmsrLabel :: Maybe Text
+    , _gmsrDatapoints :: [Datapoint]
     } deriving (Show, Generic)
 
 -- | A label describing the specified metric.
-gmsrsLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
-gmsrsLabel = lens _gmsrsLabel (\s a -> s { _gmsrsLabel = a })
+gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
+gmsrLabel = lens _gmsrLabel (\s a -> s { _gmsrLabel = a })
 
 -- | The datapoints for the specified metric.
-gmsrsDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
-gmsrsDatapoints = lens _gmsrsDatapoints (\s a -> s { _gmsrsDatapoints = a })
+gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
+gmsrDatapoints = lens _gmsrDatapoints (\s a -> s { _gmsrDatapoints = a })
 
 instance FromXML GetMetricStatisticsResponse where
     fromXMLOptions = xmlOptions

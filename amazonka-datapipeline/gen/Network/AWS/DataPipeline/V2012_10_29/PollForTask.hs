@@ -71,7 +71,7 @@ module Network.AWS.DataPipeline.V2012_10_29.PollForTask
     -- * Response
     , PollForTaskResponse
     -- ** Response lenses
-    , pftrsTaskObject
+    , pftrTaskObject
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -128,7 +128,7 @@ instance ToJSON PollForTask
 
 -- | Contains the output from the PollForTask action.
 newtype PollForTaskResponse = PollForTaskResponse
-    { _pftrsTaskObject :: Maybe TaskObject
+    { _pftrTaskObject :: Maybe TaskObject
     } deriving (Show, Generic)
 
 -- | An instance of PollForTaskResult, which contains an instance of TaskObject.
@@ -137,8 +137,8 @@ newtype PollForTaskResponse = PollForTaskResponse
 -- in this object is taskId, which contains an identifier for the task being
 -- assigned. The calling task runner uses taskId in subsequent calls to
 -- ReportTaskProgress and SetTaskStatus.
-pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
-pftrsTaskObject = lens _pftrsTaskObject (\s a -> s { _pftrsTaskObject = a })
+pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
+pftrTaskObject = lens _pftrTaskObject (\s a -> s { _pftrTaskObject = a })
 
 instance FromJSON PollForTaskResponse
 

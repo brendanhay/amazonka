@@ -49,9 +49,9 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribeObjects
     -- * Response
     , DescribeObjectsResponse
     -- ** Response lenses
-    , dorsPipelineObjects
-    , dorsMarker
-    , dorsHasMoreResults
+    , dorPipelineObjects
+    , dorMarker
+    , dorHasMoreResults
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -114,26 +114,26 @@ instance ToJSON DescribeObjects
 -- | If True, there are more results that can be returned in another call to
 -- DescribeObjects.
 data DescribeObjectsResponse = DescribeObjectsResponse
-    { _dorsPipelineObjects :: [PipelineObject]
-    , _dorsMarker :: Maybe Text
-    , _dorsHasMoreResults :: Bool
+    { _dorPipelineObjects :: [PipelineObject]
+    , _dorMarker :: Maybe Text
+    , _dorHasMoreResults :: Bool
     } deriving (Show, Generic)
 
 -- | An array of object definitions that are returned by the call to
 -- DescribeObjects.
-dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
-dorsPipelineObjects =
-    lens _dorsPipelineObjects (\s a -> s { _dorsPipelineObjects = a })
+dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
+dorPipelineObjects =
+    lens _dorPipelineObjects (\s a -> s { _dorPipelineObjects = a })
 
 -- | The starting point for the next page of results. To view the next page of
 -- results, call DescribeObjects again with this marker value.
-dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
-dorsMarker = lens _dorsMarker (\s a -> s { _dorsMarker = a })
+dorMarker :: Lens' DescribeObjectsResponse (Maybe Text)
+dorMarker = lens _dorMarker (\s a -> s { _dorMarker = a })
 
 -- | If True, there are more pages of results to return.
-dorsHasMoreResults :: Lens' DescribeObjectsResponse Bool
-dorsHasMoreResults =
-    lens _dorsHasMoreResults (\s a -> s { _dorsHasMoreResults = a })
+dorHasMoreResults :: Lens' DescribeObjectsResponse Bool
+dorHasMoreResults =
+    lens _dorHasMoreResults (\s a -> s { _dorHasMoreResults = a })
 
 instance FromJSON DescribeObjectsResponse
 
@@ -146,6 +146,6 @@ instance AWSRequest DescribeObjects where
 
 instance AWSPager DescribeObjects where
     next rq rs
-        | not (rs ^. dorsHasMoreResults) = Nothing
+        | not (rs ^. dorHasMoreResults) = Nothing
         | otherwise = Just $
-            rq & doMarker .~ rs ^. dorsMarker
+            rq & doMarker .~ rs ^. dorMarker

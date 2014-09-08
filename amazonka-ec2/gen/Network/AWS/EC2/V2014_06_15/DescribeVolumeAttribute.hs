@@ -54,9 +54,9 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute
     -- * Response
     , DescribeVolumeAttributeResponse
     -- ** Response lenses
-    , dvarsVolumeId
-    , dvarsAutoEnableIO
-    , dvarsProductCodes
+    , dvarVolumeId
+    , dvarAutoEnableIO
+    , dvarProductCodes
     ) where
 
 import Network.AWS.Request.Query
@@ -91,24 +91,24 @@ instance ToQuery DescribeVolumeAttribute where
 
 -- | 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
-    { _dvarsVolumeId :: Maybe Text
-    , _dvarsAutoEnableIO :: Maybe AttributeBooleanValue
-    , _dvarsProductCodes :: [ProductCode]
+    { _dvarVolumeId :: Maybe Text
+    , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
+    , _dvarProductCodes :: [ProductCode]
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
-dvarsVolumeId = lens _dvarsVolumeId (\s a -> s { _dvarsVolumeId = a })
+dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
+dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
 
 -- | The state of autoEnableIO attribute.
-dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
-dvarsAutoEnableIO =
-    lens _dvarsAutoEnableIO (\s a -> s { _dvarsAutoEnableIO = a })
+dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
+dvarAutoEnableIO =
+    lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
 
 -- | A list of product codes.
-dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarsProductCodes =
-    lens _dvarsProductCodes (\s a -> s { _dvarsProductCodes = a })
+dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarProductCodes =
+    lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
 
 instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions

@@ -45,11 +45,11 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime
     -- * Response
     , DescribeMaintenanceStartTimeResponse
     -- ** Response lenses
-    , dmstrsGatewayARN
-    , dmstrsHourOfDay
-    , dmstrsMinuteOfHour
-    , dmstrsDayOfWeek
-    , dmstrsTimezone
+    , dmstrGatewayARN
+    , dmstrHourOfDay
+    , dmstrMinuteOfHour
+    , dmstrDayOfWeek
+    , dmstrTimezone
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -83,31 +83,30 @@ instance ToHeaders DescribeMaintenanceStartTime
 instance ToJSON DescribeMaintenanceStartTime
 
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
-    { _dmstrsGatewayARN :: Maybe Text
-    , _dmstrsHourOfDay :: Maybe Integer
-    , _dmstrsMinuteOfHour :: Maybe Integer
-    , _dmstrsDayOfWeek :: Maybe Integer
-    , _dmstrsTimezone :: Maybe Text
+    { _dmstrGatewayARN :: Maybe Text
+    , _dmstrHourOfDay :: Maybe Integer
+    , _dmstrMinuteOfHour :: Maybe Integer
+    , _dmstrDayOfWeek :: Maybe Integer
+    , _dmstrTimezone :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dmstrsGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
-dmstrsGatewayARN =
-    lens _dmstrsGatewayARN (\s a -> s { _dmstrsGatewayARN = a })
+dmstrGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
+dmstrGatewayARN = lens _dmstrGatewayARN (\s a -> s { _dmstrGatewayARN = a })
 
-dmstrsHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
-dmstrsHourOfDay = lens _dmstrsHourOfDay (\s a -> s { _dmstrsHourOfDay = a })
+dmstrHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
+dmstrHourOfDay = lens _dmstrHourOfDay (\s a -> s { _dmstrHourOfDay = a })
 
-dmstrsMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
-dmstrsMinuteOfHour =
-    lens _dmstrsMinuteOfHour (\s a -> s { _dmstrsMinuteOfHour = a })
+dmstrMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
+dmstrMinuteOfHour =
+    lens _dmstrMinuteOfHour (\s a -> s { _dmstrMinuteOfHour = a })
 
-dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
-dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\s a -> s { _dmstrsDayOfWeek = a })
+dmstrDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Integer)
+dmstrDayOfWeek = lens _dmstrDayOfWeek (\s a -> s { _dmstrDayOfWeek = a })
 
-dmstrsTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
-dmstrsTimezone = lens _dmstrsTimezone (\s a -> s { _dmstrsTimezone = a })
+dmstrTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
+dmstrTimezone = lens _dmstrTimezone (\s a -> s { _dmstrTimezone = a })
 
 instance FromJSON DescribeMaintenanceStartTimeResponse
 

@@ -66,7 +66,7 @@ module Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact
     -- * Response
     , UpdateDomainContactResponse
     -- ** Response lenses
-    , udcrsOperationId
+    , udcrOperationId
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -131,15 +131,14 @@ instance ToJSON UpdateDomainContact
 
 -- | The UpdateDomainContact response includes the following element.
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
-    { _udcrsOperationId :: Text
+    { _udcrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-udcrsOperationId :: Lens' UpdateDomainContactResponse Text
-udcrsOperationId =
-    lens _udcrsOperationId (\s a -> s { _udcrsOperationId = a })
+udcrOperationId :: Lens' UpdateDomainContactResponse Text
+udcrOperationId = lens _udcrOperationId (\s a -> s { _udcrOperationId = a })
 
 instance FromJSON UpdateDomainContactResponse
 

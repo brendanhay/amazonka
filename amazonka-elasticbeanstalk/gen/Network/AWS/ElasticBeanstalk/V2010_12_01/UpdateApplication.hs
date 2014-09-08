@@ -37,7 +37,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplication
     -- * Response
     , UpdateApplicationResponse
     -- ** Response lenses
-    , uarsApplication
+    , uarApplication
     ) where
 
 import Network.AWS.Request.Query
@@ -75,12 +75,12 @@ instance ToQuery UpdateApplication where
 
 -- | Result message containing a single description of an application.
 newtype UpdateApplicationResponse = UpdateApplicationResponse
-    { _uarsApplication :: Maybe ApplicationDescription
+    { _uarApplication :: Maybe ApplicationDescription
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
-uarsApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
-uarsApplication = lens _uarsApplication (\s a -> s { _uarsApplication = a })
+uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
+uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
 
 instance FromXML UpdateApplicationResponse where
     fromXMLOptions = xmlOptions

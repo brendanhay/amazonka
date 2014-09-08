@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStacks
     -- * Response
     , DescribeStacksResponse
     -- ** Response lenses
-    , dsrsStacks
+    , dsrStacks
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -67,12 +67,12 @@ instance ToJSON DescribeStacks
 
 -- | Contains the response to a DescribeStacks request.
 newtype DescribeStacksResponse = DescribeStacksResponse
-    { _dsrsStacks :: [Stack]
+    { _dsrStacks :: [Stack]
     } deriving (Show, Generic)
 
 -- | An array of Stack objects that describe the stacks.
-dsrsStacks :: Lens' DescribeStacksResponse [Stack]
-dsrsStacks = lens _dsrsStacks (\s a -> s { _dsrsStacks = a })
+dsrStacks :: Lens' DescribeStacksResponse [Stack]
+dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
 
 instance FromJSON DescribeStacksResponse
 

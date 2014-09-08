@@ -47,7 +47,7 @@ module Network.AWS.SNS.V2010_03_31.Subscribe
     -- * Response
     , SubscribeResponse
     -- ** Response lenses
-    , srsSubscriptionArn
+    , srSubscriptionArn
     ) where
 
 import Network.AWS.Request.Query
@@ -103,14 +103,14 @@ instance ToQuery Subscribe where
 
 -- | Response for Subscribe action.
 newtype SubscribeResponse = SubscribeResponse
-    { _srsSubscriptionArn :: Maybe Text
+    { _srSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner confirmation).
-srsSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
-srsSubscriptionArn =
-    lens _srsSubscriptionArn (\s a -> s { _srsSubscriptionArn = a })
+srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
+srSubscriptionArn =
+    lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })
 
 instance FromXML SubscribeResponse where
     fromXMLOptions = xmlOptions

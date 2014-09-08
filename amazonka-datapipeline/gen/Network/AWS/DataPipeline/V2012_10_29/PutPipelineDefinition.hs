@@ -79,9 +79,9 @@ module Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition
     -- * Response
     , PutPipelineDefinitionResponse
     -- ** Response lenses
-    , ppdrsValidationErrors
-    , ppdrsValidationWarnings
-    , ppdrsErrored
+    , ppdrValidationErrors
+    , ppdrValidationWarnings
+    , ppdrErrored
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -124,29 +124,28 @@ instance ToJSON PutPipelineDefinition
 
 -- | Contains the output of the PutPipelineDefinition action.
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
-    { _ppdrsValidationErrors :: [ValidationError]
-    , _ppdrsValidationWarnings :: [ValidationWarning]
-    , _ppdrsErrored :: Bool
+    { _ppdrValidationErrors :: [ValidationError]
+    , _ppdrValidationWarnings :: [ValidationWarning]
+    , _ppdrErrored :: Bool
     } deriving (Show, Generic)
 
 -- | A list of the validation errors that are associated with the objects
 -- defined in pipelineObjects.
-ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
-ppdrsValidationErrors =
-    lens _ppdrsValidationErrors (\s a -> s { _ppdrsValidationErrors = a })
+ppdrValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
+ppdrValidationErrors =
+    lens _ppdrValidationErrors (\s a -> s { _ppdrValidationErrors = a })
 
 -- | A list of the validation warnings that are associated with the objects
 -- defined in pipelineObjects.
-ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
-ppdrsValidationWarnings =
-    lens _ppdrsValidationWarnings
-         (\s a -> s { _ppdrsValidationWarnings = a })
+ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
+ppdrValidationWarnings =
+    lens _ppdrValidationWarnings (\s a -> s { _ppdrValidationWarnings = a })
 
 -- | If True, there were validation errors. If errored is True, the pipeline
 -- definition is stored but cannot be activated until you correct the pipeline
 -- and call PutPipelineDefinition to commit the corrected pipeline.
-ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
-ppdrsErrored = lens _ppdrsErrored (\s a -> s { _ppdrsErrored = a })
+ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
+ppdrErrored = lens _ppdrErrored (\s a -> s { _ppdrErrored = a })
 
 instance FromJSON PutPipelineDefinitionResponse
 

@@ -53,8 +53,8 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials
     -- * Response
     , UpdateChapCredentialsResponse
     -- ** Response lenses
-    , uccrsTargetARN
-    , uccrsInitiatorName
+    , uccrTargetARN
+    , uccrInitiatorName
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -121,20 +121,20 @@ instance ToJSON UpdateChapCredentials
 
 -- | A JSON object containing the following fields:.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
-    { _uccrsTargetARN :: Maybe Text
-    , _uccrsInitiatorName :: Maybe Text
+    { _uccrTargetARN :: Maybe Text
+    , _uccrInitiatorName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.
-uccrsTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
-uccrsTargetARN = lens _uccrsTargetARN (\s a -> s { _uccrsTargetARN = a })
+uccrTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
+uccrTargetARN = lens _uccrTargetARN (\s a -> s { _uccrTargetARN = a })
 
 -- | The iSCSI initiator that connects to the target. This is the same initiator
 -- name specified in the request.
-uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
-uccrsInitiatorName =
-    lens _uccrsInitiatorName (\s a -> s { _uccrsInitiatorName = a })
+uccrInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
+uccrInitiatorName =
+    lens _uccrInitiatorName (\s a -> s { _uccrInitiatorName = a })
 
 instance FromJSON UpdateChapCredentialsResponse
 

@@ -27,8 +27,6 @@ module Network.AWS.CloudTrail.V2013_11_01.Types
     (
     -- * Service
       CloudTrail
-    -- ** Errors
-    , Er (..)
     -- * Trail
     , Trail
     , mkTrail

@@ -56,7 +56,7 @@ module Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway
     -- * Response
     , ShutdownGatewayResponse
     -- ** Response lenses
-    , sgrsGatewayARN
+    , sgrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -91,13 +91,13 @@ instance ToJSON ShutdownGateway
 
 -- | A JSON object containing the of the gateway that was shut down.
 newtype ShutdownGatewayResponse = ShutdownGatewayResponse
-    { _sgrsGatewayARN :: Maybe Text
+    { _sgrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-sgrsGatewayARN = lens _sgrsGatewayARN (\s a -> s { _sgrsGatewayARN = a })
+sgrGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
+sgrGatewayARN = lens _sgrGatewayARN (\s a -> s { _sgrGatewayARN = a })
 
 instance FromJSON ShutdownGatewayResponse
 

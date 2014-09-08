@@ -55,7 +55,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateEventSubscription
     -- * Response
     , CreateEventSubscriptionResponse
     -- ** Response lenses
-    , cesrsEventSubscription
+    , cesrEventSubscription
     ) where
 
 import Network.AWS.Request.Query
@@ -141,13 +141,13 @@ instance ToQuery CreateEventSubscription where
     toQuery = genericQuery def
 
 newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
-    { _cesrsEventSubscription :: Maybe EventSubscription
+    { _cesrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
 
 -- | 
-cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
-cesrsEventSubscription =
-    lens _cesrsEventSubscription (\s a -> s { _cesrsEventSubscription = a })
+cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
+cesrEventSubscription =
+    lens _cesrEventSubscription (\s a -> s { _cesrEventSubscription = a })
 
 instance FromXML CreateEventSubscriptionResponse where
     fromXMLOptions = xmlOptions

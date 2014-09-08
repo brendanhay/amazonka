@@ -89,7 +89,7 @@ module Network.AWS.Route53Domains.V2014_05_15.TransferDomain
     -- * Response
     , TransferDomainResponse
     -- ** Response lenses
-    , tdrsOperationId
+    , tdrOperationId
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -230,14 +230,14 @@ instance ToJSON TransferDomain
 
 -- | The TranserDomain response includes the following element.
 newtype TransferDomainResponse = TransferDomainResponse
-    { _tdrsOperationId :: Text
+    { _tdrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-tdrsOperationId :: Lens' TransferDomainResponse Text
-tdrsOperationId = lens _tdrsOperationId (\s a -> s { _tdrsOperationId = a })
+tdrOperationId :: Lens' TransferDomainResponse Text
+tdrOperationId = lens _tdrOperationId (\s a -> s { _tdrOperationId = a })
 
 instance FromJSON TransferDomainResponse
 

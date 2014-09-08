@@ -26,8 +26,6 @@ module Network.AWS.Kinesis.V2013_12_02.Types
     (
     -- * Service
       Kinesis
-    -- ** Errors
-    , Er (..)
     -- * ShardIteratorType
     , ShardIteratorType (..)
 

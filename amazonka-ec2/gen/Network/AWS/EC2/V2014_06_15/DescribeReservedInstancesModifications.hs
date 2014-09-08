@@ -40,8 +40,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications
     -- * Response
     , DescribeReservedInstancesModificationsResponse
     -- ** Response lenses
-    , drimrsReservedInstancesModifications
-    , drimrsNextToken
+    , drimrReservedInstancesModifications
+    , drimrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -101,19 +101,19 @@ instance ToQuery DescribeReservedInstancesModifications where
 
 -- | 
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
-    { _drimrsReservedInstancesModifications :: [ReservedInstancesModification]
-    , _drimrsNextToken :: Maybe Text
+    { _drimrReservedInstancesModifications :: [ReservedInstancesModification]
+    , _drimrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Reserved Instance modification information.
-drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
-drimrsReservedInstancesModifications =
-    lens _drimrsReservedInstancesModifications
-         (\s a -> s { _drimrsReservedInstancesModifications = a })
+drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
+drimrReservedInstancesModifications =
+    lens _drimrReservedInstancesModifications
+         (\s a -> s { _drimrReservedInstancesModifications = a })
 
 -- | The token for the next page of data.
-drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
-drimrsNextToken = lens _drimrsNextToken (\s a -> s { _drimrsNextToken = a })
+drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
+drimrNextToken = lens _drimrNextToken (\s a -> s { _drimrNextToken = a })
 
 instance FromXML DescribeReservedInstancesModificationsResponse where
     fromXMLOptions = xmlOptions
@@ -127,4 +127,4 @@ instance AWSRequest DescribeReservedInstancesModifications where
 
 instance AWSPager DescribeReservedInstancesModifications where
     next rq rs = (\x -> rq & drimNextToken ?~ x)
-        <$> (rs ^. drimrsNextToken)
+        <$> (rs ^. drimrNextToken)

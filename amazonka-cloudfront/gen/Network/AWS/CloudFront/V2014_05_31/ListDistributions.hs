@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListDistributions
     -- * Response
     , ListDistributionsResponse
     -- ** Response lenses
-    , ldrsDistributionList
+    , ldrDistributionList
     ) where
 
 import Network.AWS.Request.RestXML
@@ -82,13 +82,13 @@ instance ToXML ListDistributions where
 
 -- | The returned result of the corresponding request.
 newtype ListDistributionsResponse = ListDistributionsResponse
-    { _ldrsDistributionList :: DistributionList
+    { _ldrDistributionList :: DistributionList
     } deriving (Show, Generic)
 
 -- | The DistributionList type.
-ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
-ldrsDistributionList =
-    lens _ldrsDistributionList (\s a -> s { _ldrsDistributionList = a })
+ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
+ldrDistributionList =
+    lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
 instance FromXML ListDistributionsResponse where
     fromXMLOptions = xmlOptions
@@ -102,6 +102,6 @@ instance AWSRequest ListDistributions where
 
 instance AWSPager ListDistributions where
     next rq rs
-        | not (rs ^. ldrsDistributionList . dlIsTruncated) = Nothing
+        | not (rs ^. ldrDistributionList . dlIsTruncated) = Nothing
         | otherwise = Just $
-            rq & ldMarker .~ rs ^. ldrsDistributionList . dlNextMarker
+            rq & ldMarker .~ rs ^. ldrDistributionList . dlNextMarker

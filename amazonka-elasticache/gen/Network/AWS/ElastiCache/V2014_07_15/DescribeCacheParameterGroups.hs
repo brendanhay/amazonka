@@ -42,8 +42,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups
     -- * Response
     , DescribeCacheParameterGroupsResponse
     -- ** Response lenses
-    , dcpgrsMarker
-    , dcpgrsCacheParameterGroups
+    , dcpgrMarker
+    , dcpgrCacheParameterGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -91,20 +91,20 @@ instance ToQuery DescribeCacheParameterGroups where
 
 -- | Represents the output of a DescribeCacheParameterGroups operation.
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
-    { _dcpgrsMarker :: Maybe Text
-    , _dcpgrsCacheParameterGroups :: [CacheParameterGroup]
+    { _dcpgrMarker :: Maybe Text
+    , _dcpgrCacheParameterGroups :: [CacheParameterGroup]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
-dcpgrsMarker = lens _dcpgrsMarker (\s a -> s { _dcpgrsMarker = a })
+dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
+dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
-dcpgrsCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
-dcpgrsCacheParameterGroups =
-    lens _dcpgrsCacheParameterGroups
-         (\s a -> s { _dcpgrsCacheParameterGroups = a })
+dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
+dcpgrCacheParameterGroups =
+    lens _dcpgrCacheParameterGroups
+         (\s a -> s { _dcpgrCacheParameterGroups = a })
 
 instance FromXML DescribeCacheParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -118,4 +118,4 @@ instance AWSRequest DescribeCacheParameterGroups where
 
 instance AWSPager DescribeCacheParameterGroups where
     next rq rs = (\x -> rq & dcpg1Marker ?~ x)
-        <$> (rs ^. dcpgrsMarker)
+        <$> (rs ^. dcpgrMarker)

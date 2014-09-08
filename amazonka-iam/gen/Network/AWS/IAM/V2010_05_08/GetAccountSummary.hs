@@ -35,7 +35,7 @@ module Network.AWS.IAM.V2010_05_08.GetAccountSummary
     -- * Response
     , GetAccountSummaryResponse
     -- ** Response lenses
-    , gasrsSummaryMap
+    , gasrSummaryMap
     ) where
 
 import Network.AWS.Request.Query
@@ -56,7 +56,7 @@ instance ToQuery GetAccountSummary where
 -- | Contains the result of a successful invocation of the GetAccountSummary
 -- action.
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
-    { _gasrsSummaryMap :: Map SummaryKeyType Integer
+    { _gasrSummaryMap :: Map SummaryKeyType Integer
     } deriving (Show, Generic)
 
 -- | A set of key value pairs containing account-level information. SummaryMap
@@ -81,8 +81,8 @@ newtype GetAccountSummaryResponse = GetAccountSummaryResponse
 -- - Maximum allowed size for user policy documents (in kilobytes) Users -
 -- Number of users for the AWS account UsersQuota - Maximum users allowed for
 -- the AWS account.
-gasrsSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Integer)
-gasrsSummaryMap = lens _gasrsSummaryMap (\s a -> s { _gasrsSummaryMap = a })
+gasrSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Integer)
+gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
 
 instance FromXML GetAccountSummaryResponse where
     fromXMLOptions = xmlOptions

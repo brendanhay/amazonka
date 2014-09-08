@@ -26,8 +26,6 @@ module Network.AWS.IAM.V2010_05_08.Types
     (
     -- * Service
       IAM
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -147,11 +145,11 @@ module Network.AWS.IAM.V2010_05_08.Types
     -- * SigningCertificate
     , SigningCertificate
     , mkSigningCertificate
-    , scrsUserName
-    , scrsCertificateId
-    , scrsCertificateBody
-    , scrsStatus
-    , scrsUploadDate
+    , scrUserName
+    , scrCertificateId
+    , scrCertificateBody
+    , scrStatus
+    , scrUploadDate
 
     -- * User
     , User
@@ -992,50 +990,50 @@ instance FromXML ServerCertificateMetadata where
 -- signing certificate. This data type is used as a response element in the
 -- actions UploadSigningCertificate and ListSigningCertificates.
 data SigningCertificate = SigningCertificate
-    { _scrsUserName :: Text
-    , _scrsCertificateId :: Text
-    , _scrsCertificateBody :: Text
-    , _scrsStatus :: StatusType
-    , _scrsUploadDate :: Maybe ISO8601
+    { _scrUserName :: Text
+    , _scrCertificateId :: Text
+    , _scrCertificateBody :: Text
+    , _scrStatus :: StatusType
+    , _scrUploadDate :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SigningCertificate' data type to populate a request.
-mkSigningCertificate :: Text -- ^ 'scrsUserName'
-                     -> Text -- ^ 'scrsCertificateId'
-                     -> Text -- ^ 'scrsCertificateBody'
-                     -> StatusType -- ^ 'scrsStatus'
+mkSigningCertificate :: Text -- ^ 'scrUserName'
+                     -> Text -- ^ 'scrCertificateId'
+                     -> Text -- ^ 'scrCertificateBody'
+                     -> StatusType -- ^ 'scrStatus'
                      -> SigningCertificate
 mkSigningCertificate p1 p2 p3 p4 = SigningCertificate
-    { _scrsUserName = p1
-    , _scrsCertificateId = p2
-    , _scrsCertificateBody = p3
-    , _scrsStatus = p4
-    , _scrsUploadDate = Nothing
+    { _scrUserName = p1
+    , _scrCertificateId = p2
+    , _scrCertificateBody = p3
+    , _scrStatus = p4
+    , _scrUploadDate = Nothing
     }
 
 -- | Name of the user the signing certificate is associated with.
-scrsUserName :: Lens' SigningCertificate Text
-scrsUserName = lens _scrsUserName (\s a -> s { _scrsUserName = a })
+scrUserName :: Lens' SigningCertificate Text
+scrUserName = lens _scrUserName (\s a -> s { _scrUserName = a })
 
 -- | The ID for the signing certificate.
-scrsCertificateId :: Lens' SigningCertificate Text
-scrsCertificateId =
-    lens _scrsCertificateId (\s a -> s { _scrsCertificateId = a })
+scrCertificateId :: Lens' SigningCertificate Text
+scrCertificateId =
+    lens _scrCertificateId (\s a -> s { _scrCertificateId = a })
 
 -- | The contents of the signing certificate.
-scrsCertificateBody :: Lens' SigningCertificate Text
-scrsCertificateBody =
-    lens _scrsCertificateBody (\s a -> s { _scrsCertificateBody = a })
+scrCertificateBody :: Lens' SigningCertificate Text
+scrCertificateBody =
+    lens _scrCertificateBody (\s a -> s { _scrCertificateBody = a })
 
 -- | The status of the signing certificate. Active means the key is valid for
 -- API calls, while Inactive means it is not.
-scrsStatus :: Lens' SigningCertificate StatusType
-scrsStatus = lens _scrsStatus (\s a -> s { _scrsStatus = a })
+scrStatus :: Lens' SigningCertificate StatusType
+scrStatus = lens _scrStatus (\s a -> s { _scrStatus = a })
 
 -- | The date when the signing certificate was uploaded.
-scrsUploadDate :: Lens' SigningCertificate (Maybe ISO8601)
-scrsUploadDate = lens _scrsUploadDate (\s a -> s { _scrsUploadDate = a })
+scrUploadDate :: Lens' SigningCertificate (Maybe ISO8601)
+scrUploadDate = lens _scrUploadDate (\s a -> s { _scrUploadDate = a })
 
 instance FromXML SigningCertificate where
     fromXMLOptions = xmlOptions

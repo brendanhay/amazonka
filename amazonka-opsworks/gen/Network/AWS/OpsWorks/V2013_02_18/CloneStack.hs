@@ -53,7 +53,7 @@ module Network.AWS.OpsWorks.V2013_02_18.CloneStack
     -- * Response
     , CloneStackResponse
     -- ** Response lenses
-    , csrsStackId
+    , csrStackId
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -293,12 +293,12 @@ instance ToJSON CloneStack
 
 -- | Contains the response to a CloneStack request.
 newtype CloneStackResponse = CloneStackResponse
-    { _csrsStackId :: Maybe Text
+    { _csrStackId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The cloned stack ID.
-csrsStackId :: Lens' CloneStackResponse (Maybe Text)
-csrsStackId = lens _csrsStackId (\s a -> s { _csrsStackId = a })
+csrStackId :: Lens' CloneStackResponse (Maybe Text)
+csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 
 instance FromJSON CloneStackResponse
 

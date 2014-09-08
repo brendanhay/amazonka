@@ -41,8 +41,8 @@ module Network.AWS.Support.V2013_04_15.DescribeCommunications
     -- * Response
     , DescribeCommunicationsResponse
     -- ** Response lenses
-    , dcrsrsCommunications
-    , dcrsrsNextToken
+    , dcrrCommunications
+    , dcrrNextToken
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -104,18 +104,18 @@ instance ToJSON DescribeCommunications
 
 -- | The communications returned by the DescribeCommunications operation.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
-    { _dcrsrsCommunications :: [Communication]
-    , _dcrsrsNextToken :: Maybe Text
+    { _dcrrCommunications :: [Communication]
+    , _dcrrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The communications for the case.
-dcrsrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
-dcrsrsCommunications =
-    lens _dcrsrsCommunications (\s a -> s { _dcrsrsCommunications = a })
+dcrrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
+dcrrCommunications =
+    lens _dcrrCommunications (\s a -> s { _dcrrCommunications = a })
 
 -- | A resumption point for pagination.
-dcrsrsNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
-dcrsrsNextToken = lens _dcrsrsNextToken (\s a -> s { _dcrsrsNextToken = a })
+dcrrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
+dcrrNextToken = lens _dcrrNextToken (\s a -> s { _dcrrNextToken = a })
 
 instance FromJSON DescribeCommunicationsResponse
 
@@ -128,4 +128,4 @@ instance AWSRequest DescribeCommunications where
 
 instance AWSPager DescribeCommunications where
     next rq rs = (\x -> rq & dc1NextToken ?~ x)
-        <$> (rs ^. dcrsrsNextToken)
+        <$> (rs ^. dcrrNextToken)

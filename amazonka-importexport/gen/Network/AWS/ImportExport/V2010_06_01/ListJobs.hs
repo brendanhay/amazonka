@@ -35,8 +35,8 @@ module Network.AWS.ImportExport.V2010_06_01.ListJobs
     -- * Response
     , ListJobsResponse
     -- ** Response lenses
-    , ljrsJobs
-    , ljrsIsTruncated
+    , ljrJobs
+    , ljrIsTruncated
     ) where
 
 import Network.AWS.Request.Query
@@ -75,18 +75,18 @@ instance ToQuery ListJobs where
 
 -- | Output structure for the ListJobs operation.
 data ListJobsResponse = ListJobsResponse
-    { _ljrsJobs :: [Job]
-    , _ljrsIsTruncated :: Bool
+    { _ljrJobs :: [Job]
+    , _ljrIsTruncated :: Bool
     } deriving (Show, Generic)
 
 -- | A list container for Jobs returned by the ListJobs operation.
-ljrsJobs :: Lens' ListJobsResponse [Job]
-ljrsJobs = lens _ljrsJobs (\s a -> s { _ljrsJobs = a })
+ljrJobs :: Lens' ListJobsResponse [Job]
+ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a })
 
 -- | Indicates whether the list of jobs was truncated. If true, then call
 -- ListJobs again using the last JobId element as the marker.
-ljrsIsTruncated :: Lens' ListJobsResponse Bool
-ljrsIsTruncated = lens _ljrsIsTruncated (\s a -> s { _ljrsIsTruncated = a })
+ljrIsTruncated :: Lens' ListJobsResponse Bool
+ljrIsTruncated = lens _ljrIsTruncated (\s a -> s { _ljrIsTruncated = a })
 
 instance FromXML ListJobsResponse where
     fromXMLOptions = xmlOptions
@@ -100,6 +100,6 @@ instance AWSRequest ListJobs where
 
 instance AWSPager ListJobs where
     next rq rs
-        | not (rs ^. ljrsIsTruncated) = Nothing
+        | not (rs ^. ljrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & ljMarker .~ index ljrsJobs jJobId rs
+            rq & ljMarker .~ index ljrJobs jJobId rs

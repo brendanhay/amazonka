@@ -32,7 +32,7 @@ module Network.AWS.Support.V2013_04_15.DescribeSeverityLevels
     -- * Response
     , DescribeSeverityLevelsResponse
     -- ** Response lenses
-    , dslrsSeverityLevels
+    , dslrSeverityLevels
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -68,14 +68,14 @@ instance ToJSON DescribeSeverityLevels
 -- | The list of severity levels returned by the DescribeSeverityLevels
 -- operation.
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
-    { _dslrsSeverityLevels :: [SeverityLevel]
+    { _dslrSeverityLevels :: [SeverityLevel]
     } deriving (Show, Generic)
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
-dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
-dslrsSeverityLevels =
-    lens _dslrsSeverityLevels (\s a -> s { _dslrsSeverityLevels = a })
+dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
+dslrSeverityLevels =
+    lens _dslrSeverityLevels (\s a -> s { _dslrSeverityLevels = a })
 
 instance FromJSON DescribeSeverityLevelsResponse
 

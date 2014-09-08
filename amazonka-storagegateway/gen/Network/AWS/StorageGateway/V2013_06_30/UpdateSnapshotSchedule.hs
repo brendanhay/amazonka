@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule
     -- * Response
     , UpdateSnapshotScheduleResponse
     -- ** Response lenses
-    , ussrsVolumeARN
+    , ussrVolumeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -115,12 +115,12 @@ instance ToJSON UpdateSnapshotSchedule
 
 -- | A JSON object containing the of the updated storage volume.
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
-    { _ussrsVolumeARN :: Maybe Text
+    { _ussrVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | 
-ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
-ussrsVolumeARN = lens _ussrsVolumeARN (\s a -> s { _ussrsVolumeARN = a })
+ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
+ussrVolumeARN = lens _ussrVolumeARN (\s a -> s { _ussrVolumeARN = a })
 
 instance FromJSON UpdateSnapshotScheduleResponse
 

@@ -46,7 +46,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob
     -- * Response
     , ReadJobResponse
     -- ** Response lenses
-    , rjrsJob
+    , rjrJob
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -84,12 +84,12 @@ instance ToJSON ReadJob
 
 -- | The ReadJobResponse structure.
 newtype ReadJobResponse = ReadJobResponse
-    { _rjrsJob :: Maybe Job
+    { _rjrJob :: Maybe Job
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the job.
-rjrsJob :: Lens' ReadJobResponse (Maybe Job)
-rjrsJob = lens _rjrsJob (\s a -> s { _rjrsJob = a })
+rjrJob :: Lens' ReadJobResponse (Maybe Job)
+rjrJob = lens _rjrJob (\s a -> s { _rjrJob = a })
 
 instance FromJSON ReadJobResponse
 

@@ -30,8 +30,8 @@ module Network.AWS.S3.V2006_03_01.GetBucketVersioning
     -- * Response
     , GetBucketVersioningResponse
     -- ** Response lenses
-    , gbvrsStatus
-    , gbvrsMfaDelete
+    , gbvrStatus
+    , gbvrMfaDelete
     ) where
 
 import Network.AWS.Request.RestS3
@@ -70,20 +70,20 @@ instance ToHeaders GetBucketVersioning
 instance ToBody GetBucketVersioning
 
 data GetBucketVersioningResponse = GetBucketVersioningResponse
-    { _gbvrsStatus :: Maybe (Switch BucketVersioningStatus)
-    , _gbvrsMfaDelete :: Maybe (Switch MFADeleteStatus)
+    { _gbvrStatus :: Maybe (Switch BucketVersioningStatus)
+    , _gbvrMfaDelete :: Maybe (Switch MFADeleteStatus)
     } deriving (Show, Generic)
 
 -- | The versioning state of the bucket.
-gbvrsStatus :: Lens' GetBucketVersioningResponse (Maybe (Switch BucketVersioningStatus))
-gbvrsStatus = lens _gbvrsStatus (\s a -> s { _gbvrsStatus = a })
+gbvrStatus :: Lens' GetBucketVersioningResponse (Maybe (Switch BucketVersioningStatus))
+gbvrStatus = lens _gbvrStatus (\s a -> s { _gbvrStatus = a })
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
-gbvrsMfaDelete :: Lens' GetBucketVersioningResponse (Maybe (Switch MFADeleteStatus))
-gbvrsMfaDelete = lens _gbvrsMfaDelete (\s a -> s { _gbvrsMfaDelete = a })
+gbvrMfaDelete :: Lens' GetBucketVersioningResponse (Maybe (Switch MFADeleteStatus))
+gbvrMfaDelete = lens _gbvrMfaDelete (\s a -> s { _gbvrMfaDelete = a })
 
 instance FromXML GetBucketVersioningResponse where
     fromXMLOptions = xmlOptions

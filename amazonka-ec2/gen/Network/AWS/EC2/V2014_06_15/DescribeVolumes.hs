@@ -52,7 +52,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumes
     -- * Response
     , DescribeVolumesResponse
     -- ** Response lenses
-    , dvrsVolumes
+    , dvrVolumes
     ) where
 
 import Network.AWS.Request.Query
@@ -108,12 +108,12 @@ instance ToQuery DescribeVolumes where
 
 -- | 
 newtype DescribeVolumesResponse = DescribeVolumesResponse
-    { _dvrsVolumes :: [Volume]
+    { _dvrVolumes :: [Volume]
     } deriving (Show, Generic)
 
 -- | 
-dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrsVolumes = lens _dvrsVolumes (\s a -> s { _dvrsVolumes = a })
+dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
 
 instance FromXML DescribeVolumesResponse where
     fromXMLOptions = xmlOptions

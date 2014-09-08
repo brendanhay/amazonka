@@ -41,7 +41,7 @@ module Network.AWS.DataPipeline.V2012_10_29.CreatePipeline
     -- * Response
     , CreatePipelineResponse
     -- ** Response lenses
-    , cprsPipelineId
+    , cprPipelineId
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -101,13 +101,13 @@ instance ToJSON CreatePipeline
 
 -- | Contains the output from the CreatePipeline action.
 newtype CreatePipelineResponse = CreatePipelineResponse
-    { _cprsPipelineId :: Text
+    { _cprPipelineId :: Text
     } deriving (Show, Generic)
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is
 -- a string of the form: df-06372391ZG65EXAMPLE.
-cprsPipelineId :: Lens' CreatePipelineResponse Text
-cprsPipelineId = lens _cprsPipelineId (\s a -> s { _cprsPipelineId = a })
+cprPipelineId :: Lens' CreatePipelineResponse Text
+cprPipelineId = lens _cprPipelineId (\s a -> s { _cprPipelineId = a })
 
 instance FromJSON CreatePipelineResponse
 

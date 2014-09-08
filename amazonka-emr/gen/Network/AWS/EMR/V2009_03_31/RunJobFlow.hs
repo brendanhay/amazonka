@@ -85,7 +85,7 @@ module Network.AWS.EMR.V2009_03_31.RunJobFlow
     -- * Response
     , RunJobFlowResponse
     -- ** Response lenses
-    , rjfrsJobFlowId
+    , rjfrJobFlowId
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -228,12 +228,12 @@ instance ToJSON RunJobFlow
 
 -- | The result of the RunJobFlow operation.
 newtype RunJobFlowResponse = RunJobFlowResponse
-    { _rjfrsJobFlowId :: Maybe Text
+    { _rjfrJobFlowId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An unique identifier for the job flow.
-rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
-rjfrsJobFlowId = lens _rjfrsJobFlowId (\s a -> s { _rjfrsJobFlowId = a })
+rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
+rjfrJobFlowId = lens _rjfrJobFlowId (\s a -> s { _rjfrJobFlowId = a })
 
 instance FromJSON RunJobFlowResponse
 

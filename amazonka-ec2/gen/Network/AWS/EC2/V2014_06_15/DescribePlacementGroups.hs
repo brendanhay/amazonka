@@ -42,7 +42,7 @@ module Network.AWS.EC2.V2014_06_15.DescribePlacementGroups
     -- * Response
     , DescribePlacementGroupsResponse
     -- ** Response lenses
-    , dpgrsPlacementGroups
+    , dpgrPlacementGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -79,13 +79,13 @@ instance ToQuery DescribePlacementGroups where
 
 -- | 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { _dpgrsPlacementGroups :: [PlacementGroup]
+    { _dpgrPlacementGroups :: [PlacementGroup]
     } deriving (Show, Generic)
 
 -- | One or more placement groups.
-dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
-dpgrsPlacementGroups =
-    lens _dpgrsPlacementGroups (\s a -> s { _dpgrsPlacementGroups = a })
+dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgrPlacementGroups =
+    lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
 
 instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions

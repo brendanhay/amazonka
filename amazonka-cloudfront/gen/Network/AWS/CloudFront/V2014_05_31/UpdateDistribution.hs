@@ -32,8 +32,8 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateDistribution
     -- * Response
     , UpdateDistributionResponse
     -- ** Response lenses
-    , udrsDistribution
-    , udrsETag
+    , udrDistribution
+    , udrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -93,18 +93,17 @@ instance ToXML UpdateDistribution where
 
 -- | The returned result of the corresponding request.
 data UpdateDistributionResponse = UpdateDistributionResponse
-    { _udrsDistribution :: Maybe Distribution
-    , _udrsETag :: Maybe Text
+    { _udrDistribution :: Maybe Distribution
+    , _udrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
-udrsDistribution =
-    lens _udrsDistribution (\s a -> s { _udrsDistribution = a })
+udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
+udrDistribution = lens _udrDistribution (\s a -> s { _udrDistribution = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
-udrsETag = lens _udrsETag (\s a -> s { _udrsETag = a })
+udrETag :: Lens' UpdateDistributionResponse (Maybe Text)
+udrETag = lens _udrETag (\s a -> s { _udrETag = a })
 
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront

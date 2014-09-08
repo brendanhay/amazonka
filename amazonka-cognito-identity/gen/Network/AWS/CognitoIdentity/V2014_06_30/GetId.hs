@@ -37,7 +37,7 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetId
     -- * Response
     , GetIdResponse
     -- ** Response lenses
-    , girsIdentityId
+    , girIdentityId
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -86,12 +86,12 @@ instance ToJSON GetId
 
 -- | Returned in the response to a GetId request.
 newtype GetIdResponse = GetIdResponse
-    { _girsIdentityId :: Maybe Text
+    { _girIdentityId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID.
-girsIdentityId :: Lens' GetIdResponse (Maybe Text)
-girsIdentityId = lens _girsIdentityId (\s a -> s { _girsIdentityId = a })
+girIdentityId :: Lens' GetIdResponse (Maybe Text)
+girIdentityId = lens _girIdentityId (\s a -> s { _girIdentityId = a })
 
 instance FromJSON GetIdResponse
 

@@ -38,7 +38,7 @@ module Network.AWS.RDS.V2013_09_09.DescribeEventCategories
     -- * Response
     , DescribeEventCategoriesResponse
     -- ** Response lenses
-    , decrsEventCategoriesMapList
+    , decrEventCategoriesMapList
     ) where
 
 import Network.AWS.Request.Query
@@ -67,14 +67,14 @@ instance ToQuery DescribeEventCategories where
 
 -- | Data returned from the DescribeEventCategories action.
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrsEventCategoriesMapList :: [EventCategoriesMap]
+    { _decrEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Show, Generic)
 
 -- | A list of EventCategoriesMap data types.
-decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrsEventCategoriesMapList =
-    lens _decrsEventCategoriesMapList
-         (\s a -> s { _decrsEventCategoriesMapList = a })
+decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrEventCategoriesMapList =
+    lens _decrEventCategoriesMapList
+         (\s a -> s { _decrEventCategoriesMapList = a })
 
 instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions

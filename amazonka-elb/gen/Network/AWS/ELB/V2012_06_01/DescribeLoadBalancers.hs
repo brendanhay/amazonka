@@ -45,8 +45,8 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers
     -- * Response
     , DescribeLoadBalancersResponse
     -- ** Response lenses
-    , dlbrsrsLoadBalancerDescriptions
-    , dlbrsrsNextMarker
+    , dlbrrLoadBalancerDescriptions
+    , dlbrrNextMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -89,21 +89,20 @@ instance ToQuery DescribeLoadBalancers where
 
 -- | The output for the DescribeLoadBalancers action.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
-    { _dlbrsrsLoadBalancerDescriptions :: [LoadBalancerDescription]
-    , _dlbrsrsNextMarker :: Maybe Text
+    { _dlbrrLoadBalancerDescriptions :: [LoadBalancerDescription]
+    , _dlbrrNextMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of load balancer description structures.
-dlbrsrsLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
-dlbrsrsLoadBalancerDescriptions =
-    lens _dlbrsrsLoadBalancerDescriptions
-         (\s a -> s { _dlbrsrsLoadBalancerDescriptions = a })
+dlbrrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
+dlbrrLoadBalancerDescriptions =
+    lens _dlbrrLoadBalancerDescriptions
+         (\s a -> s { _dlbrrLoadBalancerDescriptions = a })
 
 -- | Specifies the value of next marker if the request returned more than one
 -- page of results.
-dlbrsrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dlbrsrsNextMarker =
-    lens _dlbrsrsNextMarker (\s a -> s { _dlbrsrsNextMarker = a })
+dlbrrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
+dlbrrNextMarker = lens _dlbrrNextMarker (\s a -> s { _dlbrrNextMarker = a })
 
 instance FromXML DescribeLoadBalancersResponse where
     fromXMLOptions = xmlOptions
@@ -117,4 +116,4 @@ instance AWSRequest DescribeLoadBalancers where
 
 instance AWSPager DescribeLoadBalancers where
     next rq rs = (\x -> rq & dlb1Marker ?~ x)
-        <$> (rs ^. dlbrsrsNextMarker)
+        <$> (rs ^. dlbrrNextMarker)

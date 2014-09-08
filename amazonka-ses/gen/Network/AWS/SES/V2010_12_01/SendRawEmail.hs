@@ -73,7 +73,7 @@ module Network.AWS.SES.V2010_12_01.SendRawEmail
     -- * Response
     , SendRawEmailResponse
     -- ** Response lenses
-    , srersMessageId
+    , srerMessageId
     ) where
 
 import Network.AWS.Request.Query
@@ -132,12 +132,12 @@ instance ToQuery SendRawEmail where
 -- | Represents a unique message ID returned from a successful SendRawEmail
 -- request.
 newtype SendRawEmailResponse = SendRawEmailResponse
-    { _srersMessageId :: Text
+    { _srerMessageId :: Text
     } deriving (Show, Generic)
 
 -- | The unique message identifier returned from the SendRawEmail action.
-srersMessageId :: Lens' SendRawEmailResponse Text
-srersMessageId = lens _srersMessageId (\s a -> s { _srersMessageId = a })
+srerMessageId :: Lens' SendRawEmailResponse Text
+srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
 
 instance FromXML SendRawEmailResponse where
     fromXMLOptions = xmlOptions

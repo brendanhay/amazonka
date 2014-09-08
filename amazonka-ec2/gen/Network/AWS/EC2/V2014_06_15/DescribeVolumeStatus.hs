@@ -76,8 +76,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus
     -- * Response
     , DescribeVolumeStatusResponse
     -- ** Response lenses
-    , dvsrsVolumeStatuses
-    , dvsrsNextToken
+    , dvsrVolumeStatuses
+    , dvsrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -138,18 +138,18 @@ instance ToQuery DescribeVolumeStatus where
 
 -- | 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
-    { _dvsrsVolumeStatuses :: [VolumeStatusItem]
-    , _dvsrsNextToken :: Maybe Text
+    { _dvsrVolumeStatuses :: [VolumeStatusItem]
+    , _dvsrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of volumes.
-dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
-dvsrsVolumeStatuses =
-    lens _dvsrsVolumeStatuses (\s a -> s { _dvsrsVolumeStatuses = a })
+dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
+dvsrVolumeStatuses =
+    lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
 
 -- | The next paginated set of results to return.
-dvsrsNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
-dvsrsNextToken = lens _dvsrsNextToken (\s a -> s { _dvsrsNextToken = a })
+dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
+dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 
 instance FromXML DescribeVolumeStatusResponse where
     fromXMLOptions = xmlOptions
@@ -163,4 +163,4 @@ instance AWSRequest DescribeVolumeStatus where
 
 instance AWSPager DescribeVolumeStatus where
     next rq rs = (\x -> rq & dvsNextToken ?~ x)
-        <$> (rs ^. dvsrsNextToken)
+        <$> (rs ^. dvsrNextToken)

@@ -45,7 +45,7 @@ module Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription
     -- * Response
     , CreateSpotDatafeedSubscriptionResponse
     -- ** Response lenses
-    , csdsrsSpotDatafeedSubscription
+    , csdsrSpotDatafeedSubscription
     ) where
 
 import Network.AWS.Request.Query
@@ -81,14 +81,14 @@ instance ToQuery CreateSpotDatafeedSubscription where
 
 -- | 
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
-    { _csdsrsSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Show, Generic)
 
 -- | The Spot Instance datafeed subscription.
-csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-csdsrsSpotDatafeedSubscription =
-    lens _csdsrsSpotDatafeedSubscription
-         (\s a -> s { _csdsrsSpotDatafeedSubscription = a })
+csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
+csdsrSpotDatafeedSubscription =
+    lens _csdsrSpotDatafeedSubscription
+         (\s a -> s { _csdsrSpotDatafeedSubscription = a })
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions

@@ -55,7 +55,7 @@ module Network.AWS.EC2.V2014_06_15.CreateSubnet
     -- * Response
     , CreateSubnetResponse
     -- ** Response lenses
-    , csrs1Subnet
+    , csr1Subnet
     ) where
 
 import Network.AWS.Request.Query
@@ -100,12 +100,12 @@ instance ToQuery CreateSubnet where
 
 -- | 
 newtype CreateSubnetResponse = CreateSubnetResponse
-    { _csrs1Subnet :: Maybe Subnet
+    { _csr1Subnet :: Maybe Subnet
     } deriving (Show, Generic)
 
 -- | Information about the subnet.
-csrs1Subnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-csrs1Subnet = lens _csrs1Subnet (\s a -> s { _csrs1Subnet = a })
+csr1Subnet :: Lens' CreateSubnetResponse (Maybe Subnet)
+csr1Subnet = lens _csr1Subnet (\s a -> s { _csr1Subnet = a })
 
 instance FromXML CreateSubnetResponse where
     fromXMLOptions = xmlOptions

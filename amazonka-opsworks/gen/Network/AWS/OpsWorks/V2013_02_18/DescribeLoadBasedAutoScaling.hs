@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling
     -- * Response
     , DescribeLoadBasedAutoScalingResponse
     -- ** Response lenses
-    , dlbasrsLoadBasedAutoScalingConfigurations
+    , dlbasrLoadBasedAutoScalingConfigurations
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -68,15 +68,15 @@ instance ToJSON DescribeLoadBasedAutoScaling
 
 -- | Contains the response to a DescribeLoadBasedAutoScaling request.
 newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
-    { _dlbasrsLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
+    { _dlbasrLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
     } deriving (Show, Generic)
 
 -- | An array of LoadBasedAutoScalingConfiguration objects that describe each
 -- layer's configuration.
-dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
-dlbasrsLoadBasedAutoScalingConfigurations =
-    lens _dlbasrsLoadBasedAutoScalingConfigurations
-         (\s a -> s { _dlbasrsLoadBasedAutoScalingConfigurations = a })
+dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
+dlbasrLoadBasedAutoScalingConfigurations =
+    lens _dlbasrLoadBasedAutoScalingConfigurations
+         (\s a -> s { _dlbasrLoadBasedAutoScalingConfigurations = a })
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse
 

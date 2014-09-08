@@ -49,7 +49,7 @@ module Network.AWS.EC2.V2014_06_15.CopySnapshot
     -- * Response
     , CopySnapshotResponse
     -- ** Response lenses
-    , csrsSnapshotId
+    , csrSnapshotId
     ) where
 
 import Network.AWS.Request.Query
@@ -117,12 +117,12 @@ instance ToQuery CopySnapshot where
 
 -- | 
 newtype CopySnapshotResponse = CopySnapshotResponse
-    { _csrsSnapshotId :: Maybe Text
+    { _csrSnapshotId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new snapshot.
-csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
-csrsSnapshotId = lens _csrsSnapshotId (\s a -> s { _csrsSnapshotId = a })
+csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
+csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions

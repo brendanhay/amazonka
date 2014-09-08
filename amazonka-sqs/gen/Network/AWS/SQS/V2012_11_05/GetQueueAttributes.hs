@@ -79,7 +79,7 @@ module Network.AWS.SQS.V2012_11_05.GetQueueAttributes
     -- * Response
     , GetQueueAttributesResponse
     -- ** Response lenses
-    , gqarsAttributes
+    , gqarAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -115,12 +115,12 @@ instance ToQuery GetQueueAttributes where
 
 -- | A list of returned queue attributes.
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarsAttributes :: Map QueueAttributeName Text
+    { _gqarAttributes :: Map QueueAttributeName Text
     } deriving (Show, Generic)
 
 -- | A map of attributes to the respective values.
-gqarsAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
-gqarsAttributes = lens _gqarsAttributes (\s a -> s { _gqarsAttributes = a })
+gqarAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
+gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
 
 instance FromXML GetQueueAttributesResponse where
     fromXMLOptions = xmlOptions

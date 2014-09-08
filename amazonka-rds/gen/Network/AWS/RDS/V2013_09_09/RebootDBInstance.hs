@@ -53,7 +53,7 @@ module Network.AWS.RDS.V2013_09_09.RebootDBInstance
     -- * Response
     , RebootDBInstanceResponse
     -- ** Response lenses
-    , rdbirsDBInstance
+    , rdbirDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -95,15 +95,14 @@ instance ToQuery RebootDBInstance where
     toQuery = genericQuery def
 
 newtype RebootDBInstanceResponse = RebootDBInstanceResponse
-    { _rdbirsDBInstance :: Maybe DBInstance
+    { _rdbirDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-rdbirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
-rdbirsDBInstance =
-    lens _rdbirsDBInstance (\s a -> s { _rdbirsDBInstance = a })
+rdbirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
+rdbirDBInstance = lens _rdbirDBInstance (\s a -> s { _rdbirDBInstance = a })
 
 instance FromXML RebootDBInstanceResponse where
     fromXMLOptions = xmlOptions

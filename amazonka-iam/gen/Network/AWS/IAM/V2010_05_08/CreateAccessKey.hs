@@ -45,7 +45,7 @@ module Network.AWS.IAM.V2010_05_08.CreateAccessKey
     -- * Response
     , CreateAccessKeyResponse
     -- ** Response lenses
-    , cakrsAccessKey
+    , cakrAccessKey
     ) where
 
 import Network.AWS.Request.Query
@@ -74,12 +74,12 @@ instance ToQuery CreateAccessKey where
 -- | Contains the result of a successful invocation of the CreateAccessKey
 -- action.
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
-    { _cakrsAccessKey :: AccessKey
+    { _cakrAccessKey :: AccessKey
     } deriving (Show, Generic)
 
 -- | Information about the access key.
-cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey
-cakrsAccessKey = lens _cakrsAccessKey (\s a -> s { _cakrsAccessKey = a })
+cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
+cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
 
 instance FromXML CreateAccessKeyResponse where
     fromXMLOptions = xmlOptions

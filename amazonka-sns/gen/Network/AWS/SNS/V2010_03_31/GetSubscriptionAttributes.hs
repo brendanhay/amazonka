@@ -48,7 +48,7 @@ module Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes
     -- * Response
     , GetSubscriptionAttributesResponse
     -- ** Response lenses
-    , gsarsAttributes
+    , gsarAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -78,7 +78,7 @@ instance ToQuery GetSubscriptionAttributes where
 
 -- | Response for GetSubscriptionAttributes action.
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
-    { _gsarsAttributes :: Map Text Text
+    { _gsarAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | A map of the subscription's attributes. Attributes in this map include the
@@ -90,8 +90,8 @@ newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 -- EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
 -- policy that takes into account the topic delivery policy and account system
 -- defaults.
-gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
-gsarsAttributes = lens _gsarsAttributes (\s a -> s { _gsarsAttributes = a })
+gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
+gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
 
 instance FromXML GetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions

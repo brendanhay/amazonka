@@ -198,7 +198,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter
     -- * Response
     , TestMetricFilterResponse
     -- ** Response lenses
-    , tmfrsMatches
+    , tmfrMatches
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -237,11 +237,11 @@ instance ToHeaders TestMetricFilter
 instance ToJSON TestMetricFilter
 
 newtype TestMetricFilterResponse = TestMetricFilterResponse
-    { _tmfrsMatches :: [MetricFilterMatchRecord]
+    { _tmfrMatches :: [MetricFilterMatchRecord]
     } deriving (Show, Generic)
 
-tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
-tmfrsMatches = lens _tmfrsMatches (\s a -> s { _tmfrsMatches = a })
+tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
+tmfrMatches = lens _tmfrMatches (\s a -> s { _tmfrMatches = a })
 
 instance FromJSON TestMetricFilterResponse
 

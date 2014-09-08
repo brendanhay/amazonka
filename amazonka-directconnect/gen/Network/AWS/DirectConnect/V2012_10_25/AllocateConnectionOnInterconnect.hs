@@ -36,15 +36,15 @@ module Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
     -- * Response
     , AllocateConnectionOnInterconnectResponse
     -- ** Response lenses
-    , acoirsOwnerAccount
-    , acoirsConnectionId
-    , acoirsConnectionName
-    , acoirsConnectionState
-    , acoirsRegion
-    , acoirsLocation
-    , acoirsBandwidth
-    , acoirsVlan
-    , acoirsPartnerName
+    , acoirOwnerAccount
+    , acoirConnectionId
+    , acoirConnectionName
+    , acoirConnectionState
+    , acoirRegion
+    , acoirLocation
+    , acoirBandwidth
+    , acoirVlan
+    , acoirPartnerName
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -115,30 +115,30 @@ instance ToJSON AllocateConnectionOnInterconnect
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
 data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
-    { _acoirsOwnerAccount :: Maybe Text
-    , _acoirsConnectionId :: Maybe Text
-    , _acoirsConnectionName :: Maybe Text
-    , _acoirsConnectionState :: Maybe ConnectionState
-    , _acoirsRegion :: Maybe Text
-    , _acoirsLocation :: Maybe Text
-    , _acoirsBandwidth :: Maybe Text
-    , _acoirsVlan :: Maybe Integer
-    , _acoirsPartnerName :: Maybe Text
+    { _acoirOwnerAccount :: Maybe Text
+    , _acoirConnectionId :: Maybe Text
+    , _acoirConnectionName :: Maybe Text
+    , _acoirConnectionState :: Maybe ConnectionState
+    , _acoirRegion :: Maybe Text
+    , _acoirLocation :: Maybe Text
+    , _acoirBandwidth :: Maybe Text
+    , _acoirVlan :: Maybe Integer
+    , _acoirPartnerName :: Maybe Text
     } deriving (Show, Generic)
 
-acoirsOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirsOwnerAccount =
-    lens _acoirsOwnerAccount (\s a -> s { _acoirsOwnerAccount = a })
+acoirOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirOwnerAccount =
+    lens _acoirOwnerAccount (\s a -> s { _acoirOwnerAccount = a })
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-acoirsConnectionId :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirsConnectionId =
-    lens _acoirsConnectionId (\s a -> s { _acoirsConnectionId = a })
+acoirConnectionId :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirConnectionId =
+    lens _acoirConnectionId (\s a -> s { _acoirConnectionId = a })
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-acoirsConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirsConnectionName =
-    lens _acoirsConnectionName (\s a -> s { _acoirsConnectionName = a })
+acoirConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirConnectionName =
+    lens _acoirConnectionName (\s a -> s { _acoirConnectionName = a })
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state
@@ -151,30 +151,30 @@ acoirsConnectionName =
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-acoirsConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
-acoirsConnectionState =
-    lens _acoirsConnectionState (\s a -> s { _acoirsConnectionState = a })
+acoirConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
+acoirConnectionState =
+    lens _acoirConnectionState (\s a -> s { _acoirConnectionState = a })
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-acoirsRegion :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirsRegion = lens _acoirsRegion (\s a -> s { _acoirsRegion = a })
+acoirRegion :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirRegion = lens _acoirRegion (\s a -> s { _acoirRegion = a })
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-acoirsLocation :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirsLocation = lens _acoirsLocation (\s a -> s { _acoirsLocation = a })
+acoirLocation :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirLocation = lens _acoirLocation (\s a -> s { _acoirLocation = a })
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-acoirsBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirsBandwidth = lens _acoirsBandwidth (\s a -> s { _acoirsBandwidth = a })
+acoirBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirBandwidth = lens _acoirBandwidth (\s a -> s { _acoirBandwidth = a })
 
 -- | The VLAN ID. Example: 101.
-acoirsVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Integer)
-acoirsVlan = lens _acoirsVlan (\s a -> s { _acoirsVlan = a })
+acoirVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Integer)
+acoirVlan = lens _acoirVlan (\s a -> s { _acoirVlan = a })
 
-acoirsPartnerName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirsPartnerName =
-    lens _acoirsPartnerName (\s a -> s { _acoirsPartnerName = a })
+acoirPartnerName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirPartnerName =
+    lens _acoirPartnerName (\s a -> s { _acoirPartnerName = a })
 
 instance FromJSON AllocateConnectionOnInterconnectResponse
 

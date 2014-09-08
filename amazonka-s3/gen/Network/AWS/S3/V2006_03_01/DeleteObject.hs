@@ -35,8 +35,8 @@ module Network.AWS.S3.V2006_03_01.DeleteObject
     -- * Response
     , DeleteObjectResponse
     -- ** Response lenses
-    , dorsDeleteMarker
-    , dorsVersionId
+    , dorDeleteMarker
+    , dorVersionId
     ) where
 
 import Network.AWS.Request.RestS3
@@ -99,20 +99,19 @@ instance ToHeaders DeleteObject where
 instance ToBody DeleteObject
 
 data DeleteObjectResponse = DeleteObjectResponse
-    { _dorsDeleteMarker :: Maybe Bool
-    , _dorsVersionId :: Maybe ObjectVersionId
+    { _dorDeleteMarker :: Maybe Bool
+    , _dorVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
-dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
-dorsDeleteMarker =
-    lens _dorsDeleteMarker (\s a -> s { _dorsDeleteMarker = a })
+dorDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
+dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
-dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
-dorsVersionId = lens _dorsVersionId (\s a -> s { _dorsVersionId = a })
+dorVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
+dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
 
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3

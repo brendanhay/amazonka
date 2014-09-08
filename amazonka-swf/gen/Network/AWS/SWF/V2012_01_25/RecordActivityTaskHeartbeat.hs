@@ -76,7 +76,7 @@ module Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat
     -- * Response
     , RecordActivityTaskHeartbeatResponse
     -- ** Response lenses
-    , rathrsCancelRequested
+    , rathrCancelRequested
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -118,13 +118,13 @@ instance ToJSON RecordActivityTaskHeartbeat
 
 -- | Status information about an activity task.
 newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
-    { _rathrsCancelRequested :: Bool
+    { _rathrCancelRequested :: Bool
     } deriving (Show, Generic)
 
 -- | Set to true if cancellation of the task is requested.
-rathrsCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
-rathrsCancelRequested =
-    lens _rathrsCancelRequested (\s a -> s { _rathrsCancelRequested = a })
+rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
+rathrCancelRequested =
+    lens _rathrCancelRequested (\s a -> s { _rathrCancelRequested = a })
 
 instance FromJSON RecordActivityTaskHeartbeatResponse
 

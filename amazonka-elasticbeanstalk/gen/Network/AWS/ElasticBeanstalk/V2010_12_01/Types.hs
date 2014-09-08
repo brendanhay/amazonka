@@ -32,8 +32,6 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     (
     -- * Service
       ElasticBeanstalk
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -86,7 +84,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     -- * Trigger
     , Trigger
     , mkTrigger
-    , trsName
+    , trName
 
     -- * ApplicationDescription
     , ApplicationDescription
@@ -173,13 +171,13 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     -- * EnvironmentResourceDescription
     , EnvironmentResourceDescription
     , mkEnvironmentResourceDescription
-    , erdrsEnvironmentName
-    , erdrsAutoScalingGroups
-    , erdrsInstances
-    , erdrsLaunchConfigurations
-    , erdrsLoadBalancers
-    , erdrsTriggers
-    , erdrsQueues
+    , erdrEnvironmentName
+    , erdrAutoScalingGroups
+    , erdrInstances
+    , erdrLaunchConfigurations
+    , erdrLoadBalancers
+    , erdrTriggers
+    , erdrQueues
 
     -- * EnvironmentTier
     , EnvironmentTier
@@ -191,14 +189,14 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Types
     -- * EventDescription
     , EventDescription
     , mkEventDescription
-    , edrsEventDate
-    , edrsMessage
-    , edrsApplicationName
-    , edrsVersionLabel
-    , edrsTemplateName
-    , edrsEnvironmentName
-    , edrsRequestId
-    , edrsSeverity
+    , edrEventDate
+    , edrMessage
+    , edrApplicationName
+    , edrVersionLabel
+    , edrTemplateName
+    , edrEnvironmentName
+    , edrRequestId
+    , edrSeverity
 
     -- * Listener
     , Listener
@@ -613,19 +611,19 @@ instance FromXML LoadBalancer where
 
 -- | Describes a trigger.
 newtype Trigger = Trigger
-    { _trsName :: Maybe Text
+    { _trName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Trigger' data type to populate a request.
 mkTrigger :: Trigger
 mkTrigger = Trigger
-    { _trsName = Nothing
+    { _trName = Nothing
     }
 
 -- | The name of the trigger.
-trsName :: Lens' Trigger (Maybe Text)
-trsName = lens _trsName (\s a -> s { _trsName = a })
+trName :: Lens' Trigger (Maybe Text)
+trName = lens _trName (\s a -> s { _trName = a })
 
 instance FromXML Trigger where
     fromXMLOptions = xmlOptions
@@ -1144,60 +1142,60 @@ instance FromXML EnvironmentInfoDescription where
 
 -- | A list of EnvironmentResourceDescription.
 data EnvironmentResourceDescription = EnvironmentResourceDescription
-    { _erdrsEnvironmentName :: Maybe Text
-    , _erdrsAutoScalingGroups :: [AutoScalingGroup]
-    , _erdrsInstances :: [Instance]
-    , _erdrsLaunchConfigurations :: [LaunchConfiguration]
-    , _erdrsLoadBalancers :: [LoadBalancer]
-    , _erdrsTriggers :: [Trigger]
-    , _erdrsQueues :: [Queue]
+    { _erdrEnvironmentName :: Maybe Text
+    , _erdrAutoScalingGroups :: [AutoScalingGroup]
+    , _erdrInstances :: [Instance]
+    , _erdrLaunchConfigurations :: [LaunchConfiguration]
+    , _erdrLoadBalancers :: [LoadBalancer]
+    , _erdrTriggers :: [Trigger]
+    , _erdrQueues :: [Queue]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentResourceDescription' data type to populate a request.
 mkEnvironmentResourceDescription :: EnvironmentResourceDescription
 mkEnvironmentResourceDescription = EnvironmentResourceDescription
-    { _erdrsEnvironmentName = Nothing
-    , _erdrsAutoScalingGroups = mempty
-    , _erdrsInstances = mempty
-    , _erdrsLaunchConfigurations = mempty
-    , _erdrsLoadBalancers = mempty
-    , _erdrsTriggers = mempty
-    , _erdrsQueues = mempty
+    { _erdrEnvironmentName = Nothing
+    , _erdrAutoScalingGroups = mempty
+    , _erdrInstances = mempty
+    , _erdrLaunchConfigurations = mempty
+    , _erdrLoadBalancers = mempty
+    , _erdrTriggers = mempty
+    , _erdrQueues = mempty
     }
 
 -- | The name of the environment.
-erdrsEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
-erdrsEnvironmentName =
-    lens _erdrsEnvironmentName (\s a -> s { _erdrsEnvironmentName = a })
+erdrEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
+erdrEnvironmentName =
+    lens _erdrEnvironmentName (\s a -> s { _erdrEnvironmentName = a })
 
 -- | The AutoScalingGroups used by this environment.
-erdrsAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
-erdrsAutoScalingGroups =
-    lens _erdrsAutoScalingGroups (\s a -> s { _erdrsAutoScalingGroups = a })
+erdrAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
+erdrAutoScalingGroups =
+    lens _erdrAutoScalingGroups (\s a -> s { _erdrAutoScalingGroups = a })
 
 -- | The Amazon EC2 instances used by this environment.
-erdrsInstances :: Lens' EnvironmentResourceDescription [Instance]
-erdrsInstances = lens _erdrsInstances (\s a -> s { _erdrsInstances = a })
+erdrInstances :: Lens' EnvironmentResourceDescription [Instance]
+erdrInstances = lens _erdrInstances (\s a -> s { _erdrInstances = a })
 
 -- | The Auto Scaling launch configurations in use by this environment.
-erdrsLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
-erdrsLaunchConfigurations =
-    lens _erdrsLaunchConfigurations
-         (\s a -> s { _erdrsLaunchConfigurations = a })
+erdrLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
+erdrLaunchConfigurations =
+    lens _erdrLaunchConfigurations
+         (\s a -> s { _erdrLaunchConfigurations = a })
 
 -- | The LoadBalancers in use by this environment.
-erdrsLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
-erdrsLoadBalancers =
-    lens _erdrsLoadBalancers (\s a -> s { _erdrsLoadBalancers = a })
+erdrLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
+erdrLoadBalancers =
+    lens _erdrLoadBalancers (\s a -> s { _erdrLoadBalancers = a })
 
 -- | The AutoScaling triggers in use by this environment.
-erdrsTriggers :: Lens' EnvironmentResourceDescription [Trigger]
-erdrsTriggers = lens _erdrsTriggers (\s a -> s { _erdrsTriggers = a })
+erdrTriggers :: Lens' EnvironmentResourceDescription [Trigger]
+erdrTriggers = lens _erdrTriggers (\s a -> s { _erdrTriggers = a })
 
 -- | The queues used by this environment.
-erdrsQueues :: Lens' EnvironmentResourceDescription [Queue]
-erdrsQueues = lens _erdrsQueues (\s a -> s { _erdrsQueues = a })
+erdrQueues :: Lens' EnvironmentResourceDescription [Queue]
+erdrQueues = lens _erdrQueues (\s a -> s { _erdrQueues = a })
 
 instance FromXML EnvironmentResourceDescription where
     fromXMLOptions = xmlOptions
@@ -1240,65 +1238,63 @@ instance ToQuery EnvironmentTier where
 
 -- | Describes an event.
 data EventDescription = EventDescription
-    { _edrsEventDate :: Maybe ISO8601
-    , _edrsMessage :: Maybe Text
-    , _edrsApplicationName :: Maybe Text
-    , _edrsVersionLabel :: Maybe Text
-    , _edrsTemplateName :: Maybe Text
-    , _edrsEnvironmentName :: Maybe Text
-    , _edrsRequestId :: Maybe Text
-    , _edrsSeverity :: Maybe EventSeverity
+    { _edrEventDate :: Maybe ISO8601
+    , _edrMessage :: Maybe Text
+    , _edrApplicationName :: Maybe Text
+    , _edrVersionLabel :: Maybe Text
+    , _edrTemplateName :: Maybe Text
+    , _edrEnvironmentName :: Maybe Text
+    , _edrRequestId :: Maybe Text
+    , _edrSeverity :: Maybe EventSeverity
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventDescription' data type to populate a request.
 mkEventDescription :: EventDescription
 mkEventDescription = EventDescription
-    { _edrsEventDate = Nothing
-    , _edrsMessage = Nothing
-    , _edrsApplicationName = Nothing
-    , _edrsVersionLabel = Nothing
-    , _edrsTemplateName = Nothing
-    , _edrsEnvironmentName = Nothing
-    , _edrsRequestId = Nothing
-    , _edrsSeverity = Nothing
+    { _edrEventDate = Nothing
+    , _edrMessage = Nothing
+    , _edrApplicationName = Nothing
+    , _edrVersionLabel = Nothing
+    , _edrTemplateName = Nothing
+    , _edrEnvironmentName = Nothing
+    , _edrRequestId = Nothing
+    , _edrSeverity = Nothing
     }
 
 -- | The date when the event occurred.
-edrsEventDate :: Lens' EventDescription (Maybe ISO8601)
-edrsEventDate = lens _edrsEventDate (\s a -> s { _edrsEventDate = a })
+edrEventDate :: Lens' EventDescription (Maybe ISO8601)
+edrEventDate = lens _edrEventDate (\s a -> s { _edrEventDate = a })
 
 -- | The event message.
-edrsMessage :: Lens' EventDescription (Maybe Text)
-edrsMessage = lens _edrsMessage (\s a -> s { _edrsMessage = a })
+edrMessage :: Lens' EventDescription (Maybe Text)
+edrMessage = lens _edrMessage (\s a -> s { _edrMessage = a })
 
 -- | The application associated with the event.
-edrsApplicationName :: Lens' EventDescription (Maybe Text)
-edrsApplicationName =
-    lens _edrsApplicationName (\s a -> s { _edrsApplicationName = a })
+edrApplicationName :: Lens' EventDescription (Maybe Text)
+edrApplicationName =
+    lens _edrApplicationName (\s a -> s { _edrApplicationName = a })
 
 -- | The release label for the application version associated with this event.
-edrsVersionLabel :: Lens' EventDescription (Maybe Text)
-edrsVersionLabel =
-    lens _edrsVersionLabel (\s a -> s { _edrsVersionLabel = a })
+edrVersionLabel :: Lens' EventDescription (Maybe Text)
+edrVersionLabel = lens _edrVersionLabel (\s a -> s { _edrVersionLabel = a })
 
 -- | The name of the configuration associated with this event.
-edrsTemplateName :: Lens' EventDescription (Maybe Text)
-edrsTemplateName =
-    lens _edrsTemplateName (\s a -> s { _edrsTemplateName = a })
+edrTemplateName :: Lens' EventDescription (Maybe Text)
+edrTemplateName = lens _edrTemplateName (\s a -> s { _edrTemplateName = a })
 
 -- | The name of the environment associated with this event.
-edrsEnvironmentName :: Lens' EventDescription (Maybe Text)
-edrsEnvironmentName =
-    lens _edrsEnvironmentName (\s a -> s { _edrsEnvironmentName = a })
+edrEnvironmentName :: Lens' EventDescription (Maybe Text)
+edrEnvironmentName =
+    lens _edrEnvironmentName (\s a -> s { _edrEnvironmentName = a })
 
 -- | The web service request ID for the activity of this event.
-edrsRequestId :: Lens' EventDescription (Maybe Text)
-edrsRequestId = lens _edrsRequestId (\s a -> s { _edrsRequestId = a })
+edrRequestId :: Lens' EventDescription (Maybe Text)
+edrRequestId = lens _edrRequestId (\s a -> s { _edrRequestId = a })
 
 -- | The severity level of this event.
-edrsSeverity :: Lens' EventDescription (Maybe EventSeverity)
-edrsSeverity = lens _edrsSeverity (\s a -> s { _edrsSeverity = a })
+edrSeverity :: Lens' EventDescription (Maybe EventSeverity)
+edrSeverity = lens _edrSeverity (\s a -> s { _edrSeverity = a })
 
 instance FromXML EventDescription where
     fromXMLOptions = xmlOptions

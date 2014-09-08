@@ -31,7 +31,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeRdsDbInstances
     -- * Response
     , DescribeRdsDbInstancesResponse
     -- ** Response lenses
-    , drdirsRdsDbInstances
+    , drdirRdsDbInstances
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -72,13 +72,13 @@ instance ToJSON DescribeRdsDbInstances
 
 -- | Contains the response to a DescribeRdsDbInstances request.
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
-    { _drdirsRdsDbInstances :: [RdsDbInstance]
+    { _drdirRdsDbInstances :: [RdsDbInstance]
     } deriving (Show, Generic)
 
 -- | An a array of RdsDbInstance objects that describe the instances.
-drdirsRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
-drdirsRdsDbInstances =
-    lens _drdirsRdsDbInstances (\s a -> s { _drdirsRdsDbInstances = a })
+drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
+drdirRdsDbInstances =
+    lens _drdirRdsDbInstances (\s a -> s { _drdirRdsDbInstances = a })
 
 instance FromJSON DescribeRdsDbInstancesResponse
 

@@ -52,9 +52,9 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute
     -- * Response
     , DescribeVpcAttributeResponse
     -- ** Response lenses
-    , dvarsrsVpcId
-    , dvarsrsEnableDnsSupport
-    , dvarsrsEnableDnsHostnames
+    , dvarrVpcId
+    , dvarrEnableDnsSupport
+    , dvarrEnableDnsHostnames
     ) where
 
 import Network.AWS.Request.Query
@@ -89,30 +89,29 @@ instance ToQuery DescribeVpcAttribute where
 
 -- | 
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
-    { _dvarsrsVpcId :: Maybe Text
-    , _dvarsrsEnableDnsSupport :: Maybe AttributeBooleanValue
-    , _dvarsrsEnableDnsHostnames :: Maybe AttributeBooleanValue
+    { _dvarrVpcId :: Maybe Text
+    , _dvarrEnableDnsSupport :: Maybe AttributeBooleanValue
+    , _dvarrEnableDnsHostnames :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
 
 -- | The ID of the VPC.
-dvarsrsVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
-dvarsrsVpcId = lens _dvarsrsVpcId (\s a -> s { _dvarsrsVpcId = a })
+dvarrVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
+dvarrVpcId = lens _dvarrVpcId (\s a -> s { _dvarrVpcId = a })
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this attribute
 -- is true, the Amazon DNS server resolves DNS hostnames for your instances to
 -- their corresponding IP addresses; otherwise, it does not.
-dvarsrsEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
-dvarsrsEnableDnsSupport =
-    lens _dvarsrsEnableDnsSupport
-         (\s a -> s { _dvarsrsEnableDnsSupport = a })
+dvarrEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
+dvarrEnableDnsSupport =
+    lens _dvarrEnableDnsSupport (\s a -> s { _dvarrEnableDnsSupport = a })
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames; otherwise,
 -- they do not.
-dvarsrsEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
-dvarsrsEnableDnsHostnames =
-    lens _dvarsrsEnableDnsHostnames
-         (\s a -> s { _dvarsrsEnableDnsHostnames = a })
+dvarrEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
+dvarrEnableDnsHostnames =
+    lens _dvarrEnableDnsHostnames
+         (\s a -> s { _dvarrEnableDnsHostnames = a })
 
 instance FromXML DescribeVpcAttributeResponse where
     fromXMLOptions = xmlOptions

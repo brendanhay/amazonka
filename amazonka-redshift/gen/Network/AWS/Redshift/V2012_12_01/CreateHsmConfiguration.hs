@@ -42,7 +42,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateHsmConfiguration
     -- * Response
     , CreateHsmConfigurationResponse
     -- ** Response lenses
-    , chcrsHsmConfiguration
+    , chcrHsmConfiguration
     ) where
 
 import Network.AWS.Request.Query
@@ -114,15 +114,15 @@ instance ToQuery CreateHsmConfiguration where
     toQuery = genericQuery def
 
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
-    { _chcrsHsmConfiguration :: Maybe HsmConfiguration
+    { _chcrHsmConfiguration :: Maybe HsmConfiguration
     } deriving (Show, Generic)
 
 -- | Returns information about an HSM configuration, which is an object that
 -- describes to Amazon Redshift clusters the information they require to
 -- connect to an HSM where they can store database encryption keys.
-chcrsHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
-chcrsHsmConfiguration =
-    lens _chcrsHsmConfiguration (\s a -> s { _chcrsHsmConfiguration = a })
+chcrHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
+chcrHsmConfiguration =
+    lens _chcrHsmConfiguration (\s a -> s { _chcrHsmConfiguration = a })
 
 instance FromXML CreateHsmConfigurationResponse where
     fromXMLOptions = xmlOptions

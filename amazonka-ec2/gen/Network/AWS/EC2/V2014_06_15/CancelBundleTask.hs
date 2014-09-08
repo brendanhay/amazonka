@@ -44,7 +44,7 @@ module Network.AWS.EC2.V2014_06_15.CancelBundleTask
     -- * Response
     , CancelBundleTaskResponse
     -- ** Response lenses
-    , cbtrsBundleTask
+    , cbtrBundleTask
     ) where
 
 import Network.AWS.Request.Query
@@ -73,12 +73,12 @@ instance ToQuery CancelBundleTask where
 
 -- | 
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
-    { _cbtrsBundleTask :: Maybe BundleTask
+    { _cbtrBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
 
 -- | The bundle task.
-cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
-cbtrsBundleTask = lens _cbtrsBundleTask (\s a -> s { _cbtrsBundleTask = a })
+cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
+cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
 
 instance FromXML CancelBundleTaskResponse where
     fromXMLOptions = xmlOptions

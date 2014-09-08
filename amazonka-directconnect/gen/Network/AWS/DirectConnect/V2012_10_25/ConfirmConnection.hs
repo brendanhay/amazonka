@@ -33,7 +33,7 @@ module Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection
     -- * Response
     , ConfirmConnectionResponse
     -- ** Response lenses
-    , ccrsConnectionState
+    , ccrConnectionState
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -67,7 +67,7 @@ instance ToJSON ConfirmConnection
 
 -- | The response received when ConfirmConnection is called.
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
-    { _ccrsConnectionState :: Maybe ConnectionState
+    { _ccrConnectionState :: Maybe ConnectionState
     } deriving (Show, Generic)
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
@@ -81,9 +81,9 @@ newtype ConfirmConnectionResponse = ConfirmConnectionResponse
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
-ccrsConnectionState =
-    lens _ccrsConnectionState (\s a -> s { _ccrsConnectionState = a })
+ccrConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
+ccrConnectionState =
+    lens _ccrConnectionState (\s a -> s { _ccrConnectionState = a })
 
 instance FromJSON ConfirmConnectionResponse
 

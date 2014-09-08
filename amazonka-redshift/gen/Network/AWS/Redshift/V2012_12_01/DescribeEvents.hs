@@ -48,8 +48,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeEvents
     -- * Response
     , DescribeEventsResponse
     -- ** Response lenses
-    , dersMarker
-    , dersEvents
+    , derMarker
+    , derEvents
     ) where
 
 import Network.AWS.Request.Query
@@ -144,8 +144,8 @@ instance ToQuery DescribeEvents where
 
 -- | Contains the output from the DescribeEvents action.
 data DescribeEventsResponse = DescribeEventsResponse
-    { _dersMarker :: Maybe Text
-    , _dersEvents :: [Event]
+    { _derMarker :: Maybe Text
+    , _derEvents :: [Event]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -153,12 +153,12 @@ data DescribeEventsResponse = DescribeEventsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
-dersMarker = lens _dersMarker (\s a -> s { _dersMarker = a })
+derMarker :: Lens' DescribeEventsResponse (Maybe Text)
+derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 
 -- | A list of Event instances.
-dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\s a -> s { _dersEvents = a })
+derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
@@ -172,4 +172,4 @@ instance AWSRequest DescribeEvents where
 
 instance AWSPager DescribeEvents where
     next rq rs = (\x -> rq & deMarker ?~ x)
-        <$> (rs ^. dersMarker)
+        <$> (rs ^. derMarker)

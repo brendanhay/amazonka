@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup
     -- * Response
     , DeleteReplicationGroupResponse
     -- ** Response lenses
-    , drgrsReplicationGroup
+    , drgrReplicationGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -95,13 +95,13 @@ instance ToQuery DeleteReplicationGroup where
     toQuery = genericQuery def
 
 newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
-    { _drgrsReplicationGroup :: Maybe ReplicationGroup
+    { _drgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-drgrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
-drgrsReplicationGroup =
-    lens _drgrsReplicationGroup (\s a -> s { _drgrsReplicationGroup = a })
+drgrReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
+drgrReplicationGroup =
+    lens _drgrReplicationGroup (\s a -> s { _drgrReplicationGroup = a })
 
 instance FromXML DeleteReplicationGroupResponse where
     fromXMLOptions = xmlOptions

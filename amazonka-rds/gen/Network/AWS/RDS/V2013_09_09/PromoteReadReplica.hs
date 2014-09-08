@@ -41,7 +41,7 @@ module Network.AWS.RDS.V2013_09_09.PromoteReadReplica
     -- * Response
     , PromoteReadReplicaResponse
     -- ** Response lenses
-    , prrrsDBInstance
+    , prrrDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -100,14 +100,14 @@ instance ToQuery PromoteReadReplica where
     toQuery = genericQuery def
 
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
-    { _prrrsDBInstance :: Maybe DBInstance
+    { _prrrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
-prrrsDBInstance = lens _prrrsDBInstance (\s a -> s { _prrrsDBInstance = a })
+prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
+prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
 
 instance FromXML PromoteReadReplicaResponse where
     fromXMLOptions = xmlOptions

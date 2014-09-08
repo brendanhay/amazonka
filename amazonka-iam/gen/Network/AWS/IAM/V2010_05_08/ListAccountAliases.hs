@@ -36,9 +36,9 @@ module Network.AWS.IAM.V2010_05_08.ListAccountAliases
     -- * Response
     , ListAccountAliasesResponse
     -- ** Response lenses
-    , laarsAccountAliases
-    , laarsIsTruncated
-    , laarsMarker
+    , laarAccountAliases
+    , laarIsTruncated
+    , laarMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -79,29 +79,28 @@ instance ToQuery ListAccountAliases where
 -- | Contains the result of a successful invocation of the ListAccountAliases
 -- action.
 data ListAccountAliasesResponse = ListAccountAliasesResponse
-    { _laarsAccountAliases :: [Text]
-    , _laarsIsTruncated :: Bool
-    , _laarsMarker :: Maybe Text
+    { _laarAccountAliases :: [Text]
+    , _laarIsTruncated :: Bool
+    , _laarMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of aliases associated with the account.
-laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]
-laarsAccountAliases =
-    lens _laarsAccountAliases (\s a -> s { _laarsAccountAliases = a })
+laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
+laarAccountAliases =
+    lens _laarAccountAliases (\s a -> s { _laarAccountAliases = a })
 
 -- | A flag that indicates whether there are more account aliases to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more account aliases in the
 -- list.
-laarsIsTruncated :: Lens' ListAccountAliasesResponse Bool
-laarsIsTruncated =
-    lens _laarsIsTruncated (\s a -> s { _laarsIsTruncated = a })
+laarIsTruncated :: Lens' ListAccountAliasesResponse Bool
+laarIsTruncated = lens _laarIsTruncated (\s a -> s { _laarIsTruncated = a })
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the Marker element in the response you just received.
-laarsMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
-laarsMarker = lens _laarsMarker (\s a -> s { _laarsMarker = a })
+laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
+laarMarker = lens _laarMarker (\s a -> s { _laarMarker = a })
 
 instance FromXML ListAccountAliasesResponse where
     fromXMLOptions = xmlOptions
@@ -115,6 +114,6 @@ instance AWSRequest ListAccountAliases where
 
 instance AWSPager ListAccountAliases where
     next rq rs
-        | not (rs ^. laarsIsTruncated) = Nothing
+        | not (rs ^. laarIsTruncated) = Nothing
         | otherwise = Just $
-            rq & laaMarker .~ rs ^. laarsMarker
+            rq & laaMarker .~ rs ^. laarMarker

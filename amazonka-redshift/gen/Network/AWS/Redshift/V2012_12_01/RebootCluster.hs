@@ -45,7 +45,7 @@ module Network.AWS.Redshift.V2012_12_01.RebootCluster
     -- * Response
     , RebootClusterResponse
     -- ** Response lenses
-    , rcrsCluster
+    , rcrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -74,12 +74,12 @@ instance ToQuery RebootCluster where
     toQuery = genericQuery def
 
 newtype RebootClusterResponse = RebootClusterResponse
-    { _rcrsCluster :: Maybe Cluster
+    { _rcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
-rcrsCluster = lens _rcrsCluster (\s a -> s { _rcrsCluster = a })
+rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
+rcrCluster = lens _rcrCluster (\s a -> s { _rcrCluster = a })
 
 instance FromXML RebootClusterResponse where
     fromXMLOptions = xmlOptions

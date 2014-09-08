@@ -48,8 +48,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeOrderableDBInstanceOptions
     -- * Response
     , DescribeOrderableDBInstanceOptionsResponse
     -- ** Response lenses
-    , dodbiorsOrderableDBInstanceOptions
-    , dodbiorsMarker
+    , dodbiorOrderableDBInstanceOptions
+    , dodbiorMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -129,23 +129,23 @@ instance ToQuery DescribeOrderableDBInstanceOptions where
 -- | Contains the result of a successful invocation of the
 -- DescribeOrderableDBInstanceOptions action.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
-    { _dodbiorsOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
-    , _dodbiorsMarker :: Maybe Text
+    { _dodbiorOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
+    , _dodbiorMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
-dodbiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
-dodbiorsOrderableDBInstanceOptions =
-    lens _dodbiorsOrderableDBInstanceOptions
-         (\s a -> s { _dodbiorsOrderableDBInstanceOptions = a })
+dodbiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
+dodbiorOrderableDBInstanceOptions =
+    lens _dodbiorOrderableDBInstanceOptions
+         (\s a -> s { _dodbiorOrderableDBInstanceOptions = a })
 
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value specified
 -- by MaxRecords .
-dodbiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
-dodbiorsMarker = lens _dodbiorsMarker (\s a -> s { _dodbiorsMarker = a })
+dodbiorMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
+dodbiorMarker = lens _dodbiorMarker (\s a -> s { _dodbiorMarker = a })
 
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where
     fromXMLOptions = xmlOptions
@@ -159,4 +159,4 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
     next rq rs = (\x -> rq & dodbioMarker ?~ x)
-        <$> (rs ^. dodbiorsMarker)
+        <$> (rs ^. dodbiorMarker)

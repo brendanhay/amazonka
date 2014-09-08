@@ -32,7 +32,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription
     -- * Response
     , DescribeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
-    , dsdsrsSpotDatafeedSubscription
+    , dsdsrSpotDatafeedSubscription
     ) where
 
 import Network.AWS.Request.Query
@@ -53,14 +53,14 @@ instance ToQuery DescribeSpotDatafeedSubscription where
 
 -- | 
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
-    { _dsdsrsSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Show, Generic)
 
 -- | The Spot Instance datafeed subscription.
-dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-dsdsrsSpotDatafeedSubscription =
-    lens _dsdsrsSpotDatafeedSubscription
-         (\s a -> s { _dsdsrsSpotDatafeedSubscription = a })
+dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
+dsdsrSpotDatafeedSubscription =
+    lens _dsdsrSpotDatafeedSubscription
+         (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions

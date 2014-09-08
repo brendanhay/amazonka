@@ -33,8 +33,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations
     -- * Response
     , DescribeNotificationConfigurationsResponse
     -- ** Response lenses
-    , dncrsNotificationConfigurations
-    , dncrsNextToken
+    , dncrNotificationConfigurations
+    , dncrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -77,20 +77,20 @@ instance ToQuery DescribeNotificationConfigurations where
 
 -- | The output of the DescribeNotificationConfigurations action.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
-    { _dncrsNotificationConfigurations :: [NotificationConfiguration]
-    , _dncrsNextToken :: Maybe Text
+    { _dncrNotificationConfigurations :: [NotificationConfiguration]
+    , _dncrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of notification configurations.
-dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
-dncrsNotificationConfigurations =
-    lens _dncrsNotificationConfigurations
-         (\s a -> s { _dncrsNotificationConfigurations = a })
+dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
+dncrNotificationConfigurations =
+    lens _dncrNotificationConfigurations
+         (\s a -> s { _dncrNotificationConfigurations = a })
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
-dncrsNextToken = lens _dncrsNextToken (\s a -> s { _dncrsNextToken = a })
+dncrNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
+dncrNextToken = lens _dncrNextToken (\s a -> s { _dncrNextToken = a })
 
 instance FromXML DescribeNotificationConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -104,4 +104,4 @@ instance AWSRequest DescribeNotificationConfigurations where
 
 instance AWSPager DescribeNotificationConfigurations where
     next rq rs = (\x -> rq & dnc1NextToken ?~ x)
-        <$> (rs ^. dncrsNextToken)
+        <$> (rs ^. dncrNextToken)

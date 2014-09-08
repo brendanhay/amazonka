@@ -39,7 +39,7 @@ module Network.AWS.Support.V2013_04_15.AddCommunicationToCase
     -- * Response
     , AddCommunicationToCaseResponse
     -- ** Response lenses
-    , actcrsResult
+    , actcrResult
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -98,12 +98,12 @@ instance ToJSON AddCommunicationToCase
 
 -- | The result of the AddCommunicationToCase operation.
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
-    { _actcrsResult :: Maybe Bool
+    { _actcrResult :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
-actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
-actcrsResult = lens _actcrsResult (\s a -> s { _actcrsResult = a })
+actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
+actcrResult = lens _actcrResult (\s a -> s { _actcrResult = a })
 
 instance FromJSON AddCommunicationToCaseResponse
 

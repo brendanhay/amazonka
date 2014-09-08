@@ -44,7 +44,7 @@ module Network.AWS.EC2.V2014_06_15.UnmonitorInstances
     -- * Response
     , UnmonitorInstancesResponse
     -- ** Response lenses
-    , uirsInstanceMonitorings
+    , uirInstanceMonitorings
     ) where
 
 import Network.AWS.Request.Query
@@ -73,14 +73,13 @@ instance ToQuery UnmonitorInstances where
 
 -- | 
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
-    { _uirsInstanceMonitorings :: [InstanceMonitoring]
+    { _uirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
-uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
-uirsInstanceMonitorings =
-    lens _uirsInstanceMonitorings
-         (\s a -> s { _uirsInstanceMonitorings = a })
+uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
+uirInstanceMonitorings =
+    lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
 
 instance FromXML UnmonitorInstancesResponse where
     fromXMLOptions = xmlOptions

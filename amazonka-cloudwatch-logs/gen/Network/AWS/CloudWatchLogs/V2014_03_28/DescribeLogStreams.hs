@@ -59,8 +59,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams
     -- * Response
     , DescribeLogStreamsResponse
     -- ** Response lenses
-    , dlsrsLogStreams
-    , dlsrsNextToken
+    , dlsrLogStreams
+    , dlsrNextToken
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -114,19 +114,19 @@ instance ToHeaders DescribeLogStreams
 instance ToJSON DescribeLogStreams
 
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
-    { _dlsrsLogStreams :: [LogStream]
-    , _dlsrsNextToken :: Maybe Text
+    { _dlsrLogStreams :: [LogStream]
+    , _dlsrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of log streams.
-dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
-dlsrsLogStreams = lens _dlsrsLogStreams (\s a -> s { _dlsrsLogStreams = a })
+dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
+dlsrLogStreams = lens _dlsrLogStreams (\s a -> s { _dlsrLogStreams = a })
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dlsrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
-dlsrsNextToken = lens _dlsrsNextToken (\s a -> s { _dlsrsNextToken = a })
+dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
+dlsrNextToken = lens _dlsrNextToken (\s a -> s { _dlsrNextToken = a })
 
 instance FromJSON DescribeLogStreamsResponse
 
@@ -139,4 +139,4 @@ instance AWSRequest DescribeLogStreams where
 
 instance AWSPager DescribeLogStreams where
     next rq rs = (\x -> rq & dls1NextToken ?~ x)
-        <$> (rs ^. dlsrsNextToken)
+        <$> (rs ^. dlsrNextToken)

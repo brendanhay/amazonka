@@ -63,7 +63,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeSubnets
     -- * Response
     , DescribeSubnetsResponse
     -- ** Response lenses
-    , dsrsrsSubnets
+    , dsrrSubnets
     ) where
 
 import Network.AWS.Request.Query
@@ -115,12 +115,12 @@ instance ToQuery DescribeSubnets where
 
 -- | 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
-    { _dsrsrsSubnets :: [Subnet]
+    { _dsrrSubnets :: [Subnet]
     } deriving (Show, Generic)
 
 -- | Information about one or more subnets.
-dsrsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
-dsrsrsSubnets = lens _dsrsrsSubnets (\s a -> s { _dsrsrsSubnets = a })
+dsrrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
+dsrrSubnets = lens _dsrrSubnets (\s a -> s { _dsrrSubnets = a })
 
 instance FromXML DescribeSubnetsResponse where
     fromXMLOptions = xmlOptions

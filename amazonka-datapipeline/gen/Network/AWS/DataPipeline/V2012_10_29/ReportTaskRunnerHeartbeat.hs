@@ -44,7 +44,7 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
     -- ** Response lenses
-    , rtrhrsTerminate
+    , rtrhrTerminate
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -100,13 +100,13 @@ instance ToJSON ReportTaskRunnerHeartbeat
 
 -- | Contains the output from the ReportTaskRunnerHeartbeat action.
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
-    { _rtrhrsTerminate :: Bool
+    { _rtrhrTerminate :: Bool
     } deriving (Show, Generic)
 
 -- | Indicates whether the calling task runner should terminate. If True, the
 -- task runner that called ReportTaskRunnerHeartbeat should terminate.
-rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
-rtrhrsTerminate = lens _rtrhrsTerminate (\s a -> s { _rtrhrsTerminate = a })
+rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
+rtrhrTerminate = lens _rtrhrTerminate (\s a -> s { _rtrhrTerminate = a })
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse
 

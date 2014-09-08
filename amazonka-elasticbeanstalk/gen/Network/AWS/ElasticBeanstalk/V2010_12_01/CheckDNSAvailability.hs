@@ -34,8 +34,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CheckDNSAvailability
     -- * Response
     , CheckDNSAvailabilityResponse
     -- ** Response lenses
-    , cdnsarsAvailable
-    , cdnsarsFullyQualifiedCNAME
+    , cdnsarAvailable
+    , cdnsarFullyQualifiedCNAME
     ) where
 
 import Network.AWS.Request.Query
@@ -65,23 +65,22 @@ instance ToQuery CheckDNSAvailability where
 
 -- | Indicates if the specified CNAME is available.
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
-    { _cdnsarsAvailable :: Maybe Bool
-    , _cdnsarsFullyQualifiedCNAME :: Maybe Text
+    { _cdnsarAvailable :: Maybe Bool
+    , _cdnsarFullyQualifiedCNAME :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Indicates if the specified CNAME is available: true : The CNAME is
 -- available. true : The CNAME is not available. true : The CNAME is
 -- available. false : The CNAME is not available.
-cdnsarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
-cdnsarsAvailable =
-    lens _cdnsarsAvailable (\s a -> s { _cdnsarsAvailable = a })
+cdnsarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
+cdnsarAvailable = lens _cdnsarAvailable (\s a -> s { _cdnsarAvailable = a })
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called with
 -- the provided prefix.
-cdnsarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
-cdnsarsFullyQualifiedCNAME =
-    lens _cdnsarsFullyQualifiedCNAME
-         (\s a -> s { _cdnsarsFullyQualifiedCNAME = a })
+cdnsarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
+cdnsarFullyQualifiedCNAME =
+    lens _cdnsarFullyQualifiedCNAME
+         (\s a -> s { _cdnsarFullyQualifiedCNAME = a })
 
 instance FromXML CheckDNSAvailabilityResponse where
     fromXMLOptions = xmlOptions

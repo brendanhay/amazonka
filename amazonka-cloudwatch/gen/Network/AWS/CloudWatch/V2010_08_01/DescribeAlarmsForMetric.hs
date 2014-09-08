@@ -36,7 +36,7 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
     -- * Response
     , DescribeAlarmsForMetricResponse
     -- ** Response lenses
-    , dafmrsMetricAlarms
+    , dafmrMetricAlarms
     ) where
 
 import Network.AWS.Request.Query
@@ -96,13 +96,13 @@ instance ToQuery DescribeAlarmsForMetric where
 
 -- | The output for the DescribeAlarmsForMetric action.
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
-    { _dafmrsMetricAlarms :: [MetricAlarm]
+    { _dafmrMetricAlarms :: [MetricAlarm]
     } deriving (Show, Generic)
 
 -- | A list of information for each alarm with the specified metric.
-dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
-dafmrsMetricAlarms =
-    lens _dafmrsMetricAlarms (\s a -> s { _dafmrsMetricAlarms = a })
+dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
+dafmrMetricAlarms =
+    lens _dafmrMetricAlarms (\s a -> s { _dafmrMetricAlarms = a })
 
 instance FromXML DescribeAlarmsForMetricResponse where
     fromXMLOptions = xmlOptions

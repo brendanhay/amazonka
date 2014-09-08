@@ -51,7 +51,7 @@ module Network.AWS.SES.V2010_12_01.VerifyDomainDkim
     -- * Response
     , VerifyDomainDkimResponse
     -- ** Response lenses
-    , vddrsDkimTokens
+    , vddrDkimTokens
     ) where
 
 import Network.AWS.Request.Query
@@ -82,7 +82,7 @@ instance ToQuery VerifyDomainDkim where
 -- | Represents the DNS records that must be published in the domain name's DNS
 -- to complete DKIM setup.
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
-    { _vddrsDkimTokens :: [Text]
+    { _vddrDkimTokens :: [Text]
     } deriving (Show, Generic)
 
 -- | A set of character strings that represent the domain's identity. If the
@@ -94,8 +94,8 @@ newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
 -- be able to DKIM-sign emails originating from that domain. For more
 -- information about creating DNS records using DKIM tokens, go to the Amazon
 -- SES Developer Guide.
-vddrsDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
-vddrsDkimTokens = lens _vddrsDkimTokens (\s a -> s { _vddrsDkimTokens = a })
+vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
+vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a })
 
 instance FromXML VerifyDomainDkimResponse where
     fromXMLOptions = xmlOptions

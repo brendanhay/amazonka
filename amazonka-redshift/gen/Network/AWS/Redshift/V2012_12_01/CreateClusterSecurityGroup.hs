@@ -41,7 +41,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup
     -- * Response
     , CreateClusterSecurityGroupResponse
     -- ** Response lenses
-    , ccsgrsClusterSecurityGroup
+    , ccsgrClusterSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -82,14 +82,14 @@ instance ToQuery CreateClusterSecurityGroup where
     toQuery = genericQuery def
 
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
-    { _ccsgrsClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-ccsgrsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
-ccsgrsClusterSecurityGroup =
-    lens _ccsgrsClusterSecurityGroup
-         (\s a -> s { _ccsgrsClusterSecurityGroup = a })
+ccsgrClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
+ccsgrClusterSecurityGroup =
+    lens _ccsgrClusterSecurityGroup
+         (\s a -> s { _ccsgrClusterSecurityGroup = a })
 
 instance FromXML CreateClusterSecurityGroupResponse where
     fromXMLOptions = xmlOptions

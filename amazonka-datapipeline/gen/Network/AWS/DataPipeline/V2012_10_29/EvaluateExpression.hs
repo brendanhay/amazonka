@@ -43,7 +43,7 @@ module Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression
     -- * Response
     , EvaluateExpressionResponse
     -- ** Response lenses
-    , eersEvaluatedExpression
+    , eerEvaluatedExpression
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -91,14 +91,13 @@ instance ToJSON EvaluateExpression
 
 -- | Contains the output from the EvaluateExpression action.
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
-    { _eersEvaluatedExpression :: Text
+    { _eerEvaluatedExpression :: Text
     } deriving (Show, Generic)
 
 -- | The evaluated expression.
-eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
-eersEvaluatedExpression =
-    lens _eersEvaluatedExpression
-         (\s a -> s { _eersEvaluatedExpression = a })
+eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
+eerEvaluatedExpression =
+    lens _eerEvaluatedExpression (\s a -> s { _eerEvaluatedExpression = a })
 
 instance FromJSON EvaluateExpressionResponse
 

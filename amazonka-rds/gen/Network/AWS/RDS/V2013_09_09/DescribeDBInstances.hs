@@ -41,8 +41,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBInstances
     -- * Response
     , DescribeDBInstancesResponse
     -- ** Response lenses
-    , ddbirsrsMarker
-    , ddbirsrsDBInstances
+    , ddbirrMarker
+    , ddbirrDBInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -94,20 +94,20 @@ instance ToQuery DescribeDBInstances where
 -- | Contains the result of a successful invocation of the DescribeDBInstances
 -- action.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
-    { _ddbirsrsMarker :: Maybe Text
-    , _ddbirsrsDBInstances :: [DBInstance]
+    { _ddbirrMarker :: Maybe Text
+    , _ddbirrDBInstances :: [DBInstance]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords .
-ddbirsrsMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
-ddbirsrsMarker = lens _ddbirsrsMarker (\s a -> s { _ddbirsrsMarker = a })
+ddbirrMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
+ddbirrMarker = lens _ddbirrMarker (\s a -> s { _ddbirrMarker = a })
 
 -- | A list of DBInstance instances.
-ddbirsrsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
-ddbirsrsDBInstances =
-    lens _ddbirsrsDBInstances (\s a -> s { _ddbirsrsDBInstances = a })
+ddbirrDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
+ddbirrDBInstances =
+    lens _ddbirrDBInstances (\s a -> s { _ddbirrDBInstances = a })
 
 instance FromXML DescribeDBInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -121,4 +121,4 @@ instance AWSRequest DescribeDBInstances where
 
 instance AWSPager DescribeDBInstances where
     next rq rs = (\x -> rq & ddbi1Marker ?~ x)
-        <$> (rs ^. ddbirsrsMarker)
+        <$> (rs ^. ddbirrMarker)

@@ -87,7 +87,7 @@ module Network.AWS.EMR.V2009_03_31.DescribeJobFlows
     -- * Response
     , DescribeJobFlowsResponse
     -- ** Response lenses
-    , djfrsJobFlows
+    , djfrJobFlows
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -140,12 +140,12 @@ instance ToJSON DescribeJobFlows
 
 -- | The output for the DescribeJobFlows operation.
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
-    { _djfrsJobFlows :: [JobFlowDetail]
+    { _djfrJobFlows :: [JobFlowDetail]
     } deriving (Show, Generic)
 
 -- | A list of job flows matching the parameters supplied.
-djfrsJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
-djfrsJobFlows = lens _djfrsJobFlows (\s a -> s { _djfrsJobFlows = a })
+djfrJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
+djfrJobFlows = lens _djfrJobFlows (\s a -> s { _djfrJobFlows = a })
 
 instance FromJSON DescribeJobFlowsResponse
 

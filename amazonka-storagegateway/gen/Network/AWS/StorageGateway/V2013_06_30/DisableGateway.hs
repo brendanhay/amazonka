@@ -29,7 +29,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DisableGateway
     -- * Response
     , DisableGatewayResponse
     -- ** Response lenses
-    , dgrsrsGatewayARN
+    , dgrrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -62,14 +62,13 @@ instance ToHeaders DisableGateway
 instance ToJSON DisableGateway
 
 newtype DisableGatewayResponse = DisableGatewayResponse
-    { _dgrsrsGatewayARN :: Maybe Text
+    { _dgrrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgrsrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-dgrsrsGatewayARN =
-    lens _dgrsrsGatewayARN (\s a -> s { _dgrsrsGatewayARN = a })
+dgrrGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
+dgrrGatewayARN = lens _dgrrGatewayARN (\s a -> s { _dgrrGatewayARN = a })
 
 instance FromJSON DisableGatewayResponse
 

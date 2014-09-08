@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterElasticIp
     -- * Response
     , RegisterElasticIpResponse
     -- ** Response lenses
-    , reirsElasticIp
+    , reirElasticIp
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -77,12 +77,12 @@ instance ToJSON RegisterElasticIp
 
 -- | Contains the response to a RegisterElasticIp request.
 newtype RegisterElasticIpResponse = RegisterElasticIpResponse
-    { _reirsElasticIp :: Maybe Text
+    { _reirElasticIp :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
-reirsElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
-reirsElasticIp = lens _reirsElasticIp (\s a -> s { _reirsElasticIp = a })
+reirElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
+reirElasticIp = lens _reirElasticIp (\s a -> s { _reirElasticIp = a })
 
 instance FromJSON RegisterElasticIpResponse
 

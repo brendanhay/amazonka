@@ -26,8 +26,6 @@ module Network.AWS.DataPipeline.V2012_10_29.Types
     (
     -- * Service
       DataPipeline
-    -- ** Errors
-    , Er (..)
     -- * OperatorType
     , OperatorType (..)
 

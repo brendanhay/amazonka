@@ -55,21 +55,21 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateEnvironment
     -- * Response
     , UpdateEnvironmentResponse
     -- ** Response lenses
-    , uersEnvironmentName
-    , uersEnvironmentId
-    , uersApplicationName
-    , uersVersionLabel
-    , uersSolutionStackName
-    , uersTemplateName
-    , uersDescription
-    , uersEndpointURL
-    , uersCNAME
-    , uersDateCreated
-    , uersDateUpdated
-    , uersStatus
-    , uersHealth
-    , uersResources
-    , uersTier
+    , uerEnvironmentName
+    , uerEnvironmentId
+    , uerApplicationName
+    , uerVersionLabel
+    , uerSolutionStackName
+    , uerTemplateName
+    , uerDescription
+    , uerEndpointURL
+    , uerCNAME
+    , uerDateCreated
+    , uerDateUpdated
+    , uerStatus
+    , uerHealth
+    , uerResources
+    , uerTier
     ) where
 
 import Network.AWS.Request.Query
@@ -161,74 +161,72 @@ instance ToQuery UpdateEnvironment where
 
 -- | Describes the properties of an environment.
 data UpdateEnvironmentResponse = UpdateEnvironmentResponse
-    { _uersEnvironmentName :: Maybe Text
-    , _uersEnvironmentId :: Maybe Text
-    , _uersApplicationName :: Maybe Text
-    , _uersVersionLabel :: Maybe Text
-    , _uersSolutionStackName :: Maybe Text
-    , _uersTemplateName :: Maybe Text
-    , _uersDescription :: Maybe Text
-    , _uersEndpointURL :: Maybe Text
-    , _uersCNAME :: Maybe Text
-    , _uersDateCreated :: Maybe ISO8601
-    , _uersDateUpdated :: Maybe ISO8601
-    , _uersStatus :: Maybe EnvironmentStatus
-    , _uersHealth :: Maybe EnvironmentHealth
-    , _uersResources :: Maybe EnvironmentResourcesDescription
-    , _uersTier :: Maybe EnvironmentTier
+    { _uerEnvironmentName :: Maybe Text
+    , _uerEnvironmentId :: Maybe Text
+    , _uerApplicationName :: Maybe Text
+    , _uerVersionLabel :: Maybe Text
+    , _uerSolutionStackName :: Maybe Text
+    , _uerTemplateName :: Maybe Text
+    , _uerDescription :: Maybe Text
+    , _uerEndpointURL :: Maybe Text
+    , _uerCNAME :: Maybe Text
+    , _uerDateCreated :: Maybe ISO8601
+    , _uerDateUpdated :: Maybe ISO8601
+    , _uerStatus :: Maybe EnvironmentStatus
+    , _uerHealth :: Maybe EnvironmentHealth
+    , _uerResources :: Maybe EnvironmentResourcesDescription
+    , _uerTier :: Maybe EnvironmentTier
     } deriving (Show, Generic)
 
 -- | The name of this environment.
-uersEnvironmentName :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersEnvironmentName =
-    lens _uersEnvironmentName (\s a -> s { _uersEnvironmentName = a })
+uerEnvironmentName :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerEnvironmentName =
+    lens _uerEnvironmentName (\s a -> s { _uerEnvironmentName = a })
 
 -- | The ID of this environment.
-uersEnvironmentId :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersEnvironmentId =
-    lens _uersEnvironmentId (\s a -> s { _uersEnvironmentId = a })
+uerEnvironmentId :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerEnvironmentId =
+    lens _uerEnvironmentId (\s a -> s { _uerEnvironmentId = a })
 
 -- | The name of the application associated with this environment.
-uersApplicationName :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersApplicationName =
-    lens _uersApplicationName (\s a -> s { _uersApplicationName = a })
+uerApplicationName :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerApplicationName =
+    lens _uerApplicationName (\s a -> s { _uerApplicationName = a })
 
 -- | The application version deployed in this environment.
-uersVersionLabel :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersVersionLabel =
-    lens _uersVersionLabel (\s a -> s { _uersVersionLabel = a })
+uerVersionLabel :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerVersionLabel = lens _uerVersionLabel (\s a -> s { _uerVersionLabel = a })
 
 -- | The name of the SolutionStack deployed with this environment.
-uersSolutionStackName :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersSolutionStackName =
-    lens _uersSolutionStackName (\s a -> s { _uersSolutionStackName = a })
+uerSolutionStackName :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerSolutionStackName =
+    lens _uerSolutionStackName (\s a -> s { _uerSolutionStackName = a })
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-uersTemplateName :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersTemplateName =
-    lens _uersTemplateName (\s a -> s { _uersTemplateName = a })
+uerTemplateName :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerTemplateName = lens _uerTemplateName (\s a -> s { _uerTemplateName = a })
 
 -- | Describes this environment.
-uersDescription :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersDescription = lens _uersDescription (\s a -> s { _uersDescription = a })
+uerDescription :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerDescription = lens _uerDescription (\s a -> s { _uerDescription = a })
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
-uersEndpointURL :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersEndpointURL = lens _uersEndpointURL (\s a -> s { _uersEndpointURL = a })
+uerEndpointURL :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerEndpointURL = lens _uerEndpointURL (\s a -> s { _uerEndpointURL = a })
 
 -- | The URL to the CNAME for this environment.
-uersCNAME :: Lens' UpdateEnvironmentResponse (Maybe Text)
-uersCNAME = lens _uersCNAME (\s a -> s { _uersCNAME = a })
+uerCNAME :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerCNAME = lens _uerCNAME (\s a -> s { _uerCNAME = a })
 
 -- | The creation date for this environment.
-uersDateCreated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
-uersDateCreated = lens _uersDateCreated (\s a -> s { _uersDateCreated = a })
+uerDateCreated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
+uerDateCreated = lens _uerDateCreated (\s a -> s { _uerDateCreated = a })
 
 -- | The last modified date for this environment.
-uersDateUpdated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
-uersDateUpdated = lens _uersDateUpdated (\s a -> s { _uersDateUpdated = a })
+uerDateUpdated :: Lens' UpdateEnvironmentResponse (Maybe ISO8601)
+uerDateUpdated = lens _uerDateUpdated (\s a -> s { _uerDateUpdated = a })
 
 -- | The current operational status of the environment: Launching: Environment
 -- is in the process of initial deployment. Updating: Environment is in the
@@ -236,8 +234,8 @@ uersDateUpdated = lens _uersDateUpdated (\s a -> s { _uersDateUpdated = a })
 -- Ready: Environment is available to have an action performed on it, such as
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
-uersStatus :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentStatus)
-uersStatus = lens _uersStatus (\s a -> s { _uersStatus = a })
+uerStatus :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentStatus)
+uerStatus = lens _uerStatus (\s a -> s { _uerStatus = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment: Red : Indicates the
@@ -252,16 +250,16 @@ uersStatus = lens _uersStatus (\s a -> s { _uersStatus = a })
 -- not fully launched and health checks have not started or health checks are
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
-uersHealth :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentHealth)
-uersHealth = lens _uersHealth (\s a -> s { _uersHealth = a })
+uerHealth :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentHealth)
+uerHealth = lens _uerHealth (\s a -> s { _uerHealth = a })
 
 -- | The description of the AWS resources used by this environment.
-uersResources :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
-uersResources = lens _uersResources (\s a -> s { _uersResources = a })
+uerResources :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
+uerResources = lens _uerResources (\s a -> s { _uerResources = a })
 
 -- | Describes the current tier of this environment.
-uersTier :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentTier)
-uersTier = lens _uersTier (\s a -> s { _uersTier = a })
+uerTier :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentTier)
+uerTier = lens _uerTier (\s a -> s { _uerTier = a })
 
 instance FromXML UpdateEnvironmentResponse where
     fromXMLOptions = xmlOptions

@@ -36,8 +36,8 @@ module Network.AWS.SimpleDB.V2009_04_15.ListDomains
     -- * Response
     , ListDomainsResponse
     -- ** Response lenses
-    , ldrsDomainNames
-    , ldrsNextToken
+    , ldrDomainNames
+    , ldrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -72,18 +72,18 @@ instance ToQuery ListDomains where
     toQuery = genericQuery def
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrsDomainNames :: [Text]
-    , _ldrsNextToken :: Maybe Text
+    { _ldrDomainNames :: [Text]
+    , _ldrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of domain names that match the expression.
-ldrsDomainNames :: Lens' ListDomainsResponse [Text]
-ldrsDomainNames = lens _ldrsDomainNames (\s a -> s { _ldrsDomainNames = a })
+ldrDomainNames :: Lens' ListDomainsResponse [Text]
+ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
-ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s { _ldrsNextToken = a })
+ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
+ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
 instance FromXML ListDomainsResponse where
     fromXMLOptions = xmlOptions
@@ -97,4 +97,4 @@ instance AWSRequest ListDomains where
 
 instance AWSPager ListDomains where
     next rq rs = (\x -> rq & ldNextToken ?~ x)
-        <$> (rs ^. ldrsNextToken)
+        <$> (rs ^. ldrNextToken)

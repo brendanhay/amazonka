@@ -43,7 +43,7 @@ module Network.AWS.SQS.V2012_11_05.GetQueueUrl
     -- * Response
     , GetQueueUrlResponse
     -- ** Response lenses
-    , gqursQueueUrl
+    , gqurQueueUrl
     ) where
 
 import Network.AWS.Request.Query
@@ -81,12 +81,12 @@ instance ToQuery GetQueueUrl where
 
 -- | For more information, see Responses in the Amazon SQS Developer Guide.
 newtype GetQueueUrlResponse = GetQueueUrlResponse
-    { _gqursQueueUrl :: Maybe Text
+    { _gqurQueueUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The URL for the queue.
-gqursQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
-gqursQueueUrl = lens _gqursQueueUrl (\s a -> s { _gqursQueueUrl = a })
+gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
+gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
 
 instance FromXML GetQueueUrlResponse where
     fromXMLOptions = xmlOptions

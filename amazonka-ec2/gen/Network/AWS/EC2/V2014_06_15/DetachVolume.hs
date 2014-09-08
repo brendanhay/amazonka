@@ -52,12 +52,12 @@ module Network.AWS.EC2.V2014_06_15.DetachVolume
     -- * Response
     , DetachVolumeResponse
     -- ** Response lenses
-    , dvrs1VolumeId
-    , dvrs1InstanceId
-    , dvrs1Device
-    , dvrs1State
-    , dvrs1AttachTime
-    , dvrs1DeleteOnTermination
+    , dvr1VolumeId
+    , dvr1InstanceId
+    , dvr1Device
+    , dvr1State
+    , dvr1AttachTime
+    , dvr1DeleteOnTermination
     ) where
 
 import Network.AWS.Request.Query
@@ -110,39 +110,39 @@ instance ToQuery DetachVolume where
 
 -- | 
 data DetachVolumeResponse = DetachVolumeResponse
-    { _dvrs1VolumeId :: Maybe Text
-    , _dvrs1InstanceId :: Maybe Text
-    , _dvrs1Device :: Maybe Text
-    , _dvrs1State :: Maybe VolumeAttachmentState
-    , _dvrs1AttachTime :: Maybe ISO8601
-    , _dvrs1DeleteOnTermination :: Maybe Bool
+    { _dvr1VolumeId :: Maybe Text
+    , _dvr1InstanceId :: Maybe Text
+    , _dvr1Device :: Maybe Text
+    , _dvr1State :: Maybe VolumeAttachmentState
+    , _dvr1AttachTime :: Maybe ISO8601
+    , _dvr1DeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-dvrs1VolumeId :: Lens' DetachVolumeResponse (Maybe Text)
-dvrs1VolumeId = lens _dvrs1VolumeId (\s a -> s { _dvrs1VolumeId = a })
+dvr1VolumeId :: Lens' DetachVolumeResponse (Maybe Text)
+dvr1VolumeId = lens _dvr1VolumeId (\s a -> s { _dvr1VolumeId = a })
 
 -- | The ID of the instance.
-dvrs1InstanceId :: Lens' DetachVolumeResponse (Maybe Text)
-dvrs1InstanceId = lens _dvrs1InstanceId (\s a -> s { _dvrs1InstanceId = a })
+dvr1InstanceId :: Lens' DetachVolumeResponse (Maybe Text)
+dvr1InstanceId = lens _dvr1InstanceId (\s a -> s { _dvr1InstanceId = a })
 
 -- | The device name.
-dvrs1Device :: Lens' DetachVolumeResponse (Maybe Text)
-dvrs1Device = lens _dvrs1Device (\s a -> s { _dvrs1Device = a })
+dvr1Device :: Lens' DetachVolumeResponse (Maybe Text)
+dvr1Device = lens _dvr1Device (\s a -> s { _dvr1Device = a })
 
 -- | The attachment state of the volume.
-dvrs1State :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
-dvrs1State = lens _dvrs1State (\s a -> s { _dvrs1State = a })
+dvr1State :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
+dvr1State = lens _dvr1State (\s a -> s { _dvr1State = a })
 
 -- | The time stamp when the attachment initiated.
-dvrs1AttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)
-dvrs1AttachTime = lens _dvrs1AttachTime (\s a -> s { _dvrs1AttachTime = a })
+dvr1AttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)
+dvr1AttachTime = lens _dvr1AttachTime (\s a -> s { _dvr1AttachTime = a })
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-dvrs1DeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
-dvrs1DeleteOnTermination =
-    lens _dvrs1DeleteOnTermination
-         (\s a -> s { _dvrs1DeleteOnTermination = a })
+dvr1DeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
+dvr1DeleteOnTermination =
+    lens _dvr1DeleteOnTermination
+         (\s a -> s { _dvr1DeleteOnTermination = a })
 
 instance FromXML DetachVolumeResponse where
     fromXMLOptions = xmlOptions

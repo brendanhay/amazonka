@@ -53,7 +53,7 @@ module Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
     -- ** Response lenses
-    , priorsReservedInstancesId
+    , priorReservedInstancesId
     ) where
 
 import Network.AWS.Request.Query
@@ -100,14 +100,14 @@ instance ToQuery PurchaseReservedInstancesOffering where
 
 -- | 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
-    { _priorsReservedInstancesId :: Maybe Text
+    { _priorReservedInstancesId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The IDs of the purchased Reserved Instances.
-priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
-priorsReservedInstancesId =
-    lens _priorsReservedInstancesId
-         (\s a -> s { _priorsReservedInstancesId = a })
+priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
+priorReservedInstancesId =
+    lens _priorReservedInstancesId
+         (\s a -> s { _priorReservedInstancesId = a })
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where
     fromXMLOptions = xmlOptions

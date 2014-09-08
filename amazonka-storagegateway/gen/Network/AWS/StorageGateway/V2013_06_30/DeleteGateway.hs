@@ -54,7 +54,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteGateway
     -- * Response
     , DeleteGatewayResponse
     -- ** Response lenses
-    , dgrsGatewayARN
+    , dgrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -89,13 +89,13 @@ instance ToJSON DeleteGateway
 
 -- | A JSON object containing the of the deleted gateway.
 newtype DeleteGatewayResponse = DeleteGatewayResponse
-    { _dgrsGatewayARN :: Maybe Text
+    { _dgrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
-dgrsGatewayARN = lens _dgrsGatewayARN (\s a -> s { _dgrsGatewayARN = a })
+dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
+dgrGatewayARN = lens _dgrGatewayARN (\s a -> s { _dgrGatewayARN = a })
 
 instance FromJSON DeleteGatewayResponse
 

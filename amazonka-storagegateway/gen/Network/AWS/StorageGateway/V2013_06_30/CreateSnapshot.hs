@@ -58,8 +58,8 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot
     -- * Response
     , CreateSnapshotResponse
     -- ** Response lenses
-    , csrsVolumeARN
-    , csrsSnapshotId
+    , csrVolumeARN
+    , csrSnapshotId
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -105,21 +105,21 @@ instance ToJSON CreateSnapshot
 
 -- | A JSON object containing the following fields:.
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _csrsVolumeARN :: Maybe Text
-    , _csrsSnapshotId :: Maybe Text
+    { _csrVolumeARN :: Maybe Text
+    , _csrSnapshotId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.
-csrsVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
-csrsVolumeARN = lens _csrsVolumeARN (\s a -> s { _csrsVolumeARN = a })
+csrVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
+csrVolumeARN = lens _csrVolumeARN (\s a -> s { _csrVolumeARN = a })
 
 -- | The snapshot ID that is used to refer to the snapshot in future operations
 -- such as describing snapshots (Amazon Elastic Compute Cloud API
 -- DescribeSnapshots) or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume).
-csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-csrsSnapshotId = lens _csrsSnapshotId (\s a -> s { _csrsSnapshotId = a })
+csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
+csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 
 instance FromJSON CreateSnapshotResponse
 

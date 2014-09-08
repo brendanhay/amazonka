@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.V2013_06_30.StartGateway
     -- * Response
     , StartGatewayResponse
     -- ** Response lenses
-    , sgrsrsGatewayARN
+    , sgrrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -85,14 +85,13 @@ instance ToJSON StartGateway
 
 -- | A JSON object containing the of the gateway that was restarted.
 newtype StartGatewayResponse = StartGatewayResponse
-    { _sgrsrsGatewayARN :: Maybe Text
+    { _sgrrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-sgrsrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-sgrsrsGatewayARN =
-    lens _sgrsrsGatewayARN (\s a -> s { _sgrsrsGatewayARN = a })
+sgrrGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
+sgrrGatewayARN = lens _sgrrGatewayARN (\s a -> s { _sgrrGatewayARN = a })
 
 instance FromJSON StartGatewayResponse
 

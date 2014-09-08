@@ -97,13 +97,13 @@ module Network.AWS.SWF.V2012_01_25.PollForDecisionTask
     -- * Response
     , PollForDecisionTaskResponse
     -- ** Response lenses
-    , pfdtrsTaskToken
-    , pfdtrsStartedEventId
-    , pfdtrsWorkflowExecution
-    , pfdtrsWorkflowType
-    , pfdtrsEvents
-    , pfdtrsNextPageToken
-    , pfdtrsPreviousStartedEventId
+    , pfdtrTaskToken
+    , pfdtrStartedEventId
+    , pfdtrWorkflowExecution
+    , pfdtrWorkflowType
+    , pfdtrEvents
+    , pfdtrNextPageToken
+    , pfdtrPreviousStartedEventId
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -191,58 +191,57 @@ instance ToJSON PollForDecisionTask
 -- | A structure that represents a decision task. Decision tasks are sent to
 -- deciders in order for them to make decisions.
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse
-    { _pfdtrsTaskToken :: Text
-    , _pfdtrsStartedEventId :: Integer
-    , _pfdtrsWorkflowExecution :: WorkflowExecution
-    , _pfdtrsWorkflowType :: WorkflowType
-    , _pfdtrsEvents :: [HistoryEvent]
-    , _pfdtrsNextPageToken :: Maybe Text
-    , _pfdtrsPreviousStartedEventId :: Maybe Integer
+    { _pfdtrTaskToken :: Text
+    , _pfdtrStartedEventId :: Integer
+    , _pfdtrWorkflowExecution :: WorkflowExecution
+    , _pfdtrWorkflowType :: WorkflowType
+    , _pfdtrEvents :: [HistoryEvent]
+    , _pfdtrNextPageToken :: Maybe Text
+    , _pfdtrPreviousStartedEventId :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system
 -- about the task.
-pfdtrsTaskToken :: Lens' PollForDecisionTaskResponse Text
-pfdtrsTaskToken = lens _pfdtrsTaskToken (\s a -> s { _pfdtrsTaskToken = a })
+pfdtrTaskToken :: Lens' PollForDecisionTaskResponse Text
+pfdtrTaskToken = lens _pfdtrTaskToken (\s a -> s { _pfdtrTaskToken = a })
 
 -- | The id of the DecisionTaskStarted event recorded in the history.
-pfdtrsStartedEventId :: Lens' PollForDecisionTaskResponse Integer
-pfdtrsStartedEventId =
-    lens _pfdtrsStartedEventId (\s a -> s { _pfdtrsStartedEventId = a })
+pfdtrStartedEventId :: Lens' PollForDecisionTaskResponse Integer
+pfdtrStartedEventId =
+    lens _pfdtrStartedEventId (\s a -> s { _pfdtrStartedEventId = a })
 
 -- | The workflow execution for which this decision task was created.
-pfdtrsWorkflowExecution :: Lens' PollForDecisionTaskResponse WorkflowExecution
-pfdtrsWorkflowExecution =
-    lens _pfdtrsWorkflowExecution
-         (\s a -> s { _pfdtrsWorkflowExecution = a })
+pfdtrWorkflowExecution :: Lens' PollForDecisionTaskResponse WorkflowExecution
+pfdtrWorkflowExecution =
+    lens _pfdtrWorkflowExecution (\s a -> s { _pfdtrWorkflowExecution = a })
 
 -- | The type of the workflow execution for which this decision task was
 -- created.
-pfdtrsWorkflowType :: Lens' PollForDecisionTaskResponse WorkflowType
-pfdtrsWorkflowType =
-    lens _pfdtrsWorkflowType (\s a -> s { _pfdtrsWorkflowType = a })
+pfdtrWorkflowType :: Lens' PollForDecisionTaskResponse WorkflowType
+pfdtrWorkflowType =
+    lens _pfdtrWorkflowType (\s a -> s { _pfdtrWorkflowType = a })
 
 -- | A paginated list of history events of the workflow execution. The decider
 -- uses this during the processing of the decision task.
-pfdtrsEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
-pfdtrsEvents = lens _pfdtrsEvents (\s a -> s { _pfdtrsEvents = a })
+pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
+pfdtrEvents = lens _pfdtrEvents (\s a -> s { _pfdtrEvents = a })
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
-pfdtrsNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
-pfdtrsNextPageToken =
-    lens _pfdtrsNextPageToken (\s a -> s { _pfdtrsNextPageToken = a })
+pfdtrNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
+pfdtrNextPageToken =
+    lens _pfdtrNextPageToken (\s a -> s { _pfdtrNextPageToken = a })
 
 -- | The id of the DecisionTaskStarted event of the previous decision task of
 -- this workflow execution that was processed by the decider. This can be used
 -- to determine the events in the history new since the last decision task
 -- received by the decider.
-pfdtrsPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
-pfdtrsPreviousStartedEventId =
-    lens _pfdtrsPreviousStartedEventId
-         (\s a -> s { _pfdtrsPreviousStartedEventId = a })
+pfdtrPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
+pfdtrPreviousStartedEventId =
+    lens _pfdtrPreviousStartedEventId
+         (\s a -> s { _pfdtrPreviousStartedEventId = a })
 
 instance FromJSON PollForDecisionTaskResponse
 
@@ -255,4 +254,4 @@ instance AWSRequest PollForDecisionTask where
 
 instance AWSPager PollForDecisionTask where
     next rq rs = (\x -> rq & pfdtNextPageToken ?~ x)
-        <$> (rs ^. pfdtrsNextPageToken)
+        <$> (rs ^. pfdtrNextPageToken)

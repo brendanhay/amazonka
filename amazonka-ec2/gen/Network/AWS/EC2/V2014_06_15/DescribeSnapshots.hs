@@ -71,7 +71,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response lenses
-    , dsrsSnapshots
+    , dsrSnapshots
     ) where
 
 import Network.AWS.Request.Query
@@ -136,12 +136,12 @@ instance ToQuery DescribeSnapshots where
 
 -- | 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsrsSnapshots :: [Snapshot]
+    { _dsrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 
 -- | 
-dsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrsSnapshots = lens _dsrsSnapshots (\s a -> s { _dsrsSnapshots = a })
+dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
 
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions

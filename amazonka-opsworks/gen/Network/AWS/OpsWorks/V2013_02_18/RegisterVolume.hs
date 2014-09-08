@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.V2013_02_18.RegisterVolume
     -- * Response
     , RegisterVolumeResponse
     -- ** Response lenses
-    , rvrsVolumeId
+    , rvrVolumeId
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -76,12 +76,12 @@ instance ToJSON RegisterVolume
 
 -- | Contains the response to a RegisterVolume request.
 newtype RegisterVolumeResponse = RegisterVolumeResponse
-    { _rvrsVolumeId :: Maybe Text
+    { _rvrVolumeId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The volume ID.
-rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
-rvrsVolumeId = lens _rvrsVolumeId (\s a -> s { _rvrsVolumeId = a })
+rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
+rvrVolumeId = lens _rvrVolumeId (\s a -> s { _rvrVolumeId = a })
 
 instance FromJSON RegisterVolumeResponse
 

@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup
     -- * Response
     , TerminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
-    , tiiasgrsActivity
+    , tiiasgrActivity
     ) where
 
 import Network.AWS.Request.Query
@@ -73,13 +73,12 @@ instance ToQuery TerminateInstanceInAutoScalingGroup where
 
 -- | The output for the TerminateInstanceInAutoScalingGroup action.
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
-    { _tiiasgrsActivity :: Maybe Activity
+    { _tiiasgrActivity :: Maybe Activity
     } deriving (Show, Generic)
 
 -- | A scaling Activity.
-tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
-tiiasgrsActivity =
-    lens _tiiasgrsActivity (\s a -> s { _tiiasgrsActivity = a })
+tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
+tiiasgrActivity = lens _tiiasgrActivity (\s a -> s { _tiiasgrActivity = a })
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions

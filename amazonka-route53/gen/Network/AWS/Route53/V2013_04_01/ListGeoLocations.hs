@@ -32,12 +32,12 @@ module Network.AWS.Route53.V2013_04_01.ListGeoLocations
     -- * Response
     , ListGeoLocationsResponse
     -- ** Response lenses
-    , lglrsGeoLocationDetailsList
-    , lglrsIsTruncated
-    , lglrsNextContinentCode
-    , lglrsNextCountryCode
-    , lglrsNextSubdivisionCode
-    , lglrsMaxItems
+    , lglrGeoLocationDetailsList
+    , lglrIsTruncated
+    , lglrNextContinentCode
+    , lglrNextCountryCode
+    , lglrNextSubdivisionCode
+    , lglrMaxItems
     ) where
 
 import Network.AWS.Request.RestXML
@@ -112,20 +112,20 @@ instance ToXML ListGeoLocations where
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request and information about the response.
 data ListGeoLocationsResponse = ListGeoLocationsResponse
-    { _lglrsGeoLocationDetailsList :: [GeoLocationDetails]
-    , _lglrsIsTruncated :: Bool
-    , _lglrsNextContinentCode :: Maybe Text
-    , _lglrsNextCountryCode :: Maybe Text
-    , _lglrsNextSubdivisionCode :: Maybe Text
-    , _lglrsMaxItems :: Text
+    { _lglrGeoLocationDetailsList :: [GeoLocationDetails]
+    , _lglrIsTruncated :: Bool
+    , _lglrNextContinentCode :: Maybe Text
+    , _lglrNextCountryCode :: Maybe Text
+    , _lglrNextSubdivisionCode :: Maybe Text
+    , _lglrMaxItems :: Text
     } deriving (Show, Generic)
 
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request.
-lglrsGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
-lglrsGeoLocationDetailsList =
-    lens _lglrsGeoLocationDetailsList
-         (\s a -> s { _lglrsGeoLocationDetailsList = a })
+lglrGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
+lglrGeoLocationDetailsList =
+    lens _lglrGeoLocationDetailsList
+         (\s a -> s { _lglrGeoLocationDetailsList = a })
 
 -- | A flag that indicates whether there are more geo locations to be listed. If
 -- your results were truncated, you can make a follow-up request for the next
@@ -134,39 +134,38 @@ lglrsGeoLocationDetailsList =
 -- ListGeoLocationsResponse$NextCountryCode and
 -- ListGeoLocationsResponse$NextSubdivisionCode elements. Valid Values: true |
 -- false.
-lglrsIsTruncated :: Lens' ListGeoLocationsResponse Bool
-lglrsIsTruncated =
-    lens _lglrsIsTruncated (\s a -> s { _lglrsIsTruncated = a })
+lglrIsTruncated :: Lens' ListGeoLocationsResponse Bool
+lglrIsTruncated = lens _lglrIsTruncated (\s a -> s { _lglrIsTruncated = a })
 
 -- | If the results were truncated, the continent code of the next geo location
 -- in the list. This element is present only if
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
 -- list is a continent location.
-lglrsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglrsNextContinentCode =
-    lens _lglrsNextContinentCode (\s a -> s { _lglrsNextContinentCode = a })
+lglrNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
+lglrNextContinentCode =
+    lens _lglrNextContinentCode (\s a -> s { _lglrNextContinentCode = a })
 
 -- | If the results were truncated, the country code of the next geo location in
 -- the list. This element is present only if
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
 -- list is not a continent location.
-lglrsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglrsNextCountryCode =
-    lens _lglrsNextCountryCode (\s a -> s { _lglrsNextCountryCode = a })
+lglrNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
+lglrNextCountryCode =
+    lens _lglrNextCountryCode (\s a -> s { _lglrNextCountryCode = a })
 
 -- | If the results were truncated, the subdivision code of the next geo
 -- location in the list. This element is present only if
 -- ListGeoLocationsResponse$IsTruncated is true and the next geo location has
 -- a subdivision.
-lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglrsNextSubdivisionCode =
-    lens _lglrsNextSubdivisionCode
-         (\s a -> s { _lglrsNextSubdivisionCode = a })
+lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
+lglrNextSubdivisionCode =
+    lens _lglrNextSubdivisionCode
+         (\s a -> s { _lglrNextSubdivisionCode = a })
 
 -- | The maximum number of records you requested. The maximum value of MaxItems
 -- is 100.
-lglrsMaxItems :: Lens' ListGeoLocationsResponse Text
-lglrsMaxItems = lens _lglrsMaxItems (\s a -> s { _lglrsMaxItems = a })
+lglrMaxItems :: Lens' ListGeoLocationsResponse Text
+lglrMaxItems = lens _lglrMaxItems (\s a -> s { _lglrMaxItems = a })
 
 instance FromXML ListGeoLocationsResponse where
     fromXMLOptions = xmlOptions

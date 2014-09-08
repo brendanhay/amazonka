@@ -54,7 +54,7 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow
     -- * Response
     , UpdateGatewaySoftwareNowResponse
     -- ** Response lenses
-    , ugsnrsGatewayARN
+    , ugsnrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -89,14 +89,13 @@ instance ToJSON UpdateGatewaySoftwareNow
 
 -- | A JSON object containing the of the gateway that was updated.
 newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
-    { _ugsnrsGatewayARN :: Maybe Text
+    { _ugsnrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
-ugsnrsGatewayARN =
-    lens _ugsnrsGatewayARN (\s a -> s { _ugsnrsGatewayARN = a })
+ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
+ugsnrGatewayARN = lens _ugsnrGatewayARN (\s a -> s { _ugsnrGatewayARN = a })
 
 instance FromJSON UpdateGatewaySoftwareNowResponse
 

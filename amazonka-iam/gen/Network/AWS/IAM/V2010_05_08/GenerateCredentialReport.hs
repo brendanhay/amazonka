@@ -29,8 +29,8 @@ module Network.AWS.IAM.V2010_05_08.GenerateCredentialReport
     -- * Response
     , GenerateCredentialReportResponse
     -- ** Response lenses
-    , gcrrsState
-    , gcrrsDescription
+    , gcrrState
+    , gcrrDescription
     ) where
 
 import Network.AWS.Request.Query
@@ -51,18 +51,17 @@ instance ToQuery GenerateCredentialReport where
 -- | Contains the result of a successful invocation of the
 -- GenerateCredentialReport action.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
-    { _gcrrsState :: Maybe ReportStateType
-    , _gcrrsDescription :: Maybe Text
+    { _gcrrState :: Maybe ReportStateType
+    , _gcrrDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Information about the state of a credential report.
-gcrrsState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
-gcrrsState = lens _gcrrsState (\s a -> s { _gcrrsState = a })
+gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
+gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
 
 -- | Information about the credential report.
-gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
-gcrrsDescription =
-    lens _gcrrsDescription (\s a -> s { _gcrrsDescription = a })
+gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
+gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
 
 instance FromXML GenerateCredentialReportResponse where
     fromXMLOptions = xmlOptions

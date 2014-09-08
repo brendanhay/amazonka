@@ -39,7 +39,7 @@ module Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses
     -- * Response
     , ListVerifiedEmailAddressesResponse
     -- ** Response lenses
-    , lvearsVerifiedEmailAddresses
+    , lvearVerifiedEmailAddresses
     ) where
 
 import Network.AWS.Request.Query
@@ -59,14 +59,14 @@ instance ToQuery ListVerifiedEmailAddresses where
 
 -- | Represents a list of all the email addresses verified for the current user.
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
-    { _lvearsVerifiedEmailAddresses :: [Text]
+    { _lvearVerifiedEmailAddresses :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of email addresses that have been verified.
-lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
-lvearsVerifiedEmailAddresses =
-    lens _lvearsVerifiedEmailAddresses
-         (\s a -> s { _lvearsVerifiedEmailAddresses = a })
+lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
+lvearVerifiedEmailAddresses =
+    lens _lvearVerifiedEmailAddresses
+         (\s a -> s { _lvearVerifiedEmailAddresses = a })
 
 instance FromXML ListVerifiedEmailAddressesResponse where
     fromXMLOptions = xmlOptions

@@ -34,8 +34,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeEventSubscriptions
     -- * Response
     , DescribeEventSubscriptionsResponse
     -- ** Response lenses
-    , desrsMarker
-    , desrsEventSubscriptionsList
+    , desrMarker
+    , desrEventSubscriptionsList
     ) where
 
 import Network.AWS.Request.Query
@@ -86,8 +86,8 @@ instance ToQuery DescribeEventSubscriptions where
 
 -- | 
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrsMarker :: Maybe Text
-    , _desrsEventSubscriptionsList :: [EventSubscription]
+    { _desrMarker :: Maybe Text
+    , _desrEventSubscriptionsList :: [EventSubscription]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -95,14 +95,14 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrsMarker = lens _desrsMarker (\s a -> s { _desrsMarker = a })
+desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 
 -- | A list of event subscriptions.
-desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrsEventSubscriptionsList =
-    lens _desrsEventSubscriptionsList
-         (\s a -> s { _desrsEventSubscriptionsList = a })
+desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrEventSubscriptionsList =
+    lens _desrEventSubscriptionsList
+         (\s a -> s { _desrEventSubscriptionsList = a })
 
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions
@@ -116,4 +116,4 @@ instance AWSRequest DescribeEventSubscriptions where
 
 instance AWSPager DescribeEventSubscriptions where
     next rq rs = (\x -> rq & des1Marker ?~ x)
-        <$> (rs ^. desrsMarker)
+        <$> (rs ^. desrMarker)

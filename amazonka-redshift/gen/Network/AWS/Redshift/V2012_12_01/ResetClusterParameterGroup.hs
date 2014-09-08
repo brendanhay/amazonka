@@ -44,8 +44,8 @@ module Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup
     -- * Response
     , ResetClusterParameterGroupResponse
     -- ** Response lenses
-    , rcpgrsParameterGroupName
-    , rcpgrsParameterGroupStatus
+    , rcpgrParameterGroupName
+    , rcpgrParameterGroupStatus
     ) where
 
 import Network.AWS.Request.Query
@@ -93,23 +93,23 @@ instance ToQuery ResetClusterParameterGroup where
 -- ResetClusterParameterGroup actions and indicate the parameter group
 -- involved and the status of the operation on the parameter group.
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
-    { _rcpgrsParameterGroupName :: Maybe Text
-    , _rcpgrsParameterGroupStatus :: Maybe Text
+    { _rcpgrParameterGroupName :: Maybe Text
+    , _rcpgrParameterGroupStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the cluster parameter group.
-rcpgrsParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
-rcpgrsParameterGroupName =
-    lens _rcpgrsParameterGroupName
-         (\s a -> s { _rcpgrsParameterGroupName = a })
+rcpgrParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
+rcpgrParameterGroupName =
+    lens _rcpgrParameterGroupName
+         (\s a -> s { _rcpgrParameterGroupName = a })
 
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot
 -- of an associated cluster.
-rcpgrsParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
-rcpgrsParameterGroupStatus =
-    lens _rcpgrsParameterGroupStatus
-         (\s a -> s { _rcpgrsParameterGroupStatus = a })
+rcpgrParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
+rcpgrParameterGroupStatus =
+    lens _rcpgrParameterGroupStatus
+         (\s a -> s { _rcpgrParameterGroupStatus = a })
 
 instance FromXML ResetClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

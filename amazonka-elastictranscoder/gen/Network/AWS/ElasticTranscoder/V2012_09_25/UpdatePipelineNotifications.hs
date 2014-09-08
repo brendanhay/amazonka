@@ -51,7 +51,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications
     -- * Response
     , UpdatePipelineNotificationsResponse
     -- ** Response lenses
-    , upnrsPipeline
+    , upnrPipeline
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -113,13 +113,13 @@ instance ToJSON UpdatePipelineNotifications
 
 -- | The UpdatePipelineNotificationsResponse structure.
 newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
-    { _upnrsPipeline :: Maybe Pipeline
+    { _upnrPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
-upnrsPipeline = lens _upnrsPipeline (\s a -> s { _upnrsPipeline = a })
+upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
+upnrPipeline = lens _upnrPipeline (\s a -> s { _upnrPipeline = a })
 
 instance FromJSON UpdatePipelineNotificationsResponse
 

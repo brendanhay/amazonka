@@ -45,7 +45,7 @@ module Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation
     -- * Response
     , ReplaceNetworkAclAssociationResponse
     -- ** Response lenses
-    , rnaarsNewAssociationId
+    , rnaarNewAssociationId
     ) where
 
 import Network.AWS.Request.Query
@@ -84,13 +84,13 @@ instance ToQuery ReplaceNetworkAclAssociation where
 
 -- | 
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
-    { _rnaarsNewAssociationId :: Maybe Text
+    { _rnaarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new association.
-rnaarsNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
-rnaarsNewAssociationId =
-    lens _rnaarsNewAssociationId (\s a -> s { _rnaarsNewAssociationId = a })
+rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
+rnaarNewAssociationId =
+    lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })
 
 instance FromXML ReplaceNetworkAclAssociationResponse where
     fromXMLOptions = xmlOptions

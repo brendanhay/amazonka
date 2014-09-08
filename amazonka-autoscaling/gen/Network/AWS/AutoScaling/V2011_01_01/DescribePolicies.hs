@@ -46,8 +46,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribePolicies
     -- * Response
     , DescribePoliciesResponse
     -- ** Response lenses
-    , dprsScalingPolicies
-    , dprsNextToken
+    , dprScalingPolicies
+    , dprNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -100,18 +100,18 @@ instance ToQuery DescribePolicies where
 
 -- | The PoliciesType data type.
 data DescribePoliciesResponse = DescribePoliciesResponse
-    { _dprsScalingPolicies :: [ScalingPolicy]
-    , _dprsNextToken :: Maybe Text
+    { _dprScalingPolicies :: [ScalingPolicy]
+    , _dprNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of scaling policies.
-dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
-dprsScalingPolicies =
-    lens _dprsScalingPolicies (\s a -> s { _dprsScalingPolicies = a })
+dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
+dprScalingPolicies =
+    lens _dprScalingPolicies (\s a -> s { _dprScalingPolicies = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dprsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
-dprsNextToken = lens _dprsNextToken (\s a -> s { _dprsNextToken = a })
+dprNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
+dprNextToken = lens _dprNextToken (\s a -> s { _dprNextToken = a })
 
 instance FromXML DescribePoliciesResponse where
     fromXMLOptions = xmlOptions
@@ -125,4 +125,4 @@ instance AWSRequest DescribePolicies where
 
 instance AWSPager DescribePolicies where
     next rq rs = (\x -> rq & dp1NextToken ?~ x)
-        <$> (rs ^. dprsNextToken)
+        <$> (rs ^. dprNextToken)

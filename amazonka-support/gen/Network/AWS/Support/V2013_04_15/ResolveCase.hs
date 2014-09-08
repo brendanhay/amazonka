@@ -31,8 +31,8 @@ module Network.AWS.Support.V2013_04_15.ResolveCase
     -- * Response
     , ResolveCaseResponse
     -- ** Response lenses
-    , rcrsInitialCaseStatus
-    , rcrsFinalCaseStatus
+    , rcrInitialCaseStatus
+    , rcrFinalCaseStatus
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -67,19 +67,19 @@ instance ToJSON ResolveCase
 
 -- | The status of the case returned by the ResolveCase operation.
 data ResolveCaseResponse = ResolveCaseResponse
-    { _rcrsInitialCaseStatus :: Maybe Text
-    , _rcrsFinalCaseStatus :: Maybe Text
+    { _rcrInitialCaseStatus :: Maybe Text
+    , _rcrFinalCaseStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The status of the case when the ResolveCase request was sent.
-rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrsInitialCaseStatus =
-    lens _rcrsInitialCaseStatus (\s a -> s { _rcrsInitialCaseStatus = a })
+rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrInitialCaseStatus =
+    lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })
 
 -- | The status of the case after the ResolveCase request was processed.
-rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrsFinalCaseStatus =
-    lens _rcrsFinalCaseStatus (\s a -> s { _rcrsFinalCaseStatus = a })
+rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrFinalCaseStatus =
+    lens _rcrFinalCaseStatus (\s a -> s { _rcrFinalCaseStatus = a })
 
 instance FromJSON ResolveCaseResponse
 

@@ -82,7 +82,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings
     -- * Response
     , DescribeConfigurationSettingsResponse
     -- ** Response lenses
-    , dcsrsConfigurationSettings
+    , dcsrConfigurationSettings
     ) where
 
 import Network.AWS.Request.Query
@@ -135,14 +135,14 @@ instance ToQuery DescribeConfigurationSettings where
 -- | The results from a request to change the configuration settings of an
 -- environment.
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
-    { _dcsrsConfigurationSettings :: [ConfigurationSettingsDescription]
+    { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
     } deriving (Show, Generic)
 
 -- | A list of ConfigurationSettingsDescription.
-dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
-dcsrsConfigurationSettings =
-    lens _dcsrsConfigurationSettings
-         (\s a -> s { _dcsrsConfigurationSettings = a })
+dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
+dcsrConfigurationSettings =
+    lens _dcsrConfigurationSettings
+         (\s a -> s { _dcsrConfigurationSettings = a })
 
 instance FromXML DescribeConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions

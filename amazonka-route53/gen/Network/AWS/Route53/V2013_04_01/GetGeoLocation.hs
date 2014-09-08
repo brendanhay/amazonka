@@ -31,7 +31,7 @@ module Network.AWS.Route53.V2013_04_01.GetGeoLocation
     -- * Response
     , GetGeoLocationResponse
     -- ** Response lenses
-    , gglrsGeoLocationDetails
+    , gglrGeoLocationDetails
     ) where
 
 import Network.AWS.Request.RestXML
@@ -97,15 +97,14 @@ instance ToXML GetGeoLocation where
 
 -- | A complex type containing information about the specified geo location.
 newtype GetGeoLocationResponse = GetGeoLocationResponse
-    { _gglrsGeoLocationDetails :: GeoLocationDetails
+    { _gglrGeoLocationDetails :: GeoLocationDetails
     } deriving (Show, Generic)
 
 -- | A complex type that contains the information about the specified geo
 -- location.
-gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
-gglrsGeoLocationDetails =
-    lens _gglrsGeoLocationDetails
-         (\s a -> s { _gglrsGeoLocationDetails = a })
+gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
+gglrGeoLocationDetails =
+    lens _gglrGeoLocationDetails (\s a -> s { _gglrGeoLocationDetails = a })
 
 instance FromXML GetGeoLocationResponse where
     fromXMLOptions = xmlOptions

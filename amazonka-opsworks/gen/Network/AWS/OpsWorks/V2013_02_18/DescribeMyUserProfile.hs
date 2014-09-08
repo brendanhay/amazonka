@@ -30,7 +30,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile
     -- * Response
     , DescribeMyUserProfileResponse
     -- ** Response lenses
-    , dmuprsUserProfile
+    , dmuprUserProfile
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -55,13 +55,13 @@ instance ToJSON DescribeMyUserProfile
 
 -- | Contains the response to a DescribeMyUserProfile request.
 newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
-    { _dmuprsUserProfile :: Maybe SelfUserProfile
+    { _dmuprUserProfile :: Maybe SelfUserProfile
     } deriving (Show, Generic)
 
 -- | A UserProfile object that describes the user's SSH information.
-dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprsUserProfile =
-    lens _dmuprsUserProfile (\s a -> s { _dmuprsUserProfile = a })
+dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
+dmuprUserProfile =
+    lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
 
 instance FromJSON DescribeMyUserProfileResponse
 

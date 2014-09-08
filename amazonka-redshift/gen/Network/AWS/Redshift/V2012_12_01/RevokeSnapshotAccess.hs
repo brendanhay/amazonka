@@ -36,7 +36,7 @@ module Network.AWS.Redshift.V2012_12_01.RevokeSnapshotAccess
     -- * Response
     , RevokeSnapshotAccessResponse
     -- ** Response lenses
-    , rsarsSnapshot
+    , rsarSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -85,12 +85,12 @@ instance ToQuery RevokeSnapshotAccess where
     toQuery = genericQuery def
 
 newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
-    { _rsarsSnapshot :: Maybe Snapshot
+    { _rsarSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
-rsarsSnapshot = lens _rsarsSnapshot (\s a -> s { _rsarsSnapshot = a })
+rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
+rsarSnapshot = lens _rsarSnapshot (\s a -> s { _rsarSnapshot = a })
 
 instance FromXML RevokeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions

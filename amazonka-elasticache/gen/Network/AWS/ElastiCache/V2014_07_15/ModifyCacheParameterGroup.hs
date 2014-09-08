@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup
     -- * Response
     , ModifyCacheParameterGroupResponse
     -- ** Response lenses
-    , mcpgrsCacheParameterGroupName
+    , mcpgrCacheParameterGroupName
     ) where
 
 import Network.AWS.Request.Query
@@ -84,14 +84,14 @@ instance ToQuery ModifyCacheParameterGroup where
 -- | Represents the output of one of the following operations:
 -- ModifyCacheParameterGroup ResetCacheParameterGroup.
 newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
-    { _mcpgrsCacheParameterGroupName :: Maybe Text
+    { _mcpgrCacheParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the cache parameter group.
-mcpgrsCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe Text)
-mcpgrsCacheParameterGroupName =
-    lens _mcpgrsCacheParameterGroupName
-         (\s a -> s { _mcpgrsCacheParameterGroupName = a })
+mcpgrCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe Text)
+mcpgrCacheParameterGroupName =
+    lens _mcpgrCacheParameterGroupName
+         (\s a -> s { _mcpgrCacheParameterGroupName = a })
 
 instance FromXML ModifyCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions

@@ -30,7 +30,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketTagging
     -- * Response
     , GetBucketTaggingResponse
     -- ** Response lenses
-    , gbtrsTagSet
+    , gbtrTagSet
     ) where
 
 import Network.AWS.Request.RestS3
@@ -69,11 +69,11 @@ instance ToHeaders GetBucketTagging
 instance ToBody GetBucketTagging
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
-    { _gbtrsTagSet :: [Tag]
+    { _gbtrTagSet :: [Tag]
     } deriving (Show, Generic)
 
-gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrsTagSet = lens _gbtrsTagSet (\s a -> s { _gbtrsTagSet = a })
+gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
+gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
 
 instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions

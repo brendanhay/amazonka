@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.V2014_05_31.ListInvalidations
     -- * Response
     , ListInvalidationsResponse
     -- ** Response lenses
-    , lirsInvalidationList
+    , lirInvalidationList
     ) where
 
 import Network.AWS.Request.RestXML
@@ -97,13 +97,13 @@ instance ToXML ListInvalidations where
 
 -- | The returned result of the corresponding request.
 newtype ListInvalidationsResponse = ListInvalidationsResponse
-    { _lirsInvalidationList :: InvalidationList
+    { _lirInvalidationList :: InvalidationList
     } deriving (Show, Generic)
 
 -- | Information about invalidation batches.
-lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
-lirsInvalidationList =
-    lens _lirsInvalidationList (\s a -> s { _lirsInvalidationList = a })
+lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
+lirInvalidationList =
+    lens _lirInvalidationList (\s a -> s { _lirInvalidationList = a })
 
 instance FromXML ListInvalidationsResponse where
     fromXMLOptions = xmlOptions
@@ -117,6 +117,6 @@ instance AWSRequest ListInvalidations where
 
 instance AWSPager ListInvalidations where
     next rq rs
-        | not (rs ^. lirsInvalidationList . ilIsTruncated) = Nothing
+        | not (rs ^. lirInvalidationList . ilIsTruncated) = Nothing
         | otherwise = Just $
-            rq & liMarker .~ rs ^. lirsInvalidationList . ilNextMarker
+            rq & liMarker .~ rs ^. lirInvalidationList . ilNextMarker

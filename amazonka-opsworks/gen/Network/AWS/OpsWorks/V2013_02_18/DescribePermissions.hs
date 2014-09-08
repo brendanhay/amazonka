@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribePermissions
     -- * Response
     , DescribePermissionsResponse
     -- ** Response lenses
-    , dprsPermissions
+    , dprPermissions
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -73,7 +73,7 @@ instance ToJSON DescribePermissions
 
 -- | Contains the response to a DescribePermissions request.
 newtype DescribePermissionsResponse = DescribePermissionsResponse
-    { _dprsPermissions :: [Permission]
+    { _dprPermissions :: [Permission]
     } deriving (Show, Generic)
 
 -- | An array of Permission objects that describe the stack permissions. If the
@@ -83,8 +83,8 @@ newtype DescribePermissionsResponse = DescribePermissionsResponse
 -- with permissions for each of the user's stack IDs. If the request contains
 -- a stack ID and an IAM ARN, the array contains a single Permission object
 -- with permissions for the specified stack and IAM ARN.
-dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
-dprsPermissions = lens _dprsPermissions (\s a -> s { _dprsPermissions = a })
+dprPermissions :: Lens' DescribePermissionsResponse [Permission]
+dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a })
 
 instance FromJSON DescribePermissionsResponse
 

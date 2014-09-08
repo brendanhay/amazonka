@@ -51,7 +51,7 @@ module Network.AWS.RDS.V2013_09_09.AuthorizeDBSecurityGroupIngress
     -- * Response
     , AuthorizeDBSecurityGroupIngressResponse
     -- ** Response lenses
-    , adbsgirsDBSecurityGroup
+    , adbsgirDBSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -119,17 +119,16 @@ instance ToQuery AuthorizeDBSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
-    { _adbsgirsDBSecurityGroup :: Maybe DBSecurityGroup
+    { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- DescribeDBSecurityGroups AuthorizeDBSecurityGroupIngress
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
-adbsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
-adbsgirsDBSecurityGroup =
-    lens _adbsgirsDBSecurityGroup
-         (\s a -> s { _adbsgirsDBSecurityGroup = a })
+adbsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
+adbsgirDBSecurityGroup =
+    lens _adbsgirDBSecurityGroup (\s a -> s { _adbsgirDBSecurityGroup = a })
 
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

@@ -44,7 +44,7 @@ module Network.AWS.DynamoDB.V2012_08_10.DeleteTable
     -- * Response
     , DeleteTableResponse
     -- ** Response lenses
-    , dtrsTableDescription
+    , dtrTableDescription
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -78,13 +78,13 @@ instance ToJSON DeleteTable
 
 -- | Represents the output of a DeleteTable operation.
 newtype DeleteTableResponse = DeleteTableResponse
-    { _dtrsTableDescription :: Maybe TableDescription
+    { _dtrTableDescription :: Maybe TableDescription
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
-dtrsTableDescription =
-    lens _dtrsTableDescription (\s a -> s { _dtrsTableDescription = a })
+dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
+dtrTableDescription =
+    lens _dtrTableDescription (\s a -> s { _dtrTableDescription = a })
 
 instance FromJSON DeleteTableResponse
 

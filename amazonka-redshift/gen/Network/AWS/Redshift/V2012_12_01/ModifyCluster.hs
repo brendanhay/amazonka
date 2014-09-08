@@ -67,7 +67,7 @@ module Network.AWS.Redshift.V2012_12_01.ModifyCluster
     -- * Response
     , ModifyClusterResponse
     -- ** Response lenses
-    , mcrsCluster
+    , mcrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -268,12 +268,12 @@ instance ToQuery ModifyCluster where
     toQuery = genericQuery def
 
 newtype ModifyClusterResponse = ModifyClusterResponse
-    { _mcrsCluster :: Maybe Cluster
+    { _mcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
-mcrsCluster = lens _mcrsCluster (\s a -> s { _mcrsCluster = a })
+mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
+mcrCluster = lens _mcrCluster (\s a -> s { _mcrCluster = a })
 
 instance FromXML ModifyClusterResponse where
     fromXMLOptions = xmlOptions

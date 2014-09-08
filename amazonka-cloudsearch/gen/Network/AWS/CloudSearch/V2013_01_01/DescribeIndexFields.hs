@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeIndexFields
     -- * Response
     , DescribeIndexFieldsResponse
     -- ** Response lenses
-    , difrs1IndexFields
+    , difr1IndexFields
     ) where
 
 import Network.AWS.Request.Query
@@ -85,13 +85,13 @@ instance ToQuery DescribeIndexFields where
 -- | The result of a DescribeIndexFields request. Contains the index fields
 -- configured for the domain specified in the request.
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
-    { _difrs1IndexFields :: [IndexFieldStatus]
+    { _difr1IndexFields :: [IndexFieldStatus]
     } deriving (Show, Generic)
 
 -- | The index fields configured for the domain.
-difrs1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difrs1IndexFields =
-    lens _difrs1IndexFields (\s a -> s { _difrs1IndexFields = a })
+difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+difr1IndexFields =
+    lens _difr1IndexFields (\s a -> s { _difr1IndexFields = a })
 
 instance FromXML DescribeIndexFieldsResponse where
     fromXMLOptions = xmlOptions

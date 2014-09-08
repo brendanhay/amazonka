@@ -43,8 +43,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstancesOfferings
     -- * Response
     , DescribeReservedDBInstancesOfferingsResponse
     -- ** Response lenses
-    , drdbiorsMarker
-    , drdbiorsReservedDBInstancesOfferings
+    , drdbiorMarker
+    , drdbiorReservedDBInstancesOfferings
     ) where
 
 import Network.AWS.Request.Query
@@ -136,21 +136,21 @@ instance ToQuery DescribeReservedDBInstancesOfferings where
 -- | Contains the result of a successful invocation of the
 -- DescribeReservedDBInstancesOfferings action.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
-    { _drdbiorsMarker :: Maybe Text
-    , _drdbiorsReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
+    { _drdbiorMarker :: Maybe Text
+    , _drdbiorReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-drdbiorsMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
-drdbiorsMarker = lens _drdbiorsMarker (\s a -> s { _drdbiorsMarker = a })
+drdbiorMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
+drdbiorMarker = lens _drdbiorMarker (\s a -> s { _drdbiorMarker = a })
 
 -- | A list of reserved DB instance offerings.
-drdbiorsReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
-drdbiorsReservedDBInstancesOfferings =
-    lens _drdbiorsReservedDBInstancesOfferings
-         (\s a -> s { _drdbiorsReservedDBInstancesOfferings = a })
+drdbiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
+drdbiorReservedDBInstancesOfferings =
+    lens _drdbiorReservedDBInstancesOfferings
+         (\s a -> s { _drdbiorReservedDBInstancesOfferings = a })
 
 instance FromXML DescribeReservedDBInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -164,4 +164,4 @@ instance AWSRequest DescribeReservedDBInstancesOfferings where
 
 instance AWSPager DescribeReservedDBInstancesOfferings where
     next rq rs = (\x -> rq & drdbioMarker ?~ x)
-        <$> (rs ^. drdbiorsMarker)
+        <$> (rs ^. drdbiorMarker)

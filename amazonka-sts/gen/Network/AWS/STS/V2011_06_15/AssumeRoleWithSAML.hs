@@ -70,14 +70,14 @@ module Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML
     -- * Response
     , AssumeRoleWithSAMLResponse
     -- ** Response lenses
-    , arwsamlrsCredentials
-    , arwsamlrsAssumedRoleUser
-    , arwsamlrsPackedPolicySize
-    , arwsamlrsSubject
-    , arwsamlrsSubjectType
-    , arwsamlrsIssuer
-    , arwsamlrsAudience
-    , arwsamlrsNameQualifier
+    , arwsamlrCredentials
+    , arwsamlrAssumedRoleUser
+    , arwsamlrPackedPolicySize
+    , arwsamlrSubject
+    , arwsamlrSubjectType
+    , arwsamlrIssuer
+    , arwsamlrAudience
+    , arwsamlrNameQualifier
     ) where
 
 import Network.AWS.Request.Query
@@ -153,54 +153,53 @@ instance ToQuery AssumeRoleWithSAML where
 -- | Contains the result of a successful call to the AssumeRoleWithSAML action,
 -- including temporary AWS credentials that can be used to make AWS requests.
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
-    { _arwsamlrsCredentials :: Maybe Credentials
-    , _arwsamlrsAssumedRoleUser :: Maybe AssumedRoleUser
-    , _arwsamlrsPackedPolicySize :: Maybe Integer
-    , _arwsamlrsSubject :: Maybe Text
-    , _arwsamlrsSubjectType :: Maybe Text
-    , _arwsamlrsIssuer :: Maybe Text
-    , _arwsamlrsAudience :: Maybe Text
-    , _arwsamlrsNameQualifier :: Maybe Text
+    { _arwsamlrCredentials :: Maybe Credentials
+    , _arwsamlrAssumedRoleUser :: Maybe AssumedRoleUser
+    , _arwsamlrPackedPolicySize :: Maybe Integer
+    , _arwsamlrSubject :: Maybe Text
+    , _arwsamlrSubjectType :: Maybe Text
+    , _arwsamlrIssuer :: Maybe Text
+    , _arwsamlrAudience :: Maybe Text
+    , _arwsamlrNameQualifier :: Maybe Text
     } deriving (Show, Generic)
 
 -- | AWS credentials for API authentication.
-arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
-arwsamlrsCredentials =
-    lens _arwsamlrsCredentials (\s a -> s { _arwsamlrsCredentials = a })
+arwsamlrCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
+arwsamlrCredentials =
+    lens _arwsamlrCredentials (\s a -> s { _arwsamlrCredentials = a })
 
 -- | The identifiers for the temporary security credentials that the operation
 -- returns.
-arwsamlrsAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
-arwsamlrsAssumedRoleUser =
-    lens _arwsamlrsAssumedRoleUser
-         (\s a -> s { _arwsamlrsAssumedRoleUser = a })
+arwsamlrAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
+arwsamlrAssumedRoleUser =
+    lens _arwsamlrAssumedRoleUser
+         (\s a -> s { _arwsamlrAssumedRoleUser = a })
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
 -- which means the policy exceeded the allowed space.
-arwsamlrsPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Integer)
-arwsamlrsPackedPolicySize =
-    lens _arwsamlrsPackedPolicySize
-         (\s a -> s { _arwsamlrsPackedPolicySize = a })
+arwsamlrPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Integer)
+arwsamlrPackedPolicySize =
+    lens _arwsamlrPackedPolicySize
+         (\s a -> s { _arwsamlrPackedPolicySize = a })
 
-arwsamlrsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrsSubject =
-    lens _arwsamlrsSubject (\s a -> s { _arwsamlrsSubject = a })
+arwsamlrSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrSubject = lens _arwsamlrSubject (\s a -> s { _arwsamlrSubject = a })
 
-arwsamlrsSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrsSubjectType =
-    lens _arwsamlrsSubjectType (\s a -> s { _arwsamlrsSubjectType = a })
+arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrSubjectType =
+    lens _arwsamlrSubjectType (\s a -> s { _arwsamlrSubjectType = a })
 
-arwsamlrsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrsIssuer = lens _arwsamlrsIssuer (\s a -> s { _arwsamlrsIssuer = a })
+arwsamlrIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrIssuer = lens _arwsamlrIssuer (\s a -> s { _arwsamlrIssuer = a })
 
-arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrsAudience =
-    lens _arwsamlrsAudience (\s a -> s { _arwsamlrsAudience = a })
+arwsamlrAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrAudience =
+    lens _arwsamlrAudience (\s a -> s { _arwsamlrAudience = a })
 
-arwsamlrsNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrsNameQualifier =
-    lens _arwsamlrsNameQualifier (\s a -> s { _arwsamlrsNameQualifier = a })
+arwsamlrNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrNameQualifier =
+    lens _arwsamlrNameQualifier (\s a -> s { _arwsamlrNameQualifier = a })
 
 instance FromXML AssumeRoleWithSAMLResponse where
     fromXMLOptions = xmlOptions

@@ -37,7 +37,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate
     -- * Response
     , CreateHsmClientCertificateResponse
     -- ** Response lenses
-    , chccrsHsmClientCertificate
+    , chccrHsmClientCertificate
     ) where
 
 import Network.AWS.Request.Query
@@ -68,16 +68,16 @@ instance ToQuery CreateHsmClientCertificate where
     toQuery = genericQuery def
 
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
-    { _chccrsHsmClientCertificate :: Maybe HsmClientCertificate
+    { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
     } deriving (Show, Generic)
 
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
 -- Redshift cluster to encrypt data files.
-chccrsHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe HsmClientCertificate)
-chccrsHsmClientCertificate =
-    lens _chccrsHsmClientCertificate
-         (\s a -> s { _chccrsHsmClientCertificate = a })
+chccrHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe HsmClientCertificate)
+chccrHsmClientCertificate =
+    lens _chccrHsmClientCertificate
+         (\s a -> s { _chccrHsmClientCertificate = a })
 
 instance FromXML CreateHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions

@@ -38,8 +38,8 @@ module Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory
     -- * Response
     , DescribeAlarmHistoryResponse
     -- ** Response lenses
-    , dahrsAlarmHistoryItems
-    , dahrsNextToken
+    , dahrAlarmHistoryItems
+    , dahrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -99,18 +99,18 @@ instance ToQuery DescribeAlarmHistory where
 
 -- | The output for the DescribeAlarmHistory action.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
-    { _dahrsAlarmHistoryItems :: [AlarmHistoryItem]
-    , _dahrsNextToken :: Maybe Text
+    { _dahrAlarmHistoryItems :: [AlarmHistoryItem]
+    , _dahrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of alarm histories in JSON format.
-dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
-dahrsAlarmHistoryItems =
-    lens _dahrsAlarmHistoryItems (\s a -> s { _dahrsAlarmHistoryItems = a })
+dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
+dahrAlarmHistoryItems =
+    lens _dahrAlarmHistoryItems (\s a -> s { _dahrAlarmHistoryItems = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
-dahrsNextToken = lens _dahrsNextToken (\s a -> s { _dahrsNextToken = a })
+dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
+dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
 
 instance FromXML DescribeAlarmHistoryResponse where
     fromXMLOptions = xmlOptions
@@ -124,4 +124,4 @@ instance AWSRequest DescribeAlarmHistory where
 
 instance AWSPager DescribeAlarmHistory where
     next rq rs = (\x -> rq & dahNextToken ?~ x)
-        <$> (rs ^. dahrsNextToken)
+        <$> (rs ^. dahrNextToken)

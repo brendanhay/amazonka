@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeLayers
     -- * Response
     , DescribeLayersResponse
     -- ** Response lenses
-    , dlrsLayers
+    , dlrLayers
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -75,12 +75,12 @@ instance ToJSON DescribeLayers
 
 -- | Contains the response to a DescribeLayers request.
 newtype DescribeLayersResponse = DescribeLayersResponse
-    { _dlrsLayers :: [Layer]
+    { _dlrLayers :: [Layer]
     } deriving (Show, Generic)
 
 -- | An array of Layer objects that describe the layers.
-dlrsLayers :: Lens' DescribeLayersResponse [Layer]
-dlrsLayers = lens _dlrsLayers (\s a -> s { _dlrsLayers = a })
+dlrLayers :: Lens' DescribeLayersResponse [Layer]
+dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a })
 
 instance FromJSON DescribeLayersResponse
 

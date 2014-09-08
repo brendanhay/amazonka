@@ -31,9 +31,9 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints
     -- * Response
     , DescribeTapeRecoveryPointsResponse
     -- ** Response lenses
-    , dtrprsGatewayARN
-    , dtrprsTapeRecoveryPointInfos
-    , dtrprsMarker
+    , dtrprGatewayARN
+    , dtrprTapeRecoveryPointInfos
+    , dtrprMarker
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -76,24 +76,23 @@ instance ToHeaders DescribeTapeRecoveryPoints
 instance ToJSON DescribeTapeRecoveryPoints
 
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
-    { _dtrprsGatewayARN :: Maybe Text
-    , _dtrprsTapeRecoveryPointInfos :: [TapeRecoveryPointInfo]
-    , _dtrprsMarker :: Maybe Text
+    { _dtrprGatewayARN :: Maybe Text
+    , _dtrprTapeRecoveryPointInfos :: [TapeRecoveryPointInfo]
+    , _dtrprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dtrprsGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprsGatewayARN =
-    lens _dtrprsGatewayARN (\s a -> s { _dtrprsGatewayARN = a })
+dtrprGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
+dtrprGatewayARN = lens _dtrprGatewayARN (\s a -> s { _dtrprGatewayARN = a })
 
-dtrprsTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
-dtrprsTapeRecoveryPointInfos =
-    lens _dtrprsTapeRecoveryPointInfos
-         (\s a -> s { _dtrprsTapeRecoveryPointInfos = a })
+dtrprTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
+dtrprTapeRecoveryPointInfos =
+    lens _dtrprTapeRecoveryPointInfos
+         (\s a -> s { _dtrprTapeRecoveryPointInfos = a })
 
-dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprsMarker = lens _dtrprsMarker (\s a -> s { _dtrprsMarker = a })
+dtrprMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
+dtrprMarker = lens _dtrprMarker (\s a -> s { _dtrprMarker = a })
 
 instance FromJSON DescribeTapeRecoveryPointsResponse
 
@@ -106,4 +105,4 @@ instance AWSRequest DescribeTapeRecoveryPoints where
 
 instance AWSPager DescribeTapeRecoveryPoints where
     next rq rs = (\x -> rq & dtrpMarker ?~ x)
-        <$> (rs ^. dtrprsMarker)
+        <$> (rs ^. dtrprMarker)

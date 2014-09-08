@@ -48,8 +48,8 @@ module Network.AWS.CloudFormation.V2010_05_15.ListStackResources
     -- * Response
     , ListStackResourcesResponse
     -- ** Response lenses
-    , lsrrsStackResourceSummaries
-    , lsrrsNextToken
+    , lsrrStackResourceSummaries
+    , lsrrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -88,20 +88,20 @@ instance ToQuery ListStackResources where
 
 -- | The output for a ListStackResources action.
 data ListStackResourcesResponse = ListStackResourcesResponse
-    { _lsrrsStackResourceSummaries :: [StackResourceSummary]
-    , _lsrrsNextToken :: Maybe Text
+    { _lsrrStackResourceSummaries :: [StackResourceSummary]
+    , _lsrrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of StackResourceSummary structures.
-lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
-lsrrsStackResourceSummaries =
-    lens _lsrrsStackResourceSummaries
-         (\s a -> s { _lsrrsStackResourceSummaries = a })
+lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
+lsrrStackResourceSummaries =
+    lens _lsrrStackResourceSummaries
+         (\s a -> s { _lsrrStackResourceSummaries = a })
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
-lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
-lsrrsNextToken = lens _lsrrsNextToken (\s a -> s { _lsrrsNextToken = a })
+lsrrNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
+lsrrNextToken = lens _lsrrNextToken (\s a -> s { _lsrrNextToken = a })
 
 instance FromXML ListStackResourcesResponse where
     fromXMLOptions = xmlOptions
@@ -115,4 +115,4 @@ instance AWSRequest ListStackResources where
 
 instance AWSPager ListStackResources where
     next rq rs = (\x -> rq & lsrNextToken ?~ x)
-        <$> (rs ^. lsrrsNextToken)
+        <$> (rs ^. lsrrNextToken)

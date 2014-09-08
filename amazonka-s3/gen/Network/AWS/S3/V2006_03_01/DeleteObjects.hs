@@ -35,8 +35,8 @@ module Network.AWS.S3.V2006_03_01.DeleteObjects
     -- * Response
     , DeleteObjectsResponse
     -- ** Response lenses
-    , dorsrsDeleted
-    , dorsrsErrors
+    , dorrDeleted
+    , dorrErrors
     ) where
 
 import Network.AWS.Request.RestS3
@@ -94,15 +94,15 @@ instance ToBody DeleteObjects where
     toBody = toBody . encodeXML . _do1Delete
 
 data DeleteObjectsResponse = DeleteObjectsResponse
-    { _dorsrsDeleted :: [DeletedObject]
-    , _dorsrsErrors :: [Error]
+    { _dorrDeleted :: [DeletedObject]
+    , _dorrErrors :: [Error]
     } deriving (Show, Generic)
 
-dorsrsDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
-dorsrsDeleted = lens _dorsrsDeleted (\s a -> s { _dorsrsDeleted = a })
+dorrDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
+dorrDeleted = lens _dorrDeleted (\s a -> s { _dorrDeleted = a })
 
-dorsrsErrors :: Lens' DeleteObjectsResponse [Error]
-dorsrsErrors = lens _dorsrsErrors (\s a -> s { _dorsrsErrors = a })
+dorrErrors :: Lens' DeleteObjectsResponse [Error]
+dorrErrors = lens _dorrErrors (\s a -> s { _dorrErrors = a })
 
 instance FromXML DeleteObjectsResponse where
     fromXMLOptions = xmlOptions

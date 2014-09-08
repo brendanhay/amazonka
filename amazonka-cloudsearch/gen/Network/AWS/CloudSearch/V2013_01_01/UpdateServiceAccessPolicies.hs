@@ -33,7 +33,7 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies
     -- * Response
     , UpdateServiceAccessPoliciesResponse
     -- ** Response lenses
-    , usaprsAccessPolicies
+    , usaprAccessPolicies
     ) where
 
 import Network.AWS.Request.Query
@@ -77,13 +77,13 @@ instance ToQuery UpdateServiceAccessPolicies where
 -- | The result of an UpdateServiceAccessPolicies request. Contains the new
 -- access policies.
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
-    { _usaprsAccessPolicies :: AccessPoliciesStatus
+    { _usaprAccessPolicies :: AccessPoliciesStatus
     } deriving (Show, Generic)
 
 -- | The access rules configured for the domain.
-usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
-usaprsAccessPolicies =
-    lens _usaprsAccessPolicies (\s a -> s { _usaprsAccessPolicies = a })
+usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
+usaprAccessPolicies =
+    lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
 
 instance FromXML UpdateServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions

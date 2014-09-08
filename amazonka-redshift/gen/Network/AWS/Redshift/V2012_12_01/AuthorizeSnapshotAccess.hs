@@ -34,7 +34,7 @@ module Network.AWS.Redshift.V2012_12_01.AuthorizeSnapshotAccess
     -- * Response
     , AuthorizeSnapshotAccessResponse
     -- ** Response lenses
-    , asarsSnapshot
+    , asarSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -83,12 +83,12 @@ instance ToQuery AuthorizeSnapshotAccess where
     toQuery = genericQuery def
 
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
-    { _asarsSnapshot :: Maybe Snapshot
+    { _asarSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
-asarsSnapshot = lens _asarsSnapshot (\s a -> s { _asarsSnapshot = a })
+asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
+asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
 
 instance FromXML AuthorizeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions

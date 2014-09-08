@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteExpression
     -- * Response
     , DeleteExpressionResponse
     -- ** Response lenses
-    , dersrsExpression
+    , derrExpression
     ) where
 
 import Network.AWS.Request.Query
@@ -75,13 +75,12 @@ instance ToQuery DeleteExpression where
 -- | The result of a DeleteExpression request. Specifies the expression being
 -- deleted.
 newtype DeleteExpressionResponse = DeleteExpressionResponse
-    { _dersrsExpression :: ExpressionStatus
+    { _derrExpression :: ExpressionStatus
     } deriving (Show, Generic)
 
 -- | The status of the expression being deleted.
-dersrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
-dersrsExpression =
-    lens _dersrsExpression (\s a -> s { _dersrsExpression = a })
+derrExpression :: Lens' DeleteExpressionResponse ExpressionStatus
+derrExpression = lens _derrExpression (\s a -> s { _derrExpression = a })
 
 instance FromXML DeleteExpressionResponse where
     fromXMLOptions = xmlOptions

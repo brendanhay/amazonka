@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.V2013_01_01.IndexDocuments
     -- * Response
     , IndexDocumentsResponse
     -- ** Response lenses
-    , idrsFieldNames
+    , idrFieldNames
     ) where
 
 import Network.AWS.Request.Query
@@ -66,12 +66,12 @@ instance ToQuery IndexDocuments where
 -- | The result of an IndexDocuments request. Contains the status of the
 -- indexing operation, including the fields being indexed.
 newtype IndexDocumentsResponse = IndexDocumentsResponse
-    { _idrsFieldNames :: [Text]
+    { _idrFieldNames :: [Text]
     } deriving (Show, Generic)
 
 -- | The names of the fields that are currently being indexed.
-idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
-idrsFieldNames = lens _idrsFieldNames (\s a -> s { _idrsFieldNames = a })
+idrFieldNames :: Lens' IndexDocumentsResponse [Text]
+idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a })
 
 instance FromXML IndexDocumentsResponse where
     fromXMLOptions = xmlOptions

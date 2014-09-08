@@ -56,7 +56,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset
     -- * Response
     , ReadPresetResponse
     -- ** Response lenses
-    , rprsrsPreset
+    , rprrPreset
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -95,12 +95,12 @@ instance ToJSON ReadPreset
 
 -- | The ReadPresetResponse structure.
 newtype ReadPresetResponse = ReadPresetResponse
-    { _rprsrsPreset :: Maybe Preset
+    { _rprrPreset :: Maybe Preset
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the preset.
-rprsrsPreset :: Lens' ReadPresetResponse (Maybe Preset)
-rprsrsPreset = lens _rprsrsPreset (\s a -> s { _rprsrsPreset = a })
+rprrPreset :: Lens' ReadPresetResponse (Maybe Preset)
+rprrPreset = lens _rprrPreset (\s a -> s { _rprrPreset = a })
 
 instance FromJSON ReadPresetResponse
 

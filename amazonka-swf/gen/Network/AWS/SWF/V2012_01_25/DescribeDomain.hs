@@ -56,8 +56,8 @@ module Network.AWS.SWF.V2012_01_25.DescribeDomain
     -- * Response
     , DescribeDomainResponse
     -- ** Response lenses
-    , ddrsDomainInfo
-    , ddrsConfiguration
+    , ddrDomainInfo
+    , ddrConfiguration
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -90,18 +90,18 @@ instance ToJSON DescribeDomain
 
 -- | Contains details of a domain.
 data DescribeDomainResponse = DescribeDomainResponse
-    { _ddrsDomainInfo :: DomainInfo
-    , _ddrsConfiguration :: DomainConfiguration
+    { _ddrDomainInfo :: DomainInfo
+    , _ddrConfiguration :: DomainConfiguration
     } deriving (Show, Generic)
 
 -- | Contains general information about a domain.
-ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
-ddrsDomainInfo = lens _ddrsDomainInfo (\s a -> s { _ddrsDomainInfo = a })
+ddrDomainInfo :: Lens' DescribeDomainResponse DomainInfo
+ddrDomainInfo = lens _ddrDomainInfo (\s a -> s { _ddrDomainInfo = a })
 
 -- | Contains the configuration settings of a domain.
-ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
-ddrsConfiguration =
-    lens _ddrsConfiguration (\s a -> s { _ddrsConfiguration = a })
+ddrConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
+ddrConfiguration =
+    lens _ddrConfiguration (\s a -> s { _ddrConfiguration = a })
 
 instance FromJSON DescribeDomainResponse
 

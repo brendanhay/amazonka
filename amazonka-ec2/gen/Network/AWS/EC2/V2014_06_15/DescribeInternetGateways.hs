@@ -35,7 +35,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeInternetGateways
     -- * Response
     , DescribeInternetGatewaysResponse
     -- ** Response lenses
-    , digrsInternetGateways
+    , digrInternetGateways
     ) where
 
 import Network.AWS.Request.Query
@@ -82,13 +82,13 @@ instance ToQuery DescribeInternetGateways where
 
 -- | 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { _digrsInternetGateways :: [InternetGateway]
+    { _digrInternetGateways :: [InternetGateway]
     } deriving (Show, Generic)
 
 -- | Information about one or more Internet gateways.
-digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
-digrsInternetGateways =
-    lens _digrsInternetGateways (\s a -> s { _digrsInternetGateways = a })
+digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digrInternetGateways =
+    lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
 
 instance FromXML DescribeInternetGatewaysResponse where
     fromXMLOptions = xmlOptions

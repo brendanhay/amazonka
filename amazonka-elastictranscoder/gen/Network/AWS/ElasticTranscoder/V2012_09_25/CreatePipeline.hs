@@ -70,7 +70,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.CreatePipeline
     -- * Response
     , CreatePipelineResponse
     -- ** Response lenses
-    , cprsPipeline
+    , cprPipeline
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -255,13 +255,13 @@ instance ToJSON CreatePipeline
 -- | When you create a pipeline, Elastic Transcoder returns the values that you
 -- specified in the request.
 newtype CreatePipelineResponse = CreatePipelineResponse
-    { _cprsPipeline :: Maybe Pipeline
+    { _cprPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
-cprsPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
-cprsPipeline = lens _cprsPipeline (\s a -> s { _cprsPipeline = a })
+cprPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
+cprPipeline = lens _cprPipeline (\s a -> s { _cprPipeline = a })
 
 instance FromJSON CreatePipelineResponse
 

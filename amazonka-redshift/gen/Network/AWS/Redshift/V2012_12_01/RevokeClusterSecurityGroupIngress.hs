@@ -45,7 +45,7 @@ module Network.AWS.Redshift.V2012_12_01.RevokeClusterSecurityGroupIngress
     -- * Response
     , RevokeClusterSecurityGroupIngressResponse
     -- ** Response lenses
-    , rcsgirsClusterSecurityGroup
+    , rcsgirClusterSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -105,14 +105,14 @@ instance ToQuery RevokeClusterSecurityGroupIngress where
     toQuery = genericQuery def
 
 newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
-    { _rcsgirsClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Show, Generic)
 
 -- | Describes a security group.
-rcsgirsClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
-rcsgirsClusterSecurityGroup =
-    lens _rcsgirsClusterSecurityGroup
-         (\s a -> s { _rcsgirsClusterSecurityGroup = a })
+rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
+rcsgirClusterSecurityGroup =
+    lens _rcsgirClusterSecurityGroup
+         (\s a -> s { _rcsgirClusterSecurityGroup = a })
 
 instance FromXML RevokeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions

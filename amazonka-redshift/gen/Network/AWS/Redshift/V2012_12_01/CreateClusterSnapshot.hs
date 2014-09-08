@@ -42,7 +42,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot
     -- * Response
     , CreateClusterSnapshotResponse
     -- ** Response lenses
-    , ccsrsrsSnapshot
+    , ccsrrSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -84,12 +84,12 @@ instance ToQuery CreateClusterSnapshot where
     toQuery = genericQuery def
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
-    { _ccsrsrsSnapshot :: Maybe Snapshot
+    { _ccsrrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Describes a snapshot.
-ccsrsrsSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-ccsrsrsSnapshot = lens _ccsrsrsSnapshot (\s a -> s { _ccsrsrsSnapshot = a })
+ccsrrSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
+ccsrrSnapshot = lens _ccsrrSnapshot (\s a -> s { _ccsrrSnapshot = a })
 
 instance FromXML CreateClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

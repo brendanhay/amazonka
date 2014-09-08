@@ -33,7 +33,7 @@ module Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks
     -- * Response
     , DescribeTrustedAdvisorChecksResponse
     -- ** Response lenses
-    , dtacrs1Checks
+    , dtacr1Checks
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -70,12 +70,12 @@ instance ToJSON DescribeTrustedAdvisorChecks
 -- | Information about the Trusted Advisor checks returned by the
 -- DescribeTrustedAdvisorChecks operation.
 newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
-    { _dtacrs1Checks :: [TrustedAdvisorCheckDescription]
+    { _dtacr1Checks :: [TrustedAdvisorCheckDescription]
     } deriving (Show, Generic)
 
 -- | Information about all available Trusted Advisor checks.
-dtacrs1Checks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-dtacrs1Checks = lens _dtacrs1Checks (\s a -> s { _dtacrs1Checks = a })
+dtacr1Checks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
+dtacr1Checks = lens _dtacr1Checks (\s a -> s { _dtacr1Checks = a })
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse
 

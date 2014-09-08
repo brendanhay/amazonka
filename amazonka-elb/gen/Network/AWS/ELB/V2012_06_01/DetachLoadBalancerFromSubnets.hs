@@ -40,7 +40,7 @@ module Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets
     -- * Response
     , DetachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
-    , dlbfsrsSubnets
+    , dlbfsrSubnets
     ) where
 
 import Network.AWS.Request.Query
@@ -78,12 +78,12 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 
 -- | The output for the DetachLoadBalancerFromSubnets action.
 newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
-    { _dlbfsrsSubnets :: [Text]
+    { _dlbfsrSubnets :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of subnet IDs the load balancer is now attached to.
-dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
-dlbfsrsSubnets = lens _dlbfsrsSubnets (\s a -> s { _dlbfsrsSubnets = a })
+dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
+dlbfsrSubnets = lens _dlbfsrSubnets (\s a -> s { _dlbfsrSubnets = a })
 
 instance FromXML DetachLoadBalancerFromSubnetsResponse where
     fromXMLOptions = xmlOptions

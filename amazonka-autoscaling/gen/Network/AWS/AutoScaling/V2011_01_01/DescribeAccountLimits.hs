@@ -35,8 +35,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits
     -- * Response
     , DescribeAccountLimitsResponse
     -- ** Response lenses
-    , dalrsMaxNumberOfAutoScalingGroups
-    , dalrsMaxNumberOfLaunchConfigurations
+    , dalrMaxNumberOfAutoScalingGroups
+    , dalrMaxNumberOfLaunchConfigurations
     ) where
 
 import Network.AWS.Request.Query
@@ -56,21 +56,21 @@ instance ToQuery DescribeAccountLimits where
 
 -- | The output of the DescribeAccountLimitsResult action.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
-    { _dalrsMaxNumberOfAutoScalingGroups :: Maybe Integer
-    , _dalrsMaxNumberOfLaunchConfigurations :: Maybe Integer
+    { _dalrMaxNumberOfAutoScalingGroups :: Maybe Integer
+    , _dalrMaxNumberOfLaunchConfigurations :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The maximum number of Auto Scaling groups allowed for your AWS account.
-dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
-dalrsMaxNumberOfAutoScalingGroups =
-    lens _dalrsMaxNumberOfAutoScalingGroups
-         (\s a -> s { _dalrsMaxNumberOfAutoScalingGroups = a })
+dalrMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
+dalrMaxNumberOfAutoScalingGroups =
+    lens _dalrMaxNumberOfAutoScalingGroups
+         (\s a -> s { _dalrMaxNumberOfAutoScalingGroups = a })
 
 -- | The maximum number of launch configurations allowed for your AWS account.
-dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
-dalrsMaxNumberOfLaunchConfigurations =
-    lens _dalrsMaxNumberOfLaunchConfigurations
-         (\s a -> s { _dalrsMaxNumberOfLaunchConfigurations = a })
+dalrMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Integer)
+dalrMaxNumberOfLaunchConfigurations =
+    lens _dalrMaxNumberOfLaunchConfigurations
+         (\s a -> s { _dalrMaxNumberOfLaunchConfigurations = a })
 
 instance FromXML DescribeAccountLimitsResponse where
     fromXMLOptions = xmlOptions

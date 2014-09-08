@@ -56,12 +56,12 @@ module Network.AWS.S3.V2006_03_01.CreateMultipartUpload
     -- * Response
     , CreateMultipartUploadResponse
     -- ** Response lenses
-    , cmursrsBucket
-    , cmursrsKey
-    , cmursrsUploadId
-    , cmursrsServerSideEncryption
-    , cmursrsSSECustomerAlgorithm
-    , cmursrsSSECustomerKeyMD5
+    , cmurrBucket
+    , cmurrKey
+    , cmurrUploadId
+    , cmurrServerSideEncryption
+    , cmurrSSECustomerAlgorithm
+    , cmurrSSECustomerKeyMD5
     ) where
 
 import Network.AWS.Request.RestS3
@@ -265,47 +265,46 @@ instance ToHeaders CreateMultipartUpload where
 instance ToBody CreateMultipartUpload
 
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse
-    { _cmursrsBucket :: Maybe BucketName
-    , _cmursrsKey :: Maybe ObjectKey
-    , _cmursrsUploadId :: Maybe Text
-    , _cmursrsServerSideEncryption :: Maybe ServerSideEncryption
-    , _cmursrsSSECustomerAlgorithm :: Maybe Text
-    , _cmursrsSSECustomerKeyMD5 :: Maybe Text
+    { _cmurrBucket :: Maybe BucketName
+    , _cmurrKey :: Maybe ObjectKey
+    , _cmurrUploadId :: Maybe Text
+    , _cmurrServerSideEncryption :: Maybe ServerSideEncryption
+    , _cmurrSSECustomerAlgorithm :: Maybe Text
+    , _cmurrSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Name of the bucket to which the multipart upload was initiated.
-cmursrsBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
-cmursrsBucket = lens _cmursrsBucket (\s a -> s { _cmursrsBucket = a })
+cmurrBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
+cmurrBucket = lens _cmurrBucket (\s a -> s { _cmurrBucket = a })
 
 -- | Object key for which the multipart upload was initiated.
-cmursrsKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)
-cmursrsKey = lens _cmursrsKey (\s a -> s { _cmursrsKey = a })
+cmurrKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)
+cmurrKey = lens _cmurrKey (\s a -> s { _cmurrKey = a })
 
 -- | ID for the initiated multipart upload.
-cmursrsUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
-cmursrsUploadId = lens _cmursrsUploadId (\s a -> s { _cmursrsUploadId = a })
+cmurrUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmurrUploadId = lens _cmurrUploadId (\s a -> s { _cmurrUploadId = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cmursrsServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
-cmursrsServerSideEncryption =
-    lens _cmursrsServerSideEncryption
-         (\s a -> s { _cmursrsServerSideEncryption = a })
+cmurrServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
+cmurrServerSideEncryption =
+    lens _cmurrServerSideEncryption
+         (\s a -> s { _cmurrServerSideEncryption = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-cmursrsSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
-cmursrsSSECustomerAlgorithm =
-    lens _cmursrsSSECustomerAlgorithm
-         (\s a -> s { _cmursrsSSECustomerAlgorithm = a })
+cmurrSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmurrSSECustomerAlgorithm =
+    lens _cmurrSSECustomerAlgorithm
+         (\s a -> s { _cmurrSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-cmursrsSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
-cmursrsSSECustomerKeyMD5 =
-    lens _cmursrsSSECustomerKeyMD5
-         (\s a -> s { _cmursrsSSECustomerKeyMD5 = a })
+cmurrSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmurrSSECustomerKeyMD5 =
+    lens _cmurrSSECustomerKeyMD5 (\s a -> s { _cmurrSSECustomerKeyMD5 = a })
 
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3

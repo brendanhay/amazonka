@@ -52,8 +52,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ListGateways
     -- * Response
     , ListGatewaysResponse
     -- ** Response lenses
-    , lgrsGateways
-    , lgrsMarker
+    , lgrGateways
+    , lgrMarker
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -94,15 +94,15 @@ instance ToHeaders ListGateways
 instance ToJSON ListGateways
 
 data ListGatewaysResponse = ListGatewaysResponse
-    { _lgrsGateways :: [GatewayInformation]
-    , _lgrsMarker :: Maybe Text
+    { _lgrGateways :: [GatewayInformation]
+    , _lgrMarker :: Maybe Text
     } deriving (Show, Generic)
 
-lgrsGateways :: Lens' ListGatewaysResponse [GatewayInformation]
-lgrsGateways = lens _lgrsGateways (\s a -> s { _lgrsGateways = a })
+lgrGateways :: Lens' ListGatewaysResponse [GatewayInformation]
+lgrGateways = lens _lgrGateways (\s a -> s { _lgrGateways = a })
 
-lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
-lgrsMarker = lens _lgrsMarker (\s a -> s { _lgrsMarker = a })
+lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
+lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 
 instance FromJSON ListGatewaysResponse
 
@@ -115,4 +115,4 @@ instance AWSRequest ListGateways where
 
 instance AWSPager ListGateways where
     next rq rs = (\x -> rq & lgMarker ?~ x)
-        <$> (rs ^. lgrsMarker)
+        <$> (rs ^. lgrMarker)

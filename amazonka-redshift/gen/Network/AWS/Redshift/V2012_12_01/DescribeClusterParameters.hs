@@ -59,8 +59,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterParameters
     -- * Response
     , DescribeClusterParametersResponse
     -- ** Response lenses
-    , dcprsParameters
-    , dcprsMarker
+    , dcprParameters
+    , dcprMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -120,22 +120,22 @@ instance ToQuery DescribeClusterParameters where
 
 -- | Contains the output from the DescribeClusterParameters action.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
-    { _dcprsParameters :: [Parameter]
-    , _dcprsMarker :: Maybe Text
+    { _dcprParameters :: [Parameter]
+    , _dcprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
-dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
-dcprsParameters = lens _dcprsParameters (\s a -> s { _dcprsParameters = a })
+dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
+dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
-dcprsMarker = lens _dcprsMarker (\s a -> s { _dcprsMarker = a })
+dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
+dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
 instance FromXML DescribeClusterParametersResponse where
     fromXMLOptions = xmlOptions
@@ -149,4 +149,4 @@ instance AWSRequest DescribeClusterParameters where
 
 instance AWSPager DescribeClusterParameters where
     next rq rs = (\x -> rq & dcpMarker ?~ x)
-        <$> (rs ^. dcprsMarker)
+        <$> (rs ^. dcprMarker)

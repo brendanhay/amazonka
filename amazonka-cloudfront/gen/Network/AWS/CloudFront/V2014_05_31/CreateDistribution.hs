@@ -30,9 +30,9 @@ module Network.AWS.CloudFront.V2014_05_31.CreateDistribution
     -- * Response
     , CreateDistributionResponse
     -- ** Response lenses
-    , cdrsDistribution
-    , cdrsLocation
-    , cdrsETag
+    , cdrDistribution
+    , cdrLocation
+    , cdrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -71,25 +71,24 @@ instance ToXML CreateDistribution where
 
 -- | The returned result of the corresponding request.
 data CreateDistributionResponse = CreateDistributionResponse
-    { _cdrsDistribution :: Maybe Distribution
-    , _cdrsLocation :: Maybe Text
-    , _cdrsETag :: Maybe Text
+    { _cdrDistribution :: Maybe Distribution
+    , _cdrLocation :: Maybe Text
+    , _cdrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's information.
-cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
-cdrsDistribution =
-    lens _cdrsDistribution (\s a -> s { _cdrsDistribution = a })
+cdrDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
+cdrDistribution = lens _cdrDistribution (\s a -> s { _cdrDistribution = a })
 
 -- | The fully qualified URI of the new distribution resource just created. For
 -- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
-cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
-cdrsLocation = lens _cdrsLocation (\s a -> s { _cdrsLocation = a })
+cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
+cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
 
 -- | The current version of the distribution created.
-cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
-cdrsETag = lens _cdrsETag (\s a -> s { _cdrsETag = a })
+cdrETag :: Lens' CreateDistributionResponse (Maybe Text)
+cdrETag = lens _cdrETag (\s a -> s { _cdrETag = a })
 
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront

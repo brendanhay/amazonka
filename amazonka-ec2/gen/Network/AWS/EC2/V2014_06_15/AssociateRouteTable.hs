@@ -45,7 +45,7 @@ module Network.AWS.EC2.V2014_06_15.AssociateRouteTable
     -- * Response
     , AssociateRouteTableResponse
     -- ** Response lenses
-    , artrsAssociationId
+    , artrAssociationId
     ) where
 
 import Network.AWS.Request.Query
@@ -81,13 +81,13 @@ instance ToQuery AssociateRouteTable where
 
 -- | 
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
-    { _artrsAssociationId :: Maybe Text
+    { _artrAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The route table association ID (needed to disassociate the route table).
-artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
-artrsAssociationId =
-    lens _artrsAssociationId (\s a -> s { _artrsAssociationId = a })
+artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
+artrAssociationId =
+    lens _artrAssociationId (\s a -> s { _artrAssociationId = a })
 
 instance FromXML AssociateRouteTableResponse where
     fromXMLOptions = xmlOptions

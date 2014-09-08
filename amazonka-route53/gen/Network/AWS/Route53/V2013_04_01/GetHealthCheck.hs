@@ -31,7 +31,7 @@ module Network.AWS.Route53.V2013_04_01.GetHealthCheck
     -- * Response
     , GetHealthCheckResponse
     -- ** Response lenses
-    , ghcrsHealthCheck
+    , ghcrHealthCheck
     ) where
 
 import Network.AWS.Request.RestXML
@@ -74,14 +74,13 @@ instance ToXML GetHealthCheck where
 
 -- | A complex type containing information about the specified health check.
 newtype GetHealthCheckResponse = GetHealthCheckResponse
-    { _ghcrsHealthCheck :: HealthCheck
+    { _ghcrHealthCheck :: HealthCheck
     } deriving (Show, Generic)
 
 -- | A complex type that contains the information about the specified health
 -- check.
-ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
-ghcrsHealthCheck =
-    lens _ghcrsHealthCheck (\s a -> s { _ghcrsHealthCheck = a })
+ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
+ghcrHealthCheck = lens _ghcrHealthCheck (\s a -> s { _ghcrHealthCheck = a })
 
 instance FromXML GetHealthCheckResponse where
     fromXMLOptions = xmlOptions

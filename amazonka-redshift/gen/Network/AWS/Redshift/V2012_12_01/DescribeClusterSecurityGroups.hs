@@ -43,8 +43,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSecurityGroups
     -- * Response
     , DescribeClusterSecurityGroupsResponse
     -- ** Response lenses
-    , dcsgrsMarker
-    , dcsgrsClusterSecurityGroups
+    , dcsgrMarker
+    , dcsgrClusterSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -98,8 +98,8 @@ instance ToQuery DescribeClusterSecurityGroups where
 
 -- | Contains the output from the DescribeClusterSecurityGroups action.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
-    { _dcsgrsMarker :: Maybe Text
-    , _dcsgrsClusterSecurityGroups :: [ClusterSecurityGroup]
+    { _dcsgrMarker :: Maybe Text
+    , _dcsgrClusterSecurityGroups :: [ClusterSecurityGroup]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -107,14 +107,14 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dcsgrsMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
-dcsgrsMarker = lens _dcsgrsMarker (\s a -> s { _dcsgrsMarker = a })
+dcsgrMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
+dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
 -- | A list of ClusterSecurityGroup instances.
-dcsgrsClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
-dcsgrsClusterSecurityGroups =
-    lens _dcsgrsClusterSecurityGroups
-         (\s a -> s { _dcsgrsClusterSecurityGroups = a })
+dcsgrClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgrClusterSecurityGroups =
+    lens _dcsgrClusterSecurityGroups
+         (\s a -> s { _dcsgrClusterSecurityGroups = a })
 
 instance FromXML DescribeClusterSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -128,4 +128,4 @@ instance AWSRequest DescribeClusterSecurityGroups where
 
 instance AWSPager DescribeClusterSecurityGroups where
     next rq rs = (\x -> rq & dcsg2Marker ?~ x)
-        <$> (rs ^. dcsgrsMarker)
+        <$> (rs ^. dcsgrMarker)

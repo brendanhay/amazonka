@@ -30,8 +30,6 @@ module Network.AWS.DynamoDB.V2012_08_10.Types
     (
     -- * Service
       DynamoDB
-    -- ** Errors
-    , Er (..)
     -- * AttributeAction
     , AttributeAction (..)
 

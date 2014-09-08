@@ -33,8 +33,6 @@ module Network.AWS.SNS.V2010_03_31.Types
     (
     -- * Service
       SNS
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

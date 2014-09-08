@@ -44,10 +44,10 @@ module Network.AWS.Route53.V2013_04_01.CreateHostedZone
     -- * Response
     , CreateHostedZoneResponse
     -- ** Response lenses
-    , chzrsHostedZone
-    , chzrsChangeInfo
-    , chzrsDelegationSet
-    , chzrsLocation
+    , chzrHostedZone
+    , chzrChangeInfo
+    , chzrDelegationSet
+    , chzrLocation
     ) where
 
 import Network.AWS.Request.RestXML
@@ -115,30 +115,30 @@ instance ToXML CreateHostedZone where
 
 -- | A complex type containing the response information for the new hosted zone.
 data CreateHostedZoneResponse = CreateHostedZoneResponse
-    { _chzrsHostedZone :: HostedZone
-    , _chzrsChangeInfo :: ChangeInfo
-    , _chzrsDelegationSet :: DelegationSet
-    , _chzrsLocation :: Text
+    { _chzrHostedZone :: HostedZone
+    , _chzrChangeInfo :: ChangeInfo
+    , _chzrDelegationSet :: DelegationSet
+    , _chzrLocation :: Text
     } deriving (Show, Generic)
 
 -- | A complex type that contains identifying information about the hosted zone.
-chzrsHostedZone :: Lens' CreateHostedZoneResponse HostedZone
-chzrsHostedZone = lens _chzrsHostedZone (\s a -> s { _chzrsHostedZone = a })
+chzrHostedZone :: Lens' CreateHostedZoneResponse HostedZone
+chzrHostedZone = lens _chzrHostedZone (\s a -> s { _chzrHostedZone = a })
 
 -- | A complex type that contains information about the request to create a
 -- hosted zone. This includes an ID that you use when you call the GetChange
 -- action to get the current status of the change request.
-chzrsChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
-chzrsChangeInfo = lens _chzrsChangeInfo (\s a -> s { _chzrsChangeInfo = a })
+chzrChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
+chzrChangeInfo = lens _chzrChangeInfo (\s a -> s { _chzrChangeInfo = a })
 
 -- | A complex type that contains name server information.
-chzrsDelegationSet :: Lens' CreateHostedZoneResponse DelegationSet
-chzrsDelegationSet =
-    lens _chzrsDelegationSet (\s a -> s { _chzrsDelegationSet = a })
+chzrDelegationSet :: Lens' CreateHostedZoneResponse DelegationSet
+chzrDelegationSet =
+    lens _chzrDelegationSet (\s a -> s { _chzrDelegationSet = a })
 
 -- | The unique URL representing the new hosted zone.
-chzrsLocation :: Lens' CreateHostedZoneResponse Text
-chzrsLocation = lens _chzrsLocation (\s a -> s { _chzrsLocation = a })
+chzrLocation :: Lens' CreateHostedZoneResponse Text
+chzrLocation = lens _chzrLocation (\s a -> s { _chzrLocation = a })
 
 instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53

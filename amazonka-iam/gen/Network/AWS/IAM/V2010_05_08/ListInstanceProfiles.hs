@@ -43,9 +43,9 @@ module Network.AWS.IAM.V2010_05_08.ListInstanceProfiles
     -- * Response
     , ListInstanceProfilesResponse
     -- ** Response lenses
-    , liprsInstanceProfiles
-    , liprsIsTruncated
-    , liprsMarker
+    , liprInstanceProfiles
+    , liprIsTruncated
+    , liprMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -97,28 +97,27 @@ instance ToQuery ListInstanceProfiles where
 -- | Contains the result of a successful invocation of the ListInstanceProfiles
 -- action.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
-    { _liprsInstanceProfiles :: [InstanceProfile]
-    , _liprsIsTruncated :: Bool
-    , _liprsMarker :: Maybe Text
+    { _liprInstanceProfiles :: [InstanceProfile]
+    , _liprIsTruncated :: Bool
+    , _liprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of instance profiles.
-liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
-liprsInstanceProfiles =
-    lens _liprsInstanceProfiles (\s a -> s { _liprsInstanceProfiles = a })
+liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
+liprInstanceProfiles =
+    lens _liprInstanceProfiles (\s a -> s { _liprInstanceProfiles = a })
 
 -- | A flag that indicates whether there are more instance profiles to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more instance profiles in
 -- the list.
-liprsIsTruncated :: Lens' ListInstanceProfilesResponse Bool
-liprsIsTruncated =
-    lens _liprsIsTruncated (\s a -> s { _liprsIsTruncated = a })
+liprIsTruncated :: Lens' ListInstanceProfilesResponse Bool
+liprIsTruncated = lens _liprIsTruncated (\s a -> s { _liprIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-liprsMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
-liprsMarker = lens _liprsMarker (\s a -> s { _liprsMarker = a })
+liprMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
+liprMarker = lens _liprMarker (\s a -> s { _liprMarker = a })
 
 instance FromXML ListInstanceProfilesResponse where
     fromXMLOptions = xmlOptions
@@ -132,6 +131,6 @@ instance AWSRequest ListInstanceProfiles where
 
 instance AWSPager ListInstanceProfiles where
     next rq rs
-        | not (rs ^. liprsIsTruncated) = Nothing
+        | not (rs ^. liprIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lipMarker .~ rs ^. liprsMarker
+            rq & lipMarker .~ rs ^. liprMarker

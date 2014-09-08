@@ -99,8 +99,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus
     -- * Response
     , DescribeInstanceStatusResponse
     -- ** Response lenses
-    , disrsInstanceStatuses
-    , disrsNextToken
+    , disrInstanceStatuses
+    , disrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -174,18 +174,18 @@ instance ToQuery DescribeInstanceStatus where
 
 -- | 
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
-    { _disrsInstanceStatuses :: [InstanceStatus]
-    , _disrsNextToken :: Maybe Text
+    { _disrInstanceStatuses :: [InstanceStatus]
+    , _disrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | One or more instance status descriptions.
-disrsInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
-disrsInstanceStatuses =
-    lens _disrsInstanceStatuses (\s a -> s { _disrsInstanceStatuses = a })
+disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
+disrInstanceStatuses =
+    lens _disrInstanceStatuses (\s a -> s { _disrInstanceStatuses = a })
 
 -- | The next paginated set of results to return.
-disrsNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
-disrsNextToken = lens _disrsNextToken (\s a -> s { _disrsNextToken = a })
+disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
+disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
 
 instance FromXML DescribeInstanceStatusResponse where
     fromXMLOptions = xmlOptions
@@ -199,4 +199,4 @@ instance AWSRequest DescribeInstanceStatus where
 
 instance AWSPager DescribeInstanceStatus where
     next rq rs = (\x -> rq & disNextToken ?~ x)
-        <$> (rs ^. disrsNextToken)
+        <$> (rs ^. disrNextToken)

@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeInstances
     -- * Response
     , DescribeInstancesResponse
     -- ** Response lenses
-    , dirsInstances
+    , dirInstances
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -84,12 +84,12 @@ instance ToJSON DescribeInstances
 
 -- | Contains the response to a DescribeInstances request.
 newtype DescribeInstancesResponse = DescribeInstancesResponse
-    { _dirsInstances :: [Instance]
+    { _dirInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | An array of Instance objects that describe the instances.
-dirsInstances :: Lens' DescribeInstancesResponse [Instance]
-dirsInstances = lens _dirsInstances (\s a -> s { _dirsInstances = a })
+dirInstances :: Lens' DescribeInstancesResponse [Instance]
+dirInstances = lens _dirInstances (\s a -> s { _dirInstances = a })
 
 instance FromJSON DescribeInstancesResponse
 

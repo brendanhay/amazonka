@@ -63,7 +63,7 @@ module Network.AWS.EC2.V2014_06_15.StopInstances
     -- * Response
     , StopInstancesResponse
     -- ** Response lenses
-    , sirsrsStoppingInstances
+    , sir1StoppingInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -101,14 +101,13 @@ instance ToQuery StopInstances where
 
 -- | 
 newtype StopInstancesResponse = StopInstancesResponse
-    { _sirsrsStoppingInstances :: [InstanceStateChange]
+    { _sir1StoppingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
 
 -- | Information about one or more stopped instances.
-sirsrsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
-sirsrsStoppingInstances =
-    lens _sirsrsStoppingInstances
-         (\s a -> s { _sirsrsStoppingInstances = a })
+sir1StoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+sir1StoppingInstances =
+    lens _sir1StoppingInstances (\s a -> s { _sir1StoppingInstances = a })
 
 instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions

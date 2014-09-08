@@ -101,7 +101,7 @@ module Network.AWS.ELB.V2012_06_01.CreateLoadBalancer
     -- * Response
     , CreateLoadBalancerResponse
     -- ** Response lenses
-    , clbrsDNSName
+    , clbrDNSName
     ) where
 
 import Network.AWS.Request.Query
@@ -185,12 +185,12 @@ instance ToQuery CreateLoadBalancer where
 
 -- | The output for the CreateLoadBalancer action.
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
-    { _clbrsDNSName :: Maybe Text
+    { _clbrDNSName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The DNS name for the load balancer.
-clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
-clbrsDNSName = lens _clbrsDNSName (\s a -> s { _clbrsDNSName = a })
+clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
+clbrDNSName = lens _clbrDNSName (\s a -> s { _clbrDNSName = a })
 
 instance FromXML CreateLoadBalancerResponse where
     fromXMLOptions = xmlOptions

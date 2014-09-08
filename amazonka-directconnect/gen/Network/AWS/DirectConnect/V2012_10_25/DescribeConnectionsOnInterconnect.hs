@@ -31,7 +31,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect
     -- * Response
     , DescribeConnectionsOnInterconnectResponse
     -- ** Response lenses
-    , dcoirsConnections
+    , dcoirConnections
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -68,13 +68,13 @@ instance ToJSON DescribeConnectionsOnInterconnect
 
 -- | A structure containing a list of connections.
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
-    { _dcoirsConnections :: [Connection]
+    { _dcoirConnections :: [Connection]
     } deriving (Show, Generic)
 
 -- | A list of connections.
-dcoirsConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
-dcoirsConnections =
-    lens _dcoirsConnections (\s a -> s { _dcoirsConnections = a })
+dcoirConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
+dcoirConnections =
+    lens _dcoirConnections (\s a -> s { _dcoirConnections = a })
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse
 

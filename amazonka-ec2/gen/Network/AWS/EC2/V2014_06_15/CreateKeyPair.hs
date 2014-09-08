@@ -62,9 +62,9 @@ module Network.AWS.EC2.V2014_06_15.CreateKeyPair
     -- * Response
     , CreateKeyPairResponse
     -- ** Response lenses
-    , ckprsKeyName
-    , ckprsKeyFingerprint
-    , ckprsKeyMaterial
+    , ckprKeyName
+    , ckprKeyFingerprint
+    , ckprKeyMaterial
     ) where
 
 import Network.AWS.Request.Query
@@ -93,24 +93,23 @@ instance ToQuery CreateKeyPair where
 
 -- | 
 data CreateKeyPairResponse = CreateKeyPairResponse
-    { _ckprsKeyName :: Maybe Text
-    , _ckprsKeyFingerprint :: Maybe Text
-    , _ckprsKeyMaterial :: Maybe Text
+    { _ckprKeyName :: Maybe Text
+    , _ckprKeyFingerprint :: Maybe Text
+    , _ckprKeyMaterial :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the key pair.
-ckprsKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprsKeyName = lens _ckprsKeyName (\s a -> s { _ckprsKeyName = a })
+ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 
 -- | The SHA-1 digest of the DER encoded private key.
-ckprsKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprsKeyFingerprint =
-    lens _ckprsKeyFingerprint (\s a -> s { _ckprsKeyFingerprint = a })
+ckprKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyFingerprint =
+    lens _ckprKeyFingerprint (\s a -> s { _ckprKeyFingerprint = a })
 
 -- | An unencrypted PEM encoded RSA private key.
-ckprsKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprsKeyMaterial =
-    lens _ckprsKeyMaterial (\s a -> s { _ckprsKeyMaterial = a })
+ckprKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
 
 instance FromXML CreateKeyPairResponse where
     fromXMLOptions = xmlOptions

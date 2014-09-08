@@ -47,8 +47,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBLogFiles
     -- * Response
     , DescribeDBLogFilesResponse
     -- ** Response lenses
-    , ddblfrsDescribeDBLogFiles
-    , ddblfrsMarker
+    , ddblfrDescribeDBLogFiles
+    , ddblfrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -121,19 +121,19 @@ instance ToQuery DescribeDBLogFiles where
 
 -- | The response from a call to DescribeDBLogFiles.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
-    { _ddblfrsDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
-    , _ddblfrsMarker :: Maybe Text
+    { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
+    , _ddblfrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The DB log files returned.
-ddblfrsDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
-ddblfrsDescribeDBLogFiles =
-    lens _ddblfrsDescribeDBLogFiles
-         (\s a -> s { _ddblfrsDescribeDBLogFiles = a })
+ddblfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
+ddblfrDescribeDBLogFiles =
+    lens _ddblfrDescribeDBLogFiles
+         (\s a -> s { _ddblfrDescribeDBLogFiles = a })
 
 -- | An optional paging token.
-ddblfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
-ddblfrsMarker = lens _ddblfrsMarker (\s a -> s { _ddblfrsMarker = a })
+ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
+ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
 
 instance FromXML DescribeDBLogFilesResponse where
     fromXMLOptions = xmlOptions
@@ -147,4 +147,4 @@ instance AWSRequest DescribeDBLogFiles where
 
 instance AWSPager DescribeDBLogFiles where
     next rq rs = (\x -> rq & ddblfMarker ?~ x)
-        <$> (rs ^. ddblfrsMarker)
+        <$> (rs ^. ddblfrMarker)

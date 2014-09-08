@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation
     -- * Response
     , UpdateGatewayInformationResponse
     -- ** Response lenses
-    , ugirsGatewayARN
+    , ugirGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -94,13 +94,13 @@ instance ToJSON UpdateGatewayInformation
 
 -- | A JSON object containing the of the gateway that was updated.
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
-    { _ugirsGatewayARN :: Maybe Text
+    { _ugirGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
-ugirsGatewayARN = lens _ugirsGatewayARN (\s a -> s { _ugirsGatewayARN = a })
+ugirGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
+ugirGatewayARN = lens _ugirGatewayARN (\s a -> s { _ugirGatewayARN = a })
 
 instance FromJSON UpdateGatewayInformationResponse
 

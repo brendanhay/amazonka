@@ -55,7 +55,7 @@ module Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer
     -- * Response
     , RegisterInstancesWithLoadBalancerResponse
     -- ** Response lenses
-    , riwlbrsInstances
+    , riwlbrInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -93,13 +93,12 @@ instance ToQuery RegisterInstancesWithLoadBalancer where
 
 -- | The output for the RegisterInstancesWithLoadBalancer action.
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
-    { _riwlbrsInstances :: [Instance]
+    { _riwlbrInstances :: [Instance]
     } deriving (Show, Generic)
 
 -- | An updated list of instances for the load balancer.
-riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
-riwlbrsInstances =
-    lens _riwlbrsInstances (\s a -> s { _riwlbrsInstances = a })
+riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
+riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a })
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
     fromXMLOptions = xmlOptions

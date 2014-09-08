@@ -31,7 +31,7 @@ module Network.AWS.CloudTrail.V2013_11_01.DescribeTrails
     -- * Response
     , DescribeTrailsResponse
     -- ** Response lenses
-    , dtrsrsTrailList
+    , dtrrTrailList
     ) where
 
 import Network.AWS.CloudTrail.V2013_11_01.Types
@@ -66,12 +66,12 @@ instance ToJSON DescribeTrails
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
 newtype DescribeTrailsResponse = DescribeTrailsResponse
-    { _dtrsrsTrailList :: [Trail]
+    { _dtrrTrailList :: [Trail]
     } deriving (Show, Generic)
 
 -- | The list of trails.
-dtrsrsTrailList :: Lens' DescribeTrailsResponse [Trail]
-dtrsrsTrailList = lens _dtrsrsTrailList (\s a -> s { _dtrsrsTrailList = a })
+dtrrTrailList :: Lens' DescribeTrailsResponse [Trail]
+dtrrTrailList = lens _dtrrTrailList (\s a -> s { _dtrrTrailList = a })
 
 instance FromJSON DescribeTrailsResponse
 

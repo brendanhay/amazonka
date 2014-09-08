@@ -30,9 +30,9 @@ module Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity
     -- * Response
     , CreateCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
-    , ccfoairsCloudFrontOriginAccessIdentity
-    , ccfoairsLocation
-    , ccfoairsETag
+    , ccfoairCloudFrontOriginAccessIdentity
+    , ccfoairLocation
+    , ccfoairETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -72,28 +72,27 @@ instance ToXML CreateCloudFrontOriginAccessIdentity where
 
 -- | The returned result of the corresponding request.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
-    { _ccfoairsCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-    , _ccfoairsLocation :: Maybe Text
-    , _ccfoairsETag :: Maybe Text
+    { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    , _ccfoairLocation :: Maybe Text
+    , _ccfoairETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The origin access identity's information.
-ccfoairsCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ccfoairsCloudFrontOriginAccessIdentity =
-    lens _ccfoairsCloudFrontOriginAccessIdentity
-         (\s a -> s { _ccfoairsCloudFrontOriginAccessIdentity = a })
+ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
+ccfoairCloudFrontOriginAccessIdentity =
+    lens _ccfoairCloudFrontOriginAccessIdentity
+         (\s a -> s { _ccfoairCloudFrontOriginAccessIdentity = a })
 
 -- | The fully qualified URI of the new origin access identity just created. For
 -- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
 -- 
-ccfoairsLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoairsLocation =
-    lens _ccfoairsLocation (\s a -> s { _ccfoairsLocation = a })
+ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
+ccfoairLocation = lens _ccfoairLocation (\s a -> s { _ccfoairLocation = a })
 
 -- | The current version of the origin access identity created.
-ccfoairsETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoairsETag = lens _ccfoairsETag (\s a -> s { _ccfoairsETag = a })
+ccfoairETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
+ccfoairETag = lens _ccfoairETag (\s a -> s { _ccfoairETag = a })
 
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront

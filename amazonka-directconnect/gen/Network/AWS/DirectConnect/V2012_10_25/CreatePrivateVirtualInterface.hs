@@ -33,21 +33,21 @@ module Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface
     -- * Response
     , CreatePrivateVirtualInterfaceResponse
     -- ** Response lenses
-    , cpvirs1OwnerAccount
-    , cpvirs1VirtualInterfaceId
-    , cpvirs1Location
-    , cpvirs1ConnectionId
-    , cpvirs1VirtualInterfaceType
-    , cpvirs1VirtualInterfaceName
-    , cpvirs1Vlan
-    , cpvirs1Asn
-    , cpvirs1AuthKey
-    , cpvirs1AmazonAddress
-    , cpvirs1CustomerAddress
-    , cpvirs1VirtualInterfaceState
-    , cpvirs1CustomerRouterConfig
-    , cpvirs1VirtualGatewayId
-    , cpvirs1RouteFilterPrefixes
+    , cpvir1OwnerAccount
+    , cpvir1VirtualInterfaceId
+    , cpvir1Location
+    , cpvir1ConnectionId
+    , cpvir1VirtualInterfaceType
+    , cpvir1VirtualInterfaceName
+    , cpvir1Vlan
+    , cpvir1Asn
+    , cpvir1AuthKey
+    , cpvir1AmazonAddress
+    , cpvir1CustomerAddress
+    , cpvir1VirtualInterfaceState
+    , cpvir1CustomerRouterConfig
+    , cpvir1VirtualGatewayId
+    , cpvir1RouteFilterPrefixes
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -94,78 +94,78 @@ instance ToJSON CreatePrivateVirtualInterface
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
 -- Connect location and the customer.
 data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceResponse
-    { _cpvirs1OwnerAccount :: Maybe Text
-    , _cpvirs1VirtualInterfaceId :: Maybe Text
-    , _cpvirs1Location :: Maybe Text
-    , _cpvirs1ConnectionId :: Maybe Text
-    , _cpvirs1VirtualInterfaceType :: Maybe Text
-    , _cpvirs1VirtualInterfaceName :: Maybe Text
-    , _cpvirs1Vlan :: Maybe Integer
-    , _cpvirs1Asn :: Maybe Integer
-    , _cpvirs1AuthKey :: Maybe Text
-    , _cpvirs1AmazonAddress :: Maybe Text
-    , _cpvirs1CustomerAddress :: Maybe Text
-    , _cpvirs1VirtualInterfaceState :: Maybe VirtualInterfaceState
-    , _cpvirs1CustomerRouterConfig :: Maybe Text
-    , _cpvirs1VirtualGatewayId :: Maybe Text
-    , _cpvirs1RouteFilterPrefixes :: [RouteFilterPrefix]
+    { _cpvir1OwnerAccount :: Maybe Text
+    , _cpvir1VirtualInterfaceId :: Maybe Text
+    , _cpvir1Location :: Maybe Text
+    , _cpvir1ConnectionId :: Maybe Text
+    , _cpvir1VirtualInterfaceType :: Maybe Text
+    , _cpvir1VirtualInterfaceName :: Maybe Text
+    , _cpvir1Vlan :: Maybe Integer
+    , _cpvir1Asn :: Maybe Integer
+    , _cpvir1AuthKey :: Maybe Text
+    , _cpvir1AmazonAddress :: Maybe Text
+    , _cpvir1CustomerAddress :: Maybe Text
+    , _cpvir1VirtualInterfaceState :: Maybe VirtualInterfaceState
+    , _cpvir1CustomerRouterConfig :: Maybe Text
+    , _cpvir1VirtualGatewayId :: Maybe Text
+    , _cpvir1RouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
 
-cpvirs1OwnerAccount :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1OwnerAccount =
-    lens _cpvirs1OwnerAccount (\s a -> s { _cpvirs1OwnerAccount = a })
+cpvir1OwnerAccount :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1OwnerAccount =
+    lens _cpvir1OwnerAccount (\s a -> s { _cpvir1OwnerAccount = a })
 
 -- | ID of the virtual interface. Example: dxvif-123dfg56 Default: None.
-cpvirs1VirtualInterfaceId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1VirtualInterfaceId =
-    lens _cpvirs1VirtualInterfaceId
-         (\s a -> s { _cpvirs1VirtualInterfaceId = a })
+cpvir1VirtualInterfaceId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1VirtualInterfaceId =
+    lens _cpvir1VirtualInterfaceId
+         (\s a -> s { _cpvir1VirtualInterfaceId = a })
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-cpvirs1Location :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1Location = lens _cpvirs1Location (\s a -> s { _cpvirs1Location = a })
+cpvir1Location :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1Location = lens _cpvir1Location (\s a -> s { _cpvir1Location = a })
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-cpvirs1ConnectionId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1ConnectionId =
-    lens _cpvirs1ConnectionId (\s a -> s { _cpvirs1ConnectionId = a })
+cpvir1ConnectionId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1ConnectionId =
+    lens _cpvir1ConnectionId (\s a -> s { _cpvir1ConnectionId = a })
 
 -- | The type of virtual interface. Example: private (Amazon VPC) or public
 -- (Amazon S3, Amazon DynamoDB, and so on.).
-cpvirs1VirtualInterfaceType :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1VirtualInterfaceType =
-    lens _cpvirs1VirtualInterfaceType
-         (\s a -> s { _cpvirs1VirtualInterfaceType = a })
+cpvir1VirtualInterfaceType :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1VirtualInterfaceType =
+    lens _cpvir1VirtualInterfaceType
+         (\s a -> s { _cpvir1VirtualInterfaceType = a })
 
 -- | The name of the virtual interface assigned by the customer. Example: "My
 -- VPC".
-cpvirs1VirtualInterfaceName :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1VirtualInterfaceName =
-    lens _cpvirs1VirtualInterfaceName
-         (\s a -> s { _cpvirs1VirtualInterfaceName = a })
+cpvir1VirtualInterfaceName :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1VirtualInterfaceName =
+    lens _cpvir1VirtualInterfaceName
+         (\s a -> s { _cpvir1VirtualInterfaceName = a })
 
 -- | The VLAN ID. Example: 101.
-cpvirs1Vlan :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Integer)
-cpvirs1Vlan = lens _cpvirs1Vlan (\s a -> s { _cpvirs1Vlan = a })
+cpvir1Vlan :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Integer)
+cpvir1Vlan = lens _cpvir1Vlan (\s a -> s { _cpvir1Vlan = a })
 
 -- | Autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration. Example: 65000.
-cpvirs1Asn :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Integer)
-cpvirs1Asn = lens _cpvirs1Asn (\s a -> s { _cpvirs1Asn = a })
+cpvir1Asn :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Integer)
+cpvir1Asn = lens _cpvir1Asn (\s a -> s { _cpvir1Asn = a })
 
 -- | Authentication key for BGP configuration. Example: asdf34example.
-cpvirs1AuthKey :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1AuthKey = lens _cpvirs1AuthKey (\s a -> s { _cpvirs1AuthKey = a })
+cpvir1AuthKey :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1AuthKey = lens _cpvir1AuthKey (\s a -> s { _cpvir1AuthKey = a })
 
 -- | IP address assigned to the Amazon interface. Example: 192.168.1.1/30.
-cpvirs1AmazonAddress :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1AmazonAddress =
-    lens _cpvirs1AmazonAddress (\s a -> s { _cpvirs1AmazonAddress = a })
+cpvir1AmazonAddress :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1AmazonAddress =
+    lens _cpvir1AmazonAddress (\s a -> s { _cpvir1AmazonAddress = a })
 
 -- | IP address assigned to the customer interface. Example: 192.168.1.2/30.
-cpvirs1CustomerAddress :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1CustomerAddress =
-    lens _cpvirs1CustomerAddress (\s a -> s { _cpvirs1CustomerAddress = a })
+cpvir1CustomerAddress :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1CustomerAddress =
+    lens _cpvir1CustomerAddress (\s a -> s { _cpvir1CustomerAddress = a })
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
 -- interface is pending confirmation from the virtual interface owner. If the
@@ -183,30 +183,29 @@ cpvirs1CustomerAddress =
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-cpvirs1VirtualInterfaceState :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvirs1VirtualInterfaceState =
-    lens _cpvirs1VirtualInterfaceState
-         (\s a -> s { _cpvirs1VirtualInterfaceState = a })
+cpvir1VirtualInterfaceState :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+cpvir1VirtualInterfaceState =
+    lens _cpvir1VirtualInterfaceState
+         (\s a -> s { _cpvir1VirtualInterfaceState = a })
 
 -- | Information for generating the customer router configuration.
-cpvirs1CustomerRouterConfig :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1CustomerRouterConfig =
-    lens _cpvirs1CustomerRouterConfig
-         (\s a -> s { _cpvirs1CustomerRouterConfig = a })
+cpvir1CustomerRouterConfig :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1CustomerRouterConfig =
+    lens _cpvir1CustomerRouterConfig
+         (\s a -> s { _cpvir1CustomerRouterConfig = a })
 
 -- | The ID of the virtual private gateway to a VPC. This only applies to
 -- private virtual interfaces. Example: vgw-123er56.
-cpvirs1VirtualGatewayId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
-cpvirs1VirtualGatewayId =
-    lens _cpvirs1VirtualGatewayId
-         (\s a -> s { _cpvirs1VirtualGatewayId = a })
+cpvir1VirtualGatewayId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
+cpvir1VirtualGatewayId =
+    lens _cpvir1VirtualGatewayId (\s a -> s { _cpvir1VirtualGatewayId = a })
 
 -- | A list of routes to be advertised to the AWS network in this region (public
 -- virtual interface) or your VPC (private virtual interface).
-cpvirs1RouteFilterPrefixes :: Lens' CreatePrivateVirtualInterfaceResponse [RouteFilterPrefix]
-cpvirs1RouteFilterPrefixes =
-    lens _cpvirs1RouteFilterPrefixes
-         (\s a -> s { _cpvirs1RouteFilterPrefixes = a })
+cpvir1RouteFilterPrefixes :: Lens' CreatePrivateVirtualInterfaceResponse [RouteFilterPrefix]
+cpvir1RouteFilterPrefixes =
+    lens _cpvir1RouteFilterPrefixes
+         (\s a -> s { _cpvir1RouteFilterPrefixes = a })
 
 instance FromJSON CreatePrivateVirtualInterfaceResponse
 

@@ -37,7 +37,7 @@ module Network.AWS.IAM.V2010_05_08.CreateLoginProfile
     -- * Response
     , CreateLoginProfileResponse
     -- ** Response lenses
-    , clprsLoginProfile
+    , clprLoginProfile
     ) where
 
 import Network.AWS.Request.Query
@@ -83,13 +83,13 @@ instance ToQuery CreateLoginProfile where
 -- | Contains the result of a successful invocation of the CreateLoginProfile
 -- action.
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
-    { _clprsLoginProfile :: LoginProfile
+    { _clprLoginProfile :: LoginProfile
     } deriving (Show, Generic)
 
 -- | The user name and password create date.
-clprsLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
-clprsLoginProfile =
-    lens _clprsLoginProfile (\s a -> s { _clprsLoginProfile = a })
+clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
+clprLoginProfile =
+    lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
 
 instance FromXML CreateLoginProfileResponse where
     fromXMLOptions = xmlOptions

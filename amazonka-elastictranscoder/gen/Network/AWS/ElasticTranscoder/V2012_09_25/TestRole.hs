@@ -60,8 +60,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.TestRole
     -- * Response
     , TestRoleResponse
     -- ** Response lenses
-    , trrsSuccess
-    , trrsMessages
+    , trrSuccess
+    , trrMessages
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -121,19 +121,19 @@ instance ToJSON TestRole
 
 -- | The TestRoleResponse structure.
 data TestRoleResponse = TestRoleResponse
-    { _trrsSuccess :: Maybe Text
-    , _trrsMessages :: [Text]
+    { _trrSuccess :: Maybe Text
+    , _trrMessages :: [Text]
     } deriving (Show, Generic)
 
 -- | If the operation is successful, this value is true; otherwise, the value is
 -- false.
-trrsSuccess :: Lens' TestRoleResponse (Maybe Text)
-trrsSuccess = lens _trrsSuccess (\s a -> s { _trrsSuccess = a })
+trrSuccess :: Lens' TestRoleResponse (Maybe Text)
+trrSuccess = lens _trrSuccess (\s a -> s { _trrSuccess = a })
 
 -- | If the Success element contains false, this value is an array of one or
 -- more error messages that were generated during the test process.
-trrsMessages :: Lens' TestRoleResponse [Text]
-trrsMessages = lens _trrsMessages (\s a -> s { _trrsMessages = a })
+trrMessages :: Lens' TestRoleResponse [Text]
+trrMessages = lens _trrMessages (\s a -> s { _trrMessages = a })
 
 instance FromJSON TestRoleResponse
 

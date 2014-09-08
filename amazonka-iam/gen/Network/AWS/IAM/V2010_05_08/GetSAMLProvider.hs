@@ -35,9 +35,9 @@ module Network.AWS.IAM.V2010_05_08.GetSAMLProvider
     -- * Response
     , GetSAMLProviderResponse
     -- ** Response lenses
-    , gsamlprsSAMLMetadataDocument
-    , gsamlprsCreateDate
-    , gsamlprsValidUntil
+    , gsamlprSAMLMetadataDocument
+    , gsamlprCreateDate
+    , gsamlprValidUntil
     ) where
 
 import Network.AWS.Request.Query
@@ -69,27 +69,27 @@ instance ToQuery GetSAMLProvider where
 -- | Contains the result of a successful invocation of the GetSAMLProvider
 -- action.
 data GetSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlprsSAMLMetadataDocument :: Maybe Text
-    , _gsamlprsCreateDate :: Maybe ISO8601
-    , _gsamlprsValidUntil :: Maybe ISO8601
+    { _gsamlprSAMLMetadataDocument :: Maybe Text
+    , _gsamlprCreateDate :: Maybe ISO8601
+    , _gsamlprValidUntil :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
-gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
-gsamlprsSAMLMetadataDocument =
-    lens _gsamlprsSAMLMetadataDocument
-         (\s a -> s { _gsamlprsSAMLMetadataDocument = a })
+gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
+gsamlprSAMLMetadataDocument =
+    lens _gsamlprSAMLMetadataDocument
+         (\s a -> s { _gsamlprSAMLMetadataDocument = a })
 
 -- | The date and time when the SAML provider was created.
-gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
-gsamlprsCreateDate =
-    lens _gsamlprsCreateDate (\s a -> s { _gsamlprsCreateDate = a })
+gsamlprCreateDate :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
+gsamlprCreateDate =
+    lens _gsamlprCreateDate (\s a -> s { _gsamlprCreateDate = a })
 
 -- | The expiration date and time for the SAML provider.
-gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
-gsamlprsValidUntil =
-    lens _gsamlprsValidUntil (\s a -> s { _gsamlprsValidUntil = a })
+gsamlprValidUntil :: Lens' GetSAMLProviderResponse (Maybe ISO8601)
+gsamlprValidUntil =
+    lens _gsamlprValidUntil (\s a -> s { _gsamlprValidUntil = a })
 
 instance FromXML GetSAMLProviderResponse where
     fromXMLOptions = xmlOptions

@@ -38,9 +38,9 @@ module Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute
     -- * Response
     , DescribeSnapshotAttributeResponse
     -- ** Response lenses
-    , dsarsSnapshotId
-    , dsarsCreateVolumePermissions
-    , dsarsProductCodes
+    , dsarSnapshotId
+    , dsarCreateVolumePermissions
+    , dsarProductCodes
     ) where
 
 import Network.AWS.Request.Query
@@ -76,25 +76,25 @@ instance ToQuery DescribeSnapshotAttribute where
 
 -- | 
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
-    { _dsarsSnapshotId :: Maybe Text
-    , _dsarsCreateVolumePermissions :: [CreateVolumePermission]
-    , _dsarsProductCodes :: [ProductCode]
+    { _dsarSnapshotId :: Maybe Text
+    , _dsarCreateVolumePermissions :: [CreateVolumePermission]
+    , _dsarProductCodes :: [ProductCode]
     } deriving (Show, Generic)
 
 -- | The ID of the Amazon EBS snapshot.
-dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
-dsarsSnapshotId = lens _dsarsSnapshotId (\s a -> s { _dsarsSnapshotId = a })
+dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
+dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
-dsarsCreateVolumePermissions =
-    lens _dsarsCreateVolumePermissions
-         (\s a -> s { _dsarsCreateVolumePermissions = a })
+dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
+dsarCreateVolumePermissions =
+    lens _dsarCreateVolumePermissions
+         (\s a -> s { _dsarCreateVolumePermissions = a })
 
 -- | A list of product codes.
-dsarsProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarsProductCodes =
-    lens _dsarsProductCodes (\s a -> s { _dsarsProductCodes = a })
+dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
+dsarProductCodes =
+    lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
 
 instance FromXML DescribeSnapshotAttributeResponse where
     fromXMLOptions = xmlOptions

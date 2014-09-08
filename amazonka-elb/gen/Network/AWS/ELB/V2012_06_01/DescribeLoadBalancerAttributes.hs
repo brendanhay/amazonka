@@ -35,7 +35,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes
     -- * Response
     , DescribeLoadBalancerAttributesResponse
     -- ** Response lenses
-    , dlbarsLoadBalancerAttributes
+    , dlbarLoadBalancerAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -66,14 +66,14 @@ instance ToQuery DescribeLoadBalancerAttributes where
 -- | The following element is returned in a structure named
 -- DescribeLoadBalancerAttributesResult.
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
-    { _dlbarsLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+    { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Show, Generic)
 
 -- | The load balancer attributes structure.
-dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-dlbarsLoadBalancerAttributes =
-    lens _dlbarsLoadBalancerAttributes
-         (\s a -> s { _dlbarsLoadBalancerAttributes = a })
+dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+dlbarLoadBalancerAttributes =
+    lens _dlbarLoadBalancerAttributes
+         (\s a -> s { _dlbarLoadBalancerAttributes = a })
 
 instance FromXML DescribeLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions

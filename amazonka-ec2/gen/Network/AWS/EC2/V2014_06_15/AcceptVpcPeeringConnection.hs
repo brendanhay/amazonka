@@ -50,7 +50,7 @@ module Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
     -- * Response
     , AcceptVpcPeeringConnectionResponse
     -- ** Response lenses
-    , avpcrsVpcPeeringConnection
+    , avpcrVpcPeeringConnection
     ) where
 
 import Network.AWS.Request.Query
@@ -80,14 +80,14 @@ instance ToQuery AcceptVpcPeeringConnection where
 
 -- | 
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
-    { _avpcrsVpcPeeringConnection :: Maybe VpcPeeringConnection
+    { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connection.
-avpcrsVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
-avpcrsVpcPeeringConnection =
-    lens _avpcrsVpcPeeringConnection
-         (\s a -> s { _avpcrsVpcPeeringConnection = a })
+avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
+avpcrVpcPeeringConnection =
+    lens _avpcrVpcPeeringConnection
+         (\s a -> s { _avpcrVpcPeeringConnection = a })
 
 instance FromXML AcceptVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions

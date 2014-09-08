@@ -54,7 +54,7 @@ module Network.AWS.EC2.V2014_06_15.StartInstances
     -- * Response
     , StartInstancesResponse
     -- ** Response lenses
-    , sirsStartingInstances
+    , sirrStartingInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -90,13 +90,13 @@ instance ToQuery StartInstances where
 
 -- | 
 newtype StartInstancesResponse = StartInstancesResponse
-    { _sirsStartingInstances :: [InstanceStateChange]
+    { _sirrStartingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
 
 -- | Information about one or more started instances.
-sirsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-sirsStartingInstances =
-    lens _sirsStartingInstances (\s a -> s { _sirsStartingInstances = a })
+sirrStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+sirrStartingInstances =
+    lens _sirrStartingInstances (\s a -> s { _sirrStartingInstances = a })
 
 instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions

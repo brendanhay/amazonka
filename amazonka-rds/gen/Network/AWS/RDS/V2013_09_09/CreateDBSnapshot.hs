@@ -39,7 +39,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSnapshot
     -- * Response
     , CreateDBSnapshotResponse
     -- ** Response lenses
-    , cdbsrsrsDBSnapshot
+    , cdbsrrDBSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -90,15 +90,15 @@ instance ToQuery CreateDBSnapshot where
     toQuery = genericQuery def
 
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
-    { _cdbsrsrsDBSnapshot :: Maybe DBSnapshot
+    { _cdbsrrDBSnapshot :: Maybe DBSnapshot
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
-cdbsrsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
-cdbsrsrsDBSnapshot =
-    lens _cdbsrsrsDBSnapshot (\s a -> s { _cdbsrsrsDBSnapshot = a })
+cdbsrrDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
+cdbsrrDBSnapshot =
+    lens _cdbsrrDBSnapshot (\s a -> s { _cdbsrrDBSnapshot = a })
 
 instance FromXML CreateDBSnapshotResponse where
     fromXMLOptions = xmlOptions

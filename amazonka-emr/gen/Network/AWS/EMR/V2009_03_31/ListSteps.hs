@@ -32,8 +32,8 @@ module Network.AWS.EMR.V2009_03_31.ListSteps
     -- * Response
     , ListStepsResponse
     -- ** Response lenses
-    , lsrsSteps
-    , lsrsMarker
+    , lsrSteps
+    , lsrMarker
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -79,17 +79,17 @@ instance ToJSON ListSteps
 
 -- | This output contains the list of steps.
 data ListStepsResponse = ListStepsResponse
-    { _lsrsSteps :: [StepSummary]
-    , _lsrsMarker :: Maybe Text
+    { _lsrSteps :: [StepSummary]
+    , _lsrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The filtered list of steps for the cluster.
-lsrsSteps :: Lens' ListStepsResponse [StepSummary]
-lsrsSteps = lens _lsrsSteps (\s a -> s { _lsrsSteps = a })
+lsrSteps :: Lens' ListStepsResponse [StepSummary]
+lsrSteps = lens _lsrSteps (\s a -> s { _lsrSteps = a })
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
-lsrsMarker = lens _lsrsMarker (\s a -> s { _lsrsMarker = a })
+lsrMarker :: Lens' ListStepsResponse (Maybe Text)
+lsrMarker = lens _lsrMarker (\s a -> s { _lsrMarker = a })
 
 instance FromJSON ListStepsResponse
 
@@ -102,4 +102,4 @@ instance AWSRequest ListSteps where
 
 instance AWSPager ListSteps where
     next rq rs = (\x -> rq & lsMarker ?~ x)
-        <$> (rs ^. lsrsMarker)
+        <$> (rs ^. lsrMarker)

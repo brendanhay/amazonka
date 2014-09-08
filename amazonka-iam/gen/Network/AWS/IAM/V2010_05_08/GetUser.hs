@@ -37,7 +37,7 @@ module Network.AWS.IAM.V2010_05_08.GetUser
     -- * Response
     , GetUserResponse
     -- ** Response lenses
-    , gursUser
+    , gurUser
     ) where
 
 import Network.AWS.Request.Query
@@ -66,12 +66,12 @@ instance ToQuery GetUser where
 
 -- | Contains the result of a successful invocation of the GetUser action.
 newtype GetUserResponse = GetUserResponse
-    { _gursUser :: User
+    { _gurUser :: User
     } deriving (Show, Generic)
 
 -- | Information about the user.
-gursUser :: Lens' GetUserResponse User
-gursUser = lens _gursUser (\s a -> s { _gursUser = a })
+gurUser :: Lens' GetUserResponse User
+gurUser = lens _gurUser (\s a -> s { _gurUser = a })
 
 instance FromXML GetUserResponse where
     fromXMLOptions = xmlOptions

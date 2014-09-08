@@ -32,8 +32,6 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Types
     (
     -- * Service
       CognitoIdentity
-    -- ** Errors
-    , Er (..)
     -- * IdentityDescription
     , IdentityDescription
     , mkIdentityDescription

@@ -47,7 +47,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup
     -- * Response
     , CreateDBParameterGroupResponse
     -- ** Response lenses
-    , cdbpgrsDBParameterGroup
+    , cdbpgrDBParameterGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -106,17 +106,16 @@ instance ToQuery CreateDBParameterGroup where
     toQuery = genericQuery def
 
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
-    { _cdbpgrsDBParameterGroup :: Maybe DBParameterGroup
+    { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the
 -- CreateDBParameterGroup action. This data type is used as a request
 -- parameter in the DeleteDBParameterGroup action, and as a response element
 -- in the DescribeDBParameterGroups action.
-cdbpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
-cdbpgrsDBParameterGroup =
-    lens _cdbpgrsDBParameterGroup
-         (\s a -> s { _cdbpgrsDBParameterGroup = a })
+cdbpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
+cdbpgrDBParameterGroup =
+    lens _cdbpgrDBParameterGroup (\s a -> s { _cdbpgrDBParameterGroup = a })
 
 instance FromXML CreateDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

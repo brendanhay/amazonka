@@ -81,15 +81,15 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateConfigurationTemplate
     -- * Response
     , UpdateConfigurationTemplateResponse
     -- ** Response lenses
-    , uctrsSolutionStackName
-    , uctrsApplicationName
-    , uctrsTemplateName
-    , uctrsDescription
-    , uctrsEnvironmentName
-    , uctrsDeploymentStatus
-    , uctrsDateCreated
-    , uctrsDateUpdated
-    , uctrsOptionSettings
+    , uctrSolutionStackName
+    , uctrApplicationName
+    , uctrTemplateName
+    , uctrDescription
+    , uctrEnvironmentName
+    , uctrDeploymentStatus
+    , uctrDateCreated
+    , uctrDateUpdated
+    , uctrOptionSettings
     ) where
 
 import Network.AWS.Request.Query
@@ -152,42 +152,41 @@ instance ToQuery UpdateConfigurationTemplate where
 
 -- | Describes the settings for a configuration set.
 data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
-    { _uctrsSolutionStackName :: Maybe Text
-    , _uctrsApplicationName :: Maybe Text
-    , _uctrsTemplateName :: Maybe Text
-    , _uctrsDescription :: Maybe Text
-    , _uctrsEnvironmentName :: Maybe Text
-    , _uctrsDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _uctrsDateCreated :: Maybe ISO8601
-    , _uctrsDateUpdated :: Maybe ISO8601
-    , _uctrsOptionSettings :: [ConfigurationOptionSetting]
+    { _uctrSolutionStackName :: Maybe Text
+    , _uctrApplicationName :: Maybe Text
+    , _uctrTemplateName :: Maybe Text
+    , _uctrDescription :: Maybe Text
+    , _uctrEnvironmentName :: Maybe Text
+    , _uctrDeploymentStatus :: Maybe ConfigurationDeploymentStatus
+    , _uctrDateCreated :: Maybe ISO8601
+    , _uctrDateUpdated :: Maybe ISO8601
+    , _uctrOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
 
 -- | The name of the solution stack this configuration set uses.
-uctrsSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
-uctrsSolutionStackName =
-    lens _uctrsSolutionStackName (\s a -> s { _uctrsSolutionStackName = a })
+uctrSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrSolutionStackName =
+    lens _uctrSolutionStackName (\s a -> s { _uctrSolutionStackName = a })
 
 -- | The name of the application associated with this configuration set.
-uctrsApplicationName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
-uctrsApplicationName =
-    lens _uctrsApplicationName (\s a -> s { _uctrsApplicationName = a })
+uctrApplicationName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrApplicationName =
+    lens _uctrApplicationName (\s a -> s { _uctrApplicationName = a })
 
 -- | If not null, the name of the configuration template for this configuration
 -- set.
-uctrsTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
-uctrsTemplateName =
-    lens _uctrsTemplateName (\s a -> s { _uctrsTemplateName = a })
+uctrTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrTemplateName =
+    lens _uctrTemplateName (\s a -> s { _uctrTemplateName = a })
 
 -- | Describes this configuration set.
-uctrsDescription :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
-uctrsDescription =
-    lens _uctrsDescription (\s a -> s { _uctrsDescription = a })
+uctrDescription :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrDescription = lens _uctrDescription (\s a -> s { _uctrDescription = a })
 
 -- | If not null, the name of the environment for this configuration set.
-uctrsEnvironmentName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
-uctrsEnvironmentName =
-    lens _uctrsEnvironmentName (\s a -> s { _uctrsEnvironmentName = a })
+uctrEnvironmentName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
+uctrEnvironmentName =
+    lens _uctrEnvironmentName (\s a -> s { _uctrEnvironmentName = a })
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -202,25 +201,23 @@ uctrsEnvironmentName =
 -- deploying. deployed: This is the configuration that is currently deployed
 -- to the associated running environment. failed: This is a draft
 -- configuration that failed to successfully deploy.
-uctrsDeploymentStatus :: Lens' UpdateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
-uctrsDeploymentStatus =
-    lens _uctrsDeploymentStatus (\s a -> s { _uctrsDeploymentStatus = a })
+uctrDeploymentStatus :: Lens' UpdateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
+uctrDeploymentStatus =
+    lens _uctrDeploymentStatus (\s a -> s { _uctrDeploymentStatus = a })
 
 -- | The date (in UTC time) when this configuration set was created.
-uctrsDateCreated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
-uctrsDateCreated =
-    lens _uctrsDateCreated (\s a -> s { _uctrsDateCreated = a })
+uctrDateCreated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
+uctrDateCreated = lens _uctrDateCreated (\s a -> s { _uctrDateCreated = a })
 
 -- | The date (in UTC time) when this configuration set was last modified.
-uctrsDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
-uctrsDateUpdated =
-    lens _uctrsDateUpdated (\s a -> s { _uctrsDateUpdated = a })
+uctrDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe ISO8601)
+uctrDateUpdated = lens _uctrDateUpdated (\s a -> s { _uctrDateUpdated = a })
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
-uctrsOptionSettings :: Lens' UpdateConfigurationTemplateResponse [ConfigurationOptionSetting]
-uctrsOptionSettings =
-    lens _uctrsOptionSettings (\s a -> s { _uctrsOptionSettings = a })
+uctrOptionSettings :: Lens' UpdateConfigurationTemplateResponse [ConfigurationOptionSetting]
+uctrOptionSettings =
+    lens _uctrOptionSettings (\s a -> s { _uctrOptionSettings = a })
 
 instance FromXML UpdateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions

@@ -46,7 +46,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup
     -- * Response
     , CreateReplicationGroupResponse
     -- ** Response lenses
-    , crgrsReplicationGroup
+    , crgrReplicationGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -97,13 +97,13 @@ instance ToQuery CreateReplicationGroup where
     toQuery = genericQuery def
 
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
-    { _crgrsReplicationGroup :: Maybe ReplicationGroup
+    { _crgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-crgrsReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
-crgrsReplicationGroup =
-    lens _crgrsReplicationGroup (\s a -> s { _crgrsReplicationGroup = a })
+crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
+crgrReplicationGroup =
+    lens _crgrReplicationGroup (\s a -> s { _crgrReplicationGroup = a })
 
 instance FromXML CreateReplicationGroupResponse where
     fromXMLOptions = xmlOptions

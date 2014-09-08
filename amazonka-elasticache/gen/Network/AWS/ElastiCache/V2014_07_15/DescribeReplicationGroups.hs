@@ -43,8 +43,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups
     -- * Response
     , DescribeReplicationGroupsResponse
     -- ** Response lenses
-    , drgrsrsMarker
-    , drgrsrsReplicationGroups
+    , drgrrMarker
+    , drgrrReplicationGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -93,20 +93,19 @@ instance ToQuery DescribeReplicationGroups where
 
 -- | Represents the output of a DescribeReplicationGroups operation.
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
-    { _drgrsrsMarker :: Maybe Text
-    , _drgrsrsReplicationGroups :: [ReplicationGroup]
+    { _drgrrMarker :: Maybe Text
+    , _drgrrReplicationGroups :: [ReplicationGroup]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drgrsrsMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
-drgrsrsMarker = lens _drgrsrsMarker (\s a -> s { _drgrsrsMarker = a })
+drgrrMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
+drgrrMarker = lens _drgrrMarker (\s a -> s { _drgrrMarker = a })
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-drgrsrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
-drgrsrsReplicationGroups =
-    lens _drgrsrsReplicationGroups
-         (\s a -> s { _drgrsrsReplicationGroups = a })
+drgrrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
+drgrrReplicationGroups =
+    lens _drgrrReplicationGroups (\s a -> s { _drgrrReplicationGroups = a })
 
 instance FromXML DescribeReplicationGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -120,4 +119,4 @@ instance AWSRequest DescribeReplicationGroups where
 
 instance AWSPager DescribeReplicationGroups where
     next rq rs = (\x -> rq & drg1Marker ?~ x)
-        <$> (rs ^. drgrsrsMarker)
+        <$> (rs ^. drgrrMarker)

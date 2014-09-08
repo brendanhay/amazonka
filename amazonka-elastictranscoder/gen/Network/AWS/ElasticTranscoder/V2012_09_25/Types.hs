@@ -27,8 +27,6 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     (
     -- * Service
       ElasticTranscoder
-    -- ** Errors
-    , Er (..)
     -- * AudioCodecOptions
     , AudioCodecOptions
     , mkAudioCodecOptions
@@ -171,16 +169,16 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     -- * Pipeline
     , Pipeline
     , mkPipeline
-    , prsId
-    , prsArn
-    , prsName
-    , prsStatus
-    , prsInputBucket
-    , prsOutputBucket
-    , prsRole
-    , prsNotifications
-    , prsContentConfig
-    , prsThumbnailConfig
+    , prId
+    , prArn
+    , prName
+    , prStatus
+    , prInputBucket
+    , prOutputBucket
+    , prRole
+    , prNotifications
+    , prContentConfig
+    , prThumbnailConfig
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -201,15 +199,15 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Types
     -- * Preset
     , Preset
     , mkPreset
-    , p1rsId
-    , p1rsArn
-    , p1rsName
-    , p1rsDescription
-    , p1rsContainer
-    , p1rsAudio
-    , p1rsVideo
-    , p1rsThumbnails
-    , p1rsType
+    , p1rId
+    , p1rArn
+    , p1rName
+    , p1rDescription
+    , p1rContainer
+    , p1rAudio
+    , p1rVideo
+    , p1rThumbnails
+    , p1rType
 
     -- * PresetWatermark
     , PresetWatermark
@@ -1386,71 +1384,71 @@ instance ToJSON Permission
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
 data Pipeline = Pipeline
-    { _prsId :: Maybe Text
-    , _prsArn :: Maybe Text
-    , _prsName :: Maybe Text
-    , _prsStatus :: Maybe Text
-    , _prsInputBucket :: Maybe Text
-    , _prsOutputBucket :: Maybe Text
-    , _prsRole :: Maybe Text
-    , _prsNotifications :: Maybe Notifications
-    , _prsContentConfig :: Maybe PipelineOutputConfig
-    , _prsThumbnailConfig :: Maybe PipelineOutputConfig
+    { _prId :: Maybe Text
+    , _prArn :: Maybe Text
+    , _prName :: Maybe Text
+    , _prStatus :: Maybe Text
+    , _prInputBucket :: Maybe Text
+    , _prOutputBucket :: Maybe Text
+    , _prRole :: Maybe Text
+    , _prNotifications :: Maybe Notifications
+    , _prContentConfig :: Maybe PipelineOutputConfig
+    , _prThumbnailConfig :: Maybe PipelineOutputConfig
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Pipeline' data type to populate a request.
 mkPipeline :: Pipeline
 mkPipeline = Pipeline
-    { _prsId = Nothing
-    , _prsArn = Nothing
-    , _prsName = Nothing
-    , _prsStatus = Nothing
-    , _prsInputBucket = Nothing
-    , _prsOutputBucket = Nothing
-    , _prsRole = Nothing
-    , _prsNotifications = Nothing
-    , _prsContentConfig = Nothing
-    , _prsThumbnailConfig = Nothing
+    { _prId = Nothing
+    , _prArn = Nothing
+    , _prName = Nothing
+    , _prStatus = Nothing
+    , _prInputBucket = Nothing
+    , _prOutputBucket = Nothing
+    , _prRole = Nothing
+    , _prNotifications = Nothing
+    , _prContentConfig = Nothing
+    , _prThumbnailConfig = Nothing
     }
 
 -- | The identifier for the pipeline. You use this value to identify the
 -- pipeline in which you want to perform a variety of operations, such as
 -- creating a job or a preset.
-prsId :: Lens' Pipeline (Maybe Text)
-prsId = lens _prsId (\s a -> s { _prsId = a })
+prId :: Lens' Pipeline (Maybe Text)
+prId = lens _prId (\s a -> s { _prId = a })
 
 -- | The Amazon Resource Name (ARN) for the pipeline.
-prsArn :: Lens' Pipeline (Maybe Text)
-prsArn = lens _prsArn (\s a -> s { _prsArn = a })
+prArn :: Lens' Pipeline (Maybe Text)
+prArn = lens _prArn (\s a -> s { _prArn = a })
 
 -- | The name of the pipeline. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
 -- characters.
-prsName :: Lens' Pipeline (Maybe Text)
-prsName = lens _prsName (\s a -> s { _prsName = a })
+prName :: Lens' Pipeline (Maybe Text)
+prName = lens _prName (\s a -> s { _prName = a })
 
 -- | The current status of the pipeline: Active: The pipeline is processing
 -- jobs. Paused: The pipeline is not currently processing jobs.
-prsStatus :: Lens' Pipeline (Maybe Text)
-prsStatus = lens _prsStatus (\s a -> s { _prsStatus = a })
+prStatus :: Lens' Pipeline (Maybe Text)
+prStatus = lens _prStatus (\s a -> s { _prStatus = a })
 
 -- | The Amazon S3 bucket from which Elastic Transcoder gets media files for
 -- transcoding and the graphics files, if any, that you want to use for
 -- watermarks.
-prsInputBucket :: Lens' Pipeline (Maybe Text)
-prsInputBucket = lens _prsInputBucket (\s a -> s { _prsInputBucket = a })
+prInputBucket :: Lens' Pipeline (Maybe Text)
+prInputBucket = lens _prInputBucket (\s a -> s { _prInputBucket = a })
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save
 -- transcoded files, thumbnails, and playlists. Either you specify this value,
 -- or you specify both ContentConfig and ThumbnailConfig.
-prsOutputBucket :: Lens' Pipeline (Maybe Text)
-prsOutputBucket = lens _prsOutputBucket (\s a -> s { _prsOutputBucket = a })
+prOutputBucket :: Lens' Pipeline (Maybe Text)
+prOutputBucket = lens _prOutputBucket (\s a -> s { _prOutputBucket = a })
 
 -- | The IAM Amazon Resource Name (ARN) for the role that Elastic Transcoder
 -- uses to transcode jobs for this pipeline.
-prsRole :: Lens' Pipeline (Maybe Text)
-prsRole = lens _prsRole (\s a -> s { _prsRole = a })
+prRole :: Lens' Pipeline (Maybe Text)
+prRole = lens _prRole (\s a -> s { _prRole = a })
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
 -- notify to report job status. To receive notifications, you must also
@@ -1462,9 +1460,8 @@ prsRole = lens _prsRole (\s a -> s { _prsRole = a })
 -- Amazon SNS topic that you want to notify when Elastic Transcoder encounters
 -- a warning condition. Error (optional): The Amazon SNS topic that you want
 -- to notify when Elastic Transcoder encounters an error condition.
-prsNotifications :: Lens' Pipeline (Maybe Notifications)
-prsNotifications =
-    lens _prsNotifications (\s a -> s { _prsNotifications = a })
+prNotifications :: Lens' Pipeline (Maybe Notifications)
+prNotifications = lens _prNotifications (\s a -> s { _prNotifications = a })
 
 -- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
 -- to save transcoded files and playlists. Either you specify both
@@ -1490,9 +1487,8 @@ prsNotifications =
 -- StorageClass: The Amazon S3 storage class, Standard or ReducedRedundancy,
 -- that you want Elastic Transcoder to assign to the video files and playlists
 -- that it stores in your Amazon S3 bucket.
-prsContentConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
-prsContentConfig =
-    lens _prsContentConfig (\s a -> s { _prsContentConfig = a })
+prContentConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
+prContentConfig = lens _prContentConfig (\s a -> s { _prContentConfig = a })
 
 -- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
 -- to save thumbnail files. Either you specify both ContentConfig and
@@ -1518,9 +1514,9 @@ prsContentConfig =
 -- S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the
 -- thumbnails that it stores in your Amazon S3 bucket.
-prsThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
-prsThumbnailConfig =
-    lens _prsThumbnailConfig (\s a -> s { _prsThumbnailConfig = a })
+prThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
+prThumbnailConfig =
+    lens _prThumbnailConfig (\s a -> s { _prThumbnailConfig = a })
 
 instance FromJSON Pipeline
 
@@ -1678,73 +1674,73 @@ instance ToJSON Playlist
 -- | A section of the response body that provides information about the preset
 -- that is created.
 data Preset = Preset
-    { _p1rsId :: Maybe Text
-    , _p1rsArn :: Maybe Text
-    , _p1rsName :: Maybe Text
-    , _p1rsDescription :: Maybe Text
-    , _p1rsContainer :: Maybe Text
-    , _p1rsAudio :: Maybe AudioParameters
-    , _p1rsVideo :: Maybe VideoParameters
-    , _p1rsThumbnails :: Maybe Thumbnails
-    , _p1rsType :: Maybe Text
+    { _p1rId :: Maybe Text
+    , _p1rArn :: Maybe Text
+    , _p1rName :: Maybe Text
+    , _p1rDescription :: Maybe Text
+    , _p1rContainer :: Maybe Text
+    , _p1rAudio :: Maybe AudioParameters
+    , _p1rVideo :: Maybe VideoParameters
+    , _p1rThumbnails :: Maybe Thumbnails
+    , _p1rType :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Preset' data type to populate a request.
 mkPreset :: Preset
 mkPreset = Preset
-    { _p1rsId = Nothing
-    , _p1rsArn = Nothing
-    , _p1rsName = Nothing
-    , _p1rsDescription = Nothing
-    , _p1rsContainer = Nothing
-    , _p1rsAudio = Nothing
-    , _p1rsVideo = Nothing
-    , _p1rsThumbnails = Nothing
-    , _p1rsType = Nothing
+    { _p1rId = Nothing
+    , _p1rArn = Nothing
+    , _p1rName = Nothing
+    , _p1rDescription = Nothing
+    , _p1rContainer = Nothing
+    , _p1rAudio = Nothing
+    , _p1rVideo = Nothing
+    , _p1rThumbnails = Nothing
+    , _p1rType = Nothing
     }
 
 -- | Identifier for the new preset. You use this value to get settings for the
 -- preset or to delete it.
-p1rsId :: Lens' Preset (Maybe Text)
-p1rsId = lens _p1rsId (\s a -> s { _p1rsId = a })
+p1rId :: Lens' Preset (Maybe Text)
+p1rId = lens _p1rId (\s a -> s { _p1rId = a })
 
 -- | The Amazon Resource Name (ARN) for the preset.
-p1rsArn :: Lens' Preset (Maybe Text)
-p1rsArn = lens _p1rsArn (\s a -> s { _p1rsArn = a })
+p1rArn :: Lens' Preset (Maybe Text)
+p1rArn = lens _p1rArn (\s a -> s { _p1rArn = a })
 
 -- | The name of the preset.
-p1rsName :: Lens' Preset (Maybe Text)
-p1rsName = lens _p1rsName (\s a -> s { _p1rsName = a })
+p1rName :: Lens' Preset (Maybe Text)
+p1rName = lens _p1rName (\s a -> s { _p1rName = a })
 
 -- | A description of the preset.
-p1rsDescription :: Lens' Preset (Maybe Text)
-p1rsDescription = lens _p1rsDescription (\s a -> s { _p1rsDescription = a })
+p1rDescription :: Lens' Preset (Maybe Text)
+p1rDescription = lens _p1rDescription (\s a -> s { _p1rDescription = a })
 
 -- | The container type for the output file. Valid values include mp3, mp4, ogg,
 -- ts, and webm.
-p1rsContainer :: Lens' Preset (Maybe Text)
-p1rsContainer = lens _p1rsContainer (\s a -> s { _p1rsContainer = a })
+p1rContainer :: Lens' Preset (Maybe Text)
+p1rContainer = lens _p1rContainer (\s a -> s { _p1rContainer = a })
 
 -- | A section of the response body that provides information about the audio
 -- preset values.
-p1rsAudio :: Lens' Preset (Maybe AudioParameters)
-p1rsAudio = lens _p1rsAudio (\s a -> s { _p1rsAudio = a })
+p1rAudio :: Lens' Preset (Maybe AudioParameters)
+p1rAudio = lens _p1rAudio (\s a -> s { _p1rAudio = a })
 
 -- | A section of the response body that provides information about the video
 -- preset values.
-p1rsVideo :: Lens' Preset (Maybe VideoParameters)
-p1rsVideo = lens _p1rsVideo (\s a -> s { _p1rsVideo = a })
+p1rVideo :: Lens' Preset (Maybe VideoParameters)
+p1rVideo = lens _p1rVideo (\s a -> s { _p1rVideo = a })
 
 -- | A section of the response body that provides information about the
 -- thumbnail preset values, if any.
-p1rsThumbnails :: Lens' Preset (Maybe Thumbnails)
-p1rsThumbnails = lens _p1rsThumbnails (\s a -> s { _p1rsThumbnails = a })
+p1rThumbnails :: Lens' Preset (Maybe Thumbnails)
+p1rThumbnails = lens _p1rThumbnails (\s a -> s { _p1rThumbnails = a })
 
 -- | Whether the preset is a default preset provided by Elastic Transcoder
 -- (System) or a preset that you have defined (Custom).
-p1rsType :: Lens' Preset (Maybe Text)
-p1rsType = lens _p1rsType (\s a -> s { _p1rsType = a })
+p1rType :: Lens' Preset (Maybe Text)
+p1rType = lens _p1rType (\s a -> s { _p1rType = a })
 
 instance FromJSON Preset
 

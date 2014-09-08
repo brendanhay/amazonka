@@ -29,8 +29,6 @@ module Network.AWS.S3.V2006_03_01.Types
     (
     -- * Service
       S3
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -104,7 +102,7 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * CommonPrefix
     , CommonPrefix
     , mkCommonPrefix
-    , cprsPrefix
+    , cprPrefix
 
     -- * CompletedMultipartUpload
     , CompletedMultipartUpload
@@ -192,14 +190,14 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * CopyObjectResult
     , CopyObjectResult
     , mkCopyObjectResult
-    , corETag
-    , corLastModified
+    , corrETag
+    , corrLastModified
 
     -- * CopyPartResult
     , CopyPartResult
     , mkCopyPartResult
-    , cprETag
-    , cprLastModified
+    , cprrETag
+    , cprrLastModified
 
     -- * Delete
     , Delete
@@ -219,10 +217,10 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * DeletedObject
     , DeletedObject
     , mkDeletedObject
-    , do1rsKey
-    , do1rsVersionId
-    , do1rsDeleteMarker
-    , do1rsDeleteMarkerVersionId
+    , do1rKey
+    , do1rVersionId
+    , do1rDeleteMarker
+    , do1rDeleteMarkerVersionId
 
     -- * Error
     , Error
@@ -262,9 +260,9 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * LoggingEnabled
     , LoggingEnabled
     , mkLoggingEnabled
-    , lersTargetBucket
-    , lersTargetGrants
-    , lersTargetPrefix
+    , lerTargetBucket
+    , lerTargetGrants
+    , lerTargetPrefix
 
     -- * MultipartUpload
     , MultipartUpload
@@ -285,12 +283,12 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * Object
     , Object
     , mkObject
-    , orsKey
-    , orsLastModified
-    , orsETag
-    , orsSize
-    , orsStorageClass
-    , orsOwner
+    , orKey
+    , orLastModified
+    , orETag
+    , orSize
+    , orStorageClass
+    , orOwner
 
     -- * ObjectIdentifier
     , ObjectIdentifier
@@ -359,8 +357,8 @@ module Network.AWS.S3.V2006_03_01.Types
     -- * Tag
     , Tag
     , mkTag
-    , trsKey
-    , trsValue
+    , trKey
+    , trValue
 
     -- * TargetGrant
     , TargetGrant
@@ -985,18 +983,18 @@ instance ToXML CORSConfiguration where
     toXMLRoot    = toRoot "CORSConfiguration"
 
 newtype CommonPrefix = CommonPrefix
-    { _cprsPrefix :: Maybe Text
+    { _cprPrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CommonPrefix' data type to populate a request.
 mkCommonPrefix :: CommonPrefix
 mkCommonPrefix = CommonPrefix
-    { _cprsPrefix = Nothing
+    { _cprPrefix = Nothing
     }
 
-cprsPrefix :: Lens' CommonPrefix (Maybe Text)
-cprsPrefix = lens _cprsPrefix (\s a -> s { _cprsPrefix = a })
+cprPrefix :: Lens' CommonPrefix (Maybe Text)
+cprPrefix = lens _cprPrefix (\s a -> s { _cprPrefix = a })
 
 instance FromXML CommonPrefix where
     fromXMLOptions = xmlOptions
@@ -1401,48 +1399,50 @@ instance ToXML Condition where
     toXMLRoot    = toRoot "Condition"
 
 data CopyObjectResult = CopyObjectResult
-    { _corETag :: Maybe ETag
-    , _corLastModified :: Maybe RFC822
+    { _corrETag :: Maybe ETag
+    , _corrLastModified :: Maybe RFC822
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CopyObjectResult' data type to populate a request.
 mkCopyObjectResult :: CopyObjectResult
 mkCopyObjectResult = CopyObjectResult
-    { _corETag = Nothing
-    , _corLastModified = Nothing
+    { _corrETag = Nothing
+    , _corrLastModified = Nothing
     }
 
-corETag :: Lens' CopyObjectResult (Maybe ETag)
-corETag = lens _corETag (\s a -> s { _corETag = a })
+corrETag :: Lens' CopyObjectResult (Maybe ETag)
+corrETag = lens _corrETag (\s a -> s { _corrETag = a })
 
-corLastModified :: Lens' CopyObjectResult (Maybe RFC822)
-corLastModified = lens _corLastModified (\s a -> s { _corLastModified = a })
+corrLastModified :: Lens' CopyObjectResult (Maybe RFC822)
+corrLastModified =
+    lens _corrLastModified (\s a -> s { _corrLastModified = a })
 
 instance FromXML CopyObjectResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyObjectResult"
 
 data CopyPartResult = CopyPartResult
-    { _cprETag :: Maybe ETag
-    , _cprLastModified :: Maybe RFC822
+    { _cprrETag :: Maybe ETag
+    , _cprrLastModified :: Maybe RFC822
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CopyPartResult' data type to populate a request.
 mkCopyPartResult :: CopyPartResult
 mkCopyPartResult = CopyPartResult
-    { _cprETag = Nothing
-    , _cprLastModified = Nothing
+    { _cprrETag = Nothing
+    , _cprrLastModified = Nothing
     }
 
 -- | Entity tag of the object.
-cprETag :: Lens' CopyPartResult (Maybe ETag)
-cprETag = lens _cprETag (\s a -> s { _cprETag = a })
+cprrETag :: Lens' CopyPartResult (Maybe ETag)
+cprrETag = lens _cprrETag (\s a -> s { _cprrETag = a })
 
 -- | Date and time at which the object was uploaded.
-cprLastModified :: Lens' CopyPartResult (Maybe RFC822)
-cprLastModified = lens _cprLastModified (\s a -> s { _cprLastModified = a })
+cprrLastModified :: Lens' CopyPartResult (Maybe RFC822)
+cprrLastModified =
+    lens _cprrLastModified (\s a -> s { _cprrLastModified = a })
 
 instance FromXML CopyPartResult where
     fromXMLOptions = xmlOptions
@@ -1518,36 +1518,36 @@ instance FromXML DeleteMarkerEntry where
     fromXMLRoot    = fromRoot "DeleteMarkerEntry"
 
 data DeletedObject = DeletedObject
-    { _do1rsKey :: Maybe ObjectKey
-    , _do1rsVersionId :: Maybe ObjectVersionId
-    , _do1rsDeleteMarker :: Maybe Bool
-    , _do1rsDeleteMarkerVersionId :: Maybe Text
+    { _do1rKey :: Maybe ObjectKey
+    , _do1rVersionId :: Maybe ObjectVersionId
+    , _do1rDeleteMarker :: Maybe Bool
+    , _do1rDeleteMarkerVersionId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeletedObject' data type to populate a request.
 mkDeletedObject :: DeletedObject
 mkDeletedObject = DeletedObject
-    { _do1rsKey = Nothing
-    , _do1rsVersionId = Nothing
-    , _do1rsDeleteMarker = Nothing
-    , _do1rsDeleteMarkerVersionId = Nothing
+    { _do1rKey = Nothing
+    , _do1rVersionId = Nothing
+    , _do1rDeleteMarker = Nothing
+    , _do1rDeleteMarkerVersionId = Nothing
     }
 
-do1rsKey :: Lens' DeletedObject (Maybe ObjectKey)
-do1rsKey = lens _do1rsKey (\s a -> s { _do1rsKey = a })
+do1rKey :: Lens' DeletedObject (Maybe ObjectKey)
+do1rKey = lens _do1rKey (\s a -> s { _do1rKey = a })
 
-do1rsVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
-do1rsVersionId = lens _do1rsVersionId (\s a -> s { _do1rsVersionId = a })
+do1rVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
+do1rVersionId = lens _do1rVersionId (\s a -> s { _do1rVersionId = a })
 
-do1rsDeleteMarker :: Lens' DeletedObject (Maybe Bool)
-do1rsDeleteMarker =
-    lens _do1rsDeleteMarker (\s a -> s { _do1rsDeleteMarker = a })
+do1rDeleteMarker :: Lens' DeletedObject (Maybe Bool)
+do1rDeleteMarker =
+    lens _do1rDeleteMarker (\s a -> s { _do1rDeleteMarker = a })
 
-do1rsDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
-do1rsDeleteMarkerVersionId =
-    lens _do1rsDeleteMarkerVersionId
-         (\s a -> s { _do1rsDeleteMarkerVersionId = a })
+do1rDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
+do1rDeleteMarkerVersionId =
+    lens _do1rDeleteMarkerVersionId
+         (\s a -> s { _do1rDeleteMarkerVersionId = a })
 
 instance FromXML DeletedObject where
     fromXMLOptions = xmlOptions
@@ -1725,18 +1725,18 @@ instance ToXML LifecycleExpiration where
     toXMLRoot    = toRoot "LifecycleExpiration"
 
 data LoggingEnabled = LoggingEnabled
-    { _lersTargetBucket :: Maybe Text
-    , _lersTargetGrants :: [TargetGrant]
-    , _lersTargetPrefix :: Maybe Text
+    { _lerTargetBucket :: Maybe Text
+    , _lerTargetGrants :: [TargetGrant]
+    , _lerTargetPrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoggingEnabled' data type to populate a request.
 mkLoggingEnabled :: LoggingEnabled
 mkLoggingEnabled = LoggingEnabled
-    { _lersTargetBucket = Nothing
-    , _lersTargetGrants = mempty
-    , _lersTargetPrefix = Nothing
+    { _lerTargetBucket = Nothing
+    , _lerTargetGrants = mempty
+    , _lerTargetPrefix = Nothing
     }
 
 -- | Specifies the bucket where you want Amazon S3 to store server access logs.
@@ -1745,19 +1745,16 @@ mkLoggingEnabled = LoggingEnabled
 -- to deliver their logs to the same target bucket. In this case you should
 -- choose a different TargetPrefix for each source bucket so that the
 -- delivered log files can be distinguished by key.
-lersTargetBucket :: Lens' LoggingEnabled (Maybe Text)
-lersTargetBucket =
-    lens _lersTargetBucket (\s a -> s { _lersTargetBucket = a })
+lerTargetBucket :: Lens' LoggingEnabled (Maybe Text)
+lerTargetBucket = lens _lerTargetBucket (\s a -> s { _lerTargetBucket = a })
 
-lersTargetGrants :: Lens' LoggingEnabled [TargetGrant]
-lersTargetGrants =
-    lens _lersTargetGrants (\s a -> s { _lersTargetGrants = a })
+lerTargetGrants :: Lens' LoggingEnabled [TargetGrant]
+lerTargetGrants = lens _lerTargetGrants (\s a -> s { _lerTargetGrants = a })
 
 -- | This element lets you specify a prefix for the keys that the log files will
 -- be stored under.
-lersTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
-lersTargetPrefix =
-    lens _lersTargetPrefix (\s a -> s { _lersTargetPrefix = a })
+lerTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
+lerTargetPrefix = lens _lerTargetPrefix (\s a -> s { _lerTargetPrefix = a })
 
 instance FromXML LoggingEnabled where
     fromXMLOptions = xmlOptions
@@ -1854,50 +1851,50 @@ instance ToXML NoncurrentVersionTransition where
     toXMLRoot    = toRoot "NoncurrentVersionTransition"
 
 data Object = Object
-    { _orsKey :: ObjectKey
-    , _orsLastModified :: RFC822
-    , _orsETag :: ETag
-    , _orsSize :: Integer
-    , _orsStorageClass :: ObjectStorageClass
-    , _orsOwner :: Owner
+    { _orKey :: ObjectKey
+    , _orLastModified :: RFC822
+    , _orETag :: ETag
+    , _orSize :: Integer
+    , _orStorageClass :: ObjectStorageClass
+    , _orOwner :: Owner
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Object' data type to populate a request.
-mkObject :: ObjectKey -- ^ 'orsKey'
-         -> RFC822 -- ^ 'orsLastModified'
-         -> ETag -- ^ 'orsETag'
-         -> Integer -- ^ 'orsSize'
-         -> ObjectStorageClass -- ^ 'orsStorageClass'
-         -> Owner -- ^ 'orsOwner'
+mkObject :: ObjectKey -- ^ 'orKey'
+         -> RFC822 -- ^ 'orLastModified'
+         -> ETag -- ^ 'orETag'
+         -> Integer -- ^ 'orSize'
+         -> ObjectStorageClass -- ^ 'orStorageClass'
+         -> Owner -- ^ 'orOwner'
          -> Object
 mkObject p1 p2 p3 p4 p5 p6 = Object
-    { _orsKey = p1
-    , _orsLastModified = p2
-    , _orsETag = p3
-    , _orsSize = p4
-    , _orsStorageClass = p5
-    , _orsOwner = p6
+    { _orKey = p1
+    , _orLastModified = p2
+    , _orETag = p3
+    , _orSize = p4
+    , _orStorageClass = p5
+    , _orOwner = p6
     }
 
-orsKey :: Lens' Object ObjectKey
-orsKey = lens _orsKey (\s a -> s { _orsKey = a })
+orKey :: Lens' Object ObjectKey
+orKey = lens _orKey (\s a -> s { _orKey = a })
 
-orsLastModified :: Lens' Object RFC822
-orsLastModified = lens _orsLastModified (\s a -> s { _orsLastModified = a })
+orLastModified :: Lens' Object RFC822
+orLastModified = lens _orLastModified (\s a -> s { _orLastModified = a })
 
-orsETag :: Lens' Object ETag
-orsETag = lens _orsETag (\s a -> s { _orsETag = a })
+orETag :: Lens' Object ETag
+orETag = lens _orETag (\s a -> s { _orETag = a })
 
-orsSize :: Lens' Object Integer
-orsSize = lens _orsSize (\s a -> s { _orsSize = a })
+orSize :: Lens' Object Integer
+orSize = lens _orSize (\s a -> s { _orSize = a })
 
 -- | The class of storage used to store the object.
-orsStorageClass :: Lens' Object ObjectStorageClass
-orsStorageClass = lens _orsStorageClass (\s a -> s { _orsStorageClass = a })
+orStorageClass :: Lens' Object ObjectStorageClass
+orStorageClass = lens _orStorageClass (\s a -> s { _orStorageClass = a })
 
-orsOwner :: Lens' Object Owner
-orsOwner = lens _orsOwner (\s a -> s { _orsOwner = a })
+orOwner :: Lens' Object Owner
+orOwner = lens _orOwner (\s a -> s { _orOwner = a })
 
 instance FromXML Object where
     fromXMLOptions = xmlOptions
@@ -2256,27 +2253,27 @@ instance ToXML Rule where
     toXMLRoot    = toRoot "Rule"
 
 data Tag = Tag
-    { _trsKey :: ObjectKey
-    , _trsValue :: Text
+    { _trKey :: ObjectKey
+    , _trValue :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
-mkTag :: ObjectKey -- ^ 'trsKey'
-      -> Text -- ^ 'trsValue'
+mkTag :: ObjectKey -- ^ 'trKey'
+      -> Text -- ^ 'trValue'
       -> Tag
 mkTag p1 p2 = Tag
-    { _trsKey = p1
-    , _trsValue = p2
+    { _trKey = p1
+    , _trValue = p2
     }
 
 -- | Name of the tag.
-trsKey :: Lens' Tag ObjectKey
-trsKey = lens _trsKey (\s a -> s { _trsKey = a })
+trKey :: Lens' Tag ObjectKey
+trKey = lens _trKey (\s a -> s { _trKey = a })
 
 -- | Value of the tag.
-trsValue :: Lens' Tag Text
-trsValue = lens _trsValue (\s a -> s { _trsValue = a })
+trValue :: Lens' Tag Text
+trValue = lens _trValue (\s a -> s { _trValue = a })
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions

@@ -31,8 +31,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives
     -- * Response
     , DescribeTapeArchivesResponse
     -- ** Response lenses
-    , dtarsrsTapeArchives
-    , dtarsrsMarker
+    , dtarrTapeArchives
+    , dtarrMarker
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -72,16 +72,16 @@ instance ToHeaders DescribeTapeArchives
 instance ToJSON DescribeTapeArchives
 
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
-    { _dtarsrsTapeArchives :: [TapeArchive]
-    , _dtarsrsMarker :: Maybe Text
+    { _dtarrTapeArchives :: [TapeArchive]
+    , _dtarrMarker :: Maybe Text
     } deriving (Show, Generic)
 
-dtarsrsTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
-dtarsrsTapeArchives =
-    lens _dtarsrsTapeArchives (\s a -> s { _dtarsrsTapeArchives = a })
+dtarrTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
+dtarrTapeArchives =
+    lens _dtarrTapeArchives (\s a -> s { _dtarrTapeArchives = a })
 
-dtarsrsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
-dtarsrsMarker = lens _dtarsrsMarker (\s a -> s { _dtarsrsMarker = a })
+dtarrMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
+dtarrMarker = lens _dtarrMarker (\s a -> s { _dtarrMarker = a })
 
 instance FromJSON DescribeTapeArchivesResponse
 
@@ -94,4 +94,4 @@ instance AWSRequest DescribeTapeArchives where
 
 instance AWSPager DescribeTapeArchives where
     next rq rs = (\x -> rq & dta1Marker ?~ x)
-        <$> (rs ^. dtarsrsMarker)
+        <$> (rs ^. dtarrMarker)

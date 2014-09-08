@@ -48,7 +48,7 @@ module Network.AWS.Redshift.V2012_12_01.CreateClusterParameterGroup
     -- * Response
     , CreateClusterParameterGroupResponse
     -- ** Response lenses
-    , ccpgrsClusterParameterGroup
+    , ccpgrClusterParameterGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -104,14 +104,14 @@ instance ToQuery CreateClusterParameterGroup where
     toQuery = genericQuery def
 
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
-    { _ccpgrsClusterParameterGroup :: Maybe ClusterParameterGroup
+    { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
     } deriving (Show, Generic)
 
 -- | Describes a parameter group.
-ccpgrsClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
-ccpgrsClusterParameterGroup =
-    lens _ccpgrsClusterParameterGroup
-         (\s a -> s { _ccpgrsClusterParameterGroup = a })
+ccpgrClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
+ccpgrClusterParameterGroup =
+    lens _ccpgrClusterParameterGroup
+         (\s a -> s { _ccpgrClusterParameterGroup = a })
 
 instance FromXML CreateClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions

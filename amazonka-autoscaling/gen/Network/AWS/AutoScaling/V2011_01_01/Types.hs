@@ -30,8 +30,6 @@ module Network.AWS.AutoScaling.V2011_01_01.Types
     (
     -- * Service
       AutoScaling
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -69,16 +67,16 @@ module Network.AWS.AutoScaling.V2011_01_01.Types
     -- * Activity
     , Activity
     , mkActivity
-    , arsActivityId
-    , arsAutoScalingGroupName
-    , arsDescription
-    , arsCause
-    , arsStartTime
-    , arsEndTime
-    , arsStatusCode
-    , arsStatusMessage
-    , arsProgress
-    , arsDetails
+    , arActivityId
+    , arAutoScalingGroupName
+    , arDescription
+    , arCause
+    , arStartTime
+    , arEndTime
+    , arStatusCode
+    , arStatusMessage
+    , arProgress
+    , arDetails
 
     -- * Alarm
     , Alarm
@@ -202,14 +200,14 @@ module Network.AWS.AutoScaling.V2011_01_01.Types
     -- * ScalingPolicy
     , ScalingPolicy
     , mkScalingPolicy
-    , sprsAutoScalingGroupName
-    , sprsPolicyName
-    , sprsScalingAdjustment
-    , sprsAdjustmentType
-    , sprsCooldown
-    , sprsPolicyARN
-    , sprsAlarms
-    , sprsMinAdjustmentStep
+    , sprAutoScalingGroupName
+    , sprPolicyName
+    , sprScalingAdjustment
+    , sprAdjustmentType
+    , sprCooldown
+    , sprPolicyARN
+    , sprAlarms
+    , sprMinAdjustmentStep
 
     -- * ScheduledUpdateGroupAction
     , ScheduledUpdateGroupAction
@@ -585,82 +583,80 @@ instance FromXML ProcessType where
 -- be a process to replace an instance, or a process to perform any other
 -- long-running operations supported by the API.
 data Activity = Activity
-    { _arsActivityId :: Text
-    , _arsAutoScalingGroupName :: Text
-    , _arsDescription :: Maybe Text
-    , _arsCause :: Text
-    , _arsStartTime :: ISO8601
-    , _arsEndTime :: Maybe ISO8601
-    , _arsStatusCode :: ScalingActivityStatusCode
-    , _arsStatusMessage :: Maybe Text
-    , _arsProgress :: Maybe Integer
-    , _arsDetails :: Maybe Text
+    { _arActivityId :: Text
+    , _arAutoScalingGroupName :: Text
+    , _arDescription :: Maybe Text
+    , _arCause :: Text
+    , _arStartTime :: ISO8601
+    , _arEndTime :: Maybe ISO8601
+    , _arStatusCode :: ScalingActivityStatusCode
+    , _arStatusMessage :: Maybe Text
+    , _arProgress :: Maybe Integer
+    , _arDetails :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Activity' data type to populate a request.
-mkActivity :: Text -- ^ 'arsActivityId'
-           -> Text -- ^ 'arsAutoScalingGroupName'
-           -> Text -- ^ 'arsCause'
-           -> ISO8601 -- ^ 'arsStartTime'
-           -> ScalingActivityStatusCode -- ^ 'arsStatusCode'
+mkActivity :: Text -- ^ 'arActivityId'
+           -> Text -- ^ 'arAutoScalingGroupName'
+           -> Text -- ^ 'arCause'
+           -> ISO8601 -- ^ 'arStartTime'
+           -> ScalingActivityStatusCode -- ^ 'arStatusCode'
            -> Activity
 mkActivity p1 p2 p4 p5 p7 = Activity
-    { _arsActivityId = p1
-    , _arsAutoScalingGroupName = p2
-    , _arsDescription = Nothing
-    , _arsCause = p4
-    , _arsStartTime = p5
-    , _arsEndTime = Nothing
-    , _arsStatusCode = p7
-    , _arsStatusMessage = Nothing
-    , _arsProgress = Nothing
-    , _arsDetails = Nothing
+    { _arActivityId = p1
+    , _arAutoScalingGroupName = p2
+    , _arDescription = Nothing
+    , _arCause = p4
+    , _arStartTime = p5
+    , _arEndTime = Nothing
+    , _arStatusCode = p7
+    , _arStatusMessage = Nothing
+    , _arProgress = Nothing
+    , _arDetails = Nothing
     }
 
 -- | Specifies the ID of the activity.
-arsActivityId :: Lens' Activity Text
-arsActivityId = lens _arsActivityId (\s a -> s { _arsActivityId = a })
+arActivityId :: Lens' Activity Text
+arActivityId = lens _arActivityId (\s a -> s { _arActivityId = a })
 
 -- | The name of the Auto Scaling group.
-arsAutoScalingGroupName :: Lens' Activity Text
-arsAutoScalingGroupName =
-    lens _arsAutoScalingGroupName
-         (\s a -> s { _arsAutoScalingGroupName = a })
+arAutoScalingGroupName :: Lens' Activity Text
+arAutoScalingGroupName =
+    lens _arAutoScalingGroupName (\s a -> s { _arAutoScalingGroupName = a })
 
 -- | Contains a friendly, more verbose description of the scaling activity.
-arsDescription :: Lens' Activity (Maybe Text)
-arsDescription = lens _arsDescription (\s a -> s { _arsDescription = a })
+arDescription :: Lens' Activity (Maybe Text)
+arDescription = lens _arDescription (\s a -> s { _arDescription = a })
 
 -- | Contains the reason the activity was begun.
-arsCause :: Lens' Activity Text
-arsCause = lens _arsCause (\s a -> s { _arsCause = a })
+arCause :: Lens' Activity Text
+arCause = lens _arCause (\s a -> s { _arCause = a })
 
 -- | Provides the start time of this activity.
-arsStartTime :: Lens' Activity ISO8601
-arsStartTime = lens _arsStartTime (\s a -> s { _arsStartTime = a })
+arStartTime :: Lens' Activity ISO8601
+arStartTime = lens _arStartTime (\s a -> s { _arStartTime = a })
 
 -- | Provides the end time of this activity.
-arsEndTime :: Lens' Activity (Maybe ISO8601)
-arsEndTime = lens _arsEndTime (\s a -> s { _arsEndTime = a })
+arEndTime :: Lens' Activity (Maybe ISO8601)
+arEndTime = lens _arEndTime (\s a -> s { _arEndTime = a })
 
 -- | Contains the current status of the activity.
-arsStatusCode :: Lens' Activity ScalingActivityStatusCode
-arsStatusCode = lens _arsStatusCode (\s a -> s { _arsStatusCode = a })
+arStatusCode :: Lens' Activity ScalingActivityStatusCode
+arStatusCode = lens _arStatusCode (\s a -> s { _arStatusCode = a })
 
 -- | Contains a friendly, more verbose description of the activity status.
-arsStatusMessage :: Lens' Activity (Maybe Text)
-arsStatusMessage =
-    lens _arsStatusMessage (\s a -> s { _arsStatusMessage = a })
+arStatusMessage :: Lens' Activity (Maybe Text)
+arStatusMessage = lens _arStatusMessage (\s a -> s { _arStatusMessage = a })
 
 -- | Specifies a value between 0 and 100 that indicates the progress of the
 -- activity.
-arsProgress :: Lens' Activity (Maybe Integer)
-arsProgress = lens _arsProgress (\s a -> s { _arsProgress = a })
+arProgress :: Lens' Activity (Maybe Integer)
+arProgress = lens _arProgress (\s a -> s { _arProgress = a })
 
 -- | Contains details of the scaling activity.
-arsDetails :: Lens' Activity (Maybe Text)
-arsDetails = lens _arsDetails (\s a -> s { _arsDetails = a })
+arDetails :: Lens' Activity (Maybe Text)
+arDetails = lens _arDetails (\s a -> s { _arDetails = a })
 
 instance FromXML Activity where
     fromXMLOptions = xmlOptions
@@ -1414,72 +1410,72 @@ instance FromXML NotificationConfiguration where
 
 -- | The ScalingPolicy data type.
 data ScalingPolicy = ScalingPolicy
-    { _sprsAutoScalingGroupName :: Maybe Text
-    , _sprsPolicyName :: Maybe Text
-    , _sprsScalingAdjustment :: Maybe Integer
-    , _sprsAdjustmentType :: Maybe Text
-    , _sprsCooldown :: Maybe Integer
-    , _sprsPolicyARN :: Maybe Text
-    , _sprsAlarms :: [Alarm]
-    , _sprsMinAdjustmentStep :: Maybe Integer
+    { _sprAutoScalingGroupName :: Maybe Text
+    , _sprPolicyName :: Maybe Text
+    , _sprScalingAdjustment :: Maybe Integer
+    , _sprAdjustmentType :: Maybe Text
+    , _sprCooldown :: Maybe Integer
+    , _sprPolicyARN :: Maybe Text
+    , _sprAlarms :: [Alarm]
+    , _sprMinAdjustmentStep :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScalingPolicy' data type to populate a request.
 mkScalingPolicy :: ScalingPolicy
 mkScalingPolicy = ScalingPolicy
-    { _sprsAutoScalingGroupName = Nothing
-    , _sprsPolicyName = Nothing
-    , _sprsScalingAdjustment = Nothing
-    , _sprsAdjustmentType = Nothing
-    , _sprsCooldown = Nothing
-    , _sprsPolicyARN = Nothing
-    , _sprsAlarms = mempty
-    , _sprsMinAdjustmentStep = Nothing
+    { _sprAutoScalingGroupName = Nothing
+    , _sprPolicyName = Nothing
+    , _sprScalingAdjustment = Nothing
+    , _sprAdjustmentType = Nothing
+    , _sprCooldown = Nothing
+    , _sprPolicyARN = Nothing
+    , _sprAlarms = mempty
+    , _sprMinAdjustmentStep = Nothing
     }
 
 -- | The name of the Auto Scaling group associated with this scaling policy.
-sprsAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
-sprsAutoScalingGroupName =
-    lens _sprsAutoScalingGroupName
-         (\s a -> s { _sprsAutoScalingGroupName = a })
+sprAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
+sprAutoScalingGroupName =
+    lens _sprAutoScalingGroupName
+         (\s a -> s { _sprAutoScalingGroupName = a })
 
 -- | The name of the scaling policy.
-sprsPolicyName :: Lens' ScalingPolicy (Maybe Text)
-sprsPolicyName = lens _sprsPolicyName (\s a -> s { _sprsPolicyName = a })
+sprPolicyName :: Lens' ScalingPolicy (Maybe Text)
+sprPolicyName = lens _sprPolicyName (\s a -> s { _sprPolicyName = a })
 
 -- | The number associated with the specified adjustment type. A positive value
 -- adds to the current capacity and a negative value removes from the current
 -- capacity.
-sprsScalingAdjustment :: Lens' ScalingPolicy (Maybe Integer)
-sprsScalingAdjustment =
-    lens _sprsScalingAdjustment (\s a -> s { _sprsScalingAdjustment = a })
+sprScalingAdjustment :: Lens' ScalingPolicy (Maybe Integer)
+sprScalingAdjustment =
+    lens _sprScalingAdjustment (\s a -> s { _sprScalingAdjustment = a })
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity.
-sprsAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
-sprsAdjustmentType =
-    lens _sprsAdjustmentType (\s a -> s { _sprsAdjustmentType = a })
+sprAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
+sprAdjustmentType =
+    lens _sprAdjustmentType (\s a -> s { _sprAdjustmentType = a })
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further trigger-related scaling activities can start.
-sprsCooldown :: Lens' ScalingPolicy (Maybe Integer)
-sprsCooldown = lens _sprsCooldown (\s a -> s { _sprsCooldown = a })
+sprCooldown :: Lens' ScalingPolicy (Maybe Integer)
+sprCooldown = lens _sprCooldown (\s a -> s { _sprCooldown = a })
 
 -- | The Amazon Resource Name (ARN) of the policy.
-sprsPolicyARN :: Lens' ScalingPolicy (Maybe Text)
-sprsPolicyARN = lens _sprsPolicyARN (\s a -> s { _sprsPolicyARN = a })
+sprPolicyARN :: Lens' ScalingPolicy (Maybe Text)
+sprPolicyARN = lens _sprPolicyARN (\s a -> s { _sprPolicyARN = a })
 
 -- | A list of CloudWatch Alarms related to the policy.
-sprsAlarms :: Lens' ScalingPolicy [Alarm]
-sprsAlarms = lens _sprsAlarms (\s a -> s { _sprsAlarms = a })
+sprAlarms :: Lens' ScalingPolicy [Alarm]
+sprAlarms = lens _sprAlarms (\s a -> s { _sprAlarms = a })
 
 -- | Changes the DesiredCapacity of the Auto Scaling group by at least the
 -- specified number of instances.
-sprsMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Integer)
-sprsMinAdjustmentStep =
-    lens _sprsMinAdjustmentStep (\s a -> s { _sprsMinAdjustmentStep = a })
+sprMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Integer)
+sprMinAdjustmentStep =
+    lens _sprMinAdjustmentStep (\s a -> s { _sprMinAdjustmentStep = a })
 
 instance FromXML ScalingPolicy where
     fromXMLOptions = xmlOptions

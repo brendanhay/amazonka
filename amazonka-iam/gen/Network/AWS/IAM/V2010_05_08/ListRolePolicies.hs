@@ -38,9 +38,9 @@ module Network.AWS.IAM.V2010_05_08.ListRolePolicies
     -- * Response
     , ListRolePoliciesResponse
     -- ** Response lenses
-    , lrprsPolicyNames
-    , lrprsIsTruncated
-    , lrprsMarker
+    , lrprPolicyNames
+    , lrprIsTruncated
+    , lrprMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -89,27 +89,25 @@ instance ToQuery ListRolePolicies where
 -- | Contains the result of a successful invocation of the ListRolePolicies
 -- action.
 data ListRolePoliciesResponse = ListRolePoliciesResponse
-    { _lrprsPolicyNames :: [Text]
-    , _lrprsIsTruncated :: Bool
-    , _lrprsMarker :: Maybe Text
+    { _lrprPolicyNames :: [Text]
+    , _lrprIsTruncated :: Bool
+    , _lrprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of policy names.
-lrprsPolicyNames :: Lens' ListRolePoliciesResponse [Text]
-lrprsPolicyNames =
-    lens _lrprsPolicyNames (\s a -> s { _lrprsPolicyNames = a })
+lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
+lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a })
 
 -- | A flag that indicates whether there are more policy names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more policy names in the list.
-lrprsIsTruncated :: Lens' ListRolePoliciesResponse Bool
-lrprsIsTruncated =
-    lens _lrprsIsTruncated (\s a -> s { _lrprsIsTruncated = a })
+lrprIsTruncated :: Lens' ListRolePoliciesResponse Bool
+lrprIsTruncated = lens _lrprIsTruncated (\s a -> s { _lrprIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lrprsMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
-lrprsMarker = lens _lrprsMarker (\s a -> s { _lrprsMarker = a })
+lrprMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
+lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })
 
 instance FromXML ListRolePoliciesResponse where
     fromXMLOptions = xmlOptions
@@ -123,6 +121,6 @@ instance AWSRequest ListRolePolicies where
 
 instance AWSPager ListRolePolicies where
     next rq rs
-        | not (rs ^. lrprsIsTruncated) = Nothing
+        | not (rs ^. lrprIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lrpMarker .~ rs ^. lrprsMarker
+            rq & lrpMarker .~ rs ^. lrprMarker

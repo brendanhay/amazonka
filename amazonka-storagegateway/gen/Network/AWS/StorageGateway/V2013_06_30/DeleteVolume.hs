@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteVolume
     -- * Response
     , DeleteVolumeResponse
     -- ** Response lenses
-    , dvrsVolumeARN
+    , dvrVolumeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -88,13 +88,13 @@ instance ToJSON DeleteVolume
 
 -- | A JSON object containing the of the storage volume that was deleted.
 newtype DeleteVolumeResponse = DeleteVolumeResponse
-    { _dvrsVolumeARN :: Maybe Text
+    { _dvrVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It
 -- is the same ARN you provided in the request.
-dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
-dvrsVolumeARN = lens _dvrsVolumeARN (\s a -> s { _dvrsVolumeARN = a })
+dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
+dvrVolumeARN = lens _dvrVolumeARN (\s a -> s { _dvrVolumeARN = a })
 
 instance FromJSON DeleteVolumeResponse
 

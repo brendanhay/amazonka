@@ -33,7 +33,7 @@ module Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy
     -- * Response
     , EnableSnapshotCopyResponse
     -- ** Response lenses
-    , escrsCluster
+    , escrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -83,12 +83,12 @@ instance ToQuery EnableSnapshotCopy where
     toQuery = genericQuery def
 
 newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
-    { _escrsCluster :: Maybe Cluster
+    { _escrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
-escrsCluster = lens _escrsCluster (\s a -> s { _escrsCluster = a })
+escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
+escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
 
 instance FromXML EnableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

@@ -38,7 +38,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources
     -- * Response
     , DescribeEnvironmentResourcesResponse
     -- ** Response lenses
-    , derrsEnvironmentResources
+    , derrEnvironmentResources
     ) where
 
 import Network.AWS.Request.Query
@@ -80,14 +80,14 @@ instance ToQuery DescribeEnvironmentResources where
 
 -- | Result message containing a list of environment resource descriptions.
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
-    { _derrsEnvironmentResources :: Maybe EnvironmentResourceDescription
+    { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
     } deriving (Show, Generic)
 
 -- | A list of EnvironmentResourceDescription.
-derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
-derrsEnvironmentResources =
-    lens _derrsEnvironmentResources
-         (\s a -> s { _derrsEnvironmentResources = a })
+derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
+derrEnvironmentResources =
+    lens _derrEnvironmentResources
+         (\s a -> s { _derrEnvironmentResources = a })
 
 instance FromXML DescribeEnvironmentResourcesResponse where
     fromXMLOptions = xmlOptions

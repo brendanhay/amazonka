@@ -67,11 +67,11 @@ module Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution
     -- * Response
     , DescribeWorkflowExecutionResponse
     -- ** Response lenses
-    , dwersExecutionInfo
-    , dwersExecutionConfiguration
-    , dwersOpenCounts
-    , dwersLatestActivityTaskTimestamp
-    , dwersLatestExecutionContext
+    , dwerExecutionInfo
+    , dwerExecutionConfiguration
+    , dwerOpenCounts
+    , dwerLatestActivityTaskTimestamp
+    , dwerLatestExecutionContext
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -111,46 +111,46 @@ instance ToJSON DescribeWorkflowExecution
 
 -- | Contains details about a workflow execution.
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
-    { _dwersExecutionInfo :: WorkflowExecutionInfo
-    , _dwersExecutionConfiguration :: WorkflowExecutionConfiguration
-    , _dwersOpenCounts :: WorkflowExecutionOpenCounts
-    , _dwersLatestActivityTaskTimestamp :: Maybe POSIX
-    , _dwersLatestExecutionContext :: Maybe Text
+    { _dwerExecutionInfo :: WorkflowExecutionInfo
+    , _dwerExecutionConfiguration :: WorkflowExecutionConfiguration
+    , _dwerOpenCounts :: WorkflowExecutionOpenCounts
+    , _dwerLatestActivityTaskTimestamp :: Maybe POSIX
+    , _dwerLatestExecutionContext :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Information about the workflow execution.
-dwersExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
-dwersExecutionInfo =
-    lens _dwersExecutionInfo (\s a -> s { _dwersExecutionInfo = a })
+dwerExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
+dwerExecutionInfo =
+    lens _dwerExecutionInfo (\s a -> s { _dwerExecutionInfo = a })
 
 -- | The configuration settings for this workflow execution including timeout
 -- values, tasklist etc.
-dwersExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionConfiguration
-dwersExecutionConfiguration =
-    lens _dwersExecutionConfiguration
-         (\s a -> s { _dwersExecutionConfiguration = a })
+dwerExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionConfiguration
+dwerExecutionConfiguration =
+    lens _dwerExecutionConfiguration
+         (\s a -> s { _dwerExecutionConfiguration = a })
 
 -- | The number of tasks for this workflow execution. This includes open and
 -- closed tasks of all types.
-dwersOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
-dwersOpenCounts = lens _dwersOpenCounts (\s a -> s { _dwersOpenCounts = a })
+dwerOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
+dwerOpenCounts = lens _dwerOpenCounts (\s a -> s { _dwerOpenCounts = a })
 
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
 -- not made progress for an unusually long period of time and might require a
 -- corrective action.
-dwersLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe POSIX)
-dwersLatestActivityTaskTimestamp =
-    lens _dwersLatestActivityTaskTimestamp
-         (\s a -> s { _dwersLatestActivityTaskTimestamp = a })
+dwerLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe POSIX)
+dwerLatestActivityTaskTimestamp =
+    lens _dwerLatestActivityTaskTimestamp
+         (\s a -> s { _dwerLatestActivityTaskTimestamp = a })
 
 -- | The latest executionContext provided by the decider for this workflow
 -- execution. A decider can provide an executionContext, which is a free form
 -- string, when closing a decision task using RespondDecisionTaskCompleted.
-dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
-dwersLatestExecutionContext =
-    lens _dwersLatestExecutionContext
-         (\s a -> s { _dwersLatestExecutionContext = a })
+dwerLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
+dwerLatestExecutionContext =
+    lens _dwerLatestExecutionContext
+         (\s a -> s { _dwerLatestExecutionContext = a })
 
 instance FromJSON DescribeWorkflowExecutionResponse
 

@@ -33,8 +33,6 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     (
     -- * Service
       ElastiCache
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -146,10 +144,10 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     -- * CacheSubnetGroup
     , CacheSubnetGroup
     , mkCacheSubnetGroup
-    , csgrsCacheSubnetGroupName
-    , csgrsCacheSubnetGroupDescription
-    , csgrsVpcId
-    , csgrsSubnets
+    , csgrCacheSubnetGroupName
+    , csgrCacheSubnetGroupDescription
+    , csgrVpcId
+    , csgrSubnets
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
@@ -175,10 +173,10 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     -- * Event
     , Event
     , mkEvent
-    , ersSourceIdentifier
-    , ersSourceType
-    , ersMessage
-    , ersDate
+    , erSourceIdentifier
+    , erSourceType
+    , erMessage
+    , erDate
 
     -- * NodeGroup
     , NodeGroup
@@ -314,8 +312,8 @@ module Network.AWS.ElastiCache.V2014_07_15.Types
     -- * Subnet
     , Subnet
     , mkSubnet
-    , srsSubnetIdentifier
-    , srsSubnetAvailabilityZone
+    , srSubnetIdentifier
+    , srSubnetAvailabilityZone
     ) where
 
 import Network.AWS.Prelude
@@ -1057,42 +1055,42 @@ instance ToQuery CacheSecurityGroupMembership where
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
 data CacheSubnetGroup = CacheSubnetGroup
-    { _csgrsCacheSubnetGroupName :: Maybe Text
-    , _csgrsCacheSubnetGroupDescription :: Maybe Text
-    , _csgrsVpcId :: Maybe Text
-    , _csgrsSubnets :: [Subnet]
+    { _csgrCacheSubnetGroupName :: Maybe Text
+    , _csgrCacheSubnetGroupDescription :: Maybe Text
+    , _csgrVpcId :: Maybe Text
+    , _csgrSubnets :: [Subnet]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheSubnetGroup' data type to populate a request.
 mkCacheSubnetGroup :: CacheSubnetGroup
 mkCacheSubnetGroup = CacheSubnetGroup
-    { _csgrsCacheSubnetGroupName = Nothing
-    , _csgrsCacheSubnetGroupDescription = Nothing
-    , _csgrsVpcId = Nothing
-    , _csgrsSubnets = mempty
+    { _csgrCacheSubnetGroupName = Nothing
+    , _csgrCacheSubnetGroupDescription = Nothing
+    , _csgrVpcId = Nothing
+    , _csgrSubnets = mempty
     }
 
 -- | The name of the cache subnet group.
-csgrsCacheSubnetGroupName :: Lens' CacheSubnetGroup (Maybe Text)
-csgrsCacheSubnetGroupName =
-    lens _csgrsCacheSubnetGroupName
-         (\s a -> s { _csgrsCacheSubnetGroupName = a })
+csgrCacheSubnetGroupName :: Lens' CacheSubnetGroup (Maybe Text)
+csgrCacheSubnetGroupName =
+    lens _csgrCacheSubnetGroupName
+         (\s a -> s { _csgrCacheSubnetGroupName = a })
 
 -- | The description of the cache subnet group.
-csgrsCacheSubnetGroupDescription :: Lens' CacheSubnetGroup (Maybe Text)
-csgrsCacheSubnetGroupDescription =
-    lens _csgrsCacheSubnetGroupDescription
-         (\s a -> s { _csgrsCacheSubnetGroupDescription = a })
+csgrCacheSubnetGroupDescription :: Lens' CacheSubnetGroup (Maybe Text)
+csgrCacheSubnetGroupDescription =
+    lens _csgrCacheSubnetGroupDescription
+         (\s a -> s { _csgrCacheSubnetGroupDescription = a })
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
-csgrsVpcId :: Lens' CacheSubnetGroup (Maybe Text)
-csgrsVpcId = lens _csgrsVpcId (\s a -> s { _csgrsVpcId = a })
+csgrVpcId :: Lens' CacheSubnetGroup (Maybe Text)
+csgrVpcId = lens _csgrVpcId (\s a -> s { _csgrVpcId = a })
 
 -- | A list of subnets associated with the cache subnet group.
-csgrsSubnets :: Lens' CacheSubnetGroup [Subnet]
-csgrsSubnets = lens _csgrsSubnets (\s a -> s { _csgrsSubnets = a })
+csgrSubnets :: Lens' CacheSubnetGroup [Subnet]
+csgrSubnets = lens _csgrSubnets (\s a -> s { _csgrSubnets = a })
 
 instance FromXML CacheSubnetGroup where
     fromXMLOptions = xmlOptions
@@ -1215,41 +1213,41 @@ instance FromXML EngineDefaults where
 -- Some examples of events are creating a cache cluster, adding or removing a
 -- cache node, or rebooting a node.
 data Event = Event
-    { _ersSourceIdentifier :: Maybe Text
-    , _ersSourceType :: Maybe SourceType
-    , _ersMessage :: Maybe Text
-    , _ersDate :: Maybe ISO8601
+    { _erSourceIdentifier :: Maybe Text
+    , _erSourceType :: Maybe SourceType
+    , _erMessage :: Maybe Text
+    , _erDate :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Event' data type to populate a request.
 mkEvent :: Event
 mkEvent = Event
-    { _ersSourceIdentifier = Nothing
-    , _ersSourceType = Nothing
-    , _ersMessage = Nothing
-    , _ersDate = Nothing
+    { _erSourceIdentifier = Nothing
+    , _erSourceType = Nothing
+    , _erMessage = Nothing
+    , _erDate = Nothing
     }
 
 -- | The identifier for the source of the event. For example, if the event
 -- occurred at the cache cluster level, the identifier would be the name of
 -- the cache cluster.
-ersSourceIdentifier :: Lens' Event (Maybe Text)
-ersSourceIdentifier =
-    lens _ersSourceIdentifier (\s a -> s { _ersSourceIdentifier = a })
+erSourceIdentifier :: Lens' Event (Maybe Text)
+erSourceIdentifier =
+    lens _erSourceIdentifier (\s a -> s { _erSourceIdentifier = a })
 
 -- | Specifies the origin of this event - a cache cluster, a parameter group, a
 -- security group, etc.
-ersSourceType :: Lens' Event (Maybe SourceType)
-ersSourceType = lens _ersSourceType (\s a -> s { _ersSourceType = a })
+erSourceType :: Lens' Event (Maybe SourceType)
+erSourceType = lens _erSourceType (\s a -> s { _erSourceType = a })
 
 -- | The text of the event.
-ersMessage :: Lens' Event (Maybe Text)
-ersMessage = lens _ersMessage (\s a -> s { _ersMessage = a })
+erMessage :: Lens' Event (Maybe Text)
+erMessage = lens _erMessage (\s a -> s { _erMessage = a })
 
 -- | The date and time when the event occurred.
-ersDate :: Lens' Event (Maybe ISO8601)
-ersDate = lens _ersDate (\s a -> s { _ersDate = a })
+erDate :: Lens' Event (Maybe ISO8601)
+erDate = lens _erDate (\s a -> s { _erDate = a })
 
 instance FromXML Event where
     fromXMLOptions = xmlOptions
@@ -2027,28 +2025,28 @@ instance FromXML Snapshot where
 -- refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and
 -- used with ElastiCache.
 data Subnet = Subnet
-    { _srsSubnetIdentifier :: Maybe Text
-    , _srsSubnetAvailabilityZone :: Maybe AvailabilityZone
+    { _srSubnetIdentifier :: Maybe Text
+    , _srSubnetAvailabilityZone :: Maybe AvailabilityZone
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
 mkSubnet :: Subnet
 mkSubnet = Subnet
-    { _srsSubnetIdentifier = Nothing
-    , _srsSubnetAvailabilityZone = Nothing
+    { _srSubnetIdentifier = Nothing
+    , _srSubnetAvailabilityZone = Nothing
     }
 
 -- | The unique identifier for the subnet.
-srsSubnetIdentifier :: Lens' Subnet (Maybe Text)
-srsSubnetIdentifier =
-    lens _srsSubnetIdentifier (\s a -> s { _srsSubnetIdentifier = a })
+srSubnetIdentifier :: Lens' Subnet (Maybe Text)
+srSubnetIdentifier =
+    lens _srSubnetIdentifier (\s a -> s { _srSubnetIdentifier = a })
 
 -- | The Availability Zone associated with the subnet.
-srsSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-srsSubnetAvailabilityZone =
-    lens _srsSubnetAvailabilityZone
-         (\s a -> s { _srsSubnetAvailabilityZone = a })
+srSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
+srSubnetAvailabilityZone =
+    lens _srSubnetAvailabilityZone
+         (\s a -> s { _srSubnetAvailabilityZone = a })
 
 instance FromXML Subnet where
     fromXMLOptions = xmlOptions

@@ -64,8 +64,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBEngineVersions
     -- * Response
     , DescribeDBEngineVersionsResponse
     -- ** Response lenses
-    , ddbevrsMarker
-    , ddbevrsDBEngineVersions
+    , ddbevrMarker
+    , ddbevrDBEngineVersions
     ) where
 
 import Network.AWS.Request.Query
@@ -146,21 +146,20 @@ instance ToQuery DescribeDBEngineVersions where
 -- | Contains the result of a successful invocation of the
 -- DescribeDBEngineVersions action.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
-    { _ddbevrsMarker :: Maybe Text
-    , _ddbevrsDBEngineVersions :: [DBEngineVersion]
+    { _ddbevrMarker :: Maybe Text
+    , _ddbevrDBEngineVersions :: [DBEngineVersion]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ddbevrsMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
-ddbevrsMarker = lens _ddbevrsMarker (\s a -> s { _ddbevrsMarker = a })
+ddbevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
+ddbevrMarker = lens _ddbevrMarker (\s a -> s { _ddbevrMarker = a })
 
 -- | A list of DBEngineVersion elements.
-ddbevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
-ddbevrsDBEngineVersions =
-    lens _ddbevrsDBEngineVersions
-         (\s a -> s { _ddbevrsDBEngineVersions = a })
+ddbevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
+ddbevrDBEngineVersions =
+    lens _ddbevrDBEngineVersions (\s a -> s { _ddbevrDBEngineVersions = a })
 
 instance FromXML DescribeDBEngineVersionsResponse where
     fromXMLOptions = xmlOptions
@@ -174,4 +173,4 @@ instance AWSRequest DescribeDBEngineVersions where
 
 instance AWSPager DescribeDBEngineVersions where
     next rq rs = (\x -> rq & ddbevMarker ?~ x)
-        <$> (rs ^. ddbevrsMarker)
+        <$> (rs ^. ddbevrMarker)

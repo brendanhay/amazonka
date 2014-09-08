@@ -61,19 +61,19 @@ module Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute
     -- * Response
     , DescribeInstanceAttributeResponse
     -- ** Response lenses
-    , diarsrsInstanceId
-    , diarsrsInstanceType
-    , diarsrsKernelId
-    , diarsrsRamdiskId
-    , diarsrsUserData
-    , diarsrsDisableApiTermination
-    , diarsrsInstanceInitiatedShutdownBehavior
-    , diarsrsRootDeviceName
-    , diarsrsBlockDeviceMappings
-    , diarsrsProductCodes
-    , diarsrsEbsOptimized
-    , diarsrsSriovNetSupport
-    , diarsrsSourceDestCheck
+    , diarrInstanceId
+    , diarrInstanceType
+    , diarrKernelId
+    , diarrRamdiskId
+    , diarrUserData
+    , diarrDisableApiTermination
+    , diarrInstanceInitiatedShutdownBehavior
+    , diarrRootDeviceName
+    , diarrBlockDeviceMappings
+    , diarrProductCodes
+    , diarrEbsOptimized
+    , diarrSriovNetSupport
+    , diarrSourceDestCheck
     ) where
 
 import Network.AWS.Request.Query
@@ -109,91 +109,89 @@ instance ToQuery DescribeInstanceAttribute where
 
 -- | 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { _diarsrsInstanceId :: Maybe Text
-    , _diarsrsInstanceType :: Maybe AttributeValue
-    , _diarsrsKernelId :: Maybe AttributeValue
-    , _diarsrsRamdiskId :: Maybe AttributeValue
-    , _diarsrsUserData :: Maybe AttributeValue
-    , _diarsrsDisableApiTermination :: Maybe AttributeBooleanValue
-    , _diarsrsInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
-    , _diarsrsRootDeviceName :: Maybe AttributeValue
-    , _diarsrsBlockDeviceMappings :: [InstanceBlockDeviceMapping]
-    , _diarsrsProductCodes :: [ProductCode]
-    , _diarsrsEbsOptimized :: Maybe AttributeBooleanValue
-    , _diarsrsSriovNetSupport :: Maybe AttributeValue
-    , _diarsrsSourceDestCheck :: Maybe AttributeBooleanValue
+    { _diarrInstanceId :: Maybe Text
+    , _diarrInstanceType :: Maybe AttributeValue
+    , _diarrKernelId :: Maybe AttributeValue
+    , _diarrRamdiskId :: Maybe AttributeValue
+    , _diarrUserData :: Maybe AttributeValue
+    , _diarrDisableApiTermination :: Maybe AttributeBooleanValue
+    , _diarrInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+    , _diarrRootDeviceName :: Maybe AttributeValue
+    , _diarrBlockDeviceMappings :: [InstanceBlockDeviceMapping]
+    , _diarrProductCodes :: [ProductCode]
+    , _diarrEbsOptimized :: Maybe AttributeBooleanValue
+    , _diarrSriovNetSupport :: Maybe AttributeValue
+    , _diarrSourceDestCheck :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
 
 -- | The ID of the instance.
-diarsrsInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
-diarsrsInstanceId =
-    lens _diarsrsInstanceId (\s a -> s { _diarsrsInstanceId = a })
+diarrInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
+diarrInstanceId = lens _diarrInstanceId (\s a -> s { _diarrInstanceId = a })
 
 -- | The instance type.
-diarsrsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsrsInstanceType =
-    lens _diarsrsInstanceType (\s a -> s { _diarsrsInstanceType = a })
+diarrInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrInstanceType =
+    lens _diarrInstanceType (\s a -> s { _diarrInstanceType = a })
 
 -- | The kernel ID.
-diarsrsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsrsKernelId = lens _diarsrsKernelId (\s a -> s { _diarsrsKernelId = a })
+diarrKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrKernelId = lens _diarrKernelId (\s a -> s { _diarrKernelId = a })
 
 -- | The RAM disk ID.
-diarsrsRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsrsRamdiskId =
-    lens _diarsrsRamdiskId (\s a -> s { _diarsrsRamdiskId = a })
+diarrRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrRamdiskId = lens _diarrRamdiskId (\s a -> s { _diarrRamdiskId = a })
 
 -- | The Base64-encoded MIME user data.
-diarsrsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsrsUserData = lens _diarsrsUserData (\s a -> s { _diarsrsUserData = a })
+diarrUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrUserData = lens _diarrUserData (\s a -> s { _diarrUserData = a })
 
 -- | If the value is true, you can't terminate the instance through the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
-diarsrsDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-diarsrsDisableApiTermination =
-    lens _diarsrsDisableApiTermination
-         (\s a -> s { _diarsrsDisableApiTermination = a })
+diarrDisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diarrDisableApiTermination =
+    lens _diarrDisableApiTermination
+         (\s a -> s { _diarrDisableApiTermination = a })
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown).
-diarsrsInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsrsInstanceInitiatedShutdownBehavior =
-    lens _diarsrsInstanceInitiatedShutdownBehavior
-         (\s a -> s { _diarsrsInstanceInitiatedShutdownBehavior = a })
+diarrInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrInstanceInitiatedShutdownBehavior =
+    lens _diarrInstanceInitiatedShutdownBehavior
+         (\s a -> s { _diarrInstanceInitiatedShutdownBehavior = a })
 
 -- | The name of the root device (for example, /dev/sda1).
-diarsrsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsrsRootDeviceName =
-    lens _diarsrsRootDeviceName (\s a -> s { _diarsrsRootDeviceName = a })
+diarrRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrRootDeviceName =
+    lens _diarrRootDeviceName (\s a -> s { _diarrRootDeviceName = a })
 
 -- | The block device mapping of the instance.
-diarsrsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
-diarsrsBlockDeviceMappings =
-    lens _diarsrsBlockDeviceMappings
-         (\s a -> s { _diarsrsBlockDeviceMappings = a })
+diarrBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
+diarrBlockDeviceMappings =
+    lens _diarrBlockDeviceMappings
+         (\s a -> s { _diarrBlockDeviceMappings = a })
 
 -- | A list of product codes.
-diarsrsProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
-diarsrsProductCodes =
-    lens _diarsrsProductCodes (\s a -> s { _diarsrsProductCodes = a })
+diarrProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
+diarrProductCodes =
+    lens _diarrProductCodes (\s a -> s { _diarrProductCodes = a })
 
 -- | Indicates whether the instance is optimized for EBS I/O.
-diarsrsEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-diarsrsEbsOptimized =
-    lens _diarsrsEbsOptimized (\s a -> s { _diarsrsEbsOptimized = a })
+diarrEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diarrEbsOptimized =
+    lens _diarrEbsOptimized (\s a -> s { _diarrEbsOptimized = a })
 
 -- | 
-diarsrsSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsrsSriovNetSupport =
-    lens _diarsrsSriovNetSupport (\s a -> s { _diarsrsSriovNetSupport = a })
+diarrSriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrSriovNetSupport =
+    lens _diarrSriovNetSupport (\s a -> s { _diarrSriovNetSupport = a })
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This value
 -- must be false for a NAT instance to perform NAT.
-diarsrsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-diarsrsSourceDestCheck =
-    lens _diarsrsSourceDestCheck (\s a -> s { _diarsrsSourceDestCheck = a })
+diarrSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diarrSourceDestCheck =
+    lens _diarrSourceDestCheck (\s a -> s { _diarrSourceDestCheck = a })
 
 instance FromXML DescribeInstanceAttributeResponse where
     fromXMLOptions = xmlOptions

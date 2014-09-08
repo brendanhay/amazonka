@@ -49,8 +49,8 @@ module Network.AWS.DynamoDB.V2012_08_10.GetItem
     -- * Response
     , GetItemResponse
     -- ** Response lenses
-    , girsItem
-    , girsConsumedCapacity
+    , girItem
+    , girConsumedCapacity
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -120,23 +120,23 @@ instance ToJSON GetItem
 
 -- | Represents the output of a GetItem operation.
 data GetItemResponse = GetItemResponse
-    { _girsItem :: Map Text AttributeValue
-    , _girsConsumedCapacity :: Maybe ConsumedCapacity
+    { _girItem :: Map Text AttributeValue
+    , _girConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)
 
 -- | A map of attribute names to AttributeValue objects, as specified by
 -- AttributesToGet.
-girsItem :: Lens' GetItemResponse (Map Text AttributeValue)
-girsItem = lens _girsItem (\s a -> s { _girsItem = a })
+girItem :: Lens' GetItemResponse (Map Text AttributeValue)
+girItem = lens _girItem (\s a -> s { _girItem = a })
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-girsConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
-girsConsumedCapacity =
-    lens _girsConsumedCapacity (\s a -> s { _girsConsumedCapacity = a })
+girConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
+girConsumedCapacity =
+    lens _girConsumedCapacity (\s a -> s { _girConsumedCapacity = a })
 
 instance FromJSON GetItemResponse
 

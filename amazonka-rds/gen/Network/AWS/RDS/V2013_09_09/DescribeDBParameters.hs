@@ -42,8 +42,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBParameters
     -- * Response
     , DescribeDBParametersResponse
     -- ** Response lenses
-    , ddbprsParameters
-    , ddbprsMarker
+    , ddbprParameters
+    , ddbprMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -101,20 +101,19 @@ instance ToQuery DescribeDBParameters where
 -- | Contains the result of a successful invocation of the DescribeDBParameters
 -- action.
 data DescribeDBParametersResponse = DescribeDBParametersResponse
-    { _ddbprsParameters :: [Parameter]
-    , _ddbprsMarker :: Maybe Text
+    { _ddbprParameters :: [Parameter]
+    , _ddbprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of Parameter values.
-ddbprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
-ddbprsParameters =
-    lens _ddbprsParameters (\s a -> s { _ddbprsParameters = a })
+ddbprParameters :: Lens' DescribeDBParametersResponse [Parameter]
+ddbprParameters = lens _ddbprParameters (\s a -> s { _ddbprParameters = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ddbprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
-ddbprsMarker = lens _ddbprsMarker (\s a -> s { _ddbprsMarker = a })
+ddbprMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
+ddbprMarker = lens _ddbprMarker (\s a -> s { _ddbprMarker = a })
 
 instance FromXML DescribeDBParametersResponse where
     fromXMLOptions = xmlOptions
@@ -128,4 +127,4 @@ instance AWSRequest DescribeDBParameters where
 
 instance AWSPager DescribeDBParameters where
     next rq rs = (\x -> rq & ddbpMarker ?~ x)
-        <$> (rs ^. ddbprsMarker)
+        <$> (rs ^. ddbprMarker)

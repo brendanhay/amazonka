@@ -46,8 +46,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterParameterGroups
     -- * Response
     , DescribeClusterParameterGroupsResponse
     -- ** Response lenses
-    , dcpgrsMarker
-    , dcpgrsParameterGroups
+    , dcpgrMarker
+    , dcpgrParameterGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -100,8 +100,8 @@ instance ToQuery DescribeClusterParameterGroups where
 
 -- | Contains the output from the DescribeClusterParameterGroups action.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
-    { _dcpgrsMarker :: Maybe Text
-    , _dcpgrsParameterGroups :: [ClusterParameterGroup]
+    { _dcpgrMarker :: Maybe Text
+    , _dcpgrParameterGroups :: [ClusterParameterGroup]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -109,14 +109,14 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dcpgrsMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
-dcpgrsMarker = lens _dcpgrsMarker (\s a -> s { _dcpgrsMarker = a })
+dcpgrMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
+dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
-dcpgrsParameterGroups =
-    lens _dcpgrsParameterGroups (\s a -> s { _dcpgrsParameterGroups = a })
+dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
+dcpgrParameterGroups =
+    lens _dcpgrParameterGroups (\s a -> s { _dcpgrParameterGroups = a })
 
 instance FromXML DescribeClusterParameterGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -130,4 +130,4 @@ instance AWSRequest DescribeClusterParameterGroups where
 
 instance AWSPager DescribeClusterParameterGroups where
     next rq rs = (\x -> rq & dcpg1Marker ?~ x)
-        <$> (rs ^. dcpgrsMarker)
+        <$> (rs ^. dcpgrMarker)

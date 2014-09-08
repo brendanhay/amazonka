@@ -47,8 +47,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteChapCredentials
     -- * Response
     , DeleteChapCredentialsResponse
     -- ** Response lenses
-    , dccrsTargetARN
-    , dccrsInitiatorName
+    , dccrTargetARN
+    , dccrInitiatorName
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -94,18 +94,18 @@ instance ToJSON DeleteChapCredentials
 
 -- | A JSON object containing the following fields:.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
-    { _dccrsTargetARN :: Maybe Text
-    , _dccrsInitiatorName :: Maybe Text
+    { _dccrTargetARN :: Maybe Text
+    , _dccrInitiatorName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the target.
-dccrsTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-dccrsTargetARN = lens _dccrsTargetARN (\s a -> s { _dccrsTargetARN = a })
+dccrTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+dccrTargetARN = lens _dccrTargetARN (\s a -> s { _dccrTargetARN = a })
 
 -- | The iSCSI initiator that connects to the target.
-dccrsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-dccrsInitiatorName =
-    lens _dccrsInitiatorName (\s a -> s { _dccrsInitiatorName = a })
+dccrInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+dccrInitiatorName =
+    lens _dccrInitiatorName (\s a -> s { _dccrInitiatorName = a })
 
 instance FromJSON DeleteChapCredentialsResponse
 

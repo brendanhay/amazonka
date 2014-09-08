@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeArchive
     -- * Response
     , RetrieveTapeArchiveResponse
     -- ** Response lenses
-    , rtarsTapeARN
+    , rtarTapeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -69,11 +69,11 @@ instance ToHeaders RetrieveTapeArchive
 instance ToJSON RetrieveTapeArchive
 
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
-    { _rtarsTapeARN :: Maybe Text
+    { _rtarTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
-rtarsTapeARN = lens _rtarsTapeARN (\s a -> s { _rtarsTapeARN = a })
+rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
+rtarTapeARN = lens _rtarTapeARN (\s a -> s { _rtarTapeARN = a })
 
 instance FromJSON RetrieveTapeArchiveResponse
 

@@ -55,9 +55,9 @@ module Network.AWS.DynamoDB.V2012_08_10.PutItem
     -- * Response
     , PutItemResponse
     -- ** Response lenses
-    , pirsAttributes
-    , pirsConsumedCapacity
-    , pirsItemCollectionMetrics
+    , pirAttributes
+    , pirConsumedCapacity
+    , pirItemCollectionMetrics
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -173,25 +173,25 @@ instance ToJSON PutItem
 
 -- | Represents the output of a PutItem operation.
 data PutItemResponse = PutItemResponse
-    { _pirsAttributes :: Map Text AttributeValue
-    , _pirsConsumedCapacity :: Maybe ConsumedCapacity
-    , _pirsItemCollectionMetrics :: Maybe ItemCollectionMetrics
+    { _pirAttributes :: Map Text AttributeValue
+    , _pirConsumedCapacity :: Maybe ConsumedCapacity
+    , _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Show, Generic)
 
 -- | The attribute values as they appeared before the PutItem operation, but
 -- only if ReturnValues is specified as ALL_OLD in the request. Each element
 -- consists of an attribute name and an attribute value.
-pirsAttributes :: Lens' PutItemResponse (Map Text AttributeValue)
-pirsAttributes = lens _pirsAttributes (\s a -> s { _pirsAttributes = a })
+pirAttributes :: Lens' PutItemResponse (Map Text AttributeValue)
+pirAttributes = lens _pirAttributes (\s a -> s { _pirAttributes = a })
 
 -- | Represents the capacity units consumed by an operation. The data returned
 -- includes the total provisioned throughput consumed, along with statistics
 -- for the table and any indexes involved in the operation. ConsumedCapacity
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
-pirsConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
-pirsConsumedCapacity =
-    lens _pirsConsumedCapacity (\s a -> s { _pirsConsumedCapacity = a })
+pirConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
+pirConsumedCapacity =
+    lens _pirConsumedCapacity (\s a -> s { _pirConsumedCapacity = a })
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. ItemCollectionMetrics is only returned if it was asked for in
@@ -207,10 +207,10 @@ pirsConsumedCapacity =
 -- secondary index is approaching its size limit. The estimate is subject to
 -- change over time; therefore, do not rely on the precision or accuracy of
 -- the estimate.
-pirsItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
-pirsItemCollectionMetrics =
-    lens _pirsItemCollectionMetrics
-         (\s a -> s { _pirsItemCollectionMetrics = a })
+pirItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
+pirItemCollectionMetrics =
+    lens _pirItemCollectionMetrics
+         (\s a -> s { _pirItemCollectionMetrics = a })
 
 instance FromJSON PutItemResponse
 

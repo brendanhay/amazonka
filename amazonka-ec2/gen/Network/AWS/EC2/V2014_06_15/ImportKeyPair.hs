@@ -59,8 +59,8 @@ module Network.AWS.EC2.V2014_06_15.ImportKeyPair
     -- * Response
     , ImportKeyPairResponse
     -- ** Response lenses
-    , ikprsKeyName
-    , ikprsKeyFingerprint
+    , ikprKeyName
+    , ikprKeyFingerprint
     ) where
 
 import Network.AWS.Request.Query
@@ -98,18 +98,18 @@ instance ToQuery ImportKeyPair where
 
 -- | 
 data ImportKeyPairResponse = ImportKeyPairResponse
-    { _ikprsKeyName :: Maybe Text
-    , _ikprsKeyFingerprint :: Maybe Text
+    { _ikprKeyName :: Maybe Text
+    , _ikprKeyFingerprint :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The key pair name you provided.
-ikprsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
-ikprsKeyName = lens _ikprsKeyName (\s a -> s { _ikprsKeyName = a })
+ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
+ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-ikprsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
-ikprsKeyFingerprint =
-    lens _ikprsKeyFingerprint (\s a -> s { _ikprsKeyFingerprint = a })
+ikprKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
+ikprKeyFingerprint =
+    lens _ikprKeyFingerprint (\s a -> s { _ikprKeyFingerprint = a })
 
 instance FromXML ImportKeyPairResponse where
     fromXMLOptions = xmlOptions

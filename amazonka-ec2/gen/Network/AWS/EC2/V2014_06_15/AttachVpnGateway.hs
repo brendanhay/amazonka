@@ -42,7 +42,7 @@ module Network.AWS.EC2.V2014_06_15.AttachVpnGateway
     -- * Response
     , AttachVpnGatewayResponse
     -- ** Response lenses
-    , avgrsVpcAttachment
+    , avgrVpcAttachment
     ) where
 
 import Network.AWS.Request.Query
@@ -78,13 +78,13 @@ instance ToQuery AttachVpnGateway where
 
 -- | 
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
-    { _avgrsVpcAttachment :: Maybe VpcAttachment
+    { _avgrVpcAttachment :: Maybe VpcAttachment
     } deriving (Show, Generic)
 
 -- | Information about the attachment.
-avgrsVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
-avgrsVpcAttachment =
-    lens _avgrsVpcAttachment (\s a -> s { _avgrsVpcAttachment = a })
+avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
+avgrVpcAttachment =
+    lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })
 
 instance FromXML AttachVpnGatewayResponse where
     fromXMLOptions = xmlOptions

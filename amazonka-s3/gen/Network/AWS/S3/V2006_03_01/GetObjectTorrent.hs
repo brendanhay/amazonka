@@ -31,7 +31,7 @@ module Network.AWS.S3.V2006_03_01.GetObjectTorrent
     -- * Response
     , GetObjectTorrentResponse
     -- ** Response lenses
-    , gotrsBody
+    , gotrBody
     ) where
 
 import Network.AWS.Request.RestS3
@@ -78,11 +78,11 @@ instance ToHeaders GetObjectTorrent
 instance ToBody GetObjectTorrent
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotrsBody :: RsBody
+    { _gotrBody :: RsBody
     } deriving (Show, Generic)
 
-gotrsBody :: Lens' GetObjectTorrentResponse RsBody
-gotrsBody = lens _gotrsBody (\s a -> s { _gotrsBody = a })
+gotrBody :: Lens' GetObjectTorrentResponse RsBody
+gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
 
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3

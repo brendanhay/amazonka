@@ -49,7 +49,7 @@ module Network.AWS.Redshift.V2012_12_01.DeleteCluster
     -- * Response
     , DeleteClusterResponse
     -- ** Response lenses
-    , dcrsCluster
+    , dcrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -105,12 +105,12 @@ instance ToQuery DeleteCluster where
     toQuery = genericQuery def
 
 newtype DeleteClusterResponse = DeleteClusterResponse
-    { _dcrsCluster :: Maybe Cluster
+    { _dcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-dcrsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-dcrsCluster = lens _dcrsCluster (\s a -> s { _dcrsCluster = a })
+dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
+dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 
 instance FromXML DeleteClusterResponse where
     fromXMLOptions = xmlOptions

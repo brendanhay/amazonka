@@ -69,8 +69,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeTags
     -- * Response
     , DescribeTagsResponse
     -- ** Response lenses
-    , dtrsTags
-    , dtrsNextToken
+    , dtrTags
+    , dtrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -118,18 +118,18 @@ instance ToQuery DescribeTags where
 
 -- | 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dtrsTags :: [TagDescription]
-    , _dtrsNextToken :: Maybe Text
+    { _dtrTags :: [TagDescription]
+    , _dtrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of tags.
-dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTags = lens _dtrsTags (\s a -> s { _dtrsTags = a })
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsNextToken = lens _dtrsNextToken (\s a -> s { _dtrsNextToken = a })
+dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
+dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
@@ -143,4 +143,4 @@ instance AWSRequest DescribeTags where
 
 instance AWSPager DescribeTags where
     next rq rs = (\x -> rq & dt1NextToken ?~ x)
-        <$> (rs ^. dtrsNextToken)
+        <$> (rs ^. dtrNextToken)

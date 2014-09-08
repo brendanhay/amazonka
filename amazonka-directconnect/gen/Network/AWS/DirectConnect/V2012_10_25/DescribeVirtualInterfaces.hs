@@ -40,7 +40,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces
     -- * Response
     , DescribeVirtualInterfacesResponse
     -- ** Response lenses
-    , dvirsrsVirtualInterfaces
+    , dvirrVirtualInterfaces
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -81,14 +81,13 @@ instance ToJSON DescribeVirtualInterfaces
 
 -- | A structure containing a list of virtual interfaces.
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
-    { _dvirsrsVirtualInterfaces :: [VirtualInterface]
+    { _dvirrVirtualInterfaces :: [VirtualInterface]
     } deriving (Show, Generic)
 
 -- | A list of virtual interfaces.
-dvirsrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-dvirsrsVirtualInterfaces =
-    lens _dvirsrsVirtualInterfaces
-         (\s a -> s { _dvirsrsVirtualInterfaces = a })
+dvirrVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvirrVirtualInterfaces =
+    lens _dvirrVirtualInterfaces (\s a -> s { _dvirrVirtualInterfaces = a })
 
 instance FromJSON DescribeVirtualInterfacesResponse
 

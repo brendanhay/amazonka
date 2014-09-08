@@ -28,8 +28,6 @@ module Network.AWS.DirectConnect.V2012_10_25.Types
     (
     -- * Service
       DirectConnect
-    -- ** Errors
-    , Er (..)
     -- * ConnectionState
     , ConnectionState (..)
 

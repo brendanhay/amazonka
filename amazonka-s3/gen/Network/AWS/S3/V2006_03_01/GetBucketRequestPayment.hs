@@ -30,7 +30,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketRequestPayment
     -- * Response
     , GetBucketRequestPaymentResponse
     -- ** Response lenses
-    , gbrprsPayer
+    , gbrprPayer
     ) where
 
 import Network.AWS.Request.RestS3
@@ -69,12 +69,12 @@ instance ToHeaders GetBucketRequestPayment
 instance ToBody GetBucketRequestPayment
 
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
-    { _gbrprsPayer :: Maybe Payer
+    { _gbrprPayer :: Maybe Payer
     } deriving (Show, Generic)
 
 -- | Specifies who pays for the download and request fees.
-gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
-gbrprsPayer = lens _gbrprsPayer (\s a -> s { _gbrprsPayer = a })
+gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
+gbrprPayer = lens _gbrprPayer (\s a -> s { _gbrprPayer = a })
 
 instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions

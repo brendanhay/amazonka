@@ -54,7 +54,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth
     -- * Response
     , DescribeInstanceHealthResponse
     -- ** Response lenses
-    , dihrsInstanceStates
+    , dihrInstanceStates
     ) where
 
 import Network.AWS.Request.Query
@@ -90,13 +90,13 @@ instance ToQuery DescribeInstanceHealth where
 
 -- | The output for the DescribeInstanceHealth action.
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
-    { _dihrsInstanceStates :: [InstanceState]
+    { _dihrInstanceStates :: [InstanceState]
     } deriving (Show, Generic)
 
 -- | A list containing health information for the specified instances.
-dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
-dihrsInstanceStates =
-    lens _dihrsInstanceStates (\s a -> s { _dihrsInstanceStates = a })
+dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
+dihrInstanceStates =
+    lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })
 
 instance FromXML DescribeInstanceHealthResponse where
     fromXMLOptions = xmlOptions

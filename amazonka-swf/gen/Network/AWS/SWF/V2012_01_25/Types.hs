@@ -31,8 +31,6 @@ module Network.AWS.SWF.V2012_01_25.Types
     (
     -- * Service
       SWF
-    -- ** Errors
-    , Er (..)
     -- * ActivityTaskTimeoutType
     , ActivityTaskTimeoutType (..)
 

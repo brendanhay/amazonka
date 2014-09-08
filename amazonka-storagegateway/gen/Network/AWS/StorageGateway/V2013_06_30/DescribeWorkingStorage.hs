@@ -50,10 +50,10 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage
     -- * Response
     , DescribeWorkingStorageResponse
     -- ** Response lenses
-    , dwsrsGatewayARN
-    , dwsrsDiskIds
-    , dwsrsWorkingStorageUsedInBytes
-    , dwsrsWorkingStorageAllocatedInBytes
+    , dwsrGatewayARN
+    , dwsrDiskIds
+    , dwsrWorkingStorageUsedInBytes
+    , dwsrWorkingStorageAllocatedInBytes
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -88,37 +88,37 @@ instance ToJSON DescribeWorkingStorage
 
 -- | A JSON object containing the following fields:.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
-    { _dwsrsGatewayARN :: Maybe Text
-    , _dwsrsDiskIds :: [Text]
-    , _dwsrsWorkingStorageUsedInBytes :: Maybe Integer
-    , _dwsrsWorkingStorageAllocatedInBytes :: Maybe Integer
+    { _dwsrGatewayARN :: Maybe Text
+    , _dwsrDiskIds :: [Text]
+    , _dwsrWorkingStorageUsedInBytes :: Maybe Integer
+    , _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
-dwsrsGatewayARN = lens _dwsrsGatewayARN (\s a -> s { _dwsrsGatewayARN = a })
+dwsrGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
+dwsrGatewayARN = lens _dwsrGatewayARN (\s a -> s { _dwsrGatewayARN = a })
 
 -- | An array of the gateway's local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of 1
 -- and maximum length of 300). If no local disks are configured as working
 -- storage, then the DiskIds array is empty.
-dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
-dwsrsDiskIds = lens _dwsrsDiskIds (\s a -> s { _dwsrsDiskIds = a })
+dwsrDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
+dwsrDiskIds = lens _dwsrDiskIds (\s a -> s { _dwsrDiskIds = a })
 
 -- | The total working storage in bytes in use by the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
-dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsrsWorkingStorageUsedInBytes =
-    lens _dwsrsWorkingStorageUsedInBytes
-         (\s a -> s { _dwsrsWorkingStorageUsedInBytes = a })
+dwsrWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
+dwsrWorkingStorageUsedInBytes =
+    lens _dwsrWorkingStorageUsedInBytes
+         (\s a -> s { _dwsrWorkingStorageUsedInBytes = a })
 
 -- | The total working storage in bytes allocated for the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
-dwsrsWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsrsWorkingStorageAllocatedInBytes =
-    lens _dwsrsWorkingStorageAllocatedInBytes
-         (\s a -> s { _dwsrsWorkingStorageAllocatedInBytes = a })
+dwsrWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
+dwsrWorkingStorageAllocatedInBytes =
+    lens _dwsrWorkingStorageAllocatedInBytes
+         (\s a -> s { _dwsrWorkingStorageAllocatedInBytes = a })
 
 instance FromJSON DescribeWorkingStorageResponse
 

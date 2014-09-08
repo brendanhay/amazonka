@@ -27,8 +27,6 @@ module Network.AWS.ELB.V2012_06_01.Types
     (
     -- * Service
       ELB
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

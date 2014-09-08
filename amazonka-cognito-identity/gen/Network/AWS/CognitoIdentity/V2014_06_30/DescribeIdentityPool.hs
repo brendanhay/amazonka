@@ -39,10 +39,10 @@ module Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool
     -- * Response
     , DescribeIdentityPoolResponse
     -- ** Response lenses
-    , diprsIdentityPoolId
-    , diprsIdentityPoolName
-    , diprsAllowUnauthenticatedIdentities
-    , diprsSupportedLoginProviders
+    , diprIdentityPoolId
+    , diprIdentityPoolName
+    , diprAllowUnauthenticatedIdentities
+    , diprSupportedLoginProviders
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -77,33 +77,33 @@ instance ToJSON DescribeIdentityPool
 
 -- | An object representing a Cognito identity pool.
 data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
-    { _diprsIdentityPoolId :: Text
-    , _diprsIdentityPoolName :: Text
-    , _diprsAllowUnauthenticatedIdentities :: Bool
-    , _diprsSupportedLoginProviders :: Map Text Text
+    { _diprIdentityPoolId :: Text
+    , _diprIdentityPoolName :: Text
+    , _diprAllowUnauthenticatedIdentities :: Bool
+    , _diprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-diprsIdentityPoolId :: Lens' DescribeIdentityPoolResponse Text
-diprsIdentityPoolId =
-    lens _diprsIdentityPoolId (\s a -> s { _diprsIdentityPoolId = a })
+diprIdentityPoolId :: Lens' DescribeIdentityPoolResponse Text
+diprIdentityPoolId =
+    lens _diprIdentityPoolId (\s a -> s { _diprIdentityPoolId = a })
 
 -- | A string that you provide.
-diprsIdentityPoolName :: Lens' DescribeIdentityPoolResponse Text
-diprsIdentityPoolName =
-    lens _diprsIdentityPoolName (\s a -> s { _diprsIdentityPoolName = a })
+diprIdentityPoolName :: Lens' DescribeIdentityPoolResponse Text
+diprIdentityPoolName =
+    lens _diprIdentityPoolName (\s a -> s { _diprIdentityPoolName = a })
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-diprsAllowUnauthenticatedIdentities :: Lens' DescribeIdentityPoolResponse Bool
-diprsAllowUnauthenticatedIdentities =
-    lens _diprsAllowUnauthenticatedIdentities
-         (\s a -> s { _diprsAllowUnauthenticatedIdentities = a })
+diprAllowUnauthenticatedIdentities :: Lens' DescribeIdentityPoolResponse Bool
+diprAllowUnauthenticatedIdentities =
+    lens _diprAllowUnauthenticatedIdentities
+         (\s a -> s { _diprAllowUnauthenticatedIdentities = a })
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-diprsSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (Map Text Text)
-diprsSupportedLoginProviders =
-    lens _diprsSupportedLoginProviders
-         (\s a -> s { _diprsSupportedLoginProviders = a })
+diprSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (Map Text Text)
+diprSupportedLoginProviders =
+    lens _diprSupportedLoginProviders
+         (\s a -> s { _diprSupportedLoginProviders = a })
 
 instance FromJSON DescribeIdentityPoolResponse
 

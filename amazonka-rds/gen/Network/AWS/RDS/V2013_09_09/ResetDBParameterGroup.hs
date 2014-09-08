@@ -46,7 +46,7 @@ module Network.AWS.RDS.V2013_09_09.ResetDBParameterGroup
     -- * Response
     , ResetDBParameterGroupResponse
     -- ** Response lenses
-    , rdbpgrsDBParameterGroupName
+    , rdbpgrDBParameterGroupName
     ) where
 
 import Network.AWS.Request.Query
@@ -102,14 +102,14 @@ instance ToQuery ResetDBParameterGroup where
 -- | Contains the result of a successful invocation of the
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
-    { _rdbpgrsDBParameterGroupName :: Maybe Text
+    { _rdbpgrDBParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the DB parameter group.
-rdbpgrsDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
-rdbpgrsDBParameterGroupName =
-    lens _rdbpgrsDBParameterGroupName
-         (\s a -> s { _rdbpgrsDBParameterGroupName = a })
+rdbpgrDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
+rdbpgrDBParameterGroupName =
+    lens _rdbpgrDBParameterGroupName
+         (\s a -> s { _rdbpgrDBParameterGroupName = a })
 
 instance FromXML ResetDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

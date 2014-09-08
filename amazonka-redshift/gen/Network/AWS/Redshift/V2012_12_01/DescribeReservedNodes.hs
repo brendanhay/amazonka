@@ -43,8 +43,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeReservedNodes
     -- * Response
     , DescribeReservedNodesResponse
     -- ** Response lenses
-    , drnrsMarker
-    , drnrsReservedNodes
+    , drnrMarker
+    , drnrReservedNodes
     ) where
 
 import Network.AWS.Request.Query
@@ -94,8 +94,8 @@ instance ToQuery DescribeReservedNodes where
 
 -- | Contains the output from the DescribeReservedNodes action.
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse
-    { _drnrsMarker :: Maybe Text
-    , _drnrsReservedNodes :: [ReservedNode]
+    { _drnrMarker :: Maybe Text
+    , _drnrReservedNodes :: [ReservedNode]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -103,13 +103,13 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-drnrsMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
-drnrsMarker = lens _drnrsMarker (\s a -> s { _drnrsMarker = a })
+drnrMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
+drnrMarker = lens _drnrMarker (\s a -> s { _drnrMarker = a })
 
 -- | The list of reserved nodes.
-drnrsReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
-drnrsReservedNodes =
-    lens _drnrsReservedNodes (\s a -> s { _drnrsReservedNodes = a })
+drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
+drnrReservedNodes =
+    lens _drnrReservedNodes (\s a -> s { _drnrReservedNodes = a })
 
 instance FromXML DescribeReservedNodesResponse where
     fromXMLOptions = xmlOptions
@@ -123,4 +123,4 @@ instance AWSRequest DescribeReservedNodes where
 
 instance AWSPager DescribeReservedNodes where
     next rq rs = (\x -> rq & drnMarker ?~ x)
-        <$> (rs ^. drnrsMarker)
+        <$> (rs ^. drnrMarker)

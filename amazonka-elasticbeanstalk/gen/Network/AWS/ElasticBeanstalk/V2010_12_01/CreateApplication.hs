@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication
     -- * Response
     , CreateApplicationResponse
     -- ** Response lenses
-    , carsApplication
+    , carApplication
     ) where
 
 import Network.AWS.Request.Query
@@ -77,12 +77,12 @@ instance ToQuery CreateApplication where
 
 -- | Result message containing a single description of an application.
 newtype CreateApplicationResponse = CreateApplicationResponse
-    { _carsApplication :: Maybe ApplicationDescription
+    { _carApplication :: Maybe ApplicationDescription
     } deriving (Show, Generic)
 
 -- | The ApplicationDescription of the application.
-carsApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
-carsApplication = lens _carsApplication (\s a -> s { _carsApplication = a })
+carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
+carApplication = lens _carApplication (\s a -> s { _carApplication = a })
 
 instance FromXML CreateApplicationResponse where
     fromXMLOptions = xmlOptions

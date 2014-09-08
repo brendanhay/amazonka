@@ -67,8 +67,8 @@ module Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
     -- * Response
     , CountClosedWorkflowExecutionsResponse
     -- ** Response lenses
-    , ccwersCount
-    , ccwersTruncated
+    , ccwerCount
+    , ccwerTruncated
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -156,18 +156,18 @@ instance ToJSON CountClosedWorkflowExecutions
 -- | Contains the count of workflow executions returned from
 -- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions.
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
-    { _ccwersCount :: Integer
-    , _ccwersTruncated :: Maybe Bool
+    { _ccwerCount :: Integer
+    , _ccwerTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The number of workflow executions.
-ccwersCount :: Lens' CountClosedWorkflowExecutionsResponse Integer
-ccwersCount = lens _ccwersCount (\s a -> s { _ccwersCount = a })
+ccwerCount :: Lens' CountClosedWorkflowExecutionsResponse Integer
+ccwerCount = lens _ccwerCount (\s a -> s { _ccwerCount = a })
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
-ccwersTruncated :: Lens' CountClosedWorkflowExecutionsResponse (Maybe Bool)
-ccwersTruncated = lens _ccwersTruncated (\s a -> s { _ccwersTruncated = a })
+ccwerTruncated :: Lens' CountClosedWorkflowExecutionsResponse (Maybe Bool)
+ccwerTruncated = lens _ccwerTruncated (\s a -> s { _ccwerTruncated = a })
 
 instance FromJSON CountClosedWorkflowExecutionsResponse
 

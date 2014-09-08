@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteBandwidthRateLimit
     -- * Response
     , DeleteBandwidthRateLimitResponse
     -- ** Response lenses
-    , dbrlrsGatewayARN
+    , dbrlrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -89,14 +89,13 @@ instance ToJSON DeleteBandwidthRateLimit
 -- | A JSON object containing the of the gateway whose bandwidth rate
 -- information was deleted.
 newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
-    { _dbrlrsGatewayARN :: Maybe Text
+    { _dbrlrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-dbrlrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
-dbrlrsGatewayARN =
-    lens _dbrlrsGatewayARN (\s a -> s { _dbrlrsGatewayARN = a })
+dbrlrGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
+dbrlrGatewayARN = lens _dbrlrGatewayARN (\s a -> s { _dbrlrGatewayARN = a })
 
 instance FromJSON DeleteBandwidthRateLimitResponse
 

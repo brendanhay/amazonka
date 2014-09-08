@@ -39,7 +39,7 @@ module Network.AWS.Route53.V2013_04_01.DeleteHostedZone
     -- * Response
     , DeleteHostedZoneResponse
     -- ** Response lenses
-    , dhzrsChangeInfo
+    , dhzrChangeInfo
     ) where
 
 import Network.AWS.Request.RestXML
@@ -81,13 +81,13 @@ instance ToXML DeleteHostedZone where
 
 -- | A complex type containing the response information for the request.
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
-    { _dhzrsChangeInfo :: ChangeInfo
+    { _dhzrChangeInfo :: ChangeInfo
     } deriving (Show, Generic)
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your delete request.
-dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
-dhzrsChangeInfo = lens _dhzrsChangeInfo (\s a -> s { _dhzrsChangeInfo = a })
+dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
+dhzrChangeInfo = lens _dhzrChangeInfo (\s a -> s { _dhzrChangeInfo = a })
 
 instance FromXML DeleteHostedZoneResponse where
     fromXMLOptions = xmlOptions

@@ -37,8 +37,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools
     -- * Response
     , ListIdentityPoolsResponse
     -- ** Response lenses
-    , liprsIdentityPools
-    , liprsNextToken
+    , liprIdentityPools
+    , liprNextToken
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -78,18 +78,18 @@ instance ToJSON ListIdentityPools
 
 -- | The result of a successful ListIdentityPools action.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse
-    { _liprsIdentityPools :: [IdentityPoolShortDescription]
-    , _liprsNextToken :: Maybe Text
+    { _liprIdentityPools :: [IdentityPoolShortDescription]
+    , _liprNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The identity pools returned by the ListIdentityPools action.
-liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
-liprsIdentityPools =
-    lens _liprsIdentityPools (\s a -> s { _liprsIdentityPools = a })
+liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
+liprIdentityPools =
+    lens _liprIdentityPools (\s a -> s { _liprIdentityPools = a })
 
 -- | A pagination token.
-liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
-liprsNextToken = lens _liprsNextToken (\s a -> s { _liprsNextToken = a })
+liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
+liprNextToken = lens _liprNextToken (\s a -> s { _liprNextToken = a })
 
 instance FromJSON ListIdentityPoolsResponse
 

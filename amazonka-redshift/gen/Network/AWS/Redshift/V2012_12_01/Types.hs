@@ -28,8 +28,6 @@ module Network.AWS.Redshift.V2012_12_01.Types
     (
     -- * Service
       Redshift
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -122,11 +120,11 @@ module Network.AWS.Redshift.V2012_12_01.Types
     -- * ClusterSubnetGroup
     , ClusterSubnetGroup
     , mkClusterSubnetGroup
-    , csgrsClusterSubnetGroupName
-    , csgrsDescription
-    , csgrsVpcId
-    , csgrsSubnetGroupStatus
-    , csgrsSubnets
+    , csgrClusterSubnetGroupName
+    , csgrDescription
+    , csgrVpcId
+    , csgrSubnetGroupStatus
+    , csgrSubnets
 
     -- * ClusterVersion
     , ClusterVersion
@@ -164,13 +162,13 @@ module Network.AWS.Redshift.V2012_12_01.Types
     -- * Event
     , Event
     , mkEvent
-    , ersSourceIdentifier
-    , ersSourceType
-    , ersMessage
-    , ersEventCategories
-    , ersSeverity
-    , ersDate
-    , ersEventId
+    , erSourceIdentifier
+    , erSourceType
+    , erMessage
+    , erEventCategories
+    , erSeverity
+    , erDate
+    , erEventId
 
     -- * EventCategoriesMap
     , EventCategoriesMap
@@ -334,9 +332,9 @@ module Network.AWS.Redshift.V2012_12_01.Types
     -- * Subnet
     , Subnet
     , mkSubnet
-    , srsSubnetIdentifier
-    , srsSubnetAvailabilityZone
-    , srsSubnetStatus
+    , srSubnetIdentifier
+    , srSubnetAvailabilityZone
+    , srSubnetStatus
 
     -- * VpcSecurityGroupMembership
     , VpcSecurityGroupMembership
@@ -974,48 +972,47 @@ instance ToQuery ClusterSnapshotCopyStatus where
 
 -- | Describes a subnet group.
 data ClusterSubnetGroup = ClusterSubnetGroup
-    { _csgrsClusterSubnetGroupName :: Maybe Text
-    , _csgrsDescription :: Maybe Text
-    , _csgrsVpcId :: Maybe Text
-    , _csgrsSubnetGroupStatus :: Maybe Text
-    , _csgrsSubnets :: [Subnet]
+    { _csgrClusterSubnetGroupName :: Maybe Text
+    , _csgrDescription :: Maybe Text
+    , _csgrVpcId :: Maybe Text
+    , _csgrSubnetGroupStatus :: Maybe Text
+    , _csgrSubnets :: [Subnet]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSubnetGroup' data type to populate a request.
 mkClusterSubnetGroup :: ClusterSubnetGroup
 mkClusterSubnetGroup = ClusterSubnetGroup
-    { _csgrsClusterSubnetGroupName = Nothing
-    , _csgrsDescription = Nothing
-    , _csgrsVpcId = Nothing
-    , _csgrsSubnetGroupStatus = Nothing
-    , _csgrsSubnets = mempty
+    { _csgrClusterSubnetGroupName = Nothing
+    , _csgrDescription = Nothing
+    , _csgrVpcId = Nothing
+    , _csgrSubnetGroupStatus = Nothing
+    , _csgrSubnets = mempty
     }
 
 -- | The name of the cluster subnet group.
-csgrsClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
-csgrsClusterSubnetGroupName =
-    lens _csgrsClusterSubnetGroupName
-         (\s a -> s { _csgrsClusterSubnetGroupName = a })
+csgrClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
+csgrClusterSubnetGroupName =
+    lens _csgrClusterSubnetGroupName
+         (\s a -> s { _csgrClusterSubnetGroupName = a })
 
 -- | The description of the cluster subnet group.
-csgrsDescription :: Lens' ClusterSubnetGroup (Maybe Text)
-csgrsDescription =
-    lens _csgrsDescription (\s a -> s { _csgrsDescription = a })
+csgrDescription :: Lens' ClusterSubnetGroup (Maybe Text)
+csgrDescription = lens _csgrDescription (\s a -> s { _csgrDescription = a })
 
 -- | The VPC ID of the cluster subnet group.
-csgrsVpcId :: Lens' ClusterSubnetGroup (Maybe Text)
-csgrsVpcId = lens _csgrsVpcId (\s a -> s { _csgrsVpcId = a })
+csgrVpcId :: Lens' ClusterSubnetGroup (Maybe Text)
+csgrVpcId = lens _csgrVpcId (\s a -> s { _csgrVpcId = a })
 
 -- | The status of the cluster subnet group. Possible values are Complete,
 -- Incomplete and Invalid.
-csgrsSubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
-csgrsSubnetGroupStatus =
-    lens _csgrsSubnetGroupStatus (\s a -> s { _csgrsSubnetGroupStatus = a })
+csgrSubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
+csgrSubnetGroupStatus =
+    lens _csgrSubnetGroupStatus (\s a -> s { _csgrSubnetGroupStatus = a })
 
 -- | A list of the VPC Subnet elements.
-csgrsSubnets :: Lens' ClusterSubnetGroup [Subnet]
-csgrsSubnets = lens _csgrsSubnets (\s a -> s { _csgrsSubnets = a })
+csgrSubnets :: Lens' ClusterSubnetGroup [Subnet]
+csgrSubnets = lens _csgrSubnets (\s a -> s { _csgrSubnets = a })
 
 instance FromXML ClusterSubnetGroup where
     fromXMLOptions = xmlOptions
@@ -1196,57 +1193,57 @@ instance ToQuery Endpoint where
 
 -- | Describes an event.
 data Event = Event
-    { _ersSourceIdentifier :: Maybe Text
-    , _ersSourceType :: Maybe SourceType
-    , _ersMessage :: Maybe Text
-    , _ersEventCategories :: [Text]
-    , _ersSeverity :: Maybe Text
-    , _ersDate :: Maybe ISO8601
-    , _ersEventId :: Maybe Text
+    { _erSourceIdentifier :: Maybe Text
+    , _erSourceType :: Maybe SourceType
+    , _erMessage :: Maybe Text
+    , _erEventCategories :: [Text]
+    , _erSeverity :: Maybe Text
+    , _erDate :: Maybe ISO8601
+    , _erEventId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Event' data type to populate a request.
 mkEvent :: Event
 mkEvent = Event
-    { _ersSourceIdentifier = Nothing
-    , _ersSourceType = Nothing
-    , _ersMessage = Nothing
-    , _ersEventCategories = mempty
-    , _ersSeverity = Nothing
-    , _ersDate = Nothing
-    , _ersEventId = Nothing
+    { _erSourceIdentifier = Nothing
+    , _erSourceType = Nothing
+    , _erMessage = Nothing
+    , _erEventCategories = mempty
+    , _erSeverity = Nothing
+    , _erDate = Nothing
+    , _erEventId = Nothing
     }
 
 -- | The identifier for the source of the event.
-ersSourceIdentifier :: Lens' Event (Maybe Text)
-ersSourceIdentifier =
-    lens _ersSourceIdentifier (\s a -> s { _ersSourceIdentifier = a })
+erSourceIdentifier :: Lens' Event (Maybe Text)
+erSourceIdentifier =
+    lens _erSourceIdentifier (\s a -> s { _erSourceIdentifier = a })
 
 -- | The source type for this event.
-ersSourceType :: Lens' Event (Maybe SourceType)
-ersSourceType = lens _ersSourceType (\s a -> s { _ersSourceType = a })
+erSourceType :: Lens' Event (Maybe SourceType)
+erSourceType = lens _erSourceType (\s a -> s { _erSourceType = a })
 
 -- | The text of this event.
-ersMessage :: Lens' Event (Maybe Text)
-ersMessage = lens _ersMessage (\s a -> s { _ersMessage = a })
+erMessage :: Lens' Event (Maybe Text)
+erMessage = lens _erMessage (\s a -> s { _erMessage = a })
 
 -- | A list of the event categories.
-ersEventCategories :: Lens' Event [Text]
-ersEventCategories =
-    lens _ersEventCategories (\s a -> s { _ersEventCategories = a })
+erEventCategories :: Lens' Event [Text]
+erEventCategories =
+    lens _erEventCategories (\s a -> s { _erEventCategories = a })
 
 -- | The severity of the event. Values: ERROR, INFO.
-ersSeverity :: Lens' Event (Maybe Text)
-ersSeverity = lens _ersSeverity (\s a -> s { _ersSeverity = a })
+erSeverity :: Lens' Event (Maybe Text)
+erSeverity = lens _erSeverity (\s a -> s { _erSeverity = a })
 
 -- | The date and time of the event.
-ersDate :: Lens' Event (Maybe ISO8601)
-ersDate = lens _ersDate (\s a -> s { _ersDate = a })
+erDate :: Lens' Event (Maybe ISO8601)
+erDate = lens _erDate (\s a -> s { _erDate = a })
 
 -- | The identifier of the event.
-ersEventId :: Lens' Event (Maybe Text)
-ersEventId = lens _ersEventId (\s a -> s { _ersEventId = a })
+erEventId :: Lens' Event (Maybe Text)
+erEventId = lens _erEventId (\s a -> s { _erEventId = a })
 
 instance FromXML Event where
     fromXMLOptions = xmlOptions
@@ -2209,34 +2206,34 @@ instance FromXML Snapshot where
 
 -- | Describes a subnet.
 data Subnet = Subnet
-    { _srsSubnetIdentifier :: Maybe Text
-    , _srsSubnetAvailabilityZone :: Maybe AvailabilityZone
-    , _srsSubnetStatus :: Maybe Text
+    { _srSubnetIdentifier :: Maybe Text
+    , _srSubnetAvailabilityZone :: Maybe AvailabilityZone
+    , _srSubnetStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
 mkSubnet :: Subnet
 mkSubnet = Subnet
-    { _srsSubnetIdentifier = Nothing
-    , _srsSubnetAvailabilityZone = Nothing
-    , _srsSubnetStatus = Nothing
+    { _srSubnetIdentifier = Nothing
+    , _srSubnetAvailabilityZone = Nothing
+    , _srSubnetStatus = Nothing
     }
 
 -- | The identifier of the subnet.
-srsSubnetIdentifier :: Lens' Subnet (Maybe Text)
-srsSubnetIdentifier =
-    lens _srsSubnetIdentifier (\s a -> s { _srsSubnetIdentifier = a })
+srSubnetIdentifier :: Lens' Subnet (Maybe Text)
+srSubnetIdentifier =
+    lens _srSubnetIdentifier (\s a -> s { _srSubnetIdentifier = a })
 
 -- | Describes an availability zone.
-srsSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-srsSubnetAvailabilityZone =
-    lens _srsSubnetAvailabilityZone
-         (\s a -> s { _srsSubnetAvailabilityZone = a })
+srSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
+srSubnetAvailabilityZone =
+    lens _srSubnetAvailabilityZone
+         (\s a -> s { _srSubnetAvailabilityZone = a })
 
 -- | The status of the subnet.
-srsSubnetStatus :: Lens' Subnet (Maybe Text)
-srsSubnetStatus = lens _srsSubnetStatus (\s a -> s { _srsSubnetStatus = a })
+srSubnetStatus :: Lens' Subnet (Maybe Text)
+srSubnetStatus = lens _srSubnetStatus (\s a -> s { _srSubnetStatus = a })
 
 instance FromXML Subnet where
     fromXMLOptions = xmlOptions

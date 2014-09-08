@@ -41,10 +41,10 @@ module Network.AWS.IAM.V2010_05_08.GetGroup
     -- * Response
     , GetGroupResponse
     -- ** Response lenses
-    , ggrsGroup
-    , ggrsUsers
-    , ggrsIsTruncated
-    , ggrsMarker
+    , ggrGroup
+    , ggrUsers
+    , ggrIsTruncated
+    , ggrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -90,30 +90,30 @@ instance ToQuery GetGroup where
 
 -- | Contains the result of a successful invocation of the GetGroup action.
 data GetGroupResponse = GetGroupResponse
-    { _ggrsGroup :: Group
-    , _ggrsUsers :: [User]
-    , _ggrsIsTruncated :: Bool
-    , _ggrsMarker :: Maybe Text
+    { _ggrGroup :: Group
+    , _ggrUsers :: [User]
+    , _ggrIsTruncated :: Bool
+    , _ggrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Information about the group.
-ggrsGroup :: Lens' GetGroupResponse Group
-ggrsGroup = lens _ggrsGroup (\s a -> s { _ggrsGroup = a })
+ggrGroup :: Lens' GetGroupResponse Group
+ggrGroup = lens _ggrGroup (\s a -> s { _ggrGroup = a })
 
 -- | A list of users in the group.
-ggrsUsers :: Lens' GetGroupResponse [User]
-ggrsUsers = lens _ggrsUsers (\s a -> s { _ggrsUsers = a })
+ggrUsers :: Lens' GetGroupResponse [User]
+ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a })
 
 -- | A flag that indicates whether there are more user names to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more user names in the list.
-ggrsIsTruncated :: Lens' GetGroupResponse Bool
-ggrsIsTruncated = lens _ggrsIsTruncated (\s a -> s { _ggrsIsTruncated = a })
+ggrIsTruncated :: Lens' GetGroupResponse Bool
+ggrIsTruncated = lens _ggrIsTruncated (\s a -> s { _ggrIsTruncated = a })
 
 -- | If IsTruncated is true, then this element is present and contains the value
 -- to use for the Marker parameter in a subsequent pagination request.
-ggrsMarker :: Lens' GetGroupResponse (Maybe Text)
-ggrsMarker = lens _ggrsMarker (\s a -> s { _ggrsMarker = a })
+ggrMarker :: Lens' GetGroupResponse (Maybe Text)
+ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
 
 instance FromXML GetGroupResponse where
     fromXMLOptions = xmlOptions
@@ -127,6 +127,6 @@ instance AWSRequest GetGroup where
 
 instance AWSPager GetGroup where
     next rq rs
-        | not (rs ^. ggrsIsTruncated) = Nothing
+        | not (rs ^. ggrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & ggMarker .~ rs ^. ggrsMarker
+            rq & ggMarker .~ rs ^. ggrMarker

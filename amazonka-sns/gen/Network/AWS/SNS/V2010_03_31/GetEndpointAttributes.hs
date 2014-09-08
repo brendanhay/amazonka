@@ -51,7 +51,7 @@ module Network.AWS.SNS.V2010_03_31.GetEndpointAttributes
     -- * Response
     , GetEndpointAttributesResponse
     -- ** Response lenses
-    , gearsAttributes
+    , gearAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -80,7 +80,7 @@ instance ToQuery GetEndpointAttributes where
 
 -- | Response from GetEndpointAttributes of the EndpointArn.
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearsAttributes :: Map Text Text
+    { _gearAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | Attributes include the following: CustomUserData -- arbitrary user data to
@@ -92,8 +92,8 @@ newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
 -- Token -- device token, also referred to as a registration id, for an app
 -- and mobile device. This is returned from the notification service when an
 -- app and mobile device are registered with the notification service.
-gearsAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
-gearsAttributes = lens _gearsAttributes (\s a -> s { _gearsAttributes = a })
+gearAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
+gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
 
 instance FromXML GetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions

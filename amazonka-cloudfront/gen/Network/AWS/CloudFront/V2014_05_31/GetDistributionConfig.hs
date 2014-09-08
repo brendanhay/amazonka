@@ -30,8 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig
     -- * Response
     , GetDistributionConfigResponse
     -- ** Response lenses
-    , gdcrsDistributionConfig
-    , gdcrsETag
+    , gdcrDistributionConfig
+    , gdcrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -73,19 +73,18 @@ instance ToXML GetDistributionConfig where
 
 -- | The returned result of the corresponding request.
 data GetDistributionConfigResponse = GetDistributionConfigResponse
-    { _gdcrsDistributionConfig :: Maybe DistributionConfig
-    , _gdcrsETag :: Maybe Text
+    { _gdcrDistributionConfig :: Maybe DistributionConfig
+    , _gdcrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The distribution's configuration information.
-gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcrsDistributionConfig =
-    lens _gdcrsDistributionConfig
-         (\s a -> s { _gdcrsDistributionConfig = a })
+gdcrDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
+gdcrDistributionConfig =
+    lens _gdcrDistributionConfig (\s a -> s { _gdcrDistributionConfig = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcrsETag = lens _gdcrsETag (\s a -> s { _gdcrsETag = a })
+gdcrETag :: Lens' GetDistributionConfigResponse (Maybe Text)
+gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
 
 instance AWSRequest GetDistributionConfig where
     type Sv GetDistributionConfig = CloudFront

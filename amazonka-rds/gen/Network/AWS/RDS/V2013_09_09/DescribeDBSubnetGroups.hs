@@ -42,8 +42,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeDBSubnetGroups
     -- * Response
     , DescribeDBSubnetGroupsResponse
     -- ** Response lenses
-    , ddbsgrsrsMarker
-    , ddbsgrsrsDBSubnetGroups
+    , ddbsgrrMarker
+    , ddbsgrrDBSubnetGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -92,21 +92,20 @@ instance ToQuery DescribeDBSubnetGroups where
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSubnetGroups action.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
-    { _ddbsgrsrsMarker :: Maybe Text
-    , _ddbsgrsrsDBSubnetGroups :: [DBSubnetGroup]
+    { _ddbsgrrMarker :: Maybe Text
+    , _ddbsgrrDBSubnetGroups :: [DBSubnetGroup]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ddbsgrsrsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
-ddbsgrsrsMarker = lens _ddbsgrsrsMarker (\s a -> s { _ddbsgrsrsMarker = a })
+ddbsgrrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
+ddbsgrrMarker = lens _ddbsgrrMarker (\s a -> s { _ddbsgrrMarker = a })
 
 -- | A list of DBSubnetGroup instances.
-ddbsgrsrsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
-ddbsgrsrsDBSubnetGroups =
-    lens _ddbsgrsrsDBSubnetGroups
-         (\s a -> s { _ddbsgrsrsDBSubnetGroups = a })
+ddbsgrrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
+ddbsgrrDBSubnetGroups =
+    lens _ddbsgrrDBSubnetGroups (\s a -> s { _ddbsgrrDBSubnetGroups = a })
 
 instance FromXML DescribeDBSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -120,4 +119,4 @@ instance AWSRequest DescribeDBSubnetGroups where
 
 instance AWSPager DescribeDBSubnetGroups where
     next rq rs = (\x -> rq & ddbsg3Marker ?~ x)
-        <$> (rs ^. ddbsgrsrsMarker)
+        <$> (rs ^. ddbsgrrMarker)

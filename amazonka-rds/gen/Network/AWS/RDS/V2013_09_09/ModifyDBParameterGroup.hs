@@ -48,7 +48,7 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup
     -- * Response
     , ModifyDBParameterGroupResponse
     -- ** Response lenses
-    , mdbpgrsDBParameterGroupName
+    , mdbpgrDBParameterGroupName
     ) where
 
 import Network.AWS.Request.Query
@@ -96,14 +96,14 @@ instance ToQuery ModifyDBParameterGroup where
 -- | Contains the result of a successful invocation of the
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
-    { _mdbpgrsDBParameterGroupName :: Maybe Text
+    { _mdbpgrDBParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the DB parameter group.
-mdbpgrsDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
-mdbpgrsDBParameterGroupName =
-    lens _mdbpgrsDBParameterGroupName
-         (\s a -> s { _mdbpgrsDBParameterGroupName = a })
+mdbpgrDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
+mdbpgrDBParameterGroupName =
+    lens _mdbpgrDBParameterGroupName
+         (\s a -> s { _mdbpgrDBParameterGroupName = a })
 
 instance FromXML ModifyDBParameterGroupResponse where
     fromXMLOptions = xmlOptions

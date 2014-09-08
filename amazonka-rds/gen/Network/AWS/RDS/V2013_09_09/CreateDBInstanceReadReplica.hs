@@ -53,7 +53,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBInstanceReadReplica
     -- * Response
     , CreateDBInstanceReadReplicaResponse
     -- ** Response lenses
-    , cdbirrrsDBInstance
+    , cdbirrrDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -184,15 +184,15 @@ instance ToQuery CreateDBInstanceReadReplica where
     toQuery = genericQuery def
 
 newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
-    { _cdbirrrsDBInstance :: Maybe DBInstance
+    { _cdbirrrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-cdbirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
-cdbirrrsDBInstance =
-    lens _cdbirrrsDBInstance (\s a -> s { _cdbirrrsDBInstance = a })
+cdbirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
+cdbirrrDBInstance =
+    lens _cdbirrrDBInstance (\s a -> s { _cdbirrrDBInstance = a })
 
 instance FromXML CreateDBInstanceReadReplicaResponse where
     fromXMLOptions = xmlOptions

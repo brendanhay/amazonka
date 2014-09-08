@@ -65,8 +65,8 @@ module Network.AWS.SWF.V2012_01_25.DescribeWorkflowType
     -- * Response
     , DescribeWorkflowTypeResponse
     -- ** Response lenses
-    , dwtrsTypeInfo
-    , dwtrsConfiguration
+    , dwtrTypeInfo
+    , dwtrConfiguration
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -107,8 +107,8 @@ instance ToJSON DescribeWorkflowType
 
 -- | Contains details about a workflow type.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
-    { _dwtrsTypeInfo :: WorkflowTypeInfo
-    , _dwtrsConfiguration :: WorkflowTypeConfiguration
+    { _dwtrTypeInfo :: WorkflowTypeInfo
+    , _dwtrConfiguration :: WorkflowTypeConfiguration
     } deriving (Show, Generic)
 
 -- | General information about the workflow type. The status of the workflow
@@ -118,14 +118,14 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
 -- using DeprecateWorkflowType, but is still in use. You should keep workers
 -- supporting this type running. You cannot create new workflow executions of
 -- this type.
-dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
-dwtrsTypeInfo = lens _dwtrsTypeInfo (\s a -> s { _dwtrsTypeInfo = a })
+dwtrTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
+dwtrTypeInfo = lens _dwtrTypeInfo (\s a -> s { _dwtrTypeInfo = a })
 
 -- | Configuration settings of the workflow type registered through
 -- RegisterWorkflowType.
-dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
-dwtrsConfiguration =
-    lens _dwtrsConfiguration (\s a -> s { _dwtrsConfiguration = a })
+dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
+dwtrConfiguration =
+    lens _dwtrConfiguration (\s a -> s { _dwtrConfiguration = a })
 
 instance FromJSON DescribeWorkflowTypeResponse
 

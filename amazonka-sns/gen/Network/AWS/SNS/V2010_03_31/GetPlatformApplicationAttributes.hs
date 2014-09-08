@@ -48,7 +48,7 @@ module Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes
     -- * Response
     , GetPlatformApplicationAttributesResponse
     -- ** Response lenses
-    , gpaarsAttributes
+    , gpaarAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -79,7 +79,7 @@ instance ToQuery GetPlatformApplicationAttributes where
 
 -- | Response for GetPlatformApplicationAttributes action.
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
-    { _gpaarsAttributes :: Map Text Text
+    { _gpaarAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | Attributes include the following: EventEndpointCreated -- Topic ARN to
@@ -90,9 +90,8 @@ newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttribu
 -- Topic ARN to which DeliveryFailure event notifications should be sent upon
 -- Direct Publish delivery failure (permanent) to one of the application's
 -- endpoints.
-gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
-gpaarsAttributes =
-    lens _gpaarsAttributes (\s a -> s { _gpaarsAttributes = a })
+gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
+gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
 
 instance FromXML GetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions

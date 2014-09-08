@@ -37,8 +37,8 @@ module Network.AWS.EMR.V2009_03_31.ListClusters
     -- * Response
     , ListClustersResponse
     -- ** Response lenses
-    , lcrsClusters
-    , lcrsMarker
+    , lcrClusters
+    , lcrMarker
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -91,17 +91,17 @@ instance ToJSON ListClusters
 -- | This contains a ClusterSummaryList with the cluster details; for example,
 -- the cluster IDs, names, and status.
 data ListClustersResponse = ListClustersResponse
-    { _lcrsClusters :: [ClusterSummary]
-    , _lcrsMarker :: Maybe Text
+    { _lcrClusters :: [ClusterSummary]
+    , _lcrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of clusters for the account based on the given filters.
-lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
-lcrsClusters = lens _lcrsClusters (\s a -> s { _lcrsClusters = a })
+lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
+lcrClusters = lens _lcrClusters (\s a -> s { _lcrClusters = a })
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lcrsMarker :: Lens' ListClustersResponse (Maybe Text)
-lcrsMarker = lens _lcrsMarker (\s a -> s { _lcrsMarker = a })
+lcrMarker :: Lens' ListClustersResponse (Maybe Text)
+lcrMarker = lens _lcrMarker (\s a -> s { _lcrMarker = a })
 
 instance FromJSON ListClustersResponse
 
@@ -114,4 +114,4 @@ instance AWSRequest ListClusters where
 
 instance AWSPager ListClusters where
     next rq rs = (\x -> rq & lcMarker ?~ x)
-        <$> (rs ^. lcrsMarker)
+        <$> (rs ^. lcrMarker)

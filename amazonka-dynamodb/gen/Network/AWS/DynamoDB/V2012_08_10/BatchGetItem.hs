@@ -66,9 +66,9 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
     -- * Response
     , BatchGetItemResponse
     -- ** Response lenses
-    , bgirsResponses
-    , bgirsUnprocessedKeys
-    , bgirsConsumedCapacity
+    , bgirResponses
+    , bgirUnprocessedKeys
+    , bgirConsumedCapacity
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -121,16 +121,16 @@ instance ToJSON BatchGetItem
 
 -- | Represents the output of a BatchGetItem operation.
 data BatchGetItemResponse = BatchGetItemResponse
-    { _bgirsResponses :: Map Text [Map Text AttributeValue]
-    , _bgirsUnprocessedKeys :: Map Text KeysAndAttributes
-    , _bgirsConsumedCapacity :: [ConsumedCapacity]
+    { _bgirResponses :: Map Text [Map Text AttributeValue]
+    , _bgirUnprocessedKeys :: Map Text KeysAndAttributes
+    , _bgirConsumedCapacity :: [ConsumedCapacity]
     } deriving (Show, Generic)
 
 -- | A map of table name to a list of items. Each object in Responses consists
 -- of a table name, along with a map of attribute data consisting of the data
 -- type and attribute value.
-bgirsResponses :: Lens' BatchGetItemResponse (Map Text [Map Text AttributeValue])
-bgirsResponses = lens _bgirsResponses (\s a -> s { _bgirsResponses = a })
+bgirResponses :: Lens' BatchGetItemResponse (Map Text [Map Text AttributeValue])
+bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
 
 -- | A map of tables and their respective keys that were not processed with the
 -- current response. The UnprocessedKeys value is in the same form as
@@ -143,16 +143,16 @@ bgirsResponses = lens _bgirsResponses (\s a -> s { _bgirsResponses = a })
 -- not found, it does not appear in the result. ConsistentRead - The
 -- consistency of a read operation. If set to true, then a strongly consistent
 -- read is used; otherwise, an eventually consistent read is used.
-bgirsUnprocessedKeys :: Lens' BatchGetItemResponse (Map Text KeysAndAttributes)
-bgirsUnprocessedKeys =
-    lens _bgirsUnprocessedKeys (\s a -> s { _bgirsUnprocessedKeys = a })
+bgirUnprocessedKeys :: Lens' BatchGetItemResponse (Map Text KeysAndAttributes)
+bgirUnprocessedKeys =
+    lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })
 
 -- | The write capacity units consumed by the operation. Each element consists
 -- of: TableName - The table that consumed the provisioned throughput.
 -- CapacityUnits - The total number of capacity units consumed.
-bgirsConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
-bgirsConsumedCapacity =
-    lens _bgirsConsumedCapacity (\s a -> s { _bgirsConsumedCapacity = a })
+bgirConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
+bgirConsumedCapacity =
+    lens _bgirConsumedCapacity (\s a -> s { _bgirConsumedCapacity = a })
 
 instance FromJSON BatchGetItemResponse
 

@@ -45,9 +45,9 @@ module Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole
     -- * Response
     , ListInstanceProfilesForRoleResponse
     -- ** Response lenses
-    , lipfrrsInstanceProfiles
-    , lipfrrsIsTruncated
-    , lipfrrsMarker
+    , lipfrrInstanceProfiles
+    , lipfrrIsTruncated
+    , lipfrrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -96,29 +96,28 @@ instance ToQuery ListInstanceProfilesForRole where
 -- | Contains the result of a successful invocation of the
 -- ListInstanceProfilesForRole action.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
-    { _lipfrrsInstanceProfiles :: [InstanceProfile]
-    , _lipfrrsIsTruncated :: Bool
-    , _lipfrrsMarker :: Maybe Text
+    { _lipfrrInstanceProfiles :: [InstanceProfile]
+    , _lipfrrIsTruncated :: Bool
+    , _lipfrrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of instance profiles.
-lipfrrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
-lipfrrsInstanceProfiles =
-    lens _lipfrrsInstanceProfiles
-         (\s a -> s { _lipfrrsInstanceProfiles = a })
+lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
+lipfrrInstanceProfiles =
+    lens _lipfrrInstanceProfiles (\s a -> s { _lipfrrInstanceProfiles = a })
 
 -- | A flag that indicates whether there are more instance profiles to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more instance profiles in
 -- the list.
-lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse Bool
-lipfrrsIsTruncated =
-    lens _lipfrrsIsTruncated (\s a -> s { _lipfrrsIsTruncated = a })
+lipfrrIsTruncated :: Lens' ListInstanceProfilesForRoleResponse Bool
+lipfrrIsTruncated =
+    lens _lipfrrIsTruncated (\s a -> s { _lipfrrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lipfrrsMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
-lipfrrsMarker = lens _lipfrrsMarker (\s a -> s { _lipfrrsMarker = a })
+lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
+lipfrrMarker = lens _lipfrrMarker (\s a -> s { _lipfrrMarker = a })
 
 instance FromXML ListInstanceProfilesForRoleResponse where
     fromXMLOptions = xmlOptions
@@ -132,6 +131,6 @@ instance AWSRequest ListInstanceProfilesForRole where
 
 instance AWSPager ListInstanceProfilesForRole where
     next rq rs
-        | not (rs ^. lipfrrsIsTruncated) = Nothing
+        | not (rs ^. lipfrrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lipfrMarker .~ rs ^. lipfrrsMarker
+            rq & lipfrMarker .~ rs ^. lipfrrMarker

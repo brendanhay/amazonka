@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters
     -- * Response
     , UpdateScalingParametersResponse
     -- ** Response lenses
-    , usprsScalingParameters
+    , usprScalingParameters
     ) where
 
 import Network.AWS.Request.Query
@@ -81,13 +81,13 @@ instance ToQuery UpdateScalingParameters where
 -- | The result of a UpdateScalingParameters request. Contains the status of the
 -- newly-configured scaling parameters.
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
-    { _usprsScalingParameters :: ScalingParametersStatus
+    { _usprScalingParameters :: ScalingParametersStatus
     } deriving (Show, Generic)
 
 -- | The status and configuration of a search domain's scaling parameters.
-usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
-usprsScalingParameters =
-    lens _usprsScalingParameters (\s a -> s { _usprsScalingParameters = a })
+usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
+usprScalingParameters =
+    lens _usprScalingParameters (\s a -> s { _usprScalingParameters = a })
 
 instance FromXML UpdateScalingParametersResponse where
     fromXMLOptions = xmlOptions

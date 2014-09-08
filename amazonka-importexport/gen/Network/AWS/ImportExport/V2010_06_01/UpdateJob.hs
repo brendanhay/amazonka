@@ -37,8 +37,8 @@ module Network.AWS.ImportExport.V2010_06_01.UpdateJob
     -- * Response
     , UpdateJobResponse
     -- ** Response lenses
-    , ujrsSuccess
-    , ujrsWarningMessage
+    , ujrSuccess
+    , ujrWarningMessage
     ) where
 
 import Network.AWS.Request.Query
@@ -89,19 +89,19 @@ instance ToQuery UpdateJob where
 
 -- | Output structure for the UpateJob operation.
 data UpdateJobResponse = UpdateJobResponse
-    { _ujrsSuccess :: Maybe Bool
-    , _ujrsWarningMessage :: Maybe Text
+    { _ujrSuccess :: Maybe Bool
+    , _ujrWarningMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Specifies whether (true) or not (false) AWS Import/Export updated your job.
-ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
-ujrsSuccess = lens _ujrsSuccess (\s a -> s { _ujrsSuccess = a })
+ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
+ujrSuccess = lens _ujrSuccess (\s a -> s { _ujrSuccess = a })
 
 -- | An optional message notifying you of non-fatal issues with the job, such as
 -- use of an incompatible Amazon S3 bucket name.
-ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
-ujrsWarningMessage =
-    lens _ujrsWarningMessage (\s a -> s { _ujrsWarningMessage = a })
+ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
+ujrWarningMessage =
+    lens _ujrWarningMessage (\s a -> s { _ujrWarningMessage = a })
 
 instance FromXML UpdateJobResponse where
     fromXMLOptions = xmlOptions

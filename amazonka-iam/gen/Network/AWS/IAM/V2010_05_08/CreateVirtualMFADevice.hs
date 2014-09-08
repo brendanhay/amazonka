@@ -45,7 +45,7 @@ module Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice
     -- * Response
     , CreateVirtualMFADeviceResponse
     -- ** Response lenses
-    , cvmfadrsVirtualMFADevice
+    , cvmfadrVirtualMFADevice
     ) where
 
 import Network.AWS.Request.Query
@@ -86,14 +86,14 @@ instance ToQuery CreateVirtualMFADevice where
 -- | Contains the result of a successful invocation of the
 -- CreateVirtualMFADevice action.
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
-    { _cvmfadrsVirtualMFADevice :: VirtualMFADevice
+    { _cvmfadrVirtualMFADevice :: VirtualMFADevice
     } deriving (Show, Generic)
 
 -- | A newly created virtual MFA device.
-cvmfadrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
-cvmfadrsVirtualMFADevice =
-    lens _cvmfadrsVirtualMFADevice
-         (\s a -> s { _cvmfadrsVirtualMFADevice = a })
+cvmfadrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
+cvmfadrVirtualMFADevice =
+    lens _cvmfadrVirtualMFADevice
+         (\s a -> s { _cvmfadrVirtualMFADevice = a })
 
 instance FromXML CreateVirtualMFADeviceResponse where
     fromXMLOptions = xmlOptions

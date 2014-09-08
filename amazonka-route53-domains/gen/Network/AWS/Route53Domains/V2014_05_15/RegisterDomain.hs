@@ -85,7 +85,7 @@ module Network.AWS.Route53Domains.V2014_05_15.RegisterDomain
     -- * Response
     , RegisterDomainResponse
     -- ** Response lenses
-    , rdrsOperationId
+    , rdrOperationId
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -211,14 +211,14 @@ instance ToJSON RegisterDomain
 
 -- | The RegisterDomain response includes the following element.
 newtype RegisterDomainResponse = RegisterDomainResponse
-    { _rdrsOperationId :: Text
+    { _rdrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-rdrsOperationId :: Lens' RegisterDomainResponse Text
-rdrsOperationId = lens _rdrsOperationId (\s a -> s { _rdrsOperationId = a })
+rdrOperationId :: Lens' RegisterDomainResponse Text
+rdrOperationId = lens _rdrOperationId (\s a -> s { _rdrOperationId = a })
 
 instance FromJSON RegisterDomainResponse
 

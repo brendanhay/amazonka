@@ -42,7 +42,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings
     -- * Response
     , DescribeReservedInstancesListingsResponse
     -- ** Response lenses
-    , drilrsReservedInstancesListings
+    , drilrReservedInstancesListings
     ) where
 
 import Network.AWS.Request.Query
@@ -89,14 +89,14 @@ instance ToQuery DescribeReservedInstancesListings where
 
 -- | 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
-    { _drilrsReservedInstancesListings :: [ReservedInstancesListing]
+    { _drilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
 
 -- | Information about the Reserved Instance listing.
-drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
-drilrsReservedInstancesListings =
-    lens _drilrsReservedInstancesListings
-         (\s a -> s { _drilrsReservedInstancesListings = a })
+drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
+drilrReservedInstancesListings =
+    lens _drilrReservedInstancesListings
+         (\s a -> s { _drilrReservedInstancesListings = a })
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions

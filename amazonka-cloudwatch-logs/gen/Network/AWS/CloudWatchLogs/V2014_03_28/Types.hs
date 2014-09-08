@@ -24,8 +24,6 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.Types
     (
     -- * Service
       CloudWatchLogs
-    -- ** Errors
-    , Er (..)
     -- * InputLogEvent
     , InputLogEvent
     , mkInputLogEvent

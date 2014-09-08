@@ -40,9 +40,9 @@ module Network.AWS.DataPipeline.V2012_10_29.ListPipelines
     -- * Response
     , ListPipelinesResponse
     -- ** Response lenses
-    , lprsPipelineIdList
-    , lprsMarker
-    , lprsHasMoreResults
+    , lprPipelineIdList
+    , lprMarker
+    , lprHasMoreResults
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -78,29 +78,29 @@ instance ToJSON ListPipelines
 
 -- | Contains the output from the ListPipelines action.
 data ListPipelinesResponse = ListPipelinesResponse
-    { _lprsPipelineIdList :: [PipelineIdName]
-    , _lprsMarker :: Maybe Text
-    , _lprsHasMoreResults :: Bool
+    { _lprPipelineIdList :: [PipelineIdName]
+    , _lprMarker :: Maybe Text
+    , _lprHasMoreResults :: Bool
     } deriving (Show, Generic)
 
 -- | A list of all the pipeline identifiers that your account has permission to
 -- access. If you require additional information about the pipelines, you can
 -- use these identifiers to call DescribePipelines and GetPipelineDefinition.
-lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
-lprsPipelineIdList =
-    lens _lprsPipelineIdList (\s a -> s { _lprsPipelineIdList = a })
+lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
+lprPipelineIdList =
+    lens _lprPipelineIdList (\s a -> s { _lprPipelineIdList = a })
 
 -- | If not null, indicates the starting point for the set of pipeline
 -- identifiers that the next call to ListPipelines will retrieve. If null,
 -- there are no more pipeline identifiers.
-lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
-lprsMarker = lens _lprsMarker (\s a -> s { _lprsMarker = a })
+lprMarker :: Lens' ListPipelinesResponse (Maybe Text)
+lprMarker = lens _lprMarker (\s a -> s { _lprMarker = a })
 
 -- | If True, there are more results that can be obtained by a subsequent call
 -- to ListPipelines.
-lprsHasMoreResults :: Lens' ListPipelinesResponse Bool
-lprsHasMoreResults =
-    lens _lprsHasMoreResults (\s a -> s { _lprsHasMoreResults = a })
+lprHasMoreResults :: Lens' ListPipelinesResponse Bool
+lprHasMoreResults =
+    lens _lprHasMoreResults (\s a -> s { _lprHasMoreResults = a })
 
 instance FromJSON ListPipelinesResponse
 
@@ -113,6 +113,6 @@ instance AWSRequest ListPipelines where
 
 instance AWSPager ListPipelines where
     next rq rs
-        | not (rs ^. lprsHasMoreResults) = Nothing
+        | not (rs ^. lprHasMoreResults) = Nothing
         | otherwise = Just $
-            rq & lpMarker .~ rs ^. lprsMarker
+            rq & lpMarker .~ rs ^. lprMarker

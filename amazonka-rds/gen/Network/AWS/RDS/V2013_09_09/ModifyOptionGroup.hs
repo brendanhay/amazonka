@@ -41,7 +41,7 @@ module Network.AWS.RDS.V2013_09_09.ModifyOptionGroup
     -- * Response
     , ModifyOptionGroupResponse
     -- ** Response lenses
-    , mogrsOptionGroup
+    , mogrOptionGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -97,13 +97,12 @@ instance ToQuery ModifyOptionGroup where
     toQuery = genericQuery def
 
 newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
-    { _mogrsOptionGroup :: Maybe OptionGroup
+    { _mogrOptionGroup :: Maybe OptionGroup
     } deriving (Show, Generic)
 
 -- | 
-mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
-mogrsOptionGroup =
-    lens _mogrsOptionGroup (\s a -> s { _mogrsOptionGroup = a })
+mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
+mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
 
 instance FromXML ModifyOptionGroupResponse where
     fromXMLOptions = xmlOptions

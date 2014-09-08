@@ -57,7 +57,7 @@ module Network.AWS.RDS.V2013_09_09.ModifyDBInstance
     -- * Response
     , ModifyDBInstanceResponse
     -- ** Response lenses
-    , mdbirsDBInstance
+    , mdbirDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -355,15 +355,14 @@ instance ToQuery ModifyDBInstance where
     toQuery = genericQuery def
 
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
-    { _mdbirsDBInstance :: Maybe DBInstance
+    { _mdbirDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-mdbirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
-mdbirsDBInstance =
-    lens _mdbirsDBInstance (\s a -> s { _mdbirsDBInstance = a })
+mdbirDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
+mdbirDBInstance = lens _mdbirDBInstance (\s a -> s { _mdbirDBInstance = a })
 
 instance FromXML ModifyDBInstanceResponse where
     fromXMLOptions = xmlOptions

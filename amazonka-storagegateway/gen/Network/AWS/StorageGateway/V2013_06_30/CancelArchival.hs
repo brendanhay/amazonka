@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.V2013_06_30.CancelArchival
     -- * Response
     , CancelArchivalResponse
     -- ** Response lenses
-    , carsTapeARN
+    , carTapeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -69,11 +69,11 @@ instance ToHeaders CancelArchival
 instance ToJSON CancelArchival
 
 newtype CancelArchivalResponse = CancelArchivalResponse
-    { _carsTapeARN :: Maybe Text
+    { _carTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
-carsTapeARN = lens _carsTapeARN (\s a -> s { _carsTapeARN = a })
+carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
+carTapeARN = lens _carTapeARN (\s a -> s { _carTapeARN = a })
 
 instance FromJSON CancelArchivalResponse
 

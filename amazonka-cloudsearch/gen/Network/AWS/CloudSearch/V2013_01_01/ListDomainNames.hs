@@ -27,7 +27,7 @@ module Network.AWS.CloudSearch.V2013_01_01.ListDomainNames
     -- * Response
     , ListDomainNamesResponse
     -- ** Response lenses
-    , ldnrsDomainNames
+    , ldnrDomainNames
     ) where
 
 import Network.AWS.Request.Query
@@ -48,13 +48,12 @@ instance ToQuery ListDomainNames where
 -- | The result of a ListDomainNames request. Contains a list of the domains
 -- owned by an account.
 newtype ListDomainNamesResponse = ListDomainNamesResponse
-    { _ldnrsDomainNames :: Map Text Text
+    { _ldnrDomainNames :: Map Text Text
     } deriving (Show, Generic)
 
 -- | The names of the search domains owned by an account.
-ldnrsDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
-ldnrsDomainNames =
-    lens _ldnrsDomainNames (\s a -> s { _ldnrsDomainNames = a })
+ldnrDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
+ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
 
 instance FromXML ListDomainNamesResponse where
     fromXMLOptions = xmlOptions

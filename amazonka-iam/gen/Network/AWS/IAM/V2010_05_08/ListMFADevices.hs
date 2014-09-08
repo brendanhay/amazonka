@@ -38,9 +38,9 @@ module Network.AWS.IAM.V2010_05_08.ListMFADevices
     -- * Response
     , ListMFADevicesResponse
     -- ** Response lenses
-    , lmfadrsMFADevices
-    , lmfadrsIsTruncated
-    , lmfadrsMarker
+    , lmfadrMFADevices
+    , lmfadrIsTruncated
+    , lmfadrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -86,27 +86,27 @@ instance ToQuery ListMFADevices where
 -- | Contains the result of a successful invocation of the ListMFADevices
 -- action.
 data ListMFADevicesResponse = ListMFADevicesResponse
-    { _lmfadrsMFADevices :: [MFADevice]
-    , _lmfadrsIsTruncated :: Bool
-    , _lmfadrsMarker :: Maybe Text
+    { _lmfadrMFADevices :: [MFADevice]
+    , _lmfadrIsTruncated :: Bool
+    , _lmfadrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of MFA devices.
-lmfadrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
-lmfadrsMFADevices =
-    lens _lmfadrsMFADevices (\s a -> s { _lmfadrsMFADevices = a })
+lmfadrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
+lmfadrMFADevices =
+    lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a })
 
 -- | A flag that indicates whether there are more MFA devices to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more MFA devices in the list.
-lmfadrsIsTruncated :: Lens' ListMFADevicesResponse Bool
-lmfadrsIsTruncated =
-    lens _lmfadrsIsTruncated (\s a -> s { _lmfadrsIsTruncated = a })
+lmfadrIsTruncated :: Lens' ListMFADevicesResponse Bool
+lmfadrIsTruncated =
+    lens _lmfadrIsTruncated (\s a -> s { _lmfadrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lmfadrsMarker :: Lens' ListMFADevicesResponse (Maybe Text)
-lmfadrsMarker = lens _lmfadrsMarker (\s a -> s { _lmfadrsMarker = a })
+lmfadrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
+lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
 
 instance FromXML ListMFADevicesResponse where
     fromXMLOptions = xmlOptions
@@ -120,6 +120,6 @@ instance AWSRequest ListMFADevices where
 
 instance AWSPager ListMFADevices where
     next rq rs
-        | not (rs ^. lmfadrsIsTruncated) = Nothing
+        | not (rs ^. lmfadrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lmfadMarker .~ rs ^. lmfadrsMarker
+            rq & lmfadMarker .~ rs ^. lmfadrMarker

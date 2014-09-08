@@ -50,9 +50,9 @@ module Network.AWS.EC2.V2014_06_15.AllocateAddress
     -- * Response
     , AllocateAddressResponse
     -- ** Response lenses
-    , aarsPublicIp
-    , aarsDomain
-    , aarsAllocationId
+    , aarPublicIp
+    , aarDomain
+    , aarAllocationId
     ) where
 
 import Network.AWS.Request.Query
@@ -81,25 +81,24 @@ instance ToQuery AllocateAddress where
 
 -- | 
 data AllocateAddressResponse = AllocateAddressResponse
-    { _aarsPublicIp :: Maybe Text
-    , _aarsDomain :: Maybe DomainType
-    , _aarsAllocationId :: Maybe Text
+    { _aarPublicIp :: Maybe Text
+    , _aarDomain :: Maybe DomainType
+    , _aarAllocationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Elastic IP address.
-aarsPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
-aarsPublicIp = lens _aarsPublicIp (\s a -> s { _aarsPublicIp = a })
+aarPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
+aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (standard) or instances in a VPC (vpc).
-aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
-aarsDomain = lens _aarsDomain (\s a -> s { _aarsDomain = a })
+aarDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
+aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
-aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
-aarsAllocationId =
-    lens _aarsAllocationId (\s a -> s { _aarsAllocationId = a })
+aarAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
+aarAllocationId = lens _aarAllocationId (\s a -> s { _aarAllocationId = a })
 
 instance FromXML AllocateAddressResponse where
     fromXMLOptions = xmlOptions

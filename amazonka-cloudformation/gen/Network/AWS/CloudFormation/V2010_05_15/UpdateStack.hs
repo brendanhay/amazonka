@@ -55,7 +55,7 @@ module Network.AWS.CloudFormation.V2010_05_15.UpdateStack
     -- * Response
     , UpdateStackResponse
     -- ** Response lenses
-    , usrsStackId
+    , usrStackId
     ) where
 
 import Network.AWS.Request.Query
@@ -190,12 +190,12 @@ instance ToQuery UpdateStack where
 
 -- | The output for a UpdateStack action.
 newtype UpdateStackResponse = UpdateStackResponse
-    { _usrsStackId :: Maybe Text
+    { _usrStackId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Unique identifier of the stack.
-usrsStackId :: Lens' UpdateStackResponse (Maybe Text)
-usrsStackId = lens _usrsStackId (\s a -> s { _usrsStackId = a })
+usrStackId :: Lens' UpdateStackResponse (Maybe Text)
+usrStackId = lens _usrStackId (\s a -> s { _usrStackId = a })
 
 instance FromXML UpdateStackResponse where
     fromXMLOptions = xmlOptions

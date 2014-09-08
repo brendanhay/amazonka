@@ -80,9 +80,9 @@ module Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
     -- * Response
     , BatchWriteItemResponse
     -- ** Response lenses
-    , bwirsUnprocessedItems
-    , bwirsItemCollectionMetrics
-    , bwirsConsumedCapacity
+    , bwirUnprocessedItems
+    , bwirItemCollectionMetrics
+    , bwirConsumedCapacity
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -152,9 +152,9 @@ instance ToJSON BatchWriteItem
 
 -- | Represents the output of a BatchWriteItem operation.
 data BatchWriteItemResponse = BatchWriteItemResponse
-    { _bwirsUnprocessedItems :: Map Text [WriteRequest]
-    , _bwirsItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
-    , _bwirsConsumedCapacity :: [ConsumedCapacity]
+    { _bwirUnprocessedItems :: Map Text [WriteRequest]
+    , _bwirItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
+    , _bwirConsumedCapacity :: [ConsumedCapacity]
     } deriving (Show, Generic)
 
 -- | A map of tables and requests against those tables that were not processed.
@@ -176,9 +176,9 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 -- ValidationException. If you specify any attributes that are part of an
 -- index key, then the data types for those attributes must match those of the
 -- schema in the table's attribute definition.
-bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
-bwirsUnprocessedItems =
-    lens _bwirsUnprocessedItems (\s a -> s { _bwirsUnprocessedItems = a })
+bwirUnprocessedItems :: Lens' BatchWriteItemResponse (Map Text [WriteRequest])
+bwirUnprocessedItems =
+    lens _bwirUnprocessedItems (\s a -> s { _bwirUnprocessedItems = a })
 
 -- | A list of tables that were processed by BatchWriteItem and, for each table,
 -- information about any item collections that were affected by individual
@@ -192,17 +192,17 @@ bwirsUnprocessedItems =
 -- table. Use this estimate to measure whether a local secondary index is
 -- approaching its size limit. The estimate is subject to change over time;
 -- therefore, do not rely on the precision or accuracy of the estimate.
-bwirsItemCollectionMetrics :: Lens' BatchWriteItemResponse (Map Text [ItemCollectionMetrics])
-bwirsItemCollectionMetrics =
-    lens _bwirsItemCollectionMetrics
-         (\s a -> s { _bwirsItemCollectionMetrics = a })
+bwirItemCollectionMetrics :: Lens' BatchWriteItemResponse (Map Text [ItemCollectionMetrics])
+bwirItemCollectionMetrics =
+    lens _bwirItemCollectionMetrics
+         (\s a -> s { _bwirItemCollectionMetrics = a })
 
 -- | The capacity units consumed by the operation. Each element consists of:
 -- TableName - The table that consumed the provisioned throughput.
 -- CapacityUnits - The total number of capacity units consumed.
-bwirsConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
-bwirsConsumedCapacity =
-    lens _bwirsConsumedCapacity (\s a -> s { _bwirsConsumedCapacity = a })
+bwirConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
+bwirConsumedCapacity =
+    lens _bwirConsumedCapacity (\s a -> s { _bwirConsumedCapacity = a })
 
 instance FromJSON BatchWriteItemResponse
 

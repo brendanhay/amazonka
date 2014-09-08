@@ -39,7 +39,7 @@ module Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets
     -- * Response
     , AttachLoadBalancerToSubnetsResponse
     -- ** Response lenses
-    , albtsrsSubnets
+    , albtsrSubnets
     ) where
 
 import Network.AWS.Request.Query
@@ -78,12 +78,12 @@ instance ToQuery AttachLoadBalancerToSubnets where
 
 -- | The output for the AttachLoadBalancerToSubnets action.
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
-    { _albtsrsSubnets :: [Text]
+    { _albtsrSubnets :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of subnet IDs attached to the load balancer.
-albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
-albtsrsSubnets = lens _albtsrsSubnets (\s a -> s { _albtsrsSubnets = a })
+albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
+albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a })
 
 instance FromXML AttachLoadBalancerToSubnetsResponse where
     fromXMLOptions = xmlOptions

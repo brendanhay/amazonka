@@ -58,9 +58,9 @@ module Network.AWS.IAM.V2010_05_08.ListSigningCertificates
     -- * Response
     , ListSigningCertificatesResponse
     -- ** Response lenses
-    , lscrsrsCertificates
-    , lscrsrsIsTruncated
-    , lscrsrsMarker
+    , lscrrCertificates
+    , lscrrIsTruncated
+    , lscrrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -107,28 +107,28 @@ instance ToQuery ListSigningCertificates where
 -- | Contains the result of a successful invocation of the
 -- ListSigningCertificates action.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
-    { _lscrsrsCertificates :: [SigningCertificate]
-    , _lscrsrsIsTruncated :: Bool
-    , _lscrsrsMarker :: Maybe Text
+    { _lscrrCertificates :: [SigningCertificate]
+    , _lscrrIsTruncated :: Bool
+    , _lscrrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of the user's signing certificate information.
-lscrsrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
-lscrsrsCertificates =
-    lens _lscrsrsCertificates (\s a -> s { _lscrsrsCertificates = a })
+lscrrCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
+lscrrCertificates =
+    lens _lscrrCertificates (\s a -> s { _lscrrCertificates = a })
 
 -- | A flag that indicates whether there are more certificate IDs to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the Marker request parameter to retrieve more certificates in the
 -- list.
-lscrsrsIsTruncated :: Lens' ListSigningCertificatesResponse Bool
-lscrsrsIsTruncated =
-    lens _lscrsrsIsTruncated (\s a -> s { _lscrsrsIsTruncated = a })
+lscrrIsTruncated :: Lens' ListSigningCertificatesResponse Bool
+lscrrIsTruncated =
+    lens _lscrrIsTruncated (\s a -> s { _lscrrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lscrsrsMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
-lscrsrsMarker = lens _lscrsrsMarker (\s a -> s { _lscrsrsMarker = a })
+lscrrMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
+lscrrMarker = lens _lscrrMarker (\s a -> s { _lscrrMarker = a })
 
 instance FromXML ListSigningCertificatesResponse where
     fromXMLOptions = xmlOptions
@@ -142,6 +142,6 @@ instance AWSRequest ListSigningCertificates where
 
 instance AWSPager ListSigningCertificates where
     next rq rs
-        | not (rs ^. lscrsrsIsTruncated) = Nothing
+        | not (rs ^. lscrrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lsc1Marker .~ rs ^. lscrsrsMarker
+            rq & lsc1Marker .~ rs ^. lscrrMarker

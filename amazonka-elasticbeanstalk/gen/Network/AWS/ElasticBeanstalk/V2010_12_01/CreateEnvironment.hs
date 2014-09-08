@@ -48,21 +48,21 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateEnvironment
     -- * Response
     , CreateEnvironmentResponse
     -- ** Response lenses
-    , cersEnvironmentName
-    , cersEnvironmentId
-    , cersApplicationName
-    , cersVersionLabel
-    , cersSolutionStackName
-    , cersTemplateName
-    , cersDescription
-    , cersEndpointURL
-    , cersCNAME
-    , cersDateCreated
-    , cersDateUpdated
-    , cersStatus
-    , cersHealth
-    , cersResources
-    , cersTier
+    , cerEnvironmentName
+    , cerEnvironmentId
+    , cerApplicationName
+    , cerVersionLabel
+    , cerSolutionStackName
+    , cerTemplateName
+    , cerDescription
+    , cerEndpointURL
+    , cerCNAME
+    , cerDateCreated
+    , cerDateUpdated
+    , cerStatus
+    , cerHealth
+    , cerResources
+    , cerTier
     ) where
 
 import Network.AWS.Request.Query
@@ -188,74 +188,72 @@ instance ToQuery CreateEnvironment where
 
 -- | Describes the properties of an environment.
 data CreateEnvironmentResponse = CreateEnvironmentResponse
-    { _cersEnvironmentName :: Maybe Text
-    , _cersEnvironmentId :: Maybe Text
-    , _cersApplicationName :: Maybe Text
-    , _cersVersionLabel :: Maybe Text
-    , _cersSolutionStackName :: Maybe Text
-    , _cersTemplateName :: Maybe Text
-    , _cersDescription :: Maybe Text
-    , _cersEndpointURL :: Maybe Text
-    , _cersCNAME :: Maybe Text
-    , _cersDateCreated :: Maybe ISO8601
-    , _cersDateUpdated :: Maybe ISO8601
-    , _cersStatus :: Maybe EnvironmentStatus
-    , _cersHealth :: Maybe EnvironmentHealth
-    , _cersResources :: Maybe EnvironmentResourcesDescription
-    , _cersTier :: Maybe EnvironmentTier
+    { _cerEnvironmentName :: Maybe Text
+    , _cerEnvironmentId :: Maybe Text
+    , _cerApplicationName :: Maybe Text
+    , _cerVersionLabel :: Maybe Text
+    , _cerSolutionStackName :: Maybe Text
+    , _cerTemplateName :: Maybe Text
+    , _cerDescription :: Maybe Text
+    , _cerEndpointURL :: Maybe Text
+    , _cerCNAME :: Maybe Text
+    , _cerDateCreated :: Maybe ISO8601
+    , _cerDateUpdated :: Maybe ISO8601
+    , _cerStatus :: Maybe EnvironmentStatus
+    , _cerHealth :: Maybe EnvironmentHealth
+    , _cerResources :: Maybe EnvironmentResourcesDescription
+    , _cerTier :: Maybe EnvironmentTier
     } deriving (Show, Generic)
 
 -- | The name of this environment.
-cersEnvironmentName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersEnvironmentName =
-    lens _cersEnvironmentName (\s a -> s { _cersEnvironmentName = a })
+cerEnvironmentName :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerEnvironmentName =
+    lens _cerEnvironmentName (\s a -> s { _cerEnvironmentName = a })
 
 -- | The ID of this environment.
-cersEnvironmentId :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersEnvironmentId =
-    lens _cersEnvironmentId (\s a -> s { _cersEnvironmentId = a })
+cerEnvironmentId :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerEnvironmentId =
+    lens _cerEnvironmentId (\s a -> s { _cerEnvironmentId = a })
 
 -- | The name of the application associated with this environment.
-cersApplicationName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersApplicationName =
-    lens _cersApplicationName (\s a -> s { _cersApplicationName = a })
+cerApplicationName :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerApplicationName =
+    lens _cerApplicationName (\s a -> s { _cerApplicationName = a })
 
 -- | The application version deployed in this environment.
-cersVersionLabel :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersVersionLabel =
-    lens _cersVersionLabel (\s a -> s { _cersVersionLabel = a })
+cerVersionLabel :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerVersionLabel = lens _cerVersionLabel (\s a -> s { _cerVersionLabel = a })
 
 -- | The name of the SolutionStack deployed with this environment.
-cersSolutionStackName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersSolutionStackName =
-    lens _cersSolutionStackName (\s a -> s { _cersSolutionStackName = a })
+cerSolutionStackName :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerSolutionStackName =
+    lens _cerSolutionStackName (\s a -> s { _cerSolutionStackName = a })
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-cersTemplateName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersTemplateName =
-    lens _cersTemplateName (\s a -> s { _cersTemplateName = a })
+cerTemplateName :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerTemplateName = lens _cerTemplateName (\s a -> s { _cerTemplateName = a })
 
 -- | Describes this environment.
-cersDescription :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersDescription = lens _cersDescription (\s a -> s { _cersDescription = a })
+cerDescription :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerDescription = lens _cerDescription (\s a -> s { _cerDescription = a })
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 -- For single-instance environments, the IP address of the instance.
-cersEndpointURL :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersEndpointURL = lens _cersEndpointURL (\s a -> s { _cersEndpointURL = a })
+cerEndpointURL :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerEndpointURL = lens _cerEndpointURL (\s a -> s { _cerEndpointURL = a })
 
 -- | The URL to the CNAME for this environment.
-cersCNAME :: Lens' CreateEnvironmentResponse (Maybe Text)
-cersCNAME = lens _cersCNAME (\s a -> s { _cersCNAME = a })
+cerCNAME :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerCNAME = lens _cerCNAME (\s a -> s { _cerCNAME = a })
 
 -- | The creation date for this environment.
-cersDateCreated :: Lens' CreateEnvironmentResponse (Maybe ISO8601)
-cersDateCreated = lens _cersDateCreated (\s a -> s { _cersDateCreated = a })
+cerDateCreated :: Lens' CreateEnvironmentResponse (Maybe ISO8601)
+cerDateCreated = lens _cerDateCreated (\s a -> s { _cerDateCreated = a })
 
 -- | The last modified date for this environment.
-cersDateUpdated :: Lens' CreateEnvironmentResponse (Maybe ISO8601)
-cersDateUpdated = lens _cersDateUpdated (\s a -> s { _cersDateUpdated = a })
+cerDateUpdated :: Lens' CreateEnvironmentResponse (Maybe ISO8601)
+cerDateUpdated = lens _cerDateUpdated (\s a -> s { _cerDateUpdated = a })
 
 -- | The current operational status of the environment: Launching: Environment
 -- is in the process of initial deployment. Updating: Environment is in the
@@ -263,8 +261,8 @@ cersDateUpdated = lens _cersDateUpdated (\s a -> s { _cersDateUpdated = a })
 -- Ready: Environment is available to have an action performed on it, such as
 -- update or terminate. Terminating: Environment is in the shut-down process.
 -- Terminated: Environment is not running.
-cersStatus :: Lens' CreateEnvironmentResponse (Maybe EnvironmentStatus)
-cersStatus = lens _cersStatus (\s a -> s { _cersStatus = a })
+cerStatus :: Lens' CreateEnvironmentResponse (Maybe EnvironmentStatus)
+cerStatus = lens _cerStatus (\s a -> s { _cerStatus = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment: Red : Indicates the
@@ -279,16 +277,16 @@ cersStatus = lens _cersStatus (\s a -> s { _cersStatus = a })
 -- not fully launched and health checks have not started or health checks are
 -- suspended during an UpdateEnvironment or RestartEnvironement request.
 -- Default: Grey.
-cersHealth :: Lens' CreateEnvironmentResponse (Maybe EnvironmentHealth)
-cersHealth = lens _cersHealth (\s a -> s { _cersHealth = a })
+cerHealth :: Lens' CreateEnvironmentResponse (Maybe EnvironmentHealth)
+cerHealth = lens _cerHealth (\s a -> s { _cerHealth = a })
 
 -- | The description of the AWS resources used by this environment.
-cersResources :: Lens' CreateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
-cersResources = lens _cersResources (\s a -> s { _cersResources = a })
+cerResources :: Lens' CreateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
+cerResources = lens _cerResources (\s a -> s { _cerResources = a })
 
 -- | Describes the current tier of this environment.
-cersTier :: Lens' CreateEnvironmentResponse (Maybe EnvironmentTier)
-cersTier = lens _cersTier (\s a -> s { _cersTier = a })
+cerTier :: Lens' CreateEnvironmentResponse (Maybe EnvironmentTier)
+cerTier = lens _cerTier (\s a -> s { _cerTier = a })
 
 instance FromXML CreateEnvironmentResponse where
     fromXMLOptions = xmlOptions

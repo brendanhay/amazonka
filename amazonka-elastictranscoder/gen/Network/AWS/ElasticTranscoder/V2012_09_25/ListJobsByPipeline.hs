@@ -74,8 +74,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline
     -- * Response
     , ListJobsByPipelineResponse
     -- ** Response lenses
-    , ljbprsJobs
-    , ljbprsNextPageToken
+    , ljbprJobs
+    , ljbprNextPageToken
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -133,21 +133,21 @@ instance ToJSON ListJobsByPipeline
 
 -- | The ListJobsByPipelineResponse structure.
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
-    { _ljbprsJobs :: [Job]
-    , _ljbprsNextPageToken :: Maybe Text
+    { _ljbprJobs :: [Job]
+    , _ljbprNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An array of Job objects that are in the specified pipeline.
-ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job]
-ljbprsJobs = lens _ljbprsJobs (\s a -> s { _ljbprsJobs = a })
+ljbprJobs :: Lens' ListJobsByPipelineResponse [Job]
+ljbprJobs = lens _ljbprJobs (\s a -> s { _ljbprJobs = a })
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the jobs in the specified pipeline fit on one page or when
 -- you've reached the last page of results, the value of NextPageToken is
 -- null.
-ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
-ljbprsNextPageToken =
-    lens _ljbprsNextPageToken (\s a -> s { _ljbprsNextPageToken = a })
+ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
+ljbprNextPageToken =
+    lens _ljbprNextPageToken (\s a -> s { _ljbprNextPageToken = a })
 
 instance FromJSON ListJobsByPipelineResponse
 
@@ -160,4 +160,4 @@ instance AWSRequest ListJobsByPipeline where
 
 instance AWSPager ListJobsByPipeline where
     next rq rs = (\x -> rq & ljbpPageToken ?~ x)
-        <$> (rs ^. ljbprsNextPageToken)
+        <$> (rs ^. ljbprNextPageToken)

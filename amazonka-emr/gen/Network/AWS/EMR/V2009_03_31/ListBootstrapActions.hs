@@ -31,8 +31,8 @@ module Network.AWS.EMR.V2009_03_31.ListBootstrapActions
     -- * Response
     , ListBootstrapActionsResponse
     -- ** Response lenses
-    , lbarsBootstrapActions
-    , lbarsMarker
+    , lbarBootstrapActions
+    , lbarMarker
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -72,18 +72,18 @@ instance ToJSON ListBootstrapActions
 
 -- | This output contains the boostrap actions detail .
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse
-    { _lbarsBootstrapActions :: [Command]
-    , _lbarsMarker :: Maybe Text
+    { _lbarBootstrapActions :: [Command]
+    , _lbarMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The bootstrap actions associated with the cluster .
-lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
-lbarsBootstrapActions =
-    lens _lbarsBootstrapActions (\s a -> s { _lbarsBootstrapActions = a })
+lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
+lbarBootstrapActions =
+    lens _lbarBootstrapActions (\s a -> s { _lbarBootstrapActions = a })
 
 -- | The pagination token that indicates the next set of results to retrieve .
-lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
-lbarsMarker = lens _lbarsMarker (\s a -> s { _lbarsMarker = a })
+lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
+lbarMarker = lens _lbarMarker (\s a -> s { _lbarMarker = a })
 
 instance FromJSON ListBootstrapActionsResponse
 
@@ -96,4 +96,4 @@ instance AWSRequest ListBootstrapActions where
 
 instance AWSPager ListBootstrapActions where
     next rq rs = (\x -> rq & lbaMarker ?~ x)
-        <$> (rs ^. lbarsMarker)
+        <$> (rs ^. lbarMarker)

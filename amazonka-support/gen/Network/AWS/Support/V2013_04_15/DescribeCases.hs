@@ -45,8 +45,8 @@ module Network.AWS.Support.V2013_04_15.DescribeCases
     -- * Response
     , DescribeCasesResponse
     -- ** Response lenses
-    , dcrsCases
-    , dcrsNextToken
+    , dcrCases
+    , dcrNextToken
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -138,17 +138,17 @@ instance ToJSON DescribeCases
 -- | Returns an array of CaseDetails objects and a NextToken that defines a
 -- point for pagination in the result set.
 data DescribeCasesResponse = DescribeCasesResponse
-    { _dcrsCases :: [CaseDetails]
-    , _dcrsNextToken :: Maybe Text
+    { _dcrCases :: [CaseDetails]
+    , _dcrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The details for the cases that match the request.
-dcrsCases :: Lens' DescribeCasesResponse [CaseDetails]
-dcrsCases = lens _dcrsCases (\s a -> s { _dcrsCases = a })
+dcrCases :: Lens' DescribeCasesResponse [CaseDetails]
+dcrCases = lens _dcrCases (\s a -> s { _dcrCases = a })
 
 -- | A resumption point for pagination.
-dcrsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
-dcrsNextToken = lens _dcrsNextToken (\s a -> s { _dcrsNextToken = a })
+dcrNextToken :: Lens' DescribeCasesResponse (Maybe Text)
+dcrNextToken = lens _dcrNextToken (\s a -> s { _dcrNextToken = a })
 
 instance FromJSON DescribeCasesResponse
 
@@ -161,4 +161,4 @@ instance AWSRequest DescribeCases where
 
 instance AWSPager DescribeCases where
     next rq rs = (\x -> rq & dcNextToken ?~ x)
-        <$> (rs ^. dcrsNextToken)
+        <$> (rs ^. dcrNextToken)

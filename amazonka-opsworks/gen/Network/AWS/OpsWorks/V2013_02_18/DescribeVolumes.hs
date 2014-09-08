@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes
     -- * Response
     , DescribeVolumesResponse
     -- ** Response lenses
-    , dvrsVolumes
+    , dvrVolumes
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -91,12 +91,12 @@ instance ToJSON DescribeVolumes
 
 -- | Contains the response to a DescribeVolumes request.
 newtype DescribeVolumesResponse = DescribeVolumesResponse
-    { _dvrsVolumes :: [Volume]
+    { _dvrVolumes :: [Volume]
     } deriving (Show, Generic)
 
 -- | An array of volume IDs.
-dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrsVolumes = lens _dvrsVolumes (\s a -> s { _dvrsVolumes = a })
+dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
 
 instance FromJSON DescribeVolumesResponse
 

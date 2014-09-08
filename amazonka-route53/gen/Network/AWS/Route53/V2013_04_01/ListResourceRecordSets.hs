@@ -65,12 +65,12 @@ module Network.AWS.Route53.V2013_04_01.ListResourceRecordSets
     -- * Response
     , ListResourceRecordSetsResponse
     -- ** Response lenses
-    , lrrsrsResourceRecordSets
-    , lrrsrsIsTruncated
-    , lrrsrsNextRecordName
-    , lrrsrsNextRecordType
-    , lrrsrsNextRecordIdentifier
-    , lrrsrsMaxItems
+    , lrrsrResourceRecordSets
+    , lrrsrIsTruncated
+    , lrrsrNextRecordName
+    , lrrsrNextRecordType
+    , lrrsrNextRecordIdentifier
+    , lrrsrMaxItems
     ) where
 
 import Network.AWS.Request.RestXML
@@ -159,56 +159,56 @@ instance ToXML ListResourceRecordSets where
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request and information about the response.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
-    { _lrrsrsResourceRecordSets :: [ResourceRecordSet]
-    , _lrrsrsIsTruncated :: Bool
-    , _lrrsrsNextRecordName :: Maybe Text
-    , _lrrsrsNextRecordType :: Maybe RecordType
-    , _lrrsrsNextRecordIdentifier :: Maybe Text
-    , _lrrsrsMaxItems :: Text
+    { _lrrsrResourceRecordSets :: [ResourceRecordSet]
+    , _lrrsrIsTruncated :: Bool
+    , _lrrsrNextRecordName :: Maybe Text
+    , _lrrsrNextRecordType :: Maybe RecordType
+    , _lrrsrNextRecordIdentifier :: Maybe Text
+    , _lrrsrMaxItems :: Text
     } deriving (Show, Generic)
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.
-lrrsrsResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
-lrrsrsResourceRecordSets =
-    lens _lrrsrsResourceRecordSets
-         (\s a -> s { _lrrsrsResourceRecordSets = a })
+lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
+lrrsrResourceRecordSets =
+    lens _lrrsrResourceRecordSets
+         (\s a -> s { _lrrsrResourceRecordSets = a })
 
 -- | A flag that indicates whether there are more resource record sets to be
 -- listed. If your results were truncated, you can make a follow-up request
 -- for the next page of results by using the
 -- ListResourceRecordSetsResponse$NextRecordName element. Valid Values: true |
 -- false.
-lrrsrsIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
-lrrsrsIsTruncated =
-    lens _lrrsrsIsTruncated (\s a -> s { _lrrsrsIsTruncated = a })
+lrrsrIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
+lrrsrIsTruncated =
+    lens _lrrsrIsTruncated (\s a -> s { _lrrsrIsTruncated = a })
 
 -- | If the results were truncated, the name of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
 -- is true.
-lrrsrsNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
-lrrsrsNextRecordName =
-    lens _lrrsrsNextRecordName (\s a -> s { _lrrsrsNextRecordName = a })
+lrrsrNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
+lrrsrNextRecordName =
+    lens _lrrsrNextRecordName (\s a -> s { _lrrsrNextRecordName = a })
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
 -- is true.
-lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
-lrrsrsNextRecordType =
-    lens _lrrsrsNextRecordType (\s a -> s { _lrrsrsNextRecordType = a })
+lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
+lrrsrNextRecordType =
+    lens _lrrsrNextRecordType (\s a -> s { _lrrsrNextRecordType = a })
 
 -- | Weighted resource record sets only: If results were truncated for a given
 -- DNS name and type, the value of SetIdentifier for the next resource record
 -- set that has the current DNS name and type.
-lrrsrsNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
-lrrsrsNextRecordIdentifier =
-    lens _lrrsrsNextRecordIdentifier
-         (\s a -> s { _lrrsrsNextRecordIdentifier = a })
+lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
+lrrsrNextRecordIdentifier =
+    lens _lrrsrNextRecordIdentifier
+         (\s a -> s { _lrrsrNextRecordIdentifier = a })
 
 -- | The maximum number of records you requested. The maximum value of MaxItems
 -- is 100.
-lrrsrsMaxItems :: Lens' ListResourceRecordSetsResponse Text
-lrrsrsMaxItems = lens _lrrsrsMaxItems (\s a -> s { _lrrsrsMaxItems = a })
+lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
+lrrsrMaxItems = lens _lrrsrMaxItems (\s a -> s { _lrrsrMaxItems = a })
 
 instance FromXML ListResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions
@@ -222,13 +222,13 @@ instance AWSRequest ListResourceRecordSets where
 
 instance AWSPager ListResourceRecordSets where
     next rq rs
-        | not (rs ^. lrrsrsIsTruncated) = Nothing
+        | not (rs ^. lrrsrIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 && isNothing p3 = Nothing
         | otherwise = Just $ rq
             & lrrsStartRecordName .~ p1
             & lrrsStartRecordType .~ p2
             & lrrsStartRecordIdentifier .~ p3
       where
-        p1 = rs ^. lrrsrsNextRecordName
-        p2 = rs ^. lrrsrsNextRecordType
-        p3 = rs ^. lrrsrsNextRecordIdentifier
+        p1 = rs ^. lrrsrNextRecordName
+        p2 = rs ^. lrrsrNextRecordType
+        p3 = rs ^. lrrsrNextRecordIdentifier

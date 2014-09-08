@@ -68,9 +68,9 @@ module Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition
     -- * Response
     , ValidatePipelineDefinitionResponse
     -- ** Response lenses
-    , vpdrsValidationErrors
-    , vpdrsValidationWarnings
-    , vpdrsErrored
+    , vpdrValidationErrors
+    , vpdrValidationWarnings
+    , vpdrErrored
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -113,26 +113,25 @@ instance ToJSON ValidatePipelineDefinition
 
 -- | Contains the output from the ValidatePipelineDefinition action.
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
-    { _vpdrsValidationErrors :: [ValidationError]
-    , _vpdrsValidationWarnings :: [ValidationWarning]
-    , _vpdrsErrored :: Bool
+    { _vpdrValidationErrors :: [ValidationError]
+    , _vpdrValidationWarnings :: [ValidationWarning]
+    , _vpdrErrored :: Bool
     } deriving (Show, Generic)
 
 -- | Lists the validation errors that were found by ValidatePipelineDefinition.
-vpdrsValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
-vpdrsValidationErrors =
-    lens _vpdrsValidationErrors (\s a -> s { _vpdrsValidationErrors = a })
+vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
+vpdrValidationErrors =
+    lens _vpdrValidationErrors (\s a -> s { _vpdrValidationErrors = a })
 
 -- | Lists the validation warnings that were found by
 -- ValidatePipelineDefinition.
-vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
-vpdrsValidationWarnings =
-    lens _vpdrsValidationWarnings
-         (\s a -> s { _vpdrsValidationWarnings = a })
+vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
+vpdrValidationWarnings =
+    lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })
 
 -- | If True, there were validation errors.
-vpdrsErrored :: Lens' ValidatePipelineDefinitionResponse Bool
-vpdrsErrored = lens _vpdrsErrored (\s a -> s { _vpdrsErrored = a })
+vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
+vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
 
 instance FromJSON ValidatePipelineDefinitionResponse
 

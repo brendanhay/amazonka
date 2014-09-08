@@ -44,9 +44,9 @@ module Network.AWS.IAM.V2010_05_08.ListAccessKeys
     -- * Response
     , ListAccessKeysResponse
     -- ** Response lenses
-    , lakrsAccessKeyMetadata
-    , lakrsIsTruncated
-    , lakrsMarker
+    , lakrAccessKeyMetadata
+    , lakrIsTruncated
+    , lakrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -93,27 +93,26 @@ instance ToQuery ListAccessKeys where
 -- | Contains the result of a successful invocation of the ListAccessKeys
 -- action.
 data ListAccessKeysResponse = ListAccessKeysResponse
-    { _lakrsAccessKeyMetadata :: [AccessKeyMetadata]
-    , _lakrsIsTruncated :: Bool
-    , _lakrsMarker :: Maybe Text
+    { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
+    , _lakrIsTruncated :: Bool
+    , _lakrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of access key metadata.
-lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
-lakrsAccessKeyMetadata =
-    lens _lakrsAccessKeyMetadata (\s a -> s { _lakrsAccessKeyMetadata = a })
+lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
+lakrAccessKeyMetadata =
+    lens _lakrAccessKeyMetadata (\s a -> s { _lakrAccessKeyMetadata = a })
 
 -- | A flag that indicates whether there are more keys to list. If your results
 -- were truncated, you can make a subsequent pagination request using the
 -- Marker request parameter to retrieve more keys in the list.
-lakrsIsTruncated :: Lens' ListAccessKeysResponse Bool
-lakrsIsTruncated =
-    lens _lakrsIsTruncated (\s a -> s { _lakrsIsTruncated = a })
+lakrIsTruncated :: Lens' ListAccessKeysResponse Bool
+lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lakrsMarker :: Lens' ListAccessKeysResponse (Maybe Text)
-lakrsMarker = lens _lakrsMarker (\s a -> s { _lakrsMarker = a })
+lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
+lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
 
 instance FromXML ListAccessKeysResponse where
     fromXMLOptions = xmlOptions
@@ -127,6 +126,6 @@ instance AWSRequest ListAccessKeys where
 
 instance AWSPager ListAccessKeys where
     next rq rs
-        | not (rs ^. lakrsIsTruncated) = Nothing
+        | not (rs ^. lakrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lakMarker .~ rs ^. lakrsMarker
+            rq & lakMarker .~ rs ^. lakrMarker

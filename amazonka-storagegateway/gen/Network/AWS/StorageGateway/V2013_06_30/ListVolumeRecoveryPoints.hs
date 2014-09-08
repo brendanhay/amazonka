@@ -54,8 +54,8 @@ module Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints
     -- * Response
     , ListVolumeRecoveryPointsResponse
     -- ** Response lenses
-    , lvrprsGatewayARN
-    , lvrprsVolumeRecoveryPointInfos
+    , lvrprGatewayARN
+    , lvrprVolumeRecoveryPointInfos
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -88,20 +88,19 @@ instance ToHeaders ListVolumeRecoveryPoints
 instance ToJSON ListVolumeRecoveryPoints
 
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
-    { _lvrprsGatewayARN :: Maybe Text
-    , _lvrprsVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
+    { _lvrprGatewayARN :: Maybe Text
+    , _lvrprVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
-lvrprsGatewayARN =
-    lens _lvrprsGatewayARN (\s a -> s { _lvrprsGatewayARN = a })
+lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
+lvrprGatewayARN = lens _lvrprGatewayARN (\s a -> s { _lvrprGatewayARN = a })
 
-lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
-lvrprsVolumeRecoveryPointInfos =
-    lens _lvrprsVolumeRecoveryPointInfos
-         (\s a -> s { _lvrprsVolumeRecoveryPointInfos = a })
+lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
+lvrprVolumeRecoveryPointInfos =
+    lens _lvrprVolumeRecoveryPointInfos
+         (\s a -> s { _lvrprVolumeRecoveryPointInfos = a })
 
 instance FromJSON ListVolumeRecoveryPointsResponse
 

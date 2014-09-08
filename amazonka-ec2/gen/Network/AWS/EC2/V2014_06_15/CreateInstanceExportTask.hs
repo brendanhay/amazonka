@@ -61,7 +61,7 @@ module Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask
     -- * Response
     , CreateInstanceExportTaskResponse
     -- ** Response lenses
-    , cietrsExportTask
+    , cietrExportTask
     ) where
 
 import Network.AWS.Request.Query
@@ -111,13 +111,12 @@ instance ToQuery CreateInstanceExportTask where
 
 -- | 
 newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
-    { _cietrsExportTask :: Maybe ExportTask
+    { _cietrExportTask :: Maybe ExportTask
     } deriving (Show, Generic)
 
 -- | 
-cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
-cietrsExportTask =
-    lens _cietrsExportTask (\s a -> s { _cietrsExportTask = a })
+cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
+cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
 
 instance FromXML CreateInstanceExportTaskResponse where
     fromXMLOptions = xmlOptions

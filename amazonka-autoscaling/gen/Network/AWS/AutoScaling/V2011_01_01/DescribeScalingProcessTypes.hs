@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes
     -- * Response
     , DescribeScalingProcessTypesResponse
     -- ** Response lenses
-    , dsptrsProcesses
+    , dsptrProcesses
     ) where
 
 import Network.AWS.Request.Query
@@ -52,12 +52,12 @@ instance ToQuery DescribeScalingProcessTypes where
 
 -- | The output of the DescribeScalingProcessTypes action.
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
-    { _dsptrsProcesses :: [ProcessType]
+    { _dsptrProcesses :: [ProcessType]
     } deriving (Show, Generic)
 
 -- | A list of ProcessType names.
-dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
-dsptrsProcesses = lens _dsptrsProcesses (\s a -> s { _dsptrsProcesses = a })
+dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
+dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a })
 
 instance FromXML DescribeScalingProcessTypesResponse where
     fromXMLOptions = xmlOptions

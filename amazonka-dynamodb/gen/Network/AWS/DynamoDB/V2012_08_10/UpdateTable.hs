@@ -59,7 +59,7 @@ module Network.AWS.DynamoDB.V2012_08_10.UpdateTable
     -- * Response
     , UpdateTableResponse
     -- ** Response lenses
-    , utrsTableDescription
+    , utrTableDescription
     ) where
 
 import Network.AWS.DynamoDB.V2012_08_10.Types
@@ -113,13 +113,13 @@ instance ToJSON UpdateTable
 
 -- | Represents the output of an UpdateTable operation.
 newtype UpdateTableResponse = UpdateTableResponse
-    { _utrsTableDescription :: Maybe TableDescription
+    { _utrTableDescription :: Maybe TableDescription
     } deriving (Show, Generic)
 
 -- | Represents the properties of a table.
-utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
-utrsTableDescription =
-    lens _utrsTableDescription (\s a -> s { _utrsTableDescription = a })
+utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
+utrTableDescription =
+    lens _utrTableDescription (\s a -> s { _utrTableDescription = a })
 
 instance FromJSON UpdateTableResponse
 

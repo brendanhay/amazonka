@@ -33,7 +33,7 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateTapes
     -- * Response
     , CreateTapesResponse
     -- ** Response lenses
-    , ctrsTapeARNs
+    , ctrTapeARNs
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -93,11 +93,11 @@ instance ToHeaders CreateTapes
 instance ToJSON CreateTapes
 
 newtype CreateTapesResponse = CreateTapesResponse
-    { _ctrsTapeARNs :: [Text]
+    { _ctrTapeARNs :: [Text]
     } deriving (Show, Generic)
 
-ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
-ctrsTapeARNs = lens _ctrsTapeARNs (\s a -> s { _ctrsTapeARNs = a })
+ctrTapeARNs :: Lens' CreateTapesResponse [Text]
+ctrTapeARNs = lens _ctrTapeARNs (\s a -> s { _ctrTapeARNs = a })
 
 instance FromJSON CreateTapesResponse
 

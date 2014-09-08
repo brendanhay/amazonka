@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary
     -- * Response
     , DescribeStackSummaryResponse
     -- ** Response lenses
-    , dssrsStackSummary
+    , dssrStackSummary
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -68,13 +68,13 @@ instance ToJSON DescribeStackSummary
 
 -- | Contains the response to a DescribeStackSummary request.
 newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
-    { _dssrsStackSummary :: Maybe StackSummary
+    { _dssrStackSummary :: Maybe StackSummary
     } deriving (Show, Generic)
 
 -- | A StackSummary object that contains the results.
-dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dssrsStackSummary =
-    lens _dssrsStackSummary (\s a -> s { _dssrsStackSummary = a })
+dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
+dssrStackSummary =
+    lens _dssrStackSummary (\s a -> s { _dssrStackSummary = a })
 
 instance FromJSON DescribeStackSummaryResponse
 

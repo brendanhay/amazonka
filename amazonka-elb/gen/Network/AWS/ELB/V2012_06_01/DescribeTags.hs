@@ -34,7 +34,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeTags
     -- * Response
     , DescribeTagsResponse
     -- ** Response lenses
-    , dtrsTagDescriptions
+    , dtrTagDescriptions
     ) where
 
 import Network.AWS.Request.Query
@@ -64,13 +64,13 @@ instance ToQuery DescribeTags where
 
 -- | The output for the DescribeTags action.
 newtype DescribeTagsResponse = DescribeTagsResponse
-    { _dtrsTagDescriptions :: [TagDescription]
+    { _dtrTagDescriptions :: [TagDescription]
     } deriving (Show, Generic)
 
 -- | A list of tag description structures.
-dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTagDescriptions =
-    lens _dtrsTagDescriptions (\s a -> s { _dtrsTagDescriptions = a })
+dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
+dtrTagDescriptions =
+    lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })
 
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions

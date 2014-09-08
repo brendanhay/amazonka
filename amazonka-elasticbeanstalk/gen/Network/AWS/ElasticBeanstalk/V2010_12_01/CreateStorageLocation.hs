@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation
     -- * Response
     , CreateStorageLocationResponse
     -- ** Response lenses
-    , cslrsS3Bucket
+    , cslrS3Bucket
     ) where
 
 import Network.AWS.Request.Query
@@ -51,12 +51,12 @@ instance ToQuery CreateStorageLocation where
 
 -- | Results of a CreateStorageLocationResult call.
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
-    { _cslrsS3Bucket :: Maybe Text
+    { _cslrS3Bucket :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The name of the Amazon S3 bucket created.
-cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
-cslrsS3Bucket = lens _cslrsS3Bucket (\s a -> s { _cslrsS3Bucket = a })
+cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
+cslrS3Bucket = lens _cslrS3Bucket (\s a -> s { _cslrS3Bucket = a })
 
 instance FromXML CreateStorageLocationResponse where
     fromXMLOptions = xmlOptions

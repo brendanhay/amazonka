@@ -30,8 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity
     -- * Response
     , GetCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
-    , gcfoairsCloudFrontOriginAccessIdentity
-    , gcfoairsETag
+    , gcfoairCloudFrontOriginAccessIdentity
+    , gcfoairETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -72,20 +72,20 @@ instance ToXML GetCloudFrontOriginAccessIdentity where
 
 -- | The returned result of the corresponding request.
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
-    { _gcfoairsCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-    , _gcfoairsETag :: Maybe Text
+    { _gcfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    , _gcfoairETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The origin access identity's information.
-gcfoairsCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-gcfoairsCloudFrontOriginAccessIdentity =
-    lens _gcfoairsCloudFrontOriginAccessIdentity
-         (\s a -> s { _gcfoairsCloudFrontOriginAccessIdentity = a })
+gcfoairCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
+gcfoairCloudFrontOriginAccessIdentity =
+    lens _gcfoairCloudFrontOriginAccessIdentity
+         (\s a -> s { _gcfoairCloudFrontOriginAccessIdentity = a })
 
 -- | The current version of the origin access identity's information. For
 -- example: E2QWRUHAPOMQZL.
-gcfoairsETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
-gcfoairsETag = lens _gcfoairsETag (\s a -> s { _gcfoairsETag = a })
+gcfoairETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
+gcfoairETag = lens _gcfoairETag (\s a -> s { _gcfoairETag = a })
 
 instance AWSRequest GetCloudFrontOriginAccessIdentity where
     type Sv GetCloudFrontOriginAccessIdentity = CloudFront

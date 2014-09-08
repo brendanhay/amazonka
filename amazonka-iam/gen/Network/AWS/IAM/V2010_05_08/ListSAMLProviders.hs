@@ -34,7 +34,7 @@ module Network.AWS.IAM.V2010_05_08.ListSAMLProviders
     -- * Response
     , ListSAMLProvidersResponse
     -- ** Response lenses
-    , lsamlprsSAMLProviderList
+    , lsamlprSAMLProviderList
     ) where
 
 import Network.AWS.Request.Query
@@ -56,14 +56,14 @@ instance ToQuery ListSAMLProviders where
 -- | Contains the result of a successful invocation of the ListSAMLProviders
 -- action.
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
-    { _lsamlprsSAMLProviderList :: [SAMLProviderListEntry]
+    { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
     } deriving (Show, Generic)
 
 -- | The list of SAML providers for this account.
-lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
-lsamlprsSAMLProviderList =
-    lens _lsamlprsSAMLProviderList
-         (\s a -> s { _lsamlprsSAMLProviderList = a })
+lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
+lsamlprSAMLProviderList =
+    lens _lsamlprSAMLProviderList
+         (\s a -> s { _lsamlprSAMLProviderList = a })
 
 instance FromXML ListSAMLProvidersResponse where
     fromXMLOptions = xmlOptions

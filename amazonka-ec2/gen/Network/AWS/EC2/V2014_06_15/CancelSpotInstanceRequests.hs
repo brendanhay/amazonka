@@ -47,7 +47,7 @@ module Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests
     -- * Response
     , CancelSpotInstanceRequestsResponse
     -- ** Response lenses
-    , csirrsCancelledSpotInstanceRequests
+    , csirrCancelledSpotInstanceRequests
     ) where
 
 import Network.AWS.Request.Query
@@ -78,14 +78,14 @@ instance ToQuery CancelSpotInstanceRequests where
 
 -- | 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
-    { _csirrsCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
+    { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
     } deriving (Show, Generic)
 
 -- | One or more Spot Instance requests.
-csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
-csirrsCancelledSpotInstanceRequests =
-    lens _csirrsCancelledSpotInstanceRequests
-         (\s a -> s { _csirrsCancelledSpotInstanceRequests = a })
+csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
+csirrCancelledSpotInstanceRequests =
+    lens _csirrCancelledSpotInstanceRequests
+         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions

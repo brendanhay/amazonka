@@ -33,7 +33,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters
     -- * Response
     , DescribeScalingParametersResponse
     -- ** Response lenses
-    , dsprsScalingParameters
+    , dsprScalingParameters
     ) where
 
 import Network.AWS.Request.Query
@@ -67,13 +67,13 @@ instance ToQuery DescribeScalingParameters where
 -- | The result of a DescribeScalingParameters request. Contains the scaling
 -- parameters configured for the domain specified in the request.
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
-    { _dsprsScalingParameters :: ScalingParametersStatus
+    { _dsprScalingParameters :: ScalingParametersStatus
     } deriving (Show, Generic)
 
 -- | The status and configuration of a search domain's scaling parameters.
-dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
-dsprsScalingParameters =
-    lens _dsprsScalingParameters (\s a -> s { _dsprsScalingParameters = a })
+dsprScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
+dsprScalingParameters =
+    lens _dsprScalingParameters (\s a -> s { _dsprScalingParameters = a })
 
 instance FromXML DescribeScalingParametersResponse where
     fromXMLOptions = xmlOptions

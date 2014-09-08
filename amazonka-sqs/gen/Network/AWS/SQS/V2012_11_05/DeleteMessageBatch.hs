@@ -51,8 +51,8 @@ module Network.AWS.SQS.V2012_11_05.DeleteMessageBatch
     -- * Response
     , DeleteMessageBatchResponse
     -- ** Response lenses
-    , dmbrsSuccessful
-    , dmbrsFailed
+    , dmbrSuccessful
+    , dmbrFailed
     ) where
 
 import Network.AWS.Request.Query
@@ -90,17 +90,17 @@ instance ToQuery DeleteMessageBatch where
 -- DeleteMessageBatchResultEntry tag if the message is deleted or a
 -- BatchResultErrorEntry tag if the message cannot be deleted.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbrsSuccessful :: [DeleteMessageBatchResultEntry]
-    , _dmbrsFailed :: [BatchResultErrorEntry]
+    { _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
+    , _dmbrFailed :: [BatchResultErrorEntry]
     } deriving (Show, Generic)
 
 -- | A list of DeleteMessageBatchResultEntry items.
-dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
-dmbrsSuccessful = lens _dmbrsSuccessful (\s a -> s { _dmbrsSuccessful = a })
+dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
+dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
 
 -- | A list of BatchResultErrorEntry items.
-dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-dmbrsFailed = lens _dmbrsFailed (\s a -> s { _dmbrsFailed = a })
+dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
+dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
 
 instance FromXML DeleteMessageBatchResponse where
     fromXMLOptions = xmlOptions

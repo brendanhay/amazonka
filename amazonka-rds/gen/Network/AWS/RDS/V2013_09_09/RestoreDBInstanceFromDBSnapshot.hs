@@ -54,7 +54,7 @@ module Network.AWS.RDS.V2013_09_09.RestoreDBInstanceFromDBSnapshot
     -- * Response
     , RestoreDBInstanceFromDBSnapshotResponse
     -- ** Response lenses
-    , rdbifdbsrsDBInstance
+    , rdbifdbsrDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -226,15 +226,15 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot where
     toQuery = genericQuery def
 
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
-    { _rdbifdbsrsDBInstance :: Maybe DBInstance
+    { _rdbifdbsrDBInstance :: Maybe DBInstance
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
-rdbifdbsrsDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
-rdbifdbsrsDBInstance =
-    lens _rdbifdbsrsDBInstance (\s a -> s { _rdbifdbsrsDBInstance = a })
+rdbifdbsrDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
+rdbifdbsrDBInstance =
+    lens _rdbifdbsrDBInstance (\s a -> s { _rdbifdbsrDBInstance = a })
 
 instance FromXML RestoreDBInstanceFromDBSnapshotResponse where
     fromXMLOptions = xmlOptions

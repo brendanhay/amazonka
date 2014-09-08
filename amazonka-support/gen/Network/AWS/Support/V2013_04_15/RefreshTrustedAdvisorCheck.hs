@@ -37,7 +37,7 @@ module Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck
     -- * Response
     , RefreshTrustedAdvisorCheckResponse
     -- ** Response lenses
-    , rtacrsStatus
+    , rtacrStatus
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -71,13 +71,13 @@ instance ToJSON RefreshTrustedAdvisorCheck
 
 -- | The current refresh status of a Trusted Advisor check.
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
-    { _rtacrsStatus :: TrustedAdvisorCheckRefreshStatus
+    { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
     } deriving (Show, Generic)
 
 -- | The current refresh status for a check, including the amount of time until
 -- the check is eligible for refresh.
-rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
-rtacrsStatus = lens _rtacrsStatus (\s a -> s { _rtacrsStatus = a })
+rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
+rtacrStatus = lens _rtacrStatus (\s a -> s { _rtacrStatus = a })
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse
 

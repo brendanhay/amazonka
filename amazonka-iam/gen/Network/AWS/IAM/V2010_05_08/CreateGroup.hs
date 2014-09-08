@@ -35,7 +35,7 @@ module Network.AWS.IAM.V2010_05_08.CreateGroup
     -- * Response
     , CreateGroupResponse
     -- ** Response lenses
-    , cgrsGroup
+    , cgrGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -72,12 +72,12 @@ instance ToQuery CreateGroup where
 
 -- | Contains the result of a successful invocation of the CreateGroup action.
 newtype CreateGroupResponse = CreateGroupResponse
-    { _cgrsGroup :: Group
+    { _cgrGroup :: Group
     } deriving (Show, Generic)
 
 -- | Information about the group.
-cgrsGroup :: Lens' CreateGroupResponse Group
-cgrsGroup = lens _cgrsGroup (\s a -> s { _cgrsGroup = a })
+cgrGroup :: Lens' CreateGroupResponse Group
+cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
 
 instance FromXML CreateGroupResponse where
     fromXMLOptions = xmlOptions

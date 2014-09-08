@@ -37,8 +37,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions
     -- * Response
     , DescribeScheduledActionsResponse
     -- ** Response lenses
-    , dsarsrsScheduledUpdateGroupActions
-    , dsarsrsNextToken
+    , dsarrScheduledUpdateGroupActions
+    , dsarrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -109,20 +109,19 @@ instance ToQuery DescribeScheduledActions where
 -- 2011-01-01, you can use recurrence to specify that a scaling action occurs
 -- regularly on a schedule.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
-    { _dsarsrsScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
-    , _dsarsrsNextToken :: Maybe Text
+    { _dsarrScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
+    , _dsarrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of scheduled actions designed to update an Auto Scaling group.
-dsarsrsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
-dsarsrsScheduledUpdateGroupActions =
-    lens _dsarsrsScheduledUpdateGroupActions
-         (\s a -> s { _dsarsrsScheduledUpdateGroupActions = a })
+dsarrScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
+dsarrScheduledUpdateGroupActions =
+    lens _dsarrScheduledUpdateGroupActions
+         (\s a -> s { _dsarrScheduledUpdateGroupActions = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dsarsrsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
-dsarsrsNextToken =
-    lens _dsarsrsNextToken (\s a -> s { _dsarsrsNextToken = a })
+dsarrNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
+dsarrNextToken = lens _dsarrNextToken (\s a -> s { _dsarrNextToken = a })
 
 instance FromXML DescribeScheduledActionsResponse where
     fromXMLOptions = xmlOptions
@@ -136,4 +135,4 @@ instance AWSRequest DescribeScheduledActions where
 
 instance AWSPager DescribeScheduledActions where
     next rq rs = (\x -> rq & dsa2NextToken ?~ x)
-        <$> (rs ^. dsarsrsNextToken)
+        <$> (rs ^. dsarrNextToken)

@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.V2014_07_15.CreateCacheParameterGroup
     -- * Response
     , CreateCacheParameterGroupResponse
     -- ** Response lenses
-    , ccpgrsCacheParameterGroup
+    , ccpgrCacheParameterGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -89,14 +89,14 @@ instance ToQuery CreateCacheParameterGroup where
     toQuery = genericQuery def
 
 newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
-    { _ccpgrsCacheParameterGroup :: Maybe CacheParameterGroup
+    { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
     } deriving (Show, Generic)
 
 -- | Represents the output of a CreateCacheParameterGroup operation.
-ccpgrsCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
-ccpgrsCacheParameterGroup =
-    lens _ccpgrsCacheParameterGroup
-         (\s a -> s { _ccpgrsCacheParameterGroup = a })
+ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
+ccpgrCacheParameterGroup =
+    lens _ccpgrCacheParameterGroup
+         (\s a -> s { _ccpgrCacheParameterGroup = a })
 
 instance FromXML CreateCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions

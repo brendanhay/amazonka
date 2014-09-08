@@ -96,12 +96,12 @@ module Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity
     -- * Response
     , AssumeRoleWithWebIdentityResponse
     -- ** Response lenses
-    , arwwirsCredentials
-    , arwwirsSubjectFromWebIdentityToken
-    , arwwirsAssumedRoleUser
-    , arwwirsPackedPolicySize
-    , arwwirsProvider
-    , arwwirsAudience
+    , arwwirCredentials
+    , arwwirSubjectFromWebIdentityToken
+    , arwwirAssumedRoleUser
+    , arwwirPackedPolicySize
+    , arwwirProvider
+    , arwwirAudience
     ) where
 
 import Network.AWS.Request.Query
@@ -187,19 +187,19 @@ instance ToQuery AssumeRoleWithWebIdentity where
 -- action, including temporary AWS credentials that can be used to make AWS
 -- requests.
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
-    { _arwwirsCredentials :: Maybe Credentials
-    , _arwwirsSubjectFromWebIdentityToken :: Maybe Text
-    , _arwwirsAssumedRoleUser :: Maybe AssumedRoleUser
-    , _arwwirsPackedPolicySize :: Maybe Integer
-    , _arwwirsProvider :: Maybe Text
-    , _arwwirsAudience :: Maybe Text
+    { _arwwirCredentials :: Maybe Credentials
+    , _arwwirSubjectFromWebIdentityToken :: Maybe Text
+    , _arwwirAssumedRoleUser :: Maybe AssumedRoleUser
+    , _arwwirPackedPolicySize :: Maybe Integer
+    , _arwwirProvider :: Maybe Text
+    , _arwwirAudience :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security token.
-arwwirsCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
-arwwirsCredentials =
-    lens _arwwirsCredentials (\s a -> s { _arwwirsCredentials = a })
+arwwirCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
+arwwirCredentials =
+    lens _arwwirCredentials (\s a -> s { _arwwirCredentials = a })
 
 -- | The unique user identifier that is returned by the identity provider. This
 -- identifier is associated with the WebIdentityToken that was submitted with
@@ -208,10 +208,10 @@ arwwirsCredentials =
 -- identifier). If an OpenID Connect ID token was submitted in the
 -- WebIdentityToken, this value is returned by the identity provider as the
 -- token's sub (Subject) claim.
-arwwirsSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
-arwwirsSubjectFromWebIdentityToken =
-    lens _arwwirsSubjectFromWebIdentityToken
-         (\s a -> s { _arwwirsSubjectFromWebIdentityToken = a })
+arwwirSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
+arwwirSubjectFromWebIdentityToken =
+    lens _arwwirSubjectFromWebIdentityToken
+         (\s a -> s { _arwwirSubjectFromWebIdentityToken = a })
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
 -- identifiers that you can use to refer to the resulting temporary security
@@ -219,30 +219,29 @@ arwwirsSubjectFromWebIdentityToken =
 -- principal in a resource-based policy by using the ARN or assumed role ID.
 -- The ARN and ID include the RoleSessionName that you specified when you
 -- called AssumeRole.
-arwwirsAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedRoleUser)
-arwwirsAssumedRoleUser =
-    lens _arwwirsAssumedRoleUser (\s a -> s { _arwwirsAssumedRoleUser = a })
+arwwirAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedRoleUser)
+arwwirAssumedRoleUser =
+    lens _arwwirAssumedRoleUser (\s a -> s { _arwwirAssumedRoleUser = a })
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
 -- which means the policy exceeded the allowed space.
-arwwirsPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Integer)
-arwwirsPackedPolicySize =
-    lens _arwwirsPackedPolicySize
-         (\s a -> s { _arwwirsPackedPolicySize = a })
+arwwirPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Integer)
+arwwirPackedPolicySize =
+    lens _arwwirPackedPolicySize (\s a -> s { _arwwirPackedPolicySize = a })
 
 -- | The issuing authority of the web identity token presented. For OpenID
 -- Connect ID Tokens this contains the value of the iss field. For OAuth 2.0
 -- Access Tokens, this contains the value of the ProviderId parameter that was
 -- passed in the AssumeRoleWithWebIdentity request.
-arwwirsProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
-arwwirsProvider = lens _arwwirsProvider (\s a -> s { _arwwirsProvider = a })
+arwwirProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
+arwwirProvider = lens _arwwirProvider (\s a -> s { _arwwirProvider = a })
 
 -- | The intended audience of the web identity token. This is traditionally the
 -- client identifier issued to the application that requested the web identity
 -- token.
-arwwirsAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
-arwwirsAudience = lens _arwwirsAudience (\s a -> s { _arwwirsAudience = a })
+arwwirAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
+arwwirAudience = lens _arwwirAudience (\s a -> s { _arwwirAudience = a })
 
 instance FromXML AssumeRoleWithWebIdentityResponse where
     fromXMLOptions = xmlOptions

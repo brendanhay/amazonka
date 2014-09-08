@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage
     -- * Response
     , AddWorkingStorageResponse
     -- ** Response lenses
-    , awsrsGatewayARN
+    , awsrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -96,13 +96,13 @@ instance ToJSON AddWorkingStorage
 -- | A JSON object containing the of the gateway for which working storage was
 -- configured.
 newtype AddWorkingStorageResponse = AddWorkingStorageResponse
-    { _awsrsGatewayARN :: Maybe Text
+    { _awsrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
-awsrsGatewayARN = lens _awsrsGatewayARN (\s a -> s { _awsrsGatewayARN = a })
+awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
+awsrGatewayARN = lens _awsrGatewayARN (\s a -> s { _awsrGatewayARN = a })
 
 instance FromJSON AddWorkingStorageResponse
 

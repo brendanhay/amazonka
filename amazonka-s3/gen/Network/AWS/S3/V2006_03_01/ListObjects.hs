@@ -39,15 +39,15 @@ module Network.AWS.S3.V2006_03_01.ListObjects
     -- * Response
     , ListObjectsResponse
     -- ** Response lenses
-    , lorsIsTruncated
-    , lorsMarker
-    , lorsNextMarker
-    , lorsContents
-    , lorsName
-    , lorsPrefix
-    , lorsMaxKeys
-    , lorsCommonPrefixes
-    , lorsEncodingType
+    , lorIsTruncated
+    , lorMarker
+    , lorNextMarker
+    , lorContents
+    , lorName
+    , lorPrefix
+    , lorMaxKeys
+    , lorCommonPrefixes
+    , lorEncodingType
     ) where
 
 import Network.AWS.Request.RestS3
@@ -128,24 +128,24 @@ instance ToHeaders ListObjects
 instance ToBody ListObjects
 
 data ListObjectsResponse = ListObjectsResponse
-    { _lorsIsTruncated :: Bool
-    , _lorsMarker :: Maybe Text
-    , _lorsNextMarker :: Maybe Text
-    , _lorsContents :: [Object]
-    , _lorsName :: BucketName
-    , _lorsPrefix :: Maybe Text
-    , _lorsMaxKeys :: Maybe Integer
-    , _lorsCommonPrefixes :: [CommonPrefix]
-    , _lorsEncodingType :: Maybe EncodingType
+    { _lorIsTruncated :: Bool
+    , _lorMarker :: Maybe Text
+    , _lorNextMarker :: Maybe Text
+    , _lorContents :: [Object]
+    , _lorName :: BucketName
+    , _lorPrefix :: Maybe Text
+    , _lorMaxKeys :: Maybe Integer
+    , _lorCommonPrefixes :: [CommonPrefix]
+    , _lorEncodingType :: Maybe EncodingType
     } deriving (Show, Generic)
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the results
 -- that satisfied the search criteria.
-lorsIsTruncated :: Lens' ListObjectsResponse Bool
-lorsIsTruncated = lens _lorsIsTruncated (\s a -> s { _lorsIsTruncated = a })
+lorIsTruncated :: Lens' ListObjectsResponse Bool
+lorIsTruncated = lens _lorIsTruncated (\s a -> s { _lorIsTruncated = a })
 
-lorsMarker :: Lens' ListObjectsResponse (Maybe Text)
-lorsMarker = lens _lorsMarker (\s a -> s { _lorsMarker = a })
+lorMarker :: Lens' ListObjectsResponse (Maybe Text)
+lorMarker = lens _lorMarker (\s a -> s { _lorMarker = a })
 
 -- | When response is truncated (the IsTruncated element value in the response
 -- is true), you can use the key name in this field as marker in the
@@ -155,29 +155,28 @@ lorsMarker = lens _lorsMarker (\s a -> s { _lorsMarker = a })
 -- NextMaker and it is truncated, you can use the value of the last Key in the
 -- response as the marker in the subsequent request to get the next set of
 -- object keys.
-lorsNextMarker :: Lens' ListObjectsResponse (Maybe Text)
-lorsNextMarker = lens _lorsNextMarker (\s a -> s { _lorsNextMarker = a })
+lorNextMarker :: Lens' ListObjectsResponse (Maybe Text)
+lorNextMarker = lens _lorNextMarker (\s a -> s { _lorNextMarker = a })
 
-lorsContents :: Lens' ListObjectsResponse [Object]
-lorsContents = lens _lorsContents (\s a -> s { _lorsContents = a })
+lorContents :: Lens' ListObjectsResponse [Object]
+lorContents = lens _lorContents (\s a -> s { _lorContents = a })
 
-lorsName :: Lens' ListObjectsResponse BucketName
-lorsName = lens _lorsName (\s a -> s { _lorsName = a })
+lorName :: Lens' ListObjectsResponse BucketName
+lorName = lens _lorName (\s a -> s { _lorName = a })
 
-lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
-lorsPrefix = lens _lorsPrefix (\s a -> s { _lorsPrefix = a })
+lorPrefix :: Lens' ListObjectsResponse (Maybe Text)
+lorPrefix = lens _lorPrefix (\s a -> s { _lorPrefix = a })
 
-lorsMaxKeys :: Lens' ListObjectsResponse (Maybe Integer)
-lorsMaxKeys = lens _lorsMaxKeys (\s a -> s { _lorsMaxKeys = a })
+lorMaxKeys :: Lens' ListObjectsResponse (Maybe Integer)
+lorMaxKeys = lens _lorMaxKeys (\s a -> s { _lorMaxKeys = a })
 
-lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
-lorsCommonPrefixes =
-    lens _lorsCommonPrefixes (\s a -> s { _lorsCommonPrefixes = a })
+lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
+lorCommonPrefixes =
+    lens _lorCommonPrefixes (\s a -> s { _lorCommonPrefixes = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
-lorsEncodingType =
-    lens _lorsEncodingType (\s a -> s { _lorsEncodingType = a })
+lorEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
+lorEncodingType = lens _lorEncodingType (\s a -> s { _lorEncodingType = a })
 
 instance FromXML ListObjectsResponse where
     fromXMLOptions = xmlOptions
@@ -191,6 +190,6 @@ instance AWSRequest ListObjects where
 
 instance AWSPager ListObjects where
     next rq rs
-        | not (rs ^. lorsIsTruncated) = Nothing
+        | not (rs ^. lorIsTruncated) = Nothing
         | otherwise = Just $
-            rq & loMarker .~ rs ^. lorsNextMarker
+            rq & loMarker .~ rs ^. lorNextMarker

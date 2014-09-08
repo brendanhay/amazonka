@@ -72,7 +72,7 @@ module Network.AWS.SQS.V2012_11_05.ReceiveMessage
     -- * Response
     , ReceiveMessageResponse
     -- ** Response lenses
-    , rmrsMessages
+    , rmrMessages
     ) where
 
 import Network.AWS.Request.Query
@@ -158,12 +158,12 @@ instance ToQuery ReceiveMessage where
 
 -- | A list of received messages.
 newtype ReceiveMessageResponse = ReceiveMessageResponse
-    { _rmrsMessages :: [Message]
+    { _rmrMessages :: [Message]
     } deriving (Show, Generic)
 
 -- | A list of messages.
-rmrsMessages :: Lens' ReceiveMessageResponse [Message]
-rmrsMessages = lens _rmrsMessages (\s a -> s { _rmrsMessages = a })
+rmrMessages :: Lens' ReceiveMessageResponse [Message]
+rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
 
 instance FromXML ReceiveMessageResponse where
     fromXMLOptions = xmlOptions

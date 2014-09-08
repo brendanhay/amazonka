@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile
     -- * Response
     , CreateUserProfileResponse
     -- ** Response lenses
-    , cuprsIamUserArn
+    , cuprIamUserArn
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -92,12 +92,12 @@ instance ToJSON CreateUserProfile
 
 -- | Contains the response to a CreateUserProfile request.
 newtype CreateUserProfileResponse = CreateUserProfileResponse
-    { _cuprsIamUserArn :: Maybe Text
+    { _cuprIamUserArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The user's IAM ARN.
-cuprsIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsIamUserArn = lens _cuprsIamUserArn (\s a -> s { _cuprsIamUserArn = a })
+cuprIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
+cuprIamUserArn = lens _cuprIamUserArn (\s a -> s { _cuprIamUserArn = a })
 
 instance FromJSON CreateUserProfileResponse
 

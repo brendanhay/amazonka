@@ -32,8 +32,6 @@ module Network.AWS.CloudWatch.V2010_08_01.Types
     (
     -- * Service
       CloudWatch
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -64,13 +62,13 @@ module Network.AWS.CloudWatch.V2010_08_01.Types
     -- * Datapoint
     , Datapoint
     , mkDatapoint
-    , drsTimestamp
-    , drsSampleCount
-    , drsAverage
-    , drsSum
-    , drsMinimum
-    , drsMaximum
-    , drsUnit
+    , drTimestamp
+    , drSampleCount
+    , drAverage
+    , drSum
+    , drMinimum
+    , drMaximum
+    , drUnit
 
     -- * Dimension
     , Dimension
@@ -466,56 +464,56 @@ instance FromXML AlarmHistoryItem where
 -- | The Datapoint data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
 data Datapoint = Datapoint
-    { _drsTimestamp :: Maybe ISO8601
-    , _drsSampleCount :: Maybe Double
-    , _drsAverage :: Maybe Double
-    , _drsSum :: Maybe Double
-    , _drsMinimum :: Maybe Double
-    , _drsMaximum :: Maybe Double
-    , _drsUnit :: Maybe StandardUnit
+    { _drTimestamp :: Maybe ISO8601
+    , _drSampleCount :: Maybe Double
+    , _drAverage :: Maybe Double
+    , _drSum :: Maybe Double
+    , _drMinimum :: Maybe Double
+    , _drMaximum :: Maybe Double
+    , _drUnit :: Maybe StandardUnit
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Datapoint' data type to populate a request.
 mkDatapoint :: Datapoint
 mkDatapoint = Datapoint
-    { _drsTimestamp = Nothing
-    , _drsSampleCount = Nothing
-    , _drsAverage = Nothing
-    , _drsSum = Nothing
-    , _drsMinimum = Nothing
-    , _drsMaximum = Nothing
-    , _drsUnit = Nothing
+    { _drTimestamp = Nothing
+    , _drSampleCount = Nothing
+    , _drAverage = Nothing
+    , _drSum = Nothing
+    , _drMinimum = Nothing
+    , _drMaximum = Nothing
+    , _drUnit = Nothing
     }
 
 -- | The time stamp used for the datapoint.
-drsTimestamp :: Lens' Datapoint (Maybe ISO8601)
-drsTimestamp = lens _drsTimestamp (\s a -> s { _drsTimestamp = a })
+drTimestamp :: Lens' Datapoint (Maybe ISO8601)
+drTimestamp = lens _drTimestamp (\s a -> s { _drTimestamp = a })
 
 -- | The number of metric values that contributed to the aggregate value of this
 -- datapoint.
-drsSampleCount :: Lens' Datapoint (Maybe Double)
-drsSampleCount = lens _drsSampleCount (\s a -> s { _drsSampleCount = a })
+drSampleCount :: Lens' Datapoint (Maybe Double)
+drSampleCount = lens _drSampleCount (\s a -> s { _drSampleCount = a })
 
 -- | The average of metric values that correspond to the datapoint.
-drsAverage :: Lens' Datapoint (Maybe Double)
-drsAverage = lens _drsAverage (\s a -> s { _drsAverage = a })
+drAverage :: Lens' Datapoint (Maybe Double)
+drAverage = lens _drAverage (\s a -> s { _drAverage = a })
 
 -- | The sum of metric values used for the datapoint.
-drsSum :: Lens' Datapoint (Maybe Double)
-drsSum = lens _drsSum (\s a -> s { _drsSum = a })
+drSum :: Lens' Datapoint (Maybe Double)
+drSum = lens _drSum (\s a -> s { _drSum = a })
 
 -- | The minimum metric value used for the datapoint.
-drsMinimum :: Lens' Datapoint (Maybe Double)
-drsMinimum = lens _drsMinimum (\s a -> s { _drsMinimum = a })
+drMinimum :: Lens' Datapoint (Maybe Double)
+drMinimum = lens _drMinimum (\s a -> s { _drMinimum = a })
 
 -- | The maximum of the metric value used for the datapoint.
-drsMaximum :: Lens' Datapoint (Maybe Double)
-drsMaximum = lens _drsMaximum (\s a -> s { _drsMaximum = a })
+drMaximum :: Lens' Datapoint (Maybe Double)
+drMaximum = lens _drMaximum (\s a -> s { _drMaximum = a })
 
 -- | The standard unit used for the datapoint.
-drsUnit :: Lens' Datapoint (Maybe StandardUnit)
-drsUnit = lens _drsUnit (\s a -> s { _drsUnit = a })
+drUnit :: Lens' Datapoint (Maybe StandardUnit)
+drUnit = lens _drUnit (\s a -> s { _drUnit = a })
 
 instance FromXML Datapoint where
     fromXMLOptions = xmlOptions

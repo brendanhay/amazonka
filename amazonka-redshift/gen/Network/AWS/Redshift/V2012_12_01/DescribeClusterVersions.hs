@@ -43,8 +43,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterVersions
     -- * Response
     , DescribeClusterVersionsResponse
     -- ** Response lenses
-    , dcvrsMarker
-    , dcvrsClusterVersions
+    , dcvrMarker
+    , dcvrClusterVersions
     ) where
 
 import Network.AWS.Request.Query
@@ -105,8 +105,8 @@ instance ToQuery DescribeClusterVersions where
 
 -- | Contains the output from the DescribeClusterVersions action.
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
-    { _dcvrsMarker :: Maybe Text
-    , _dcvrsClusterVersions :: [ClusterVersion]
+    { _dcvrMarker :: Maybe Text
+    , _dcvrClusterVersions :: [ClusterVersion]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -114,13 +114,13 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dcvrsMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
-dcvrsMarker = lens _dcvrsMarker (\s a -> s { _dcvrsMarker = a })
+dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
+dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })
 
 -- | A list of Version elements.
-dcvrsClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
-dcvrsClusterVersions =
-    lens _dcvrsClusterVersions (\s a -> s { _dcvrsClusterVersions = a })
+dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
+dcvrClusterVersions =
+    lens _dcvrClusterVersions (\s a -> s { _dcvrClusterVersions = a })
 
 instance FromXML DescribeClusterVersionsResponse where
     fromXMLOptions = xmlOptions
@@ -134,4 +134,4 @@ instance AWSRequest DescribeClusterVersions where
 
 instance AWSPager DescribeClusterVersions where
     next rq rs = (\x -> rq & dcvMarker ?~ x)
-        <$> (rs ^. dcvrsMarker)
+        <$> (rs ^. dcvrMarker)

@@ -35,7 +35,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions
     -- * Response
     , DescribeAvailabilityOptionsResponse
     -- ** Response lenses
-    , daorsrsAvailabilityOptions
+    , daorrAvailabilityOptions
     ) where
 
 import Network.AWS.Request.Query
@@ -75,15 +75,15 @@ instance ToQuery DescribeAvailabilityOptions where
 -- | The result of a DescribeAvailabilityOptions request. Indicates whether or
 -- not the Multi-AZ option is enabled for the domain specified in the request.
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
-    { _daorsrsAvailabilityOptions :: Maybe AvailabilityOptionsStatus
+    { _daorrAvailabilityOptions :: Maybe AvailabilityOptionsStatus
     } deriving (Show, Generic)
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
-daorsrsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-daorsrsAvailabilityOptions =
-    lens _daorsrsAvailabilityOptions
-         (\s a -> s { _daorsrsAvailabilityOptions = a })
+daorrAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
+daorrAvailabilityOptions =
+    lens _daorrAvailabilityOptions
+         (\s a -> s { _daorrAvailabilityOptions = a })
 
 instance FromXML DescribeAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions

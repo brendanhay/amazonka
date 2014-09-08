@@ -47,7 +47,7 @@ module Network.AWS.EC2.V2014_06_15.ImportVolume
     -- * Response
     , ImportVolumeResponse
     -- ** Response lenses
-    , ivrsConversionTask
+    , ivrConversionTask
     ) where
 
 import Network.AWS.Request.Query
@@ -97,13 +97,13 @@ instance ToQuery ImportVolume where
 
 -- | 
 newtype ImportVolumeResponse = ImportVolumeResponse
-    { _ivrsConversionTask :: Maybe ConversionTask
+    { _ivrConversionTask :: Maybe ConversionTask
     } deriving (Show, Generic)
 
 -- | 
-ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
-ivrsConversionTask =
-    lens _ivrsConversionTask (\s a -> s { _ivrsConversionTask = a })
+ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
+ivrConversionTask =
+    lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })
 
 instance FromXML ImportVolumeResponse where
     fromXMLOptions = xmlOptions

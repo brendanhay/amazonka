@@ -49,7 +49,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineStatus
     -- * Response
     , UpdatePipelineStatusResponse
     -- ** Response lenses
-    , upsrsPipeline
+    , upsrPipeline
     ) where
 
 import Network.AWS.ElasticTranscoder.V2012_09_25.Types
@@ -97,13 +97,13 @@ instance ToJSON UpdatePipelineStatus
 -- | When you update status for a pipeline, Elastic Transcoder returns the
 -- values that you specified in the request.
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
-    { _upsrsPipeline :: Maybe Pipeline
+    { _upsrPipeline :: Maybe Pipeline
     } deriving (Show, Generic)
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
-upsrsPipeline = lens _upsrsPipeline (\s a -> s { _upsrsPipeline = a })
+upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
+upsrPipeline = lens _upsrPipeline (\s a -> s { _upsrPipeline = a })
 
 instance FromJSON UpdatePipelineStatusResponse
 

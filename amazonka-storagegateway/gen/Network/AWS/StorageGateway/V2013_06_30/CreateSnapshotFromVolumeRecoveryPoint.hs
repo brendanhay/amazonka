@@ -63,9 +63,9 @@ module Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPo
     -- * Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
     -- ** Response lenses
-    , csfvrprsSnapshotId
-    , csfvrprsVolumeARN
-    , csfvrprsVolumeRecoveryPointTime
+    , csfvrprSnapshotId
+    , csfvrprVolumeARN
+    , csfvrprVolumeRecoveryPointTime
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -104,23 +104,23 @@ instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
 instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
 
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
-    { _csfvrprsSnapshotId :: Maybe Text
-    , _csfvrprsVolumeARN :: Maybe Text
-    , _csfvrprsVolumeRecoveryPointTime :: Maybe Text
+    { _csfvrprSnapshotId :: Maybe Text
+    , _csfvrprVolumeARN :: Maybe Text
+    , _csfvrprVolumeRecoveryPointTime :: Maybe Text
     } deriving (Show, Generic)
 
-csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprsSnapshotId =
-    lens _csfvrprsSnapshotId (\s a -> s { _csfvrprsSnapshotId = a })
+csfvrprSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprSnapshotId =
+    lens _csfvrprSnapshotId (\s a -> s { _csfvrprSnapshotId = a })
 
-csfvrprsVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprsVolumeARN =
-    lens _csfvrprsVolumeARN (\s a -> s { _csfvrprsVolumeARN = a })
+csfvrprVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprVolumeARN =
+    lens _csfvrprVolumeARN (\s a -> s { _csfvrprVolumeARN = a })
 
-csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprsVolumeRecoveryPointTime =
-    lens _csfvrprsVolumeRecoveryPointTime
-         (\s a -> s { _csfvrprsVolumeRecoveryPointTime = a })
+csfvrprVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprVolumeRecoveryPointTime =
+    lens _csfvrprVolumeRecoveryPointTime
+         (\s a -> s { _csfvrprVolumeRecoveryPointTime = a })
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse
 

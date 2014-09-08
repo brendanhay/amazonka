@@ -27,8 +27,6 @@ module Network.AWS.RDS.V2013_09_09.Types
     (
     -- * Service
       RDS
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -158,11 +156,11 @@ module Network.AWS.RDS.V2013_09_09.Types
     -- * DBSubnetGroup
     , DBSubnetGroup
     , mkDBSubnetGroup
-    , dbsgrsDBSubnetGroupName
-    , dbsgrsDBSubnetGroupDescription
-    , dbsgrsVpcId
-    , dbsgrsSubnetGroupStatus
-    , dbsgrsSubnets
+    , dbsgrDBSubnetGroupName
+    , dbsgrDBSubnetGroupDescription
+    , dbsgrVpcId
+    , dbsgrSubnetGroupStatus
+    , dbsgrSubnets
 
     -- * DescribeDBLogFilesDetails
     , DescribeDBLogFilesDetails
@@ -195,11 +193,11 @@ module Network.AWS.RDS.V2013_09_09.Types
     -- * Event
     , Event
     , mkEvent
-    , ersSourceIdentifier
-    , ersSourceType
-    , ersMessage
-    , ersEventCategories
-    , ersDate
+    , erSourceIdentifier
+    , erSourceType
+    , erMessage
+    , erEventCategories
+    , erDate
 
     -- * EventCategoriesMap
     , EventCategoriesMap
@@ -1307,49 +1305,47 @@ instance FromXML DBSnapshot where
 -- | Specifies information on the subnet group associated with the DB instance,
 -- including the name, description, and subnets in the subnet group.
 data DBSubnetGroup = DBSubnetGroup
-    { _dbsgrsDBSubnetGroupName :: Maybe Text
-    , _dbsgrsDBSubnetGroupDescription :: Maybe Text
-    , _dbsgrsVpcId :: Maybe Text
-    , _dbsgrsSubnetGroupStatus :: Maybe Text
-    , _dbsgrsSubnets :: [Subnet]
+    { _dbsgrDBSubnetGroupName :: Maybe Text
+    , _dbsgrDBSubnetGroupDescription :: Maybe Text
+    , _dbsgrVpcId :: Maybe Text
+    , _dbsgrSubnetGroupStatus :: Maybe Text
+    , _dbsgrSubnets :: [Subnet]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBSubnetGroup' data type to populate a request.
 mkDBSubnetGroup :: DBSubnetGroup
 mkDBSubnetGroup = DBSubnetGroup
-    { _dbsgrsDBSubnetGroupName = Nothing
-    , _dbsgrsDBSubnetGroupDescription = Nothing
-    , _dbsgrsVpcId = Nothing
-    , _dbsgrsSubnetGroupStatus = Nothing
-    , _dbsgrsSubnets = mempty
+    { _dbsgrDBSubnetGroupName = Nothing
+    , _dbsgrDBSubnetGroupDescription = Nothing
+    , _dbsgrVpcId = Nothing
+    , _dbsgrSubnetGroupStatus = Nothing
+    , _dbsgrSubnets = mempty
     }
 
 -- | Specifies the name of the DB subnet group.
-dbsgrsDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrsDBSubnetGroupName =
-    lens _dbsgrsDBSubnetGroupName
-         (\s a -> s { _dbsgrsDBSubnetGroupName = a })
+dbsgrDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
+dbsgrDBSubnetGroupName =
+    lens _dbsgrDBSubnetGroupName (\s a -> s { _dbsgrDBSubnetGroupName = a })
 
 -- | Provides the description of the DB subnet group.
-dbsgrsDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrsDBSubnetGroupDescription =
-    lens _dbsgrsDBSubnetGroupDescription
-         (\s a -> s { _dbsgrsDBSubnetGroupDescription = a })
+dbsgrDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
+dbsgrDBSubnetGroupDescription =
+    lens _dbsgrDBSubnetGroupDescription
+         (\s a -> s { _dbsgrDBSubnetGroupDescription = a })
 
 -- | Provides the VpcId of the DB subnet group.
-dbsgrsVpcId :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrsVpcId = lens _dbsgrsVpcId (\s a -> s { _dbsgrsVpcId = a })
+dbsgrVpcId :: Lens' DBSubnetGroup (Maybe Text)
+dbsgrVpcId = lens _dbsgrVpcId (\s a -> s { _dbsgrVpcId = a })
 
 -- | Provides the status of the DB subnet group.
-dbsgrsSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
-dbsgrsSubnetGroupStatus =
-    lens _dbsgrsSubnetGroupStatus
-         (\s a -> s { _dbsgrsSubnetGroupStatus = a })
+dbsgrSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
+dbsgrSubnetGroupStatus =
+    lens _dbsgrSubnetGroupStatus (\s a -> s { _dbsgrSubnetGroupStatus = a })
 
 -- | Contains a list of Subnet elements.
-dbsgrsSubnets :: Lens' DBSubnetGroup [Subnet]
-dbsgrsSubnets = lens _dbsgrsSubnets (\s a -> s { _dbsgrsSubnets = a })
+dbsgrSubnets :: Lens' DBSubnetGroup [Subnet]
+dbsgrSubnets = lens _dbsgrSubnets (\s a -> s { _dbsgrSubnets = a })
 
 instance FromXML DBSubnetGroup where
     fromXMLOptions = xmlOptions
@@ -1511,45 +1507,45 @@ instance FromXML EngineDefaults where
 
 -- | This data type is used as a response element in the DescribeEvents action.
 data Event = Event
-    { _ersSourceIdentifier :: Maybe Text
-    , _ersSourceType :: Maybe SourceType
-    , _ersMessage :: Maybe Text
-    , _ersEventCategories :: [Text]
-    , _ersDate :: Maybe ISO8601
+    { _erSourceIdentifier :: Maybe Text
+    , _erSourceType :: Maybe SourceType
+    , _erMessage :: Maybe Text
+    , _erEventCategories :: [Text]
+    , _erDate :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Event' data type to populate a request.
 mkEvent :: Event
 mkEvent = Event
-    { _ersSourceIdentifier = Nothing
-    , _ersSourceType = Nothing
-    , _ersMessage = Nothing
-    , _ersEventCategories = mempty
-    , _ersDate = Nothing
+    { _erSourceIdentifier = Nothing
+    , _erSourceType = Nothing
+    , _erMessage = Nothing
+    , _erEventCategories = mempty
+    , _erDate = Nothing
     }
 
 -- | Provides the identifier for the source of the event.
-ersSourceIdentifier :: Lens' Event (Maybe Text)
-ersSourceIdentifier =
-    lens _ersSourceIdentifier (\s a -> s { _ersSourceIdentifier = a })
+erSourceIdentifier :: Lens' Event (Maybe Text)
+erSourceIdentifier =
+    lens _erSourceIdentifier (\s a -> s { _erSourceIdentifier = a })
 
 -- | Specifies the source type for this event.
-ersSourceType :: Lens' Event (Maybe SourceType)
-ersSourceType = lens _ersSourceType (\s a -> s { _ersSourceType = a })
+erSourceType :: Lens' Event (Maybe SourceType)
+erSourceType = lens _erSourceType (\s a -> s { _erSourceType = a })
 
 -- | Provides the text of this event.
-ersMessage :: Lens' Event (Maybe Text)
-ersMessage = lens _ersMessage (\s a -> s { _ersMessage = a })
+erMessage :: Lens' Event (Maybe Text)
+erMessage = lens _erMessage (\s a -> s { _erMessage = a })
 
 -- | Specifies the category for the event.
-ersEventCategories :: Lens' Event [Text]
-ersEventCategories =
-    lens _ersEventCategories (\s a -> s { _ersEventCategories = a })
+erEventCategories :: Lens' Event [Text]
+erEventCategories =
+    lens _erEventCategories (\s a -> s { _erEventCategories = a })
 
 -- | Specifies the date and time of the event.
-ersDate :: Lens' Event (Maybe ISO8601)
-ersDate = lens _ersDate (\s a -> s { _ersDate = a })
+erDate :: Lens' Event (Maybe ISO8601)
+erDate = lens _erDate (\s a -> s { _erDate = a })
 
 instance FromXML Event where
     fromXMLOptions = xmlOptions

@@ -30,8 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfi
     -- * Response
     , GetCloudFrontOriginAccessIdentityConfigResponse
     -- ** Response lenses
-    , gcfoaicrsCloudFrontOriginAccessIdentityConfig
-    , gcfoaicrsETag
+    , gcfoaicrCloudFrontOriginAccessIdentityConfig
+    , gcfoaicrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -73,19 +73,19 @@ instance ToXML GetCloudFrontOriginAccessIdentityConfig where
 
 -- | The returned result of the corresponding request.
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse
-    { _gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
-    , _gcfoaicrsETag :: Maybe Text
+    { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
+    , _gcfoaicrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The origin access identity's configuration information.
-gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
-gcfoaicrsCloudFrontOriginAccessIdentityConfig =
-    lens _gcfoaicrsCloudFrontOriginAccessIdentityConfig
-         (\s a -> s { _gcfoaicrsCloudFrontOriginAccessIdentityConfig = a })
+gcfoaicrCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
+gcfoaicrCloudFrontOriginAccessIdentityConfig =
+    lens _gcfoaicrCloudFrontOriginAccessIdentityConfig
+         (\s a -> s { _gcfoaicrCloudFrontOriginAccessIdentityConfig = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gcfoaicrsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
-gcfoaicrsETag = lens _gcfoaicrsETag (\s a -> s { _gcfoaicrsETag = a })
+gcfoaicrETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
+gcfoaicrETag = lens _gcfoaicrETag (\s a -> s { _gcfoaicrETag = a })
 
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront

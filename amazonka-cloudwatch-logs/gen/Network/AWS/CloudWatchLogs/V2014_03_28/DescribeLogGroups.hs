@@ -52,8 +52,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups
     -- * Response
     , DescribeLogGroupsResponse
     -- ** Response lenses
-    , dlgrsLogGroups
-    , dlgrsNextToken
+    , dlgrLogGroups
+    , dlgrNextToken
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -99,19 +99,19 @@ instance ToHeaders DescribeLogGroups
 instance ToJSON DescribeLogGroups
 
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
-    { _dlgrsLogGroups :: [LogGroup]
-    , _dlgrsNextToken :: Maybe Text
+    { _dlgrLogGroups :: [LogGroup]
+    , _dlgrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of log groups.
-dlgrsLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
-dlgrsLogGroups = lens _dlgrsLogGroups (\s a -> s { _dlgrsLogGroups = a })
+dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
+dlgrLogGroups = lens _dlgrLogGroups (\s a -> s { _dlgrLogGroups = a })
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
-dlgrsNextToken = lens _dlgrsNextToken (\s a -> s { _dlgrsNextToken = a })
+dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
+dlgrNextToken = lens _dlgrNextToken (\s a -> s { _dlgrNextToken = a })
 
 instance FromJSON DescribeLogGroupsResponse
 
@@ -124,4 +124,4 @@ instance AWSRequest DescribeLogGroups where
 
 instance AWSPager DescribeLogGroups where
     next rq rs = (\x -> rq & dlg1NextToken ?~ x)
-        <$> (rs ^. dlgrsNextToken)
+        <$> (rs ^. dlgrNextToken)

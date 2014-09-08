@@ -30,7 +30,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketLocation
     -- * Response
     , GetBucketLocationResponse
     -- ** Response lenses
-    , gblrsrsLocationConstraint
+    , gblrrLocationConstraint
     ) where
 
 import Network.AWS.Request.RestS3
@@ -69,13 +69,13 @@ instance ToHeaders GetBucketLocation
 instance ToBody GetBucketLocation
 
 newtype GetBucketLocationResponse = GetBucketLocationResponse
-    { _gblrsrsLocationConstraint :: Maybe Region
+    { _gblrrLocationConstraint :: Maybe Region
     } deriving (Show, Generic)
 
-gblrsrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
-gblrsrsLocationConstraint =
-    lens _gblrsrsLocationConstraint
-         (\s a -> s { _gblrsrsLocationConstraint = a })
+gblrrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
+gblrrLocationConstraint =
+    lens _gblrrLocationConstraint
+         (\s a -> s { _gblrrLocationConstraint = a })
 
 instance FromXML GetBucketLocationResponse where
     fromXMLOptions = xmlOptions

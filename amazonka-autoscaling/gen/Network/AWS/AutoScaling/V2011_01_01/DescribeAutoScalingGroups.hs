@@ -44,8 +44,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups
     -- * Response
     , DescribeAutoScalingGroupsResponse
     -- ** Response lenses
-    , dasgrsAutoScalingGroups
-    , dasgrsNextToken
+    , dasgrAutoScalingGroups
+    , dasgrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -87,19 +87,18 @@ instance ToQuery DescribeAutoScalingGroups where
 
 -- | The AutoScalingGroupsType data type.
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
-    { _dasgrsAutoScalingGroups :: [AutoScalingGroup]
-    , _dasgrsNextToken :: Maybe Text
+    { _dasgrAutoScalingGroups :: [AutoScalingGroup]
+    , _dasgrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of Auto Scaling groups.
-dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
-dasgrsAutoScalingGroups =
-    lens _dasgrsAutoScalingGroups
-         (\s a -> s { _dasgrsAutoScalingGroups = a })
+dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
+dasgrAutoScalingGroups =
+    lens _dasgrAutoScalingGroups (\s a -> s { _dasgrAutoScalingGroups = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
-dasgrsNextToken = lens _dasgrsNextToken (\s a -> s { _dasgrsNextToken = a })
+dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
+dasgrNextToken = lens _dasgrNextToken (\s a -> s { _dasgrNextToken = a })
 
 instance FromXML DescribeAutoScalingGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -113,4 +112,4 @@ instance AWSRequest DescribeAutoScalingGroups where
 
 instance AWSPager DescribeAutoScalingGroups where
     next rq rs = (\x -> rq & dasg1NextToken ?~ x)
-        <$> (rs ^. dasgrsNextToken)
+        <$> (rs ^. dasgrNextToken)

@@ -38,7 +38,7 @@ module Network.AWS.SES.V2010_12_01.GetSendStatistics
     -- * Response
     , GetSendStatisticsResponse
     -- ** Response lenses
-    , gssrsSendDataPoints
+    , gssrSendDataPoints
     ) where
 
 import Network.AWS.Request.Query
@@ -60,13 +60,13 @@ instance ToQuery GetSendStatistics where
 -- GetSendStatistics request. This list contains aggregated data from the
 -- previous two weeks of sending activity.
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
-    { _gssrsSendDataPoints :: [SendDataPoint]
+    { _gssrSendDataPoints :: [SendDataPoint]
     } deriving (Show, Generic)
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
-gssrsSendDataPoints =
-    lens _gssrsSendDataPoints (\s a -> s { _gssrsSendDataPoints = a })
+gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
+gssrSendDataPoints =
+    lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
 
 instance FromXML GetSendStatisticsResponse where
     fromXMLOptions = xmlOptions

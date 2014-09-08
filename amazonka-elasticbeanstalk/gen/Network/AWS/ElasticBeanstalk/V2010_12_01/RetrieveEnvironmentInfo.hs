@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.RetrieveEnvironmentInfo
     -- * Response
     , RetrieveEnvironmentInfoResponse
     -- ** Response lenses
-    , reirsEnvironmentInfo
+    , reirEnvironmentInfo
     ) where
 
 import Network.AWS.Request.Query
@@ -88,13 +88,13 @@ instance ToQuery RetrieveEnvironmentInfo where
 
 -- | Result message containing a description of the requested environment info.
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
-    { _reirsEnvironmentInfo :: [EnvironmentInfoDescription]
+    { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
     } deriving (Show, Generic)
 
 -- | The EnvironmentInfoDescription of the environment.
-reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
-reirsEnvironmentInfo =
-    lens _reirsEnvironmentInfo (\s a -> s { _reirsEnvironmentInfo = a })
+reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
+reirEnvironmentInfo =
+    lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })
 
 instance FromXML RetrieveEnvironmentInfoResponse where
     fromXMLOptions = xmlOptions

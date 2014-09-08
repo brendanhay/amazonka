@@ -30,7 +30,7 @@ module Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
     -- * Response
     , BuildSuggestersResponse
     -- ** Response lenses
-    , bsrsFieldNames
+    , bsrFieldNames
     ) where
 
 import Network.AWS.Request.Query
@@ -64,12 +64,12 @@ instance ToQuery BuildSuggesters where
 -- | The result of a BuildSuggester request. Contains a list of the fields used
 -- for suggestions.
 newtype BuildSuggestersResponse = BuildSuggestersResponse
-    { _bsrsFieldNames :: [Text]
+    { _bsrFieldNames :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of field names.
-bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
-bsrsFieldNames = lens _bsrsFieldNames (\s a -> s { _bsrsFieldNames = a })
+bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
+bsrFieldNames = lens _bsrFieldNames (\s a -> s { _bsrFieldNames = a })
 
 instance FromXML BuildSuggestersResponse where
     fromXMLOptions = xmlOptions

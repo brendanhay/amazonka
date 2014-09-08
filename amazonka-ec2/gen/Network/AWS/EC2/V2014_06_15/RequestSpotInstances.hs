@@ -59,7 +59,7 @@ module Network.AWS.EC2.V2014_06_15.RequestSpotInstances
     -- * Response
     , RequestSpotInstancesResponse
     -- ** Response lenses
-    , rsirsSpotInstanceRequests
+    , rsirSpotInstanceRequests
     ) where
 
 import Network.AWS.Request.Query
@@ -161,14 +161,14 @@ instance ToQuery RequestSpotInstances where
 
 -- | 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
-    { _rsirsSpotInstanceRequests :: [SpotInstanceRequest]
+    { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Show, Generic)
 
 -- | Information about the Spot Instance request.
-rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
-rsirsSpotInstanceRequests =
-    lens _rsirsSpotInstanceRequests
-         (\s a -> s { _rsirsSpotInstanceRequests = a })
+rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
+rsirSpotInstanceRequests =
+    lens _rsirSpotInstanceRequests
+         (\s a -> s { _rsirSpotInstanceRequests = a })
 
 instance FromXML RequestSpotInstancesResponse where
     fromXMLOptions = xmlOptions

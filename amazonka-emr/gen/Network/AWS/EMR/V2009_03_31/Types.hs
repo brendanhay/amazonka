@@ -27,8 +27,6 @@ module Network.AWS.EMR.V2009_03_31.Types
     (
     -- * Service
       EMR
-    -- ** Errors
-    , Er (..)
     -- * ActionOnFailure
     , ActionOnFailure (..)
 
@@ -128,9 +126,9 @@ module Network.AWS.EMR.V2009_03_31.Types
     -- * ClusterSummary
     , ClusterSummary
     , mkClusterSummary
-    , csrsId
-    , csrsName
-    , csrsStatus
+    , csrId
+    , csrName
+    , csrStatus
 
     -- * ClusterTimeline
     , ClusterTimeline
@@ -142,9 +140,9 @@ module Network.AWS.EMR.V2009_03_31.Types
     -- * Command
     , Command
     , mkCommand
-    , crsName
-    , crsScriptPath
-    , crsArgs
+    , crName
+    , crScriptPath
+    , crArgs
 
     -- * Ec2InstanceAttributes
     , Ec2InstanceAttributes
@@ -385,9 +383,9 @@ module Network.AWS.EMR.V2009_03_31.Types
     -- * StepSummary
     , StepSummary
     , mkStepSummary
-    , ssrsId
-    , ssrsName
-    , ssrsStatus
+    , ssrId
+    , ssrName
+    , ssrStatus
 
     -- * StepTimeline
     , StepTimeline
@@ -1322,31 +1320,31 @@ instance ToJSON ClusterStatus
 
 -- | The summary description of the cluster.
 data ClusterSummary = ClusterSummary
-    { _csrsId :: Maybe Text
-    , _csrsName :: Maybe Text
-    , _csrsStatus :: Maybe ClusterStatus
+    { _csrId :: Maybe Text
+    , _csrName :: Maybe Text
+    , _csrStatus :: Maybe ClusterStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSummary' data type to populate a request.
 mkClusterSummary :: ClusterSummary
 mkClusterSummary = ClusterSummary
-    { _csrsId = Nothing
-    , _csrsName = Nothing
-    , _csrsStatus = Nothing
+    { _csrId = Nothing
+    , _csrName = Nothing
+    , _csrStatus = Nothing
     }
 
 -- | The unique identifier for the cluster.
-csrsId :: Lens' ClusterSummary (Maybe Text)
-csrsId = lens _csrsId (\s a -> s { _csrsId = a })
+csrId :: Lens' ClusterSummary (Maybe Text)
+csrId = lens _csrId (\s a -> s { _csrId = a })
 
 -- | The name of the cluster.
-csrsName :: Lens' ClusterSummary (Maybe Text)
-csrsName = lens _csrsName (\s a -> s { _csrsName = a })
+csrName :: Lens' ClusterSummary (Maybe Text)
+csrName = lens _csrName (\s a -> s { _csrName = a })
 
 -- | The details about the current status of the cluster.
-csrsStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
-csrsStatus = lens _csrsStatus (\s a -> s { _csrsStatus = a })
+csrStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
+csrStatus = lens _csrStatus (\s a -> s { _csrStatus = a })
 
 instance FromJSON ClusterSummary
 
@@ -1386,31 +1384,31 @@ instance ToJSON ClusterTimeline
 
 -- | An entity describing an executable that runs on a cluster.
 data Command = Command
-    { _crsName :: Maybe Text
-    , _crsScriptPath :: Maybe Text
-    , _crsArgs :: [Text]
+    { _crName :: Maybe Text
+    , _crScriptPath :: Maybe Text
+    , _crArgs :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Command' data type to populate a request.
 mkCommand :: Command
 mkCommand = Command
-    { _crsName = Nothing
-    , _crsScriptPath = Nothing
-    , _crsArgs = mempty
+    { _crName = Nothing
+    , _crScriptPath = Nothing
+    , _crArgs = mempty
     }
 
 -- | The name of the command.
-crsName :: Lens' Command (Maybe Text)
-crsName = lens _crsName (\s a -> s { _crsName = a })
+crName :: Lens' Command (Maybe Text)
+crName = lens _crName (\s a -> s { _crName = a })
 
 -- | The Amazon S3 location of the command script.
-crsScriptPath :: Lens' Command (Maybe Text)
-crsScriptPath = lens _crsScriptPath (\s a -> s { _crsScriptPath = a })
+crScriptPath :: Lens' Command (Maybe Text)
+crScriptPath = lens _crScriptPath (\s a -> s { _crScriptPath = a })
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
-crsArgs :: Lens' Command [Text]
-crsArgs = lens _crsArgs (\s a -> s { _crsArgs = a })
+crArgs :: Lens' Command [Text]
+crArgs = lens _crArgs (\s a -> s { _crArgs = a })
 
 instance FromJSON Command
 
@@ -2717,31 +2715,31 @@ instance ToJSON StepStatus
 
 -- | The summary of the cluster step.
 data StepSummary = StepSummary
-    { _ssrsId :: Maybe Text
-    , _ssrsName :: Maybe Text
-    , _ssrsStatus :: Maybe StepStatus
+    { _ssrId :: Maybe Text
+    , _ssrName :: Maybe Text
+    , _ssrStatus :: Maybe StepStatus
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepSummary' data type to populate a request.
 mkStepSummary :: StepSummary
 mkStepSummary = StepSummary
-    { _ssrsId = Nothing
-    , _ssrsName = Nothing
-    , _ssrsStatus = Nothing
+    { _ssrId = Nothing
+    , _ssrName = Nothing
+    , _ssrStatus = Nothing
     }
 
 -- | The identifier of the cluster step.
-ssrsId :: Lens' StepSummary (Maybe Text)
-ssrsId = lens _ssrsId (\s a -> s { _ssrsId = a })
+ssrId :: Lens' StepSummary (Maybe Text)
+ssrId = lens _ssrId (\s a -> s { _ssrId = a })
 
 -- | The name of the cluster step.
-ssrsName :: Lens' StepSummary (Maybe Text)
-ssrsName = lens _ssrsName (\s a -> s { _ssrsName = a })
+ssrName :: Lens' StepSummary (Maybe Text)
+ssrName = lens _ssrName (\s a -> s { _ssrName = a })
 
 -- | The current execution status details of the cluster step.
-ssrsStatus :: Lens' StepSummary (Maybe StepStatus)
-ssrsStatus = lens _ssrsStatus (\s a -> s { _ssrsStatus = a })
+ssrStatus :: Lens' StepSummary (Maybe StepStatus)
+ssrStatus = lens _ssrStatus (\s a -> s { _ssrStatus = a })
 
 instance FromJSON StepSummary
 

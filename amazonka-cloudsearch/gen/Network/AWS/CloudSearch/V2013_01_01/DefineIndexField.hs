@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineIndexField
     -- * Response
     , DefineIndexFieldResponse
     -- ** Response lenses
-    , difrsIndexField
+    , difrIndexField
     ) where
 
 import Network.AWS.Request.Query
@@ -80,12 +80,12 @@ instance ToQuery DefineIndexField where
 -- | The result of a DefineIndexField request. Contains the status of the
 -- newly-configured index field.
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
-    { _difrsIndexField :: IndexFieldStatus
+    { _difrIndexField :: IndexFieldStatus
     } deriving (Show, Generic)
 
 -- | The value of an IndexField and its current status.
-difrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
-difrsIndexField = lens _difrsIndexField (\s a -> s { _difrsIndexField = a })
+difrIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
+difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
 
 instance FromXML DefineIndexFieldResponse where
     fromXMLOptions = xmlOptions

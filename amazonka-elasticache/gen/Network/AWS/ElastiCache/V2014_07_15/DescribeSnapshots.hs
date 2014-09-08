@@ -44,8 +44,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response lenses
-    , dsrsrsMarker
-    , dsrsrsSnapshots
+    , dsrrMarker
+    , dsrrSnapshots
     ) where
 
 import Network.AWS.Request.Query
@@ -110,21 +110,21 @@ instance ToQuery DescribeSnapshots where
 
 -- | Represents the output of a DescribeSnapshots operation.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsrsrsMarker :: Maybe Text
-    , _dsrsrsSnapshots :: [Snapshot]
+    { _dsrrMarker :: Maybe Text
+    , _dsrrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dsrsrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsrsrsMarker = lens _dsrsrsMarker (\s a -> s { _dsrsrsMarker = a })
+dsrrMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsrrMarker = lens _dsrrMarker (\s a -> s { _dsrrMarker = a })
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsrsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrsrsSnapshots = lens _dsrsrsSnapshots (\s a -> s { _dsrsrsSnapshots = a })
+dsrrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrrSnapshots = lens _dsrrSnapshots (\s a -> s { _dsrrSnapshots = a })
 
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions

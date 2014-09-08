@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule
     -- * Response
     , DeleteSnapshotScheduleResponse
     -- ** Response lenses
-    , dssrsVolumeARN
+    , dssrVolumeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -81,11 +81,11 @@ instance ToHeaders DeleteSnapshotSchedule
 instance ToJSON DeleteSnapshotSchedule
 
 newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
-    { _dssrsVolumeARN :: Maybe Text
+    { _dssrVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
-dssrsVolumeARN = lens _dssrsVolumeARN (\s a -> s { _dssrsVolumeARN = a })
+dssrVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
+dssrVolumeARN = lens _dssrVolumeARN (\s a -> s { _dssrVolumeARN = a })
 
 instance FromJSON DeleteSnapshotScheduleResponse
 

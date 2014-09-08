@@ -47,7 +47,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes
     -- * Response
     , DescribeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
-    , dlbptrsPolicyTypeDescriptions
+    , dlbptrPolicyTypeDescriptions
     ) where
 
 import Network.AWS.Request.Query
@@ -78,16 +78,16 @@ instance ToQuery DescribeLoadBalancerPolicyTypes where
 
 -- | The output for the DescribeLoadBalancerPolicyTypes action.
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
-    { _dlbptrsPolicyTypeDescriptions :: [PolicyTypeDescription]
+    { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
     } deriving (Show, Generic)
 
 -- | List of policy type description structures of the specified policy type. If
 -- no policy type names are specified, returns the description of all the
 -- policy types defined by Elastic Load Balancing service.
-dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
-dlbptrsPolicyTypeDescriptions =
-    lens _dlbptrsPolicyTypeDescriptions
-         (\s a -> s { _dlbptrsPolicyTypeDescriptions = a })
+dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
+dlbptrPolicyTypeDescriptions =
+    lens _dlbptrPolicyTypeDescriptions
+         (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
 
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
     fromXMLOptions = xmlOptions

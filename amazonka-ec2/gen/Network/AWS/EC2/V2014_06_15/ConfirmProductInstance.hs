@@ -43,7 +43,7 @@ module Network.AWS.EC2.V2014_06_15.ConfirmProductInstance
     -- * Response
     , ConfirmProductInstanceResponse
     -- ** Response lenses
-    , cpirsOwnerId
+    , cpirOwnerId
     ) where
 
 import Network.AWS.Request.Query
@@ -79,13 +79,13 @@ instance ToQuery ConfirmProductInstance where
 
 -- | 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
-    { _cpirsOwnerId :: Maybe Text
+    { _cpirOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.
-cpirsOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
-cpirsOwnerId = lens _cpirsOwnerId (\s a -> s { _cpirsOwnerId = a })
+cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
+cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
 
 instance FromXML ConfirmProductInstanceResponse where
     fromXMLOptions = xmlOptions

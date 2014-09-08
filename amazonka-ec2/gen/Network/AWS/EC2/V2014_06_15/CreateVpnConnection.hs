@@ -84,7 +84,7 @@ module Network.AWS.EC2.V2014_06_15.CreateVpnConnection
     -- * Response
     , CreateVpnConnectionResponse
     -- ** Response lenses
-    , cvcrsVpnConnection
+    , cvcrVpnConnection
     ) where
 
 import Network.AWS.Request.Query
@@ -136,13 +136,13 @@ instance ToQuery CreateVpnConnection where
 
 -- | 
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
-    { _cvcrsVpnConnection :: Maybe VpnConnection
+    { _cvcrVpnConnection :: Maybe VpnConnection
     } deriving (Show, Generic)
 
 -- | Information about the VPN connection.
-cvcrsVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
-cvcrsVpnConnection =
-    lens _cvcrsVpnConnection (\s a -> s { _cvcrsVpnConnection = a })
+cvcrVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
+cvcrVpnConnection =
+    lens _cvcrVpnConnection (\s a -> s { _cvcrVpnConnection = a })
 
 instance FromXML CreateVpnConnectionResponse where
     fromXMLOptions = xmlOptions

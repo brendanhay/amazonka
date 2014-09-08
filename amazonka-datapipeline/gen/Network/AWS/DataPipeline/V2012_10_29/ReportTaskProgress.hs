@@ -50,7 +50,7 @@ module Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress
     -- * Response
     , ReportTaskProgressResponse
     -- ** Response lenses
-    , rtprsCanceled
+    , rtprCanceled
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -86,13 +86,13 @@ instance ToJSON ReportTaskProgress
 
 -- | Contains the output from the ReportTaskProgress action.
 newtype ReportTaskProgressResponse = ReportTaskProgressResponse
-    { _rtprsCanceled :: Bool
+    { _rtprCanceled :: Bool
     } deriving (Show, Generic)
 
 -- | If True, the calling task runner should cancel processing of the task. The
 -- task runner does not need to call SetTaskStatus for canceled tasks.
-rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
-rtprsCanceled = lens _rtprsCanceled (\s a -> s { _rtprsCanceled = a })
+rtprCanceled :: Lens' ReportTaskProgressResponse Bool
+rtprCanceled = lens _rtprCanceled (\s a -> s { _rtprCanceled = a })
 
 instance FromJSON ReportTaskProgressResponse
 

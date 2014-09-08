@@ -29,7 +29,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DescribeLocations
     -- * Response
     , DescribeLocationsResponse
     -- ** Response lenses
-    , dlrsLocations
+    , dlrLocations
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -53,11 +53,11 @@ instance ToHeaders DescribeLocations
 instance ToJSON DescribeLocations
 
 newtype DescribeLocationsResponse = DescribeLocationsResponse
-    { _dlrsLocations :: [Location]
+    { _dlrLocations :: [Location]
     } deriving (Show, Generic)
 
-dlrsLocations :: Lens' DescribeLocationsResponse [Location]
-dlrsLocations = lens _dlrsLocations (\s a -> s { _dlrsLocations = a })
+dlrLocations :: Lens' DescribeLocationsResponse [Location]
+dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a })
 
 instance FromJSON DescribeLocationsResponse
 

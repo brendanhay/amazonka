@@ -45,9 +45,9 @@ module Network.AWS.IAM.V2010_05_08.ListServerCertificates
     -- * Response
     , ListServerCertificatesResponse
     -- ** Response lenses
-    , lscrsServerCertificateMetadataList
-    , lscrsIsTruncated
-    , lscrsMarker
+    , lscrServerCertificateMetadataList
+    , lscrIsTruncated
+    , lscrMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -97,29 +97,28 @@ instance ToQuery ListServerCertificates where
 -- | Contains the result of a successful invocation of the
 -- ListServerCertificates action.
 data ListServerCertificatesResponse = ListServerCertificatesResponse
-    { _lscrsServerCertificateMetadataList :: [ServerCertificateMetadata]
-    , _lscrsIsTruncated :: Bool
-    , _lscrsMarker :: Maybe Text
+    { _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
+    , _lscrIsTruncated :: Bool
+    , _lscrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of server certificates.
-lscrsServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
-lscrsServerCertificateMetadataList =
-    lens _lscrsServerCertificateMetadataList
-         (\s a -> s { _lscrsServerCertificateMetadataList = a })
+lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
+lscrServerCertificateMetadataList =
+    lens _lscrServerCertificateMetadataList
+         (\s a -> s { _lscrServerCertificateMetadataList = a })
 
 -- | A flag that indicates whether there are more server certificates to list.
 -- If your results were truncated, you can make a subsequent pagination
 -- request using the Marker request parameter to retrieve more server
 -- certificates in the list.
-lscrsIsTruncated :: Lens' ListServerCertificatesResponse Bool
-lscrsIsTruncated =
-    lens _lscrsIsTruncated (\s a -> s { _lscrsIsTruncated = a })
+lscrIsTruncated :: Lens' ListServerCertificatesResponse Bool
+lscrIsTruncated = lens _lscrIsTruncated (\s a -> s { _lscrIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lscrsMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
-lscrsMarker = lens _lscrsMarker (\s a -> s { _lscrsMarker = a })
+lscrMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
+lscrMarker = lens _lscrMarker (\s a -> s { _lscrMarker = a })
 
 instance FromXML ListServerCertificatesResponse where
     fromXMLOptions = xmlOptions
@@ -133,6 +132,6 @@ instance AWSRequest ListServerCertificates where
 
 instance AWSPager ListServerCertificates where
     next rq rs
-        | not (rs ^. lscrsIsTruncated) = Nothing
+        | not (rs ^. lscrIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lscMarker .~ rs ^. lscrsMarker
+            rq & lscMarker .~ rs ^. lscrMarker

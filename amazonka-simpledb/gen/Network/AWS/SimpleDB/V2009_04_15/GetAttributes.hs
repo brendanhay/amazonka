@@ -40,7 +40,7 @@ module Network.AWS.SimpleDB.V2009_04_15.GetAttributes
     -- * Response
     , GetAttributesResponse
     -- ** Response lenses
-    , garsAttributes
+    , garAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -91,12 +91,12 @@ instance ToQuery GetAttributes where
     toQuery = genericQuery def
 
 newtype GetAttributesResponse = GetAttributesResponse
-    { _garsAttributes :: [Attribute]
+    { _garAttributes :: [Attribute]
     } deriving (Show, Generic)
 
 -- | The list of attributes returned by the operation.
-garsAttributes :: Lens' GetAttributesResponse [Attribute]
-garsAttributes = lens _garsAttributes (\s a -> s { _garsAttributes = a })
+garAttributes :: Lens' GetAttributesResponse [Attribute]
+garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
 
 instance FromXML GetAttributesResponse where
     fromXMLOptions = xmlOptions

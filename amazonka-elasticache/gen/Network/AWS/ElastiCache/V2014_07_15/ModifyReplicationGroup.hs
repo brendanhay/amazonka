@@ -57,7 +57,7 @@ module Network.AWS.ElastiCache.V2014_07_15.ModifyReplicationGroup
     -- * Response
     , ModifyReplicationGroupResponse
     -- ** Response lenses
-    , mrgrsReplicationGroup
+    , mrgrReplicationGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -230,13 +230,13 @@ instance ToQuery ModifyReplicationGroup where
     toQuery = genericQuery def
 
 newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
-    { _mrgrsReplicationGroup :: Maybe ReplicationGroup
+    { _mrgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Show, Generic)
 
 -- | Contains all of the attributes of a specific replication group.
-mrgrsReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
-mrgrsReplicationGroup =
-    lens _mrgrsReplicationGroup (\s a -> s { _mrgrsReplicationGroup = a })
+mrgrReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
+mrgrReplicationGroup =
+    lens _mrgrReplicationGroup (\s a -> s { _mrgrReplicationGroup = a })
 
 instance FromXML ModifyReplicationGroupResponse where
     fromXMLOptions = xmlOptions

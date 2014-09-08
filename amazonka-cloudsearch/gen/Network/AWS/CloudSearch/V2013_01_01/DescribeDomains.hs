@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeDomains
     -- * Response
     , DescribeDomainsResponse
     -- ** Response lenses
-    , ddrsrsDomainStatusList
+    , ddrrDomainStatusList
     ) where
 
 import Network.AWS.Request.Query
@@ -67,13 +67,13 @@ instance ToQuery DescribeDomains where
 -- | The result of a DescribeDomains request. Contains the status of the domains
 -- specified in the request or all domains owned by the account.
 newtype DescribeDomainsResponse = DescribeDomainsResponse
-    { _ddrsrsDomainStatusList :: [DomainStatus]
+    { _ddrrDomainStatusList :: [DomainStatus]
     } deriving (Show, Generic)
 
 -- | A list that contains the status of each requested domain.
-ddrsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddrsrsDomainStatusList =
-    lens _ddrsrsDomainStatusList (\s a -> s { _ddrsrsDomainStatusList = a })
+ddrrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+ddrrDomainStatusList =
+    lens _ddrrDomainStatusList (\s a -> s { _ddrrDomainStatusList = a })
 
 instance FromXML DescribeDomainsResponse where
     fromXMLOptions = xmlOptions

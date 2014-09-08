@@ -36,8 +36,6 @@ module Network.AWS.SimpleDB.V2009_04_15.Types
     (
     -- * Service
       SimpleDB
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

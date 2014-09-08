@@ -76,7 +76,7 @@ module Network.AWS.IAM.V2010_05_08.UploadSigningCertificate
     -- * Response
     , UploadSigningCertificateResponse
     -- ** Response lenses
-    , uscrsrsCertificate
+    , uscrrCertificate
     ) where
 
 import Network.AWS.Request.Query
@@ -113,13 +113,13 @@ instance ToQuery UploadSigningCertificate where
 -- | Contains the result of a successful invocation of the
 -- UploadSigningCertificate action.
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
-    { _uscrsrsCertificate :: SigningCertificate
+    { _uscrrCertificate :: SigningCertificate
     } deriving (Show, Generic)
 
 -- | Information about the certificate.
-uscrsrsCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
-uscrsrsCertificate =
-    lens _uscrsrsCertificate (\s a -> s { _uscrsrsCertificate = a })
+uscrrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
+uscrrCertificate =
+    lens _uscrrCertificate (\s a -> s { _uscrrCertificate = a })
 
 instance FromXML UploadSigningCertificateResponse where
     fromXMLOptions = xmlOptions

@@ -42,7 +42,7 @@ module Network.AWS.EC2.V2014_06_15.CreateNetworkAcl
     -- * Response
     , CreateNetworkAclResponse
     -- ** Response lenses
-    , cnarsNetworkAcl
+    , cnarNetworkAcl
     ) where
 
 import Network.AWS.Request.Query
@@ -71,12 +71,12 @@ instance ToQuery CreateNetworkAcl where
 
 -- | 
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
-    { _cnarsNetworkAcl :: Maybe NetworkAcl
+    { _cnarNetworkAcl :: Maybe NetworkAcl
     } deriving (Show, Generic)
 
 -- | Information about the network ACL.
-cnarsNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
-cnarsNetworkAcl = lens _cnarsNetworkAcl (\s a -> s { _cnarsNetworkAcl = a })
+cnarNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
+cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
 
 instance FromXML CreateNetworkAclResponse where
     fromXMLOptions = xmlOptions

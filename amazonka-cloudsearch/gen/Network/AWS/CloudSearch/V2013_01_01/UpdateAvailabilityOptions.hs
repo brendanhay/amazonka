@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions
     -- * Response
     , UpdateAvailabilityOptionsResponse
     -- ** Response lenses
-    , uaorsAvailabilityOptions
+    , uaorAvailabilityOptions
     ) where
 
 import Network.AWS.Request.Query
@@ -81,15 +81,15 @@ instance ToQuery UpdateAvailabilityOptions where
 -- | The result of a UpdateAvailabilityOptions request. Contains the status of
 -- the domain's availability options.
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
-    { _uaorsAvailabilityOptions :: Maybe AvailabilityOptionsStatus
+    { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
     } deriving (Show, Generic)
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
-uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-uaorsAvailabilityOptions =
-    lens _uaorsAvailabilityOptions
-         (\s a -> s { _uaorsAvailabilityOptions = a })
+uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
+uaorAvailabilityOptions =
+    lens _uaorAvailabilityOptions
+         (\s a -> s { _uaorAvailabilityOptions = a })
 
 instance FromXML UpdateAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions

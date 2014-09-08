@@ -47,7 +47,7 @@ module Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes
     -- * Response
     , GetIdentityNotificationAttributesResponse
     -- ** Response lenses
-    , ginarsNotificationAttributes
+    , ginarNotificationAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -80,14 +80,14 @@ instance ToQuery GetIdentityNotificationAttributes where
 -- notifications, and specifies whether feedback forwarding is enabled for
 -- bounce and complaint notifications.
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
-    { _ginarsNotificationAttributes :: Map Text IdentityNotificationAttributes
+    { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
     } deriving (Show, Generic)
 
 -- | A map of Identity to IdentityNotificationAttributes.
-ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
-ginarsNotificationAttributes =
-    lens _ginarsNotificationAttributes
-         (\s a -> s { _ginarsNotificationAttributes = a })
+ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
+ginarNotificationAttributes =
+    lens _ginarNotificationAttributes
+         (\s a -> s { _ginarNotificationAttributes = a })
 
 instance FromXML GetIdentityNotificationAttributesResponse where
     fromXMLOptions = xmlOptions

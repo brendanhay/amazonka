@@ -39,7 +39,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeRegions
     -- * Response
     , DescribeRegionsResponse
     -- ** Response lenses
-    , drrsRegions
+    , drrRegions
     ) where
 
 import Network.AWS.Request.Query
@@ -75,12 +75,12 @@ instance ToQuery DescribeRegions where
 
 -- | 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
-    { _drrsRegions :: [Region]
+    { _drrRegions :: [Region]
     } deriving (Show, Generic)
 
 -- | Information about one or more regions.
-drrsRegions :: Lens' DescribeRegionsResponse [Region]
-drrsRegions = lens _drrsRegions (\s a -> s { _drrsRegions = a })
+drrRegions :: Lens' DescribeRegionsResponse [Region]
+drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
 
 instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions

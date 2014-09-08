@@ -50,8 +50,8 @@ module Network.AWS.Route53Domains.V2014_05_15.ListDomains
     -- * Response
     , ListDomainsResponse
     -- ** Response lenses
-    , ldrsDomains
-    , ldrsNextPageMarker
+    , ldrDomains
+    , ldrNextPageMarker
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -98,21 +98,21 @@ instance ToJSON ListDomains
 
 -- | The ListDomains response includes the following elements.
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrsDomains :: [DomainSummary]
-    , _ldrsNextPageMarker :: Maybe Text
+    { _ldrDomains :: [DomainSummary]
+    , _ldrNextPageMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A summary of domains. Type: Complex type containing a list of domain
 -- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.
-ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
-ldrsDomains = lens _ldrsDomains (\s a -> s { _ldrsDomains = a })
+ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
+ldrDomains = lens _ldrDomains (\s a -> s { _ldrDomains = a })
 
 -- | If there are more domains than you specified for MaxItems in the request,
 -- submit another request and include the value of NextPageMarker in the value
 -- of Marker. Type: String Parent: Operations.
-ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextPageMarker =
-    lens _ldrsNextPageMarker (\s a -> s { _ldrsNextPageMarker = a })
+ldrNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
+ldrNextPageMarker =
+    lens _ldrNextPageMarker (\s a -> s { _ldrNextPageMarker = a })
 
 instance FromJSON ListDomainsResponse
 

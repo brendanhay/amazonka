@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DefineSuggester
     -- * Response
     , DefineSuggesterResponse
     -- ** Response lenses
-    , dsrsSuggester
+    , dsrSuggester
     ) where
 
 import Network.AWS.Request.Query
@@ -80,12 +80,12 @@ instance ToQuery DefineSuggester where
 -- | The result of a DefineSuggester request. Contains the status of the
 -- newly-configured suggester.
 newtype DefineSuggesterResponse = DefineSuggesterResponse
-    { _dsrsSuggester :: SuggesterStatus
+    { _dsrSuggester :: SuggesterStatus
     } deriving (Show, Generic)
 
 -- | The value of a Suggester and its current status.
-dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
-dsrsSuggester = lens _dsrsSuggester (\s a -> s { _dsrsSuggester = a })
+dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
+dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
 
 instance FromXML DefineSuggesterResponse where
     fromXMLOptions = xmlOptions

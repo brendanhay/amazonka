@@ -31,8 +31,8 @@ module Network.AWS.EMR.V2009_03_31.ListInstanceGroups
     -- * Response
     , ListInstanceGroupsResponse
     -- ** Response lenses
-    , ligrsInstanceGroups
-    , ligrsMarker
+    , ligrInstanceGroups
+    , ligrMarker
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -72,18 +72,18 @@ instance ToJSON ListInstanceGroups
 
 -- | This input determines which instance groups to retrieve.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse
-    { _ligrsInstanceGroups :: [InstanceGroup]
-    , _ligrsMarker :: Maybe Text
+    { _ligrInstanceGroups :: [InstanceGroup]
+    , _ligrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of instance groups for the cluster and given filters.
-ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
-ligrsInstanceGroups =
-    lens _ligrsInstanceGroups (\s a -> s { _ligrsInstanceGroups = a })
+ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
+ligrInstanceGroups =
+    lens _ligrInstanceGroups (\s a -> s { _ligrInstanceGroups = a })
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
-ligrsMarker = lens _ligrsMarker (\s a -> s { _ligrsMarker = a })
+ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
+ligrMarker = lens _ligrMarker (\s a -> s { _ligrMarker = a })
 
 instance FromJSON ListInstanceGroupsResponse
 
@@ -96,4 +96,4 @@ instance AWSRequest ListInstanceGroups where
 
 instance AWSPager ListInstanceGroups where
     next rq rs = (\x -> rq & ligMarker ?~ x)
-        <$> (rs ^. ligrsMarker)
+        <$> (rs ^. ligrMarker)

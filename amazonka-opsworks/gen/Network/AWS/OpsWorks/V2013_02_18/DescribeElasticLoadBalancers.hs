@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers
     -- * Response
     , DescribeElasticLoadBalancersResponse
     -- ** Response lenses
-    , delbrsElasticLoadBalancers
+    , delbrElasticLoadBalancers
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -75,15 +75,15 @@ instance ToJSON DescribeElasticLoadBalancers
 
 -- | Contains the response to a DescribeElasticLoadBalancers request.
 newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
-    { _delbrsElasticLoadBalancers :: [ElasticLoadBalancer]
+    { _delbrElasticLoadBalancers :: [ElasticLoadBalancer]
     } deriving (Show, Generic)
 
 -- | A list of ElasticLoadBalancer objects that describe the specified Elastic
 -- Load Balancing instances.
-delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
-delbrsElasticLoadBalancers =
-    lens _delbrsElasticLoadBalancers
-         (\s a -> s { _delbrsElasticLoadBalancers = a })
+delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
+delbrElasticLoadBalancers =
+    lens _delbrElasticLoadBalancers
+         (\s a -> s { _delbrElasticLoadBalancers = a })
 
 instance FromJSON DescribeElasticLoadBalancersResponse
 

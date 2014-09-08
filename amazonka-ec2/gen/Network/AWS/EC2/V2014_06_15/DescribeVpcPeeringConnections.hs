@@ -63,7 +63,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcPeeringConnections
     -- * Response
     , DescribeVpcPeeringConnectionsResponse
     -- ** Response lenses
-    , dvpcrsrsVpcPeeringConnections
+    , dvpcrrVpcPeeringConnections
     ) where
 
 import Network.AWS.Request.Query
@@ -119,14 +119,14 @@ instance ToQuery DescribeVpcPeeringConnections where
 
 -- | 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
-    { _dvpcrsrsVpcPeeringConnections :: [VpcPeeringConnection]
+    { _dvpcrrVpcPeeringConnections :: [VpcPeeringConnection]
     } deriving (Show, Generic)
 
 -- | Information about the VPC peering connections.
-dvpcrsrsVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
-dvpcrsrsVpcPeeringConnections =
-    lens _dvpcrsrsVpcPeeringConnections
-         (\s a -> s { _dvpcrsrsVpcPeeringConnections = a })
+dvpcrrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
+dvpcrrVpcPeeringConnections =
+    lens _dvpcrrVpcPeeringConnections
+         (\s a -> s { _dvpcrrVpcPeeringConnections = a })
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     fromXMLOptions = xmlOptions

@@ -64,12 +64,12 @@ module Network.AWS.EC2.V2014_06_15.AttachVolume
     -- * Response
     , AttachVolumeResponse
     -- ** Response lenses
-    , avrsVolumeId
-    , avrsInstanceId
-    , avrsDevice
-    , avrsState
-    , avrsAttachTime
-    , avrsDeleteOnTermination
+    , avrVolumeId
+    , avrInstanceId
+    , avrDevice
+    , avrState
+    , avrAttachTime
+    , avrDeleteOnTermination
     ) where
 
 import Network.AWS.Request.Query
@@ -113,39 +113,38 @@ instance ToQuery AttachVolume where
 
 -- | 
 data AttachVolumeResponse = AttachVolumeResponse
-    { _avrsVolumeId :: Maybe Text
-    , _avrsInstanceId :: Maybe Text
-    , _avrsDevice :: Maybe Text
-    , _avrsState :: Maybe VolumeAttachmentState
-    , _avrsAttachTime :: Maybe ISO8601
-    , _avrsDeleteOnTermination :: Maybe Bool
+    { _avrVolumeId :: Maybe Text
+    , _avrInstanceId :: Maybe Text
+    , _avrDevice :: Maybe Text
+    , _avrState :: Maybe VolumeAttachmentState
+    , _avrAttachTime :: Maybe ISO8601
+    , _avrDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | The ID of the volume.
-avrsVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
-avrsVolumeId = lens _avrsVolumeId (\s a -> s { _avrsVolumeId = a })
+avrVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
+avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
 
 -- | The ID of the instance.
-avrsInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
-avrsInstanceId = lens _avrsInstanceId (\s a -> s { _avrsInstanceId = a })
+avrInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
+avrInstanceId = lens _avrInstanceId (\s a -> s { _avrInstanceId = a })
 
 -- | The device name.
-avrsDevice :: Lens' AttachVolumeResponse (Maybe Text)
-avrsDevice = lens _avrsDevice (\s a -> s { _avrsDevice = a })
+avrDevice :: Lens' AttachVolumeResponse (Maybe Text)
+avrDevice = lens _avrDevice (\s a -> s { _avrDevice = a })
 
 -- | The attachment state of the volume.
-avrsState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
-avrsState = lens _avrsState (\s a -> s { _avrsState = a })
+avrState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
+avrState = lens _avrState (\s a -> s { _avrState = a })
 
 -- | The time stamp when the attachment initiated.
-avrsAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)
-avrsAttachTime = lens _avrsAttachTime (\s a -> s { _avrsAttachTime = a })
+avrAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)
+avrAttachTime = lens _avrAttachTime (\s a -> s { _avrAttachTime = a })
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
-avrsDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
-avrsDeleteOnTermination =
-    lens _avrsDeleteOnTermination
-         (\s a -> s { _avrsDeleteOnTermination = a })
+avrDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
+avrDeleteOnTermination =
+    lens _avrDeleteOnTermination (\s a -> s { _avrDeleteOnTermination = a })
 
 instance FromXML AttachVolumeResponse where
     fromXMLOptions = xmlOptions

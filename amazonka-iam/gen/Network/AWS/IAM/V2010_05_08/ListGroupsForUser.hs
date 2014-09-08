@@ -37,9 +37,9 @@ module Network.AWS.IAM.V2010_05_08.ListGroupsForUser
     -- * Response
     , ListGroupsForUserResponse
     -- ** Response lenses
-    , lgfursGroups
-    , lgfursIsTruncated
-    , lgfursMarker
+    , lgfurGroups
+    , lgfurIsTruncated
+    , lgfurMarker
     ) where
 
 import Network.AWS.Request.Query
@@ -86,26 +86,26 @@ instance ToQuery ListGroupsForUser where
 -- | Contains the result of a successful invocation of the ListGroupsForUser
 -- action.
 data ListGroupsForUserResponse = ListGroupsForUserResponse
-    { _lgfursGroups :: [Group]
-    , _lgfursIsTruncated :: Bool
-    , _lgfursMarker :: Maybe Text
+    { _lgfurGroups :: [Group]
+    , _lgfurIsTruncated :: Bool
+    , _lgfurMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of groups.
-lgfursGroups :: Lens' ListGroupsForUserResponse [Group]
-lgfursGroups = lens _lgfursGroups (\s a -> s { _lgfursGroups = a })
+lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
+lgfurGroups = lens _lgfurGroups (\s a -> s { _lgfurGroups = a })
 
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the Marker request parameter to retrieve more groups in the list.
-lgfursIsTruncated :: Lens' ListGroupsForUserResponse Bool
-lgfursIsTruncated =
-    lens _lgfursIsTruncated (\s a -> s { _lgfursIsTruncated = a })
+lgfurIsTruncated :: Lens' ListGroupsForUserResponse Bool
+lgfurIsTruncated =
+    lens _lgfurIsTruncated (\s a -> s { _lgfurIsTruncated = a })
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
-lgfursMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
-lgfursMarker = lens _lgfursMarker (\s a -> s { _lgfursMarker = a })
+lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
+lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
 
 instance FromXML ListGroupsForUserResponse where
     fromXMLOptions = xmlOptions
@@ -119,6 +119,6 @@ instance AWSRequest ListGroupsForUser where
 
 instance AWSPager ListGroupsForUser where
     next rq rs
-        | not (rs ^. lgfursIsTruncated) = Nothing
+        | not (rs ^. lgfurIsTruncated) = Nothing
         | otherwise = Just $
-            rq & lgfuMarker .~ rs ^. lgfursMarker
+            rq & lgfuMarker .~ rs ^. lgfurMarker

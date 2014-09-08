@@ -39,7 +39,7 @@ module Network.AWS.RDS.V2013_09_09.CreateOptionGroup
     -- * Response
     , CreateOptionGroupResponse
     -- ** Response lenses
-    , cogrsOptionGroup
+    , cogrOptionGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -103,13 +103,12 @@ instance ToQuery CreateOptionGroup where
     toQuery = genericQuery def
 
 newtype CreateOptionGroupResponse = CreateOptionGroupResponse
-    { _cogrsOptionGroup :: Maybe OptionGroup
+    { _cogrOptionGroup :: Maybe OptionGroup
     } deriving (Show, Generic)
 
 -- | 
-cogrsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
-cogrsOptionGroup =
-    lens _cogrsOptionGroup (\s a -> s { _cogrsOptionGroup = a })
+cogrOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
+cogrOptionGroup = lens _cogrOptionGroup (\s a -> s { _cogrOptionGroup = a })
 
 instance FromXML CreateOptionGroupResponse where
     fromXMLOptions = xmlOptions

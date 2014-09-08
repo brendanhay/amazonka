@@ -42,8 +42,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances
     -- * Response
     , DescribeAutoScalingInstancesResponse
     -- ** Response lenses
-    , dasirsAutoScalingInstances
-    , dasirsNextToken
+    , dasirAutoScalingInstances
+    , dasirNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -88,19 +88,19 @@ instance ToQuery DescribeAutoScalingInstances where
 
 -- | The AutoScalingInstancesType data type.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
-    { _dasirsAutoScalingInstances :: [AutoScalingInstanceDetails]
-    , _dasirsNextToken :: Maybe Text
+    { _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]
+    , _dasirNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of Auto Scaling instances.
-dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
-dasirsAutoScalingInstances =
-    lens _dasirsAutoScalingInstances
-         (\s a -> s { _dasirsAutoScalingInstances = a })
+dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
+dasirAutoScalingInstances =
+    lens _dasirAutoScalingInstances
+         (\s a -> s { _dasirAutoScalingInstances = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dasirsNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
-dasirsNextToken = lens _dasirsNextToken (\s a -> s { _dasirsNextToken = a })
+dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
+dasirNextToken = lens _dasirNextToken (\s a -> s { _dasirNextToken = a })
 
 instance FromXML DescribeAutoScalingInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -114,4 +114,4 @@ instance AWSRequest DescribeAutoScalingInstances where
 
 instance AWSPager DescribeAutoScalingInstances where
     next rq rs = (\x -> rq & dasiNextToken ?~ x)
-        <$> (rs ^. dasirsNextToken)
+        <$> (rs ^. dasirNextToken)

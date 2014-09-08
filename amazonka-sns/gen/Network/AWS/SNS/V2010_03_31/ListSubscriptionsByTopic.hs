@@ -52,8 +52,8 @@ module Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic
     -- * Response
     , ListSubscriptionsByTopicResponse
     -- ** Response lenses
-    , lsbtrsSubscriptions
-    , lsbtrsNextToken
+    , lsbtrSubscriptions
+    , lsbtrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -88,19 +88,19 @@ instance ToQuery ListSubscriptionsByTopic where
 
 -- | Response for ListSubscriptionsByTopic action.
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
-    { _lsbtrsSubscriptions :: [Subscription]
-    , _lsbtrsNextToken :: Maybe Text
+    { _lsbtrSubscriptions :: [Subscription]
+    , _lsbtrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of subscriptions.
-lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
-lsbtrsSubscriptions =
-    lens _lsbtrsSubscriptions (\s a -> s { _lsbtrsSubscriptions = a })
+lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
+lsbtrSubscriptions =
+    lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
 
 -- | Token to pass along to the next ListSubscriptionsByTopic request. This
 -- element is returned if there are more subscriptions to retrieve.
-lsbtrsNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
-lsbtrsNextToken = lens _lsbtrsNextToken (\s a -> s { _lsbtrsNextToken = a })
+lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
+lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
 
 instance FromXML ListSubscriptionsByTopicResponse where
     fromXMLOptions = xmlOptions
@@ -114,4 +114,4 @@ instance AWSRequest ListSubscriptionsByTopic where
 
 instance AWSPager ListSubscriptionsByTopic where
     next rq rs = (\x -> rq & lsbtNextToken ?~ x)
-        <$> (rs ^. lsbtrsNextToken)
+        <$> (rs ^. lsbtrNextToken)

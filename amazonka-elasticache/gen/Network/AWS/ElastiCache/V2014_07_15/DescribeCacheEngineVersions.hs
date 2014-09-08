@@ -42,8 +42,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheEngineVersions
     -- * Response
     , DescribeCacheEngineVersionsResponse
     -- ** Response lenses
-    , dcevrsMarker
-    , dcevrsCacheEngineVersions
+    , dcevrMarker
+    , dcevrCacheEngineVersions
     ) where
 
 import Network.AWS.Request.Query
@@ -113,20 +113,20 @@ instance ToQuery DescribeCacheEngineVersions where
 
 -- | Represents the output of a DescribeCacheEngineVersions operation.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
-    { _dcevrsMarker :: Maybe Text
-    , _dcevrsCacheEngineVersions :: [CacheEngineVersion]
+    { _dcevrMarker :: Maybe Text
+    , _dcevrCacheEngineVersions :: [CacheEngineVersion]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcevrsMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
-dcevrsMarker = lens _dcevrsMarker (\s a -> s { _dcevrsMarker = a })
+dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
+dcevrMarker = lens _dcevrMarker (\s a -> s { _dcevrMarker = a })
 
 -- | A list of cache engine version details. Each element in the list contains
 -- detailed information about once cache engine version.
-dcevrsCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
-dcevrsCacheEngineVersions =
-    lens _dcevrsCacheEngineVersions
-         (\s a -> s { _dcevrsCacheEngineVersions = a })
+dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
+dcevrCacheEngineVersions =
+    lens _dcevrCacheEngineVersions
+         (\s a -> s { _dcevrCacheEngineVersions = a })
 
 instance FromXML DescribeCacheEngineVersionsResponse where
     fromXMLOptions = xmlOptions
@@ -140,4 +140,4 @@ instance AWSRequest DescribeCacheEngineVersions where
 
 instance AWSPager DescribeCacheEngineVersions where
     next rq rs = (\x -> rq & dcevMarker ?~ x)
-        <$> (rs ^. dcevrsMarker)
+        <$> (rs ^. dcevrMarker)

@@ -43,7 +43,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DetachInstances
     -- * Response
     , DetachInstancesResponse
     -- ** Response lenses
-    , dirsActivities
+    , dirActivities
     ) where
 
 import Network.AWS.Request.Query
@@ -91,13 +91,13 @@ instance ToQuery DetachInstances where
 
 -- | The output of the DetachInstances action.
 newtype DetachInstancesResponse = DetachInstancesResponse
-    { _dirsActivities :: [Activity]
+    { _dirActivities :: [Activity]
     } deriving (Show, Generic)
 
 -- | A list describing the activities related to detaching the instances from
 -- the Auto Scaling group.
-dirsActivities :: Lens' DetachInstancesResponse [Activity]
-dirsActivities = lens _dirsActivities (\s a -> s { _dirsActivities = a })
+dirActivities :: Lens' DetachInstancesResponse [Activity]
+dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a })
 
 instance FromXML DetachInstancesResponse where
     fromXMLOptions = xmlOptions

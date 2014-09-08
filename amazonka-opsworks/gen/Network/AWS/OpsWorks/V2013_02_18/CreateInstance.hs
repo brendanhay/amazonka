@@ -48,7 +48,7 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateInstance
     -- * Response
     , CreateInstanceResponse
     -- ** Response lenses
-    , cirsInstanceId
+    , cirInstanceId
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -204,12 +204,12 @@ instance ToJSON CreateInstance
 
 -- | Contains the response to a CreateInstance request.
 newtype CreateInstanceResponse = CreateInstanceResponse
-    { _cirsInstanceId :: Maybe Text
+    { _cirInstanceId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The instance ID.
-cirsInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
-cirsInstanceId = lens _cirsInstanceId (\s a -> s { _cirsInstanceId = a })
+cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
+cirInstanceId = lens _cirInstanceId (\s a -> s { _cirInstanceId = a })
 
 instance FromJSON CreateInstanceResponse
 

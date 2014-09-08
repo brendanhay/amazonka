@@ -49,8 +49,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeReservedNodeOfferings
     -- * Response
     , DescribeReservedNodeOfferingsResponse
     -- ** Response lenses
-    , drnorsMarker
-    , drnorsReservedNodeOfferings
+    , drnorMarker
+    , drnorReservedNodeOfferings
     ) where
 
 import Network.AWS.Request.Query
@@ -101,8 +101,8 @@ instance ToQuery DescribeReservedNodeOfferings where
 
 -- | Contains the output from the DescribeReservedNodeOfferings action.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
-    { _drnorsMarker :: Maybe Text
-    , _drnorsReservedNodeOfferings :: [ReservedNodeOffering]
+    { _drnorMarker :: Maybe Text
+    , _drnorReservedNodeOfferings :: [ReservedNodeOffering]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -110,14 +110,14 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-drnorsMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
-drnorsMarker = lens _drnorsMarker (\s a -> s { _drnorsMarker = a })
+drnorMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
+drnorMarker = lens _drnorMarker (\s a -> s { _drnorMarker = a })
 
 -- | A list of reserved node offerings.
-drnorsReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
-drnorsReservedNodeOfferings =
-    lens _drnorsReservedNodeOfferings
-         (\s a -> s { _drnorsReservedNodeOfferings = a })
+drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
+drnorReservedNodeOfferings =
+    lens _drnorReservedNodeOfferings
+         (\s a -> s { _drnorReservedNodeOfferings = a })
 
 instance FromXML DescribeReservedNodeOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -131,4 +131,4 @@ instance AWSRequest DescribeReservedNodeOfferings where
 
 instance AWSPager DescribeReservedNodeOfferings where
     next rq rs = (\x -> rq & drnoMarker ?~ x)
-        <$> (rs ^. drnorsMarker)
+        <$> (rs ^. drnorMarker)

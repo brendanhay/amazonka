@@ -47,12 +47,12 @@ module Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail
     -- * Response
     , GetOperationDetailResponse
     -- ** Response lenses
-    , godrsOperationId
-    , godrsStatus
-    , godrsMessage
-    , godrsDomainName
-    , godrsType
-    , godrsSubmittedDate
+    , godrOperationId
+    , godrStatus
+    , godrMessage
+    , godrDomainName
+    , godrType
+    , godrSubmittedDate
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -88,39 +88,38 @@ instance ToJSON GetOperationDetail
 
 -- | The GetOperationDetail response includes the following elements.
 data GetOperationDetailResponse = GetOperationDetailResponse
-    { _godrsOperationId :: Maybe Text
-    , _godrsStatus :: Maybe OperationStatus
-    , _godrsMessage :: Maybe Text
-    , _godrsDomainName :: Maybe Text
-    , _godrsType :: Maybe OperationType
-    , _godrsSubmittedDate :: Maybe ISO8601
+    { _godrOperationId :: Maybe Text
+    , _godrStatus :: Maybe OperationStatus
+    , _godrMessage :: Maybe Text
+    , _godrDomainName :: Maybe Text
+    , _godrType :: Maybe OperationType
+    , _godrSubmittedDate :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | The identifier for the operation. Type: String.
-godrsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsOperationId =
-    lens _godrsOperationId (\s a -> s { _godrsOperationId = a })
+godrOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
+godrOperationId = lens _godrOperationId (\s a -> s { _godrOperationId = a })
 
 -- | The current status of the requested operation in the system. Type: String.
-godrsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
-godrsStatus = lens _godrsStatus (\s a -> s { _godrsStatus = a })
+godrStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
+godrStatus = lens _godrStatus (\s a -> s { _godrStatus = a })
 
 -- | Detailed information on the status including possible errors. Type: String.
-godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsMessage = lens _godrsMessage (\s a -> s { _godrsMessage = a })
+godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
+godrMessage = lens _godrMessage (\s a -> s { _godrMessage = a })
 
 -- | The name of a domain. Type: String.
-godrsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
-godrsDomainName = lens _godrsDomainName (\s a -> s { _godrsDomainName = a })
+godrDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
+godrDomainName = lens _godrDomainName (\s a -> s { _godrDomainName = a })
 
 -- | The type of operation that was requested. Type: String.
-godrsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
-godrsType = lens _godrsType (\s a -> s { _godrsType = a })
+godrType :: Lens' GetOperationDetailResponse (Maybe OperationType)
+godrType = lens _godrType (\s a -> s { _godrType = a })
 
 -- | The date when the request was submitted.
-godrsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe ISO8601)
-godrsSubmittedDate =
-    lens _godrsSubmittedDate (\s a -> s { _godrsSubmittedDate = a })
+godrSubmittedDate :: Lens' GetOperationDetailResponse (Maybe ISO8601)
+godrSubmittedDate =
+    lens _godrSubmittedDate (\s a -> s { _godrSubmittedDate = a })
 
 instance FromJSON GetOperationDetailResponse
 

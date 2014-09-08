@@ -34,7 +34,7 @@ module Network.AWS.IAM.V2010_05_08.GetLoginProfile
     -- * Response
     , GetLoginProfileResponse
     -- ** Response lenses
-    , glprsLoginProfile
+    , glprLoginProfile
     ) where
 
 import Network.AWS.Request.Query
@@ -64,13 +64,13 @@ instance ToQuery GetLoginProfile where
 -- | Contains the result of a successful invocation of the GetLoginProfile
 -- action.
 newtype GetLoginProfileResponse = GetLoginProfileResponse
-    { _glprsLoginProfile :: LoginProfile
+    { _glprLoginProfile :: LoginProfile
     } deriving (Show, Generic)
 
 -- | User name and password create date for the user.
-glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
-glprsLoginProfile =
-    lens _glprsLoginProfile (\s a -> s { _glprsLoginProfile = a })
+glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
+glprLoginProfile =
+    lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
 
 instance FromXML GetLoginProfileResponse where
     fromXMLOptions = xmlOptions

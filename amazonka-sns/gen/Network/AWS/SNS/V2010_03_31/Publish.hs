@@ -74,7 +74,7 @@ module Network.AWS.SNS.V2010_03_31.Publish
     -- * Response
     , PublishResponse
     -- ** Response lenses
-    , prsMessageId
+    , prMessageId
     ) where
 
 import Network.AWS.Request.Query
@@ -168,13 +168,13 @@ instance ToQuery Publish where
 
 -- | Response for Publish action.
 newtype PublishResponse = PublishResponse
-    { _prsMessageId :: Maybe Text
+    { _prMessageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Unique identifier assigned to the published message. Length Constraint:
 -- Maximum 100 characters.
-prsMessageId :: Lens' PublishResponse (Maybe Text)
-prsMessageId = lens _prsMessageId (\s a -> s { _prsMessageId = a })
+prMessageId :: Lens' PublishResponse (Maybe Text)
+prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
 
 instance FromXML PublishResponse where
     fromXMLOptions = xmlOptions

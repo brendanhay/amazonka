@@ -26,8 +26,6 @@ module Network.AWS.StorageGateway.V2013_06_30.Types
     (
     -- * Service
       StorageGateway
-    -- ** Errors
-    , Er (..)
     -- * ErrorCode
     , ErrorCode (..)
 

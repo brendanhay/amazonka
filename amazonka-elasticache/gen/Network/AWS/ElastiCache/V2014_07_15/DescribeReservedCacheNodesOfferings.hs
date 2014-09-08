@@ -43,8 +43,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodesOfferings
     -- * Response
     , DescribeReservedCacheNodesOfferingsResponse
     -- ** Response lenses
-    , drcnorsMarker
-    , drcnorsReservedCacheNodesOfferings
+    , drcnorMarker
+    , drcnorReservedCacheNodesOfferings
     ) where
 
 import Network.AWS.Request.Query
@@ -128,20 +128,20 @@ instance ToQuery DescribeReservedCacheNodesOfferings where
 
 -- | Represents the output of a DescribeReservedCacheNodesOfferings operation.
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
-    { _drcnorsMarker :: Maybe Text
-    , _drcnorsReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
+    { _drcnorMarker :: Maybe Text
+    , _drcnorReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drcnorsMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
-drcnorsMarker = lens _drcnorsMarker (\s a -> s { _drcnorsMarker = a })
+drcnorMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
+drcnorMarker = lens _drcnorMarker (\s a -> s { _drcnorMarker = a })
 
 -- | A list of reserved cache node offerings. Each element in the list contains
 -- detailed information about one offering.
-drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
-drcnorsReservedCacheNodesOfferings =
-    lens _drcnorsReservedCacheNodesOfferings
-         (\s a -> s { _drcnorsReservedCacheNodesOfferings = a })
+drcnorReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
+drcnorReservedCacheNodesOfferings =
+    lens _drcnorReservedCacheNodesOfferings
+         (\s a -> s { _drcnorReservedCacheNodesOfferings = a })
 
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where
     fromXMLOptions = xmlOptions
@@ -155,4 +155,4 @@ instance AWSRequest DescribeReservedCacheNodesOfferings where
 
 instance AWSPager DescribeReservedCacheNodesOfferings where
     next rq rs = (\x -> rq & drcnoMarker ?~ x)
-        <$> (rs ^. drcnorsMarker)
+        <$> (rs ^. drcnorMarker)

@@ -47,7 +47,7 @@ module Network.AWS.EC2.V2014_06_15.CopyImage
     -- * Response
     , CopyImageResponse
     -- ** Response lenses
-    , cirsImageId
+    , cirImageId
     ) where
 
 import Network.AWS.Request.Query
@@ -103,12 +103,12 @@ instance ToQuery CopyImage where
 
 -- | 
 newtype CopyImageResponse = CopyImageResponse
-    { _cirsImageId :: Maybe Text
+    { _cirImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the new AMI.
-cirsImageId :: Lens' CopyImageResponse (Maybe Text)
-cirsImageId = lens _cirsImageId (\s a -> s { _cirsImageId = a })
+cirImageId :: Lens' CopyImageResponse (Maybe Text)
+cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
 
 instance FromXML CopyImageResponse where
     fromXMLOptions = xmlOptions

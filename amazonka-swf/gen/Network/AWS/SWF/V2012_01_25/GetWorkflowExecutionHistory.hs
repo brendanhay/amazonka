@@ -100,8 +100,8 @@ module Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory
     -- * Response
     , GetWorkflowExecutionHistoryResponse
     -- ** Response lenses
-    , gwehrsEvents
-    , gwehrsNextPageToken
+    , gwehrEvents
+    , gwehrNextPageToken
     ) where
 
 import Network.AWS.SWF.V2012_01_25.Types
@@ -174,20 +174,20 @@ instance ToJSON GetWorkflowExecutionHistory
 -- This is the up to date, complete and authoritative record of the events
 -- related to all tasks and events in the life of the workflow execution.
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
-    { _gwehrsEvents :: [HistoryEvent]
-    , _gwehrsNextPageToken :: Maybe Text
+    { _gwehrEvents :: [HistoryEvent]
+    , _gwehrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The list of history events.
-gwehrsEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-gwehrsEvents = lens _gwehrsEvents (\s a -> s { _gwehrsEvents = a })
+gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
+gwehrEvents = lens _gwehrEvents (\s a -> s { _gwehrEvents = a })
 
 -- | The token for the next page. If set, the history consists of more than one
 -- page and the next page can be retrieved by repeating the request with this
 -- token and all other arguments unchanged.
-gwehrsNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
-gwehrsNextPageToken =
-    lens _gwehrsNextPageToken (\s a -> s { _gwehrsNextPageToken = a })
+gwehrNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
+gwehrNextPageToken =
+    lens _gwehrNextPageToken (\s a -> s { _gwehrNextPageToken = a })
 
 instance FromJSON GetWorkflowExecutionHistoryResponse
 
@@ -200,4 +200,4 @@ instance AWSRequest GetWorkflowExecutionHistory where
 
 instance AWSPager GetWorkflowExecutionHistory where
     next rq rs = (\x -> rq & gwehNextPageToken ?~ x)
-        <$> (rs ^. gwehrsNextPageToken)
+        <$> (rs ^. gwehrNextPageToken)

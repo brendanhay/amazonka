@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials
     -- * Response
     , DescribeChapCredentialsResponse
     -- ** Response lenses
-    , dccrsrsChapCredentials
+    , dccrrChapCredentials
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -83,7 +83,7 @@ instance ToJSON DescribeChapCredentials
 
 -- | A JSON object containing a .
 newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
-    { _dccrsrsChapCredentials :: [ChapInfo]
+    { _dccrrChapCredentials :: [ChapInfo]
     } deriving (Show, Generic)
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each object
@@ -96,9 +96,9 @@ newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
 -- SecretToAuthenticateTarget: The secret key that the target must provide to
 -- participate in mutual CHAP with the initiator (e.g. Windows client).
 -- TargetARN: The Amazon Resource Name (ARN) of the storage volume.
-dccrsrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
-dccrsrsChapCredentials =
-    lens _dccrsrsChapCredentials (\s a -> s { _dccrsrsChapCredentials = a })
+dccrrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
+dccrrChapCredentials =
+    lens _dccrrChapCredentials (\s a -> s { _dccrrChapCredentials = a })
 
 instance FromJSON DescribeChapCredentialsResponse
 

@@ -45,8 +45,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusters
     -- * Response
     , DescribeClustersResponse
     -- ** Response lenses
-    , dcrsrsMarker
-    , dcrsrsClusters
+    , dcrrMarker
+    , dcrrClusters
     ) where
 
 import Network.AWS.Request.Query
@@ -99,8 +99,8 @@ instance ToQuery DescribeClusters where
 
 -- | Contains the output from the DescribeClusters action.
 data DescribeClustersResponse = DescribeClustersResponse
-    { _dcrsrsMarker :: Maybe Text
-    , _dcrsrsClusters :: [Cluster]
+    { _dcrrMarker :: Maybe Text
+    , _dcrrClusters :: [Cluster]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -108,12 +108,12 @@ data DescribeClustersResponse = DescribeClustersResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dcrsrsMarker :: Lens' DescribeClustersResponse (Maybe Text)
-dcrsrsMarker = lens _dcrsrsMarker (\s a -> s { _dcrsrsMarker = a })
+dcrrMarker :: Lens' DescribeClustersResponse (Maybe Text)
+dcrrMarker = lens _dcrrMarker (\s a -> s { _dcrrMarker = a })
 
 -- | A list of Cluster objects, where each object describes one cluster.
-dcrsrsClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrsrsClusters = lens _dcrsrsClusters (\s a -> s { _dcrsrsClusters = a })
+dcrrClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrrClusters = lens _dcrrClusters (\s a -> s { _dcrrClusters = a })
 
 instance FromXML DescribeClustersResponse where
     fromXMLOptions = xmlOptions
@@ -127,4 +127,4 @@ instance AWSRequest DescribeClusters where
 
 instance AWSPager DescribeClusters where
     next rq rs = (\x -> rq & dc1Marker ?~ x)
-        <$> (rs ^. dcrsrsMarker)
+        <$> (rs ^. dcrrMarker)

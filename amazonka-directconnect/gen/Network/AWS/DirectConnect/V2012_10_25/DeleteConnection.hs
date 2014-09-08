@@ -33,15 +33,15 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteConnection
     -- * Response
     , DeleteConnectionResponse
     -- ** Response lenses
-    , dcrsOwnerAccount
-    , dcrsConnectionId
-    , dcrsConnectionName
-    , dcrsConnectionState
-    , dcrsRegion
-    , dcrsLocation
-    , dcrsBandwidth
-    , dcrsVlan
-    , dcrsPartnerName
+    , dcrOwnerAccount
+    , dcrConnectionId
+    , dcrConnectionName
+    , dcrConnectionState
+    , dcrRegion
+    , dcrLocation
+    , dcrBandwidth
+    , dcrVlan
+    , dcrPartnerName
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -76,30 +76,28 @@ instance ToJSON DeleteConnection
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
 data DeleteConnectionResponse = DeleteConnectionResponse
-    { _dcrsOwnerAccount :: Maybe Text
-    , _dcrsConnectionId :: Maybe Text
-    , _dcrsConnectionName :: Maybe Text
-    , _dcrsConnectionState :: Maybe ConnectionState
-    , _dcrsRegion :: Maybe Text
-    , _dcrsLocation :: Maybe Text
-    , _dcrsBandwidth :: Maybe Text
-    , _dcrsVlan :: Maybe Integer
-    , _dcrsPartnerName :: Maybe Text
+    { _dcrOwnerAccount :: Maybe Text
+    , _dcrConnectionId :: Maybe Text
+    , _dcrConnectionName :: Maybe Text
+    , _dcrConnectionState :: Maybe ConnectionState
+    , _dcrRegion :: Maybe Text
+    , _dcrLocation :: Maybe Text
+    , _dcrBandwidth :: Maybe Text
+    , _dcrVlan :: Maybe Integer
+    , _dcrPartnerName :: Maybe Text
     } deriving (Show, Generic)
 
-dcrsOwnerAccount :: Lens' DeleteConnectionResponse (Maybe Text)
-dcrsOwnerAccount =
-    lens _dcrsOwnerAccount (\s a -> s { _dcrsOwnerAccount = a })
+dcrOwnerAccount :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrOwnerAccount = lens _dcrOwnerAccount (\s a -> s { _dcrOwnerAccount = a })
 
 -- | ID of the connection. Example: dxcon-fg5678gh Default: None.
-dcrsConnectionId :: Lens' DeleteConnectionResponse (Maybe Text)
-dcrsConnectionId =
-    lens _dcrsConnectionId (\s a -> s { _dcrsConnectionId = a })
+dcrConnectionId :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrConnectionId = lens _dcrConnectionId (\s a -> s { _dcrConnectionId = a })
 
 -- | The name of the connection. Example: "1G Connection to AWS" Default: None.
-dcrsConnectionName :: Lens' DeleteConnectionResponse (Maybe Text)
-dcrsConnectionName =
-    lens _dcrsConnectionName (\s a -> s { _dcrsConnectionName = a })
+dcrConnectionName :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrConnectionName =
+    lens _dcrConnectionName (\s a -> s { _dcrConnectionName = a })
 
 -- | State of the connection. Ordering: The initial state of a hosted connection
 -- provisioned on an interconnect. The connection stays in the ordering state
@@ -112,29 +110,29 @@ dcrsConnectionName =
 -- Deleted: The connection has been deleted. Rejected: A hosted connection in
 -- the 'Ordering' state will enter the 'Rejected' state if it is deleted by
 -- the end customer.
-dcrsConnectionState :: Lens' DeleteConnectionResponse (Maybe ConnectionState)
-dcrsConnectionState =
-    lens _dcrsConnectionState (\s a -> s { _dcrsConnectionState = a })
+dcrConnectionState :: Lens' DeleteConnectionResponse (Maybe ConnectionState)
+dcrConnectionState =
+    lens _dcrConnectionState (\s a -> s { _dcrConnectionState = a })
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-dcrsRegion :: Lens' DeleteConnectionResponse (Maybe Text)
-dcrsRegion = lens _dcrsRegion (\s a -> s { _dcrsRegion = a })
+dcrRegion :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrRegion = lens _dcrRegion (\s a -> s { _dcrRegion = a })
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-dcrsLocation :: Lens' DeleteConnectionResponse (Maybe Text)
-dcrsLocation = lens _dcrsLocation (\s a -> s { _dcrsLocation = a })
+dcrLocation :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrLocation = lens _dcrLocation (\s a -> s { _dcrLocation = a })
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-dcrsBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
-dcrsBandwidth = lens _dcrsBandwidth (\s a -> s { _dcrsBandwidth = a })
+dcrBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrBandwidth = lens _dcrBandwidth (\s a -> s { _dcrBandwidth = a })
 
 -- | The VLAN ID. Example: 101.
-dcrsVlan :: Lens' DeleteConnectionResponse (Maybe Integer)
-dcrsVlan = lens _dcrsVlan (\s a -> s { _dcrsVlan = a })
+dcrVlan :: Lens' DeleteConnectionResponse (Maybe Integer)
+dcrVlan = lens _dcrVlan (\s a -> s { _dcrVlan = a })
 
-dcrsPartnerName :: Lens' DeleteConnectionResponse (Maybe Text)
-dcrsPartnerName = lens _dcrsPartnerName (\s a -> s { _dcrsPartnerName = a })
+dcrPartnerName :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrPartnerName = lens _dcrPartnerName (\s a -> s { _dcrPartnerName = a })
 
 instance FromJSON DeleteConnectionResponse
 

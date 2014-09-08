@@ -55,7 +55,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions
     -- * Response
     , DescribeDhcpOptionsResponse
     -- ** Response lenses
-    , ddorsDhcpOptions
+    , ddorDhcpOptions
     ) where
 
 import Network.AWS.Request.Query
@@ -101,13 +101,12 @@ instance ToQuery DescribeDhcpOptions where
 
 -- | 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
-    { _ddorsDhcpOptions :: [DhcpOptions]
+    { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Show, Generic)
 
 -- | Information about one or more DHCP options sets.
-ddorsDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
-ddorsDhcpOptions =
-    lens _ddorsDhcpOptions (\s a -> s { _ddorsDhcpOptions = a })
+ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
+ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
 
 instance FromXML DescribeDhcpOptionsResponse where
     fromXMLOptions = xmlOptions

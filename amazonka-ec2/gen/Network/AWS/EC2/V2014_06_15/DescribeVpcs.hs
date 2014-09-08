@@ -48,7 +48,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpcs
     -- * Response
     , DescribeVpcsResponse
     -- ** Response lenses
-    , dvrsrsVpcs
+    , dvrrVpcs
     ) where
 
 import Network.AWS.Request.Query
@@ -95,12 +95,12 @@ instance ToQuery DescribeVpcs where
 
 -- | 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
-    { _dvrsrsVpcs :: [Vpc]
+    { _dvrrVpcs :: [Vpc]
     } deriving (Show, Generic)
 
 -- | Information about one or more VPCs.
-dvrsrsVpcs :: Lens' DescribeVpcsResponse [Vpc]
-dvrsrsVpcs = lens _dvrsrsVpcs (\s a -> s { _dvrsrsVpcs = a })
+dvrrVpcs :: Lens' DescribeVpcsResponse [Vpc]
+dvrrVpcs = lens _dvrrVpcs (\s a -> s { _dvrrVpcs = a })
 
 instance FromXML DescribeVpcsResponse where
     fromXMLOptions = xmlOptions

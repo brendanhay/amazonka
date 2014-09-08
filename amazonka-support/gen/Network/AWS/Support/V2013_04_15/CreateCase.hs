@@ -63,7 +63,7 @@ module Network.AWS.Support.V2013_04_15.CreateCase
     -- * Response
     , CreateCaseResponse
     -- ** Response lenses
-    , ccrsCaseId
+    , ccrCaseId
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -159,14 +159,14 @@ instance ToJSON CreateCase
 -- | The AWS Support case ID returned by a successful completion of the
 -- CreateCase operation.
 newtype CreateCaseResponse = CreateCaseResponse
-    { _ccrsCaseId :: Maybe Text
+    { _ccrCaseId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
-ccrsCaseId :: Lens' CreateCaseResponse (Maybe Text)
-ccrsCaseId = lens _ccrsCaseId (\s a -> s { _ccrsCaseId = a })
+ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
+ccrCaseId = lens _ccrCaseId (\s a -> s { _ccrCaseId = a })
 
 instance FromJSON CreateCaseResponse
 

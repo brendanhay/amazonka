@@ -42,8 +42,8 @@ module Network.AWS.SES.V2010_12_01.ListIdentities
     -- * Response
     , ListIdentitiesResponse
     -- ** Response lenses
-    , lirsIdentities
-    , lirsNextToken
+    , lirIdentities
+    , lirNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -86,17 +86,17 @@ instance ToQuery ListIdentities where
 
 -- | Represents a list of all verified identities for the AWS Account.
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirsIdentities :: [Text]
-    , _lirsNextToken :: Maybe Text
+    { _lirIdentities :: [Text]
+    , _lirNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of identities.
-lirsIdentities :: Lens' ListIdentitiesResponse [Text]
-lirsIdentities = lens _lirsIdentities (\s a -> s { _lirsIdentities = a })
+lirIdentities :: Lens' ListIdentitiesResponse [Text]
+lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
 
 -- | The token used for pagination.
-lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\s a -> s { _lirsNextToken = a })
+lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
+lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
 
 instance FromXML ListIdentitiesResponse where
     fromXMLOptions = xmlOptions
@@ -110,4 +110,4 @@ instance AWSRequest ListIdentities where
 
 instance AWSPager ListIdentities where
     next rq rs = (\x -> rq & liNextToken ?~ x)
-        <$> (rs ^. lirsNextToken)
+        <$> (rs ^. lirNextToken)

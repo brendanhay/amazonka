@@ -31,7 +31,7 @@ module Network.AWS.CloudSearch.V2013_01_01.CreateDomain
     -- * Response
     , CreateDomainResponse
     -- ** Response lenses
-    , cdrsDomainStatus
+    , cdrDomainStatus
     ) where
 
 import Network.AWS.Request.Query
@@ -64,13 +64,12 @@ instance ToQuery CreateDomain where
 -- | The result of a CreateDomainRequest. Contains the status of a newly created
 -- domain.
 newtype CreateDomainResponse = CreateDomainResponse
-    { _cdrsDomainStatus :: Maybe DomainStatus
+    { _cdrDomainStatus :: Maybe DomainStatus
     } deriving (Show, Generic)
 
 -- | The current status of the search domain.
-cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
-cdrsDomainStatus =
-    lens _cdrsDomainStatus (\s a -> s { _cdrsDomainStatus = a })
+cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
+cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
 
 instance FromXML CreateDomainResponse where
     fromXMLOptions = xmlOptions

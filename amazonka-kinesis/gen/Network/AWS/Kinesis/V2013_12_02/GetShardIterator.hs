@@ -76,7 +76,7 @@ module Network.AWS.Kinesis.V2013_12_02.GetShardIterator
     -- * Response
     , GetShardIteratorResponse
     -- ** Response lenses
-    , gsirsShardIterator
+    , gsirShardIterator
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -142,15 +142,15 @@ instance ToJSON GetShardIterator
 
 -- | Represents the output of a GetShardIterator operation.
 newtype GetShardIteratorResponse = GetShardIteratorResponse
-    { _gsirsShardIterator :: Maybe Text
+    { _gsirShardIterator :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the sequence
 -- number of a data record in a shard.
-gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
-gsirsShardIterator =
-    lens _gsirsShardIterator (\s a -> s { _gsirsShardIterator = a })
+gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
+gsirShardIterator =
+    lens _gsirShardIterator (\s a -> s { _gsirShardIterator = a })
 
 instance FromJSON GetShardIteratorResponse
 

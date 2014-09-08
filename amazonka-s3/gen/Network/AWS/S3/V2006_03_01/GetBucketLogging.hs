@@ -31,7 +31,7 @@ module Network.AWS.S3.V2006_03_01.GetBucketLogging
     -- * Response
     , GetBucketLoggingResponse
     -- ** Response lenses
-    , gblrs1LoggingEnabled
+    , gblr1LoggingEnabled
     ) where
 
 import Network.AWS.Request.RestS3
@@ -70,12 +70,12 @@ instance ToHeaders GetBucketLogging
 instance ToBody GetBucketLogging
 
 newtype GetBucketLoggingResponse = GetBucketLoggingResponse
-    { _gblrs1LoggingEnabled :: Maybe LoggingEnabled
+    { _gblr1LoggingEnabled :: Maybe LoggingEnabled
     } deriving (Show, Generic)
 
-gblrs1LoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblrs1LoggingEnabled =
-    lens _gblrs1LoggingEnabled (\s a -> s { _gblrs1LoggingEnabled = a })
+gblr1LoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+gblr1LoggingEnabled =
+    lens _gblr1LoggingEnabled (\s a -> s { _gblr1LoggingEnabled = a })
 
 instance FromXML GetBucketLoggingResponse where
     fromXMLOptions = xmlOptions

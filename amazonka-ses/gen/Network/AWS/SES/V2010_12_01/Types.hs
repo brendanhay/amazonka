@@ -30,8 +30,6 @@ module Network.AWS.SES.V2010_12_01.Types
     (
     -- * Service
       SES
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

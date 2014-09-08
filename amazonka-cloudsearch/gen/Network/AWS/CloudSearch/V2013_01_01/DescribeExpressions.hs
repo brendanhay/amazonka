@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DescribeExpressions
     -- * Response
     , DescribeExpressionsResponse
     -- ** Response lenses
-    , ders1Expressions
+    , der1Expressions
     ) where
 
 import Network.AWS.Request.Query
@@ -86,13 +86,12 @@ instance ToQuery DescribeExpressions where
 -- | The result of a DescribeExpressions request. Contains the expressions
 -- configured for the domain specified in the request.
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
-    { _ders1Expressions :: [ExpressionStatus]
+    { _der1Expressions :: [ExpressionStatus]
     } deriving (Show, Generic)
 
 -- | The expressions configured for the domain.
-ders1Expressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-ders1Expressions =
-    lens _ders1Expressions (\s a -> s { _ders1Expressions = a })
+der1Expressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
+der1Expressions = lens _der1Expressions (\s a -> s { _der1Expressions = a })
 
 instance FromXML DescribeExpressionsResponse where
     fromXMLOptions = xmlOptions

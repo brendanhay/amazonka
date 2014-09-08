@@ -53,7 +53,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeVpnGateways
     -- * Response
     , DescribeVpnGatewaysResponse
     -- ** Response lenses
-    , dvgrsVpnGateways
+    , dvgrVpnGateways
     ) where
 
 import Network.AWS.Request.Query
@@ -104,13 +104,12 @@ instance ToQuery DescribeVpnGateways where
 
 -- | 
 newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
-    { _dvgrsVpnGateways :: [VpnGateway]
+    { _dvgrVpnGateways :: [VpnGateway]
     } deriving (Show, Generic)
 
 -- | Information about one or more virtual private gateways.
-dvgrsVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
-dvgrsVpnGateways =
-    lens _dvgrsVpnGateways (\s a -> s { _dvgrsVpnGateways = a })
+dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
+dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
 
 instance FromXML DescribeVpnGatewaysResponse where
     fromXMLOptions = xmlOptions

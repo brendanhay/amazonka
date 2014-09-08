@@ -31,7 +31,7 @@ module Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy
     -- * Response
     , DisableSnapshotCopyResponse
     -- ** Response lenses
-    , dscrsCluster
+    , dscrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -63,12 +63,12 @@ instance ToQuery DisableSnapshotCopy where
     toQuery = genericQuery def
 
 newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
-    { _dscrsCluster :: Maybe Cluster
+    { _dscrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
-dscrsCluster = lens _dscrsCluster (\s a -> s { _dscrsCluster = a })
+dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
+dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
 
 instance FromXML DisableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions

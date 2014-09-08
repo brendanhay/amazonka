@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.V2014_05_31.GetInvalidation
     -- * Response
     , GetInvalidationResponse
     -- ** Response lenses
-    , girsInvalidation
+    , girInvalidation
     ) where
 
 import Network.AWS.Request.RestXML
@@ -82,13 +82,12 @@ instance ToXML GetInvalidation where
 
 -- | The returned result of the corresponding request.
 newtype GetInvalidationResponse = GetInvalidationResponse
-    { _girsInvalidation :: Maybe Invalidation
+    { _girInvalidation :: Maybe Invalidation
     } deriving (Show, Generic)
 
 -- | The invalidation's information.
-girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
-girsInvalidation =
-    lens _girsInvalidation (\s a -> s { _girsInvalidation = a })
+girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
+girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
 instance FromXML GetInvalidationResponse where
     fromXMLOptions = xmlOptions

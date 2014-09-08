@@ -51,8 +51,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSnapshots
     -- * Response
     , DescribeClusterSnapshotsResponse
     -- ** Response lenses
-    , dcsrsrsMarker
-    , dcsrsrsSnapshots
+    , dcsrrMarker
+    , dcsrrSnapshots
     ) where
 
 import Network.AWS.Request.Query
@@ -146,8 +146,8 @@ instance ToQuery DescribeClusterSnapshots where
 
 -- | Contains the output from the DescribeClusterSnapshots action.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
-    { _dcsrsrsMarker :: Maybe Text
-    , _dcsrsrsSnapshots :: [Snapshot]
+    { _dcsrrMarker :: Maybe Text
+    , _dcsrrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -155,13 +155,12 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dcsrsrsMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
-dcsrsrsMarker = lens _dcsrsrsMarker (\s a -> s { _dcsrsrsMarker = a })
+dcsrrMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
+dcsrrMarker = lens _dcsrrMarker (\s a -> s { _dcsrrMarker = a })
 
 -- | A list of Snapshot instances.
-dcsrsrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
-dcsrsrsSnapshots =
-    lens _dcsrsrsSnapshots (\s a -> s { _dcsrsrsSnapshots = a })
+dcsrrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
+dcsrrSnapshots = lens _dcsrrSnapshots (\s a -> s { _dcsrrSnapshots = a })
 
 instance FromXML DescribeClusterSnapshotsResponse where
     fromXMLOptions = xmlOptions
@@ -175,4 +174,4 @@ instance AWSRequest DescribeClusterSnapshots where
 
 instance AWSPager DescribeClusterSnapshots where
     next rq rs = (\x -> rq & dcs1Marker ?~ x)
-        <$> (rs ^. dcsrsrsMarker)
+        <$> (rs ^. dcsrrMarker)

@@ -50,7 +50,7 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateStack
     -- * Response
     , CreateStackResponse
     -- ** Response lenses
-    , csrsrsStackId
+    , csrrStackId
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -271,13 +271,13 @@ instance ToJSON CreateStack
 
 -- | Contains the response to a CreateStack request.
 newtype CreateStackResponse = CreateStackResponse
-    { _csrsrsStackId :: Maybe Text
+    { _csrrStackId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The stack ID, which is an opaque string that you use to identify the stack
 -- when performing actions such as DescribeStacks.
-csrsrsStackId :: Lens' CreateStackResponse (Maybe Text)
-csrsrsStackId = lens _csrsrsStackId (\s a -> s { _csrsrsStackId = a })
+csrrStackId :: Lens' CreateStackResponse (Maybe Text)
+csrrStackId = lens _csrrStackId (\s a -> s { _csrrStackId = a })
 
 instance FromJSON CreateStackResponse
 

@@ -70,7 +70,7 @@ module Network.AWS.EC2.V2014_06_15.CreateDhcpOptions
     -- * Response
     , CreateDhcpOptionsResponse
     -- ** Response lenses
-    , cdorsDhcpOptions
+    , cdorDhcpOptions
     ) where
 
 import Network.AWS.Request.Query
@@ -100,13 +100,12 @@ instance ToQuery CreateDhcpOptions where
 
 -- | 
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
-    { _cdorsDhcpOptions :: Maybe DhcpOptions
+    { _cdorDhcpOptions :: Maybe DhcpOptions
     } deriving (Show, Generic)
 
 -- | A set of DHCP options.
-cdorsDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
-cdorsDhcpOptions =
-    lens _cdorsDhcpOptions (\s a -> s { _cdorsDhcpOptions = a })
+cdorDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
+cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
 
 instance FromXML CreateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions

@@ -49,7 +49,7 @@ module Network.AWS.IAM.V2010_05_08.CreateSAMLProvider
     -- * Response
     , CreateSAMLProviderResponse
     -- ** Response lenses
-    , csamlprsSAMLProviderArn
+    , csamlprSAMLProviderArn
     ) where
 
 import Network.AWS.Request.Query
@@ -95,14 +95,13 @@ instance ToQuery CreateSAMLProvider where
 -- | Contains the result of a successful invocation of the CreateSAMLProvider
 -- action.
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
-    { _csamlprsSAMLProviderArn :: Maybe Text
+    { _csamlprSAMLProviderArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
-csamlprsSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
-csamlprsSAMLProviderArn =
-    lens _csamlprsSAMLProviderArn
-         (\s a -> s { _csamlprsSAMLProviderArn = a })
+csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
+csamlprSAMLProviderArn =
+    lens _csamlprSAMLProviderArn (\s a -> s { _csamlprSAMLProviderArn = a })
 
 instance FromXML CreateSAMLProviderResponse where
     fromXMLOptions = xmlOptions

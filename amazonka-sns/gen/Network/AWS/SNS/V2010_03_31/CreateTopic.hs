@@ -45,7 +45,7 @@ module Network.AWS.SNS.V2010_03_31.CreateTopic
     -- * Response
     , CreateTopicResponse
     -- ** Response lenses
-    , ctrsTopicArn
+    , ctrTopicArn
     ) where
 
 import Network.AWS.Request.Query
@@ -76,12 +76,12 @@ instance ToQuery CreateTopic where
 
 -- | Response from CreateTopic action.
 newtype CreateTopicResponse = CreateTopicResponse
-    { _ctrsTopicArn :: Maybe Text
+    { _ctrTopicArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
-ctrsTopicArn :: Lens' CreateTopicResponse (Maybe Text)
-ctrsTopicArn = lens _ctrsTopicArn (\s a -> s { _ctrsTopicArn = a })
+ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
+ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
 
 instance FromXML CreateTopicResponse where
     fromXMLOptions = xmlOptions

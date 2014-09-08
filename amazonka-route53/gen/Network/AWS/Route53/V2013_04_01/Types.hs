@@ -28,8 +28,6 @@ module Network.AWS.Route53.V2013_04_01.Types
     (
     -- * Service
       Route53
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 

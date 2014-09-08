@@ -34,8 +34,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeHsmConfigurations
     -- * Response
     , DescribeHsmConfigurationsResponse
     -- ** Response lenses
-    , dhcrsMarker
-    , dhcrsHsmConfigurations
+    , dhcrMarker
+    , dhcrHsmConfigurations
     ) where
 
 import Network.AWS.Request.Query
@@ -88,8 +88,8 @@ instance ToQuery DescribeHsmConfigurations where
 
 -- | 
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
-    { _dhcrsMarker :: Maybe Text
-    , _dhcrsHsmConfigurations :: [HsmConfiguration]
+    { _dhcrMarker :: Maybe Text
+    , _dhcrHsmConfigurations :: [HsmConfiguration]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -97,13 +97,13 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dhcrsMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
-dhcrsMarker = lens _dhcrsMarker (\s a -> s { _dhcrsMarker = a })
+dhcrMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
+dhcrMarker = lens _dhcrMarker (\s a -> s { _dhcrMarker = a })
 
 -- | A list of Amazon Redshift HSM configurations.
-dhcrsHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse [HsmConfiguration]
-dhcrsHsmConfigurations =
-    lens _dhcrsHsmConfigurations (\s a -> s { _dhcrsHsmConfigurations = a })
+dhcrHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse [HsmConfiguration]
+dhcrHsmConfigurations =
+    lens _dhcrHsmConfigurations (\s a -> s { _dhcrHsmConfigurations = a })
 
 instance FromXML DescribeHsmConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -117,4 +117,4 @@ instance AWSRequest DescribeHsmConfigurations where
 
 instance AWSPager DescribeHsmConfigurations where
     next rq rs = (\x -> rq & dhc1Marker ?~ x)
-        <$> (rs ^. dhcrsMarker)
+        <$> (rs ^. dhcrMarker)

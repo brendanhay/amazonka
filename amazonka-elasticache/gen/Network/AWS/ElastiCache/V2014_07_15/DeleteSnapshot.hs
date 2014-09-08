@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot
     -- * Response
     , DeleteSnapshotResponse
     -- ** Response lenses
-    , dsrsSnapshot
+    , dsrSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -67,13 +67,13 @@ instance ToQuery DeleteSnapshot where
     toQuery = genericQuery def
 
 newtype DeleteSnapshotResponse = DeleteSnapshotResponse
-    { _dsrsSnapshot :: Maybe Snapshot
+    { _dsrSnapshot :: Maybe Snapshot
     } deriving (Show, Generic)
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
-dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
-dsrsSnapshot = lens _dsrsSnapshot (\s a -> s { _dsrsSnapshot = a })
+dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
+dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
 
 instance FromXML DeleteSnapshotResponse where
     fromXMLOptions = xmlOptions

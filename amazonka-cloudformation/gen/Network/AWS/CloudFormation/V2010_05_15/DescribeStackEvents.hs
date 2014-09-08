@@ -47,8 +47,8 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents
     -- * Response
     , DescribeStackEventsResponse
     -- ** Response lenses
-    , dsersStackEvents
-    , dsersNextToken
+    , dserStackEvents
+    , dserNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -87,19 +87,18 @@ instance ToQuery DescribeStackEvents where
 
 -- | The output for a DescribeStackEvents action.
 data DescribeStackEventsResponse = DescribeStackEventsResponse
-    { _dsersStackEvents :: [StackEvent]
-    , _dsersNextToken :: Maybe Text
+    { _dserStackEvents :: [StackEvent]
+    , _dserNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of StackEvents structures.
-dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
-dsersStackEvents =
-    lens _dsersStackEvents (\s a -> s { _dsersStackEvents = a })
+dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
+dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a })
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
-dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
-dsersNextToken = lens _dsersNextToken (\s a -> s { _dsersNextToken = a })
+dserNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
+dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
 
 instance FromXML DescribeStackEventsResponse where
     fromXMLOptions = xmlOptions
@@ -113,4 +112,4 @@ instance AWSRequest DescribeStackEvents where
 
 instance AWSPager DescribeStackEvents where
     next rq rs = (\x -> rq & dseNextToken ?~ x)
-        <$> (rs ^. dsersNextToken)
+        <$> (rs ^. dserNextToken)

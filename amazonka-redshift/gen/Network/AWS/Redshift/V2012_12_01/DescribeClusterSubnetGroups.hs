@@ -42,8 +42,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeClusterSubnetGroups
     -- * Response
     , DescribeClusterSubnetGroupsResponse
     -- ** Response lenses
-    , dcsgrsrsMarker
-    , dcsgrsrsClusterSubnetGroups
+    , dcsgrrMarker
+    , dcsgrrClusterSubnetGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -94,8 +94,8 @@ instance ToQuery DescribeClusterSubnetGroups where
 
 -- | Contains the output from the DescribeClusterSubnetGroups action.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
-    { _dcsgrsrsMarker :: Maybe Text
-    , _dcsgrsrsClusterSubnetGroups :: [ClusterSubnetGroup]
+    { _dcsgrrMarker :: Maybe Text
+    , _dcsgrrClusterSubnetGroups :: [ClusterSubnetGroup]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -103,14 +103,14 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dcsgrsrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
-dcsgrsrsMarker = lens _dcsgrsrsMarker (\s a -> s { _dcsgrsrsMarker = a })
+dcsgrrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
+dcsgrrMarker = lens _dcsgrrMarker (\s a -> s { _dcsgrrMarker = a })
 
 -- | A list of ClusterSubnetGroup instances.
-dcsgrsrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
-dcsgrsrsClusterSubnetGroups =
-    lens _dcsgrsrsClusterSubnetGroups
-         (\s a -> s { _dcsgrsrsClusterSubnetGroups = a })
+dcsgrrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgrrClusterSubnetGroups =
+    lens _dcsgrrClusterSubnetGroups
+         (\s a -> s { _dcsgrrClusterSubnetGroups = a })
 
 instance FromXML DescribeClusterSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
@@ -124,4 +124,4 @@ instance AWSRequest DescribeClusterSubnetGroups where
 
 instance AWSPager DescribeClusterSubnetGroups where
     next rq rs = (\x -> rq & dcsg3Marker ?~ x)
-        <$> (rs ^. dcsgrsrsMarker)
+        <$> (rs ^. dcsgrrMarker)

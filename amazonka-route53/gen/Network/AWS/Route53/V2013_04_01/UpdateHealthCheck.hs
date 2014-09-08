@@ -42,7 +42,7 @@ module Network.AWS.Route53.V2013_04_01.UpdateHealthCheck
     -- * Response
     , UpdateHealthCheckResponse
     -- ** Response lenses
-    , uhcrsHealthCheck
+    , uhcrHealthCheck
     ) where
 
 import Network.AWS.Request.RestXML
@@ -149,14 +149,13 @@ instance ToXML UpdateHealthCheck where
     toXMLRoot    = toRoot "UpdateHealthCheckRequest"
 
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
-    { _uhcrsHealthCheck :: HealthCheck
+    { _uhcrHealthCheck :: HealthCheck
     } deriving (Show, Generic)
 
 -- | A complex type that contains identifying information about the health
 -- check.
-uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
-uhcrsHealthCheck =
-    lens _uhcrsHealthCheck (\s a -> s { _uhcrsHealthCheck = a })
+uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
+uhcrHealthCheck = lens _uhcrHealthCheck (\s a -> s { _uhcrHealthCheck = a })
 
 instance FromXML UpdateHealthCheckResponse where
     fromXMLOptions = xmlOptions

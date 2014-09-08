@@ -30,7 +30,7 @@ module Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface
     -- * Response
     , DeleteVirtualInterfaceResponse
     -- ** Response lenses
-    , dvirsVirtualInterfaceState
+    , dvirVirtualInterfaceState
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -65,7 +65,7 @@ instance ToJSON DeleteVirtualInterface
 
 -- | The response received when DeleteVirtualInterface is called.
 newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
-    { _dvirsVirtualInterfaceState :: Maybe VirtualInterfaceState
+    { _dvirVirtualInterfaceState :: Maybe VirtualInterfaceState
     } deriving (Show, Generic)
 
 -- | State of the virtual interface. Confirming: The creation of the virtual
@@ -84,10 +84,10 @@ newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
 -- interface owner has declined creation of the virtual interface. If a
 -- virtual interface in the 'Confirming' state is deleted by the virtual
 -- interface owner, the virtual interface will enter the 'Rejected' state.
-dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-dvirsVirtualInterfaceState =
-    lens _dvirsVirtualInterfaceState
-         (\s a -> s { _dvirsVirtualInterfaceState = a })
+dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+dvirVirtualInterfaceState =
+    lens _dvirVirtualInterfaceState
+         (\s a -> s { _dvirVirtualInterfaceState = a })
 
 instance FromJSON DeleteVirtualInterfaceResponse
 

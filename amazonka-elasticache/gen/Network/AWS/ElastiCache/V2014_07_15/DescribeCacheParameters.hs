@@ -44,9 +44,9 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameters
     -- * Response
     , DescribeCacheParametersResponse
     -- ** Response lenses
-    , dcprsMarker
-    , dcprsParameters
-    , dcprsCacheNodeTypeSpecificParameters
+    , dcprMarker
+    , dcprParameters
+    , dcprCacheNodeTypeSpecificParameters
     ) where
 
 import Network.AWS.Request.Query
@@ -102,25 +102,25 @@ instance ToQuery DescribeCacheParameters where
 
 -- | Represents the output of a DescribeCacheParameters operation.
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse
-    { _dcprsMarker :: Maybe Text
-    , _dcprsParameters :: [Parameter]
-    , _dcprsCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
+    { _dcprMarker :: Maybe Text
+    , _dcprParameters :: [Parameter]
+    , _dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
-dcprsMarker = lens _dcprsMarker (\s a -> s { _dcprsMarker = a })
+dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
+dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
 -- | A list of Parameter instances.
-dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
-dcprsParameters = lens _dcprsParameters (\s a -> s { _dcprsParameters = a })
+dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
+dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
 
 -- | A list of parameters specific to a particular cache node type. Each element
 -- in the list contains detailed information about one parameter.
-dcprsCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
-dcprsCacheNodeTypeSpecificParameters =
-    lens _dcprsCacheNodeTypeSpecificParameters
-         (\s a -> s { _dcprsCacheNodeTypeSpecificParameters = a })
+dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
+dcprCacheNodeTypeSpecificParameters =
+    lens _dcprCacheNodeTypeSpecificParameters
+         (\s a -> s { _dcprCacheNodeTypeSpecificParameters = a })
 
 instance FromXML DescribeCacheParametersResponse where
     fromXMLOptions = xmlOptions
@@ -134,4 +134,4 @@ instance AWSRequest DescribeCacheParameters where
 
 instance AWSPager DescribeCacheParameters where
     next rq rs = (\x -> rq & dcpMarker ?~ x)
-        <$> (rs ^. dcprsMarker)
+        <$> (rs ^. dcprMarker)

@@ -46,7 +46,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeBundleTasks
     -- * Response
     , DescribeBundleTasksResponse
     -- ** Response lenses
-    , dbtrsBundleTasks
+    , dbtrBundleTasks
     ) where
 
 import Network.AWS.Request.Query
@@ -88,13 +88,12 @@ instance ToQuery DescribeBundleTasks where
 
 -- | 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
-    { _dbtrsBundleTasks :: [BundleTask]
+    { _dbtrBundleTasks :: [BundleTask]
     } deriving (Show, Generic)
 
 -- | Information about one or more bundle tasks.
-dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
-dbtrsBundleTasks =
-    lens _dbtrsBundleTasks (\s a -> s { _dbtrsBundleTasks = a })
+dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
+dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
 
 instance FromXML DescribeBundleTasksResponse where
     fromXMLOptions = xmlOptions

@@ -30,8 +30,8 @@ module Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig
     -- * Response
     , GetStreamingDistributionConfigResponse
     -- ** Response lenses
-    , gsdcrsStreamingDistributionConfig
-    , gsdcrsETag
+    , gsdcrStreamingDistributionConfig
+    , gsdcrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -73,19 +73,19 @@ instance ToXML GetStreamingDistributionConfig where
 
 -- | The returned result of the corresponding request.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
-    { _gsdcrsStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-    , _gsdcrsETag :: Maybe Text
+    { _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
+    , _gsdcrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's configuration information.
-gsdcrsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
-gsdcrsStreamingDistributionConfig =
-    lens _gsdcrsStreamingDistributionConfig
-         (\s a -> s { _gsdcrsStreamingDistributionConfig = a })
+gsdcrStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
+gsdcrStreamingDistributionConfig =
+    lens _gsdcrStreamingDistributionConfig
+         (\s a -> s { _gsdcrStreamingDistributionConfig = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
-gsdcrsETag = lens _gsdcrsETag (\s a -> s { _gsdcrsETag = a })
+gsdcrETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
+gsdcrETag = lens _gsdcrETag (\s a -> s { _gsdcrETag = a })
 
 instance AWSRequest GetStreamingDistributionConfig where
     type Sv GetStreamingDistributionConfig = CloudFront

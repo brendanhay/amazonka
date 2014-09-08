@@ -52,8 +52,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters
     -- * Response
     , DescribeMetricFiltersResponse
     -- ** Response lenses
-    , dmfrsMetricFilters
-    , dmfrsNextToken
+    , dmfrMetricFilters
+    , dmfrNextToken
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -107,19 +107,19 @@ instance ToHeaders DescribeMetricFilters
 instance ToJSON DescribeMetricFilters
 
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
-    { _dmfrsMetricFilters :: [MetricFilter]
-    , _dmfrsNextToken :: Maybe Text
+    { _dmfrMetricFilters :: [MetricFilter]
+    , _dmfrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
-dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
-dmfrsMetricFilters =
-    lens _dmfrsMetricFilters (\s a -> s { _dmfrsMetricFilters = a })
+dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
+dmfrMetricFilters =
+    lens _dmfrMetricFilters (\s a -> s { _dmfrMetricFilters = a })
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous request. The
 -- token expires after 24 hours.
-dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
-dmfrsNextToken = lens _dmfrsNextToken (\s a -> s { _dmfrsNextToken = a })
+dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
+dmfrNextToken = lens _dmfrNextToken (\s a -> s { _dmfrNextToken = a })
 
 instance FromJSON DescribeMetricFiltersResponse
 
@@ -132,4 +132,4 @@ instance AWSRequest DescribeMetricFilters where
 
 instance AWSPager DescribeMetricFilters where
     next rq rs = (\x -> rq & dmf1NextToken ?~ x)
-        <$> (rs ^. dmfrsNextToken)
+        <$> (rs ^. dmfrNextToken)

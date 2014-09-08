@@ -60,8 +60,8 @@ module Network.AWS.SNS.V2010_03_31.ListPlatformApplications
     -- * Response
     , ListPlatformApplicationsResponse
     -- ** Response lenses
-    , lparsPlatformApplications
-    , lparsNextToken
+    , lparPlatformApplications
+    , lparNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -91,21 +91,21 @@ instance ToQuery ListPlatformApplications where
 
 -- | Response for ListPlatformApplications action.
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
-    { _lparsPlatformApplications :: [PlatformApplication]
-    , _lparsNextToken :: Maybe Text
+    { _lparPlatformApplications :: [PlatformApplication]
+    , _lparNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
-lparsPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
-lparsPlatformApplications =
-    lens _lparsPlatformApplications
-         (\s a -> s { _lparsPlatformApplications = a })
+lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
+lparPlatformApplications =
+    lens _lparPlatformApplications
+         (\s a -> s { _lparPlatformApplications = a })
 
 -- | NextToken string is returned when calling ListPlatformApplications action
 -- if additional records are available after the first page results.
-lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
-lparsNextToken = lens _lparsNextToken (\s a -> s { _lparsNextToken = a })
+lparNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
+lparNextToken = lens _lparNextToken (\s a -> s { _lparNextToken = a })
 
 instance FromXML ListPlatformApplicationsResponse where
     fromXMLOptions = xmlOptions
@@ -119,4 +119,4 @@ instance AWSRequest ListPlatformApplications where
 
 instance AWSPager ListPlatformApplications where
     next rq rs = (\x -> rq & lpaNextToken ?~ x)
-        <$> (rs ^. lparsNextToken)
+        <$> (rs ^. lparNextToken)

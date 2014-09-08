@@ -65,7 +65,7 @@ module Network.AWS.EC2.V2014_06_15.AssociateAddress
     -- * Response
     , AssociateAddressResponse
     -- ** Response lenses
-    , aarsrsAssociationId
+    , aarrAssociationId
     ) where
 
 import Network.AWS.Request.Query
@@ -133,14 +133,14 @@ instance ToQuery AssociateAddress where
 
 -- | 
 newtype AssociateAddressResponse = AssociateAddressResponse
-    { _aarsrsAssociationId :: Maybe Text
+    { _aarrAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address
 -- with an instance.
-aarsrsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
-aarsrsAssociationId =
-    lens _aarsrsAssociationId (\s a -> s { _aarsrsAssociationId = a })
+aarrAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
+aarrAssociationId =
+    lens _aarrAssociationId (\s a -> s { _aarrAssociationId = a })
 
 instance FromXML AssociateAddressResponse where
     fromXMLOptions = xmlOptions

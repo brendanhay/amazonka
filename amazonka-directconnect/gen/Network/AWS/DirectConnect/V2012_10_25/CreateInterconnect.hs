@@ -44,12 +44,12 @@ module Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect
     -- * Response
     , CreateInterconnectResponse
     -- ** Response lenses
-    , cirsInterconnectId
-    , cirsInterconnectName
-    , cirsInterconnectState
-    , cirsRegion
-    , cirsLocation
-    , cirsBandwidth
+    , cirInterconnectId
+    , cirInterconnectName
+    , cirInterconnectState
+    , cirRegion
+    , cirLocation
+    , cirBandwidth
     ) where
 
 import Network.AWS.DirectConnect.V2012_10_25.Types
@@ -109,23 +109,23 @@ instance ToJSON CreateInterconnect
 -- and the owner of the interconnect determines how these resources are
 -- assigned.
 data CreateInterconnectResponse = CreateInterconnectResponse
-    { _cirsInterconnectId :: Maybe Text
-    , _cirsInterconnectName :: Maybe Text
-    , _cirsInterconnectState :: Maybe InterconnectState
-    , _cirsRegion :: Maybe Text
-    , _cirsLocation :: Maybe Text
-    , _cirsBandwidth :: Maybe Text
+    { _cirInterconnectId :: Maybe Text
+    , _cirInterconnectName :: Maybe Text
+    , _cirInterconnectState :: Maybe InterconnectState
+    , _cirRegion :: Maybe Text
+    , _cirLocation :: Maybe Text
+    , _cirBandwidth :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the interconnect. Example: dxcon-abc123.
-cirsInterconnectId :: Lens' CreateInterconnectResponse (Maybe Text)
-cirsInterconnectId =
-    lens _cirsInterconnectId (\s a -> s { _cirsInterconnectId = a })
+cirInterconnectId :: Lens' CreateInterconnectResponse (Maybe Text)
+cirInterconnectId =
+    lens _cirInterconnectId (\s a -> s { _cirInterconnectId = a })
 
 -- | The name of the interconnect. Example: "1G Interconnect to AWS".
-cirsInterconnectName :: Lens' CreateInterconnectResponse (Maybe Text)
-cirsInterconnectName =
-    lens _cirsInterconnectName (\s a -> s { _cirsInterconnectName = a })
+cirInterconnectName :: Lens' CreateInterconnectResponse (Maybe Text)
+cirInterconnectName =
+    lens _cirInterconnectName (\s a -> s { _cirInterconnectName = a })
 
 -- | State of the interconnect. Requested: The initial state of an interconnect.
 -- The interconnect stays in the requested state until the Letter of
@@ -133,22 +133,22 @@ cirsInterconnectName =
 -- been approved, and is being initialized. Available: The network link is up,
 -- and the interconnect is ready for use. Down: The network link is down.
 -- Deleted: The interconnect has been deleted.
-cirsInterconnectState :: Lens' CreateInterconnectResponse (Maybe InterconnectState)
-cirsInterconnectState =
-    lens _cirsInterconnectState (\s a -> s { _cirsInterconnectState = a })
+cirInterconnectState :: Lens' CreateInterconnectResponse (Maybe InterconnectState)
+cirInterconnectState =
+    lens _cirInterconnectState (\s a -> s { _cirInterconnectState = a })
 
 -- | The AWS region where the connection is located. Example: us-east-1 Default:
 -- None.
-cirsRegion :: Lens' CreateInterconnectResponse (Maybe Text)
-cirsRegion = lens _cirsRegion (\s a -> s { _cirsRegion = a })
+cirRegion :: Lens' CreateInterconnectResponse (Maybe Text)
+cirRegion = lens _cirRegion (\s a -> s { _cirRegion = a })
 
 -- | Where the connection is located. Example: EqSV5 Default: None.
-cirsLocation :: Lens' CreateInterconnectResponse (Maybe Text)
-cirsLocation = lens _cirsLocation (\s a -> s { _cirsLocation = a })
+cirLocation :: Lens' CreateInterconnectResponse (Maybe Text)
+cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 
 -- | Bandwidth of the connection. Example: 1Gbps Default: None.
-cirsBandwidth :: Lens' CreateInterconnectResponse (Maybe Text)
-cirsBandwidth = lens _cirsBandwidth (\s a -> s { _cirsBandwidth = a })
+cirBandwidth :: Lens' CreateInterconnectResponse (Maybe Text)
+cirBandwidth = lens _cirBandwidth (\s a -> s { _cirBandwidth = a })
 
 instance FromJSON CreateInterconnectResponse
 

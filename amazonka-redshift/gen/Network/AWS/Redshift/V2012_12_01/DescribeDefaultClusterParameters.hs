@@ -52,7 +52,7 @@ module Network.AWS.Redshift.V2012_12_01.DescribeDefaultClusterParameters
     -- * Response
     , DescribeDefaultClusterParametersResponse
     -- ** Response lenses
-    , ddcprsDefaultClusterParameters
+    , ddcprDefaultClusterParameters
     ) where
 
 import Network.AWS.Request.Query
@@ -103,14 +103,14 @@ instance ToQuery DescribeDefaultClusterParameters where
     toQuery = genericQuery def
 
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
-    { _ddcprsDefaultClusterParameters :: DefaultClusterParameters
+    { _ddcprDefaultClusterParameters :: DefaultClusterParameters
     } deriving (Show, Generic)
 
 -- | Describes the default cluster parameters for a parameter group family.
-ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
-ddcprsDefaultClusterParameters =
-    lens _ddcprsDefaultClusterParameters
-         (\s a -> s { _ddcprsDefaultClusterParameters = a })
+ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
+ddcprDefaultClusterParameters =
+    lens _ddcprDefaultClusterParameters
+         (\s a -> s { _ddcprDefaultClusterParameters = a })
 
 instance FromXML DescribeDefaultClusterParametersResponse where
     fromXMLOptions = xmlOptions
@@ -124,4 +124,4 @@ instance AWSRequest DescribeDefaultClusterParameters where
 
 instance AWSPager DescribeDefaultClusterParameters where
     next rq rs = (\x -> rq & ddcpMarker ?~ x)
-        <$> (rs ^. ddcprsDefaultClusterParameters . dcp1Marker)
+        <$> (rs ^. ddcprDefaultClusterParameters . dcp1Marker)

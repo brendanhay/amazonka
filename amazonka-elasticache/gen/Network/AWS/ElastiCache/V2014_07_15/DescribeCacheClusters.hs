@@ -58,8 +58,8 @@ module Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters
     -- * Response
     , DescribeCacheClustersResponse
     -- ** Response lenses
-    , dccrsrsMarker
-    , dccrsrsCacheClusters
+    , dccrrMarker
+    , dccrrCacheClusters
     ) where
 
 import Network.AWS.Request.Query
@@ -116,19 +116,19 @@ instance ToQuery DescribeCacheClusters where
 
 -- | Represents the output of a DescribeCacheClusters operation.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
-    { _dccrsrsMarker :: Maybe Text
-    , _dccrsrsCacheClusters :: [CacheCluster]
+    { _dccrrMarker :: Maybe Text
+    , _dccrrCacheClusters :: [CacheCluster]
     } deriving (Show, Generic)
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dccrsrsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
-dccrsrsMarker = lens _dccrsrsMarker (\s a -> s { _dccrsrsMarker = a })
+dccrrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
+dccrrMarker = lens _dccrrMarker (\s a -> s { _dccrrMarker = a })
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
-dccrsrsCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
-dccrsrsCacheClusters =
-    lens _dccrsrsCacheClusters (\s a -> s { _dccrsrsCacheClusters = a })
+dccrrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
+dccrrCacheClusters =
+    lens _dccrrCacheClusters (\s a -> s { _dccrrCacheClusters = a })
 
 instance FromXML DescribeCacheClustersResponse where
     fromXMLOptions = xmlOptions
@@ -142,4 +142,4 @@ instance AWSRequest DescribeCacheClusters where
 
 instance AWSPager DescribeCacheClusters where
     next rq rs = (\x -> rq & dcc1Marker ?~ x)
-        <$> (rs ^. dccrsrsMarker)
+        <$> (rs ^. dccrrMarker)

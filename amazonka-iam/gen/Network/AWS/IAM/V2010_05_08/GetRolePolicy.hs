@@ -38,9 +38,9 @@ module Network.AWS.IAM.V2010_05_08.GetRolePolicy
     -- * Response
     , GetRolePolicyResponse
     -- ** Response lenses
-    , grprsRoleName
-    , grprsPolicyName
-    , grprsPolicyDocument
+    , grprRoleName
+    , grprPolicyName
+    , grprPolicyDocument
     ) where
 
 import Network.AWS.Request.Query
@@ -76,23 +76,23 @@ instance ToQuery GetRolePolicy where
 
 -- | Contains the result of a successful invocation of the GetRolePolicy action.
 data GetRolePolicyResponse = GetRolePolicyResponse
-    { _grprsRoleName :: Text
-    , _grprsPolicyName :: Text
-    , _grprsPolicyDocument :: Text
+    { _grprRoleName :: Text
+    , _grprPolicyName :: Text
+    , _grprPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | The role the policy is associated with.
-grprsRoleName :: Lens' GetRolePolicyResponse Text
-grprsRoleName = lens _grprsRoleName (\s a -> s { _grprsRoleName = a })
+grprRoleName :: Lens' GetRolePolicyResponse Text
+grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
 
 -- | The name of the policy.
-grprsPolicyName :: Lens' GetRolePolicyResponse Text
-grprsPolicyName = lens _grprsPolicyName (\s a -> s { _grprsPolicyName = a })
+grprPolicyName :: Lens' GetRolePolicyResponse Text
+grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
 
 -- | The policy document.
-grprsPolicyDocument :: Lens' GetRolePolicyResponse Text
-grprsPolicyDocument =
-    lens _grprsPolicyDocument (\s a -> s { _grprsPolicyDocument = a })
+grprPolicyDocument :: Lens' GetRolePolicyResponse Text
+grprPolicyDocument =
+    lens _grprPolicyDocument (\s a -> s { _grprPolicyDocument = a })
 
 instance FromXML GetRolePolicyResponse where
     fromXMLOptions = xmlOptions

@@ -32,7 +32,7 @@ module Network.AWS.EC2.V2014_06_15.CreateInternetGateway
     -- * Response
     , CreateInternetGatewayResponse
     -- ** Response lenses
-    , cigrsInternetGateway
+    , cigrInternetGateway
     ) where
 
 import Network.AWS.Request.Query
@@ -53,13 +53,13 @@ instance ToQuery CreateInternetGateway where
 
 -- | 
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
-    { _cigrsInternetGateway :: Maybe InternetGateway
+    { _cigrInternetGateway :: Maybe InternetGateway
     } deriving (Show, Generic)
 
 -- | Information about the Internet gateway.
-cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
-cigrsInternetGateway =
-    lens _cigrsInternetGateway (\s a -> s { _cigrsInternetGateway = a })
+cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
+cigrInternetGateway =
+    lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })
 
 instance FromXML CreateInternetGatewayResponse where
     fromXMLOptions = xmlOptions

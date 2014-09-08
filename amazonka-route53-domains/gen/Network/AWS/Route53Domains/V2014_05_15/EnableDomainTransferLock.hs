@@ -47,7 +47,7 @@ module Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock
     -- * Response
     , EnableDomainTransferLockResponse
     -- ** Response lenses
-    , edtlrsOperationId
+    , edtlrOperationId
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -84,15 +84,15 @@ instance ToJSON EnableDomainTransferLock
 
 -- | The EnableDomainTransferLock response includes the following elements.
 newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
-    { _edtlrsOperationId :: Text
+    { _edtlrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail. Type: String Default:
 -- None Constraints: Maximum 255 characters.
-edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
-edtlrsOperationId =
-    lens _edtlrsOperationId (\s a -> s { _edtlrsOperationId = a })
+edtlrOperationId :: Lens' EnableDomainTransferLockResponse Text
+edtlrOperationId =
+    lens _edtlrOperationId (\s a -> s { _edtlrOperationId = a })
 
 instance FromJSON EnableDomainTransferLockResponse
 

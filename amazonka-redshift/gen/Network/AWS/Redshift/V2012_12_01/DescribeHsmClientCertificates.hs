@@ -34,8 +34,8 @@ module Network.AWS.Redshift.V2012_12_01.DescribeHsmClientCertificates
     -- * Response
     , DescribeHsmClientCertificatesResponse
     -- ** Response lenses
-    , dhccrsMarker
-    , dhccrsHsmClientCertificates
+    , dhccrMarker
+    , dhccrHsmClientCertificates
     ) where
 
 import Network.AWS.Request.Query
@@ -88,8 +88,8 @@ instance ToQuery DescribeHsmClientCertificates where
 
 -- | 
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
-    { _dhccrsMarker :: Maybe Text
-    , _dhccrsHsmClientCertificates :: [HsmClientCertificate]
+    { _dhccrMarker :: Maybe Text
+    , _dhccrHsmClientCertificates :: [HsmClientCertificate]
     } deriving (Show, Generic)
 
 -- | A value that indicates the starting point for the next set of response
@@ -97,16 +97,16 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
 -- can retrieve the next set of records by providing this returned marker
 -- value in the Marker parameter and retrying the command. If the Marker field
 -- is empty, all response records have been retrieved for the request.
-dhccrsMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
-dhccrsMarker = lens _dhccrsMarker (\s a -> s { _dhccrsMarker = a })
+dhccrMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
+dhccrMarker = lens _dhccrMarker (\s a -> s { _dhccrMarker = a })
 
 -- | A list of the identifiers for one or more HSM client certificates used by
 -- Amazon Redshift clusters to store and retrieve database encryption keys in
 -- an HSM.
-dhccrsHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse [HsmClientCertificate]
-dhccrsHsmClientCertificates =
-    lens _dhccrsHsmClientCertificates
-         (\s a -> s { _dhccrsHsmClientCertificates = a })
+dhccrHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse [HsmClientCertificate]
+dhccrHsmClientCertificates =
+    lens _dhccrHsmClientCertificates
+         (\s a -> s { _dhccrHsmClientCertificates = a })
 
 instance FromXML DescribeHsmClientCertificatesResponse where
     fromXMLOptions = xmlOptions
@@ -120,4 +120,4 @@ instance AWSRequest DescribeHsmClientCertificates where
 
 instance AWSPager DescribeHsmClientCertificates where
     next rq rs = (\x -> rq & dhcc1Marker ?~ x)
-        <$> (rs ^. dhccrsMarker)
+        <$> (rs ^. dhccrMarker)

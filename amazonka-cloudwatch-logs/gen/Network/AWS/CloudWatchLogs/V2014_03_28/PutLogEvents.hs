@@ -57,7 +57,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.PutLogEvents
     -- * Response
     , PutLogEventsResponse
     -- ** Response lenses
-    , plersNextSequenceToken
+    , plerNextSequenceToken
     ) where
 
 import Network.AWS.CloudWatchLogs.V2014_03_28.Types
@@ -110,15 +110,15 @@ instance ToHeaders PutLogEvents
 instance ToJSON PutLogEvents
 
 newtype PutLogEventsResponse = PutLogEventsResponse
-    { _plersNextSequenceToken :: Maybe Text
+    { _plerNextSequenceToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A string token used for making PutLogEvents requests. A sequenceToken can
 -- only be used once, and PutLogEvents requests must include the sequenceToken
 -- obtained from the response of the previous request.
-plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
-plersNextSequenceToken =
-    lens _plersNextSequenceToken (\s a -> s { _plersNextSequenceToken = a })
+plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
+plerNextSequenceToken =
+    lens _plerNextSequenceToken (\s a -> s { _plerNextSequenceToken = a })
 
 instance FromJSON PutLogEventsResponse
 

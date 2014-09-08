@@ -39,8 +39,8 @@ module Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
     -- * Response
     , AddAttachmentsToSetResponse
     -- ** Response lenses
-    , aatsrsAttachmentSetId
-    , aatsrsExpiryTime
+    , aatsrAttachmentSetId
+    , aatsrExpiryTime
     ) where
 
 import Network.AWS.Support.V2013_04_15.Types
@@ -86,22 +86,21 @@ instance ToJSON AddAttachmentsToSet
 -- | The ID and expiry time of the attachment set returned by the
 -- AddAttachmentsToSet operation.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
-    { _aatsrsAttachmentSetId :: Maybe Text
-    , _aatsrsExpiryTime :: Maybe Text
+    { _aatsrAttachmentSetId :: Maybe Text
+    , _aatsrExpiryTime :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the attachment set. If an AttachmentSetId was not specified, a
 -- new attachment set is created, and the ID of the set is returned in the
 -- response. If an AttachmentSetId was specified, the attachments are added to
 -- the specified set, if it exists.
-aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrsAttachmentSetId =
-    lens _aatsrsAttachmentSetId (\s a -> s { _aatsrsAttachmentSetId = a })
+aatsrAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
+aatsrAttachmentSetId =
+    lens _aatsrAttachmentSetId (\s a -> s { _aatsrAttachmentSetId = a })
 
 -- | The time and date when the attachment set expires.
-aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrsExpiryTime =
-    lens _aatsrsExpiryTime (\s a -> s { _aatsrsExpiryTime = a })
+aatsrExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
+aatsrExpiryTime = lens _aatsrExpiryTime (\s a -> s { _aatsrExpiryTime = a })
 
 instance FromJSON AddAttachmentsToSetResponse
 

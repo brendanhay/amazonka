@@ -51,7 +51,7 @@ module Network.AWS.IAM.V2010_05_08.GetServerCertificate
     -- * Response
     , GetServerCertificateResponse
     -- ** Response lenses
-    , gscrsServerCertificate
+    , gscrServerCertificate
     ) where
 
 import Network.AWS.Request.Query
@@ -83,13 +83,13 @@ instance ToQuery GetServerCertificate where
 -- | Contains the result of a successful invocation of the GetServerCertificate
 -- action.
 newtype GetServerCertificateResponse = GetServerCertificateResponse
-    { _gscrsServerCertificate :: ServerCertificate
+    { _gscrServerCertificate :: ServerCertificate
     } deriving (Show, Generic)
 
 -- | Information about the server certificate.
-gscrsServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
-gscrsServerCertificate =
-    lens _gscrsServerCertificate (\s a -> s { _gscrsServerCertificate = a })
+gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
+gscrServerCertificate =
+    lens _gscrServerCertificate (\s a -> s { _gscrServerCertificate = a })
 
 instance FromXML GetServerCertificateResponse where
     fromXMLOptions = xmlOptions

@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.V2013_02_18.CreateDeployment
     -- * Response
     , CreateDeploymentResponse
     -- ** Response lenses
-    , cdrsDeploymentId
+    , cdrDeploymentId
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -112,14 +112,13 @@ instance ToJSON CreateDeployment
 
 -- | Contains the response to a CreateDeployment request.
 newtype CreateDeploymentResponse = CreateDeploymentResponse
-    { _cdrsDeploymentId :: Maybe Text
+    { _cdrDeploymentId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.
-cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
-cdrsDeploymentId =
-    lens _cdrsDeploymentId (\s a -> s { _cdrsDeploymentId = a })
+cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
+cdrDeploymentId = lens _cdrDeploymentId (\s a -> s { _cdrDeploymentId = a })
 
 instance FromJSON CreateDeploymentResponse
 

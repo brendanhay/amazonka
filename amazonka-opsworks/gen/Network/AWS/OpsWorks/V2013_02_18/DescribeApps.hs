@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeApps
     -- * Response
     , DescribeAppsResponse
     -- ** Response lenses
-    , darsApps
+    , darApps
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -76,12 +76,12 @@ instance ToJSON DescribeApps
 
 -- | Contains the response to a DescribeApps request.
 newtype DescribeAppsResponse = DescribeAppsResponse
-    { _darsApps :: [App]
+    { _darApps :: [App]
     } deriving (Show, Generic)
 
 -- | An array of App objects that describe the specified apps.
-darsApps :: Lens' DescribeAppsResponse [App]
-darsApps = lens _darsApps (\s a -> s { _darsApps = a })
+darApps :: Lens' DescribeAppsResponse [App]
+darApps = lens _darApps (\s a -> s { _darApps = a })
 
 instance FromJSON DescribeAppsResponse
 

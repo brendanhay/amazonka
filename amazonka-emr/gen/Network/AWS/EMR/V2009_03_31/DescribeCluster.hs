@@ -32,7 +32,7 @@ module Network.AWS.EMR.V2009_03_31.DescribeCluster
     -- * Response
     , DescribeClusterResponse
     -- ** Response lenses
-    , dcrsCluster
+    , dcrCluster
     ) where
 
 import Network.AWS.EMR.V2009_03_31.Types
@@ -66,12 +66,12 @@ instance ToJSON DescribeCluster
 
 -- | This output contains the description of the cluster.
 newtype DescribeClusterResponse = DescribeClusterResponse
-    { _dcrsCluster :: Maybe Cluster
+    { _dcrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | This output contains the details for the requested cluster.
-dcrsCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
-dcrsCluster = lens _dcrsCluster (\s a -> s { _dcrsCluster = a })
+dcrCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
+dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 
 instance FromJSON DescribeClusterResponse
 

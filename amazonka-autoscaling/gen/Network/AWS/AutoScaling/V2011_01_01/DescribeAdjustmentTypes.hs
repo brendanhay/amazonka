@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes
     -- * Response
     , DescribeAdjustmentTypesResponse
     -- ** Response lenses
-    , datrsAdjustmentTypes
+    , datrAdjustmentTypes
     ) where
 
 import Network.AWS.Request.Query
@@ -50,13 +50,13 @@ instance ToQuery DescribeAdjustmentTypes where
 
 -- | The output of the DescribeAdjustmentTypes action.
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
-    { _datrsAdjustmentTypes :: [AdjustmentType]
+    { _datrAdjustmentTypes :: [AdjustmentType]
     } deriving (Show, Generic)
 
 -- | A list of specific policy adjustment types.
-datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
-datrsAdjustmentTypes =
-    lens _datrsAdjustmentTypes (\s a -> s { _datrsAdjustmentTypes = a })
+datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
+datrAdjustmentTypes =
+    lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })
 
 instance FromXML DescribeAdjustmentTypesResponse where
     fromXMLOptions = xmlOptions

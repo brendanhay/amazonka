@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteDomain
     -- * Response
     , DeleteDomainResponse
     -- ** Response lenses
-    , ddrsDomainStatus
+    , ddrDomainStatus
     ) where
 
 import Network.AWS.Request.Query
@@ -64,13 +64,12 @@ instance ToQuery DeleteDomain where
 -- deleted domain, or no status if the domain has already been completely
 -- deleted.
 newtype DeleteDomainResponse = DeleteDomainResponse
-    { _ddrsDomainStatus :: Maybe DomainStatus
+    { _ddrDomainStatus :: Maybe DomainStatus
     } deriving (Show, Generic)
 
 -- | The current status of the search domain.
-ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-ddrsDomainStatus =
-    lens _ddrsDomainStatus (\s a -> s { _ddrsDomainStatus = a })
+ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
+ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
 
 instance FromXML DeleteDomainResponse where
     fromXMLOptions = xmlOptions

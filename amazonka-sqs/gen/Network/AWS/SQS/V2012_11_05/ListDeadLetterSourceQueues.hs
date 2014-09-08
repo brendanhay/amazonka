@@ -37,7 +37,7 @@ module Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues
     -- * Response
     , ListDeadLetterSourceQueuesResponse
     -- ** Response lenses
-    , ldlsqrsQueueUrls
+    , ldlsqrQueueUrls
     ) where
 
 import Network.AWS.Request.Query
@@ -66,14 +66,13 @@ instance ToQuery ListDeadLetterSourceQueues where
 
 -- | A list of your dead letter source queues.
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrsQueueUrls :: [Text]
+    { _ldlsqrQueueUrls :: [Text]
     } deriving (Show, Generic)
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
-ldlsqrsQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
-ldlsqrsQueueUrls =
-    lens _ldlsqrsQueueUrls (\s a -> s { _ldlsqrsQueueUrls = a })
+ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
+ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
     fromXMLOptions = xmlOptions

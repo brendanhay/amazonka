@@ -39,8 +39,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken
     -- * Response
     , GetOpenIdTokenResponse
     -- ** Response lenses
-    , goitrsIdentityId
-    , goitrsToken
+    , goitrIdentityId
+    , goitrToken
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -81,19 +81,18 @@ instance ToJSON GetOpenIdToken
 
 -- | Returned in response to a successful GetOpenIdToken request.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse
-    { _goitrsIdentityId :: Maybe Text
-    , _goitrsToken :: Maybe Text
+    { _goitrIdentityId :: Maybe Text
+    , _goitrToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
-goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsIdentityId =
-    lens _goitrsIdentityId (\s a -> s { _goitrsIdentityId = a })
+goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrIdentityId = lens _goitrIdentityId (\s a -> s { _goitrIdentityId = a })
 
 -- | An OpenID token.
-goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsToken = lens _goitrsToken (\s a -> s { _goitrsToken = a })
+goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrToken = lens _goitrToken (\s a -> s { _goitrToken = a })
 
 instance FromJSON GetOpenIdTokenResponse
 

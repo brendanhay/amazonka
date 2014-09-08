@@ -103,9 +103,9 @@ module Network.AWS.STS.V2011_06_15.AssumeRole
     -- * Response
     , AssumeRoleResponse
     -- ** Response lenses
-    , arrsCredentials
-    , arrsAssumedRoleUser
-    , arrsPackedPolicySize
+    , arrCredentials
+    , arrAssumedRoleUser
+    , arrPackedPolicySize
     ) where
 
 import Network.AWS.Request.Query
@@ -200,15 +200,15 @@ instance ToQuery AssumeRole where
 -- | Contains the result of a successful call to the AssumeRole action,
 -- including temporary AWS credentials that can be used to make AWS requests.
 data AssumeRoleResponse = AssumeRoleResponse
-    { _arrsCredentials :: Maybe Credentials
-    , _arrsAssumedRoleUser :: Maybe AssumedRoleUser
-    , _arrsPackedPolicySize :: Maybe Integer
+    { _arrCredentials :: Maybe Credentials
+    , _arrAssumedRoleUser :: Maybe AssumedRoleUser
+    , _arrPackedPolicySize :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security (or session) token.
-arrsCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
-arrsCredentials = lens _arrsCredentials (\s a -> s { _arrsCredentials = a })
+arrCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
+arrCredentials = lens _arrCredentials (\s a -> s { _arrCredentials = a })
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
 -- identifiers that you can use to refer to the resulting temporary security
@@ -216,16 +216,16 @@ arrsCredentials = lens _arrsCredentials (\s a -> s { _arrsCredentials = a })
 -- principal in a resource-based policy by using the ARN or assumed role ID.
 -- The ARN and ID include the RoleSessionName that you specified when you
 -- called AssumeRole.
-arrsAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
-arrsAssumedRoleUser =
-    lens _arrsAssumedRoleUser (\s a -> s { _arrsAssumedRoleUser = a })
+arrAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
+arrAssumedRoleUser =
+    lens _arrAssumedRoleUser (\s a -> s { _arrAssumedRoleUser = a })
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100 percent,
 -- which means the policy exceeded the allowed space.
-arrsPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Integer)
-arrsPackedPolicySize =
-    lens _arrsPackedPolicySize (\s a -> s { _arrsPackedPolicySize = a })
+arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Integer)
+arrPackedPolicySize =
+    lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })
 
 instance FromXML AssumeRoleResponse where
     fromXMLOptions = xmlOptions

@@ -41,7 +41,7 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource
     -- * Response
     , DescribeStackResourceResponse
     -- ** Response lenses
-    , dsrrsStackResourceDetail
+    , dsrrStackResourceDetail
     ) where
 
 import Network.AWS.Request.Query
@@ -82,15 +82,15 @@ instance ToQuery DescribeStackResource where
 
 -- | The output for a DescribeStackResource action.
 newtype DescribeStackResourceResponse = DescribeStackResourceResponse
-    { _dsrrsStackResourceDetail :: Maybe StackResourceDetail
+    { _dsrrStackResourceDetail :: Maybe StackResourceDetail
     } deriving (Show, Generic)
 
 -- | A StackResourceDetail structure containing the description of the specified
 -- resource in the specified stack.
-dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
-dsrrsStackResourceDetail =
-    lens _dsrrsStackResourceDetail
-         (\s a -> s { _dsrrsStackResourceDetail = a })
+dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
+dsrrStackResourceDetail =
+    lens _dsrrStackResourceDetail
+         (\s a -> s { _dsrrStackResourceDetail = a })
 
 instance FromXML DescribeStackResourceResponse where
     fromXMLOptions = xmlOptions

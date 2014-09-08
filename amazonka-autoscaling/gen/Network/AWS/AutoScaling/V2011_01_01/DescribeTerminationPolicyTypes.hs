@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes
     -- * Response
     , DescribeTerminationPolicyTypesResponse
     -- ** Response lenses
-    , dtptrsTerminationPolicyTypes
+    , dtptrTerminationPolicyTypes
     ) where
 
 import Network.AWS.Request.Query
@@ -51,16 +51,16 @@ instance ToQuery DescribeTerminationPolicyTypes where
 
 -- | The TerminationPolicyTypes data type.
 newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
-    { _dtptrsTerminationPolicyTypes :: [Text]
+    { _dtptrTerminationPolicyTypes :: [Text]
     } deriving (Show, Generic)
 
 -- | Termination policies supported by Auto Scaling. They are: OldestInstance,
 -- OldestLaunchConfiguration, NewestInstance, ClosestToNextInstanceHour,
 -- Default.
-dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
-dtptrsTerminationPolicyTypes =
-    lens _dtptrsTerminationPolicyTypes
-         (\s a -> s { _dtptrsTerminationPolicyTypes = a })
+dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
+dtptrTerminationPolicyTypes =
+    lens _dtptrTerminationPolicyTypes
+         (\s a -> s { _dtptrTerminationPolicyTypes = a })
 
 instance FromXML DescribeTerminationPolicyTypesResponse where
     fromXMLOptions = xmlOptions

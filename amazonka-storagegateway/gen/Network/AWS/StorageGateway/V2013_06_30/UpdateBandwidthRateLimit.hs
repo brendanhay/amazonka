@@ -52,7 +52,7 @@ module Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit
     -- * Response
     , UpdateBandwidthRateLimitResponse
     -- ** Response lenses
-    , ubrlrsGatewayARN
+    , ubrlrGatewayARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -106,14 +106,13 @@ instance ToJSON UpdateBandwidthRateLimit
 -- | A JSON object containing the of the gateway whose throttle information was
 -- updated.
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
-    { _ubrlrsGatewayARN :: Maybe Text
+    { _ubrlrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and region.
-ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
-ubrlrsGatewayARN =
-    lens _ubrlrsGatewayARN (\s a -> s { _ubrlrsGatewayARN = a })
+ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
+ubrlrGatewayARN = lens _ubrlrGatewayARN (\s a -> s { _ubrlrGatewayARN = a })
 
 instance FromJSON UpdateBandwidthRateLimitResponse
 

@@ -42,7 +42,7 @@ module Network.AWS.IAM.V2010_05_08.GetRole
     -- * Response
     , GetRoleResponse
     -- ** Response lenses
-    , grrsRole
+    , grrRole
     ) where
 
 import Network.AWS.Request.Query
@@ -71,12 +71,12 @@ instance ToQuery GetRole where
 
 -- | Contains the result of a successful invocation of the GetRole action.
 newtype GetRoleResponse = GetRoleResponse
-    { _grrsRole :: Role
+    { _grrRole :: Role
     } deriving (Show, Generic)
 
 -- | Information about the role.
-grrsRole :: Lens' GetRoleResponse Role
-grrsRole = lens _grrsRole (\s a -> s { _grrsRole = a })
+grrRole :: Lens' GetRoleResponse Role
+grrRole = lens _grrRole (\s a -> s { _grrRole = a })
 
 instance FromXML GetRoleResponse where
     fromXMLOptions = xmlOptions

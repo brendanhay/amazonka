@@ -40,8 +40,8 @@ module Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations
     -- * Response
     , DescribeLaunchConfigurationsResponse
     -- ** Response lenses
-    , dlcrsLaunchConfigurations
-    , dlcrsNextToken
+    , dlcrLaunchConfigurations
+    , dlcrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -83,19 +83,19 @@ instance ToQuery DescribeLaunchConfigurations where
 
 -- | The LaunchConfigurationsType data type.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
-    { _dlcrsLaunchConfigurations :: [LaunchConfiguration]
-    , _dlcrsNextToken :: Maybe Text
+    { _dlcrLaunchConfigurations :: [LaunchConfiguration]
+    , _dlcrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of launch configurations.
-dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrsLaunchConfigurations =
-    lens _dlcrsLaunchConfigurations
-         (\s a -> s { _dlcrsLaunchConfigurations = a })
+dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
+dlcrLaunchConfigurations =
+    lens _dlcrLaunchConfigurations
+         (\s a -> s { _dlcrLaunchConfigurations = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
-dlcrsNextToken = lens _dlcrsNextToken (\s a -> s { _dlcrsNextToken = a })
+dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
+dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
 
 instance FromXML DescribeLaunchConfigurationsResponse where
     fromXMLOptions = xmlOptions
@@ -109,4 +109,4 @@ instance AWSRequest DescribeLaunchConfigurations where
 
 instance AWSPager DescribeLaunchConfigurations where
     next rq rs = (\x -> rq & dlc1NextToken ?~ x)
-        <$> (rs ^. dlcrsNextToken)
+        <$> (rs ^. dlcrNextToken)

@@ -41,7 +41,7 @@ module Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls
     -- * Response
     , DescribeNetworkAclsResponse
     -- ** Response lenses
-    , dnarsNetworkAcls
+    , dnarNetworkAcls
     ) where
 
 import Network.AWS.Request.Query
@@ -99,13 +99,12 @@ instance ToQuery DescribeNetworkAcls where
 
 -- | 
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
-    { _dnarsNetworkAcls :: [NetworkAcl]
+    { _dnarNetworkAcls :: [NetworkAcl]
     } deriving (Show, Generic)
 
 -- | Information about one or more network ACLs.
-dnarsNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
-dnarsNetworkAcls =
-    lens _dnarsNetworkAcls (\s a -> s { _dnarsNetworkAcls = a })
+dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
+dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
 
 instance FromXML DescribeNetworkAclsResponse where
     fromXMLOptions = xmlOptions

@@ -40,8 +40,8 @@ module Network.AWS.SimpleDB.V2009_04_15.Select
     -- * Response
     , SelectResponse
     -- ** Response lenses
-    , srsItems
-    , srsNextToken
+    , srItems
+    , srNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -85,19 +85,19 @@ instance ToQuery Select where
     toQuery = genericQuery def
 
 data SelectResponse = SelectResponse
-    { _srsItems :: [Item]
-    , _srsNextToken :: Maybe Text
+    { _srItems :: [Item]
+    , _srNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of items that match the select expression.
-srsItems :: Lens' SelectResponse [Item]
-srsItems = lens _srsItems (\s a -> s { _srsItems = a })
+srItems :: Lens' SelectResponse [Item]
+srItems = lens _srItems (\s a -> s { _srItems = a })
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
-srsNextToken :: Lens' SelectResponse (Maybe Text)
-srsNextToken = lens _srsNextToken (\s a -> s { _srsNextToken = a })
+srNextToken :: Lens' SelectResponse (Maybe Text)
+srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
 
 instance FromXML SelectResponse where
     fromXMLOptions = xmlOptions
@@ -111,4 +111,4 @@ instance AWSRequest Select where
 
 instance AWSPager Select where
     next rq rs = (\x -> rq & sNextToken ?~ x)
-        <$> (rs ^. srsNextToken)
+        <$> (rs ^. srNextToken)

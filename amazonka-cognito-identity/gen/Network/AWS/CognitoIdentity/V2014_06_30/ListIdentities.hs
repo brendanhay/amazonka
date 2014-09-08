@@ -39,9 +39,9 @@ module Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities
     -- * Response
     , ListIdentitiesResponse
     -- ** Response lenses
-    , lirsIdentityPoolId
-    , lirsIdentities
-    , lirsNextToken
+    , lirIdentityPoolId
+    , lirIdentities
+    , lirNextToken
     ) where
 
 import Network.AWS.CognitoIdentity.V2014_06_30.Types
@@ -89,23 +89,23 @@ instance ToJSON ListIdentities
 
 -- | The response to a ListIdentities request.
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirsIdentityPoolId :: Maybe Text
-    , _lirsIdentities :: [IdentityDescription]
-    , _lirsNextToken :: Maybe Text
+    { _lirIdentityPoolId :: Maybe Text
+    , _lirIdentities :: [IdentityDescription]
+    , _lirNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | An identity pool ID in the format REGION:GUID.
-lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsIdentityPoolId =
-    lens _lirsIdentityPoolId (\s a -> s { _lirsIdentityPoolId = a })
+lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
+lirIdentityPoolId =
+    lens _lirIdentityPoolId (\s a -> s { _lirIdentityPoolId = a })
 
 -- | An object containing a set of identities and associated mappings.
-lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirsIdentities = lens _lirsIdentities (\s a -> s { _lirsIdentities = a })
+lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
+lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
 
 -- | A pagination token.
-lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\s a -> s { _lirsNextToken = a })
+lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
+lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
 
 instance FromJSON ListIdentitiesResponse
 

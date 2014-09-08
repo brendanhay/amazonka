@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField
     -- * Response
     , DeleteIndexFieldResponse
     -- ** Response lenses
-    , difrsrsIndexField
+    , difrrIndexField
     ) where
 
 import Network.AWS.Request.Query
@@ -75,13 +75,12 @@ instance ToQuery DeleteIndexField where
 
 -- | The result of a DeleteIndexField request.
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
-    { _difrsrsIndexField :: IndexFieldStatus
+    { _difrrIndexField :: IndexFieldStatus
     } deriving (Show, Generic)
 
 -- | The status of the index field being deleted.
-difrsrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
-difrsrsIndexField =
-    lens _difrsrsIndexField (\s a -> s { _difrsrsIndexField = a })
+difrrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
+difrrIndexField = lens _difrrIndexField (\s a -> s { _difrrIndexField = a })
 
 instance FromXML DeleteIndexFieldResponse where
     fromXMLOptions = xmlOptions

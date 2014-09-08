@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.V2013_06_30.DeleteTape
     -- * Response
     , DeleteTapeResponse
     -- ** Response lenses
-    , dtrsTapeARN
+    , dtrTapeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -69,11 +69,11 @@ instance ToHeaders DeleteTape
 instance ToJSON DeleteTape
 
 newtype DeleteTapeResponse = DeleteTapeResponse
-    { _dtrsTapeARN :: Maybe Text
+    { _dtrTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
-dtrsTapeARN = lens _dtrsTapeARN (\s a -> s { _dtrsTapeARN = a })
+dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
+dtrTapeARN = lens _dtrTapeARN (\s a -> s { _dtrTapeARN = a })
 
 instance FromJSON DeleteTapeResponse
 

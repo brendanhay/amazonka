@@ -68,8 +68,8 @@ module Network.AWS.Kinesis.V2013_12_02.GetRecords
     -- * Response
     , GetRecordsResponse
     -- ** Response lenses
-    , grrsRecords
-    , grrsNextShardIterator
+    , grrRecords
+    , grrNextShardIterator
     ) where
 
 import Network.AWS.Kinesis.V2013_12_02.Types
@@ -111,20 +111,20 @@ instance ToJSON GetRecords
 
 -- | Represents the output of a GetRecords operation.
 data GetRecordsResponse = GetRecordsResponse
-    { _grrsRecords :: [Record]
-    , _grrsNextShardIterator :: Maybe Text
+    { _grrRecords :: [Record]
+    , _grrNextShardIterator :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The data records retrieved from the shard.
-grrsRecords :: Lens' GetRecordsResponse [Record]
-grrsRecords = lens _grrsRecords (\s a -> s { _grrsRecords = a })
+grrRecords :: Lens' GetRecordsResponse [Record]
+grrRecords = lens _grrRecords (\s a -> s { _grrRecords = a })
 
 -- | The next position in the shard from which to start sequentially reading
 -- data records. If set to null, the shard has been closed and the requested
 -- iterator will not return any more data.
-grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
-grrsNextShardIterator =
-    lens _grrsNextShardIterator (\s a -> s { _grrsNextShardIterator = a })
+grrNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
+grrNextShardIterator =
+    lens _grrNextShardIterator (\s a -> s { _grrNextShardIterator = a })
 
 instance FromJSON GetRecordsResponse
 

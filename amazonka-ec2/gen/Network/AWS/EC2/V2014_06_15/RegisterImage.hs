@@ -83,7 +83,7 @@ module Network.AWS.EC2.V2014_06_15.RegisterImage
     -- * Response
     , RegisterImageResponse
     -- ** Response lenses
-    , rirsImageId
+    , rirImageId
     ) where
 
 import Network.AWS.Request.Query
@@ -178,12 +178,12 @@ instance ToQuery RegisterImage where
 
 -- | 
 newtype RegisterImageResponse = RegisterImageResponse
-    { _rirsImageId :: Maybe Text
+    { _rirImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the newly registered AMI.
-rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
-rirsImageId = lens _rirsImageId (\s a -> s { _rirsImageId = a })
+rirImageId :: Lens' RegisterImageResponse (Maybe Text)
+rirImageId = lens _rirImageId (\s a -> s { _rirImageId = a })
 
 instance FromXML RegisterImageResponse where
     fromXMLOptions = xmlOptions

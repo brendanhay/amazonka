@@ -44,10 +44,10 @@ module Network.AWS.S3.V2006_03_01.UploadPart
     -- * Response
     , UploadPartResponse
     -- ** Response lenses
-    , uprsServerSideEncryption
-    , uprsETag
-    , uprsSSECustomerAlgorithm
-    , uprsSSECustomerKeyMD5
+    , uprServerSideEncryption
+    , uprETag
+    , uprSSECustomerAlgorithm
+    , uprSSECustomerKeyMD5
     ) where
 
 import Network.AWS.Request.RestS3
@@ -165,36 +165,36 @@ instance ToBody UploadPart where
     toBody = toBody . _upBody
 
 data UploadPartResponse = UploadPartResponse
-    { _uprsServerSideEncryption :: Maybe ServerSideEncryption
-    , _uprsETag :: Maybe ETag
-    , _uprsSSECustomerAlgorithm :: Maybe Text
-    , _uprsSSECustomerKeyMD5 :: Maybe Text
+    { _uprServerSideEncryption :: Maybe ServerSideEncryption
+    , _uprETag :: Maybe ETag
+    , _uprSSECustomerAlgorithm :: Maybe Text
+    , _uprSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-uprsServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
-uprsServerSideEncryption =
-    lens _uprsServerSideEncryption
-         (\s a -> s { _uprsServerSideEncryption = a })
+uprServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
+uprServerSideEncryption =
+    lens _uprServerSideEncryption
+         (\s a -> s { _uprServerSideEncryption = a })
 
 -- | Entity tag for the uploaded object.
-uprsETag :: Lens' UploadPartResponse (Maybe ETag)
-uprsETag = lens _uprsETag (\s a -> s { _uprsETag = a })
+uprETag :: Lens' UploadPartResponse (Maybe ETag)
+uprETag = lens _uprETag (\s a -> s { _uprETag = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
 -- algorithm used.
-uprsSSECustomerAlgorithm :: Lens' UploadPartResponse (Maybe Text)
-uprsSSECustomerAlgorithm =
-    lens _uprsSSECustomerAlgorithm
-         (\s a -> s { _uprsSSECustomerAlgorithm = a })
+uprSSECustomerAlgorithm :: Lens' UploadPartResponse (Maybe Text)
+uprSSECustomerAlgorithm =
+    lens _uprSSECustomerAlgorithm
+         (\s a -> s { _uprSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-uprsSSECustomerKeyMD5 :: Lens' UploadPartResponse (Maybe Text)
-uprsSSECustomerKeyMD5 =
-    lens _uprsSSECustomerKeyMD5 (\s a -> s { _uprsSSECustomerKeyMD5 = a })
+uprSSECustomerKeyMD5 :: Lens' UploadPartResponse (Maybe Text)
+uprSSECustomerKeyMD5 =
+    lens _uprSSECustomerKeyMD5 (\s a -> s { _uprSSECustomerKeyMD5 = a })
 
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3

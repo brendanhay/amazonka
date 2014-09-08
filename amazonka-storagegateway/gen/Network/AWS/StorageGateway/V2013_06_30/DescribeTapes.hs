@@ -32,8 +32,8 @@ module Network.AWS.StorageGateway.V2013_06_30.DescribeTapes
     -- * Response
     , DescribeTapesResponse
     -- ** Response lenses
-    , dtrsrsTapes
-    , dtrsrsMarker
+    , dtrrTapes
+    , dtrrMarker
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -81,15 +81,15 @@ instance ToHeaders DescribeTapes
 instance ToJSON DescribeTapes
 
 data DescribeTapesResponse = DescribeTapesResponse
-    { _dtrsrsTapes :: [Tape]
-    , _dtrsrsMarker :: Maybe Text
+    { _dtrrTapes :: [Tape]
+    , _dtrrMarker :: Maybe Text
     } deriving (Show, Generic)
 
-dtrsrsTapes :: Lens' DescribeTapesResponse [Tape]
-dtrsrsTapes = lens _dtrsrsTapes (\s a -> s { _dtrsrsTapes = a })
+dtrrTapes :: Lens' DescribeTapesResponse [Tape]
+dtrrTapes = lens _dtrrTapes (\s a -> s { _dtrrTapes = a })
 
-dtrsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtrsrsMarker = lens _dtrsrsMarker (\s a -> s { _dtrsrsMarker = a })
+dtrrMarker :: Lens' DescribeTapesResponse (Maybe Text)
+dtrrMarker = lens _dtrrMarker (\s a -> s { _dtrrMarker = a })
 
 instance FromJSON DescribeTapesResponse
 
@@ -102,4 +102,4 @@ instance AWSRequest DescribeTapes where
 
 instance AWSPager DescribeTapes where
     next rq rs = (\x -> rq & dt1Marker ?~ x)
-        <$> (rs ^. dtrsrsMarker)
+        <$> (rs ^. dtrrMarker)

@@ -53,7 +53,7 @@ module Network.AWS.DataPipeline.V2012_10_29.DescribePipelines
     -- * Response
     , DescribePipelinesResponse
     -- ** Response lenses
-    , dprsPipelineDescriptionList
+    , dprPipelineDescriptionList
     ) where
 
 import Network.AWS.DataPipeline.V2012_10_29.Types
@@ -89,14 +89,14 @@ instance ToJSON DescribePipelines
 
 -- | Contains the output from the DescribePipelines action.
 newtype DescribePipelinesResponse = DescribePipelinesResponse
-    { _dprsPipelineDescriptionList :: [PipelineDescription]
+    { _dprPipelineDescriptionList :: [PipelineDescription]
     } deriving (Show, Generic)
 
 -- | An array of descriptions returned for the specified pipelines.
-dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
-dprsPipelineDescriptionList =
-    lens _dprsPipelineDescriptionList
-         (\s a -> s { _dprsPipelineDescriptionList = a })
+dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
+dprPipelineDescriptionList =
+    lens _dprPipelineDescriptionList
+         (\s a -> s { _dprPipelineDescriptionList = a })
 
 instance FromJSON DescribePipelinesResponse
 

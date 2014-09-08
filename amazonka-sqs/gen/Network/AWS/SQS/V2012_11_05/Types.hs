@@ -29,8 +29,6 @@ module Network.AWS.SQS.V2012_11_05.Types
     (
     -- * Service
       SQS
-    -- ** Errors
-    , Er (..)
     -- ** XML
     , xmlOptions
 
@@ -40,12 +38,12 @@ module Network.AWS.SQS.V2012_11_05.Types
     -- * ChangeMessageVisibilityBatchResultEntry
     , ChangeMessageVisibilityBatchResultEntry
     , mkChangeMessageVisibilityBatchResultEntry
-    , cmvbrersId
+    , cmvbrerId
 
     -- * DeleteMessageBatchResultEntry
     , DeleteMessageBatchResultEntry
     , mkDeleteMessageBatchResultEntry
-    , dmbrersId
+    , dmbrerId
 
     -- * BatchResultErrorEntry
     , BatchResultErrorEntry
@@ -99,10 +97,10 @@ module Network.AWS.SQS.V2012_11_05.Types
     -- * SendMessageBatchResultEntry
     , SendMessageBatchResultEntry
     , mkSendMessageBatchResultEntry
-    , smbrersId
-    , smbrersMessageId
-    , smbrersMD5OfMessageBody
-    , smbrersMD5OfMessageAttributes
+    , smbrerId
+    , smbrerMessageId
+    , smbrerMD5OfMessageBody
+    , smbrerMD5OfMessageAttributes
     ) where
 
 import Network.AWS.Prelude
@@ -218,21 +216,21 @@ instance ToQuery QueueAttributeName where
 
 -- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
-    { _cmvbrersId :: Text
+    { _cmvbrerId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeMessageVisibilityBatchResultEntry' data type to populate a request.
-mkChangeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrersId'
+mkChangeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrerId'
                                           -> ChangeMessageVisibilityBatchResultEntry
 mkChangeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultEntry
-    { _cmvbrersId = p1
+    { _cmvbrerId = p1
     }
 
 -- | Represents a message whose visibility timeout has been changed
 -- successfully.
-cmvbrersId :: Lens' ChangeMessageVisibilityBatchResultEntry Text
-cmvbrersId = lens _cmvbrersId (\s a -> s { _cmvbrersId = a })
+cmvbrerId :: Lens' ChangeMessageVisibilityBatchResultEntry Text
+cmvbrerId = lens _cmvbrerId (\s a -> s { _cmvbrerId = a })
 
 instance FromXML ChangeMessageVisibilityBatchResultEntry where
     fromXMLOptions = xmlOptions
@@ -240,20 +238,20 @@ instance FromXML ChangeMessageVisibilityBatchResultEntry where
 
 -- | Encloses the id an entry in DeleteMessageBatch.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
-    { _dmbrersId :: Text
+    { _dmbrerId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteMessageBatchResultEntry' data type to populate a request.
-mkDeleteMessageBatchResultEntry :: Text -- ^ 'dmbrersId'
+mkDeleteMessageBatchResultEntry :: Text -- ^ 'dmbrerId'
                                 -> DeleteMessageBatchResultEntry
 mkDeleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
-    { _dmbrersId = p1
+    { _dmbrerId = p1
     }
 
 -- | Represents a successfully deleted message.
-dmbrersId :: Lens' DeleteMessageBatchResultEntry Text
-dmbrersId = lens _dmbrersId (\s a -> s { _dmbrersId = a })
+dmbrerId :: Lens' DeleteMessageBatchResultEntry Text
+dmbrerId = lens _dmbrerId (\s a -> s { _dmbrerId = a })
 
 instance FromXML DeleteMessageBatchResultEntry where
     fromXMLOptions = xmlOptions
@@ -555,51 +553,49 @@ instance ToQuery SendMessageBatchRequestEntry where
 -- | Encloses a message ID for successfully enqueued message of a
 -- SendMessageBatch.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry
-    { _smbrersId :: Text
-    , _smbrersMessageId :: Text
-    , _smbrersMD5OfMessageBody :: Text
-    , _smbrersMD5OfMessageAttributes :: Maybe Text
+    { _smbrerId :: Text
+    , _smbrerMessageId :: Text
+    , _smbrerMD5OfMessageBody :: Text
+    , _smbrerMD5OfMessageAttributes :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SendMessageBatchResultEntry' data type to populate a request.
-mkSendMessageBatchResultEntry :: Text -- ^ 'smbrersId'
-                              -> Text -- ^ 'smbrersMessageId'
-                              -> Text -- ^ 'smbrersMD5OfMessageBody'
+mkSendMessageBatchResultEntry :: Text -- ^ 'smbrerId'
+                              -> Text -- ^ 'smbrerMessageId'
+                              -> Text -- ^ 'smbrerMD5OfMessageBody'
                               -> SendMessageBatchResultEntry
 mkSendMessageBatchResultEntry p1 p2 p3 = SendMessageBatchResultEntry
-    { _smbrersId = p1
-    , _smbrersMessageId = p2
-    , _smbrersMD5OfMessageBody = p3
-    , _smbrersMD5OfMessageAttributes = Nothing
+    { _smbrerId = p1
+    , _smbrerMessageId = p2
+    , _smbrerMD5OfMessageBody = p3
+    , _smbrerMD5OfMessageAttributes = Nothing
     }
 
 -- | An identifier for the message in this batch.
-smbrersId :: Lens' SendMessageBatchResultEntry Text
-smbrersId = lens _smbrersId (\s a -> s { _smbrersId = a })
+smbrerId :: Lens' SendMessageBatchResultEntry Text
+smbrerId = lens _smbrerId (\s a -> s { _smbrerId = a })
 
 -- | An identifier for the message.
-smbrersMessageId :: Lens' SendMessageBatchResultEntry Text
-smbrersMessageId =
-    lens _smbrersMessageId (\s a -> s { _smbrersMessageId = a })
+smbrerMessageId :: Lens' SendMessageBatchResultEntry Text
+smbrerMessageId = lens _smbrerMessageId (\s a -> s { _smbrerMessageId = a })
 
 -- | An MD5 digest of the non-URL-encoded message body string. This can be used
 -- to verify that Amazon SQS received the message correctly. Amazon SQS first
 -- URL decodes the message before creating the MD5 digest. For information
 -- about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
-smbrersMD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
-smbrersMD5OfMessageBody =
-    lens _smbrersMD5OfMessageBody
-         (\s a -> s { _smbrersMD5OfMessageBody = a })
+smbrerMD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
+smbrerMD5OfMessageBody =
+    lens _smbrerMD5OfMessageBody (\s a -> s { _smbrerMD5OfMessageBody = a })
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can be
 -- used to verify that Amazon SQS received the message batch correctly. Amazon
 -- SQS first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
-smbrersMD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
-smbrersMD5OfMessageAttributes =
-    lens _smbrersMD5OfMessageAttributes
-         (\s a -> s { _smbrersMD5OfMessageAttributes = a })
+smbrerMD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
+smbrerMD5OfMessageAttributes =
+    lens _smbrerMD5OfMessageAttributes
+         (\s a -> s { _smbrerMD5OfMessageAttributes = a })
 
 instance FromXML SendMessageBatchResultEntry where
     fromXMLOptions = xmlOptions

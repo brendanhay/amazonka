@@ -46,8 +46,8 @@ module Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstances
     -- * Response
     , DescribeReservedDBInstancesResponse
     -- ** Response lenses
-    , drdbirsMarker
-    , drdbirsReservedDBInstances
+    , drdbirMarker
+    , drdbirReservedDBInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -146,21 +146,21 @@ instance ToQuery DescribeReservedDBInstances where
 -- | Contains the result of a successful invocation of the
 -- DescribeReservedDBInstances action.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
-    { _drdbirsMarker :: Maybe Text
-    , _drdbirsReservedDBInstances :: [ReservedDBInstance]
+    { _drdbirMarker :: Maybe Text
+    , _drdbirReservedDBInstances :: [ReservedDBInstance]
     } deriving (Show, Generic)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-drdbirsMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
-drdbirsMarker = lens _drdbirsMarker (\s a -> s { _drdbirsMarker = a })
+drdbirMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
+drdbirMarker = lens _drdbirMarker (\s a -> s { _drdbirMarker = a })
 
 -- | A list of reserved DB instances.
-drdbirsReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
-drdbirsReservedDBInstances =
-    lens _drdbirsReservedDBInstances
-         (\s a -> s { _drdbirsReservedDBInstances = a })
+drdbirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
+drdbirReservedDBInstances =
+    lens _drdbirReservedDBInstances
+         (\s a -> s { _drdbirReservedDBInstances = a })
 
 instance FromXML DescribeReservedDBInstancesResponse where
     fromXMLOptions = xmlOptions
@@ -174,4 +174,4 @@ instance AWSRequest DescribeReservedDBInstances where
 
 instance AWSPager DescribeReservedDBInstances where
     next rq rs = (\x -> rq & drdbiMarker ?~ x)
-        <$> (rs ^. drdbirsMarker)
+        <$> (rs ^. drdbirMarker)

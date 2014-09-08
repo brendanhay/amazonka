@@ -44,7 +44,7 @@ module Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
     -- * Response
     , RetrieveDomainAuthCodeResponse
     -- ** Response lenses
-    , rdacrsAuthCode
+    , rdacrAuthCode
     ) where
 
 import Network.AWS.Route53Domains.V2014_05_15.Types
@@ -81,12 +81,12 @@ instance ToJSON RetrieveDomainAuthCode
 
 -- | The RetrieveDomainAuthCode response includes the following element.
 newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
-    { _rdacrsAuthCode :: Text
+    { _rdacrAuthCode :: Text
     } deriving (Show, Generic)
 
 -- | The authorization code for the domain. Type: String.
-rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
-rdacrsAuthCode = lens _rdacrsAuthCode (\s a -> s { _rdacrsAuthCode = a })
+rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
+rdacrAuthCode = lens _rdacrAuthCode (\s a -> s { _rdacrAuthCode = a })
 
 instance FromJSON RetrieveDomainAuthCodeResponse
 

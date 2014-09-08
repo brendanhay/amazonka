@@ -55,7 +55,7 @@ module Network.AWS.SQS.V2012_11_05.CreateQueue
     -- * Response
     , CreateQueueResponse
     -- ** Response lenses
-    , cqrsQueueUrl
+    , cqrQueueUrl
     ) where
 
 import Network.AWS.Request.Query
@@ -110,12 +110,12 @@ instance ToQuery CreateQueue where
 
 -- | Returns the QueueUrl element of the created queue.
 newtype CreateQueueResponse = CreateQueueResponse
-    { _cqrsQueueUrl :: Maybe Text
+    { _cqrQueueUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The URL for the created Amazon SQS queue.
-cqrsQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
-cqrsQueueUrl = lens _cqrsQueueUrl (\s a -> s { _cqrsQueueUrl = a })
+cqrQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
+cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
 
 instance FromXML CreateQueueResponse where
     fromXMLOptions = xmlOptions

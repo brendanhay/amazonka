@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps
     -- * Response
     , DescribeElasticIpsResponse
     -- ** Response lenses
-    , deirsElasticIps
+    , deirElasticIps
     ) where
 
 import Network.AWS.OpsWorks.V2013_02_18.Types
@@ -87,12 +87,12 @@ instance ToJSON DescribeElasticIps
 
 -- | Contains the response to a DescribeElasticIps request.
 newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
-    { _deirsElasticIps :: [ElasticIp]
+    { _deirElasticIps :: [ElasticIp]
     } deriving (Show, Generic)
 
 -- | An ElasticIps object that describes the specified Elastic IP addresses.
-deirsElasticIps :: Lens' DescribeElasticIpsResponse [ElasticIp]
-deirsElasticIps = lens _deirsElasticIps (\s a -> s { _deirsElasticIps = a })
+deirElasticIps :: Lens' DescribeElasticIpsResponse [ElasticIp]
+deirElasticIps = lens _deirElasticIps (\s a -> s { _deirElasticIps = a })
 
 instance FromJSON DescribeElasticIpsResponse
 

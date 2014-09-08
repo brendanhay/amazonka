@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions
     -- * Response
     , DescribeApplicationVersionsResponse
     -- ** Response lenses
-    , davrsApplicationVersions
+    , davrApplicationVersions
     ) where
 
 import Network.AWS.Request.Query
@@ -73,14 +73,14 @@ instance ToQuery DescribeApplicationVersions where
 
 -- | Result message wrapping a list of application version descriptions.
 newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
-    { _davrsApplicationVersions :: [ApplicationVersionDescription]
+    { _davrApplicationVersions :: [ApplicationVersionDescription]
     } deriving (Show, Generic)
 
 -- | A list of ApplicationVersionDescription .
-davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
-davrsApplicationVersions =
-    lens _davrsApplicationVersions
-         (\s a -> s { _davrsApplicationVersions = a })
+davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davrApplicationVersions =
+    lens _davrApplicationVersions
+         (\s a -> s { _davrApplicationVersions = a })
 
 instance FromXML DescribeApplicationVersionsResponse where
     fromXMLOptions = xmlOptions

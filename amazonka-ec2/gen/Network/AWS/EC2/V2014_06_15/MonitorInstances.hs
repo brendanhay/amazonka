@@ -44,7 +44,7 @@ module Network.AWS.EC2.V2014_06_15.MonitorInstances
     -- * Response
     , MonitorInstancesResponse
     -- ** Response lenses
-    , mirsInstanceMonitorings
+    , mirInstanceMonitorings
     ) where
 
 import Network.AWS.Request.Query
@@ -73,14 +73,13 @@ instance ToQuery MonitorInstances where
 
 -- | 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
-    { _mirsInstanceMonitorings :: [InstanceMonitoring]
+    { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Show, Generic)
 
 -- | Monitoring information for one or more instances.
-mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
-mirsInstanceMonitorings =
-    lens _mirsInstanceMonitorings
-         (\s a -> s { _mirsInstanceMonitorings = a })
+mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
+mirInstanceMonitorings =
+    lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
 
 instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions

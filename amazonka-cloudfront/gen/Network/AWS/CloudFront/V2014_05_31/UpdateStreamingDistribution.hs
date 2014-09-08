@@ -32,8 +32,8 @@ module Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution
     -- * Response
     , UpdateStreamingDistributionResponse
     -- ** Response lenses
-    , usdrsStreamingDistribution
-    , usdrsETag
+    , usdrStreamingDistribution
+    , usdrETag
     ) where
 
 import Network.AWS.Request.RestXML
@@ -94,19 +94,19 @@ instance ToXML UpdateStreamingDistribution where
 
 -- | The returned result of the corresponding request.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
-    { _usdrsStreamingDistribution :: Maybe StreamingDistribution
-    , _usdrsETag :: Maybe Text
+    { _usdrStreamingDistribution :: Maybe StreamingDistribution
+    , _usdrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The streaming distribution's information.
-usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
-usdrsStreamingDistribution =
-    lens _usdrsStreamingDistribution
-         (\s a -> s { _usdrsStreamingDistribution = a })
+usdrStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
+usdrStreamingDistribution =
+    lens _usdrStreamingDistribution
+         (\s a -> s { _usdrStreamingDistribution = a })
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
-usdrsETag = lens _usdrsETag (\s a -> s { _usdrsETag = a })
+usdrETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
+usdrETag = lens _usdrETag (\s a -> s { _usdrETag = a })
 
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront

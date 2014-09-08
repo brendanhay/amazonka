@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.V2013_06_30.CancelRetrieval
     -- * Response
     , CancelRetrievalResponse
     -- ** Response lenses
-    , crrsTapeARN
+    , crrTapeARN
     ) where
 
 import Network.AWS.StorageGateway.V2013_06_30.Types
@@ -69,11 +69,11 @@ instance ToHeaders CancelRetrieval
 instance ToJSON CancelRetrieval
 
 newtype CancelRetrievalResponse = CancelRetrievalResponse
-    { _crrsTapeARN :: Maybe Text
+    { _crrTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
-crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
-crrsTapeARN = lens _crrsTapeARN (\s a -> s { _crrsTapeARN = a })
+crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
+crrTapeARN = lens _crrTapeARN (\s a -> s { _crrTapeARN = a })
 
 instance FromJSON CancelRetrievalResponse
 

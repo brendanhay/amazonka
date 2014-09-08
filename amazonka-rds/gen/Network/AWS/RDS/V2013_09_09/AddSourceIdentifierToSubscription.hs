@@ -40,7 +40,7 @@ module Network.AWS.RDS.V2013_09_09.AddSourceIdentifierToSubscription
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
-    , asitsrsEventSubscription
+    , asitsrEventSubscription
     ) where
 
 import Network.AWS.Request.Query
@@ -85,15 +85,15 @@ instance ToQuery AddSourceIdentifierToSubscription where
     toQuery = genericQuery def
 
 newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
-    { _asitsrsEventSubscription :: Maybe EventSubscription
+    { _asitsrEventSubscription :: Maybe EventSubscription
     } deriving (Show, Generic)
 
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
-asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
-asitsrsEventSubscription =
-    lens _asitsrsEventSubscription
-         (\s a -> s { _asitsrsEventSubscription = a })
+asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
+asitsrEventSubscription =
+    lens _asitsrEventSubscription
+         (\s a -> s { _asitsrEventSubscription = a })
 
 instance FromXML AddSourceIdentifierToSubscriptionResponse where
     fromXMLOptions = xmlOptions

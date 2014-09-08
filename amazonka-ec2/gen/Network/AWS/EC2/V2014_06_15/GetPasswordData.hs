@@ -46,9 +46,9 @@ module Network.AWS.EC2.V2014_06_15.GetPasswordData
     -- * Response
     , GetPasswordDataResponse
     -- ** Response lenses
-    , gpdrsInstanceId
-    , gpdrsTimestamp
-    , gpdrsPasswordData
+    , gpdrInstanceId
+    , gpdrTimestamp
+    , gpdrPasswordData
     ) where
 
 import Network.AWS.Request.Query
@@ -77,23 +77,23 @@ instance ToQuery GetPasswordData where
 
 -- | 
 data GetPasswordDataResponse = GetPasswordDataResponse
-    { _gpdrsInstanceId :: Maybe Text
-    , _gpdrsTimestamp :: Maybe ISO8601
-    , _gpdrsPasswordData :: Maybe Text
+    { _gpdrInstanceId :: Maybe Text
+    , _gpdrTimestamp :: Maybe ISO8601
+    , _gpdrPasswordData :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The ID of the Windows instance.
-gpdrsInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
-gpdrsInstanceId = lens _gpdrsInstanceId (\s a -> s { _gpdrsInstanceId = a })
+gpdrInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
+gpdrInstanceId = lens _gpdrInstanceId (\s a -> s { _gpdrInstanceId = a })
 
 -- | The time the data was last updated.
-gpdrsTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
-gpdrsTimestamp = lens _gpdrsTimestamp (\s a -> s { _gpdrsTimestamp = a })
+gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe ISO8601)
+gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a })
 
 -- | The password of the instance.
-gpdrsPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
-gpdrsPasswordData =
-    lens _gpdrsPasswordData (\s a -> s { _gpdrsPasswordData = a })
+gpdrPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
+gpdrPasswordData =
+    lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 
 instance FromXML GetPasswordDataResponse where
     fromXMLOptions = xmlOptions

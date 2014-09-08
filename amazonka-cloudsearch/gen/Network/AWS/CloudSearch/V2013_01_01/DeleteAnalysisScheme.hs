@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme
     -- * Response
     , DeleteAnalysisSchemeResponse
     -- ** Response lenses
-    , dasrsrsAnalysisScheme
+    , dasrrAnalysisScheme
     ) where
 
 import Network.AWS.Request.Query
@@ -75,13 +75,13 @@ instance ToQuery DeleteAnalysisScheme where
 -- | The result of a DeleteAnalysisScheme request. Contains the status of the
 -- deleted analysis scheme.
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
-    { _dasrsrsAnalysisScheme :: AnalysisSchemeStatus
+    { _dasrrAnalysisScheme :: AnalysisSchemeStatus
     } deriving (Show, Generic)
 
 -- | The status of the analysis scheme being deleted.
-dasrsrsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-dasrsrsAnalysisScheme =
-    lens _dasrsrsAnalysisScheme (\s a -> s { _dasrsrsAnalysisScheme = a })
+dasrrAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
+dasrrAnalysisScheme =
+    lens _dasrrAnalysisScheme (\s a -> s { _dasrrAnalysisScheme = a })
 
 instance FromXML DeleteAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions

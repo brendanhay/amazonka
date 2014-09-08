@@ -65,7 +65,7 @@ module Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot
     -- * Response
     , RestoreFromClusterSnapshotResponse
     -- ** Response lenses
-    , rfcsrsCluster
+    , rfcsrCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -252,12 +252,12 @@ instance ToQuery RestoreFromClusterSnapshot where
     toQuery = genericQuery def
 
 newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
-    { _rfcsrsCluster :: Maybe Cluster
+    { _rfcsrCluster :: Maybe Cluster
     } deriving (Show, Generic)
 
 -- | Describes a cluster.
-rfcsrsCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
-rfcsrsCluster = lens _rfcsrsCluster (\s a -> s { _rfcsrsCluster = a })
+rfcsrCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
+rfcsrCluster = lens _rfcsrCluster (\s a -> s { _rfcsrCluster = a })
 
 instance FromXML RestoreFromClusterSnapshotResponse where
     fromXMLOptions = xmlOptions

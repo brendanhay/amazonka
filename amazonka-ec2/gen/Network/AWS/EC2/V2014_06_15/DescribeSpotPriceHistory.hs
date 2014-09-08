@@ -62,8 +62,8 @@ module Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory
     -- * Response
     , DescribeSpotPriceHistoryResponse
     -- ** Response lenses
-    , dsphrsSpotPriceHistory
-    , dsphrsNextToken
+    , dsphrSpotPriceHistory
+    , dsphrNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -145,19 +145,19 @@ instance ToQuery DescribeSpotPriceHistory where
 
 -- | 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
-    { _dsphrsSpotPriceHistory :: [SpotPrice]
-    , _dsphrsNextToken :: Maybe Text
+    { _dsphrSpotPriceHistory :: [SpotPrice]
+    , _dsphrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | The historical Spot Prices.
-dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
-dsphrsSpotPriceHistory =
-    lens _dsphrsSpotPriceHistory (\s a -> s { _dsphrsSpotPriceHistory = a })
+dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
+dsphrSpotPriceHistory =
+    lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.
-dsphrsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
-dsphrsNextToken = lens _dsphrsNextToken (\s a -> s { _dsphrsNextToken = a })
+dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
+dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 
 instance FromXML DescribeSpotPriceHistoryResponse where
     fromXMLOptions = xmlOptions
@@ -171,4 +171,4 @@ instance AWSRequest DescribeSpotPriceHistory where
 
 instance AWSPager DescribeSpotPriceHistory where
     next rq rs = (\x -> rq & dsphNextToken ?~ x)
-        <$> (rs ^. dsphrsNextToken)
+        <$> (rs ^. dsphrNextToken)

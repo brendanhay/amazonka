@@ -41,7 +41,7 @@ module Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup
     -- * Response
     , CreateDBSubnetGroupResponse
     -- ** Response lenses
-    , cdbsgrsrsDBSubnetGroup
+    , cdbsgrrDBSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -95,16 +95,16 @@ instance ToQuery CreateDBSubnetGroup where
     toQuery = genericQuery def
 
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
-    { _cdbsgrsrsDBSubnetGroup :: Maybe DBSubnetGroup
+    { _cdbsgrrDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Show, Generic)
 
 -- | Contains the result of a successful invocation of the following actions:
 -- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
 -- DeleteDBSubnetGroup This data type is used as a response element in the
 -- DescribeDBSubnetGroups action.
-cdbsgrsrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
-cdbsgrsrsDBSubnetGroup =
-    lens _cdbsgrsrsDBSubnetGroup (\s a -> s { _cdbsgrsrsDBSubnetGroup = a })
+cdbsgrrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
+cdbsgrrDBSubnetGroup =
+    lens _cdbsgrrDBSubnetGroup (\s a -> s { _cdbsgrrDBSubnetGroup = a })
 
 instance FromXML CreateDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions

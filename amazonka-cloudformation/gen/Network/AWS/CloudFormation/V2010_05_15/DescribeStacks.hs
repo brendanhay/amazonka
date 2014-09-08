@@ -39,8 +39,8 @@ module Network.AWS.CloudFormation.V2010_05_15.DescribeStacks
     -- * Response
     , DescribeStacksResponse
     -- ** Response lenses
-    , dsrsStacks
-    , dsrsNextToken
+    , dsr1rStacks
+    , dsr1rNextToken
     ) where
 
 import Network.AWS.Request.Query
@@ -78,18 +78,18 @@ instance ToQuery DescribeStacks where
 
 -- | The output for a DescribeStacks action.
 data DescribeStacksResponse = DescribeStacksResponse
-    { _dsrsStacks :: [Stack]
-    , _dsrsNextToken :: Maybe Text
+    { _dsr1rStacks :: [Stack]
+    , _dsr1rNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | A list of stack structures.
-dsrsStacks :: Lens' DescribeStacksResponse [Stack]
-dsrsStacks = lens _dsrsStacks (\s a -> s { _dsrsStacks = a })
+dsr1rStacks :: Lens' DescribeStacksResponse [Stack]
+dsr1rStacks = lens _dsr1rStacks (\s a -> s { _dsr1rStacks = a })
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-dsrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
-dsrsNextToken = lens _dsrsNextToken (\s a -> s { _dsrsNextToken = a })
+dsr1rNextToken :: Lens' DescribeStacksResponse (Maybe Text)
+dsr1rNextToken = lens _dsr1rNextToken (\s a -> s { _dsr1rNextToken = a })
 
 instance FromXML DescribeStacksResponse where
     fromXMLOptions = xmlOptions
@@ -103,4 +103,4 @@ instance AWSRequest DescribeStacks where
 
 instance AWSPager DescribeStacks where
     next rq rs = (\x -> rq & ds1NextToken ?~ x)
-        <$> (rs ^. dsrsNextToken)
+        <$> (rs ^. dsr1rNextToken)

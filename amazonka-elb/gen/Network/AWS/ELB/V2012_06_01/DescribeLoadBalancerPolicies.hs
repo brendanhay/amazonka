@@ -49,7 +49,7 @@ module Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies
     -- * Response
     , DescribeLoadBalancerPoliciesResponse
     -- ** Response lenses
-    , dlbprsrsPolicyDescriptions
+    , dlbprrPolicyDescriptions
     ) where
 
 import Network.AWS.Request.Query
@@ -89,14 +89,14 @@ instance ToQuery DescribeLoadBalancerPolicies where
 
 -- | The output for the DescribeLoadBalancerPolicies action.
 newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
-    { _dlbprsrsPolicyDescriptions :: [PolicyDescription]
+    { _dlbprrPolicyDescriptions :: [PolicyDescription]
     } deriving (Show, Generic)
 
 -- | A list of policy description structures.
-dlbprsrsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
-dlbprsrsPolicyDescriptions =
-    lens _dlbprsrsPolicyDescriptions
-         (\s a -> s { _dlbprsrsPolicyDescriptions = a })
+dlbprrPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
+dlbprrPolicyDescriptions =
+    lens _dlbprrPolicyDescriptions
+         (\s a -> s { _dlbprrPolicyDescriptions = a })
 
 instance FromXML DescribeLoadBalancerPoliciesResponse where
     fromXMLOptions = xmlOptions

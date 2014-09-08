@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 -- Module      : Network.AWS.Internal.Data.List1
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,12 +23,15 @@ module Network.AWS.Internal.Data.List1
 
 import           Control.Applicative
 import           Data.Aeson
-import           Data.Foldable       (Foldable)
-import           Data.List.NonEmpty  (NonEmpty(..))
-import qualified Data.List.NonEmpty  as NonEmpty
-import           Data.Semigroup      (Semigroup)
+import           Data.Foldable                   (Foldable)
+import           Data.List.NonEmpty              (NonEmpty(..))
+import qualified Data.List.NonEmpty              as NonEmpty
+import           Data.Semigroup                  (Semigroup)
+import           Data.Tagged
 import           Data.Traversable
-import qualified Data.Vector         as Vector
+import qualified Data.Vector                     as Vector
+import           Network.AWS.Internal.Data.Query
+import           Network.AWS.Internal.Data.XML
 
 newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
     deriving
@@ -54,8 +58,8 @@ infixr 5 <|
 toList :: List1 a -> [a]
 toList = NonEmpty.toList . toNonEmpty
 
-instance ToJSON a => ToJSON (List1 a) where
-    toJSON = toJSON . toList
+instance ToQuery a => ToQuery (List1 a) where
+    toQuery = toQuery . toList
 
 instance FromJSON a => FromJSON (List1 a) where
     parseJSON = withArray "List1" $ \case
@@ -64,3 +68,17 @@ instance FromJSON a => FromJSON (List1 a) where
         v -> traverse parseJSON $
                  Vector.unsafeHead v
                      `list1` Vector.toList (Vector.unsafeTail v)
+
+instance ToJSON a => ToJSON (List1 a) where
+    toJSON = toJSON . toList
+
+instance FromXML a => FromXML (List1 a) where
+    fromXMLRoot = fromRoot "List1"
+    fromXML o   = either Left f . fromXML (retag o)
+      where
+        f []     = Left  "Empty list, expected at least 1 element."
+        f (x:xs) = Right (list1 x xs)
+
+instance ToXML a => ToXML (List1 a) where
+    toXMLRoot = toRoot "List1"
+    toXML o   = toXML (retag o) . toList

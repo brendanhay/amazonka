@@ -18,7 +18,6 @@ import           Control.Applicative
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.CaseInsensitive                 as CI
-import           Data.Data                            (Data)
 import           Data.Foldable                        (Foldable)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
@@ -48,6 +47,14 @@ newtype Map k v = Map { toHashMap :: HashMap k v }
 nullMap :: Map k v -> Bool
 nullMap = Map.null . toHashMap
 
+instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
+    toHeader p = map (bimap (CI.mk . mappend p . toBS) toBS)
+        . Map.toList
+        . toHashMap
+
+instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
+    toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap
+
 instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
     parseJSON = withObject "HashMap" f
       where
@@ -63,14 +70,6 @@ instance (ToText k, ToJSON v) => ToJSON (Map k v) where
         . Map.toList
         . toHashMap
 
-instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
-    toHeader p = map (bimap (CI.mk . mappend p . toBS) toBS)
-        . Map.toList
-        . toHashMap
-
 instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
     fromXMLRoot = fromRoot "Map"
     fromXML o   = fmap Map . fromXML (retag o)
-
-instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
-    toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap

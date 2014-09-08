@@ -1,4 +1,12 @@
 
+{% if scope.direction.request %}
 -- | Smart constructor for the minimum required fields to construct
 -- a valid '{{ scope.name }}' data type to populate a request.
+{% else %}
+-- | Smart constructor for the minimum required fields to construct
+-- a valid '{{ scope.name }}' data type.
+--
+-- '{{ scope.name }}' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
+{% endif %}
 {% include "constructor.ede" with scope %}

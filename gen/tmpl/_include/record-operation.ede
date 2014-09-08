@@ -1,5 +1,3 @@
 {% include "record.ede" with scope %}
-{% if !scope.style %}
 {% include "constructor-operation.ede" with scope %}
-{% endif %}
 {% include "record-lenses.ede" with scope %}

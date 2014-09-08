@@ -33,6 +33,8 @@ module {{ scope.namespace }}
 {% endfor %}
     -- * Response
     , {{ scope.response.name }}
+    -- ** Response constructor
+    , {{ scope.response.smart_ctor }}
 {% for lens in scope.response.fields %}
   {% if lens.first %}
     -- ** Response lenses

@@ -1,4 +1,11 @@
 
+{% if scope.style %}
+-- | Smart constructor for the minimum required parameters to construct
+-- a valid '{{ scope.name }}' response.
+--
+-- This constructor is provided for convenience and testing purposes.
+{% else %}
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid '{{ scope.name }}' request.
+{% endif %}
 {% include "constructor.ede" with scope %}

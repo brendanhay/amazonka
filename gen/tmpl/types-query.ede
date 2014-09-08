@@ -16,44 +16,44 @@ xmlOptions = Tagged def
 {% endif %}
 
 {% for data in types %}
-    {% case data.value.ctor %}
-    {% when "witness" %}
+  {% case data.value.ctor %}
+  {% when "witness" %}
 data {{ data.value.name }}
-    {% when "sum" %}
+  {% when "sum" %}
 data {{ data.value.name }}
-      {% for branch in data.value.values %}
-        {% if branch.first %}
+    {% for branch in data.value.values %}
+      {% if branch.first %}
     = {{ branch.key }} -- ^ {{ branch.value }}
-        {% else %}
+      {% else %}
     | {{ branch.key }} -- ^ {{ branch.value }}
-        {% endif %}
-      {% endfor %}
+      {% endif %}
+    {% endfor %}
       deriving (Eq, Show, Generic)
 
 instance Hashable {{ data.value.name }}
 
 instance FromText {{ data.value.name }} where
-      {% for branch in data.value.values %}
-        {% if branch.first %}
+    {% for branch in data.value.values %}
+      {% if branch.first %}
     parser = match "{{ branch.value }}" {{ branch.key }}
-        {% else %}
+      {% else %}
          <|> match "{{ branch.value }}" {{ branch.key }}
-        {% endif %}
-      {% endfor %}
+      {% endif %}
+    {% endfor %}
 
 instance ToText {{ data.value.name }} where
-      {% for branch in data.value.values %}
+    {% for branch in data.value.values %}
     toText {{ branch.key }} = "{{ branch.value }}"
-      {% endfor %}
+    {% endfor %}
 
 instance ToByteString {{ data.value.name }}
-      {% include "_include/xml-from.ede" with data.value %}
-      {% include "_include/query-to.ede" with data.value %}
-    {% else %}
-      {% include "_include/record-type.ede" with data.value %}
-      {% include "_include/xml-from.ede" with data.value %}
-      {% include "_include/query-to.ede" with data.value %}
-    {% endcase %}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
+  {% else %}
+    {% include "_include/record-type.ede" with data.value %}
+    {% include "_include/xml-from.ede" with data.value %}
+    {% include "_include/query-to.ede" with data.value %}
+  {% endcase %}
   {% if !data.last %}
 
   {% endif %}

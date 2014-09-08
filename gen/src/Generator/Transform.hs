@@ -307,15 +307,21 @@ annOf rq svc s = Ann raw (ctorOf s) wrap monoid' default' req
 
         SStruct _ -> (name, False)
 
+        SList l
+            | l ^. lstMinLength > 0
+                -> ("NonEmpty " <> ann (_lstItem l), True)
         SList l -> ("[" <> ann (_lstItem l) <> "]", False)
+
         SMap  m -> ("Map " <> ann (_mapKey m) <> " " <> ann (_mapValue m), True)
 
-        SSum _ | switch      -> ("Switch " <> name, True)
-               | otherwise   -> (name, False)
+        SSum _
+            | switch      -> ("Switch " <> name, True)
+            | otherwise   -> (name, False)
 
-        SPrim p | body, rq   -> ("RqBody", False)
-                | body       -> ("RsBody", False)
-                | otherwise  -> (formatPrim svc p, False)
+        SPrim p
+            | body, rq   -> ("RqBody", False)
+            | body       -> ("RsBody", False)
+            | otherwise  -> (formatPrim svc p, False)
 
     ann = _anRaw' . annOf rq svc
 

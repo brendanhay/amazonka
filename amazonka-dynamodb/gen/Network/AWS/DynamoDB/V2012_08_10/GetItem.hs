@@ -61,7 +61,7 @@ import Network.AWS.Request.JSON
 data GetItem = GetItem
     { _giTableName :: Text
     , _giKey :: Map Text AttributeValue
-    , _giAttributesToGet :: Maybe (NonEmpty Text)
+    , _giAttributesToGet :: Maybe (List1 Text)
     , _giConsistentRead :: Maybe Bool
     , _giReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     } deriving (Show, Generic)
@@ -91,7 +91,7 @@ giKey = lens _giKey (\s a -> s { _giKey = a })
 -- | The names of one or more attributes to retrieve. If no attribute names are
 -- specified, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
-giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
+giAttributesToGet :: Lens' GetItem (Maybe (List1 Text))
 giAttributesToGet =
     lens _giAttributesToGet (\s a -> s { _giAttributesToGet = a })
 

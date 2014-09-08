@@ -70,7 +70,7 @@ data GetMetricStatistics = GetMetricStatistics
     , _gmsStartTime :: ISO8601
     , _gmsEndTime :: ISO8601
     , _gmsPeriod :: Integer
-    , _gmsStatistics :: NonEmpty Statistic
+    , _gmsStatistics :: List1 Statistic
     , _gmsUnit :: Maybe StandardUnit
     } deriving (Show, Generic)
 
@@ -81,7 +81,7 @@ mkGetMetricStatistics :: Text -- ^ 'gmsNamespace'
                       -> ISO8601 -- ^ 'gmsStartTime'
                       -> ISO8601 -- ^ 'gmsEndTime'
                       -> Integer -- ^ 'gmsPeriod'
-                      -> NonEmpty Statistic -- ^ 'gmsStatistics'
+                      -> List1 Statistic -- ^ 'gmsStatistics'
                       -> GetMetricStatistics
 mkGetMetricStatistics p1 p2 p4 p5 p6 p7 = GetMetricStatistics
     { _gmsNamespace = p1
@@ -127,7 +127,7 @@ gmsPeriod :: Lens' GetMetricStatistics Integer
 gmsPeriod = lens _gmsPeriod (\s a -> s { _gmsPeriod = a })
 
 -- | The metric statistics to return.
-gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
+gmsStatistics :: Lens' GetMetricStatistics (List1 Statistic)
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a })
 
 -- | The unit for the metric.

@@ -41,13 +41,13 @@ import Network.AWS.Prelude
 
 -- | 
 data AttachInstances = AttachInstances
-    { _aiInstanceIds :: NonEmpty Text
+    { _aiInstanceIds :: List1 Text
     , _aiAutoScalingGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachInstances' request.
-mkAttachInstances :: NonEmpty Text -- ^ 'aiInstanceIds'
+mkAttachInstances :: List1 Text -- ^ 'aiInstanceIds'
                   -> Text -- ^ 'aiAutoScalingGroupName'
                   -> AttachInstances
 mkAttachInstances p1 p2 = AttachInstances
@@ -57,7 +57,7 @@ mkAttachInstances p1 p2 = AttachInstances
 
 -- | One or more IDs of the Amazon EC2 instances to attach to the specified Auto
 -- Scaling group. You must specify at least one instance ID.
-aiInstanceIds :: Lens' AttachInstances (NonEmpty Text)
+aiInstanceIds :: Lens' AttachInstances (List1 Text)
 aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
 
 -- | The name of the Auto Scaling group to which to attach the specified

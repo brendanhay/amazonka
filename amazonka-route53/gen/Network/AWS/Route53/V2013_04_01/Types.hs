@@ -408,12 +408,12 @@ instance ToQuery TagResourceType where
 
 -- | A complex type that contains name server information.
 newtype DelegationSet = DelegationSet
-    { _dsNameServers :: NonEmpty Text
+    { _dsNameServers :: List1 Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DelegationSet' data type to populate a request.
-mkDelegationSet :: NonEmpty Text -- ^ 'dsNameServers'
+mkDelegationSet :: List1 Text -- ^ 'dsNameServers'
                 -> DelegationSet
 mkDelegationSet p1 = DelegationSet
     { _dsNameServers = p1
@@ -422,7 +422,7 @@ mkDelegationSet p1 = DelegationSet
 -- | A complex type that contains the authoritative name servers for the hosted
 -- zone. Use the method provided by your domain registrar to add an NS record
 -- to your domain for each NameServer that is assigned to your hosted zone.
-dsNameServers :: Lens' DelegationSet (NonEmpty Text)
+dsNameServers :: Lens' DelegationSet (List1 Text)
 dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
 
 instance FromXML DelegationSet where
@@ -563,12 +563,12 @@ instance ToXML Change where
 -- | A complex type that contains an optional comment and the Changes element.
 data ChangeBatch = ChangeBatch
     { _cbComment :: Maybe Text
-    , _cbChanges :: NonEmpty Change
+    , _cbChanges :: List1 Change
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeBatch' data type to populate a request.
-mkChangeBatch :: NonEmpty Change -- ^ 'cbChanges'
+mkChangeBatch :: List1 Change -- ^ 'cbChanges'
               -> ChangeBatch
 mkChangeBatch p2 = ChangeBatch
     { _cbComment = Nothing
@@ -581,7 +581,7 @@ cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
 -- | A complex type that contains one Change element for each resource record
 -- set that you want to create or delete.
-cbChanges :: Lens' ChangeBatch (NonEmpty Change)
+cbChanges :: Lens' ChangeBatch (List1 Change)
 cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
 
 instance ToXML ChangeBatch where
@@ -951,7 +951,7 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsGeoLocation :: Maybe GeoLocation
     , _rrsFailover :: Maybe Failover
     , _rrsTTL :: Maybe Integer
-    , _rrsResourceRecords :: NonEmpty ResourceRecord
+    , _rrsResourceRecords :: List1 ResourceRecord
     , _rrsAliasTarget :: Maybe AliasTarget
     , _rrsHealthCheckId :: Maybe Text
     } deriving (Show, Generic)
@@ -960,7 +960,7 @@ data ResourceRecordSet = ResourceRecordSet
 -- a valid 'ResourceRecordSet' data type to populate a request.
 mkResourceRecordSet :: Text -- ^ 'rrsName'
                     -> RecordType -- ^ 'rrsType'
-                    -> NonEmpty ResourceRecord -- ^ 'rrsResourceRecords'
+                    -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
                     -> ResourceRecordSet
 mkResourceRecordSet p1 p2 p9 = ResourceRecordSet
     { _rrsName = p1
@@ -1033,7 +1033,7 @@ rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
 
 -- | A complex type that contains the resource records for the current resource
 -- record set.
-rrsResourceRecords :: Lens' ResourceRecordSet (NonEmpty ResourceRecord)
+rrsResourceRecords :: Lens' ResourceRecordSet (List1 ResourceRecord)
 rrsResourceRecords =
     lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
 
@@ -1061,7 +1061,7 @@ instance ToXML ResourceRecordSet where
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceType :: Maybe TagResourceType
     , _rtsResourceId :: Maybe Text
-    , _rtsTags :: Maybe (NonEmpty Tag)
+    , _rtsTags :: Maybe (List1 Tag)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1083,7 +1083,7 @@ rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
 rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
 -- | The tags associated with the specified resource.
-rtsTags :: Lens' ResourceTagSet (Maybe (NonEmpty Tag))
+rtsTags :: Lens' ResourceTagSet (Maybe (List1 Tag))
 rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
 
 instance FromXML ResourceTagSet where

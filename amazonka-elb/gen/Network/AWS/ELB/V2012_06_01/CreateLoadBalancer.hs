@@ -116,7 +116,7 @@ data CreateLoadBalancer = CreateLoadBalancer
     , _clbSubnets :: [Text]
     , _clbSecurityGroups :: [Text]
     , _clbScheme :: Maybe Text
-    , _clbTags :: Maybe (NonEmpty Tag)
+    , _clbTags :: Maybe (List1 Tag)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -177,7 +177,7 @@ clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
 
 -- | A list of tags to assign to the load balancer. For more information about
 -- setting tags for your load balancer, see Tagging.
-clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
+clbTags :: Lens' CreateLoadBalancer (Maybe (List1 Tag))
 clbTags = lens _clbTags (\s a -> s { _clbTags = a })
 
 instance ToQuery CreateLoadBalancer where

@@ -78,7 +78,7 @@ data Query = Query
     { _qTableName :: Text
     , _qIndexName :: Maybe Text
     , _qSelect :: Maybe Select
-    , _qAttributesToGet :: Maybe (NonEmpty Text)
+    , _qAttributesToGet :: Maybe (List1 Text)
     , _qLimit :: Maybe Integer
     , _qConsistentRead :: Maybe Bool
     , _qKeyConditions :: Map Text Condition
@@ -163,7 +163,7 @@ qSelect = lens _qSelect (\s a -> s { _qSelect = a })
 -- latency. If you are querying a global secondary index, you can only request
 -- attributes that are projected into the index. Global secondary index
 -- queries cannot fetch attributes from the parent table.
-qAttributesToGet :: Lens' Query (Maybe (NonEmpty Text))
+qAttributesToGet :: Lens' Query (Maybe (List1 Text))
 qAttributesToGet =
     lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a })
 

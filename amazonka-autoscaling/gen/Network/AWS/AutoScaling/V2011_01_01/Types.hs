@@ -700,7 +700,7 @@ data AutoScalingGroup = AutoScalingGroup
     , _asgMaxSize :: Integer
     , _asgDesiredCapacity :: Integer
     , _asgDefaultCooldown :: Integer
-    , _asgAvailabilityZones :: NonEmpty Text
+    , _asgAvailabilityZones :: List1 Text
     , _asgLoadBalancerNames :: [Text]
     , _asgHealthCheckType :: Text
     , _asgHealthCheckGracePeriod :: Maybe Integer
@@ -725,7 +725,7 @@ mkAutoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
                    -> Integer -- ^ 'asgMaxSize'
                    -> Integer -- ^ 'asgDesiredCapacity'
                    -> Integer -- ^ 'asgDefaultCooldown'
-                   -> NonEmpty Text -- ^ 'asgAvailabilityZones'
+                   -> List1 Text -- ^ 'asgAvailabilityZones'
                    -> AutoScalingGroup
 mkAutoScalingGroup p1 p10 p13 p3 p4 p5 p6 p7 p8 = AutoScalingGroup
     { _asgAutoScalingGroupName = p1
@@ -787,7 +787,7 @@ asgDefaultCooldown =
     lens _asgDefaultCooldown (\s a -> s { _asgDefaultCooldown = a })
 
 -- | Contains a list of Availability Zones for the group.
-asgAvailabilityZones :: Lens' AutoScalingGroup (NonEmpty Text)
+asgAvailabilityZones :: Lens' AutoScalingGroup (List1 Text)
 asgAvailabilityZones =
     lens _asgAvailabilityZones (\s a -> s { _asgAvailabilityZones = a })
 

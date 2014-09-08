@@ -83,7 +83,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     , _uasgMaxSize :: Maybe Integer
     , _uasgDesiredCapacity :: Maybe Integer
     , _uasgDefaultCooldown :: Maybe Integer
-    , _uasgAvailabilityZones :: Maybe (NonEmpty Text)
+    , _uasgAvailabilityZones :: Maybe (List1 Text)
     , _uasgHealthCheckType :: Maybe Text
     , _uasgHealthCheckGracePeriod :: Maybe Integer
     , _uasgPlacementGroup :: Maybe Text
@@ -143,7 +143,7 @@ uasgDefaultCooldown =
     lens _uasgDefaultCooldown (\s a -> s { _uasgDefaultCooldown = a })
 
 -- | Availability Zones for the group.
-uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe (NonEmpty Text))
+uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe (List1 Text))
 uasgAvailabilityZones =
     lens _uasgAvailabilityZones (\s a -> s { _uasgAvailabilityZones = a })
 

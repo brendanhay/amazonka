@@ -67,7 +67,7 @@ import Network.AWS.Request.JSON
 data PutLogEvents = PutLogEvents
     { _pleLogGroupName :: Text
     , _pleLogStreamName :: Text
-    , _pleLogEvents :: NonEmpty InputLogEvent
+    , _pleLogEvents :: List1 InputLogEvent
     , _pleSequenceToken :: Maybe Text
     } deriving (Show, Generic)
 
@@ -75,7 +75,7 @@ data PutLogEvents = PutLogEvents
 -- a valid 'PutLogEvents' request.
 mkPutLogEvents :: Text -- ^ 'pleLogGroupName'
                -> Text -- ^ 'pleLogStreamName'
-               -> NonEmpty InputLogEvent -- ^ 'pleLogEvents'
+               -> List1 InputLogEvent -- ^ 'pleLogEvents'
                -> PutLogEvents
 mkPutLogEvents p1 p2 p3 = PutLogEvents
     { _pleLogGroupName = p1
@@ -92,7 +92,7 @@ pleLogStreamName =
     lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
 
 -- | A list of events belonging to a log stream.
-pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
+pleLogEvents :: Lens' PutLogEvents (List1 InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a })
 
 -- | A string token that must be obtained from the response of the previous

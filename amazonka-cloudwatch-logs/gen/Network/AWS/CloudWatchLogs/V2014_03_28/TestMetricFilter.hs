@@ -207,13 +207,13 @@ import Network.AWS.Request.JSON
 
 data TestMetricFilter = TestMetricFilter
     { _tmfFilterPattern :: Text
-    , _tmfLogEventMessages :: NonEmpty Text
+    , _tmfLogEventMessages :: List1 Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestMetricFilter' request.
 mkTestMetricFilter :: Text -- ^ 'tmfFilterPattern'
-                   -> NonEmpty Text -- ^ 'tmfLogEventMessages'
+                   -> List1 Text -- ^ 'tmfLogEventMessages'
                    -> TestMetricFilter
 mkTestMetricFilter p1 p2 = TestMetricFilter
     { _tmfFilterPattern = p1
@@ -224,7 +224,7 @@ tmfFilterPattern :: Lens' TestMetricFilter Text
 tmfFilterPattern =
     lens _tmfFilterPattern (\s a -> s { _tmfFilterPattern = a })
 
-tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
+tmfLogEventMessages :: Lens' TestMetricFilter (List1 Text)
 tmfLogEventMessages =
     lens _tmfLogEventMessages (\s a -> s { _tmfLogEventMessages = a })
 

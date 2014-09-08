@@ -17,8 +17,6 @@ module {{ scope.types_namespace }}
     (
     -- * Service
       {{ scope.name }}
-    -- ** Errors
-    , Er (..)
 {% case scope.type %}
 {% when "json" %}
 {% when "restjson" %}

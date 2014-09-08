@@ -114,7 +114,7 @@ operation svc@Service{..} o = do
     let y = x & opRequest.cmnName    .~ (x ^. opName)
               & opRequest.cmnPrefix  .~ casedChars (x ^. opName)
               & opResponse.cmnName   .~ (x ^. opName <> "Response")
-              & opResponse.cmnPrefix .~ casedChars (x ^. opName) <> "rs"
+              & opResponse.cmnPrefix .~ casedChars (x ^. opName) <> "r"
 
     rq <- uniquify svc (y ^. opRequest.typShape)
     rs <- uniquify svc (y ^. opResponse.typShape)
@@ -163,7 +163,7 @@ uniquify svc (special svc -> s)
            | Just x <- firstAcronym n, check n m x -> upd x
            | otherwise       -> go (numericSuffix cased) n d
 
-    resp DResponse x = Just (x <> "rs")
+    resp DResponse x = Just (x <> "r")
     resp _         _ = Nothing
 
     check n m x =

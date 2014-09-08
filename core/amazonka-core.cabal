@@ -28,6 +28,7 @@ library
     exposed-modules:
           Control.Monad.Trans.AWS
         , Network.AWS
+        , Network.AWS.Auth
         , Network.AWS.Data
         , Network.AWS.EC2.Metadata
         , Network.AWS.Prelude
@@ -42,10 +43,10 @@ library
         , Network.AWS.Types
 
     other-modules:
-          Network.AWS.Internal.Auth
-        , Network.AWS.Internal.Data.Body
+          Network.AWS.Internal.Data.Body
         , Network.AWS.Internal.Data.ByteString
         , Network.AWS.Internal.Data.Header
+        , Network.AWS.Internal.Data.Map
         , Network.AWS.Internal.Data.Path
         , Network.AWS.Internal.Data.Query
         , Network.AWS.Internal.Data.Text
@@ -54,7 +55,6 @@ library
         , Network.AWS.Internal.Data.XML
         , Network.AWS.Internal.Request
         , Network.AWS.Internal.Signing
-        , Network.AWS.Internal.Types.Map
 
     build-depends:
           aeson

@@ -27,16 +27,28 @@ module Control.Monad.Trans.AWS
     , AWST
     , runAWST
 
-    -- * Helpers
-    , hoistEither
-    , scoped
+    -- * Environment
+    , Env
+    -- ** Creating the environment
+    , Credentials (..)
+    , newEnv
+    -- ** Lenses
+    , envAuth
+    , envRegion
+    , envManager
+    , envLogging
 
-    -- * Debug output
+    -- * Debugging
     , debug
     , whenDebug
 
     -- * Regionalisation
+    , Region      (..)
     , within
+
+    -- * Helpers
+    , hoistEither
+    , scoped
 
     -- * Requests
     -- ** Synchronous
@@ -45,13 +57,12 @@ module Control.Monad.Trans.AWS
     -- ** Paginated
     , paginate
     , paginateCatch
+    -- ** Pre-signing URLs
+    , presign
 
     -- * Asynchronous actions
     , Async.async
     , wait
-
-    -- * Signing URLs
-    , presign
 
     -- * Types
     , module Network.AWS.Types
@@ -72,8 +83,9 @@ import           Data.Bifunctor
 import           Data.Conduit
 import           Data.Text                       (Text)
 import           Data.Time
-import           Network.AWS                     (Env(..), envRegion)
+import           Network.AWS                     (Env, newEnv, envRegion, envLogging, envAuth, envManager)
 import qualified Network.AWS                     as AWS
+import           Network.AWS.Auth
 import qualified Network.AWS.Types               as Types
 import           Network.AWS.Types               hiding (debug)
 
@@ -164,12 +176,12 @@ scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
 debug :: (MonadIO m, MonadReader Env m) => Text -> m ()
-debug t = ask >>= (`Types.debug` t) . _envLogging
+debug t = view envLogging >>= (`Types.debug` t)
 
 whenDebug :: MonadReader Env m => m () -> m ()
 whenDebug f = do
-    e <- ask
-    case _envLogging e of
+    l <- view envLogging
+    case l of
         Debug _ -> f
         _       -> return ()
 
@@ -229,5 +241,5 @@ presign :: ( MonadIO m
         -> UTCTime
         -> Int
         -> m (Signed a (Sg (Sv a)))
-presign rq t x = scoped $ \Env{..} ->
-    AWS.presign _envAuth _envRegion (request rq) t x
+presign rq t x = scoped $ \e ->
+    AWS.presign (e ^. envAuth) (e ^. envRegion) (request rq) t x

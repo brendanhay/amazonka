@@ -3,7 +3,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 
--- Module      : Network.AWS.Internal.Types.Map
+-- Module      : Network.AWS.Internal.Data.Map
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,22 +13,26 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Types.Map where
+module Network.AWS.Internal.Data.Map where
 
 import           Control.Applicative
 import           Data.Aeson
 import           Data.Bifunctor
-import qualified Data.CaseInsensitive as CI
-import           Data.Data            (Data)
-import           Data.Foldable        (Foldable)
-import           Data.HashMap.Strict  (HashMap)
-import qualified Data.HashMap.Strict  as Map
-import           Data.Hashable        (Hashable)
+import qualified Data.CaseInsensitive                 as CI
+import           Data.Data                            (Data)
+import           Data.Foldable                        (Foldable)
+import           Data.HashMap.Strict                  (HashMap)
+import qualified Data.HashMap.Strict                  as Map
+import           Data.Hashable                        (Hashable)
 import           Data.Monoid
 import           Data.Tagged
-import           Data.Traversable     (Traversable)
-import           Data.Typeable        (Typeable)
-import           Network.AWS.Data
+import           Data.Traversable                     (Traversable)
+import           Data.Typeable                        (Typeable)
+import           Network.AWS.Internal.Data.ByteString
+import           Network.AWS.Internal.Data.Header
+import           Network.AWS.Internal.Data.Query
+import           Network.AWS.Internal.Data.Text
+import           Network.AWS.Internal.Data.XML
 
 newtype Map k v = Map { toHashMap :: HashMap k v }
     deriving

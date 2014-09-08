@@ -13,17 +13,12 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.Data.Text
-    (
-    -- * Classes
-    -- ** FromText
-      FromText  (..)
+    ( FromText (..)
     , fromText
     , match
     , matchCI
-    , AText.takeText
 
-    -- ** ToText
-    , ToText    (..)
+    , ToText   (..)
     ) where
 
 import           Control.Applicative

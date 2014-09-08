@@ -17,7 +17,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.Time where
+module Network.AWS.Internal.Data.Time
+    ( Format (..)
+    , Time   (..)
+
+    , RFC822
+    , ISO8601
+    , BasicTime
+    , AWSTime
+    , POSIX
+    ) where
 
 import           Control.Applicative
 import           Data.Aeson

@@ -79,7 +79,7 @@ instance ToByteString a => ToHeader (Maybe a) where
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
     toHeader p = map (\(k, v) -> (CI.mk (p <> toBS k), toBS v)) . Map.toList
 
-infixl 6 ~:, ~:?, ~:!
+infixl 6 ~:, ~:?, ~:!, ~::
 
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 (~:) hs k = hs ~:? k >>= note

@@ -19,24 +19,22 @@
 module Network.AWS
     (
     -- * Environment
-      Env (..)
+      Env
+    -- ** Creating the environment
+    , Credentials (..)
+    , newEnv
     -- ** Lenses
     , envAuth
     , envRegion
     , envManager
     , envLogging
 
-    -- ** Creating the environment
-    , newEnv
-    , module Auth
-
-    -- * Synchronous requests
-    -- ** Strict
+    -- * Requests
+    -- ** Synchronous
     , send
-    -- ** Pagination
+    -- ** Paginated
     , paginate
-
-    -- * Signing URLs
+    -- ** Pre-signing URLs
     , presign
 
     -- * Types
@@ -51,8 +49,8 @@ import Control.Monad.Trans.Resource
 import Data.Conduit
 import Data.Monoid
 import Data.Time
+import Network.AWS.Auth
 import Network.AWS.Data
-import Network.AWS.Internal.Auth    as Auth
 import Network.AWS.Internal.Signing
 import Network.AWS.Types
 import Network.HTTP.Conduit

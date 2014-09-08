@@ -13,31 +13,44 @@
 module Network.AWS.Data
     (
     -- * ByteString
-      module BS
+      module Network.AWS.Internal.Data.ByteString
 
     -- * Text
-    , module Text
+    , module Network.AWS.Internal.Data.Text
 
     -- * Time
-    , module Time
-
-    -- * XML
-    , module XML
+    , module Network.AWS.Internal.Data.Time
 
     -- * HTTP
-    , module Header
-    , module Path
-    , module Query
-    , module Body
-    , module URI
+    -- ** Body
+    , module Network.AWS.Internal.Data.Body
+
+    -- ** Headers
+    , module Network.AWS.Internal.Data.Header
+
+    -- ** Path
+    , module Network.AWS.Internal.Data.Path
+
+    -- ** Query
+    , module Network.AWS.Internal.Data.Query
+
+    -- ** URI
+    , module Network.AWS.Internal.Data.URI
+
+    -- * Collections
+    , module Network.AWS.Internal.Data.Map
+
+    -- * XML
+    , module Network.AWS.Internal.Data.XML
     ) where
 
-import Network.AWS.Internal.Data.Body       as Body
-import Network.AWS.Internal.Data.ByteString as BS
-import Network.AWS.Internal.Data.Header     as Header
-import Network.AWS.Internal.Data.Path       as Path
-import Network.AWS.Internal.Data.Query      as Query
-import Network.AWS.Internal.Data.Text       as Text
-import Network.AWS.Internal.Data.Time       as Time
-import Network.AWS.Internal.Data.URI        as URI
-import Network.AWS.Internal.Data.XML        as XML
+import Network.AWS.Internal.Data.Body
+import Network.AWS.Internal.Data.ByteString
+import Network.AWS.Internal.Data.Header
+import Network.AWS.Internal.Data.Path
+import Network.AWS.Internal.Data.Query
+import Network.AWS.Internal.Data.Text
+import Network.AWS.Internal.Data.Time
+import Network.AWS.Internal.Data.URI
+import Network.AWS.Internal.Data.XML
+import Network.AWS.Internal.Data.Map

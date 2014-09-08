@@ -41,10 +41,6 @@ module Network.AWS.Prelude
     , Service'        (..)
     , Switch          (..)
 
-    -- * Collections
-    , Map             (..)
-    , nullMap
-
     -- * Lenses
     , module Lens
     ) where

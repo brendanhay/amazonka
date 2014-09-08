@@ -11,17 +11,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.Body
-    (
-    -- * Response
-      RsBody      (..)
-
-    -- * Request
-    , RqBody      (..)
-
-    -- * Classes
-    , ToBody      (..)
-    ) where
+module Network.AWS.Internal.Data.Body where
 
 import           Crypto.Hash
 import           Data.Aeson

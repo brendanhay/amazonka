@@ -3,7 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Network.AWS.Internal.Auth
+-- Module      : Network.AWS.Auth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Specify or retrieve your Amazon AWS credentials from the underlying host.
-module Network.AWS.Internal.Auth
+module Network.AWS.Auth
     (
     -- * Defaults
       accessKey

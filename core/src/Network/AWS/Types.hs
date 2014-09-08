@@ -22,10 +22,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Types
-    ( module Network.AWS.Types
-    , module Network.AWS.Internal.Types.Map
-    ) where
+module Network.AWS.Types where
 
 import           Control.Applicative
 import           Control.Concurrent             (ThreadId)
@@ -50,7 +47,6 @@ import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
-import           Network.AWS.Internal.Types.Map
 import qualified Network.HTTP.Client            as Client
 import           Network.HTTP.Client            hiding (Request, Response)
 import           Network.HTTP.Types.Header

@@ -19,21 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.Data.Query
-    (
-    -- * Types
-      QueryOptions (..)
+    ( QueryOptions (..)
     , Query
 
-    -- * Lenses
     , queryField
     , keysOf
     , valuesOf
 
-    -- * Pairs
     , pair
     , (=?)
 
-    -- * Serialisation
     , ToQuery      (..)
     , renderQuery
 

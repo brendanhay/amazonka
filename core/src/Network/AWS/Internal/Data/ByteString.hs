@@ -11,17 +11,12 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Internal.Data.ByteString
-    (
-    -- * Classes
-    -- ** ToByteString
-      ToByteString (..)
+    ( ToByteString (..)
     , showBS
 
-    -- ** ToBuilder
     , ToBuilder    (..)
     , buildBS
 
-    -- * Functions
     , stripBS
     ) where
 

@@ -17,6 +17,7 @@ module Network.AWS.Internal.Data.Text
     , fromText
     , match
     , matchCI
+    , AText.takeText
 
     , ToText   (..)
     ) where

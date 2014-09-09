@@ -44,7 +44,6 @@ module Network.AWS.Prelude
     -- * Shared
     , Action          (..)
     , Endpoint'       (..)
-    , Region          (..)
     , Service'        (..)
     , Switch          (..)
 

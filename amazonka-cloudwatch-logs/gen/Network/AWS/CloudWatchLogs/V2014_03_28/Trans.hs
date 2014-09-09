@@ -14,8 +14,8 @@
 -- | Amazon CloudWatch Logs enables you to monitor, store, and access your
 -- system, application, and custom log files.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.CloudWatchLogs.V2014_03_28.Trans
     (
     -- * CreateLogGroup

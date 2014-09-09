@@ -17,8 +17,8 @@
 -- providing the required amount of load balancing capacity needed to
 -- distribute application traffic.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.ELB.V2012_06_01.Trans
     (
     -- * AddTags

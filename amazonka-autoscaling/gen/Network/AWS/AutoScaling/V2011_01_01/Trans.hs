@@ -20,8 +20,8 @@
 -- weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch
 -- and available at no additional charge beyond Amazon CloudWatch fees.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.AutoScaling.V2011_01_01.Trans
     (
     -- * AttachInstances

@@ -22,8 +22,8 @@
 -- at any time. There is no additional charge for Elastic Beanstalk - you pay
 -- only for the AWS resources needed to store and run your applications.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.Trans
     (
     -- * CheckDNSAvailability

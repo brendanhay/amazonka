@@ -20,8 +20,8 @@
 -- sending statistics and built-in notifications for bounces, complaints, and
 -- deliveries to help you fine-tune your email-sending strategy.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.SES.V2010_12_01.Trans
     (
     -- * DeleteIdentity

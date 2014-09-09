@@ -21,8 +21,8 @@
 -- and no long-term contracts, providing developers and businesses flexibility
 -- to choose the level of support that meets their needs.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.Support.V2013_04_15.Trans
     (
     -- * AddAttachmentsToSet

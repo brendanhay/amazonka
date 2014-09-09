@@ -13,8 +13,8 @@
 
 -- | Pending.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.Route53Domains.V2014_05_15.Trans
     (
     -- * CheckDomainAvailability

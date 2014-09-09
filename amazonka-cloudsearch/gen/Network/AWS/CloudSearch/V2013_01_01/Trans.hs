@@ -17,8 +17,8 @@
 -- and popular search features such as highlighting, autocomplete, and
 -- geospatial search.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.CloudSearch.V2013_01_01.Trans
     (
     -- * BuildSuggesters

@@ -19,8 +19,8 @@
 -- of web sites. The service aims to maximize benefits of scale and to pass
 -- those benefits on to developers.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.S3.V2006_03_01.Trans
     (
     -- * AbortMultipartUpload

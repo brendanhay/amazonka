@@ -23,8 +23,8 @@
 -- published to Amazon SNS are stored redundantly across multiple availability
 -- zones.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.SNS.V2010_03_31.Trans
     (
     -- * AddPermission

@@ -23,8 +23,8 @@
 -- visibility into key performance metrics associated with your Memcached or
 -- Redis nodes.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.ElastiCache.V2014_07_15.Trans
     (
     -- * AuthorizeCacheSecurityGroupIngress

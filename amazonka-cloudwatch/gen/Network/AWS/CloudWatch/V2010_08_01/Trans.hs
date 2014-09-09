@@ -22,8 +22,8 @@
 -- operational health. You can use these insights to react and keep your
 -- application running smoothly.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.CloudWatch.V2010_08_01.Trans
     (
     -- * DeleteAlarms

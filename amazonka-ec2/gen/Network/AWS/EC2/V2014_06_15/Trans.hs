@@ -24,8 +24,8 @@
 -- the tools to build failure resilient applications and isolate themselves
 -- from common failure scenarios.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.EC2.V2014_06_15.Trans
     (
     -- * AcceptVpcPeeringConnection

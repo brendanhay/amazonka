@@ -16,8 +16,8 @@
 -- create and manage AWS users and groups and use permissions to allow and
 -- deny their access to AWS resources.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.IAM.V2010_05_08.Trans
     (
     -- * AddRoleToInstanceProfile

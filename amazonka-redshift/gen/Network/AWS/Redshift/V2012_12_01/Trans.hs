@@ -18,8 +18,8 @@
 -- scale to a petabyte or more for $1,000 per terabyte per year, less than a
 -- tenth of most other data warehousing solutions.
 --
--- The 'State' operator variants from 'Control.Lens' such as '.=' can be
--- used to modify any additional request parameters before sending.
+-- The 'State' operator variants from "Control.Lens.Setter" such as '.='
+-- can be used to modify any additional request parameters before sending.
 module Network.AWS.Redshift.V2012_12_01.Trans
     (
     -- * AuthorizeClusterSecurityGroupIngress

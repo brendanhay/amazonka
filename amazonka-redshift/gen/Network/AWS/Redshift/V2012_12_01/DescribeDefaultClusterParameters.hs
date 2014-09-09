@@ -70,6 +70,15 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDefaultClusterParameters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupFamily ::@ @Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDefaultClusterParameters :: Text -- ^ 'ddcpParameterGroupFamily'
                                    -> DescribeDefaultClusterParameters
 mkDescribeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
@@ -112,6 +121,11 @@ newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParamet
 -- a valid 'DescribeDefaultClusterParametersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultClusterParameters ::@ @DefaultClusterParameters@
+--
 mkDescribeDefaultClusterParametersResponse :: DefaultClusterParameters -- ^ 'ddcprDefaultClusterParameters'
                                            -> DescribeDefaultClusterParametersResponse
 mkDescribeDefaultClusterParametersResponse p1 = DescribeDefaultClusterParametersResponse

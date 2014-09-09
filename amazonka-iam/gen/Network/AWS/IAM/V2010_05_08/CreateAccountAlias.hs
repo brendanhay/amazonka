@@ -41,13 +41,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CreateAccountAlias = CreateAccountAlias
     { _caaAccountAlias :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAccountAlias' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccountAlias ::@ @Text@
+--
 mkCreateAccountAlias :: Text -- ^ 'caaAccountAlias'
                      -> CreateAccountAlias
 mkCreateAccountAlias p1 = CreateAccountAlias

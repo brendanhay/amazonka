@@ -53,6 +53,13 @@ data RegisterVolume = RegisterVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Ec2VolumeId ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Text@
+--
 mkRegisterVolume :: Text -- ^ 'rvStackId'
                  -> RegisterVolume
 mkRegisterVolume p2 = RegisterVolume
@@ -85,6 +92,11 @@ newtype RegisterVolumeResponse = RegisterVolumeResponse
 -- a valid 'RegisterVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
 mkRegisterVolumeResponse :: RegisterVolumeResponse
 mkRegisterVolumeResponse = RegisterVolumeResponse
     { _rvrVolumeId = Nothing

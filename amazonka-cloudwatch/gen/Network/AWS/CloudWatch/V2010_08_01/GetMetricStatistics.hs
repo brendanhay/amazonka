@@ -64,7 +64,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data GetMetricStatistics = GetMetricStatistics
     { _gmsNamespace :: Text
     , _gmsMetricName :: Text
@@ -78,6 +77,25 @@ data GetMetricStatistics = GetMetricStatistics
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetMetricStatistics' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Namespace ::@ @Text@
+--
+-- * @MetricName ::@ @Text@
+--
+-- * @Dimensions ::@ @[Dimension]@
+--
+-- * @StartTime ::@ @ISO8601@
+--
+-- * @EndTime ::@ @ISO8601@
+--
+-- * @Period ::@ @Integer@
+--
+-- * @Statistics ::@ @List1 Statistic@
+--
+-- * @Unit ::@ @Maybe StandardUnit@
+--
 mkGetMetricStatistics :: Text -- ^ 'gmsNamespace'
                       -> Text -- ^ 'gmsMetricName'
                       -> ISO8601 -- ^ 'gmsStartTime'
@@ -149,6 +167,13 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse
 -- a valid 'GetMetricStatisticsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Label ::@ @Maybe Text@
+--
+-- * @Datapoints ::@ @[Datapoint]@
+--
 mkGetMetricStatisticsResponse :: GetMetricStatisticsResponse
 mkGetMetricStatisticsResponse = GetMetricStatisticsResponse
     { _gmsrLabel = Nothing

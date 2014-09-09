@@ -49,6 +49,11 @@ newtype CreateDistribution = CreateDistribution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDistribution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DistributionConfig ::@ @DistributionConfig@
+--
 mkCreateDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
                      -> CreateDistribution
 mkCreateDistribution p1 = CreateDistribution
@@ -81,6 +86,15 @@ data CreateDistributionResponse = CreateDistributionResponse
 -- a valid 'CreateDistributionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Distribution ::@ @Maybe Distribution@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkCreateDistributionResponse :: CreateDistributionResponse
 mkCreateDistributionResponse = CreateDistributionResponse
     { _cdrDistribution = Nothing

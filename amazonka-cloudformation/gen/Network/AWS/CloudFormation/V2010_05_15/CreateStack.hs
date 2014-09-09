@@ -79,6 +79,33 @@ data CreateStack = CreateStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
+-- * @TemplateBody ::@ @Maybe Text@
+--
+-- * @TemplateURL ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
+-- * @DisableRollback ::@ @Maybe Bool@
+--
+-- * @TimeoutInMinutes ::@ @Maybe Integer@
+--
+-- * @NotificationARNs ::@ @[Text]@
+--
+-- * @Capabilities ::@ @[Capability]@
+--
+-- * @OnFailure ::@ @Maybe OnFailure@
+--
+-- * @StackPolicyBody ::@ @Maybe Text@
+--
+-- * @StackPolicyURL ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateStack :: Text -- ^ 'csStackName'
               -> CreateStack
 mkCreateStack p1 = CreateStack
@@ -195,6 +222,11 @@ newtype CreateStackResponse = CreateStackResponse
 -- a valid 'CreateStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
 mkCreateStackResponse :: CreateStackResponse
 mkCreateStackResponse = CreateStackResponse
     { _csrStackId = Nothing

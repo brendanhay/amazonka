@@ -66,6 +66,13 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- a valid 'DescribeMetricCollectionTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Metrics ::@ @[MetricCollectionType]@
+--
+-- * @Granularities ::@ @[MetricGranularityType]@
+--
 mkDescribeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse
 mkDescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     { _dmctrMetrics = mempty

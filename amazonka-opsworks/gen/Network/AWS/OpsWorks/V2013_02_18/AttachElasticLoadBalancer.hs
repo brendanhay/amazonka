@@ -52,6 +52,13 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachElasticLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticLoadBalancerName ::@ @Text@
+--
+-- * @LayerId ::@ @Text@
+--
 mkAttachElasticLoadBalancer :: Text -- ^ 'aelbElasticLoadBalancerName'
                             -> Text -- ^ 'aelbLayerId'
                             -> AttachElasticLoadBalancer

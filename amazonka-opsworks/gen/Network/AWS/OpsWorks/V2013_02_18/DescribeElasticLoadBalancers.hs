@@ -51,6 +51,13 @@ data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeElasticLoadBalancers' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LayerIds ::@ @[Text]@
+--
 mkDescribeElasticLoadBalancers :: DescribeElasticLoadBalancers
 mkDescribeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbStackId = Nothing
@@ -84,6 +91,11 @@ newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersRespo
 -- a valid 'DescribeElasticLoadBalancersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticLoadBalancers ::@ @[ElasticLoadBalancer]@
+--
 mkDescribeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse
 mkDescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbrElasticLoadBalancers = mempty

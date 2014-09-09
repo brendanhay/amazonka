@@ -43,13 +43,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadSerialNumber :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVirtualMFADevice' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SerialNumber ::@ @Text@
+--
 mkDeleteVirtualMFADevice :: Text -- ^ 'dvmfadSerialNumber'
                          -> DeleteVirtualMFADevice
 mkDeleteVirtualMFADevice p1 = DeleteVirtualMFADevice

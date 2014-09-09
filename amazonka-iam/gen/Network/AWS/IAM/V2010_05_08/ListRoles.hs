@@ -59,7 +59,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListRoles = ListRoles
     { _lrPathPrefix :: Maybe Text
     , _lrMarker :: Maybe Text
@@ -68,6 +67,15 @@ data ListRoles = ListRoles
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListRoles' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PathPrefix ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListRoles :: ListRoles
 mkListRoles = ListRoles
     { _lrPathPrefix = Nothing
@@ -111,6 +119,15 @@ data ListRolesResponse = ListRolesResponse
 -- a valid 'ListRolesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Roles ::@ @[Role]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListRolesResponse :: [Role] -- ^ 'lrrRoles'
                     -> Bool -- ^ 'lrrIsTruncated'
                     -> ListRolesResponse

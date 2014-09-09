@@ -49,6 +49,15 @@ data PutBucketPolicy = PutBucketPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @Policy ::@ @Text@
+--
 mkPutBucketPolicy :: BucketName -- ^ 'pbpBucket'
                   -> Text -- ^ 'pbpPolicy'
                   -> PutBucketPolicy

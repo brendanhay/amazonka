@@ -49,6 +49,13 @@ data GetInvalidation = GetInvalidation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInvalidation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DistributionId ::@ @Text@
+--
+-- * @Id ::@ @Text@
+--
 mkGetInvalidation :: Text -- ^ 'giDistributionId'
                   -> Text -- ^ 'giId'
                   -> GetInvalidation
@@ -85,6 +92,11 @@ newtype GetInvalidationResponse = GetInvalidationResponse
 -- a valid 'GetInvalidationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Invalidation ::@ @Maybe Invalidation@
+--
 mkGetInvalidationResponse :: GetInvalidationResponse
 mkGetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation = Nothing

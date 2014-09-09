@@ -65,6 +65,19 @@ data DescribeSnapshots = DescribeSnapshots
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshots' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Maybe Text@
+--
+-- * @SnapshotName ::@ @Maybe Text@
+--
+-- * @SnapshotSource ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
 mkDescribeSnapshots :: DescribeSnapshots
 mkDescribeSnapshots = DescribeSnapshots
     { _ds1CacheClusterId = Nothing
@@ -120,6 +133,13 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse
 -- a valid 'DescribeSnapshotsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Snapshots ::@ @[Snapshot]@
+--
 mkDescribeSnapshotsResponse :: DescribeSnapshotsResponse
 mkDescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrrMarker = Nothing

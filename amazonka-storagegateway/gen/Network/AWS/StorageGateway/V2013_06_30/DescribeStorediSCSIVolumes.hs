@@ -69,6 +69,11 @@ newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStorediSCSIVolumes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARNs ::@ @[Text]@
+--
 mkDescribeStorediSCSIVolumes :: [Text] -- ^ 'dsscsivVolumeARNs'
                              -> DescribeStorediSCSIVolumes
 mkDescribeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
@@ -98,6 +103,11 @@ newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
 -- a valid 'DescribeStorediSCSIVolumesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StorediSCSIVolumes ::@ @[StorediSCSIVolumeInformation]@
+--
 mkDescribeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
 mkDescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivrStorediSCSIVolumes = mempty

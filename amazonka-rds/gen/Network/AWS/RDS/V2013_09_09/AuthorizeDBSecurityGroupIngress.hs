@@ -71,6 +71,19 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeDBSecurityGroupIngress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroupName ::@ @Text@
+--
+-- * @CIDRIP ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupName ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupId ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+--
 mkAuthorizeDBSecurityGroupIngress :: Text -- ^ 'adbsgiDBSecurityGroupName'
                                   -> AuthorizeDBSecurityGroupIngress
 mkAuthorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
@@ -128,6 +141,11 @@ newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngres
 -- a valid 'AuthorizeDBSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroup ::@ @Maybe DBSecurityGroup@
+--
 mkAuthorizeDBSecurityGroupIngressResponse :: AuthorizeDBSecurityGroupIngressResponse
 mkAuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
     { _adbsgirDBSecurityGroup = Nothing

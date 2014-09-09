@@ -51,6 +51,13 @@ data DescribeApps = DescribeApps
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApps' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @AppIds ::@ @[Text]@
+--
 mkDescribeApps :: DescribeApps
 mkDescribeApps = DescribeApps
     { _da1StackId = Nothing
@@ -85,6 +92,11 @@ newtype DescribeAppsResponse = DescribeAppsResponse
 -- a valid 'DescribeAppsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Apps ::@ @[App]@
+--
 mkDescribeAppsResponse :: DescribeAppsResponse
 mkDescribeAppsResponse = DescribeAppsResponse
     { _darApps = mempty

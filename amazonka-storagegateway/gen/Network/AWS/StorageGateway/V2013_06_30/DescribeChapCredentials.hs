@@ -63,6 +63,11 @@ newtype DescribeChapCredentials = DescribeChapCredentials
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeChapCredentials' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetARN ::@ @Text@
+--
 mkDescribeChapCredentials :: Text -- ^ 'dcc1TargetARN'
                           -> DescribeChapCredentials
 mkDescribeChapCredentials p1 = DescribeChapCredentials
@@ -92,6 +97,11 @@ newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
 -- a valid 'DescribeChapCredentialsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ChapCredentials ::@ @[ChapInfo]@
+--
 mkDescribeChapCredentialsResponse :: DescribeChapCredentialsResponse
 mkDescribeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrrChapCredentials = mempty

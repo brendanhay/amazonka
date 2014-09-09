@@ -53,7 +53,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken :: Maybe Text
     , _mriReservedInstancesIds :: [Text]
@@ -62,6 +61,15 @@ data ModifyReservedInstances = ModifyReservedInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyReservedInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClientToken ::@ @Maybe Text@
+--
+-- * @ReservedInstancesIds ::@ @[Text]@
+--
+-- * @TargetConfigurations ::@ @[ReservedInstancesConfiguration]@
+--
 mkModifyReservedInstances :: [Text] -- ^ 'mriReservedInstancesIds'
                           -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
                           -> ModifyReservedInstances
@@ -91,7 +99,6 @@ mriTargetConfigurations =
 instance ToQuery ModifyReservedInstances where
     toQuery = genericQuery def
 
--- | 
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text
     } deriving (Show, Generic)
@@ -100,6 +107,11 @@ newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
 -- a valid 'ModifyReservedInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesModificationId ::@ @Maybe Text@
+--
 mkModifyReservedInstancesResponse :: ModifyReservedInstancesResponse
 mkModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId = Nothing

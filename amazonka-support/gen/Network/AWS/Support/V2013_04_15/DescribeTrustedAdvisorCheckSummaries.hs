@@ -42,13 +42,17 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     { _dtacsCheckIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorCheckSummaries' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckIds ::@ @[Text]@
+--
 mkDescribeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsCheckIds'
                                        -> DescribeTrustedAdvisorCheckSummaries
 mkDescribeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
@@ -77,6 +81,11 @@ newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorChe
 -- a valid 'DescribeTrustedAdvisorCheckSummariesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Summaries ::@ @[TrustedAdvisorCheckSummary]@
+--
 mkDescribeTrustedAdvisorCheckSummariesResponse :: [TrustedAdvisorCheckSummary] -- ^ 'dtacsrSummaries'
                                                -> DescribeTrustedAdvisorCheckSummariesResponse
 mkDescribeTrustedAdvisorCheckSummariesResponse p1 = DescribeTrustedAdvisorCheckSummariesResponse

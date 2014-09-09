@@ -68,6 +68,15 @@ data CopyClusterSnapshot = CopyClusterSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyClusterSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceSnapshotIdentifier ::@ @Text@
+--
+-- * @SourceSnapshotClusterIdentifier ::@ @Maybe Text@
+--
+-- * @TargetSnapshotIdentifier ::@ @Text@
+--
 mkCopyClusterSnapshot :: Text -- ^ 'ccsSourceSnapshotIdentifier'
                       -> Text -- ^ 'ccsTargetSnapshotIdentifier'
                       -> CopyClusterSnapshot
@@ -114,6 +123,11 @@ newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
 -- a valid 'CopyClusterSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkCopyClusterSnapshotResponse :: CopyClusterSnapshotResponse
 mkCopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ccsrSnapshot = Nothing

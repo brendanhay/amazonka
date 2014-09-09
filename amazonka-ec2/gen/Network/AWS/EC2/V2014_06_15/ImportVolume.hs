@@ -56,7 +56,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ImportVolume = ImportVolume
     { _ivAvailabilityZone :: Text
     , _ivImage :: DiskImageDetail
@@ -66,6 +65,17 @@ data ImportVolume = ImportVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityZone ::@ @Text@
+--
+-- * @Image ::@ @DiskImageDetail@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Volume ::@ @VolumeDetail@
+--
 mkImportVolume :: Text -- ^ 'ivAvailabilityZone'
                -> DiskImageDetail -- ^ 'ivImage'
                -> VolumeDetail -- ^ 'ivVolume'
@@ -97,7 +107,6 @@ ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
 instance ToQuery ImportVolume where
     toQuery = genericQuery def
 
--- | 
 newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
     } deriving (Show, Generic)
@@ -106,6 +115,11 @@ newtype ImportVolumeResponse = ImportVolumeResponse
 -- a valid 'ImportVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConversionTask ::@ @Maybe ConversionTask@
+--
 mkImportVolumeResponse :: ImportVolumeResponse
 mkImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask = Nothing

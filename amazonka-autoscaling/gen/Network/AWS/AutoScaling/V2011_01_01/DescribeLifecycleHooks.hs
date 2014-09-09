@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
     { _dlh1AutoScalingGroupName :: Text
     , _dlh1LifecycleHookNames :: [Text]
@@ -49,6 +48,13 @@ data DescribeLifecycleHooks = DescribeLifecycleHooks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHooks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @LifecycleHookNames ::@ @[Text]@
+--
 mkDescribeLifecycleHooks :: Text -- ^ 'dlh1AutoScalingGroupName'
                          -> DescribeLifecycleHooks
 mkDescribeLifecycleHooks p1 = DescribeLifecycleHooks
@@ -79,6 +85,11 @@ newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
 -- a valid 'DescribeLifecycleHooksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LifecycleHooks ::@ @[LifecycleHook]@
+--
 mkDescribeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
 mkDescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
     { _dlhrrLifecycleHooks = mempty

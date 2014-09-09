@@ -67,6 +67,13 @@ data AddInstanceGroups = AddInstanceGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddInstanceGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceGroups ::@ @[InstanceGroupConfig]@
+--
+-- * @JobFlowId ::@ @Text@
+--
 mkAddInstanceGroups :: [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
                     -> Text -- ^ 'aigJobFlowId'
                     -> AddInstanceGroups
@@ -102,6 +109,13 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse
 -- a valid 'AddInstanceGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlowId ::@ @Maybe Text@
+--
+-- * @InstanceGroupIds ::@ @[Text]@
+--
 mkAddInstanceGroupsResponse :: AddInstanceGroupsResponse
 mkAddInstanceGroupsResponse = AddInstanceGroupsResponse
     { _aigrJobFlowId = Nothing

@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListMFADevices = ListMFADevices
     { _lmfadUserName :: Maybe Text
     , _lmfadMarker :: Maybe Text
@@ -58,6 +57,15 @@ data ListMFADevices = ListMFADevices
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMFADevices' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListMFADevices :: ListMFADevices
 mkListMFADevices = ListMFADevices
     { _lmfadUserName = Nothing
@@ -97,6 +105,15 @@ data ListMFADevicesResponse = ListMFADevicesResponse
 -- a valid 'ListMFADevicesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MFADevices ::@ @[MFADevice]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListMFADevicesResponse :: [MFADevice] -- ^ 'lmfadrMFADevices'
                          -> Bool -- ^ 'lmfadrIsTruncated'
                          -> ListMFADevicesResponse

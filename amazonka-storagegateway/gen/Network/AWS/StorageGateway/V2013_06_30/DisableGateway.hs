@@ -44,6 +44,11 @@ newtype DisableGateway = DisableGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDisableGateway :: Text -- ^ 'dg1GatewayARN'
                  -> DisableGateway
 mkDisableGateway p1 = DisableGateway
@@ -71,6 +76,11 @@ newtype DisableGatewayResponse = DisableGatewayResponse
 -- a valid 'DisableGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkDisableGatewayResponse :: DisableGatewayResponse
 mkDisableGatewayResponse = DisableGatewayResponse
     { _dgrrGatewayARN = Nothing

@@ -47,6 +47,13 @@ data DeleteDistribution = DeleteDistribution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDistribution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @IfMatch ::@ @Maybe Text@
+--
 mkDeleteDistribution :: Text -- ^ 'ddId'
                      -> DeleteDistribution
 mkDeleteDistribution p1 = DeleteDistribution

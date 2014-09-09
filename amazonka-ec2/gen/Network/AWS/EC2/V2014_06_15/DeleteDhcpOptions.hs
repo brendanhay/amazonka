@@ -46,13 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteDhcpOptions = DeleteDhcpOptions
     { _ddoDhcpOptionsId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDhcpOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DhcpOptionsId ::@ @Text@
+--
 mkDeleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
                     -> DeleteDhcpOptions
 mkDeleteDhcpOptions p1 = DeleteDhcpOptions

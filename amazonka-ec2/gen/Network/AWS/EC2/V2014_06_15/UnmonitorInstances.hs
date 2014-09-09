@@ -53,13 +53,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype UnmonitorInstances = UnmonitorInstances
     { _uiInstanceIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnmonitorInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
 mkUnmonitorInstances :: [Text] -- ^ 'uiInstanceIds'
                      -> UnmonitorInstances
 mkUnmonitorInstances p1 = UnmonitorInstances
@@ -73,7 +77,6 @@ uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
 instance ToQuery UnmonitorInstances where
     toQuery = genericQuery def
 
--- | 
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Show, Generic)
@@ -82,6 +85,11 @@ newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
 -- a valid 'UnmonitorInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceMonitorings ::@ @[InstanceMonitoring]@
+--
 mkUnmonitorInstancesResponse :: UnmonitorInstancesResponse
 mkUnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings = mempty

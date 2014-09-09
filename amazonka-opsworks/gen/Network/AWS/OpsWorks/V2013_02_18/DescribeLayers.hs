@@ -51,6 +51,13 @@ data DescribeLayers = DescribeLayers
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLayers' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LayerIds ::@ @[Text]@
+--
 mkDescribeLayers :: DescribeLayers
 mkDescribeLayers = DescribeLayers
     { _dl1StackId = Nothing
@@ -84,6 +91,11 @@ newtype DescribeLayersResponse = DescribeLayersResponse
 -- a valid 'DescribeLayersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Layers ::@ @[Layer]@
+--
 mkDescribeLayersResponse :: DescribeLayersResponse
 mkDescribeLayersResponse = DescribeLayersResponse
     { _dlrLayers = mempty

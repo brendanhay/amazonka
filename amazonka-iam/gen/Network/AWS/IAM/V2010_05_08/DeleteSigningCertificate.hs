@@ -45,7 +45,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dsc1UserName :: Maybe Text
     , _dsc1CertificateId :: Text
@@ -53,6 +52,13 @@ data DeleteSigningCertificate = DeleteSigningCertificate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSigningCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @CertificateId ::@ @Text@
+--
 mkDeleteSigningCertificate :: Text -- ^ 'dsc1CertificateId'
                            -> DeleteSigningCertificate
 mkDeleteSigningCertificate p2 = DeleteSigningCertificate

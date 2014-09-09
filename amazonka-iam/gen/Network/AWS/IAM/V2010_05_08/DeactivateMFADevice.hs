@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadUserName :: Text
     , _dmfadSerialNumber :: Text
@@ -49,6 +48,13 @@ data DeactivateMFADevice = DeactivateMFADevice
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeactivateMFADevice' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @SerialNumber ::@ @Text@
+--
 mkDeactivateMFADevice :: Text -- ^ 'dmfadUserName'
                       -> Text -- ^ 'dmfadSerialNumber'
                       -> DeactivateMFADevice

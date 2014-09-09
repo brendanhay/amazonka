@@ -201,6 +201,13 @@ data HashKeyRange = HashKeyRange
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HashKeyRange' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StartingHashKey ::@ @Text@
+--
+-- * @EndingHashKey ::@ @Text@
+--
 mkHashKeyRange :: Text -- ^ 'hkrStartingHashKey'
                -> Text -- ^ 'hkrEndingHashKey'
                -> HashKeyRange
@@ -236,6 +243,15 @@ data Record = Record
 --
 -- 'Record' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SequenceNumber ::@ @Text@
+--
+-- * @Data ::@ @Base64@
+--
+-- * @PartitionKey ::@ @Text@
+--
 mkRecord :: Text -- ^ 'rSequenceNumber'
          -> Base64 -- ^ 'rData'
          -> Text -- ^ 'rPartitionKey'
@@ -271,6 +287,13 @@ data SequenceNumberRange = SequenceNumberRange
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SequenceNumberRange' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StartingSequenceNumber ::@ @Text@
+--
+-- * @EndingSequenceNumber ::@ @Maybe Text@
+--
 mkSequenceNumberRange :: Text -- ^ 'snrStartingSequenceNumber'
                       -> SequenceNumberRange
 mkSequenceNumberRange p1 = SequenceNumberRange
@@ -309,6 +332,19 @@ data Shard = Shard
 --
 -- 'Shard' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ShardId ::@ @Text@
+--
+-- * @ParentShardId ::@ @Maybe Text@
+--
+-- * @AdjacentParentShardId ::@ @Maybe Text@
+--
+-- * @HashKeyRange ::@ @HashKeyRange@
+--
+-- * @SequenceNumberRange ::@ @SequenceNumberRange@
+--
 mkShard :: Text -- ^ 'sShardId'
         -> HashKeyRange -- ^ 'sHashKeyRange'
         -> SequenceNumberRange -- ^ 'sSequenceNumberRange'
@@ -362,6 +398,19 @@ data StreamDescription = StreamDescription
 --
 -- 'StreamDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
+-- * @StreamARN ::@ @Text@
+--
+-- * @StreamStatus ::@ @StreamStatus@
+--
+-- * @Shards ::@ @[Shard]@
+--
+-- * @HasMoreShards ::@ @Bool@
+--
 mkStreamDescription :: Text -- ^ 'sdStreamName'
                     -> Text -- ^ 'sdStreamARN'
                     -> StreamStatus -- ^ 'sdStreamStatus'

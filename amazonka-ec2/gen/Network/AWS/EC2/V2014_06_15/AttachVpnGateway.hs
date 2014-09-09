@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AttachVpnGateway = AttachVpnGateway
     { _avgVpnGatewayId :: Text
     , _avgVpcId :: Text
@@ -59,6 +58,13 @@ data AttachVpnGateway = AttachVpnGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVpnGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnGatewayId ::@ @Text@
+--
+-- * @VpcId ::@ @Text@
+--
 mkAttachVpnGateway :: Text -- ^ 'avgVpnGatewayId'
                    -> Text -- ^ 'avgVpcId'
                    -> AttachVpnGateway
@@ -78,7 +84,6 @@ avgVpcId = lens _avgVpcId (\s a -> s { _avgVpcId = a })
 instance ToQuery AttachVpnGateway where
     toQuery = genericQuery def
 
--- | 
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment :: Maybe VpcAttachment
     } deriving (Show, Generic)
@@ -87,6 +92,11 @@ newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
 -- a valid 'AttachVpnGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcAttachment ::@ @Maybe VpcAttachment@
+--
 mkAttachVpnGatewayResponse :: AttachVpnGatewayResponse
 mkAttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment = Nothing

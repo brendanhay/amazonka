@@ -55,7 +55,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListGroups = ListGroups
     { _lgPathPrefix :: Maybe Text
     , _lgMarker :: Maybe Text
@@ -64,6 +63,15 @@ data ListGroups = ListGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PathPrefix ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListGroups :: ListGroups
 mkListGroups = ListGroups
     { _lgPathPrefix = Nothing
@@ -105,6 +113,15 @@ data ListGroupsResponse = ListGroupsResponse
 -- a valid 'ListGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Groups ::@ @[Group]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListGroupsResponse :: [Group] -- ^ 'lgrGroups'
                      -> Bool -- ^ 'lgrIsTruncated'
                      -> ListGroupsResponse

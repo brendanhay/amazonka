@@ -48,6 +48,11 @@ newtype DescribeInterconnects = DescribeInterconnects
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInterconnects' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InterconnectId ::@ @Maybe Text@
+--
 mkDescribeInterconnects :: DescribeInterconnects
 mkDescribeInterconnects = DescribeInterconnects
     { _di1InterconnectId = Nothing
@@ -75,6 +80,11 @@ newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
 -- a valid 'DescribeInterconnectsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Interconnects ::@ @[Interconnect]@
+--
 mkDescribeInterconnectsResponse :: DescribeInterconnectsResponse
 mkDescribeInterconnectsResponse = DescribeInterconnectsResponse
     { _dirrInterconnects = mempty

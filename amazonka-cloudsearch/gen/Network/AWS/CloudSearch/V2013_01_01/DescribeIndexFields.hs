@@ -59,6 +59,15 @@ data DescribeIndexFields = DescribeIndexFields
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIndexFields' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @FieldNames ::@ @[Text]@
+--
+-- * @Deployed ::@ @Maybe Bool@
+--
 mkDescribeIndexFields :: Text -- ^ 'dif2DomainName'
                       -> DescribeIndexFields
 mkDescribeIndexFields p1 = DescribeIndexFields
@@ -94,6 +103,11 @@ newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
 -- a valid 'DescribeIndexFieldsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexFields ::@ @[IndexFieldStatus]@
+--
 mkDescribeIndexFieldsResponse :: [IndexFieldStatus] -- ^ 'difr1IndexFields'
                               -> DescribeIndexFieldsResponse
 mkDescribeIndexFieldsResponse p1 = DescribeIndexFieldsResponse

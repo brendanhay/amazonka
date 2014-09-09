@@ -44,6 +44,11 @@ newtype StartLogging = StartLogging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartLogging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkStartLogging :: Text -- ^ 'slName'
                -> StartLogging
 mkStartLogging p1 = StartLogging

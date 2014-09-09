@@ -58,6 +58,11 @@ newtype DeletePlatformApplication = DeletePlatformApplication
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePlatformApplication' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplicationArn ::@ @Text@
+--
 mkDeletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
                             -> DeletePlatformApplication
 mkDeletePlatformApplication p1 = DeletePlatformApplication

@@ -48,6 +48,11 @@ newtype CreateDomain = CreateDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkCreateDomain :: Text -- ^ 'cdDomainName'
                -> CreateDomain
 mkCreateDomain p1 = CreateDomain
@@ -73,6 +78,11 @@ newtype CreateDomainResponse = CreateDomainResponse
 -- a valid 'CreateDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainStatus ::@ @Maybe DomainStatus@
+--
 mkCreateDomainResponse :: CreateDomainResponse
 mkCreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus = Nothing

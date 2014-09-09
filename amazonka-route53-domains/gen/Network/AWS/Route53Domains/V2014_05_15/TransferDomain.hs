@@ -116,6 +116,33 @@ data TransferDomain = TransferDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TransferDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @IdnLangCode ::@ @Maybe Text@
+--
+-- * @DurationInYears ::@ @Integer@
+--
+-- * @Nameservers ::@ @[Nameserver]@
+--
+-- * @AuthCode ::@ @Maybe Text@
+--
+-- * @AutoRenew ::@ @Maybe Bool@
+--
+-- * @AdminContact ::@ @ContactDetail@
+--
+-- * @RegistrantContact ::@ @ContactDetail@
+--
+-- * @TechContact ::@ @ContactDetail@
+--
+-- * @PrivacyProtectAdminContact ::@ @Maybe Bool@
+--
+-- * @PrivacyProtectRegistrantContact ::@ @Maybe Bool@
+--
+-- * @PrivacyProtectTechContact ::@ @Maybe Bool@
+--
 mkTransferDomain :: Text -- ^ 'tdDomainName'
                  -> Integer -- ^ 'tdDurationInYears'
                  -> [Nameserver] -- ^ 'tdNameservers'
@@ -239,6 +266,11 @@ newtype TransferDomainResponse = TransferDomainResponse
 -- a valid 'TransferDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
 mkTransferDomainResponse :: Text -- ^ 'tdrOperationId'
                          -> TransferDomainResponse
 mkTransferDomainResponse p1 = TransferDomainResponse

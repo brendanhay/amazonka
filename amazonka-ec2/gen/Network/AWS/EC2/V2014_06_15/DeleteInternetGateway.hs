@@ -45,13 +45,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteInternetGateway = DeleteInternetGateway
     { _digInternetGatewayId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInternetGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InternetGatewayId ::@ @Text@
+--
 mkDeleteInternetGateway :: Text -- ^ 'digInternetGatewayId'
                         -> DeleteInternetGateway
 mkDeleteInternetGateway p1 = DeleteInternetGateway

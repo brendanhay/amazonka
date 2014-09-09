@@ -77,6 +77,23 @@ data DeleteItem = DeleteItem
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteItem' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
+-- * @Key ::@ @Map Text AttributeValue@
+--
+-- * @Expected ::@ @Map Text ExpectedAttributeValue@
+--
+-- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
+--
+-- * @ReturnValues ::@ @Maybe ReturnValue@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
+-- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
+--
 mkDeleteItem :: Text -- ^ 'diTableName'
              -> Map Text AttributeValue -- ^ 'diKey'
              -> DeleteItem
@@ -176,6 +193,15 @@ data DeleteItemResponse = DeleteItemResponse
 -- a valid 'DeleteItemResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map Text AttributeValue@
+--
+-- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
+--
+-- * @ItemCollectionMetrics ::@ @Maybe ItemCollectionMetrics@
+--
 mkDeleteItemResponse :: DeleteItemResponse
 mkDeleteItemResponse = DeleteItemResponse
     { _dirAttributes = mempty

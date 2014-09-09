@@ -67,6 +67,11 @@ newtype GetEndpointAttributes = GetEndpointAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetEndpointAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EndpointArn ::@ @Text@
+--
 mkGetEndpointAttributes :: Text -- ^ 'geaEndpointArn'
                         -> GetEndpointAttributes
 mkGetEndpointAttributes p1 = GetEndpointAttributes
@@ -89,6 +94,11 @@ newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
 -- a valid 'GetEndpointAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkGetEndpointAttributesResponse :: GetEndpointAttributesResponse
 mkGetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes = mempty

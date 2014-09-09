@@ -50,6 +50,13 @@ data CreateInvalidation = CreateInvalidation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInvalidation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DistributionId ::@ @Text@
+--
+-- * @InvalidationBatch ::@ @InvalidationBatch@
+--
 mkCreateInvalidation :: Text -- ^ 'ciDistributionId'
                      -> InvalidationBatch -- ^ 'ciInvalidationBatch'
                      -> CreateInvalidation
@@ -88,6 +95,13 @@ data CreateInvalidationResponse = CreateInvalidationResponse
 -- a valid 'CreateInvalidationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Invalidation ::@ @Maybe Invalidation@
+--
 mkCreateInvalidationResponse :: CreateInvalidationResponse
 mkCreateInvalidationResponse = CreateInvalidationResponse
     { _cirLocation = Nothing

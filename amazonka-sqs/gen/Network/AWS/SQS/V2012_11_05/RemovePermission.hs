@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data RemovePermission = RemovePermission
     { _rpQueueUrl :: Text
     , _rpLabel :: Text
@@ -55,6 +54,13 @@ data RemovePermission = RemovePermission
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemovePermission' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @Label ::@ @Text@
+--
 mkRemovePermission :: Text -- ^ 'rpQueueUrl'
                    -> Text -- ^ 'rpLabel'
                    -> RemovePermission

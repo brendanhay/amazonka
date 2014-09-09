@@ -45,7 +45,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     { _dafmMetricName :: Text
     , _dafmNamespace :: Text
@@ -57,6 +56,21 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmsForMetric' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MetricName ::@ @Text@
+--
+-- * @Namespace ::@ @Text@
+--
+-- * @Statistic ::@ @Maybe Statistic@
+--
+-- * @Dimensions ::@ @[Dimension]@
+--
+-- * @Period ::@ @Maybe Integer@
+--
+-- * @Unit ::@ @Maybe StandardUnit@
+--
 mkDescribeAlarmsForMetric :: Text -- ^ 'dafmMetricName'
                           -> Text -- ^ 'dafmNamespace'
                           -> DescribeAlarmsForMetric
@@ -105,6 +119,11 @@ newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
 -- a valid 'DescribeAlarmsForMetricResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MetricAlarms ::@ @[MetricAlarm]@
+--
 mkDescribeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
 mkDescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms = mempty

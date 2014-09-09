@@ -66,7 +66,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateNetworkAclEntry = CreateNetworkAclEntry
     { _cnaeNetworkAclId :: Text
     , _cnaeRuleNumber :: Integer
@@ -80,6 +79,25 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkAclEntry' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAclId ::@ @Text@
+--
+-- * @RuleNumber ::@ @Integer@
+--
+-- * @Protocol ::@ @Text@
+--
+-- * @RuleAction ::@ @RuleAction@
+--
+-- * @Egress ::@ @Bool@
+--
+-- * @CidrBlock ::@ @Text@
+--
+-- * @IcmpTypeCode ::@ @Maybe IcmpTypeCode@
+--
+-- * @PortRange ::@ @Maybe PortRange@
+--
 mkCreateNetworkAclEntry :: Text -- ^ 'cnaeNetworkAclId'
                         -> Integer -- ^ 'cnaeRuleNumber'
                         -> Text -- ^ 'cnaeProtocol'

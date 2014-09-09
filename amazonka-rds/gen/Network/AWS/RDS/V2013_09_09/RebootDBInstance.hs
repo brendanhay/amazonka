@@ -70,6 +70,13 @@ data RebootDBInstance = RebootDBInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootDBInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @ForceFailover ::@ @Maybe Bool@
+--
 mkRebootDBInstance :: Text -- ^ 'rdbi1DBInstanceIdentifier'
                    -> RebootDBInstance
 mkRebootDBInstance p1 = RebootDBInstance
@@ -104,6 +111,11 @@ newtype RebootDBInstanceResponse = RebootDBInstanceResponse
 -- a valid 'RebootDBInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkRebootDBInstanceResponse :: RebootDBInstanceResponse
 mkRebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance = Nothing

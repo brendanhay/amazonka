@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.V2010_05_15.Types
 import Network.AWS.Prelude
 
--- | 
 data EstimateTemplateCost = EstimateTemplateCost
     { _etcTemplateBody :: Maybe Text
     , _etcTemplateURL :: Maybe Text
@@ -60,6 +59,15 @@ data EstimateTemplateCost = EstimateTemplateCost
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EstimateTemplateCost' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TemplateBody ::@ @Maybe Text@
+--
+-- * @TemplateURL ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
 mkEstimateTemplateCost :: EstimateTemplateCost
 mkEstimateTemplateCost = EstimateTemplateCost
     { _etcTemplateBody = Nothing
@@ -98,6 +106,11 @@ newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
 -- a valid 'EstimateTemplateCostResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Url ::@ @Maybe Text@
+--
 mkEstimateTemplateCostResponse :: EstimateTemplateCostResponse
 mkEstimateTemplateCostResponse = EstimateTemplateCostResponse
     { _etcrUrl = Nothing

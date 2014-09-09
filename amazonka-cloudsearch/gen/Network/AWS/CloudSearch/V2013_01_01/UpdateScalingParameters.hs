@@ -56,6 +56,13 @@ data UpdateScalingParameters = UpdateScalingParameters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateScalingParameters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ScalingParameters ::@ @ScalingParameters@
+--
 mkUpdateScalingParameters :: Text -- ^ 'uspDomainName'
                           -> ScalingParameters -- ^ 'uspScalingParameters'
                           -> UpdateScalingParameters
@@ -90,6 +97,11 @@ newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
 -- a valid 'UpdateScalingParametersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ScalingParameters ::@ @ScalingParametersStatus@
+--
 mkUpdateScalingParametersResponse :: ScalingParametersStatus -- ^ 'usprScalingParameters'
                                   -> UpdateScalingParametersResponse
 mkUpdateScalingParametersResponse p1 = UpdateScalingParametersResponse

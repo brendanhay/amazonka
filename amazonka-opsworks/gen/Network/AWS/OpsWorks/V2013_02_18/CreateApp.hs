@@ -69,6 +69,31 @@ data CreateApp = CreateApp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @Shortname ::@ @Maybe Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DataSources ::@ @[DataSource]@
+--
+-- * @Type ::@ @AppType@
+--
+-- * @AppSource ::@ @Maybe Source@
+--
+-- * @Domains ::@ @[Text]@
+--
+-- * @EnableSsl ::@ @Maybe Bool@
+--
+-- * @SslConfiguration ::@ @Maybe SslConfiguration@
+--
+-- * @Attributes ::@ @Map AppAttributesKeys Text@
+--
 mkCreateApp :: Text -- ^ 'caStackId'
             -> Text -- ^ 'caName'
             -> AppType -- ^ 'caType'
@@ -154,6 +179,11 @@ newtype CreateAppResponse = CreateAppResponse
 -- a valid 'CreateAppResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AppId ::@ @Maybe Text@
+--
 mkCreateAppResponse :: CreateAppResponse
 mkCreateAppResponse = CreateAppResponse
     { _carAppId = Nothing

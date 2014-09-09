@@ -52,6 +52,15 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStreamingDistribution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
+--
+-- * @Id ::@ @Text@
+--
+-- * @IfMatch ::@ @Maybe Text@
+--
 mkUpdateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
                               -> Text -- ^ 'usdId'
                               -> UpdateStreamingDistribution
@@ -99,6 +108,13 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
 -- a valid 'UpdateStreamingDistributionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamingDistribution ::@ @Maybe StreamingDistribution@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkUpdateStreamingDistributionResponse :: UpdateStreamingDistributionResponse
 mkUpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrStreamingDistribution = Nothing

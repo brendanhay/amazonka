@@ -83,6 +83,15 @@ data ChangeMessageVisibility = ChangeMessageVisibility
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeMessageVisibility' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @ReceiptHandle ::@ @Text@
+--
+-- * @VisibilityTimeout ::@ @Integer@
+--
 mkChangeMessageVisibility :: Text -- ^ 'cmvQueueUrl'
                           -> Text -- ^ 'cmvReceiptHandle'
                           -> Integer -- ^ 'cmvVisibilityTimeout'

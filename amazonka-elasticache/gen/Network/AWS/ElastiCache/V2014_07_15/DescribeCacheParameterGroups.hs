@@ -61,6 +61,15 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheParameterGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeCacheParameterGroups :: DescribeCacheParameterGroups
 mkDescribeCacheParameterGroups = DescribeCacheParameterGroups
     { _dcpg1CacheParameterGroupName = Nothing
@@ -101,6 +110,13 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 -- a valid 'DescribeCacheParameterGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @CacheParameterGroups ::@ @[CacheParameterGroup]@
+--
 mkDescribeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
 mkDescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrMarker = Nothing

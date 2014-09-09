@@ -50,6 +50,11 @@ newtype DeleteStack = DeleteStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
 mkDeleteStack :: Text -- ^ 'dsStackName'
               -> DeleteStack
 mkDeleteStack p1 = DeleteStack

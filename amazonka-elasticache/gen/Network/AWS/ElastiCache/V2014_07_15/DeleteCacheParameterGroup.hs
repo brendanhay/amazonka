@@ -51,6 +51,11 @@ newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Text@
+--
 mkDeleteCacheParameterGroup :: Text -- ^ 'dcpgCacheParameterGroupName'
                             -> DeleteCacheParameterGroup
 mkDeleteCacheParameterGroup p1 = DeleteCacheParameterGroup

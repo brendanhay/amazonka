@@ -49,6 +49,11 @@ newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdent
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCloudFrontOriginAccessIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CloudFrontOriginAccessIdentityConfig ::@ @CloudFrontOriginAccessIdentityConfig@
+--
 mkCreateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
                                        -> CreateCloudFrontOriginAccessIdentity
 mkCreateCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
@@ -82,6 +87,15 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 -- a valid 'CreateCloudFrontOriginAccessIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CloudFrontOriginAccessIdentity ::@ @Maybe CloudFrontOriginAccessIdentity@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkCreateCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse
 mkCreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoairCloudFrontOriginAccessIdentity = Nothing

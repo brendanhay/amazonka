@@ -48,6 +48,11 @@ newtype StopLogging = StopLogging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopLogging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkStopLogging :: Text -- ^ 'sl1Name'
               -> StopLogging
 mkStopLogging p1 = StopLogging

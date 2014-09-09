@@ -67,6 +67,15 @@ data CreateInterconnect = CreateInterconnect
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInterconnect' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InterconnectName ::@ @Text@
+--
+-- * @Bandwidth ::@ @Text@
+--
+-- * @Location ::@ @Text@
+--
 mkCreateInterconnect :: Text -- ^ 'ciInterconnectName'
                      -> Text -- ^ 'ciBandwidth'
                      -> Text -- ^ 'ciLocation'
@@ -123,6 +132,21 @@ data CreateInterconnectResponse = CreateInterconnectResponse
 -- a valid 'CreateInterconnectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InterconnectId ::@ @Maybe Text@
+--
+-- * @InterconnectName ::@ @Maybe Text@
+--
+-- * @InterconnectState ::@ @Maybe InterconnectState@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Bandwidth ::@ @Maybe Text@
+--
 mkCreateInterconnectResponse :: CreateInterconnectResponse
 mkCreateInterconnectResponse = CreateInterconnectResponse
     { _cirInterconnectId = Nothing

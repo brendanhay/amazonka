@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
     , _adoVpcId :: Text
@@ -69,6 +68,13 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateDhcpOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DhcpOptionsId ::@ @Text@
+--
+-- * @VpcId ::@ @Text@
+--
 mkAssociateDhcpOptions :: Text -- ^ 'adoDhcpOptionsId'
                        -> Text -- ^ 'adoVpcId'
                        -> AssociateDhcpOptions

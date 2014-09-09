@@ -68,6 +68,11 @@ newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBandwidthRateLimit' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDescribeBandwidthRateLimit :: Text -- ^ 'dbrl1GatewayARN'
                              -> DescribeBandwidthRateLimit
 mkDescribeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
@@ -98,6 +103,15 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
 -- a valid 'DescribeBandwidthRateLimitResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @AverageUploadRateLimitInBitsPerSec ::@ @Maybe Integer@
+--
+-- * @AverageDownloadRateLimitInBitsPerSec ::@ @Maybe Integer@
+--
 mkDescribeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse
 mkDescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
     { _dbrlrrGatewayARN = Nothing

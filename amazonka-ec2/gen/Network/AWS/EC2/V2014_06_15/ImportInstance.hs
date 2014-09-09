@@ -57,7 +57,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ImportInstance = ImportInstance
     { _iiDescription :: Maybe Text
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
@@ -67,6 +66,17 @@ data ImportInstance = ImportInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @LaunchSpecification ::@ @Maybe ImportInstanceLaunchSpecification@
+--
+-- * @DiskImages ::@ @[DiskImage]@
+--
+-- * @Platform ::@ @PlatformValues@
+--
 mkImportInstance :: PlatformValues -- ^ 'iiPlatform'
                  -> ImportInstance
 mkImportInstance p4 = ImportInstance
@@ -96,7 +106,6 @@ iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
 instance ToQuery ImportInstance where
     toQuery = genericQuery def
 
--- | 
 newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
     } deriving (Show, Generic)
@@ -105,6 +114,11 @@ newtype ImportInstanceResponse = ImportInstanceResponse
 -- a valid 'ImportInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConversionTask ::@ @Maybe ConversionTask@
+--
 mkImportInstanceResponse :: ImportInstanceResponse
 mkImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask = Nothing

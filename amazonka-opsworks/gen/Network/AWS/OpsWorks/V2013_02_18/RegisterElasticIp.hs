@@ -53,6 +53,13 @@ data RegisterElasticIp = RegisterElasticIp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterElasticIp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIp ::@ @Text@
+--
+-- * @StackId ::@ @Text@
+--
 mkRegisterElasticIp :: Text -- ^ 'reiElasticIp'
                     -> Text -- ^ 'reiStackId'
                     -> RegisterElasticIp
@@ -86,6 +93,11 @@ newtype RegisterElasticIpResponse = RegisterElasticIpResponse
 -- a valid 'RegisterElasticIpResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIp ::@ @Maybe Text@
+--
 mkRegisterElasticIpResponse :: RegisterElasticIpResponse
 mkRegisterElasticIpResponse = RegisterElasticIpResponse
     { _reirElasticIp = Nothing

@@ -58,6 +58,11 @@ newtype CancelJob = CancelJob
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelJob' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkCancelJob :: Text -- ^ 'cjId'
             -> CancelJob
 mkCancelJob p1 = CancelJob

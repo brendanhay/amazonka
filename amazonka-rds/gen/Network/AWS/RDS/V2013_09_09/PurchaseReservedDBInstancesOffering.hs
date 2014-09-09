@@ -60,6 +60,17 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedDBInstancesOffering' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedDBInstancesOfferingId ::@ @Text@
+--
+-- * @ReservedDBInstanceId ::@ @Maybe Text@
+--
+-- * @DBInstanceCount ::@ @Maybe Integer@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkPurchaseReservedDBInstancesOffering :: Text -- ^ 'prdbioReservedDBInstancesOfferingId'
                                       -> PurchaseReservedDBInstancesOffering
 mkPurchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
@@ -103,6 +114,11 @@ newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstance
 -- a valid 'PurchaseReservedDBInstancesOfferingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedDBInstance ::@ @Maybe ReservedDBInstance@
+--
 mkPurchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResponse
 mkPurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance = Nothing

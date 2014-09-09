@@ -47,7 +47,6 @@ mkDescribeLifecycleHookTypes = DescribeLifecycleHookTypes
 instance ToQuery DescribeLifecycleHookTypes where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: [Text]
     } deriving (Show, Generic)
@@ -56,6 +55,11 @@ newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
 -- a valid 'DescribeLifecycleHookTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LifecycleHookTypes ::@ @[Text]@
+--
 mkDescribeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
 mkDescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes = mempty

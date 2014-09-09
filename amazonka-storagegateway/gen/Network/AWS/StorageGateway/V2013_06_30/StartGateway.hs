@@ -66,6 +66,11 @@ newtype StartGateway = StartGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkStartGateway :: Text -- ^ 'sg1GatewayARN'
                -> StartGateway
 mkStartGateway p1 = StartGateway
@@ -94,6 +99,11 @@ newtype StartGatewayResponse = StartGatewayResponse
 -- a valid 'StartGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkStartGatewayResponse :: StartGatewayResponse
 mkStartGatewayResponse = StartGatewayResponse
     { _sgrrGatewayARN = Nothing

@@ -65,7 +65,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteMessage = DeleteMessage
     { _dmQueueUrl :: Text
     , _dmReceiptHandle :: Text
@@ -73,6 +72,13 @@ data DeleteMessage = DeleteMessage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMessage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @ReceiptHandle ::@ @Text@
+--
 mkDeleteMessage :: Text -- ^ 'dmQueueUrl'
                 -> Text -- ^ 'dmReceiptHandle'
                 -> DeleteMessage

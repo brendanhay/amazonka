@@ -70,6 +70,11 @@ newtype DeleteGateway = DeleteGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDeleteGateway :: Text -- ^ 'dgGatewayARN'
                 -> DeleteGateway
 mkDeleteGateway p1 = DeleteGateway
@@ -98,6 +103,11 @@ newtype DeleteGatewayResponse = DeleteGatewayResponse
 -- a valid 'DeleteGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkDeleteGatewayResponse :: DeleteGatewayResponse
 mkDeleteGatewayResponse = DeleteGatewayResponse
     { _dgrGatewayARN = Nothing

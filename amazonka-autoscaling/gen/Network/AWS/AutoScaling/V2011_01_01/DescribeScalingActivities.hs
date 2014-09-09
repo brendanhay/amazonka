@@ -70,6 +70,17 @@ data DescribeScalingActivities = DescribeScalingActivities
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingActivities' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityIds ::@ @[Text]@
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeScalingActivities :: DescribeScalingActivities
 mkDescribeScalingActivities = DescribeScalingActivities
     { _dsa1ActivityIds = mempty
@@ -114,6 +125,13 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
 -- a valid 'DescribeScalingActivitiesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Activities ::@ @[Activity]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeScalingActivitiesResponse :: [Activity] -- ^ 'dsarActivities'
                                     -> DescribeScalingActivitiesResponse
 mkDescribeScalingActivitiesResponse p1 = DescribeScalingActivitiesResponse

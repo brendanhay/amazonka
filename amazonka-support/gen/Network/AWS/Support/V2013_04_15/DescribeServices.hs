@@ -49,7 +49,6 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 data DescribeServices = DescribeServices
     { _dsServiceCodeList :: [Text]
     , _dsLanguage :: Maybe Text
@@ -57,6 +56,13 @@ data DescribeServices = DescribeServices
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServices' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServiceCodeList ::@ @[Text]@
+--
+-- * @Language ::@ @Maybe Text@
+--
 mkDescribeServices :: DescribeServices
 mkDescribeServices = DescribeServices
     { _dsServiceCodeList = mempty
@@ -91,6 +97,11 @@ newtype DescribeServicesResponse = DescribeServicesResponse
 -- a valid 'DescribeServicesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Services ::@ @[Service]@
+--
 mkDescribeServicesResponse :: DescribeServicesResponse
 mkDescribeServicesResponse = DescribeServicesResponse
     { _dsrServices = mempty

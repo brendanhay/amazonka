@@ -50,6 +50,11 @@ newtype DescribeScalingParameters = DescribeScalingParameters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingParameters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkDescribeScalingParameters :: Text -- ^ 'dspDomainName'
                             -> DescribeScalingParameters
 mkDescribeScalingParameters p1 = DescribeScalingParameters
@@ -76,6 +81,11 @@ newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
 -- a valid 'DescribeScalingParametersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ScalingParameters ::@ @ScalingParametersStatus@
+--
 mkDescribeScalingParametersResponse :: ScalingParametersStatus -- ^ 'dsprScalingParameters'
                                     -> DescribeScalingParametersResponse
 mkDescribeScalingParametersResponse p1 = DescribeScalingParametersResponse

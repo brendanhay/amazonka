@@ -85,6 +85,21 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCachediSCSIVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @VolumeSizeInBytes ::@ @Integer@
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @TargetName ::@ @Text@
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
+-- * @ClientToken ::@ @Text@
+--
 mkCreateCachediSCSIVolume :: Text -- ^ 'ccscsivGatewayARN'
                           -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
                           -> Text -- ^ 'ccscsivTargetName'
@@ -145,6 +160,13 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
 -- a valid 'CreateCachediSCSIVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @TargetARN ::@ @Maybe Text@
+--
 mkCreateCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
 mkCreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     { _ccscsivrVolumeARN = Nothing

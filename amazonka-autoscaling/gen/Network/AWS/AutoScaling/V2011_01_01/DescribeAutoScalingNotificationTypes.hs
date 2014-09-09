@@ -57,6 +57,11 @@ newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotifi
 -- a valid 'DescribeAutoScalingNotificationTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingNotificationTypes ::@ @[Text]@
+--
 mkDescribeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse
 mkDescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { _dasntrAutoScalingNotificationTypes = mempty

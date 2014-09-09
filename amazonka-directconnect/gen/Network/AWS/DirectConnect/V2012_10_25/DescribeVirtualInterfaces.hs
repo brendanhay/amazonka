@@ -57,6 +57,13 @@ data DescribeVirtualInterfaces = DescribeVirtualInterfaces
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualInterfaces' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceId ::@ @Maybe Text@
+--
 mkDescribeVirtualInterfaces :: DescribeVirtualInterfaces
 mkDescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dvi1ConnectionId = Nothing
@@ -90,6 +97,11 @@ newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
 -- a valid 'DescribeVirtualInterfacesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaces ::@ @[VirtualInterface]@
+--
 mkDescribeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
 mkDescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _dvirrVirtualInterfaces = mempty

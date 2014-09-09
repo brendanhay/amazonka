@@ -83,6 +83,41 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLaunchConfiguration' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LaunchConfigurationName ::@ @Text@
+--
+-- * @ImageId ::@ @Maybe Text@
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @SecurityGroups ::@ @[Text]@
+--
+-- * @UserData ::@ @Maybe ByteString@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Maybe Text@
+--
+-- * @KernelId ::@ @Maybe Text@
+--
+-- * @RamdiskId ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
+-- * @InstanceMonitoring ::@ @Maybe InstanceMonitoring@
+--
+-- * @SpotPrice ::@ @Maybe Text@
+--
+-- * @IamInstanceProfile ::@ @Maybe Text@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
+-- * @AssociatePublicIpAddress ::@ @Maybe Bool@
+--
+-- * @PlacementTenancy ::@ @Maybe Text@
+--
 mkCreateLaunchConfiguration :: Text -- ^ 'clcLaunchConfigurationName'
                             -> CreateLaunchConfiguration
 mkCreateLaunchConfiguration p1 = CreateLaunchConfiguration

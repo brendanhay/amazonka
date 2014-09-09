@@ -65,6 +65,15 @@ data Subscribe = Subscribe
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Subscribe' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Text@
+--
+-- * @Protocol ::@ @Text@
+--
+-- * @Endpoint ::@ @Maybe Text@
+--
 mkSubscribe :: Text -- ^ 's1TopicArn'
             -> Text -- ^ 's1Protocol'
             -> Subscribe
@@ -112,6 +121,11 @@ newtype SubscribeResponse = SubscribeResponse
 -- a valid 'SubscribeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionArn ::@ @Maybe Text@
+--
 mkSubscribeResponse :: SubscribeResponse
 mkSubscribeResponse = SubscribeResponse
     { _srSubscriptionArn = Nothing

@@ -82,6 +82,45 @@ data CreateStack = CreateStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Region ::@ @Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map StackAttributesKeys Text@
+--
+-- * @ServiceRoleArn ::@ @Text@
+--
+-- * @DefaultInstanceProfileArn ::@ @Text@
+--
+-- * @DefaultOs ::@ @Maybe Text@
+--
+-- * @HostnameTheme ::@ @Maybe Text@
+--
+-- * @DefaultAvailabilityZone ::@ @Maybe Text@
+--
+-- * @DefaultSubnetId ::@ @Maybe Text@
+--
+-- * @CustomJson ::@ @Maybe Text@
+--
+-- * @ConfigurationManager ::@ @Maybe StackConfigurationManager@
+--
+-- * @ChefConfiguration ::@ @Maybe ChefConfiguration@
+--
+-- * @UseCustomCookbooks ::@ @Maybe Bool@
+--
+-- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
+--
+-- * @CustomCookbooksSource ::@ @Maybe Source@
+--
+-- * @DefaultSshKeyName ::@ @Maybe Text@
+--
+-- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
+--
 mkCreateStack :: Text -- ^ 'cs1Name'
               -> Text -- ^ 'cs1Region'
               -> Text -- ^ 'cs1ServiceRoleArn'
@@ -280,6 +319,11 @@ newtype CreateStackResponse = CreateStackResponse
 -- a valid 'CreateStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
 mkCreateStackResponse :: CreateStackResponse
 mkCreateStackResponse = CreateStackResponse
     { _csrrStackId = Nothing

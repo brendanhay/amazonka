@@ -82,6 +82,31 @@ data DescribeEvents = DescribeEvents
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEvents' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @RequestId ::@ @Maybe Text@
+--
+-- * @Severity ::@ @Maybe EventSeverity@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeEvents :: DescribeEvents
 mkDescribeEvents = DescribeEvents
     { _de1ApplicationName = Nothing
@@ -168,6 +193,13 @@ data DescribeEventsResponse = DescribeEventsResponse
 -- a valid 'DescribeEventsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Events ::@ @[EventDescription]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeEventsResponse :: DescribeEventsResponse
 mkDescribeEventsResponse = DescribeEventsResponse
     { _der1rEvents = mempty

@@ -68,6 +68,23 @@ data ListMultipartUploads = ListMultipartUploads
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMultipartUploads' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Delimiter ::@ @Maybe Char@
+--
+-- * @EncodingType ::@ @Maybe EncodingType@
+--
+-- * @KeyMarker ::@ @Maybe Text@
+--
+-- * @MaxUploads ::@ @Maybe Integer@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
+-- * @UploadIdMarker ::@ @Maybe Text@
+--
 mkListMultipartUploads :: BucketName -- ^ 'lmuBucket'
                        -> ListMultipartUploads
 mkListMultipartUploads p1 = ListMultipartUploads
@@ -145,6 +162,31 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 -- a valid 'ListMultipartUploadsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @Maybe BucketName@
+--
+-- * @KeyMarker ::@ @Maybe Text@
+--
+-- * @UploadIdMarker ::@ @Maybe Text@
+--
+-- * @NextKeyMarker ::@ @Maybe Text@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
+-- * @NextUploadIdMarker ::@ @Maybe Text@
+--
+-- * @MaxUploads ::@ @Maybe Integer@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Uploads ::@ @[MultipartUpload]@
+--
+-- * @CommonPrefixes ::@ @[CommonPrefix]@
+--
+-- * @EncodingType ::@ @Maybe EncodingType@
+--
 mkListMultipartUploadsResponse :: Bool -- ^ 'lmurIsTruncated'
                                -> ListMultipartUploadsResponse
 mkListMultipartUploadsResponse p8 = ListMultipartUploadsResponse

@@ -74,6 +74,13 @@ data SetTerminationProtection = SetTerminationProtection
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTerminationProtection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlowIds ::@ @[Text]@
+--
+-- * @TerminationProtected ::@ @Bool@
+--
 mkSetTerminationProtection :: [Text] -- ^ 'stpJobFlowIds'
                            -> Bool -- ^ 'stpTerminationProtected'
                            -> SetTerminationProtection

@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data SetInstanceHealth = SetInstanceHealth
     { _sihInstanceId :: Text
     , _sihHealthStatus :: Text
@@ -50,6 +49,15 @@ data SetInstanceHealth = SetInstanceHealth
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetInstanceHealth' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @HealthStatus ::@ @Text@
+--
+-- * @ShouldRespectGracePeriod ::@ @Maybe Bool@
+--
 mkSetInstanceHealth :: Text -- ^ 'sihInstanceId'
                     -> Text -- ^ 'sihHealthStatus'
                     -> SetInstanceHealth

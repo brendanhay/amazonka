@@ -55,6 +55,13 @@ data ListIdentityPools = ListIdentityPools
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentityPools' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MaxResults ::@ @Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListIdentityPools :: Integer -- ^ 'lipMaxResults'
                     -> ListIdentityPools
 mkListIdentityPools p1 = ListIdentityPools
@@ -88,6 +95,13 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse
 -- a valid 'ListIdentityPoolsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPools ::@ @[IdentityPoolShortDescription]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListIdentityPoolsResponse :: ListIdentityPoolsResponse
 mkListIdentityPoolsResponse = ListIdentityPoolsResponse
     { _liprIdentityPools = mempty

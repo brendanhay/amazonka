@@ -50,6 +50,11 @@ newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTimeBasedAutoScaling' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
 mkDescribeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasInstanceIds'
                                -> DescribeTimeBasedAutoScaling
 mkDescribeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
@@ -78,6 +83,11 @@ newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingRespo
 -- a valid 'DescribeTimeBasedAutoScalingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimeBasedAutoScalingConfigurations ::@ @[TimeBasedAutoScalingConfiguration]@
+--
 mkDescribeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse
 mkDescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
     { _dtbasrTimeBasedAutoScalingConfigurations = mempty

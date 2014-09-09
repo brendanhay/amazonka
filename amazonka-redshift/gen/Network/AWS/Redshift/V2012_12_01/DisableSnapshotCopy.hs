@@ -47,6 +47,11 @@ newtype DisableSnapshotCopy = DisableSnapshotCopy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableSnapshotCopy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
 mkDisableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
                       -> DisableSnapshotCopy
 mkDisableSnapshotCopy p1 = DisableSnapshotCopy
@@ -72,6 +77,11 @@ newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
 -- a valid 'DisableSnapshotCopyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkDisableSnapshotCopyResponse :: DisableSnapshotCopyResponse
 mkDisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster = Nothing

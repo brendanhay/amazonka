@@ -88,6 +88,31 @@ data CreateEnvironment = CreateEnvironment
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateEnvironment' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @EnvironmentName ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @CNAMEPrefix ::@ @Maybe Text@
+--
+-- * @Tier ::@ @Maybe EnvironmentTier@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+--
+-- * @OptionsToRemove ::@ @[OptionSpecification]@
+--
 mkCreateEnvironment :: Text -- ^ 'ceApplicationName'
                     -> Text -- ^ 'ceEnvironmentName'
                     -> CreateEnvironment
@@ -211,6 +236,39 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
 -- a valid 'CreateEnvironmentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EndpointURL ::@ @Maybe Text@
+--
+-- * @CNAME ::@ @Maybe Text@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
+-- * @Status ::@ @Maybe EnvironmentStatus@
+--
+-- * @Health ::@ @Maybe EnvironmentHealth@
+--
+-- * @Resources ::@ @Maybe EnvironmentResourcesDescription@
+--
+-- * @Tier ::@ @Maybe EnvironmentTier@
+--
 mkCreateEnvironmentResponse :: CreateEnvironmentResponse
 mkCreateEnvironmentResponse = CreateEnvironmentResponse
     { _cerEnvironmentName = Nothing

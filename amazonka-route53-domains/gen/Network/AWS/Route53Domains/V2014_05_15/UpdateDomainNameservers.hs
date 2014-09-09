@@ -68,6 +68,13 @@ data UpdateDomainNameservers = UpdateDomainNameservers
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainNameservers' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Nameservers ::@ @[Nameserver]@
+--
 mkUpdateDomainNameservers :: Text -- ^ 'udnDomainName'
                           -> [Nameserver] -- ^ 'udnNameservers'
                           -> UpdateDomainNameservers
@@ -105,6 +112,11 @@ newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
 -- a valid 'UpdateDomainNameserversResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
 mkUpdateDomainNameserversResponse :: Text -- ^ 'udnrOperationId'
                                   -> UpdateDomainNameserversResponse
 mkUpdateDomainNameserversResponse p1 = UpdateDomainNameserversResponse

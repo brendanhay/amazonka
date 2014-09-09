@@ -48,6 +48,11 @@ newtype DeleteLayer = DeleteLayer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLayer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerId ::@ @Text@
+--
 mkDeleteLayer :: Text -- ^ 'dlLayerId'
               -> DeleteLayer
 mkDeleteLayer p1 = DeleteLayer

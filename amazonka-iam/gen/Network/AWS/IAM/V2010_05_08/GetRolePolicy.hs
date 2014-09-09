@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data GetRolePolicy = GetRolePolicy
     { _grpRoleName :: Text
     , _grpPolicyName :: Text
@@ -57,6 +56,13 @@ data GetRolePolicy = GetRolePolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRolePolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
 mkGetRolePolicy :: Text -- ^ 'grpRoleName'
                 -> Text -- ^ 'grpPolicyName'
                 -> GetRolePolicy
@@ -87,6 +93,15 @@ data GetRolePolicyResponse = GetRolePolicyResponse
 -- a valid 'GetRolePolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @PolicyDocument ::@ @Text@
+--
 mkGetRolePolicyResponse :: Text -- ^ 'grprRoleName'
                         -> Text -- ^ 'grprPolicyName'
                         -> Text -- ^ 'grprPolicyDocument'

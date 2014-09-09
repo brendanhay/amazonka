@@ -61,6 +61,15 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeCacheSecurityGroupIngress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroupName ::@ @Text@
+--
+-- * @EC2SecurityGroupName ::@ @Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Text@
+--
 mkAuthorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgiCacheSecurityGroupName'
                                      -> Text -- ^ 'acsgiEC2SecurityGroupName'
                                      -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
@@ -103,6 +112,11 @@ newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroup
 -- a valid 'AuthorizeCacheSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroup ::@ @Maybe CacheSecurityGroup@
+--
 mkAuthorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse
 mkAuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup = Nothing

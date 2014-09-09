@@ -48,7 +48,6 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
     { _dtacrCheckId :: Text
     , _dtacrLanguage :: Maybe Text
@@ -56,6 +55,13 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorCheckResult' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckId ::@ @Text@
+--
+-- * @Language ::@ @Maybe Text@
+--
 mkDescribeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrCheckId'
                                     -> DescribeTrustedAdvisorCheckResult
 mkDescribeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
@@ -91,6 +97,11 @@ newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckR
 -- a valid 'DescribeTrustedAdvisorCheckResultResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Result ::@ @Maybe TrustedAdvisorCheckResult@
+--
 mkDescribeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse
 mkDescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrrResult = Nothing

@@ -66,6 +66,15 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Text@
+--
+-- * @ParameterGroupFamily ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
 mkCreateClusterParameterGroup :: Text -- ^ 'ccpgParameterGroupName'
                               -> Text -- ^ 'ccpgParameterGroupFamily'
                               -> Text -- ^ 'ccpgDescription'
@@ -113,6 +122,11 @@ newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupRespons
 -- a valid 'CreateClusterParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterParameterGroup ::@ @Maybe ClusterParameterGroup@
+--
 mkCreateClusterParameterGroupResponse :: CreateClusterParameterGroupResponse
 mkCreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup = Nothing

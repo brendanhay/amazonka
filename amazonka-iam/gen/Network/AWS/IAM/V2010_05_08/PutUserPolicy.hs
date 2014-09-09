@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data PutUserPolicy = PutUserPolicy
     { _pupUserName :: Text
     , _pupPolicyName :: Text
@@ -60,6 +59,15 @@ data PutUserPolicy = PutUserPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutUserPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @PolicyDocument ::@ @Text@
+--
 mkPutUserPolicy :: Text -- ^ 'pupUserName'
                 -> Text -- ^ 'pupPolicyName'
                 -> Text -- ^ 'pupPolicyDocument'

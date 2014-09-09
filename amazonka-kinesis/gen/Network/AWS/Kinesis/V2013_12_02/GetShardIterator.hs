@@ -95,6 +95,17 @@ data GetShardIterator = GetShardIterator
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetShardIterator' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
+-- * @ShardId ::@ @Text@
+--
+-- * @ShardIteratorType ::@ @ShardIteratorType@
+--
+-- * @StartingSequenceNumber ::@ @Maybe Text@
+--
 mkGetShardIterator :: Text -- ^ 'gsiStreamName'
                    -> Text -- ^ 'gsiShardId'
                    -> ShardIteratorType -- ^ 'gsiShardIteratorType'
@@ -151,6 +162,11 @@ newtype GetShardIteratorResponse = GetShardIteratorResponse
 -- a valid 'GetShardIteratorResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ShardIterator ::@ @Maybe Text@
+--
 mkGetShardIteratorResponse :: GetShardIteratorResponse
 mkGetShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator = Nothing

@@ -58,6 +58,17 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBasedAutoScaling' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerId ::@ @Text@
+--
+-- * @Enable ::@ @Maybe Bool@
+--
+-- * @UpScaling ::@ @Maybe AutoScalingThresholds@
+--
+-- * @DownScaling ::@ @Maybe AutoScalingThresholds@
+--
 mkSetLoadBasedAutoScaling :: Text -- ^ 'slbasLayerId'
                           -> SetLoadBasedAutoScaling
 mkSetLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling

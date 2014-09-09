@@ -85,7 +85,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UploadSigningCertificate = UploadSigningCertificate
     { _usc3UserName :: Maybe Text
     , _usc3CertificateBody :: Text
@@ -93,6 +92,13 @@ data UploadSigningCertificate = UploadSigningCertificate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadSigningCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @CertificateBody ::@ @Text@
+--
 mkUploadSigningCertificate :: Text -- ^ 'usc3CertificateBody'
                            -> UploadSigningCertificate
 mkUploadSigningCertificate p2 = UploadSigningCertificate
@@ -122,6 +128,11 @@ newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
 -- a valid 'UploadSigningCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Certificate ::@ @SigningCertificate@
+--
 mkUploadSigningCertificateResponse :: SigningCertificate -- ^ 'uscrrCertificate'
                                    -> UploadSigningCertificateResponse
 mkUploadSigningCertificateResponse p1 = UploadSigningCertificateResponse

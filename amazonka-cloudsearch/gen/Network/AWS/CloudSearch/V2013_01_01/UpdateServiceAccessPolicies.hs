@@ -52,6 +52,13 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServiceAccessPolicies' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @AccessPolicies ::@ @Text@
+--
 mkUpdateServiceAccessPolicies :: Text -- ^ 'usapDomainName'
                               -> Text -- ^ 'usapAccessPolicies'
                               -> UpdateServiceAccessPolicies
@@ -86,6 +93,11 @@ newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesRespons
 -- a valid 'UpdateServiceAccessPoliciesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccessPolicies ::@ @AccessPoliciesStatus@
+--
 mkUpdateServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'usaprAccessPolicies'
                                       -> UpdateServiceAccessPoliciesResponse
 mkUpdateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse

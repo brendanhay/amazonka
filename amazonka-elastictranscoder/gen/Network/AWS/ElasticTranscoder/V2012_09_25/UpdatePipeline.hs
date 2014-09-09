@@ -62,6 +62,23 @@ data UpdatePipeline = UpdatePipeline
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipeline' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @InputBucket ::@ @Maybe Text@
+--
+-- * @Role ::@ @Maybe Text@
+--
+-- * @Notifications ::@ @Maybe Notifications@
+--
+-- * @ContentConfig ::@ @Maybe PipelineOutputConfig@
+--
+-- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
+--
 mkUpdatePipeline :: Text -- ^ 'upId'
                  -> UpdatePipeline
 mkUpdatePipeline p1 = UpdatePipeline
@@ -202,6 +219,11 @@ newtype UpdatePipelineResponse = UpdatePipelineResponse
 -- a valid 'UpdatePipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Pipeline ::@ @Pipeline@
+--
 mkUpdatePipelineResponse :: Pipeline -- ^ 'uprPipeline'
                          -> UpdatePipelineResponse
 mkUpdatePipelineResponse p1 = UpdatePipelineResponse

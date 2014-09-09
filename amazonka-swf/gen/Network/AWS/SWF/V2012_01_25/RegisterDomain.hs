@@ -72,6 +72,15 @@ data RegisterDomain = RegisterDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @WorkflowExecutionRetentionPeriodInDays ::@ @Text@
+--
 mkRegisterDomain :: Text -- ^ 'rdName'
                  -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
                  -> RegisterDomain

@@ -59,6 +59,13 @@ data ValidateTemplate = ValidateTemplate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateTemplate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TemplateBody ::@ @Maybe Text@
+--
+-- * @TemplateURL ::@ @Maybe Text@
+--
 mkValidateTemplate :: ValidateTemplate
 mkValidateTemplate = ValidateTemplate
     { _vtTemplateBody = Nothing
@@ -95,6 +102,17 @@ data ValidateTemplateResponse = ValidateTemplateResponse
 -- a valid 'ValidateTemplateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Parameters ::@ @[TemplateParameter]@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Capabilities ::@ @[Capability]@
+--
+-- * @CapabilitiesReason ::@ @Maybe Text@
+--
 mkValidateTemplateResponse :: ValidateTemplateResponse
 mkValidateTemplateResponse = ValidateTemplateResponse
     { _vtrParameters = mempty

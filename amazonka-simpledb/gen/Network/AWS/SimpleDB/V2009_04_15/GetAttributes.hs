@@ -58,6 +58,17 @@ data GetAttributes = GetAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ItemName ::@ @Text@
+--
+-- * @AttributeNames ::@ @[Text]@
+--
+-- * @ConsistentRead ::@ @Maybe Bool@
+--
 mkGetAttributes :: Text -- ^ 'gaDomainName'
                 -> Text -- ^ 'gaItemName'
                 -> GetAttributes
@@ -100,6 +111,11 @@ newtype GetAttributesResponse = GetAttributesResponse
 -- a valid 'GetAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @[Attribute]@
+--
 mkGetAttributesResponse :: GetAttributesResponse
 mkGetAttributesResponse = GetAttributesResponse
     { _garAttributes = mempty

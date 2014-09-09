@@ -57,6 +57,15 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerListenerSSLCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @LoadBalancerPort ::@ @Integer@
+--
+-- * @SSLCertificateId ::@ @Text@
+--
 mkSetLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslcLoadBalancerName'
                                         -> Integer -- ^ 'slblsslcLoadBalancerPort'
                                         -> Text -- ^ 'slblsslcSSLCertificateId'

@@ -85,6 +85,13 @@ data BatchGetItem = BatchGetItem
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchGetItem' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RequestItems ::@ @Map Text KeysAndAttributes@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
 mkBatchGetItem :: Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
                -> BatchGetItem
 mkBatchGetItem p1 = BatchGetItem
@@ -132,6 +139,15 @@ data BatchGetItemResponse = BatchGetItemResponse
 -- a valid 'BatchGetItemResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Responses ::@ @Map Text [Map Text AttributeValue]@
+--
+-- * @UnprocessedKeys ::@ @Map Text KeysAndAttributes@
+--
+-- * @ConsumedCapacity ::@ @[ConsumedCapacity]@
+--
 mkBatchGetItemResponse :: BatchGetItemResponse
 mkBatchGetItemResponse = BatchGetItemResponse
     { _bgirResponses = mempty

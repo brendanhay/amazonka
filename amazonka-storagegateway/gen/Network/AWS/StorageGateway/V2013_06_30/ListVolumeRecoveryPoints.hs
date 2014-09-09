@@ -70,6 +70,11 @@ newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVolumeRecoveryPoints' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkListVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
                            -> ListVolumeRecoveryPoints
 mkListVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
@@ -98,6 +103,13 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
 -- a valid 'ListVolumeRecoveryPointsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @VolumeRecoveryPointInfos ::@ @[VolumeRecoveryPointInfo]@
+--
 mkListVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
 mkListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     { _lvrprGatewayARN = Nothing

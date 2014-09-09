@@ -64,6 +64,15 @@ data ResetDBParameterGroup = ResetDBParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetDBParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Text@
+--
+-- * @ResetAllParameters ::@ @Maybe Bool@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
 mkResetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
                         -> ResetDBParameterGroup
 mkResetDBParameterGroup p1 = ResetDBParameterGroup
@@ -111,6 +120,11 @@ newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
 -- a valid 'ResetDBParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Maybe Text@
+--
 mkResetDBParameterGroupResponse :: ResetDBParameterGroupResponse
 mkResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName = Nothing

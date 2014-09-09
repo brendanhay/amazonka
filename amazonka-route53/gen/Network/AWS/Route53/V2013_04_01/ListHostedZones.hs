@@ -70,6 +70,13 @@ data ListHostedZones = ListHostedZones
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListHostedZones' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListHostedZones :: ListHostedZones
 mkListHostedZones = ListHostedZones
     { _lhzMarker = Nothing
@@ -109,6 +116,19 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 -- a valid 'ListHostedZonesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostedZones ::@ @[HostedZone]@
+--
+-- * @Marker ::@ @Text@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Text@
+--
 mkListHostedZonesResponse :: [HostedZone] -- ^ 'lhzrHostedZones'
                           -> Text -- ^ 'lhzrMarker'
                           -> Bool -- ^ 'lhzrIsTruncated'

@@ -89,6 +89,21 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStorediSCSIVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @DiskId ::@ @Text@
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @PreserveExistingData ::@ @Bool@
+--
+-- * @TargetName ::@ @Text@
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
 mkCreateStorediSCSIVolume :: Text -- ^ 'csscsivGatewayARN'
                           -> Text -- ^ 'csscsivDiskId'
                           -> Bool -- ^ 'csscsivPreserveExistingData'
@@ -169,6 +184,15 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
 -- a valid 'CreateStorediSCSIVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @VolumeSizeInBytes ::@ @Maybe Integer@
+--
+-- * @TargetARN ::@ @Maybe Text@
+--
 mkCreateStorediSCSIVolumeResponse :: CreateStorediSCSIVolumeResponse
 mkCreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
     { _csscsivrVolumeARN = Nothing

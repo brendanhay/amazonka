@@ -121,6 +121,21 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssumeRoleWithWebIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleArn ::@ @Text@
+--
+-- * @RoleSessionName ::@ @Text@
+--
+-- * @WebIdentityToken ::@ @Text@
+--
+-- * @ProviderId ::@ @Maybe Text@
+--
+-- * @Policy ::@ @Maybe Text@
+--
+-- * @DurationSeconds ::@ @Maybe Integer@
+--
 mkAssumeRoleWithWebIdentity :: Text -- ^ 'arwwiRoleArn'
                             -> Text -- ^ 'arwwiRoleSessionName'
                             -> Text -- ^ 'arwwiWebIdentityToken'
@@ -201,6 +216,21 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
 -- a valid 'AssumeRoleWithWebIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Credentials ::@ @Maybe Credentials@
+--
+-- * @SubjectFromWebIdentityToken ::@ @Maybe Text@
+--
+-- * @AssumedRoleUser ::@ @Maybe AssumedRoleUser@
+--
+-- * @PackedPolicySize ::@ @Maybe Integer@
+--
+-- * @Provider ::@ @Maybe Text@
+--
+-- * @Audience ::@ @Maybe Text@
+--
 mkAssumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse
 mkAssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     { _arwwirCredentials = Nothing

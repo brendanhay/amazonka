@@ -51,6 +51,17 @@ data DescribeTapes = DescribeTapes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @TapeARNs ::@ @[Text]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkDescribeTapes :: Text -- ^ 'dt1GatewayARN'
                 -> DescribeTapes
 mkDescribeTapes p1 = DescribeTapes
@@ -91,6 +102,13 @@ data DescribeTapesResponse = DescribeTapesResponse
 -- a valid 'DescribeTapesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Tapes ::@ @[Tape]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeTapesResponse :: DescribeTapesResponse
 mkDescribeTapesResponse = DescribeTapesResponse
     { _dtrrTapes = mempty

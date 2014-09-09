@@ -54,6 +54,11 @@ newtype DescribeDomains = DescribeDomains
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDomains' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainNames ::@ @[Text]@
+--
 mkDescribeDomains :: DescribeDomains
 mkDescribeDomains = DescribeDomains
     { _dd1DomainNames = mempty
@@ -76,6 +81,11 @@ newtype DescribeDomainsResponse = DescribeDomainsResponse
 -- a valid 'DescribeDomainsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainStatusList ::@ @[DomainStatus]@
+--
 mkDescribeDomainsResponse :: [DomainStatus] -- ^ 'ddrrDomainStatusList'
                           -> DescribeDomainsResponse
 mkDescribeDomainsResponse p1 = DescribeDomainsResponse

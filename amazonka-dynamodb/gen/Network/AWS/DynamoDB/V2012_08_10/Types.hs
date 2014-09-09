@@ -727,6 +727,11 @@ newtype Capacity = Capacity
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Capacity' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CapacityUnits ::@ @Maybe Double@
+--
 mkCapacity :: Capacity
 mkCapacity = Capacity
     { _cCapacityUnits = Nothing
@@ -747,6 +752,11 @@ newtype DeleteRequest = DeleteRequest
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteRequest' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Map Text AttributeValue@
+--
 mkDeleteRequest :: Map Text AttributeValue -- ^ 'drKey'
                 -> DeleteRequest
 mkDeleteRequest p1 = DeleteRequest
@@ -771,6 +781,11 @@ newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GlobalSecondaryIndexUpdate' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Update ::@ @Maybe UpdateGlobalSecondaryIndexAction@
+--
 mkGlobalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
 mkGlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate = Nothing
@@ -790,6 +805,11 @@ newtype PutRequest = PutRequest
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PutRequest' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Item ::@ @Map Text AttributeValue@
+--
 mkPutRequest :: Map Text AttributeValue -- ^ 'prItem'
              -> PutRequest
 mkPutRequest p1 = PutRequest
@@ -818,6 +838,13 @@ data AttributeDefinition = AttributeDefinition
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeDefinition' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeName ::@ @Text@
+--
+-- * @AttributeType ::@ @ScalarAttributeType@
+--
 mkAttributeDefinition :: Text -- ^ 'adAttributeName'
                       -> ScalarAttributeType -- ^ 'adAttributeType'
                       -> AttributeDefinition
@@ -851,6 +878,21 @@ data AttributeValue = AttributeValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @S ::@ @Maybe Text@
+--
+-- * @N ::@ @Maybe Text@
+--
+-- * @B ::@ @Maybe Base64@
+--
+-- * @SS ::@ @[Text]@
+--
+-- * @NS ::@ @[Text]@
+--
+-- * @BS ::@ @[Base64]@
+--
 mkAttributeValue :: AttributeValue
 mkAttributeValue = AttributeValue
     { _avS = Nothing
@@ -904,6 +946,13 @@ data AttributeValueUpdate = AttributeValueUpdate
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeValueUpdate' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Value ::@ @Maybe AttributeValue@
+--
+-- * @Action ::@ @Maybe AttributeAction@
+--
 mkAttributeValueUpdate :: AttributeValueUpdate
 mkAttributeValueUpdate = AttributeValueUpdate
     { _avuValue = Nothing
@@ -975,6 +1024,13 @@ data Condition = Condition
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Condition' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeValueList ::@ @[AttributeValue]@
+--
+-- * @ComparisonOperator ::@ @ComparisonOperator@
+--
 mkCondition :: ComparisonOperator -- ^ 'c1ComparisonOperator'
             -> Condition
 mkCondition p2 = Condition
@@ -1088,6 +1144,19 @@ data ConsumedCapacity = ConsumedCapacity
 --
 -- 'ConsumedCapacity' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Maybe Text@
+--
+-- * @CapacityUnits ::@ @Maybe Double@
+--
+-- * @Table ::@ @Maybe Capacity@
+--
+-- * @LocalSecondaryIndexes ::@ @Map Text Capacity@
+--
+-- * @GlobalSecondaryIndexes ::@ @Map Text Capacity@
+--
 mkConsumedCapacity :: ConsumedCapacity
 mkConsumedCapacity = ConsumedCapacity
     { _ccTableName = Nothing
@@ -1138,6 +1207,17 @@ data ExpectedAttributeValue = ExpectedAttributeValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExpectedAttributeValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Value ::@ @Maybe AttributeValue@
+--
+-- * @Exists ::@ @Maybe Bool@
+--
+-- * @ComparisonOperator ::@ @Maybe ComparisonOperator@
+--
+-- * @AttributeValueList ::@ @[AttributeValue]@
+--
 mkExpectedAttributeValue :: ExpectedAttributeValue
 mkExpectedAttributeValue = ExpectedAttributeValue
     { _eavValue = Nothing
@@ -1192,6 +1272,17 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GlobalSecondaryIndex' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexName ::@ @Text@
+--
+-- * @KeySchema ::@ @List1 KeySchemaElement@
+--
+-- * @Projection ::@ @Projection@
+--
+-- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
+--
 mkGlobalSecondaryIndex :: Text -- ^ 'gsiIndexName'
                        -> List1 KeySchemaElement -- ^ 'gsiKeySchema'
                        -> Projection -- ^ 'gsiProjection'
@@ -1247,6 +1338,23 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
 --
 -- 'GlobalSecondaryIndexDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexName ::@ @Maybe Text@
+--
+-- * @KeySchema ::@ @Maybe (List1 KeySchemaElement)@
+--
+-- * @Projection ::@ @Maybe Projection@
+--
+-- * @IndexStatus ::@ @Maybe IndexStatus@
+--
+-- * @ProvisionedThroughput ::@ @Maybe ProvisionedThroughputDescription@
+--
+-- * @IndexSizeBytes ::@ @Maybe Integer@
+--
+-- * @ItemCount ::@ @Maybe Integer@
+--
 mkGlobalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
 mkGlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName = Nothing
@@ -1315,6 +1423,13 @@ data ItemCollectionMetrics = ItemCollectionMetrics
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ItemCollectionMetrics' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ItemCollectionKey ::@ @Map Text AttributeValue@
+--
+-- * @SizeEstimateRangeGB ::@ @[Double]@
+--
 mkItemCollectionMetrics :: ItemCollectionMetrics
 mkItemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey = mempty
@@ -1353,6 +1468,13 @@ data KeySchemaElement = KeySchemaElement
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeySchemaElement' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeName ::@ @Text@
+--
+-- * @KeyType ::@ @KeyType@
+--
 mkKeySchemaElement :: Text -- ^ 'kseAttributeName'
                    -> KeyType -- ^ 'kseKeyType'
                    -> KeySchemaElement
@@ -1385,6 +1507,15 @@ data KeysAndAttributes = KeysAndAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeysAndAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Keys ::@ @List1 (Map Text AttributeValue)@
+--
+-- * @AttributesToGet ::@ @Maybe (List1 Text)@
+--
+-- * @ConsistentRead ::@ @Maybe Bool@
+--
 mkKeysAndAttributes :: List1 (Map Text AttributeValue) -- ^ 'kaaKeys'
                     -> KeysAndAttributes
 mkKeysAndAttributes p1 = KeysAndAttributes
@@ -1424,6 +1555,15 @@ data LocalSecondaryIndex = LocalSecondaryIndex
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LocalSecondaryIndex' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexName ::@ @Text@
+--
+-- * @KeySchema ::@ @List1 KeySchemaElement@
+--
+-- * @Projection ::@ @Projection@
+--
 mkLocalSecondaryIndex :: Text -- ^ 'lsiIndexName'
                       -> List1 KeySchemaElement -- ^ 'lsiKeySchema'
                       -> Projection -- ^ 'lsiProjection'
@@ -1466,6 +1606,19 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
 --
 -- 'LocalSecondaryIndexDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexName ::@ @Maybe Text@
+--
+-- * @KeySchema ::@ @Maybe (List1 KeySchemaElement)@
+--
+-- * @Projection ::@ @Maybe Projection@
+--
+-- * @IndexSizeBytes ::@ @Maybe Integer@
+--
+-- * @ItemCount ::@ @Maybe Integer@
+--
 mkLocalSecondaryIndexDescription :: LocalSecondaryIndexDescription
 mkLocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName = Nothing
@@ -1515,6 +1668,13 @@ data Projection = Projection
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Projection' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ProjectionType ::@ @Maybe ProjectionType@
+--
+-- * @NonKeyAttributes ::@ @Maybe (List1 Text)@
+--
 mkProjection :: Projection
 mkProjection = Projection
     { _pProjectionType = Nothing
@@ -1553,6 +1713,13 @@ data ProvisionedThroughput = ProvisionedThroughput
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ProvisionedThroughput' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReadCapacityUnits ::@ @Integer@
+--
+-- * @WriteCapacityUnits ::@ @Integer@
+--
 mkProvisionedThroughput :: Integer -- ^ 'ptReadCapacityUnits'
                         -> Integer -- ^ 'ptWriteCapacityUnits'
                         -> ProvisionedThroughput
@@ -1592,6 +1759,19 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ProvisionedThroughputDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LastIncreaseDateTime ::@ @Maybe ISO8601@
+--
+-- * @LastDecreaseDateTime ::@ @Maybe ISO8601@
+--
+-- * @NumberOfDecreasesToday ::@ @Maybe Integer@
+--
+-- * @ReadCapacityUnits ::@ @Maybe Integer@
+--
+-- * @WriteCapacityUnits ::@ @Maybe Integer@
+--
 mkProvisionedThroughputDescription :: ProvisionedThroughputDescription
 mkProvisionedThroughputDescription = ProvisionedThroughputDescription
     { _ptdLastIncreaseDateTime = Nothing
@@ -1661,6 +1841,29 @@ data TableDescription = TableDescription
 --
 -- 'TableDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeDefinitions ::@ @[AttributeDefinition]@
+--
+-- * @TableName ::@ @Maybe Text@
+--
+-- * @KeySchema ::@ @Maybe (List1 KeySchemaElement)@
+--
+-- * @TableStatus ::@ @Maybe TableStatus@
+--
+-- * @CreationDateTime ::@ @Maybe ISO8601@
+--
+-- * @ProvisionedThroughput ::@ @Maybe ProvisionedThroughputDescription@
+--
+-- * @TableSizeBytes ::@ @Maybe Integer@
+--
+-- * @ItemCount ::@ @Maybe Integer@
+--
+-- * @LocalSecondaryIndexes ::@ @[LocalSecondaryIndexDescription]@
+--
+-- * @GlobalSecondaryIndexes ::@ @[GlobalSecondaryIndexDescription]@
+--
 mkTableDescription :: TableDescription
 mkTableDescription = TableDescription
     { _tdAttributeDefinitions = mempty
@@ -1805,6 +2008,13 @@ data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'UpdateGlobalSecondaryIndexAction' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexName ::@ @Text@
+--
+-- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
+--
 mkUpdateGlobalSecondaryIndexAction :: Text -- ^ 'ugsiaIndexName'
                                    -> ProvisionedThroughput -- ^ 'ugsiaProvisionedThroughput'
                                    -> UpdateGlobalSecondaryIndexAction
@@ -1841,6 +2051,13 @@ data WriteRequest = WriteRequest
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WriteRequest' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PutRequest ::@ @Maybe PutRequest@
+--
+-- * @DeleteRequest ::@ @Maybe DeleteRequest@
+--
 mkWriteRequest :: WriteRequest
 mkWriteRequest = WriteRequest
     { _wrPutRequest = Nothing

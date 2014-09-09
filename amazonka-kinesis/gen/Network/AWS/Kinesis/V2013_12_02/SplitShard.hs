@@ -92,6 +92,15 @@ data SplitShard = SplitShard
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SplitShard' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
+-- * @ShardToSplit ::@ @Text@
+--
+-- * @NewStartingHashKey ::@ @Text@
+--
 mkSplitShard :: Text -- ^ 'ssStreamName'
              -> Text -- ^ 'ssShardToSplit'
              -> Text -- ^ 'ssNewStartingHashKey'

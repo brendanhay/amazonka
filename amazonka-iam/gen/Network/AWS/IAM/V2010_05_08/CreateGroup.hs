@@ -44,7 +44,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateGroup = CreateGroup
     { _cgPath :: Maybe Text
     , _cgGroupName :: Text
@@ -52,6 +51,13 @@ data CreateGroup = CreateGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Maybe Text@
+--
+-- * @GroupName ::@ @Text@
+--
 mkCreateGroup :: Text -- ^ 'cgGroupName'
               -> CreateGroup
 mkCreateGroup p2 = CreateGroup
@@ -81,6 +87,11 @@ newtype CreateGroupResponse = CreateGroupResponse
 -- a valid 'CreateGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Group ::@ @Group@
+--
 mkCreateGroupResponse :: Group -- ^ 'cgrGroup'
                       -> CreateGroupResponse
 mkCreateGroupResponse p1 = CreateGroupResponse

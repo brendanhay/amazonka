@@ -68,6 +68,13 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineNotifications' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Notifications ::@ @Notifications@
+--
 mkUpdatePipelineNotifications :: Text -- ^ 'upnId'
                               -> Notifications -- ^ 'upnNotifications'
                               -> UpdatePipelineNotifications
@@ -117,6 +124,11 @@ newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsRespons
 -- a valid 'UpdatePipelineNotificationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Pipeline ::@ @Maybe Pipeline@
+--
 mkUpdatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse
 mkUpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     { _upnrPipeline = Nothing

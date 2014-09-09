@@ -66,6 +66,13 @@ data GetPipelineDefinition = GetPipelineDefinition
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPipelineDefinition' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @Version ::@ @Maybe Text@
+--
 mkGetPipelineDefinition :: Text -- ^ 'gpdPipelineId'
                         -> GetPipelineDefinition
 mkGetPipelineDefinition p1 = GetPipelineDefinition
@@ -101,6 +108,11 @@ newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
 -- a valid 'GetPipelineDefinitionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineObjects ::@ @[PipelineObject]@
+--
 mkGetPipelineDefinitionResponse :: GetPipelineDefinitionResponse
 mkGetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrPipelineObjects = mempty

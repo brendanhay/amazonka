@@ -59,6 +59,13 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterInstancesFromLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkDeregisterInstancesFromLoadBalancer :: Text -- ^ 'diflbLoadBalancerName'
                                       -> [Instance] -- ^ 'diflbInstances'
                                       -> DeregisterInstancesFromLoadBalancer
@@ -88,6 +95,11 @@ newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoa
 -- a valid 'DeregisterInstancesFromLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkDeregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
 mkDeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { _diflbrInstances = mempty

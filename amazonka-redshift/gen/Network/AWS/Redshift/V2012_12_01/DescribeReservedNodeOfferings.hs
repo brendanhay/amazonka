@@ -68,6 +68,15 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedNodeOfferings' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedNodeOfferingId ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeReservedNodeOfferings :: DescribeReservedNodeOfferings
 mkDescribeReservedNodeOfferings = DescribeReservedNodeOfferings
     { _drnoReservedNodeOfferingId = Nothing
@@ -111,6 +120,13 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 -- a valid 'DescribeReservedNodeOfferingsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ReservedNodeOfferings ::@ @[ReservedNodeOffering]@
+--
 mkDescribeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
 mkDescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
     { _drnorMarker = Nothing

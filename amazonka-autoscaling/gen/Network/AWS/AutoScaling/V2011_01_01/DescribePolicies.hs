@@ -56,7 +56,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribePolicies = DescribePolicies
     { _dp1AutoScalingGroupName :: Maybe Text
     , _dp1PolicyNames :: [Text]
@@ -66,6 +65,17 @@ data DescribePolicies = DescribePolicies
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePolicies' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @PolicyNames ::@ @[Text]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
 mkDescribePolicies :: DescribePolicies
 mkDescribePolicies = DescribePolicies
     { _dp1AutoScalingGroupName = Nothing
@@ -110,6 +120,13 @@ data DescribePoliciesResponse = DescribePoliciesResponse
 -- a valid 'DescribePoliciesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ScalingPolicies ::@ @[ScalingPolicy]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribePoliciesResponse :: DescribePoliciesResponse
 mkDescribePoliciesResponse = DescribePoliciesResponse
     { _dprScalingPolicies = mempty

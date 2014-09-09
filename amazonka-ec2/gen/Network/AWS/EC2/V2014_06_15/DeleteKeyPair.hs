@@ -43,13 +43,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteKeyPair = DeleteKeyPair
     { _dkpKeyName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteKeyPair' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyName ::@ @Text@
+--
 mkDeleteKeyPair :: Text -- ^ 'dkpKeyName'
                 -> DeleteKeyPair
 mkDeleteKeyPair p1 = DeleteKeyPair

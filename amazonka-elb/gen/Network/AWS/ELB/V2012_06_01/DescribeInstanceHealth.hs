@@ -71,6 +71,13 @@ data DescribeInstanceHealth = DescribeInstanceHealth
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceHealth' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkDescribeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
                          -> DescribeInstanceHealth
 mkDescribeInstanceHealth p1 = DescribeInstanceHealth
@@ -99,6 +106,11 @@ newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
 -- a valid 'DescribeInstanceHealthResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceStates ::@ @[InstanceState]@
+--
 mkDescribeInstanceHealthResponse :: DescribeInstanceHealthResponse
 mkDescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates = mempty

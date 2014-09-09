@@ -82,6 +82,39 @@ data CreateLayer = CreateLayer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLayer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @Type ::@ @LayerType@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Shortname ::@ @Text@
+--
+-- * @Attributes ::@ @Map LayerAttributesKeys Text@
+--
+-- * @CustomInstanceProfileArn ::@ @Maybe Text@
+--
+-- * @CustomSecurityGroupIds ::@ @[Text]@
+--
+-- * @Packages ::@ @[Text]@
+--
+-- * @VolumeConfigurations ::@ @[VolumeConfiguration]@
+--
+-- * @EnableAutoHealing ::@ @Maybe Bool@
+--
+-- * @AutoAssignElasticIps ::@ @Maybe Bool@
+--
+-- * @AutoAssignPublicIps ::@ @Maybe Bool@
+--
+-- * @CustomRecipes ::@ @Maybe Recipes@
+--
+-- * @InstallUpdatesOnBoot ::@ @Maybe Bool@
+--
+-- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
+--
 mkCreateLayer :: Text -- ^ 'clStackId'
               -> LayerType -- ^ 'clType'
               -> Text -- ^ 'clName'
@@ -214,6 +247,11 @@ newtype CreateLayerResponse = CreateLayerResponse
 -- a valid 'CreateLayerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerId ::@ @Maybe Text@
+--
 mkCreateLayerResponse :: CreateLayerResponse
 mkCreateLayerResponse = CreateLayerResponse
     { _clrLayerId = Nothing

@@ -52,6 +52,13 @@ data DescribeApplicationVersions = DescribeApplicationVersions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApplicationVersions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @VersionLabels ::@ @[Text]@
+--
 mkDescribeApplicationVersions :: DescribeApplicationVersions
 mkDescribeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName = Nothing
@@ -82,6 +89,11 @@ newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsRespons
 -- a valid 'DescribeApplicationVersionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationVersions ::@ @[ApplicationVersionDescription]@
+--
 mkDescribeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
 mkDescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     { _davrApplicationVersions = mempty

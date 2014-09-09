@@ -61,6 +61,11 @@ newtype RebootCluster = RebootCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
 mkRebootCluster :: Text -- ^ 'rc1ClusterIdentifier'
                 -> RebootCluster
 mkRebootCluster p1 = RebootCluster
@@ -83,6 +88,11 @@ newtype RebootClusterResponse = RebootClusterResponse
 -- a valid 'RebootClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkRebootClusterResponse :: RebootClusterResponse
 mkRebootClusterResponse = RebootClusterResponse
     { _rcrCluster = Nothing

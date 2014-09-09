@@ -69,6 +69,11 @@ newtype DeleteVolume = DeleteVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Text@
+--
 mkDeleteVolume :: Text -- ^ 'dvVolumeARN'
                -> DeleteVolume
 mkDeleteVolume p1 = DeleteVolume
@@ -97,6 +102,11 @@ newtype DeleteVolumeResponse = DeleteVolumeResponse
 -- a valid 'DeleteVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
 mkDeleteVolumeResponse :: DeleteVolumeResponse
 mkDeleteVolumeResponse = DeleteVolumeResponse
     { _dvrVolumeARN = Nothing

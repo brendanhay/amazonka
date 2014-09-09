@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data GetUserPolicy = GetUserPolicy
     { _gupUserName :: Text
     , _gupPolicyName :: Text
@@ -56,6 +55,13 @@ data GetUserPolicy = GetUserPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetUserPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
 mkGetUserPolicy :: Text -- ^ 'gupUserName'
                 -> Text -- ^ 'gupPolicyName'
                 -> GetUserPolicy
@@ -86,6 +92,15 @@ data GetUserPolicyResponse = GetUserPolicyResponse
 -- a valid 'GetUserPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @PolicyDocument ::@ @Text@
+--
 mkGetUserPolicyResponse :: Text -- ^ 'guprUserName'
                         -> Text -- ^ 'guprPolicyName'
                         -> Text -- ^ 'guprPolicyDocument'

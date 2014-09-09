@@ -47,6 +47,11 @@ newtype StartInstance = StartInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
 mkStartInstance :: Text -- ^ 'siInstanceId'
                 -> StartInstance
 mkStartInstance p1 = StartInstance

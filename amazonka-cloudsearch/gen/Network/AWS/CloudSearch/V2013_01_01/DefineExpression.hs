@@ -53,6 +53,13 @@ data DefineExpression = DefineExpression
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineExpression' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Expression ::@ @Expression@
+--
 mkDefineExpression :: Text -- ^ 'deDomainName'
                    -> Expression -- ^ 'deExpression'
                    -> DefineExpression
@@ -86,6 +93,11 @@ newtype DefineExpressionResponse = DefineExpressionResponse
 -- a valid 'DefineExpressionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Expression ::@ @ExpressionStatus@
+--
 mkDefineExpressionResponse :: ExpressionStatus -- ^ 'derExpression'
                            -> DefineExpressionResponse
 mkDefineExpressionResponse p1 = DefineExpressionResponse

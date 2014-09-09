@@ -57,6 +57,13 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddSourceIdentifierToSubscription' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionName ::@ @Text@
+--
+-- * @SourceIdentifier ::@ @Text@
+--
 mkAddSourceIdentifierToSubscription :: Text -- ^ 'asitsSubscriptionName'
                                     -> Text -- ^ 'asitsSourceIdentifier'
                                     -> AddSourceIdentifierToSubscription
@@ -94,6 +101,11 @@ newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscri
 -- a valid 'AddSourceIdentifierToSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventSubscription ::@ @Maybe EventSubscription@
+--
 mkAddSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse
 mkAddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription = Nothing

@@ -52,6 +52,11 @@ newtype DisableLogging = DisableLogging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableLogging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
 mkDisableLogging :: Text -- ^ 'dlClusterIdentifier'
                  -> DisableLogging
 mkDisableLogging p1 = DisableLogging
@@ -81,6 +86,21 @@ data DisableLoggingResponse = DisableLoggingResponse
 -- a valid 'DisableLoggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoggingEnabled ::@ @Maybe Bool@
+--
+-- * @BucketName ::@ @Maybe Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @LastSuccessfulDeliveryTime ::@ @Maybe ISO8601@
+--
+-- * @LastFailureTime ::@ @Maybe ISO8601@
+--
+-- * @LastFailureMessage ::@ @Maybe Text@
+--
 mkDisableLoggingResponse :: DisableLoggingResponse
 mkDisableLoggingResponse = DisableLoggingResponse
     { _dlrLoggingEnabled = Nothing

@@ -79,6 +79,15 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskFailed' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskToken ::@ @Text@
+--
+-- * @Reason ::@ @Maybe Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkRespondActivityTaskFailed :: Text -- ^ 'ratfTaskToken'
                             -> RespondActivityTaskFailed
 mkRespondActivityTaskFailed p1 = RespondActivityTaskFailed

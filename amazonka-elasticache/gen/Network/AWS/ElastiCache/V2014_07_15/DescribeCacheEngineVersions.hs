@@ -64,6 +64,21 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheEngineVersions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @CacheParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DefaultOnly ::@ @Maybe Bool@
+--
 mkDescribeCacheEngineVersions :: DescribeCacheEngineVersions
 mkDescribeCacheEngineVersions = DescribeCacheEngineVersions
     { _dcevEngine = Nothing
@@ -123,6 +138,13 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
 -- a valid 'DescribeCacheEngineVersionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @CacheEngineVersions ::@ @[CacheEngineVersion]@
+--
 mkDescribeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
 mkDescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrMarker = Nothing

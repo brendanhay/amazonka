@@ -49,13 +49,17 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 newtype ListQueues = ListQueues
     { _lqQueueNamePrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListQueues' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueNamePrefix ::@ @Maybe Text@
+--
 mkListQueues :: ListQueues
 mkListQueues = ListQueues
     { _lqQueueNamePrefix = Nothing
@@ -79,6 +83,11 @@ newtype ListQueuesResponse = ListQueuesResponse
 -- a valid 'ListQueuesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrls ::@ @[Text]@
+--
 mkListQueuesResponse :: ListQueuesResponse
 mkListQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls = mempty

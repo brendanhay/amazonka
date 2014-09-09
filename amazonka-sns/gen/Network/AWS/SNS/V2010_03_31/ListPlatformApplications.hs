@@ -77,6 +77,11 @@ newtype ListPlatformApplications = ListPlatformApplications
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPlatformApplications' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListPlatformApplications :: ListPlatformApplications
 mkListPlatformApplications = ListPlatformApplications
     { _lpaNextToken = Nothing
@@ -101,6 +106,13 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
 -- a valid 'ListPlatformApplicationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplications ::@ @[PlatformApplication]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListPlatformApplicationsResponse :: ListPlatformApplicationsResponse
 mkListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparPlatformApplications = mempty

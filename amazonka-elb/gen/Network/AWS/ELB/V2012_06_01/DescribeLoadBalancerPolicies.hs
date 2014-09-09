@@ -58,7 +58,6 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbp1LoadBalancerName :: Maybe Text
     , _dlbp1PolicyNames :: [Text]
@@ -66,6 +65,13 @@ data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerPolicies' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Maybe Text@
+--
+-- * @PolicyNames ::@ @[Text]@
+--
 mkDescribeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
 mkDescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbp1LoadBalancerName = Nothing
@@ -98,6 +104,11 @@ newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesRespo
 -- a valid 'DescribeLoadBalancerPoliciesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyDescriptions ::@ @[PolicyDescription]@
+--
 mkDescribeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
 mkDescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { _dlbprrPolicyDescriptions = mempty

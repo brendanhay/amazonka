@@ -56,6 +56,11 @@ newtype DeleteTopic = DeleteTopic
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTopic' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Text@
+--
 mkDeleteTopic :: Text -- ^ 'dtTopicArn'
               -> DeleteTopic
 mkDeleteTopic p1 = DeleteTopic

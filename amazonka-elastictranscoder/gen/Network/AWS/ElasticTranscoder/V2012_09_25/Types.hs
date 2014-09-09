@@ -312,6 +312,11 @@ newtype AudioCodecOptions = AudioCodecOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AudioCodecOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Profile ::@ @Maybe Text@
+--
 mkAudioCodecOptions :: AudioCodecOptions
 mkAudioCodecOptions = AudioCodecOptions
     { _acoProfile = Nothing
@@ -343,6 +348,11 @@ newtype Clip = Clip
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Clip' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimeSpan ::@ @Maybe TimeSpan@
+--
 mkClip :: Clip
 mkClip = Clip
     { _cTimeSpan = Nothing
@@ -373,6 +383,21 @@ data Artwork = Artwork
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Artwork' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InputKey ::@ @Maybe Text@
+--
+-- * @MaxWidth ::@ @Maybe Text@
+--
+-- * @MaxHeight ::@ @Maybe Text@
+--
+-- * @SizingPolicy ::@ @Maybe Text@
+--
+-- * @PaddingPolicy ::@ @Maybe Text@
+--
+-- * @AlbumArtFormat ::@ @Maybe Text@
+--
 mkArtwork :: Artwork
 mkArtwork = Artwork
     { _aInputKey = Nothing
@@ -454,6 +479,19 @@ data AudioParameters = AudioParameters
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AudioParameters' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Codec ::@ @Maybe Text@
+--
+-- * @SampleRate ::@ @Maybe Text@
+--
+-- * @BitRate ::@ @Maybe Text@
+--
+-- * @Channels ::@ @Maybe Text@
+--
+-- * @CodecOptions ::@ @Maybe AudioCodecOptions@
+--
 mkAudioParameters :: AudioParameters
 mkAudioParameters = AudioParameters
     { _apCodec = Nothing
@@ -505,6 +543,13 @@ data CaptionFormat = CaptionFormat
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CaptionFormat' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Format ::@ @Maybe Text@
+--
+-- * @Pattern ::@ @Maybe Text@
+--
 mkCaptionFormat :: CaptionFormat
 mkCaptionFormat = CaptionFormat
     { _cfFormat = Nothing
@@ -550,6 +595,17 @@ data CaptionSource = CaptionSource
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CaptionSource' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Language ::@ @Maybe Text@
+--
+-- * @TimeOffset ::@ @Maybe Text@
+--
+-- * @Label ::@ @Maybe Text@
+--
 mkCaptionSource :: CaptionSource
 mkCaptionSource = CaptionSource
     { _csKey = Nothing
@@ -622,6 +678,15 @@ data Captions = Captions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Captions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MergePolicy ::@ @Maybe Text@
+--
+-- * @CaptionSources ::@ @[CaptionSource]@
+--
+-- * @CaptionFormats ::@ @[CaptionFormat]@
+--
 mkCaptions :: Captions
 mkCaptions = Captions
     { _c1MergePolicy = Nothing
@@ -676,6 +741,27 @@ data CreateJobOutput = CreateJobOutput
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateJobOutput' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @ThumbnailPattern ::@ @Maybe Text@
+--
+-- * @Rotate ::@ @Maybe Text@
+--
+-- * @PresetId ::@ @Maybe Text@
+--
+-- * @SegmentDuration ::@ @Maybe Text@
+--
+-- * @Watermarks ::@ @[JobWatermark]@
+--
+-- * @AlbumArt ::@ @Maybe JobAlbumArt@
+--
+-- * @Composition ::@ @[Clip]@
+--
+-- * @Captions ::@ @Maybe Captions@
+--
 mkCreateJobOutput :: CreateJobOutput
 mkCreateJobOutput = CreateJobOutput
     { _cjoKey = Nothing
@@ -803,6 +889,15 @@ data CreateJobPlaylist = CreateJobPlaylist
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateJobPlaylist' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Format ::@ @Maybe Text@
+--
+-- * @OutputKeys ::@ @[Text]@
+--
 mkCreateJobPlaylist :: CreateJobPlaylist
 mkCreateJobPlaylist = CreateJobPlaylist
     { _cjpName = Nothing
@@ -851,6 +946,27 @@ data Job = Job
 --
 -- 'Job' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @PipelineId ::@ @Maybe Text@
+--
+-- * @Input ::@ @Maybe JobInput@
+--
+-- * @Output ::@ @Maybe JobOutput@
+--
+-- * @Outputs ::@ @[JobOutput]@
+--
+-- * @OutputKeyPrefix ::@ @Maybe Text@
+--
+-- * @Playlists ::@ @[Playlist]@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkJob :: Job
 mkJob = Job
     { _jId = Nothing
@@ -937,6 +1053,13 @@ data JobAlbumArt = JobAlbumArt
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobAlbumArt' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MergePolicy ::@ @Maybe Text@
+--
+-- * @Artwork ::@ @[Artwork]@
+--
 mkJobAlbumArt :: JobAlbumArt
 mkJobAlbumArt = JobAlbumArt
     { _jaaMergePolicy = Nothing
@@ -976,6 +1099,21 @@ data JobInput = JobInput
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobInput' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @FrameRate ::@ @Maybe Text@
+--
+-- * @Resolution ::@ @Maybe Text@
+--
+-- * @AspectRatio ::@ @Maybe Text@
+--
+-- * @Interlaced ::@ @Maybe Text@
+--
+-- * @Container ::@ @Maybe Text@
+--
 mkJobInput :: JobInput
 mkJobInput = JobInput
     { _jiKey = Nothing
@@ -1063,6 +1201,39 @@ data JobOutput = JobOutput
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobOutput' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @ThumbnailPattern ::@ @Maybe Text@
+--
+-- * @Rotate ::@ @Maybe Text@
+--
+-- * @PresetId ::@ @Maybe Text@
+--
+-- * @SegmentDuration ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @StatusDetail ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @Width ::@ @Maybe Integer@
+--
+-- * @Height ::@ @Maybe Integer@
+--
+-- * @Watermarks ::@ @[JobWatermark]@
+--
+-- * @AlbumArt ::@ @Maybe JobAlbumArt@
+--
+-- * @Composition ::@ @[Clip]@
+--
+-- * @Captions ::@ @Maybe Captions@
+--
 mkJobOutput :: JobOutput
 mkJobOutput = JobOutput
     { _joId = Nothing
@@ -1249,6 +1420,13 @@ data JobWatermark = JobWatermark
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobWatermark' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PresetWatermarkId ::@ @Maybe Text@
+--
+-- * @InputKey ::@ @Maybe Text@
+--
 mkJobWatermark :: JobWatermark
 mkJobWatermark = JobWatermark
     { _jwPresetWatermarkId = Nothing
@@ -1303,6 +1481,17 @@ data Notifications = Notifications
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Notifications' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Progressing ::@ @Maybe Text@
+--
+-- * @Completed ::@ @Maybe Text@
+--
+-- * @Warning ::@ @Maybe Text@
+--
+-- * @Error ::@ @Maybe Text@
+--
 mkNotifications :: Notifications
 mkNotifications = Notifications
     { _nProgressing = Nothing
@@ -1344,6 +1533,15 @@ data Permission = Permission
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Permission' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GranteeType ::@ @Maybe Text@
+--
+-- * @Grantee ::@ @Maybe Text@
+--
+-- * @Access ::@ @[Text]@
+--
 mkPermission :: Permission
 mkPermission = Permission
     { _p1GranteeType = Nothing
@@ -1404,6 +1602,29 @@ data Pipeline = Pipeline
 --
 -- 'Pipeline' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @InputBucket ::@ @Maybe Text@
+--
+-- * @OutputBucket ::@ @Maybe Text@
+--
+-- * @Role ::@ @Maybe Text@
+--
+-- * @Notifications ::@ @Maybe Notifications@
+--
+-- * @ContentConfig ::@ @Maybe PipelineOutputConfig@
+--
+-- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
+--
 mkPipeline :: Pipeline
 mkPipeline = Pipeline
     { _prId = Nothing
@@ -1575,6 +1796,15 @@ data PipelineOutputConfig = PipelineOutputConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PipelineOutputConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @Maybe Text@
+--
+-- * @StorageClass ::@ @Maybe Text@
+--
+-- * @Permissions ::@ @[Permission]@
+--
 mkPipelineOutputConfig :: PipelineOutputConfig
 mkPipelineOutputConfig = PipelineOutputConfig
     { _pocBucket = Nothing
@@ -1636,6 +1866,19 @@ data Playlist = Playlist
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Playlist' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Format ::@ @Maybe Text@
+--
+-- * @OutputKeys ::@ @[Text]@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @StatusDetail ::@ @Maybe Text@
+--
 mkPlaylist :: Playlist
 mkPlaylist = Playlist
     { _pName = Nothing
@@ -1696,6 +1939,27 @@ data Preset = Preset
 --
 -- 'Preset' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Container ::@ @Maybe Text@
+--
+-- * @Audio ::@ @Maybe AudioParameters@
+--
+-- * @Video ::@ @Maybe VideoParameters@
+--
+-- * @Thumbnails ::@ @Maybe Thumbnails@
+--
+-- * @Type ::@ @Maybe Text@
+--
 mkPreset :: Preset
 mkPreset = Preset
     { _p1rId = Nothing
@@ -1780,6 +2044,29 @@ data PresetWatermark = PresetWatermark
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PresetWatermark' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @MaxWidth ::@ @Maybe Text@
+--
+-- * @MaxHeight ::@ @Maybe Text@
+--
+-- * @SizingPolicy ::@ @Maybe Text@
+--
+-- * @HorizontalAlign ::@ @Maybe Text@
+--
+-- * @HorizontalOffset ::@ @Maybe Text@
+--
+-- * @VerticalAlign ::@ @Maybe Text@
+--
+-- * @VerticalOffset ::@ @Maybe Text@
+--
+-- * @Opacity ::@ @Maybe Text@
+--
+-- * @Target ::@ @Maybe Text@
+--
 mkPresetWatermark :: PresetWatermark
 mkPresetWatermark = PresetWatermark
     { _pwId = Nothing
@@ -1930,6 +2217,25 @@ data Thumbnails = Thumbnails
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Thumbnails' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Format ::@ @Maybe Text@
+--
+-- * @Interval ::@ @Maybe Text@
+--
+-- * @Resolution ::@ @Maybe Text@
+--
+-- * @AspectRatio ::@ @Maybe Text@
+--
+-- * @MaxWidth ::@ @Maybe Text@
+--
+-- * @MaxHeight ::@ @Maybe Text@
+--
+-- * @SizingPolicy ::@ @Maybe Text@
+--
+-- * @PaddingPolicy ::@ @Maybe Text@
+--
 mkThumbnails :: Thumbnails
 mkThumbnails = Thumbnails
     { _tFormat = Nothing
@@ -2027,6 +2333,13 @@ data TimeSpan = TimeSpan
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimeSpan' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StartTime ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Text@
+--
 mkTimeSpan :: TimeSpan
 mkTimeSpan = TimeSpan
     { _tsStartTime = Nothing
@@ -2074,6 +2387,39 @@ data VideoParameters = VideoParameters
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VideoParameters' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Codec ::@ @Maybe Text@
+--
+-- * @CodecOptions ::@ @Map Text Text@
+--
+-- * @KeyframesMaxDist ::@ @Maybe Text@
+--
+-- * @FixedGOP ::@ @Maybe Text@
+--
+-- * @BitRate ::@ @Maybe Text@
+--
+-- * @FrameRate ::@ @Maybe Text@
+--
+-- * @MaxFrameRate ::@ @Maybe Text@
+--
+-- * @Resolution ::@ @Maybe Text@
+--
+-- * @AspectRatio ::@ @Maybe Text@
+--
+-- * @MaxWidth ::@ @Maybe Text@
+--
+-- * @MaxHeight ::@ @Maybe Text@
+--
+-- * @DisplayAspectRatio ::@ @Maybe Text@
+--
+-- * @SizingPolicy ::@ @Maybe Text@
+--
+-- * @PaddingPolicy ::@ @Maybe Text@
+--
+-- * @Watermarks ::@ @[PresetWatermark]@
+--
 mkVideoParameters :: VideoParameters
 mkVideoParameters = VideoParameters
     { _vpCodec = Nothing

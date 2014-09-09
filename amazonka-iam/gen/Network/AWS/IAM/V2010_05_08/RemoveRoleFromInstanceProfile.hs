@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
     , _rrfipRoleName :: Text
@@ -55,6 +54,13 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveRoleFromInstanceProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfileName ::@ @Text@
+--
+-- * @RoleName ::@ @Text@
+--
 mkRemoveRoleFromInstanceProfile :: Text -- ^ 'rrfipInstanceProfileName'
                                 -> Text -- ^ 'rrfipRoleName'
                                 -> RemoveRoleFromInstanceProfile

@@ -71,6 +71,17 @@ data DescribeMetricFilters = DescribeMetricFilters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMetricFilters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @FilterNamePrefix ::@ @Maybe Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkDescribeMetricFilters :: Text -- ^ 'dmf1LogGroupName'
                         -> DescribeMetricFilters
 mkDescribeMetricFilters p1 = DescribeMetricFilters
@@ -117,6 +128,13 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
 -- a valid 'DescribeMetricFiltersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MetricFilters ::@ @[MetricFilter]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeMetricFiltersResponse :: DescribeMetricFiltersResponse
 mkDescribeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters = mempty

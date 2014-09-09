@@ -44,6 +44,11 @@ newtype DeleteBucketCors = DeleteBucketCors
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketCors' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkDeleteBucketCors :: BucketName -- ^ 'dbcBucket'
                    -> DeleteBucketCors
 mkDeleteBucketCors p1 = DeleteBucketCors

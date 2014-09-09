@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeAlarms = DescribeAlarms
     { _da1AlarmNames :: [Text]
     , _da1AlarmNamePrefix :: Maybe Text
@@ -59,6 +58,21 @@ data DescribeAlarms = DescribeAlarms
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarms' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmNames ::@ @[Text]@
+--
+-- * @AlarmNamePrefix ::@ @Maybe Text@
+--
+-- * @StateValue ::@ @Maybe StateValue@
+--
+-- * @ActionPrefix ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeAlarms :: DescribeAlarms
 mkDescribeAlarms = DescribeAlarms
     { _da1AlarmNames = mempty
@@ -109,6 +123,13 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse
 -- a valid 'DescribeAlarmsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MetricAlarms ::@ @[MetricAlarm]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeAlarmsResponse :: DescribeAlarmsResponse
 mkDescribeAlarmsResponse = DescribeAlarmsResponse
     { _darMetricAlarms = mempty

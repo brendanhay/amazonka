@@ -57,6 +57,17 @@ data UpdateJob = UpdateJob
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateJob' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobId ::@ @Text@
+--
+-- * @Manifest ::@ @Text@
+--
+-- * @JobType ::@ @JobType@
+--
+-- * @ValidateOnly ::@ @Bool@
+--
 mkUpdateJob :: Text -- ^ 'ujJobId'
             -> Text -- ^ 'ujManifest'
             -> JobType -- ^ 'ujJobType'
@@ -99,6 +110,13 @@ data UpdateJobResponse = UpdateJobResponse
 -- a valid 'UpdateJobResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Success ::@ @Maybe Bool@
+--
+-- * @WarningMessage ::@ @Maybe Text@
+--
 mkUpdateJobResponse :: UpdateJobResponse
 mkUpdateJobResponse = UpdateJobResponse
     { _ujrSuccess = Nothing

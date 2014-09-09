@@ -46,6 +46,11 @@ newtype GetBucketTagging = GetBucketTagging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketTagging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketTagging :: BucketName -- ^ 'gbtBucket'
                    -> GetBucketTagging
 mkGetBucketTagging p1 = GetBucketTagging
@@ -71,6 +76,11 @@ newtype GetBucketTaggingResponse = GetBucketTaggingResponse
 -- a valid 'GetBucketTaggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TagSet ::@ @[Tag]@
+--
 mkGetBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
                            -> GetBucketTaggingResponse
 mkGetBucketTaggingResponse p1 = GetBucketTaggingResponse

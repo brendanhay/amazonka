@@ -53,6 +53,15 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeHsmConfigurations' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmConfigurationIdentifier ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeHsmConfigurations :: DescribeHsmConfigurations
 mkDescribeHsmConfigurations = DescribeHsmConfigurations
     { _dhc1HsmConfigurationIdentifier = Nothing
@@ -98,6 +107,13 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
 -- a valid 'DescribeHsmConfigurationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @HsmConfigurations ::@ @[HsmConfiguration]@
+--
 mkDescribeHsmConfigurationsResponse :: DescribeHsmConfigurationsResponse
 mkDescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrMarker = Nothing

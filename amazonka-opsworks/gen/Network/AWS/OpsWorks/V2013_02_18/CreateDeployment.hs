@@ -62,6 +62,21 @@ data CreateDeployment = CreateDeployment
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDeployment' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @AppId ::@ @Maybe Text@
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @Command ::@ @DeploymentCommand@
+--
+-- * @Comment ::@ @Maybe Text@
+--
+-- * @CustomJson ::@ @Maybe Text@
+--
 mkCreateDeployment :: Text -- ^ 'cdStackId'
                    -> DeploymentCommand -- ^ 'cdCommand'
                    -> CreateDeployment
@@ -121,6 +136,11 @@ newtype CreateDeploymentResponse = CreateDeploymentResponse
 -- a valid 'CreateDeploymentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DeploymentId ::@ @Maybe Text@
+--
 mkCreateDeploymentResponse :: CreateDeploymentResponse
 mkCreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId = Nothing

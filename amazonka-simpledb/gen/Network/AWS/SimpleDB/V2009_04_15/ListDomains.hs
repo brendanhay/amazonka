@@ -53,6 +53,13 @@ data ListDomains = ListDomains
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MaxNumberOfDomains ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListDomains :: ListDomains
 mkListDomains = ListDomains
     { _ldMaxNumberOfDomains = Nothing
@@ -82,6 +89,13 @@ data ListDomainsResponse = ListDomainsResponse
 -- a valid 'ListDomainsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainNames ::@ @[Text]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListDomainsResponse :: ListDomainsResponse
 mkListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames = mempty

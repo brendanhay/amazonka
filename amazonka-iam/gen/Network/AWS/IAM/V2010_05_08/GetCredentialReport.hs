@@ -63,6 +63,15 @@ data GetCredentialReportResponse = GetCredentialReportResponse
 -- a valid 'GetCredentialReportResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Content ::@ @Maybe ByteString@
+--
+-- * @ReportFormat ::@ @Maybe ReportFormatType@
+--
+-- * @GeneratedTime ::@ @Maybe ISO8601@
+--
 mkGetCredentialReportResponse :: GetCredentialReportResponse
 mkGetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrrContent = Nothing

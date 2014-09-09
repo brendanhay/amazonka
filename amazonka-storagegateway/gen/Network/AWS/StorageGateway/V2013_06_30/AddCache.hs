@@ -66,6 +66,13 @@ data AddCache = AddCache
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCache' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @DiskIds ::@ @[Text]@
+--
 mkAddCache :: Text -- ^ 'acGatewayARN'
            -> [Text] -- ^ 'acDiskIds'
            -> AddCache
@@ -98,6 +105,11 @@ newtype AddCacheResponse = AddCacheResponse
 -- a valid 'AddCacheResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkAddCacheResponse :: AddCacheResponse
 mkAddCacheResponse = AddCacheResponse
     { _acrGatewayARN = Nothing

@@ -40,7 +40,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteLifecycleHook = DeleteLifecycleHook
     { _dlhLifecycleHookName :: Text
     , _dlhAutoScalingGroupName :: Text
@@ -48,6 +47,13 @@ data DeleteLifecycleHook = DeleteLifecycleHook
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLifecycleHook' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LifecycleHookName ::@ @Text@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
 mkDeleteLifecycleHook :: Text -- ^ 'dlhLifecycleHookName'
                       -> Text -- ^ 'dlhAutoScalingGroupName'
                       -> DeleteLifecycleHook

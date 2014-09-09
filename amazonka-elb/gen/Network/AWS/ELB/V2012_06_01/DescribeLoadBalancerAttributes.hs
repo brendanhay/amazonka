@@ -51,6 +51,11 @@ newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
 mkDescribeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
                                  -> DescribeLoadBalancerAttributes
 mkDescribeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
@@ -75,6 +80,11 @@ newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesR
 -- a valid 'DescribeLoadBalancerAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerAttributes ::@ @Maybe LoadBalancerAttributes@
+--
 mkDescribeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse
 mkDescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes = Nothing

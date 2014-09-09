@@ -57,7 +57,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeVpcs = DescribeVpcs
     { _dv3VpcIds :: [Text]
     , _dv3Filters :: [Filter]
@@ -65,6 +64,13 @@ data DescribeVpcs = DescribeVpcs
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcs' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeVpcs :: DescribeVpcs
 mkDescribeVpcs = DescribeVpcs
     { _dv3VpcIds = mempty
@@ -95,7 +101,6 @@ dv3Filters = lens _dv3Filters (\s a -> s { _dv3Filters = a })
 instance ToQuery DescribeVpcs where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrrVpcs :: [Vpc]
     } deriving (Show, Generic)
@@ -104,6 +109,11 @@ newtype DescribeVpcsResponse = DescribeVpcsResponse
 -- a valid 'DescribeVpcsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Vpcs ::@ @[Vpc]@
+--
 mkDescribeVpcsResponse :: DescribeVpcsResponse
 mkDescribeVpcsResponse = DescribeVpcsResponse
     { _dvrrVpcs = mempty

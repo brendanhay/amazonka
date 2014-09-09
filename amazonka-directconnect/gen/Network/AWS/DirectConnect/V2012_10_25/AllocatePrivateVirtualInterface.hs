@@ -71,6 +71,15 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocatePrivateVirtualInterface' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConnectionId ::@ @Text@
+--
+-- * @OwnerAccount ::@ @Text@
+--
+-- * @NewPrivateVirtualInterfaceAllocation ::@ @NewPrivateVirtualInterfaceAllocation@
+--
 mkAllocatePrivateVirtualInterface :: Text -- ^ 'apviConnectionId'
                                   -> Text -- ^ 'apviOwnerAccount'
                                   -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
@@ -132,6 +141,39 @@ data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceRe
 -- a valid 'AllocatePrivateVirtualInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceId ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceType ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceName ::@ @Maybe Text@
+--
+-- * @Vlan ::@ @Maybe Integer@
+--
+-- * @Asn ::@ @Maybe Integer@
+--
+-- * @AuthKey ::@ @Maybe Text@
+--
+-- * @AmazonAddress ::@ @Maybe Text@
+--
+-- * @CustomerAddress ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+--
+-- * @CustomerRouterConfig ::@ @Maybe Text@
+--
+-- * @VirtualGatewayId ::@ @Maybe Text@
+--
+-- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
+--
 mkAllocatePrivateVirtualInterfaceResponse :: AllocatePrivateVirtualInterfaceResponse
 mkAllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceResponse
     { _apvirOwnerAccount = Nothing

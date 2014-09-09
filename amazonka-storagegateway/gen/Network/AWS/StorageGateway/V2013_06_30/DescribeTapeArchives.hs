@@ -49,6 +49,15 @@ data DescribeTapeArchives = DescribeTapeArchives
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapeArchives' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARNs ::@ @[Text]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkDescribeTapeArchives :: DescribeTapeArchives
 mkDescribeTapeArchives = DescribeTapeArchives
     { _dta1TapeARNs = mempty
@@ -82,6 +91,13 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
 -- a valid 'DescribeTapeArchivesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeArchives ::@ @[TapeArchive]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeTapeArchivesResponse :: DescribeTapeArchivesResponse
 mkDescribeTapeArchivesResponse = DescribeTapeArchivesResponse
     { _dtarrTapeArchives = mempty

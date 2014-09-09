@@ -65,7 +65,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvaVolumeId :: Text
     , _dvaAttribute :: Maybe VolumeAttributeName
@@ -73,6 +72,13 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumeAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
+-- * @Attribute ::@ @Maybe VolumeAttributeName@
+--
 mkDescribeVolumeAttribute :: Text -- ^ 'dvaVolumeId'
                           -> DescribeVolumeAttribute
 mkDescribeVolumeAttribute p1 = DescribeVolumeAttribute
@@ -91,7 +97,6 @@ dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
 instance ToQuery DescribeVolumeAttribute where
     toQuery = genericQuery def
 
--- | 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarVolumeId :: Maybe Text
     , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
@@ -102,6 +107,15 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
 -- a valid 'DescribeVolumeAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @AutoEnableIO ::@ @Maybe AttributeBooleanValue@
+--
+-- * @ProductCodes ::@ @[ProductCode]@
+--
 mkDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
 mkDescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarVolumeId = Nothing

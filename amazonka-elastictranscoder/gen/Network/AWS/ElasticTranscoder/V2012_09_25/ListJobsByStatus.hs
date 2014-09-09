@@ -95,6 +95,15 @@ data ListJobsByStatus = ListJobsByStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsByStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Text@
+--
+-- * @Ascending ::@ @Maybe Text@
+--
+-- * @PageToken ::@ @Maybe Text@
+--
 mkListJobsByStatus :: Text -- ^ 'ljbsStatus'
                    -> ListJobsByStatus
 mkListJobsByStatus p1 = ListJobsByStatus
@@ -139,6 +148,13 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
 -- a valid 'ListJobsByStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Jobs ::@ @[Job]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListJobsByStatusResponse :: ListJobsByStatusResponse
 mkListJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs = mempty

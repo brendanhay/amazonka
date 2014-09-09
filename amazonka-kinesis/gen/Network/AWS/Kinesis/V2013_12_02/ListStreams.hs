@@ -72,6 +72,13 @@ data ListStreams = ListStreams
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStreams' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Limit ::@ @Maybe Integer@
+--
+-- * @ExclusiveStartStreamName ::@ @Maybe Text@
+--
 mkListStreams :: ListStreams
 mkListStreams = ListStreams
     { _lsLimit = Nothing
@@ -106,6 +113,13 @@ data ListStreamsResponse = ListStreamsResponse
 -- a valid 'ListStreamsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamNames ::@ @[Text]@
+--
+-- * @HasMoreStreams ::@ @Bool@
+--
 mkListStreamsResponse :: [Text] -- ^ 'lsrStreamNames'
                       -> Bool -- ^ 'lsrHasMoreStreams'
                       -> ListStreamsResponse

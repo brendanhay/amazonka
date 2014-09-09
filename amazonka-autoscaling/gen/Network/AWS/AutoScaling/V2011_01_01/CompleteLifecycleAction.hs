@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data CompleteLifecycleAction = CompleteLifecycleAction
     { _claLifecycleHookName :: Text
     , _claAutoScalingGroupName :: Text
@@ -60,6 +59,17 @@ data CompleteLifecycleAction = CompleteLifecycleAction
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CompleteLifecycleAction' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LifecycleHookName ::@ @Text@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @LifecycleActionToken ::@ @Text@
+--
+-- * @LifecycleActionResult ::@ @Text@
+--
 mkCompleteLifecycleAction :: Text -- ^ 'claLifecycleHookName'
                           -> Text -- ^ 'claAutoScalingGroupName'
                           -> Text -- ^ 'claLifecycleActionToken'

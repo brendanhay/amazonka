@@ -55,6 +55,13 @@ data UpdateAvailabilityOptions = UpdateAvailabilityOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAvailabilityOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @MultiAZ ::@ @Bool@
+--
 mkUpdateAvailabilityOptions :: Text -- ^ 'uaoDomainName'
                             -> Bool -- ^ 'uaoMultiAZ'
                             -> UpdateAvailabilityOptions
@@ -90,6 +97,11 @@ newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 -- a valid 'UpdateAvailabilityOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityOptions ::@ @Maybe AvailabilityOptionsStatus@
+--
 mkUpdateAvailabilityOptionsResponse :: UpdateAvailabilityOptionsResponse
 mkUpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions = Nothing

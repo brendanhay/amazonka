@@ -50,6 +50,15 @@ data AbortMultipartUpload = AbortMultipartUpload
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AbortMultipartUpload' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @UploadId ::@ @Text@
+--
 mkAbortMultipartUpload :: BucketName -- ^ 'amuBucket'
                        -> ObjectKey -- ^ 'amuKey'
                        -> Text -- ^ 'amuUploadId'

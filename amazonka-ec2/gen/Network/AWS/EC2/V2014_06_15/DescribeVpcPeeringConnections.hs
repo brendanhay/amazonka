@@ -72,7 +72,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1VpcPeeringConnectionIds :: [Text]
     , _dvpc1Filters :: [Filter]
@@ -80,6 +79,13 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcPeeringConnections' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcPeeringConnectionIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeVpcPeeringConnections :: DescribeVpcPeeringConnections
 mkDescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1VpcPeeringConnectionIds = mempty
@@ -119,7 +125,6 @@ dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
 instance ToQuery DescribeVpcPeeringConnections where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrrVpcPeeringConnections :: [VpcPeeringConnection]
     } deriving (Show, Generic)
@@ -128,6 +133,11 @@ newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRes
 -- a valid 'DescribeVpcPeeringConnectionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcPeeringConnections ::@ @[VpcPeeringConnection]@
+--
 mkDescribeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResponse
 mkDescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrrVpcPeeringConnections = mempty

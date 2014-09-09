@@ -53,6 +53,15 @@ data DescribeCommands = DescribeCommands
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommands' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DeploymentId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @CommandIds ::@ @[Text]@
+--
 mkDescribeCommands :: DescribeCommands
 mkDescribeCommands = DescribeCommands
     { _dc1DeploymentId = Nothing
@@ -93,6 +102,11 @@ newtype DescribeCommandsResponse = DescribeCommandsResponse
 -- a valid 'DescribeCommandsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Commands ::@ @[Command]@
+--
 mkDescribeCommandsResponse :: DescribeCommandsResponse
 mkDescribeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands = mempty

@@ -429,6 +429,19 @@ data AlarmHistoryItem = AlarmHistoryItem
 --
 -- 'AlarmHistoryItem' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmName ::@ @Maybe Text@
+--
+-- * @Timestamp ::@ @Maybe ISO8601@
+--
+-- * @HistoryItemType ::@ @Maybe HistoryItemType@
+--
+-- * @HistorySummary ::@ @Maybe Text@
+--
+-- * @HistoryData ::@ @Maybe Text@
+--
 mkAlarmHistoryItem :: AlarmHistoryItem
 mkAlarmHistoryItem = AlarmHistoryItem
     { _ahiAlarmName = Nothing
@@ -481,6 +494,23 @@ data Datapoint = Datapoint
 --
 -- 'Datapoint' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Timestamp ::@ @Maybe ISO8601@
+--
+-- * @SampleCount ::@ @Maybe Double@
+--
+-- * @Average ::@ @Maybe Double@
+--
+-- * @Sum ::@ @Maybe Double@
+--
+-- * @Minimum ::@ @Maybe Double@
+--
+-- * @Maximum ::@ @Maybe Double@
+--
+-- * @Unit ::@ @Maybe StandardUnit@
+--
 mkDatapoint :: Datapoint
 mkDatapoint = Datapoint
     { _drTimestamp = Nothing
@@ -534,6 +564,13 @@ data Dimension = Dimension
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Dimension' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Value ::@ @Text@
+--
 mkDimension :: Text -- ^ 'dName'
             -> Text -- ^ 'dValue'
             -> Dimension
@@ -565,6 +602,13 @@ data DimensionFilter = DimensionFilter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DimensionFilter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkDimensionFilter :: Text -- ^ 'dfName'
                   -> DimensionFilter
 mkDimensionFilter p1 = DimensionFilter
@@ -598,6 +642,15 @@ data Metric = Metric
 --
 -- 'Metric' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Namespace ::@ @Maybe Text@
+--
+-- * @MetricName ::@ @Maybe Text@
+--
+-- * @Dimensions ::@ @[Dimension]@
+--
 mkMetric :: Metric
 mkMetric = Metric
     { _mNamespace = Nothing
@@ -652,6 +705,51 @@ data MetricAlarm = MetricAlarm
 --
 -- 'MetricAlarm' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmName ::@ @Maybe Text@
+--
+-- * @AlarmArn ::@ @Maybe Text@
+--
+-- * @AlarmDescription ::@ @Maybe Text@
+--
+-- * @AlarmConfigurationUpdatedTimestamp ::@ @Maybe ISO8601@
+--
+-- * @ActionsEnabled ::@ @Maybe Bool@
+--
+-- * @OKActions ::@ @[Text]@
+--
+-- * @AlarmActions ::@ @[Text]@
+--
+-- * @InsufficientDataActions ::@ @[Text]@
+--
+-- * @StateValue ::@ @Maybe StateValue@
+--
+-- * @StateReason ::@ @Maybe Text@
+--
+-- * @StateReasonData ::@ @Maybe Text@
+--
+-- * @StateUpdatedTimestamp ::@ @Maybe ISO8601@
+--
+-- * @MetricName ::@ @Maybe Text@
+--
+-- * @Namespace ::@ @Maybe Text@
+--
+-- * @Statistic ::@ @Maybe Statistic@
+--
+-- * @Dimensions ::@ @[Dimension]@
+--
+-- * @Period ::@ @Maybe Integer@
+--
+-- * @Unit ::@ @Maybe StandardUnit@
+--
+-- * @EvaluationPeriods ::@ @Maybe Integer@
+--
+-- * @Threshold ::@ @Maybe Double@
+--
+-- * @ComparisonOperator ::@ @Maybe ComparisonOperator@
+--
 mkMetricAlarm :: MetricAlarm
 mkMetricAlarm = MetricAlarm
     { _maAlarmName = Nothing
@@ -802,6 +900,21 @@ data MetricDatum = MetricDatum
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricDatum' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MetricName ::@ @Text@
+--
+-- * @Dimensions ::@ @[Dimension]@
+--
+-- * @Timestamp ::@ @Maybe ISO8601@
+--
+-- * @Value ::@ @Maybe Double@
+--
+-- * @StatisticValues ::@ @Maybe StatisticSet@
+--
+-- * @Unit ::@ @Maybe StandardUnit@
+--
 mkMetricDatum :: Text -- ^ 'mdMetricName'
               -> MetricDatum
 mkMetricDatum p1 = MetricDatum
@@ -856,6 +969,17 @@ data StatisticSet = StatisticSet
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StatisticSet' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SampleCount ::@ @Double@
+--
+-- * @Sum ::@ @Double@
+--
+-- * @Minimum ::@ @Double@
+--
+-- * @Maximum ::@ @Double@
+--
 mkStatisticSet :: Double -- ^ 'ssSampleCount'
                -> Double -- ^ 'ssSum'
                -> Double -- ^ 'ssMinimum'

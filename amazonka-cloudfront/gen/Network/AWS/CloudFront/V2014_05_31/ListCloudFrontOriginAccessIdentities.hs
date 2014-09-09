@@ -49,6 +49,13 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListCloudFrontOriginAccessIdentities' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
 mkListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker = Nothing
@@ -87,6 +94,11 @@ newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAcces
 -- a valid 'ListCloudFrontOriginAccessIdentitiesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CloudFrontOriginAccessIdentityList ::@ @CloudFrontOriginAccessIdentityList@
+--
 mkListCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -- ^ 'lcfoairCloudFrontOriginAccessIdentityList'
                                                -> ListCloudFrontOriginAccessIdentitiesResponse
 mkListCloudFrontOriginAccessIdentitiesResponse p1 = ListCloudFrontOriginAccessIdentitiesResponse

@@ -56,6 +56,13 @@ data CreateSnapshot = CreateSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Text@
+--
+-- * @SnapshotName ::@ @Text@
+--
 mkCreateSnapshot :: Text -- ^ 'cs1CacheClusterId'
                  -> Text -- ^ 'cs1SnapshotName'
                  -> CreateSnapshot
@@ -85,6 +92,11 @@ newtype CreateSnapshotResponse = CreateSnapshotResponse
 -- a valid 'CreateSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkCreateSnapshotResponse :: CreateSnapshotResponse
 mkCreateSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshot = Nothing

@@ -71,6 +71,27 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedDBInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedDBInstanceId ::@ @Maybe Text@
+--
+-- * @ReservedDBInstancesOfferingId ::@ @Maybe Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Text@
+--
+-- * @ProductDescription ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeReservedDBInstances :: DescribeReservedDBInstances
 mkDescribeReservedDBInstances = DescribeReservedDBInstances
     { _drdbiReservedDBInstanceId = Nothing
@@ -156,6 +177,13 @@ data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
 -- a valid 'DescribeReservedDBInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ReservedDBInstances ::@ @[ReservedDBInstance]@
+--
 mkDescribeReservedDBInstancesResponse :: DescribeReservedDBInstancesResponse
 mkDescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
     { _drdbirMarker = Nothing

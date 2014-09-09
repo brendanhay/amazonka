@@ -114,6 +114,29 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListClosedWorkflowExecutions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @StartTimeFilter ::@ @Maybe ExecutionTimeFilter@
+--
+-- * @CloseTimeFilter ::@ @Maybe ExecutionTimeFilter@
+--
+-- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
+--
+-- * @CloseStatusFilter ::@ @Maybe CloseStatusFilter@
+--
+-- * @TypeFilter ::@ @Maybe WorkflowTypeFilter@
+--
+-- * @TagFilter ::@ @Maybe TagFilter@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @MaximumPageSize ::@ @Maybe Integer@
+--
+-- * @ReverseOrder ::@ @Maybe Bool@
+--
 mkListClosedWorkflowExecutions :: Text -- ^ 'lcweDomain'
                                -> ListClosedWorkflowExecutions
 mkListClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
@@ -224,6 +247,13 @@ data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
 -- a valid 'ListClosedWorkflowExecutionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExecutionInfos ::@ @[WorkflowExecutionInfo]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListClosedWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lcwerExecutionInfos'
                                        -> ListClosedWorkflowExecutionsResponse
 mkListClosedWorkflowExecutionsResponse p1 = ListClosedWorkflowExecutionsResponse

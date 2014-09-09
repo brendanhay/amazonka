@@ -55,6 +55,13 @@ data AddTags = AddTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceId ::@ @Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkAddTags :: Text -- ^ 'atResourceId'
           -> [Tag] -- ^ 'atTags'
           -> AddTags

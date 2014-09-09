@@ -46,6 +46,13 @@ data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveTapeRecoveryPoint' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Text@
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkRetrieveTapeRecoveryPoint :: Text -- ^ 'rtrpTapeARN'
                             -> Text -- ^ 'rtrpGatewayARN'
                             -> RetrieveTapeRecoveryPoint
@@ -78,6 +85,11 @@ newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
 -- a valid 'RetrieveTapeRecoveryPointResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
 mkRetrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse
 mkRetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN = Nothing

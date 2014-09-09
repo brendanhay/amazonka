@@ -46,6 +46,11 @@ newtype StartStack = StartStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
 mkStartStack :: Text -- ^ 'ss1StackId'
              -> StartStack
 mkStartStack p1 = StartStack

@@ -65,6 +65,13 @@ data DescribeStackEvents = DescribeStackEvents
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackEvents' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeStackEvents :: Text -- ^ 'dseStackName'
                       -> DescribeStackEvents
 mkDescribeStackEvents p1 = DescribeStackEvents
@@ -97,6 +104,13 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse
 -- a valid 'DescribeStackEventsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackEvents ::@ @[StackEvent]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeStackEventsResponse :: DescribeStackEventsResponse
 mkDescribeStackEventsResponse = DescribeStackEventsResponse
     { _dserStackEvents = mempty

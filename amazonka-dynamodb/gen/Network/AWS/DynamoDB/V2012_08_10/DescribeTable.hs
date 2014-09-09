@@ -61,6 +61,11 @@ newtype DescribeTable = DescribeTable
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTable' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
 mkDescribeTable :: Text -- ^ 'dt1TableName'
                 -> DescribeTable
 mkDescribeTable p1 = DescribeTable
@@ -88,6 +93,11 @@ newtype DescribeTableResponse = DescribeTableResponse
 -- a valid 'DescribeTableResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Table ::@ @Maybe TableDescription@
+--
 mkDescribeTableResponse :: DescribeTableResponse
 mkDescribeTableResponse = DescribeTableResponse
     { _dtrrTable = Nothing

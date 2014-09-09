@@ -49,6 +49,11 @@ newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLaunchConfiguration' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LaunchConfigurationName ::@ @Text@
+--
 mkDeleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
                             -> DeleteLaunchConfiguration
 mkDeleteLaunchConfiguration p1 = DeleteLaunchConfiguration

@@ -110,6 +110,21 @@ data CreatePreset = CreatePreset
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePreset' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Container ::@ @Text@
+--
+-- * @Video ::@ @Maybe VideoParameters@
+--
+-- * @Audio ::@ @Maybe AudioParameters@
+--
+-- * @Thumbnails ::@ @Maybe Thumbnails@
+--
 mkCreatePreset :: Text -- ^ 'cp1Name'
                -> Text -- ^ 'cp1Container'
                -> CreatePreset
@@ -167,6 +182,13 @@ data CreatePresetResponse = CreatePresetResponse
 -- a valid 'CreatePresetResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Preset ::@ @Maybe Preset@
+--
+-- * @Warning ::@ @Maybe Text@
+--
 mkCreatePresetResponse :: CreatePresetResponse
 mkCreatePresetResponse = CreatePresetResponse
     { _cprrPreset = Nothing

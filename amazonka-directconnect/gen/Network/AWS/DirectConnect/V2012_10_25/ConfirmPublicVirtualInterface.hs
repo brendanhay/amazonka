@@ -49,6 +49,11 @@ newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmPublicVirtualInterface' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceId ::@ @Text@
+--
 mkConfirmPublicVirtualInterface :: Text -- ^ 'cpvi1VirtualInterfaceId'
                                 -> ConfirmPublicVirtualInterface
 mkConfirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
@@ -78,6 +83,11 @@ newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRes
 -- a valid 'ConfirmPublicVirtualInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+--
 mkConfirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
 mkConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
     { _cpvirrVirtualInterfaceState = Nothing

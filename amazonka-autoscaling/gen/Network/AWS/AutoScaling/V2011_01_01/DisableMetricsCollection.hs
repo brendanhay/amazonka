@@ -40,7 +40,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcAutoScalingGroupName :: Text
     , _dmcMetrics :: [Text]
@@ -48,6 +47,13 @@ data DisableMetricsCollection = DisableMetricsCollection
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableMetricsCollection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @Metrics ::@ @[Text]@
+--
 mkDisableMetricsCollection :: Text -- ^ 'dmcAutoScalingGroupName'
                            -> DisableMetricsCollection
 mkDisableMetricsCollection p1 = DisableMetricsCollection

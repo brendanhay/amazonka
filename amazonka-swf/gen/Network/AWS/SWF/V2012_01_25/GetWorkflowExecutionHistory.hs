@@ -120,6 +120,19 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetWorkflowExecutionHistory' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @Execution ::@ @WorkflowExecution@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @MaximumPageSize ::@ @Maybe Integer@
+--
+-- * @ReverseOrder ::@ @Maybe Bool@
+--
 mkGetWorkflowExecutionHistory :: Text -- ^ 'gwehDomain'
                               -> WorkflowExecution -- ^ 'gwehExecution'
                               -> GetWorkflowExecutionHistory
@@ -184,6 +197,13 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
 -- a valid 'GetWorkflowExecutionHistoryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Events ::@ @[HistoryEvent]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkGetWorkflowExecutionHistoryResponse :: [HistoryEvent] -- ^ 'gwehrEvents'
                                       -> GetWorkflowExecutionHistoryResponse
 mkGetWorkflowExecutionHistoryResponse p1 = GetWorkflowExecutionHistoryResponse

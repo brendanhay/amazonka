@@ -86,6 +86,13 @@ data GetRecords = GetRecords
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRecords' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ShardIterator ::@ @Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkGetRecords :: Text -- ^ 'grShardIterator'
              -> GetRecords
 mkGetRecords p1 = GetRecords
@@ -121,6 +128,13 @@ data GetRecordsResponse = GetRecordsResponse
 -- a valid 'GetRecordsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Records ::@ @[Record]@
+--
+-- * @NextShardIterator ::@ @Maybe Text@
+--
 mkGetRecordsResponse :: [Record] -- ^ 'grrRecords'
                      -> GetRecordsResponse
 mkGetRecordsResponse p1 = GetRecordsResponse

@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsaSnapshotId :: Text
     , _rsaAttribute :: SnapshotAttributeName
@@ -56,6 +55,13 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetSnapshotAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Text@
+--
+-- * @Attribute ::@ @SnapshotAttributeName@
+--
 mkResetSnapshotAttribute :: Text -- ^ 'rsaSnapshotId'
                          -> SnapshotAttributeName -- ^ 'rsaAttribute'
                          -> ResetSnapshotAttribute

@@ -50,6 +50,11 @@ newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSecurityGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroupName ::@ @Text@
+--
 mkDeleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
                            -> DeleteCacheSecurityGroup
 mkDeleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup

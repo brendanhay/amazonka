@@ -68,7 +68,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data RequestSpotInstances = RequestSpotInstances
     { _rsiSpotPrice :: Text
     , _rsiInstanceCount :: Maybe Integer
@@ -82,6 +81,25 @@ data RequestSpotInstances = RequestSpotInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestSpotInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotPrice ::@ @Text@
+--
+-- * @InstanceCount ::@ @Maybe Integer@
+--
+-- * @Type ::@ @Maybe SpotInstanceType@
+--
+-- * @ValidFrom ::@ @Maybe ISO8601@
+--
+-- * @ValidUntil ::@ @Maybe ISO8601@
+--
+-- * @LaunchGroup ::@ @Maybe Text@
+--
+-- * @AvailabilityZoneGroup ::@ @Maybe Text@
+--
+-- * @LaunchSpecification ::@ @Maybe LaunchSpecification@
+--
 mkRequestSpotInstances :: Text -- ^ 'rsiSpotPrice'
                        -> RequestSpotInstances
 mkRequestSpotInstances p1 = RequestSpotInstances
@@ -161,7 +179,6 @@ rsiLaunchSpecification =
 instance ToQuery RequestSpotInstances where
     toQuery = genericQuery def
 
--- | 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Show, Generic)
@@ -170,6 +187,11 @@ newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
 -- a valid 'RequestSpotInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotInstanceRequests ::@ @[SpotInstanceRequest]@
+--
 mkRequestSpotInstancesResponse :: RequestSpotInstancesResponse
 mkRequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests = mempty

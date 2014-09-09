@@ -48,6 +48,13 @@ data DescribeStep = DescribeStep
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStep' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterId ::@ @Text@
+--
+-- * @StepId ::@ @Text@
+--
 mkDescribeStep :: Text -- ^ 'dsClusterId'
                -> Text -- ^ 'dsStepId'
                -> DescribeStep
@@ -81,6 +88,11 @@ newtype DescribeStepResponse = DescribeStepResponse
 -- a valid 'DescribeStepResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Step ::@ @Maybe Step@
+--
 mkDescribeStepResponse :: DescribeStepResponse
 mkDescribeStepResponse = DescribeStepResponse
     { _dsrStep = Nothing

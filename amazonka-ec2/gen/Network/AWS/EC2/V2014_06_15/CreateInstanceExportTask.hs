@@ -70,7 +70,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateInstanceExportTask = CreateInstanceExportTask
     { _cietDescription :: Maybe Text
     , _cietInstanceId :: Text
@@ -80,6 +79,17 @@ data CreateInstanceExportTask = CreateInstanceExportTask
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstanceExportTask' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @TargetEnvironment ::@ @Maybe ExportEnvironment@
+--
+-- * @ExportToS3Task ::@ @Maybe ExportToS3TaskSpecification@
+--
 mkCreateInstanceExportTask :: Text -- ^ 'cietInstanceId'
                            -> CreateInstanceExportTask
 mkCreateInstanceExportTask p2 = CreateInstanceExportTask
@@ -111,7 +121,6 @@ cietExportToS3Task =
 instance ToQuery CreateInstanceExportTask where
     toQuery = genericQuery def
 
--- | 
 newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask :: Maybe ExportTask
     } deriving (Show, Generic)
@@ -120,6 +129,11 @@ newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
 -- a valid 'CreateInstanceExportTaskResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExportTask ::@ @Maybe ExportTask@
+--
 mkCreateInstanceExportTaskResponse :: CreateInstanceExportTaskResponse
 mkCreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask = Nothing

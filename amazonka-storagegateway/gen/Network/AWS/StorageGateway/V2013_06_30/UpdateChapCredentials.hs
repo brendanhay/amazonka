@@ -77,6 +77,17 @@ data UpdateChapCredentials = UpdateChapCredentials
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateChapCredentials' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetARN ::@ @Text@
+--
+-- * @SecretToAuthenticateInitiator ::@ @Text@
+--
+-- * @InitiatorName ::@ @Text@
+--
+-- * @SecretToAuthenticateTarget ::@ @Maybe Text@
+--
 mkUpdateChapCredentials :: Text -- ^ 'uccTargetARN'
                         -> Text -- ^ 'uccSecretToAuthenticateInitiator'
                         -> Text -- ^ 'uccInitiatorName'
@@ -131,6 +142,13 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
 -- a valid 'UpdateChapCredentialsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetARN ::@ @Maybe Text@
+--
+-- * @InitiatorName ::@ @Maybe Text@
+--
 mkUpdateChapCredentialsResponse :: UpdateChapCredentialsResponse
 mkUpdateChapCredentialsResponse = UpdateChapCredentialsResponse
     { _uccrTargetARN = Nothing

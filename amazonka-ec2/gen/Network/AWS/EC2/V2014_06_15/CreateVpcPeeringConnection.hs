@@ -73,7 +73,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcVpcId :: Maybe Text
     , _cvpcPeerVpcId :: Maybe Text
@@ -82,6 +81,15 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpcPeeringConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @PeerVpcId ::@ @Maybe Text@
+--
+-- * @PeerOwnerId ::@ @Maybe Text@
+--
 mkCreateVpcPeeringConnection :: CreateVpcPeeringConnection
 mkCreateVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcVpcId = Nothing
@@ -105,7 +113,6 @@ cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\s a -> s { _cvpcPeerOwnerId = a })
 instance ToQuery CreateVpcPeeringConnection where
     toQuery = genericQuery def
 
--- | 
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Show, Generic)
@@ -114,6 +121,11 @@ newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
 -- a valid 'CreateVpcPeeringConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcPeeringConnection ::@ @Maybe VpcPeeringConnection@
+--
 mkCreateVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResponse
 mkCreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection = Nothing

@@ -66,6 +66,11 @@ newtype ListSubscriptions = ListSubscriptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSubscriptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListSubscriptions :: ListSubscriptions
 mkListSubscriptions = ListSubscriptions
     { _lsNextToken = Nothing
@@ -88,6 +93,13 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse
 -- a valid 'ListSubscriptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subscriptions ::@ @[Subscription]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListSubscriptionsResponse :: ListSubscriptionsResponse
 mkListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrSubscriptions = mempty

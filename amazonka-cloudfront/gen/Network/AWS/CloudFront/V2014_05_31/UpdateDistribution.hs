@@ -52,6 +52,15 @@ data UpdateDistribution = UpdateDistribution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDistribution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DistributionConfig ::@ @DistributionConfig@
+--
+-- * @Id ::@ @Text@
+--
+-- * @IfMatch ::@ @Maybe Text@
+--
 mkUpdateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
                      -> Text -- ^ 'udId'
                      -> UpdateDistribution
@@ -98,6 +107,13 @@ data UpdateDistributionResponse = UpdateDistributionResponse
 -- a valid 'UpdateDistributionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Distribution ::@ @Maybe Distribution@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkUpdateDistributionResponse :: UpdateDistributionResponse
 mkUpdateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution = Nothing

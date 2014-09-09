@@ -46,7 +46,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrpRouteTableId :: Text
     , _evrpGatewayId :: Text
@@ -54,6 +53,13 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableVgwRoutePropagation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTableId ::@ @Text@
+--
+-- * @GatewayId ::@ @Text@
+--
 mkEnableVgwRoutePropagation :: Text -- ^ 'evrpRouteTableId'
                             -> Text -- ^ 'evrpGatewayId'
                             -> EnableVgwRoutePropagation

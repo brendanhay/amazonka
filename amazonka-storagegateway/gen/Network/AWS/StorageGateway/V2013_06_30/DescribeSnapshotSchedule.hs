@@ -67,6 +67,11 @@ newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotSchedule' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Text@
+--
 mkDescribeSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
                            -> DescribeSnapshotSchedule
 mkDescribeSnapshotSchedule p1 = DescribeSnapshotSchedule
@@ -98,6 +103,19 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
 -- a valid 'DescribeSnapshotScheduleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @StartAt ::@ @Maybe Integer@
+--
+-- * @RecurrenceInHours ::@ @Maybe Integer@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Timezone ::@ @Maybe Text@
+--
 mkDescribeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse
 mkDescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     { _dssrrVolumeARN = Nothing

@@ -56,6 +56,11 @@ newtype VerifyDomainIdentity = VerifyDomainIdentity
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyDomainIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
 mkVerifyDomainIdentity :: Text -- ^ 'vdiDomain'
                        -> VerifyDomainIdentity
 mkVerifyDomainIdentity p1 = VerifyDomainIdentity
@@ -78,6 +83,11 @@ newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
 -- a valid 'VerifyDomainIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VerificationToken ::@ @Text@
+--
 mkVerifyDomainIdentityResponse :: Text -- ^ 'vdirVerificationToken'
                                -> VerifyDomainIdentityResponse
 mkVerifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse

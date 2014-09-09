@@ -53,6 +53,17 @@ data CreateUserProfile = CreateUserProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUserProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArn ::@ @Text@
+--
+-- * @SshUsername ::@ @Maybe Text@
+--
+-- * @SshPublicKey ::@ @Maybe Text@
+--
+-- * @AllowSelfManagement ::@ @Maybe Bool@
+--
 mkCreateUserProfile :: Text -- ^ 'cupIamUserArn'
                     -> CreateUserProfile
 mkCreateUserProfile p1 = CreateUserProfile
@@ -101,6 +112,11 @@ newtype CreateUserProfileResponse = CreateUserProfileResponse
 -- a valid 'CreateUserProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArn ::@ @Maybe Text@
+--
 mkCreateUserProfileResponse :: CreateUserProfileResponse
 mkCreateUserProfileResponse = CreateUserProfileResponse
     { _cuprIamUserArn = Nothing

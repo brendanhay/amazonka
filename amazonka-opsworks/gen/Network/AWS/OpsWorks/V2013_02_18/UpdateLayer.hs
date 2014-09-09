@@ -72,6 +72,37 @@ data UpdateLayer = UpdateLayer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateLayer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerId ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Shortname ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map LayerAttributesKeys Text@
+--
+-- * @CustomInstanceProfileArn ::@ @Maybe Text@
+--
+-- * @CustomSecurityGroupIds ::@ @[Text]@
+--
+-- * @Packages ::@ @[Text]@
+--
+-- * @VolumeConfigurations ::@ @[VolumeConfiguration]@
+--
+-- * @EnableAutoHealing ::@ @Maybe Bool@
+--
+-- * @AutoAssignElasticIps ::@ @Maybe Bool@
+--
+-- * @AutoAssignPublicIps ::@ @Maybe Bool@
+--
+-- * @CustomRecipes ::@ @Maybe Recipes@
+--
+-- * @InstallUpdatesOnBoot ::@ @Maybe Bool@
+--
+-- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
+--
 mkUpdateLayer :: Text -- ^ 'ulLayerId'
               -> UpdateLayer
 mkUpdateLayer p1 = UpdateLayer

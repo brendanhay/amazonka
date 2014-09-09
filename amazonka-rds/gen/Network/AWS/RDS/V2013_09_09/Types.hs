@@ -554,6 +554,13 @@ data AvailabilityZone = AvailabilityZone
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @ProvisionedIopsCapable ::@ @Maybe Bool@
+--
 mkAvailabilityZone :: AvailabilityZone
 mkAvailabilityZone = AvailabilityZone
     { _azName = Nothing
@@ -586,6 +593,13 @@ data CharacterSet = CharacterSet
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CharacterSet' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CharacterSetName ::@ @Maybe Text@
+--
+-- * @CharacterSetDescription ::@ @Maybe Text@
+--
 mkCharacterSet :: CharacterSet
 mkCharacterSet = CharacterSet
     { _csCharacterSetName = Nothing
@@ -627,6 +641,23 @@ data DBEngineVersion = DBEngineVersion
 --
 -- 'DBEngineVersion' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @DBParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @DBEngineDescription ::@ @Maybe Text@
+--
+-- * @DBEngineVersionDescription ::@ @Maybe Text@
+--
+-- * @DefaultCharacterSet ::@ @Maybe CharacterSet@
+--
+-- * @SupportedCharacterSets ::@ @[CharacterSet]@
+--
 mkDBEngineVersion :: DBEngineVersion
 mkDBEngineVersion = DBEngineVersion
     { _dbevEngine = Nothing
@@ -725,6 +756,71 @@ data DBInstance = DBInstance
 --
 -- 'DBInstance' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Maybe Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @DBInstanceStatus ::@ @Maybe Text@
+--
+-- * @MasterUsername ::@ @Maybe Text@
+--
+-- * @DBName ::@ @Maybe Text@
+--
+-- * @Endpoint ::@ @Maybe Endpoint@
+--
+-- * @AllocatedStorage ::@ @Maybe Integer@
+--
+-- * @InstanceCreateTime ::@ @Maybe ISO8601@
+--
+-- * @PreferredBackupWindow ::@ @Maybe Text@
+--
+-- * @BackupRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @DBSecurityGroups ::@ @[DBSecurityGroupMembership]@
+--
+-- * @VpcSecurityGroups ::@ @[VpcSecurityGroupMembership]@
+--
+-- * @DBParameterGroups ::@ @[DBParameterGroupStatus]@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @DBSubnetGroup ::@ @Maybe DBSubnetGroup@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @PendingModifiedValues ::@ @Maybe PendingModifiedValues@
+--
+-- * @LatestRestorableTime ::@ @Maybe ISO8601@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @ReadReplicaSourceDBInstanceIdentifier ::@ @Maybe Text@
+--
+-- * @ReadReplicaDBInstanceIdentifiers ::@ @[Text]@
+--
+-- * @LicenseModel ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @OptionGroupMemberships ::@ @[OptionGroupMembership]@
+--
+-- * @CharacterSetName ::@ @Maybe Text@
+--
+-- * @SecondaryAvailabilityZone ::@ @Maybe Text@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @StatusInfos ::@ @[DBInstanceStatusInfo]@
+--
 mkDBInstance :: DBInstance
 mkDBInstance = DBInstance
     { _dbiDBInstanceIdentifier = Nothing
@@ -967,6 +1063,17 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBInstanceStatusInfo' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StatusType ::@ @Maybe Text@
+--
+-- * @Normal ::@ @Maybe Bool@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkDBInstanceStatusInfo :: DBInstanceStatusInfo
 mkDBInstanceStatusInfo = DBInstanceStatusInfo
     { _dbisiStatusType = Nothing
@@ -1016,6 +1123,15 @@ data DBParameterGroup = DBParameterGroup
 --
 -- 'DBParameterGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Maybe Text@
+--
+-- * @DBParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkDBParameterGroup :: DBParameterGroup
 mkDBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupName = Nothing
@@ -1055,6 +1171,13 @@ data DBParameterGroupStatus = DBParameterGroupStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBParameterGroupStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Maybe Text@
+--
+-- * @ParameterApplyStatus ::@ @Maybe Text@
+--
 mkDBParameterGroupStatus :: DBParameterGroupStatus
 mkDBParameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName = Nothing
@@ -1098,6 +1221,21 @@ data DBSecurityGroup = DBSecurityGroup
 --
 -- 'DBSecurityGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @DBSecurityGroupName ::@ @Maybe Text@
+--
+-- * @DBSecurityGroupDescription ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroups ::@ @[EC2SecurityGroup]@
+--
+-- * @IPRanges ::@ @[IPRange]@
+--
 mkDBSecurityGroup :: DBSecurityGroup
 mkDBSecurityGroup = DBSecurityGroup
     { _dbsgOwnerId = Nothing
@@ -1151,6 +1289,13 @@ data DBSecurityGroupMembership = DBSecurityGroupMembership
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBSecurityGroupMembership' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroupName ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkDBSecurityGroupMembership :: DBSecurityGroupMembership
 mkDBSecurityGroupMembership = DBSecurityGroupMembership
     { _dbsgmDBSecurityGroupName = Nothing
@@ -1203,6 +1348,45 @@ data DBSnapshot = DBSnapshot
 --
 -- 'DBSnapshot' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSnapshotIdentifier ::@ @Maybe Text@
+--
+-- * @DBInstanceIdentifier ::@ @Maybe Text@
+--
+-- * @SnapshotCreateTime ::@ @Maybe ISO8601@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @AllocatedStorage ::@ @Maybe Integer@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @InstanceCreateTime ::@ @Maybe ISO8601@
+--
+-- * @MasterUsername ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @LicenseModel ::@ @Maybe Text@
+--
+-- * @SnapshotType ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @PercentProgress ::@ @Maybe Integer@
+--
+-- * @SourceRegion ::@ @Maybe Text@
+--
 mkDBSnapshot :: DBSnapshot
 mkDBSnapshot = DBSnapshot
     { _dbsDBSnapshotIdentifier = Nothing
@@ -1329,6 +1513,19 @@ data DBSubnetGroup = DBSubnetGroup
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBSubnetGroup' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSubnetGroupName ::@ @Maybe Text@
+--
+-- * @DBSubnetGroupDescription ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @SubnetGroupStatus ::@ @Maybe Text@
+--
+-- * @Subnets ::@ @[Subnet]@
+--
 mkDBSubnetGroup :: DBSubnetGroup
 mkDBSubnetGroup = DBSubnetGroup
     { _dbsgrDBSubnetGroupName = Nothing
@@ -1381,6 +1578,15 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
 --
 -- 'DescribeDBLogFilesDetails' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogFileName ::@ @Maybe Text@
+--
+-- * @LastWritten ::@ @Maybe Integer@
+--
+-- * @Size ::@ @Maybe Integer@
+--
 mkDescribeDBLogFilesDetails :: DescribeDBLogFilesDetails
 mkDescribeDBLogFilesDetails = DescribeDBLogFilesDetails
     { _ddblfdLogFileName = Nothing
@@ -1418,6 +1624,17 @@ data EC2SecurityGroup = EC2SecurityGroup
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EC2SecurityGroup' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupName ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupId ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+--
 mkEC2SecurityGroup :: EC2SecurityGroup
 mkEC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus = Nothing
@@ -1464,6 +1681,13 @@ data Endpoint = Endpoint
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Endpoint' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Address ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
 mkEndpoint :: Endpoint
 mkEndpoint = Endpoint
     { _eAddress = Nothing
@@ -1498,6 +1722,15 @@ data EngineDefaults = EngineDefaults
 --
 -- 'EngineDefaults' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
 mkEngineDefaults :: EngineDefaults
 mkEngineDefaults = EngineDefaults
     { _edDBParameterGroupFamily = Nothing
@@ -1540,6 +1773,19 @@ data Event = Event
 --
 -- 'Event' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceIdentifier ::@ @Maybe Text@
+--
+-- * @SourceType ::@ @Maybe SourceType@
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @EventCategories ::@ @[Text]@
+--
+-- * @Date ::@ @Maybe ISO8601@
+--
 mkEvent :: Event
 mkEvent = Event
     { _erSourceIdentifier = Nothing
@@ -1587,6 +1833,13 @@ data EventCategoriesMap = EventCategoriesMap
 --
 -- 'EventCategoriesMap' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceType ::@ @Maybe Text@
+--
+-- * @EventCategories ::@ @[Text]@
+--
 mkEventCategoriesMap :: EventCategoriesMap
 mkEventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
@@ -1625,6 +1878,27 @@ data EventSubscription = EventSubscription
 --
 -- 'EventSubscription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CustomerAwsId ::@ @Maybe Text@
+--
+-- * @CustSubscriptionId ::@ @Maybe Text@
+--
+-- * @SnsTopicArn ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @SubscriptionCreationTime ::@ @Maybe Text@
+--
+-- * @SourceType ::@ @Maybe Text@
+--
+-- * @SourceIdsList ::@ @[Text]@
+--
+-- * @EventCategoriesList ::@ @[Text]@
+--
+-- * @Enabled ::@ @Maybe Bool@
+--
 mkEventSubscription :: EventSubscription
 mkEventSubscription = EventSubscription
     { _esCustomerAwsId = Nothing
@@ -1698,6 +1972,13 @@ data IPRange = IPRange
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IPRange' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @CIDRIP ::@ @Maybe Text@
+--
 mkIPRange :: IPRange
 mkIPRange = IPRange
     { _iprStatus = Nothing
@@ -1734,6 +2015,25 @@ data Option = Option
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Option' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionName ::@ @Maybe Text@
+--
+-- * @OptionDescription ::@ @Maybe Text@
+--
+-- * @Persistent ::@ @Maybe Bool@
+--
+-- * @Permanent ::@ @Maybe Bool@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @OptionSettings ::@ @[OptionSetting]@
+--
+-- * @DBSecurityGroupMemberships ::@ @[DBSecurityGroupMembership]@
+--
+-- * @VpcSecurityGroupMemberships ::@ @[VpcSecurityGroupMembership]@
+--
 mkOption :: Option
 mkOption = Option
     { _oOptionName = Nothing
@@ -1803,6 +2103,19 @@ data OptionConfiguration = OptionConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionName ::@ @Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @DBSecurityGroupMemberships ::@ @[Text]@
+--
+-- * @VpcSecurityGroupMemberships ::@ @[Text]@
+--
+-- * @OptionSettings ::@ @[OptionSetting]@
+--
 mkOptionConfiguration :: Text -- ^ 'ocOptionName'
                       -> OptionConfiguration
 mkOptionConfiguration p1 = OptionConfiguration
@@ -1857,6 +2170,23 @@ data OptionGroup = OptionGroup
 --
 -- 'OptionGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @OptionGroupDescription ::@ @Maybe Text@
+--
+-- * @EngineName ::@ @Maybe Text@
+--
+-- * @MajorEngineVersion ::@ @Maybe Text@
+--
+-- * @Options ::@ @[Option]@
+--
+-- * @AllowsVpcAndNonVpcInstanceMemberships ::@ @Maybe Bool@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
 mkOptionGroup :: OptionGroup
 mkOptionGroup = OptionGroup
     { _ogOptionGroupName = Nothing
@@ -1920,6 +2250,13 @@ data OptionGroupMembership = OptionGroupMembership
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionGroupMembership' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkOptionGroupMembership :: OptionGroupMembership
 mkOptionGroupMembership = OptionGroupMembership
     { _ogmOptionGroupName = Nothing
@@ -1963,6 +2300,31 @@ data OptionGroupOption = OptionGroupOption
 --
 -- 'OptionGroupOption' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EngineName ::@ @Maybe Text@
+--
+-- * @MajorEngineVersion ::@ @Maybe Text@
+--
+-- * @MinimumRequiredMinorEngineVersion ::@ @Maybe Text@
+--
+-- * @PortRequired ::@ @Maybe Bool@
+--
+-- * @DefaultPort ::@ @Maybe Integer@
+--
+-- * @OptionsDependedOn ::@ @[Text]@
+--
+-- * @Persistent ::@ @Maybe Bool@
+--
+-- * @Permanent ::@ @Maybe Bool@
+--
+-- * @OptionGroupOptionSettings ::@ @[OptionGroupOptionSetting]@
+--
 mkOptionGroupOption :: OptionGroupOption
 mkOptionGroupOption = OptionGroupOption
     { _ogoName = Nothing
@@ -2052,6 +2414,21 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionGroupOptionSetting' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SettingName ::@ @Maybe Text@
+--
+-- * @SettingDescription ::@ @Maybe Text@
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @ApplyType ::@ @Maybe Text@
+--
+-- * @AllowedValues ::@ @Maybe Text@
+--
+-- * @IsModifiable ::@ @Maybe Bool@
+--
 mkOptionGroupOptionSetting :: OptionGroupOptionSetting
 mkOptionGroupOptionSetting = OptionGroupOptionSetting
     { _ogosSettingName = Nothing
@@ -2116,6 +2493,27 @@ data OptionSetting = OptionSetting
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionSetting' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @ApplyType ::@ @Maybe Text@
+--
+-- * @DataType ::@ @Maybe Text@
+--
+-- * @AllowedValues ::@ @Maybe Text@
+--
+-- * @IsModifiable ::@ @Maybe Bool@
+--
+-- * @IsCollection ::@ @Maybe Bool@
+--
 mkOptionSetting :: OptionSetting
 mkOptionSetting = OptionSetting
     { _osName = Nothing
@@ -2192,6 +2590,25 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
 --
 -- 'OrderableDBInstanceOption' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @LicenseModel ::@ @Maybe Text@
+--
+-- * @AvailabilityZones ::@ @[AvailabilityZone]@
+--
+-- * @MultiAZCapable ::@ @Maybe Bool@
+--
+-- * @ReadReplicaCapable ::@ @Maybe Bool@
+--
+-- * @Vpc ::@ @Maybe Bool@
+--
 mkOrderableDBInstanceOption :: OrderableDBInstanceOption
 mkOrderableDBInstanceOption = OrderableDBInstanceOption
     { _odbioEngine = Nothing
@@ -2266,6 +2683,29 @@ data Parameter = Parameter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Parameter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterName ::@ @Maybe Text@
+--
+-- * @ParameterValue ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @ApplyType ::@ @Maybe Text@
+--
+-- * @DataType ::@ @Maybe Text@
+--
+-- * @AllowedValues ::@ @Maybe Text@
+--
+-- * @IsModifiable ::@ @Maybe Bool@
+--
+-- * @MinimumEngineVersion ::@ @Maybe Text@
+--
+-- * @ApplyMethod ::@ @Maybe ApplyMethod@
+--
 mkParameter :: Parameter
 mkParameter = Parameter
     { _pParameterName = Nothing
@@ -2347,6 +2787,27 @@ data PendingModifiedValues = PendingModifiedValues
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PendingModifiedValues' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @AllocatedStorage ::@ @Maybe Integer@
+--
+-- * @MasterUserPassword ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @BackupRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @DBInstanceIdentifier ::@ @Maybe Text@
+--
 mkPendingModifiedValues :: PendingModifiedValues
 mkPendingModifiedValues = PendingModifiedValues
     { _pmvDBInstanceClass = Nothing
@@ -2428,6 +2889,13 @@ data RecurringCharge = RecurringCharge
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RecurringChargeAmount ::@ @Maybe Double@
+--
+-- * @RecurringChargeFrequency ::@ @Maybe Text@
+--
 mkRecurringCharge :: RecurringCharge
 mkRecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount = Nothing
@@ -2478,6 +2946,37 @@ data ReservedDBInstance = ReservedDBInstance
 --
 -- 'ReservedDBInstance' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedDBInstanceId ::@ @Maybe Text@
+--
+-- * @ReservedDBInstancesOfferingId ::@ @Maybe Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @CurrencyCode ::@ @Maybe Text@
+--
+-- * @DBInstanceCount ::@ @Maybe Integer@
+--
+-- * @ProductDescription ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @State ::@ @Maybe Text@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
 mkReservedDBInstance :: ReservedDBInstance
 mkReservedDBInstance = ReservedDBInstance
     { _rdbiReservedDBInstanceId = Nothing
@@ -2586,6 +3085,29 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
 --
 -- 'ReservedDBInstancesOffering' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedDBInstancesOfferingId ::@ @Maybe Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @CurrencyCode ::@ @Maybe Text@
+--
+-- * @ProductDescription ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
 mkReservedDBInstancesOffering :: ReservedDBInstancesOffering
 mkReservedDBInstancesOffering = ReservedDBInstancesOffering
     { _rdbioReservedDBInstancesOfferingId = Nothing
@@ -2662,6 +3184,15 @@ data Subnet = Subnet
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetIdentifier ::@ @Maybe Text@
+--
+-- * @SubnetAvailabilityZone ::@ @Maybe AvailabilityZone@
+--
+-- * @SubnetStatus ::@ @Maybe Text@
+--
 mkSubnet :: Subnet
 mkSubnet = Subnet
     { _sSubnetIdentifier = Nothing
@@ -2700,6 +3231,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkTag :: Tag
 mkTag = Tag
     { _tKey = Nothing
@@ -2738,6 +3276,13 @@ data VpcSecurityGroupMembership = VpcSecurityGroupMembership
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcSecurityGroupMembership' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcSecurityGroupId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkVpcSecurityGroupMembership :: VpcSecurityGroupMembership
 mkVpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmVpcSecurityGroupId = Nothing

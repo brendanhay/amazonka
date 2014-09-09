@@ -63,6 +63,15 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupNames ::@ @[Text]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
 mkDescribeAutoScalingGroups :: DescribeAutoScalingGroups
 mkDescribeAutoScalingGroups = DescribeAutoScalingGroups
     { _dasg1AutoScalingGroupNames = mempty
@@ -97,6 +106,13 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
 -- a valid 'DescribeAutoScalingGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroups ::@ @[AutoScalingGroup]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeAutoScalingGroupsResponse :: [AutoScalingGroup] -- ^ 'dasgrAutoScalingGroups'
                                     -> DescribeAutoScalingGroupsResponse
 mkDescribeAutoScalingGroupsResponse p1 = DescribeAutoScalingGroupsResponse

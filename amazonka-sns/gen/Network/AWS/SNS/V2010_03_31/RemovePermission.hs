@@ -57,6 +57,13 @@ data RemovePermission = RemovePermission
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemovePermission' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Text@
+--
+-- * @Label ::@ @Text@
+--
 mkRemovePermission :: Text -- ^ 'rpTopicArn'
                    -> Text -- ^ 'rpLabel'
                    -> RemovePermission

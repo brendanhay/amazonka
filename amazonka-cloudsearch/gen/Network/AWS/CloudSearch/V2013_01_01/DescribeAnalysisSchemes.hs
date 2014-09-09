@@ -60,6 +60,15 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAnalysisSchemes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @AnalysisSchemeNames ::@ @[Text]@
+--
+-- * @Deployed ::@ @Maybe Bool@
+--
 mkDescribeAnalysisSchemes :: Text -- ^ 'das2DomainName'
                           -> DescribeAnalysisSchemes
 mkDescribeAnalysisSchemes p1 = DescribeAnalysisSchemes
@@ -96,6 +105,11 @@ newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 -- a valid 'DescribeAnalysisSchemesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AnalysisSchemes ::@ @[AnalysisSchemeStatus]@
+--
 mkDescribeAnalysisSchemesResponse :: [AnalysisSchemeStatus] -- ^ 'dasr1AnalysisSchemes'
                                   -> DescribeAnalysisSchemesResponse
 mkDescribeAnalysisSchemesResponse p1 = DescribeAnalysisSchemesResponse

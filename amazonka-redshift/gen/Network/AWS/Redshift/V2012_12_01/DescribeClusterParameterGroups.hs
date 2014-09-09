@@ -65,6 +65,15 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterParameterGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeClusterParameterGroups :: DescribeClusterParameterGroups
 mkDescribeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpg1ParameterGroupName = Nothing
@@ -110,6 +119,13 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 -- a valid 'DescribeClusterParameterGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ParameterGroups ::@ @[ClusterParameterGroup]@
+--
 mkDescribeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse
 mkDescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker = Nothing

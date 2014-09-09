@@ -59,6 +59,15 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSubnetGroupName ::@ @Text@
+--
+-- * @CacheSubnetGroupDescription ::@ @Text@
+--
+-- * @SubnetIds ::@ @[Text]@
+--
 mkCreateCacheSubnetGroup :: Text -- ^ 'ccsg1CacheSubnetGroupName'
                          -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
                          -> [Text] -- ^ 'ccsg1SubnetIds'
@@ -98,6 +107,11 @@ newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
 -- a valid 'CreateCacheSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSubnetGroup ::@ @Maybe CacheSubnetGroup@
+--
 mkCreateCacheSubnetGroupResponse :: CreateCacheSubnetGroupResponse
 mkCreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrrCacheSubnetGroup = Nothing

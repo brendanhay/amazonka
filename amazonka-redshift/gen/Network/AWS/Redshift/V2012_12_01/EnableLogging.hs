@@ -56,6 +56,15 @@ data EnableLogging = EnableLogging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableLogging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
+-- * @BucketName ::@ @Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
 mkEnableLogging :: Text -- ^ 'elClusterIdentifier'
                 -> Text -- ^ 'elBucketName'
                 -> EnableLogging
@@ -101,6 +110,21 @@ data EnableLoggingResponse = EnableLoggingResponse
 -- a valid 'EnableLoggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoggingEnabled ::@ @Maybe Bool@
+--
+-- * @BucketName ::@ @Maybe Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @LastSuccessfulDeliveryTime ::@ @Maybe ISO8601@
+--
+-- * @LastFailureTime ::@ @Maybe ISO8601@
+--
+-- * @LastFailureMessage ::@ @Maybe Text@
+--
 mkEnableLoggingResponse :: EnableLoggingResponse
 mkEnableLoggingResponse = EnableLoggingResponse
     { _elrLoggingEnabled = Nothing

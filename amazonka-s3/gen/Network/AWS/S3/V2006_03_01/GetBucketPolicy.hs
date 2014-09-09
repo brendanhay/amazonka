@@ -46,6 +46,11 @@ newtype GetBucketPolicy = GetBucketPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketPolicy :: BucketName -- ^ 'gbpBucket'
                   -> GetBucketPolicy
 mkGetBucketPolicy p1 = GetBucketPolicy
@@ -71,6 +76,11 @@ newtype GetBucketPolicyResponse = GetBucketPolicyResponse
 -- a valid 'GetBucketPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Policy ::@ @Maybe Text@
+--
 mkGetBucketPolicyResponse :: GetBucketPolicyResponse
 mkGetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbprPolicy = Nothing

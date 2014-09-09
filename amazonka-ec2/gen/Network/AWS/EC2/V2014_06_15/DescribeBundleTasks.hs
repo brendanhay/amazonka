@@ -55,7 +55,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: [Text]
     , _dbtFilters :: [Filter]
@@ -63,6 +62,13 @@ data DescribeBundleTasks = DescribeBundleTasks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBundleTasks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BundleIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeBundleTasks :: DescribeBundleTasks
 mkDescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds = mempty
@@ -88,7 +94,6 @@ dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
 instance ToQuery DescribeBundleTasks where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
     } deriving (Show, Generic)
@@ -97,6 +102,11 @@ newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
 -- a valid 'DescribeBundleTasksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BundleTasks ::@ @[BundleTask]@
+--
 mkDescribeBundleTasksResponse :: DescribeBundleTasksResponse
 mkDescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks = mempty

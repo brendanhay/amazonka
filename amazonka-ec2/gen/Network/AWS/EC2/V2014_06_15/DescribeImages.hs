@@ -70,7 +70,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeImages = DescribeImages
     { _di1ImageIds :: [Text]
     , _di1Owners :: [Text]
@@ -80,6 +79,17 @@ data DescribeImages = DescribeImages
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImages' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageIds ::@ @[Text]@
+--
+-- * @Owners ::@ @[Text]@
+--
+-- * @ExecutableUsers ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeImages :: DescribeImages
 mkDescribeImages = DescribeImages
     { _di1ImageIds = mempty
@@ -143,7 +153,6 @@ di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a })
 instance ToQuery DescribeImages where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: [Image]
     } deriving (Show, Generic)
@@ -152,6 +161,11 @@ newtype DescribeImagesResponse = DescribeImagesResponse
 -- a valid 'DescribeImagesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Images ::@ @[Image]@
+--
 mkDescribeImagesResponse :: DescribeImagesResponse
 mkDescribeImagesResponse = DescribeImagesResponse
     { _dirImages = mempty

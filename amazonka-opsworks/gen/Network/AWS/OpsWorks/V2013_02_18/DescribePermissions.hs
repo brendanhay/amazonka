@@ -50,6 +50,13 @@ data DescribePermissions = DescribePermissions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePermissions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArn ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
 mkDescribePermissions :: DescribePermissions
 mkDescribePermissions = DescribePermissions
     { _dpIamUserArn = Nothing
@@ -82,6 +89,11 @@ newtype DescribePermissionsResponse = DescribePermissionsResponse
 -- a valid 'DescribePermissionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Permissions ::@ @[Permission]@
+--
 mkDescribePermissionsResponse :: DescribePermissionsResponse
 mkDescribePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions = mempty

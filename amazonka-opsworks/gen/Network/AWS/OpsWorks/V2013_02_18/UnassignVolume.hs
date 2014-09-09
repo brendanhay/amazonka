@@ -48,6 +48,11 @@ newtype UnassignVolume = UnassignVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnassignVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
 mkUnassignVolume :: Text -- ^ 'uvVolumeId'
                  -> UnassignVolume
 mkUnassignVolume p1 = UnassignVolume

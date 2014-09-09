@@ -46,7 +46,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateLoginProfile = CreateLoginProfile
     { _clpUserName :: Text
     , _clpPassword :: Text
@@ -55,6 +54,15 @@ data CreateLoginProfile = CreateLoginProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoginProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @Password ::@ @Text@
+--
+-- * @PasswordResetRequired ::@ @Maybe Bool@
+--
 mkCreateLoginProfile :: Text -- ^ 'clpUserName'
                      -> Text -- ^ 'clpPassword'
                      -> CreateLoginProfile
@@ -92,6 +100,11 @@ newtype CreateLoginProfileResponse = CreateLoginProfileResponse
 -- a valid 'CreateLoginProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoginProfile ::@ @LoginProfile@
+--
 mkCreateLoginProfileResponse :: LoginProfile -- ^ 'clprLoginProfile'
                              -> CreateLoginProfileResponse
 mkCreateLoginProfileResponse p1 = CreateLoginProfileResponse

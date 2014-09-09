@@ -57,6 +57,15 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveEnvironmentInfo' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @InfoType ::@ @EnvironmentInfoType@
+--
 mkRetrieveEnvironmentInfo :: EnvironmentInfoType -- ^ 'rei1InfoType'
                           -> RetrieveEnvironmentInfo
 mkRetrieveEnvironmentInfo p3 = RetrieveEnvironmentInfo
@@ -97,6 +106,11 @@ newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
 -- a valid 'RetrieveEnvironmentInfoResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentInfo ::@ @[EnvironmentInfoDescription]@
+--
 mkRetrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
 mkRetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo = mempty

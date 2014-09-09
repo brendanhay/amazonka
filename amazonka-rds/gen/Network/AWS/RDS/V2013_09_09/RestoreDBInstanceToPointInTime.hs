@@ -91,6 +91,43 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceToPointInTime' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceDBInstanceIdentifier ::@ @Text@
+--
+-- * @TargetDBInstanceIdentifier ::@ @Text@
+--
+-- * @RestoreTime ::@ @Maybe ISO8601@
+--
+-- * @UseLatestRestorableTime ::@ @Maybe Bool@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @DBSubnetGroupName ::@ @Maybe Text@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @LicenseModel ::@ @Maybe Text@
+--
+-- * @DBName ::@ @Maybe Text@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkRestoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
                                  -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
                                  -> RestoreDBInstanceToPointInTime
@@ -258,6 +295,11 @@ newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeR
 -- a valid 'RestoreDBInstanceToPointInTimeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkRestoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResponse
 mkRestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
     { _rdbitpitrDBInstance = Nothing

@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateVirtualMFADevice = CreateVirtualMFADevice
     { _cvmfadPath :: Maybe Text
     , _cvmfadVirtualMFADeviceName :: Text
@@ -62,6 +61,13 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVirtualMFADevice' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Maybe Text@
+--
+-- * @VirtualMFADeviceName ::@ @Text@
+--
 mkCreateVirtualMFADevice :: Text -- ^ 'cvmfadVirtualMFADeviceName'
                          -> CreateVirtualMFADevice
 mkCreateVirtualMFADevice p2 = CreateVirtualMFADevice
@@ -95,6 +101,11 @@ newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
 -- a valid 'CreateVirtualMFADeviceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualMFADevice ::@ @VirtualMFADevice@
+--
 mkCreateVirtualMFADeviceResponse :: VirtualMFADevice -- ^ 'cvmfadrVirtualMFADevice'
                                  -> CreateVirtualMFADeviceResponse
 mkCreateVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse

@@ -56,7 +56,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateImage = CreateImage
     { _ci1InstanceId :: Text
     , _ci1Name :: Text
@@ -67,6 +66,19 @@ data CreateImage = CreateImage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateImage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @NoReboot ::@ @Maybe Bool@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
 mkCreateImage :: Text -- ^ 'ci1InstanceId'
               -> Text -- ^ 'ci1Name'
               -> CreateImage
@@ -107,7 +119,6 @@ ci1BlockDeviceMappings =
 instance ToQuery CreateImage where
     toQuery = genericQuery def
 
--- | 
 newtype CreateImageResponse = CreateImageResponse
     { _cirrImageId :: Maybe Text
     } deriving (Show, Generic)
@@ -116,6 +127,11 @@ newtype CreateImageResponse = CreateImageResponse
 -- a valid 'CreateImageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Maybe Text@
+--
 mkCreateImageResponse :: CreateImageResponse
 mkCreateImageResponse = CreateImageResponse
     { _cirrImageId = Nothing

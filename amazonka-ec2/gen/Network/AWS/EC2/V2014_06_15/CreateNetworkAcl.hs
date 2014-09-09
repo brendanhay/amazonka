@@ -51,13 +51,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CreateNetworkAcl = CreateNetworkAcl
     { _cnaVpcId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkAcl' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Text@
+--
 mkCreateNetworkAcl :: Text -- ^ 'cnaVpcId'
                    -> CreateNetworkAcl
 mkCreateNetworkAcl p1 = CreateNetworkAcl
@@ -71,7 +75,6 @@ cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
 instance ToQuery CreateNetworkAcl where
     toQuery = genericQuery def
 
--- | 
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl :: Maybe NetworkAcl
     } deriving (Show, Generic)
@@ -80,6 +83,11 @@ newtype CreateNetworkAclResponse = CreateNetworkAclResponse
 -- a valid 'CreateNetworkAclResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAcl ::@ @Maybe NetworkAcl@
+--
 mkCreateNetworkAclResponse :: CreateNetworkAclResponse
 mkCreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl = Nothing

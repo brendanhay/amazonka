@@ -1367,6 +1367,37 @@ data ContactDetail = ContactDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ContactDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FirstName ::@ @Maybe Text@
+--
+-- * @LastName ::@ @Maybe Text@
+--
+-- * @ContactType ::@ @Maybe ContactType@
+--
+-- * @OrganizationName ::@ @Maybe Text@
+--
+-- * @AddressLine1 ::@ @Maybe Text@
+--
+-- * @AddressLine2 ::@ @Maybe Text@
+--
+-- * @City ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe Text@
+--
+-- * @CountryCode ::@ @Maybe CountryCode@
+--
+-- * @ZipCode ::@ @Maybe Text@
+--
+-- * @PhoneNumber ::@ @Maybe Text@
+--
+-- * @Email ::@ @Maybe Text@
+--
+-- * @Fax ::@ @Maybe Text@
+--
+-- * @ExtraParams ::@ @[ExtraParam]@
+--
 mkContactDetail :: ContactDetail
 mkContactDetail = ContactDetail
     { _cdFirstName = Nothing
@@ -1493,6 +1524,17 @@ data DomainSummary = DomainSummary
 --
 -- 'DomainSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @AutoRenew ::@ @Maybe Bool@
+--
+-- * @TransferLock ::@ @Maybe Bool@
+--
+-- * @Expiry ::@ @Maybe ISO8601@
+--
 mkDomainSummary :: Text -- ^ 'dsDomainName'
                 -> DomainSummary
 mkDomainSummary p1 = DomainSummary
@@ -1531,6 +1573,13 @@ data ExtraParam = ExtraParam
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExtraParam' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @ExtraParamName@
+--
+-- * @Value ::@ @Text@
+--
 mkExtraParam :: ExtraParamName -- ^ 'epName'
              -> Text -- ^ 'epValue'
              -> ExtraParam
@@ -1566,6 +1615,13 @@ data Nameserver = Nameserver
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Nameserver' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @GlueIps ::@ @[Text]@
+--
 mkNameserver :: Text -- ^ 'nName'
              -> Nameserver
 mkNameserver p1 = Nameserver
@@ -1604,6 +1660,17 @@ data OperationSummary = OperationSummary
 --
 -- 'OperationSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
+-- * @Status ::@ @OperationStatus@
+--
+-- * @Type ::@ @OperationType@
+--
+-- * @SubmittedDate ::@ @ISO8601@
+--
 mkOperationSummary :: Text -- ^ 'osOperationId'
                    -> OperationStatus -- ^ 'osStatus'
                    -> OperationType -- ^ 'osType'

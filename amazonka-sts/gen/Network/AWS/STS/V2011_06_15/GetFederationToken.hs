@@ -112,6 +112,15 @@ data GetFederationToken = GetFederationToken
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetFederationToken' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Policy ::@ @Maybe Text@
+--
+-- * @DurationSeconds ::@ @Maybe Integer@
+--
 mkGetFederationToken :: Text -- ^ 'gftName'
                      -> GetFederationToken
 mkGetFederationToken p1 = GetFederationToken
@@ -170,6 +179,15 @@ data GetFederationTokenResponse = GetFederationTokenResponse
 -- a valid 'GetFederationTokenResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Credentials ::@ @Maybe Credentials@
+--
+-- * @FederatedUser ::@ @Maybe FederatedUser@
+--
+-- * @PackedPolicySize ::@ @Maybe Integer@
+--
 mkGetFederationTokenResponse :: GetFederationTokenResponse
 mkGetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials = Nothing

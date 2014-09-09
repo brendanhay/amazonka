@@ -80,6 +80,13 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListEndpointsByPlatformApplication' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplicationArn ::@ @Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListEndpointsByPlatformApplication :: Text -- ^ 'lebpaPlatformApplicationArn'
                                      -> ListEndpointsByPlatformApplication
 mkListEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
@@ -112,6 +119,13 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 -- a valid 'ListEndpointsByPlatformApplicationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Endpoints ::@ @[Endpoint]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse
 mkListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints = mempty

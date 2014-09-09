@@ -66,6 +66,13 @@ data ListStackResources = ListStackResources
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStackResources' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListStackResources :: Text -- ^ 'lsrStackName'
                      -> ListStackResources
 mkListStackResources p1 = ListStackResources
@@ -98,6 +105,13 @@ data ListStackResourcesResponse = ListStackResourcesResponse
 -- a valid 'ListStackResourcesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackResourceSummaries ::@ @[StackResourceSummary]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListStackResourcesResponse :: ListStackResourcesResponse
 mkListStackResourcesResponse = ListStackResourcesResponse
     { _lsrrStackResourceSummaries = mempty

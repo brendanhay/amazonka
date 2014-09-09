@@ -46,6 +46,11 @@ newtype DisableAlarmActions = DisableAlarmActions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableAlarmActions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmNames ::@ @[Text]@
+--
 mkDisableAlarmActions :: [Text] -- ^ 'daaAlarmNames'
                       -> DisableAlarmActions
 mkDisableAlarmActions p1 = DisableAlarmActions

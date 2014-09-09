@@ -59,13 +59,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcVpcPeeringConnectionId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AcceptVpcPeeringConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcPeeringConnectionId ::@ @Maybe Text@
+--
 mkAcceptVpcPeeringConnection :: AcceptVpcPeeringConnection
 mkAcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcVpcPeeringConnectionId = Nothing
@@ -80,7 +84,6 @@ avpcVpcPeeringConnectionId =
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery = genericQuery def
 
--- | 
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Show, Generic)
@@ -89,6 +92,11 @@ newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
 -- a valid 'AcceptVpcPeeringConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcPeeringConnection ::@ @Maybe VpcPeeringConnection@
+--
 mkAcceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResponse
 mkAcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection = Nothing

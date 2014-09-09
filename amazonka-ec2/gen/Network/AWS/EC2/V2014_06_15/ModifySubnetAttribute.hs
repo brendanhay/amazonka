@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msa1SubnetId :: Text
     , _msa1MapPublicIpOnLaunch :: Maybe AttributeBooleanValue
@@ -51,6 +50,13 @@ data ModifySubnetAttribute = ModifySubnetAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySubnetAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetId ::@ @Text@
+--
+-- * @MapPublicIpOnLaunch ::@ @Maybe AttributeBooleanValue@
+--
 mkModifySubnetAttribute :: Text -- ^ 'msa1SubnetId'
                         -> ModifySubnetAttribute
 mkModifySubnetAttribute p1 = ModifySubnetAttribute

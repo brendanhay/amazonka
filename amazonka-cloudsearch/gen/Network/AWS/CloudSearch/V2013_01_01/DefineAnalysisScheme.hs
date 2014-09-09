@@ -53,6 +53,13 @@ data DefineAnalysisScheme = DefineAnalysisScheme
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineAnalysisScheme' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @AnalysisScheme ::@ @AnalysisScheme@
+--
 mkDefineAnalysisScheme :: Text -- ^ 'dasDomainName'
                        -> AnalysisScheme -- ^ 'dasAnalysisScheme'
                        -> DefineAnalysisScheme
@@ -89,6 +96,11 @@ newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
 -- a valid 'DefineAnalysisSchemeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AnalysisScheme ::@ @AnalysisSchemeStatus@
+--
 mkDefineAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrAnalysisScheme'
                                -> DefineAnalysisSchemeResponse
 mkDefineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse

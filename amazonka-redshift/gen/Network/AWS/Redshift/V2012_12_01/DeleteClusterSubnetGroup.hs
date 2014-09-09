@@ -44,13 +44,17 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
     { _dcsg1ClusterSubnetGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSubnetGroupName ::@ @Text@
+--
 mkDeleteClusterSubnetGroup :: Text -- ^ 'dcsg1ClusterSubnetGroupName'
                            -> DeleteClusterSubnetGroup
 mkDeleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup

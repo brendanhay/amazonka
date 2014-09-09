@@ -48,6 +48,11 @@ newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConnectionsOnInterconnect' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InterconnectId ::@ @Text@
+--
 mkDescribeConnectionsOnInterconnect :: Text -- ^ 'dcoiInterconnectId'
                                     -> DescribeConnectionsOnInterconnect
 mkDescribeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
@@ -77,6 +82,11 @@ newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterco
 -- a valid 'DescribeConnectionsOnInterconnectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Connections ::@ @[Connection]@
+--
 mkDescribeConnectionsOnInterconnectResponse :: DescribeConnectionsOnInterconnectResponse
 mkDescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _dcoirConnections = mempty

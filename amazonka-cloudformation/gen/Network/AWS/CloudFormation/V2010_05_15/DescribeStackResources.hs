@@ -72,6 +72,15 @@ data DescribeStackResources = DescribeStackResources
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackResources' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Maybe Text@
+--
+-- * @LogicalResourceId ::@ @Maybe Text@
+--
+-- * @PhysicalResourceId ::@ @Maybe Text@
+--
 mkDescribeStackResources :: DescribeStackResources
 mkDescribeStackResources = DescribeStackResources
     { _dsr1StackName = Nothing
@@ -117,6 +126,11 @@ newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
 -- a valid 'DescribeStackResourcesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackResources ::@ @[StackResource]@
+--
 mkDescribeStackResourcesResponse :: DescribeStackResourcesResponse
 mkDescribeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrrrStackResources = mempty

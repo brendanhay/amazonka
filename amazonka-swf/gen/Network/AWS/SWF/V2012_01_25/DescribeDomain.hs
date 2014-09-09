@@ -72,6 +72,11 @@ newtype DescribeDomain = DescribeDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkDescribeDomain :: Text -- ^ 'dd1Name'
                  -> DescribeDomain
 mkDescribeDomain p1 = DescribeDomain
@@ -100,6 +105,13 @@ data DescribeDomainResponse = DescribeDomainResponse
 -- a valid 'DescribeDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainInfo ::@ @DomainInfo@
+--
+-- * @Configuration ::@ @DomainConfiguration@
+--
 mkDescribeDomainResponse :: DomainInfo -- ^ 'ddrDomainInfo'
                          -> DomainConfiguration -- ^ 'ddrConfiguration'
                          -> DescribeDomainResponse

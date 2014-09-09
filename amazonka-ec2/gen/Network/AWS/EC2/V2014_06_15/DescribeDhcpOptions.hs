@@ -64,7 +64,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds :: [Text]
     , _ddo1Filters :: [Filter]
@@ -72,6 +71,13 @@ data DescribeDhcpOptions = DescribeDhcpOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDhcpOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DhcpOptionsIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeDhcpOptions :: DescribeDhcpOptions
 mkDescribeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds = mempty
@@ -101,7 +107,6 @@ ddo1Filters = lens _ddo1Filters (\s a -> s { _ddo1Filters = a })
 instance ToQuery DescribeDhcpOptions where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Show, Generic)
@@ -110,6 +115,11 @@ newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 -- a valid 'DescribeDhcpOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DhcpOptions ::@ @[DhcpOptions]@
+--
 mkDescribeDhcpOptionsResponse :: DescribeDhcpOptionsResponse
 mkDescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions = mempty

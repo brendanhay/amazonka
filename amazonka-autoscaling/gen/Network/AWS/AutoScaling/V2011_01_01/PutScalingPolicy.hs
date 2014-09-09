@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data PutScalingPolicy = PutScalingPolicy
     { _pspAutoScalingGroupName :: Text
     , _pspPolicyName :: Text
@@ -66,6 +65,21 @@ data PutScalingPolicy = PutScalingPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScalingPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @ScalingAdjustment ::@ @Integer@
+--
+-- * @AdjustmentType ::@ @Text@
+--
+-- * @Cooldown ::@ @Maybe Integer@
+--
+-- * @MinAdjustmentStep ::@ @Maybe Integer@
+--
 mkPutScalingPolicy :: Text -- ^ 'pspAutoScalingGroupName'
                    -> Text -- ^ 'pspPolicyName'
                    -> Integer -- ^ 'pspScalingAdjustment'
@@ -134,6 +148,11 @@ newtype PutScalingPolicyResponse = PutScalingPolicyResponse
 -- a valid 'PutScalingPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyARN ::@ @Maybe Text@
+--
 mkPutScalingPolicyResponse :: PutScalingPolicyResponse
 mkPutScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN = Nothing

@@ -56,6 +56,15 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestEnvironmentInfo' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @InfoType ::@ @EnvironmentInfoType@
+--
 mkRequestEnvironmentInfo :: EnvironmentInfoType -- ^ 'reiInfoType'
                          -> RequestEnvironmentInfo
 mkRequestEnvironmentInfo p3 = RequestEnvironmentInfo

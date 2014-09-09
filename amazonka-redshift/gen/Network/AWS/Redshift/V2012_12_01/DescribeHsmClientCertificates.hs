@@ -53,6 +53,15 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeHsmClientCertificates' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmClientCertificateIdentifier ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeHsmClientCertificates :: DescribeHsmClientCertificates
 mkDescribeHsmClientCertificates = DescribeHsmClientCertificates
     { _dhcc1HsmClientCertificateIdentifier = Nothing
@@ -98,6 +107,13 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
 -- a valid 'DescribeHsmClientCertificatesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @HsmClientCertificates ::@ @[HsmClientCertificate]@
+--
 mkDescribeHsmClientCertificatesResponse :: DescribeHsmClientCertificatesResponse
 mkDescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
     { _dhccrMarker = Nothing

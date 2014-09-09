@@ -52,6 +52,11 @@ newtype DescribeLoggingStatus = DescribeLoggingStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoggingStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
 mkDescribeLoggingStatus :: Text -- ^ 'dlsClusterIdentifier'
                         -> DescribeLoggingStatus
 mkDescribeLoggingStatus p1 = DescribeLoggingStatus
@@ -81,6 +86,21 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
 -- a valid 'DescribeLoggingStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoggingEnabled ::@ @Maybe Bool@
+--
+-- * @BucketName ::@ @Maybe Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @LastSuccessfulDeliveryTime ::@ @Maybe ISO8601@
+--
+-- * @LastFailureTime ::@ @Maybe ISO8601@
+--
+-- * @LastFailureMessage ::@ @Maybe Text@
+--
 mkDescribeLoggingStatusResponse :: DescribeLoggingStatusResponse
 mkDescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     { _dlsrLoggingEnabled = Nothing

@@ -49,6 +49,13 @@ data ListBootstrapActions = ListBootstrapActions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListBootstrapActions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterId ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListBootstrapActions :: Text -- ^ 'lbaClusterId'
                        -> ListBootstrapActions
 mkListBootstrapActions p1 = ListBootstrapActions
@@ -82,6 +89,13 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse
 -- a valid 'ListBootstrapActionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BootstrapActions ::@ @[Command]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListBootstrapActionsResponse :: ListBootstrapActionsResponse
 mkListBootstrapActionsResponse = ListBootstrapActionsResponse
     { _lbarBootstrapActions = mempty

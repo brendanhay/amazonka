@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateVpnGateway = CreateVpnGateway
     { _cvgType :: GatewayType
     , _cvgAvailabilityZone :: Maybe Text
@@ -62,6 +61,13 @@ data CreateVpnGateway = CreateVpnGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Type ::@ @GatewayType@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
 mkCreateVpnGateway :: GatewayType -- ^ 'cvgType'
                    -> CreateVpnGateway
 mkCreateVpnGateway p1 = CreateVpnGateway
@@ -81,7 +87,6 @@ cvgAvailabilityZone =
 instance ToQuery CreateVpnGateway where
     toQuery = genericQuery def
 
--- | 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
     } deriving (Show, Generic)
@@ -90,6 +95,11 @@ newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
 -- a valid 'CreateVpnGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnGateway ::@ @Maybe VpnGateway@
+--
 mkCreateVpnGatewayResponse :: CreateVpnGatewayResponse
 mkCreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway = Nothing

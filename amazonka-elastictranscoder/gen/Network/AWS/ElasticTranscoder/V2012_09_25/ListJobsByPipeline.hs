@@ -93,6 +93,15 @@ data ListJobsByPipeline = ListJobsByPipeline
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsByPipeline' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @Ascending ::@ @Maybe Text@
+--
+-- * @PageToken ::@ @Maybe Text@
+--
 mkListJobsByPipeline :: Text -- ^ 'ljbpPipelineId'
                      -> ListJobsByPipeline
 mkListJobsByPipeline p1 = ListJobsByPipeline
@@ -135,6 +144,13 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse
 -- a valid 'ListJobsByPipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Jobs ::@ @[Job]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListJobsByPipelineResponse :: ListJobsByPipelineResponse
 mkListJobsByPipelineResponse = ListJobsByPipelineResponse
     { _ljbprJobs = mempty

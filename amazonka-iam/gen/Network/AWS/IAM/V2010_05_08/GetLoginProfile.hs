@@ -43,13 +43,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetLoginProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
 mkGetLoginProfile :: Text -- ^ 'glpUserName'
                   -> GetLoginProfile
 mkGetLoginProfile p1 = GetLoginProfile
@@ -73,6 +77,11 @@ newtype GetLoginProfileResponse = GetLoginProfileResponse
 -- a valid 'GetLoginProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoginProfile ::@ @LoginProfile@
+--
 mkGetLoginProfileResponse :: LoginProfile -- ^ 'glprLoginProfile'
                           -> GetLoginProfileResponse
 mkGetLoginProfileResponse p1 = GetLoginProfileResponse

@@ -72,7 +72,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data SetQueueAttributes = SetQueueAttributes
     { _sqaQueueUrl :: Text
     , _sqaAttributes :: Map QueueAttributeName Text
@@ -80,6 +79,13 @@ data SetQueueAttributes = SetQueueAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetQueueAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @Attributes ::@ @Map QueueAttributeName Text@
+--
 mkSetQueueAttributes :: Text -- ^ 'sqaQueueUrl'
                      -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
                      -> SetQueueAttributes

@@ -50,6 +50,13 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTimeBasedAutoScaling' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @AutoScalingSchedule ::@ @Maybe WeeklyAutoScalingSchedule@
+--
 mkSetTimeBasedAutoScaling :: Text -- ^ 'stbasInstanceId'
                           -> SetTimeBasedAutoScaling
 mkSetTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling

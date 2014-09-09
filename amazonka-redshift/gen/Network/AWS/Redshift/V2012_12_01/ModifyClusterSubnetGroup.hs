@@ -52,6 +52,15 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSubnetGroupName ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @SubnetIds ::@ @[Text]@
+--
 mkModifyClusterSubnetGroup :: Text -- ^ 'mcsgClusterSubnetGroupName'
                            -> [Text] -- ^ 'mcsgSubnetIds'
                            -> ModifyClusterSubnetGroup
@@ -87,6 +96,11 @@ newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
 -- a valid 'ModifyClusterSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSubnetGroup ::@ @Maybe ClusterSubnetGroup@
+--
 mkModifyClusterSubnetGroupResponse :: ModifyClusterSubnetGroupResponse
 mkModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup = Nothing

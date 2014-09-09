@@ -47,6 +47,13 @@ data DeleteScheduledAction = DeleteScheduledAction
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteScheduledAction' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @ScheduledActionName ::@ @Text@
+--
 mkDeleteScheduledAction :: Text -- ^ 'dsaScheduledActionName'
                         -> DeleteScheduledAction
 mkDeleteScheduledAction p2 = DeleteScheduledAction

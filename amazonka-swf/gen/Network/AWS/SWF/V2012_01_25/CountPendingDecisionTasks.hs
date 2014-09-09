@@ -76,6 +76,13 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountPendingDecisionTasks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @TaskList ::@ @TaskList@
+--
 mkCountPendingDecisionTasks :: Text -- ^ 'cpdtDomain'
                             -> TaskList -- ^ 'cpdtTaskList'
                             -> CountPendingDecisionTasks
@@ -110,6 +117,13 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
 -- a valid 'CountPendingDecisionTasksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Count ::@ @Integer@
+--
+-- * @Truncated ::@ @Maybe Bool@
+--
 mkCountPendingDecisionTasksResponse :: Integer -- ^ 'cpdtrCount'
                                     -> CountPendingDecisionTasksResponse
 mkCountPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse

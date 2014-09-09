@@ -64,6 +64,11 @@ newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityNotificationAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identities ::@ @[Text]@
+--
 mkGetIdentityNotificationAttributes :: [Text] -- ^ 'ginaIdentities'
                                     -> GetIdentityNotificationAttributes
 mkGetIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
@@ -89,6 +94,11 @@ newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttri
 -- a valid 'GetIdentityNotificationAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NotificationAttributes ::@ @Map Text IdentityNotificationAttributes@
+--
 mkGetIdentityNotificationAttributesResponse :: Map Text IdentityNotificationAttributes -- ^ 'ginarNotificationAttributes'
                                             -> GetIdentityNotificationAttributesResponse
 mkGetIdentityNotificationAttributesResponse p1 = GetIdentityNotificationAttributesResponse

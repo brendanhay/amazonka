@@ -51,6 +51,13 @@ data DeleteSuggester = DeleteSuggester
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSuggester' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @SuggesterName ::@ @Text@
+--
 mkDeleteSuggester :: Text -- ^ 'ds2DomainName'
                   -> Text -- ^ 'ds2SuggesterName'
                   -> DeleteSuggester
@@ -84,6 +91,11 @@ newtype DeleteSuggesterResponse = DeleteSuggesterResponse
 -- a valid 'DeleteSuggesterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Suggester ::@ @SuggesterStatus@
+--
 mkDeleteSuggesterResponse :: SuggesterStatus -- ^ 'dsrrSuggester'
                           -> DeleteSuggesterResponse
 mkDeleteSuggesterResponse p1 = DeleteSuggesterResponse

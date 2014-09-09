@@ -47,13 +47,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteVpc = DeleteVpc
     { _dv1VpcId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpc' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Text@
+--
 mkDeleteVpc :: Text -- ^ 'dv1VpcId'
             -> DeleteVpc
 mkDeleteVpc p1 = DeleteVpc

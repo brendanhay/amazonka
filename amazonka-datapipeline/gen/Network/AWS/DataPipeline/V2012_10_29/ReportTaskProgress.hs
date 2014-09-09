@@ -66,6 +66,11 @@ newtype ReportTaskProgress = ReportTaskProgress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskProgress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskId ::@ @Text@
+--
 mkReportTaskProgress :: Text -- ^ 'rtpTaskId'
                      -> ReportTaskProgress
 mkReportTaskProgress p1 = ReportTaskProgress
@@ -95,6 +100,11 @@ newtype ReportTaskProgressResponse = ReportTaskProgressResponse
 -- a valid 'ReportTaskProgressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Canceled ::@ @Bool@
+--
 mkReportTaskProgressResponse :: Bool -- ^ 'rtprCanceled'
                              -> ReportTaskProgressResponse
 mkReportTaskProgressResponse p1 = ReportTaskProgressResponse

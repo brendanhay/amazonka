@@ -60,6 +60,11 @@ newtype Unsubscribe = Unsubscribe
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Unsubscribe' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionArn ::@ @Text@
+--
 mkUnsubscribe :: Text -- ^ 'uSubscriptionArn'
               -> Unsubscribe
 mkUnsubscribe p1 = Unsubscribe

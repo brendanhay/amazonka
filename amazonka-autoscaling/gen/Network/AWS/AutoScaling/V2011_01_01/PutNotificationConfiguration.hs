@@ -44,7 +44,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
     , _pncTopicARN :: Text
@@ -53,6 +52,15 @@ data PutNotificationConfiguration = PutNotificationConfiguration
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutNotificationConfiguration' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @TopicARN ::@ @Text@
+--
+-- * @NotificationTypes ::@ @[Text]@
+--
 mkPutNotificationConfiguration :: Text -- ^ 'pncAutoScalingGroupName'
                                -> Text -- ^ 'pncTopicARN'
                                -> [Text] -- ^ 'pncNotificationTypes'

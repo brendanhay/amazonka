@@ -53,6 +53,11 @@ newtype CreateHsmClientCertificate = CreateHsmClientCertificate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmClientCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmClientCertificateIdentifier ::@ @Text@
+--
 mkCreateHsmClientCertificate :: Text -- ^ 'chccHsmClientCertificateIdentifier'
                              -> CreateHsmClientCertificate
 mkCreateHsmClientCertificate p1 = CreateHsmClientCertificate
@@ -77,6 +82,11 @@ newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
 -- a valid 'CreateHsmClientCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmClientCertificate ::@ @Maybe HsmClientCertificate@
+--
 mkCreateHsmClientCertificateResponse :: CreateHsmClientCertificateResponse
 mkCreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate = Nothing

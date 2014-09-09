@@ -64,6 +64,13 @@ data CheckDomainAvailability = CheckDomainAvailability
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDomainAvailability' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @IdnLangCode ::@ @Maybe Text@
+--
 mkCheckDomainAvailability :: Text -- ^ 'cdaDomainName'
                           -> CheckDomainAvailability
 mkCheckDomainAvailability p1 = CheckDomainAvailability
@@ -99,6 +106,11 @@ newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 -- a valid 'CheckDomainAvailabilityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Availability ::@ @DomainAvailability@
+--
 mkCheckDomainAvailabilityResponse :: DomainAvailability -- ^ 'cdarAvailability'
                                   -> CheckDomainAvailabilityResponse
 mkCheckDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse

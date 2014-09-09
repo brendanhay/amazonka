@@ -57,6 +57,17 @@ data ListGeoLocations = ListGeoLocations
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGeoLocations' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StartContinentCode ::@ @Maybe Text@
+--
+-- * @StartCountryCode ::@ @Maybe Text@
+--
+-- * @StartSubdivisionCode ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListGeoLocations :: ListGeoLocations
 mkListGeoLocations = ListGeoLocations
     { _lglStartContinentCode = Nothing
@@ -119,6 +130,21 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
 -- a valid 'ListGeoLocationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GeoLocationDetailsList ::@ @[GeoLocationDetails]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @NextContinentCode ::@ @Maybe Text@
+--
+-- * @NextCountryCode ::@ @Maybe Text@
+--
+-- * @NextSubdivisionCode ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Text@
+--
 mkListGeoLocationsResponse :: [GeoLocationDetails] -- ^ 'lglrGeoLocationDetailsList'
                            -> Bool -- ^ 'lglrIsTruncated'
                            -> Text -- ^ 'lglrMaxItems'

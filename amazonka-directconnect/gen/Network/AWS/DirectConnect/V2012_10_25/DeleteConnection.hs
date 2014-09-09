@@ -57,6 +57,11 @@ newtype DeleteConnection = DeleteConnection
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConnectionId ::@ @Text@
+--
 mkDeleteConnection :: Text -- ^ 'dcConnectionId'
                    -> DeleteConnection
 mkDeleteConnection p1 = DeleteConnection
@@ -93,6 +98,27 @@ data DeleteConnectionResponse = DeleteConnectionResponse
 -- a valid 'DeleteConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @ConnectionName ::@ @Maybe Text@
+--
+-- * @ConnectionState ::@ @Maybe ConnectionState@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Bandwidth ::@ @Maybe Text@
+--
+-- * @Vlan ::@ @Maybe Integer@
+--
+-- * @PartnerName ::@ @Maybe Text@
+--
 mkDeleteConnectionResponse :: DeleteConnectionResponse
 mkDeleteConnectionResponse = DeleteConnectionResponse
     { _dcrOwnerAccount = Nothing

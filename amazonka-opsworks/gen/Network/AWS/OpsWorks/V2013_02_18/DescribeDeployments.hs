@@ -53,6 +53,15 @@ data DescribeDeployments = DescribeDeployments
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDeployments' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @AppId ::@ @Maybe Text@
+--
+-- * @DeploymentIds ::@ @[Text]@
+--
 mkDescribeDeployments :: DescribeDeployments
 mkDescribeDeployments = DescribeDeployments
     { _ddStackId = Nothing
@@ -93,6 +102,11 @@ newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
 -- a valid 'DescribeDeploymentsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Deployments ::@ @[Deployment]@
+--
 mkDescribeDeploymentsResponse :: DescribeDeploymentsResponse
 mkDescribeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddrDeployments = mempty

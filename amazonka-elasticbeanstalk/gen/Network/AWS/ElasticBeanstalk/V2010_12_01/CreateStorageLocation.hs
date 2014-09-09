@@ -60,6 +60,11 @@ newtype CreateStorageLocationResponse = CreateStorageLocationResponse
 -- a valid 'CreateStorageLocationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @S3Bucket ::@ @Maybe Text@
+--
 mkCreateStorageLocationResponse :: CreateStorageLocationResponse
 mkCreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket = Nothing

@@ -44,7 +44,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeInternetGateways = DescribeInternetGateways
     { _dig1InternetGatewayIds :: [Text]
     , _dig1Filters :: [Filter]
@@ -52,6 +51,13 @@ data DescribeInternetGateways = DescribeInternetGateways
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInternetGateways' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InternetGatewayIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeInternetGateways :: DescribeInternetGateways
 mkDescribeInternetGateways = DescribeInternetGateways
     { _dig1InternetGatewayIds = mempty
@@ -82,7 +88,6 @@ dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a })
 instance ToQuery DescribeInternetGateways where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: [InternetGateway]
     } deriving (Show, Generic)
@@ -91,6 +96,11 @@ newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 -- a valid 'DescribeInternetGatewaysResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InternetGateways ::@ @[InternetGateway]@
+--
 mkDescribeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
 mkDescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways = mempty

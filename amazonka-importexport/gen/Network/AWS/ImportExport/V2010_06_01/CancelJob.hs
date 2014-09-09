@@ -47,6 +47,11 @@ newtype CancelJob = CancelJob
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelJob' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobId ::@ @Text@
+--
 mkCancelJob :: Text -- ^ 'cjJobId'
             -> CancelJob
 mkCancelJob p1 = CancelJob
@@ -69,6 +74,11 @@ newtype CancelJobResponse = CancelJobResponse
 -- a valid 'CancelJobResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Success ::@ @Maybe Bool@
+--
 mkCancelJobResponse :: CancelJobResponse
 mkCancelJobResponse = CancelJobResponse
     { _cjrSuccess = Nothing

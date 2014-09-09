@@ -66,6 +66,31 @@ data UpdateInstance = UpdateInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @LayerIds ::@ @[Text]@
+--
+-- * @InstanceType ::@ @Maybe Text@
+--
+-- * @AutoScalingType ::@ @Maybe AutoScalingType@
+--
+-- * @Hostname ::@ @Maybe Text@
+--
+-- * @Os ::@ @Maybe Text@
+--
+-- * @AmiId ::@ @Maybe Text@
+--
+-- * @SshKeyName ::@ @Maybe Text@
+--
+-- * @Architecture ::@ @Maybe Architecture@
+--
+-- * @InstallUpdatesOnBoot ::@ @Maybe Bool@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
 mkUpdateInstance :: Text -- ^ 'uiInstanceId'
                  -> UpdateInstance
 mkUpdateInstance p1 = UpdateInstance

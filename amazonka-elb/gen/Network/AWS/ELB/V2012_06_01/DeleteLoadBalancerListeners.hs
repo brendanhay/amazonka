@@ -46,6 +46,13 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoadBalancerListeners' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @LoadBalancerPorts ::@ @[Integer]@
+--
 mkDeleteLoadBalancerListeners :: Text -- ^ 'dlblLoadBalancerName'
                               -> [Integer] -- ^ 'dlblLoadBalancerPorts'
                               -> DeleteLoadBalancerListeners

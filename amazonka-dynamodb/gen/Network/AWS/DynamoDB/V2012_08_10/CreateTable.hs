@@ -82,6 +82,21 @@ data CreateTable = CreateTable
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTable' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeDefinitions ::@ @[AttributeDefinition]@
+--
+-- * @TableName ::@ @Text@
+--
+-- * @KeySchema ::@ @List1 KeySchemaElement@
+--
+-- * @LocalSecondaryIndexes ::@ @[LocalSecondaryIndex]@
+--
+-- * @GlobalSecondaryIndexes ::@ @[GlobalSecondaryIndex]@
+--
+-- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
+--
 mkCreateTable :: [AttributeDefinition] -- ^ 'ctAttributeDefinitions'
               -> Text -- ^ 'ctTableName'
               -> List1 KeySchemaElement -- ^ 'ctKeySchema'
@@ -196,6 +211,11 @@ newtype CreateTableResponse = CreateTableResponse
 -- a valid 'CreateTableResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableDescription ::@ @Maybe TableDescription@
+--
 mkCreateTableResponse :: CreateTableResponse
 mkCreateTableResponse = CreateTableResponse
     { _ctrTableDescription = Nothing

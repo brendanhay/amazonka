@@ -63,6 +63,15 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSubnetGroupName ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
+-- * @SubnetIds ::@ @[Text]@
+--
 mkCreateClusterSubnetGroup :: Text -- ^ 'ccsg1ClusterSubnetGroupName'
                            -> Text -- ^ 'ccsg1Description'
                            -> [Text] -- ^ 'ccsg1SubnetIds'
@@ -103,6 +112,11 @@ newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
 -- a valid 'CreateClusterSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSubnetGroup ::@ @Maybe ClusterSubnetGroup@
+--
 mkCreateClusterSubnetGroupResponse :: CreateClusterSubnetGroupResponse
 mkCreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _ccsgrrClusterSubnetGroup = Nothing

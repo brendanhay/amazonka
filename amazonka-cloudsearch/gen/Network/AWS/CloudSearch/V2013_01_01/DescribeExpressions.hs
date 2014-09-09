@@ -59,6 +59,15 @@ data DescribeExpressions = DescribeExpressions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExpressions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ExpressionNames ::@ @[Text]@
+--
+-- * @Deployed ::@ @Maybe Bool@
+--
 mkDescribeExpressions :: Text -- ^ 'de2DomainName'
                       -> DescribeExpressions
 mkDescribeExpressions p1 = DescribeExpressions
@@ -95,6 +104,11 @@ newtype DescribeExpressionsResponse = DescribeExpressionsResponse
 -- a valid 'DescribeExpressionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Expressions ::@ @[ExpressionStatus]@
+--
 mkDescribeExpressionsResponse :: [ExpressionStatus] -- ^ 'der1Expressions'
                               -> DescribeExpressionsResponse
 mkDescribeExpressionsResponse p1 = DescribeExpressionsResponse

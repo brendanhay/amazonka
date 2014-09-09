@@ -80,6 +80,17 @@ data TestRole = TestRole
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestRole' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Role ::@ @Text@
+--
+-- * @InputBucket ::@ @Text@
+--
+-- * @OutputBucket ::@ @Text@
+--
+-- * @Topics ::@ @[Text]@
+--
 mkTestRole :: Text -- ^ 'trRole'
            -> Text -- ^ 'trInputBucket'
            -> Text -- ^ 'trOutputBucket'
@@ -130,6 +141,13 @@ data TestRoleResponse = TestRoleResponse
 -- a valid 'TestRoleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Success ::@ @Maybe Text@
+--
+-- * @Messages ::@ @[Text]@
+--
 mkTestRoleResponse :: TestRoleResponse
 mkTestRoleResponse = TestRoleResponse
     { _trrSuccess = Nothing

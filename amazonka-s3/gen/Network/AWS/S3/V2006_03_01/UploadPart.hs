@@ -72,6 +72,29 @@ data UploadPart = UploadPart
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadPart' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Body ::@ @RqBody@
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentLength ::@ @Maybe Integer@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @PartNumber ::@ @Integer@
+--
+-- * @UploadId ::@ @Text@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKey ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkUploadPart :: RqBody -- ^ 'upBody'
              -> BucketName -- ^ 'upBucket'
              -> ObjectKey -- ^ 'upKey'
@@ -167,6 +190,17 @@ data UploadPartResponse = UploadPartResponse
 -- a valid 'UploadPartResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkUploadPartResponse :: UploadPartResponse
 mkUploadPartResponse = UploadPartResponse
     { _uprServerSideEncryption = Nothing

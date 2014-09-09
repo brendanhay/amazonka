@@ -69,6 +69,25 @@ data DescribeReservedCacheNodes = DescribeReservedCacheNodes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedCacheNodes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedCacheNodeId ::@ @Maybe Text@
+--
+-- * @ReservedCacheNodesOfferingId ::@ @Maybe Text@
+--
+-- * @CacheNodeType ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Text@
+--
+-- * @ProductDescription ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeReservedCacheNodes :: DescribeReservedCacheNodes
 mkDescribeReservedCacheNodes = DescribeReservedCacheNodes
     { _drcnReservedCacheNodeId = Nothing
@@ -147,6 +166,13 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
 -- a valid 'DescribeReservedCacheNodesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ReservedCacheNodes ::@ @[ReservedCacheNode]@
+--
 mkDescribeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse
 mkDescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker = Nothing

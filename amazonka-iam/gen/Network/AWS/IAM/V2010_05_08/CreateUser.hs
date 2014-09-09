@@ -46,7 +46,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateUser = CreateUser
     { _cuPath :: Maybe Text
     , _cuUserName :: Text
@@ -54,6 +53,13 @@ data CreateUser = CreateUser
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUser' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Maybe Text@
+--
+-- * @UserName ::@ @Text@
+--
 mkCreateUser :: Text -- ^ 'cuUserName'
              -> CreateUser
 mkCreateUser p2 = CreateUser
@@ -83,6 +89,11 @@ newtype CreateUserResponse = CreateUserResponse
 -- a valid 'CreateUserResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @User ::@ @Maybe User@
+--
 mkCreateUserResponse :: CreateUserResponse
 mkCreateUserResponse = CreateUserResponse
     { _curUser = Nothing

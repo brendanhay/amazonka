@@ -56,7 +56,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListServerCertificates = ListServerCertificates
     { _lscPathPrefix :: Maybe Text
     , _lscMarker :: Maybe Text
@@ -65,6 +64,15 @@ data ListServerCertificates = ListServerCertificates
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListServerCertificates' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PathPrefix ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListServerCertificates :: ListServerCertificates
 mkListServerCertificates = ListServerCertificates
     { _lscPathPrefix = Nothing
@@ -108,6 +116,15 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
 -- a valid 'ListServerCertificatesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerCertificateMetadataList ::@ @[ServerCertificateMetadata]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListServerCertificatesResponse :: [ServerCertificateMetadata] -- ^ 'lscrServerCertificateMetadataList'
                                  -> Bool -- ^ 'lscrIsTruncated'
                                  -> ListServerCertificatesResponse

@@ -364,6 +364,15 @@ data Output = Output
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Output' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OutputKey ::@ @Maybe Text@
+--
+-- * @OutputValue ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkOutput :: Output
 mkOutput = Output
     { _oOutputKey = Nothing
@@ -399,6 +408,15 @@ data Parameter = Parameter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Parameter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterKey ::@ @Maybe Text@
+--
+-- * @ParameterValue ::@ @Maybe Text@
+--
+-- * @UsePreviousValue ::@ @Maybe Bool@
+--
 mkParameter :: Parameter
 mkParameter = Parameter
     { _pParameterKey = Nothing
@@ -450,6 +468,37 @@ data Stack = Stack
 --
 -- 'Stack' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @StackName ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
+-- * @CreationTime ::@ @ISO8601@
+--
+-- * @LastUpdatedTime ::@ @Maybe ISO8601@
+--
+-- * @StackStatus ::@ @StackStatus@
+--
+-- * @StackStatusReason ::@ @Maybe Text@
+--
+-- * @DisableRollback ::@ @Maybe Bool@
+--
+-- * @NotificationARNs ::@ @[Text]@
+--
+-- * @TimeoutInMinutes ::@ @Maybe Integer@
+--
+-- * @Capabilities ::@ @[Capability]@
+--
+-- * @Outputs ::@ @[Output]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkStack :: Text -- ^ 'sStackName'
         -> ISO8601 -- ^ 'sCreationTime'
         -> StackStatus -- ^ 'sStackStatus'
@@ -557,6 +606,29 @@ data StackEvent = StackEvent
 --
 -- 'StackEvent' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @EventId ::@ @Text@
+--
+-- * @StackName ::@ @Text@
+--
+-- * @LogicalResourceId ::@ @Maybe Text@
+--
+-- * @PhysicalResourceId ::@ @Maybe Text@
+--
+-- * @ResourceType ::@ @Maybe Text@
+--
+-- * @Timestamp ::@ @ISO8601@
+--
+-- * @ResourceStatus ::@ @Maybe ResourceStatus@
+--
+-- * @ResourceStatusReason ::@ @Maybe Text@
+--
+-- * @ResourceProperties ::@ @Maybe Text@
+--
 mkStackEvent :: Text -- ^ 'seStackId'
              -> Text -- ^ 'seEventId'
              -> Text -- ^ 'seStackName'
@@ -644,6 +716,27 @@ data StackResource = StackResource
 --
 -- 'StackResource' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LogicalResourceId ::@ @Text@
+--
+-- * @PhysicalResourceId ::@ @Maybe Text@
+--
+-- * @ResourceType ::@ @Text@
+--
+-- * @Timestamp ::@ @ISO8601@
+--
+-- * @ResourceStatus ::@ @ResourceStatus@
+--
+-- * @ResourceStatusReason ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkStackResource :: Text -- ^ 'srLogicalResourceId'
                 -> Text -- ^ 'srResourceType'
                 -> ISO8601 -- ^ 'srTimestamp'
@@ -727,6 +820,29 @@ data StackResourceDetail = StackResourceDetail
 --
 -- 'StackResourceDetail' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LogicalResourceId ::@ @Text@
+--
+-- * @PhysicalResourceId ::@ @Maybe Text@
+--
+-- * @ResourceType ::@ @Text@
+--
+-- * @LastUpdatedTimestamp ::@ @ISO8601@
+--
+-- * @ResourceStatus ::@ @ResourceStatus@
+--
+-- * @ResourceStatusReason ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Metadata ::@ @Maybe Text@
+--
 mkStackResourceDetail :: Text -- ^ 'srdLogicalResourceId'
                       -> Text -- ^ 'srdResourceType'
                       -> ISO8601 -- ^ 'srdLastUpdatedTimestamp'
@@ -815,6 +931,21 @@ data StackResourceSummary = StackResourceSummary
 --
 -- 'StackResourceSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogicalResourceId ::@ @Text@
+--
+-- * @PhysicalResourceId ::@ @Maybe Text@
+--
+-- * @ResourceType ::@ @Text@
+--
+-- * @LastUpdatedTimestamp ::@ @ISO8601@
+--
+-- * @ResourceStatus ::@ @ResourceStatus@
+--
+-- * @ResourceStatusReason ::@ @Maybe Text@
+--
 mkStackResourceSummary :: Text -- ^ 'srsLogicalResourceId'
                        -> Text -- ^ 'srsResourceType'
                        -> ISO8601 -- ^ 'srsLastUpdatedTimestamp'
@@ -883,6 +1014,25 @@ data StackSummary = StackSummary
 --
 -- 'StackSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @StackName ::@ @Text@
+--
+-- * @TemplateDescription ::@ @Maybe Text@
+--
+-- * @CreationTime ::@ @ISO8601@
+--
+-- * @LastUpdatedTime ::@ @Maybe ISO8601@
+--
+-- * @DeletionTime ::@ @Maybe ISO8601@
+--
+-- * @StackStatus ::@ @StackStatus@
+--
+-- * @StackStatusReason ::@ @Maybe Text@
+--
 mkStackSummary :: Text -- ^ 'ssStackName'
                -> ISO8601 -- ^ 'ssCreationTime'
                -> StackStatus -- ^ 'ssStackStatus'
@@ -948,6 +1098,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkTag :: Tag
 mkTag = Tag
     { _tKey = Nothing
@@ -985,6 +1142,17 @@ data TemplateParameter = TemplateParameter
 --
 -- 'TemplateParameter' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterKey ::@ @Maybe Text@
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @NoEcho ::@ @Maybe Bool@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkTemplateParameter :: TemplateParameter
 mkTemplateParameter = TemplateParameter
     { _tpParameterKey = Nothing

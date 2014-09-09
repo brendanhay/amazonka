@@ -98,6 +98,13 @@ data PutPipelineDefinition = PutPipelineDefinition
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutPipelineDefinition' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @PipelineObjects ::@ @[PipelineObject]@
+--
 mkPutPipelineDefinition :: Text -- ^ 'ppdPipelineId'
                         -> [PipelineObject] -- ^ 'ppdPipelineObjects'
                         -> PutPipelineDefinition
@@ -135,6 +142,15 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
 -- a valid 'PutPipelineDefinitionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ValidationErrors ::@ @[ValidationError]@
+--
+-- * @ValidationWarnings ::@ @[ValidationWarning]@
+--
+-- * @Errored ::@ @Bool@
+--
 mkPutPipelineDefinitionResponse :: Bool -- ^ 'ppdrErrored'
                                 -> PutPipelineDefinitionResponse
 mkPutPipelineDefinitionResponse p3 = PutPipelineDefinitionResponse

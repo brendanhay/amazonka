@@ -71,6 +71,25 @@ data UpdateItem = UpdateItem
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateItem' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
+-- * @Key ::@ @Map Text AttributeValue@
+--
+-- * @AttributeUpdates ::@ @Map Text AttributeValueUpdate@
+--
+-- * @Expected ::@ @Map Text ExpectedAttributeValue@
+--
+-- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
+--
+-- * @ReturnValues ::@ @Maybe ReturnValue@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
+-- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
+--
 mkUpdateItem :: Text -- ^ 'uiTableName'
              -> Map Text AttributeValue -- ^ 'uiKey'
              -> UpdateItem
@@ -234,6 +253,15 @@ data UpdateItemResponse = UpdateItemResponse
 -- a valid 'UpdateItemResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map Text AttributeValue@
+--
+-- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
+--
+-- * @ItemCollectionMetrics ::@ @Maybe ItemCollectionMetrics@
+--
 mkUpdateItemResponse :: UpdateItemResponse
 mkUpdateItemResponse = UpdateItemResponse
     { _uirAttributes = mempty

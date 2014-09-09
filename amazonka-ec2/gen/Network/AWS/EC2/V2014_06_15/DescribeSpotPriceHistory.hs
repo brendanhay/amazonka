@@ -72,7 +72,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphStartTime :: Maybe ISO8601
     , _dsphEndTime :: Maybe ISO8601
@@ -86,6 +85,25 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotPriceHistory' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @InstanceTypes ::@ @[InstanceType]@
+--
+-- * @ProductDescriptions ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeSpotPriceHistory :: DescribeSpotPriceHistory
 mkDescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphStartTime = Nothing
@@ -145,7 +163,6 @@ dsphNextToken = lens _dsphNextToken (\s a -> s { _dsphNextToken = a })
 instance ToQuery DescribeSpotPriceHistory where
     toQuery = genericQuery def
 
--- | 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrSpotPriceHistory :: [SpotPrice]
     , _dsphrNextToken :: Maybe Text
@@ -155,6 +172,13 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 -- a valid 'DescribeSpotPriceHistoryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotPriceHistory ::@ @[SpotPrice]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
 mkDescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrSpotPriceHistory = mempty

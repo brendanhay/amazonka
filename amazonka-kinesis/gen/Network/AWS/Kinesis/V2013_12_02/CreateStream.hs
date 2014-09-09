@@ -83,6 +83,13 @@ data CreateStream = CreateStream
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStream' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
+-- * @ShardCount ::@ @Integer@
+--
 mkCreateStream :: Text -- ^ 'csStreamName'
                -> Integer -- ^ 'csShardCount'
                -> CreateStream

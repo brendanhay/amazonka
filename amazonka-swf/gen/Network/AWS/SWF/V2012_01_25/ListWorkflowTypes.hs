@@ -84,6 +84,21 @@ data ListWorkflowTypes = ListWorkflowTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListWorkflowTypes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @RegistrationStatus ::@ @RegistrationStatus@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @MaximumPageSize ::@ @Maybe Integer@
+--
+-- * @ReverseOrder ::@ @Maybe Bool@
+--
 mkListWorkflowTypes :: Text -- ^ 'lwtDomain'
                     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
                     -> ListWorkflowTypes
@@ -149,6 +164,13 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse
 -- a valid 'ListWorkflowTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TypeInfos ::@ @[WorkflowTypeInfo]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListWorkflowTypesResponse :: [WorkflowTypeInfo] -- ^ 'lwtrTypeInfos'
                             -> ListWorkflowTypesResponse
 mkListWorkflowTypesResponse p1 = ListWorkflowTypesResponse

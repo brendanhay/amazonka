@@ -83,6 +83,19 @@ data SignalWorkflowExecution = SignalWorkflowExecution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SignalWorkflowExecution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @SignalName ::@ @Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
 mkSignalWorkflowExecution :: Text -- ^ 'sweDomain'
                           -> Text -- ^ 'sweWorkflowId'
                           -> Text -- ^ 'sweSignalName'

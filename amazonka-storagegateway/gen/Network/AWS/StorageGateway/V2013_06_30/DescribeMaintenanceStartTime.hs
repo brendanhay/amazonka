@@ -65,6 +65,11 @@ newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMaintenanceStartTime' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDescribeMaintenanceStartTime :: Text -- ^ 'dmstGatewayARN'
                                -> DescribeMaintenanceStartTime
 mkDescribeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
@@ -96,6 +101,19 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 -- a valid 'DescribeMaintenanceStartTimeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @HourOfDay ::@ @Maybe Integer@
+--
+-- * @MinuteOfHour ::@ @Maybe Integer@
+--
+-- * @DayOfWeek ::@ @Maybe Integer@
+--
+-- * @Timezone ::@ @Maybe Text@
+--
 mkDescribeMaintenanceStartTimeResponse :: DescribeMaintenanceStartTimeResponse
 mkDescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     { _dmstrGatewayARN = Nothing

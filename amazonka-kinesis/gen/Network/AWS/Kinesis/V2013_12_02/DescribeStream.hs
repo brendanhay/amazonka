@@ -92,6 +92,15 @@ data DescribeStream = DescribeStream
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStream' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
+-- * @ExclusiveStartShardId ::@ @Maybe Text@
+--
 mkDescribeStream :: Text -- ^ 'ds1StreamName'
                  -> DescribeStream
 mkDescribeStream p1 = DescribeStream
@@ -131,6 +140,11 @@ newtype DescribeStreamResponse = DescribeStreamResponse
 -- a valid 'DescribeStreamResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamDescription ::@ @StreamDescription@
+--
 mkDescribeStreamResponse :: StreamDescription -- ^ 'dsrStreamDescription'
                          -> DescribeStreamResponse
 mkDescribeStreamResponse p1 = DescribeStreamResponse

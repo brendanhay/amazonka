@@ -93,6 +93,33 @@ data Query = Query
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Query' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
+-- * @IndexName ::@ @Maybe Text@
+--
+-- * @Select ::@ @Maybe Select@
+--
+-- * @AttributesToGet ::@ @Maybe (List1 Text)@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
+-- * @ConsistentRead ::@ @Maybe Bool@
+--
+-- * @KeyConditions ::@ @Map Text Condition@
+--
+-- * @QueryFilter ::@ @Map Text Condition@
+--
+-- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
+--
+-- * @ScanIndexForward ::@ @Maybe Bool@
+--
+-- * @ExclusiveStartKey ::@ @Map Text AttributeValue@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
 mkQuery :: Text -- ^ 'qTableName'
         -> Query
 mkQuery p1 = Query
@@ -312,6 +339,19 @@ data QueryResponse = QueryResponse
 -- a valid 'QueryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Items ::@ @[Map Text AttributeValue]@
+--
+-- * @Count ::@ @Maybe Integer@
+--
+-- * @ScannedCount ::@ @Maybe Integer@
+--
+-- * @LastEvaluatedKey ::@ @Map Text AttributeValue@
+--
+-- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
+--
 mkQueryResponse :: QueryResponse
 mkQueryResponse = QueryResponse
     { _qrItems = mempty

@@ -72,6 +72,17 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeClusterSecurityGroupIngress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroupName ::@ @Text@
+--
+-- * @CIDRIP ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupName ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+--
 mkAuthorizeClusterSecurityGroupIngress :: Text -- ^ 'acsgiClusterSecurityGroupName'
                                        -> AuthorizeClusterSecurityGroupIngress
 mkAuthorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
@@ -116,6 +127,11 @@ newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityG
 -- a valid 'AuthorizeClusterSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroup ::@ @Maybe ClusterSecurityGroup@
+--
 mkAuthorizeClusterSecurityGroupIngressResponse :: AuthorizeClusterSecurityGroupIngressResponse
 mkAuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
     { _acsgirClusterSecurityGroup = Nothing

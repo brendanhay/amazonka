@@ -52,6 +52,15 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSnapshotAccess' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotIdentifier ::@ @Text@
+--
+-- * @SnapshotClusterIdentifier ::@ @Maybe Text@
+--
+-- * @AccountWithRestoreAccess ::@ @Text@
+--
 mkAuthorizeSnapshotAccess :: Text -- ^ 'asaSnapshotIdentifier'
                           -> Text -- ^ 'asaAccountWithRestoreAccess'
                           -> AuthorizeSnapshotAccess
@@ -92,6 +101,11 @@ newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
 -- a valid 'AuthorizeSnapshotAccessResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkAuthorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse
 mkAuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot = Nothing

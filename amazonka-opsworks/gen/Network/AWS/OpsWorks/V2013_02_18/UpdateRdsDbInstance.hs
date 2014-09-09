@@ -47,6 +47,15 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateRdsDbInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RdsDbInstanceArn ::@ @Text@
+--
+-- * @DbUser ::@ @Maybe Text@
+--
+-- * @DbPassword ::@ @Maybe Text@
+--
 mkUpdateRdsDbInstance :: Text -- ^ 'urdiRdsDbInstanceArn'
                       -> UpdateRdsDbInstance
 mkUpdateRdsDbInstance p1 = UpdateRdsDbInstance

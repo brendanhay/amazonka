@@ -61,6 +61,17 @@ data CreateJob = CreateJob
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJob' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobType ::@ @JobType@
+--
+-- * @Manifest ::@ @Text@
+--
+-- * @ManifestAddendum ::@ @Maybe Text@
+--
+-- * @ValidateOnly ::@ @Bool@
+--
 mkCreateJob :: JobType -- ^ 'cj1JobType'
             -> Text -- ^ 'cj1Manifest'
             -> Bool -- ^ 'cj1ValidateOnly'
@@ -107,6 +118,21 @@ data CreateJobResponse = CreateJobResponse
 -- a valid 'CreateJobResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobId ::@ @Maybe Text@
+--
+-- * @JobType ::@ @Maybe JobType@
+--
+-- * @AwsShippingAddress ::@ @Maybe Text@
+--
+-- * @Signature ::@ @Maybe Text@
+--
+-- * @SignatureFileContents ::@ @Maybe Text@
+--
+-- * @WarningMessage ::@ @Maybe Text@
+--
 mkCreateJobResponse :: CreateJobResponse
 mkCreateJobResponse = CreateJobResponse
     { _cjrrJobId = Nothing

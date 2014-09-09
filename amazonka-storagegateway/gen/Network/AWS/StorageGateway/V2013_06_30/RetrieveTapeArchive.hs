@@ -46,6 +46,13 @@ data RetrieveTapeArchive = RetrieveTapeArchive
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveTapeArchive' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Text@
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkRetrieveTapeArchive :: Text -- ^ 'rtaTapeARN'
                       -> Text -- ^ 'rtaGatewayARN'
                       -> RetrieveTapeArchive
@@ -78,6 +85,11 @@ newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
 -- a valid 'RetrieveTapeArchiveResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
 mkRetrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse
 mkRetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN = Nothing

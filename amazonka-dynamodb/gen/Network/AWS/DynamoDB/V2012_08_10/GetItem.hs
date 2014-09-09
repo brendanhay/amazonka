@@ -70,6 +70,19 @@ data GetItem = GetItem
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetItem' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
+-- * @Key ::@ @Map Text AttributeValue@
+--
+-- * @AttributesToGet ::@ @Maybe (List1 Text)@
+--
+-- * @ConsistentRead ::@ @Maybe Bool@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
 mkGetItem :: Text -- ^ 'giTableName'
           -> Map Text AttributeValue -- ^ 'giKey'
           -> GetItem
@@ -130,6 +143,13 @@ data GetItemResponse = GetItemResponse
 -- a valid 'GetItemResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Item ::@ @Map Text AttributeValue@
+--
+-- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
+--
 mkGetItemResponse :: GetItemResponse
 mkGetItemResponse = GetItemResponse
     { _girItem = mempty

@@ -53,6 +53,11 @@ newtype DeleteRetentionPolicy = DeleteRetentionPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRetentionPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
 mkDeleteRetentionPolicy :: Text -- ^ 'drpLogGroupName'
                         -> DeleteRetentionPolicy
 mkDeleteRetentionPolicy p1 = DeleteRetentionPolicy

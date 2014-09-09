@@ -41,13 +41,17 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsCheckIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorCheckRefreshStatuses' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckIds ::@ @[Text]@
+--
 mkDescribeTrustedAdvisorCheckRefreshStatuses :: [Text] -- ^ 'dtacrsCheckIds'
                                              -> DescribeTrustedAdvisorCheckRefreshStatuses
 mkDescribeTrustedAdvisorCheckRefreshStatuses p1 = DescribeTrustedAdvisorCheckRefreshStatuses
@@ -76,6 +80,11 @@ newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvi
 -- a valid 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Statuses ::@ @[TrustedAdvisorCheckRefreshStatus]@
+--
 mkDescribeTrustedAdvisorCheckRefreshStatusesResponse :: [TrustedAdvisorCheckRefreshStatus] -- ^ 'dtacrsrStatuses'
                                                      -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
 mkDescribeTrustedAdvisorCheckRefreshStatusesResponse p1 = DescribeTrustedAdvisorCheckRefreshStatusesResponse

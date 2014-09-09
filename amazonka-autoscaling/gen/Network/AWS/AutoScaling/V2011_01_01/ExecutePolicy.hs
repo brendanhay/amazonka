@@ -39,7 +39,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data ExecutePolicy = ExecutePolicy
     { _epAutoScalingGroupName :: Maybe Text
     , _epPolicyName :: Text
@@ -48,6 +47,15 @@ data ExecutePolicy = ExecutePolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExecutePolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @HonorCooldown ::@ @Maybe Bool@
+--
 mkExecutePolicy :: Text -- ^ 'epPolicyName'
                 -> ExecutePolicy
 mkExecutePolicy p2 = ExecutePolicy

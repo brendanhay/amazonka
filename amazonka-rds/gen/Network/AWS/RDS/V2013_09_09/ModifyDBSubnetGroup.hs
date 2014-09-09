@@ -59,6 +59,15 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSubnetGroupName ::@ @Text@
+--
+-- * @DBSubnetGroupDescription ::@ @Maybe Text@
+--
+-- * @SubnetIds ::@ @[Text]@
+--
 mkModifyDBSubnetGroup :: Text -- ^ 'mdbsgDBSubnetGroupName'
                       -> [Text] -- ^ 'mdbsgSubnetIds'
                       -> ModifyDBSubnetGroup
@@ -96,6 +105,11 @@ newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
 -- a valid 'ModifyDBSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSubnetGroup ::@ @Maybe DBSubnetGroup@
+--
 mkModifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResponse
 mkModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup = Nothing

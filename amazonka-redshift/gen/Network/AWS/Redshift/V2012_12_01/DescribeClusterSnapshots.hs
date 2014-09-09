@@ -75,6 +75,25 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSnapshots' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Maybe Text@
+--
+-- * @SnapshotIdentifier ::@ @Maybe Text@
+--
+-- * @SnapshotType ::@ @Maybe Text@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
 mkDescribeClusterSnapshots :: DescribeClusterSnapshots
 mkDescribeClusterSnapshots = DescribeClusterSnapshots
     { _dcs1ClusterIdentifier = Nothing
@@ -156,6 +175,13 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 -- a valid 'DescribeClusterSnapshotsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Snapshots ::@ @[Snapshot]@
+--
 mkDescribeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
 mkDescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrrMarker = Nothing

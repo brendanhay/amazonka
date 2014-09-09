@@ -951,6 +951,11 @@ newtype BucketLoggingStatus = BucketLoggingStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BucketLoggingStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoggingEnabled ::@ @Maybe LoggingEnabled@
+--
 mkBucketLoggingStatus :: BucketLoggingStatus
 mkBucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled = Nothing
@@ -970,6 +975,11 @@ newtype CORSConfiguration = CORSConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CORSConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CORSRules ::@ @[CORSRule]@
+--
 mkCORSConfiguration :: CORSConfiguration
 mkCORSConfiguration = CORSConfiguration
     { _corscCORSRules = mempty
@@ -991,6 +1001,11 @@ newtype CommonPrefix = CommonPrefix
 --
 -- 'CommonPrefix' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Prefix ::@ @Maybe Text@
+--
 mkCommonPrefix :: CommonPrefix
 mkCommonPrefix = CommonPrefix
     { _cprPrefix = Nothing
@@ -1009,6 +1024,11 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompletedMultipartUpload' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Parts ::@ @[CompletedPart]@
+--
 mkCompletedMultipartUpload :: CompletedMultipartUpload
 mkCompletedMultipartUpload = CompletedMultipartUpload
     { _cmu1Parts = mempty
@@ -1027,6 +1047,11 @@ newtype CreateBucketConfiguration = CreateBucketConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateBucketConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LocationConstraint ::@ @Maybe Region@
+--
 mkCreateBucketConfiguration :: CreateBucketConfiguration
 mkCreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint = Nothing
@@ -1047,6 +1072,11 @@ newtype ErrorDocument = ErrorDocument
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ErrorDocument' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @ObjectKey@
+--
 mkErrorDocument :: ObjectKey -- ^ 'edKey'
                 -> ErrorDocument
 mkErrorDocument p1 = ErrorDocument
@@ -1071,6 +1101,11 @@ newtype IndexDocument = IndexDocument
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IndexDocument' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Suffix ::@ @Text@
+--
 mkIndexDocument :: Text -- ^ 'idSuffix'
                 -> IndexDocument
 mkIndexDocument p1 = IndexDocument
@@ -1099,6 +1134,11 @@ newtype LifecycleConfiguration = LifecycleConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LifecycleConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Rules ::@ @[Rule]@
+--
 mkLifecycleConfiguration :: [Rule] -- ^ 'lcRules'
                          -> LifecycleConfiguration
 mkLifecycleConfiguration p1 = LifecycleConfiguration
@@ -1123,6 +1163,11 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NoncurrentVersionExpiration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NoncurrentDays ::@ @Maybe Integer@
+--
 mkNoncurrentVersionExpiration :: NoncurrentVersionExpiration
 mkNoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays = Nothing
@@ -1150,6 +1195,11 @@ newtype NotificationConfiguration = NotificationConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NotificationConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicConfiguration ::@ @TopicConfiguration@
+--
 mkNotificationConfiguration :: TopicConfiguration -- ^ 'ncTopicConfiguration'
                             -> NotificationConfiguration
 mkNotificationConfiguration p1 = NotificationConfiguration
@@ -1170,6 +1220,11 @@ newtype RequestPaymentConfiguration = RequestPaymentConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestPaymentConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Payer ::@ @Payer@
+--
 mkRequestPaymentConfiguration :: Payer -- ^ 'rpcPayer'
                               -> RequestPaymentConfiguration
 mkRequestPaymentConfiguration p1 = RequestPaymentConfiguration
@@ -1190,6 +1245,11 @@ newtype RestoreRequest = RestoreRequest
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RestoreRequest' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Days ::@ @Integer@
+--
 mkRestoreRequest :: Integer -- ^ 'rr1Days'
                  -> RestoreRequest
 mkRestoreRequest p1 = RestoreRequest
@@ -1210,6 +1270,11 @@ newtype Tagging = Tagging
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tagging' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TagSet ::@ @[Tag]@
+--
 mkTagging :: [Tag] -- ^ 't1TagSet'
           -> Tagging
 mkTagging p1 = Tagging
@@ -1230,6 +1295,13 @@ data AccessControlPolicy = AccessControlPolicy
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessControlPolicy' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Grants ::@ @[Grant]@
+--
+-- * @Owner ::@ @Maybe Owner@
+--
 mkAccessControlPolicy :: AccessControlPolicy
 mkAccessControlPolicy = AccessControlPolicy
     { _acpGrants = mempty
@@ -1257,6 +1329,13 @@ data Bucket = Bucket
 --
 -- 'Bucket' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe BucketName@
+--
+-- * @CreationDate ::@ @Maybe RFC822@
+--
 mkBucket :: Bucket
 mkBucket = Bucket
     { _bName = Nothing
@@ -1285,6 +1364,19 @@ data CORSRule = CORSRule
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CORSRule' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AllowedHeaders ::@ @[Text]@
+--
+-- * @AllowedMethods ::@ @[Text]@
+--
+-- * @AllowedOrigins ::@ @[Text]@
+--
+-- * @ExposeHeaders ::@ @[Text]@
+--
+-- * @MaxAgeSeconds ::@ @Maybe Integer@
+--
 mkCORSRule :: CORSRule
 mkCORSRule = CORSRule
     { _corsrAllowedHeaders = mempty
@@ -1339,6 +1431,13 @@ data CompletedPart = CompletedPart
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompletedPart' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @PartNumber ::@ @Maybe Integer@
+--
 mkCompletedPart :: CompletedPart
 mkCompletedPart = CompletedPart
     { _cpETag = Nothing
@@ -1369,6 +1468,13 @@ data Condition = Condition
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Condition' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HttpErrorCodeReturnedEquals ::@ @Maybe Text@
+--
+-- * @KeyPrefixEquals ::@ @Maybe Text@
+--
 mkCondition :: Condition
 mkCondition = Condition
     { _cHttpErrorCodeReturnedEquals = Nothing
@@ -1414,6 +1520,13 @@ data CopyObjectResult = CopyObjectResult
 --
 -- 'CopyObjectResult' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @LastModified ::@ @Maybe RFC822@
+--
 mkCopyObjectResult :: CopyObjectResult
 mkCopyObjectResult = CopyObjectResult
     { _corrETag = Nothing
@@ -1441,6 +1554,13 @@ data CopyPartResult = CopyPartResult
 --
 -- 'CopyPartResult' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @LastModified ::@ @Maybe RFC822@
+--
 mkCopyPartResult :: CopyPartResult
 mkCopyPartResult = CopyPartResult
     { _cprrETag = Nothing
@@ -1467,6 +1587,13 @@ data Delete = Delete
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Delete' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Objects ::@ @[ObjectIdentifier]@
+--
+-- * @Quiet ::@ @Maybe Bool@
+--
 mkDelete :: [ObjectIdentifier] -- ^ 'dObjects'
          -> Delete
 mkDelete p1 = Delete
@@ -1499,6 +1626,19 @@ data DeleteMarkerEntry = DeleteMarkerEntry
 --
 -- 'DeleteMarkerEntry' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Owner ::@ @Maybe Owner@
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @IsLatest ::@ @Maybe Bool@
+--
+-- * @LastModified ::@ @Maybe RFC822@
+--
 mkDeleteMarkerEntry :: DeleteMarkerEntry
 mkDeleteMarkerEntry = DeleteMarkerEntry
     { _dmeOwner = Nothing
@@ -1544,6 +1684,17 @@ data DeletedObject = DeletedObject
 --
 -- 'DeletedObject' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @DeleteMarker ::@ @Maybe Bool@
+--
+-- * @DeleteMarkerVersionId ::@ @Maybe Text@
+--
 mkDeletedObject :: DeletedObject
 mkDeletedObject = DeletedObject
     { _do1rKey = Nothing
@@ -1583,6 +1734,17 @@ data Error = Error
 --
 -- 'Error' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkError :: Error
 mkError = Error
     { _eKey = Nothing
@@ -1614,6 +1776,13 @@ data Grant = Grant
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Grant' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Grantee ::@ @Maybe Grantee@
+--
+-- * @Permission ::@ @Maybe Permission@
+--
 mkGrant :: Grant
 mkGrant = Grant
     { _gGrantee = Nothing
@@ -1645,6 +1814,19 @@ data Grantee = Grantee
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Grantee' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DisplayName ::@ @Maybe Text@
+--
+-- * @EmailAddress ::@ @Maybe Text@
+--
+-- * @ID ::@ @Maybe Text@
+--
+-- * @Type ::@ @Type@
+--
+-- * @URI ::@ @Maybe Text@
+--
 mkGrantee :: Type -- ^ 'g1Type'
           -> Grantee
 mkGrantee p4 = Grantee
@@ -1691,6 +1873,13 @@ data Initiator = Initiator
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Initiator' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ID ::@ @Maybe Text@
+--
+-- * @DisplayName ::@ @Maybe Text@
+--
 mkInitiator :: Initiator
 mkInitiator = Initiator
     { _iID = Nothing
@@ -1721,6 +1910,13 @@ data LifecycleExpiration = LifecycleExpiration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LifecycleExpiration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Date ::@ @Maybe RFC822@
+--
+-- * @Days ::@ @Maybe Integer@
+--
 mkLifecycleExpiration :: LifecycleExpiration
 mkLifecycleExpiration = LifecycleExpiration
     { _leDate = Nothing
@@ -1753,6 +1949,15 @@ data LoggingEnabled = LoggingEnabled
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoggingEnabled' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetBucket ::@ @Maybe Text@
+--
+-- * @TargetGrants ::@ @[TargetGrant]@
+--
+-- * @TargetPrefix ::@ @Maybe Text@
+--
 mkLoggingEnabled :: LoggingEnabled
 mkLoggingEnabled = LoggingEnabled
     { _lerTargetBucket = Nothing
@@ -1799,6 +2004,21 @@ data MultipartUpload = MultipartUpload
 --
 -- 'MultipartUpload' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UploadId ::@ @Maybe Text@
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @Initiated ::@ @Maybe RFC822@
+--
+-- * @StorageClass ::@ @Maybe StorageClass@
+--
+-- * @Owner ::@ @Maybe Owner@
+--
+-- * @Initiator ::@ @Maybe Initiator@
+--
 mkMultipartUpload :: MultipartUpload
 mkMultipartUpload = MultipartUpload
     { _muUploadId = Nothing
@@ -1848,6 +2068,13 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NoncurrentVersionTransition' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NoncurrentDays ::@ @Maybe Integer@
+--
+-- * @StorageClass ::@ @Maybe TransitionStorageClass@
+--
 mkNoncurrentVersionTransition :: NoncurrentVersionTransition
 mkNoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays = Nothing
@@ -1888,6 +2115,21 @@ data Object = Object
 --
 -- 'Object' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @LastModified ::@ @RFC822@
+--
+-- * @ETag ::@ @ETag@
+--
+-- * @Size ::@ @Integer@
+--
+-- * @StorageClass ::@ @ObjectStorageClass@
+--
+-- * @Owner ::@ @Owner@
+--
 mkObject :: ObjectKey -- ^ 'orKey'
          -> RFC822 -- ^ 'orLastModified'
          -> ETag -- ^ 'orETag'
@@ -1934,6 +2176,13 @@ data ObjectIdentifier = ObjectIdentifier
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ObjectIdentifier' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
 mkObjectIdentifier :: ObjectKey -- ^ 'oiKey'
                    -> ObjectIdentifier
 mkObjectIdentifier p1 = ObjectIdentifier
@@ -1969,6 +2218,25 @@ data ObjectVersion = ObjectVersion
 --
 -- 'ObjectVersion' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @Size ::@ @Maybe Integer@
+--
+-- * @StorageClass ::@ @Maybe ObjectVersionStorageClass@
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @IsLatest ::@ @Maybe Bool@
+--
+-- * @LastModified ::@ @Maybe RFC822@
+--
+-- * @Owner ::@ @Maybe Owner@
+--
 mkObjectVersion :: ObjectVersion
 mkObjectVersion = ObjectVersion
     { _ovETag = Nothing
@@ -2023,6 +2291,13 @@ data Owner = Owner
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Owner' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DisplayName ::@ @Maybe Text@
+--
+-- * @ID ::@ @Maybe Text@
+--
 mkOwner :: Owner
 mkOwner = Owner
     { _oDisplayName = Nothing
@@ -2055,6 +2330,17 @@ data Part = Part
 --
 -- 'Part' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PartNumber ::@ @Maybe Integer@
+--
+-- * @LastModified ::@ @Maybe RFC822@
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @Size ::@ @Maybe Integer@
+--
 mkPart :: Part
 mkPart = Part
     { _pPartNumber = Nothing
@@ -2096,6 +2382,19 @@ data Redirect = Redirect
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Redirect' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostName ::@ @Maybe Text@
+--
+-- * @HttpRedirectCode ::@ @Maybe Text@
+--
+-- * @Protocol ::@ @Maybe Protocol@
+--
+-- * @ReplaceKeyPrefixWith ::@ @Maybe Text@
+--
+-- * @ReplaceKeyWith ::@ @Maybe Text@
+--
 mkRedirect :: Redirect
 mkRedirect = Redirect
     { _r1HostName = Nothing
@@ -2152,6 +2451,13 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RedirectAllRequestsTo' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostName ::@ @Text@
+--
+-- * @Protocol ::@ @Maybe Protocol@
+--
 mkRedirectAllRequestsTo :: Text -- ^ 'rartHostName'
                         -> RedirectAllRequestsTo
 mkRedirectAllRequestsTo p1 = RedirectAllRequestsTo
@@ -2183,6 +2489,13 @@ data RoutingRule = RoutingRule
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RoutingRule' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Condition ::@ @Maybe Condition@
+--
+-- * @Redirect ::@ @Redirect@
+--
 mkRoutingRule :: Redirect -- ^ 'rrRedirect'
               -> RoutingRule
 mkRoutingRule p2 = RoutingRule
@@ -2224,6 +2537,23 @@ data Rule = Rule
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Rule' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Expiration ::@ @Maybe LifecycleExpiration@
+--
+-- * @ID ::@ @Maybe Text@
+--
+-- * @Prefix ::@ @Text@
+--
+-- * @Status ::@ @Switch ExpirationStatus@
+--
+-- * @Transition ::@ @Maybe Transition@
+--
+-- * @NoncurrentVersionTransition ::@ @Maybe NoncurrentVersionTransition@
+--
+-- * @NoncurrentVersionExpiration ::@ @Maybe NoncurrentVersionExpiration@
+--
 mkRule :: Text -- ^ 'rPrefix'
        -> Switch ExpirationStatus -- ^ 'rStatus'
        -> Rule
@@ -2292,6 +2622,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @Value ::@ @Text@
+--
 mkTag :: ObjectKey -- ^ 'trKey'
       -> Text -- ^ 'trValue'
       -> Tag
@@ -2323,6 +2660,13 @@ data TargetGrant = TargetGrant
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TargetGrant' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Grantee ::@ @Maybe Grantee@
+--
+-- * @Permission ::@ @Maybe BucketLogsPermission@
+--
 mkTargetGrant :: TargetGrant
 mkTargetGrant = TargetGrant
     { _tgGrantee = Nothing
@@ -2351,6 +2695,13 @@ data TopicConfiguration = TopicConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TopicConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Event ::@ @Maybe Event@
+--
+-- * @Topic ::@ @Maybe Text@
+--
 mkTopicConfiguration :: TopicConfiguration
 mkTopicConfiguration = TopicConfiguration
     { _tcEvent = Nothing
@@ -2382,6 +2733,15 @@ data Transition = Transition
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Transition' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Date ::@ @Maybe RFC822@
+--
+-- * @Days ::@ @Maybe Integer@
+--
+-- * @StorageClass ::@ @Maybe TransitionStorageClass@
+--
 mkTransition :: Transition
 mkTransition = Transition
     { _tDate = Nothing
@@ -2418,6 +2778,13 @@ data VersioningConfiguration = VersioningConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VersioningConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe (Switch BucketVersioningStatus)@
+--
+-- * @MfaDelete ::@ @Maybe (Switch MFADelete)@
+--
 mkVersioningConfiguration :: VersioningConfiguration
 mkVersioningConfiguration = VersioningConfiguration
     { _vcStatus = Nothing
@@ -2448,6 +2815,17 @@ data WebsiteConfiguration = WebsiteConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WebsiteConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ErrorDocument ::@ @Maybe ErrorDocument@
+--
+-- * @IndexDocument ::@ @Maybe IndexDocument@
+--
+-- * @RedirectAllRequestsTo ::@ @Maybe RedirectAllRequestsTo@
+--
+-- * @RoutingRules ::@ @[RoutingRule]@
+--
 mkWebsiteConfiguration :: WebsiteConfiguration
 mkWebsiteConfiguration = WebsiteConfiguration
     { _wcErrorDocument = Nothing

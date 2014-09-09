@@ -67,6 +67,15 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetSubscriptionAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionArn ::@ @Text@
+--
+-- * @AttributeName ::@ @Text@
+--
+-- * @AttributeValue ::@ @Maybe Text@
+--
 mkSetSubscriptionAttributes :: Text -- ^ 'ssaSubscriptionArn'
                             -> Text -- ^ 'ssaAttributeName'
                             -> SetSubscriptionAttributes

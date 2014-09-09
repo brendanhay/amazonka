@@ -64,6 +64,15 @@ data CreateReplicationGroup = CreateReplicationGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateReplicationGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroupId ::@ @Text@
+--
+-- * @PrimaryClusterId ::@ @Text@
+--
+-- * @ReplicationGroupDescription ::@ @Text@
+--
 mkCreateReplicationGroup :: Text -- ^ 'crgReplicationGroupId'
                          -> Text -- ^ 'crgPrimaryClusterId'
                          -> Text -- ^ 'crgReplicationGroupDescription'
@@ -106,6 +115,11 @@ newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
 -- a valid 'CreateReplicationGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroup ::@ @Maybe ReplicationGroup@
+--
 mkCreateReplicationGroupResponse :: CreateReplicationGroupResponse
 mkCreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup = Nothing

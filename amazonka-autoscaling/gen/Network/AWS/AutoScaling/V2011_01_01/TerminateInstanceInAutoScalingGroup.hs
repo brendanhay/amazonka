@@ -50,6 +50,13 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateInstanceInAutoScalingGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @ShouldDecrementDesiredCapacity ::@ @Bool@
+--
 mkTerminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgInstanceId'
                                       -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
                                       -> TerminateInstanceInAutoScalingGroup
@@ -82,6 +89,11 @@ newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoSca
 -- a valid 'TerminateInstanceInAutoScalingGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Activity ::@ @Maybe Activity@
+--
 mkTerminateInstanceInAutoScalingGroupResponse :: TerminateInstanceInAutoScalingGroupResponse
 mkTerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity = Nothing

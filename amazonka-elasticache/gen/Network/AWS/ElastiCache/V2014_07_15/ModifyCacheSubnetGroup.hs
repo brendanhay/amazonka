@@ -58,6 +58,15 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSubnetGroupName ::@ @Text@
+--
+-- * @CacheSubnetGroupDescription ::@ @Maybe Text@
+--
+-- * @SubnetIds ::@ @[Text]@
+--
 mkModifyCacheSubnetGroup :: Text -- ^ 'mcsgCacheSubnetGroupName'
                          -> ModifyCacheSubnetGroup
 mkModifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
@@ -95,6 +104,11 @@ newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
 -- a valid 'ModifyCacheSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSubnetGroup ::@ @Maybe CacheSubnetGroup@
+--
 mkModifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResponse
 mkModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _mcsgrCacheSubnetGroup = Nothing

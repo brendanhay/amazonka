@@ -65,6 +65,11 @@ newtype TerminateJobFlows = TerminateJobFlows
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateJobFlows' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlowIds ::@ @[Text]@
+--
 mkTerminateJobFlows :: [Text] -- ^ 'tjfJobFlowIds'
                     -> TerminateJobFlows
 mkTerminateJobFlows p1 = TerminateJobFlows

@@ -57,6 +57,15 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSecurityGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroupName ::@ @Text@
+--
+-- * @DBSecurityGroupDescription ::@ @Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
                         -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
                         -> CreateDBSecurityGroup
@@ -97,6 +106,11 @@ newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
 -- a valid 'CreateDBSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroup ::@ @Maybe DBSecurityGroup@
+--
 mkCreateDBSecurityGroupResponse :: CreateDBSecurityGroupResponse
 mkCreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup = Nothing

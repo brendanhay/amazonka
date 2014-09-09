@@ -58,6 +58,17 @@ data CompleteMultipartUpload = CompleteMultipartUpload
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CompleteMultipartUpload' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @MultipartUpload ::@ @Maybe CompletedMultipartUpload@
+--
+-- * @UploadId ::@ @Text@
+--
 mkCompleteMultipartUpload :: BucketName -- ^ 'cmuBucket'
                           -> ObjectKey -- ^ 'cmuKey'
                           -> Text -- ^ 'cmuUploadId'
@@ -105,6 +116,23 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
 -- a valid 'CompleteMultipartUploadResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Bucket ::@ @Maybe BucketName@
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @Expiration ::@ @Maybe RFC822@
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
 mkCompleteMultipartUploadResponse :: CompleteMultipartUploadResponse
 mkCompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     { _cmurLocation = Nothing

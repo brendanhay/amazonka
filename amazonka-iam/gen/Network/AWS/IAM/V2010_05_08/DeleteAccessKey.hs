@@ -44,7 +44,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteAccessKey = DeleteAccessKey
     { _dakUserName :: Maybe Text
     , _dakAccessKeyId :: Text
@@ -52,6 +51,13 @@ data DeleteAccessKey = DeleteAccessKey
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccessKey' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @AccessKeyId ::@ @Text@
+--
 mkDeleteAccessKey :: Text -- ^ 'dakAccessKeyId'
                   -> DeleteAccessKey
 mkDeleteAccessKey p2 = DeleteAccessKey

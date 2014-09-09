@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ModifyVpcAttribute = ModifyVpcAttribute
     { _mva1VpcId :: Text
     , _mva1EnableDnsSupport :: Maybe AttributeBooleanValue
@@ -52,6 +51,15 @@ data ModifyVpcAttribute = ModifyVpcAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyVpcAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Text@
+--
+-- * @EnableDnsSupport ::@ @Maybe AttributeBooleanValue@
+--
+-- * @EnableDnsHostnames ::@ @Maybe AttributeBooleanValue@
+--
 mkModifyVpcAttribute :: Text -- ^ 'mva1VpcId'
                      -> ModifyVpcAttribute
 mkModifyVpcAttribute p1 = ModifyVpcAttribute

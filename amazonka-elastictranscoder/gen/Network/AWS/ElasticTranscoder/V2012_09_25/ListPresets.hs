@@ -70,6 +70,13 @@ data ListPresets = ListPresets
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPresets' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Ascending ::@ @Maybe Text@
+--
+-- * @PageToken ::@ @Maybe Text@
+--
 mkListPresets :: ListPresets
 mkListPresets = ListPresets
     { _lp1Ascending = Nothing
@@ -106,6 +113,13 @@ data ListPresetsResponse = ListPresetsResponse
 -- a valid 'ListPresetsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Presets ::@ @[Preset]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListPresetsResponse :: ListPresetsResponse
 mkListPresetsResponse = ListPresetsResponse
     { _lprrPresets = mempty

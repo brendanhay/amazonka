@@ -43,13 +43,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRole' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
 mkDeleteRole :: Text -- ^ 'drRoleName'
              -> DeleteRole
 mkDeleteRole p1 = DeleteRole

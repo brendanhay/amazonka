@@ -170,6 +170,17 @@ data Job = Job
 --
 -- 'Job' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobId ::@ @Text@
+--
+-- * @CreationDate ::@ @ISO8601@
+--
+-- * @IsCanceled ::@ @Bool@
+--
+-- * @JobType ::@ @JobType@
+--
 mkJob :: Text -- ^ 'jJobId'
       -> ISO8601 -- ^ 'jCreationDate'
       -> Bool -- ^ 'jIsCanceled'

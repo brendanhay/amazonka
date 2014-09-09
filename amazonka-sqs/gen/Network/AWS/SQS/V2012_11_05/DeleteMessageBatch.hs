@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbQueueUrl :: Text
     , _dmbEntries :: [DeleteMessageBatchRequestEntry]
@@ -69,6 +68,13 @@ data DeleteMessageBatch = DeleteMessageBatch
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMessageBatch' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @Entries ::@ @[DeleteMessageBatchRequestEntry]@
+--
 mkDeleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
                      -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
                      -> DeleteMessageBatch
@@ -100,6 +106,13 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
 -- a valid 'DeleteMessageBatchResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Successful ::@ @[DeleteMessageBatchResultEntry]@
+--
+-- * @Failed ::@ @[BatchResultErrorEntry]@
+--
 mkDeleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -- ^ 'dmbrSuccessful'
                              -> [BatchResultErrorEntry] -- ^ 'dmbrFailed'
                              -> DeleteMessageBatchResponse

@@ -126,6 +126,13 @@ data AssumedRoleUser = AssumedRoleUser
 --
 -- 'AssumedRoleUser' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AssumedRoleId ::@ @Text@
+--
+-- * @Arn ::@ @Text@
+--
 mkAssumedRoleUser :: Text -- ^ 'aruAssumedRoleId'
                   -> Text -- ^ 'aruArn'
                   -> AssumedRoleUser
@@ -165,6 +172,17 @@ data Credentials = Credentials
 --
 -- 'Credentials' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccessKeyId ::@ @Text@
+--
+-- * @SecretAccessKey ::@ @Text@
+--
+-- * @SessionToken ::@ @Text@
+--
+-- * @Expiration ::@ @ISO8601@
+--
 mkCredentials :: Text -- ^ 'cAccessKeyId'
               -> Text -- ^ 'cSecretAccessKey'
               -> Text -- ^ 'cSessionToken'
@@ -213,6 +231,13 @@ data FederatedUser = FederatedUser
 --
 -- 'FederatedUser' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FederatedUserId ::@ @Text@
+--
+-- * @Arn ::@ @Text@
+--
 mkFederatedUser :: Text -- ^ 'fuFederatedUserId'
                 -> Text -- ^ 'fuArn'
                 -> FederatedUser

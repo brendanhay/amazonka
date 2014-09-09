@@ -49,6 +49,13 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotCopyRetentionPeriod' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
+-- * @RetentionPeriod ::@ @Integer@
+--
 mkModifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpClusterIdentifier'
                                     -> Integer -- ^ 'mscrpRetentionPeriod'
                                     -> ModifySnapshotCopyRetentionPeriod
@@ -86,6 +93,11 @@ newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionP
 -- a valid 'ModifySnapshotCopyRetentionPeriodResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkModifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResponse
 mkModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster = Nothing

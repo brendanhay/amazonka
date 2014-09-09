@@ -44,13 +44,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelExportTask' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExportTaskId ::@ @Text@
+--
 mkCancelExportTask :: Text -- ^ 'cetExportTaskId'
                    -> CancelExportTask
 mkCancelExportTask p1 = CancelExportTask

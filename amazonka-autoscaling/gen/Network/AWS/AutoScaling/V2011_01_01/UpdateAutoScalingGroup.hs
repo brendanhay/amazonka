@@ -95,6 +95,33 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAutoScalingGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @LaunchConfigurationName ::@ @Maybe Text@
+--
+-- * @MinSize ::@ @Maybe Integer@
+--
+-- * @MaxSize ::@ @Maybe Integer@
+--
+-- * @DesiredCapacity ::@ @Maybe Integer@
+--
+-- * @DefaultCooldown ::@ @Maybe Integer@
+--
+-- * @AvailabilityZones ::@ @Maybe (List1 Text)@
+--
+-- * @HealthCheckType ::@ @Maybe Text@
+--
+-- * @HealthCheckGracePeriod ::@ @Maybe Integer@
+--
+-- * @PlacementGroup ::@ @Maybe Text@
+--
+-- * @VPCZoneIdentifier ::@ @Maybe Text@
+--
+-- * @TerminationPolicies ::@ @[Text]@
+--
 mkUpdateAutoScalingGroup :: Text -- ^ 'uasgAutoScalingGroupName'
                          -> UpdateAutoScalingGroup
 mkUpdateAutoScalingGroup p1 = UpdateAutoScalingGroup

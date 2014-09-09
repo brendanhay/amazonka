@@ -71,6 +71,23 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOrderableDBInstanceOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Engine ::@ @Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @LicenseModel ::@ @Maybe Text@
+--
+-- * @Vpc ::@ @Maybe Bool@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeOrderableDBInstanceOptions :: Text -- ^ 'dodbioEngine'
                                      -> DescribeOrderableDBInstanceOptions
 mkDescribeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
@@ -139,6 +156,13 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 -- a valid 'DescribeOrderableDBInstanceOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OrderableDBInstanceOptions ::@ @[OrderableDBInstanceOption]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
 mkDescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
     { _dodbiorOrderableDBInstanceOptions = mempty

@@ -79,13 +79,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CreateDhcpOptions = CreateDhcpOptions
     { _cdoDhcpConfigurations :: [DhcpConfiguration]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDhcpOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DhcpConfigurations ::@ @[DhcpConfiguration]@
+--
 mkCreateDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
                     -> CreateDhcpOptions
 mkCreateDhcpOptions p1 = CreateDhcpOptions
@@ -100,7 +104,6 @@ cdoDhcpConfigurations =
 instance ToQuery CreateDhcpOptions where
     toQuery = genericQuery def
 
--- | 
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
     } deriving (Show, Generic)
@@ -109,6 +112,11 @@ newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
 -- a valid 'CreateDhcpOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DhcpOptions ::@ @Maybe DhcpOptions@
+--
 mkCreateDhcpOptionsResponse :: CreateDhcpOptionsResponse
 mkCreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions = Nothing

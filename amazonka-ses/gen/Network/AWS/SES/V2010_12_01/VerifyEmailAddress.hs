@@ -57,6 +57,11 @@ newtype VerifyEmailAddress = VerifyEmailAddress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyEmailAddress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EmailAddress ::@ @Text@
+--
 mkVerifyEmailAddress :: Text -- ^ 'veaEmailAddress'
                      -> VerifyEmailAddress
 mkVerifyEmailAddress p1 = VerifyEmailAddress

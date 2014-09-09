@@ -57,6 +57,15 @@ data UpdateApplicationVersion = UpdateApplicationVersion
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplicationVersion' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @VersionLabel ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkUpdateApplicationVersion :: Text -- ^ 'uavApplicationName'
                            -> Text -- ^ 'uavVersionLabel'
                            -> UpdateApplicationVersion
@@ -94,6 +103,11 @@ newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
 -- a valid 'UpdateApplicationVersionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationVersion ::@ @Maybe ApplicationVersionDescription@
+--
 mkUpdateApplicationVersionResponse :: UpdateApplicationVersionResponse
 mkUpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion = Nothing

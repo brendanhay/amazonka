@@ -85,6 +85,17 @@ data UpdateDomainContact = UpdateDomainContact
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContact' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @AdminContact ::@ @Maybe ContactDetail@
+--
+-- * @RegistrantContact ::@ @Maybe ContactDetail@
+--
+-- * @TechContact ::@ @Maybe ContactDetail@
+--
 mkUpdateDomainContact :: Text -- ^ 'udcDomainName'
                       -> UpdateDomainContact
 mkUpdateDomainContact p1 = UpdateDomainContact
@@ -140,6 +151,11 @@ newtype UpdateDomainContactResponse = UpdateDomainContactResponse
 -- a valid 'UpdateDomainContactResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
 mkUpdateDomainContactResponse :: Text -- ^ 'udcrOperationId'
                               -> UpdateDomainContactResponse
 mkUpdateDomainContactResponse p1 = UpdateDomainContactResponse

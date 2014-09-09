@@ -86,6 +86,13 @@ data AddJobFlowSteps = AddJobFlowSteps
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddJobFlowSteps' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlowId ::@ @Text@
+--
+-- * @Steps ::@ @[StepConfig]@
+--
 mkAddJobFlowSteps :: Text -- ^ 'ajfsJobFlowId'
                   -> [StepConfig] -- ^ 'ajfsSteps'
                   -> AddJobFlowSteps
@@ -120,6 +127,11 @@ newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
 -- a valid 'AddJobFlowStepsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StepIds ::@ @[Text]@
+--
 mkAddJobFlowStepsResponse :: AddJobFlowStepsResponse
 mkAddJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsrStepIds = mempty

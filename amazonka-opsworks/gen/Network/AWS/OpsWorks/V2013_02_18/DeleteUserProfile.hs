@@ -45,6 +45,11 @@ newtype DeleteUserProfile = DeleteUserProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteUserProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArn ::@ @Text@
+--
 mkDeleteUserProfile :: Text -- ^ 'dupIamUserArn'
                     -> DeleteUserProfile
 mkDeleteUserProfile p1 = DeleteUserProfile

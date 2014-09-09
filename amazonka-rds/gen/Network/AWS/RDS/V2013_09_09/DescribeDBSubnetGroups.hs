@@ -61,6 +61,15 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSubnetGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSubnetGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBSubnetGroups :: DescribeDBSubnetGroups
 mkDescribeDBSubnetGroups = DescribeDBSubnetGroups
     { _ddbsg3DBSubnetGroupName = Nothing
@@ -102,6 +111,13 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
 -- a valid 'DescribeDBSubnetGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DBSubnetGroups ::@ @[DBSubnetGroup]@
+--
 mkDescribeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
 mkDescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrrMarker = Nothing

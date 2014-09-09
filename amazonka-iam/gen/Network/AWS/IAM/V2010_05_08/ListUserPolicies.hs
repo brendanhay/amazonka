@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListUserPolicies = ListUserPolicies
     { _lupUserName :: Text
     , _lupMarker :: Maybe Text
@@ -57,6 +56,15 @@ data ListUserPolicies = ListUserPolicies
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListUserPolicies' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListUserPolicies :: Text -- ^ 'lupUserName'
                    -> ListUserPolicies
 mkListUserPolicies p1 = ListUserPolicies
@@ -97,6 +105,15 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
 -- a valid 'ListUserPoliciesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyNames ::@ @[Text]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListUserPoliciesResponse :: [Text] -- ^ 'luprPolicyNames'
                            -> Bool -- ^ 'luprIsTruncated'
                            -> ListUserPoliciesResponse

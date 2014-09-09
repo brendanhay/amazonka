@@ -77,6 +77,15 @@ data UpdateTable = UpdateTable
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTable' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
+-- * @ProvisionedThroughput ::@ @Maybe ProvisionedThroughput@
+--
+-- * @GlobalSecondaryIndexUpdates ::@ @[GlobalSecondaryIndexUpdate]@
+--
 mkUpdateTable :: Text -- ^ 'utTableName'
               -> UpdateTable
 mkUpdateTable p1 = UpdateTable
@@ -122,6 +131,11 @@ newtype UpdateTableResponse = UpdateTableResponse
 -- a valid 'UpdateTableResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableDescription ::@ @Maybe TableDescription@
+--
 mkUpdateTableResponse :: UpdateTableResponse
 mkUpdateTableResponse = UpdateTableResponse
     { _utrTableDescription = Nothing

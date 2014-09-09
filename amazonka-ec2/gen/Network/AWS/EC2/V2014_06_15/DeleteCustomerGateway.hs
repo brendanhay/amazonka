@@ -45,13 +45,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteCustomerGateway = DeleteCustomerGateway
     { _dcgCustomerGatewayId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCustomerGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CustomerGatewayId ::@ @Text@
+--
 mkDeleteCustomerGateway :: Text -- ^ 'dcgCustomerGatewayId'
                         -> DeleteCustomerGateway
 mkDeleteCustomerGateway p1 = DeleteCustomerGateway

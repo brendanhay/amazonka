@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeAlarmHistory = DescribeAlarmHistory
     { _dahAlarmName :: Maybe Text
     , _dahHistoryItemType :: Maybe HistoryItemType
@@ -60,6 +59,21 @@ data DescribeAlarmHistory = DescribeAlarmHistory
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmHistory' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmName ::@ @Maybe Text@
+--
+-- * @HistoryItemType ::@ @Maybe HistoryItemType@
+--
+-- * @StartDate ::@ @Maybe ISO8601@
+--
+-- * @EndDate ::@ @Maybe ISO8601@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeAlarmHistory :: DescribeAlarmHistory
 mkDescribeAlarmHistory = DescribeAlarmHistory
     { _dahAlarmName = Nothing
@@ -109,6 +123,13 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
 -- a valid 'DescribeAlarmHistoryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmHistoryItems ::@ @[AlarmHistoryItem]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
 mkDescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems = mempty

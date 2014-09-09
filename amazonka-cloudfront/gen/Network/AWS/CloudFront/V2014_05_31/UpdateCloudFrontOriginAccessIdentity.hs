@@ -52,6 +52,15 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateCloudFrontOriginAccessIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CloudFrontOriginAccessIdentityConfig ::@ @CloudFrontOriginAccessIdentityConfig@
+--
+-- * @Id ::@ @Text@
+--
+-- * @IfMatch ::@ @Maybe Text@
+--
 mkUpdateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
                                        -> Text -- ^ 'ucfoaiId'
                                        -> UpdateCloudFrontOriginAccessIdentity
@@ -99,6 +108,13 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 -- a valid 'UpdateCloudFrontOriginAccessIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CloudFrontOriginAccessIdentity ::@ @Maybe CloudFrontOriginAccessIdentity@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkUpdateCloudFrontOriginAccessIdentityResponse :: UpdateCloudFrontOriginAccessIdentityResponse
 mkUpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
     { _ucfoairCloudFrontOriginAccessIdentity = Nothing

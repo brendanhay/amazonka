@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
     { _rlahLifecycleHookName :: Text
     , _rlahAutoScalingGroupName :: Text
@@ -59,6 +58,15 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RecordLifecycleActionHeartbeat' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LifecycleHookName ::@ @Text@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @LifecycleActionToken ::@ @Text@
+--
 mkRecordLifecycleActionHeartbeat :: Text -- ^ 'rlahLifecycleHookName'
                                  -> Text -- ^ 'rlahAutoScalingGroupName'
                                  -> Text -- ^ 'rlahLifecycleActionToken'

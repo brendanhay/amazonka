@@ -51,6 +51,11 @@ newtype GetHostedZone = GetHostedZone
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHostedZone' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkGetHostedZone :: Text -- ^ 'ghzId'
                 -> GetHostedZone
 mkGetHostedZone p1 = GetHostedZone
@@ -82,6 +87,13 @@ data GetHostedZoneResponse = GetHostedZoneResponse
 -- a valid 'GetHostedZoneResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostedZone ::@ @HostedZone@
+--
+-- * @DelegationSet ::@ @DelegationSet@
+--
 mkGetHostedZoneResponse :: HostedZone -- ^ 'ghzrHostedZone'
                         -> DelegationSet -- ^ 'ghzrDelegationSet'
                         -> GetHostedZoneResponse

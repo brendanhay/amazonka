@@ -61,6 +61,11 @@ newtype CreateTopic = CreateTopic
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTopic' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkCreateTopic :: Text -- ^ 'ctName'
               -> CreateTopic
 mkCreateTopic p1 = CreateTopic
@@ -85,6 +90,11 @@ newtype CreateTopicResponse = CreateTopicResponse
 -- a valid 'CreateTopicResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Maybe Text@
+--
 mkCreateTopicResponse :: CreateTopicResponse
 mkCreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn = Nothing

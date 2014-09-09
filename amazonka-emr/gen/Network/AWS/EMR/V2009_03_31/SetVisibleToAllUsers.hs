@@ -66,6 +66,13 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetVisibleToAllUsers' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlowIds ::@ @[Text]@
+--
+-- * @VisibleToAllUsers ::@ @Bool@
+--
 mkSetVisibleToAllUsers :: [Text] -- ^ 'svtauJobFlowIds'
                        -> Bool -- ^ 'svtauVisibleToAllUsers'
                        -> SetVisibleToAllUsers

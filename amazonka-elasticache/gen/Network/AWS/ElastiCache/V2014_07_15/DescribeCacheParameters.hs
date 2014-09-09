@@ -65,6 +65,17 @@ data DescribeCacheParameters = DescribeCacheParameters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheParameters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Text@
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeCacheParameters :: Text -- ^ 'dcpCacheParameterGroupName'
                           -> DescribeCacheParameters
 mkDescribeCacheParameters p1 = DescribeCacheParameters
@@ -113,6 +124,15 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
 -- a valid 'DescribeCacheParametersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
+-- * @CacheNodeTypeSpecificParameters ::@ @[CacheNodeTypeSpecificParameter]@
+--
 mkDescribeCacheParametersResponse :: DescribeCacheParametersResponse
 mkDescribeCacheParametersResponse = DescribeCacheParametersResponse
     { _dcprMarker = Nothing

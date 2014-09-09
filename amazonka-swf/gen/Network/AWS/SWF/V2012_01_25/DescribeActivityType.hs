@@ -83,6 +83,13 @@ data DescribeActivityType = DescribeActivityType
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeActivityType' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @ActivityType ::@ @ActivityType@
+--
 mkDescribeActivityType :: Text -- ^ 'dat1Domain'
                        -> ActivityType -- ^ 'dat1ActivityType'
                        -> DescribeActivityType
@@ -118,6 +125,13 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
 -- a valid 'DescribeActivityTypeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TypeInfo ::@ @ActivityTypeInfo@
+--
+-- * @Configuration ::@ @ActivityTypeConfiguration@
+--
 mkDescribeActivityTypeResponse :: ActivityTypeInfo -- ^ 'datrTypeInfo'
                                -> ActivityTypeConfiguration -- ^ 'datrConfiguration'
                                -> DescribeActivityTypeResponse

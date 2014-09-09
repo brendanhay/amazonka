@@ -50,6 +50,13 @@ data RemoveTags = RemoveTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerNames ::@ @[Text]@
+--
+-- * @Tags ::@ @List1 TagKeyOnly@
+--
 mkRemoveTags :: [Text] -- ^ 'rtLoadBalancerNames'
              -> List1 TagKeyOnly -- ^ 'rtTags'
              -> RemoveTags

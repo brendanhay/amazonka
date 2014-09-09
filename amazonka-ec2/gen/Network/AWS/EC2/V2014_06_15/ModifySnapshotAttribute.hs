@@ -69,7 +69,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msaSnapshotId :: Text
     , _msaAttribute :: Maybe SnapshotAttributeName
@@ -81,6 +80,21 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Text@
+--
+-- * @Attribute ::@ @Maybe SnapshotAttributeName@
+--
+-- * @OperationType ::@ @Maybe Text@
+--
+-- * @UserIds ::@ @[Text]@
+--
+-- * @GroupNames ::@ @[Text]@
+--
+-- * @CreateVolumePermission ::@ @Maybe CreateVolumePermissionModifications@
+--
 mkModifySnapshotAttribute :: Text -- ^ 'msaSnapshotId'
                           -> ModifySnapshotAttribute
 mkModifySnapshotAttribute p1 = ModifySnapshotAttribute

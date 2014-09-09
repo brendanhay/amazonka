@@ -64,6 +64,29 @@ data UpdateApp = UpdateApp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AppId ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DataSources ::@ @[DataSource]@
+--
+-- * @Type ::@ @Maybe AppType@
+--
+-- * @AppSource ::@ @Maybe Source@
+--
+-- * @Domains ::@ @[Text]@
+--
+-- * @EnableSsl ::@ @Maybe Bool@
+--
+-- * @SslConfiguration ::@ @Maybe SslConfiguration@
+--
+-- * @Attributes ::@ @Map AppAttributesKeys Text@
+--
 mkUpdateApp :: Text -- ^ 'uaAppId'
             -> UpdateApp
 mkUpdateApp p1 = UpdateApp

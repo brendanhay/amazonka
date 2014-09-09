@@ -49,6 +49,17 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterRdsDbInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @RdsDbInstanceArn ::@ @Text@
+--
+-- * @DbUser ::@ @Text@
+--
+-- * @DbPassword ::@ @Text@
+--
 mkRegisterRdsDbInstance :: Text -- ^ 'rrdiStackId'
                         -> Text -- ^ 'rrdiRdsDbInstanceArn'
                         -> Text -- ^ 'rrdiDbUser'

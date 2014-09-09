@@ -47,6 +47,11 @@ newtype DeleteIdentityPool = DeleteIdentityPool
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIdentityPool' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolId ::@ @Text@
+--
 mkDeleteIdentityPool :: Text -- ^ 'dipIdentityPoolId'
                      -> DeleteIdentityPool
 mkDeleteIdentityPool p1 = DeleteIdentityPool

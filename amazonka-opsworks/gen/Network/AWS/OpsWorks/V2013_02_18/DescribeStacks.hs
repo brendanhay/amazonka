@@ -49,6 +49,11 @@ newtype DescribeStacks = DescribeStacks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStacks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackIds ::@ @[Text]@
+--
 mkDescribeStacks :: DescribeStacks
 mkDescribeStacks = DescribeStacks
     { _ds2StackIds = mempty
@@ -76,6 +81,11 @@ newtype DescribeStacksResponse = DescribeStacksResponse
 -- a valid 'DescribeStacksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Stacks ::@ @[Stack]@
+--
 mkDescribeStacksResponse :: DescribeStacksResponse
 mkDescribeStacksResponse = DescribeStacksResponse
     { _dsrStacks = mempty

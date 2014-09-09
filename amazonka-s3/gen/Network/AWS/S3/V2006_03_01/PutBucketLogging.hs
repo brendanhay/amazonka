@@ -50,6 +50,15 @@ data PutBucketLogging = PutBucketLogging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketLogging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @BucketLoggingStatus ::@ @BucketLoggingStatus@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
 mkPutBucketLogging :: BucketName -- ^ 'pbl1Bucket'
                    -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
                    -> PutBucketLogging

@@ -56,6 +56,13 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceAccessPolicies' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Deployed ::@ @Maybe Bool@
+--
 mkDescribeServiceAccessPolicies :: Text -- ^ 'dsapDomainName'
                                 -> DescribeServiceAccessPolicies
 mkDescribeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
@@ -84,6 +91,11 @@ newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRes
 -- a valid 'DescribeServiceAccessPoliciesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccessPolicies ::@ @AccessPoliciesStatus@
+--
 mkDescribeServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'dsaprAccessPolicies'
                                         -> DescribeServiceAccessPoliciesResponse
 mkDescribeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse

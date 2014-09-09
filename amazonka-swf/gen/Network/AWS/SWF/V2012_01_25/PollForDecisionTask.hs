@@ -123,6 +123,21 @@ data PollForDecisionTask = PollForDecisionTask
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForDecisionTask' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @Identity ::@ @Maybe Text@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @MaximumPageSize ::@ @Maybe Integer@
+--
+-- * @ReverseOrder ::@ @Maybe Bool@
+--
 mkPollForDecisionTask :: Text -- ^ 'pfdtDomain'
                       -> TaskList -- ^ 'pfdtTaskList'
                       -> PollForDecisionTask
@@ -206,6 +221,23 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse
 -- a valid 'PollForDecisionTaskResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskToken ::@ @Text@
+--
+-- * @StartedEventId ::@ @Integer@
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @Events ::@ @[HistoryEvent]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @PreviousStartedEventId ::@ @Maybe Integer@
+--
 mkPollForDecisionTaskResponse :: Text -- ^ 'pfdtrTaskToken'
                               -> Integer -- ^ 'pfdtrStartedEventId'
                               -> WorkflowExecution -- ^ 'pfdtrWorkflowExecution'

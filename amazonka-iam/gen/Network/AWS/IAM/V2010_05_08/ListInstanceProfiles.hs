@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListInstanceProfiles = ListInstanceProfiles
     { _lipPathPrefix :: Maybe Text
     , _lipMarker :: Maybe Text
@@ -63,6 +62,15 @@ data ListInstanceProfiles = ListInstanceProfiles
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceProfiles' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PathPrefix ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListInstanceProfiles :: ListInstanceProfiles
 mkListInstanceProfiles = ListInstanceProfiles
     { _lipPathPrefix = Nothing
@@ -108,6 +116,15 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
 -- a valid 'ListInstanceProfilesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfiles ::@ @[InstanceProfile]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListInstanceProfilesResponse :: [InstanceProfile] -- ^ 'liprInstanceProfiles'
                                -> Bool -- ^ 'liprIsTruncated'
                                -> ListInstanceProfilesResponse

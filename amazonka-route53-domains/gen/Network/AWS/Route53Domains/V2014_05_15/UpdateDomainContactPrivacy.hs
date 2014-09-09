@@ -74,6 +74,17 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContactPrivacy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @AdminPrivacy ::@ @Maybe Bool@
+--
+-- * @RegistrantPrivacy ::@ @Maybe Bool@
+--
+-- * @TechPrivacy ::@ @Maybe Bool@
+--
 mkUpdateDomainContactPrivacy :: Text -- ^ 'udcpDomainName'
                              -> UpdateDomainContactPrivacy
 mkUpdateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
@@ -130,6 +141,11 @@ newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
 -- a valid 'UpdateDomainContactPrivacyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
 mkUpdateDomainContactPrivacyResponse :: Text -- ^ 'udcprOperationId'
                                      -> UpdateDomainContactPrivacyResponse
 mkUpdateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse

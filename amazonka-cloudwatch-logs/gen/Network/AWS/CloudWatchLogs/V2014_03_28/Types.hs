@@ -139,6 +139,13 @@ data InputLogEvent = InputLogEvent
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InputLogEvent' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Timestamp ::@ @Integer@
+--
+-- * @Message ::@ @Text@
+--
 mkInputLogEvent :: Integer -- ^ 'ileTimestamp'
                 -> Text -- ^ 'ileMessage'
                 -> InputLogEvent
@@ -171,6 +178,21 @@ data LogGroup = LogGroup
 --
 -- 'LogGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Maybe Text@
+--
+-- * @CreationTime ::@ @Maybe Integer@
+--
+-- * @RetentionInDays ::@ @Maybe Integer@
+--
+-- * @MetricFilterCount ::@ @Maybe Integer@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @StoredBytes ::@ @Maybe Integer@
+--
 mkLogGroup :: LogGroup
 mkLogGroup = LogGroup
     { _lgLogGroupName = Nothing
@@ -226,6 +248,25 @@ data LogStream = LogStream
 --
 -- 'LogStream' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogStreamName ::@ @Maybe Text@
+--
+-- * @CreationTime ::@ @Maybe Integer@
+--
+-- * @FirstEventTimestamp ::@ @Maybe Integer@
+--
+-- * @LastEventTimestamp ::@ @Maybe Integer@
+--
+-- * @LastIngestionTime ::@ @Maybe Integer@
+--
+-- * @UploadSequenceToken ::@ @Maybe Text@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @StoredBytes ::@ @Maybe Integer@
+--
 mkLogStream :: LogStream
 mkLogStream = LogStream
     { _lsLogStreamName = Nothing
@@ -294,6 +335,17 @@ data MetricFilter = MetricFilter
 --
 -- 'MetricFilter' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FilterName ::@ @Maybe Text@
+--
+-- * @FilterPattern ::@ @Maybe Text@
+--
+-- * @MetricTransformations ::@ @Maybe (List1 MetricTransformation)@
+--
+-- * @CreationTime ::@ @Maybe Integer@
+--
 mkMetricFilter :: MetricFilter
 mkMetricFilter = MetricFilter
     { _mfFilterName = Nothing
@@ -332,6 +384,15 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord
 --
 -- 'MetricFilterMatchRecord' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventNumber ::@ @Maybe Integer@
+--
+-- * @EventMessage ::@ @Maybe Text@
+--
+-- * @ExtractedValues ::@ @Map Text Text@
+--
 mkMetricFilterMatchRecord :: MetricFilterMatchRecord
 mkMetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventNumber = Nothing
@@ -360,6 +421,15 @@ data MetricTransformation = MetricTransformation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricTransformation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MetricName ::@ @Text@
+--
+-- * @MetricNamespace ::@ @Text@
+--
+-- * @MetricValue ::@ @Text@
+--
 mkMetricTransformation :: Text -- ^ 'mtMetricName'
                        -> Text -- ^ 'mtMetricNamespace'
                        -> Text -- ^ 'mtMetricValue'
@@ -395,6 +465,15 @@ data OutputLogEvent = OutputLogEvent
 --
 -- 'OutputLogEvent' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Timestamp ::@ @Maybe Integer@
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @IngestionTime ::@ @Maybe Integer@
+--
 mkOutputLogEvent :: OutputLogEvent
 mkOutputLogEvent = OutputLogEvent
     { _oleTimestamp = Nothing

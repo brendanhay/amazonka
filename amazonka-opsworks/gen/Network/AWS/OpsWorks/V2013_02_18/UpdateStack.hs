@@ -78,6 +78,43 @@ data UpdateStack = UpdateStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map StackAttributesKeys Text@
+--
+-- * @ServiceRoleArn ::@ @Maybe Text@
+--
+-- * @DefaultInstanceProfileArn ::@ @Maybe Text@
+--
+-- * @DefaultOs ::@ @Maybe Text@
+--
+-- * @HostnameTheme ::@ @Maybe Text@
+--
+-- * @DefaultAvailabilityZone ::@ @Maybe Text@
+--
+-- * @DefaultSubnetId ::@ @Maybe Text@
+--
+-- * @CustomJson ::@ @Maybe Text@
+--
+-- * @ConfigurationManager ::@ @Maybe StackConfigurationManager@
+--
+-- * @ChefConfiguration ::@ @Maybe ChefConfiguration@
+--
+-- * @UseCustomCookbooks ::@ @Maybe Bool@
+--
+-- * @CustomCookbooksSource ::@ @Maybe Source@
+--
+-- * @DefaultSshKeyName ::@ @Maybe Text@
+--
+-- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
+--
+-- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
+--
 mkUpdateStack :: Text -- ^ 'usStackId'
               -> UpdateStack
 mkUpdateStack p1 = UpdateStack

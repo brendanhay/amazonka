@@ -52,7 +52,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DetachInstances = DetachInstances
     { _diInstanceIds :: [Text]
     , _diAutoScalingGroupName :: Text
@@ -61,6 +60,15 @@ data DetachInstances = DetachInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @ShouldDecrementDesiredCapacity ::@ @Bool@
+--
 mkDetachInstances :: Text -- ^ 'diAutoScalingGroupName'
                   -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
                   -> DetachInstances
@@ -100,6 +108,11 @@ newtype DetachInstancesResponse = DetachInstancesResponse
 -- a valid 'DetachInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Activities ::@ @[Activity]@
+--
 mkDetachInstancesResponse :: DetachInstancesResponse
 mkDetachInstancesResponse = DetachInstancesResponse
     { _dirActivities = mempty

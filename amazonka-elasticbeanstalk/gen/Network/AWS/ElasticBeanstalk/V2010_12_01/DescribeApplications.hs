@@ -50,6 +50,11 @@ newtype DescribeApplications = DescribeApplications
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApplications' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationNames ::@ @[Text]@
+--
 mkDescribeApplications :: DescribeApplications
 mkDescribeApplications = DescribeApplications
     { _da1ApplicationNames = mempty
@@ -73,6 +78,11 @@ newtype DescribeApplicationsResponse = DescribeApplicationsResponse
 -- a valid 'DescribeApplicationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Applications ::@ @[ApplicationDescription]@
+--
 mkDescribeApplicationsResponse :: DescribeApplicationsResponse
 mkDescribeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications = mempty

@@ -59,6 +59,13 @@ data DeleteCacheCluster = DeleteCacheCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Text@
+--
+-- * @FinalSnapshotIdentifier ::@ @Maybe Text@
+--
 mkDeleteCacheCluster :: Text -- ^ 'dccCacheClusterId'
                      -> DeleteCacheCluster
 mkDeleteCacheCluster p1 = DeleteCacheCluster
@@ -90,6 +97,11 @@ newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
 -- a valid 'DeleteCacheClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheCluster ::@ @Maybe CacheCluster@
+--
 mkDeleteCacheClusterResponse :: DeleteCacheClusterResponse
 mkDeleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster = Nothing

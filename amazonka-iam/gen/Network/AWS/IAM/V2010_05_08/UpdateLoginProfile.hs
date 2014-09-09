@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateLoginProfile = UpdateLoginProfile
     { _ulpUserName :: Text
     , _ulpPassword :: Maybe Text
@@ -50,6 +49,15 @@ data UpdateLoginProfile = UpdateLoginProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateLoginProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @Password ::@ @Maybe Text@
+--
+-- * @PasswordResetRequired ::@ @Maybe Bool@
+--
 mkUpdateLoginProfile :: Text -- ^ 'ulpUserName'
                      -> UpdateLoginProfile
 mkUpdateLoginProfile p1 = UpdateLoginProfile

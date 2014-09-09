@@ -72,7 +72,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data StopInstances = StopInstances
     { _si1InstanceIds :: [Text]
     , _si1Force :: Maybe Bool
@@ -80,6 +79,13 @@ data StopInstances = StopInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @Force ::@ @Maybe Bool@
+--
 mkStopInstances :: [Text] -- ^ 'si1InstanceIds'
                 -> StopInstances
 mkStopInstances p1 = StopInstances
@@ -101,7 +107,6 @@ si1Force = lens _si1Force (\s a -> s { _si1Force = a })
 instance ToQuery StopInstances where
     toQuery = genericQuery def
 
--- | 
 newtype StopInstancesResponse = StopInstancesResponse
     { _sir1StoppingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
@@ -110,6 +115,11 @@ newtype StopInstancesResponse = StopInstancesResponse
 -- a valid 'StopInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StoppingInstances ::@ @[InstanceStateChange]@
+--
 mkStopInstancesResponse :: StopInstancesResponse
 mkStopInstancesResponse = StopInstancesResponse
     { _sir1StoppingInstances = mempty

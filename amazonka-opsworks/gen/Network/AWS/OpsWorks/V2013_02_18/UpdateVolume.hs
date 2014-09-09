@@ -51,6 +51,15 @@ data UpdateVolume = UpdateVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @MountPoint ::@ @Maybe Text@
+--
 mkUpdateVolume :: Text -- ^ 'uv1VolumeId'
                -> UpdateVolume
 mkUpdateVolume p1 = UpdateVolume

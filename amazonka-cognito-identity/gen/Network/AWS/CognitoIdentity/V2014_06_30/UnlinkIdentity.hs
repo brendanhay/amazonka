@@ -50,6 +50,15 @@ data UnlinkIdentity = UnlinkIdentity
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnlinkIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityId ::@ @Text@
+--
+-- * @Logins ::@ @Map Text Text@
+--
+-- * @LoginsToRemove ::@ @[Text]@
+--
 mkUnlinkIdentity :: Text -- ^ 'uiIdentityId'
                  -> Map Text Text -- ^ 'uiLogins'
                  -> [Text] -- ^ 'uiLoginsToRemove'

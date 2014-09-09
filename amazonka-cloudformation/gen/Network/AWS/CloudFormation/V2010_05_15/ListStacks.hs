@@ -65,6 +65,13 @@ data ListStacks = ListStacks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStacks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @StackStatusFilter ::@ @[StackStatus]@
+--
 mkListStacks :: ListStacks
 mkListStacks = ListStacks
     { _lsNextToken = Nothing
@@ -96,6 +103,13 @@ data ListStacksResponse = ListStacksResponse
 -- a valid 'ListStacksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackSummaries ::@ @[StackSummary]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListStacksResponse :: ListStacksResponse
 mkListStacksResponse = ListStacksResponse
     { _lsr1StackSummaries = mempty

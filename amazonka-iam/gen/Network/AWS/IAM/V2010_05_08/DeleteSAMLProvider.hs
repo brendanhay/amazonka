@@ -43,13 +43,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSAMLProvider' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLProviderArn ::@ @Text@
+--
 mkDeleteSAMLProvider :: Text -- ^ 'dsamlpSAMLProviderArn'
                      -> DeleteSAMLProvider
 mkDeleteSAMLProvider p1 = DeleteSAMLProvider

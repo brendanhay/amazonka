@@ -49,6 +49,11 @@ newtype GetBucketWebsite = GetBucketWebsite
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketWebsite' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketWebsite :: BucketName -- ^ 'gbwBucket'
                    -> GetBucketWebsite
 mkGetBucketWebsite p1 = GetBucketWebsite
@@ -77,6 +82,17 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
 -- a valid 'GetBucketWebsiteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RedirectAllRequestsTo ::@ @Maybe RedirectAllRequestsTo@
+--
+-- * @IndexDocument ::@ @Maybe IndexDocument@
+--
+-- * @ErrorDocument ::@ @Maybe ErrorDocument@
+--
+-- * @RoutingRules ::@ @[RoutingRule]@
+--
 mkGetBucketWebsiteResponse :: GetBucketWebsiteResponse
 mkGetBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrRedirectAllRequestsTo = Nothing

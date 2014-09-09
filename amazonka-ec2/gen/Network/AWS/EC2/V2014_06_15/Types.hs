@@ -3354,6 +3354,11 @@ newtype AccountAttributeValue = AccountAttributeValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccountAttributeValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeValue ::@ @Maybe Text@
+--
 mkAccountAttributeValue :: AccountAttributeValue
 mkAccountAttributeValue = AccountAttributeValue
     { _aavAttributeValue = Nothing
@@ -3379,6 +3384,11 @@ newtype AttributeBooleanValue = AttributeBooleanValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeBooleanValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Value ::@ @Maybe Bool@
+--
 mkAttributeBooleanValue :: AttributeBooleanValue
 mkAttributeBooleanValue = AttributeBooleanValue
     { _abvValue = Nothing
@@ -3402,6 +3412,11 @@ newtype AttributeValue = AttributeValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkAttributeValue :: AttributeValue
 mkAttributeValue = AttributeValue
     { _av1Value = Nothing
@@ -3425,6 +3440,11 @@ newtype AvailabilityZoneMessage = AvailabilityZoneMessage
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZoneMessage' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkAvailabilityZoneMessage :: AvailabilityZoneMessage
 mkAvailabilityZoneMessage = AvailabilityZoneMessage
     { _azmMessage = Nothing
@@ -3448,6 +3468,11 @@ newtype IpRange = IpRange
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IpRange' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CidrIp ::@ @Text@
+--
 mkIpRange :: Text -- ^ 'irCidrIp'
           -> IpRange
 mkIpRange p1 = IpRange
@@ -3473,6 +3498,11 @@ newtype Monitoring = Monitoring
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Monitoring' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @Maybe MonitoringState@
+--
 mkMonitoring :: Monitoring
 mkMonitoring = Monitoring
     { _mState = Nothing
@@ -3496,6 +3526,11 @@ newtype PropagatingVgw = PropagatingVgw
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PropagatingVgw' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayId ::@ @Maybe Text@
+--
 mkPropagatingVgw :: PropagatingVgw
 mkPropagatingVgw = PropagatingVgw
     { _pvGatewayId = Nothing
@@ -3519,6 +3554,11 @@ newtype ReservedInstancesId = ReservedInstancesId
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesId' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesId ::@ @Maybe Text@
+--
 mkReservedInstancesId :: ReservedInstancesId
 mkReservedInstancesId = ReservedInstancesId
     { _riiReservedInstancesId = Nothing
@@ -3543,6 +3583,11 @@ newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RunInstancesMonitoringEnabled' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
 mkRunInstancesMonitoringEnabled :: Bool -- ^ 'rimeEnabled'
                                 -> RunInstancesMonitoringEnabled
 mkRunInstancesMonitoringEnabled p1 = RunInstancesMonitoringEnabled
@@ -3565,6 +3610,11 @@ newtype Storage = Storage
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Storage' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @S3 ::@ @Maybe S3Storage@
+--
 mkStorage :: Storage
 mkStorage = Storage
     { _sS3 = Nothing
@@ -3581,13 +3631,17 @@ instance FromXML Storage where
 instance ToQuery Storage where
     toQuery = genericQuery def
 
--- | 
 newtype VolumeDetail = VolumeDetail
     { _vdSize :: Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Size ::@ @Integer@
+--
 mkVolumeDetail :: Integer -- ^ 'vdSize'
                -> VolumeDetail
 mkVolumeDetail p1 = VolumeDetail
@@ -3612,6 +3666,11 @@ newtype VpnConnectionOptions = VpnConnectionOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnConnectionOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StaticRoutesOnly ::@ @Maybe Bool@
+--
 mkVpnConnectionOptions :: VpnConnectionOptions
 mkVpnConnectionOptions = VpnConnectionOptions
     { _vcoStaticRoutesOnly = Nothing
@@ -3639,6 +3698,11 @@ newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnConnectionOptionsSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StaticRoutesOnly ::@ @Maybe Bool@
+--
 mkVpnConnectionOptionsSpecification :: VpnConnectionOptionsSpecification
 mkVpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
     { _vcosStaticRoutesOnly = Nothing
@@ -3664,6 +3728,13 @@ data AccountAttribute = AccountAttribute
 --
 -- 'AccountAttribute' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeName ::@ @Maybe Text@
+--
+-- * @AttributeValues ::@ @[AccountAttributeValue]@
+--
 mkAccountAttribute :: AccountAttribute
 mkAccountAttribute = AccountAttribute
     { _aa1rAttributeName = Nothing
@@ -3701,6 +3772,25 @@ data Address = Address
 --
 -- 'Address' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @AllocationId ::@ @Maybe Text@
+--
+-- * @AssociationId ::@ @Maybe Text@
+--
+-- * @Domain ::@ @Maybe DomainType@
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @NetworkInterfaceOwnerId ::@ @Maybe Text@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
 mkAddress :: Address
 mkAddress = Address
     { _aInstanceId = Nothing
@@ -3768,6 +3858,17 @@ data AvailabilityZone = AvailabilityZone
 --
 -- 'AvailabilityZone' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ZoneName ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe AvailabilityZoneState@
+--
+-- * @RegionName ::@ @Maybe Text@
+--
+-- * @Messages ::@ @[AvailabilityZoneMessage]@
+--
 mkAvailabilityZone :: AvailabilityZone
 mkAvailabilityZone = AvailabilityZone
     { _azZoneName = Nothing
@@ -3806,6 +3907,17 @@ data BlockDeviceMapping = BlockDeviceMapping
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BlockDeviceMapping' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualName ::@ @Maybe Text@
+--
+-- * @DeviceName ::@ @Text@
+--
+-- * @Ebs ::@ @Maybe EbsBlockDevice@
+--
+-- * @NoDevice ::@ @Maybe Text@
+--
 mkBlockDeviceMapping :: Text -- ^ 'bdmDeviceName'
                      -> BlockDeviceMapping
 mkBlockDeviceMapping p2 = BlockDeviceMapping
@@ -3857,6 +3969,25 @@ data BundleTask = BundleTask
 --
 -- 'BundleTask' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @BundleId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe BundleTaskState@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @UpdateTime ::@ @Maybe ISO8601@
+--
+-- * @Storage ::@ @Maybe Storage@
+--
+-- * @Progress ::@ @Maybe Text@
+--
+-- * @BundleTaskError ::@ @Maybe BundleTaskError@
+--
 mkBundleTask :: BundleTask
 mkBundleTask = BundleTask
     { _btInstanceId = Nothing
@@ -3914,6 +4045,13 @@ data BundleTaskError = BundleTaskError
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BundleTaskError' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkBundleTaskError :: BundleTaskError
 mkBundleTaskError = BundleTaskError
     { _bteCode = Nothing
@@ -3946,6 +4084,13 @@ data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
 --
 -- 'CancelledSpotInstanceRequest' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotInstanceRequestId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe CancelSpotInstanceRequestState@
+--
 mkCancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
 mkCancelledSpotInstanceRequest = CancelledSpotInstanceRequest
     { _csir1SpotInstanceRequestId = Nothing
@@ -3982,6 +4127,23 @@ data ConversionTask = ConversionTask
 --
 -- 'ConversionTask' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConversionTaskId ::@ @Text@
+--
+-- * @ExpirationTime ::@ @Maybe Text@
+--
+-- * @ImportInstance ::@ @Maybe ImportInstanceTaskDetails@
+--
+-- * @ImportVolume ::@ @Maybe ImportVolumeTaskDetails@
+--
+-- * @State ::@ @ConversionTaskState@
+--
+-- * @StatusMessage ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkConversionTask :: Text -- ^ 'ctrConversionTaskId'
                  -> ConversionTaskState -- ^ 'ctrState'
                  -> ConversionTask
@@ -4034,7 +4196,6 @@ instance FromXML ConversionTask where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "item"
 
--- | 
 data CreateVolumePermission = CreateVolumePermission
     { _cvpUserId :: Maybe Text
     , _cvpGroup :: Maybe PermissionGroup
@@ -4042,6 +4203,13 @@ data CreateVolumePermission = CreateVolumePermission
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateVolumePermission' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserId ::@ @Maybe Text@
+--
+-- * @Group ::@ @Maybe PermissionGroup@
+--
 mkCreateVolumePermission :: CreateVolumePermission
 mkCreateVolumePermission = CreateVolumePermission
     { _cvpUserId = Nothing
@@ -4073,6 +4241,13 @@ data CreateVolumePermissionModifications = CreateVolumePermissionModifications
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateVolumePermissionModifications' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Add ::@ @[CreateVolumePermission]@
+--
+-- * @Remove ::@ @[CreateVolumePermission]@
+--
 mkCreateVolumePermissionModifications :: CreateVolumePermissionModifications
 mkCreateVolumePermissionModifications = CreateVolumePermissionModifications
     { _cvpmAdd = mempty
@@ -4107,6 +4282,21 @@ data CustomerGateway = CustomerGateway
 --
 -- 'CustomerGateway' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CustomerGatewayId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe Text@
+--
+-- * @IpAddress ::@ @Maybe Text@
+--
+-- * @BgpAsn ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCustomerGateway :: CustomerGateway
 mkCustomerGateway = CustomerGateway
     { _cgCustomerGatewayId = Nothing
@@ -4156,6 +4346,13 @@ data DhcpConfiguration = DhcpConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DhcpConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Values ::@ @[Text]@
+--
 mkDhcpConfiguration :: DhcpConfiguration
 mkDhcpConfiguration = DhcpConfiguration
     { _dcKey = Nothing
@@ -4189,6 +4386,15 @@ data DhcpOptions = DhcpOptions
 --
 -- 'DhcpOptions' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DhcpOptionsId ::@ @Maybe Text@
+--
+-- * @DhcpConfigurations ::@ @[DhcpConfiguration]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkDhcpOptions :: DhcpOptions
 mkDhcpOptions = DhcpOptions
     { _doDhcpOptionsId = Nothing
@@ -4222,6 +4428,15 @@ data DiskImage = DiskImage
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImage' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Image ::@ @Maybe DiskImageDetail@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Volume ::@ @Maybe VolumeDetail@
+--
 mkDiskImage :: DiskImage
 mkDiskImage = DiskImage
     { _di3Image = Nothing
@@ -4254,6 +4469,17 @@ data DiskImageDescription = DiskImageDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImageDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Format ::@ @DiskImageFormat@
+--
+-- * @Size ::@ @Integer@
+--
+-- * @ImportManifestUrl ::@ @Text@
+--
+-- * @Checksum ::@ @Maybe Text@
+--
 mkDiskImageDescription :: DiskImageFormat -- ^ 'didFormat'
                        -> Integer -- ^ 'didSize'
                        -> Text -- ^ 'didImportManifestUrl'
@@ -4293,7 +4519,6 @@ instance FromXML DiskImageDescription where
 instance ToQuery DiskImageDescription where
     toQuery = genericQuery def
 
--- | 
 data DiskImageDetail = DiskImageDetail
     { _did1Format :: DiskImageFormat
     , _did1Bytes :: Integer
@@ -4302,6 +4527,15 @@ data DiskImageDetail = DiskImageDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImageDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Format ::@ @DiskImageFormat@
+--
+-- * @Bytes ::@ @Integer@
+--
+-- * @ImportManifestUrl ::@ @Text@
+--
 mkDiskImageDetail :: DiskImageFormat -- ^ 'did1Format'
                   -> Integer -- ^ 'did1Bytes'
                   -> Text -- ^ 'did1ImportManifestUrl'
@@ -4344,6 +4578,13 @@ data DiskImageVolumeDescription = DiskImageVolumeDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImageVolumeDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Size ::@ @Maybe Integer@
+--
+-- * @Id ::@ @Text@
+--
 mkDiskImageVolumeDescription :: Text -- ^ 'divdId'
                              -> DiskImageVolumeDescription
 mkDiskImageVolumeDescription p2 = DiskImageVolumeDescription
@@ -4379,6 +4620,21 @@ data EbsBlockDevice = EbsBlockDevice
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EbsBlockDevice' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @VolumeSize ::@ @Maybe Integer@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
+-- * @VolumeType ::@ @Maybe VolumeType@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
 mkEbsBlockDevice :: EbsBlockDevice
 mkEbsBlockDevice = EbsBlockDevice
     { _ebdSnapshotId = Nothing
@@ -4447,6 +4703,17 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EbsInstanceBlockDevice' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe AttachmentStatus@
+--
+-- * @AttachTime ::@ @Maybe ISO8601@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkEbsInstanceBlockDevice :: EbsInstanceBlockDevice
 mkEbsInstanceBlockDevice = EbsInstanceBlockDevice
     { _eibdVolumeId = Nothing
@@ -4489,6 +4756,13 @@ data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EbsInstanceBlockDeviceSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkEbsInstanceBlockDeviceSpecification :: EbsInstanceBlockDeviceSpecification
 mkEbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
     { _eibdsVolumeId = Nothing
@@ -4512,7 +4786,6 @@ instance FromXML EbsInstanceBlockDeviceSpecification where
 instance ToQuery EbsInstanceBlockDeviceSpecification where
     toQuery = genericQuery def
 
--- | 
 data ExportTask = ExportTask
     { _etExportTaskId :: Maybe Text
     , _etDescription :: Maybe Text
@@ -4527,6 +4800,21 @@ data ExportTask = ExportTask
 --
 -- 'ExportTask' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExportTaskId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe ExportTaskState@
+--
+-- * @StatusMessage ::@ @Maybe Text@
+--
+-- * @InstanceExportDetails ::@ @Maybe InstanceExportDetails@
+--
+-- * @ExportToS3Task ::@ @Maybe ExportToS3Task@
+--
 mkExportTask :: ExportTask
 mkExportTask = ExportTask
     { _etExportTaskId = Nothing
@@ -4568,7 +4856,6 @@ instance FromXML ExportTask where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "exportTask"
 
--- | 
 data ExportToS3Task = ExportToS3Task
     { _etstDiskImageFormat :: Maybe DiskImageFormat
     , _etstContainerFormat :: Maybe ContainerFormat
@@ -4578,6 +4865,17 @@ data ExportToS3Task = ExportToS3Task
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExportToS3Task' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DiskImageFormat ::@ @Maybe DiskImageFormat@
+--
+-- * @ContainerFormat ::@ @Maybe ContainerFormat@
+--
+-- * @S3Bucket ::@ @Maybe Text@
+--
+-- * @S3Key ::@ @Maybe Text@
+--
 mkExportToS3Task :: ExportToS3Task
 mkExportToS3Task = ExportToS3Task
     { _etstDiskImageFormat = Nothing
@@ -4614,7 +4912,6 @@ instance FromXML ExportToS3Task where
 instance ToQuery ExportToS3Task where
     toQuery = genericQuery def
 
--- | 
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification
     { _etstsDiskImageFormat :: Maybe DiskImageFormat
     , _etstsContainerFormat :: Maybe ContainerFormat
@@ -4624,6 +4921,17 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExportToS3TaskSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DiskImageFormat ::@ @Maybe DiskImageFormat@
+--
+-- * @ContainerFormat ::@ @Maybe ContainerFormat@
+--
+-- * @S3Bucket ::@ @Maybe Text@
+--
+-- * @S3Prefix ::@ @Maybe Text@
+--
 mkExportToS3TaskSpecification :: ExportToS3TaskSpecification
 mkExportToS3TaskSpecification = ExportToS3TaskSpecification
     { _etstsDiskImageFormat = Nothing
@@ -4654,7 +4962,6 @@ etstsS3Prefix = lens _etstsS3Prefix (\s a -> s { _etstsS3Prefix = a })
 instance ToQuery ExportToS3TaskSpecification where
     toQuery = genericQuery def
 
--- | 
 data Filter = Filter
     { _fName :: Text
     , _fValues :: [Text]
@@ -4662,6 +4969,13 @@ data Filter = Filter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Filter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Values ::@ @[Text]@
+--
 mkFilter :: Text -- ^ 'fName'
          -> Filter
 mkFilter p1 = Filter
@@ -4688,6 +5002,13 @@ data GroupIdentifier = GroupIdentifier
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GroupIdentifier' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Maybe Text@
+--
+-- * @GroupId ::@ @Maybe Text@
+--
 mkGroupIdentifier :: GroupIdentifier
 mkGroupIdentifier = GroupIdentifier
     { _giGroupName = Nothing
@@ -4717,6 +5038,13 @@ data IamInstanceProfile = IamInstanceProfile
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IamInstanceProfile' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @Id ::@ @Maybe Text@
+--
 mkIamInstanceProfile :: IamInstanceProfile
 mkIamInstanceProfile = IamInstanceProfile
     { _iipArn = Nothing
@@ -4746,6 +5074,13 @@ data IamInstanceProfileSpecification = IamInstanceProfileSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IamInstanceProfileSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkIamInstanceProfileSpecification :: IamInstanceProfileSpecification
 mkIamInstanceProfileSpecification = IamInstanceProfileSpecification
     { _iipsArn = Nothing
@@ -4775,6 +5110,13 @@ data IcmpTypeCode = IcmpTypeCode
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IcmpTypeCode' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Type ::@ @Maybe Integer@
+--
+-- * @Code ::@ @Maybe Integer@
+--
 mkIcmpTypeCode :: IcmpTypeCode
 mkIcmpTypeCode = IcmpTypeCode
     { _itcType = Nothing
@@ -4827,6 +5169,53 @@ data Image = Image
 --
 -- 'Image' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Text@
+--
+-- * @ImageLocation ::@ @Text@
+--
+-- * @State ::@ @ImageState@
+--
+-- * @OwnerId ::@ @Text@
+--
+-- * @Public ::@ @Bool@
+--
+-- * @ProductCodes ::@ @[ProductCode]@
+--
+-- * @Architecture ::@ @ArchitectureValues@
+--
+-- * @ImageType ::@ @ImageTypeValues@
+--
+-- * @KernelId ::@ @Maybe Text@
+--
+-- * @RamdiskId ::@ @Maybe Text@
+--
+-- * @Platform ::@ @Maybe PlatformValues@
+--
+-- * @SriovNetSupport ::@ @Maybe Text@
+--
+-- * @StateReason ::@ @Maybe StateReason@
+--
+-- * @ImageOwnerAlias ::@ @Maybe Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @RootDeviceType ::@ @DeviceType@
+--
+-- * @RootDeviceName ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
+-- * @VirtualizationType ::@ @VirtualizationType@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @Hypervisor ::@ @HypervisorType@
+--
 mkImage :: Text -- ^ 'iImageId'
         -> Text -- ^ 'iName'
         -> DeviceType -- ^ 'iRootDeviceType'
@@ -4983,6 +5372,29 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportInstanceLaunchSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Architecture ::@ @Maybe ArchitectureValues@
+--
+-- * @GroupNames ::@ @[Text]@
+--
+-- * @AdditionalInfo ::@ @Maybe Text@
+--
+-- * @UserData ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @Placement ::@ @Maybe Placement@
+--
+-- * @Monitoring ::@ @Maybe Bool@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @InstanceInitiatedShutdownBehavior ::@ @Maybe ShutdownBehavior@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
 mkImportInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
 mkImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     { _iilsArchitecture = Nothing
@@ -5061,6 +5473,17 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportInstanceTaskDetails' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Volumes ::@ @[ImportInstanceVolumeDetailItem]@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Platform ::@ @Maybe PlatformValues@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkImportInstanceTaskDetails :: [ImportInstanceVolumeDetailItem] -- ^ 'iitdVolumes'
                             -> ImportInstanceTaskDetails
 mkImportInstanceTaskDetails p1 = ImportInstanceTaskDetails
@@ -5106,6 +5529,23 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportInstanceVolumeDetailItem' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BytesConverted ::@ @Integer@
+--
+-- * @AvailabilityZone ::@ @Text@
+--
+-- * @Image ::@ @DiskImageDescription@
+--
+-- * @Volume ::@ @DiskImageVolumeDescription@
+--
+-- * @Status ::@ @Text@
+--
+-- * @StatusMessage ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkImportInstanceVolumeDetailItem :: Integer -- ^ 'iivdiBytesConverted'
                                  -> Text -- ^ 'iivdiAvailabilityZone'
                                  -> DiskImageDescription -- ^ 'iivdiImage'
@@ -5173,6 +5613,19 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportVolumeTaskDetails' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BytesConverted ::@ @Integer@
+--
+-- * @AvailabilityZone ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Image ::@ @DiskImageDescription@
+--
+-- * @Volume ::@ @DiskImageVolumeDescription@
+--
 mkImportVolumeTaskDetails :: Integer -- ^ 'ivtdBytesConverted'
                           -> Text -- ^ 'ivtdAvailabilityZone'
                           -> DiskImageDescription -- ^ 'ivtdImage'
@@ -5258,6 +5711,83 @@ data Instance = Instance
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @ImageId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe InstanceState@
+--
+-- * @PrivateDnsName ::@ @Maybe Text@
+--
+-- * @PublicDnsName ::@ @Maybe Text@
+--
+-- * @StateTransitionReason ::@ @Maybe Text@
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @AmiLaunchIndex ::@ @Maybe Integer@
+--
+-- * @ProductCodes ::@ @[ProductCode]@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @LaunchTime ::@ @Maybe ISO8601@
+--
+-- * @Placement ::@ @Maybe Placement@
+--
+-- * @KernelId ::@ @Maybe Text@
+--
+-- * @RamdiskId ::@ @Maybe Text@
+--
+-- * @Platform ::@ @Maybe PlatformValues@
+--
+-- * @Monitoring ::@ @Maybe Monitoring@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @PublicIpAddress ::@ @Maybe Text@
+--
+-- * @StateReason ::@ @Maybe StateReason@
+--
+-- * @Architecture ::@ @Maybe ArchitectureValues@
+--
+-- * @RootDeviceType ::@ @Maybe DeviceType@
+--
+-- * @RootDeviceName ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[InstanceBlockDeviceMapping]@
+--
+-- * @VirtualizationType ::@ @Maybe VirtualizationType@
+--
+-- * @InstanceLifecycle ::@ @Maybe InstanceLifecycleType@
+--
+-- * @SpotInstanceRequestId ::@ @Maybe Text@
+--
+-- * @ClientToken ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @SecurityGroups ::@ @[GroupIdentifier]@
+--
+-- * @SourceDestCheck ::@ @Maybe Bool@
+--
+-- * @Hypervisor ::@ @Maybe HypervisorType@
+--
+-- * @NetworkInterfaces ::@ @[InstanceNetworkInterface]@
+--
+-- * @IamInstanceProfile ::@ @Maybe IamInstanceProfile@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
+-- * @SriovNetSupport ::@ @Maybe Text@
+--
 mkInstance :: Instance
 mkInstance = Instance
     { _i1InstanceId = Nothing
@@ -5496,6 +6026,13 @@ data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceBlockDeviceMapping' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DeviceName ::@ @Maybe Text@
+--
+-- * @Ebs ::@ @Maybe EbsInstanceBlockDevice@
+--
 mkInstanceBlockDeviceMapping :: InstanceBlockDeviceMapping
 mkInstanceBlockDeviceMapping = InstanceBlockDeviceMapping
     { _ibdmDeviceName = Nothing
@@ -5528,6 +6065,17 @@ data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecifi
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceBlockDeviceMappingSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DeviceName ::@ @Maybe Text@
+--
+-- * @Ebs ::@ @Maybe EbsInstanceBlockDeviceSpecification@
+--
+-- * @VirtualName ::@ @Maybe Text@
+--
+-- * @NoDevice ::@ @Maybe Text@
+--
 mkInstanceBlockDeviceMappingSpecification :: InstanceBlockDeviceMappingSpecification
 mkInstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification
     { _ibdmsDeviceName = Nothing
@@ -5565,6 +6113,13 @@ data InstanceCount = InstanceCount
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceCount' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @Maybe ListingState@
+--
+-- * @InstanceCount ::@ @Maybe Integer@
+--
 mkInstanceCount :: InstanceCount
 mkInstanceCount = InstanceCount
     { _icState = Nothing
@@ -5594,6 +6149,13 @@ data InstanceExportDetails = InstanceExportDetails
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceExportDetails' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @TargetEnvironment ::@ @Maybe ExportEnvironment@
+--
 mkInstanceExportDetails :: InstanceExportDetails
 mkInstanceExportDetails = InstanceExportDetails
     { _iedInstanceId = Nothing
@@ -5627,6 +6189,13 @@ data InstanceMonitoring = InstanceMonitoring
 --
 -- 'InstanceMonitoring' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Monitoring ::@ @Maybe Monitoring@
+--
 mkInstanceMonitoring :: InstanceMonitoring
 mkInstanceMonitoring = InstanceMonitoring
     { _imInstanceId = Nothing
@@ -5664,6 +6233,35 @@ data InstanceNetworkInterface = InstanceNetworkInterface
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterface' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe NetworkInterfaceStatus@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @PrivateDnsName ::@ @Maybe Text@
+--
+-- * @SourceDestCheck ::@ @Maybe Bool@
+--
+-- * @Groups ::@ @[GroupIdentifier]@
+--
+-- * @Attachment ::@ @Maybe InstanceNetworkInterfaceAttachment@
+--
+-- * @Association ::@ @Maybe InstanceNetworkInterfaceAssociation@
+--
+-- * @PrivateIpAddresses ::@ @[InstancePrivateIpAddress]@
+--
 mkInstanceNetworkInterface :: InstanceNetworkInterface
 mkInstanceNetworkInterface = InstanceNetworkInterface
     { _iniNetworkInterfaceId = Nothing
@@ -5757,6 +6355,15 @@ data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterfaceAssociation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @PublicDnsName ::@ @Maybe Text@
+--
+-- * @IpOwnerId ::@ @Maybe Text@
+--
 mkInstanceNetworkInterfaceAssociation :: InstanceNetworkInterfaceAssociation
 mkInstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
     { _inia1PublicIp = Nothing
@@ -5795,6 +6402,19 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterfaceAttachment' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentId ::@ @Maybe Text@
+--
+-- * @DeviceIndex ::@ @Maybe Integer@
+--
+-- * @Status ::@ @Maybe AttachmentStatus@
+--
+-- * @AttachTime ::@ @Maybe ISO8601@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkInstanceNetworkInterfaceAttachment :: InstanceNetworkInterfaceAttachment
 mkInstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
     { _iniaAttachmentId = Nothing
@@ -5852,6 +6472,29 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterfaceSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @DeviceIndex ::@ @Maybe Integer@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @Groups ::@ @[Text]@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
+-- * @PrivateIpAddresses ::@ @[PrivateIpAddressSpecification]@
+--
+-- * @SecondaryPrivateIpAddressCount ::@ @Maybe Integer@
+--
+-- * @AssociatePublicIpAddress ::@ @Maybe Bool@
+--
 mkInstanceNetworkInterfaceSpecification :: InstanceNetworkInterfaceSpecification
 mkInstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
     { _inisNetworkInterfaceId = Nothing
@@ -5937,6 +6580,17 @@ data InstancePrivateIpAddress = InstancePrivateIpAddress
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstancePrivateIpAddress' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @PrivateDnsName ::@ @Maybe Text@
+--
+-- * @Primary ::@ @Maybe Bool@
+--
+-- * @Association ::@ @Maybe InstanceNetworkInterfaceAssociation@
+--
 mkInstancePrivateIpAddress :: InstancePrivateIpAddress
 mkInstancePrivateIpAddress = InstancePrivateIpAddress
     { _ipiaPrivateIpAddress = Nothing
@@ -5981,6 +6635,13 @@ data InstanceState = InstanceState
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceState' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Integer@
+--
+-- * @Name ::@ @InstanceStateName@
+--
 mkInstanceState :: Integer -- ^ 'is1Code'
                 -> InstanceStateName -- ^ 'is1Name'
                 -> InstanceState
@@ -6018,6 +6679,15 @@ data InstanceStateChange = InstanceStateChange
 --
 -- 'InstanceStateChange' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @CurrentState ::@ @Maybe InstanceState@
+--
+-- * @PreviousState ::@ @Maybe InstanceState@
+--
 mkInstanceStateChange :: InstanceStateChange
 mkInstanceStateChange = InstanceStateChange
     { _iscInstanceId = Nothing
@@ -6057,6 +6727,21 @@ data InstanceStatus = InstanceStatus
 --
 -- 'InstanceStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @Events ::@ @[InstanceStatusEvent]@
+--
+-- * @InstanceState ::@ @Maybe InstanceState@
+--
+-- * @SystemStatus ::@ @Maybe InstanceStatusSummary@
+--
+-- * @InstanceStatus ::@ @Maybe InstanceStatusSummary@
+--
 mkInstanceStatus :: InstanceStatus
 mkInstanceStatus = InstanceStatus
     { _isInstanceId = Nothing
@@ -6110,6 +6795,15 @@ data InstanceStatusDetails = InstanceStatusDetails
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatusDetails' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe StatusName@
+--
+-- * @Status ::@ @Maybe StatusType@
+--
+-- * @ImpairedSince ::@ @Maybe ISO8601@
+--
 mkInstanceStatusDetails :: InstanceStatusDetails
 mkInstanceStatusDetails = InstanceStatusDetails
     { _isdName = Nothing
@@ -6148,6 +6842,17 @@ data InstanceStatusEvent = InstanceStatusEvent
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatusEvent' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe EventCode@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @NotBefore ::@ @Maybe ISO8601@
+--
+-- * @NotAfter ::@ @Maybe ISO8601@
+--
 mkInstanceStatusEvent :: InstanceStatusEvent
 mkInstanceStatusEvent = InstanceStatusEvent
     { _iseCode = Nothing
@@ -6189,6 +6894,13 @@ data InstanceStatusSummary = InstanceStatusSummary
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatusSummary' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe SummaryStatus@
+--
+-- * @Details ::@ @[InstanceStatusDetails]@
+--
 mkInstanceStatusSummary :: InstanceStatusSummary
 mkInstanceStatusSummary = InstanceStatusSummary
     { _issStatus = Nothing
@@ -6222,6 +6934,15 @@ data InternetGateway = InternetGateway
 --
 -- 'InternetGateway' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InternetGatewayId ::@ @Text@
+--
+-- * @Attachments ::@ @[InternetGatewayAttachment]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkInternetGateway :: Text -- ^ 'igInternetGatewayId'
                   -> InternetGateway
 mkInternetGateway p1 = InternetGateway
@@ -6255,6 +6976,13 @@ data InternetGatewayAttachment = InternetGatewayAttachment
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InternetGatewayAttachment' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Text@
+--
+-- * @State ::@ @AttachmentStatus@
+--
 mkInternetGatewayAttachment :: Text -- ^ 'igaVpcId'
                             -> AttachmentStatus -- ^ 'igaState'
                             -> InternetGatewayAttachment
@@ -6289,6 +7017,19 @@ data IpPermission = IpPermission
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IpPermission' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IpProtocol ::@ @Text@
+--
+-- * @FromPort ::@ @Integer@
+--
+-- * @ToPort ::@ @Integer@
+--
+-- * @UserIdGroupPairs ::@ @[UserIdGroupPair]@
+--
+-- * @IpRanges ::@ @[IpRange]@
+--
 mkIpPermission :: Text -- ^ 'ipIpProtocol'
                -> Integer -- ^ 'ipFromPort'
                -> Integer -- ^ 'ipToPort'
@@ -6345,6 +7086,13 @@ data KeyPairInfo = KeyPairInfo
 --
 -- 'KeyPairInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @KeyFingerprint ::@ @Maybe Text@
+--
 mkKeyPairInfo :: KeyPairInfo
 mkKeyPairInfo = KeyPairInfo
     { _kpiKeyName = Nothing
@@ -6375,6 +7123,13 @@ data LaunchPermission = LaunchPermission
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchPermission' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserId ::@ @Maybe Text@
+--
+-- * @Group ::@ @Maybe PermissionGroup@
+--
 mkLaunchPermission :: LaunchPermission
 mkLaunchPermission = LaunchPermission
     { _lpUserId = Nothing
@@ -6404,6 +7159,13 @@ data LaunchPermissionModifications = LaunchPermissionModifications
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchPermissionModifications' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Add ::@ @[LaunchPermission]@
+--
+-- * @Remove ::@ @[LaunchPermission]@
+--
 mkLaunchPermissionModifications :: LaunchPermissionModifications
 mkLaunchPermissionModifications = LaunchPermissionModifications
     { _lpmAdd = mempty
@@ -6443,6 +7205,39 @@ data LaunchSpecification = LaunchSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Maybe Text@
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @SecurityGroups ::@ @[GroupIdentifier]@
+--
+-- * @UserData ::@ @Maybe Text@
+--
+-- * @AddressingType ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @Placement ::@ @Maybe SpotPlacement@
+--
+-- * @KernelId ::@ @Maybe Text@
+--
+-- * @RamdiskId ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
+-- * @MonitoringEnabled ::@ @Maybe Bool@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @NetworkInterfaces ::@ @[InstanceNetworkInterfaceSpecification]@
+--
+-- * @IamInstanceProfile ::@ @Maybe IamInstanceProfileSpecification@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
 mkLaunchSpecification :: LaunchSpecification
 mkLaunchSpecification = LaunchSpecification
     { _lsImageId = Nothing
@@ -6554,6 +7349,21 @@ data NetworkAcl = NetworkAcl
 --
 -- 'NetworkAcl' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAclId ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @IsDefault ::@ @Maybe Bool@
+--
+-- * @Entries ::@ @[NetworkAclEntry]@
+--
+-- * @Associations ::@ @[NetworkAclAssociation]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkNetworkAcl :: NetworkAcl
 mkNetworkAcl = NetworkAcl
     { _naNetworkAclId = Nothing
@@ -6601,6 +7411,15 @@ data NetworkAclAssociation = NetworkAclAssociation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkAclAssociation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAclAssociationId ::@ @Maybe Text@
+--
+-- * @NetworkAclId ::@ @Maybe Text@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
 mkNetworkAclAssociation :: NetworkAclAssociation
 mkNetworkAclAssociation = NetworkAclAssociation
     { _naaNetworkAclAssociationId = Nothing
@@ -6642,6 +7461,23 @@ data NetworkAclEntry = NetworkAclEntry
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkAclEntry' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RuleNumber ::@ @Maybe Integer@
+--
+-- * @Protocol ::@ @Maybe Text@
+--
+-- * @RuleAction ::@ @Maybe RuleAction@
+--
+-- * @Egress ::@ @Maybe Bool@
+--
+-- * @CidrBlock ::@ @Maybe Text@
+--
+-- * @IcmpTypeCode ::@ @Maybe IcmpTypeCode@
+--
+-- * @PortRange ::@ @Maybe PortRange@
+--
 mkNetworkAclEntry :: NetworkAclEntry
 mkNetworkAclEntry = NetworkAclEntry
     { _naeRuleNumber = Nothing
@@ -6717,6 +7553,45 @@ data NetworkInterface = NetworkInterface
 --
 -- 'NetworkInterface' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @RequesterId ::@ @Maybe Text@
+--
+-- * @RequesterManaged ::@ @Maybe Bool@
+--
+-- * @Status ::@ @Maybe NetworkInterfaceStatus@
+--
+-- * @MacAddress ::@ @Maybe Text@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @PrivateDnsName ::@ @Maybe Text@
+--
+-- * @SourceDestCheck ::@ @Maybe Bool@
+--
+-- * @Groups ::@ @[GroupIdentifier]@
+--
+-- * @Attachment ::@ @Maybe NetworkInterfaceAttachment@
+--
+-- * @Association ::@ @Maybe NetworkInterfaceAssociation@
+--
+-- * @TagSet ::@ @[Tag]@
+--
+-- * @PrivateIpAddresses ::@ @[NetworkInterfacePrivateIpAddress]@
+--
 mkNetworkInterface :: NetworkInterface
 mkNetworkInterface = NetworkInterface
     { _niNetworkInterfaceId = Nothing
@@ -6836,6 +7711,19 @@ data NetworkInterfaceAssociation = NetworkInterfaceAssociation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfaceAssociation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @PublicDnsName ::@ @Maybe Text@
+--
+-- * @IpOwnerId ::@ @Maybe Text@
+--
+-- * @AllocationId ::@ @Maybe Text@
+--
+-- * @AssociationId ::@ @Maybe Text@
+--
 mkNetworkInterfaceAssociation :: NetworkInterfaceAssociation
 mkNetworkInterfaceAssociation = NetworkInterfaceAssociation
     { _niarPublicIp = Nothing
@@ -6888,6 +7776,23 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfaceAttachment' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @InstanceOwnerId ::@ @Maybe Text@
+--
+-- * @DeviceIndex ::@ @Maybe Integer@
+--
+-- * @Status ::@ @Maybe AttachmentStatus@
+--
+-- * @AttachTime ::@ @Maybe ISO8601@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkNetworkInterfaceAttachment :: NetworkInterfaceAttachment
 mkNetworkInterfaceAttachment = NetworkInterfaceAttachment
     { _niaAttachmentId = Nothing
@@ -6945,6 +7850,13 @@ data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfaceAttachmentChanges' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentId ::@ @Maybe Text@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkNetworkInterfaceAttachmentChanges :: NetworkInterfaceAttachmentChanges
 mkNetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
     { _niacAttachmentId = Nothing
@@ -6976,6 +7888,17 @@ data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfacePrivateIpAddress' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @PrivateDnsName ::@ @Maybe Text@
+--
+-- * @Primary ::@ @Maybe Bool@
+--
+-- * @Association ::@ @Maybe NetworkInterfaceAssociation@
+--
 mkNetworkInterfacePrivateIpAddress :: NetworkInterfacePrivateIpAddress
 mkNetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
     { _nipiaPrivateIpAddress = Nothing
@@ -7021,6 +7944,15 @@ data Placement = Placement
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Placement' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @GroupName ::@ @Maybe Text@
+--
+-- * @Tenancy ::@ @Maybe Tenancy@
+--
 mkPlacement :: Placement
 mkPlacement = Placement
     { _pAvailabilityZone = Nothing
@@ -7062,6 +7994,15 @@ data PlacementGroup = PlacementGroup
 --
 -- 'PlacementGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Maybe Text@
+--
+-- * @Strategy ::@ @Maybe PlacementStrategy@
+--
+-- * @State ::@ @Maybe PlacementGroupState@
+--
 mkPlacementGroup :: PlacementGroup
 mkPlacementGroup = PlacementGroup
     { _pgGroupName = Nothing
@@ -7093,6 +8034,13 @@ data PortRange = PortRange
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PortRange' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @From ::@ @Maybe Integer@
+--
+-- * @To ::@ @Maybe Integer@
+--
 mkPortRange :: PortRange
 mkPortRange = PortRange
     { _prFrom = Nothing
@@ -7124,6 +8072,17 @@ data PriceSchedule = PriceSchedule
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PriceSchedule' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Term ::@ @Maybe Integer@
+--
+-- * @Price ::@ @Maybe Double@
+--
+-- * @CurrencyCode ::@ @Maybe CurrencyCodeValues@
+--
+-- * @Active ::@ @Maybe Bool@
+--
 mkPriceSchedule :: PriceSchedule
 mkPriceSchedule = PriceSchedule
     { _psTerm = Nothing
@@ -7173,6 +8132,15 @@ data PriceScheduleSpecification = PriceScheduleSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PriceScheduleSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Term ::@ @Maybe Integer@
+--
+-- * @Price ::@ @Maybe Double@
+--
+-- * @CurrencyCode ::@ @Maybe CurrencyCodeValues@
+--
 mkPriceScheduleSpecification :: PriceScheduleSpecification
 mkPriceScheduleSpecification = PriceScheduleSpecification
     { _pssTerm = Nothing
@@ -7205,6 +8173,13 @@ data PricingDetail = PricingDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PricingDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Price ::@ @Maybe Double@
+--
+-- * @Count ::@ @Maybe Integer@
+--
 mkPricingDetail :: PricingDetail
 mkPricingDetail = PricingDetail
     { _pdPrice = Nothing
@@ -7234,6 +8209,13 @@ data PrivateIpAddressSpecification = PrivateIpAddressSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PrivateIpAddressSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PrivateIpAddress ::@ @Text@
+--
+-- * @Primary ::@ @Maybe Bool@
+--
 mkPrivateIpAddressSpecification :: Text -- ^ 'piasPrivateIpAddress'
                                 -> PrivateIpAddressSpecification
 mkPrivateIpAddressSpecification p1 = PrivateIpAddressSpecification
@@ -7265,6 +8247,13 @@ data ProductCode = ProductCode
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ProductCode' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ProductCodeId ::@ @Maybe Text@
+--
+-- * @ProductCodeType ::@ @Maybe ProductCodeValues@
+--
 mkProductCode :: ProductCode
 mkProductCode = ProductCode
     { _pcProductCodeId = Nothing
@@ -7295,6 +8284,13 @@ data RecurringCharge = RecurringCharge
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Frequency ::@ @Maybe RecurringChargeFrequency@
+--
+-- * @Amount ::@ @Maybe Double@
+--
 mkRecurringCharge :: RecurringCharge
 mkRecurringCharge = RecurringCharge
     { _rcFrequency = Nothing
@@ -7327,6 +8323,13 @@ data Region = Region
 --
 -- 'Region' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RegionName ::@ @Maybe Text@
+--
+-- * @Endpoint ::@ @Maybe Text@
+--
 mkRegion :: Region
 mkRegion = Region
     { _r1RegionName = Nothing
@@ -7359,6 +8362,19 @@ data Reservation = Reservation
 --
 -- 'Reservation' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservationId ::@ @Maybe Text@
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @RequesterId ::@ @Maybe Text@
+--
+-- * @Groups ::@ @[GroupIdentifier]@
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkReservation :: Reservation
 mkReservation = Reservation
     { _rrReservationId = Nothing
@@ -7403,6 +8419,13 @@ data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstanceLimitPrice' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Amount ::@ @Maybe Double@
+--
+-- * @CurrencyCode ::@ @Maybe CurrencyCodeValues@
+--
 mkReservedInstanceLimitPrice :: ReservedInstanceLimitPrice
 mkReservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { _rilpAmount = Nothing
@@ -7448,6 +8471,41 @@ data ReservedInstances = ReservedInstances
 --
 -- 'ReservedInstances' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesId ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @Start ::@ @Maybe ISO8601@
+--
+-- * @End ::@ @Maybe ISO8601@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @InstanceCount ::@ @Maybe Integer@
+--
+-- * @ProductDescription ::@ @Maybe RIProductDescription@
+--
+-- * @State ::@ @Maybe ReservedInstanceState@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @InstanceTenancy ::@ @Maybe Tenancy@
+--
+-- * @CurrencyCode ::@ @Maybe CurrencyCodeValues@
+--
+-- * @OfferingType ::@ @Maybe OfferingTypeValues@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
 mkReservedInstances :: ReservedInstances
 mkReservedInstances = ReservedInstances
     { _riReservedInstancesId = Nothing
@@ -7553,6 +8611,17 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @Platform ::@ @Maybe Text@
+--
+-- * @InstanceCount ::@ @Maybe Integer@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
 mkReservedInstancesConfiguration :: ReservedInstancesConfiguration
 mkReservedInstancesConfiguration = ReservedInstancesConfiguration
     { _ricAvailabilityZone = Nothing
@@ -7606,6 +8675,29 @@ data ReservedInstancesListing = ReservedInstancesListing
 --
 -- 'ReservedInstancesListing' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesListingId ::@ @Maybe Text@
+--
+-- * @ReservedInstancesId ::@ @Maybe Text@
+--
+-- * @CreateDate ::@ @Maybe ISO8601@
+--
+-- * @UpdateDate ::@ @Maybe ISO8601@
+--
+-- * @Status ::@ @Maybe ListingStatus@
+--
+-- * @StatusMessage ::@ @Maybe Text@
+--
+-- * @InstanceCounts ::@ @[InstanceCount]@
+--
+-- * @PriceSchedules ::@ @[PriceSchedule]@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @ClientToken ::@ @Maybe Text@
+--
 mkReservedInstancesListing :: ReservedInstancesListing
 mkReservedInstancesListing = ReservedInstancesListing
     { _rilReservedInstancesListingId = Nothing
@@ -7689,6 +8781,27 @@ data ReservedInstancesModification = ReservedInstancesModification
 --
 -- 'ReservedInstancesModification' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesModificationId ::@ @Maybe Text@
+--
+-- * @ReservedInstancesIds ::@ @[ReservedInstancesId]@
+--
+-- * @ModificationResults ::@ @[ReservedInstancesModificationResult]@
+--
+-- * @CreateDate ::@ @Maybe ISO8601@
+--
+-- * @UpdateDate ::@ @Maybe ISO8601@
+--
+-- * @EffectiveDate ::@ @Maybe ISO8601@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @StatusMessage ::@ @Maybe Text@
+--
+-- * @ClientToken ::@ @Maybe Text@
+--
 mkReservedInstancesModification :: ReservedInstancesModification
 mkReservedInstancesModification = ReservedInstancesModification
     { _rimReservedInstancesModificationId = Nothing
@@ -7751,7 +8864,6 @@ instance FromXML ReservedInstancesModification where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "item"
 
--- | 
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult
     { _rimrReservedInstancesId :: Maybe Text
     , _rimrTargetConfiguration :: Maybe ReservedInstancesConfiguration
@@ -7759,6 +8871,13 @@ data ReservedInstancesModificationResult = ReservedInstancesModificationResult
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesModificationResult' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesId ::@ @Maybe Text@
+--
+-- * @TargetConfiguration ::@ @Maybe ReservedInstancesConfiguration@
+--
 mkReservedInstancesModificationResult :: ReservedInstancesModificationResult
 mkReservedInstancesModificationResult = ReservedInstancesModificationResult
     { _rimrReservedInstancesId = Nothing
@@ -7809,6 +8928,35 @@ data ReservedInstancesOffering = ReservedInstancesOffering
 --
 -- 'ReservedInstancesOffering' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesOfferingId ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @ProductDescription ::@ @Maybe RIProductDescription@
+--
+-- * @InstanceTenancy ::@ @Maybe Tenancy@
+--
+-- * @CurrencyCode ::@ @Maybe CurrencyCodeValues@
+--
+-- * @OfferingType ::@ @Maybe OfferingTypeValues@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
+-- * @Marketplace ::@ @Maybe Bool@
+--
+-- * @PricingDetails ::@ @[PricingDetail]@
+--
 mkReservedInstancesOffering :: ReservedInstancesOffering
 mkReservedInstancesOffering = ReservedInstancesOffering
     { _rioReservedInstancesOfferingId = Nothing
@@ -7907,6 +9055,25 @@ data Route = Route
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Route' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DestinationCidrBlock ::@ @Maybe Text@
+--
+-- * @GatewayId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @InstanceOwnerId ::@ @Maybe Text@
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @VpcPeeringConnectionId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe RouteState@
+--
+-- * @Origin ::@ @Maybe RouteOrigin@
+--
 mkRoute :: Route
 mkRoute = Route
     { _rDestinationCidrBlock = Nothing
@@ -7984,6 +9151,21 @@ data RouteTable = RouteTable
 --
 -- 'RouteTable' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTableId ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Routes ::@ @[Route]@
+--
+-- * @Associations ::@ @[RouteTableAssociation]@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @PropagatingVgws ::@ @[PropagatingVgw]@
+--
 mkRouteTable :: RouteTable
 mkRouteTable = RouteTable
     { _rtRouteTableId = Nothing
@@ -8033,6 +9215,17 @@ data RouteTableAssociation = RouteTableAssociation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RouteTableAssociation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTableAssociationId ::@ @Maybe Text@
+--
+-- * @RouteTableId ::@ @Maybe Text@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @Main ::@ @Maybe Bool@
+--
 mkRouteTableAssociation :: RouteTableAssociation
 mkRouteTableAssociation = RouteTableAssociation
     { _rtaRouteTableAssociationId = Nothing
@@ -8077,6 +9270,19 @@ data S3Storage = S3Storage
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3Storage' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @Maybe Text@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
+-- * @AWSAccessKeyId ::@ @Maybe Text@
+--
+-- * @UploadPolicy ::@ @Maybe ByteString@
+--
+-- * @UploadPolicySignature ::@ @Maybe Text@
+--
 mkS3Storage :: S3Storage
 mkS3Storage = S3Storage
     { _ssBucket = Nothing
@@ -8138,6 +9344,25 @@ data SecurityGroup = SecurityGroup
 --
 -- 'SecurityGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerId ::@ @Text@
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @GroupId ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
+-- * @IpPermissions ::@ @[IpPermission]@
+--
+-- * @IpPermissionsEgress ::@ @[IpPermission]@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkSecurityGroup :: Text -- ^ 'sgOwnerId'
                 -> Text -- ^ 'sgGroupName'
                 -> Text -- ^ 'sgGroupId'
@@ -8211,6 +9436,31 @@ data Snapshot = Snapshot
 --
 -- 'Snapshot' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe SnapshotState@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @Progress ::@ @Maybe Text@
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @VolumeSize ::@ @Maybe Integer@
+--
+-- * @OwnerAlias ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
 mkSnapshot :: Snapshot
 mkSnapshot = Snapshot
     { _s1SnapshotId = Nothing
@@ -8289,6 +9539,19 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription
 --
 -- 'SpotDatafeedSubscription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @Bucket ::@ @Maybe Text@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe DatafeedSubscriptionState@
+--
+-- * @Fault ::@ @Maybe SpotInstanceStateFault@
+--
 mkSpotDatafeedSubscription :: SpotDatafeedSubscription
 mkSpotDatafeedSubscription = SpotDatafeedSubscription
     { _sdsOwnerId = Nothing
@@ -8347,6 +9610,41 @@ data SpotInstanceRequest = SpotInstanceRequest
 --
 -- 'SpotInstanceRequest' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotInstanceRequestId ::@ @Maybe Text@
+--
+-- * @SpotPrice ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe SpotInstanceType@
+--
+-- * @State ::@ @Maybe SpotInstanceState@
+--
+-- * @Fault ::@ @Maybe SpotInstanceStateFault@
+--
+-- * @Status ::@ @Maybe SpotInstanceStatus@
+--
+-- * @ValidFrom ::@ @Maybe ISO8601@
+--
+-- * @ValidUntil ::@ @Maybe ISO8601@
+--
+-- * @LaunchGroup ::@ @Maybe Text@
+--
+-- * @AvailabilityZoneGroup ::@ @Maybe Text@
+--
+-- * @LaunchSpecification ::@ @Maybe LaunchSpecification@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @CreateTime ::@ @Maybe ISO8601@
+--
+-- * @ProductDescription ::@ @Maybe RIProductDescription@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @LaunchedAvailabilityZone ::@ @Maybe Text@
+--
 mkSpotInstanceRequest :: SpotInstanceRequest
 mkSpotInstanceRequest = SpotInstanceRequest
     { _sirSpotInstanceRequestId = Nothing
@@ -8466,6 +9764,13 @@ data SpotInstanceStateFault = SpotInstanceStateFault
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotInstanceStateFault' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkSpotInstanceStateFault :: SpotInstanceStateFault
 mkSpotInstanceStateFault = SpotInstanceStateFault
     { _sisfCode = Nothing
@@ -8496,6 +9801,15 @@ data SpotInstanceStatus = SpotInstanceStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotInstanceStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @UpdateTime ::@ @Maybe ISO8601@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkSpotInstanceStatus :: SpotInstanceStatus
 mkSpotInstanceStatus = SpotInstanceStatus
     { _sisCode = Nothing
@@ -8530,6 +9844,13 @@ data SpotPlacement = SpotPlacement
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotPlacement' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @GroupName ::@ @Maybe Text@
+--
 mkSpotPlacement :: SpotPlacement
 mkSpotPlacement = SpotPlacement
     { _spAvailabilityZone = Nothing
@@ -8566,6 +9887,19 @@ data SpotPrice = SpotPrice
 --
 -- 'SpotPrice' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @ProductDescription ::@ @Maybe RIProductDescription@
+--
+-- * @SpotPrice ::@ @Maybe Text@
+--
+-- * @Timestamp ::@ @Maybe ISO8601@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
 mkSpotPrice :: SpotPrice
 mkSpotPrice = SpotPrice
     { _sprInstanceType = Nothing
@@ -8609,6 +9943,13 @@ data StateReason = StateReason
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StateReason' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkStateReason :: StateReason
 mkStateReason = StateReason
     { _sr1Code = Nothing
@@ -8658,6 +9999,27 @@ data Subnet = Subnet
 --
 -- 'Subnet' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe SubnetState@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @CidrBlock ::@ @Maybe Text@
+--
+-- * @AvailableIpAddressCount ::@ @Maybe Integer@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @DefaultForAz ::@ @Maybe Bool@
+--
+-- * @MapPublicIpOnLaunch ::@ @Maybe Bool@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkSubnet :: Subnet
 mkSubnet = Subnet
     { _srSubnetId = Nothing
@@ -8725,6 +10087,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Text@
+--
+-- * @Value ::@ @Text@
+--
 mkTag :: Text -- ^ 'tKey'
       -> Text -- ^ 'tValue'
       -> Tag
@@ -8763,6 +10132,17 @@ data TagDescription = TagDescription
 --
 -- 'TagDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceId ::@ @Text@
+--
+-- * @ResourceType ::@ @ResourceType@
+--
+-- * @Key ::@ @Text@
+--
+-- * @Value ::@ @Text@
+--
 mkTagDescription :: Text -- ^ 'tdResourceId'
                  -> ResourceType -- ^ 'tdResourceType'
                  -> Text -- ^ 'tdKey'
@@ -8804,6 +10184,15 @@ data UserIdGroupPair = UserIdGroupPair
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'UserIdGroupPair' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserId ::@ @Maybe Text@
+--
+-- * @GroupName ::@ @Maybe Text@
+--
+-- * @GroupId ::@ @Maybe Text@
+--
 mkUserIdGroupPair :: UserIdGroupPair
 mkUserIdGroupPair = UserIdGroupPair
     { _uigpUserId = Nothing
@@ -8841,6 +10230,19 @@ data VgwTelemetry = VgwTelemetry
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VgwTelemetry' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OutsideIpAddress ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe TelemetryStatus@
+--
+-- * @LastStatusChange ::@ @Maybe ISO8601@
+--
+-- * @StatusMessage ::@ @Maybe Text@
+--
+-- * @AcceptedRouteCount ::@ @Maybe Integer@
+--
 mkVgwTelemetry :: VgwTelemetry
 mkVgwTelemetry = VgwTelemetry
     { _vtOutsideIpAddress = Nothing
@@ -8901,6 +10303,31 @@ data Volume = Volume
 --
 -- 'Volume' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @Size ::@ @Maybe Integer@
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VolumeState@
+--
+-- * @CreateTime ::@ @Maybe ISO8601@
+--
+-- * @Attachments ::@ @[VolumeAttachment]@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @VolumeType ::@ @Maybe VolumeType@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
 mkVolume :: Volume
 mkVolume = Volume
     { _vrVolumeId = Nothing
@@ -8988,6 +10415,21 @@ data VolumeAttachment = VolumeAttachment
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeAttachment' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Device ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VolumeAttachmentState@
+--
+-- * @AttachTime ::@ @Maybe ISO8601@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkVolumeAttachment :: VolumeAttachment
 mkVolumeAttachment = VolumeAttachment
     { _varVolumeId = Nothing
@@ -9040,6 +10482,17 @@ data VolumeStatusAction = VolumeStatusAction
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusAction' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EventType ::@ @Maybe Text@
+--
+-- * @EventId ::@ @Maybe Text@
+--
 mkVolumeStatusAction :: VolumeStatusAction
 mkVolumeStatusAction = VolumeStatusAction
     { _vsaCode = Nothing
@@ -9079,6 +10532,13 @@ data VolumeStatusDetails = VolumeStatusDetails
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusDetails' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe VolumeStatusName@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkVolumeStatusDetails :: VolumeStatusDetails
 mkVolumeStatusDetails = VolumeStatusDetails
     { _vsdName = Nothing
@@ -9111,6 +10571,19 @@ data VolumeStatusEvent = VolumeStatusEvent
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusEvent' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventType ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @NotBefore ::@ @Maybe ISO8601@
+--
+-- * @NotAfter ::@ @Maybe ISO8601@
+--
+-- * @EventId ::@ @Maybe Text@
+--
 mkVolumeStatusEvent :: VolumeStatusEvent
 mkVolumeStatusEvent = VolumeStatusEvent
     { _vseEventType = Nothing
@@ -9155,6 +10628,13 @@ data VolumeStatusInfo = VolumeStatusInfo
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusInfo' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe VolumeStatusInfoStatus@
+--
+-- * @Details ::@ @[VolumeStatusDetails]@
+--
 mkVolumeStatusInfo :: VolumeStatusInfo
 mkVolumeStatusInfo = VolumeStatusInfo
     { _vsi1Status = Nothing
@@ -9190,6 +10670,19 @@ data VolumeStatusItem = VolumeStatusItem
 --
 -- 'VolumeStatusItem' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @VolumeStatus ::@ @Maybe VolumeStatusInfo@
+--
+-- * @Events ::@ @[VolumeStatusEvent]@
+--
+-- * @Actions ::@ @[VolumeStatusAction]@
+--
 mkVolumeStatusItem :: VolumeStatusItem
 mkVolumeStatusItem = VolumeStatusItem
     { _vsiVolumeId = Nothing
@@ -9240,6 +10733,23 @@ data Vpc = Vpc
 --
 -- 'Vpc' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VpcState@
+--
+-- * @CidrBlock ::@ @Maybe Text@
+--
+-- * @DhcpOptionsId ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @InstanceTenancy ::@ @Maybe Tenancy@
+--
+-- * @IsDefault ::@ @Maybe Bool@
+--
 mkVpc :: Vpc
 mkVpc = Vpc
     { _vVpcId = Nothing
@@ -9293,6 +10803,13 @@ data VpcAttachment = VpcAttachment
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcAttachment' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe AttachmentStatus@
+--
 mkVpcAttachment :: VpcAttachment
 mkVpcAttachment = VpcAttachment
     { _vaVpcId = Nothing
@@ -9329,6 +10846,21 @@ data VpcPeeringConnection = VpcPeeringConnection
 --
 -- 'VpcPeeringConnection' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccepterVpcInfo ::@ @Maybe VpcPeeringConnectionVpcInfo@
+--
+-- * @ExpirationTime ::@ @Maybe ISO8601@
+--
+-- * @RequesterVpcInfo ::@ @Maybe VpcPeeringConnectionVpcInfo@
+--
+-- * @Status ::@ @Maybe VpcPeeringConnectionStateReason@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @VpcPeeringConnectionId ::@ @Maybe Text@
+--
 mkVpcPeeringConnection :: VpcPeeringConnection
 mkVpcPeeringConnection = VpcPeeringConnection
     { _vpcAccepterVpcInfo = Nothing
@@ -9380,6 +10912,13 @@ data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcPeeringConnectionStateReason' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkVpcPeeringConnectionStateReason :: VpcPeeringConnectionStateReason
 mkVpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
     { _vpcsrCode = Nothing
@@ -9410,6 +10949,15 @@ data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcPeeringConnectionVpcInfo' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CidrBlock ::@ @Maybe Text@
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
 mkVpcPeeringConnectionVpcInfo :: VpcPeeringConnectionVpcInfo
 mkVpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
     { _vpcviCidrBlock = Nothing
@@ -9455,6 +11003,29 @@ data VpnConnection = VpnConnection
 --
 -- 'VpnConnection' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnConnectionId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VpnState@
+--
+-- * @CustomerGatewayConfiguration ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe GatewayType@
+--
+-- * @CustomerGatewayId ::@ @Maybe Text@
+--
+-- * @VpnGatewayId ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @VgwTelemetry ::@ @[VgwTelemetry]@
+--
+-- * @Options ::@ @Maybe VpnConnectionOptions@
+--
+-- * @Routes ::@ @[VpnStaticRoute]@
+--
 mkVpnConnection :: VpnConnection
 mkVpnConnection = VpnConnection
     { _vcVpnConnectionId = Nothing
@@ -9537,6 +11108,21 @@ data VpnGateway = VpnGateway
 --
 -- 'VpnGateway' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnGatewayId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VpnState@
+--
+-- * @Type ::@ @Maybe GatewayType@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @VpcAttachments ::@ @[VpcAttachment]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkVpnGateway :: VpnGateway
 mkVpnGateway = VpnGateway
     { _vgVpnGatewayId = Nothing
@@ -9586,6 +11172,15 @@ data VpnStaticRoute = VpnStaticRoute
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnStaticRoute' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DestinationCidrBlock ::@ @Maybe Text@
+--
+-- * @Source ::@ @Maybe VpnStaticRouteSource@
+--
+-- * @State ::@ @Maybe VpnState@
+--
 mkVpnStaticRoute :: VpnStaticRoute
 mkVpnStaticRoute = VpnStaticRoute
     { _vsrDestinationCidrBlock = Nothing

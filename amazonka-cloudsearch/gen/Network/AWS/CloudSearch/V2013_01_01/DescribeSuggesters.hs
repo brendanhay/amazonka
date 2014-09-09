@@ -60,6 +60,15 @@ data DescribeSuggesters = DescribeSuggesters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSuggesters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @SuggesterNames ::@ @[Text]@
+--
+-- * @Deployed ::@ @Maybe Bool@
+--
 mkDescribeSuggesters :: Text -- ^ 'ds3DomainName'
                      -> DescribeSuggesters
 mkDescribeSuggesters p1 = DescribeSuggesters
@@ -94,6 +103,11 @@ newtype DescribeSuggestersResponse = DescribeSuggestersResponse
 -- a valid 'DescribeSuggestersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Suggesters ::@ @[SuggesterStatus]@
+--
 mkDescribeSuggestersResponse :: [SuggesterStatus] -- ^ 'dsr1Suggesters'
                              -> DescribeSuggestersResponse
 mkDescribeSuggestersResponse p1 = DescribeSuggestersResponse

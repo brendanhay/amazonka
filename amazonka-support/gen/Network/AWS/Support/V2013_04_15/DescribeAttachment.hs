@@ -43,13 +43,17 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 newtype DescribeAttachment = DescribeAttachment
     { _daAttachmentId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAttachment' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentId ::@ @Text@
+--
 mkDescribeAttachment :: Text -- ^ 'daAttachmentId'
                      -> DescribeAttachment
 mkDescribeAttachment p1 = DescribeAttachment
@@ -79,6 +83,11 @@ newtype DescribeAttachmentResponse = DescribeAttachmentResponse
 -- a valid 'DescribeAttachmentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attachment ::@ @Maybe Attachment@
+--
 mkDescribeAttachmentResponse :: DescribeAttachmentResponse
 mkDescribeAttachmentResponse = DescribeAttachmentResponse
     { _darAttachment = Nothing

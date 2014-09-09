@@ -91,6 +91,25 @@ data RegisterWorkflowType = RegisterWorkflowType
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterWorkflowType' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Version ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DefaultTaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @DefaultExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskList ::@ @Maybe TaskList@
+--
+-- * @DefaultChildPolicy ::@ @Maybe ChildPolicy@
+--
 mkRegisterWorkflowType :: Text -- ^ 'rwtDomain'
                        -> Text -- ^ 'rwtName'
                        -> Text -- ^ 'rwtVersion'

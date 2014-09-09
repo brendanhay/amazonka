@@ -52,6 +52,17 @@ data DescribeVTLDevices = DescribeVTLDevices
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVTLDevices' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @VTLDeviceARNs ::@ @[Text]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkDescribeVTLDevices :: Text -- ^ 'dvtldGatewayARN'
                      -> DescribeVTLDevices
 mkDescribeVTLDevices p1 = DescribeVTLDevices
@@ -94,6 +105,15 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
 -- a valid 'DescribeVTLDevicesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @VTLDevices ::@ @[VTLDevice]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeVTLDevicesResponse :: DescribeVTLDevicesResponse
 mkDescribeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN = Nothing

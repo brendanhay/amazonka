@@ -52,7 +52,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateGroup = UpdateGroup
     { _ugGroupName :: Text
     , _ugNewPath :: Maybe Text
@@ -61,6 +60,15 @@ data UpdateGroup = UpdateGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @NewPath ::@ @Maybe Text@
+--
+-- * @NewGroupName ::@ @Maybe Text@
+--
 mkUpdateGroup :: Text -- ^ 'ugGroupName'
               -> UpdateGroup
 mkUpdateGroup p1 = UpdateGroup

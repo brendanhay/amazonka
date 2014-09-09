@@ -50,6 +50,11 @@ newtype DescribeTags = DescribeTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerNames ::@ @List1 Text@
+--
 mkDescribeTags :: List1 Text -- ^ 'dtLoadBalancerNames'
                -> DescribeTags
 mkDescribeTags p1 = DescribeTags
@@ -73,6 +78,11 @@ newtype DescribeTagsResponse = DescribeTagsResponse
 -- a valid 'DescribeTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TagDescriptions ::@ @[TagDescription]@
+--
 mkDescribeTagsResponse :: DescribeTagsResponse
 mkDescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions = mempty

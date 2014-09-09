@@ -66,6 +66,13 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
 -- a valid 'DescribeAccountLimitsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MaxNumberOfAutoScalingGroups ::@ @Maybe Integer@
+--
+-- * @MaxNumberOfLaunchConfigurations ::@ @Maybe Integer@
+--
 mkDescribeAccountLimitsResponse :: DescribeAccountLimitsResponse
 mkDescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups = Nothing

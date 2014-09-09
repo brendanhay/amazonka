@@ -60,6 +60,15 @@ data DescribeDBInstances = DescribeDBInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBInstances :: DescribeDBInstances
 mkDescribeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier = Nothing
@@ -104,6 +113,13 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse
 -- a valid 'DescribeDBInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DBInstances ::@ @[DBInstance]@
+--
 mkDescribeDBInstancesResponse :: DescribeDBInstancesResponse
 mkDescribeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirrMarker = Nothing

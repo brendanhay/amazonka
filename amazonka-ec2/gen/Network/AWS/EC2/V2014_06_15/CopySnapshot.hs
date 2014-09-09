@@ -58,7 +58,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CopySnapshot = CopySnapshot
     { _csSourceRegion :: Text
     , _csSourceSnapshotId :: Text
@@ -69,6 +68,19 @@ data CopySnapshot = CopySnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopySnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceRegion ::@ @Text@
+--
+-- * @SourceSnapshotId ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DestinationRegion ::@ @Maybe Text@
+--
+-- * @PresignedUrl ::@ @Maybe Text@
+--
 mkCopySnapshot :: Text -- ^ 'csSourceRegion'
                -> Text -- ^ 'csSourceSnapshotId'
                -> CopySnapshot
@@ -117,7 +129,6 @@ csPresignedUrl = lens _csPresignedUrl (\s a -> s { _csPresignedUrl = a })
 instance ToQuery CopySnapshot where
     toQuery = genericQuery def
 
--- | 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId :: Maybe Text
     } deriving (Show, Generic)
@@ -126,6 +137,11 @@ newtype CopySnapshotResponse = CopySnapshotResponse
 -- a valid 'CopySnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
 mkCopySnapshotResponse :: CopySnapshotResponse
 mkCopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId = Nothing

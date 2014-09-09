@@ -55,7 +55,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ReleaseAddress = ReleaseAddress
     { _raPublicIp :: Maybe Text
     , _raAllocationId :: Maybe Text
@@ -63,6 +62,13 @@ data ReleaseAddress = ReleaseAddress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReleaseAddress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @AllocationId ::@ @Maybe Text@
+--
 mkReleaseAddress :: ReleaseAddress
 mkReleaseAddress = ReleaseAddress
     { _raPublicIp = Nothing

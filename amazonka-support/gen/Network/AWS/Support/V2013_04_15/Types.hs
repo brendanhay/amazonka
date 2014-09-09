@@ -227,6 +227,11 @@ newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSu
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCategorySpecificSummary' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CostOptimizing ::@ @Maybe TrustedAdvisorCostOptimizingSummary@
+--
 mkTrustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
 mkTrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing = Nothing
@@ -251,6 +256,13 @@ data Attachment = Attachment
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Attachment' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FileName ::@ @Maybe Text@
+--
+-- * @Data ::@ @Maybe Base64@
+--
 mkAttachment :: Attachment
 mkAttachment = Attachment
     { _aFileName = Nothing
@@ -278,6 +290,13 @@ data AttachmentDetails = AttachmentDetails
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttachmentDetails' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentId ::@ @Maybe Text@
+--
+-- * @FileName ::@ @Maybe Text@
+--
 mkAttachmentDetails :: AttachmentDetails
 mkAttachmentDetails = AttachmentDetails
     { _adAttachmentId = Nothing
@@ -337,6 +356,33 @@ data CaseDetails = CaseDetails
 --
 -- 'CaseDetails' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CaseId ::@ @Maybe Text@
+--
+-- * @DisplayId ::@ @Maybe Text@
+--
+-- * @Subject ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @ServiceCode ::@ @Maybe Text@
+--
+-- * @CategoryCode ::@ @Maybe Text@
+--
+-- * @SeverityCode ::@ @Maybe Text@
+--
+-- * @SubmittedBy ::@ @Maybe Text@
+--
+-- * @TimeCreated ::@ @Maybe Text@
+--
+-- * @RecentCommunications ::@ @Maybe RecentCaseCommunications@
+--
+-- * @CcEmailAddresses ::@ @[Text]@
+--
+-- * @Language ::@ @Maybe Text@
+--
 mkCaseDetails :: CaseDetails
 mkCaseDetails = CaseDetails
     { _cdCaseId = Nothing
@@ -423,6 +469,13 @@ data Category = Category
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Category' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkCategory :: Category
 mkCategory = Category
     { _c1Code = Nothing
@@ -454,6 +507,19 @@ data Communication = Communication
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Communication' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CaseId ::@ @Maybe Text@
+--
+-- * @Body ::@ @Maybe Text@
+--
+-- * @SubmittedBy ::@ @Maybe Text@
+--
+-- * @TimeCreated ::@ @Maybe Text@
+--
+-- * @AttachmentSet ::@ @[AttachmentDetails]@
+--
 mkCommunication :: Communication
 mkCommunication = Communication
     { _cCaseId = Nothing
@@ -499,6 +565,13 @@ data RecentCaseCommunications = RecentCaseCommunications
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecentCaseCommunications' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Communications ::@ @[Communication]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkRecentCaseCommunications :: RecentCaseCommunications
 mkRecentCaseCommunications = RecentCaseCommunications
     { _rccCommunications = mempty
@@ -531,6 +604,15 @@ data Service = Service
 --
 -- 'Service' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Categories ::@ @[Category]@
+--
 mkService :: Service
 mkService = Service
     { _sCode = Nothing
@@ -569,6 +651,13 @@ data SeverityLevel = SeverityLevel
 --
 -- 'SeverityLevel' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkSeverityLevel :: SeverityLevel
 mkSeverityLevel = SeverityLevel
     { _slCode = Nothing
@@ -600,6 +689,19 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
 --
 -- 'TrustedAdvisorCheckDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
+-- * @Category ::@ @Text@
+--
+-- * @Metadata ::@ @[Text]@
+--
 mkTrustedAdvisorCheckDescription :: Text -- ^ 'tacdId'
                                  -> Text -- ^ 'tacdName'
                                  -> Text -- ^ 'tacdDescription'
@@ -653,6 +755,15 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
 --
 -- 'TrustedAdvisorCheckRefreshStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckId ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @MillisUntilNextRefreshable ::@ @Integer@
+--
 mkTrustedAdvisorCheckRefreshStatus :: Text -- ^ 'tacrsCheckId'
                                    -> Text -- ^ 'tacrsStatus'
                                    -> Integer -- ^ 'tacrsMillisUntilNextRefreshable'
@@ -696,6 +807,21 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
 --
 -- 'TrustedAdvisorCheckResult' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckId ::@ @Text@
+--
+-- * @Timestamp ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @ResourcesSummary ::@ @TrustedAdvisorResourcesSummary@
+--
+-- * @CategorySpecificSummary ::@ @TrustedAdvisorCategorySpecificSummary@
+--
+-- * @FlaggedResources ::@ @[TrustedAdvisorResourceDetail]@
+--
 mkTrustedAdvisorCheckResult :: Text -- ^ 'tacrCheckId'
                             -> Text -- ^ 'tacrTimestamp'
                             -> Text -- ^ 'tacrStatus'
@@ -761,6 +887,21 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
 --
 -- 'TrustedAdvisorCheckSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckId ::@ @Text@
+--
+-- * @Timestamp ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @HasFlaggedResources ::@ @Maybe Bool@
+--
+-- * @ResourcesSummary ::@ @TrustedAdvisorResourcesSummary@
+--
+-- * @CategorySpecificSummary ::@ @TrustedAdvisorCategorySpecificSummary@
+--
 mkTrustedAdvisorCheckSummary :: Text -- ^ 'tacsCheckId'
                              -> Text -- ^ 'tacsTimestamp'
                              -> Text -- ^ 'tacsStatus'
@@ -819,6 +960,13 @@ data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCostOptimizingSummary' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EstimatedMonthlySavings ::@ @Double@
+--
+-- * @EstimatedPercentMonthlySavings ::@ @Double@
+--
 mkTrustedAdvisorCostOptimizingSummary :: Double -- ^ 'tacosEstimatedMonthlySavings'
                                       -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
                                       -> TrustedAdvisorCostOptimizingSummary
@@ -860,6 +1008,19 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
 --
 -- 'TrustedAdvisorResourceDetail' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Text@
+--
+-- * @Region ::@ @Text@
+--
+-- * @ResourceId ::@ @Text@
+--
+-- * @IsSuppressed ::@ @Maybe Bool@
+--
+-- * @Metadata ::@ @[Text]@
+--
 mkTrustedAdvisorResourceDetail :: Text -- ^ 'tardStatus'
                                -> Text -- ^ 'tardRegion'
                                -> Text -- ^ 'tardResourceId'
@@ -913,6 +1074,17 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorResourcesSummary' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourcesProcessed ::@ @Integer@
+--
+-- * @ResourcesFlagged ::@ @Integer@
+--
+-- * @ResourcesIgnored ::@ @Integer@
+--
+-- * @ResourcesSuppressed ::@ @Integer@
+--
 mkTrustedAdvisorResourcesSummary :: Integer -- ^ 'tarsResourcesProcessed'
                                  -> Integer -- ^ 'tarsResourcesFlagged'
                                  -> Integer -- ^ 'tarsResourcesIgnored'

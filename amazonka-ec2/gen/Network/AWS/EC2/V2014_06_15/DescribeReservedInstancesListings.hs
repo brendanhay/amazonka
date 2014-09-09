@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilReservedInstancesId :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
@@ -60,6 +59,15 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesListings' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesId ::@ @Maybe Text@
+--
+-- * @ReservedInstancesListingId ::@ @Maybe Text@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeReservedInstancesListings :: DescribeReservedInstancesListings
 mkDescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilReservedInstancesId = Nothing
@@ -89,7 +97,6 @@ drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a })
 instance ToQuery DescribeReservedInstancesListings where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
@@ -98,6 +105,11 @@ newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesLis
 -- a valid 'DescribeReservedInstancesListingsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
+--
 mkDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
 mkDescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings = mempty

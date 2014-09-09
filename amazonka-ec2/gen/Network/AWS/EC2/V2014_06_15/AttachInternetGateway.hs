@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AttachInternetGateway = AttachInternetGateway
     { _aigInternetGatewayId :: Text
     , _aigVpcId :: Text
@@ -56,6 +55,13 @@ data AttachInternetGateway = AttachInternetGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachInternetGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InternetGatewayId ::@ @Text@
+--
+-- * @VpcId ::@ @Text@
+--
 mkAttachInternetGateway :: Text -- ^ 'aigInternetGatewayId'
                         -> Text -- ^ 'aigVpcId'
                         -> AttachInternetGateway

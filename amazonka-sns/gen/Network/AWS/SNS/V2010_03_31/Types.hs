@@ -147,6 +147,11 @@ newtype Topic = Topic
 --
 -- 'Topic' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Maybe Text@
+--
 mkTopic :: Topic
 mkTopic = Topic
     { _tTopicArn = Nothing
@@ -171,6 +176,13 @@ data Endpoint = Endpoint
 --
 -- 'Endpoint' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EndpointArn ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkEndpoint :: Endpoint
 mkEndpoint = Endpoint
     { _eEndpointArn = Nothing
@@ -205,6 +217,15 @@ data MessageAttributeValue = MessageAttributeValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MessageAttributeValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DataType ::@ @Text@
+--
+-- * @StringValue ::@ @Maybe Text@
+--
+-- * @BinaryValue ::@ @Maybe ByteString@
+--
 mkMessageAttributeValue :: Text -- ^ 'mavDataType'
                         -> MessageAttributeValue
 mkMessageAttributeValue p1 = MessageAttributeValue
@@ -242,6 +263,13 @@ data PlatformApplication = PlatformApplication
 --
 -- 'PlatformApplication' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplicationArn ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkPlatformApplication :: PlatformApplication
 mkPlatformApplication = PlatformApplication
     { _paPlatformApplicationArn = Nothing
@@ -276,6 +304,19 @@ data Subscription = Subscription
 --
 -- 'Subscription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionArn ::@ @Maybe Text@
+--
+-- * @Owner ::@ @Maybe Text@
+--
+-- * @Protocol ::@ @Maybe Text@
+--
+-- * @Endpoint ::@ @Maybe Text@
+--
+-- * @TopicArn ::@ @Maybe Text@
+--
 mkSubscription :: Subscription
 mkSubscription = Subscription
     { _sSubscriptionArn = Nothing

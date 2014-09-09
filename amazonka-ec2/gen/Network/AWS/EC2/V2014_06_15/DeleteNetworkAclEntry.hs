@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     { _dnaeNetworkAclId :: Text
     , _dnaeRuleNumber :: Integer
@@ -56,6 +55,15 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNetworkAclEntry' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAclId ::@ @Text@
+--
+-- * @RuleNumber ::@ @Integer@
+--
+-- * @Egress ::@ @Bool@
+--
 mkDeleteNetworkAclEntry :: Text -- ^ 'dnaeNetworkAclId'
                         -> Integer -- ^ 'dnaeRuleNumber'
                         -> Bool -- ^ 'dnaeEgress'

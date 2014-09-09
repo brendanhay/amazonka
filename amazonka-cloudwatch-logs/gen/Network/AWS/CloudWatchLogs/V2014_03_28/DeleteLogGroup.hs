@@ -53,6 +53,11 @@ newtype DeleteLogGroup = DeleteLogGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLogGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
 mkDeleteLogGroup :: Text -- ^ 'dlgLogGroupName'
                  -> DeleteLogGroup
 mkDeleteLogGroup p1 = DeleteLogGroup

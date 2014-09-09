@@ -96,6 +96,19 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssumeRoleWithSAML' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleArn ::@ @Text@
+--
+-- * @PrincipalArn ::@ @Text@
+--
+-- * @SAMLAssertion ::@ @Text@
+--
+-- * @Policy ::@ @Maybe Text@
+--
+-- * @DurationSeconds ::@ @Maybe Integer@
+--
 mkAssumeRoleWithSAML :: Text -- ^ 'arwsamlRoleArn'
                      -> Text -- ^ 'arwsamlPrincipalArn'
                      -> Text -- ^ 'arwsamlSAMLAssertion'
@@ -169,6 +182,25 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
 -- a valid 'AssumeRoleWithSAMLResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Credentials ::@ @Maybe Credentials@
+--
+-- * @AssumedRoleUser ::@ @Maybe AssumedRoleUser@
+--
+-- * @PackedPolicySize ::@ @Maybe Integer@
+--
+-- * @Subject ::@ @Maybe Text@
+--
+-- * @SubjectType ::@ @Maybe Text@
+--
+-- * @Issuer ::@ @Maybe Text@
+--
+-- * @Audience ::@ @Maybe Text@
+--
+-- * @NameQualifier ::@ @Maybe Text@
+--
 mkAssumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse
 mkAssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     { _arwsamlrCredentials = Nothing

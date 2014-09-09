@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeScheduledActions = DescribeScheduledActions
     { _dsa2AutoScalingGroupName :: Maybe Text
     , _dsa2ScheduledActionNames :: [Text]
@@ -59,6 +58,21 @@ data DescribeScheduledActions = DescribeScheduledActions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScheduledActions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @ScheduledActionNames ::@ @[Text]@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
 mkDescribeScheduledActions :: DescribeScheduledActions
 mkDescribeScheduledActions = DescribeScheduledActions
     { _dsa2AutoScalingGroupName = Nothing
@@ -119,6 +133,13 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
 -- a valid 'DescribeScheduledActionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ScheduledUpdateGroupActions ::@ @[ScheduledUpdateGroupAction]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeScheduledActionsResponse :: DescribeScheduledActionsResponse
 mkDescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarrScheduledUpdateGroupActions = mempty

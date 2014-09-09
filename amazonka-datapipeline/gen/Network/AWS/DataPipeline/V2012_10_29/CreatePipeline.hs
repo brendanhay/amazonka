@@ -59,6 +59,15 @@ data CreatePipeline = CreatePipeline
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePipeline' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @UniqueId ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkCreatePipeline :: Text -- ^ 'cpName'
                  -> Text -- ^ 'cpUniqueId'
                  -> CreatePipeline
@@ -110,6 +119,11 @@ newtype CreatePipelineResponse = CreatePipelineResponse
 -- a valid 'CreatePipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
 mkCreatePipelineResponse :: Text -- ^ 'cprPipelineId'
                          -> CreatePipelineResponse
 mkCreatePipelineResponse p1 = CreatePipelineResponse

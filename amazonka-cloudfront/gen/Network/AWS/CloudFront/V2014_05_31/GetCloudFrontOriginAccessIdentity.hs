@@ -48,6 +48,11 @@ newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCloudFrontOriginAccessIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkGetCloudFrontOriginAccessIdentity :: Text -- ^ 'gcfoaiId'
                                     -> GetCloudFrontOriginAccessIdentity
 mkGetCloudFrontOriginAccessIdentity p1 = GetCloudFrontOriginAccessIdentity
@@ -78,6 +83,13 @@ data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdenti
 -- a valid 'GetCloudFrontOriginAccessIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CloudFrontOriginAccessIdentity ::@ @Maybe CloudFrontOriginAccessIdentity@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkGetCloudFrontOriginAccessIdentityResponse :: GetCloudFrontOriginAccessIdentityResponse
 mkGetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
     { _gcfoairCloudFrontOriginAccessIdentity = Nothing

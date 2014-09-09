@@ -53,13 +53,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype MonitorInstances = MonitorInstances
     { _miInstanceIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'MonitorInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
 mkMonitorInstances :: [Text] -- ^ 'miInstanceIds'
                    -> MonitorInstances
 mkMonitorInstances p1 = MonitorInstances
@@ -73,7 +77,6 @@ miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
 instance ToQuery MonitorInstances where
     toQuery = genericQuery def
 
--- | 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Show, Generic)
@@ -82,6 +85,11 @@ newtype MonitorInstancesResponse = MonitorInstancesResponse
 -- a valid 'MonitorInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceMonitorings ::@ @[InstanceMonitoring]@
+--
 mkMonitorInstancesResponse :: MonitorInstancesResponse
 mkMonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings = mempty

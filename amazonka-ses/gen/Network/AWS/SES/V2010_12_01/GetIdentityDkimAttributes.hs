@@ -75,6 +75,11 @@ newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityDkimAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identities ::@ @[Text]@
+--
 mkGetIdentityDkimAttributes :: [Text] -- ^ 'gidaIdentities'
                             -> GetIdentityDkimAttributes
 mkGetIdentityDkimAttributes p1 = GetIdentityDkimAttributes
@@ -98,6 +103,11 @@ newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
 -- a valid 'GetIdentityDkimAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DkimAttributes ::@ @Map Text IdentityDkimAttributes@
+--
 mkGetIdentityDkimAttributesResponse :: Map Text IdentityDkimAttributes -- ^ 'gidarDkimAttributes'
                                     -> GetIdentityDkimAttributesResponse
 mkGetIdentityDkimAttributesResponse p1 = GetIdentityDkimAttributesResponse

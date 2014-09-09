@@ -69,6 +69,17 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOrderableClusterOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeOrderableClusterOptions :: DescribeOrderableClusterOptions
 mkDescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     { _docoClusterVersion = Nothing
@@ -120,6 +131,13 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 -- a valid 'DescribeOrderableClusterOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OrderableClusterOptions ::@ @[OrderableClusterOption]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
 mkDescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorOrderableClusterOptions = mempty

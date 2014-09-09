@@ -64,6 +64,17 @@ data AddPermission = AddPermission
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddPermission' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Text@
+--
+-- * @Label ::@ @Text@
+--
+-- * @AWSAccountId ::@ @[Text]@
+--
+-- * @ActionName ::@ @[Text]@
+--
 mkAddPermission :: Text -- ^ 'apTopicArn'
                 -> Text -- ^ 'apLabel'
                 -> [Text] -- ^ 'apAWSAccountId'

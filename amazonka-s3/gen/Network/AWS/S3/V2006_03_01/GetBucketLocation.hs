@@ -46,6 +46,11 @@ newtype GetBucketLocation = GetBucketLocation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLocation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketLocation :: BucketName -- ^ 'gbl1Bucket'
                     -> GetBucketLocation
 mkGetBucketLocation p1 = GetBucketLocation
@@ -71,6 +76,11 @@ newtype GetBucketLocationResponse = GetBucketLocationResponse
 -- a valid 'GetBucketLocationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LocationConstraint ::@ @Maybe Region@
+--
 mkGetBucketLocationResponse :: GetBucketLocationResponse
 mkGetBucketLocationResponse = GetBucketLocationResponse
     { _gblrrLocationConstraint = Nothing

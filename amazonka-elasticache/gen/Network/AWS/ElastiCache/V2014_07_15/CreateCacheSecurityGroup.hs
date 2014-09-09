@@ -59,6 +59,13 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSecurityGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroupName ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
 mkCreateCacheSecurityGroup :: Text -- ^ 'ccsgCacheSecurityGroupName'
                            -> Text -- ^ 'ccsgDescription'
                            -> CreateCacheSecurityGroup
@@ -90,6 +97,11 @@ newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
 -- a valid 'CreateCacheSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroup ::@ @Maybe CacheSecurityGroup@
+--
 mkCreateCacheSecurityGroupResponse :: CreateCacheSecurityGroupResponse
 mkCreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup = Nothing

@@ -47,6 +47,11 @@ newtype DescribeUserProfiles = DescribeUserProfiles
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeUserProfiles' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArns ::@ @[Text]@
+--
 mkDescribeUserProfiles :: DescribeUserProfiles
 mkDescribeUserProfiles = DescribeUserProfiles
     { _dup1IamUserArns = mempty
@@ -73,6 +78,11 @@ newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
 -- a valid 'DescribeUserProfilesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserProfiles ::@ @[UserProfile]@
+--
 mkDescribeUserProfilesResponse :: DescribeUserProfilesResponse
 mkDescribeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles = mempty

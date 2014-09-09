@@ -60,6 +60,15 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetCacheParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Text@
+--
+-- * @ResetAllParameters ::@ @Maybe Bool@
+--
+-- * @ParameterNameValues ::@ @[ParameterNameValue]@
+--
 mkResetCacheParameterGroup :: Text -- ^ 'rcpgCacheParameterGroupName'
                            -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
                            -> ResetCacheParameterGroup
@@ -102,6 +111,11 @@ newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
 -- a valid 'ResetCacheParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
 mkResetCacheParameterGroupResponse :: ResetCacheParameterGroupResponse
 mkResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _rcpgrCacheParameterGroupName = Nothing

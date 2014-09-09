@@ -112,6 +112,21 @@ data CreateJob = CreateJob
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJob' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @Input ::@ @JobInput@
+--
+-- * @Output ::@ @Maybe CreateJobOutput@
+--
+-- * @Outputs ::@ @[CreateJobOutput]@
+--
+-- * @OutputKeyPrefix ::@ @Maybe Text@
+--
+-- * @Playlists ::@ @[CreateJobPlaylist]@
+--
 mkCreateJob :: Text -- ^ 'cj1PipelineId'
             -> JobInput -- ^ 'cj1Input'
             -> CreateJob
@@ -177,6 +192,11 @@ newtype CreateJobResponse = CreateJobResponse
 -- a valid 'CreateJobResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Job ::@ @Maybe Job@
+--
 mkCreateJobResponse :: CreateJobResponse
 mkCreateJobResponse = CreateJobResponse
     { _cjrrJob = Nothing

@@ -70,6 +70,19 @@ data QueryObjects = QueryObjects
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'QueryObjects' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @Query ::@ @Maybe Query@
+--
+-- * @Sphere ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkQueryObjects :: Text -- ^ 'qoPipelineId'
                -> Text -- ^ 'qoSphere'
                -> QueryObjects
@@ -128,6 +141,15 @@ data QueryObjectsResponse = QueryObjectsResponse
 -- a valid 'QueryObjectsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Ids ::@ @[Text]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @HasMoreResults ::@ @Bool@
+--
 mkQueryObjectsResponse :: Bool -- ^ 'qorHasMoreResults'
                        -> QueryObjectsResponse
 mkQueryObjectsResponse p3 = QueryObjectsResponse

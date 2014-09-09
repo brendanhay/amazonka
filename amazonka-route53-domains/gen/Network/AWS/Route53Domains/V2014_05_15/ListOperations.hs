@@ -67,6 +67,13 @@ data ListOperations = ListOperations
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListOperations' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListOperations :: ListOperations
 mkListOperations = ListOperations
     { _loMarker = Nothing
@@ -105,6 +112,13 @@ data ListOperationsResponse = ListOperationsResponse
 -- a valid 'ListOperationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Operations ::@ @[OperationSummary]@
+--
+-- * @NextPageMarker ::@ @Maybe Text@
+--
 mkListOperationsResponse :: [OperationSummary] -- ^ 'lorOperations'
                          -> ListOperationsResponse
 mkListOperationsResponse p1 = ListOperationsResponse

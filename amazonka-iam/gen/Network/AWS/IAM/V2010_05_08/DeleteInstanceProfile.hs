@@ -45,13 +45,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
     { _dipInstanceProfileName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInstanceProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfileName ::@ @Text@
+--
 mkDeleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
                         -> DeleteInstanceProfile
 mkDeleteInstanceProfile p1 = DeleteInstanceProfile

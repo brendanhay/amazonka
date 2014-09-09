@@ -102,7 +102,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1NetworkInterfaceIds :: [Text]
     , _dni1Filters :: [Filter]
@@ -110,6 +109,13 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkInterfaces' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeNetworkInterfaces :: DescribeNetworkInterfaces
 mkDescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1NetworkInterfaceIds = mempty
@@ -182,7 +188,6 @@ dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a })
 instance ToQuery DescribeNetworkInterfaces where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: [NetworkInterface]
     } deriving (Show, Generic)
@@ -191,6 +196,11 @@ newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 -- a valid 'DescribeNetworkInterfacesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaces ::@ @[NetworkInterface]@
+--
 mkDescribeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
 mkDescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces = mempty

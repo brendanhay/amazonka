@@ -67,6 +67,19 @@ data ModifyEventSubscription = ModifyEventSubscription
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyEventSubscription' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionName ::@ @Text@
+--
+-- * @SnsTopicArn ::@ @Maybe Text@
+--
+-- * @SourceType ::@ @Maybe Text@
+--
+-- * @EventCategories ::@ @[Text]@
+--
+-- * @Enabled ::@ @Maybe Bool@
+--
 mkModifyEventSubscription :: Text -- ^ 'mesSubscriptionName'
                           -> ModifyEventSubscription
 mkModifyEventSubscription p1 = ModifyEventSubscription
@@ -119,6 +132,11 @@ newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
 -- a valid 'ModifyEventSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventSubscription ::@ @Maybe EventSubscription@
+--
 mkModifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse
 mkModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription = Nothing

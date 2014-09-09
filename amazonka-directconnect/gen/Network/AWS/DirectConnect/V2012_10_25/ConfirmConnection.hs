@@ -49,6 +49,11 @@ newtype ConfirmConnection = ConfirmConnection
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConnectionId ::@ @Text@
+--
 mkConfirmConnection :: Text -- ^ 'ccConnectionId'
                     -> ConfirmConnection
 mkConfirmConnection p1 = ConfirmConnection
@@ -76,6 +81,11 @@ newtype ConfirmConnectionResponse = ConfirmConnectionResponse
 -- a valid 'ConfirmConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConnectionState ::@ @Maybe ConnectionState@
+--
 mkConfirmConnectionResponse :: ConfirmConnectionResponse
 mkConfirmConnectionResponse = ConfirmConnectionResponse
     { _ccrConnectionState = Nothing

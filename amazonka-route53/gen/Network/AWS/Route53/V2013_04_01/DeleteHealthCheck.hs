@@ -53,6 +53,11 @@ newtype DeleteHealthCheck = DeleteHealthCheck
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHealthCheck' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheckId ::@ @Text@
+--
 mkDeleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
                     -> DeleteHealthCheck
 mkDeleteHealthCheck p1 = DeleteHealthCheck

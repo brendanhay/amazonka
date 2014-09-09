@@ -48,6 +48,13 @@ data GetObjectTorrent = GetObjectTorrent
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObjectTorrent' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Key ::@ @ObjectKey@
+--
 mkGetObjectTorrent :: BucketName -- ^ 'gotBucket'
                    -> ObjectKey -- ^ 'gotKey'
                    -> GetObjectTorrent
@@ -78,6 +85,11 @@ newtype GetObjectTorrentResponse = GetObjectTorrentResponse
 -- a valid 'GetObjectTorrentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Body ::@ @RsBody@
+--
 mkGetObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
                            -> GetObjectTorrentResponse
 mkGetObjectTorrentResponse p1 = GetObjectTorrentResponse

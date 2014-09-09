@@ -73,6 +73,23 @@ data ListObjectVersions = ListObjectVersions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListObjectVersions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Delimiter ::@ @Maybe Char@
+--
+-- * @EncodingType ::@ @Maybe EncodingType@
+--
+-- * @KeyMarker ::@ @Maybe Text@
+--
+-- * @MaxKeys ::@ @Maybe Integer@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
+-- * @VersionIdMarker ::@ @Maybe Text@
+--
 mkListObjectVersions :: BucketName -- ^ 'lovBucket'
                      -> ListObjectVersions
 mkListObjectVersions p1 = ListObjectVersions
@@ -146,6 +163,33 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 -- a valid 'ListObjectVersionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @KeyMarker ::@ @Maybe Text@
+--
+-- * @VersionIdMarker ::@ @Maybe Text@
+--
+-- * @NextKeyMarker ::@ @Maybe Text@
+--
+-- * @NextVersionIdMarker ::@ @Maybe Text@
+--
+-- * @Versions ::@ @[ObjectVersion]@
+--
+-- * @DeleteMarkers ::@ @[DeleteMarkerEntry]@
+--
+-- * @Name ::@ @Maybe BucketName@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
+-- * @MaxKeys ::@ @Maybe Integer@
+--
+-- * @CommonPrefixes ::@ @[CommonPrefix]@
+--
+-- * @EncodingType ::@ @Maybe EncodingType@
+--
 mkListObjectVersionsResponse :: Bool -- ^ 'lovrIsTruncated'
                              -> ListObjectVersionsResponse
 mkListObjectVersionsResponse p1 = ListObjectVersionsResponse

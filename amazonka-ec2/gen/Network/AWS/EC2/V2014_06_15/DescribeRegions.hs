@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeRegions = DescribeRegions
     { _dr1RegionNames :: [Text]
     , _dr1Filters :: [Filter]
@@ -56,6 +55,13 @@ data DescribeRegions = DescribeRegions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRegions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RegionNames ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeRegions :: DescribeRegions
 mkDescribeRegions = DescribeRegions
     { _dr1RegionNames = mempty
@@ -75,7 +81,6 @@ dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
 instance ToQuery DescribeRegions where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
     } deriving (Show, Generic)
@@ -84,6 +89,11 @@ newtype DescribeRegionsResponse = DescribeRegionsResponse
 -- a valid 'DescribeRegionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Regions ::@ @[Region]@
+--
 mkDescribeRegionsResponse :: DescribeRegionsResponse
 mkDescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions = mempty

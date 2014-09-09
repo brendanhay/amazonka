@@ -64,13 +64,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype TerminateInstances = TerminateInstances
     { _tiInstanceIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
 mkTerminateInstances :: [Text] -- ^ 'tiInstanceIds'
                      -> TerminateInstances
 mkTerminateInstances p1 = TerminateInstances
@@ -84,7 +88,6 @@ tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
 instance ToQuery TerminateInstances where
     toQuery = genericQuery def
 
--- | 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
@@ -93,6 +96,11 @@ newtype TerminateInstancesResponse = TerminateInstancesResponse
 -- a valid 'TerminateInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TerminatingInstances ::@ @[InstanceStateChange]@
+--
 mkTerminateInstancesResponse :: TerminateInstancesResponse
 mkTerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances = mempty

@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data ExitStandby = ExitStandby
     { _es1InstanceIds :: [Text]
     , _es1AutoScalingGroupName :: Text
@@ -57,6 +56,13 @@ data ExitStandby = ExitStandby
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExitStandby' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
 mkExitStandby :: Text -- ^ 'es1AutoScalingGroupName'
               -> ExitStandby
 mkExitStandby p2 = ExitStandby
@@ -88,6 +94,11 @@ newtype ExitStandbyResponse = ExitStandbyResponse
 -- a valid 'ExitStandbyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Activities ::@ @[Activity]@
+--
 mkExitStandbyResponse :: ExitStandbyResponse
 mkExitStandbyResponse = ExitStandbyResponse
     { _esrrActivities = mempty

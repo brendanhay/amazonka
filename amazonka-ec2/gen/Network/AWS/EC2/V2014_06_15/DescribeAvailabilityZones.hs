@@ -66,7 +66,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazZoneNames :: [Text]
     , _dazFilters :: [Filter]
@@ -74,6 +73,13 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityZones' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ZoneNames ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeAvailabilityZones :: DescribeAvailabilityZones
 mkDescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazZoneNames = mempty
@@ -95,7 +101,6 @@ dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a })
 instance ToQuery DescribeAvailabilityZones where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Show, Generic)
@@ -104,6 +109,11 @@ newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
 -- a valid 'DescribeAvailabilityZonesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityZones ::@ @[AvailabilityZone]@
+--
 mkDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
 mkDescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones = mempty

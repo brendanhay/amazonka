@@ -58,6 +58,15 @@ data CopyDBSnapshot = CopyDBSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyDBSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceDBSnapshotIdentifier ::@ @Text@
+--
+-- * @TargetDBSnapshotIdentifier ::@ @Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCopyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
                  -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
                  -> CopyDBSnapshot
@@ -104,6 +113,11 @@ newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
 -- a valid 'CopyDBSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSnapshot ::@ @Maybe DBSnapshot@
+--
 mkCopyDBSnapshotResponse :: CopyDBSnapshotResponse
 mkCopyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot = Nothing

@@ -69,6 +69,11 @@ newtype DescribeWorkingStorage = DescribeWorkingStorage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeWorkingStorage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDescribeWorkingStorage :: Text -- ^ 'dwsGatewayARN'
                          -> DescribeWorkingStorage
 mkDescribeWorkingStorage p1 = DescribeWorkingStorage
@@ -100,6 +105,17 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
 -- a valid 'DescribeWorkingStorageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @DiskIds ::@ @[Text]@
+--
+-- * @WorkingStorageUsedInBytes ::@ @Maybe Integer@
+--
+-- * @WorkingStorageAllocatedInBytes ::@ @Maybe Integer@
+--
 mkDescribeWorkingStorageResponse :: DescribeWorkingStorageResponse
 mkDescribeWorkingStorageResponse = DescribeWorkingStorageResponse
     { _dwsrGatewayARN = Nothing

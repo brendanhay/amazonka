@@ -64,6 +64,11 @@ newtype DeleteStream = DeleteStream
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStream' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
 mkDeleteStream :: Text -- ^ 'dsStreamName'
                -> DeleteStream
 mkDeleteStream p1 = DeleteStream

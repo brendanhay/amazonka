@@ -50,6 +50,11 @@ newtype GetHostnameSuggestion = GetHostnameSuggestion
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHostnameSuggestion' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerId ::@ @Text@
+--
 mkGetHostnameSuggestion :: Text -- ^ 'ghsLayerId'
                         -> GetHostnameSuggestion
 mkGetHostnameSuggestion p1 = GetHostnameSuggestion
@@ -78,6 +83,13 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
 -- a valid 'GetHostnameSuggestionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerId ::@ @Maybe Text@
+--
+-- * @Hostname ::@ @Maybe Text@
+--
 mkGetHostnameSuggestionResponse :: GetHostnameSuggestionResponse
 mkGetHostnameSuggestionResponse = GetHostnameSuggestionResponse
     { _ghsrLayerId = Nothing

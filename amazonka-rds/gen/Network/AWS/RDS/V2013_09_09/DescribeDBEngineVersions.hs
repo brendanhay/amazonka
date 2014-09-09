@@ -74,7 +74,6 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeDBEngineVersions = DescribeDBEngineVersions
     { _ddbevEngine :: Maybe Text
     , _ddbevEngineVersion :: Maybe Text
@@ -87,6 +86,23 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBEngineVersions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @DBParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DefaultOnly ::@ @Maybe Bool@
+--
+-- * @ListSupportedCharacterSets ::@ @Maybe Bool@
+--
 mkDescribeDBEngineVersions :: DescribeDBEngineVersions
 mkDescribeDBEngineVersions = DescribeDBEngineVersions
     { _ddbevEngine = Nothing
@@ -156,6 +172,13 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
 -- a valid 'DescribeDBEngineVersionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DBEngineVersions ::@ @[DBEngineVersion]@
+--
 mkDescribeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
 mkDescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrMarker = Nothing

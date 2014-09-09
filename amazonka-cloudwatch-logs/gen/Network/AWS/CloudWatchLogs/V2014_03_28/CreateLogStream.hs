@@ -59,6 +59,13 @@ data CreateLogStream = CreateLogStream
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLogStream' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @LogStreamName ::@ @Text@
+--
 mkCreateLogStream :: Text -- ^ 'clsLogGroupName'
                   -> Text -- ^ 'clsLogStreamName'
                   -> CreateLogStream

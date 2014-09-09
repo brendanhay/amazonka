@@ -66,7 +66,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeVpnConnections = DescribeVpnConnections
     { _dvc1VpnConnectionIds :: [Text]
     , _dvc1Filters :: [Filter]
@@ -74,6 +73,13 @@ data DescribeVpnConnections = DescribeVpnConnections
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpnConnections' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnConnectionIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeVpnConnections :: DescribeVpnConnections
 mkDescribeVpnConnections = DescribeVpnConnections
     { _dvc1VpnConnectionIds = mempty
@@ -112,7 +118,6 @@ dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
 instance ToQuery DescribeVpnConnections where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrrVpnConnections :: [VpnConnection]
     } deriving (Show, Generic)
@@ -121,6 +126,11 @@ newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
 -- a valid 'DescribeVpnConnectionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnConnections ::@ @[VpnConnection]@
+--
 mkDescribeVpnConnectionsResponse :: DescribeVpnConnectionsResponse
 mkDescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrrVpnConnections = mempty

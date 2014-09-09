@@ -105,6 +105,59 @@ data CreateDBInstance = CreateDBInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBName ::@ @Maybe Text@
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @AllocatedStorage ::@ @Integer@
+--
+-- * @DBInstanceClass ::@ @Text@
+--
+-- * @Engine ::@ @Text@
+--
+-- * @MasterUsername ::@ @Text@
+--
+-- * @MasterUserPassword ::@ @Text@
+--
+-- * @DBSecurityGroups ::@ @[Text]@
+--
+-- * @VpcSecurityGroupIds ::@ @[Text]@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @DBSubnetGroupName ::@ @Maybe Text@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @DBParameterGroupName ::@ @Maybe Text@
+--
+-- * @BackupRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @PreferredBackupWindow ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @LicenseModel ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @CharacterSetName ::@ @Maybe Text@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateDBInstance :: Text -- ^ 'cdbiDBInstanceIdentifier'
                    -> Integer -- ^ 'cdbiAllocatedStorage'
                    -> Text -- ^ 'cdbiDBInstanceClass'
@@ -359,6 +412,11 @@ newtype CreateDBInstanceResponse = CreateDBInstanceResponse
 -- a valid 'CreateDBInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkCreateDBInstanceResponse :: CreateDBInstanceResponse
 mkCreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance = Nothing

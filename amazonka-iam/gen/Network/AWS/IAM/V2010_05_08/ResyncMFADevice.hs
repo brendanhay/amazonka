@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ResyncMFADevice = ResyncMFADevice
     { _rmfadUserName :: Text
     , _rmfadSerialNumber :: Text
@@ -53,6 +52,17 @@ data ResyncMFADevice = ResyncMFADevice
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResyncMFADevice' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @SerialNumber ::@ @Text@
+--
+-- * @AuthenticationCode1 ::@ @Text@
+--
+-- * @AuthenticationCode2 ::@ @Text@
+--
 mkResyncMFADevice :: Text -- ^ 'rmfadUserName'
                   -> Text -- ^ 'rmfadSerialNumber'
                   -> Text -- ^ 'rmfadAuthenticationCode1'

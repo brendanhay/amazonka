@@ -85,7 +85,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UploadServerCertificate = UploadServerCertificate
     { _usc2Path :: Maybe Text
     , _usc2ServerCertificateName :: Text
@@ -96,6 +95,19 @@ data UploadServerCertificate = UploadServerCertificate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadServerCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Maybe Text@
+--
+-- * @ServerCertificateName ::@ @Text@
+--
+-- * @CertificateBody ::@ @Text@
+--
+-- * @PrivateKey ::@ @Text@
+--
+-- * @CertificateChain ::@ @Maybe Text@
+--
 mkUploadServerCertificate :: Text -- ^ 'usc2ServerCertificateName'
                           -> Text -- ^ 'usc2CertificateBody'
                           -> Text -- ^ 'usc2PrivateKey'
@@ -152,6 +164,11 @@ newtype UploadServerCertificateResponse = UploadServerCertificateResponse
 -- a valid 'UploadServerCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerCertificateMetadata ::@ @Maybe ServerCertificateMetadata@
+--
 mkUploadServerCertificateResponse :: UploadServerCertificateResponse
 mkUploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata = Nothing

@@ -64,6 +64,25 @@ data CreateBucket = CreateBucket
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateBucket' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ACL ::@ @Maybe BucketCannedACL@
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @CreateBucketConfiguration ::@ @Maybe CreateBucketConfiguration@
+--
+-- * @GrantFullControl ::@ @Maybe Text@
+--
+-- * @GrantRead ::@ @Maybe Text@
+--
+-- * @GrantReadACP ::@ @Maybe Text@
+--
+-- * @GrantWrite ::@ @Maybe Text@
+--
+-- * @GrantWriteACP ::@ @Maybe Text@
+--
 mkCreateBucket :: BucketName -- ^ 'cbBucket'
                -> CreateBucket
 mkCreateBucket p2 = CreateBucket
@@ -136,6 +155,11 @@ newtype CreateBucketResponse = CreateBucketResponse
 -- a valid 'CreateBucketResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Location ::@ @Maybe Text@
+--
 mkCreateBucketResponse :: CreateBucketResponse
 mkCreateBucketResponse = CreateBucketResponse
     { _cbrLocation = Nothing

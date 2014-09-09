@@ -102,6 +102,51 @@ data CreateCacheCluster = CreateCacheCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Text@
+--
+-- * @ReplicationGroupId ::@ @Maybe Text@
+--
+-- * @NumCacheNodes ::@ @Maybe Integer@
+--
+-- * @CacheNodeType ::@ @Maybe Text@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
+-- * @CacheSubnetGroupName ::@ @Maybe Text@
+--
+-- * @CacheSecurityGroupNames ::@ @[Text]@
+--
+-- * @SecurityGroupIds ::@ @[Text]@
+--
+-- * @SnapshotArns ::@ @[Text]@
+--
+-- * @SnapshotName ::@ @Maybe Text@
+--
+-- * @AZMode ::@ @Maybe Text@
+--
+-- * @PreferredAvailabilityZone ::@ @Maybe Text@
+--
+-- * @PreferredAvailabilityZones ::@ @[Text]@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @NotificationTopicArn ::@ @Maybe Text@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @SnapshotRetentionLimit ::@ @Maybe Integer@
+--
+-- * @SnapshotWindow ::@ @Maybe Text@
+--
 mkCreateCacheCluster :: Text -- ^ 'cccCacheClusterId'
                      -> CreateCacheCluster
 mkCreateCacheCluster p1 = CreateCacheCluster
@@ -321,6 +366,11 @@ newtype CreateCacheClusterResponse = CreateCacheClusterResponse
 -- a valid 'CreateCacheClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheCluster ::@ @Maybe CacheCluster@
+--
 mkCreateCacheClusterResponse :: CreateCacheClusterResponse
 mkCreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster = Nothing

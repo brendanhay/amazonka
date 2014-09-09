@@ -65,6 +65,17 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DownloadDBLogFilePortion' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @LogFileName ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @NumberOfLines ::@ @Maybe Integer@
+--
 mkDownloadDBLogFilePortion :: Text -- ^ 'ddblfpDBInstanceIdentifier'
                            -> Text -- ^ 'ddblfpLogFileName'
                            -> DownloadDBLogFilePortion
@@ -114,6 +125,15 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
 -- a valid 'DownloadDBLogFilePortionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AdditionalDataPending ::@ @Bool@
+--
+-- * @LogFileData ::@ @ByteString@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDownloadDBLogFilePortionResponse :: Bool -- ^ 'ddblfprAdditionalDataPending'
                                    -> ByteString -- ^ 'ddblfprLogFileData'
                                    -> DownloadDBLogFilePortionResponse

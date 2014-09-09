@@ -66,6 +66,17 @@ data CreateDBParameterGroup = CreateDBParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Text@
+--
+-- * @DBParameterGroupFamily ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateDBParameterGroup :: Text -- ^ 'cdbpgDBParameterGroupName'
                          -> Text -- ^ 'cdbpgDBParameterGroupFamily'
                          -> Text -- ^ 'cdbpgDescription'
@@ -115,6 +126,11 @@ newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
 -- a valid 'CreateDBParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroup ::@ @Maybe DBParameterGroup@
+--
 mkCreateDBParameterGroupResponse :: CreateDBParameterGroupResponse
 mkCreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup = Nothing

@@ -53,6 +53,17 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SwapEnvironmentCNAMEs' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceEnvironmentId ::@ @Maybe Text@
+--
+-- * @SourceEnvironmentName ::@ @Maybe Text@
+--
+-- * @DestinationEnvironmentId ::@ @Maybe Text@
+--
+-- * @DestinationEnvironmentName ::@ @Maybe Text@
+--
 mkSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
 mkSwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     { _secnameSourceEnvironmentId = Nothing

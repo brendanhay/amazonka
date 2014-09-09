@@ -89,6 +89,13 @@ data ListPipelines = ListPipelines
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPipelines' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Ascending ::@ @Maybe Text@
+--
+-- * @PageToken ::@ @Maybe Text@
+--
 mkListPipelines :: ListPipelines
 mkListPipelines = ListPipelines
     { _lpAscending = Nothing
@@ -125,6 +132,13 @@ data ListPipelinesResponse = ListPipelinesResponse
 -- a valid 'ListPipelinesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Pipelines ::@ @[Pipeline]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListPipelinesResponse :: ListPipelinesResponse
 mkListPipelinesResponse = ListPipelinesResponse
     { _lprPipelines = mempty

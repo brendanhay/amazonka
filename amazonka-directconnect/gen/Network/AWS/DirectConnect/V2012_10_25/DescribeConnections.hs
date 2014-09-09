@@ -47,6 +47,11 @@ newtype DescribeConnections = DescribeConnections
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConnections' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
 mkDescribeConnections :: DescribeConnections
 mkDescribeConnections = DescribeConnections
     { _dc1ConnectionId = Nothing
@@ -73,6 +78,11 @@ newtype DescribeConnectionsResponse = DescribeConnectionsResponse
 -- a valid 'DescribeConnectionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Connections ::@ @[Connection]@
+--
 mkDescribeConnectionsResponse :: DescribeConnectionsResponse
 mkDescribeConnectionsResponse = DescribeConnectionsResponse
     { _dcrrConnections = mempty

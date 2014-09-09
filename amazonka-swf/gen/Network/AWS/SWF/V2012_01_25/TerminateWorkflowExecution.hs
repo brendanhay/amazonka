@@ -88,6 +88,21 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateWorkflowExecution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @Reason ::@ @Maybe Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @ChildPolicy ::@ @Maybe ChildPolicy@
+--
 mkTerminateWorkflowExecution :: Text -- ^ 'tweDomain'
                              -> Text -- ^ 'tweWorkflowId'
                              -> TerminateWorkflowExecution

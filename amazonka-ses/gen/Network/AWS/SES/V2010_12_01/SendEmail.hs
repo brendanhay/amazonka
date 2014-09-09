@@ -83,6 +83,19 @@ data SendEmail = SendEmail
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendEmail' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Source ::@ @Text@
+--
+-- * @Destination ::@ @Destination@
+--
+-- * @Message ::@ @Message@
+--
+-- * @ReplyToAddresses ::@ @[Text]@
+--
+-- * @ReturnPath ::@ @Maybe Text@
+--
 mkSendEmail :: Text -- ^ 'seSource'
             -> Destination -- ^ 'seDestination'
             -> Message -- ^ 'seMessage'
@@ -138,6 +151,11 @@ newtype SendEmailResponse = SendEmailResponse
 -- a valid 'SendEmailResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MessageId ::@ @Text@
+--
 mkSendEmailResponse :: Text -- ^ 'serMessageId'
                     -> SendEmailResponse
 mkSendEmailResponse p1 = SendEmailResponse

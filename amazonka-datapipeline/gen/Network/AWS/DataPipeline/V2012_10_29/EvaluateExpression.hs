@@ -61,6 +61,15 @@ data EvaluateExpression = EvaluateExpression
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EvaluateExpression' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @ObjectId ::@ @Text@
+--
+-- * @Expression ::@ @Text@
+--
 mkEvaluateExpression :: Text -- ^ 'eePipelineId'
                      -> Text -- ^ 'eeObjectId'
                      -> Text -- ^ 'eeExpression'
@@ -100,6 +109,11 @@ newtype EvaluateExpressionResponse = EvaluateExpressionResponse
 -- a valid 'EvaluateExpressionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EvaluatedExpression ::@ @Text@
+--
 mkEvaluateExpressionResponse :: Text -- ^ 'eerEvaluatedExpression'
                              -> EvaluateExpressionResponse
 mkEvaluateExpressionResponse p1 = EvaluateExpressionResponse

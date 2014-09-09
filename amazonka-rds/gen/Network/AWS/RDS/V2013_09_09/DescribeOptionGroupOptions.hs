@@ -56,6 +56,17 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOptionGroupOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EngineName ::@ @Text@
+--
+-- * @MajorEngineVersion ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeOptionGroupOptions :: Text -- ^ 'dogoEngineName'
                              -> DescribeOptionGroupOptions
 mkDescribeOptionGroupOptions p1 = DescribeOptionGroupOptions
@@ -102,6 +113,13 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
 -- a valid 'DescribeOptionGroupOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroupOptions ::@ @[OptionGroupOption]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
 mkDescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorOptionGroupOptions = mempty

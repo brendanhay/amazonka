@@ -56,6 +56,11 @@ newtype DeleteEndpoint = DeleteEndpoint
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEndpoint' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EndpointArn ::@ @Text@
+--
 mkDeleteEndpoint :: Text -- ^ 'deEndpointArn'
                  -> DeleteEndpoint
 mkDeleteEndpoint p1 = DeleteEndpoint

@@ -59,6 +59,15 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheSubnetGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSubnetGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeCacheSubnetGroups :: DescribeCacheSubnetGroups
 mkDescribeCacheSubnetGroups = DescribeCacheSubnetGroups
     { _dcsg3CacheSubnetGroupName = Nothing
@@ -99,6 +108,13 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 -- a valid 'DescribeCacheSubnetGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @CacheSubnetGroups ::@ @[CacheSubnetGroup]@
+--
 mkDescribeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse
 mkDescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrrMarker = Nothing

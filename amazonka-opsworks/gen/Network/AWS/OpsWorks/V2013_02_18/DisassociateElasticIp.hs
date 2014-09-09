@@ -48,6 +48,11 @@ newtype DisassociateElasticIp = DisassociateElasticIp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateElasticIp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIp ::@ @Text@
+--
 mkDisassociateElasticIp :: Text -- ^ 'dei2ElasticIp'
                         -> DisassociateElasticIp
 mkDisassociateElasticIp p1 = DisassociateElasticIp

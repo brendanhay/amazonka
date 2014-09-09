@@ -63,7 +63,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data StartInstances = StartInstances
     { _siInstanceIds :: [Text]
     , _siAdditionalInfo :: Maybe Text
@@ -71,6 +70,13 @@ data StartInstances = StartInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @AdditionalInfo ::@ @Maybe Text@
+--
 mkStartInstances :: [Text] -- ^ 'siInstanceIds'
                  -> StartInstances
 mkStartInstances p1 = StartInstances
@@ -90,7 +96,6 @@ siAdditionalInfo =
 instance ToQuery StartInstances where
     toQuery = genericQuery def
 
--- | 
 newtype StartInstancesResponse = StartInstancesResponse
     { _sirrStartingInstances :: [InstanceStateChange]
     } deriving (Show, Generic)
@@ -99,6 +104,11 @@ newtype StartInstancesResponse = StartInstancesResponse
 -- a valid 'StartInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StartingInstances ::@ @[InstanceStateChange]@
+--
 mkStartInstancesResponse :: StartInstancesResponse
 mkStartInstancesResponse = StartInstancesResponse
     { _sirrStartingInstances = mempty

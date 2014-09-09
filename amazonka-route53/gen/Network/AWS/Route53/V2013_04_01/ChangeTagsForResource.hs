@@ -51,6 +51,17 @@ data ChangeTagsForResource = ChangeTagsForResource
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeTagsForResource' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceType ::@ @TagResourceType@
+--
+-- * @ResourceId ::@ @Text@
+--
+-- * @AddTags ::@ @Maybe (List1 Tag)@
+--
+-- * @RemoveTagKeys ::@ @Maybe (List1 Text)@
+--
 mkChangeTagsForResource :: TagResourceType -- ^ 'ctfrResourceType'
                         -> Text -- ^ 'ctfrResourceId'
                         -> ChangeTagsForResource

@@ -142,7 +142,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateNetworkInterface = CreateNetworkInterface
     { _cniSubnetId :: Text
     , _cniDescription :: Maybe Text
@@ -154,6 +153,21 @@ data CreateNetworkInterface = CreateNetworkInterface
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkInterface' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetId ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @Groups ::@ @[Text]@
+--
+-- * @PrivateIpAddresses ::@ @[PrivateIpAddressSpecification]@
+--
+-- * @SecondaryPrivateIpAddressCount ::@ @Maybe Integer@
+--
 mkCreateNetworkInterface :: Text -- ^ 'cniSubnetId'
                          -> CreateNetworkInterface
 mkCreateNetworkInterface p1 = CreateNetworkInterface
@@ -203,7 +217,6 @@ cniSecondaryPrivateIpAddressCount =
 instance ToQuery CreateNetworkInterface where
     toQuery = genericQuery def
 
--- | 
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
     } deriving (Show, Generic)
@@ -212,6 +225,11 @@ newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
 -- a valid 'CreateNetworkInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterface ::@ @Maybe NetworkInterface@
+--
 mkCreateNetworkInterfaceResponse :: CreateNetworkInterfaceResponse
 mkCreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface = Nothing

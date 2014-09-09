@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
     , _rnaaNetworkAclId :: Text
@@ -62,6 +61,13 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceNetworkAclAssociation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AssociationId ::@ @Text@
+--
+-- * @NetworkAclId ::@ @Text@
+--
 mkReplaceNetworkAclAssociation :: Text -- ^ 'rnaaAssociationId'
                                -> Text -- ^ 'rnaaNetworkAclId'
                                -> ReplaceNetworkAclAssociation
@@ -84,7 +90,6 @@ rnaaNetworkAclId =
 instance ToQuery ReplaceNetworkAclAssociation where
     toQuery = genericQuery def
 
--- | 
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
@@ -93,6 +98,11 @@ newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationRespo
 -- a valid 'ReplaceNetworkAclAssociationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NewAssociationId ::@ @Maybe Text@
+--
 mkReplaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResponse
 mkReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId = Nothing

@@ -44,6 +44,11 @@ newtype DeleteBucketWebsite = DeleteBucketWebsite
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketWebsite' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkDeleteBucketWebsite :: BucketName -- ^ 'dbwBucket'
                       -> DeleteBucketWebsite
 mkDeleteBucketWebsite p1 = DeleteBucketWebsite

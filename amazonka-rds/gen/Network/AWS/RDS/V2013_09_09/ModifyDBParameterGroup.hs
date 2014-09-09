@@ -65,6 +65,13 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
 mkModifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
                          -> [Parameter] -- ^ 'mdbpgParameters'
                          -> ModifyDBParameterGroup
@@ -105,6 +112,11 @@ newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
 -- a valid 'ModifyDBParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Maybe Text@
+--
 mkModifyDBParameterGroupResponse :: ModifyDBParameterGroupResponse
 mkModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName = Nothing

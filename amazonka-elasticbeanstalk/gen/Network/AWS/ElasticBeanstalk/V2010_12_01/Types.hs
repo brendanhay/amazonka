@@ -516,6 +516,11 @@ newtype AutoScalingGroup = AutoScalingGroup
 --
 -- 'AutoScalingGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkAutoScalingGroup :: AutoScalingGroup
 mkAutoScalingGroup = AutoScalingGroup
     { _asgName = Nothing
@@ -536,6 +541,11 @@ newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentResourcesDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancer ::@ @Maybe LoadBalancerDescription@
+--
 mkEnvironmentResourcesDescription :: EnvironmentResourcesDescription
 mkEnvironmentResourcesDescription = EnvironmentResourcesDescription
     { _erdLoadBalancer = Nothing
@@ -562,6 +572,11 @@ newtype Instance = Instance
 --
 -- 'Instance' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
 mkInstance :: Instance
 mkInstance = Instance
     { _iId = Nothing
@@ -585,6 +600,11 @@ newtype LaunchConfiguration = LaunchConfiguration
 --
 -- 'LaunchConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkLaunchConfiguration :: LaunchConfiguration
 mkLaunchConfiguration = LaunchConfiguration
     { _lcName = Nothing
@@ -608,6 +628,11 @@ newtype LoadBalancer = LoadBalancer
 --
 -- 'LoadBalancer' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkLoadBalancer :: LoadBalancer
 mkLoadBalancer = LoadBalancer
     { _lbName = Nothing
@@ -631,6 +656,11 @@ newtype Trigger = Trigger
 --
 -- 'Trigger' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkTrigger :: Trigger
 mkTrigger = Trigger
     { _trName = Nothing
@@ -659,6 +689,21 @@ data ApplicationDescription = ApplicationDescription
 --
 -- 'ApplicationDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
+-- * @Versions ::@ @[Text]@
+--
+-- * @ConfigurationTemplates ::@ @[Text]@
+--
 mkApplicationDescription :: ApplicationDescription
 mkApplicationDescription = ApplicationDescription
     { _adApplicationName = Nothing
@@ -715,6 +760,21 @@ data ApplicationVersionDescription = ApplicationVersionDescription
 --
 -- 'ApplicationVersionDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @SourceBundle ::@ @Maybe S3Location@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
 mkApplicationVersionDescription :: ApplicationVersionDescription
 mkApplicationVersionDescription = ApplicationVersionDescription
     { _avdApplicationName = Nothing
@@ -774,6 +834,31 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
 --
 -- 'ConfigurationOptionDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Namespace ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @ChangeSeverity ::@ @Maybe Text@
+--
+-- * @UserDefined ::@ @Maybe Bool@
+--
+-- * @ValueType ::@ @Maybe ConfigurationOptionValueType@
+--
+-- * @ValueOptions ::@ @[Text]@
+--
+-- * @MinValue ::@ @Maybe Integer@
+--
+-- * @MaxValue ::@ @Maybe Integer@
+--
+-- * @MaxLength ::@ @Maybe Integer@
+--
+-- * @Regex ::@ @Maybe OptionRestrictionRegex@
+--
 mkConfigurationOptionDescription :: ConfigurationOptionDescription
 mkConfigurationOptionDescription = ConfigurationOptionDescription
     { _codNamespace = Nothing
@@ -885,6 +970,15 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConfigurationOptionSetting' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Namespace ::@ @Maybe Text@
+--
+-- * @OptionName ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkConfigurationOptionSetting :: ConfigurationOptionSetting
 mkConfigurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace = Nothing
@@ -929,6 +1023,27 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
 --
 -- 'ConfigurationSettingsDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @DeploymentStatus ::@ @Maybe ConfigurationDeploymentStatus@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
+-- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+--
 mkConfigurationSettingsDescription :: ConfigurationSettingsDescription
 mkConfigurationSettingsDescription = ConfigurationSettingsDescription
     { _csdSolutionStackName = Nothing
@@ -1025,6 +1140,39 @@ data EnvironmentDescription = EnvironmentDescription
 --
 -- 'EnvironmentDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EndpointURL ::@ @Maybe Text@
+--
+-- * @CNAME ::@ @Maybe Text@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
+-- * @Status ::@ @Maybe EnvironmentStatus@
+--
+-- * @Health ::@ @Maybe EnvironmentHealth@
+--
+-- * @Resources ::@ @Maybe EnvironmentResourcesDescription@
+--
+-- * @Tier ::@ @Maybe EnvironmentTier@
+--
 mkEnvironmentDescription :: EnvironmentDescription
 mkEnvironmentDescription = EnvironmentDescription
     { _edEnvironmentName = Nothing
@@ -1143,6 +1291,17 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
 --
 -- 'EnvironmentInfoDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InfoType ::@ @Maybe EnvironmentInfoType@
+--
+-- * @Ec2InstanceId ::@ @Maybe Text@
+--
+-- * @SampleTimestamp ::@ @Maybe ISO8601@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkEnvironmentInfoDescription :: EnvironmentInfoDescription
 mkEnvironmentInfoDescription = EnvironmentInfoDescription
     { _eidInfoType = Nothing
@@ -1189,6 +1348,23 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
 --
 -- 'EnvironmentResourceDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @AutoScalingGroups ::@ @[AutoScalingGroup]@
+--
+-- * @Instances ::@ @[Instance]@
+--
+-- * @LaunchConfigurations ::@ @[LaunchConfiguration]@
+--
+-- * @LoadBalancers ::@ @[LoadBalancer]@
+--
+-- * @Triggers ::@ @[Trigger]@
+--
+-- * @Queues ::@ @[Queue]@
+--
 mkEnvironmentResourceDescription :: EnvironmentResourceDescription
 mkEnvironmentResourceDescription = EnvironmentResourceDescription
     { _erdrEnvironmentName = Nothing
@@ -1246,6 +1422,15 @@ data EnvironmentTier = EnvironmentTier
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentTier' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe Text@
+--
+-- * @Version ::@ @Maybe Text@
+--
 mkEnvironmentTier :: EnvironmentTier
 mkEnvironmentTier = EnvironmentTier
     { _etName = Nothing
@@ -1289,6 +1474,25 @@ data EventDescription = EventDescription
 --
 -- 'EventDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventDate ::@ @Maybe ISO8601@
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @RequestId ::@ @Maybe Text@
+--
+-- * @Severity ::@ @Maybe EventSeverity@
+--
 mkEventDescription :: EventDescription
 mkEventDescription = EventDescription
     { _edrEventDate = Nothing
@@ -1347,6 +1551,13 @@ data Listener = Listener
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Listener' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Protocol ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
 mkListener :: Listener
 mkListener = Listener
     { _lProtocol = Nothing
@@ -1377,6 +1588,15 @@ data LoadBalancerDescription = LoadBalancerDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBalancerDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Maybe Text@
+--
+-- * @Domain ::@ @Maybe Text@
+--
+-- * @Listeners ::@ @[Listener]@
+--
 mkLoadBalancerDescription :: LoadBalancerDescription
 mkLoadBalancerDescription = LoadBalancerDescription
     { _lbdLoadBalancerName = Nothing
@@ -1413,6 +1633,13 @@ data OptionRestrictionRegex = OptionRestrictionRegex
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionRestrictionRegex' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Pattern ::@ @Maybe Text@
+--
+-- * @Label ::@ @Maybe Text@
+--
 mkOptionRestrictionRegex :: OptionRestrictionRegex
 mkOptionRestrictionRegex = OptionRestrictionRegex
     { _orrPattern = Nothing
@@ -1443,6 +1670,13 @@ data OptionSpecification = OptionSpecification
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionSpecification' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Namespace ::@ @Maybe Text@
+--
+-- * @OptionName ::@ @Maybe Text@
+--
 mkOptionSpecification :: OptionSpecification
 mkOptionSpecification = OptionSpecification
     { _osNamespace = Nothing
@@ -1471,6 +1705,13 @@ data Queue = Queue
 --
 -- 'Queue' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @URL ::@ @Maybe Text@
+--
 mkQueue :: Queue
 mkQueue = Queue
     { _qName = Nothing
@@ -1504,6 +1745,13 @@ data S3Location = S3Location
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3Location' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @S3Bucket ::@ @Maybe Text@
+--
+-- * @S3Key ::@ @Maybe Text@
+--
 mkS3Location :: S3Location
 mkS3Location = S3Location
     { _slS3Bucket = Nothing
@@ -1536,6 +1784,13 @@ data SolutionStackDescription = SolutionStackDescription
 --
 -- 'SolutionStackDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @PermittedFileTypes ::@ @[Text]@
+--
 mkSolutionStackDescription :: SolutionStackDescription
 mkSolutionStackDescription = SolutionStackDescription
     { _ssdSolutionStackName = Nothing
@@ -1572,6 +1827,13 @@ data SourceConfiguration = SourceConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SourceConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
 mkSourceConfiguration :: SourceConfiguration
 mkSourceConfiguration = SourceConfiguration
     { _scApplicationName = Nothing
@@ -1598,6 +1860,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkTag :: Tag
 mkTag = Tag
     { _tKey = Nothing
@@ -1628,6 +1897,17 @@ data ValidationMessage = ValidationMessage
 --
 -- 'ValidationMessage' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @Severity ::@ @Maybe ValidationSeverity@
+--
+-- * @Namespace ::@ @Maybe Text@
+--
+-- * @OptionName ::@ @Maybe Text@
+--
 mkValidationMessage :: ValidationMessage
 mkValidationMessage = ValidationMessage
     { _vmMessage = Nothing

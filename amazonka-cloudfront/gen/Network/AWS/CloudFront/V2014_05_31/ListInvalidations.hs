@@ -51,6 +51,15 @@ data ListInvalidations = ListInvalidations
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInvalidations' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DistributionId ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListInvalidations :: Text -- ^ 'liDistributionId'
                     -> ListInvalidations
 mkListInvalidations p1 = ListInvalidations
@@ -97,6 +106,11 @@ newtype ListInvalidationsResponse = ListInvalidationsResponse
 -- a valid 'ListInvalidationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InvalidationList ::@ @InvalidationList@
+--
 mkListInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
                             -> ListInvalidationsResponse
 mkListInvalidationsResponse p1 = ListInvalidationsResponse

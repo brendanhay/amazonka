@@ -67,6 +67,15 @@ data DeleteDBInstance = DeleteDBInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @SkipFinalSnapshot ::@ @Maybe Bool@
+--
+-- * @FinalDBSnapshotIdentifier ::@ @Maybe Text@
+--
 mkDeleteDBInstance :: Text -- ^ 'ddbiDBInstanceIdentifier'
                    -> DeleteDBInstance
 mkDeleteDBInstance p1 = DeleteDBInstance
@@ -115,6 +124,11 @@ newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
 -- a valid 'DeleteDBInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkDeleteDBInstanceResponse :: DeleteDBInstanceResponse
 mkDeleteDBInstanceResponse = DeleteDBInstanceResponse
     { _ddbirDBInstance = Nothing

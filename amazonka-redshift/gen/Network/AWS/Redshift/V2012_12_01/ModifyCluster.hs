@@ -97,6 +97,39 @@ data ModifyCluster = ModifyCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
+-- * @ClusterType ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @NumberOfNodes ::@ @Maybe Integer@
+--
+-- * @ClusterSecurityGroups ::@ @[Text]@
+--
+-- * @VpcSecurityGroupIds ::@ @[Text]@
+--
+-- * @MasterUserPassword ::@ @Maybe Text@
+--
+-- * @ClusterParameterGroupName ::@ @Maybe Text@
+--
+-- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @AllowVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @HsmClientCertificateIdentifier ::@ @Maybe Text@
+--
+-- * @HsmConfigurationIdentifier ::@ @Maybe Text@
+--
+-- * @NewClusterIdentifier ::@ @Maybe Text@
+--
 mkModifyCluster :: Text -- ^ 'mcClusterIdentifier'
                 -> ModifyCluster
 mkModifyCluster p1 = ModifyCluster
@@ -277,6 +310,11 @@ newtype ModifyClusterResponse = ModifyClusterResponse
 -- a valid 'ModifyClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkModifyClusterResponse :: ModifyClusterResponse
 mkModifyClusterResponse = ModifyClusterResponse
     { _mcrCluster = Nothing

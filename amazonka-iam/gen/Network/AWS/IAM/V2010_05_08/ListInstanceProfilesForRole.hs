@@ -56,7 +56,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrRoleName :: Text
     , _lipfrMarker :: Maybe Text
@@ -65,6 +64,15 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceProfilesForRole' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListInstanceProfilesForRole :: Text -- ^ 'lipfrRoleName'
                               -> ListInstanceProfilesForRole
 mkListInstanceProfilesForRole p1 = ListInstanceProfilesForRole
@@ -107,6 +115,15 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
 -- a valid 'ListInstanceProfilesForRoleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfiles ::@ @[InstanceProfile]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListInstanceProfilesForRoleResponse :: [InstanceProfile] -- ^ 'lipfrrInstanceProfiles'
                                       -> Bool -- ^ 'lipfrrIsTruncated'
                                       -> ListInstanceProfilesForRoleResponse

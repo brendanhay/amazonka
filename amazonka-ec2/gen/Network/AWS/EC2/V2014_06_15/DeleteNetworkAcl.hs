@@ -44,13 +44,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteNetworkAcl = DeleteNetworkAcl
     { _dnaNetworkAclId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNetworkAcl' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAclId ::@ @Text@
+--
 mkDeleteNetworkAcl :: Text -- ^ 'dnaNetworkAclId'
                    -> DeleteNetworkAcl
 mkDeleteNetworkAcl p1 = DeleteNetworkAcl

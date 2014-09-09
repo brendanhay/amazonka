@@ -65,6 +65,13 @@ data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePrivateVirtualInterface' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConnectionId ::@ @Text@
+--
+-- * @NewPrivateVirtualInterface ::@ @NewPrivateVirtualInterface@
+--
 mkCreatePrivateVirtualInterface :: Text -- ^ 'cpvi2ConnectionId'
                                 -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
                                 -> CreatePrivateVirtualInterface
@@ -117,6 +124,39 @@ data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceRespon
 -- a valid 'CreatePrivateVirtualInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceId ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceType ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceName ::@ @Maybe Text@
+--
+-- * @Vlan ::@ @Maybe Integer@
+--
+-- * @Asn ::@ @Maybe Integer@
+--
+-- * @AuthKey ::@ @Maybe Text@
+--
+-- * @AmazonAddress ::@ @Maybe Text@
+--
+-- * @CustomerAddress ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+--
+-- * @CustomerRouterConfig ::@ @Maybe Text@
+--
+-- * @VirtualGatewayId ::@ @Maybe Text@
+--
+-- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
+--
 mkCreatePrivateVirtualInterfaceResponse :: CreatePrivateVirtualInterfaceResponse
 mkCreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceResponse
     { _cpvir1OwnerAccount = Nothing

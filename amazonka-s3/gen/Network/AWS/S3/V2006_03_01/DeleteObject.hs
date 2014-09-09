@@ -55,6 +55,17 @@ data DeleteObject = DeleteObject
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteObject' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @MFA ::@ @Maybe Text@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
 mkDeleteObject :: BucketName -- ^ 'doBucket'
                -> ObjectKey -- ^ 'doKey'
                -> DeleteObject
@@ -100,6 +111,13 @@ data DeleteObjectResponse = DeleteObjectResponse
 -- a valid 'DeleteObjectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DeleteMarker ::@ @Maybe Bool@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
 mkDeleteObjectResponse :: DeleteObjectResponse
 mkDeleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker = Nothing

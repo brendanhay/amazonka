@@ -44,6 +44,11 @@ newtype DeleteTags = DeleteTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkDeleteTags :: [Tag] -- ^ 'dtTags'
              -> DeleteTags
 mkDeleteTags p1 = DeleteTags

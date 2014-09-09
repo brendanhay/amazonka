@@ -65,7 +65,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl :: Text
     , _cmvbEntries :: [ChangeMessageVisibilityBatchRequestEntry]
@@ -73,6 +72,13 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeMessageVisibilityBatch' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @Entries ::@ @[ChangeMessageVisibilityBatchRequestEntry]@
+--
 mkChangeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
                                -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
                                -> ChangeMessageVisibilityBatch
@@ -105,6 +111,13 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 -- a valid 'ChangeMessageVisibilityBatchResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Successful ::@ @[ChangeMessageVisibilityBatchResultEntry]@
+--
+-- * @Failed ::@ @[BatchResultErrorEntry]@
+--
 mkChangeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry] -- ^ 'cmvbrSuccessful'
                                        -> [BatchResultErrorEntry] -- ^ 'cmvbrFailed'
                                        -> ChangeMessageVisibilityBatchResponse

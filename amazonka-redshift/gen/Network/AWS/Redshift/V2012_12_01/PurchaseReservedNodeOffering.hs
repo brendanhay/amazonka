@@ -64,6 +64,13 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedNodeOffering' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedNodeOfferingId ::@ @Text@
+--
+-- * @NodeCount ::@ @Maybe Integer@
+--
 mkPurchaseReservedNodeOffering :: Text -- ^ 'prnoReservedNodeOfferingId'
                                -> PurchaseReservedNodeOffering
 mkPurchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
@@ -92,6 +99,11 @@ newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingRespo
 -- a valid 'PurchaseReservedNodeOfferingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedNode ::@ @Maybe ReservedNode@
+--
 mkPurchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResponse
 mkPurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode = Nothing

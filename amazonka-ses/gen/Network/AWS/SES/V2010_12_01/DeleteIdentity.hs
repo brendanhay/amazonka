@@ -55,6 +55,11 @@ newtype DeleteIdentity = DeleteIdentity
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identity ::@ @Text@
+--
 mkDeleteIdentity :: Text -- ^ 'diIdentity'
                  -> DeleteIdentity
 mkDeleteIdentity p1 = DeleteIdentity

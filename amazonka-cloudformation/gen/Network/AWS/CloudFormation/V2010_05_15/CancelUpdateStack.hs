@@ -51,6 +51,11 @@ newtype CancelUpdateStack = CancelUpdateStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelUpdateStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
 mkCancelUpdateStack :: Text -- ^ 'cusStackName'
                     -> CancelUpdateStack
 mkCancelUpdateStack p1 = CancelUpdateStack

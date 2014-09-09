@@ -50,13 +50,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpcVpcPeeringConnectionId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpcPeeringConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcPeeringConnectionId ::@ @Text@
+--
 mkDeleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
                              -> DeleteVpcPeeringConnection
 mkDeleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
@@ -72,7 +76,6 @@ dvpcVpcPeeringConnectionId =
 instance ToQuery DeleteVpcPeeringConnection where
     toQuery = genericQuery def
 
--- | 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
     } deriving (Show, Generic)
@@ -81,6 +84,11 @@ newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
 -- a valid 'DeleteVpcPeeringConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Return ::@ @Maybe Bool@
+--
 mkDeleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResponse
 mkDeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn = Nothing

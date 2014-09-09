@@ -59,6 +59,19 @@ data CreateTrail = CreateTrail
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTrail' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @S3BucketName ::@ @Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @SnsTopicName ::@ @Maybe Text@
+--
+-- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
+--
 mkCreateTrail :: Text -- ^ 'ctName'
               -> Text -- ^ 'ctS3BucketName'
               -> CreateTrail
@@ -118,6 +131,19 @@ data CreateTrailResponse = CreateTrailResponse
 -- a valid 'CreateTrailResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @S3BucketName ::@ @Maybe Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @SnsTopicName ::@ @Maybe Text@
+--
+-- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
+--
 mkCreateTrailResponse :: CreateTrailResponse
 mkCreateTrailResponse = CreateTrailResponse
     { _ctrName = Nothing

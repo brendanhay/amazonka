@@ -40,7 +40,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
     , _rufgUserName :: Text
@@ -48,6 +47,13 @@ data RemoveUserFromGroup = RemoveUserFromGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveUserFromGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @UserName ::@ @Text@
+--
 mkRemoveUserFromGroup :: Text -- ^ 'rufgGroupName'
                       -> Text -- ^ 'rufgUserName'
                       -> RemoveUserFromGroup

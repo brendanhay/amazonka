@@ -95,6 +95,21 @@ data Publish = Publish
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Publish' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Maybe Text@
+--
+-- * @TargetArn ::@ @Maybe Text@
+--
+-- * @Message ::@ @Text@
+--
+-- * @Subject ::@ @Maybe Text@
+--
+-- * @MessageStructure ::@ @Maybe Text@
+--
+-- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
+--
 mkPublish :: Text -- ^ 'pMessage'
           -> Publish
 mkPublish p3 = Publish
@@ -177,6 +192,11 @@ newtype PublishResponse = PublishResponse
 -- a valid 'PublishResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MessageId ::@ @Maybe Text@
+--
 mkPublishResponse :: PublishResponse
 mkPublishResponse = PublishResponse
     { _prMessageId = Nothing

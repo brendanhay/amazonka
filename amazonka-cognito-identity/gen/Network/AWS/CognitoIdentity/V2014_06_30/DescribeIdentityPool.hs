@@ -58,6 +58,11 @@ newtype DescribeIdentityPool = DescribeIdentityPool
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIdentityPool' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolId ::@ @Text@
+--
 mkDescribeIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
                        -> DescribeIdentityPool
 mkDescribeIdentityPool p1 = DescribeIdentityPool
@@ -89,6 +94,17 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
 -- a valid 'DescribeIdentityPoolResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolId ::@ @Text@
+--
+-- * @IdentityPoolName ::@ @Text@
+--
+-- * @AllowUnauthenticatedIdentities ::@ @Bool@
+--
+-- * @SupportedLoginProviders ::@ @Map Text Text@
+--
 mkDescribeIdentityPoolResponse :: Text -- ^ 'diprIdentityPoolId'
                                -> Text -- ^ 'diprIdentityPoolName'
                                -> Bool -- ^ 'diprAllowUnauthenticatedIdentities'

@@ -44,6 +44,11 @@ newtype DeleteTapeArchive = DeleteTapeArchive
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTapeArchive' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Text@
+--
 mkDeleteTapeArchive :: Text -- ^ 'dtaTapeARN'
                     -> DeleteTapeArchive
 mkDeleteTapeArchive p1 = DeleteTapeArchive
@@ -69,6 +74,11 @@ newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
 -- a valid 'DeleteTapeArchiveResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
 mkDeleteTapeArchiveResponse :: DeleteTapeArchiveResponse
 mkDeleteTapeArchiveResponse = DeleteTapeArchiveResponse
     { _dtarTapeARN = Nothing

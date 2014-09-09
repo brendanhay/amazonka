@@ -63,6 +63,11 @@ newtype ModifyInstanceGroups = ModifyInstanceGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyInstanceGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceGroups ::@ @[InstanceGroupModifyConfig]@
+--
 mkModifyInstanceGroups :: ModifyInstanceGroups
 mkModifyInstanceGroups = ModifyInstanceGroups
     { _migInstanceGroups = mempty

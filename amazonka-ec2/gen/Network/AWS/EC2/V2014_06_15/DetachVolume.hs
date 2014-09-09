@@ -66,7 +66,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DetachVolume = DetachVolume
     { _dv4VolumeId :: Text
     , _dv4InstanceId :: Maybe Text
@@ -76,6 +75,17 @@ data DetachVolume = DetachVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Device ::@ @Maybe Text@
+--
+-- * @Force ::@ @Maybe Bool@
+--
 mkDetachVolume :: Text -- ^ 'dv4VolumeId'
                -> DetachVolume
 mkDetachVolume p1 = DetachVolume
@@ -110,7 +120,6 @@ dv4Force = lens _dv4Force (\s a -> s { _dv4Force = a })
 instance ToQuery DetachVolume where
     toQuery = genericQuery def
 
--- | 
 data DetachVolumeResponse = DetachVolumeResponse
     { _dvr1VolumeId :: Maybe Text
     , _dvr1InstanceId :: Maybe Text
@@ -124,6 +133,21 @@ data DetachVolumeResponse = DetachVolumeResponse
 -- a valid 'DetachVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Device ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VolumeAttachmentState@
+--
+-- * @AttachTime ::@ @Maybe ISO8601@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkDetachVolumeResponse :: DetachVolumeResponse
 mkDetachVolumeResponse = DetachVolumeResponse
     { _dvr1VolumeId = Nothing

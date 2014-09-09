@@ -98,7 +98,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { _drioReservedInstancesOfferingIds :: [Text]
     , _drioInstanceType :: Maybe InstanceType
@@ -117,6 +116,35 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesOfferings' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesOfferingIds ::@ @[Text]@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @ProductDescription ::@ @Maybe RIProductDescription@
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @InstanceTenancy ::@ @Maybe Tenancy@
+--
+-- * @OfferingType ::@ @Maybe OfferingTypeValues@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
+-- * @IncludeMarketplace ::@ @Maybe Bool@
+--
+-- * @MinDuration ::@ @Maybe Integer@
+--
+-- * @MaxDuration ::@ @Maybe Integer@
+--
+-- * @MaxInstanceCount ::@ @Maybe Integer@
+--
 mkDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
 mkDescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { _drioReservedInstancesOfferingIds = mempty
@@ -215,7 +243,6 @@ drioMaxInstanceCount =
 instance ToQuery DescribeReservedInstancesOfferings where
     toQuery = genericQuery def
 
--- | 
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
     , _driorNextToken :: Maybe Text
@@ -225,6 +252,13 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 -- a valid 'DescribeReservedInstancesOfferingsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesOfferings ::@ @[ReservedInstancesOffering]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
 mkDescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorReservedInstancesOfferings = mempty

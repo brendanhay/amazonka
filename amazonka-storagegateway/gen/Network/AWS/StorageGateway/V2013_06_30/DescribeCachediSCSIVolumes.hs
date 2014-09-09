@@ -70,6 +70,11 @@ newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCachediSCSIVolumes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARNs ::@ @[Text]@
+--
 mkDescribeCachediSCSIVolumes :: [Text] -- ^ 'dcscsivVolumeARNs'
                              -> DescribeCachediSCSIVolumes
 mkDescribeCachediSCSIVolumes p1 = DescribeCachediSCSIVolumes
@@ -97,6 +102,11 @@ newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
 -- a valid 'DescribeCachediSCSIVolumesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CachediSCSIVolumes ::@ @[CachediSCSIVolumeInformation]@
+--
 mkDescribeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse
 mkDescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
     { _dcscsivrCachediSCSIVolumes = mempty

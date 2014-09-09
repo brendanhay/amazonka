@@ -62,7 +62,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data PutLifecycleHook = PutLifecycleHook
     { _plhLifecycleHookName :: Text
     , _plhAutoScalingGroupName :: Text
@@ -76,6 +75,25 @@ data PutLifecycleHook = PutLifecycleHook
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLifecycleHook' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LifecycleHookName ::@ @Text@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @LifecycleTransition ::@ @Maybe Text@
+--
+-- * @RoleARN ::@ @Maybe Text@
+--
+-- * @NotificationTargetARN ::@ @Maybe Text@
+--
+-- * @NotificationMetadata ::@ @Maybe Text@
+--
+-- * @HeartbeatTimeout ::@ @Maybe Integer@
+--
+-- * @DefaultResult ::@ @Maybe Text@
+--
 mkPutLifecycleHook :: Text -- ^ 'plhLifecycleHookName'
                    -> Text -- ^ 'plhAutoScalingGroupName'
                    -> PutLifecycleHook

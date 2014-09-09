@@ -52,6 +52,15 @@ data DeleteInstance = DeleteInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @DeleteElasticIp ::@ @Maybe Bool@
+--
+-- * @DeleteVolumes ::@ @Maybe Bool@
+--
 mkDeleteInstance :: Text -- ^ 'diInstanceId'
                  -> DeleteInstance
 mkDeleteInstance p1 = DeleteInstance

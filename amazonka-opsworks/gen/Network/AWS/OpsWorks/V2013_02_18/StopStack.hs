@@ -46,6 +46,11 @@ newtype StopStack = StopStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
 mkStopStack :: Text -- ^ 'ss2StackId'
             -> StopStack
 mkStopStack p1 = StopStack

@@ -56,6 +56,11 @@ newtype DeletePreset = DeletePreset
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePreset' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkDeletePreset :: Text -- ^ 'dp1Id'
                -> DeletePreset
 mkDeletePreset p1 = DeletePreset

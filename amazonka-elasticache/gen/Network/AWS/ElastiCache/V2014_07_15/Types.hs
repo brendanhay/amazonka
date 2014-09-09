@@ -435,6 +435,11 @@ newtype AvailabilityZone = AvailabilityZone
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkAvailabilityZone :: AvailabilityZone
 mkAvailabilityZone = AvailabilityZone
     { _azName = Nothing
@@ -459,6 +464,11 @@ newtype ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedV
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplicationGroupPendingModifiedValues' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PrimaryClusterId ::@ @Maybe Text@
+--
 mkReplicationGroupPendingModifiedValues :: ReplicationGroupPendingModifiedValues
 mkReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     { _rgpmvPrimaryClusterId = Nothing
@@ -508,6 +518,53 @@ data CacheCluster = CacheCluster
 --
 -- 'CacheCluster' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Maybe Text@
+--
+-- * @ConfigurationEndpoint ::@ @Maybe Endpoint@
+--
+-- * @ClientDownloadLandingPage ::@ @Maybe Text@
+--
+-- * @CacheNodeType ::@ @Maybe Text@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @CacheClusterStatus ::@ @Maybe Text@
+--
+-- * @NumCacheNodes ::@ @Maybe Integer@
+--
+-- * @PreferredAvailabilityZone ::@ @Maybe Text@
+--
+-- * @CacheClusterCreateTime ::@ @Maybe ISO8601@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @PendingModifiedValues ::@ @Maybe PendingModifiedValues@
+--
+-- * @NotificationConfiguration ::@ @Maybe NotificationConfiguration@
+--
+-- * @CacheSecurityGroups ::@ @[CacheSecurityGroupMembership]@
+--
+-- * @CacheParameterGroup ::@ @Maybe CacheParameterGroupStatus@
+--
+-- * @CacheSubnetGroupName ::@ @Maybe Text@
+--
+-- * @CacheNodes ::@ @[CacheNode]@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @SecurityGroups ::@ @[SecurityGroupMembership]@
+--
+-- * @ReplicationGroupId ::@ @Maybe Text@
+--
+-- * @SnapshotRetentionLimit ::@ @Maybe Integer@
+--
+-- * @SnapshotWindow ::@ @Maybe Text@
+--
 mkCacheCluster :: CacheCluster
 mkCacheCluster = CacheCluster
     { _ccCacheClusterId = Nothing
@@ -683,6 +740,19 @@ data CacheEngineVersion = CacheEngineVersion
 --
 -- 'CacheEngineVersion' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @CacheParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @CacheEngineDescription ::@ @Maybe Text@
+--
+-- * @CacheEngineVersionDescription ::@ @Maybe Text@
+--
 mkCacheEngineVersion :: CacheEngineVersion
 mkCacheEngineVersion = CacheEngineVersion
     { _cevEngine = Nothing
@@ -739,6 +809,23 @@ data CacheNode = CacheNode
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheNode' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheNodeId ::@ @Maybe Text@
+--
+-- * @CacheNodeStatus ::@ @Maybe Text@
+--
+-- * @CacheNodeCreateTime ::@ @Maybe ISO8601@
+--
+-- * @Endpoint ::@ @Maybe Endpoint@
+--
+-- * @ParameterGroupStatus ::@ @Maybe Text@
+--
+-- * @SourceCacheNodeId ::@ @Maybe Text@
+--
+-- * @CustomerAvailabilityZone ::@ @Maybe Text@
+--
 mkCacheNode :: CacheNode
 mkCacheNode = CacheNode
     { _cnCacheNodeId = Nothing
@@ -814,6 +901,25 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
 --
 -- 'CacheNodeTypeSpecificParameter' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @DataType ::@ @Maybe Text@
+--
+-- * @AllowedValues ::@ @Maybe Text@
+--
+-- * @IsModifiable ::@ @Maybe Bool@
+--
+-- * @MinimumEngineVersion ::@ @Maybe Text@
+--
+-- * @CacheNodeTypeSpecificValues ::@ @[CacheNodeTypeSpecificValue]@
+--
 mkCacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
 mkCacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     { _cntspParameterName = Nothing
@@ -881,6 +987,13 @@ data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheNodeTypeSpecificValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheNodeType ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkCacheNodeTypeSpecificValue :: CacheNodeTypeSpecificValue
 mkCacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
     { _cntsvCacheNodeType = Nothing
@@ -915,6 +1028,15 @@ data CacheParameterGroup = CacheParameterGroup
 --
 -- 'CacheParameterGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
+-- * @CacheParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkCacheParameterGroup :: CacheParameterGroup
 mkCacheParameterGroup = CacheParameterGroup
     { _cpgCacheParameterGroupName = Nothing
@@ -952,6 +1074,15 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheParameterGroupStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
+-- * @ParameterApplyStatus ::@ @Maybe Text@
+--
+-- * @CacheNodeIdsToReboot ::@ @[Text]@
+--
 mkCacheParameterGroupStatus :: CacheParameterGroupStatus
 mkCacheParameterGroupStatus = CacheParameterGroupStatus
     { _cpgsCacheParameterGroupName = Nothing
@@ -1001,6 +1132,17 @@ data CacheSecurityGroup = CacheSecurityGroup
 --
 -- 'CacheSecurityGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @CacheSecurityGroupName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroups ::@ @[EC2SecurityGroup]@
+--
 mkCacheSecurityGroup :: CacheSecurityGroup
 mkCacheSecurityGroup = CacheSecurityGroup
     { _csgOwnerId = Nothing
@@ -1042,6 +1184,13 @@ data CacheSecurityGroupMembership = CacheSecurityGroupMembership
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheSecurityGroupMembership' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroupName ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkCacheSecurityGroupMembership :: CacheSecurityGroupMembership
 mkCacheSecurityGroupMembership = CacheSecurityGroupMembership
     { _csgmCacheSecurityGroupName = Nothing
@@ -1081,6 +1230,17 @@ data CacheSubnetGroup = CacheSubnetGroup
 --
 -- 'CacheSubnetGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSubnetGroupName ::@ @Maybe Text@
+--
+-- * @CacheSubnetGroupDescription ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Subnets ::@ @[Subnet]@
+--
 mkCacheSubnetGroup :: CacheSubnetGroup
 mkCacheSubnetGroup = CacheSubnetGroup
     { _csgrCacheSubnetGroupName = Nothing
@@ -1123,6 +1283,15 @@ data EC2SecurityGroup = EC2SecurityGroup
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EC2SecurityGroup' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupName ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+--
 mkEC2SecurityGroup :: EC2SecurityGroup
 mkEC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus = Nothing
@@ -1162,6 +1331,13 @@ data Endpoint = Endpoint
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Endpoint' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Address ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
 mkEndpoint :: Endpoint
 mkEndpoint = Endpoint
     { _eAddress = Nothing
@@ -1196,6 +1372,17 @@ data EngineDefaults = EngineDefaults
 --
 -- 'EngineDefaults' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
+-- * @CacheNodeTypeSpecificParameters ::@ @[CacheNodeTypeSpecificParameter]@
+--
 mkEngineDefaults :: EngineDefaults
 mkEngineDefaults = EngineDefaults
     { _edCacheParameterGroupFamily = Nothing
@@ -1245,6 +1432,17 @@ data Event = Event
 --
 -- 'Event' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceIdentifier ::@ @Maybe Text@
+--
+-- * @SourceType ::@ @Maybe SourceType@
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @Date ::@ @Maybe ISO8601@
+--
 mkEvent :: Event
 mkEvent = Event
     { _erSourceIdentifier = Nothing
@@ -1287,6 +1485,17 @@ data NodeGroup = NodeGroup
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NodeGroup' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NodeGroupId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @PrimaryEndpoint ::@ @Maybe Endpoint@
+--
+-- * @NodeGroupMembers ::@ @[NodeGroupMember]@
+--
 mkNodeGroup :: NodeGroup
 mkNodeGroup = NodeGroup
     { _ngNodeGroupId = Nothing
@@ -1333,6 +1542,19 @@ data NodeGroupMember = NodeGroupMember
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NodeGroupMember' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Maybe Text@
+--
+-- * @CacheNodeId ::@ @Maybe Text@
+--
+-- * @ReadEndpoint ::@ @Maybe Endpoint@
+--
+-- * @PreferredAvailabilityZone ::@ @Maybe Text@
+--
+-- * @CurrentRole ::@ @Maybe Text@
+--
 mkNodeGroupMember :: NodeGroupMember
 mkNodeGroupMember = NodeGroupMember
     { _ngmCacheClusterId = Nothing
@@ -1384,6 +1606,17 @@ data NodeSnapshot = NodeSnapshot
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NodeSnapshot' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheNodeId ::@ @Maybe Text@
+--
+-- * @CacheSize ::@ @Maybe Text@
+--
+-- * @CacheNodeCreateTime ::@ @Maybe ISO8601@
+--
+-- * @SnapshotCreateTime ::@ @Maybe ISO8601@
+--
 mkNodeSnapshot :: NodeSnapshot
 mkNodeSnapshot = NodeSnapshot
     { _nsCacheNodeId = Nothing
@@ -1429,6 +1662,13 @@ data NotificationConfiguration = NotificationConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NotificationConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Maybe Text@
+--
+-- * @TopicStatus ::@ @Maybe Text@
+--
 mkNotificationConfiguration :: NotificationConfiguration
 mkNotificationConfiguration = NotificationConfiguration
     { _ncTopicArn = Nothing
@@ -1468,6 +1708,25 @@ data Parameter = Parameter
 --
 -- 'Parameter' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterName ::@ @Maybe Text@
+--
+-- * @ParameterValue ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @DataType ::@ @Maybe Text@
+--
+-- * @AllowedValues ::@ @Maybe Text@
+--
+-- * @IsModifiable ::@ @Maybe Bool@
+--
+-- * @MinimumEngineVersion ::@ @Maybe Text@
+--
 mkParameter :: Parameter
 mkParameter = Parameter
     { _pParameterName = Nothing
@@ -1528,6 +1787,13 @@ data ParameterNameValue = ParameterNameValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ParameterNameValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterName ::@ @Maybe Text@
+--
+-- * @ParameterValue ::@ @Maybe Text@
+--
 mkParameterNameValue :: ParameterNameValue
 mkParameterNameValue = ParameterNameValue
     { _pnvParameterName = Nothing
@@ -1557,6 +1823,15 @@ data PendingModifiedValues = PendingModifiedValues
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PendingModifiedValues' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NumCacheNodes ::@ @Maybe Integer@
+--
+-- * @CacheNodeIdsToRemove ::@ @[Text]@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
 mkPendingModifiedValues :: PendingModifiedValues
 mkPendingModifiedValues = PendingModifiedValues
     { _pmvNumCacheNodes = Nothing
@@ -1597,6 +1872,13 @@ data RecurringCharge = RecurringCharge
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RecurringChargeAmount ::@ @Maybe Double@
+--
+-- * @RecurringChargeFrequency ::@ @Maybe Text@
+--
 mkRecurringCharge :: RecurringCharge
 mkRecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount = Nothing
@@ -1638,6 +1920,23 @@ data ReplicationGroup = ReplicationGroup
 --
 -- 'ReplicationGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroupId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @PendingModifiedValues ::@ @Maybe ReplicationGroupPendingModifiedValues@
+--
+-- * @MemberClusters ::@ @[Text]@
+--
+-- * @NodeGroups ::@ @[NodeGroup]@
+--
+-- * @SnapshottingClusterId ::@ @Maybe Text@
+--
 mkReplicationGroup :: ReplicationGroup
 mkReplicationGroup = ReplicationGroup
     { _rgReplicationGroupId = Nothing
@@ -1712,6 +2011,33 @@ data ReservedCacheNode = ReservedCacheNode
 --
 -- 'ReservedCacheNode' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedCacheNodeId ::@ @Maybe Text@
+--
+-- * @ReservedCacheNodesOfferingId ::@ @Maybe Text@
+--
+-- * @CacheNodeType ::@ @Maybe Text@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @CacheNodeCount ::@ @Maybe Integer@
+--
+-- * @ProductDescription ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe Text@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
 mkReservedCacheNode :: ReservedCacheNode
 mkReservedCacheNode = ReservedCacheNode
     { _rcnReservedCacheNodeId = Nothing
@@ -1804,6 +2130,25 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
 --
 -- 'ReservedCacheNodesOffering' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedCacheNodesOfferingId ::@ @Maybe Text@
+--
+-- * @CacheNodeType ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @ProductDescription ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
 mkReservedCacheNodesOffering :: ReservedCacheNodesOffering
 mkReservedCacheNodesOffering = ReservedCacheNodesOffering
     { _rcnoReservedCacheNodesOfferingId = Nothing
@@ -1866,6 +2211,13 @@ data SecurityGroupMembership = SecurityGroupMembership
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SecurityGroupMembership' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SecurityGroupId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkSecurityGroupMembership :: SecurityGroupMembership
 mkSecurityGroupMembership = SecurityGroupMembership
     { _sgmSecurityGroupId = Nothing
@@ -1920,6 +2272,49 @@ data Snapshot = Snapshot
 --
 -- 'Snapshot' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotName ::@ @Maybe Text@
+--
+-- * @CacheClusterId ::@ @Maybe Text@
+--
+-- * @SnapshotStatus ::@ @Maybe Text@
+--
+-- * @SnapshotSource ::@ @Maybe Text@
+--
+-- * @CacheNodeType ::@ @Maybe Text@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @NumCacheNodes ::@ @Maybe Integer@
+--
+-- * @PreferredAvailabilityZone ::@ @Maybe Text@
+--
+-- * @CacheClusterCreateTime ::@ @Maybe ISO8601@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @TopicArn ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
+-- * @CacheSubnetGroupName ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @SnapshotRetentionLimit ::@ @Maybe Integer@
+--
+-- * @SnapshotWindow ::@ @Maybe Text@
+--
+-- * @NodeSnapshots ::@ @[NodeSnapshot]@
+--
 mkSnapshot :: Snapshot
 mkSnapshot = Snapshot
     { _sSnapshotName = Nothing
@@ -2070,6 +2465,13 @@ data Subnet = Subnet
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetIdentifier ::@ @Maybe Text@
+--
+-- * @SubnetAvailabilityZone ::@ @Maybe AvailabilityZone@
+--
 mkSubnet :: Subnet
 mkSubnet = Subnet
     { _srSubnetIdentifier = Nothing

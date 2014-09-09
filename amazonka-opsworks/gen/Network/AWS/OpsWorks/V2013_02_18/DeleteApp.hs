@@ -46,6 +46,11 @@ newtype DeleteApp = DeleteApp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AppId ::@ @Text@
+--
 mkDeleteApp :: Text -- ^ 'daAppId'
             -> DeleteApp
 mkDeleteApp p1 = DeleteApp

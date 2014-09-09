@@ -67,6 +67,15 @@ data DeleteCluster = DeleteCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
+-- * @SkipFinalClusterSnapshot ::@ @Maybe Bool@
+--
+-- * @FinalClusterSnapshotIdentifier ::@ @Maybe Text@
+--
 mkDeleteCluster :: Text -- ^ 'dcClusterIdentifier'
                 -> DeleteCluster
 mkDeleteCluster p1 = DeleteCluster
@@ -114,6 +123,11 @@ newtype DeleteClusterResponse = DeleteClusterResponse
 -- a valid 'DeleteClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkDeleteClusterResponse :: DeleteClusterResponse
 mkDeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster = Nothing

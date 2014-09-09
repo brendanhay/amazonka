@@ -115,6 +115,23 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateConfigurationTemplate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @TemplateName ::@ @Text@
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @SourceConfiguration ::@ @Maybe SourceConfiguration@
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+--
 mkCreateConfigurationTemplate :: Text -- ^ 'cctApplicationName'
                               -> Text -- ^ 'cctTemplateName'
                               -> CreateConfigurationTemplate
@@ -205,6 +222,27 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
 -- a valid 'CreateConfigurationTemplateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @DeploymentStatus ::@ @Maybe ConfigurationDeploymentStatus@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
+-- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+--
 mkCreateConfigurationTemplateResponse :: CreateConfigurationTemplateResponse
 mkCreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     { _cctrSolutionStackName = Nothing

@@ -65,6 +65,11 @@ newtype GetAccountSummaryResponse = GetAccountSummaryResponse
 -- a valid 'GetAccountSummaryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SummaryMap ::@ @Map SummaryKeyType Integer@
+--
 mkGetAccountSummaryResponse :: GetAccountSummaryResponse
 mkGetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap = mempty

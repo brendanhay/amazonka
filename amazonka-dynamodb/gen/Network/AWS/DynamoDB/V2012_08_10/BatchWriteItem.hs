@@ -100,6 +100,15 @@ data BatchWriteItem = BatchWriteItem
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchWriteItem' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RequestItems ::@ @Map Text (List1 WriteRequest)@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
+-- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
+--
 mkBatchWriteItem :: Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
                  -> BatchWriteItem
 mkBatchWriteItem p1 = BatchWriteItem
@@ -163,6 +172,15 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 -- a valid 'BatchWriteItemResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UnprocessedItems ::@ @Map Text (List1 WriteRequest)@
+--
+-- * @ItemCollectionMetrics ::@ @Map Text [ItemCollectionMetrics]@
+--
+-- * @ConsumedCapacity ::@ @[ConsumedCapacity]@
+--
 mkBatchWriteItemResponse :: BatchWriteItemResponse
 mkBatchWriteItemResponse = BatchWriteItemResponse
     { _bwirUnprocessedItems = mempty

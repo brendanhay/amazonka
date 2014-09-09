@@ -47,6 +47,13 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStreamingDistribution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @IfMatch ::@ @Maybe Text@
+--
 mkDeleteStreamingDistribution :: Text -- ^ 'dsdId'
                               -> DeleteStreamingDistribution
 mkDeleteStreamingDistribution p1 = DeleteStreamingDistribution

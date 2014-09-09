@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data PutMetricData = PutMetricData
     { _pmdNamespace :: Text
     , _pmdMetricData :: [MetricDatum]
@@ -56,6 +55,13 @@ data PutMetricData = PutMetricData
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricData' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Namespace ::@ @Text@
+--
+-- * @MetricData ::@ @[MetricDatum]@
+--
 mkPutMetricData :: Text -- ^ 'pmdNamespace'
                 -> [MetricDatum] -- ^ 'pmdMetricData'
                 -> PutMetricData

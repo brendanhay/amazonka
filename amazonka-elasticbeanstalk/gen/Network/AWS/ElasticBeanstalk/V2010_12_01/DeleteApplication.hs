@@ -52,6 +52,13 @@ data DeleteApplication = DeleteApplication
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApplication' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @TerminateEnvByForce ::@ @Maybe Bool@
+--
 mkDeleteApplication :: Text -- ^ 'daApplicationName'
                     -> DeleteApplication
 mkDeleteApplication p1 = DeleteApplication

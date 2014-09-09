@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpRoleName :: Text
     , _uarpPolicyDocument :: Text
@@ -51,6 +50,13 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAssumeRolePolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @PolicyDocument ::@ @Text@
+--
 mkUpdateAssumeRolePolicy :: Text -- ^ 'uarpRoleName'
                          -> Text -- ^ 'uarpPolicyDocument'
                          -> UpdateAssumeRolePolicy

@@ -109,6 +109,19 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateConfigurationTemplate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @TemplateName ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+--
+-- * @OptionsToRemove ::@ @[OptionSpecification]@
+--
 mkUpdateConfigurationTemplate :: Text -- ^ 'uctApplicationName'
                               -> Text -- ^ 'uctTemplateName'
                               -> UpdateConfigurationTemplate
@@ -169,6 +182,27 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
 -- a valid 'UpdateConfigurationTemplateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @DeploymentStatus ::@ @Maybe ConfigurationDeploymentStatus@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
+-- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+--
 mkUpdateConfigurationTemplateResponse :: UpdateConfigurationTemplateResponse
 mkUpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     { _uctrSolutionStackName = Nothing

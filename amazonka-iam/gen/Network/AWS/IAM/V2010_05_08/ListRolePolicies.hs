@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListRolePolicies = ListRolePolicies
     { _lrpRoleName :: Text
     , _lrpMarker :: Maybe Text
@@ -58,6 +57,15 @@ data ListRolePolicies = ListRolePolicies
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListRolePolicies' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListRolePolicies :: Text -- ^ 'lrpRoleName'
                    -> ListRolePolicies
 mkListRolePolicies p1 = ListRolePolicies
@@ -100,6 +108,15 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
 -- a valid 'ListRolePoliciesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyNames ::@ @[Text]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListRolePoliciesResponse :: [Text] -- ^ 'lrprPolicyNames'
                            -> Bool -- ^ 'lrprIsTruncated'
                            -> ListRolePoliciesResponse

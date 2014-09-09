@@ -71,6 +71,13 @@ data ListGateways = ListGateways
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGateways' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkListGateways :: ListGateways
 mkListGateways = ListGateways
     { _lgMarker = Nothing
@@ -104,6 +111,13 @@ data ListGatewaysResponse = ListGatewaysResponse
 -- a valid 'ListGatewaysResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Gateways ::@ @[GatewayInformation]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListGatewaysResponse :: ListGatewaysResponse
 mkListGatewaysResponse = ListGatewaysResponse
     { _lgrGateways = mempty

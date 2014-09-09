@@ -59,6 +59,15 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLaunchConfigurations' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LaunchConfigurationNames ::@ @[Text]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
 mkDescribeLaunchConfigurations :: DescribeLaunchConfigurations
 mkDescribeLaunchConfigurations = DescribeLaunchConfigurations
     { _dlc1LaunchConfigurationNames = mempty
@@ -93,6 +102,13 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
 -- a valid 'DescribeLaunchConfigurationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LaunchConfigurations ::@ @[LaunchConfiguration]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeLaunchConfigurationsResponse :: [LaunchConfiguration] -- ^ 'dlcrLaunchConfigurations'
                                        -> DescribeLaunchConfigurationsResponse
 mkDescribeLaunchConfigurationsResponse p1 = DescribeLaunchConfigurationsResponse

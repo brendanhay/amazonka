@@ -87,6 +87,13 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeWorkflowExecution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @Execution ::@ @WorkflowExecution@
+--
 mkDescribeWorkflowExecution :: Text -- ^ 'dweDomain'
                             -> WorkflowExecution -- ^ 'dweExecution'
                             -> DescribeWorkflowExecution
@@ -124,6 +131,19 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
 -- a valid 'DescribeWorkflowExecutionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExecutionInfo ::@ @WorkflowExecutionInfo@
+--
+-- * @ExecutionConfiguration ::@ @WorkflowExecutionConfiguration@
+--
+-- * @OpenCounts ::@ @WorkflowExecutionOpenCounts@
+--
+-- * @LatestActivityTaskTimestamp ::@ @Maybe POSIX@
+--
+-- * @LatestExecutionContext ::@ @Maybe Text@
+--
 mkDescribeWorkflowExecutionResponse :: WorkflowExecutionInfo -- ^ 'dwerExecutionInfo'
                                     -> WorkflowExecutionConfiguration -- ^ 'dwerExecutionConfiguration'
                                     -> WorkflowExecutionOpenCounts -- ^ 'dwerOpenCounts'

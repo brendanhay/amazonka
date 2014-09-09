@@ -83,6 +83,39 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAutoScalingGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @LaunchConfigurationName ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @MinSize ::@ @Integer@
+--
+-- * @MaxSize ::@ @Integer@
+--
+-- * @DesiredCapacity ::@ @Maybe Integer@
+--
+-- * @DefaultCooldown ::@ @Maybe Integer@
+--
+-- * @AvailabilityZones ::@ @Maybe (List1 Text)@
+--
+-- * @LoadBalancerNames ::@ @[Text]@
+--
+-- * @HealthCheckType ::@ @Maybe Text@
+--
+-- * @HealthCheckGracePeriod ::@ @Maybe Integer@
+--
+-- * @PlacementGroup ::@ @Maybe Text@
+--
+-- * @VPCZoneIdentifier ::@ @Maybe Text@
+--
+-- * @TerminationPolicies ::@ @[Text]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateAutoScalingGroup :: Text -- ^ 'casgAutoScalingGroupName'
                          -> Integer -- ^ 'casgMinSize'
                          -> Integer -- ^ 'casgMaxSize'

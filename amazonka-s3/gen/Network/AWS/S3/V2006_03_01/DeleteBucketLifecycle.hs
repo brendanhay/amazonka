@@ -44,6 +44,11 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketLifecycle' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkDeleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
                         -> DeleteBucketLifecycle
 mkDeleteBucketLifecycle p1 = DeleteBucketLifecycle

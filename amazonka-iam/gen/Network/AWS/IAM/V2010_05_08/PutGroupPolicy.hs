@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName :: Text
     , _pgpPolicyName :: Text
@@ -60,6 +59,15 @@ data PutGroupPolicy = PutGroupPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutGroupPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @PolicyDocument ::@ @Text@
+--
 mkPutGroupPolicy :: Text -- ^ 'pgpGroupName'
                  -> Text -- ^ 'pgpPolicyName'
                  -> Text -- ^ 'pgpPolicyDocument'

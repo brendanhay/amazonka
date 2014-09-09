@@ -46,6 +46,13 @@ data CancelArchival = CancelArchival
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelArchival' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @TapeARN ::@ @Text@
+--
 mkCancelArchival :: Text -- ^ 'caGatewayARN'
                  -> Text -- ^ 'caTapeARN'
                  -> CancelArchival
@@ -78,6 +85,11 @@ newtype CancelArchivalResponse = CancelArchivalResponse
 -- a valid 'CancelArchivalResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
 mkCancelArchivalResponse :: CancelArchivalResponse
 mkCancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN = Nothing

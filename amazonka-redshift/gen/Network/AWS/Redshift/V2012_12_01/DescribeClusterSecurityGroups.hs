@@ -62,6 +62,15 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSecurityGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeClusterSecurityGroups :: DescribeClusterSecurityGroups
 mkDescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsg2ClusterSecurityGroupName = Nothing
@@ -108,6 +117,13 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 -- a valid 'DescribeClusterSecurityGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ClusterSecurityGroups ::@ @[ClusterSecurityGroup]@
+--
 mkDescribeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
 mkDescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     { _dcsgrMarker = Nothing

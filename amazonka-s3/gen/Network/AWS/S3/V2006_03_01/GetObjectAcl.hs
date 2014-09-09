@@ -51,6 +51,15 @@ data GetObjectAcl = GetObjectAcl
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObjectAcl' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
 mkGetObjectAcl :: BucketName -- ^ 'goaBucket'
                -> ObjectKey -- ^ 'goaKey'
                -> GetObjectAcl
@@ -87,6 +96,13 @@ data GetObjectAclResponse = GetObjectAclResponse
 -- a valid 'GetObjectAclResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Owner ::@ @Maybe Owner@
+--
+-- * @Grants ::@ @[Grant]@
+--
 mkGetObjectAclResponse :: GetObjectAclResponse
 mkGetObjectAclResponse = GetObjectAclResponse
     { _goarOwner = Nothing

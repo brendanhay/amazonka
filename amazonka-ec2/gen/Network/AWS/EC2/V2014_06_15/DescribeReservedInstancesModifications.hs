@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
     { _drimReservedInstancesModificationIds :: [Text]
     , _drimNextToken :: Maybe Text
@@ -59,6 +58,15 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesModifications' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesModificationIds ::@ @[Text]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeReservedInstancesModifications :: DescribeReservedInstancesModifications
 mkDescribeReservedInstancesModifications = DescribeReservedInstancesModifications
     { _drimReservedInstancesModificationIds = mempty
@@ -101,7 +109,6 @@ drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a })
 instance ToQuery DescribeReservedInstancesModifications where
     toQuery = genericQuery def
 
--- | 
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrReservedInstancesModifications :: [ReservedInstancesModification]
     , _drimrNextToken :: Maybe Text
@@ -111,6 +118,13 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 -- a valid 'DescribeReservedInstancesModificationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesModifications ::@ @[ReservedInstancesModification]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
 mkDescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrReservedInstancesModifications = mempty

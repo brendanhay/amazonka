@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniaNetworkInterfaceId :: Text
     , _rniaSourceDestCheck :: Maybe Text
@@ -55,6 +54,13 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetNetworkInterfaceAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
+-- * @SourceDestCheck ::@ @Maybe Text@
+--
 mkResetNetworkInterfaceAttribute :: Text -- ^ 'rniaNetworkInterfaceId'
                                  -> ResetNetworkInterfaceAttribute
 mkResetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute

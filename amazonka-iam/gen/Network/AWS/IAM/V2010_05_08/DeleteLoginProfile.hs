@@ -44,13 +44,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoginProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
 mkDeleteLoginProfile :: Text -- ^ 'dlpUserName'
                      -> DeleteLoginProfile
 mkDeleteLoginProfile p1 = DeleteLoginProfile

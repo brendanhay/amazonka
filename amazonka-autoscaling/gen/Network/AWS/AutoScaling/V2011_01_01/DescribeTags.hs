@@ -60,6 +60,15 @@ data DescribeTags = DescribeTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
 mkDescribeTags :: DescribeTags
 mkDescribeTags = DescribeTags
     { _dt1Filters = mempty
@@ -95,6 +104,13 @@ data DescribeTagsResponse = DescribeTagsResponse
 -- a valid 'DescribeTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Tags ::@ @[TagDescription]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeTagsResponse :: DescribeTagsResponse
 mkDescribeTagsResponse = DescribeTagsResponse
     { _dtrTags = mempty

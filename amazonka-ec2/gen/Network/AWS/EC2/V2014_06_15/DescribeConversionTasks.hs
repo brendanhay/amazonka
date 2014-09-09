@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeConversionTasks = DescribeConversionTasks
     { _dctFilters :: [Filter]
     , _dctConversionTaskIds :: [Text]
@@ -55,6 +54,13 @@ data DescribeConversionTasks = DescribeConversionTasks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConversionTasks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @ConversionTaskIds ::@ @[Text]@
+--
 mkDescribeConversionTasks :: DescribeConversionTasks
 mkDescribeConversionTasks = DescribeConversionTasks
     { _dctFilters = mempty
@@ -73,7 +79,6 @@ dctConversionTaskIds =
 instance ToQuery DescribeConversionTasks where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: [ConversionTask]
     } deriving (Show, Generic)
@@ -82,6 +87,11 @@ newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
 -- a valid 'DescribeConversionTasksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConversionTasks ::@ @[ConversionTask]@
+--
 mkDescribeConversionTasksResponse :: DescribeConversionTasksResponse
 mkDescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks = mempty

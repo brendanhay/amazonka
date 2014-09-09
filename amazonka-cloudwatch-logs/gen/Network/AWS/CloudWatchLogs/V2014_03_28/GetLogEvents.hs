@@ -84,6 +84,23 @@ data GetLogEvents = GetLogEvents
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetLogEvents' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @LogStreamName ::@ @Text@
+--
+-- * @StartTime ::@ @Maybe Integer@
+--
+-- * @EndTime ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
+-- * @StartFromHead ::@ @Maybe Bool@
+--
 mkGetLogEvents :: Text -- ^ 'gleLogGroupName'
                -> Text -- ^ 'gleLogStreamName'
                -> GetLogEvents
@@ -148,6 +165,15 @@ data GetLogEventsResponse = GetLogEventsResponse
 -- a valid 'GetLogEventsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Events ::@ @[OutputLogEvent]@
+--
+-- * @NextForwardToken ::@ @Maybe Text@
+--
+-- * @NextBackwardToken ::@ @Maybe Text@
+--
 mkGetLogEventsResponse :: GetLogEventsResponse
 mkGetLogEventsResponse = GetLogEventsResponse
     { _glerEvents = mempty

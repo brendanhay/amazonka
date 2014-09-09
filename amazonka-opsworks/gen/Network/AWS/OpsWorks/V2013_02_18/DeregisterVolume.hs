@@ -48,6 +48,11 @@ newtype DeregisterVolume = DeregisterVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
 mkDeregisterVolume :: Text -- ^ 'dvVolumeId'
                    -> DeregisterVolume
 mkDeregisterVolume p1 = DeregisterVolume

@@ -67,6 +67,19 @@ data DescribeDBSnapshots = DescribeDBSnapshots
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSnapshots' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Maybe Text@
+--
+-- * @DBSnapshotIdentifier ::@ @Maybe Text@
+--
+-- * @SnapshotType ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBSnapshots :: DescribeDBSnapshots
 mkDescribeDBSnapshots = DescribeDBSnapshots
     { _ddbs1DBInstanceIdentifier = Nothing
@@ -131,6 +144,13 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
 -- a valid 'DescribeDBSnapshotsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DBSnapshots ::@ @[DBSnapshot]@
+--
 mkDescribeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
 mkDescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrrMarker = Nothing

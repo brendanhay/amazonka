@@ -61,6 +61,13 @@ data RemoveTags = RemoveTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceId ::@ @Text@
+--
+-- * @TagKeys ::@ @[Text]@
+--
 mkRemoveTags :: Text -- ^ 'rtResourceId'
              -> [Text] -- ^ 'rtTagKeys'
              -> RemoveTags

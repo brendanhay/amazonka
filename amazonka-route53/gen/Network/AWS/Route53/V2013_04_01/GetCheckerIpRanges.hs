@@ -69,6 +69,11 @@ newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
 -- a valid 'GetCheckerIpRangesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckerIpRanges ::@ @[Text]@
+--
 mkGetCheckerIpRangesResponse :: [Text] -- ^ 'gcirrCheckerIpRanges'
                              -> GetCheckerIpRangesResponse
 mkGetCheckerIpRangesResponse p1 = GetCheckerIpRangesResponse

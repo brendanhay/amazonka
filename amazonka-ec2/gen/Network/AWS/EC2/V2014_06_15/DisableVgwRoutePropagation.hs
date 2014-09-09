@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrpRouteTableId :: Text
     , _dvrpGatewayId :: Text
@@ -56,6 +55,13 @@ data DisableVgwRoutePropagation = DisableVgwRoutePropagation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableVgwRoutePropagation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTableId ::@ @Text@
+--
+-- * @GatewayId ::@ @Text@
+--
 mkDisableVgwRoutePropagation :: Text -- ^ 'dvrpRouteTableId'
                              -> Text -- ^ 'dvrpGatewayId'
                              -> DisableVgwRoutePropagation

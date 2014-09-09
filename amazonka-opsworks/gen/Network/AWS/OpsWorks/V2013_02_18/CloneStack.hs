@@ -88,6 +88,51 @@ data CloneStack = CloneStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CloneStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceStackId ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map StackAttributesKeys Text@
+--
+-- * @ServiceRoleArn ::@ @Text@
+--
+-- * @DefaultInstanceProfileArn ::@ @Maybe Text@
+--
+-- * @DefaultOs ::@ @Maybe Text@
+--
+-- * @HostnameTheme ::@ @Maybe Text@
+--
+-- * @DefaultAvailabilityZone ::@ @Maybe Text@
+--
+-- * @DefaultSubnetId ::@ @Maybe Text@
+--
+-- * @CustomJson ::@ @Maybe Text@
+--
+-- * @ConfigurationManager ::@ @Maybe StackConfigurationManager@
+--
+-- * @ChefConfiguration ::@ @Maybe ChefConfiguration@
+--
+-- * @UseCustomCookbooks ::@ @Maybe Bool@
+--
+-- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
+--
+-- * @CustomCookbooksSource ::@ @Maybe Source@
+--
+-- * @DefaultSshKeyName ::@ @Maybe Text@
+--
+-- * @ClonePermissions ::@ @Maybe Bool@
+--
+-- * @CloneAppIds ::@ @[Text]@
+--
+-- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
+--
 mkCloneStack :: Text -- ^ 'csSourceStackId'
              -> Text -- ^ 'csServiceRoleArn'
              -> CloneStack
@@ -302,6 +347,11 @@ newtype CloneStackResponse = CloneStackResponse
 -- a valid 'CloneStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
 mkCloneStackResponse :: CloneStackResponse
 mkCloneStackResponse = CloneStackResponse
     { _csrStackId = Nothing

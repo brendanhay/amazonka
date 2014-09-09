@@ -85,6 +85,41 @@ data ModifyCacheCluster = ModifyCacheCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Text@
+--
+-- * @NumCacheNodes ::@ @Maybe Integer@
+--
+-- * @CacheNodeIdsToRemove ::@ @[Text]@
+--
+-- * @CacheSecurityGroupNames ::@ @[Text]@
+--
+-- * @SecurityGroupIds ::@ @[Text]@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @NotificationTopicArn ::@ @Maybe Text@
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
+-- * @NotificationTopicStatus ::@ @Maybe Text@
+--
+-- * @ApplyImmediately ::@ @Maybe Bool@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @SnapshotRetentionLimit ::@ @Maybe Integer@
+--
+-- * @SnapshotWindow ::@ @Maybe Text@
+--
+-- * @AZMode ::@ @Maybe Text@
+--
+-- * @NewAvailabilityZones ::@ @[Text]@
+--
 mkModifyCacheCluster :: Text -- ^ 'mccCacheClusterId'
                      -> ModifyCacheCluster
 mkModifyCacheCluster p1 = ModifyCacheCluster
@@ -302,6 +337,11 @@ newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
 -- a valid 'ModifyCacheClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheCluster ::@ @Maybe CacheCluster@
+--
 mkModifyCacheClusterResponse :: ModifyCacheClusterResponse
 mkModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster = Nothing

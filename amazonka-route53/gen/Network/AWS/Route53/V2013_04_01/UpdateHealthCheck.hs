@@ -67,6 +67,25 @@ data UpdateHealthCheck = UpdateHealthCheck
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateHealthCheck' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheckId ::@ @Text@
+--
+-- * @HealthCheckVersion ::@ @Maybe Integer@
+--
+-- * @IPAddress ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @ResourcePath ::@ @Maybe Text@
+--
+-- * @FullyQualifiedDomainName ::@ @Maybe Text@
+--
+-- * @SearchString ::@ @Maybe Text@
+--
+-- * @FailureThreshold ::@ @Maybe Integer@
+--
 mkUpdateHealthCheck :: Text -- ^ 'uhcHealthCheckId'
                     -> UpdateHealthCheck
 mkUpdateHealthCheck p1 = UpdateHealthCheck
@@ -154,6 +173,11 @@ newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
 -- a valid 'UpdateHealthCheckResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheck ::@ @HealthCheck@
+--
 mkUpdateHealthCheckResponse :: HealthCheck -- ^ 'uhcrHealthCheck'
                             -> UpdateHealthCheckResponse
 mkUpdateHealthCheckResponse p1 = UpdateHealthCheckResponse

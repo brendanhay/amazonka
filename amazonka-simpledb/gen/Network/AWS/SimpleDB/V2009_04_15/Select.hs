@@ -58,6 +58,15 @@ data Select = Select
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Select' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SelectExpression ::@ @Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @ConsistentRead ::@ @Maybe Bool@
+--
 mkSelect :: Text -- ^ 'sSelectExpression'
          -> Select
 mkSelect p1 = Select
@@ -95,6 +104,13 @@ data SelectResponse = SelectResponse
 -- a valid 'SelectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Items ::@ @[Item]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkSelectResponse :: SelectResponse
 mkSelectResponse = SelectResponse
     { _srItems = mempty

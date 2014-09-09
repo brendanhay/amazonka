@@ -100,6 +100,27 @@ data StartWorkflowExecution = StartWorkflowExecution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartWorkflowExecution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @TaskList ::@ @Maybe TaskList@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @ExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TagList ::@ @[Text]@
+--
+-- * @TaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @ChildPolicy ::@ @Maybe ChildPolicy@
+--
 mkStartWorkflowExecution :: Text -- ^ 'swe1Domain'
                          -> Text -- ^ 'swe1WorkflowId'
                          -> WorkflowType -- ^ 'swe1WorkflowType'
@@ -229,6 +250,11 @@ newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
 -- a valid 'StartWorkflowExecutionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RunId ::@ @Maybe Text@
+--
 mkStartWorkflowExecutionResponse :: StartWorkflowExecutionResponse
 mkStartWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId = Nothing

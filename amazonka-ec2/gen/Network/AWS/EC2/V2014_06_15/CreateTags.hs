@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateTags = CreateTags
     { _ctResources :: [Text]
     , _ctTags :: [Tag]
@@ -58,6 +57,13 @@ data CreateTags = CreateTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Resources ::@ @[Text]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateTags :: [Text] -- ^ 'ctResources'
              -> [Tag] -- ^ 'ctTags'
              -> CreateTags

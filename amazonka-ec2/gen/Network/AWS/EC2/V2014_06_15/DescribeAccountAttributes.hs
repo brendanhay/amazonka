@@ -86,13 +86,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames :: [AccountAttributeName]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAccountAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeNames ::@ @[AccountAttributeName]@
+--
 mkDescribeAccountAttributes :: DescribeAccountAttributes
 mkDescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames = mempty
@@ -106,7 +110,6 @@ daaAttributeNames =
 instance ToQuery DescribeAccountAttributes where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: [AccountAttribute]
     } deriving (Show, Generic)
@@ -115,6 +118,11 @@ newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
 -- a valid 'DescribeAccountAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccountAttributes ::@ @[AccountAttribute]@
+--
 mkDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse
 mkDescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes = mempty

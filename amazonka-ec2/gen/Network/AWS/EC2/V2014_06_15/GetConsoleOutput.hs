@@ -75,13 +75,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetConsoleOutput = GetConsoleOutput
     { _gcoInstanceId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetConsoleOutput' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
 mkGetConsoleOutput :: Text -- ^ 'gcoInstanceId'
                    -> GetConsoleOutput
 mkGetConsoleOutput p1 = GetConsoleOutput
@@ -95,7 +99,6 @@ gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
 instance ToQuery GetConsoleOutput where
     toQuery = genericQuery def
 
--- | 
 data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId :: Maybe Text
     , _gcorTimestamp :: Maybe ISO8601
@@ -106,6 +109,15 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
 -- a valid 'GetConsoleOutputResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Timestamp ::@ @Maybe ISO8601@
+--
+-- * @Output ::@ @Maybe Text@
+--
 mkGetConsoleOutputResponse :: GetConsoleOutputResponse
 mkGetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId = Nothing

@@ -46,13 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetSAMLProvider = GetSAMLProvider
     { _gsamlpSAMLProviderArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSAMLProvider' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLProviderArn ::@ @Text@
+--
 mkGetSAMLProvider :: Text -- ^ 'gsamlpSAMLProviderArn'
                   -> GetSAMLProvider
 mkGetSAMLProvider p1 = GetSAMLProvider
@@ -80,6 +84,15 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
 -- a valid 'GetSAMLProviderResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLMetadataDocument ::@ @Maybe Text@
+--
+-- * @CreateDate ::@ @Maybe ISO8601@
+--
+-- * @ValidUntil ::@ @Maybe ISO8601@
+--
 mkGetSAMLProviderResponse :: GetSAMLProviderResponse
 mkGetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprSAMLMetadataDocument = Nothing

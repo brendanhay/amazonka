@@ -56,6 +56,13 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ApplySecurityGroupsToLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @SecurityGroups ::@ @[Text]@
+--
 mkApplySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbLoadBalancerName'
                                     -> [Text] -- ^ 'asgtlbSecurityGroups'
                                     -> ApplySecurityGroupsToLoadBalancer
@@ -89,6 +96,11 @@ newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBal
 -- a valid 'ApplySecurityGroupsToLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SecurityGroups ::@ @[Text]@
+--
 mkApplySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
 mkApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups = mempty

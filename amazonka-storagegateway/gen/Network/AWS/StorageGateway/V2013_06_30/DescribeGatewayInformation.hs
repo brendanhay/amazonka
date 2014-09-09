@@ -69,6 +69,11 @@ newtype DescribeGatewayInformation = DescribeGatewayInformation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeGatewayInformation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDescribeGatewayInformation :: Text -- ^ 'dgiGatewayARN'
                              -> DescribeGatewayInformation
 mkDescribeGatewayInformation p1 = DescribeGatewayInformation
@@ -103,6 +108,23 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
 -- a valid 'DescribeGatewayInformationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @GatewayId ::@ @Maybe Text@
+--
+-- * @GatewayTimezone ::@ @Maybe Text@
+--
+-- * @GatewayState ::@ @Maybe Text@
+--
+-- * @GatewayNetworkInterfaces ::@ @[NetworkInterface]@
+--
+-- * @GatewayType ::@ @Maybe Text@
+--
+-- * @NextUpdateAvailabilityDate ::@ @Maybe Text@
+--
 mkDescribeGatewayInformationResponse :: DescribeGatewayInformationResponse
 mkDescribeGatewayInformationResponse = DescribeGatewayInformationResponse
     { _dgirGatewayARN = Nothing

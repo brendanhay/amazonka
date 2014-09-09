@@ -50,13 +50,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelReservedInstancesListing' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesListingId ::@ @Text@
+--
 mkCancelReservedInstancesListing :: Text -- ^ 'crilReservedInstancesListingId'
                                  -> CancelReservedInstancesListing
 mkCancelReservedInstancesListing p1 = CancelReservedInstancesListing
@@ -72,7 +76,6 @@ crilReservedInstancesListingId =
 instance ToQuery CancelReservedInstancesListing where
     toQuery = genericQuery def
 
--- | 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
@@ -81,6 +84,11 @@ newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingR
 -- a valid 'CancelReservedInstancesListingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
+--
 mkCancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
 mkCancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings = mempty

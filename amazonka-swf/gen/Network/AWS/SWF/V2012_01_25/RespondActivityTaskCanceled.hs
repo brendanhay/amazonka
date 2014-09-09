@@ -80,6 +80,13 @@ data RespondActivityTaskCanceled = RespondActivityTaskCanceled
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskCanceled' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskToken ::@ @Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkRespondActivityTaskCanceled :: Text -- ^ 'ratcTaskToken'
                               -> RespondActivityTaskCanceled
 mkRespondActivityTaskCanceled p1 = RespondActivityTaskCanceled

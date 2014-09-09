@@ -43,6 +43,11 @@ newtype DeregisterRdsDbInstance = DeregisterRdsDbInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterRdsDbInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RdsDbInstanceArn ::@ @Text@
+--
 mkDeregisterRdsDbInstance :: Text -- ^ 'drdiRdsDbInstanceArn'
                           -> DeregisterRdsDbInstance
 mkDeregisterRdsDbInstance p1 = DeregisterRdsDbInstance

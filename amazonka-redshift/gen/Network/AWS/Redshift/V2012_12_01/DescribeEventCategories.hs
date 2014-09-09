@@ -48,6 +48,11 @@ newtype DescribeEventCategories = DescribeEventCategories
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventCategories' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceType ::@ @Maybe Text@
+--
 mkDescribeEventCategories :: DescribeEventCategories
 mkDescribeEventCategories = DescribeEventCategories
     { _decSourceType = Nothing
@@ -71,6 +76,11 @@ newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
 -- a valid 'DescribeEventCategoriesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventCategoriesMapList ::@ @[EventCategoriesMap]@
+--
 mkDescribeEventCategoriesResponse :: DescribeEventCategoriesResponse
 mkDescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList = mempty

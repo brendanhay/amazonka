@@ -44,6 +44,11 @@ newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHsmClientCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmClientCertificateIdentifier ::@ @Text@
+--
 mkDeleteHsmClientCertificate :: Text -- ^ 'dhccHsmClientCertificateIdentifier'
                              -> DeleteHsmClientCertificate
 mkDeleteHsmClientCertificate p1 = DeleteHsmClientCertificate

@@ -51,6 +51,13 @@ data AssignVolume = AssignVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssignVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
 mkAssignVolume :: Text -- ^ 'avVolumeId'
                -> AssignVolume
 mkAssignVolume p1 = AssignVolume

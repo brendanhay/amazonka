@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListGroupsForUser = ListGroupsForUser
     { _lgfuUserName :: Text
     , _lgfuMarker :: Maybe Text
@@ -57,6 +56,15 @@ data ListGroupsForUser = ListGroupsForUser
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroupsForUser' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListGroupsForUser :: Text -- ^ 'lgfuUserName'
                     -> ListGroupsForUser
 mkListGroupsForUser p1 = ListGroupsForUser
@@ -97,6 +105,15 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
 -- a valid 'ListGroupsForUserResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Groups ::@ @[Group]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListGroupsForUserResponse :: [Group] -- ^ 'lgfurGroups'
                             -> Bool -- ^ 'lgfurIsTruncated'
                             -> ListGroupsForUserResponse

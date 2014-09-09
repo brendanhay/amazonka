@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data GetGroupPolicy = GetGroupPolicy
     { _ggpGroupName :: Text
     , _ggpPolicyName :: Text
@@ -56,6 +55,13 @@ data GetGroupPolicy = GetGroupPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGroupPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
 mkGetGroupPolicy :: Text -- ^ 'ggpGroupName'
                  -> Text -- ^ 'ggpPolicyName'
                  -> GetGroupPolicy
@@ -87,6 +93,15 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
 -- a valid 'GetGroupPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @PolicyDocument ::@ @Text@
+--
 mkGetGroupPolicyResponse :: Text -- ^ 'ggprGroupName'
                          -> Text -- ^ 'ggprPolicyName'
                          -> Text -- ^ 'ggprPolicyDocument'

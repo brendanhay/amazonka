@@ -58,6 +58,17 @@ data AddCommunicationToCase = AddCommunicationToCase
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCommunicationToCase' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CaseId ::@ @Maybe Text@
+--
+-- * @CommunicationBody ::@ @Text@
+--
+-- * @CcEmailAddresses ::@ @[Text]@
+--
+-- * @AttachmentSetId ::@ @Maybe Text@
+--
 mkAddCommunicationToCase :: Text -- ^ 'actcCommunicationBody'
                          -> AddCommunicationToCase
 mkAddCommunicationToCase p2 = AddCommunicationToCase
@@ -107,6 +118,11 @@ newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
 -- a valid 'AddCommunicationToCaseResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Result ::@ @Maybe Bool@
+--
 mkAddCommunicationToCaseResponse :: AddCommunicationToCaseResponse
 mkAddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult = Nothing

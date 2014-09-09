@@ -51,6 +51,13 @@ data AssociateElasticIp = AssociateElasticIp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateElasticIp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIp ::@ @Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
 mkAssociateElasticIp :: Text -- ^ 'aeiElasticIp'
                      -> AssociateElasticIp
 mkAssociateElasticIp p1 = AssociateElasticIp

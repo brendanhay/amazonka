@@ -83,6 +83,15 @@ data GetSessionToken = GetSessionToken
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSessionToken' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DurationSeconds ::@ @Maybe Integer@
+--
+-- * @SerialNumber ::@ @Maybe Text@
+--
+-- * @TokenCode ::@ @Maybe Text@
+--
 mkGetSessionToken :: GetSessionToken
 mkGetSessionToken = GetSessionToken
     { _gstDurationSeconds = Nothing
@@ -133,6 +142,11 @@ newtype GetSessionTokenResponse = GetSessionTokenResponse
 -- a valid 'GetSessionTokenResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Credentials ::@ @Maybe Credentials@
+--
 mkGetSessionTokenResponse :: GetSessionTokenResponse
 mkGetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials = Nothing

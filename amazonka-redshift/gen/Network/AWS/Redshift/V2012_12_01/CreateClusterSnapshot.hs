@@ -59,6 +59,13 @@ data CreateClusterSnapshot = CreateClusterSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotIdentifier ::@ @Text@
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
 mkCreateClusterSnapshot :: Text -- ^ 'ccs1SnapshotIdentifier'
                         -> Text -- ^ 'ccs1ClusterIdentifier'
                         -> CreateClusterSnapshot
@@ -93,6 +100,11 @@ newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
 -- a valid 'CreateClusterSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkCreateClusterSnapshotResponse :: CreateClusterSnapshotResponse
 mkCreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsrrSnapshot = Nothing

@@ -53,6 +53,13 @@ data ListTables = ListTables
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTables' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExclusiveStartTableName ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkListTables :: ListTables
 mkListTables = ListTables
     { _ltExclusiveStartTableName = Nothing
@@ -89,6 +96,13 @@ data ListTablesResponse = ListTablesResponse
 -- a valid 'ListTablesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableNames ::@ @[Text]@
+--
+-- * @LastEvaluatedTableName ::@ @Maybe Text@
+--
 mkListTablesResponse :: ListTablesResponse
 mkListTablesResponse = ListTablesResponse
     { _ltrTableNames = mempty

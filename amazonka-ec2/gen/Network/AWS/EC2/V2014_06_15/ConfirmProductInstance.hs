@@ -52,7 +52,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ConfirmProductInstance = ConfirmProductInstance
     { _cpiProductCode :: Text
     , _cpiInstanceId :: Text
@@ -60,6 +59,13 @@ data ConfirmProductInstance = ConfirmProductInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmProductInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ProductCode ::@ @Text@
+--
+-- * @InstanceId ::@ @Text@
+--
 mkConfirmProductInstance :: Text -- ^ 'cpiProductCode'
                          -> Text -- ^ 'cpiInstanceId'
                          -> ConfirmProductInstance
@@ -79,7 +85,6 @@ cpiInstanceId = lens _cpiInstanceId (\s a -> s { _cpiInstanceId = a })
 instance ToQuery ConfirmProductInstance where
     toQuery = genericQuery def
 
--- | 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
     } deriving (Show, Generic)
@@ -88,6 +93,11 @@ newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 -- a valid 'ConfirmProductInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
 mkConfirmProductInstanceResponse :: ConfirmProductInstanceResponse
 mkConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId = Nothing

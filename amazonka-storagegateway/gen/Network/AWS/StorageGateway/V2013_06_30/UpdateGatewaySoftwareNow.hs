@@ -70,6 +70,11 @@ newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGatewaySoftwareNow' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkUpdateGatewaySoftwareNow :: Text -- ^ 'ugsnGatewayARN'
                            -> UpdateGatewaySoftwareNow
 mkUpdateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
@@ -98,6 +103,11 @@ newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
 -- a valid 'UpdateGatewaySoftwareNowResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkUpdateGatewaySoftwareNowResponse :: UpdateGatewaySoftwareNowResponse
 mkUpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
     { _ugsnrGatewayARN = Nothing

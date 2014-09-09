@@ -62,6 +62,15 @@ data DeleteReplicationGroup = DeleteReplicationGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteReplicationGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroupId ::@ @Text@
+--
+-- * @RetainPrimaryCluster ::@ @Maybe Bool@
+--
+-- * @FinalSnapshotIdentifier ::@ @Maybe Text@
+--
 mkDeleteReplicationGroup :: Text -- ^ 'drgReplicationGroupId'
                          -> DeleteReplicationGroup
 mkDeleteReplicationGroup p1 = DeleteReplicationGroup
@@ -104,6 +113,11 @@ newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
 -- a valid 'DeleteReplicationGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroup ::@ @Maybe ReplicationGroup@
+--
 mkDeleteReplicationGroupResponse :: DeleteReplicationGroupResponse
 mkDeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup = Nothing

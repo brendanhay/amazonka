@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateServerCertificate = UpdateServerCertificate
     { _uscServerCertificateName :: Text
     , _uscNewPath :: Maybe Text
@@ -59,6 +58,15 @@ data UpdateServerCertificate = UpdateServerCertificate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServerCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerCertificateName ::@ @Text@
+--
+-- * @NewPath ::@ @Maybe Text@
+--
+-- * @NewServerCertificateName ::@ @Maybe Text@
+--
 mkUpdateServerCertificate :: Text -- ^ 'uscServerCertificateName'
                           -> UpdateServerCertificate
 mkUpdateServerCertificate p1 = UpdateServerCertificate

@@ -46,13 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteVolume = DeleteVolume
     { _dvVolumeId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
 mkDeleteVolume :: Text -- ^ 'dvVolumeId'
                -> DeleteVolume
 mkDeleteVolume p1 = DeleteVolume

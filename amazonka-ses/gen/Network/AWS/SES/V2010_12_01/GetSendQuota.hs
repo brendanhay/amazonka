@@ -70,6 +70,15 @@ data GetSendQuotaResponse = GetSendQuotaResponse
 -- a valid 'GetSendQuotaResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Max24HourSend ::@ @Maybe Double@
+--
+-- * @MaxSendRate ::@ @Maybe Double@
+--
+-- * @SentLast24Hours ::@ @Maybe Double@
+--
 mkGetSendQuotaResponse :: GetSendQuotaResponse
 mkGetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend = Nothing

@@ -224,6 +224,11 @@ newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchRe
 --
 -- 'ChangeMessageVisibilityBatchResultEntry' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkChangeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrerId'
                                           -> ChangeMessageVisibilityBatchResultEntry
 mkChangeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultEntry
@@ -249,6 +254,11 @@ newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
 --
 -- 'DeleteMessageBatchResultEntry' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkDeleteMessageBatchResultEntry :: Text -- ^ 'dmbrerId'
                                 -> DeleteMessageBatchResultEntry
 mkDeleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
@@ -277,6 +287,17 @@ data BatchResultErrorEntry = BatchResultErrorEntry
 --
 -- 'BatchResultErrorEntry' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @SenderFault ::@ @Bool@
+--
+-- * @Code ::@ @Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkBatchResultErrorEntry :: Text -- ^ 'breeId'
                         -> Bool -- ^ 'breeSenderFault'
                         -> Text -- ^ 'breeCode'
@@ -325,6 +346,15 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeMessageVisibilityBatchRequestEntry' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @ReceiptHandle ::@ @Text@
+--
+-- * @VisibilityTimeout ::@ @Maybe Integer@
+--
 mkChangeMessageVisibilityBatchRequestEntry :: Text -- ^ 'cmvbreId'
                                            -> Text -- ^ 'cmvbreReceiptHandle'
                                            -> ChangeMessageVisibilityBatchRequestEntry
@@ -362,6 +392,13 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteMessageBatchRequestEntry' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @ReceiptHandle ::@ @Text@
+--
 mkDeleteMessageBatchRequestEntry :: Text -- ^ 'dmbreId'
                                  -> Text -- ^ 'dmbreReceiptHandle'
                                  -> DeleteMessageBatchRequestEntry
@@ -400,6 +437,23 @@ data Message = Message
 --
 -- 'Message' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MessageId ::@ @Maybe Text@
+--
+-- * @ReceiptHandle ::@ @Maybe Text@
+--
+-- * @MD5OfBody ::@ @Maybe Text@
+--
+-- * @Body ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map QueueAttributeName Text@
+--
+-- * @MD5OfMessageAttributes ::@ @Maybe Text@
+--
+-- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
+--
 mkMessage :: Message
 mkMessage = Message
     { _mMessageId = Nothing
@@ -474,6 +528,19 @@ data MessageAttributeValue = MessageAttributeValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MessageAttributeValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StringValue ::@ @Maybe Text@
+--
+-- * @BinaryValue ::@ @Maybe ByteString@
+--
+-- * @StringListValues ::@ @[Text]@
+--
+-- * @BinaryListValues ::@ @[ByteString]@
+--
+-- * @DataType ::@ @Text@
+--
 mkMessageAttributeValue :: Text -- ^ 'mavDataType'
                         -> MessageAttributeValue
 mkMessageAttributeValue p5 = MessageAttributeValue
@@ -527,6 +594,17 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SendMessageBatchRequestEntry' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @MessageBody ::@ @Text@
+--
+-- * @DelaySeconds ::@ @Maybe Integer@
+--
+-- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
+--
 mkSendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
                                -> Text -- ^ 'smbreMessageBody'
                                -> SendMessageBatchRequestEntry
@@ -576,6 +654,17 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
 --
 -- 'SendMessageBatchResultEntry' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @MessageId ::@ @Text@
+--
+-- * @MD5OfMessageBody ::@ @Text@
+--
+-- * @MD5OfMessageAttributes ::@ @Maybe Text@
+--
 mkSendMessageBatchResultEntry :: Text -- ^ 'smbrerId'
                               -> Text -- ^ 'smbrerMessageId'
                               -> Text -- ^ 'smbrerMD5OfMessageBody'

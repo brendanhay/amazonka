@@ -49,6 +49,11 @@ newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSubnetGroupName ::@ @Text@
+--
 mkDeleteCacheSubnetGroup :: Text -- ^ 'dcsg1CacheSubnetGroupName'
                          -> DeleteCacheSubnetGroup
 mkDeleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup

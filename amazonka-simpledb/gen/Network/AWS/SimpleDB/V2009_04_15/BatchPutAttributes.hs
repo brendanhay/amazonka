@@ -79,6 +79,13 @@ data BatchPutAttributes = BatchPutAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchPutAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Items ::@ @[ReplaceableItem]@
+--
 mkBatchPutAttributes :: Text -- ^ 'bpaDomainName'
                      -> [ReplaceableItem] -- ^ 'bpaItems'
                      -> BatchPutAttributes

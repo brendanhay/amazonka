@@ -79,6 +79,23 @@ data PutItem = PutItem
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutItem' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
+-- * @Item ::@ @Map Text AttributeValue@
+--
+-- * @Expected ::@ @Map Text ExpectedAttributeValue@
+--
+-- * @ReturnValues ::@ @Maybe ReturnValue@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
+-- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
+--
+-- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
+--
 mkPutItem :: Text -- ^ 'piTableName'
           -> Map Text AttributeValue -- ^ 'piItem'
           -> PutItem
@@ -184,6 +201,15 @@ data PutItemResponse = PutItemResponse
 -- a valid 'PutItemResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map Text AttributeValue@
+--
+-- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
+--
+-- * @ItemCollectionMetrics ::@ @Maybe ItemCollectionMetrics@
+--
 mkPutItemResponse :: PutItemResponse
 mkPutItemResponse = PutItemResponse
     { _pirAttributes = mempty

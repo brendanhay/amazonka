@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateSigningCertificate = UpdateSigningCertificate
     { _usc1UserName :: Maybe Text
     , _usc1CertificateId :: Text
@@ -59,6 +58,15 @@ data UpdateSigningCertificate = UpdateSigningCertificate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSigningCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @CertificateId ::@ @Text@
+--
+-- * @Status ::@ @StatusType@
+--
 mkUpdateSigningCertificate :: Text -- ^ 'usc1CertificateId'
                            -> StatusType -- ^ 'usc1Status'
                            -> UpdateSigningCertificate

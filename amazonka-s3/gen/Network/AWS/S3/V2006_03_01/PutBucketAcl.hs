@@ -60,6 +60,27 @@ data PutBucketAcl = PutBucketAcl
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketAcl' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ACL ::@ @Maybe BucketCannedACL@
+--
+-- * @AccessControlPolicy ::@ @Maybe AccessControlPolicy@
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @GrantFullControl ::@ @Maybe Text@
+--
+-- * @GrantRead ::@ @Maybe Text@
+--
+-- * @GrantReadACP ::@ @Maybe Text@
+--
+-- * @GrantWrite ::@ @Maybe Text@
+--
+-- * @GrantWriteACP ::@ @Maybe Text@
+--
 mkPutBucketAcl :: BucketName -- ^ 'pbaBucket'
                -> PutBucketAcl
 mkPutBucketAcl p3 = PutBucketAcl

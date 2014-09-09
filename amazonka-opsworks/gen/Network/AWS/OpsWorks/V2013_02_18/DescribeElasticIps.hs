@@ -53,6 +53,15 @@ data DescribeElasticIps = DescribeElasticIps
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeElasticIps' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @Ips ::@ @[Text]@
+--
 mkDescribeElasticIps :: DescribeElasticIps
 mkDescribeElasticIps = DescribeElasticIps
     { _dei1InstanceId = Nothing
@@ -96,6 +105,11 @@ newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
 -- a valid 'DescribeElasticIpsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIps ::@ @[ElasticIp]@
+--
 mkDescribeElasticIpsResponse :: DescribeElasticIpsResponse
 mkDescribeElasticIpsResponse = DescribeElasticIpsResponse
     { _deirElasticIps = mempty

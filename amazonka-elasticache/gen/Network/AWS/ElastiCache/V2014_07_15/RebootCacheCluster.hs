@@ -64,6 +64,13 @@ data RebootCacheCluster = RebootCacheCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootCacheCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Text@
+--
+-- * @CacheNodeIdsToReboot ::@ @[Text]@
+--
 mkRebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
                      -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
                      -> RebootCacheCluster
@@ -97,6 +104,11 @@ newtype RebootCacheClusterResponse = RebootCacheClusterResponse
 -- a valid 'RebootCacheClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheCluster ::@ @Maybe CacheCluster@
+--
 mkRebootCacheClusterResponse :: RebootCacheClusterResponse
 mkRebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster = Nothing

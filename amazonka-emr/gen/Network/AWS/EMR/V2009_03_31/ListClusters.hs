@@ -58,6 +58,17 @@ data ListClusters = ListClusters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListClusters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CreatedAfter ::@ @Maybe POSIX@
+--
+-- * @CreatedBefore ::@ @Maybe POSIX@
+--
+-- * @ClusterStates ::@ @[ClusterState]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListClusters :: ListClusters
 mkListClusters = ListClusters
     { _lcCreatedAfter = Nothing
@@ -101,6 +112,13 @@ data ListClustersResponse = ListClustersResponse
 -- a valid 'ListClustersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Clusters ::@ @[ClusterSummary]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListClustersResponse :: ListClustersResponse
 mkListClustersResponse = ListClustersResponse
     { _lcrClusters = mempty

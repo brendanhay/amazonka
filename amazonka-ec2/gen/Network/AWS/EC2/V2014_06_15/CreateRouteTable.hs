@@ -48,13 +48,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CreateRouteTable = CreateRouteTable
     { _crtVpcId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRouteTable' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Text@
+--
 mkCreateRouteTable :: Text -- ^ 'crtVpcId'
                    -> CreateRouteTable
 mkCreateRouteTable p1 = CreateRouteTable
@@ -68,7 +72,6 @@ crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
 instance ToQuery CreateRouteTable where
     toQuery = genericQuery def
 
--- | 
 newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable :: Maybe RouteTable
     } deriving (Show, Generic)
@@ -77,6 +80,11 @@ newtype CreateRouteTableResponse = CreateRouteTableResponse
 -- a valid 'CreateRouteTableResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTable ::@ @Maybe RouteTable@
+--
 mkCreateRouteTableResponse :: CreateRouteTableResponse
 mkCreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable = Nothing

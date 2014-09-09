@@ -77,6 +77,13 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyLoadBalancerAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @LoadBalancerAttributes ::@ @LoadBalancerAttributes@
+--
 mkModifyLoadBalancerAttributes :: Text -- ^ 'mlbaLoadBalancerName'
                                -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
                                -> ModifyLoadBalancerAttributes
@@ -109,6 +116,13 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 -- a valid 'ModifyLoadBalancerAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Maybe Text@
+--
+-- * @LoadBalancerAttributes ::@ @Maybe LoadBalancerAttributes@
+--
 mkModifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse
 mkModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerName = Nothing

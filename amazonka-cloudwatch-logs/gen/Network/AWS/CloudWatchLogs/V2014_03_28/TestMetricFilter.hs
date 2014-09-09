@@ -214,6 +214,13 @@ data TestMetricFilter = TestMetricFilter
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestMetricFilter' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FilterPattern ::@ @Text@
+--
+-- * @LogEventMessages ::@ @List1 Text@
+--
 mkTestMetricFilter :: Text -- ^ 'tmfFilterPattern'
                    -> List1 Text -- ^ 'tmfLogEventMessages'
                    -> TestMetricFilter
@@ -246,6 +253,11 @@ newtype TestMetricFilterResponse = TestMetricFilterResponse
 -- a valid 'TestMetricFilterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Matches ::@ @[MetricFilterMatchRecord]@
+--
 mkTestMetricFilterResponse :: TestMetricFilterResponse
 mkTestMetricFilterResponse = TestMetricFilterResponse
     { _tmfrMatches = mempty

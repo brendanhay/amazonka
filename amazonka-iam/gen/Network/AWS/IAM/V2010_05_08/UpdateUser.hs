@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateUser = UpdateUser
     { _uuUserName :: Text
     , _uuNewPath :: Maybe Text
@@ -59,6 +58,15 @@ data UpdateUser = UpdateUser
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUser' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @NewPath ::@ @Maybe Text@
+--
+-- * @NewUserName ::@ @Maybe Text@
+--
 mkUpdateUser :: Text -- ^ 'uuUserName'
              -> UpdateUser
 mkUpdateUser p1 = UpdateUser

@@ -47,13 +47,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscServerCertificateName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteServerCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerCertificateName ::@ @Text@
+--
 mkDeleteServerCertificate :: Text -- ^ 'dscServerCertificateName'
                           -> DeleteServerCertificate
 mkDeleteServerCertificate p1 = DeleteServerCertificate

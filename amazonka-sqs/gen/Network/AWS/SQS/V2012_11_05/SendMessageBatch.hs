@@ -78,7 +78,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data SendMessageBatch = SendMessageBatch
     { _smbQueueUrl :: Text
     , _smbEntries :: [SendMessageBatchRequestEntry]
@@ -86,6 +85,13 @@ data SendMessageBatch = SendMessageBatch
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessageBatch' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @Entries ::@ @[SendMessageBatchRequestEntry]@
+--
 mkSendMessageBatch :: Text -- ^ 'smbQueueUrl'
                    -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
                    -> SendMessageBatch
@@ -117,6 +123,13 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 -- a valid 'SendMessageBatchResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Successful ::@ @[SendMessageBatchResultEntry]@
+--
+-- * @Failed ::@ @[BatchResultErrorEntry]@
+--
 mkSendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
                            -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
                            -> SendMessageBatchResponse

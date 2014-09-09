@@ -48,6 +48,11 @@ newtype DeregisterElasticIp = DeregisterElasticIp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterElasticIp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIp ::@ @Text@
+--
 mkDeregisterElasticIp :: Text -- ^ 'deiElasticIp'
                       -> DeregisterElasticIp
 mkDeregisterElasticIp p1 = DeregisterElasticIp

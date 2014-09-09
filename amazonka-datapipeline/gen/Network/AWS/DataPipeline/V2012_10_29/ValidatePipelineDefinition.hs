@@ -87,6 +87,13 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidatePipelineDefinition' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @PipelineObjects ::@ @[PipelineObject]@
+--
 mkValidatePipelineDefinition :: Text -- ^ 'vpdPipelineId'
                              -> [PipelineObject] -- ^ 'vpdPipelineObjects'
                              -> ValidatePipelineDefinition
@@ -124,6 +131,15 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
 -- a valid 'ValidatePipelineDefinitionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ValidationErrors ::@ @[ValidationError]@
+--
+-- * @ValidationWarnings ::@ @[ValidationWarning]@
+--
+-- * @Errored ::@ @Bool@
+--
 mkValidatePipelineDefinitionResponse :: Bool -- ^ 'vpdrErrored'
                                      -> ValidatePipelineDefinitionResponse
 mkValidatePipelineDefinitionResponse p3 = ValidatePipelineDefinitionResponse

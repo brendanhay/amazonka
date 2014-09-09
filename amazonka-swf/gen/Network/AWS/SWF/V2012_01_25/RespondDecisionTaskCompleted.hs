@@ -81,6 +81,15 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondDecisionTaskCompleted' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskToken ::@ @Text@
+--
+-- * @Decisions ::@ @[Decision]@
+--
+-- * @ExecutionContext ::@ @Maybe Text@
+--
 mkRespondDecisionTaskCompleted :: Text -- ^ 'rdtcTaskToken'
                                -> RespondDecisionTaskCompleted
 mkRespondDecisionTaskCompleted p1 = RespondDecisionTaskCompleted

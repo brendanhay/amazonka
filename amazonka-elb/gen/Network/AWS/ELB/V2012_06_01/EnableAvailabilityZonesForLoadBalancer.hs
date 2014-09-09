@@ -59,6 +59,13 @@ data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBala
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableAvailabilityZonesForLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @AvailabilityZones ::@ @[Text]@
+--
 mkEnableAvailabilityZonesForLoadBalancer :: Text -- ^ 'eazflbLoadBalancerName'
                                          -> [Text] -- ^ 'eazflbAvailabilityZones'
                                          -> EnableAvailabilityZonesForLoadBalancer
@@ -91,6 +98,11 @@ newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZones
 -- a valid 'EnableAvailabilityZonesForLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityZones ::@ @[Text]@
+--
 mkEnableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
 mkEnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { _eazflbrAvailabilityZones = mempty

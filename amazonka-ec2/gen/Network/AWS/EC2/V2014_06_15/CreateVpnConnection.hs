@@ -93,7 +93,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateVpnConnection = CreateVpnConnection
     { _cvcType :: Text
     , _cvcCustomerGatewayId :: Text
@@ -103,6 +102,17 @@ data CreateVpnConnection = CreateVpnConnection
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Type ::@ @Text@
+--
+-- * @CustomerGatewayId ::@ @Text@
+--
+-- * @VpnGatewayId ::@ @Text@
+--
+-- * @Options ::@ @Maybe VpnConnectionOptionsSpecification@
+--
 mkCreateVpnConnection :: Text -- ^ 'cvcType'
                       -> Text -- ^ 'cvcCustomerGatewayId'
                       -> Text -- ^ 'cvcVpnGatewayId'
@@ -136,7 +146,6 @@ cvcOptions = lens _cvcOptions (\s a -> s { _cvcOptions = a })
 instance ToQuery CreateVpnConnection where
     toQuery = genericQuery def
 
--- | 
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection :: Maybe VpnConnection
     } deriving (Show, Generic)
@@ -145,6 +154,11 @@ newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
 -- a valid 'CreateVpnConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnConnection ::@ @Maybe VpnConnection@
+--
 mkCreateVpnConnectionResponse :: CreateVpnConnectionResponse
 mkCreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection = Nothing

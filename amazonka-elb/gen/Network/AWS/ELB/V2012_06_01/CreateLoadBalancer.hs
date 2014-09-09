@@ -123,6 +123,23 @@ data CreateLoadBalancer = CreateLoadBalancer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @Listeners ::@ @[Listener]@
+--
+-- * @AvailabilityZones ::@ @[Text]@
+--
+-- * @Subnets ::@ @[Text]@
+--
+-- * @SecurityGroups ::@ @[Text]@
+--
+-- * @Scheme ::@ @Maybe Text@
+--
+-- * @Tags ::@ @Maybe (List1 Tag)@
+--
 mkCreateLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
                      -> [Listener] -- ^ 'clbListeners'
                      -> CreateLoadBalancer
@@ -194,6 +211,11 @@ newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
 -- a valid 'CreateLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DNSName ::@ @Maybe Text@
+--
 mkCreateLoadBalancerResponse :: CreateLoadBalancerResponse
 mkCreateLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName = Nothing

@@ -52,7 +52,6 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeDBParameters = DescribeDBParameters
     { _ddbpDBParameterGroupName :: Text
     , _ddbpSource :: Maybe Text
@@ -62,6 +61,17 @@ data DescribeDBParameters = DescribeDBParameters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBParameters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Text@
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBParameters :: Text -- ^ 'ddbpDBParameterGroupName'
                        -> DescribeDBParameters
 mkDescribeDBParameters p1 = DescribeDBParameters
@@ -111,6 +121,13 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
 -- a valid 'DescribeDBParametersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Parameters ::@ @[Parameter]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBParametersResponse :: DescribeDBParametersResponse
 mkDescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprParameters = mempty

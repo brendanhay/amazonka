@@ -79,6 +79,15 @@ data ListVolumes = ListVolumes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVolumes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkListVolumes :: Text -- ^ 'lvGatewayARN'
               -> ListVolumes
 mkListVolumes p1 = ListVolumes
@@ -121,6 +130,15 @@ data ListVolumesResponse = ListVolumesResponse
 -- a valid 'ListVolumesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @VolumeInfos ::@ @[VolumeInformation]@
+--
 mkListVolumesResponse :: ListVolumesResponse
 mkListVolumesResponse = ListVolumesResponse
     { _lvrGatewayARN = Nothing

@@ -47,6 +47,11 @@ newtype GetBucketAcl = GetBucketAcl
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketAcl' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketAcl :: BucketName -- ^ 'gbaBucket'
                -> GetBucketAcl
 mkGetBucketAcl p1 = GetBucketAcl
@@ -73,6 +78,13 @@ data GetBucketAclResponse = GetBucketAclResponse
 -- a valid 'GetBucketAclResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Owner ::@ @Maybe Owner@
+--
+-- * @Grants ::@ @[Grant]@
+--
 mkGetBucketAclResponse :: GetBucketAclResponse
 mkGetBucketAclResponse = GetBucketAclResponse
     { _gbarOwner = Nothing

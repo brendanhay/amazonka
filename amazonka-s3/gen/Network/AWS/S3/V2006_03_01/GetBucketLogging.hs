@@ -47,6 +47,11 @@ newtype GetBucketLogging = GetBucketLogging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLogging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketLogging :: BucketName -- ^ 'gbl2Bucket'
                    -> GetBucketLogging
 mkGetBucketLogging p1 = GetBucketLogging
@@ -72,6 +77,11 @@ newtype GetBucketLoggingResponse = GetBucketLoggingResponse
 -- a valid 'GetBucketLoggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoggingEnabled ::@ @Maybe LoggingEnabled@
+--
 mkGetBucketLoggingResponse :: GetBucketLoggingResponse
 mkGetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblr1LoggingEnabled = Nothing

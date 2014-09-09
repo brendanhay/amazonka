@@ -76,6 +76,13 @@ data DeprecateWorkflowType = DeprecateWorkflowType
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateWorkflowType' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
 mkDeprecateWorkflowType :: Text -- ^ 'dwtDomain'
                         -> WorkflowType -- ^ 'dwtWorkflowType'
                         -> DeprecateWorkflowType

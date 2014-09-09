@@ -67,6 +67,15 @@ data CreateHostedZone = CreateHostedZone
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHostedZone' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @CallerReference ::@ @Text@
+--
+-- * @HostedZoneConfig ::@ @Maybe HostedZoneConfig@
+--
 mkCreateHostedZone :: Text -- ^ 'chzName'
                    -> Text -- ^ 'chzCallerReference'
                    -> CreateHostedZone
@@ -126,6 +135,17 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
 -- a valid 'CreateHostedZoneResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostedZone ::@ @HostedZone@
+--
+-- * @ChangeInfo ::@ @ChangeInfo@
+--
+-- * @DelegationSet ::@ @DelegationSet@
+--
+-- * @Location ::@ @Text@
+--
 mkCreateHostedZoneResponse :: HostedZone -- ^ 'chzrHostedZone'
                            -> ChangeInfo -- ^ 'chzrChangeInfo'
                            -> DelegationSet -- ^ 'chzrDelegationSet'

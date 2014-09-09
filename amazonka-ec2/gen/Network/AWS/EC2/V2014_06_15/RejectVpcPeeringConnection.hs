@@ -49,13 +49,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcVpcPeeringConnectionId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RejectVpcPeeringConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcPeeringConnectionId ::@ @Text@
+--
 mkRejectVpcPeeringConnection :: Text -- ^ 'rvpcVpcPeeringConnectionId'
                              -> RejectVpcPeeringConnection
 mkRejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
@@ -71,7 +75,6 @@ rvpcVpcPeeringConnectionId =
 instance ToQuery RejectVpcPeeringConnection where
     toQuery = genericQuery def
 
--- | 
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn :: Maybe Bool
     } deriving (Show, Generic)
@@ -80,6 +83,11 @@ newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 -- a valid 'RejectVpcPeeringConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Return ::@ @Maybe Bool@
+--
 mkRejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResponse
 mkRejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn = Nothing

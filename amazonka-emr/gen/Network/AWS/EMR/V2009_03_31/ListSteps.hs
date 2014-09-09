@@ -51,6 +51,15 @@ data ListSteps = ListSteps
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSteps' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterId ::@ @Text@
+--
+-- * @StepStates ::@ @[StepState]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListSteps :: Text -- ^ 'lsClusterId'
             -> ListSteps
 mkListSteps p1 = ListSteps
@@ -89,6 +98,13 @@ data ListStepsResponse = ListStepsResponse
 -- a valid 'ListStepsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Steps ::@ @[StepSummary]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListStepsResponse :: ListStepsResponse
 mkListStepsResponse = ListStepsResponse
     { _lsrSteps = mempty

@@ -59,6 +59,13 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerListeners' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @Listeners ::@ @[Listener]@
+--
 mkCreateLoadBalancerListeners :: Text -- ^ 'clblLoadBalancerName'
                               -> [Listener] -- ^ 'clblListeners'
                               -> CreateLoadBalancerListeners

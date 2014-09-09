@@ -55,6 +55,13 @@ data AddTags = AddTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerNames ::@ @[Text]@
+--
+-- * @Tags ::@ @List1 Tag@
+--
 mkAddTags :: [Text] -- ^ 'atLoadBalancerNames'
           -> List1 Tag -- ^ 'atTags'
           -> AddTags

@@ -69,6 +69,17 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMaintenanceStartTime' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @HourOfDay ::@ @Integer@
+--
+-- * @MinuteOfHour ::@ @Integer@
+--
+-- * @DayOfWeek ::@ @Integer@
+--
 mkUpdateMaintenanceStartTime :: Text -- ^ 'umstGatewayARN'
                              -> Integer -- ^ 'umstHourOfDay'
                              -> Integer -- ^ 'umstMinuteOfHour'
@@ -121,6 +132,11 @@ newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
 -- a valid 'UpdateMaintenanceStartTimeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkUpdateMaintenanceStartTimeResponse :: Text -- ^ 'umstrGatewayARN'
                                      -> UpdateMaintenanceStartTimeResponse
 mkUpdateMaintenanceStartTimeResponse p1 = UpdateMaintenanceStartTimeResponse

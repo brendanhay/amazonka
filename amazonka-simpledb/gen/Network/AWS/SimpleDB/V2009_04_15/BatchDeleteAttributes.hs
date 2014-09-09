@@ -60,6 +60,13 @@ data BatchDeleteAttributes = BatchDeleteAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchDeleteAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Items ::@ @[DeletableItem]@
+--
 mkBatchDeleteAttributes :: Text -- ^ 'bdaDomainName'
                         -> [DeletableItem] -- ^ 'bdaItems'
                         -> BatchDeleteAttributes

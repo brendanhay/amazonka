@@ -273,6 +273,11 @@ newtype ConnectionSettings = ConnectionSettings
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConnectionSettings' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdleTimeout ::@ @Integer@
+--
 mkConnectionSettings :: Integer -- ^ 'csIdleTimeout'
                      -> ConnectionSettings
 mkConnectionSettings p1 = ConnectionSettings
@@ -302,6 +307,11 @@ newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CrossZoneLoadBalancing' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
 mkCrossZoneLoadBalancing :: Bool -- ^ 'czlbEnabled'
                          -> CrossZoneLoadBalancing
 mkCrossZoneLoadBalancing p1 = CrossZoneLoadBalancing
@@ -327,6 +337,11 @@ newtype Instance = Instance
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
 mkInstance :: Instance
 mkInstance = Instance
     { _iInstanceId = Nothing
@@ -350,6 +365,11 @@ newtype TagKeyOnly = TagKeyOnly
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagKeyOnly' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
 mkTagKeyOnly :: TagKeyOnly
 mkTagKeyOnly = TagKeyOnly
     { _tkoKey = Nothing
@@ -375,6 +395,17 @@ data AccessLog = AccessLog
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessLog' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @S3BucketName ::@ @Maybe Text@
+--
+-- * @EmitInterval ::@ @Maybe Integer@
+--
+-- * @S3BucketPrefix ::@ @Maybe Text@
+--
 mkAccessLog :: Bool -- ^ 'alEnabled'
             -> AccessLog
 mkAccessLog p1 = AccessLog
@@ -419,6 +450,13 @@ data AppCookieStickinessPolicy = AppCookieStickinessPolicy
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AppCookieStickinessPolicy' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyName ::@ @Maybe Text@
+--
+-- * @CookieName ::@ @Maybe Text@
+--
 mkAppCookieStickinessPolicy :: AppCookieStickinessPolicy
 mkAppCookieStickinessPolicy = AppCookieStickinessPolicy
     { _acspPolicyName = Nothing
@@ -450,6 +488,13 @@ data BackendServerDescription = BackendServerDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BackendServerDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstancePort ::@ @Maybe Integer@
+--
+-- * @PolicyNames ::@ @[Text]@
+--
 mkBackendServerDescription :: BackendServerDescription
 mkBackendServerDescription = BackendServerDescription
     { _bsdInstancePort = Nothing
@@ -482,6 +527,13 @@ data ConnectionDraining = ConnectionDraining
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConnectionDraining' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @Timeout ::@ @Maybe Integer@
+--
 mkConnectionDraining :: Bool -- ^ 'cdEnabled'
                      -> ConnectionDraining
 mkConnectionDraining p1 = ConnectionDraining
@@ -517,6 +569,19 @@ data HealthCheck = HealthCheck
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheck' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Target ::@ @Text@
+--
+-- * @Interval ::@ @Integer@
+--
+-- * @Timeout ::@ @Integer@
+--
+-- * @UnhealthyThreshold ::@ @Integer@
+--
+-- * @HealthyThreshold ::@ @Integer@
+--
 mkHealthCheck :: Text -- ^ 'hcTarget'
               -> Integer -- ^ 'hcInterval'
               -> Integer -- ^ 'hcTimeout'
@@ -589,6 +654,17 @@ data InstanceState = InstanceState
 --
 -- 'InstanceState' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe Text@
+--
+-- * @ReasonCode ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkInstanceState :: InstanceState
 mkInstanceState = InstanceState
     { _isInstanceId = Nothing
@@ -628,6 +704,13 @@ data LBCookieStickinessPolicy = LBCookieStickinessPolicy
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LBCookieStickinessPolicy' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyName ::@ @Maybe Text@
+--
+-- * @CookieExpirationPeriod ::@ @Maybe Integer@
+--
 mkLBCookieStickinessPolicy :: LBCookieStickinessPolicy
 mkLBCookieStickinessPolicy = LBCookieStickinessPolicy
     { _lbcspPolicyName = Nothing
@@ -665,6 +748,19 @@ data Listener = Listener
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Listener' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Protocol ::@ @Text@
+--
+-- * @LoadBalancerPort ::@ @Integer@
+--
+-- * @InstanceProtocol ::@ @Maybe Text@
+--
+-- * @InstancePort ::@ @Integer@
+--
+-- * @SSLCertificateId ::@ @Maybe Text@
+--
 mkListener :: Text -- ^ 'lProtocol'
            -> Integer -- ^ 'lLoadBalancerPort'
            -> Integer -- ^ 'lInstancePort'
@@ -730,6 +826,13 @@ data ListenerDescription = ListenerDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ListenerDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Listener ::@ @Maybe Listener@
+--
+-- * @PolicyNames ::@ @[Text]@
+--
 mkListenerDescription :: ListenerDescription
 mkListenerDescription = ListenerDescription
     { _ldListener = Nothing
@@ -762,6 +865,17 @@ data LoadBalancerAttributes = LoadBalancerAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBalancerAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CrossZoneLoadBalancing ::@ @Maybe CrossZoneLoadBalancing@
+--
+-- * @AccessLog ::@ @Maybe AccessLog@
+--
+-- * @ConnectionDraining ::@ @Maybe ConnectionDraining@
+--
+-- * @ConnectionSettings ::@ @Maybe ConnectionSettings@
+--
 mkLoadBalancerAttributes :: LoadBalancerAttributes
 mkLoadBalancerAttributes = LoadBalancerAttributes
     { _lbaCrossZoneLoadBalancing = Nothing
@@ -836,6 +950,41 @@ data LoadBalancerDescription = LoadBalancerDescription
 --
 -- 'LoadBalancerDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Maybe Text@
+--
+-- * @DNSName ::@ @Maybe Text@
+--
+-- * @CanonicalHostedZoneName ::@ @Maybe Text@
+--
+-- * @CanonicalHostedZoneNameID ::@ @Maybe Text@
+--
+-- * @ListenerDescriptions ::@ @[ListenerDescription]@
+--
+-- * @Policies ::@ @Maybe Policies@
+--
+-- * @BackendServerDescriptions ::@ @[BackendServerDescription]@
+--
+-- * @AvailabilityZones ::@ @[Text]@
+--
+-- * @Subnets ::@ @[Text]@
+--
+-- * @VPCId ::@ @Maybe Text@
+--
+-- * @Instances ::@ @[Instance]@
+--
+-- * @HealthCheck ::@ @Maybe HealthCheck@
+--
+-- * @SourceSecurityGroup ::@ @Maybe SourceSecurityGroup@
+--
+-- * @SecurityGroups ::@ @[Text]@
+--
+-- * @CreatedTime ::@ @Maybe ISO8601@
+--
+-- * @Scheme ::@ @Maybe Text@
+--
 mkLoadBalancerDescription :: LoadBalancerDescription
 mkLoadBalancerDescription = LoadBalancerDescription
     { _lbdLoadBalancerName = Nothing
@@ -960,6 +1109,15 @@ data Policies = Policies
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Policies' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AppCookieStickinessPolicies ::@ @[AppCookieStickinessPolicy]@
+--
+-- * @LBCookieStickinessPolicies ::@ @[LBCookieStickinessPolicy]@
+--
+-- * @OtherPolicies ::@ @[Text]@
+--
 mkPolicies :: Policies
 mkPolicies = Policies
     { _pAppCookieStickinessPolicies = mempty
@@ -1001,6 +1159,13 @@ data PolicyAttribute = PolicyAttribute
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttribute' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeName ::@ @Maybe Text@
+--
+-- * @AttributeValue ::@ @Maybe Text@
+--
 mkPolicyAttribute :: PolicyAttribute
 mkPolicyAttribute = PolicyAttribute
     { _paAttributeName = Nothing
@@ -1028,6 +1193,13 @@ data PolicyAttributeDescription = PolicyAttributeDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttributeDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeName ::@ @Maybe Text@
+--
+-- * @AttributeValue ::@ @Maybe Text@
+--
 mkPolicyAttributeDescription :: PolicyAttributeDescription
 mkPolicyAttributeDescription = PolicyAttributeDescription
     { _padAttributeName = Nothing
@@ -1063,6 +1235,19 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttributeTypeDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttributeName ::@ @Maybe Text@
+--
+-- * @AttributeType ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @Cardinality ::@ @Maybe Text@
+--
 mkPolicyAttributeTypeDescription :: PolicyAttributeTypeDescription
 mkPolicyAttributeTypeDescription = PolicyAttributeTypeDescription
     { _patdAttributeName = Nothing
@@ -1117,6 +1302,15 @@ data PolicyDescription = PolicyDescription
 --
 -- 'PolicyDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyName ::@ @Maybe Text@
+--
+-- * @PolicyTypeName ::@ @Maybe Text@
+--
+-- * @PolicyAttributeDescriptions ::@ @[PolicyAttributeDescription]@
+--
 mkPolicyDescription :: PolicyDescription
 mkPolicyDescription = PolicyDescription
     { _pdPolicyName = Nothing
@@ -1155,6 +1349,15 @@ data PolicyTypeDescription = PolicyTypeDescription
 --
 -- 'PolicyTypeDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyTypeName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @PolicyAttributeTypeDescriptions ::@ @[PolicyAttributeTypeDescription]@
+--
 mkPolicyTypeDescription :: PolicyTypeDescription
 mkPolicyTypeDescription = PolicyTypeDescription
     { _ptdPolicyTypeName = Nothing
@@ -1193,6 +1396,13 @@ data SourceSecurityGroup = SourceSecurityGroup
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SourceSecurityGroup' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAlias ::@ @Maybe Text@
+--
+-- * @GroupName ::@ @Maybe Text@
+--
 mkSourceSecurityGroup :: SourceSecurityGroup
 mkSourceSecurityGroup = SourceSecurityGroup
     { _ssgOwnerAlias = Nothing
@@ -1226,6 +1436,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkTag :: Text -- ^ 'tKey'
       -> Tag
 mkTag p1 = Tag
@@ -1259,6 +1476,13 @@ data TagDescription = TagDescription
 --
 -- 'TagDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Maybe Text@
+--
+-- * @Tags ::@ @Maybe (List1 Tag)@
+--
 mkTagDescription :: TagDescription
 mkTagDescription = TagDescription
     { _tdLoadBalancerName = Nothing

@@ -45,7 +45,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data EnableMFADevice = EnableMFADevice
     { _emfadUserName :: Text
     , _emfadSerialNumber :: Text
@@ -55,6 +54,17 @@ data EnableMFADevice = EnableMFADevice
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableMFADevice' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @SerialNumber ::@ @Text@
+--
+-- * @AuthenticationCode1 ::@ @Text@
+--
+-- * @AuthenticationCode2 ::@ @Text@
+--
 mkEnableMFADevice :: Text -- ^ 'emfadUserName'
                   -> Text -- ^ 'emfadSerialNumber'
                   -> Text -- ^ 'emfadAuthenticationCode1'

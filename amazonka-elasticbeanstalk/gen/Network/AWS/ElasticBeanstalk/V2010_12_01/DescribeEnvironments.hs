@@ -63,6 +63,21 @@ data DescribeEnvironments = DescribeEnvironments
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironments' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @EnvironmentIds ::@ @[Text]@
+--
+-- * @EnvironmentNames ::@ @[Text]@
+--
+-- * @IncludeDeleted ::@ @Maybe Bool@
+--
+-- * @IncludedDeletedBackTo ::@ @Maybe ISO8601@
+--
 mkDescribeEnvironments :: DescribeEnvironments
 mkDescribeEnvironments = DescribeEnvironments
     { _deApplicationName = Nothing
@@ -122,6 +137,11 @@ newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
 -- a valid 'DescribeEnvironmentsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Environments ::@ @[EnvironmentDescription]@
+--
 mkDescribeEnvironmentsResponse :: DescribeEnvironmentsResponse
 mkDescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _der1Environments = mempty

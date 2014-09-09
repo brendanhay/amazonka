@@ -64,6 +64,11 @@ newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
 -- a valid 'DescribeMyUserProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserProfile ::@ @Maybe SelfUserProfile@
+--
 mkDescribeMyUserProfileResponse :: DescribeMyUserProfileResponse
 mkDescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile = Nothing

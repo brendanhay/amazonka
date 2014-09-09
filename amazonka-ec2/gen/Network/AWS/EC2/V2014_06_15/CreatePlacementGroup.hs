@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreatePlacementGroup = CreatePlacementGroup
     { _cpgGroupName :: Text
     , _cpgStrategy :: PlacementStrategy
@@ -56,6 +55,13 @@ data CreatePlacementGroup = CreatePlacementGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlacementGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @Strategy ::@ @PlacementStrategy@
+--
 mkCreatePlacementGroup :: Text -- ^ 'cpgGroupName'
                        -> PlacementStrategy -- ^ 'cpgStrategy'
                        -> CreatePlacementGroup

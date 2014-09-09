@@ -126,6 +126,23 @@ data AssumeRole = AssumeRole
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssumeRole' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleArn ::@ @Text@
+--
+-- * @RoleSessionName ::@ @Text@
+--
+-- * @Policy ::@ @Maybe Text@
+--
+-- * @DurationSeconds ::@ @Maybe Integer@
+--
+-- * @ExternalId ::@ @Maybe Text@
+--
+-- * @SerialNumber ::@ @Maybe Text@
+--
+-- * @TokenCode ::@ @Maybe Text@
+--
 mkAssumeRole :: Text -- ^ 'arRoleArn'
              -> Text -- ^ 'arRoleSessionName'
              -> AssumeRole
@@ -211,6 +228,15 @@ data AssumeRoleResponse = AssumeRoleResponse
 -- a valid 'AssumeRoleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Credentials ::@ @Maybe Credentials@
+--
+-- * @AssumedRoleUser ::@ @Maybe AssumedRoleUser@
+--
+-- * @PackedPolicySize ::@ @Maybe Integer@
+--
 mkAssumeRoleResponse :: AssumeRoleResponse
 mkAssumeRoleResponse = AssumeRoleResponse
     { _arrCredentials = Nothing

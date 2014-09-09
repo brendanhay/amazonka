@@ -49,6 +49,11 @@ newtype CreateStreamingDistribution = CreateStreamingDistribution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStreamingDistribution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
+--
 mkCreateStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
                               -> CreateStreamingDistribution
 mkCreateStreamingDistribution p1 = CreateStreamingDistribution
@@ -82,6 +87,15 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
 -- a valid 'CreateStreamingDistributionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamingDistribution ::@ @Maybe StreamingDistribution@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkCreateStreamingDistributionResponse :: CreateStreamingDistributionResponse
 mkCreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     { _csdrStreamingDistribution = Nothing

@@ -47,6 +47,11 @@ newtype GetBucketVersioning = GetBucketVersioning
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketVersioning' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketVersioning :: BucketName -- ^ 'gbvBucket'
                       -> GetBucketVersioning
 mkGetBucketVersioning p1 = GetBucketVersioning
@@ -73,6 +78,13 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse
 -- a valid 'GetBucketVersioningResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe (Switch BucketVersioningStatus)@
+--
+-- * @MfaDelete ::@ @Maybe (Switch MFADeleteStatus)@
+--
 mkGetBucketVersioningResponse :: GetBucketVersioningResponse
 mkGetBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvrStatus = Nothing

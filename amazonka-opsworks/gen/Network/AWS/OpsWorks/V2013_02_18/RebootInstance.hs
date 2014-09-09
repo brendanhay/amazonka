@@ -47,6 +47,11 @@ newtype RebootInstance = RebootInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
 mkRebootInstance :: Text -- ^ 'riInstanceId'
                  -> RebootInstance
 mkRebootInstance p1 = RebootInstance

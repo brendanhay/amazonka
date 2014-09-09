@@ -46,13 +46,17 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacCheckId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RefreshTrustedAdvisorCheck' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CheckId ::@ @Text@
+--
 mkRefreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
                              -> RefreshTrustedAdvisorCheck
 mkRefreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
@@ -80,6 +84,11 @@ newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
 -- a valid 'RefreshTrustedAdvisorCheckResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @TrustedAdvisorCheckRefreshStatus@
+--
 mkRefreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrStatus'
                                      -> RefreshTrustedAdvisorCheckResponse
 mkRefreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse

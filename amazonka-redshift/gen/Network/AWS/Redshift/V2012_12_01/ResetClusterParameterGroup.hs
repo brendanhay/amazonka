@@ -63,6 +63,15 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetClusterParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Text@
+--
+-- * @ResetAllParameters ::@ @Maybe Bool@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
 mkResetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
                              -> ResetClusterParameterGroup
 mkResetClusterParameterGroup p1 = ResetClusterParameterGroup
@@ -103,6 +112,13 @@ data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
 -- a valid 'ResetClusterParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Maybe Text@
+--
+-- * @ParameterGroupStatus ::@ @Maybe Text@
+--
 mkResetClusterParameterGroupResponse :: ResetClusterParameterGroupResponse
 mkResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     { _rcpgrParameterGroupName = Nothing

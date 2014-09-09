@@ -55,7 +55,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ReportInstanceStatus = ReportInstanceStatus
     { _risInstances :: [Text]
     , _risStatus :: ReportStatusType
@@ -67,6 +66,21 @@ data ReportInstanceStatus = ReportInstanceStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportInstanceStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Instances ::@ @[Text]@
+--
+-- * @Status ::@ @ReportStatusType@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @ReasonCodes ::@ @[ReportInstanceReasonCodes]@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkReportInstanceStatus :: [Text] -- ^ 'risInstances'
                        -> ReportStatusType -- ^ 'risStatus'
                        -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'

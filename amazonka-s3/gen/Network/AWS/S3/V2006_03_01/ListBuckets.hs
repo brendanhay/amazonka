@@ -68,6 +68,13 @@ data ListBucketsResponse = ListBucketsResponse
 -- a valid 'ListBucketsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Buckets ::@ @[Bucket]@
+--
+-- * @Owner ::@ @Maybe Owner@
+--
 mkListBucketsResponse :: ListBucketsResponse
 mkListBucketsResponse = ListBucketsResponse
     { _lbrBuckets = mempty

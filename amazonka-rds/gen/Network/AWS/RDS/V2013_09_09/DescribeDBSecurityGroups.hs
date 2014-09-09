@@ -60,6 +60,15 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSecurityGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBSecurityGroups :: DescribeDBSecurityGroups
 mkDescribeDBSecurityGroups = DescribeDBSecurityGroups
     { _ddbsg2DBSecurityGroupName = Nothing
@@ -102,6 +111,13 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
 -- a valid 'DescribeDBSecurityGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DBSecurityGroups ::@ @[DBSecurityGroup]@
+--
 mkDescribeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
 mkDescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgrMarker = Nothing

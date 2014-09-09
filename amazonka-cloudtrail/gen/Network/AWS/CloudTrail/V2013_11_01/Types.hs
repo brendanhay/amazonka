@@ -95,6 +95,19 @@ data Trail = Trail
 --
 -- 'Trail' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @S3BucketName ::@ @Maybe Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @SnsTopicName ::@ @Maybe Text@
+--
+-- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
+--
 mkTrail :: Trail
 mkTrail = Trail
     { _tName = Nothing

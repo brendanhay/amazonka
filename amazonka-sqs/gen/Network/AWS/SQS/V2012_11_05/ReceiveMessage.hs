@@ -81,7 +81,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data ReceiveMessage = ReceiveMessage
     { _rmQueueUrl :: Text
     , _rmAttributeNames :: [QueueAttributeName]
@@ -93,6 +92,21 @@ data ReceiveMessage = ReceiveMessage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReceiveMessage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @AttributeNames ::@ @[QueueAttributeName]@
+--
+-- * @MessageAttributeNames ::@ @[Text]@
+--
+-- * @MaxNumberOfMessages ::@ @Maybe Integer@
+--
+-- * @VisibilityTimeout ::@ @Maybe Integer@
+--
+-- * @WaitTimeSeconds ::@ @Maybe Integer@
+--
 mkReceiveMessage :: Text -- ^ 'rmQueueUrl'
                  -> ReceiveMessage
 mkReceiveMessage p1 = ReceiveMessage
@@ -167,6 +181,11 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
 -- a valid 'ReceiveMessageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Messages ::@ @[Message]@
+--
 mkReceiveMessageResponse :: ReceiveMessageResponse
 mkReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages = mempty

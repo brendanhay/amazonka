@@ -88,7 +88,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data GetQueueAttributes = GetQueueAttributes
     { _gqaQueueUrl :: Text
     , _gqaAttributeNames :: [QueueAttributeName]
@@ -96,6 +95,13 @@ data GetQueueAttributes = GetQueueAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetQueueAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @AttributeNames ::@ @[QueueAttributeName]@
+--
 mkGetQueueAttributes :: Text -- ^ 'gqaQueueUrl'
                      -> GetQueueAttributes
 mkGetQueueAttributes p1 = GetQueueAttributes
@@ -124,6 +130,11 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 -- a valid 'GetQueueAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map QueueAttributeName Text@
+--
 mkGetQueueAttributesResponse :: GetQueueAttributesResponse
 mkGetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes = mempty

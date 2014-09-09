@@ -46,6 +46,11 @@ newtype UpdateMyUserProfile = UpdateMyUserProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMyUserProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SshPublicKey ::@ @Maybe Text@
+--
 mkUpdateMyUserProfile :: UpdateMyUserProfile
 mkUpdateMyUserProfile = UpdateMyUserProfile
     { _umupSshPublicKey = Nothing

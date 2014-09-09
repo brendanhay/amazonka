@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListSAMLProviders = ListSAMLProviders
     deriving (Eq, Show, Generic)
 
@@ -65,6 +64,11 @@ newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
 -- a valid 'ListSAMLProvidersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLProviderList ::@ @[SAMLProviderListEntry]@
+--
 mkListSAMLProvidersResponse :: ListSAMLProvidersResponse
 mkListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList = mempty

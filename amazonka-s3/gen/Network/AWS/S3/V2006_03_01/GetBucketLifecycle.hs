@@ -46,6 +46,11 @@ newtype GetBucketLifecycle = GetBucketLifecycle
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLifecycle' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketLifecycle :: BucketName -- ^ 'gblBucket'
                      -> GetBucketLifecycle
 mkGetBucketLifecycle p1 = GetBucketLifecycle
@@ -71,6 +76,11 @@ newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
 -- a valid 'GetBucketLifecycleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Rules ::@ @[Rule]@
+--
 mkGetBucketLifecycleResponse :: GetBucketLifecycleResponse
 mkGetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules = mempty

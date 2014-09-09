@@ -81,6 +81,13 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshotFromVolumeRecoveryPoint' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Text@
+--
+-- * @SnapshotDescription ::@ @Text@
+--
 mkCreateSnapshotFromVolumeRecoveryPoint :: Text -- ^ 'csfvrpVolumeARN'
                                         -> Text -- ^ 'csfvrpSnapshotDescription'
                                         -> CreateSnapshotFromVolumeRecoveryPoint
@@ -115,6 +122,15 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
 -- a valid 'CreateSnapshotFromVolumeRecoveryPointResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @VolumeRecoveryPointTime ::@ @Maybe Text@
+--
 mkCreateSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse
 mkCreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
     { _csfvrprSnapshotId = Nothing

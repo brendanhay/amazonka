@@ -72,6 +72,11 @@ newtype DeprecateDomain = DeprecateDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkDeprecateDomain :: Text -- ^ 'ddName'
                   -> DeprecateDomain
 mkDeprecateDomain p1 = DeprecateDomain

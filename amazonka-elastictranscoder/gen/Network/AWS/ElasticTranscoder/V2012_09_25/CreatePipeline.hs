@@ -92,6 +92,23 @@ data CreatePipeline = CreatePipeline
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePipeline' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @InputBucket ::@ @Text@
+--
+-- * @OutputBucket ::@ @Maybe Text@
+--
+-- * @Role ::@ @Text@
+--
+-- * @Notifications ::@ @Maybe Notifications@
+--
+-- * @ContentConfig ::@ @Maybe PipelineOutputConfig@
+--
+-- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
+--
 mkCreatePipeline :: Text -- ^ 'cpName'
                  -> Text -- ^ 'cpInputBucket'
                  -> Text -- ^ 'cpRole'
@@ -263,6 +280,11 @@ newtype CreatePipelineResponse = CreatePipelineResponse
 -- a valid 'CreatePipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Pipeline ::@ @Maybe Pipeline@
+--
 mkCreatePipelineResponse :: CreatePipelineResponse
 mkCreatePipelineResponse = CreatePipelineResponse
     { _cprPipeline = Nothing

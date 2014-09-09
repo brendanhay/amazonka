@@ -55,7 +55,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateRole = CreateRole
     { _crPath :: Maybe Text
     , _crRoleName :: Text
@@ -64,6 +63,15 @@ data CreateRole = CreateRole
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRole' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Maybe Text@
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @AssumeRolePolicyDocument ::@ @Text@
+--
 mkCreateRole :: Text -- ^ 'crRoleName'
              -> Text -- ^ 'crAssumeRolePolicyDocument'
              -> CreateRole
@@ -101,6 +109,11 @@ newtype CreateRoleResponse = CreateRoleResponse
 -- a valid 'CreateRoleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Role ::@ @Role@
+--
 mkCreateRoleResponse :: Role -- ^ 'crrRole'
                      -> CreateRoleResponse
 mkCreateRoleResponse p1 = CreateRoleResponse

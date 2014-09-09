@@ -51,6 +51,11 @@ newtype DeleteDBParameterGroup = DeleteDBParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Text@
+--
 mkDeleteDBParameterGroup :: Text -- ^ 'ddbpgDBParameterGroupName'
                          -> DeleteDBParameterGroup
 mkDeleteDBParameterGroup p1 = DeleteDBParameterGroup

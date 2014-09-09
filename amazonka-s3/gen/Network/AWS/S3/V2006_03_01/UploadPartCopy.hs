@@ -80,6 +80,41 @@ data UploadPartCopy = UploadPartCopy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadPartCopy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @CopySource ::@ @Text@
+--
+-- * @CopySourceIfMatch ::@ @Maybe Text@
+--
+-- * @CopySourceIfModifiedSince ::@ @Maybe RFC822@
+--
+-- * @CopySourceIfNoneMatch ::@ @Maybe Text@
+--
+-- * @CopySourceIfUnmodifiedSince ::@ @Maybe RFC822@
+--
+-- * @CopySourceRange ::@ @Maybe Text@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @PartNumber ::@ @Integer@
+--
+-- * @UploadId ::@ @Text@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKey ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
+-- * @CopySourceSSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @CopySourceSSECustomerKey ::@ @Maybe Text@
+--
+-- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkUploadPartCopy :: BucketName -- ^ 'upcBucket'
                  -> Text -- ^ 'upcUploadId'
                  -> Text -- ^ 'upcCopySource'
@@ -239,6 +274,19 @@ data UploadPartCopyResponse = UploadPartCopyResponse
 -- a valid 'UploadPartCopyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CopySourceVersionId ::@ @Maybe Text@
+--
+-- * @CopyPartResult ::@ @Maybe CopyPartResult@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkUploadPartCopyResponse :: UploadPartCopyResponse
 mkUploadPartCopyResponse = UploadPartCopyResponse
     { _upcrCopySourceVersionId = Nothing

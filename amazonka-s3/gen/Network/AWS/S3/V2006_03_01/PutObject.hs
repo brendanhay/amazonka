@@ -95,6 +95,55 @@ data PutObject = PutObject
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutObject' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ACL ::@ @Maybe ObjectCannedACL@
+--
+-- * @Body ::@ @RqBody@
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @CacheControl ::@ @Maybe Text@
+--
+-- * @ContentDisposition ::@ @Maybe Text@
+--
+-- * @ContentEncoding ::@ @Maybe Text@
+--
+-- * @ContentLanguage ::@ @Maybe Text@
+--
+-- * @ContentLength ::@ @Maybe Integer@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @ContentType ::@ @Maybe Text@
+--
+-- * @Expires ::@ @Maybe RFC822@
+--
+-- * @GrantFullControl ::@ @Maybe Text@
+--
+-- * @GrantRead ::@ @Maybe Text@
+--
+-- * @GrantReadACP ::@ @Maybe Text@
+--
+-- * @GrantWriteACP ::@ @Maybe Text@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @Metadata ::@ @Map Text Text@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @StorageClass ::@ @Maybe StorageClass@
+--
+-- * @WebsiteRedirectLocation ::@ @Maybe Text@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKey ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkPutObject :: ObjectKey -- ^ 'poKey'
             -> RqBody -- ^ 'poBody'
             -> BucketName -- ^ 'poBucket'
@@ -279,6 +328,21 @@ data PutObjectResponse = PutObjectResponse
 -- a valid 'PutObjectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Expiration ::@ @Maybe RFC822@
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkPutObjectResponse :: PutObjectResponse
 mkPutObjectResponse = PutObjectResponse
     { _porExpiration = Nothing

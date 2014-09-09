@@ -54,13 +54,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAccessKey' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
 mkCreateAccessKey :: CreateAccessKey
 mkCreateAccessKey = CreateAccessKey
     { _cakUserName = Nothing
@@ -83,6 +87,11 @@ newtype CreateAccessKeyResponse = CreateAccessKeyResponse
 -- a valid 'CreateAccessKeyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccessKey ::@ @AccessKey@
+--
 mkCreateAccessKeyResponse :: AccessKey -- ^ 'cakrAccessKey'
                           -> CreateAccessKeyResponse
 mkCreateAccessKeyResponse p1 = CreateAccessKeyResponse

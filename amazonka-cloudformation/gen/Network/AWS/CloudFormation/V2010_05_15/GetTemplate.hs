@@ -55,6 +55,11 @@ newtype GetTemplate = GetTemplate
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTemplate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
 mkGetTemplate :: Text -- ^ 'gtStackName'
               -> GetTemplate
 mkGetTemplate p1 = GetTemplate
@@ -80,6 +85,11 @@ newtype GetTemplateResponse = GetTemplateResponse
 -- a valid 'GetTemplateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TemplateBody ::@ @Maybe Text@
+--
 mkGetTemplateResponse :: GetTemplateResponse
 mkGetTemplateResponse = GetTemplateResponse
     { _gtrTemplateBody = Nothing

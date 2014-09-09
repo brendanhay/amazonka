@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateSAMLProvider = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument :: Text
     , _usamlpSAMLProviderArn :: Text
@@ -55,6 +54,13 @@ data UpdateSAMLProvider = UpdateSAMLProvider
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSAMLProvider' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLMetadataDocument ::@ @Text@
+--
+-- * @SAMLProviderArn ::@ @Text@
+--
 mkUpdateSAMLProvider :: Text -- ^ 'usamlpSAMLMetadataDocument'
                      -> Text -- ^ 'usamlpSAMLProviderArn'
                      -> UpdateSAMLProvider
@@ -92,6 +98,11 @@ newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
 -- a valid 'UpdateSAMLProviderResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLProviderArn ::@ @Maybe Text@
+--
 mkUpdateSAMLProviderResponse :: UpdateSAMLProviderResponse
 mkUpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn = Nothing

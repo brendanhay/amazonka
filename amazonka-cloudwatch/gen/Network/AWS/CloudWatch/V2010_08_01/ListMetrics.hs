@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data ListMetrics = ListMetrics
     { _lmNamespace :: Maybe Text
     , _lmMetricName :: Maybe Text
@@ -59,6 +58,17 @@ data ListMetrics = ListMetrics
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMetrics' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Namespace ::@ @Maybe Text@
+--
+-- * @MetricName ::@ @Maybe Text@
+--
+-- * @Dimensions ::@ @[DimensionFilter]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListMetrics :: ListMetrics
 mkListMetrics = ListMetrics
     { _lmNamespace = Nothing
@@ -97,6 +107,13 @@ data ListMetricsResponse = ListMetricsResponse
 -- a valid 'ListMetricsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Metrics ::@ @[Metric]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListMetricsResponse :: ListMetricsResponse
 mkListMetricsResponse = ListMetricsResponse
     { _lmrMetrics = mempty

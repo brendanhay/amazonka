@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DisassociateAddress = DisassociateAddress
     { _da1PublicIp :: Maybe Text
     , _da1AssociationId :: Maybe Text
@@ -56,6 +55,13 @@ data DisassociateAddress = DisassociateAddress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateAddress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @AssociationId ::@ @Maybe Text@
+--
 mkDisassociateAddress :: DisassociateAddress
 mkDisassociateAddress = DisassociateAddress
     { _da1PublicIp = Nothing

@@ -60,6 +60,11 @@ newtype DeleteTable = DeleteTable
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTable' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
 mkDeleteTable :: Text -- ^ 'dtTableName'
               -> DeleteTable
 mkDeleteTable p1 = DeleteTable
@@ -87,6 +92,11 @@ newtype DeleteTableResponse = DeleteTableResponse
 -- a valid 'DeleteTableResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableDescription ::@ @Maybe TableDescription@
+--
 mkDeleteTableResponse :: DeleteTableResponse
 mkDeleteTableResponse = DeleteTableResponse
     { _dtrTableDescription = Nothing

@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DetachVpnGateway = DetachVpnGateway
     { _dvg2VpnGatewayId :: Text
     , _dvg2VpcId :: Text
@@ -59,6 +58,13 @@ data DetachVpnGateway = DetachVpnGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachVpnGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnGatewayId ::@ @Text@
+--
+-- * @VpcId ::@ @Text@
+--
 mkDetachVpnGateway :: Text -- ^ 'dvg2VpnGatewayId'
                    -> Text -- ^ 'dvg2VpcId'
                    -> DetachVpnGateway

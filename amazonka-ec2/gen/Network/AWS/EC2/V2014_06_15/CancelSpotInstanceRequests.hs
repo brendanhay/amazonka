@@ -56,13 +56,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirSpotInstanceRequestIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelSpotInstanceRequests' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotInstanceRequestIds ::@ @[Text]@
+--
 mkCancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
                              -> CancelSpotInstanceRequests
 mkCancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
@@ -78,7 +82,6 @@ csirSpotInstanceRequestIds =
 instance ToQuery CancelSpotInstanceRequests where
     toQuery = genericQuery def
 
--- | 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
     } deriving (Show, Generic)
@@ -87,6 +90,11 @@ newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
 -- a valid 'CancelSpotInstanceRequestsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CancelledSpotInstanceRequests ::@ @[CancelledSpotInstanceRequest]@
+--
 mkCancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
 mkCancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests = mempty

@@ -52,6 +52,13 @@ data AddUploadBuffer = AddUploadBuffer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddUploadBuffer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @DiskIds ::@ @[Text]@
+--
 mkAddUploadBuffer :: Text -- ^ 'aubGatewayARN'
                   -> [Text] -- ^ 'aubDiskIds'
                   -> AddUploadBuffer
@@ -84,6 +91,11 @@ newtype AddUploadBufferResponse = AddUploadBufferResponse
 -- a valid 'AddUploadBufferResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkAddUploadBufferResponse :: AddUploadBufferResponse
 mkAddUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN = Nothing

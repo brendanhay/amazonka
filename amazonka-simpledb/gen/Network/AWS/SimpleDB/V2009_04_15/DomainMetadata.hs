@@ -53,6 +53,11 @@ newtype DomainMetadata = DomainMetadata
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DomainMetadata' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkDomainMetadata :: Text -- ^ 'dmDomainName'
                  -> DomainMetadata
 mkDomainMetadata p1 = DomainMetadata
@@ -80,6 +85,23 @@ data DomainMetadataResponse = DomainMetadataResponse
 -- a valid 'DomainMetadataResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ItemCount ::@ @Maybe Integer@
+--
+-- * @ItemNamesSizeBytes ::@ @Maybe Integer@
+--
+-- * @AttributeNameCount ::@ @Maybe Integer@
+--
+-- * @AttributeNamesSizeBytes ::@ @Maybe Integer@
+--
+-- * @AttributeValueCount ::@ @Maybe Integer@
+--
+-- * @AttributeValuesSizeBytes ::@ @Maybe Integer@
+--
+-- * @Timestamp ::@ @Maybe Integer@
+--
 mkDomainMetadataResponse :: DomainMetadataResponse
 mkDomainMetadataResponse = DomainMetadataResponse
     { _dmrItemCount = Nothing

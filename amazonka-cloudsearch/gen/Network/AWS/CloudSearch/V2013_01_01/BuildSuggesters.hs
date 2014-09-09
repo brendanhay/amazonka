@@ -47,6 +47,11 @@ newtype BuildSuggesters = BuildSuggesters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BuildSuggesters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkBuildSuggesters :: Text -- ^ 'bsDomainName'
                   -> BuildSuggesters
 mkBuildSuggesters p1 = BuildSuggesters
@@ -73,6 +78,11 @@ newtype BuildSuggestersResponse = BuildSuggestersResponse
 -- a valid 'BuildSuggestersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FieldNames ::@ @[Text]@
+--
 mkBuildSuggestersResponse :: BuildSuggestersResponse
 mkBuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames = mempty

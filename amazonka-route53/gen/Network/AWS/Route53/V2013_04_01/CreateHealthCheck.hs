@@ -55,6 +55,13 @@ data CreateHealthCheck = CreateHealthCheck
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHealthCheck' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CallerReference ::@ @Text@
+--
+-- * @HealthCheckConfig ::@ @HealthCheckConfig@
+--
 mkCreateHealthCheck :: Text -- ^ 'chcCallerReference'
                     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
                     -> CreateHealthCheck
@@ -100,6 +107,13 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
 -- a valid 'CreateHealthCheckResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheck ::@ @HealthCheck@
+--
+-- * @Location ::@ @Text@
+--
 mkCreateHealthCheckResponse :: HealthCheck -- ^ 'chcrHealthCheck'
                             -> Text -- ^ 'chcrLocation'
                             -> CreateHealthCheckResponse

@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data AttachInstances = AttachInstances
     { _aiInstanceIds :: List1 Text
     , _aiAutoScalingGroupName :: Text
@@ -49,6 +48,13 @@ data AttachInstances = AttachInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @List1 Text@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
 mkAttachInstances :: List1 Text -- ^ 'aiInstanceIds'
                   -> Text -- ^ 'aiAutoScalingGroupName'
                   -> AttachInstances

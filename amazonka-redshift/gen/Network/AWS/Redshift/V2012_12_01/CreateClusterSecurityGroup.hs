@@ -58,6 +58,13 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSecurityGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroupName ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
 mkCreateClusterSecurityGroup :: Text -- ^ 'ccsgClusterSecurityGroupName'
                              -> Text -- ^ 'ccsgDescription'
                              -> CreateClusterSecurityGroup
@@ -91,6 +98,11 @@ newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
 -- a valid 'CreateClusterSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroup ::@ @Maybe ClusterSecurityGroup@
+--
 mkCreateClusterSecurityGroupResponse :: CreateClusterSecurityGroupResponse
 mkCreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup = Nothing

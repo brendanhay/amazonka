@@ -62,6 +62,17 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateConfigurationSettings' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
+--
 mkValidateConfigurationSettings :: Text -- ^ 'vcsApplicationName'
                                 -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
                                 -> ValidateConfigurationSettings
@@ -106,6 +117,11 @@ newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRes
 -- a valid 'ValidateConfigurationSettingsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Messages ::@ @[ValidationMessage]@
+--
 mkValidateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
 mkValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages = mempty

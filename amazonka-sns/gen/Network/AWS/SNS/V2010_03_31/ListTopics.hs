@@ -59,6 +59,11 @@ newtype ListTopics = ListTopics
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTopics' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListTopics :: ListTopics
 mkListTopics = ListTopics
     { _ltNextToken = Nothing
@@ -81,6 +86,13 @@ data ListTopicsResponse = ListTopicsResponse
 -- a valid 'ListTopicsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Topics ::@ @[Topic]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListTopicsResponse :: ListTopicsResponse
 mkListTopicsResponse = ListTopicsResponse
     { _ltrTopics = mempty

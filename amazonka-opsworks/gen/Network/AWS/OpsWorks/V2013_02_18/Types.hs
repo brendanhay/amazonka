@@ -934,6 +934,35 @@ data App = App
 --
 -- 'App' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AppId ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @Shortname ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DataSources ::@ @[DataSource]@
+--
+-- * @Type ::@ @Maybe AppType@
+--
+-- * @AppSource ::@ @Maybe Source@
+--
+-- * @Domains ::@ @[Text]@
+--
+-- * @EnableSsl ::@ @Maybe Bool@
+--
+-- * @SslConfiguration ::@ @Maybe SslConfiguration@
+--
+-- * @Attributes ::@ @Map AppAttributesKeys Text@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
 mkApp :: App
 mkApp = App
     { _aAppId = Nothing
@@ -1021,6 +1050,21 @@ data AutoScalingThresholds = AutoScalingThresholds
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AutoScalingThresholds' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceCount ::@ @Maybe Integer@
+--
+-- * @ThresholdsWaitTime ::@ @Maybe Integer@
+--
+-- * @IgnoreMetricsTime ::@ @Maybe Integer@
+--
+-- * @CpuThreshold ::@ @Maybe Double@
+--
+-- * @MemoryThreshold ::@ @Maybe Double@
+--
+-- * @LoadThreshold ::@ @Maybe Double@
+--
 mkAutoScalingThresholds :: AutoScalingThresholds
 mkAutoScalingThresholds = AutoScalingThresholds
     { _astInstanceCount = Nothing
@@ -1083,6 +1127,13 @@ data ChefConfiguration = ChefConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChefConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ManageBerkshelf ::@ @Maybe Bool@
+--
+-- * @BerkshelfVersion ::@ @Maybe Text@
+--
 mkChefConfiguration :: ChefConfiguration
 mkChefConfiguration = ChefConfiguration
     { _ccManageBerkshelf = Nothing
@@ -1122,6 +1173,29 @@ data Command = Command
 --
 -- 'Command' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CommandId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @DeploymentId ::@ @Maybe Text@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
+-- * @AcknowledgedAt ::@ @Maybe Text@
+--
+-- * @CompletedAt ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @ExitCode ::@ @Maybe Integer@
+--
+-- * @LogUrl ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe Text@
+--
 mkCommand :: Command
 mkCommand = Command
     { _cCommandId = Nothing
@@ -1189,6 +1263,15 @@ data DataSource = DataSource
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DataSource' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Type ::@ @Maybe Text@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @DatabaseName ::@ @Maybe Text@
+--
 mkDataSource :: DataSource
 mkDataSource = DataSource
     { _dsType = Nothing
@@ -1234,6 +1317,33 @@ data Deployment = Deployment
 --
 -- 'Deployment' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DeploymentId ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @AppId ::@ @Maybe Text@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
+-- * @CompletedAt ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @IamUserArn ::@ @Maybe Text@
+--
+-- * @Comment ::@ @Maybe Text@
+--
+-- * @Command ::@ @Maybe DeploymentCommand@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @CustomJson ::@ @Maybe Text@
+--
+-- * @InstanceIds ::@ @[Text]@
+--
 mkDeployment :: Deployment
 mkDeployment = Deployment
     { _dDeploymentId = Nothing
@@ -1313,6 +1423,13 @@ data DeploymentCommand = DeploymentCommand
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeploymentCommand' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @DeploymentCommandName@
+--
+-- * @Args ::@ @Map Text [Text]@
+--
 mkDeploymentCommand :: DeploymentCommandName -- ^ 'dcName'
                     -> DeploymentCommand
 mkDeploymentCommand p1 = DeploymentCommand
@@ -1363,6 +1480,19 @@ data ElasticIp = ElasticIp
 --
 -- 'ElasticIp' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Ip ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Domain ::@ @Maybe Text@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
 mkElasticIp :: ElasticIp
 mkElasticIp = ElasticIp
     { _eiIp = Nothing
@@ -1412,6 +1542,27 @@ data ElasticLoadBalancer = ElasticLoadBalancer
 --
 -- 'ElasticLoadBalancer' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticLoadBalancerName ::@ @Maybe Text@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @DnsName ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LayerId ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @AvailabilityZones ::@ @[Text]@
+--
+-- * @SubnetIds ::@ @[Text]@
+--
+-- * @Ec2InstanceIds ::@ @[Text]@
+--
 mkElasticLoadBalancer :: ElasticLoadBalancer
 mkElasticLoadBalancer = ElasticLoadBalancer
     { _elbElasticLoadBalancerName = Nothing
@@ -1507,6 +1658,69 @@ data Instance = Instance
 --
 -- 'Instance' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Ec2InstanceId ::@ @Maybe Text@
+--
+-- * @VirtualizationType ::@ @Maybe Text@
+--
+-- * @Hostname ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LayerIds ::@ @[Text]@
+--
+-- * @SecurityGroupIds ::@ @[Text]@
+--
+-- * @InstanceType ::@ @Maybe Text@
+--
+-- * @InstanceProfileArn ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @Os ::@ @Maybe Text@
+--
+-- * @AmiId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @PublicDns ::@ @Maybe Text@
+--
+-- * @PrivateDns ::@ @Maybe Text@
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @PrivateIp ::@ @Maybe Text@
+--
+-- * @ElasticIp ::@ @Maybe Text@
+--
+-- * @AutoScalingType ::@ @Maybe AutoScalingType@
+--
+-- * @SshKeyName ::@ @Maybe Text@
+--
+-- * @SshHostRsaKeyFingerprint ::@ @Maybe Text@
+--
+-- * @SshHostDsaKeyFingerprint ::@ @Maybe Text@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
+-- * @LastServiceErrorId ::@ @Maybe Text@
+--
+-- * @Architecture ::@ @Maybe Architecture@
+--
+-- * @RootDeviceType ::@ @Maybe RootDeviceType@
+--
+-- * @RootDeviceVolumeId ::@ @Maybe Text@
+--
+-- * @InstallUpdatesOnBoot ::@ @Maybe Bool@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
 mkInstance :: Instance
 mkInstance = Instance
     { _iInstanceId = Nothing
@@ -1719,6 +1933,37 @@ data InstancesCount = InstancesCount
 --
 -- 'InstancesCount' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Booting ::@ @Maybe Integer@
+--
+-- * @ConnectionLost ::@ @Maybe Integer@
+--
+-- * @Online ::@ @Maybe Integer@
+--
+-- * @Pending ::@ @Maybe Integer@
+--
+-- * @Rebooting ::@ @Maybe Integer@
+--
+-- * @Requested ::@ @Maybe Integer@
+--
+-- * @RunningSetup ::@ @Maybe Integer@
+--
+-- * @SetupFailed ::@ @Maybe Integer@
+--
+-- * @ShuttingDown ::@ @Maybe Integer@
+--
+-- * @StartFailed ::@ @Maybe Integer@
+--
+-- * @Stopped ::@ @Maybe Integer@
+--
+-- * @Stopping ::@ @Maybe Integer@
+--
+-- * @Terminated ::@ @Maybe Integer@
+--
+-- * @Terminating ::@ @Maybe Integer@
+--
 mkInstancesCount :: InstancesCount
 mkInstancesCount = InstancesCount
     { _icBooting = Nothing
@@ -1824,6 +2069,47 @@ data Layer = Layer
 --
 -- 'Layer' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LayerId ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe LayerType@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Shortname ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map LayerAttributesKeys Text@
+--
+-- * @CustomInstanceProfileArn ::@ @Maybe Text@
+--
+-- * @CustomSecurityGroupIds ::@ @[Text]@
+--
+-- * @DefaultSecurityGroupNames ::@ @[Text]@
+--
+-- * @Packages ::@ @[Text]@
+--
+-- * @VolumeConfigurations ::@ @[VolumeConfiguration]@
+--
+-- * @EnableAutoHealing ::@ @Maybe Bool@
+--
+-- * @AutoAssignElasticIps ::@ @Maybe Bool@
+--
+-- * @AutoAssignPublicIps ::@ @Maybe Bool@
+--
+-- * @DefaultRecipes ::@ @Maybe Recipes@
+--
+-- * @CustomRecipes ::@ @Maybe Recipes@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
+-- * @InstallUpdatesOnBoot ::@ @Maybe Bool@
+--
+-- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
+--
 mkLayer :: Layer
 mkLayer = Layer
     { _lStackId = Nothing
@@ -1973,6 +2259,17 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
 --
 -- 'LoadBasedAutoScalingConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerId ::@ @Maybe Text@
+--
+-- * @Enable ::@ @Maybe Bool@
+--
+-- * @UpScaling ::@ @Maybe AutoScalingThresholds@
+--
+-- * @DownScaling ::@ @Maybe AutoScalingThresholds@
+--
 mkLoadBasedAutoScalingConfiguration :: LoadBasedAutoScalingConfiguration
 mkLoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     { _lbascLayerId = Nothing
@@ -2018,6 +2315,19 @@ data Permission = Permission
 --
 -- 'Permission' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @IamUserArn ::@ @Maybe Text@
+--
+-- * @AllowSsh ::@ @Maybe Bool@
+--
+-- * @AllowSudo ::@ @Maybe Bool@
+--
+-- * @Level ::@ @Maybe Text@
+--
 mkPermission :: Permission
 mkPermission = Permission
     { _pStackId = Nothing
@@ -2073,6 +2383,33 @@ data RaidArray = RaidArray
 --
 -- 'RaidArray' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RaidArrayId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @RaidLevel ::@ @Maybe Integer@
+--
+-- * @NumberOfDisks ::@ @Maybe Integer@
+--
+-- * @Size ::@ @Maybe Integer@
+--
+-- * @Device ::@ @Maybe Text@
+--
+-- * @MountPoint ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
+-- * @VolumeType ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
 mkRaidArray :: RaidArray
 mkRaidArray = RaidArray
     { _raRaidArrayId = Nothing
@@ -2159,6 +2496,27 @@ data RdsDbInstance = RdsDbInstance
 --
 -- 'RdsDbInstance' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RdsDbInstanceArn ::@ @Maybe Text@
+--
+-- * @DbInstanceIdentifier ::@ @Maybe Text@
+--
+-- * @DbUser ::@ @Maybe Text@
+--
+-- * @DbPassword ::@ @Maybe Text@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @Address ::@ @Maybe Text@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @MissingOnRds ::@ @Maybe Bool@
+--
 mkRdsDbInstance :: RdsDbInstance
 mkRdsDbInstance = RdsDbInstance
     { _rdiRdsDbInstanceArn = Nothing
@@ -2226,6 +2584,19 @@ data Recipes = Recipes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Recipes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Setup ::@ @[Text]@
+--
+-- * @Configure ::@ @[Text]@
+--
+-- * @Deploy ::@ @[Text]@
+--
+-- * @Undeploy ::@ @[Text]@
+--
+-- * @Shutdown ::@ @[Text]@
+--
 mkRecipes :: Recipes
 mkRecipes = Recipes
     { _rSetup = mempty
@@ -2272,6 +2643,17 @@ data SelfUserProfile = SelfUserProfile
 --
 -- 'SelfUserProfile' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArn ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @SshUsername ::@ @Maybe Text@
+--
+-- * @SshPublicKey ::@ @Maybe Text@
+--
 mkSelfUserProfile :: SelfUserProfile
 mkSelfUserProfile = SelfUserProfile
     { _supIamUserArn = Nothing
@@ -2313,6 +2695,21 @@ data ServiceError = ServiceError
 --
 -- 'ServiceError' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServiceErrorId ::@ @Maybe Text@
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe Text@
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
 mkServiceError :: ServiceError
 mkServiceError = ServiceError
     { _seServiceErrorId = Nothing
@@ -2364,6 +2761,21 @@ data Source = Source
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Source' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Type ::@ @Maybe SourceType@
+--
+-- * @Url ::@ @Maybe Text@
+--
+-- * @Username ::@ @Maybe Text@
+--
+-- * @Password ::@ @Maybe Text@
+--
+-- * @SshKey ::@ @Maybe Text@
+--
+-- * @Revision ::@ @Maybe Text@
+--
 mkSource :: Source
 mkSource = Source
     { _sType = Nothing
@@ -2419,6 +2831,15 @@ data SslConfiguration = SslConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SslConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Certificate ::@ @Text@
+--
+-- * @PrivateKey ::@ @Text@
+--
+-- * @Chain ::@ @Maybe Text@
+--
 mkSslConfiguration :: Text -- ^ 'scCertificate'
                    -> Text -- ^ 'scPrivateKey'
                    -> SslConfiguration
@@ -2475,6 +2896,51 @@ data Stack = Stack
 --
 -- 'Stack' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map StackAttributesKeys Text@
+--
+-- * @ServiceRoleArn ::@ @Maybe Text@
+--
+-- * @DefaultInstanceProfileArn ::@ @Maybe Text@
+--
+-- * @DefaultOs ::@ @Maybe Text@
+--
+-- * @HostnameTheme ::@ @Maybe Text@
+--
+-- * @DefaultAvailabilityZone ::@ @Maybe Text@
+--
+-- * @DefaultSubnetId ::@ @Maybe Text@
+--
+-- * @CustomJson ::@ @Maybe Text@
+--
+-- * @ConfigurationManager ::@ @Maybe StackConfigurationManager@
+--
+-- * @ChefConfiguration ::@ @Maybe ChefConfiguration@
+--
+-- * @UseCustomCookbooks ::@ @Maybe Bool@
+--
+-- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
+--
+-- * @CustomCookbooksSource ::@ @Maybe Source@
+--
+-- * @DefaultSshKeyName ::@ @Maybe Text@
+--
+-- * @CreatedAt ::@ @Maybe Text@
+--
+-- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
+--
 mkStack :: Stack
 mkStack = Stack
     { _srStackId = Nothing
@@ -2628,6 +3094,13 @@ data StackConfigurationManager = StackConfigurationManager
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackConfigurationManager' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Version ::@ @Maybe Text@
+--
 mkStackConfigurationManager :: StackConfigurationManager
 mkStackConfigurationManager = StackConfigurationManager
     { _scmName = Nothing
@@ -2662,6 +3135,21 @@ data StackSummary = StackSummary
 --
 -- 'StackSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @LayersCount ::@ @Maybe Integer@
+--
+-- * @AppsCount ::@ @Maybe Integer@
+--
+-- * @InstancesCount ::@ @Maybe InstancesCount@
+--
 mkStackSummary :: StackSummary
 mkStackSummary = StackSummary
     { _ssStackId = Nothing
@@ -2710,6 +3198,13 @@ data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
 --
 -- 'TimeBasedAutoScalingConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @AutoScalingSchedule ::@ @Maybe WeeklyAutoScalingSchedule@
+--
 mkTimeBasedAutoScalingConfiguration :: TimeBasedAutoScalingConfiguration
 mkTimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascInstanceId = Nothing
@@ -2742,6 +3237,19 @@ data UserProfile = UserProfile
 --
 -- 'UserProfile' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArn ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @SshUsername ::@ @Maybe Text@
+--
+-- * @SshPublicKey ::@ @Maybe Text@
+--
+-- * @AllowSelfManagement ::@ @Maybe Bool@
+--
 mkUserProfile :: UserProfile
 mkUserProfile = UserProfile
     { _upIamUserArn = Nothing
@@ -2797,6 +3305,35 @@ data Volume = Volume
 --
 -- 'Volume' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @Ec2VolumeId ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @RaidArrayId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @Size ::@ @Maybe Integer@
+--
+-- * @Device ::@ @Maybe Text@
+--
+-- * @MountPoint ::@ @Maybe Text@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @VolumeType ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
 mkVolume :: Volume
 mkVolume = Volume
     { _vVolumeId = Nothing
@@ -2883,6 +3420,21 @@ data VolumeConfiguration = VolumeConfiguration
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeConfiguration' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MountPoint ::@ @Text@
+--
+-- * @RaidLevel ::@ @Maybe Integer@
+--
+-- * @NumberOfDisks ::@ @Integer@
+--
+-- * @Size ::@ @Integer@
+--
+-- * @VolumeType ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
 mkVolumeConfiguration :: Text -- ^ 'vcMountPoint'
                       -> Integer -- ^ 'vcNumberOfDisks'
                       -> Integer -- ^ 'vcSize'
@@ -2937,6 +3489,23 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WeeklyAutoScalingSchedule' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Monday ::@ @Map Text Text@
+--
+-- * @Tuesday ::@ @Map Text Text@
+--
+-- * @Wednesday ::@ @Map Text Text@
+--
+-- * @Thursday ::@ @Map Text Text@
+--
+-- * @Friday ::@ @Map Text Text@
+--
+-- * @Saturday ::@ @Map Text Text@
+--
+-- * @Sunday ::@ @Map Text Text@
+--
 mkWeeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
 mkWeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     { _wassMonday = mempty

@@ -52,6 +52,17 @@ data UpdateUserProfile = UpdateUserProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUserProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IamUserArn ::@ @Text@
+--
+-- * @SshUsername ::@ @Maybe Text@
+--
+-- * @SshPublicKey ::@ @Maybe Text@
+--
+-- * @AllowSelfManagement ::@ @Maybe Bool@
+--
 mkUpdateUserProfile :: Text -- ^ 'uupIamUserArn'
                     -> UpdateUserProfile
 mkUpdateUserProfile p1 = UpdateUserProfile

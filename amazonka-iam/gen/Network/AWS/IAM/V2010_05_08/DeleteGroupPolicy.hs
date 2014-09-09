@@ -40,7 +40,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgpGroupName :: Text
     , _dgpPolicyName :: Text
@@ -48,6 +47,13 @@ data DeleteGroupPolicy = DeleteGroupPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteGroupPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
 mkDeleteGroupPolicy :: Text -- ^ 'dgpGroupName'
                     -> Text -- ^ 'dgpPolicyName'
                     -> DeleteGroupPolicy

@@ -64,6 +64,15 @@ data DescribeClusters = DescribeClusters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeClusters :: DescribeClusters
 mkDescribeClusters = DescribeClusters
     { _dc1ClusterIdentifier = Nothing
@@ -109,6 +118,13 @@ data DescribeClustersResponse = DescribeClustersResponse
 -- a valid 'DescribeClustersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Clusters ::@ @[Cluster]@
+--
 mkDescribeClustersResponse :: DescribeClustersResponse
 mkDescribeClustersResponse = DescribeClustersResponse
     { _dcrrMarker = Nothing

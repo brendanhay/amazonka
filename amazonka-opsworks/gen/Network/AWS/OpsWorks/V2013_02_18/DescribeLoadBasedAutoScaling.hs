@@ -50,6 +50,11 @@ newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBasedAutoScaling' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LayerIds ::@ @[Text]@
+--
 mkDescribeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasLayerIds'
                                -> DescribeLoadBasedAutoScaling
 mkDescribeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
@@ -77,6 +82,11 @@ newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingRespo
 -- a valid 'DescribeLoadBasedAutoScalingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBasedAutoScalingConfigurations ::@ @[LoadBasedAutoScalingConfiguration]@
+--
 mkDescribeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse
 mkDescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations = mempty

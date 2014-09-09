@@ -54,6 +54,13 @@ data DefineSuggester = DefineSuggester
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineSuggester' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Suggester ::@ @Suggester@
+--
 mkDefineSuggester :: Text -- ^ 'ds1DomainName'
                   -> Suggester -- ^ 'ds1Suggester'
                   -> DefineSuggester
@@ -89,6 +96,11 @@ newtype DefineSuggesterResponse = DefineSuggesterResponse
 -- a valid 'DefineSuggesterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Suggester ::@ @SuggesterStatus@
+--
 mkDefineSuggesterResponse :: SuggesterStatus -- ^ 'dsrSuggester'
                           -> DefineSuggesterResponse
 mkDefineSuggesterResponse p1 = DefineSuggesterResponse

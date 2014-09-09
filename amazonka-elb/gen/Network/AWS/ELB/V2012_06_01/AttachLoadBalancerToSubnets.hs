@@ -56,6 +56,13 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachLoadBalancerToSubnets' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @Subnets ::@ @[Text]@
+--
 mkAttachLoadBalancerToSubnets :: Text -- ^ 'albtsLoadBalancerName'
                               -> [Text] -- ^ 'albtsSubnets'
                               -> AttachLoadBalancerToSubnets
@@ -87,6 +94,11 @@ newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsRespons
 -- a valid 'AttachLoadBalancerToSubnetsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subnets ::@ @[Text]@
+--
 mkAttachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
 mkAttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets = mempty

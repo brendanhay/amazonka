@@ -58,13 +58,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExportTasks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExportTaskIds ::@ @[Text]@
+--
 mkDescribeExportTasks :: DescribeExportTasks
 mkDescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds = mempty
@@ -78,7 +82,6 @@ detExportTaskIds =
 instance ToQuery DescribeExportTasks where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: [ExportTask]
     } deriving (Show, Generic)
@@ -87,6 +90,11 @@ newtype DescribeExportTasksResponse = DescribeExportTasksResponse
 -- a valid 'DescribeExportTasksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExportTasks ::@ @[ExportTask]@
+--
 mkDescribeExportTasksResponse :: DescribeExportTasksResponse
 mkDescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks = mempty

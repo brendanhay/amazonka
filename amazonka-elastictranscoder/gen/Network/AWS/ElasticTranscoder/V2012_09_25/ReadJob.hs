@@ -62,6 +62,11 @@ newtype ReadJob = ReadJob
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadJob' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkReadJob :: Text -- ^ 'rjId'
           -> ReadJob
 mkReadJob p1 = ReadJob
@@ -89,6 +94,11 @@ newtype ReadJobResponse = ReadJobResponse
 -- a valid 'ReadJobResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Job ::@ @Maybe Job@
+--
 mkReadJobResponse :: ReadJobResponse
 mkReadJobResponse = ReadJobResponse
     { _rjrJob = Nothing

@@ -78,7 +78,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AttachVolume = AttachVolume
     { _avVolumeId :: Text
     , _avInstanceId :: Text
@@ -87,6 +86,15 @@ data AttachVolume = AttachVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @Device ::@ @Text@
+--
 mkAttachVolume :: Text -- ^ 'avVolumeId'
                -> Text -- ^ 'avInstanceId'
                -> Text -- ^ 'avDevice'
@@ -113,7 +121,6 @@ avDevice = lens _avDevice (\s a -> s { _avDevice = a })
 instance ToQuery AttachVolume where
     toQuery = genericQuery def
 
--- | 
 data AttachVolumeResponse = AttachVolumeResponse
     { _avrVolumeId :: Maybe Text
     , _avrInstanceId :: Maybe Text
@@ -127,6 +134,21 @@ data AttachVolumeResponse = AttachVolumeResponse
 -- a valid 'AttachVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Device ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VolumeAttachmentState@
+--
+-- * @AttachTime ::@ @Maybe ISO8601@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
 mkAttachVolumeResponse :: AttachVolumeResponse
 mkAttachVolumeResponse = AttachVolumeResponse
     { _avrVolumeId = Nothing

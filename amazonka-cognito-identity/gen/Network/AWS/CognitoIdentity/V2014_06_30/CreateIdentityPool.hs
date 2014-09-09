@@ -64,6 +64,15 @@ data CreateIdentityPool = CreateIdentityPool
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateIdentityPool' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolName ::@ @Text@
+--
+-- * @AllowUnauthenticatedIdentities ::@ @Bool@
+--
+-- * @SupportedLoginProviders ::@ @Map Text Text@
+--
 mkCreateIdentityPool :: Text -- ^ 'cipIdentityPoolName'
                      -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
                      -> CreateIdentityPool
@@ -110,6 +119,17 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
 -- a valid 'CreateIdentityPoolResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolId ::@ @Text@
+--
+-- * @IdentityPoolName ::@ @Text@
+--
+-- * @AllowUnauthenticatedIdentities ::@ @Bool@
+--
+-- * @SupportedLoginProviders ::@ @Map Text Text@
+--
 mkCreateIdentityPoolResponse :: Text -- ^ 'ciprIdentityPoolId'
                              -> Text -- ^ 'ciprIdentityPoolName'
                              -> Bool -- ^ 'ciprAllowUnauthenticatedIdentities'

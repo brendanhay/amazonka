@@ -55,6 +55,13 @@ data DeleteMetricFilter = DeleteMetricFilter
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMetricFilter' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @FilterName ::@ @Text@
+--
 mkDeleteMetricFilter :: Text -- ^ 'dmfLogGroupName'
                      -> Text -- ^ 'dmfFilterName'
                      -> DeleteMetricFilter

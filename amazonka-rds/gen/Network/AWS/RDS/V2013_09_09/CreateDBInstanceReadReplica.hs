@@ -62,7 +62,6 @@ import Network.AWS.Request.Query
 import Network.AWS.RDS.V2013_09_09.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     { _cdbirrDBInstanceIdentifier :: Text
     , _cdbirrSourceDBInstanceIdentifier :: Text
@@ -79,6 +78,31 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstanceReadReplica' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @SourceDBInstanceIdentifier ::@ @Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @DBSubnetGroupName ::@ @Maybe Text@
+--
 mkCreateDBInstanceReadReplica :: Text -- ^ 'cdbirrDBInstanceIdentifier'
                               -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
                               -> CreateDBInstanceReadReplica
@@ -193,6 +217,11 @@ newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaRespons
 -- a valid 'CreateDBInstanceReadReplicaResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkCreateDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse
 mkCreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance = Nothing

@@ -52,13 +52,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteSnapshot = DeleteSnapshot
     { _dsSnapshotId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Text@
+--
 mkDeleteSnapshot :: Text -- ^ 'dsSnapshotId'
                  -> DeleteSnapshot
 mkDeleteSnapshot p1 = DeleteSnapshot

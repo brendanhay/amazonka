@@ -69,7 +69,6 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeClusterParameters = DescribeClusterParameters
     { _dcpParameterGroupName :: Text
     , _dcpSource :: Maybe Text
@@ -79,6 +78,17 @@ data DescribeClusterParameters = DescribeClusterParameters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterParameters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Text@
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeClusterParameters :: Text -- ^ 'dcpParameterGroupName'
                             -> DescribeClusterParameters
 mkDescribeClusterParameters p1 = DescribeClusterParameters
@@ -130,6 +140,13 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse
 -- a valid 'DescribeClusterParametersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Parameters ::@ @[Parameter]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeClusterParametersResponse :: DescribeClusterParametersResponse
 mkDescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprParameters = mempty

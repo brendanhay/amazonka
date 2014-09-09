@@ -1038,6 +1038,11 @@ newtype BootstrapActionDetail = BootstrapActionDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BootstrapActionDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BootstrapActionConfig ::@ @Maybe BootstrapActionConfig@
+--
 mkBootstrapActionDetail :: BootstrapActionDetail
 mkBootstrapActionDetail = BootstrapActionDetail
     { _badBootstrapActionConfig = Nothing
@@ -1060,6 +1065,11 @@ newtype PlacementType = PlacementType
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PlacementType' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityZone ::@ @Text@
+--
 mkPlacementType :: Text -- ^ 'ptAvailabilityZone'
                 -> PlacementType
 mkPlacementType p1 = PlacementType
@@ -1097,6 +1107,17 @@ data Application = Application
 --
 -- 'Application' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Version ::@ @Maybe Text@
+--
+-- * @Args ::@ @[Text]@
+--
+-- * @AdditionalInfo ::@ @Map Text Text@
+--
 mkApplication :: Application
 mkApplication = Application
     { _aName = Nothing
@@ -1132,6 +1153,13 @@ data BootstrapActionConfig = BootstrapActionConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BootstrapActionConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @ScriptBootstrapAction ::@ @ScriptBootstrapActionConfig@
+--
 mkBootstrapActionConfig :: Text -- ^ 'bacName'
                         -> ScriptBootstrapActionConfig -- ^ 'bacScriptBootstrapAction'
                         -> BootstrapActionConfig
@@ -1176,6 +1204,35 @@ data Cluster = Cluster
 --
 -- 'Cluster' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe ClusterStatus@
+--
+-- * @Ec2InstanceAttributes ::@ @Maybe Ec2InstanceAttributes@
+--
+-- * @LogUri ::@ @Maybe Text@
+--
+-- * @RequestedAmiVersion ::@ @Maybe Text@
+--
+-- * @RunningAmiVersion ::@ @Maybe Text@
+--
+-- * @AutoTerminate ::@ @Maybe Bool@
+--
+-- * @TerminationProtected ::@ @Maybe Bool@
+--
+-- * @VisibleToAllUsers ::@ @Maybe Bool@
+--
+-- * @Applications ::@ @[Application]@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @ServiceRole ::@ @Maybe Text@
+--
 mkCluster :: Cluster
 mkCluster = Cluster
     { _cId = Nothing
@@ -1272,6 +1329,13 @@ data ClusterStateChangeReason = ClusterStateChangeReason
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterStateChangeReason' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe ClusterStateChangeReasonCode@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkClusterStateChangeReason :: ClusterStateChangeReason
 mkClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode = Nothing
@@ -1299,6 +1363,15 @@ data ClusterStatus = ClusterStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @Maybe ClusterState@
+--
+-- * @StateChangeReason ::@ @Maybe ClusterStateChangeReason@
+--
+-- * @Timeline ::@ @Maybe ClusterTimeline@
+--
 mkClusterStatus :: ClusterStatus
 mkClusterStatus = ClusterStatus
     { _csState = Nothing
@@ -1336,6 +1409,15 @@ data ClusterSummary = ClusterSummary
 --
 -- 'ClusterSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe ClusterStatus@
+--
 mkClusterSummary :: ClusterSummary
 mkClusterSummary = ClusterSummary
     { _csrId = Nothing
@@ -1367,6 +1449,15 @@ data ClusterTimeline = ClusterTimeline
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterTimeline' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CreationDateTime ::@ @Maybe POSIX@
+--
+-- * @ReadyDateTime ::@ @Maybe POSIX@
+--
+-- * @EndDateTime ::@ @Maybe POSIX@
+--
 mkClusterTimeline :: ClusterTimeline
 mkClusterTimeline = ClusterTimeline
     { _ctCreationDateTime = Nothing
@@ -1403,6 +1494,15 @@ data Command = Command
 --
 -- 'Command' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @ScriptPath ::@ @Maybe Text@
+--
+-- * @Args ::@ @[Text]@
+--
 mkCommand :: Command
 mkCommand = Command
     { _crName = Nothing
@@ -1439,6 +1539,17 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
 --
 -- 'Ec2InstanceAttributes' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Ec2KeyName ::@ @Maybe Text@
+--
+-- * @Ec2SubnetId ::@ @Maybe Text@
+--
+-- * @Ec2AvailabilityZone ::@ @Maybe Text@
+--
+-- * @IamInstanceProfile ::@ @Maybe Text@
+--
 mkEc2InstanceAttributes :: Ec2InstanceAttributes
 mkEc2InstanceAttributes = Ec2InstanceAttributes
     { _eiaEc2KeyName = Nothing
@@ -1484,6 +1595,17 @@ data HadoopJarStepConfig = HadoopJarStepConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HadoopJarStepConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Properties ::@ @[KeyValue]@
+--
+-- * @Jar ::@ @Text@
+--
+-- * @MainClass ::@ @Maybe Text@
+--
+-- * @Args ::@ @[Text]@
+--
 mkHadoopJarStepConfig :: Text -- ^ 'hjscJar'
                       -> HadoopJarStepConfig
 mkHadoopJarStepConfig p2 = HadoopJarStepConfig
@@ -1529,6 +1651,17 @@ data HadoopStepConfig = HadoopStepConfig
 --
 -- 'HadoopStepConfig' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Jar ::@ @Maybe Text@
+--
+-- * @Properties ::@ @Map Text Text@
+--
+-- * @MainClass ::@ @Maybe Text@
+--
+-- * @Args ::@ @[Text]@
+--
 mkHadoopStepConfig :: HadoopStepConfig
 mkHadoopStepConfig = HadoopStepConfig
     { _hscJar = Nothing
@@ -1574,6 +1707,23 @@ data Instance = Instance
 --
 -- 'Instance' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Ec2InstanceId ::@ @Maybe Text@
+--
+-- * @PublicDnsName ::@ @Maybe Text@
+--
+-- * @PublicIpAddress ::@ @Maybe Text@
+--
+-- * @PrivateDnsName ::@ @Maybe Text@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe InstanceStatus@
+--
 mkInstance :: Instance
 mkInstance = Instance
     { _iId = Nothing
@@ -1637,6 +1787,27 @@ data InstanceGroup = InstanceGroup
 --
 -- 'InstanceGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Market ::@ @Maybe MarketType@
+--
+-- * @InstanceGroupType ::@ @Maybe InstanceGroupType@
+--
+-- * @BidPrice ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Maybe Text@
+--
+-- * @RequestedInstanceCount ::@ @Maybe Integer@
+--
+-- * @RunningInstanceCount ::@ @Maybe Integer@
+--
+-- * @Status ::@ @Maybe InstanceGroupStatus@
+--
 mkInstanceGroup :: InstanceGroup
 mkInstanceGroup = InstanceGroup
     { _igId = Nothing
@@ -1706,6 +1877,21 @@ data InstanceGroupConfig = InstanceGroupConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Market ::@ @Maybe MarketType@
+--
+-- * @InstanceRole ::@ @InstanceRoleType@
+--
+-- * @BidPrice ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Text@
+--
+-- * @InstanceCount ::@ @Integer@
+--
 mkInstanceGroupConfig :: InstanceRoleType -- ^ 'igcInstanceRole'
                       -> Text -- ^ 'igcInstanceType'
                       -> Integer -- ^ 'igcInstanceCount'
@@ -1767,6 +1953,37 @@ data InstanceGroupDetail = InstanceGroupDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceGroupId ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Market ::@ @MarketType@
+--
+-- * @InstanceRole ::@ @InstanceRoleType@
+--
+-- * @BidPrice ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Text@
+--
+-- * @InstanceRequestCount ::@ @Integer@
+--
+-- * @InstanceRunningCount ::@ @Integer@
+--
+-- * @State ::@ @InstanceGroupState@
+--
+-- * @LastStateChangeReason ::@ @Maybe Text@
+--
+-- * @CreationDateTime ::@ @POSIX@
+--
+-- * @StartDateTime ::@ @Maybe POSIX@
+--
+-- * @ReadyDateTime ::@ @Maybe POSIX@
+--
+-- * @EndDateTime ::@ @Maybe POSIX@
+--
 mkInstanceGroupDetail :: POSIX -- ^ 'igdCreationDateTime'
                       -> MarketType -- ^ 'igdMarket'
                       -> InstanceRoleType -- ^ 'igdInstanceRole'
@@ -1873,6 +2090,15 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupModifyConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceGroupId ::@ @Text@
+--
+-- * @InstanceCount ::@ @Maybe Integer@
+--
+-- * @EC2InstanceIdsToTerminate ::@ @[Text]@
+--
 mkInstanceGroupModifyConfig :: Text -- ^ 'igmcInstanceGroupId'
                             -> InstanceGroupModifyConfig
 mkInstanceGroupModifyConfig p1 = InstanceGroupModifyConfig
@@ -1909,6 +2135,13 @@ data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupStateChangeReason' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe InstanceGroupStateChangeReasonCode@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkInstanceGroupStateChangeReason :: InstanceGroupStateChangeReason
 mkInstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode = Nothing
@@ -1936,6 +2169,15 @@ data InstanceGroupStatus = InstanceGroupStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @Maybe InstanceGroupState@
+--
+-- * @StateChangeReason ::@ @Maybe InstanceGroupStateChangeReason@
+--
+-- * @Timeline ::@ @Maybe InstanceGroupTimeline@
+--
 mkInstanceGroupStatus :: InstanceGroupStatus
 mkInstanceGroupStatus = InstanceGroupStatus
     { _igsState = Nothing
@@ -1969,6 +2211,15 @@ data InstanceGroupTimeline = InstanceGroupTimeline
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupTimeline' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CreationDateTime ::@ @Maybe POSIX@
+--
+-- * @ReadyDateTime ::@ @Maybe POSIX@
+--
+-- * @EndDateTime ::@ @Maybe POSIX@
+--
 mkInstanceGroupTimeline :: InstanceGroupTimeline
 mkInstanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime = Nothing
@@ -2002,6 +2253,13 @@ data InstanceStateChangeReason = InstanceStateChangeReason
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStateChangeReason' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe InstanceStateChangeReasonCode@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkInstanceStateChangeReason :: InstanceStateChangeReason
 mkInstanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode = Nothing
@@ -2029,6 +2287,15 @@ data InstanceStatus = InstanceStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @Maybe InstanceState@
+--
+-- * @StateChangeReason ::@ @Maybe InstanceStateChangeReason@
+--
+-- * @Timeline ::@ @Maybe InstanceTimeline@
+--
 mkInstanceStatus :: InstanceStatus
 mkInstanceStatus = InstanceStatus
     { _isState = Nothing
@@ -2062,6 +2329,15 @@ data InstanceTimeline = InstanceTimeline
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceTimeline' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CreationDateTime ::@ @Maybe POSIX@
+--
+-- * @ReadyDateTime ::@ @Maybe POSIX@
+--
+-- * @EndDateTime ::@ @Maybe POSIX@
+--
 mkInstanceTimeline :: InstanceTimeline
 mkInstanceTimeline = InstanceTimeline
     { _itCreationDateTime = Nothing
@@ -2107,6 +2383,33 @@ data JobFlowDetail = JobFlowDetail
 --
 -- 'JobFlowDetail' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlowId ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @LogUri ::@ @Maybe Text@
+--
+-- * @AmiVersion ::@ @Maybe Text@
+--
+-- * @ExecutionStatusDetail ::@ @JobFlowExecutionStatusDetail@
+--
+-- * @Instances ::@ @JobFlowInstancesDetail@
+--
+-- * @Steps ::@ @[StepDetail]@
+--
+-- * @BootstrapActions ::@ @[BootstrapActionDetail]@
+--
+-- * @SupportedProducts ::@ @[Text]@
+--
+-- * @VisibleToAllUsers ::@ @Maybe Bool@
+--
+-- * @JobFlowRole ::@ @Maybe Text@
+--
+-- * @ServiceRole ::@ @Maybe Text@
+--
 mkJobFlowDetail :: Text -- ^ 'jfdJobFlowId'
                 -> Text -- ^ 'jfdName'
                 -> JobFlowExecutionStatusDetail -- ^ 'jfdExecutionStatusDetail'
@@ -2206,6 +2509,21 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobFlowExecutionStatusDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @JobFlowExecutionState@
+--
+-- * @CreationDateTime ::@ @POSIX@
+--
+-- * @StartDateTime ::@ @Maybe POSIX@
+--
+-- * @ReadyDateTime ::@ @Maybe POSIX@
+--
+-- * @EndDateTime ::@ @Maybe POSIX@
+--
+-- * @LastStateChangeReason ::@ @Maybe Text@
+--
 mkJobFlowExecutionStatusDetail :: JobFlowExecutionState -- ^ 'jfesdState'
                                -> POSIX -- ^ 'jfesdCreationDateTime'
                                -> JobFlowExecutionStatusDetail
@@ -2270,6 +2588,29 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobFlowInstancesConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MasterInstanceType ::@ @Maybe Text@
+--
+-- * @SlaveInstanceType ::@ @Maybe Text@
+--
+-- * @InstanceCount ::@ @Maybe Integer@
+--
+-- * @InstanceGroups ::@ @[InstanceGroupConfig]@
+--
+-- * @Ec2KeyName ::@ @Maybe Text@
+--
+-- * @Placement ::@ @Maybe PlacementType@
+--
+-- * @KeepJobFlowAliveWhenNoSteps ::@ @Maybe Bool@
+--
+-- * @TerminationProtected ::@ @Maybe Bool@
+--
+-- * @HadoopVersion ::@ @Maybe Text@
+--
+-- * @Ec2SubnetId ::@ @Maybe Text@
+--
 mkJobFlowInstancesConfig :: JobFlowInstancesConfig
 mkJobFlowInstancesConfig = JobFlowInstancesConfig
     { _jficMasterInstanceType = Nothing
@@ -2366,6 +2707,35 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobFlowInstancesDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MasterInstanceType ::@ @Text@
+--
+-- * @MasterPublicDnsName ::@ @Maybe Text@
+--
+-- * @MasterInstanceId ::@ @Maybe Text@
+--
+-- * @SlaveInstanceType ::@ @Text@
+--
+-- * @InstanceCount ::@ @Integer@
+--
+-- * @InstanceGroups ::@ @[InstanceGroupDetail]@
+--
+-- * @NormalizedInstanceHours ::@ @Maybe Integer@
+--
+-- * @Ec2KeyName ::@ @Maybe Text@
+--
+-- * @Ec2SubnetId ::@ @Maybe Text@
+--
+-- * @Placement ::@ @Maybe PlacementType@
+--
+-- * @KeepJobFlowAliveWhenNoSteps ::@ @Maybe Bool@
+--
+-- * @TerminationProtected ::@ @Maybe Bool@
+--
+-- * @HadoopVersion ::@ @Maybe Text@
+--
 mkJobFlowInstancesDetail :: Text -- ^ 'jfidMasterInstanceType'
                          -> Text -- ^ 'jfidSlaveInstanceType'
                          -> Integer -- ^ 'jfidInstanceCount'
@@ -2476,6 +2846,13 @@ data KeyValue = KeyValue
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeyValue' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkKeyValue :: KeyValue
 mkKeyValue = KeyValue
     { _kvKey = Nothing
@@ -2502,6 +2879,13 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScriptBootstrapActionConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Text@
+--
+-- * @Args ::@ @[Text]@
+--
 mkScriptBootstrapActionConfig :: Text -- ^ 'sbacPath'
                               -> ScriptBootstrapActionConfig
 mkScriptBootstrapActionConfig p1 = ScriptBootstrapActionConfig
@@ -2536,6 +2920,19 @@ data Step = Step
 --
 -- 'Step' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Config ::@ @Maybe HadoopStepConfig@
+--
+-- * @ActionOnFailure ::@ @Maybe ActionOnFailure@
+--
+-- * @Status ::@ @Maybe StepStatus@
+--
 mkStep :: Step
 mkStep = Step
     { _sId = Nothing
@@ -2578,6 +2975,15 @@ data StepConfig = StepConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @ActionOnFailure ::@ @Maybe ActionOnFailure@
+--
+-- * @HadoopJarStep ::@ @HadoopJarStepConfig@
+--
 mkStepConfig :: Text -- ^ 'scName'
              -> HadoopJarStepConfig -- ^ 'scHadoopJarStep'
              -> StepConfig
@@ -2612,6 +3018,13 @@ data StepDetail = StepDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StepConfig ::@ @StepConfig@
+--
+-- * @ExecutionStatusDetail ::@ @StepExecutionStatusDetail@
+--
 mkStepDetail :: StepConfig -- ^ 'sdStepConfig'
              -> StepExecutionStatusDetail -- ^ 'sdExecutionStatusDetail'
              -> StepDetail
@@ -2645,6 +3058,19 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepExecutionStatusDetail' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @StepExecutionState@
+--
+-- * @CreationDateTime ::@ @POSIX@
+--
+-- * @StartDateTime ::@ @Maybe POSIX@
+--
+-- * @EndDateTime ::@ @Maybe POSIX@
+--
+-- * @LastStateChangeReason ::@ @Maybe Text@
+--
 mkStepExecutionStatusDetail :: StepExecutionState -- ^ 'sesdState'
                             -> POSIX -- ^ 'sesdCreationDateTime'
                             -> StepExecutionStatusDetail
@@ -2692,6 +3118,13 @@ data StepStateChangeReason = StepStateChangeReason
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepStateChangeReason' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Code ::@ @Maybe StepStateChangeReasonCode@
+--
+-- * @Message ::@ @Maybe Text@
+--
 mkStepStateChangeReason :: StepStateChangeReason
 mkStepStateChangeReason = StepStateChangeReason
     { _sscrCode = Nothing
@@ -2719,6 +3152,15 @@ data StepStatus = StepStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @State ::@ @Maybe StepState@
+--
+-- * @StateChangeReason ::@ @Maybe StepStateChangeReason@
+--
+-- * @Timeline ::@ @Maybe StepTimeline@
+--
 mkStepStatus :: StepStatus
 mkStepStatus = StepStatus
     { _ssState = Nothing
@@ -2755,6 +3197,15 @@ data StepSummary = StepSummary
 --
 -- 'StepSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe StepStatus@
+--
 mkStepSummary :: StepSummary
 mkStepSummary = StepSummary
     { _ssrId = Nothing
@@ -2785,6 +3236,15 @@ data StepTimeline = StepTimeline
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepTimeline' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CreationDateTime ::@ @Maybe POSIX@
+--
+-- * @StartDateTime ::@ @Maybe POSIX@
+--
+-- * @EndDateTime ::@ @Maybe POSIX@
+--
 mkStepTimeline :: StepTimeline
 mkStepTimeline = StepTimeline
     { _stCreationDateTime = Nothing
@@ -2819,6 +3279,13 @@ data SupportedProductConfig = SupportedProductConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SupportedProductConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Args ::@ @[Text]@
+--
 mkSupportedProductConfig :: SupportedProductConfig
 mkSupportedProductConfig = SupportedProductConfig
     { _spcName = Nothing
@@ -2846,6 +3313,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkTag :: Tag
 mkTag = Tag
     { _tKey = Nothing

@@ -78,7 +78,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _mia1InstanceId :: Text
     , _mia1Attribute :: Maybe InstanceAttributeName
@@ -98,6 +97,37 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyInstanceAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @Attribute ::@ @Maybe InstanceAttributeName@
+--
+-- * @Value ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[InstanceBlockDeviceMappingSpecification]@
+--
+-- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
+--
+-- * @DisableApiTermination ::@ @Maybe AttributeBooleanValue@
+--
+-- * @InstanceType ::@ @Maybe AttributeValue@
+--
+-- * @Kernel ::@ @Maybe AttributeValue@
+--
+-- * @Ramdisk ::@ @Maybe AttributeValue@
+--
+-- * @UserData ::@ @Maybe AttributeValue@
+--
+-- * @InstanceInitiatedShutdownBehavior ::@ @Maybe AttributeValue@
+--
+-- * @Groups ::@ @[Text]@
+--
+-- * @EbsOptimized ::@ @Maybe AttributeBooleanValue@
+--
+-- * @SriovNetSupport ::@ @Maybe AttributeValue@
+--
 mkModifyInstanceAttribute :: Text -- ^ 'mia1InstanceId'
                           -> ModifyInstanceAttribute
 mkModifyInstanceAttribute p1 = ModifyInstanceAttribute

@@ -51,6 +51,13 @@ data DeleteExpression = DeleteExpression
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteExpression' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ExpressionName ::@ @Text@
+--
 mkDeleteExpression :: Text -- ^ 'de1DomainName'
                    -> Text -- ^ 'de1ExpressionName'
                    -> DeleteExpression
@@ -84,6 +91,11 @@ newtype DeleteExpressionResponse = DeleteExpressionResponse
 -- a valid 'DeleteExpressionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Expression ::@ @ExpressionStatus@
+--
 mkDeleteExpressionResponse :: ExpressionStatus -- ^ 'derrExpression'
                            -> DeleteExpressionResponse
 mkDeleteExpressionResponse p1 = DeleteExpressionResponse

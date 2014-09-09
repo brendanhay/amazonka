@@ -45,6 +45,11 @@ newtype DeleteOptionGroup = DeleteOptionGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteOptionGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroupName ::@ @Text@
+--
 mkDeleteOptionGroup :: Text -- ^ 'dogOptionGroupName'
                     -> DeleteOptionGroup
 mkDeleteOptionGroup p1 = DeleteOptionGroup

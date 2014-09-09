@@ -42,13 +42,17 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
     { _dtacLanguage :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorChecks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Language ::@ @Text@
+--
 mkDescribeTrustedAdvisorChecks :: Text -- ^ 'dtacLanguage'
                                -> DescribeTrustedAdvisorChecks
 mkDescribeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
@@ -79,6 +83,11 @@ newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksRespo
 -- a valid 'DescribeTrustedAdvisorChecksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Checks ::@ @[TrustedAdvisorCheckDescription]@
+--
 mkDescribeTrustedAdvisorChecksResponse :: [TrustedAdvisorCheckDescription] -- ^ 'dtacr1Checks'
                                        -> DescribeTrustedAdvisorChecksResponse
 mkDescribeTrustedAdvisorChecksResponse p1 = DescribeTrustedAdvisorChecksResponse

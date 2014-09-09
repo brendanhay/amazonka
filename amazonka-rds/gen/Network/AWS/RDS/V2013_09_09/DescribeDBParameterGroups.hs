@@ -59,6 +59,15 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBParameterGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBParameterGroups :: DescribeDBParameterGroups
 mkDescribeDBParameterGroups = DescribeDBParameterGroups
     { _ddbpg1DBParameterGroupName = Nothing
@@ -103,6 +112,13 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
 -- a valid 'DescribeDBParameterGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @DBParameterGroups ::@ @[DBParameterGroup]@
+--
 mkDescribeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse
 mkDescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     { _ddbpgrMarker = Nothing

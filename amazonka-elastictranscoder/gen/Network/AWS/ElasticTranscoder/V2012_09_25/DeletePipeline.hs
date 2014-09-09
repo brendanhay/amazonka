@@ -58,6 +58,11 @@ newtype DeletePipeline = DeletePipeline
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePipeline' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkDeletePipeline :: Text -- ^ 'dpId'
                  -> DeletePipeline
 mkDeletePipeline p1 = DeletePipeline

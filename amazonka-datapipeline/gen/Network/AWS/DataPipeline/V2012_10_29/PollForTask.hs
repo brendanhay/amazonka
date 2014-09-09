@@ -89,6 +89,15 @@ data PollForTask = PollForTask
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForTask' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkerGroup ::@ @Text@
+--
+-- * @Hostname ::@ @Maybe Text@
+--
+-- * @InstanceIdentity ::@ @Maybe InstanceIdentity@
+--
 mkPollForTask :: Text -- ^ 'pftWorkerGroup'
               -> PollForTask
 mkPollForTask p1 = PollForTask
@@ -137,6 +146,11 @@ newtype PollForTaskResponse = PollForTaskResponse
 -- a valid 'PollForTaskResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskObject ::@ @Maybe TaskObject@
+--
 mkPollForTaskResponse :: PollForTaskResponse
 mkPollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject = Nothing

@@ -76,6 +76,21 @@ data ListActivityTypes = ListActivityTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListActivityTypes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @RegistrationStatus ::@ @RegistrationStatus@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @MaximumPageSize ::@ @Maybe Integer@
+--
+-- * @ReverseOrder ::@ @Maybe Bool@
+--
 mkListActivityTypes :: Text -- ^ 'latDomain'
                     -> RegistrationStatus -- ^ 'latRegistrationStatus'
                     -> ListActivityTypes
@@ -141,6 +156,13 @@ data ListActivityTypesResponse = ListActivityTypesResponse
 -- a valid 'ListActivityTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TypeInfos ::@ @[ActivityTypeInfo]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListActivityTypesResponse :: [ActivityTypeInfo] -- ^ 'latrTypeInfos'
                             -> ListActivityTypesResponse
 mkListActivityTypesResponse p1 = ListActivityTypesResponse

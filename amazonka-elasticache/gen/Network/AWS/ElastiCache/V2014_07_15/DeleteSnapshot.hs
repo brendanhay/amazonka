@@ -55,6 +55,11 @@ newtype DeleteSnapshot = DeleteSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotName ::@ @Text@
+--
 mkDeleteSnapshot :: Text -- ^ 'dsSnapshotName'
                  -> DeleteSnapshot
 mkDeleteSnapshot p1 = DeleteSnapshot
@@ -76,6 +81,11 @@ newtype DeleteSnapshotResponse = DeleteSnapshotResponse
 -- a valid 'DeleteSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkDeleteSnapshotResponse :: DeleteSnapshotResponse
 mkDeleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot = Nothing

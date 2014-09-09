@@ -49,6 +49,15 @@ data PutBucketLifecycle = PutBucketLifecycle
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketLifecycle' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @LifecycleConfiguration ::@ @Maybe LifecycleConfiguration@
+--
 mkPutBucketLifecycle :: BucketName -- ^ 'pblBucket'
                      -> PutBucketLifecycle
 mkPutBucketLifecycle p1 = PutBucketLifecycle

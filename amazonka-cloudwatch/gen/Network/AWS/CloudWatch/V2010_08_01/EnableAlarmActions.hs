@@ -37,13 +37,17 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 newtype EnableAlarmActions = EnableAlarmActions
     { _eaaAlarmNames :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableAlarmActions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmNames ::@ @[Text]@
+--
 mkEnableAlarmActions :: [Text] -- ^ 'eaaAlarmNames'
                      -> EnableAlarmActions
 mkEnableAlarmActions p1 = EnableAlarmActions

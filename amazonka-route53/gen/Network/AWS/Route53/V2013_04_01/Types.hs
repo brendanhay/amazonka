@@ -416,6 +416,11 @@ newtype DelegationSet = DelegationSet
 --
 -- 'DelegationSet' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NameServers ::@ @List1 Text@
+--
 mkDelegationSet :: List1 Text -- ^ 'dsNameServers'
                 -> DelegationSet
 mkDelegationSet p1 = DelegationSet
@@ -439,6 +444,11 @@ newtype HostedZoneConfig = HostedZoneConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HostedZoneConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Comment ::@ @Maybe Text@
+--
 mkHostedZoneConfig :: HostedZoneConfig
 mkHostedZoneConfig = HostedZoneConfig
     { _hzcComment = Nothing
@@ -466,6 +476,11 @@ newtype ResourceRecord = ResourceRecord
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceRecord' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Value ::@ @Text@
+--
 mkResourceRecord :: Text -- ^ 'rrValue'
                  -> ResourceRecord
 mkResourceRecord p1 = ResourceRecord
@@ -494,6 +509,15 @@ data AliasTarget = AliasTarget
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AliasTarget' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostedZoneId ::@ @Text@
+--
+-- * @DNSName ::@ @Text@
+--
+-- * @EvaluateTargetHealth ::@ @Bool@
+--
 mkAliasTarget :: Text -- ^ 'atHostedZoneId'
               -> Text -- ^ 'atDNSName'
               -> Bool -- ^ 'atEvaluateTargetHealth'
@@ -542,6 +566,13 @@ data Change = Change
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Change' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Action ::@ @ChangeAction@
+--
+-- * @ResourceRecordSet ::@ @ResourceRecordSet@
+--
 mkChange :: ChangeAction -- ^ 'cAction'
          -> ResourceRecordSet -- ^ 'cResourceRecordSet'
          -> Change
@@ -571,6 +602,13 @@ data ChangeBatch = ChangeBatch
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeBatch' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Comment ::@ @Maybe Text@
+--
+-- * @Changes ::@ @List1 Change@
+--
 mkChangeBatch :: List1 Change -- ^ 'cbChanges'
               -> ChangeBatch
 mkChangeBatch p2 = ChangeBatch
@@ -606,6 +644,17 @@ data ChangeInfo = ChangeInfo
 --
 -- 'ChangeInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Status ::@ @ChangeStatus@
+--
+-- * @SubmittedAt ::@ @ISO8601@
+--
+-- * @Comment ::@ @Maybe Text@
+--
 mkChangeInfo :: Text -- ^ 'ciId'
              -> ChangeStatus -- ^ 'ciStatus'
              -> ISO8601 -- ^ 'ciSubmittedAt'
@@ -657,6 +706,15 @@ data GeoLocation = GeoLocation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GeoLocation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ContinentCode ::@ @Maybe Text@
+--
+-- * @CountryCode ::@ @Maybe Text@
+--
+-- * @SubdivisionCode ::@ @Maybe Text@
+--
 mkGeoLocation :: GeoLocation
 mkGeoLocation = GeoLocation
     { _glContinentCode = Nothing
@@ -710,6 +768,21 @@ data GeoLocationDetails = GeoLocationDetails
 --
 -- 'GeoLocationDetails' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ContinentCode ::@ @Maybe Text@
+--
+-- * @ContinentName ::@ @Maybe Text@
+--
+-- * @CountryCode ::@ @Maybe Text@
+--
+-- * @CountryName ::@ @Maybe Text@
+--
+-- * @SubdivisionCode ::@ @Maybe Text@
+--
+-- * @SubdivisionName ::@ @Maybe Text@
+--
 mkGeoLocationDetails :: GeoLocationDetails
 mkGeoLocationDetails = GeoLocationDetails
     { _gldContinentCode = Nothing
@@ -774,6 +847,17 @@ data HealthCheck = HealthCheck
 --
 -- 'HealthCheck' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @CallerReference ::@ @Text@
+--
+-- * @HealthCheckConfig ::@ @HealthCheckConfig@
+--
+-- * @HealthCheckVersion ::@ @Integer@
+--
 mkHealthCheck :: Text -- ^ 'hcId'
               -> Text -- ^ 'hcCallerReference'
               -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
@@ -825,6 +909,25 @@ data HealthCheckConfig = HealthCheckConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheckConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IPAddress ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @Type ::@ @HealthCheckType@
+--
+-- * @ResourcePath ::@ @Maybe Text@
+--
+-- * @FullyQualifiedDomainName ::@ @Maybe Text@
+--
+-- * @SearchString ::@ @Maybe Text@
+--
+-- * @RequestInterval ::@ @Maybe Integer@
+--
+-- * @FailureThreshold ::@ @Maybe Integer@
+--
 mkHealthCheckConfig :: HealthCheckType -- ^ 'hccType'
                     -> HealthCheckConfig
 mkHealthCheckConfig p3 = HealthCheckConfig
@@ -910,6 +1013,19 @@ data HostedZone = HostedZone
 --
 -- 'HostedZone' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @CallerReference ::@ @Text@
+--
+-- * @Config ::@ @Maybe HostedZoneConfig@
+--
+-- * @ResourceRecordSetCount ::@ @Maybe Integer@
+--
 mkHostedZone :: Text -- ^ 'hzId'
              -> Text -- ^ 'hzName'
              -> Text -- ^ 'hzCallerReference'
@@ -973,6 +1089,31 @@ data ResourceRecordSet = ResourceRecordSet
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceRecordSet' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Type ::@ @RecordType@
+--
+-- * @SetIdentifier ::@ @Maybe Text@
+--
+-- * @Weight ::@ @Maybe Integer@
+--
+-- * @Region ::@ @Maybe Region@
+--
+-- * @GeoLocation ::@ @Maybe GeoLocation@
+--
+-- * @Failover ::@ @Maybe Failover@
+--
+-- * @TTL ::@ @Maybe Integer@
+--
+-- * @ResourceRecords ::@ @List1 ResourceRecord@
+--
+-- * @AliasTarget ::@ @Maybe AliasTarget@
+--
+-- * @HealthCheckId ::@ @Maybe Text@
+--
 mkResourceRecordSet :: Text -- ^ 'rrsName'
                     -> RecordType -- ^ 'rrsType'
                     -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
@@ -1084,6 +1225,15 @@ data ResourceTagSet = ResourceTagSet
 --
 -- 'ResourceTagSet' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceType ::@ @Maybe TagResourceType@
+--
+-- * @ResourceId ::@ @Maybe Text@
+--
+-- * @Tags ::@ @Maybe (List1 Tag)@
+--
 mkResourceTagSet :: ResourceTagSet
 mkResourceTagSet = ResourceTagSet
     { _rtsResourceType = Nothing
@@ -1116,6 +1266,13 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
 mkTag :: Tag
 mkTag = Tag
     { _tKey = Nothing

@@ -51,13 +51,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetRole = GetRole
     { _grRoleName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRole' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
 mkGetRole :: Text -- ^ 'grRoleName'
           -> GetRole
 mkGetRole p1 = GetRole
@@ -80,6 +84,11 @@ newtype GetRoleResponse = GetRoleResponse
 -- a valid 'GetRoleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Role ::@ @Role@
+--
 mkGetRoleResponse :: Role -- ^ 'grrRole'
                   -> GetRoleResponse
 mkGetRoleResponse p1 = GetRoleResponse

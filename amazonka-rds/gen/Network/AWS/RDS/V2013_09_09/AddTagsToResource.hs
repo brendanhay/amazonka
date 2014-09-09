@@ -50,6 +50,13 @@ data AddTagsToResource = AddTagsToResource
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsToResource' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceName ::@ @Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkAddTagsToResource :: Text -- ^ 'attrResourceName'
                     -> [Tag] -- ^ 'attrTags'
                     -> AddTagsToResource

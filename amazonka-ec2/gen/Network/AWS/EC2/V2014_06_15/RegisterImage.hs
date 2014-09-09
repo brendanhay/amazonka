@@ -92,7 +92,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data RegisterImage = RegisterImage
     { _ri2ImageLocation :: Maybe Text
     , _ri2Name :: Text
@@ -108,6 +107,29 @@ data RegisterImage = RegisterImage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterImage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageLocation ::@ @Maybe Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Architecture ::@ @Maybe ArchitectureValues@
+--
+-- * @KernelId ::@ @Maybe Text@
+--
+-- * @RamdiskId ::@ @Maybe Text@
+--
+-- * @RootDeviceName ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
+-- * @VirtualizationType ::@ @Maybe VirtualizationType@
+--
+-- * @SriovNetSupport ::@ @Maybe Text@
+--
 mkRegisterImage :: Text -- ^ 'ri2Name'
                 -> RegisterImage
 mkRegisterImage p2 = RegisterImage
@@ -178,7 +200,6 @@ ri2SriovNetSupport =
 instance ToQuery RegisterImage where
     toQuery = genericQuery def
 
--- | 
 newtype RegisterImageResponse = RegisterImageResponse
     { _rirImageId :: Maybe Text
     } deriving (Show, Generic)
@@ -187,6 +208,11 @@ newtype RegisterImageResponse = RegisterImageResponse
 -- a valid 'RegisterImageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Maybe Text@
+--
 mkRegisterImageResponse :: RegisterImageResponse
 mkRegisterImageResponse = RegisterImageResponse
     { _rirImageId = Nothing

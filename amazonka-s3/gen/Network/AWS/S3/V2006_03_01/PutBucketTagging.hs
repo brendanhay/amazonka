@@ -48,6 +48,15 @@ data PutBucketTagging = PutBucketTagging
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketTagging' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @Tagging ::@ @Tagging@
+--
 mkPutBucketTagging :: BucketName -- ^ 'pbtBucket'
                    -> Tagging -- ^ 'pbtTagging'
                    -> PutBucketTagging

@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { _mniaNetworkInterfaceId :: Text
     , _mniaDescription :: Maybe AttributeValue
@@ -61,6 +60,19 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyNetworkInterfaceAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
+-- * @Description ::@ @Maybe AttributeValue@
+--
+-- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
+--
+-- * @Groups ::@ @[Text]@
+--
+-- * @Attachment ::@ @Maybe NetworkInterfaceAttachmentChanges@
+--
 mkModifyNetworkInterfaceAttribute :: Text -- ^ 'mniaNetworkInterfaceId'
                                   -> ModifyNetworkInterfaceAttribute
 mkModifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute

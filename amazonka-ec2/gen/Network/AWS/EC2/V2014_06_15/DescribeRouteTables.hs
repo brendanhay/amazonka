@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeRouteTables = DescribeRouteTables
     { _drt1RouteTableIds :: [Text]
     , _drt1Filters :: [Filter]
@@ -58,6 +57,13 @@ data DescribeRouteTables = DescribeRouteTables
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRouteTables' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTableIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeRouteTables :: DescribeRouteTables
 mkDescribeRouteTables = DescribeRouteTables
     { _drt1RouteTableIds = mempty
@@ -100,7 +106,6 @@ drt1Filters = lens _drt1Filters (\s a -> s { _drt1Filters = a })
 instance ToQuery DescribeRouteTables where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: [RouteTable]
     } deriving (Show, Generic)
@@ -109,6 +114,11 @@ newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
 -- a valid 'DescribeRouteTablesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTables ::@ @[RouteTable]@
+--
 mkDescribeRouteTablesResponse :: DescribeRouteTablesResponse
 mkDescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables = mempty

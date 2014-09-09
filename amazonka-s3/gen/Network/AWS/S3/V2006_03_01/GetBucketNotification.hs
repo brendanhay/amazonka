@@ -46,6 +46,11 @@ newtype GetBucketNotification = GetBucketNotification
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketNotification' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketNotification :: BucketName -- ^ 'gbnBucket'
                         -> GetBucketNotification
 mkGetBucketNotification p1 = GetBucketNotification
@@ -71,6 +76,11 @@ newtype GetBucketNotificationResponse = GetBucketNotificationResponse
 -- a valid 'GetBucketNotificationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicConfiguration ::@ @Maybe TopicConfiguration@
+--
 mkGetBucketNotificationResponse :: GetBucketNotificationResponse
 mkGetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrTopicConfiguration = Nothing

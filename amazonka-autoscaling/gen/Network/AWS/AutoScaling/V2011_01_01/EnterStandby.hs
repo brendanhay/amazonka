@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data EnterStandby = EnterStandby
     { _esInstanceIds :: [Text]
     , _esAutoScalingGroupName :: Text
@@ -60,6 +59,15 @@ data EnterStandby = EnterStandby
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnterStandby' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @ShouldDecrementDesiredCapacity ::@ @Bool@
+--
 mkEnterStandby :: Text -- ^ 'esAutoScalingGroupName'
                -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
                -> EnterStandby
@@ -101,6 +109,11 @@ newtype EnterStandbyResponse = EnterStandbyResponse
 -- a valid 'EnterStandbyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Activities ::@ @[Activity]@
+--
 mkEnterStandbyResponse :: EnterStandbyResponse
 mkEnterStandbyResponse = EnterStandbyResponse
     { _esrActivities = mempty

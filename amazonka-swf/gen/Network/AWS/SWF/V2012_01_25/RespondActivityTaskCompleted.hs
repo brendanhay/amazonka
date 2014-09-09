@@ -81,6 +81,13 @@ data RespondActivityTaskCompleted = RespondActivityTaskCompleted
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskCompleted' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskToken ::@ @Text@
+--
+-- * @Result ::@ @Maybe Text@
+--
 mkRespondActivityTaskCompleted :: Text -- ^ 'ratc1TaskToken'
                                -> RespondActivityTaskCompleted
 mkRespondActivityTaskCompleted p1 = RespondActivityTaskCompleted

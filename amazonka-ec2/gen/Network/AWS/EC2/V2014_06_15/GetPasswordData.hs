@@ -57,13 +57,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetPasswordData = GetPasswordData
     { _gpdInstanceId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPasswordData' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
 mkGetPasswordData :: Text -- ^ 'gpdInstanceId'
                   -> GetPasswordData
 mkGetPasswordData p1 = GetPasswordData
@@ -77,7 +81,6 @@ gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
 instance ToQuery GetPasswordData where
     toQuery = genericQuery def
 
--- | 
 data GetPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId :: Maybe Text
     , _gpdrTimestamp :: Maybe ISO8601
@@ -88,6 +91,15 @@ data GetPasswordDataResponse = GetPasswordDataResponse
 -- a valid 'GetPasswordDataResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @Timestamp ::@ @Maybe ISO8601@
+--
+-- * @PasswordData ::@ @Maybe Text@
+--
 mkGetPasswordDataResponse :: GetPasswordDataResponse
 mkGetPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId = Nothing

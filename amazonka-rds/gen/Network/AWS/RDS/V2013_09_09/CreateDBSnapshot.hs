@@ -57,6 +57,15 @@ data CreateDBSnapshot = CreateDBSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSnapshotIdentifier ::@ @Text@
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
                    -> Text -- ^ 'cdbs1DBInstanceIdentifier'
                    -> CreateDBSnapshot
@@ -99,6 +108,11 @@ newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
 -- a valid 'CreateDBSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSnapshot ::@ @Maybe DBSnapshot@
+--
 mkCreateDBSnapshotResponse :: CreateDBSnapshotResponse
 mkCreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsrrDBSnapshot = Nothing

@@ -62,6 +62,15 @@ data DescribeReplicationGroups = DescribeReplicationGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReplicationGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroupId ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeReplicationGroups :: DescribeReplicationGroups
 mkDescribeReplicationGroups = DescribeReplicationGroups
     { _drg1ReplicationGroupId = Nothing
@@ -103,6 +112,13 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
 -- a valid 'DescribeReplicationGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ReplicationGroups ::@ @[ReplicationGroup]@
+--
 mkDescribeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
 mkDescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrrMarker = Nothing

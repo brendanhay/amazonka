@@ -80,6 +80,15 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestCancelWorkflowExecution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
 mkRequestCancelWorkflowExecution :: Text -- ^ 'rcweDomain'
                                  -> Text -- ^ 'rcweWorkflowId'
                                  -> RequestCancelWorkflowExecution

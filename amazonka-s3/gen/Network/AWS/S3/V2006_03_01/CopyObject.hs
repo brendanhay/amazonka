@@ -111,6 +111,67 @@ data CopyObject = CopyObject
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyObject' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ACL ::@ @Maybe ObjectCannedACL@
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @CacheControl ::@ @Maybe Text@
+--
+-- * @ContentDisposition ::@ @Maybe Text@
+--
+-- * @ContentEncoding ::@ @Maybe Text@
+--
+-- * @ContentLanguage ::@ @Maybe Text@
+--
+-- * @ContentType ::@ @Maybe Text@
+--
+-- * @CopySource ::@ @Text@
+--
+-- * @CopySourceIfMatch ::@ @Maybe Text@
+--
+-- * @CopySourceIfModifiedSince ::@ @Maybe RFC822@
+--
+-- * @CopySourceIfNoneMatch ::@ @Maybe Text@
+--
+-- * @CopySourceIfUnmodifiedSince ::@ @Maybe RFC822@
+--
+-- * @Expires ::@ @Maybe RFC822@
+--
+-- * @GrantFullControl ::@ @Maybe Text@
+--
+-- * @GrantRead ::@ @Maybe Text@
+--
+-- * @GrantReadACP ::@ @Maybe Text@
+--
+-- * @GrantWriteACP ::@ @Maybe Text@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @Metadata ::@ @Map Text Text@
+--
+-- * @MetadataDirective ::@ @Maybe MetadataDirective@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @StorageClass ::@ @Maybe StorageClass@
+--
+-- * @WebsiteRedirectLocation ::@ @Maybe Text@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKey ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
+-- * @CopySourceSSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @CopySourceSSECustomerKey ::@ @Maybe Text@
+--
+-- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkCopyObject :: ObjectKey -- ^ 'coKey'
              -> BucketName -- ^ 'coBucket'
              -> Text -- ^ 'coCopySource'
@@ -354,6 +415,21 @@ data CopyObjectResponse = CopyObjectResponse
 -- a valid 'CopyObjectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CopyObjectResult ::@ @Maybe CopyObjectResult@
+--
+-- * @Expiration ::@ @Maybe RFC822@
+--
+-- * @CopySourceVersionId ::@ @Maybe Text@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkCopyObjectResponse :: CopyObjectResponse
 mkCopyObjectResponse = CopyObjectResponse
     { _corCopyObjectResult = Nothing

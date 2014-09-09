@@ -52,7 +52,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data GetQueueUrl = GetQueueUrl
     { _gquQueueName :: Text
     , _gquQueueOwnerAWSAccountId :: Maybe Text
@@ -60,6 +59,13 @@ data GetQueueUrl = GetQueueUrl
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetQueueUrl' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueName ::@ @Text@
+--
+-- * @QueueOwnerAWSAccountId ::@ @Maybe Text@
+--
 mkGetQueueUrl :: Text -- ^ 'gquQueueName'
               -> GetQueueUrl
 mkGetQueueUrl p1 = GetQueueUrl
@@ -90,6 +96,11 @@ newtype GetQueueUrlResponse = GetQueueUrlResponse
 -- a valid 'GetQueueUrlResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Maybe Text@
+--
 mkGetQueueUrlResponse :: GetQueueUrlResponse
 mkGetQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl = Nothing

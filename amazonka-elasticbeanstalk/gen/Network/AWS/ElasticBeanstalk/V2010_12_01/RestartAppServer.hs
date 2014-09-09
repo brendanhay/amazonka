@@ -50,6 +50,13 @@ data RestartAppServer = RestartAppServer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestartAppServer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
 mkRestartAppServer :: RestartAppServer
 mkRestartAppServer = RestartAppServer
     { _rasEnvironmentId = Nothing

@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
     , _upiaPrivateIpAddresses :: [Text]
@@ -55,6 +54,13 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnassignPrivateIpAddresses' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
+-- * @PrivateIpAddresses ::@ @[Text]@
+--
 mkUnassignPrivateIpAddresses :: Text -- ^ 'upiaNetworkInterfaceId'
                              -> [Text] -- ^ 'upiaPrivateIpAddresses'
                              -> UnassignPrivateIpAddresses

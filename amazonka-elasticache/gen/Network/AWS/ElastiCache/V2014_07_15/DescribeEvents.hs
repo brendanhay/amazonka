@@ -70,6 +70,23 @@ data DescribeEvents = DescribeEvents
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEvents' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceIdentifier ::@ @Maybe Text@
+--
+-- * @SourceType ::@ @Maybe SourceType@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeEvents :: DescribeEvents
 mkDescribeEvents = DescribeEvents
     { _deSourceIdentifier = Nothing
@@ -134,6 +151,13 @@ data DescribeEventsResponse = DescribeEventsResponse
 -- a valid 'DescribeEventsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Events ::@ @[Event]@
+--
 mkDescribeEventsResponse :: DescribeEventsResponse
 mkDescribeEventsResponse = DescribeEventsResponse
     { _derMarker = Nothing

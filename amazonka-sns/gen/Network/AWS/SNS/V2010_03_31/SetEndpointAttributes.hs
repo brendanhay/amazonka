@@ -62,6 +62,13 @@ data SetEndpointAttributes = SetEndpointAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetEndpointAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EndpointArn ::@ @Text@
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkSetEndpointAttributes :: Text -- ^ 'seaEndpointArn'
                         -> Map Text Text -- ^ 'seaAttributes'
                         -> SetEndpointAttributes

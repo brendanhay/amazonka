@@ -48,6 +48,11 @@ newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStreamingDistributionConfig' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkGetStreamingDistributionConfig :: Text -- ^ 'gsdcId'
                                  -> GetStreamingDistributionConfig
 mkGetStreamingDistributionConfig p1 = GetStreamingDistributionConfig
@@ -78,6 +83,13 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
 -- a valid 'GetStreamingDistributionConfigResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamingDistributionConfig ::@ @Maybe StreamingDistributionConfig@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkGetStreamingDistributionConfigResponse :: GetStreamingDistributionConfigResponse
 mkGetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
     { _gsdcrStreamingDistributionConfig = Nothing

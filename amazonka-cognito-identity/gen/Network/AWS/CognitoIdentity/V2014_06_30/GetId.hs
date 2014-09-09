@@ -55,6 +55,15 @@ data GetId = GetId
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetId' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccountId ::@ @Text@
+--
+-- * @IdentityPoolId ::@ @Text@
+--
+-- * @Logins ::@ @Map Text Text@
+--
 mkGetId :: Text -- ^ 'giAccountId'
         -> Text -- ^ 'giIdentityPoolId'
         -> GetId
@@ -95,6 +104,11 @@ newtype GetIdResponse = GetIdResponse
 -- a valid 'GetIdResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityId ::@ @Maybe Text@
+--
 mkGetIdResponse :: GetIdResponse
 mkGetIdResponse = GetIdResponse
     { _girIdentityId = Nothing

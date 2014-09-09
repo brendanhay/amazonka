@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CancelConversionTask = CancelConversionTask
     { _cctConversionTaskId :: Text
     , _cctReasonMessage :: Maybe Text
@@ -56,6 +55,13 @@ data CancelConversionTask = CancelConversionTask
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelConversionTask' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConversionTaskId ::@ @Text@
+--
+-- * @ReasonMessage ::@ @Maybe Text@
+--
 mkCancelConversionTask :: Text -- ^ 'cctConversionTaskId'
                        -> CancelConversionTask
 mkCancelConversionTask p1 = CancelConversionTask

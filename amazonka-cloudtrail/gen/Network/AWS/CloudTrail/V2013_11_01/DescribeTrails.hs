@@ -47,6 +47,11 @@ newtype DescribeTrails = DescribeTrails
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrails' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TrailNameList ::@ @[Text]@
+--
 mkDescribeTrails :: DescribeTrails
 mkDescribeTrails = DescribeTrails
     { _dt1TrailNameList = mempty
@@ -75,6 +80,11 @@ newtype DescribeTrailsResponse = DescribeTrailsResponse
 -- a valid 'DescribeTrailsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TrailList ::@ @[Trail]@
+--
 mkDescribeTrailsResponse :: DescribeTrailsResponse
 mkDescribeTrailsResponse = DescribeTrailsResponse
     { _dtrrTrailList = mempty

@@ -91,6 +91,19 @@ data ListResourceRecordSets = ListResourceRecordSets
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListResourceRecordSets' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostedZoneId ::@ @Text@
+--
+-- * @StartRecordName ::@ @Maybe Text@
+--
+-- * @StartRecordType ::@ @Maybe RecordType@
+--
+-- * @StartRecordIdentifier ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListResourceRecordSets :: Text -- ^ 'lrrsHostedZoneId'
                          -> ListResourceRecordSets
 mkListResourceRecordSets p1 = ListResourceRecordSets
@@ -162,6 +175,21 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 -- a valid 'ListResourceRecordSetsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceRecordSets ::@ @[ResourceRecordSet]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @NextRecordName ::@ @Maybe Text@
+--
+-- * @NextRecordType ::@ @Maybe RecordType@
+--
+-- * @NextRecordIdentifier ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Text@
+--
 mkListResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSets'
                                  -> Bool -- ^ 'lrrsrIsTruncated'
                                  -> Text -- ^ 'lrrsrMaxItems'

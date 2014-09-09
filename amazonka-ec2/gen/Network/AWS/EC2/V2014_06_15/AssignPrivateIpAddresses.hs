@@ -66,7 +66,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { _apiaNetworkInterfaceId :: Text
     , _apiaPrivateIpAddresses :: [Text]
@@ -76,6 +75,17 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssignPrivateIpAddresses' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
+-- * @PrivateIpAddresses ::@ @[Text]@
+--
+-- * @SecondaryPrivateIpAddressCount ::@ @Maybe Integer@
+--
+-- * @AllowReassignment ::@ @Maybe Bool@
+--
 mkAssignPrivateIpAddresses :: Text -- ^ 'apiaNetworkInterfaceId'
                            -> AssignPrivateIpAddresses
 mkAssignPrivateIpAddresses p1 = AssignPrivateIpAddresses

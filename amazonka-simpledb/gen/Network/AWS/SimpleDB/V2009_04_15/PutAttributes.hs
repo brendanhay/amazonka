@@ -74,6 +74,17 @@ data PutAttributes = PutAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ItemName ::@ @Text@
+--
+-- * @Attributes ::@ @[ReplaceableAttribute]@
+--
+-- * @Expected ::@ @Maybe UpdateCondition@
+--
 mkPutAttributes :: Text -- ^ 'paDomainName'
                 -> Text -- ^ 'paItemName'
                 -> [ReplaceableAttribute] -- ^ 'paAttributes'

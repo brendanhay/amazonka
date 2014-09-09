@@ -63,7 +63,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeVpcAttribute = DescribeVpcAttribute
     { _dva1VpcId :: Text
     , _dva1Attribute :: Maybe VpcAttributeName
@@ -71,6 +70,13 @@ data DescribeVpcAttribute = DescribeVpcAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Text@
+--
+-- * @Attribute ::@ @Maybe VpcAttributeName@
+--
 mkDescribeVpcAttribute :: Text -- ^ 'dva1VpcId'
                        -> DescribeVpcAttribute
 mkDescribeVpcAttribute p1 = DescribeVpcAttribute
@@ -89,7 +95,6 @@ dva1Attribute = lens _dva1Attribute (\s a -> s { _dva1Attribute = a })
 instance ToQuery DescribeVpcAttribute where
     toQuery = genericQuery def
 
--- | 
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarrVpcId :: Maybe Text
     , _dvarrEnableDnsSupport :: Maybe AttributeBooleanValue
@@ -100,6 +105,15 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
 -- a valid 'DescribeVpcAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @EnableDnsSupport ::@ @Maybe AttributeBooleanValue@
+--
+-- * @EnableDnsHostnames ::@ @Maybe AttributeBooleanValue@
+--
 mkDescribeVpcAttributeResponse :: DescribeVpcAttributeResponse
 mkDescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarrVpcId = Nothing

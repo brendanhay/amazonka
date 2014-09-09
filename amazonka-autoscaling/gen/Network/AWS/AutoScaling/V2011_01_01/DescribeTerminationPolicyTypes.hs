@@ -60,6 +60,11 @@ newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesR
 -- a valid 'DescribeTerminationPolicyTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TerminationPolicyTypes ::@ @[Text]@
+--
 mkDescribeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
 mkDescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes = mempty

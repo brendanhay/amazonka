@@ -72,6 +72,17 @@ data DescribeObjects = DescribeObjects
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeObjects' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @ObjectIds ::@ @[Text]@
+--
+-- * @EvaluateExpressions ::@ @Maybe Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeObjects :: Text -- ^ 'doPipelineId'
                   -> [Text] -- ^ 'doObjectIds'
                   -> DescribeObjects
@@ -125,6 +136,15 @@ data DescribeObjectsResponse = DescribeObjectsResponse
 -- a valid 'DescribeObjectsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineObjects ::@ @[PipelineObject]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @HasMoreResults ::@ @Bool@
+--
 mkDescribeObjectsResponse :: [PipelineObject] -- ^ 'dorPipelineObjects'
                           -> Bool -- ^ 'dorHasMoreResults'
                           -> DescribeObjectsResponse

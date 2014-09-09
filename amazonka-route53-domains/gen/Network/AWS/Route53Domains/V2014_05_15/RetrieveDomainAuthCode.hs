@@ -60,6 +60,11 @@ newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveDomainAuthCode' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkRetrieveDomainAuthCode :: Text -- ^ 'rdacDomainName'
                          -> RetrieveDomainAuthCode
 mkRetrieveDomainAuthCode p1 = RetrieveDomainAuthCode
@@ -90,6 +95,11 @@ newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
 -- a valid 'RetrieveDomainAuthCodeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AuthCode ::@ @Text@
+--
 mkRetrieveDomainAuthCodeResponse :: Text -- ^ 'rdacrAuthCode'
                                  -> RetrieveDomainAuthCodeResponse
 mkRetrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse

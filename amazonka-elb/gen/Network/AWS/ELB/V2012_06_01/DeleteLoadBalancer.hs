@@ -52,6 +52,11 @@ newtype DeleteLoadBalancer = DeleteLoadBalancer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
 mkDeleteLoadBalancer :: Text -- ^ 'dlbLoadBalancerName'
                      -> DeleteLoadBalancer
 mkDeleteLoadBalancer p1 = DeleteLoadBalancer

@@ -97,6 +97,43 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreFromClusterSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
+-- * @SnapshotIdentifier ::@ @Text@
+--
+-- * @SnapshotClusterIdentifier ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @AllowVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @ClusterSubnetGroupName ::@ @Maybe Text@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @HsmClientCertificateIdentifier ::@ @Maybe Text@
+--
+-- * @HsmConfigurationIdentifier ::@ @Maybe Text@
+--
+-- * @ElasticIp ::@ @Maybe Text@
+--
+-- * @ClusterParameterGroupName ::@ @Maybe Text@
+--
+-- * @ClusterSecurityGroups ::@ @[Text]@
+--
+-- * @VpcSecurityGroupIds ::@ @[Text]@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
+--
 mkRestoreFromClusterSnapshot :: Text -- ^ 'rfcsClusterIdentifier'
                              -> Text -- ^ 'rfcsSnapshotIdentifier'
                              -> RestoreFromClusterSnapshot
@@ -261,6 +298,11 @@ newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
 -- a valid 'RestoreFromClusterSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkRestoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResponse
 mkRestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster = Nothing

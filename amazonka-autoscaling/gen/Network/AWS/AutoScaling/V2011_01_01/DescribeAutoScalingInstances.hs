@@ -52,7 +52,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds :: [Text]
     , _dasiMaxRecords :: Maybe Integer
@@ -61,6 +60,15 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeAutoScalingInstances :: DescribeAutoScalingInstances
 mkDescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds = mempty
@@ -98,6 +106,13 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
 -- a valid 'DescribeAutoScalingInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingInstances ::@ @[AutoScalingInstanceDetails]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse
 mkDescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances = mempty

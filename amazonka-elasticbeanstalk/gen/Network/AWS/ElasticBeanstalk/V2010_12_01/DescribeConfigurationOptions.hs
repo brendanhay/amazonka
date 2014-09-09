@@ -129,6 +129,19 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @Options ::@ @[OptionSpecification]@
+--
 mkDescribeConfigurationOptions :: DescribeConfigurationOptions
 mkDescribeConfigurationOptions = DescribeConfigurationOptions
     { _dcoApplicationName = Nothing
@@ -179,6 +192,13 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 -- a valid 'DescribeConfigurationOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @Options ::@ @[ConfigurationOptionDescription]@
+--
 mkDescribeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse
 mkDescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorSolutionStackName = Nothing

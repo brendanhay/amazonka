@@ -44,6 +44,11 @@ newtype DeleteEventSubscription = DeleteEventSubscription
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEventSubscription' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionName ::@ @Text@
+--
 mkDeleteEventSubscription :: Text -- ^ 'desSubscriptionName'
                           -> DeleteEventSubscription
 mkDeleteEventSubscription p1 = DeleteEventSubscription

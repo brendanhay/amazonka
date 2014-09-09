@@ -40,7 +40,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
     , _rpScalingProcesses :: [Text]
@@ -48,6 +47,13 @@ data ResumeProcesses = ResumeProcesses
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResumeProcesses' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @ScalingProcesses ::@ @[Text]@
+--
 mkResumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
                   -> ResumeProcesses
 mkResumeProcesses p1 = ResumeProcesses

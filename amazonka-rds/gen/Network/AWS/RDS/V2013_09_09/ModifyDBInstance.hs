@@ -90,6 +90,45 @@ data ModifyDBInstance = ModifyDBInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @AllocatedStorage ::@ @Maybe Integer@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @DBSecurityGroups ::@ @[Text]@
+--
+-- * @VpcSecurityGroupIds ::@ @[Text]@
+--
+-- * @ApplyImmediately ::@ @Maybe Bool@
+--
+-- * @MasterUserPassword ::@ @Maybe Text@
+--
+-- * @DBParameterGroupName ::@ @Maybe Text@
+--
+-- * @BackupRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @PreferredBackupWindow ::@ @Maybe Text@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @AllowMajorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @NewDBInstanceIdentifier ::@ @Maybe Text@
+--
 mkModifyDBInstance :: Text -- ^ 'mdbiDBInstanceIdentifier'
                    -> ModifyDBInstance
 mkModifyDBInstance p1 = ModifyDBInstance
@@ -364,6 +403,11 @@ newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
 -- a valid 'ModifyDBInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkModifyDBInstanceResponse :: ModifyDBInstanceResponse
 mkModifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance = Nothing

@@ -80,7 +80,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeAddresses = DescribeAddresses
     { _daPublicIps :: [Text]
     , _daFilters :: [Filter]
@@ -89,6 +88,15 @@ data DescribeAddresses = DescribeAddresses
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAddresses' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PublicIps ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @AllocationIds ::@ @[Text]@
+--
 mkDescribeAddresses :: DescribeAddresses
 mkDescribeAddresses = DescribeAddresses
     { _daPublicIps = mempty
@@ -121,7 +129,6 @@ daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a })
 instance ToQuery DescribeAddresses where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: [Address]
     } deriving (Show, Generic)
@@ -130,6 +137,11 @@ newtype DescribeAddressesResponse = DescribeAddressesResponse
 -- a valid 'DescribeAddressesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Addresses ::@ @[Address]@
+--
 mkDescribeAddressesResponse :: DescribeAddressesResponse
 mkDescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses = mempty

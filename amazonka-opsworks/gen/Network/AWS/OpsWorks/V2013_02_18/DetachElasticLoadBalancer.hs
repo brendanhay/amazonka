@@ -49,6 +49,13 @@ data DetachElasticLoadBalancer = DetachElasticLoadBalancer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachElasticLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticLoadBalancerName ::@ @Text@
+--
+-- * @LayerId ::@ @Text@
+--
 mkDetachElasticLoadBalancer :: Text -- ^ 'delb1ElasticLoadBalancerName'
                             -> Text -- ^ 'delb1LayerId'
                             -> DetachElasticLoadBalancer

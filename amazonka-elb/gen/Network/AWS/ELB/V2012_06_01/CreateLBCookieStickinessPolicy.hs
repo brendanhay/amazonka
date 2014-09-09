@@ -65,6 +65,15 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLBCookieStickinessPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @CookieExpirationPeriod ::@ @Maybe Integer@
+--
 mkCreateLBCookieStickinessPolicy :: Text -- ^ 'clbcspLoadBalancerName'
                                  -> Text -- ^ 'clbcspPolicyName'
                                  -> CreateLBCookieStickinessPolicy

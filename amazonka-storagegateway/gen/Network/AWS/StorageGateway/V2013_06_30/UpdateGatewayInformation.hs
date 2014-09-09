@@ -63,6 +63,15 @@ data UpdateGatewayInformation = UpdateGatewayInformation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGatewayInformation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @GatewayName ::@ @Maybe Text@
+--
+-- * @GatewayTimezone ::@ @Maybe Text@
+--
 mkUpdateGatewayInformation :: Text -- ^ 'ugiGatewayARN'
                            -> UpdateGatewayInformation
 mkUpdateGatewayInformation p1 = UpdateGatewayInformation
@@ -103,6 +112,11 @@ newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
 -- a valid 'UpdateGatewayInformationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkUpdateGatewayInformationResponse :: UpdateGatewayInformationResponse
 mkUpdateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN = Nothing

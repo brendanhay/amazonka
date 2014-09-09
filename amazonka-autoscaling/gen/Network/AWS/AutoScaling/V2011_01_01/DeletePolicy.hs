@@ -46,6 +46,13 @@ data DeletePolicy = DeletePolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @PolicyName ::@ @Text@
+--
 mkDeletePolicy :: Text -- ^ 'dpPolicyName'
                -> DeletePolicy
 mkDeletePolicy p2 = DeletePolicy

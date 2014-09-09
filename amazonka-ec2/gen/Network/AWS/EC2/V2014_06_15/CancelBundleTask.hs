@@ -53,13 +53,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CancelBundleTask = CancelBundleTask
     { _cbtBundleId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelBundleTask' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BundleId ::@ @Text@
+--
 mkCancelBundleTask :: Text -- ^ 'cbtBundleId'
                    -> CancelBundleTask
 mkCancelBundleTask p1 = CancelBundleTask
@@ -73,7 +77,6 @@ cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
 instance ToQuery CancelBundleTask where
     toQuery = genericQuery def
 
--- | 
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
@@ -82,6 +85,11 @@ newtype CancelBundleTaskResponse = CancelBundleTaskResponse
 -- a valid 'CancelBundleTaskResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BundleTask ::@ @Maybe BundleTask@
+--
 mkCancelBundleTaskResponse :: CancelBundleTaskResponse
 mkCancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask = Nothing

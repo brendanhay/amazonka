@@ -41,13 +41,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteAccountAlias = DeleteAccountAlias
     { _daaAccountAlias :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccountAlias' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccountAlias ::@ @Text@
+--
 mkDeleteAccountAlias :: Text -- ^ 'daaAccountAlias'
                      -> DeleteAccountAlias
 mkDeleteAccountAlias p1 = DeleteAccountAlias

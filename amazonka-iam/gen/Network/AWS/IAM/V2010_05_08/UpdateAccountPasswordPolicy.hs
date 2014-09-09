@@ -52,7 +52,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uappMinimumPasswordLength :: Maybe Integer
     , _uappRequireSymbols :: Maybe Bool
@@ -67,6 +66,27 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAccountPasswordPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MinimumPasswordLength ::@ @Maybe Integer@
+--
+-- * @RequireSymbols ::@ @Maybe Bool@
+--
+-- * @RequireNumbers ::@ @Maybe Bool@
+--
+-- * @RequireUppercaseCharacters ::@ @Maybe Bool@
+--
+-- * @RequireLowercaseCharacters ::@ @Maybe Bool@
+--
+-- * @AllowUsersToChangePassword ::@ @Maybe Bool@
+--
+-- * @MaxPasswordAge ::@ @Maybe Integer@
+--
+-- * @PasswordReusePrevention ::@ @Maybe Integer@
+--
+-- * @HardExpiry ::@ @Maybe Bool@
+--
 mkUpdateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
 mkUpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uappMinimumPasswordLength = Nothing

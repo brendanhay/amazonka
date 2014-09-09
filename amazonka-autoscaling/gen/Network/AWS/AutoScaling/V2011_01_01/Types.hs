@@ -418,6 +418,11 @@ newtype AdjustmentType = AdjustmentType
 --
 -- 'AdjustmentType' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AdjustmentType ::@ @Maybe Text@
+--
 mkAdjustmentType :: AdjustmentType
 mkAdjustmentType = AdjustmentType
     { _atAdjustmentType = Nothing
@@ -446,6 +451,11 @@ newtype InstanceMonitoring = InstanceMonitoring
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceMonitoring' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Maybe Bool@
+--
 mkInstanceMonitoring :: InstanceMonitoring
 mkInstanceMonitoring = InstanceMonitoring
     { _imEnabled = Nothing
@@ -472,6 +482,11 @@ newtype MetricCollectionType = MetricCollectionType
 --
 -- 'MetricCollectionType' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Metric ::@ @Maybe Text@
+--
 mkMetricCollectionType :: MetricCollectionType
 mkMetricCollectionType = MetricCollectionType
     { _mctMetric = Nothing
@@ -495,6 +510,11 @@ newtype MetricGranularityType = MetricGranularityType
 --
 -- 'MetricGranularityType' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Granularity ::@ @Maybe Text@
+--
 mkMetricGranularityType :: MetricGranularityType
 mkMetricGranularityType = MetricGranularityType
     { _mgtGranularity = Nothing
@@ -576,6 +596,11 @@ newtype ProcessType = ProcessType
 --
 -- 'ProcessType' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ProcessName ::@ @Text@
+--
 mkProcessType :: Text -- ^ 'ptProcessName'
               -> ProcessType
 mkProcessType p1 = ProcessType
@@ -612,6 +637,29 @@ data Activity = Activity
 --
 -- 'Activity' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityId ::@ @Text@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Cause ::@ @Text@
+--
+-- * @StartTime ::@ @ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @StatusCode ::@ @ScalingActivityStatusCode@
+--
+-- * @StatusMessage ::@ @Maybe Text@
+--
+-- * @Progress ::@ @Maybe Integer@
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkActivity :: Text -- ^ 'arActivityId'
            -> Text -- ^ 'arAutoScalingGroupName'
            -> Text -- ^ 'arCause'
@@ -685,6 +733,13 @@ data Alarm = Alarm
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Alarm' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmName ::@ @Maybe Text@
+--
+-- * @AlarmARN ::@ @Maybe Text@
+--
 mkAlarm :: Alarm
 mkAlarm = Alarm
     { _aAlarmName = Nothing
@@ -735,6 +790,49 @@ data AutoScalingGroup = AutoScalingGroup
 --
 -- 'AutoScalingGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @AutoScalingGroupARN ::@ @Maybe Text@
+--
+-- * @LaunchConfigurationName ::@ @Text@
+--
+-- * @MinSize ::@ @Integer@
+--
+-- * @MaxSize ::@ @Integer@
+--
+-- * @DesiredCapacity ::@ @Integer@
+--
+-- * @DefaultCooldown ::@ @Integer@
+--
+-- * @AvailabilityZones ::@ @List1 Text@
+--
+-- * @LoadBalancerNames ::@ @[Text]@
+--
+-- * @HealthCheckType ::@ @Text@
+--
+-- * @HealthCheckGracePeriod ::@ @Maybe Integer@
+--
+-- * @Instances ::@ @[Instance]@
+--
+-- * @CreatedTime ::@ @ISO8601@
+--
+-- * @SuspendedProcesses ::@ @[SuspendedProcess]@
+--
+-- * @PlacementGroup ::@ @Maybe Text@
+--
+-- * @VPCZoneIdentifier ::@ @Maybe Text@
+--
+-- * @EnabledMetrics ::@ @[EnabledMetric]@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[TagDescription]@
+--
+-- * @TerminationPolicies ::@ @[Text]@
+--
 mkAutoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
                    -> Text -- ^ 'asgHealthCheckType'
                    -> ISO8601 -- ^ 'asgCreatedTime'
@@ -893,6 +991,21 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
 --
 -- 'AutoScalingInstanceDetails' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @AvailabilityZone ::@ @Text@
+--
+-- * @LifecycleState ::@ @Text@
+--
+-- * @HealthStatus ::@ @Text@
+--
+-- * @LaunchConfigurationName ::@ @Text@
+--
 mkAutoScalingInstanceDetails :: Text -- ^ 'asidInstanceId'
                              -> Text -- ^ 'asidAutoScalingGroupName'
                              -> Text -- ^ 'asidAvailabilityZone'
@@ -957,6 +1070,17 @@ data BlockDeviceMapping = BlockDeviceMapping
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BlockDeviceMapping' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualName ::@ @Maybe Text@
+--
+-- * @DeviceName ::@ @Text@
+--
+-- * @Ebs ::@ @Maybe Ebs@
+--
+-- * @NoDevice ::@ @Maybe Bool@
+--
 mkBlockDeviceMapping :: Text -- ^ 'bdmDeviceName'
                      -> BlockDeviceMapping
 mkBlockDeviceMapping p2 = BlockDeviceMapping
@@ -1002,6 +1126,19 @@ data Ebs = Ebs
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Ebs' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @VolumeSize ::@ @Maybe Integer@
+--
+-- * @VolumeType ::@ @Maybe Text@
+--
+-- * @DeleteOnTermination ::@ @Maybe Bool@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
 mkEbs :: Ebs
 mkEbs = Ebs
     { _eSnapshotId = Nothing
@@ -1053,6 +1190,13 @@ data EnabledMetric = EnabledMetric
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnabledMetric' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Metric ::@ @Maybe Text@
+--
+-- * @Granularity ::@ @Maybe Text@
+--
 mkEnabledMetric :: EnabledMetric
 mkEnabledMetric = EnabledMetric
     { _emMetric = Nothing
@@ -1082,6 +1226,13 @@ data Filter = Filter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Filter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Values ::@ @[Text]@
+--
 mkFilter :: Text -- ^ 'fName'
          -> Filter
 mkFilter p1 = Filter
@@ -1112,6 +1263,19 @@ data Instance = Instance
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @AvailabilityZone ::@ @Text@
+--
+-- * @LifecycleState ::@ @LifecycleState@
+--
+-- * @HealthStatus ::@ @Text@
+--
+-- * @LaunchConfigurationName ::@ @Text@
+--
 mkInstance :: Text -- ^ 'iInstanceId'
            -> Text -- ^ 'iAvailabilityZone'
            -> LifecycleState -- ^ 'iLifecycleState'
@@ -1183,6 +1347,43 @@ data LaunchConfiguration = LaunchConfiguration
 --
 -- 'LaunchConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LaunchConfigurationName ::@ @Text@
+--
+-- * @LaunchConfigurationARN ::@ @Maybe Text@
+--
+-- * @ImageId ::@ @Text@
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @SecurityGroups ::@ @[Text]@
+--
+-- * @UserData ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Text@
+--
+-- * @KernelId ::@ @Maybe Text@
+--
+-- * @RamdiskId ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
+-- * @InstanceMonitoring ::@ @Maybe InstanceMonitoring@
+--
+-- * @SpotPrice ::@ @Maybe Text@
+--
+-- * @IamInstanceProfile ::@ @Maybe Text@
+--
+-- * @CreatedTime ::@ @ISO8601@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
+-- * @AssociatePublicIpAddress ::@ @Maybe Bool@
+--
+-- * @PlacementTenancy ::@ @Maybe Text@
+--
 mkLaunchConfiguration :: Text -- ^ 'lcLaunchConfigurationName'
                       -> ISO8601 -- ^ 'lcCreatedTime'
                       -> Text -- ^ 'lcImageId'
@@ -1324,6 +1525,27 @@ data LifecycleHook = LifecycleHook
 --
 -- 'LifecycleHook' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LifecycleHookName ::@ @Maybe Text@
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @LifecycleTransition ::@ @Maybe Text@
+--
+-- * @NotificationTargetARN ::@ @Maybe Text@
+--
+-- * @RoleARN ::@ @Maybe Text@
+--
+-- * @NotificationMetadata ::@ @Maybe Text@
+--
+-- * @HeartbeatTimeout ::@ @Maybe Integer@
+--
+-- * @GlobalTimeout ::@ @Maybe Integer@
+--
+-- * @DefaultResult ::@ @Maybe Text@
+--
 mkLifecycleHook :: LifecycleHook
 mkLifecycleHook = LifecycleHook
     { _lhLifecycleHookName = Nothing
@@ -1412,6 +1634,15 @@ data NotificationConfiguration = NotificationConfiguration
 --
 -- 'NotificationConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @TopicARN ::@ @Maybe Text@
+--
+-- * @NotificationType ::@ @Maybe Text@
+--
 mkNotificationConfiguration :: NotificationConfiguration
 mkNotificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName = Nothing
@@ -1455,6 +1686,25 @@ data ScalingPolicy = ScalingPolicy
 --
 -- 'ScalingPolicy' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @PolicyName ::@ @Maybe Text@
+--
+-- * @ScalingAdjustment ::@ @Maybe Integer@
+--
+-- * @AdjustmentType ::@ @Maybe Text@
+--
+-- * @Cooldown ::@ @Maybe Integer@
+--
+-- * @PolicyARN ::@ @Maybe Text@
+--
+-- * @Alarms ::@ @[Alarm]@
+--
+-- * @MinAdjustmentStep ::@ @Maybe Integer@
+--
 mkScalingPolicy :: ScalingPolicy
 mkScalingPolicy = ScalingPolicy
     { _sprAutoScalingGroupName = Nothing
@@ -1534,6 +1784,29 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
 --
 -- 'ScheduledUpdateGroupAction' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Maybe Text@
+--
+-- * @ScheduledActionName ::@ @Maybe Text@
+--
+-- * @ScheduledActionARN ::@ @Maybe Text@
+--
+-- * @Time ::@ @Maybe ISO8601@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @Recurrence ::@ @Maybe Text@
+--
+-- * @MinSize ::@ @Maybe Integer@
+--
+-- * @MaxSize ::@ @Maybe Integer@
+--
+-- * @DesiredCapacity ::@ @Maybe Integer@
+--
 mkScheduledUpdateGroupAction :: ScheduledUpdateGroupAction
 mkScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     { _sugaAutoScalingGroupName = Nothing
@@ -1612,6 +1885,13 @@ data SuspendedProcess = SuspendedProcess
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SuspendedProcess' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ProcessName ::@ @Maybe Text@
+--
+-- * @SuspensionReason ::@ @Maybe Text@
+--
 mkSuspendedProcess :: SuspendedProcess
 mkSuspendedProcess = SuspendedProcess
     { _spProcessName = Nothing
@@ -1645,6 +1925,19 @@ data Tag = Tag
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceId ::@ @Text@
+--
+-- * @ResourceType ::@ @Text@
+--
+-- * @Key ::@ @Text@
+--
+-- * @Value ::@ @Text@
+--
+-- * @PropagateAtLaunch ::@ @Bool@
+--
 mkTag :: Text -- ^ 'tResourceId'
       -> Text -- ^ 'tResourceType'
       -> Text -- ^ 'tKey'
@@ -1698,6 +1991,19 @@ data TagDescription = TagDescription
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagDescription' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceId ::@ @Text@
+--
+-- * @ResourceType ::@ @Text@
+--
+-- * @Key ::@ @Text@
+--
+-- * @Value ::@ @Text@
+--
+-- * @PropagateAtLaunch ::@ @Bool@
+--
 mkTagDescription :: Text -- ^ 'tdResourceId'
                  -> Text -- ^ 'tdResourceType'
                  -> Text -- ^ 'tdKey'

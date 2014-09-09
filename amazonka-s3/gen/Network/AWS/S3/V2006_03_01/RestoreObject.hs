@@ -54,6 +54,17 @@ data RestoreObject = RestoreObject
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreObject' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @RestoreRequest ::@ @Maybe RestoreRequest@
+--
 mkRestoreObject :: BucketName -- ^ 'roBucket'
                 -> ObjectKey -- ^ 'roKey'
                 -> RestoreObject

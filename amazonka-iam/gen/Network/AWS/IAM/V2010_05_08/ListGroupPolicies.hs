@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker :: Maybe Text
@@ -56,6 +55,15 @@ data ListGroupPolicies = ListGroupPolicies
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroupPolicies' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListGroupPolicies :: Text -- ^ 'lgpGroupName'
                     -> ListGroupPolicies
 mkListGroupPolicies p1 = ListGroupPolicies
@@ -96,6 +104,15 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
 -- a valid 'ListGroupPoliciesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PolicyNames ::@ @[Text]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListGroupPoliciesResponse :: [Text] -- ^ 'lgprPolicyNames'
                             -> Bool -- ^ 'lgprIsTruncated'
                             -> ListGroupPoliciesResponse

@@ -69,7 +69,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateRoute = CreateRoute
     { _crRouteTableId :: Text
     , _crDestinationCidrBlock :: Text
@@ -81,6 +80,21 @@ data CreateRoute = CreateRoute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRoute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTableId ::@ @Text@
+--
+-- * @DestinationCidrBlock ::@ @Text@
+--
+-- * @GatewayId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @VpcPeeringConnectionId ::@ @Maybe Text@
+--
 mkCreateRoute :: Text -- ^ 'crRouteTableId'
               -> Text -- ^ 'crDestinationCidrBlock'
               -> CreateRoute

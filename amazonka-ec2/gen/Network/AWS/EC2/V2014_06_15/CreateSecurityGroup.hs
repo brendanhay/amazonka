@@ -76,7 +76,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateSecurityGroup = CreateSecurityGroup
     { _csgGroupName :: Text
     , _csgDescription :: Text
@@ -85,6 +84,15 @@ data CreateSecurityGroup = CreateSecurityGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSecurityGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
 mkCreateSecurityGroup :: Text -- ^ 'csgGroupName'
                       -> Text -- ^ 'csgDescription'
                       -> CreateSecurityGroup
@@ -111,7 +119,6 @@ csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 instance ToQuery CreateSecurityGroup where
     toQuery = genericQuery def
 
--- | 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Maybe Text
     } deriving (Show, Generic)
@@ -120,6 +127,11 @@ newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
 -- a valid 'CreateSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupId ::@ @Maybe Text@
+--
 mkCreateSecurityGroupResponse :: CreateSecurityGroupResponse
 mkCreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId = Nothing

@@ -77,6 +77,23 @@ data CreateEventSubscription = CreateEventSubscription
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateEventSubscription' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionName ::@ @Text@
+--
+-- * @SnsTopicArn ::@ @Text@
+--
+-- * @SourceType ::@ @Maybe Text@
+--
+-- * @SourceIds ::@ @[Text]@
+--
+-- * @EventCategories ::@ @[Text]@
+--
+-- * @Severity ::@ @Maybe Text@
+--
+-- * @Enabled ::@ @Maybe Bool@
+--
 mkCreateEventSubscription :: Text -- ^ 'cesSubscriptionName'
                           -> Text -- ^ 'cesSnsTopicArn'
                           -> CreateEventSubscription
@@ -150,6 +167,11 @@ newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
 -- a valid 'CreateEventSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventSubscription ::@ @Maybe EventSubscription@
+--
 mkCreateEventSubscriptionResponse :: CreateEventSubscriptionResponse
 mkCreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription = Nothing

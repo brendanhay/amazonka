@@ -51,6 +51,17 @@ data PutBucketVersioning = PutBucketVersioning
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketVersioning' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @MFA ::@ @Maybe Text@
+--
+-- * @VersioningConfiguration ::@ @VersioningConfiguration@
+--
 mkPutBucketVersioning :: BucketName -- ^ 'pbvBucket'
                       -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
                       -> PutBucketVersioning

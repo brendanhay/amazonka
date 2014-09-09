@@ -63,7 +63,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     { _rsgiGroupName :: Maybe Text
     , _rsgiGroupId :: Maybe Text
@@ -78,6 +77,27 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeSecurityGroupIngress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Maybe Text@
+--
+-- * @GroupId ::@ @Maybe Text@
+--
+-- * @SourceSecurityGroupName ::@ @Maybe Text@
+--
+-- * @SourceSecurityGroupOwnerId ::@ @Maybe Text@
+--
+-- * @IpProtocol ::@ @Maybe Text@
+--
+-- * @FromPort ::@ @Maybe Integer@
+--
+-- * @ToPort ::@ @Maybe Integer@
+--
+-- * @CidrIp ::@ @Maybe Text@
+--
+-- * @IpPermissions ::@ @[IpPermission]@
+--
 mkRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress
 mkRevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     { _rsgiGroupName = Nothing

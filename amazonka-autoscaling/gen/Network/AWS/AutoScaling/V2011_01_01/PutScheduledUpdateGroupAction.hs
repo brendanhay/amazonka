@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     { _psugaAutoScalingGroupName :: Text
     , _psugaScheduledActionName :: Text
@@ -76,6 +75,27 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScheduledUpdateGroupAction' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @ScheduledActionName ::@ @Text@
+--
+-- * @Time ::@ @Maybe ISO8601@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @EndTime ::@ @Maybe ISO8601@
+--
+-- * @Recurrence ::@ @Maybe Text@
+--
+-- * @MinSize ::@ @Maybe Integer@
+--
+-- * @MaxSize ::@ @Maybe Integer@
+--
+-- * @DesiredCapacity ::@ @Maybe Integer@
+--
 mkPutScheduledUpdateGroupAction :: Text -- ^ 'psugaAutoScalingGroupName'
                                 -> Text -- ^ 'psugaScheduledActionName'
                                 -> PutScheduledUpdateGroupAction

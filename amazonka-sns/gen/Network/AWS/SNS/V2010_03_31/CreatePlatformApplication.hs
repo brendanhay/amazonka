@@ -80,6 +80,15 @@ data CreatePlatformApplication = CreatePlatformApplication
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformApplication' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Platform ::@ @Text@
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkCreatePlatformApplication :: Text -- ^ 'cpaName'
                             -> Text -- ^ 'cpaPlatform'
                             -> Map Text Text -- ^ 'cpaAttributes'
@@ -118,6 +127,11 @@ newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
 -- a valid 'CreatePlatformApplicationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplicationArn ::@ @Maybe Text@
+--
 mkCreatePlatformApplicationResponse :: CreatePlatformApplicationResponse
 mkCreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn = Nothing

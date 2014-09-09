@@ -52,6 +52,13 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAutoScalingGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @ForceDelete ::@ @Maybe Bool@
+--
 mkDeleteAutoScalingGroup :: Text -- ^ 'dasgAutoScalingGroupName'
                          -> DeleteAutoScalingGroup
 mkDeleteAutoScalingGroup p1 = DeleteAutoScalingGroup

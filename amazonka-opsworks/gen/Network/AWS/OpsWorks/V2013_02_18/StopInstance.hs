@@ -50,6 +50,11 @@ newtype StopInstance = StopInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
 mkStopInstance :: Text -- ^ 'si1InstanceId'
                -> StopInstance
 mkStopInstance p1 = StopInstance

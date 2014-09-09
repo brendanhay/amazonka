@@ -55,6 +55,13 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironmentResources' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
 mkDescribeEnvironmentResources :: DescribeEnvironmentResources
 mkDescribeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId = Nothing
@@ -89,6 +96,11 @@ newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesRespo
 -- a valid 'DescribeEnvironmentResourcesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentResources ::@ @Maybe EnvironmentResourceDescription@
+--
 mkDescribeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
 mkDescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources = Nothing

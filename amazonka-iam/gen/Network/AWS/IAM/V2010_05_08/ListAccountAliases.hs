@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListAccountAliases = ListAccountAliases
     { _laaMarker :: Maybe Text
     , _laaMaxItems :: Maybe Integer
@@ -55,6 +54,13 @@ data ListAccountAliases = ListAccountAliases
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAccountAliases' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListAccountAliases :: ListAccountAliases
 mkListAccountAliases = ListAccountAliases
     { _laaMarker = Nothing
@@ -90,6 +96,15 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
 -- a valid 'ListAccountAliasesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccountAliases ::@ @[Text]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListAccountAliasesResponse :: [Text] -- ^ 'laarAccountAliases'
                              -> Bool -- ^ 'laarIsTruncated'
                              -> ListAccountAliasesResponse

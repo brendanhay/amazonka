@@ -60,6 +60,17 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSubnetGroupName ::@ @Text@
+--
+-- * @DBSubnetGroupDescription ::@ @Text@
+--
+-- * @SubnetIds ::@ @[Text]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
                       -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
                       -> [Text] -- ^ 'cdbsg1SubnetIds'
@@ -104,6 +115,11 @@ newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
 -- a valid 'CreateDBSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSubnetGroup ::@ @Maybe DBSubnetGroup@
+--
 mkCreateDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
 mkCreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrrDBSubnetGroup = Nothing

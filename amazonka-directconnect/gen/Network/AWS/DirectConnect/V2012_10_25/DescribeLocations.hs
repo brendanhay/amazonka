@@ -62,6 +62,11 @@ newtype DescribeLocationsResponse = DescribeLocationsResponse
 -- a valid 'DescribeLocationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Locations ::@ @[Location]@
+--
 mkDescribeLocationsResponse :: DescribeLocationsResponse
 mkDescribeLocationsResponse = DescribeLocationsResponse
     { _dlrLocations = mempty

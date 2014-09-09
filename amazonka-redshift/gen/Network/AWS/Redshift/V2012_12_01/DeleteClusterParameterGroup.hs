@@ -52,6 +52,11 @@ newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Text@
+--
 mkDeleteClusterParameterGroup :: Text -- ^ 'dcpgParameterGroupName'
                               -> DeleteClusterParameterGroup
 mkDeleteClusterParameterGroup p1 = DeleteClusterParameterGroup

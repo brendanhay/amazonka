@@ -48,7 +48,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
     , _cipPath :: Maybe Text
@@ -56,6 +55,13 @@ data CreateInstanceProfile = CreateInstanceProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstanceProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfileName ::@ @Text@
+--
+-- * @Path ::@ @Maybe Text@
+--
 mkCreateInstanceProfile :: Text -- ^ 'cipInstanceProfileName'
                         -> CreateInstanceProfile
 mkCreateInstanceProfile p1 = CreateInstanceProfile
@@ -87,6 +93,11 @@ newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
 -- a valid 'CreateInstanceProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfile ::@ @InstanceProfile@
+--
 mkCreateInstanceProfileResponse :: InstanceProfile -- ^ 'ciprInstanceProfile'
                                 -> CreateInstanceProfileResponse
 mkCreateInstanceProfileResponse p1 = CreateInstanceProfileResponse

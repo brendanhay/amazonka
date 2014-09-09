@@ -58,7 +58,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlpSAMLMetadataDocument :: Text
     , _csamlpName :: Text
@@ -66,6 +65,13 @@ data CreateSAMLProvider = CreateSAMLProvider
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSAMLProvider' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLMetadataDocument ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
 mkCreateSAMLProvider :: Text -- ^ 'csamlpSAMLMetadataDocument'
                      -> Text -- ^ 'csamlpName'
                      -> CreateSAMLProvider
@@ -104,6 +110,11 @@ newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
 -- a valid 'CreateSAMLProviderResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SAMLProviderArn ::@ @Maybe Text@
+--
 mkCreateSAMLProviderResponse :: CreateSAMLProviderResponse
 mkCreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn = Nothing

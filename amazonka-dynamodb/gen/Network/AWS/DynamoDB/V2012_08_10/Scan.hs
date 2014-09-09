@@ -89,6 +89,29 @@ data Scan = Scan
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Scan' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TableName ::@ @Text@
+--
+-- * @AttributesToGet ::@ @Maybe (List1 Text)@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
+-- * @Select ::@ @Maybe Select@
+--
+-- * @ScanFilter ::@ @Map Text Condition@
+--
+-- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
+--
+-- * @ExclusiveStartKey ::@ @Map Text AttributeValue@
+--
+-- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
+--
+-- * @TotalSegments ::@ @Maybe Integer@
+--
+-- * @Segment ::@ @Maybe Integer@
+--
 mkScan :: Text -- ^ 'sTableName'
        -> Scan
 mkScan p1 = Scan
@@ -296,6 +319,19 @@ data ScanResponse = ScanResponse
 -- a valid 'ScanResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Items ::@ @[Map Text AttributeValue]@
+--
+-- * @Count ::@ @Maybe Integer@
+--
+-- * @ScannedCount ::@ @Maybe Integer@
+--
+-- * @LastEvaluatedKey ::@ @Map Text AttributeValue@
+--
+-- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
+--
 mkScanResponse :: ScanResponse
 mkScanResponse = ScanResponse
     { _srItems = mempty

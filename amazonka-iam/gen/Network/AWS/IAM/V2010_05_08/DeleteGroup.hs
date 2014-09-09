@@ -40,13 +40,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteGroup = DeleteGroup
     { _dgGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
 mkDeleteGroup :: Text -- ^ 'dgGroupName'
               -> DeleteGroup
 mkDeleteGroup p1 = DeleteGroup

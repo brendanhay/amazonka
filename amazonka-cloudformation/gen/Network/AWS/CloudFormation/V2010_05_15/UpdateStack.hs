@@ -81,6 +81,31 @@ data UpdateStack = UpdateStack
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStack' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
+-- * @TemplateBody ::@ @Maybe Text@
+--
+-- * @TemplateURL ::@ @Maybe Text@
+--
+-- * @UsePreviousTemplate ::@ @Maybe Bool@
+--
+-- * @StackPolicyDuringUpdateBody ::@ @Maybe Text@
+--
+-- * @StackPolicyDuringUpdateURL ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
+-- * @Capabilities ::@ @[Capability]@
+--
+-- * @StackPolicyBody ::@ @Maybe Text@
+--
+-- * @StackPolicyURL ::@ @Maybe Text@
+--
+-- * @NotificationARNs ::@ @[Text]@
+--
 mkUpdateStack :: Text -- ^ 'usStackName'
               -> UpdateStack
 mkUpdateStack p1 = UpdateStack
@@ -199,6 +224,11 @@ newtype UpdateStackResponse = UpdateStackResponse
 -- a valid 'UpdateStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
 mkUpdateStackResponse :: UpdateStackResponse
 mkUpdateStackResponse = UpdateStackResponse
     { _usrStackId = Nothing

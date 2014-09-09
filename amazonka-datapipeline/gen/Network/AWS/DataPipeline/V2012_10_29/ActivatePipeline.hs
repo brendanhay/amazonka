@@ -55,6 +55,11 @@ newtype ActivatePipeline = ActivatePipeline
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ActivatePipeline' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
 mkActivatePipeline :: Text -- ^ 'apPipelineId'
                    -> ActivatePipeline
 mkActivatePipeline p1 = ActivatePipeline

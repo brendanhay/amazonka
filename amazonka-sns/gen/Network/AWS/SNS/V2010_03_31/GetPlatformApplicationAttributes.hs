@@ -64,6 +64,11 @@ newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPlatformApplicationAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplicationArn ::@ @Text@
+--
 mkGetPlatformApplicationAttributes :: Text -- ^ 'gpaaPlatformApplicationArn'
                                    -> GetPlatformApplicationAttributes
 mkGetPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
@@ -88,6 +93,11 @@ newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttribu
 -- a valid 'GetPlatformApplicationAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkGetPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse
 mkGetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes = mempty

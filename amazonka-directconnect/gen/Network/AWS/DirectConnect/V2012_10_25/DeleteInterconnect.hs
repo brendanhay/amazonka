@@ -46,6 +46,11 @@ newtype DeleteInterconnect = DeleteInterconnect
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInterconnect' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InterconnectId ::@ @Text@
+--
 mkDeleteInterconnect :: Text -- ^ 'diInterconnectId'
                      -> DeleteInterconnect
 mkDeleteInterconnect p1 = DeleteInterconnect
@@ -74,6 +79,11 @@ newtype DeleteInterconnectResponse = DeleteInterconnectResponse
 -- a valid 'DeleteInterconnectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InterconnectState ::@ @Maybe InterconnectState@
+--
 mkDeleteInterconnectResponse :: DeleteInterconnectResponse
 mkDeleteInterconnectResponse = DeleteInterconnectResponse
     { _dirInterconnectState = Nothing

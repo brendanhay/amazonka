@@ -61,6 +61,11 @@ newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityVerificationAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identities ::@ @[Text]@
+--
 mkGetIdentityVerificationAttributes :: [Text] -- ^ 'givaIdentities'
                                     -> GetIdentityVerificationAttributes
 mkGetIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
@@ -83,6 +88,11 @@ newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttri
 -- a valid 'GetIdentityVerificationAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VerificationAttributes ::@ @Map Text IdentityVerificationAttributes@
+--
 mkGetIdentityVerificationAttributesResponse :: Map Text IdentityVerificationAttributes -- ^ 'givarVerificationAttributes'
                                             -> GetIdentityVerificationAttributesResponse
 mkGetIdentityVerificationAttributesResponse p1 = GetIdentityVerificationAttributesResponse

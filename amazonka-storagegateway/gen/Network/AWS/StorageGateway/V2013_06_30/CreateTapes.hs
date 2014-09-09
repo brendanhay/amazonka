@@ -52,6 +52,19 @@ data CreateTapes = CreateTapes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTapes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @TapeSizeInBytes ::@ @Integer@
+--
+-- * @ClientToken ::@ @Text@
+--
+-- * @NumTapesToCreate ::@ @Integer@
+--
+-- * @TapeBarcodePrefix ::@ @Text@
+--
 mkCreateTapes :: Text -- ^ 'ctGatewayARN'
               -> Integer -- ^ 'ctTapeSizeInBytes'
               -> Text -- ^ 'ctClientToken'
@@ -102,6 +115,11 @@ newtype CreateTapesResponse = CreateTapesResponse
 -- a valid 'CreateTapesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARNs ::@ @[Text]@
+--
 mkCreateTapesResponse :: CreateTapesResponse
 mkCreateTapesResponse = CreateTapesResponse
     { _ctrTapeARNs = mempty

@@ -91,6 +91,19 @@ data PutRecord = PutRecord
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRecord' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
+-- * @Data ::@ @Base64@
+--
+-- * @PartitionKey ::@ @Text@
+--
+-- * @ExplicitHashKey ::@ @Maybe Text@
+--
+-- * @SequenceNumberForOrdering ::@ @Maybe Text@
+--
 mkPutRecord :: Text -- ^ 'prStreamName'
             -> Base64 -- ^ 'prData'
             -> Text -- ^ 'prPartitionKey'
@@ -159,6 +172,13 @@ data PutRecordResponse = PutRecordResponse
 -- a valid 'PutRecordResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ShardId ::@ @Text@
+--
+-- * @SequenceNumber ::@ @Text@
+--
 mkPutRecordResponse :: Text -- ^ 'prrShardId'
                     -> Text -- ^ 'prrSequenceNumber'
                     -> PutRecordResponse

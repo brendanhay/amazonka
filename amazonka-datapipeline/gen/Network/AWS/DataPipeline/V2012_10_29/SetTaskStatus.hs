@@ -64,6 +64,19 @@ data SetTaskStatus = SetTaskStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTaskStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskId ::@ @Text@
+--
+-- * @TaskStatus ::@ @TaskStatus@
+--
+-- * @ErrorId ::@ @Maybe Text@
+--
+-- * @ErrorMessage ::@ @Maybe Text@
+--
+-- * @ErrorStackTrace ::@ @Maybe Text@
+--
 mkSetTaskStatus :: Text -- ^ 'stsTaskId'
                 -> TaskStatus -- ^ 'stsTaskStatus'
                 -> SetTaskStatus

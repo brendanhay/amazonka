@@ -50,6 +50,15 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapeRecoveryPoints' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkDescribeTapeRecoveryPoints :: Text -- ^ 'dtrpGatewayARN'
                              -> DescribeTapeRecoveryPoints
 mkDescribeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
@@ -87,6 +96,15 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
 -- a valid 'DescribeTapeRecoveryPointsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @TapeRecoveryPointInfos ::@ @[TapeRecoveryPointInfo]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeTapeRecoveryPointsResponse :: DescribeTapeRecoveryPointsResponse
 mkDescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     { _dtrprGatewayARN = Nothing

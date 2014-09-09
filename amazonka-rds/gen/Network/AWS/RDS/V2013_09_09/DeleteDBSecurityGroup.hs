@@ -49,6 +49,11 @@ newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBSecurityGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroupName ::@ @Text@
+--
 mkDeleteDBSecurityGroup :: Text -- ^ 'ddbsgDBSecurityGroupName'
                         -> DeleteDBSecurityGroup
 mkDeleteDBSecurityGroup p1 = DeleteDBSecurityGroup

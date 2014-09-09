@@ -480,6 +480,25 @@ data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
 --
 -- 'CachediSCSIVolumeInformation' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @VolumeType ::@ @Maybe Text@
+--
+-- * @VolumeStatus ::@ @Maybe Text@
+--
+-- * @VolumeSizeInBytes ::@ @Maybe Integer@
+--
+-- * @VolumeProgress ::@ @Maybe Double@
+--
+-- * @SourceSnapshotId ::@ @Maybe Text@
+--
+-- * @VolumeiSCSIAttributes ::@ @Maybe VolumeiSCSIAttributes@
+--
 mkCachediSCSIVolumeInformation :: CachediSCSIVolumeInformation
 mkCachediSCSIVolumeInformation = CachediSCSIVolumeInformation
     { _cscsiviVolumeARN = Nothing
@@ -543,6 +562,17 @@ data ChapInfo = ChapInfo
 --
 -- 'ChapInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetARN ::@ @Maybe Text@
+--
+-- * @SecretToAuthenticateInitiator ::@ @Maybe Text@
+--
+-- * @InitiatorName ::@ @Maybe Text@
+--
+-- * @SecretToAuthenticateTarget ::@ @Maybe Text@
+--
 mkChapInfo :: ChapInfo
 mkChapInfo = ChapInfo
     { _ciTargetARN = Nothing
@@ -585,6 +615,17 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeviceiSCSIAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetARN ::@ @Maybe Text@
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @NetworkInterfacePort ::@ @Maybe Integer@
+--
+-- * @ChapEnabled ::@ @Maybe Bool@
+--
 mkDeviceiSCSIAttributes :: DeviceiSCSIAttributes
 mkDeviceiSCSIAttributes = DeviceiSCSIAttributes
     { _dscsiaTargetARN = Nothing
@@ -628,6 +669,21 @@ data DiskInformation = DiskInformation
 --
 -- 'DiskInformation' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DiskId ::@ @Maybe Text@
+--
+-- * @DiskPath ::@ @Maybe Text@
+--
+-- * @DiskNode ::@ @Maybe Text@
+--
+-- * @DiskSizeInBytes ::@ @Maybe Integer@
+--
+-- * @DiskAllocationType ::@ @Maybe Text@
+--
+-- * @DiskAllocationResource ::@ @Maybe Text@
+--
 mkDiskInformation :: DiskInformation
 mkDiskInformation = DiskInformation
     { _diDiskId = Nothing
@@ -672,6 +728,13 @@ data GatewayInformation = GatewayInformation
 --
 -- 'GatewayInformation' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @GatewayType ::@ @Maybe Text@
+--
 mkGatewayInformation :: GatewayInformation
 mkGatewayInformation = GatewayInformation
     { _giGatewayARN = Nothing
@@ -700,6 +763,15 @@ data NetworkInterface = NetworkInterface
 --
 -- 'NetworkInterface' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Ipv4Address ::@ @Maybe Text@
+--
+-- * @MacAddress ::@ @Maybe Text@
+--
+-- * @Ipv6Address ::@ @Maybe Text@
+--
 mkNetworkInterface :: NetworkInterface
 mkNetworkInterface = NetworkInterface
     { _niIpv4Address = Nothing
@@ -732,6 +804,13 @@ data StorageGatewayError = StorageGatewayError
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StorageGatewayError' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ErrorCode ::@ @Maybe ErrorCode@
+--
+-- * @ErrorDetails ::@ @Map Text Text@
+--
 mkStorageGatewayError :: StorageGatewayError
 mkStorageGatewayError = StorageGatewayError
     { _sgeErrorCode = Nothing
@@ -768,6 +847,29 @@ data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
 --
 -- 'StorediSCSIVolumeInformation' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @VolumeType ::@ @Maybe Text@
+--
+-- * @VolumeStatus ::@ @Maybe Text@
+--
+-- * @VolumeSizeInBytes ::@ @Maybe Integer@
+--
+-- * @VolumeProgress ::@ @Maybe Double@
+--
+-- * @VolumeDiskId ::@ @Maybe Text@
+--
+-- * @SourceSnapshotId ::@ @Maybe Text@
+--
+-- * @PreservedExistingData ::@ @Maybe Bool@
+--
+-- * @VolumeiSCSIAttributes ::@ @Maybe VolumeiSCSIAttributes@
+--
 mkStorediSCSIVolumeInformation :: StorediSCSIVolumeInformation
 mkStorediSCSIVolumeInformation = StorediSCSIVolumeInformation
     { _sscsiviVolumeARN = Nothing
@@ -842,6 +944,21 @@ data Tape = Tape
 --
 -- 'Tape' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
+-- * @TapeBarcode ::@ @Maybe Text@
+--
+-- * @TapeSizeInBytes ::@ @Maybe Integer@
+--
+-- * @TapeStatus ::@ @Maybe Text@
+--
+-- * @VTLDevice ::@ @Maybe Text@
+--
+-- * @Progress ::@ @Maybe Double@
+--
 mkTape :: Tape
 mkTape = Tape
     { _tTapeARN = Nothing
@@ -887,6 +1004,21 @@ data TapeArchive = TapeArchive
 --
 -- 'TapeArchive' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
+-- * @TapeBarcode ::@ @Maybe Text@
+--
+-- * @TapeSizeInBytes ::@ @Maybe Integer@
+--
+-- * @CompletionTime ::@ @Maybe ISO8601@
+--
+-- * @RetrievedTo ::@ @Maybe Text@
+--
+-- * @TapeStatus ::@ @Maybe Text@
+--
 mkTapeArchive :: TapeArchive
 mkTapeArchive = TapeArchive
     { _taTapeARN = Nothing
@@ -932,6 +1064,15 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo
 --
 -- 'TapeRecoveryPointInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
+-- * @TapeRecoveryPointTime ::@ @Maybe ISO8601@
+--
+-- * @TapeSizeInBytes ::@ @Maybe Integer@
+--
 mkTapeRecoveryPointInfo :: TapeRecoveryPointInfo
 mkTapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN = Nothing
@@ -963,6 +1104,13 @@ data VTLDevice = VTLDevice
 --
 -- 'VTLDevice' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VTLDeviceARN ::@ @Maybe Text@
+--
+-- * @DeviceiSCSIAttributes ::@ @Maybe DeviceiSCSIAttributes@
+--
 mkVTLDevice :: VTLDevice
 mkVTLDevice = VTLDevice
     { _vtldVTLDeviceARN = Nothing
@@ -990,6 +1138,13 @@ data VolumeInformation = VolumeInformation
 --
 -- 'VolumeInformation' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @VolumeType ::@ @Maybe Text@
+--
 mkVolumeInformation :: VolumeInformation
 mkVolumeInformation = VolumeInformation
     { _viVolumeARN = Nothing
@@ -1016,6 +1171,17 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
 --
 -- 'VolumeRecoveryPointInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @VolumeSizeInBytes ::@ @Maybe Integer@
+--
+-- * @VolumeUsageInBytes ::@ @Maybe Integer@
+--
+-- * @VolumeRecoveryPointTime ::@ @Maybe Text@
+--
 mkVolumeRecoveryPointInfo :: VolumeRecoveryPointInfo
 mkVolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     { _vrpiVolumeARN = Nothing
@@ -1053,6 +1219,19 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeiSCSIAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetARN ::@ @Maybe Text@
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @NetworkInterfacePort ::@ @Maybe Integer@
+--
+-- * @LunNumber ::@ @Maybe Integer@
+--
+-- * @ChapEnabled ::@ @Maybe Bool@
+--
 mkVolumeiSCSIAttributes :: VolumeiSCSIAttributes
 mkVolumeiSCSIAttributes = VolumeiSCSIAttributes
     { _vscsiaTargetARN = Nothing

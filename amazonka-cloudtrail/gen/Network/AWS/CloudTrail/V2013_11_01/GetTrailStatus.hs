@@ -54,6 +54,11 @@ newtype GetTrailStatus = GetTrailStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTrailStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkGetTrailStatus :: Text -- ^ 'gtsName'
                  -> GetTrailStatus
 mkGetTrailStatus p1 = GetTrailStatus
@@ -88,6 +93,23 @@ data GetTrailStatusResponse = GetTrailStatusResponse
 -- a valid 'GetTrailStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IsLogging ::@ @Maybe Bool@
+--
+-- * @LatestDeliveryError ::@ @Maybe Text@
+--
+-- * @LatestNotificationError ::@ @Maybe Text@
+--
+-- * @LatestDeliveryTime ::@ @Maybe ISO8601@
+--
+-- * @LatestNotificationTime ::@ @Maybe ISO8601@
+--
+-- * @StartLoggingTime ::@ @Maybe ISO8601@
+--
+-- * @StopLoggingTime ::@ @Maybe ISO8601@
+--
 mkGetTrailStatusResponse :: GetTrailStatusResponse
 mkGetTrailStatusResponse = GetTrailStatusResponse
     { _gtsrIsLogging = Nothing

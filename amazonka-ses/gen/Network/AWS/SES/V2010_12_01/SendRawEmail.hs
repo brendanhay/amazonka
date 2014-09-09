@@ -94,6 +94,15 @@ data SendRawEmail = SendRawEmail
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendRawEmail' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @Destinations ::@ @[Text]@
+--
+-- * @RawMessage ::@ @RawMessage@
+--
 mkSendRawEmail :: RawMessage -- ^ 'sreRawMessage'
                -> SendRawEmail
 mkSendRawEmail p3 = SendRawEmail
@@ -141,6 +150,11 @@ newtype SendRawEmailResponse = SendRawEmailResponse
 -- a valid 'SendRawEmailResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MessageId ::@ @Text@
+--
 mkSendRawEmailResponse :: Text -- ^ 'srerMessageId'
                        -> SendRawEmailResponse
 mkSendRawEmailResponse p1 = SendRawEmailResponse

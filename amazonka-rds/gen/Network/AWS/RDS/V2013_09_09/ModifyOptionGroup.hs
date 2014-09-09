@@ -60,6 +60,17 @@ data ModifyOptionGroup = ModifyOptionGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyOptionGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroupName ::@ @Text@
+--
+-- * @OptionsToInclude ::@ @[OptionConfiguration]@
+--
+-- * @OptionsToRemove ::@ @[Text]@
+--
+-- * @ApplyImmediately ::@ @Maybe Bool@
+--
 mkModifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
                     -> ModifyOptionGroup
 mkModifyOptionGroup p1 = ModifyOptionGroup
@@ -106,6 +117,11 @@ newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
 -- a valid 'ModifyOptionGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroup ::@ @Maybe OptionGroup@
+--
 mkModifyOptionGroupResponse :: ModifyOptionGroupResponse
 mkModifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup = Nothing

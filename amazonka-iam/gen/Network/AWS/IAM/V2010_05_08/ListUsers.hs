@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListUsers = ListUsers
     { _luPathPrefix :: Maybe Text
     , _luMarker :: Maybe Text
@@ -63,6 +62,15 @@ data ListUsers = ListUsers
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListUsers' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PathPrefix ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListUsers :: ListUsers
 mkListUsers = ListUsers
     { _luPathPrefix = Nothing
@@ -106,6 +114,15 @@ data ListUsersResponse = ListUsersResponse
 -- a valid 'ListUsersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Users ::@ @[User]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListUsersResponse :: [User] -- ^ 'lurUsers'
                     -> Bool -- ^ 'lurIsTruncated'
                     -> ListUsersResponse

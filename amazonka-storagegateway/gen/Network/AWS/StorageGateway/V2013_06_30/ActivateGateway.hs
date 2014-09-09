@@ -76,6 +76,19 @@ data ActivateGateway = ActivateGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ActivateGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivationKey ::@ @Text@
+--
+-- * @GatewayName ::@ @Text@
+--
+-- * @GatewayTimezone ::@ @Text@
+--
+-- * @GatewayRegion ::@ @Text@
+--
+-- * @GatewayType ::@ @Maybe Text@
+--
 mkActivateGateway :: Text -- ^ 'agActivationKey'
                   -> Text -- ^ 'agGatewayName'
                   -> Text -- ^ 'agGatewayTimezone'
@@ -148,6 +161,11 @@ newtype ActivateGatewayResponse = ActivateGatewayResponse
 -- a valid 'ActivateGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkActivateGatewayResponse :: ActivateGatewayResponse
 mkActivateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN = Nothing

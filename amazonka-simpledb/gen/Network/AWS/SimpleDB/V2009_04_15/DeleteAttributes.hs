@@ -58,6 +58,17 @@ data DeleteAttributes = DeleteAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ItemName ::@ @Text@
+--
+-- * @Attributes ::@ @[Attribute]@
+--
+-- * @Expected ::@ @Maybe UpdateCondition@
+--
 mkDeleteAttributes :: Text -- ^ 'daDomainName'
                    -> Text -- ^ 'daItemName'
                    -> DeleteAttributes

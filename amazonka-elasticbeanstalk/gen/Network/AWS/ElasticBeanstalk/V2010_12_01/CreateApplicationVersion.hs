@@ -65,6 +65,19 @@ data CreateApplicationVersion = CreateApplicationVersion
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplicationVersion' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @VersionLabel ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @SourceBundle ::@ @Maybe S3Location@
+--
+-- * @AutoCreateApplication ::@ @Maybe Bool@
+--
 mkCreateApplicationVersion :: Text -- ^ 'cavApplicationName'
                            -> Text -- ^ 'cavVersionLabel'
                            -> CreateApplicationVersion
@@ -129,6 +142,11 @@ newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
 -- a valid 'CreateApplicationVersionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationVersion ::@ @Maybe ApplicationVersionDescription@
+--
 mkCreateApplicationVersionResponse :: CreateApplicationVersionResponse
 mkCreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion = Nothing

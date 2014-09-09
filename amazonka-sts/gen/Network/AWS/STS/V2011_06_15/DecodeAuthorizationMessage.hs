@@ -76,6 +76,11 @@ newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DecodeAuthorizationMessage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EncodedMessage ::@ @Text@
+--
 mkDecodeAuthorizationMessage :: Text -- ^ 'damEncodedMessage'
                              -> DecodeAuthorizationMessage
 mkDecodeAuthorizationMessage p1 = DecodeAuthorizationMessage
@@ -101,6 +106,11 @@ newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 -- a valid 'DecodeAuthorizationMessageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DecodedMessage ::@ @Maybe Text@
+--
 mkDecodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse
 mkDecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage = Nothing

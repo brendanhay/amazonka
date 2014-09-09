@@ -63,6 +63,15 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEngineDefaultParameters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBParameterGroupFamily ::@ @Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeEngineDefaultParameters :: Text -- ^ 'dedpDBParameterGroupFamily'
                                   -> DescribeEngineDefaultParameters
 mkDescribeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
@@ -102,6 +111,11 @@ newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParameter
 -- a valid 'DescribeEngineDefaultParametersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EngineDefaults ::@ @EngineDefaults@
+--
 mkDescribeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
                                           -> DescribeEngineDefaultParametersResponse
 mkDescribeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse

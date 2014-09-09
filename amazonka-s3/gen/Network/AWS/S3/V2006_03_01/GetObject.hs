@@ -98,6 +98,43 @@ data GetObject = GetObject
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObject' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @IfMatch ::@ @Maybe Text@
+--
+-- * @IfModifiedSince ::@ @Maybe RFC822@
+--
+-- * @IfNoneMatch ::@ @Maybe Text@
+--
+-- * @IfUnmodifiedSince ::@ @Maybe RFC822@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @Range ::@ @Maybe Text@
+--
+-- * @ResponseCacheControl ::@ @Maybe Text@
+--
+-- * @ResponseContentDisposition ::@ @Maybe Text@
+--
+-- * @ResponseContentEncoding ::@ @Maybe Text@
+--
+-- * @ResponseContentLanguage ::@ @Maybe Text@
+--
+-- * @ResponseContentType ::@ @Maybe Text@
+--
+-- * @ResponseExpires ::@ @Maybe RFC822@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKey ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkGetObject :: BucketName -- ^ 'goBucket'
             -> ObjectKey -- ^ 'goKey'
             -> GetObject
@@ -260,6 +297,51 @@ data GetObjectResponse = GetObjectResponse
 -- a valid 'GetObjectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Body ::@ @RsBody@
+--
+-- * @DeleteMarker ::@ @Maybe Bool@
+--
+-- * @AcceptRanges ::@ @Maybe Text@
+--
+-- * @Expiration ::@ @Maybe RFC822@
+--
+-- * @Restore ::@ @Maybe Text@
+--
+-- * @LastModified ::@ @Maybe RFC822@
+--
+-- * @ContentLength ::@ @Maybe Integer@
+--
+-- * @ETag ::@ @Maybe ETag@
+--
+-- * @MissingMeta ::@ @Maybe Integer@
+--
+-- * @VersionId ::@ @Maybe ObjectVersionId@
+--
+-- * @CacheControl ::@ @Maybe Text@
+--
+-- * @ContentDisposition ::@ @Maybe Text@
+--
+-- * @ContentEncoding ::@ @Maybe Text@
+--
+-- * @ContentLanguage ::@ @Maybe Text@
+--
+-- * @ContentType ::@ @Maybe Text@
+--
+-- * @Expires ::@ @Maybe RFC822@
+--
+-- * @WebsiteRedirectLocation ::@ @Maybe Text@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @Metadata ::@ @Map Text Text@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkGetObjectResponse :: RsBody -- ^ 'gorBody'
                     -> GetObjectResponse
 mkGetObjectResponse p1 = GetObjectResponse

@@ -489,6 +489,11 @@ newtype AccountWithRestoreAccess = AccountWithRestoreAccess
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccountWithRestoreAccess' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccountId ::@ @Maybe Text@
+--
 mkAccountWithRestoreAccess :: AccountWithRestoreAccess
 mkAccountWithRestoreAccess = AccountWithRestoreAccess
     { _awraAccountId = Nothing
@@ -512,6 +517,11 @@ newtype AvailabilityZone = AvailabilityZone
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkAvailabilityZone :: AvailabilityZone
 mkAvailabilityZone = AvailabilityZone
     { _azName = Nothing
@@ -566,6 +576,67 @@ data Cluster = Cluster
 --
 -- 'Cluster' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @ClusterStatus ::@ @Maybe Text@
+--
+-- * @ModifyStatus ::@ @Maybe Text@
+--
+-- * @MasterUsername ::@ @Maybe Text@
+--
+-- * @DBName ::@ @Maybe Text@
+--
+-- * @Endpoint ::@ @Maybe Endpoint@
+--
+-- * @ClusterCreateTime ::@ @Maybe ISO8601@
+--
+-- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @ClusterSecurityGroups ::@ @[ClusterSecurityGroupMembership]@
+--
+-- * @VpcSecurityGroups ::@ @[VpcSecurityGroupMembership]@
+--
+-- * @ClusterParameterGroups ::@ @[ClusterParameterGroupStatus]@
+--
+-- * @ClusterSubnetGroupName ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @PendingModifiedValues ::@ @Maybe PendingModifiedValues@
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @AllowVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @NumberOfNodes ::@ @Maybe Integer@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
+-- * @RestoreStatus ::@ @Maybe RestoreStatus@
+--
+-- * @HsmStatus ::@ @Maybe HsmStatus@
+--
+-- * @ClusterSnapshotCopyStatus ::@ @Maybe ClusterSnapshotCopyStatus@
+--
+-- * @ClusterPublicKey ::@ @Maybe Text@
+--
+-- * @ClusterNodes ::@ @[ClusterNode]@
+--
+-- * @ElasticIpStatus ::@ @Maybe ElasticIpStatus@
+--
+-- * @ClusterRevisionNumber ::@ @Maybe Text@
+--
 mkCluster :: Cluster
 mkCluster = Cluster
     { _cClusterIdentifier = Nothing
@@ -769,6 +840,15 @@ data ClusterNode = ClusterNode
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterNode' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NodeRole ::@ @Maybe Text@
+--
+-- * @PrivateIPAddress ::@ @Maybe Text@
+--
+-- * @PublicIPAddress ::@ @Maybe Text@
+--
 mkClusterNode :: ClusterNode
 mkClusterNode = ClusterNode
     { _cnNodeRole = Nothing
@@ -809,6 +889,15 @@ data ClusterParameterGroup = ClusterParameterGroup
 --
 -- 'ClusterParameterGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Maybe Text@
+--
+-- * @ParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkClusterParameterGroup :: ClusterParameterGroup
 mkClusterParameterGroup = ClusterParameterGroup
     { _cpgParameterGroupName = Nothing
@@ -844,6 +933,13 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterParameterGroupStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Maybe Text@
+--
+-- * @ParameterApplyStatus ::@ @Maybe Text@
+--
 mkClusterParameterGroupStatus :: ClusterParameterGroupStatus
 mkClusterParameterGroupStatus = ClusterParameterGroupStatus
     { _cpgsParameterGroupName = Nothing
@@ -881,6 +977,17 @@ data ClusterSecurityGroup = ClusterSecurityGroup
 --
 -- 'ClusterSecurityGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroupName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroups ::@ @[EC2SecurityGroup]@
+--
+-- * @IPRanges ::@ @[IPRange]@
+--
 mkClusterSecurityGroup :: ClusterSecurityGroup
 mkClusterSecurityGroup = ClusterSecurityGroup
     { _csgClusterSecurityGroupName = Nothing
@@ -922,6 +1029,13 @@ data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSecurityGroupMembership' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroupName ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkClusterSecurityGroupMembership :: ClusterSecurityGroupMembership
 mkClusterSecurityGroupMembership = ClusterSecurityGroupMembership
     { _csgmClusterSecurityGroupName = Nothing
@@ -954,6 +1068,13 @@ data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSnapshotCopyStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DestinationRegion ::@ @Maybe Text@
+--
+-- * @RetentionPeriod ::@ @Maybe Integer@
+--
 mkClusterSnapshotCopyStatus :: ClusterSnapshotCopyStatus
 mkClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
     { _cscsDestinationRegion = Nothing
@@ -993,6 +1114,19 @@ data ClusterSubnetGroup = ClusterSubnetGroup
 --
 -- 'ClusterSubnetGroup' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSubnetGroupName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @SubnetGroupStatus ::@ @Maybe Text@
+--
+-- * @Subnets ::@ @[Subnet]@
+--
 mkClusterSubnetGroup :: ClusterSubnetGroup
 mkClusterSubnetGroup = ClusterSubnetGroup
     { _csgrClusterSubnetGroupName = Nothing
@@ -1043,6 +1177,15 @@ data ClusterVersion = ClusterVersion
 --
 -- 'ClusterVersion' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @ClusterParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkClusterVersion :: ClusterVersion
 mkClusterVersion = ClusterVersion
     { _cvClusterVersion = Nothing
@@ -1081,6 +1224,15 @@ data DefaultClusterParameters = DefaultClusterParameters
 --
 -- 'DefaultClusterParameters' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
 mkDefaultClusterParameters :: DefaultClusterParameters
 mkDefaultClusterParameters = DefaultClusterParameters
     { _dcp1ParameterGroupFamily = Nothing
@@ -1120,6 +1272,15 @@ data EC2SecurityGroup = EC2SecurityGroup
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EC2SecurityGroup' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupName ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+--
 mkEC2SecurityGroup :: EC2SecurityGroup
 mkEC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus = Nothing
@@ -1159,6 +1320,13 @@ data ElasticIpStatus = ElasticIpStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ElasticIpStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIp ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkElasticIpStatus :: ElasticIpStatus
 mkElasticIpStatus = ElasticIpStatus
     { _eisElasticIp = Nothing
@@ -1188,6 +1356,13 @@ data Endpoint = Endpoint
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Endpoint' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Address ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
 mkEndpoint :: Endpoint
 mkEndpoint = Endpoint
     { _eAddress = Nothing
@@ -1225,6 +1400,23 @@ data Event = Event
 --
 -- 'Event' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceIdentifier ::@ @Maybe Text@
+--
+-- * @SourceType ::@ @Maybe SourceType@
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @EventCategories ::@ @[Text]@
+--
+-- * @Severity ::@ @Maybe Text@
+--
+-- * @Date ::@ @Maybe ISO8601@
+--
+-- * @EventId ::@ @Maybe Text@
+--
 mkEvent :: Event
 mkEvent = Event
     { _erSourceIdentifier = Nothing
@@ -1270,7 +1462,6 @@ instance FromXML Event where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Event"
 
--- | 
 data EventCategoriesMap = EventCategoriesMap
     { _ecmSourceType :: Maybe Text
     , _ecmEvents :: [EventInfoMap]
@@ -1281,6 +1472,13 @@ data EventCategoriesMap = EventCategoriesMap
 --
 -- 'EventCategoriesMap' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceType ::@ @Maybe Text@
+--
+-- * @Events ::@ @[EventInfoMap]@
+--
 mkEventCategoriesMap :: EventCategoriesMap
 mkEventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
@@ -1300,7 +1498,6 @@ instance FromXML EventCategoriesMap where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EventCategoriesMap"
 
--- | 
 data EventInfoMap = EventInfoMap
     { _eimEventId :: Maybe Text
     , _eimEventCategories :: [Text]
@@ -1310,6 +1507,17 @@ data EventInfoMap = EventInfoMap
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventInfoMap' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventId ::@ @Maybe Text@
+--
+-- * @EventCategories ::@ @[Text]@
+--
+-- * @EventDescription ::@ @Maybe Text@
+--
+-- * @Severity ::@ @Maybe Text@
+--
 mkEventInfoMap :: EventInfoMap
 mkEventInfoMap = EventInfoMap
     { _eimEventId = Nothing
@@ -1343,7 +1551,6 @@ instance FromXML EventInfoMap where
 instance ToQuery EventInfoMap where
     toQuery = genericQuery def
 
--- | 
 data EventSubscription = EventSubscription
     { _esCustomerAwsId :: Maybe Text
     , _esCustSubscriptionId :: Maybe Text
@@ -1362,6 +1569,29 @@ data EventSubscription = EventSubscription
 --
 -- 'EventSubscription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CustomerAwsId ::@ @Maybe Text@
+--
+-- * @CustSubscriptionId ::@ @Maybe Text@
+--
+-- * @SnsTopicArn ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @SubscriptionCreationTime ::@ @Maybe ISO8601@
+--
+-- * @SourceType ::@ @Maybe Text@
+--
+-- * @SourceIdsList ::@ @[Text]@
+--
+-- * @EventCategoriesList ::@ @[Text]@
+--
+-- * @Severity ::@ @Maybe Text@
+--
+-- * @Enabled ::@ @Maybe Bool@
+--
 mkEventSubscription :: EventSubscription
 mkEventSubscription = EventSubscription
     { _esCustomerAwsId = Nothing
@@ -1451,6 +1681,13 @@ data HsmClientCertificate = HsmClientCertificate
 --
 -- 'HsmClientCertificate' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmClientCertificateIdentifier ::@ @Maybe Text@
+--
+-- * @HsmClientCertificatePublicKey ::@ @Maybe Text@
+--
 mkHsmClientCertificate :: HsmClientCertificate
 mkHsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier = Nothing
@@ -1489,6 +1726,17 @@ data HsmConfiguration = HsmConfiguration
 --
 -- 'HsmConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmConfigurationIdentifier ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @HsmIpAddress ::@ @Maybe Text@
+--
+-- * @HsmPartitionName ::@ @Maybe Text@
+--
 mkHsmConfiguration :: HsmConfiguration
 mkHsmConfiguration = HsmConfiguration
     { _hcHsmConfigurationIdentifier = Nothing
@@ -1532,6 +1780,15 @@ data HsmStatus = HsmStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HsmStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmClientCertificateIdentifier ::@ @Maybe Text@
+--
+-- * @HsmConfigurationIdentifier ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkHsmStatus :: HsmStatus
 mkHsmStatus = HsmStatus
     { _hsHsmClientCertificateIdentifier = Nothing
@@ -1574,6 +1831,13 @@ data IPRange = IPRange
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IPRange' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @CIDRIP ::@ @Maybe Text@
+--
 mkIPRange :: IPRange
 mkIPRange = IPRange
     { _iprStatus = Nothing
@@ -1608,6 +1872,17 @@ data OrderableClusterOption = OrderableClusterOption
 --
 -- 'OrderableClusterOption' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @ClusterType ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @AvailabilityZones ::@ @[AvailabilityZone]@
+--
 mkOrderableClusterOption :: OrderableClusterOption
 mkOrderableClusterOption = OrderableClusterOption
     { _ocoClusterVersion = Nothing
@@ -1652,6 +1927,25 @@ data Parameter = Parameter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Parameter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterName ::@ @Maybe Text@
+--
+-- * @ParameterValue ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @Source ::@ @Maybe Text@
+--
+-- * @DataType ::@ @Maybe Text@
+--
+-- * @AllowedValues ::@ @Maybe Text@
+--
+-- * @IsModifiable ::@ @Maybe Bool@
+--
+-- * @MinimumEngineVersion ::@ @Maybe Text@
+--
 mkParameter :: Parameter
 mkParameter = Parameter
     { _pParameterName = Nothing
@@ -1719,6 +2013,23 @@ data PendingModifiedValues = PendingModifiedValues
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PendingModifiedValues' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MasterUserPassword ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @NumberOfNodes ::@ @Maybe Integer@
+--
+-- * @ClusterType ::@ @Maybe Text@
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @ClusterIdentifier ::@ @Maybe Text@
+--
 mkPendingModifiedValues :: PendingModifiedValues
 mkPendingModifiedValues = PendingModifiedValues
     { _pmvMasterUserPassword = Nothing
@@ -1781,6 +2092,13 @@ data RecurringCharge = RecurringCharge
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RecurringChargeAmount ::@ @Maybe Double@
+--
+-- * @RecurringChargeFrequency ::@ @Maybe Text@
+--
 mkRecurringCharge :: RecurringCharge
 mkRecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount = Nothing
@@ -1828,6 +2146,33 @@ data ReservedNode = ReservedNode
 --
 -- 'ReservedNode' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedNodeId ::@ @Maybe Text@
+--
+-- * @ReservedNodeOfferingId ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @CurrencyCode ::@ @Maybe Text@
+--
+-- * @NodeCount ::@ @Maybe Integer@
+--
+-- * @State ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
 mkReservedNode :: ReservedNode
 mkReservedNode = ReservedNode
     { _rnReservedNodeId = Nothing
@@ -1923,6 +2268,25 @@ data ReservedNodeOffering = ReservedNodeOffering
 --
 -- 'ReservedNodeOffering' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedNodeOfferingId ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @Duration ::@ @Maybe Integer@
+--
+-- * @FixedPrice ::@ @Maybe Double@
+--
+-- * @UsagePrice ::@ @Maybe Double@
+--
+-- * @CurrencyCode ::@ @Maybe Text@
+--
+-- * @OfferingType ::@ @Maybe Text@
+--
+-- * @RecurringCharges ::@ @[RecurringCharge]@
+--
 mkReservedNodeOffering :: ReservedNodeOffering
 mkReservedNodeOffering = ReservedNodeOffering
     { _rnoReservedNodeOfferingId = Nothing
@@ -1992,6 +2356,21 @@ data RestoreStatus = RestoreStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RestoreStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @CurrentRestoreRateInMegaBytesPerSecond ::@ @Maybe Double@
+--
+-- * @SnapshotSizeInMegaBytes ::@ @Maybe Integer@
+--
+-- * @ProgressInMegaBytes ::@ @Maybe Integer@
+--
+-- * @ElapsedTimeInSeconds ::@ @Maybe Integer@
+--
+-- * @EstimatedTimeToCompletionInSeconds ::@ @Maybe Integer@
+--
 mkRestoreStatus :: RestoreStatus
 mkRestoreStatus = RestoreStatus
     { _rsStatus = Nothing
@@ -2079,6 +2458,59 @@ data Snapshot = Snapshot
 --
 -- 'Snapshot' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotIdentifier ::@ @Maybe Text@
+--
+-- * @ClusterIdentifier ::@ @Maybe Text@
+--
+-- * @SnapshotCreateTime ::@ @Maybe ISO8601@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @ClusterCreateTime ::@ @Maybe ISO8601@
+--
+-- * @MasterUsername ::@ @Maybe Text@
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @SnapshotType ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Maybe Text@
+--
+-- * @NumberOfNodes ::@ @Maybe Integer@
+--
+-- * @DBName ::@ @Maybe Text@
+--
+-- * @VpcId ::@ @Maybe Text@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
+-- * @EncryptedWithHSM ::@ @Maybe Bool@
+--
+-- * @AccountsWithRestoreAccess ::@ @[AccountWithRestoreAccess]@
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @TotalBackupSizeInMegaBytes ::@ @Maybe Double@
+--
+-- * @ActualIncrementalBackupSizeInMegaBytes ::@ @Maybe Double@
+--
+-- * @BackupProgressInMegaBytes ::@ @Maybe Double@
+--
+-- * @CurrentBackupRateInMegaBytesPerSecond ::@ @Maybe Double@
+--
+-- * @EstimatedSecondsToCompletion ::@ @Maybe Integer@
+--
+-- * @ElapsedTimeInSeconds ::@ @Maybe Integer@
+--
+-- * @SourceRegion ::@ @Maybe Text@
+--
 mkSnapshot :: Snapshot
 mkSnapshot = Snapshot
     { _sSnapshotIdentifier = Nothing
@@ -2258,6 +2690,15 @@ data Subnet = Subnet
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetIdentifier ::@ @Maybe Text@
+--
+-- * @SubnetAvailabilityZone ::@ @Maybe AvailabilityZone@
+--
+-- * @SubnetStatus ::@ @Maybe Text@
+--
 mkSubnet :: Subnet
 mkSubnet = Subnet
     { _srSubnetIdentifier = Nothing
@@ -2295,6 +2736,13 @@ data VpcSecurityGroupMembership = VpcSecurityGroupMembership
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcSecurityGroupMembership' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcSecurityGroupId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
 mkVpcSecurityGroupMembership :: VpcSecurityGroupMembership
 mkVpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmVpcSecurityGroupId = Nothing

@@ -40,13 +40,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteUser = DeleteUser
     { _duUserName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteUser' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
 mkDeleteUser :: Text -- ^ 'duUserName'
              -> DeleteUser
 mkDeleteUser p1 = DeleteUser

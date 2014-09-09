@@ -420,6 +420,19 @@ data AccessKey = AccessKey
 --
 -- 'AccessKey' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @AccessKeyId ::@ @Text@
+--
+-- * @Status ::@ @StatusType@
+--
+-- * @SecretAccessKey ::@ @Text@
+--
+-- * @CreateDate ::@ @Maybe ISO8601@
+--
 mkAccessKey :: Text -- ^ 'akUserName'
             -> Text -- ^ 'akAccessKeyId'
             -> StatusType -- ^ 'akStatus'
@@ -474,6 +487,17 @@ data AccessKeyMetadata = AccessKeyMetadata
 --
 -- 'AccessKeyMetadata' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @AccessKeyId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe StatusType@
+--
+-- * @CreateDate ::@ @Maybe ISO8601@
+--
 mkAccessKeyMetadata :: AccessKeyMetadata
 mkAccessKeyMetadata = AccessKeyMetadata
     { _akmUserName = Nothing
@@ -517,6 +541,19 @@ data Group = Group
 --
 -- 'Group' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Text@
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @GroupId ::@ @Text@
+--
+-- * @Arn ::@ @Text@
+--
+-- * @CreateDate ::@ @ISO8601@
+--
 mkGroup :: Text -- ^ 'gPath'
         -> Text -- ^ 'gGroupName'
         -> Text -- ^ 'gGroupId'
@@ -574,6 +611,21 @@ data InstanceProfile = InstanceProfile
 --
 -- 'InstanceProfile' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Text@
+--
+-- * @InstanceProfileName ::@ @Text@
+--
+-- * @InstanceProfileId ::@ @Text@
+--
+-- * @Arn ::@ @Text@
+--
+-- * @CreateDate ::@ @ISO8601@
+--
+-- * @Roles ::@ @[Role]@
+--
 mkInstanceProfile :: Text -- ^ 'ipPath'
                   -> Text -- ^ 'ipInstanceProfileName'
                   -> Text -- ^ 'ipInstanceProfileId'
@@ -637,6 +689,15 @@ data LoginProfile = LoginProfile
 --
 -- 'LoginProfile' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @CreateDate ::@ @ISO8601@
+--
+-- * @PasswordResetRequired ::@ @Maybe Bool@
+--
 mkLoginProfile :: Text -- ^ 'lpUserName'
                -> ISO8601 -- ^ 'lpCreateDate'
                -> LoginProfile
@@ -679,6 +740,15 @@ data MFADevice = MFADevice
 --
 -- 'MFADevice' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @SerialNumber ::@ @Text@
+--
+-- * @EnableDate ::@ @ISO8601@
+--
 mkMFADevice :: Text -- ^ 'mfadUserName'
             -> Text -- ^ 'mfadSerialNumber'
             -> ISO8601 -- ^ 'mfadEnableDate'
@@ -728,6 +798,29 @@ data PasswordPolicy = PasswordPolicy
 --
 -- 'PasswordPolicy' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MinimumPasswordLength ::@ @Maybe Integer@
+--
+-- * @RequireSymbols ::@ @Maybe Bool@
+--
+-- * @RequireNumbers ::@ @Maybe Bool@
+--
+-- * @RequireUppercaseCharacters ::@ @Maybe Bool@
+--
+-- * @RequireLowercaseCharacters ::@ @Maybe Bool@
+--
+-- * @AllowUsersToChangePassword ::@ @Maybe Bool@
+--
+-- * @ExpirePasswords ::@ @Maybe Bool@
+--
+-- * @MaxPasswordAge ::@ @Maybe Integer@
+--
+-- * @PasswordReusePrevention ::@ @Maybe Integer@
+--
+-- * @HardExpiry ::@ @Maybe Bool@
+--
 mkPasswordPolicy :: PasswordPolicy
 mkPasswordPolicy = PasswordPolicy
     { _ppMinimumPasswordLength = Nothing
@@ -817,6 +910,21 @@ data Role = Role
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Role' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Text@
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @RoleId ::@ @Text@
+--
+-- * @Arn ::@ @Text@
+--
+-- * @CreateDate ::@ @ISO8601@
+--
+-- * @AssumeRolePolicyDocument ::@ @Maybe Text@
+--
 mkRole :: Text -- ^ 'rPath'
        -> Text -- ^ 'rRoleName'
        -> Text -- ^ 'rRoleId'
@@ -883,6 +991,15 @@ data SAMLProviderListEntry = SAMLProviderListEntry
 --
 -- 'SAMLProviderListEntry' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Arn ::@ @Maybe Text@
+--
+-- * @ValidUntil ::@ @Maybe ISO8601@
+--
+-- * @CreateDate ::@ @Maybe ISO8601@
+--
 mkSAMLProviderListEntry :: SAMLProviderListEntry
 mkSAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn = Nothing
@@ -920,6 +1037,15 @@ data ServerCertificate = ServerCertificate
 --
 -- 'ServerCertificate' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerCertificateMetadata ::@ @ServerCertificateMetadata@
+--
+-- * @CertificateBody ::@ @Text@
+--
+-- * @CertificateChain ::@ @Maybe Text@
+--
 mkServerCertificate :: ServerCertificateMetadata -- ^ 'scServerCertificateMetadata'
                     -> Text -- ^ 'scCertificateBody'
                     -> ServerCertificate
@@ -966,6 +1092,21 @@ data ServerCertificateMetadata = ServerCertificateMetadata
 --
 -- 'ServerCertificateMetadata' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Text@
+--
+-- * @ServerCertificateName ::@ @Text@
+--
+-- * @ServerCertificateId ::@ @Text@
+--
+-- * @Arn ::@ @Text@
+--
+-- * @UploadDate ::@ @Maybe ISO8601@
+--
+-- * @Expiration ::@ @Maybe ISO8601@
+--
 mkServerCertificateMetadata :: Text -- ^ 'scmPath'
                             -> Text -- ^ 'scmServerCertificateName'
                             -> Text -- ^ 'scmServerCertificateId'
@@ -1032,6 +1173,19 @@ data SigningCertificate = SigningCertificate
 --
 -- 'SigningCertificate' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Text@
+--
+-- * @CertificateId ::@ @Text@
+--
+-- * @CertificateBody ::@ @Text@
+--
+-- * @Status ::@ @StatusType@
+--
+-- * @UploadDate ::@ @Maybe ISO8601@
+--
 mkSigningCertificate :: Text -- ^ 'scrUserName'
                      -> Text -- ^ 'scrCertificateId'
                      -> Text -- ^ 'scrCertificateBody'
@@ -1083,6 +1237,19 @@ data User = User
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'User' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Path ::@ @Text@
+--
+-- * @UserName ::@ @Text@
+--
+-- * @UserId ::@ @Text@
+--
+-- * @Arn ::@ @Text@
+--
+-- * @CreateDate ::@ @ISO8601@
+--
 mkUser :: Text -- ^ 'uPath'
        -> Text -- ^ 'uUserName'
        -> Text -- ^ 'uUserId'
@@ -1142,6 +1309,19 @@ data VirtualMFADevice = VirtualMFADevice
 --
 -- 'VirtualMFADevice' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SerialNumber ::@ @Text@
+--
+-- * @Base32StringSeed ::@ @Maybe ByteString@
+--
+-- * @QRCodePNG ::@ @Maybe ByteString@
+--
+-- * @User ::@ @Maybe User@
+--
+-- * @EnableDate ::@ @Maybe ISO8601@
+--
 mkVirtualMFADevice :: Text -- ^ 'vmfadSerialNumber'
                    -> VirtualMFADevice
 mkVirtualMFADevice p1 = VirtualMFADevice

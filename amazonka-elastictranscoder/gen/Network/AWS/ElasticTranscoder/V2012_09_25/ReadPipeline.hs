@@ -63,6 +63,11 @@ newtype ReadPipeline = ReadPipeline
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPipeline' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkReadPipeline :: Text -- ^ 'rpId'
                -> ReadPipeline
 mkReadPipeline p1 = ReadPipeline
@@ -90,6 +95,11 @@ newtype ReadPipelineResponse = ReadPipelineResponse
 -- a valid 'ReadPipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Pipeline ::@ @Maybe Pipeline@
+--
 mkReadPipelineResponse :: ReadPipelineResponse
 mkReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline = Nothing

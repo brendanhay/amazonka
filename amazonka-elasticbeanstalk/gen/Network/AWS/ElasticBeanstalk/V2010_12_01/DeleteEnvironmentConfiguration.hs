@@ -55,6 +55,13 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEnvironmentConfiguration' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @EnvironmentName ::@ @Text@
+--
 mkDeleteEnvironmentConfiguration :: Text -- ^ 'decApplicationName'
                                  -> Text -- ^ 'decEnvironmentName'
                                  -> DeleteEnvironmentConfiguration

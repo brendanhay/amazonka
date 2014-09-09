@@ -53,6 +53,15 @@ data DescribeInstances = DescribeInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @LayerId ::@ @Maybe Text@
+--
+-- * @InstanceIds ::@ @[Text]@
+--
 mkDescribeInstances :: DescribeInstances
 mkDescribeInstances = DescribeInstances
     { _di1StackId = Nothing
@@ -93,6 +102,11 @@ newtype DescribeInstancesResponse = DescribeInstancesResponse
 -- a valid 'DescribeInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkDescribeInstancesResponse :: DescribeInstancesResponse
 mkDescribeInstancesResponse = DescribeInstancesResponse
     { _dirInstances = mempty

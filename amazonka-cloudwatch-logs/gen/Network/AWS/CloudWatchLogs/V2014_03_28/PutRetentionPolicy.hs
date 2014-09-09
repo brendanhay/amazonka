@@ -57,6 +57,13 @@ data PutRetentionPolicy = PutRetentionPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRetentionPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @RetentionInDays ::@ @Integer@
+--
 mkPutRetentionPolicy :: Text -- ^ 'prpLogGroupName'
                      -> Integer -- ^ 'prpRetentionInDays'
                      -> PutRetentionPolicy

@@ -66,6 +66,15 @@ data CreateConnection = CreateConnection
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateConnection' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Location ::@ @Text@
+--
+-- * @Bandwidth ::@ @Text@
+--
+-- * @ConnectionName ::@ @Text@
+--
 mkCreateConnection :: Text -- ^ 'cc1Location'
                    -> Text -- ^ 'cc1Bandwidth'
                    -> Text -- ^ 'cc1ConnectionName'
@@ -115,6 +124,27 @@ data CreateConnectionResponse = CreateConnectionResponse
 -- a valid 'CreateConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @ConnectionName ::@ @Maybe Text@
+--
+-- * @ConnectionState ::@ @Maybe ConnectionState@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Bandwidth ::@ @Maybe Text@
+--
+-- * @Vlan ::@ @Maybe Integer@
+--
+-- * @PartnerName ::@ @Maybe Text@
+--
 mkCreateConnectionResponse :: CreateConnectionResponse
 mkCreateConnectionResponse = CreateConnectionResponse
     { _ccrrOwnerAccount = Nothing

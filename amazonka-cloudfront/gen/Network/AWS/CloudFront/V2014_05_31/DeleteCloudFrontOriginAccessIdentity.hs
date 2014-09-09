@@ -47,6 +47,13 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCloudFrontOriginAccessIdentity' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @IfMatch ::@ @Maybe Text@
+--
 mkDeleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
                                        -> DeleteCloudFrontOriginAccessIdentity
 mkDeleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity

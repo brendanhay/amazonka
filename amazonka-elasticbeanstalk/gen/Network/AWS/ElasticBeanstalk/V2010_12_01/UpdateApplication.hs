@@ -54,6 +54,13 @@ data UpdateApplication = UpdateApplication
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplication' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkUpdateApplication :: Text -- ^ 'uaApplicationName'
                     -> UpdateApplication
 mkUpdateApplication p1 = UpdateApplication
@@ -84,6 +91,11 @@ newtype UpdateApplicationResponse = UpdateApplicationResponse
 -- a valid 'UpdateApplicationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Application ::@ @Maybe ApplicationDescription@
+--
 mkUpdateApplicationResponse :: UpdateApplicationResponse
 mkUpdateApplicationResponse = UpdateApplicationResponse
     { _uarApplication = Nothing

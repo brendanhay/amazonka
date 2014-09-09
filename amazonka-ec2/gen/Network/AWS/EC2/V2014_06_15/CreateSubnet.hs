@@ -64,7 +64,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateSubnet = CreateSubnet
     { _cs2VpcId :: Text
     , _cs2CidrBlock :: Text
@@ -73,6 +72,15 @@ data CreateSubnet = CreateSubnet
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSubnet' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpcId ::@ @Text@
+--
+-- * @CidrBlock ::@ @Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
 mkCreateSubnet :: Text -- ^ 'cs2VpcId'
                -> Text -- ^ 'cs2CidrBlock'
                -> CreateSubnet
@@ -100,7 +108,6 @@ cs2AvailabilityZone =
 instance ToQuery CreateSubnet where
     toQuery = genericQuery def
 
--- | 
 newtype CreateSubnetResponse = CreateSubnetResponse
     { _csr1Subnet :: Maybe Subnet
     } deriving (Show, Generic)
@@ -109,6 +116,11 @@ newtype CreateSubnetResponse = CreateSubnetResponse
 -- a valid 'CreateSubnetResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subnet ::@ @Maybe Subnet@
+--
 mkCreateSubnetResponse :: CreateSubnetResponse
 mkCreateSubnetResponse = CreateSubnetResponse
     { _csr1Subnet = Nothing

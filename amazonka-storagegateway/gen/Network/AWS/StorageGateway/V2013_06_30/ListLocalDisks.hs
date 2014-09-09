@@ -67,6 +67,11 @@ newtype ListLocalDisks = ListLocalDisks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListLocalDisks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkListLocalDisks :: Text -- ^ 'lldGatewayARN'
                  -> ListLocalDisks
 mkListLocalDisks p1 = ListLocalDisks
@@ -95,6 +100,13 @@ data ListLocalDisksResponse = ListLocalDisksResponse
 -- a valid 'ListLocalDisksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @Disks ::@ @[DiskInformation]@
+--
 mkListLocalDisksResponse :: ListLocalDisksResponse
 mkListLocalDisksResponse = ListLocalDisksResponse
     { _lldrGatewayARN = Nothing

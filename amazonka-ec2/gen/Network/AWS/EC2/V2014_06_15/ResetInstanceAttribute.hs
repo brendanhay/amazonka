@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ResetInstanceAttribute = ResetInstanceAttribute
     { _ria1InstanceId :: Text
     , _ria1Attribute :: InstanceAttributeName
@@ -59,6 +58,13 @@ data ResetInstanceAttribute = ResetInstanceAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetInstanceAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @Attribute ::@ @InstanceAttributeName@
+--
 mkResetInstanceAttribute :: Text -- ^ 'ria1InstanceId'
                          -> InstanceAttributeName -- ^ 'ria1Attribute'
                          -> ResetInstanceAttribute

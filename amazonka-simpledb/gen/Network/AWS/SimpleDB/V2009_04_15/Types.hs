@@ -181,6 +181,17 @@ data Attribute = Attribute
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Attribute' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @AlternateNameEncoding ::@ @Maybe Text@
+--
+-- * @Value ::@ @Text@
+--
+-- * @AlternateValueEncoding ::@ @Maybe Text@
+--
 mkAttribute :: Text -- ^ 'aName'
             -> Text -- ^ 'aValue'
             -> Attribute
@@ -224,6 +235,13 @@ data DeletableItem = DeletableItem
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeletableItem' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Attributes ::@ @[Attribute]@
+--
 mkDeletableItem :: Text -- ^ 'diName'
                 -> DeletableItem
 mkDeletableItem p1 = DeletableItem
@@ -252,6 +270,15 @@ data Item = Item
 --
 -- 'Item' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @AlternateNameEncoding ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @[Attribute]@
+--
 mkItem :: Text -- ^ 'iName'
        -> [Attribute] -- ^ 'iAttributes'
        -> Item
@@ -287,6 +314,15 @@ data ReplaceableAttribute = ReplaceableAttribute
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplaceableAttribute' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Value ::@ @Text@
+--
+-- * @Replace ::@ @Maybe Bool@
+--
 mkReplaceableAttribute :: Text -- ^ 'raName'
                        -> Text -- ^ 'raValue'
                        -> ReplaceableAttribute
@@ -324,6 +360,13 @@ data ReplaceableItem = ReplaceableItem
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplaceableItem' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Attributes ::@ @[ReplaceableAttribute]@
+--
 mkReplaceableItem :: Text -- ^ 'riName'
                   -> [ReplaceableAttribute] -- ^ 'riAttributes'
                   -> ReplaceableItem
@@ -354,6 +397,15 @@ data UpdateCondition = UpdateCondition
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'UpdateCondition' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
+-- * @Exists ::@ @Maybe Bool@
+--
 mkUpdateCondition :: UpdateCondition
 mkUpdateCondition = UpdateCondition
     { _ucName = Nothing

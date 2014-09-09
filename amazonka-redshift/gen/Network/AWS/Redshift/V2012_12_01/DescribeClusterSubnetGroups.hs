@@ -61,6 +61,15 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSubnetGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSubnetGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeClusterSubnetGroups :: DescribeClusterSubnetGroups
 mkDescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg3ClusterSubnetGroupName = Nothing
@@ -104,6 +113,13 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
 -- a valid 'DescribeClusterSubnetGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ClusterSubnetGroups ::@ @[ClusterSubnetGroup]@
+--
 mkDescribeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
 mkDescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrrMarker = Nothing

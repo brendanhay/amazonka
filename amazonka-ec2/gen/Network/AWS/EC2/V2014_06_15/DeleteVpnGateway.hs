@@ -46,13 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteVpnGateway = DeleteVpnGateway
     { _dvgVpnGatewayId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpnGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnGatewayId ::@ @Text@
+--
 mkDeleteVpnGateway :: Text -- ^ 'dvgVpnGatewayId'
                    -> DeleteVpnGateway
 mkDeleteVpnGateway p1 = DeleteVpnGateway

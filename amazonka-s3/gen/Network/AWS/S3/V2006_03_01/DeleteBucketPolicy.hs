@@ -44,6 +44,11 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkDeleteBucketPolicy :: BucketName -- ^ 'dbpBucket'
                      -> DeleteBucketPolicy
 mkDeleteBucketPolicy p1 = DeleteBucketPolicy

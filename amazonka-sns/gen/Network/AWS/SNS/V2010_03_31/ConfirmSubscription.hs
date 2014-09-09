@@ -68,6 +68,15 @@ data ConfirmSubscription = ConfirmSubscription
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmSubscription' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Text@
+--
+-- * @Token ::@ @Text@
+--
+-- * @AuthenticateOnUnsubscribe ::@ @Maybe Text@
+--
 mkConfirmSubscription :: Text -- ^ 'csTopicArn'
                       -> Text -- ^ 'csToken'
                       -> ConfirmSubscription
@@ -106,6 +115,11 @@ newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
 -- a valid 'ConfirmSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionArn ::@ @Maybe Text@
+--
 mkConfirmSubscriptionResponse :: ConfirmSubscriptionResponse
 mkConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn = Nothing

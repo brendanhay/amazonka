@@ -57,7 +57,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data PutMetricAlarm = PutMetricAlarm
     { _pmaAlarmName :: Text
     , _pmaAlarmDescription :: Maybe Text
@@ -78,6 +77,39 @@ data PutMetricAlarm = PutMetricAlarm
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricAlarm' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmName ::@ @Text@
+--
+-- * @AlarmDescription ::@ @Maybe Text@
+--
+-- * @ActionsEnabled ::@ @Maybe Bool@
+--
+-- * @OKActions ::@ @[Text]@
+--
+-- * @AlarmActions ::@ @[Text]@
+--
+-- * @InsufficientDataActions ::@ @[Text]@
+--
+-- * @MetricName ::@ @Text@
+--
+-- * @Namespace ::@ @Text@
+--
+-- * @Statistic ::@ @Statistic@
+--
+-- * @Dimensions ::@ @[Dimension]@
+--
+-- * @Period ::@ @Integer@
+--
+-- * @Unit ::@ @Maybe StandardUnit@
+--
+-- * @EvaluationPeriods ::@ @Integer@
+--
+-- * @Threshold ::@ @Double@
+--
+-- * @ComparisonOperator ::@ @ComparisonOperator@
+--
 mkPutMetricAlarm :: Text -- ^ 'pmaAlarmName'
                  -> Integer -- ^ 'pmaPeriod'
                  -> Integer -- ^ 'pmaEvaluationPeriods'

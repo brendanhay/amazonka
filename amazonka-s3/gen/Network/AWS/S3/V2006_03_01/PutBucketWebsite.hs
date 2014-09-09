@@ -48,6 +48,15 @@ data PutBucketWebsite = PutBucketWebsite
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketWebsite' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @WebsiteConfiguration ::@ @WebsiteConfiguration@
+--
 mkPutBucketWebsite :: BucketName -- ^ 'pbwBucket'
                    -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
                    -> PutBucketWebsite

@@ -69,6 +69,11 @@ newtype DescribeUploadBuffer = DescribeUploadBuffer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeUploadBuffer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDescribeUploadBuffer :: Text -- ^ 'dubGatewayARN'
                        -> DescribeUploadBuffer
 mkDescribeUploadBuffer p1 = DescribeUploadBuffer
@@ -99,6 +104,17 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
 -- a valid 'DescribeUploadBufferResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @DiskIds ::@ @[Text]@
+--
+-- * @UploadBufferUsedInBytes ::@ @Maybe Integer@
+--
+-- * @UploadBufferAllocatedInBytes ::@ @Maybe Integer@
+--
 mkDescribeUploadBufferResponse :: DescribeUploadBufferResponse
 mkDescribeUploadBufferResponse = DescribeUploadBufferResponse
     { _dubrGatewayARN = Nothing

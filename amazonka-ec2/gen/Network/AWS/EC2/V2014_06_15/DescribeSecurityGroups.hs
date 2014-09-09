@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeSecurityGroups = DescribeSecurityGroups
     { _dsg1GroupNames :: [Text]
     , _dsg1GroupIds :: [Text]
@@ -70,6 +69,15 @@ data DescribeSecurityGroups = DescribeSecurityGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSecurityGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupNames ::@ @[Text]@
+--
+-- * @GroupIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeSecurityGroups :: DescribeSecurityGroups
 mkDescribeSecurityGroups = DescribeSecurityGroups
     { _dsg1GroupNames = mempty
@@ -108,7 +116,6 @@ dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a })
 instance ToQuery DescribeSecurityGroups where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Show, Generic)
@@ -117,6 +124,11 @@ newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
 -- a valid 'DescribeSecurityGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SecurityGroups ::@ @[SecurityGroup]@
+--
 mkDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
 mkDescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups = mempty

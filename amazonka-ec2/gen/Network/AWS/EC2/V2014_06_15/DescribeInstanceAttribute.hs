@@ -82,7 +82,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _dia1InstanceId :: Text
     , _dia1Attribute :: InstanceAttributeName
@@ -90,6 +89,13 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @Attribute ::@ @InstanceAttributeName@
+--
 mkDescribeInstanceAttribute :: Text -- ^ 'dia1InstanceId'
                             -> InstanceAttributeName -- ^ 'dia1Attribute'
                             -> DescribeInstanceAttribute
@@ -109,7 +115,6 @@ dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
 instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
 
--- | 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     { _diarrInstanceId :: Maybe Text
     , _diarrInstanceType :: Maybe AttributeValue
@@ -130,6 +135,35 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 -- a valid 'DescribeInstanceAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @InstanceType ::@ @Maybe AttributeValue@
+--
+-- * @KernelId ::@ @Maybe AttributeValue@
+--
+-- * @RamdiskId ::@ @Maybe AttributeValue@
+--
+-- * @UserData ::@ @Maybe AttributeValue@
+--
+-- * @DisableApiTermination ::@ @Maybe AttributeBooleanValue@
+--
+-- * @InstanceInitiatedShutdownBehavior ::@ @Maybe AttributeValue@
+--
+-- * @RootDeviceName ::@ @Maybe AttributeValue@
+--
+-- * @BlockDeviceMappings ::@ @[InstanceBlockDeviceMapping]@
+--
+-- * @ProductCodes ::@ @[ProductCode]@
+--
+-- * @EbsOptimized ::@ @Maybe AttributeBooleanValue@
+--
+-- * @SriovNetSupport ::@ @Maybe AttributeValue@
+--
+-- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
+--
 mkDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse
 mkDescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     { _diarrInstanceId = Nothing

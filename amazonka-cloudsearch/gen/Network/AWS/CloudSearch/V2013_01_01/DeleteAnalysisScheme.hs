@@ -51,6 +51,13 @@ data DeleteAnalysisScheme = DeleteAnalysisScheme
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAnalysisScheme' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @AnalysisSchemeName ::@ @Text@
+--
 mkDeleteAnalysisScheme :: Text -- ^ 'das1DomainName'
                        -> Text -- ^ 'das1AnalysisSchemeName'
                        -> DeleteAnalysisScheme
@@ -84,6 +91,11 @@ newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
 -- a valid 'DeleteAnalysisSchemeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AnalysisScheme ::@ @AnalysisSchemeStatus@
+--
 mkDeleteAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrrAnalysisScheme'
                                -> DeleteAnalysisSchemeResponse
 mkDeleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse

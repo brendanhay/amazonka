@@ -61,6 +61,11 @@ newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
 -- a valid 'GetAccountPasswordPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PasswordPolicy ::@ @PasswordPolicy@
+--
 mkGetAccountPasswordPolicyResponse :: PasswordPolicy -- ^ 'gapprPasswordPolicy'
                                    -> GetAccountPasswordPolicyResponse
 mkGetAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse

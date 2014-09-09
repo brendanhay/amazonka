@@ -98,6 +98,25 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListOpenWorkflowExecutions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @StartTimeFilter ::@ @ExecutionTimeFilter@
+--
+-- * @TypeFilter ::@ @Maybe WorkflowTypeFilter@
+--
+-- * @TagFilter ::@ @Maybe TagFilter@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @MaximumPageSize ::@ @Maybe Integer@
+--
+-- * @ReverseOrder ::@ @Maybe Bool@
+--
+-- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
+--
 mkListOpenWorkflowExecutions :: Text -- ^ 'loweDomain'
                              -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
                              -> ListOpenWorkflowExecutions
@@ -183,6 +202,13 @@ data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
 -- a valid 'ListOpenWorkflowExecutionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExecutionInfos ::@ @[WorkflowExecutionInfo]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListOpenWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lowerExecutionInfos'
                                      -> ListOpenWorkflowExecutionsResponse
 mkListOpenWorkflowExecutionsResponse p1 = ListOpenWorkflowExecutionsResponse

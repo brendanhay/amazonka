@@ -69,6 +69,21 @@ data DescribeDBLogFiles = DescribeDBLogFiles
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBLogFiles' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @FilenameContains ::@ @Maybe Text@
+--
+-- * @FileLastWritten ::@ @Maybe Integer@
+--
+-- * @FileSize ::@ @Maybe Integer@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBLogFiles :: Text -- ^ 'ddblfDBInstanceIdentifier'
                      -> DescribeDBLogFiles
 mkDescribeDBLogFiles p1 = DescribeDBLogFiles
@@ -131,6 +146,13 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
 -- a valid 'DescribeDBLogFilesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DescribeDBLogFiles ::@ @[DescribeDBLogFilesDetails]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeDBLogFilesResponse :: DescribeDBLogFilesResponse
 mkDescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles = mempty

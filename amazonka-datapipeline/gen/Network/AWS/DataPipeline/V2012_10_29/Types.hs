@@ -235,6 +235,11 @@ newtype Query = Query
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Query' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Selectors ::@ @[Selector]@
+--
 mkQuery :: Query
 mkQuery = Query
     { _qSelectors = mempty
@@ -258,6 +263,15 @@ data Field = Field
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Field' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Text@
+--
+-- * @StringValue ::@ @Maybe Text@
+--
+-- * @RefValue ::@ @Maybe Text@
+--
 mkField :: Text -- ^ 'fKey'
         -> Field
 mkField p1 = Field
@@ -296,6 +310,13 @@ data InstanceIdentity = InstanceIdentity
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceIdentity' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Document ::@ @Maybe Text@
+--
+-- * @Signature ::@ @Maybe Text@
+--
 mkInstanceIdentity :: InstanceIdentity
 mkInstanceIdentity = InstanceIdentity
     { _iiDocument = Nothing
@@ -324,6 +345,13 @@ data Operator = Operator
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Operator' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Type ::@ @Maybe OperatorType@
+--
+-- * @Values ::@ @[Text]@
+--
 mkOperator :: Operator
 mkOperator = Operator
     { _oType = Nothing
@@ -369,6 +397,17 @@ data PipelineDescription = PipelineDescription
 --
 -- 'PipelineDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Fields ::@ @[Field]@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkPipelineDescription :: Text -- ^ 'pdPipelineId'
                       -> Text -- ^ 'pdName'
                       -> [Field] -- ^ 'pdFields'
@@ -411,6 +450,13 @@ data PipelineIdName = PipelineIdName
 --
 -- 'PipelineIdName' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkPipelineIdName :: PipelineIdName
 mkPipelineIdName = PipelineIdName
     { _pinId = Nothing
@@ -439,6 +485,15 @@ data PipelineObject = PipelineObject
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PipelineObject' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Fields ::@ @[Field]@
+--
 mkPipelineObject :: Text -- ^ 'poId'
                  -> Text -- ^ 'poName'
                  -> [Field] -- ^ 'poFields'
@@ -474,6 +529,13 @@ data Selector = Selector
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Selector' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FieldName ::@ @Maybe Text@
+--
+-- * @Operator ::@ @Maybe Operator@
+--
 mkSelector :: Selector
 mkSelector = Selector
     { _sFieldName = Nothing
@@ -512,6 +574,17 @@ data TaskObject = TaskObject
 --
 -- 'TaskObject' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskId ::@ @Maybe Text@
+--
+-- * @PipelineId ::@ @Maybe Text@
+--
+-- * @AttemptId ::@ @Maybe Text@
+--
+-- * @Objects ::@ @Map Text PipelineObject@
+--
 mkTaskObject :: TaskObject
 mkTaskObject = TaskObject
     { _toTaskId = Nothing
@@ -555,6 +628,13 @@ data ValidationError = ValidationError
 --
 -- 'ValidationError' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Errors ::@ @[Text]@
+--
 mkValidationError :: ValidationError
 mkValidationError = ValidationError
     { _veId = Nothing
@@ -585,6 +665,13 @@ data ValidationWarning = ValidationWarning
 --
 -- 'ValidationWarning' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Maybe Text@
+--
+-- * @Warnings ::@ @[Text]@
+--
 mkValidationWarning :: ValidationWarning
 mkValidationWarning = ValidationWarning
     { _vwId = Nothing

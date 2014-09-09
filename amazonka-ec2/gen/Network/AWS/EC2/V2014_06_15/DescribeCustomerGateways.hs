@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcg1CustomerGatewayIds :: [Text]
     , _dcg1Filters :: [Filter]
@@ -69,6 +68,13 @@ data DescribeCustomerGateways = DescribeCustomerGateways
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCustomerGateways' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CustomerGatewayIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeCustomerGateways :: DescribeCustomerGateways
 mkDescribeCustomerGateways = DescribeCustomerGateways
     { _dcg1CustomerGatewayIds = mempty
@@ -102,7 +108,6 @@ dcg1Filters = lens _dcg1Filters (\s a -> s { _dcg1Filters = a })
 instance ToQuery DescribeCustomerGateways where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Show, Generic)
@@ -111,6 +116,11 @@ newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 -- a valid 'DescribeCustomerGatewaysResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CustomerGateways ::@ @[CustomerGateway]@
+--
 mkDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
 mkDescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways = mempty

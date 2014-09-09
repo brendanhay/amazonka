@@ -64,6 +64,15 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerPoliciesForBackendServer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @InstancePort ::@ @Integer@
+--
+-- * @PolicyNames ::@ @[Text]@
+--
 mkSetLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsLoadBalancerName'
                                           -> Integer -- ^ 'slbpfbsInstancePort'
                                           -> [Text] -- ^ 'slbpfbsPolicyNames'

@@ -63,6 +63,19 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeDBSecurityGroupIngress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroupName ::@ @Text@
+--
+-- * @CIDRIP ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupName ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupId ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+--
 mkRevokeDBSecurityGroupIngress :: Text -- ^ 'rdbsgiDBSecurityGroupName'
                                -> RevokeDBSecurityGroupIngress
 mkRevokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
@@ -124,6 +137,11 @@ newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressRespo
 -- a valid 'RevokeDBSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSecurityGroup ::@ @Maybe DBSecurityGroup@
+--
 mkRevokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResponse
 mkRevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup = Nothing

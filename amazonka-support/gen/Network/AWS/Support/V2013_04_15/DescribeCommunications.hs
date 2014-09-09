@@ -51,7 +51,6 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 data DescribeCommunications = DescribeCommunications
     { _dc1CaseId :: Text
     , _dc1BeforeTime :: Maybe Text
@@ -62,6 +61,19 @@ data DescribeCommunications = DescribeCommunications
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommunications' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CaseId ::@ @Text@
+--
+-- * @BeforeTime ::@ @Maybe Text@
+--
+-- * @AfterTime ::@ @Maybe Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
 mkDescribeCommunications :: Text -- ^ 'dc1CaseId'
                          -> DescribeCommunications
 mkDescribeCommunications p1 = DescribeCommunications
@@ -114,6 +126,13 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse
 -- a valid 'DescribeCommunicationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Communications ::@ @[Communication]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeCommunicationsResponse :: DescribeCommunicationsResponse
 mkDescribeCommunicationsResponse = DescribeCommunicationsResponse
     { _dcrrCommunications = mempty

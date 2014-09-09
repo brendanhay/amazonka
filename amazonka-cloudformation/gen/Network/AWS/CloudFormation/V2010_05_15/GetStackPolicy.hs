@@ -54,6 +54,11 @@ newtype GetStackPolicy = GetStackPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStackPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
 mkGetStackPolicy :: Text -- ^ 'gspStackName'
                  -> GetStackPolicy
 mkGetStackPolicy p1 = GetStackPolicy
@@ -77,6 +82,11 @@ newtype GetStackPolicyResponse = GetStackPolicyResponse
 -- a valid 'GetStackPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackPolicyBody ::@ @Maybe Text@
+--
 mkGetStackPolicyResponse :: GetStackPolicyResponse
 mkGetStackPolicyResponse = GetStackPolicyResponse
     { _gsprStackPolicyBody = Nothing

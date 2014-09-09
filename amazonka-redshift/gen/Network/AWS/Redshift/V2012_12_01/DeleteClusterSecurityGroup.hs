@@ -54,6 +54,11 @@ newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSecurityGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroupName ::@ @Text@
+--
 mkDeleteClusterSecurityGroup :: Text -- ^ 'dcsgClusterSecurityGroupName'
                              -> DeleteClusterSecurityGroup
 mkDeleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup

@@ -149,7 +149,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeInstances = DescribeInstances
     { _di2InstanceIds :: [Text]
     , _di2Filters :: [Filter]
@@ -159,6 +158,17 @@ data DescribeInstances = DescribeInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
 mkDescribeInstances :: DescribeInstances
 mkDescribeInstances = DescribeInstances
     { _di2InstanceIds = mempty
@@ -310,7 +320,6 @@ di2MaxResults = lens _di2MaxResults (\s a -> s { _di2MaxResults = a })
 instance ToQuery DescribeInstances where
     toQuery = genericQuery def
 
--- | 
 data DescribeInstancesResponse = DescribeInstancesResponse
     { _dirrReservations :: [Reservation]
     , _dirrNextToken :: Maybe Text
@@ -320,6 +329,13 @@ data DescribeInstancesResponse = DescribeInstancesResponse
 -- a valid 'DescribeInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Reservations ::@ @[Reservation]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeInstancesResponse :: DescribeInstancesResponse
 mkDescribeInstancesResponse = DescribeInstancesResponse
     { _dirrReservations = mempty

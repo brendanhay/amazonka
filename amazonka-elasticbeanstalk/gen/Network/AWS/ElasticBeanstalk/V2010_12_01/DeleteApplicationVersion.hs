@@ -53,6 +53,15 @@ data DeleteApplicationVersion = DeleteApplicationVersion
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApplicationVersion' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @VersionLabel ::@ @Text@
+--
+-- * @DeleteSourceBundle ::@ @Maybe Bool@
+--
 mkDeleteApplicationVersion :: Text -- ^ 'davApplicationName'
                            -> Text -- ^ 'davVersionLabel'
                            -> DeleteApplicationVersion

@@ -72,6 +72,11 @@ newtype ShutdownGateway = ShutdownGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ShutdownGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkShutdownGateway :: Text -- ^ 'sgGatewayARN'
                   -> ShutdownGateway
 mkShutdownGateway p1 = ShutdownGateway
@@ -100,6 +105,11 @@ newtype ShutdownGatewayResponse = ShutdownGatewayResponse
 -- a valid 'ShutdownGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkShutdownGatewayResponse :: ShutdownGatewayResponse
 mkShutdownGatewayResponse = ShutdownGatewayResponse
     { _sgrGatewayARN = Nothing

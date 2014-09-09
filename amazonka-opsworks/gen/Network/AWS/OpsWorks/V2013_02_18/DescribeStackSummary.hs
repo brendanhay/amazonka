@@ -50,6 +50,11 @@ newtype DescribeStackSummary = DescribeStackSummary
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackSummary' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
 mkDescribeStackSummary :: Text -- ^ 'dssStackId'
                        -> DescribeStackSummary
 mkDescribeStackSummary p1 = DescribeStackSummary
@@ -77,6 +82,11 @@ newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
 -- a valid 'DescribeStackSummaryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackSummary ::@ @Maybe StackSummary@
+--
 mkDescribeStackSummaryResponse :: DescribeStackSummaryResponse
 mkDescribeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary = Nothing

@@ -68,6 +68,11 @@ newtype GetOperationDetail = GetOperationDetail
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOperationDetail' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
 mkGetOperationDetail :: Text -- ^ 'godOperationId'
                      -> GetOperationDetail
 mkGetOperationDetail p1 = GetOperationDetail
@@ -102,6 +107,21 @@ data GetOperationDetailResponse = GetOperationDetailResponse
 -- a valid 'GetOperationDetailResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe OperationStatus@
+--
+-- * @Message ::@ @Maybe Text@
+--
+-- * @DomainName ::@ @Maybe Text@
+--
+-- * @Type ::@ @Maybe OperationType@
+--
+-- * @SubmittedDate ::@ @Maybe ISO8601@
+--
 mkGetOperationDetailResponse :: GetOperationDetailResponse
 mkGetOperationDetailResponse = GetOperationDetailResponse
     { _godrOperationId = Nothing

@@ -55,6 +55,19 @@ data SetPermission = SetPermission
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetPermission' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @IamUserArn ::@ @Text@
+--
+-- * @AllowSsh ::@ @Maybe Bool@
+--
+-- * @AllowSudo ::@ @Maybe Bool@
+--
+-- * @Level ::@ @Maybe Text@
+--
 mkSetPermission :: Text -- ^ 'spStackId'
                 -> Text -- ^ 'spIamUserArn'
                 -> SetPermission

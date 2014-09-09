@@ -52,13 +52,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetInstanceProfile = GetInstanceProfile
     { _gipInstanceProfileName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInstanceProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfileName ::@ @Text@
+--
 mkGetInstanceProfile :: Text -- ^ 'gipInstanceProfileName'
                      -> GetInstanceProfile
 mkGetInstanceProfile p1 = GetInstanceProfile
@@ -83,6 +87,11 @@ newtype GetInstanceProfileResponse = GetInstanceProfileResponse
 -- a valid 'GetInstanceProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfile ::@ @InstanceProfile@
+--
 mkGetInstanceProfileResponse :: InstanceProfile -- ^ 'giprInstanceProfile'
                              -> GetInstanceProfileResponse
 mkGetInstanceProfileResponse p1 = GetInstanceProfileResponse

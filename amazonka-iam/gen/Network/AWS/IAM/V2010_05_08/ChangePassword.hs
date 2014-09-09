@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ChangePassword = ChangePassword
     { _cpOldPassword :: Text
     , _cpNewPassword :: Text
@@ -51,6 +50,13 @@ data ChangePassword = ChangePassword
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangePassword' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OldPassword ::@ @Text@
+--
+-- * @NewPassword ::@ @Text@
+--
 mkChangePassword :: Text -- ^ 'cpOldPassword'
                  -> Text -- ^ 'cpNewPassword'
                  -> ChangePassword

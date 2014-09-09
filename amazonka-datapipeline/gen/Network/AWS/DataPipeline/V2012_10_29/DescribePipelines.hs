@@ -69,6 +69,11 @@ newtype DescribePipelines = DescribePipelines
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePipelines' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineIds ::@ @[Text]@
+--
 mkDescribePipelines :: [Text] -- ^ 'dp1PipelineIds'
                     -> DescribePipelines
 mkDescribePipelines p1 = DescribePipelines
@@ -98,6 +103,11 @@ newtype DescribePipelinesResponse = DescribePipelinesResponse
 -- a valid 'DescribePipelinesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineDescriptionList ::@ @[PipelineDescription]@
+--
 mkDescribePipelinesResponse :: [PipelineDescription] -- ^ 'dprPipelineDescriptionList'
                             -> DescribePipelinesResponse
 mkDescribePipelinesResponse p1 = DescribePipelinesResponse

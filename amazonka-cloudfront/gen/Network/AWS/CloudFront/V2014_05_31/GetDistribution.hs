@@ -48,6 +48,11 @@ newtype GetDistribution = GetDistribution
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistribution' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkGetDistribution :: Text -- ^ 'gdId'
                   -> GetDistribution
 mkGetDistribution p1 = GetDistribution
@@ -78,6 +83,13 @@ data GetDistributionResponse = GetDistributionResponse
 -- a valid 'GetDistributionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Distribution ::@ @Maybe Distribution@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkGetDistributionResponse :: GetDistributionResponse
 mkGetDistributionResponse = GetDistributionResponse
     { _gdrDistribution = Nothing

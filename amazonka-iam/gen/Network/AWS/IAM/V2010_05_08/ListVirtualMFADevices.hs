@@ -57,7 +57,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe AssignmentStatusType
     , _lvmfadMarker :: Maybe Text
@@ -66,6 +65,15 @@ data ListVirtualMFADevices = ListVirtualMFADevices
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVirtualMFADevices' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AssignmentStatus ::@ @Maybe AssignmentStatusType@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListVirtualMFADevices :: ListVirtualMFADevices
 mkListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus = Nothing
@@ -110,6 +118,15 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
 -- a valid 'ListVirtualMFADevicesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualMFADevices ::@ @[VirtualMFADevice]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListVirtualMFADevicesResponse :: [VirtualMFADevice] -- ^ 'lvmfadrVirtualMFADevices'
                                 -> Bool -- ^ 'lvmfadrIsTruncated'
                                 -> ListVirtualMFADevicesResponse

@@ -58,6 +58,15 @@ data SetStatus = SetStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineId ::@ @Text@
+--
+-- * @ObjectIds ::@ @[Text]@
+--
+-- * @Status ::@ @Text@
+--
 mkSetStatus :: Text -- ^ 'ssPipelineId'
             -> [Text] -- ^ 'ssObjectIds'
             -> Text -- ^ 'ssStatus'

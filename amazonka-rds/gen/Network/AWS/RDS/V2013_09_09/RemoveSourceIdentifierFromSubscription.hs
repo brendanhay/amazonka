@@ -56,6 +56,13 @@ data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscrip
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveSourceIdentifierFromSubscription' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionName ::@ @Text@
+--
+-- * @SourceIdentifier ::@ @Text@
+--
 mkRemoveSourceIdentifierFromSubscription :: Text -- ^ 'rsifsSubscriptionName'
                                          -> Text -- ^ 'rsifsSourceIdentifier'
                                          -> RemoveSourceIdentifierFromSubscription
@@ -87,6 +94,11 @@ newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierF
 -- a valid 'RemoveSourceIdentifierFromSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventSubscription ::@ @Maybe EventSubscription@
+--
 mkRemoveSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResponse
 mkRemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription = Nothing

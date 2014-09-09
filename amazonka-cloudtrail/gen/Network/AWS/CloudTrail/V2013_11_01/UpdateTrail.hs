@@ -62,6 +62,19 @@ data UpdateTrail = UpdateTrail
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTrail' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @S3BucketName ::@ @Maybe Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @SnsTopicName ::@ @Maybe Text@
+--
+-- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
+--
 mkUpdateTrail :: Text -- ^ 'utName'
               -> UpdateTrail
 mkUpdateTrail p1 = UpdateTrail
@@ -120,6 +133,19 @@ data UpdateTrailResponse = UpdateTrailResponse
 -- a valid 'UpdateTrailResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @S3BucketName ::@ @Maybe Text@
+--
+-- * @S3KeyPrefix ::@ @Maybe Text@
+--
+-- * @SnsTopicName ::@ @Maybe Text@
+--
+-- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
+--
 mkUpdateTrailResponse :: UpdateTrailResponse
 mkUpdateTrailResponse = UpdateTrailResponse
     { _utrName = Nothing

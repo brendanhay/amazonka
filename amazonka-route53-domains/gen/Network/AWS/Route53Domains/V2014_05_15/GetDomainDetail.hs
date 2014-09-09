@@ -102,6 +102,11 @@ newtype GetDomainDetail = GetDomainDetail
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDomainDetail' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkGetDomainDetail :: Text -- ^ 'gddDomainName'
                   -> GetDomainDetail
 mkGetDomainDetail p1 = GetDomainDetail
@@ -152,6 +157,51 @@ data GetDomainDetailResponse = GetDomainDetailResponse
 -- a valid 'GetDomainDetailResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Nameservers ::@ @[Nameserver]@
+--
+-- * @AutoRenew ::@ @Maybe Bool@
+--
+-- * @AdminContact ::@ @ContactDetail@
+--
+-- * @RegistrantContact ::@ @ContactDetail@
+--
+-- * @TechContact ::@ @ContactDetail@
+--
+-- * @AdminPrivacy ::@ @Maybe Bool@
+--
+-- * @RegistrantPrivacy ::@ @Maybe Bool@
+--
+-- * @TechPrivacy ::@ @Maybe Bool@
+--
+-- * @RegistrarName ::@ @Maybe Text@
+--
+-- * @WhoIsServer ::@ @Maybe Text@
+--
+-- * @RegistrarUrl ::@ @Maybe Text@
+--
+-- * @AbuseContactEmail ::@ @Maybe Text@
+--
+-- * @AbuseContactPhone ::@ @Maybe Text@
+--
+-- * @RegistryDomainId ::@ @Maybe Text@
+--
+-- * @CreationDate ::@ @Maybe ISO8601@
+--
+-- * @UpdatedDate ::@ @Maybe ISO8601@
+--
+-- * @ExpirationDate ::@ @Maybe ISO8601@
+--
+-- * @Reseller ::@ @Maybe Text@
+--
+-- * @DnsSec ::@ @Maybe Text@
+--
+-- * @StatusList ::@ @[Text]@
+--
 mkGetDomainDetailResponse :: Text -- ^ 'gddrDomainName'
                           -> [Nameserver] -- ^ 'gddrNameservers'
                           -> ContactDetail -- ^ 'gddrAdminContact'

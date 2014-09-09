@@ -53,7 +53,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
     , _rrtaRouteTableId :: Text
@@ -61,6 +60,13 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRouteTableAssociation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AssociationId ::@ @Text@
+--
+-- * @RouteTableId ::@ @Text@
+--
 mkReplaceRouteTableAssociation :: Text -- ^ 'rrtaAssociationId'
                                -> Text -- ^ 'rrtaRouteTableId'
                                -> ReplaceRouteTableAssociation
@@ -82,7 +88,6 @@ rrtaRouteTableId =
 instance ToQuery ReplaceRouteTableAssociation where
     toQuery = genericQuery def
 
--- | 
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
@@ -91,6 +96,11 @@ newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationRespo
 -- a valid 'ReplaceRouteTableAssociationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NewAssociationId ::@ @Maybe Text@
+--
 mkReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse
 mkReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId = Nothing

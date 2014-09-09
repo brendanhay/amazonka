@@ -80,7 +80,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeSnapshots = DescribeSnapshots
     { _ds2SnapshotIds :: [Text]
     , _ds2OwnerIds :: [Text]
@@ -90,6 +89,17 @@ data DescribeSnapshots = DescribeSnapshots
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshots' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotIds ::@ @[Text]@
+--
+-- * @OwnerIds ::@ @[Text]@
+--
+-- * @RestorableByUserIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeSnapshots :: DescribeSnapshots
 mkDescribeSnapshots = DescribeSnapshots
     { _ds2SnapshotIds = mempty
@@ -136,7 +146,6 @@ ds2Filters = lens _ds2Filters (\s a -> s { _ds2Filters = a })
 instance ToQuery DescribeSnapshots where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
@@ -145,6 +154,11 @@ newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
 -- a valid 'DescribeSnapshotsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshots ::@ @[Snapshot]@
+--
 mkDescribeSnapshotsResponse :: DescribeSnapshotsResponse
 mkDescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots = mempty

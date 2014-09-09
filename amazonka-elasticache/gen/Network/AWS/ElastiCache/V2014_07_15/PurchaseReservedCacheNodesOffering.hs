@@ -59,6 +59,15 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedCacheNodesOffering' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedCacheNodesOfferingId ::@ @Text@
+--
+-- * @ReservedCacheNodeId ::@ @Maybe Text@
+--
+-- * @CacheNodeCount ::@ @Maybe Integer@
+--
 mkPurchaseReservedCacheNodesOffering :: Text -- ^ 'prcnoReservedCacheNodesOfferingId'
                                      -> PurchaseReservedCacheNodesOffering
 mkPurchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
@@ -97,6 +106,11 @@ newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesO
 -- a valid 'PurchaseReservedCacheNodesOfferingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedCacheNode ::@ @Maybe ReservedCacheNode@
+--
 mkPurchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResponse
 mkPurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode = Nothing

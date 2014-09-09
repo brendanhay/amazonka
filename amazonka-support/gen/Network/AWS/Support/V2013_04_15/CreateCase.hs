@@ -72,7 +72,6 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 data CreateCase = CreateCase
     { _ccSubject :: Text
     , _ccServiceCode :: Maybe Text
@@ -87,6 +86,27 @@ data CreateCase = CreateCase
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCase' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subject ::@ @Text@
+--
+-- * @ServiceCode ::@ @Maybe Text@
+--
+-- * @SeverityCode ::@ @Maybe Text@
+--
+-- * @CategoryCode ::@ @Maybe Text@
+--
+-- * @CommunicationBody ::@ @Text@
+--
+-- * @CcEmailAddresses ::@ @[Text]@
+--
+-- * @Language ::@ @Maybe Text@
+--
+-- * @IssueType ::@ @Maybe Text@
+--
+-- * @AttachmentSetId ::@ @Maybe Text@
+--
 mkCreateCase :: Text -- ^ 'ccSubject'
              -> Text -- ^ 'ccCommunicationBody'
              -> CreateCase
@@ -168,6 +188,11 @@ newtype CreateCaseResponse = CreateCaseResponse
 -- a valid 'CreateCaseResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CaseId ::@ @Maybe Text@
+--
 mkCreateCaseResponse :: CreateCaseResponse
 mkCreateCaseResponse = CreateCaseResponse
     { _ccrCaseId = Nothing

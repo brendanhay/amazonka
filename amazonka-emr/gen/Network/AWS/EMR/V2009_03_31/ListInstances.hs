@@ -57,6 +57,17 @@ data ListInstances = ListInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterId ::@ @Text@
+--
+-- * @InstanceGroupId ::@ @Maybe Text@
+--
+-- * @InstanceGroupTypes ::@ @[InstanceGroupType]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListInstances :: Text -- ^ 'liClusterId'
                 -> ListInstances
 mkListInstances p1 = ListInstances
@@ -102,6 +113,13 @@ data ListInstancesResponse = ListInstancesResponse
 -- a valid 'ListInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Instances ::@ @[Instance]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListInstancesResponse :: ListInstancesResponse
 mkListInstancesResponse = ListInstancesResponse
     { _lirInstances = mempty

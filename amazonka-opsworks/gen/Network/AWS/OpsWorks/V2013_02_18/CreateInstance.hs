@@ -77,6 +77,39 @@ data CreateInstance = CreateInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @LayerIds ::@ @[Text]@
+--
+-- * @InstanceType ::@ @Text@
+--
+-- * @AutoScalingType ::@ @Maybe AutoScalingType@
+--
+-- * @Hostname ::@ @Maybe Text@
+--
+-- * @Os ::@ @Maybe Text@
+--
+-- * @AmiId ::@ @Maybe Text@
+--
+-- * @SshKeyName ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @VirtualizationType ::@ @Maybe Text@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @Architecture ::@ @Maybe Architecture@
+--
+-- * @RootDeviceType ::@ @Maybe RootDeviceType@
+--
+-- * @InstallUpdatesOnBoot ::@ @Maybe Bool@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
 mkCreateInstance :: Text -- ^ 'ciStackId'
                  -> [Text] -- ^ 'ciLayerIds'
                  -> Text -- ^ 'ciInstanceType'
@@ -213,6 +246,11 @@ newtype CreateInstanceResponse = CreateInstanceResponse
 -- a valid 'CreateInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
 mkCreateInstanceResponse :: CreateInstanceResponse
 mkCreateInstanceResponse = CreateInstanceResponse
     { _cirInstanceId = Nothing

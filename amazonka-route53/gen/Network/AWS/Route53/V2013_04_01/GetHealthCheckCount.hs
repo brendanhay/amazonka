@@ -68,6 +68,11 @@ newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
 -- a valid 'GetHealthCheckCountResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheckCount ::@ @Integer@
+--
 mkGetHealthCheckCountResponse :: Integer -- ^ 'ghccrHealthCheckCount'
                               -> GetHealthCheckCountResponse
 mkGetHealthCheckCountResponse p1 = GetHealthCheckCountResponse

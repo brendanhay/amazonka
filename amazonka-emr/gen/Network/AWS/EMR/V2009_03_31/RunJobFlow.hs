@@ -113,6 +113,35 @@ data RunJobFlow = RunJobFlow
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunJobFlow' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @LogUri ::@ @Maybe Text@
+--
+-- * @AdditionalInfo ::@ @Maybe Text@
+--
+-- * @AmiVersion ::@ @Maybe Text@
+--
+-- * @Instances ::@ @JobFlowInstancesConfig@
+--
+-- * @Steps ::@ @[StepConfig]@
+--
+-- * @BootstrapActions ::@ @[BootstrapActionConfig]@
+--
+-- * @SupportedProducts ::@ @[Text]@
+--
+-- * @NewSupportedProducts ::@ @[SupportedProductConfig]@
+--
+-- * @VisibleToAllUsers ::@ @Maybe Bool@
+--
+-- * @JobFlowRole ::@ @Maybe Text@
+--
+-- * @ServiceRole ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkRunJobFlow :: Text -- ^ 'rjfName'
              -> JobFlowInstancesConfig -- ^ 'rjfInstances'
              -> RunJobFlow
@@ -237,6 +266,11 @@ newtype RunJobFlowResponse = RunJobFlowResponse
 -- a valid 'RunJobFlowResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlowId ::@ @Maybe Text@
+--
 mkRunJobFlowResponse :: RunJobFlowResponse
 mkRunJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId = Nothing

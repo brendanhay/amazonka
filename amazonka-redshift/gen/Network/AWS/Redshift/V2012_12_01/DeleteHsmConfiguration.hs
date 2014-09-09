@@ -44,6 +44,11 @@ newtype DeleteHsmConfiguration = DeleteHsmConfiguration
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHsmConfiguration' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmConfigurationIdentifier ::@ @Text@
+--
 mkDeleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
                          -> DeleteHsmConfiguration
 mkDeleteHsmConfiguration p1 = DeleteHsmConfiguration

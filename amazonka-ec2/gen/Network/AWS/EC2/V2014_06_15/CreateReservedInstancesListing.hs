@@ -63,7 +63,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateReservedInstancesListing = CreateReservedInstancesListing
     { _cril1ReservedInstancesId :: Text
     , _cril1InstanceCount :: Integer
@@ -73,6 +72,17 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateReservedInstancesListing' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesId ::@ @Text@
+--
+-- * @InstanceCount ::@ @Integer@
+--
+-- * @PriceSchedules ::@ @[PriceScheduleSpecification]@
+--
+-- * @ClientToken ::@ @Text@
+--
 mkCreateReservedInstancesListing :: Text -- ^ 'cril1ReservedInstancesId'
                                  -> Integer -- ^ 'cril1InstanceCount'
                                  -> [PriceScheduleSpecification] -- ^ 'cril1PriceSchedules'
@@ -115,7 +125,6 @@ cril1ClientToken =
 instance ToQuery CreateReservedInstancesListing where
     toQuery = genericQuery def
 
--- | 
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilrrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Show, Generic)
@@ -124,6 +133,11 @@ newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingR
 -- a valid 'CreateReservedInstancesListingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
+--
 mkCreateReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
 mkCreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilrrReservedInstancesListings = mempty

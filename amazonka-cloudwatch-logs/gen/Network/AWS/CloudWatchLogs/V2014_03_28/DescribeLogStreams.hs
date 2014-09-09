@@ -78,6 +78,17 @@ data DescribeLogStreams = DescribeLogStreams
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLogStreams' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @LogStreamNamePrefix ::@ @Maybe Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkDescribeLogStreams :: Text -- ^ 'dls1LogGroupName'
                      -> DescribeLogStreams
 mkDescribeLogStreams p1 = DescribeLogStreams
@@ -124,6 +135,13 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse
 -- a valid 'DescribeLogStreamsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogStreams ::@ @[LogStream]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeLogStreamsResponse :: DescribeLogStreamsResponse
 mkDescribeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams = mempty

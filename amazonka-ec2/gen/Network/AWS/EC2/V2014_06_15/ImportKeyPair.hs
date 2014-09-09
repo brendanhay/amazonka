@@ -69,7 +69,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ImportKeyPair = ImportKeyPair
     { _ikpKeyName :: Text
     , _ikpPublicKeyMaterial :: ByteString
@@ -77,6 +76,13 @@ data ImportKeyPair = ImportKeyPair
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportKeyPair' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyName ::@ @Text@
+--
+-- * @PublicKeyMaterial ::@ @ByteString@
+--
 mkImportKeyPair :: Text -- ^ 'ikpKeyName'
                 -> ByteString -- ^ 'ikpPublicKeyMaterial'
                 -> ImportKeyPair
@@ -98,7 +104,6 @@ ikpPublicKeyMaterial =
 instance ToQuery ImportKeyPair where
     toQuery = genericQuery def
 
--- | 
 data ImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyName :: Maybe Text
     , _ikprKeyFingerprint :: Maybe Text
@@ -108,6 +113,13 @@ data ImportKeyPairResponse = ImportKeyPairResponse
 -- a valid 'ImportKeyPairResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @KeyFingerprint ::@ @Maybe Text@
+--
 mkImportKeyPairResponse :: ImportKeyPairResponse
 mkImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyName = Nothing

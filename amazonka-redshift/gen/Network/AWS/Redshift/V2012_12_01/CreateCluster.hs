@@ -115,6 +115,53 @@ data CreateCluster = CreateCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBName ::@ @Maybe Text@
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
+-- * @ClusterType ::@ @Maybe Text@
+--
+-- * @NodeType ::@ @Text@
+--
+-- * @MasterUsername ::@ @Text@
+--
+-- * @MasterUserPassword ::@ @Text@
+--
+-- * @ClusterSecurityGroups ::@ @[Text]@
+--
+-- * @VpcSecurityGroupIds ::@ @[Text]@
+--
+-- * @ClusterSubnetGroupName ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @ClusterParameterGroupName ::@ @Maybe Text@
+--
+-- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @AllowVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @NumberOfNodes ::@ @Maybe Integer@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
+-- * @HsmClientCertificateIdentifier ::@ @Maybe Text@
+--
+-- * @HsmConfigurationIdentifier ::@ @Maybe Text@
+--
+-- * @ElasticIp ::@ @Maybe Text@
+--
 mkCreateCluster :: Text -- ^ 'ccClusterIdentifier'
                 -> Text -- ^ 'ccNodeType'
                 -> Text -- ^ 'ccMasterUsername'
@@ -343,6 +390,11 @@ newtype CreateClusterResponse = CreateClusterResponse
 -- a valid 'CreateClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkCreateClusterResponse :: CreateClusterResponse
 mkCreateClusterResponse = CreateClusterResponse
     { _ccrCluster = Nothing

@@ -129,7 +129,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data RunInstances = RunInstances
     { _ri3ImageId :: Text
     , _ri3MinCount :: Integer
@@ -157,6 +156,53 @@ data RunInstances = RunInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Text@
+--
+-- * @MinCount ::@ @Integer@
+--
+-- * @MaxCount ::@ @Integer@
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @SecurityGroups ::@ @[Text]@
+--
+-- * @SecurityGroupIds ::@ @[Text]@
+--
+-- * @UserData ::@ @Maybe ByteString@
+--
+-- * @InstanceType ::@ @Maybe InstanceType@
+--
+-- * @Placement ::@ @Maybe Placement@
+--
+-- * @KernelId ::@ @Maybe Text@
+--
+-- * @RamdiskId ::@ @Maybe Text@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
+-- * @Monitoring ::@ @Maybe RunInstancesMonitoringEnabled@
+--
+-- * @SubnetId ::@ @Maybe Text@
+--
+-- * @DisableApiTermination ::@ @Maybe Bool@
+--
+-- * @InstanceInitiatedShutdownBehavior ::@ @Maybe ShutdownBehavior@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @ClientToken ::@ @Maybe Text@
+--
+-- * @AdditionalInfo ::@ @Maybe Text@
+--
+-- * @NetworkInterfaces ::@ @[InstanceNetworkInterfaceSpecification]@
+--
+-- * @IamInstanceProfile ::@ @Maybe IamInstanceProfileSpecification@
+--
+-- * @EbsOptimized ::@ @Maybe Bool@
+--
 mkRunInstances :: Text -- ^ 'ri3ImageId'
                -> Integer -- ^ 'ri3MinCount'
                -> Integer -- ^ 'ri3MaxCount'
@@ -341,6 +387,19 @@ data RunInstancesResponse = RunInstancesResponse
 -- a valid 'RunInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservationId ::@ @Maybe Text@
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @RequesterId ::@ @Maybe Text@
+--
+-- * @Groups ::@ @[GroupIdentifier]@
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkRunInstancesResponse :: RunInstancesResponse
 mkRunInstancesResponse = RunInstancesResponse
     { _rirrReservationId = Nothing

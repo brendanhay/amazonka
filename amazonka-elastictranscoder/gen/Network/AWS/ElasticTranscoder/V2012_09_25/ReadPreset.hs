@@ -72,6 +72,11 @@ newtype ReadPreset = ReadPreset
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPreset' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkReadPreset :: Text -- ^ 'rp1Id'
              -> ReadPreset
 mkReadPreset p1 = ReadPreset
@@ -100,6 +105,11 @@ newtype ReadPresetResponse = ReadPresetResponse
 -- a valid 'ReadPresetResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Preset ::@ @Maybe Preset@
+--
 mkReadPresetResponse :: ReadPresetResponse
 mkReadPresetResponse = ReadPresetResponse
     { _rprrPreset = Nothing

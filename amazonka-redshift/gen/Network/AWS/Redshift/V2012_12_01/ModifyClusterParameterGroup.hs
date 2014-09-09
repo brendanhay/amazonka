@@ -62,6 +62,13 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Text@
+--
+-- * @Parameters ::@ @[Parameter]@
+--
 mkModifyClusterParameterGroup :: Text -- ^ 'mcpgParameterGroupName'
                               -> [Parameter] -- ^ 'mcpgParameters'
                               -> ModifyClusterParameterGroup
@@ -99,6 +106,13 @@ data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
 -- a valid 'ModifyClusterParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ParameterGroupName ::@ @Maybe Text@
+--
+-- * @ParameterGroupStatus ::@ @Maybe Text@
+--
 mkModifyClusterParameterGroupResponse :: ModifyClusterParameterGroupResponse
 mkModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     { _mcpgrParameterGroupName = Nothing

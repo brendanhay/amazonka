@@ -111,6 +111,13 @@ data IdentityDescription = IdentityDescription
 --
 -- 'IdentityDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityId ::@ @Maybe Text@
+--
+-- * @Logins ::@ @[Text]@
+--
 mkIdentityDescription :: IdentityDescription
 mkIdentityDescription = IdentityDescription
     { _idIdentityId = Nothing
@@ -139,6 +146,13 @@ data IdentityPoolShortDescription = IdentityPoolShortDescription
 --
 -- 'IdentityPoolShortDescription' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolId ::@ @Maybe Text@
+--
+-- * @IdentityPoolName ::@ @Maybe Text@
+--
 mkIdentityPoolShortDescription :: IdentityPoolShortDescription
 mkIdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId = Nothing

@@ -73,13 +73,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype CreateKeyPair = CreateKeyPair
     { _ckpKeyName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateKeyPair' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyName ::@ @Text@
+--
 mkCreateKeyPair :: Text -- ^ 'ckpKeyName'
                 -> CreateKeyPair
 mkCreateKeyPair p1 = CreateKeyPair
@@ -93,7 +97,6 @@ ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
 instance ToQuery CreateKeyPair where
     toQuery = genericQuery def
 
--- | 
 data CreateKeyPairResponse = CreateKeyPairResponse
     { _ckprKeyName :: Maybe Text
     , _ckprKeyFingerprint :: Maybe Text
@@ -104,6 +107,15 @@ data CreateKeyPairResponse = CreateKeyPairResponse
 -- a valid 'CreateKeyPairResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyName ::@ @Maybe Text@
+--
+-- * @KeyFingerprint ::@ @Maybe Text@
+--
+-- * @KeyMaterial ::@ @Maybe Text@
+--
 mkCreateKeyPairResponse :: CreateKeyPairResponse
 mkCreateKeyPairResponse = CreateKeyPairResponse
     { _ckprKeyName = Nothing

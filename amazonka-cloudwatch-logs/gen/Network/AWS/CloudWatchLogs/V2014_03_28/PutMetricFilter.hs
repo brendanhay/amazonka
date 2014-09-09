@@ -65,6 +65,17 @@ data PutMetricFilter = PutMetricFilter
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricFilter' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @FilterName ::@ @Text@
+--
+-- * @FilterPattern ::@ @Text@
+--
+-- * @MetricTransformations ::@ @List1 MetricTransformation@
+--
 mkPutMetricFilter :: Text -- ^ 'pmfLogGroupName'
                   -> Text -- ^ 'pmfFilterName'
                   -> Text -- ^ 'pmfFilterPattern'

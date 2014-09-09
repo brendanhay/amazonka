@@ -59,6 +59,19 @@ data CreateOptionGroup = CreateOptionGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOptionGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroupName ::@ @Text@
+--
+-- * @EngineName ::@ @Text@
+--
+-- * @MajorEngineVersion ::@ @Text@
+--
+-- * @OptionGroupDescription ::@ @Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateOptionGroup :: Text -- ^ 'cogOptionGroupName'
                     -> Text -- ^ 'cogEngineName'
                     -> Text -- ^ 'cogMajorEngineVersion'
@@ -112,6 +125,11 @@ newtype CreateOptionGroupResponse = CreateOptionGroupResponse
 -- a valid 'CreateOptionGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OptionGroup ::@ @Maybe OptionGroup@
+--
 mkCreateOptionGroupResponse :: CreateOptionGroupResponse
 mkCreateOptionGroupResponse = CreateOptionGroupResponse
     { _cogrOptionGroup = Nothing

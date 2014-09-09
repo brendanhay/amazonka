@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirSpotInstanceRequestIds :: [Text]
     , _dsirFilters :: [Filter]
@@ -69,6 +68,13 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotInstanceRequests' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotInstanceRequestIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeSpotInstanceRequests :: DescribeSpotInstanceRequests
 mkDescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirSpotInstanceRequestIds = mempty
@@ -138,7 +144,6 @@ dsirFilters = lens _dsirFilters (\s a -> s { _dsirFilters = a })
 instance ToQuery DescribeSpotInstanceRequests where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Show, Generic)
@@ -147,6 +152,11 @@ newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsRespo
 -- a valid 'DescribeSpotInstanceRequestsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotInstanceRequests ::@ @[SpotInstanceRequest]@
+--
 mkDescribeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
 mkDescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests = mempty

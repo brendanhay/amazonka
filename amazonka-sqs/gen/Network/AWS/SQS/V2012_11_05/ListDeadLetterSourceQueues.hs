@@ -46,13 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDeadLetterSourceQueues' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
 mkListDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
                              -> ListDeadLetterSourceQueues
 mkListDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
@@ -75,6 +79,11 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 -- a valid 'ListDeadLetterSourceQueuesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrls ::@ @[Text]@
+--
 mkListDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
                                      -> ListDeadLetterSourceQueuesResponse
 mkListDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse

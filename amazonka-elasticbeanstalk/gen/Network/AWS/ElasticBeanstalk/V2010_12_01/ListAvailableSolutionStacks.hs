@@ -62,6 +62,13 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
 -- a valid 'ListAvailableSolutionStacksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SolutionStacks ::@ @[Text]@
+--
+-- * @SolutionStackDetails ::@ @[SolutionStackDescription]@
+--
 mkListAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
 mkListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     { _lassrSolutionStacks = mempty

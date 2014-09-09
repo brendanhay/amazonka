@@ -68,6 +68,13 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeResourceRecordSets' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HostedZoneId ::@ @Text@
+--
+-- * @ChangeBatch ::@ @ChangeBatch@
+--
 mkChangeResourceRecordSets :: Text -- ^ 'crrsHostedZoneId'
                            -> ChangeBatch -- ^ 'crrsChangeBatch'
                            -> ChangeResourceRecordSets
@@ -105,6 +112,11 @@ newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
 -- a valid 'ChangeResourceRecordSetsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ChangeInfo ::@ @ChangeInfo@
+--
 mkChangeResourceRecordSetsResponse :: ChangeInfo -- ^ 'crrsrChangeInfo'
                                    -> ChangeResourceRecordSetsResponse
 mkChangeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse

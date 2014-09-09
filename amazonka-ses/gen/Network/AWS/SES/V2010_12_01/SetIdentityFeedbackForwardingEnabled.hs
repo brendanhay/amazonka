@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.V2010_12_01.Types
 import Network.AWS.Prelude
 
--- | 
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _siffeIdentity :: Text
     , _siffeForwardingEnabled :: Bool
@@ -62,6 +61,13 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityFeedbackForwardingEnabled' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identity ::@ @Text@
+--
+-- * @ForwardingEnabled ::@ @Bool@
+--
 mkSetIdentityFeedbackForwardingEnabled :: Text -- ^ 'siffeIdentity'
                                        -> Bool -- ^ 'siffeForwardingEnabled'
                                        -> SetIdentityFeedbackForwardingEnabled

@@ -630,6 +630,11 @@ newtype ServiceEndpoint = ServiceEndpoint
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ServiceEndpoint' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Endpoint ::@ @Maybe Text@
+--
 mkServiceEndpoint :: ServiceEndpoint
 mkServiceEndpoint = ServiceEndpoint
     { _seEndpoint = Nothing
@@ -661,6 +666,13 @@ data AccessPoliciesStatus = AccessPoliciesStatus
 --
 -- 'AccessPoliciesStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Options ::@ @Text@
+--
+-- * @Status ::@ @OptionStatus@
+--
 mkAccessPoliciesStatus :: Text -- ^ 'apsOptions'
                        -> OptionStatus -- ^ 'apsStatus'
                        -> AccessPoliciesStatus
@@ -694,6 +706,17 @@ data AnalysisOptions = AnalysisOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AnalysisOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Synonyms ::@ @Maybe Text@
+--
+-- * @Stopwords ::@ @Maybe Text@
+--
+-- * @StemmingDictionary ::@ @Maybe Text@
+--
+-- * @AlgorithmicStemming ::@ @Maybe AlgorithmicStemming@
+--
 mkAnalysisOptions :: AnalysisOptions
 mkAnalysisOptions = AnalysisOptions
     { _aoSynonyms = Nothing
@@ -758,6 +781,15 @@ data AnalysisScheme = AnalysisScheme
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AnalysisScheme' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AnalysisSchemeName ::@ @Text@
+--
+-- * @AnalysisSchemeLanguage ::@ @AnalysisSchemeLanguage@
+--
+-- * @AnalysisOptions ::@ @Maybe AnalysisOptions@
+--
 mkAnalysisScheme :: Text -- ^ 'asAnalysisSchemeName'
                  -> AnalysisSchemeLanguage -- ^ 'asAnalysisSchemeLanguage'
                  -> AnalysisScheme
@@ -804,6 +836,13 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus
 --
 -- 'AnalysisSchemeStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Options ::@ @AnalysisScheme@
+--
+-- * @Status ::@ @OptionStatus@
+--
 mkAnalysisSchemeStatus :: AnalysisScheme -- ^ 'assOptions'
                        -> OptionStatus -- ^ 'assStatus'
                        -> AnalysisSchemeStatus
@@ -839,6 +878,13 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus
 --
 -- 'AvailabilityOptionsStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Options ::@ @Bool@
+--
+-- * @Status ::@ @OptionStatus@
+--
 mkAvailabilityOptionsStatus :: Bool -- ^ 'aosOptions'
                             -> OptionStatus -- ^ 'aosStatus'
                             -> AvailabilityOptionsStatus
@@ -872,6 +918,19 @@ data DateArrayOptions = DateArrayOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DateArrayOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @SourceFields ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
 mkDateArrayOptions :: DateArrayOptions
 mkDateArrayOptions = DateArrayOptions
     { _dao1DefaultValue = Nothing
@@ -928,6 +987,21 @@ data DateOptions = DateOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DateOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @SourceField ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
+-- * @SortEnabled ::@ @Maybe Bool@
+--
 mkDateOptions :: DateOptions
 mkDateOptions = DateOptions
     { _do1DefaultValue = Nothing
@@ -983,6 +1057,15 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DocumentSuggesterOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceField ::@ @Text@
+--
+-- * @FuzzyMatching ::@ @Maybe SuggesterFuzzyMatching@
+--
+-- * @SortExpression ::@ @Maybe Text@
+--
 mkDocumentSuggesterOptions :: Text -- ^ 'dsoSourceField'
                            -> DocumentSuggesterOptions
 mkDocumentSuggesterOptions p1 = DocumentSuggesterOptions
@@ -1038,6 +1121,33 @@ data DomainStatus = DomainStatus
 --
 -- 'DomainStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainId ::@ @Text@
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ARN ::@ @Maybe Text@
+--
+-- * @Created ::@ @Maybe Bool@
+--
+-- * @Deleted ::@ @Maybe Bool@
+--
+-- * @DocService ::@ @Maybe ServiceEndpoint@
+--
+-- * @SearchService ::@ @Maybe ServiceEndpoint@
+--
+-- * @RequiresIndexDocuments ::@ @Bool@
+--
+-- * @Processing ::@ @Maybe Bool@
+--
+-- * @SearchInstanceType ::@ @Maybe Text@
+--
+-- * @SearchPartitionCount ::@ @Maybe Integer@
+--
+-- * @SearchInstanceCount ::@ @Maybe Integer@
+--
 mkDomainStatus :: Text -- ^ 'dsDomainId'
                -> Text -- ^ 'dsDomainName'
                -> Bool -- ^ 'dsRequiresIndexDocuments'
@@ -1141,6 +1251,19 @@ data DoubleArrayOptions = DoubleArrayOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DoubleArrayOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Double@
+--
+-- * @SourceFields ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
 mkDoubleArrayOptions :: DoubleArrayOptions
 mkDoubleArrayOptions = DoubleArrayOptions
     { _daoDefaultValue = Nothing
@@ -1193,6 +1316,21 @@ data DoubleOptions = DoubleOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DoubleOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Double@
+--
+-- * @SourceField ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
+-- * @SortEnabled ::@ @Maybe Bool@
+--
 mkDoubleOptions :: DoubleOptions
 mkDoubleOptions = DoubleOptions
     { _doDefaultValue = Nothing
@@ -1245,6 +1383,13 @@ data Expression = Expression
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Expression' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExpressionName ::@ @Text@
+--
+-- * @ExpressionValue ::@ @Text@
+--
 mkExpression :: Text -- ^ 'eExpressionName'
              -> Text -- ^ 'eExpressionValue'
              -> Expression
@@ -1286,6 +1431,13 @@ data ExpressionStatus = ExpressionStatus
 --
 -- 'ExpressionStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Options ::@ @Expression@
+--
+-- * @Status ::@ @OptionStatus@
+--
 mkExpressionStatus :: Expression -- ^ 'esOptions'
                    -> OptionStatus -- ^ 'esStatus'
                    -> ExpressionStatus
@@ -1326,6 +1478,35 @@ data IndexField = IndexField
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IndexField' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexFieldName ::@ @Text@
+--
+-- * @IndexFieldType ::@ @IndexFieldType@
+--
+-- * @IntOptions ::@ @Maybe IntOptions@
+--
+-- * @DoubleOptions ::@ @Maybe DoubleOptions@
+--
+-- * @LiteralOptions ::@ @Maybe LiteralOptions@
+--
+-- * @TextOptions ::@ @Maybe TextOptions@
+--
+-- * @DateOptions ::@ @Maybe DateOptions@
+--
+-- * @LatLonOptions ::@ @Maybe LatLonOptions@
+--
+-- * @IntArrayOptions ::@ @Maybe IntArrayOptions@
+--
+-- * @DoubleArrayOptions ::@ @Maybe DoubleArrayOptions@
+--
+-- * @LiteralArrayOptions ::@ @Maybe LiteralArrayOptions@
+--
+-- * @TextArrayOptions ::@ @Maybe TextArrayOptions@
+--
+-- * @DateArrayOptions ::@ @Maybe DateArrayOptions@
+--
 mkIndexField :: Text -- ^ 'ifIndexFieldName'
              -> IndexFieldType -- ^ 'ifIndexFieldType'
              -> IndexField
@@ -1449,6 +1630,13 @@ data IndexFieldStatus = IndexFieldStatus
 --
 -- 'IndexFieldStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Options ::@ @IndexField@
+--
+-- * @Status ::@ @OptionStatus@
+--
 mkIndexFieldStatus :: IndexField -- ^ 'ifsOptions'
                    -> OptionStatus -- ^ 'ifsStatus'
                    -> IndexFieldStatus
@@ -1483,6 +1671,19 @@ data IntArrayOptions = IntArrayOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IntArrayOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Integer@
+--
+-- * @SourceFields ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
 mkIntArrayOptions :: IntArrayOptions
 mkIntArrayOptions = IntArrayOptions
     { _iaoDefaultValue = Nothing
@@ -1534,6 +1735,21 @@ data IntOptions = IntOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IntOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Integer@
+--
+-- * @SourceField ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
+-- * @SortEnabled ::@ @Maybe Bool@
+--
 mkIntOptions :: IntOptions
 mkIntOptions = IntOptions
     { _ioDefaultValue = Nothing
@@ -1591,6 +1807,21 @@ data LatLonOptions = LatLonOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LatLonOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @SourceField ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
+-- * @SortEnabled ::@ @Maybe Bool@
+--
 mkLatLonOptions :: LatLonOptions
 mkLatLonOptions = LatLonOptions
     { _lloDefaultValue = Nothing
@@ -1650,6 +1881,19 @@ data LiteralArrayOptions = LiteralArrayOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LiteralArrayOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @SourceFields ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
 mkLiteralArrayOptions :: LiteralArrayOptions
 mkLiteralArrayOptions = LiteralArrayOptions
     { _laoDefaultValue = Nothing
@@ -1701,6 +1945,21 @@ data LiteralOptions = LiteralOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LiteralOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @SourceField ::@ @Maybe Text@
+--
+-- * @FacetEnabled ::@ @Maybe Bool@
+--
+-- * @SearchEnabled ::@ @Maybe Bool@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
+-- * @SortEnabled ::@ @Maybe Bool@
+--
 mkLiteralOptions :: LiteralOptions
 mkLiteralOptions = LiteralOptions
     { _loDefaultValue = Nothing
@@ -1756,6 +2015,19 @@ data OptionStatus = OptionStatus
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionStatus' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CreationDate ::@ @ISO8601@
+--
+-- * @UpdateDate ::@ @ISO8601@
+--
+-- * @UpdateVersion ::@ @Maybe Integer@
+--
+-- * @State ::@ @OptionState@
+--
+-- * @PendingDeletion ::@ @Maybe Bool@
+--
 mkOptionStatus :: ISO8601 -- ^ 'osCreationDate'
                -> ISO8601 -- ^ 'osUpdateDate'
                -> OptionState -- ^ 'osState'
@@ -1813,6 +2085,15 @@ data ScalingParameters = ScalingParameters
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScalingParameters' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DesiredInstanceType ::@ @Maybe PartitionInstanceType@
+--
+-- * @DesiredReplicationCount ::@ @Maybe Integer@
+--
+-- * @DesiredPartitionCount ::@ @Maybe Integer@
+--
 mkScalingParameters :: ScalingParameters
 mkScalingParameters = ScalingParameters
     { _spDesiredInstanceType = Nothing
@@ -1857,6 +2138,13 @@ data ScalingParametersStatus = ScalingParametersStatus
 --
 -- 'ScalingParametersStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Options ::@ @ScalingParameters@
+--
+-- * @Status ::@ @OptionStatus@
+--
 mkScalingParametersStatus :: ScalingParameters -- ^ 'spsOptions'
                           -> OptionStatus -- ^ 'spsStatus'
                           -> ScalingParametersStatus
@@ -1889,6 +2177,13 @@ data Suggester = Suggester
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Suggester' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SuggesterName ::@ @Text@
+--
+-- * @DocumentSuggesterOptions ::@ @DocumentSuggesterOptions@
+--
 mkSuggester :: Text -- ^ 'sSuggesterName'
             -> DocumentSuggesterOptions -- ^ 'sDocumentSuggesterOptions'
             -> Suggester
@@ -1928,6 +2223,13 @@ data SuggesterStatus = SuggesterStatus
 --
 -- 'SuggesterStatus' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Options ::@ @Suggester@
+--
+-- * @Status ::@ @OptionStatus@
+--
 mkSuggesterStatus :: Suggester -- ^ 'ssOptions'
                   -> OptionStatus -- ^ 'ssStatus'
                   -> SuggesterStatus
@@ -1964,6 +2266,19 @@ data TextArrayOptions = TextArrayOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TextArrayOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @SourceFields ::@ @Maybe Text@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
+-- * @HighlightEnabled ::@ @Maybe Bool@
+--
+-- * @AnalysisScheme ::@ @Maybe Text@
+--
 mkTextArrayOptions :: TextArrayOptions
 mkTextArrayOptions = TextArrayOptions
     { _taoDefaultValue = Nothing
@@ -2017,6 +2332,21 @@ data TextOptions = TextOptions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TextOptions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultValue ::@ @Maybe Text@
+--
+-- * @SourceField ::@ @Maybe Text@
+--
+-- * @ReturnEnabled ::@ @Maybe Bool@
+--
+-- * @SortEnabled ::@ @Maybe Bool@
+--
+-- * @HighlightEnabled ::@ @Maybe Bool@
+--
+-- * @AnalysisScheme ::@ @Maybe Text@
+--
 mkTextOptions :: TextOptions
 mkTextOptions = TextOptions
     { _toDefaultValue = Nothing

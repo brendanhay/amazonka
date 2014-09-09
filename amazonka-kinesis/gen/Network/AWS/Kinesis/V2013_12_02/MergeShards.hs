@@ -85,6 +85,15 @@ data MergeShards = MergeShards
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'MergeShards' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamName ::@ @Text@
+--
+-- * @ShardToMerge ::@ @Text@
+--
+-- * @AdjacentShardToMerge ::@ @Text@
+--
 mkMergeShards :: Text -- ^ 'msStreamName'
               -> Text -- ^ 'msShardToMerge'
               -> Text -- ^ 'msAdjacentShardToMerge'

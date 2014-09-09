@@ -67,7 +67,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateCustomerGateway = CreateCustomerGateway
     { _ccgType :: GatewayType
     , _ccgPublicIp :: Text
@@ -76,6 +75,15 @@ data CreateCustomerGateway = CreateCustomerGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCustomerGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Type ::@ @GatewayType@
+--
+-- * @PublicIp ::@ @Text@
+--
+-- * @BgpAsn ::@ @Integer@
+--
 mkCreateCustomerGateway :: GatewayType -- ^ 'ccgType'
                         -> Text -- ^ 'ccgPublicIp'
                         -> Integer -- ^ 'ccgBgpAsn'
@@ -103,7 +111,6 @@ ccgBgpAsn = lens _ccgBgpAsn (\s a -> s { _ccgBgpAsn = a })
 instance ToQuery CreateCustomerGateway where
     toQuery = genericQuery def
 
--- | 
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway :: Maybe CustomerGateway
     } deriving (Show, Generic)
@@ -112,6 +119,11 @@ newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
 -- a valid 'CreateCustomerGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CustomerGateway ::@ @Maybe CustomerGateway@
+--
 mkCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse
 mkCreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway = Nothing

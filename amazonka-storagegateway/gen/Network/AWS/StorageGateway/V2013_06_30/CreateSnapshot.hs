@@ -77,6 +77,13 @@ data CreateSnapshot = CreateSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Text@
+--
+-- * @SnapshotDescription ::@ @Text@
+--
 mkCreateSnapshot :: Text -- ^ 'csVolumeARN'
                  -> Text -- ^ 'csSnapshotDescription'
                  -> CreateSnapshot
@@ -115,6 +122,13 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 -- a valid 'CreateSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
 mkCreateSnapshotResponse :: CreateSnapshotResponse
 mkCreateSnapshotResponse = CreateSnapshotResponse
     { _csrVolumeARN = Nothing

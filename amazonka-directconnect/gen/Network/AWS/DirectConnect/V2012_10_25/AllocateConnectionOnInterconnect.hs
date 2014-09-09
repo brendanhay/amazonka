@@ -65,6 +65,19 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocateConnectionOnInterconnect' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bandwidth ::@ @Text@
+--
+-- * @ConnectionName ::@ @Text@
+--
+-- * @OwnerAccount ::@ @Text@
+--
+-- * @InterconnectId ::@ @Text@
+--
+-- * @Vlan ::@ @Integer@
+--
 mkAllocateConnectionOnInterconnect :: Text -- ^ 'acoiBandwidth'
                                    -> Text -- ^ 'acoiConnectionName'
                                    -> Text -- ^ 'acoiOwnerAccount'
@@ -132,6 +145,27 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
 -- a valid 'AllocateConnectionOnInterconnectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @ConnectionName ::@ @Maybe Text@
+--
+-- * @ConnectionState ::@ @Maybe ConnectionState@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Bandwidth ::@ @Maybe Text@
+--
+-- * @Vlan ::@ @Maybe Integer@
+--
+-- * @PartnerName ::@ @Maybe Text@
+--
 mkAllocateConnectionOnInterconnectResponse :: AllocateConnectionOnInterconnectResponse
 mkAllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
     { _acoirOwnerAccount = Nothing

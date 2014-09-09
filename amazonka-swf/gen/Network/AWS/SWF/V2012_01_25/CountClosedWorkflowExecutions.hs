@@ -89,6 +89,23 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountClosedWorkflowExecutions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @StartTimeFilter ::@ @Maybe ExecutionTimeFilter@
+--
+-- * @CloseTimeFilter ::@ @Maybe ExecutionTimeFilter@
+--
+-- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
+--
+-- * @TypeFilter ::@ @Maybe WorkflowTypeFilter@
+--
+-- * @TagFilter ::@ @Maybe TagFilter@
+--
+-- * @CloseStatusFilter ::@ @Maybe CloseStatusFilter@
+--
 mkCountClosedWorkflowExecutions :: Text -- ^ 'ccweDomain'
                                 -> CountClosedWorkflowExecutions
 mkCountClosedWorkflowExecutions p1 = CountClosedWorkflowExecutions
@@ -166,6 +183,13 @@ data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsRespon
 -- a valid 'CountClosedWorkflowExecutionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Count ::@ @Integer@
+--
+-- * @Truncated ::@ @Maybe Bool@
+--
 mkCountClosedWorkflowExecutionsResponse :: Integer -- ^ 'ccwerCount'
                                         -> CountClosedWorkflowExecutionsResponse
 mkCountClosedWorkflowExecutionsResponse p1 = CountClosedWorkflowExecutionsResponse

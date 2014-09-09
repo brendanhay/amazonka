@@ -46,6 +46,11 @@ newtype GetBucketCors = GetBucketCors
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketCors' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketCors :: BucketName -- ^ 'gbcBucket'
                 -> GetBucketCors
 mkGetBucketCors p1 = GetBucketCors
@@ -71,6 +76,11 @@ newtype GetBucketCorsResponse = GetBucketCorsResponse
 -- a valid 'GetBucketCorsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CORSRules ::@ @[CORSRule]@
+--
 mkGetBucketCorsResponse :: GetBucketCorsResponse
 mkGetBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules = mempty

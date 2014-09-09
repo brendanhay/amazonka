@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.ELB.V2012_06_01.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName :: Text
     , _clbpPolicyName :: Text
@@ -59,6 +58,17 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @PolicyTypeName ::@ @Text@
+--
+-- * @PolicyAttributes ::@ @[PolicyAttribute]@
+--
 mkCreateLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
                            -> Text -- ^ 'clbpPolicyName'
                            -> Text -- ^ 'clbpPolicyTypeName'

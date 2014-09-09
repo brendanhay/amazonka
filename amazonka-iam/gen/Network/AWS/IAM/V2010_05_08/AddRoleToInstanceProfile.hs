@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
     , _artipRoleName :: Text
@@ -51,6 +50,13 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddRoleToInstanceProfile' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceProfileName ::@ @Text@
+--
+-- * @RoleName ::@ @Text@
+--
 mkAddRoleToInstanceProfile :: Text -- ^ 'artipInstanceProfileName'
                            -> Text -- ^ 'artipRoleName'
                            -> AddRoleToInstanceProfile

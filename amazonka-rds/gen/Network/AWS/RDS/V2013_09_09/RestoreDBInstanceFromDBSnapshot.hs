@@ -84,6 +84,39 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceFromDBSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @DBSnapshotIdentifier ::@ @Text@
+--
+-- * @DBInstanceClass ::@ @Maybe Text@
+--
+-- * @Port ::@ @Maybe Integer@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @DBSubnetGroupName ::@ @Maybe Text@
+--
+-- * @MultiAZ ::@ @Maybe Bool@
+--
+-- * @PubliclyAccessible ::@ @Maybe Bool@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @LicenseModel ::@ @Maybe Text@
+--
+-- * @DBName ::@ @Maybe Text@
+--
+-- * @Engine ::@ @Maybe Text@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @OptionGroupName ::@ @Maybe Text@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkRestoreDBInstanceFromDBSnapshot :: Text -- ^ 'rdbifdbsDBInstanceIdentifier'
                                   -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
                                   -> RestoreDBInstanceFromDBSnapshot
@@ -235,6 +268,11 @@ newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapsho
 -- a valid 'RestoreDBInstanceFromDBSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkRestoreDBInstanceFromDBSnapshotResponse :: RestoreDBInstanceFromDBSnapshotResponse
 mkRestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance = Nothing

@@ -87,6 +87,39 @@ data ModifyReplicationGroup = ModifyReplicationGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyReplicationGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroupId ::@ @Text@
+--
+-- * @ReplicationGroupDescription ::@ @Maybe Text@
+--
+-- * @CacheSecurityGroupNames ::@ @[Text]@
+--
+-- * @SecurityGroupIds ::@ @[Text]@
+--
+-- * @PreferredMaintenanceWindow ::@ @Maybe Text@
+--
+-- * @NotificationTopicArn ::@ @Maybe Text@
+--
+-- * @CacheParameterGroupName ::@ @Maybe Text@
+--
+-- * @NotificationTopicStatus ::@ @Maybe Text@
+--
+-- * @ApplyImmediately ::@ @Maybe Bool@
+--
+-- * @EngineVersion ::@ @Maybe Text@
+--
+-- * @AutoMinorVersionUpgrade ::@ @Maybe Bool@
+--
+-- * @PrimaryClusterId ::@ @Maybe Text@
+--
+-- * @SnapshotRetentionLimit ::@ @Maybe Integer@
+--
+-- * @SnapshotWindow ::@ @Maybe Text@
+--
+-- * @SnapshottingClusterId ::@ @Maybe Text@
+--
 mkModifyReplicationGroup :: Text -- ^ 'mrgReplicationGroupId'
                          -> ModifyReplicationGroup
 mkModifyReplicationGroup p1 = ModifyReplicationGroup
@@ -239,6 +272,11 @@ newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
 -- a valid 'ModifyReplicationGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReplicationGroup ::@ @Maybe ReplicationGroup@
+--
 mkModifyReplicationGroupResponse :: ModifyReplicationGroupResponse
 mkModifyReplicationGroupResponse = ModifyReplicationGroupResponse
     { _mrgrReplicationGroup = Nothing

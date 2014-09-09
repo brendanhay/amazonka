@@ -53,6 +53,15 @@ data SetStackPolicy = SetStackPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetStackPolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Text@
+--
+-- * @StackPolicyBody ::@ @Maybe Text@
+--
+-- * @StackPolicyURL ::@ @Maybe Text@
+--
 mkSetStackPolicy :: Text -- ^ 'sspStackName'
                  -> SetStackPolicy
 mkSetStackPolicy p1 = SetStackPolicy

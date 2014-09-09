@@ -50,7 +50,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeNetworkAcls = DescribeNetworkAcls
     { _dna1NetworkAclIds :: [Text]
     , _dna1Filters :: [Filter]
@@ -58,6 +57,13 @@ data DescribeNetworkAcls = DescribeNetworkAcls
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkAcls' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAclIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeNetworkAcls :: DescribeNetworkAcls
 mkDescribeNetworkAcls = DescribeNetworkAcls
     { _dna1NetworkAclIds = mempty
@@ -99,7 +105,6 @@ dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a })
 instance ToQuery DescribeNetworkAcls where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: [NetworkAcl]
     } deriving (Show, Generic)
@@ -108,6 +113,11 @@ newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
 -- a valid 'DescribeNetworkAclsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkAcls ::@ @[NetworkAcl]@
+--
 mkDescribeNetworkAclsResponse :: DescribeNetworkAclsResponse
 mkDescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls = mempty

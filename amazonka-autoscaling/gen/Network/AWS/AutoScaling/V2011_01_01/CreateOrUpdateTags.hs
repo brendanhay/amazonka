@@ -54,6 +54,11 @@ newtype CreateOrUpdateTags = CreateOrUpdateTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOrUpdateTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkCreateOrUpdateTags :: [Tag] -- ^ 'coutTags'
                      -> CreateOrUpdateTags
 mkCreateOrUpdateTags p1 = CreateOrUpdateTags

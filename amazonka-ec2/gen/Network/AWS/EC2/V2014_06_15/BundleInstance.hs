@@ -66,7 +66,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data BundleInstance = BundleInstance
     { _biInstanceId :: Text
     , _biStorage :: Storage
@@ -74,6 +73,13 @@ data BundleInstance = BundleInstance
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BundleInstance' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @Storage ::@ @Storage@
+--
 mkBundleInstance :: Text -- ^ 'biInstanceId'
                  -> Storage -- ^ 'biStorage'
                  -> BundleInstance
@@ -95,7 +101,6 @@ biStorage = lens _biStorage (\s a -> s { _biStorage = a })
 instance ToQuery BundleInstance where
     toQuery = genericQuery def
 
--- | 
 newtype BundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask :: Maybe BundleTask
     } deriving (Show, Generic)
@@ -104,6 +109,11 @@ newtype BundleInstanceResponse = BundleInstanceResponse
 -- a valid 'BundleInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BundleTask ::@ @Maybe BundleTask@
+--
 mkBundleInstanceResponse :: BundleInstanceResponse
 mkBundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask = Nothing

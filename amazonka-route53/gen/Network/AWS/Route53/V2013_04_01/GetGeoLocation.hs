@@ -51,6 +51,15 @@ data GetGeoLocation = GetGeoLocation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGeoLocation' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ContinentCode ::@ @Maybe Text@
+--
+-- * @CountryCode ::@ @Maybe Text@
+--
+-- * @SubdivisionCode ::@ @Maybe Text@
+--
 mkGetGeoLocation :: GetGeoLocation
 mkGetGeoLocation = GetGeoLocation
     { _gglContinentCode = Nothing
@@ -100,6 +109,11 @@ newtype GetGeoLocationResponse = GetGeoLocationResponse
 -- a valid 'GetGeoLocationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GeoLocationDetails ::@ @GeoLocationDetails@
+--
 mkGetGeoLocationResponse :: GeoLocationDetails -- ^ 'gglrGeoLocationDetails'
                          -> GetGeoLocationResponse
 mkGetGeoLocationResponse p1 = GetGeoLocationResponse

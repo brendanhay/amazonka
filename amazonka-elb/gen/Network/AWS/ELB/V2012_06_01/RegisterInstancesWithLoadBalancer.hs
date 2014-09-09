@@ -72,6 +72,13 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterInstancesWithLoadBalancer' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkRegisterInstancesWithLoadBalancer :: Text -- ^ 'riwlbLoadBalancerName'
                                     -> [Instance] -- ^ 'riwlbInstances'
                                     -> RegisterInstancesWithLoadBalancer
@@ -102,6 +109,11 @@ newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBal
 -- a valid 'RegisterInstancesWithLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Instances ::@ @[Instance]@
+--
 mkRegisterInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
 mkRegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _riwlbrInstances = mempty

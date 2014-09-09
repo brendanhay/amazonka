@@ -66,6 +66,13 @@ data UpdatePipelineStatus = UpdatePipelineStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
 mkUpdatePipelineStatus :: Text -- ^ 'upsId'
                        -> Text -- ^ 'upsStatus'
                        -> UpdatePipelineStatus
@@ -101,6 +108,11 @@ newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
 -- a valid 'UpdatePipelineStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Pipeline ::@ @Maybe Pipeline@
+--
 mkUpdatePipelineStatusResponse :: UpdatePipelineStatusResponse
 mkUpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline = Nothing

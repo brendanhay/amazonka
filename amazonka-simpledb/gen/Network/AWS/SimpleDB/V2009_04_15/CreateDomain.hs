@@ -50,6 +50,11 @@ newtype CreateDomain = CreateDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkCreateDomain :: Text -- ^ 'cdDomainName'
                -> CreateDomain
 mkCreateDomain p1 = CreateDomain

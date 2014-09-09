@@ -69,7 +69,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListSigningCertificates = ListSigningCertificates
     { _lsc1UserName :: Maybe Text
     , _lsc1Marker :: Maybe Text
@@ -78,6 +77,15 @@ data ListSigningCertificates = ListSigningCertificates
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSigningCertificates' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListSigningCertificates :: ListSigningCertificates
 mkListSigningCertificates = ListSigningCertificates
     { _lsc1UserName = Nothing
@@ -118,6 +126,15 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
 -- a valid 'ListSigningCertificatesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Certificates ::@ @[SigningCertificate]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListSigningCertificatesResponse :: [SigningCertificate] -- ^ 'lscrrCertificates'
                                   -> Bool -- ^ 'lscrrIsTruncated'
                                   -> ListSigningCertificatesResponse

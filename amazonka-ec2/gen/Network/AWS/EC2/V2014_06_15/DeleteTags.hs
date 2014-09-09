@@ -60,7 +60,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteTags = DeleteTags
     { _dtResources :: [Text]
     , _dtTags :: [Tag]
@@ -68,6 +67,13 @@ data DeleteTags = DeleteTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Resources ::@ @[Text]@
+--
+-- * @Tags ::@ @[Tag]@
+--
 mkDeleteTags :: [Text] -- ^ 'dtResources'
              -> DeleteTags
 mkDeleteTags p1 = DeleteTags

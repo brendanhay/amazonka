@@ -106,6 +106,17 @@ data DescribeJobFlows = DescribeJobFlows
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeJobFlows' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CreatedAfter ::@ @Maybe POSIX@
+--
+-- * @CreatedBefore ::@ @Maybe POSIX@
+--
+-- * @JobFlowIds ::@ @[Text]@
+--
+-- * @JobFlowStates ::@ @[JobFlowExecutionState]@
+--
 mkDescribeJobFlows :: DescribeJobFlows
 mkDescribeJobFlows = DescribeJobFlows
     { _djfCreatedAfter = Nothing
@@ -149,6 +160,11 @@ newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
 -- a valid 'DescribeJobFlowsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobFlows ::@ @[JobFlowDetail]@
+--
 mkDescribeJobFlowsResponse :: DescribeJobFlowsResponse
 mkDescribeJobFlowsResponse = DescribeJobFlowsResponse
     { _djfrJobFlows = mempty

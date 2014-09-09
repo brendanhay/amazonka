@@ -49,6 +49,11 @@ newtype GetHealthCheck = GetHealthCheck
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheck' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheckId ::@ @Text@
+--
 mkGetHealthCheck :: Text -- ^ 'ghcHealthCheckId'
                  -> GetHealthCheck
 mkGetHealthCheck p1 = GetHealthCheck
@@ -79,6 +84,11 @@ newtype GetHealthCheckResponse = GetHealthCheckResponse
 -- a valid 'GetHealthCheckResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheck ::@ @HealthCheck@
+--
 mkGetHealthCheckResponse :: HealthCheck -- ^ 'ghcrHealthCheck'
                          -> GetHealthCheckResponse
 mkGetHealthCheckResponse p1 = GetHealthCheckResponse

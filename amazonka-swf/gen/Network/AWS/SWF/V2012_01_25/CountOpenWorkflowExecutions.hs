@@ -85,6 +85,19 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountOpenWorkflowExecutions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @StartTimeFilter ::@ @ExecutionTimeFilter@
+--
+-- * @TypeFilter ::@ @Maybe WorkflowTypeFilter@
+--
+-- * @TagFilter ::@ @Maybe TagFilter@
+--
+-- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
+--
 mkCountOpenWorkflowExecutions :: Text -- ^ 'coweDomain'
                               -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
                               -> CountOpenWorkflowExecutions
@@ -144,6 +157,13 @@ data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
 -- a valid 'CountOpenWorkflowExecutionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Count ::@ @Integer@
+--
+-- * @Truncated ::@ @Maybe Bool@
+--
 mkCountOpenWorkflowExecutionsResponse :: Integer -- ^ 'cowerCount'
                                       -> CountOpenWorkflowExecutionsResponse
 mkCountOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse

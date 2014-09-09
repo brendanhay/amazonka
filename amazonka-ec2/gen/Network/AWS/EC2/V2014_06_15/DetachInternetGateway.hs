@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DetachInternetGateway = DetachInternetGateway
     { _dig2InternetGatewayId :: Text
     , _dig2VpcId :: Text
@@ -55,6 +54,13 @@ data DetachInternetGateway = DetachInternetGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachInternetGateway' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InternetGatewayId ::@ @Text@
+--
+-- * @VpcId ::@ @Text@
+--
 mkDetachInternetGateway :: Text -- ^ 'dig2InternetGatewayId'
                         -> Text -- ^ 'dig2VpcId'
                         -> DetachInternetGateway

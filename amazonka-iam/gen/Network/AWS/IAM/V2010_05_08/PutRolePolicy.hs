@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data PutRolePolicy = PutRolePolicy
     { _prpRoleName :: Text
     , _prpPolicyName :: Text
@@ -60,6 +59,15 @@ data PutRolePolicy = PutRolePolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRolePolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
+-- * @PolicyDocument ::@ @Text@
+--
 mkPutRolePolicy :: Text -- ^ 'prpRoleName'
                 -> Text -- ^ 'prpPolicyName'
                 -> Text -- ^ 'prpPolicyDocument'

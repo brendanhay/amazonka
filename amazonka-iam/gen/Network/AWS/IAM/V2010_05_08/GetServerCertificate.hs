@@ -60,13 +60,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetServerCertificate = GetServerCertificate
     { _gscServerCertificateName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetServerCertificate' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerCertificateName ::@ @Text@
+--
 mkGetServerCertificate :: Text -- ^ 'gscServerCertificateName'
                        -> GetServerCertificate
 mkGetServerCertificate p1 = GetServerCertificate
@@ -92,6 +96,11 @@ newtype GetServerCertificateResponse = GetServerCertificateResponse
 -- a valid 'GetServerCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServerCertificate ::@ @ServerCertificate@
+--
 mkGetServerCertificateResponse :: ServerCertificate -- ^ 'gscrServerCertificate'
                                -> GetServerCertificateResponse
 mkGetServerCertificateResponse p1 = GetServerCertificateResponse

@@ -59,6 +59,11 @@ newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
 -- a valid 'DescribeAdjustmentTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AdjustmentTypes ::@ @[AdjustmentType]@
+--
 mkDescribeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
 mkDescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes = mempty

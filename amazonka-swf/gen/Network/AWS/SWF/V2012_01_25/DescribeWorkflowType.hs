@@ -82,6 +82,13 @@ data DescribeWorkflowType = DescribeWorkflowType
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeWorkflowType' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
 mkDescribeWorkflowType :: Text -- ^ 'dwt1Domain'
                        -> WorkflowType -- ^ 'dwt1WorkflowType'
                        -> DescribeWorkflowType
@@ -117,6 +124,13 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
 -- a valid 'DescribeWorkflowTypeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TypeInfo ::@ @WorkflowTypeInfo@
+--
+-- * @Configuration ::@ @WorkflowTypeConfiguration@
+--
 mkDescribeWorkflowTypeResponse :: WorkflowTypeInfo -- ^ 'dwtrTypeInfo'
                                -> WorkflowTypeConfiguration -- ^ 'dwtrConfiguration'
                                -> DescribeWorkflowTypeResponse

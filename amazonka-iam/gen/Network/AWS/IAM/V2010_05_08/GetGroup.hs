@@ -53,7 +53,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data GetGroup = GetGroup
     { _ggGroupName :: Text
     , _ggMarker :: Maybe Text
@@ -62,6 +61,15 @@ data GetGroup = GetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkGetGroup :: Text -- ^ 'ggGroupName'
            -> GetGroup
 mkGetGroup p1 = GetGroup
@@ -102,6 +110,17 @@ data GetGroupResponse = GetGroupResponse
 -- a valid 'GetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Group ::@ @Group@
+--
+-- * @Users ::@ @[User]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkGetGroupResponse :: Group -- ^ 'ggrGroup'
                    -> [User] -- ^ 'ggrUsers'
                    -> Bool -- ^ 'ggrIsTruncated'

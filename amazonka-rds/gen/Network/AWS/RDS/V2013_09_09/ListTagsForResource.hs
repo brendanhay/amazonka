@@ -47,6 +47,11 @@ newtype ListTagsForResource = ListTagsForResource
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResource' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ResourceName ::@ @Text@
+--
 mkListTagsForResource :: Text -- ^ 'ltfrResourceName'
                       -> ListTagsForResource
 mkListTagsForResource p1 = ListTagsForResource
@@ -72,6 +77,11 @@ newtype ListTagsForResourceResponse = ListTagsForResourceResponse
 -- a valid 'ListTagsForResourceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TagList ::@ @[Tag]@
+--
 mkListTagsForResourceResponse :: ListTagsForResourceResponse
 mkListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList = mempty

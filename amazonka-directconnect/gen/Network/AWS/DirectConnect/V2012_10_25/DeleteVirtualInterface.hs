@@ -46,6 +46,11 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVirtualInterface' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceId ::@ @Text@
+--
 mkDeleteVirtualInterface :: Text -- ^ 'dviVirtualInterfaceId'
                          -> DeleteVirtualInterface
 mkDeleteVirtualInterface p1 = DeleteVirtualInterface
@@ -74,6 +79,11 @@ newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
 -- a valid 'DeleteVirtualInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+--
 mkDeleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
 mkDeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvirVirtualInterfaceState = Nothing

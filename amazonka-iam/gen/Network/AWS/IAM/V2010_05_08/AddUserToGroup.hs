@@ -40,7 +40,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
     , _autgUserName :: Text
@@ -48,6 +47,13 @@ data AddUserToGroup = AddUserToGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddUserToGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupName ::@ @Text@
+--
+-- * @UserName ::@ @Text@
+--
 mkAddUserToGroup :: Text -- ^ 'autgGroupName'
                  -> Text -- ^ 'autgUserName'
                  -> AddUserToGroup

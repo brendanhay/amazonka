@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeKeyPairs = DescribeKeyPairs
     { _dkp1KeyNames :: [Text]
     , _dkp1Filters :: [Filter]
@@ -57,6 +56,13 @@ data DescribeKeyPairs = DescribeKeyPairs
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeKeyPairs' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyNames ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeKeyPairs :: DescribeKeyPairs
 mkDescribeKeyPairs = DescribeKeyPairs
     { _dkp1KeyNames = mempty
@@ -75,7 +81,6 @@ dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a })
 instance ToQuery DescribeKeyPairs where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Show, Generic)
@@ -84,6 +89,11 @@ newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
 -- a valid 'DescribeKeyPairsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @KeyPairs ::@ @[KeyPairInfo]@
+--
 mkDescribeKeyPairsResponse :: DescribeKeyPairsResponse
 mkDescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs = mempty

@@ -55,6 +55,13 @@ data ConfigureHealthCheck = ConfigureHealthCheck
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfigureHealthCheck' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @HealthCheck ::@ @HealthCheck@
+--
 mkConfigureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
                        -> HealthCheck -- ^ 'chcHealthCheck'
                        -> ConfigureHealthCheck
@@ -86,6 +93,11 @@ newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
 -- a valid 'ConfigureHealthCheckResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthCheck ::@ @Maybe HealthCheck@
+--
 mkConfigureHealthCheckResponse :: ConfigureHealthCheckResponse
 mkConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck = Nothing

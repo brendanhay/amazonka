@@ -101,6 +101,15 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationSettings' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
 mkDescribeConfigurationSettings :: Text -- ^ 'dcsApplicationName'
                                 -> DescribeConfigurationSettings
 mkDescribeConfigurationSettings p1 = DescribeConfigurationSettings
@@ -144,6 +153,11 @@ newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsRes
 -- a valid 'DescribeConfigurationSettingsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ConfigurationSettings ::@ @[ConfigurationSettingsDescription]@
+--
 mkDescribeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
 mkDescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings = mempty

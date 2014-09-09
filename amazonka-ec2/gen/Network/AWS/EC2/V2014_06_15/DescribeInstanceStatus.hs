@@ -109,7 +109,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeInstanceStatus = DescribeInstanceStatus
     { _disInstanceIds :: [Text]
     , _disFilters :: [Filter]
@@ -120,6 +119,19 @@ data DescribeInstanceStatus = DescribeInstanceStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
+-- * @IncludeAllInstances ::@ @Maybe Bool@
+--
 mkDescribeInstanceStatus :: DescribeInstanceStatus
 mkDescribeInstanceStatus = DescribeInstanceStatus
     { _disInstanceIds = mempty
@@ -174,7 +186,6 @@ disIncludeAllInstances =
 instance ToQuery DescribeInstanceStatus where
     toQuery = genericQuery def
 
--- | 
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses :: [InstanceStatus]
     , _disrNextToken :: Maybe Text
@@ -184,6 +195,13 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
 -- a valid 'DescribeInstanceStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceStatuses ::@ @[InstanceStatus]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeInstanceStatusResponse :: DescribeInstanceStatusResponse
 mkDescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses = mempty

@@ -47,6 +47,11 @@ newtype DeleteDomain = DeleteDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkDeleteDomain :: Text -- ^ 'ddDomainName'
                -> DeleteDomain
 mkDeleteDomain p1 = DeleteDomain

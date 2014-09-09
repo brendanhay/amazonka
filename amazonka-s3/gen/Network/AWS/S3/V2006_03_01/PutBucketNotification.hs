@@ -48,6 +48,15 @@ data PutBucketNotification = PutBucketNotification
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketNotification' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @NotificationConfiguration ::@ @NotificationConfiguration@
+--
 mkPutBucketNotification :: BucketName -- ^ 'pbnBucket'
                         -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
                         -> PutBucketNotification

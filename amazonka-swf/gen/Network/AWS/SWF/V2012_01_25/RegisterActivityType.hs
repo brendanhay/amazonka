@@ -93,6 +93,27 @@ data RegisterActivityType = RegisterActivityType
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterActivityType' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @Name ::@ @Text@
+--
+-- * @Version ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @DefaultTaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskHeartbeatTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskList ::@ @Maybe TaskList@
+--
+-- * @DefaultTaskScheduleToStartTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskScheduleToCloseTimeout ::@ @Maybe Text@
+--
 mkRegisterActivityType :: Text -- ^ 'ratDomain'
                        -> Text -- ^ 'ratName'
                        -> Text -- ^ 'ratVersion'

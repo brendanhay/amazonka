@@ -47,6 +47,13 @@ data DescribeRdsDbInstances = DescribeRdsDbInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRdsDbInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Text@
+--
+-- * @RdsDbInstanceArns ::@ @[Text]@
+--
 mkDescribeRdsDbInstances :: Text -- ^ 'drdi1StackId'
                          -> DescribeRdsDbInstances
 mkDescribeRdsDbInstances p1 = DescribeRdsDbInstances
@@ -81,6 +88,11 @@ newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
 -- a valid 'DescribeRdsDbInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RdsDbInstances ::@ @[RdsDbInstance]@
+--
 mkDescribeRdsDbInstancesResponse :: DescribeRdsDbInstancesResponse
 mkDescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances = mempty

@@ -56,6 +56,11 @@ newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVerifiedEmailAddress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EmailAddress ::@ @Text@
+--
 mkDeleteVerifiedEmailAddress :: Text -- ^ 'dveaEmailAddress'
                              -> DeleteVerifiedEmailAddress
 mkDeleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress

@@ -52,6 +52,15 @@ data DescribeServiceErrors = DescribeServiceErrors
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceErrors' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackId ::@ @Maybe Text@
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @ServiceErrorIds ::@ @[Text]@
+--
 mkDescribeServiceErrors :: DescribeServiceErrors
 mkDescribeServiceErrors = DescribeServiceErrors
     { _dseStackId = Nothing
@@ -93,6 +102,11 @@ newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
 -- a valid 'DescribeServiceErrorsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ServiceErrors ::@ @[ServiceError]@
+--
 mkDescribeServiceErrorsResponse :: DescribeServiceErrorsResponse
 mkDescribeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors = mempty

@@ -53,7 +53,6 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.V2012_12_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeClusterVersions = DescribeClusterVersions
     { _dcvClusterVersion :: Maybe Text
     , _dcvClusterParameterGroupFamily :: Maybe Text
@@ -63,6 +62,17 @@ data DescribeClusterVersions = DescribeClusterVersions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterVersions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterVersion ::@ @Maybe Text@
+--
+-- * @ClusterParameterGroupFamily ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeClusterVersions :: DescribeClusterVersions
 mkDescribeClusterVersions = DescribeClusterVersions
     { _dcvClusterVersion = Nothing
@@ -115,6 +125,13 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
 -- a valid 'DescribeClusterVersionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ClusterVersions ::@ @[ClusterVersion]@
+--
 mkDescribeClusterVersionsResponse :: DescribeClusterVersionsResponse
 mkDescribeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrMarker = Nothing

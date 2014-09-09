@@ -63,6 +63,21 @@ data CreateHsmConfiguration = CreateHsmConfiguration
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmConfiguration' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmConfigurationIdentifier ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
+-- * @HsmIpAddress ::@ @Text@
+--
+-- * @HsmPartitionName ::@ @Text@
+--
+-- * @HsmPartitionPassword ::@ @Text@
+--
+-- * @HsmServerPublicCertificate ::@ @Text@
+--
 mkCreateHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
                          -> Text -- ^ 'chcDescription'
                          -> Text -- ^ 'chcHsmIpAddress'
@@ -123,6 +138,11 @@ newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
 -- a valid 'CreateHsmConfigurationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HsmConfiguration ::@ @Maybe HsmConfiguration@
+--
 mkCreateHsmConfigurationResponse :: CreateHsmConfigurationResponse
 mkCreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration = Nothing

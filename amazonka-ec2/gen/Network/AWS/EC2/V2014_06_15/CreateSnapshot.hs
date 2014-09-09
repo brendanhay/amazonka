@@ -82,7 +82,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateSnapshot = CreateSnapshot
     { _cs1VolumeId :: Text
     , _cs1Description :: Maybe Text
@@ -90,6 +89,13 @@ data CreateSnapshot = CreateSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkCreateSnapshot :: Text -- ^ 'cs1VolumeId'
                  -> CreateSnapshot
 mkCreateSnapshot p1 = CreateSnapshot
@@ -108,7 +114,6 @@ cs1Description = lens _cs1Description (\s a -> s { _cs1Description = a })
 instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
--- | 
 data CreateSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshotId :: Maybe Text
     , _csrrVolumeId :: Maybe Text
@@ -126,6 +131,29 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 -- a valid 'CreateSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe SnapshotState@
+--
+-- * @StartTime ::@ @Maybe ISO8601@
+--
+-- * @Progress ::@ @Maybe Text@
+--
+-- * @OwnerId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @VolumeSize ::@ @Maybe Integer@
+--
+-- * @OwnerAlias ::@ @Maybe Text@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
 mkCreateSnapshotResponse :: CreateSnapshotResponse
 mkCreateSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshotId = Nothing

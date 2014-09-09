@@ -56,6 +56,13 @@ data CreateApplication = CreateApplication
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplication' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ApplicationName ::@ @Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkCreateApplication :: Text -- ^ 'caApplicationName'
                     -> CreateApplication
 mkCreateApplication p1 = CreateApplication
@@ -86,6 +93,11 @@ newtype CreateApplicationResponse = CreateApplicationResponse
 -- a valid 'CreateApplicationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Application ::@ @Maybe ApplicationDescription@
+--
 mkCreateApplicationResponse :: CreateApplicationResponse
 mkCreateApplicationResponse = CreateApplicationResponse
     { _carApplication = Nothing

@@ -51,6 +51,11 @@ newtype GetChange = GetChange
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetChange' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkGetChange :: Text -- ^ 'gcId'
             -> GetChange
 mkGetChange p1 = GetChange
@@ -82,6 +87,11 @@ newtype GetChangeResponse = GetChangeResponse
 -- a valid 'GetChangeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ChangeInfo ::@ @ChangeInfo@
+--
 mkGetChangeResponse :: ChangeInfo -- ^ 'gcrChangeInfo'
                     -> GetChangeResponse
 mkGetChangeResponse p1 = GetChangeResponse

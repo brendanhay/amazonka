@@ -61,13 +61,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype AllocateAddress = AllocateAddress
     { _aaDomain :: Maybe DomainType
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocateAddress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Maybe DomainType@
+--
 mkAllocateAddress :: AllocateAddress
 mkAllocateAddress = AllocateAddress
     { _aaDomain = Nothing
@@ -81,7 +85,6 @@ aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
 instance ToQuery AllocateAddress where
     toQuery = genericQuery def
 
--- | 
 data AllocateAddressResponse = AllocateAddressResponse
     { _aarPublicIp :: Maybe Text
     , _aarDomain :: Maybe DomainType
@@ -92,6 +95,15 @@ data AllocateAddressResponse = AllocateAddressResponse
 -- a valid 'AllocateAddressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @Domain ::@ @Maybe DomainType@
+--
+-- * @AllocationId ::@ @Maybe Text@
+--
 mkAllocateAddressResponse :: AllocateAddressResponse
 mkAllocateAddressResponse = AllocateAddressResponse
     { _aarPublicIp = Nothing

@@ -77,7 +77,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateVolume = CreateVolume
     { _cvSize :: Maybe Integer
     , _cvSnapshotId :: Maybe Text
@@ -89,6 +88,21 @@ data CreateVolume = CreateVolume
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVolume' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Size ::@ @Maybe Integer@
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Text@
+--
+-- * @VolumeType ::@ @Maybe VolumeType@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
 mkCreateVolume :: Text -- ^ 'cvAvailabilityZone'
                -> CreateVolume
 mkCreateVolume p3 = CreateVolume
@@ -136,7 +150,6 @@ cvEncrypted = lens _cvEncrypted (\s a -> s { _cvEncrypted = a })
 instance ToQuery CreateVolume where
     toQuery = genericQuery def
 
--- | 
 data CreateVolumeResponse = CreateVolumeResponse
     { _cvrVolumeId :: Maybe Text
     , _cvrSize :: Maybe Integer
@@ -155,6 +168,31 @@ data CreateVolumeResponse = CreateVolumeResponse
 -- a valid 'CreateVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeId ::@ @Maybe Text@
+--
+-- * @Size ::@ @Maybe Integer@
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @AvailabilityZone ::@ @Maybe Text@
+--
+-- * @State ::@ @Maybe VolumeState@
+--
+-- * @CreateTime ::@ @Maybe ISO8601@
+--
+-- * @Attachments ::@ @[VolumeAttachment]@
+--
+-- * @Tags ::@ @[Tag]@
+--
+-- * @VolumeType ::@ @Maybe VolumeType@
+--
+-- * @Iops ::@ @Maybe Integer@
+--
+-- * @Encrypted ::@ @Maybe Bool@
+--
 mkCreateVolumeResponse :: CreateVolumeResponse
 mkCreateVolumeResponse = CreateVolumeResponse
     { _cvrVolumeId = Nothing

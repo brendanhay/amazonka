@@ -79,7 +79,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeTags = DescribeTags
     { _dt1Filters :: [Filter]
     , _dt1MaxResults :: Maybe Integer
@@ -88,6 +87,15 @@ data DescribeTags = DescribeTags
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeTags :: DescribeTags
 mkDescribeTags = DescribeTags
     { _dt1Filters = mempty
@@ -118,7 +126,6 @@ dt1NextToken = lens _dt1NextToken (\s a -> s { _dt1NextToken = a })
 instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
--- | 
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrTags :: [TagDescription]
     , _dtrNextToken :: Maybe Text
@@ -128,6 +135,13 @@ data DescribeTagsResponse = DescribeTagsResponse
 -- a valid 'DescribeTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Tags ::@ @[TagDescription]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeTagsResponse :: DescribeTagsResponse
 mkDescribeTagsResponse = DescribeTagsResponse
     { _dtrTags = mempty

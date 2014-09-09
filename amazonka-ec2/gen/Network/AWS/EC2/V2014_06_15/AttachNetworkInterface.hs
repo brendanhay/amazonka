@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AttachNetworkInterface = AttachNetworkInterface
     { _aniNetworkInterfaceId :: Text
     , _aniInstanceId :: Text
@@ -58,6 +57,15 @@ data AttachNetworkInterface = AttachNetworkInterface
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachNetworkInterface' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
+-- * @InstanceId ::@ @Text@
+--
+-- * @DeviceIndex ::@ @Integer@
+--
 mkAttachNetworkInterface :: Text -- ^ 'aniNetworkInterfaceId'
                          -> Text -- ^ 'aniInstanceId'
                          -> Integer -- ^ 'aniDeviceIndex'
@@ -84,7 +92,6 @@ aniDeviceIndex = lens _aniDeviceIndex (\s a -> s { _aniDeviceIndex = a })
 instance ToQuery AttachNetworkInterface where
     toQuery = genericQuery def
 
--- | 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId :: Maybe Text
     } deriving (Show, Generic)
@@ -93,6 +100,11 @@ newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
 -- a valid 'AttachNetworkInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentId ::@ @Maybe Text@
+--
 mkAttachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse
 mkAttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId = Nothing

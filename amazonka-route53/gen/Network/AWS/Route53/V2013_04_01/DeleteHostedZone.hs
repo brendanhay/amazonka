@@ -56,6 +56,11 @@ newtype DeleteHostedZone = DeleteHostedZone
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHostedZone' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkDeleteHostedZone :: Text -- ^ 'dhzId'
                    -> DeleteHostedZone
 mkDeleteHostedZone p1 = DeleteHostedZone
@@ -86,6 +91,11 @@ newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
 -- a valid 'DeleteHostedZoneResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ChangeInfo ::@ @ChangeInfo@
+--
 mkDeleteHostedZoneResponse :: ChangeInfo -- ^ 'dhzrChangeInfo'
                            -> DeleteHostedZoneResponse
 mkDeleteHostedZoneResponse p1 = DeleteHostedZoneResponse

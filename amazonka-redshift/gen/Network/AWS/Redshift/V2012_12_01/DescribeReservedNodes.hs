@@ -62,6 +62,15 @@ data DescribeReservedNodes = DescribeReservedNodes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedNodes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedNodeId ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeReservedNodes :: DescribeReservedNodes
 mkDescribeReservedNodes = DescribeReservedNodes
     { _drnReservedNodeId = Nothing
@@ -104,6 +113,13 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse
 -- a valid 'DescribeReservedNodesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ReservedNodes ::@ @[ReservedNode]@
+--
 mkDescribeReservedNodesResponse :: DescribeReservedNodesResponse
 mkDescribeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker = Nothing

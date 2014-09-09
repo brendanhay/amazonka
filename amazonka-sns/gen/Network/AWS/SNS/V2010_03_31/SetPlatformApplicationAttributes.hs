@@ -63,6 +63,13 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetPlatformApplicationAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplicationArn ::@ @Text@
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkSetPlatformApplicationAttributes :: Text -- ^ 'spaaPlatformApplicationArn'
                                    -> Map Text Text -- ^ 'spaaAttributes'
                                    -> SetPlatformApplicationAttributes

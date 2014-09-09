@@ -51,7 +51,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1GroupNames :: [Text]
     , _dpg1Filters :: [Filter]
@@ -59,6 +58,13 @@ data DescribePlacementGroups = DescribePlacementGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePlacementGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GroupNames ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribePlacementGroups :: DescribePlacementGroups
 mkDescribePlacementGroups = DescribePlacementGroups
     { _dpg1GroupNames = mempty
@@ -79,7 +85,6 @@ dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
 instance ToQuery DescribePlacementGroups where
     toQuery = genericQuery def
 
--- | 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: [PlacementGroup]
     } deriving (Show, Generic)
@@ -88,6 +93,11 @@ newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
 -- a valid 'DescribePlacementGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlacementGroups ::@ @[PlacementGroup]@
+--
 mkDescribePlacementGroupsResponse :: DescribePlacementGroupsResponse
 mkDescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups = mempty

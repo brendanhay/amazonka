@@ -1846,6 +1846,11 @@ newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelTimerDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimerId ::@ @Text@
+--
 mkCancelTimerDecisionAttributes :: Text -- ^ 'ctdaTimerId'
                                 -> CancelTimerDecisionAttributes
 mkCancelTimerDecisionAttributes p1 = CancelTimerDecisionAttributes
@@ -1868,6 +1873,11 @@ newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecis
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelWorkflowExecutionDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkCancelWorkflowExecutionDecisionAttributes :: CancelWorkflowExecutionDecisionAttributes
 mkCancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes
     { _cweda1Details = Nothing
@@ -1891,6 +1901,11 @@ newtype CloseStatusFilter = CloseStatusFilter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CloseStatusFilter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Status ::@ @CloseStatus@
+--
 mkCloseStatusFilter :: CloseStatus -- ^ 'csfStatus'
                     -> CloseStatusFilter
 mkCloseStatusFilter p1 = CloseStatusFilter
@@ -1912,6 +1927,11 @@ newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionD
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompleteWorkflowExecutionDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Result ::@ @Maybe Text@
+--
 mkCompleteWorkflowExecutionDecisionAttributes :: CompleteWorkflowExecutionDecisionAttributes
 mkCompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes
     { _cwedaResult = Nothing
@@ -1936,6 +1956,11 @@ newtype DomainConfiguration = DomainConfiguration
 --
 -- 'DomainConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecutionRetentionPeriodInDays ::@ @Text@
+--
 mkDomainConfiguration :: Text -- ^ 'dcWorkflowExecutionRetentionPeriodInDays'
                       -> DomainConfiguration
 mkDomainConfiguration p1 = DomainConfiguration
@@ -1958,6 +1983,11 @@ newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskD
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelActivityTaskDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityId ::@ @Text@
+--
 mkRequestCancelActivityTaskDecisionAttributes :: Text -- ^ 'rcatdaActivityId'
                                               -> RequestCancelActivityTaskDecisionAttributes
 mkRequestCancelActivityTaskDecisionAttributes p1 = RequestCancelActivityTaskDecisionAttributes
@@ -1982,6 +2012,11 @@ newtype TagFilter = TagFilter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagFilter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Tag ::@ @Text@
+--
 mkTagFilter :: Text -- ^ 'tfTag'
             -> TagFilter
 mkTagFilter p1 = TagFilter
@@ -2002,6 +2037,11 @@ newtype TaskList = TaskList
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TaskList' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkTaskList :: Text -- ^ 'tlName'
            -> TaskList
 mkTaskList p1 = TaskList
@@ -2026,6 +2066,11 @@ newtype WorkflowExecutionFilter = WorkflowExecutionFilter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionFilter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
 mkWorkflowExecutionFilter :: Text -- ^ 'wefWorkflowId'
                           -> WorkflowExecutionFilter
 mkWorkflowExecutionFilter p1 = WorkflowExecutionFilter
@@ -2048,6 +2093,13 @@ data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEve
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskCancelRequestedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @ActivityId ::@ @Text@
+--
 mkActivityTaskCancelRequestedEventAttributes :: Integer -- ^ 'atcreaDecisionTaskCompletedEventId'
                                              -> Text -- ^ 'atcreaActivityId'
                                              -> ActivityTaskCancelRequestedEventAttributes
@@ -2086,6 +2138,17 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskCanceledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
+-- * @LatestCancelRequestedEventId ::@ @Maybe Integer@
+--
 mkActivityTaskCanceledEventAttributes :: Integer -- ^ 'atcea1ScheduledEventId'
                                       -> Integer -- ^ 'atcea1StartedEventId'
                                       -> ActivityTaskCanceledEventAttributes
@@ -2138,6 +2201,15 @@ data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskCompletedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Result ::@ @Maybe Text@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkActivityTaskCompletedEventAttributes :: Integer -- ^ 'atceaScheduledEventId'
                                        -> Integer -- ^ 'atceaStartedEventId'
                                        -> ActivityTaskCompletedEventAttributes
@@ -2181,6 +2253,17 @@ data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Reason ::@ @Maybe Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkActivityTaskFailedEventAttributes :: Integer -- ^ 'atfeaScheduledEventId'
                                     -> Integer -- ^ 'atfeaStartedEventId'
                                     -> ActivityTaskFailedEventAttributes
@@ -2235,6 +2318,29 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskScheduledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityType ::@ @ActivityType@
+--
+-- * @ActivityId ::@ @Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @Control ::@ @Maybe Text@
+--
+-- * @ScheduleToStartTimeout ::@ @Maybe Text@
+--
+-- * @ScheduleToCloseTimeout ::@ @Maybe Text@
+--
+-- * @StartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @HeartbeatTimeout ::@ @Maybe Text@
+--
 mkActivityTaskScheduledEventAttributes :: ActivityType -- ^ 'atseaActivityType'
                                        -> Text -- ^ 'atseaActivityId'
                                        -> TaskList -- ^ 'atseaTaskList'
@@ -2326,6 +2432,13 @@ data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskStartedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identity ::@ @Maybe Text@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
 mkActivityTaskStartedEventAttributes :: Integer -- ^ 'atsea1ScheduledEventId'
                                      -> ActivityTaskStartedEventAttributes
 mkActivityTaskStartedEventAttributes p2 = ActivityTaskStartedEventAttributes
@@ -2361,6 +2474,17 @@ data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskTimedOutEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimeoutType ::@ @ActivityTaskTimeoutType@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkActivityTaskTimedOutEventAttributes :: ActivityTaskTimeoutType -- ^ 'attoeaTimeoutType'
                                       -> Integer -- ^ 'attoeaScheduledEventId'
                                       -> Integer -- ^ 'attoeaStartedEventId'
@@ -2408,6 +2532,13 @@ data ActivityType = ActivityType
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityType' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Version ::@ @Text@
+--
 mkActivityType :: Text -- ^ 'atName'
                -> Text -- ^ 'atVersion'
                -> ActivityType
@@ -2444,6 +2575,19 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration
 --
 -- 'ActivityTypeConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultTaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskHeartbeatTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskList ::@ @Maybe TaskList@
+--
+-- * @DefaultTaskScheduleToStartTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskScheduleToCloseTimeout ::@ @Maybe Text@
+--
 mkActivityTypeConfiguration :: ActivityTypeConfiguration
 mkActivityTypeConfiguration = ActivityTypeConfiguration
     { _atcDefaultTaskStartToCloseTimeout = Nothing
@@ -2532,6 +2676,19 @@ data ActivityTypeInfo = ActivityTypeInfo
 --
 -- 'ActivityTypeInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityType ::@ @ActivityType@
+--
+-- * @Status ::@ @RegistrationStatus@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @CreationDate ::@ @POSIX@
+--
+-- * @DeprecationDate ::@ @Maybe POSIX@
+--
 mkActivityTypeInfo :: ActivityType -- ^ 'atiActivityType'
                    -> RegistrationStatus -- ^ 'atiStatus'
                    -> POSIX -- ^ 'atiCreationDate'
@@ -2579,6 +2736,15 @@ data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelTimerFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimerId ::@ @Text@
+--
+-- * @Cause ::@ @CancelTimerFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkCancelTimerFailedEventAttributes :: Text -- ^ 'ctfeaTimerId'
                                    -> CancelTimerFailedCause -- ^ 'ctfeaCause'
                                    -> Integer -- ^ 'ctfeaDecisionTaskCompletedEventId'
@@ -2624,6 +2790,13 @@ data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFaile
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cause ::@ @CancelWorkflowExecutionFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkCancelWorkflowExecutionFailedEventAttributes :: CancelWorkflowExecutionFailedCause -- ^ 'cwefea1Cause'
                                                -> Integer -- ^ 'cwefea1DecisionTaskCompletedEventId'
                                                -> CancelWorkflowExecutionFailedEventAttributes
@@ -2666,6 +2839,19 @@ data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCance
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionCanceledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkChildWorkflowExecutionCanceledEventAttributes :: WorkflowExecution -- ^ 'cwecea1WorkflowExecution'
                                                 -> WorkflowType -- ^ 'cwecea1WorkflowType'
                                                 -> Integer -- ^ 'cwecea1InitiatedEventId'
@@ -2728,6 +2914,19 @@ data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionComp
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionCompletedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @Result ::@ @Maybe Text@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkChildWorkflowExecutionCompletedEventAttributes :: WorkflowExecution -- ^ 'cweceaWorkflowExecution'
                                                  -> WorkflowType -- ^ 'cweceaWorkflowType'
                                                  -> Integer -- ^ 'cweceaInitiatedEventId'
@@ -2790,6 +2989,21 @@ data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedE
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @Reason ::@ @Maybe Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkChildWorkflowExecutionFailedEventAttributes :: WorkflowExecution -- ^ 'cwefea2WorkflowExecution'
                                               -> WorkflowType -- ^ 'cwefea2WorkflowType'
                                               -> Integer -- ^ 'cwefea2InitiatedEventId'
@@ -2855,6 +3069,15 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionStartedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
 mkChildWorkflowExecutionStartedEventAttributes :: WorkflowExecution -- ^ 'cweseaWorkflowExecution'
                                                -> WorkflowType -- ^ 'cweseaWorkflowType'
                                                -> Integer -- ^ 'cweseaInitiatedEventId'
@@ -2900,6 +3123,17 @@ data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTer
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionTerminatedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkChildWorkflowExecutionTerminatedEventAttributes :: WorkflowExecution -- ^ 'cweteaWorkflowExecution'
                                                   -> WorkflowType -- ^ 'cweteaWorkflowType'
                                                   -> Integer -- ^ 'cweteaInitiatedEventId'
@@ -2956,6 +3190,19 @@ data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimed
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionTimedOutEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @TimeoutType ::@ @WorkflowExecutionTimeoutType@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkChildWorkflowExecutionTimedOutEventAttributes :: WorkflowExecution -- ^ 'cwetoeaWorkflowExecution'
                                                 -> WorkflowType -- ^ 'cwetoeaWorkflowType'
                                                 -> WorkflowExecutionTimeoutType -- ^ 'cwetoeaTimeoutType'
@@ -3018,6 +3265,13 @@ data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionF
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompleteWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cause ::@ @CompleteWorkflowExecutionFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkCompleteWorkflowExecutionFailedEventAttributes :: CompleteWorkflowExecutionFailedCause -- ^ 'cwefeaCause'
                                                  -> Integer -- ^ 'cwefeaDecisionTaskCompletedEventId'
                                                  -> CompleteWorkflowExecutionFailedEventAttributes
@@ -3061,6 +3315,23 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ContinueAsNewWorkflowExecutionDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @ExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TaskList ::@ @Maybe TaskList@
+--
+-- * @TaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @ChildPolicy ::@ @Maybe ChildPolicy@
+--
+-- * @TagList ::@ @[Text]@
+--
+-- * @WorkflowTypeVersion ::@ @Maybe Text@
+--
 mkContinueAsNewWorkflowExecutionDecisionAttributes :: ContinueAsNewWorkflowExecutionDecisionAttributes
 mkContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes
     { _canwedaInput = Nothing
@@ -3153,6 +3424,13 @@ data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflow
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ContinueAsNewWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cause ::@ @ContinueAsNewWorkflowExecutionFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkContinueAsNewWorkflowExecutionFailedEventAttributes :: ContinueAsNewWorkflowExecutionFailedCause -- ^ 'canwefeaCause'
                                                       -> Integer -- ^ 'canwefeaDecisionTaskCompletedEventId'
                                                       -> ContinueAsNewWorkflowExecutionFailedEventAttributes
@@ -3302,6 +3580,35 @@ data Decision = Decision
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Decision' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DecisionType ::@ @DecisionType@
+--
+-- * @ScheduleActivityTaskDecisionAttributes ::@ @Maybe ScheduleActivityTaskDecisionAttributes@
+--
+-- * @RequestCancelActivityTaskDecisionAttributes ::@ @Maybe RequestCancelActivityTaskDecisionAttributes@
+--
+-- * @CompleteWorkflowExecutionDecisionAttributes ::@ @Maybe CompleteWorkflowExecutionDecisionAttributes@
+--
+-- * @FailWorkflowExecutionDecisionAttributes ::@ @Maybe FailWorkflowExecutionDecisionAttributes@
+--
+-- * @CancelWorkflowExecutionDecisionAttributes ::@ @Maybe CancelWorkflowExecutionDecisionAttributes@
+--
+-- * @ContinueAsNewWorkflowExecutionDecisionAttributes ::@ @Maybe ContinueAsNewWorkflowExecutionDecisionAttributes@
+--
+-- * @RecordMarkerDecisionAttributes ::@ @Maybe RecordMarkerDecisionAttributes@
+--
+-- * @StartTimerDecisionAttributes ::@ @Maybe StartTimerDecisionAttributes@
+--
+-- * @CancelTimerDecisionAttributes ::@ @Maybe CancelTimerDecisionAttributes@
+--
+-- * @SignalExternalWorkflowExecutionDecisionAttributes ::@ @Maybe SignalExternalWorkflowExecutionDecisionAttributes@
+--
+-- * @RequestCancelExternalWorkflowExecutionDecisionAttributes ::@ @Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes@
+--
+-- * @StartChildWorkflowExecutionDecisionAttributes ::@ @Maybe StartChildWorkflowExecutionDecisionAttributes@
+--
 mkDecision :: DecisionType -- ^ 'dDecisionType'
            -> Decision
 mkDecision p1 = Decision
@@ -3421,6 +3728,15 @@ data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskCompletedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExecutionContext ::@ @Maybe Text@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkDecisionTaskCompletedEventAttributes :: Integer -- ^ 'dtceaScheduledEventId'
                                        -> Integer -- ^ 'dtceaStartedEventId'
                                        -> DecisionTaskCompletedEventAttributes
@@ -3463,6 +3779,13 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskScheduledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @StartToCloseTimeout ::@ @Maybe Text@
+--
 mkDecisionTaskScheduledEventAttributes :: TaskList -- ^ 'dtseaTaskList'
                                        -> DecisionTaskScheduledEventAttributes
 mkDecisionTaskScheduledEventAttributes p1 = DecisionTaskScheduledEventAttributes
@@ -3498,6 +3821,13 @@ data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskStartedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identity ::@ @Maybe Text@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
 mkDecisionTaskStartedEventAttributes :: Integer -- ^ 'dtsea1ScheduledEventId'
                                      -> DecisionTaskStartedEventAttributes
 mkDecisionTaskStartedEventAttributes p2 = DecisionTaskStartedEventAttributes
@@ -3532,6 +3862,15 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskTimedOutEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimeoutType ::@ @DecisionTaskTimeoutType@
+--
+-- * @ScheduledEventId ::@ @Integer@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkDecisionTaskTimedOutEventAttributes :: DecisionTaskTimeoutType -- ^ 'dttoeaTimeoutType'
                                       -> Integer -- ^ 'dttoeaScheduledEventId'
                                       -> Integer -- ^ 'dttoeaStartedEventId'
@@ -3578,6 +3917,15 @@ data DomainInfo = DomainInfo
 --
 -- 'DomainInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Status ::@ @RegistrationStatus@
+--
+-- * @Description ::@ @Maybe Text@
+--
 mkDomainInfo :: Text -- ^ 'diName'
              -> RegistrationStatus -- ^ 'diStatus'
              -> DomainInfo
@@ -3615,6 +3963,13 @@ data ExecutionTimeFilter = ExecutionTimeFilter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExecutionTimeFilter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OldestDate ::@ @POSIX@
+--
+-- * @LatestDate ::@ @Maybe POSIX@
+--
 mkExecutionTimeFilter :: POSIX -- ^ 'etfOldestDate'
                       -> ExecutionTimeFilter
 mkExecutionTimeFilter p1 = ExecutionTimeFilter
@@ -3642,6 +3997,13 @@ data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowE
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExternalWorkflowExecutionCancelRequestedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
 mkExternalWorkflowExecutionCancelRequestedEventAttributes :: WorkflowExecution -- ^ 'ewecreaWorkflowExecution'
                                                           -> Integer -- ^ 'ewecreaInitiatedEventId'
                                                           -> ExternalWorkflowExecutionCancelRequestedEventAttributes
@@ -3681,6 +4043,13 @@ data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutio
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExternalWorkflowExecutionSignaledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
 mkExternalWorkflowExecutionSignaledEventAttributes :: WorkflowExecution -- ^ 'eweseaWorkflowExecution'
                                                    -> Integer -- ^ 'eweseaInitiatedEventId'
                                                    -> ExternalWorkflowExecutionSignaledEventAttributes
@@ -3716,6 +4085,13 @@ data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttr
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'FailWorkflowExecutionDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Reason ::@ @Maybe Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkFailWorkflowExecutionDecisionAttributes :: FailWorkflowExecutionDecisionAttributes
 mkFailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes
     { _fwedaReason = Nothing
@@ -3744,6 +4120,13 @@ data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEve
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'FailWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cause ::@ @FailWorkflowExecutionFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkFailWorkflowExecutionFailedEventAttributes :: FailWorkflowExecutionFailedCause -- ^ 'fwefeaCause'
                                              -> Integer -- ^ 'fwefeaDecisionTaskCompletedEventId'
                                              -> FailWorkflowExecutionFailedEventAttributes
@@ -3901,6 +4284,109 @@ data HistoryEvent = HistoryEvent
 --
 -- 'HistoryEvent' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EventTimestamp ::@ @POSIX@
+--
+-- * @EventType ::@ @EventType@
+--
+-- * @EventId ::@ @Integer@
+--
+-- * @WorkflowExecutionStartedEventAttributes ::@ @Maybe WorkflowExecutionStartedEventAttributes@
+--
+-- * @WorkflowExecutionCompletedEventAttributes ::@ @Maybe WorkflowExecutionCompletedEventAttributes@
+--
+-- * @CompleteWorkflowExecutionFailedEventAttributes ::@ @Maybe CompleteWorkflowExecutionFailedEventAttributes@
+--
+-- * @WorkflowExecutionFailedEventAttributes ::@ @Maybe WorkflowExecutionFailedEventAttributes@
+--
+-- * @FailWorkflowExecutionFailedEventAttributes ::@ @Maybe FailWorkflowExecutionFailedEventAttributes@
+--
+-- * @WorkflowExecutionTimedOutEventAttributes ::@ @Maybe WorkflowExecutionTimedOutEventAttributes@
+--
+-- * @WorkflowExecutionCanceledEventAttributes ::@ @Maybe WorkflowExecutionCanceledEventAttributes@
+--
+-- * @CancelWorkflowExecutionFailedEventAttributes ::@ @Maybe CancelWorkflowExecutionFailedEventAttributes@
+--
+-- * @WorkflowExecutionContinuedAsNewEventAttributes ::@ @Maybe WorkflowExecutionContinuedAsNewEventAttributes@
+--
+-- * @ContinueAsNewWorkflowExecutionFailedEventAttributes ::@ @Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes@
+--
+-- * @WorkflowExecutionTerminatedEventAttributes ::@ @Maybe WorkflowExecutionTerminatedEventAttributes@
+--
+-- * @WorkflowExecutionCancelRequestedEventAttributes ::@ @Maybe WorkflowExecutionCancelRequestedEventAttributes@
+--
+-- * @DecisionTaskScheduledEventAttributes ::@ @Maybe DecisionTaskScheduledEventAttributes@
+--
+-- * @DecisionTaskStartedEventAttributes ::@ @Maybe DecisionTaskStartedEventAttributes@
+--
+-- * @DecisionTaskCompletedEventAttributes ::@ @Maybe DecisionTaskCompletedEventAttributes@
+--
+-- * @DecisionTaskTimedOutEventAttributes ::@ @Maybe DecisionTaskTimedOutEventAttributes@
+--
+-- * @ActivityTaskScheduledEventAttributes ::@ @Maybe ActivityTaskScheduledEventAttributes@
+--
+-- * @ActivityTaskStartedEventAttributes ::@ @Maybe ActivityTaskStartedEventAttributes@
+--
+-- * @ActivityTaskCompletedEventAttributes ::@ @Maybe ActivityTaskCompletedEventAttributes@
+--
+-- * @ActivityTaskFailedEventAttributes ::@ @Maybe ActivityTaskFailedEventAttributes@
+--
+-- * @ActivityTaskTimedOutEventAttributes ::@ @Maybe ActivityTaskTimedOutEventAttributes@
+--
+-- * @ActivityTaskCanceledEventAttributes ::@ @Maybe ActivityTaskCanceledEventAttributes@
+--
+-- * @ActivityTaskCancelRequestedEventAttributes ::@ @Maybe ActivityTaskCancelRequestedEventAttributes@
+--
+-- * @WorkflowExecutionSignaledEventAttributes ::@ @Maybe WorkflowExecutionSignaledEventAttributes@
+--
+-- * @MarkerRecordedEventAttributes ::@ @Maybe MarkerRecordedEventAttributes@
+--
+-- * @RecordMarkerFailedEventAttributes ::@ @Maybe RecordMarkerFailedEventAttributes@
+--
+-- * @TimerStartedEventAttributes ::@ @Maybe TimerStartedEventAttributes@
+--
+-- * @TimerFiredEventAttributes ::@ @Maybe TimerFiredEventAttributes@
+--
+-- * @TimerCanceledEventAttributes ::@ @Maybe TimerCanceledEventAttributes@
+--
+-- * @StartChildWorkflowExecutionInitiatedEventAttributes ::@ @Maybe StartChildWorkflowExecutionInitiatedEventAttributes@
+--
+-- * @ChildWorkflowExecutionStartedEventAttributes ::@ @Maybe ChildWorkflowExecutionStartedEventAttributes@
+--
+-- * @ChildWorkflowExecutionCompletedEventAttributes ::@ @Maybe ChildWorkflowExecutionCompletedEventAttributes@
+--
+-- * @ChildWorkflowExecutionFailedEventAttributes ::@ @Maybe ChildWorkflowExecutionFailedEventAttributes@
+--
+-- * @ChildWorkflowExecutionTimedOutEventAttributes ::@ @Maybe ChildWorkflowExecutionTimedOutEventAttributes@
+--
+-- * @ChildWorkflowExecutionCanceledEventAttributes ::@ @Maybe ChildWorkflowExecutionCanceledEventAttributes@
+--
+-- * @ChildWorkflowExecutionTerminatedEventAttributes ::@ @Maybe ChildWorkflowExecutionTerminatedEventAttributes@
+--
+-- * @SignalExternalWorkflowExecutionInitiatedEventAttributes ::@ @Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes@
+--
+-- * @ExternalWorkflowExecutionSignaledEventAttributes ::@ @Maybe ExternalWorkflowExecutionSignaledEventAttributes@
+--
+-- * @SignalExternalWorkflowExecutionFailedEventAttributes ::@ @Maybe SignalExternalWorkflowExecutionFailedEventAttributes@
+--
+-- * @ExternalWorkflowExecutionCancelRequestedEventAttributes ::@ @Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes@
+--
+-- * @RequestCancelExternalWorkflowExecutionInitiatedEventAttributes ::@ @Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes@
+--
+-- * @RequestCancelExternalWorkflowExecutionFailedEventAttributes ::@ @Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes@
+--
+-- * @ScheduleActivityTaskFailedEventAttributes ::@ @Maybe ScheduleActivityTaskFailedEventAttributes@
+--
+-- * @RequestCancelActivityTaskFailedEventAttributes ::@ @Maybe RequestCancelActivityTaskFailedEventAttributes@
+--
+-- * @StartTimerFailedEventAttributes ::@ @Maybe StartTimerFailedEventAttributes@
+--
+-- * @CancelTimerFailedEventAttributes ::@ @Maybe CancelTimerFailedEventAttributes@
+--
+-- * @StartChildWorkflowExecutionFailedEventAttributes ::@ @Maybe StartChildWorkflowExecutionFailedEventAttributes@
+--
 mkHistoryEvent :: POSIX -- ^ 'heEventTimestamp'
                -> EventType -- ^ 'heEventType'
                -> Integer -- ^ 'heEventId'
@@ -4356,6 +4842,15 @@ data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MarkerRecordedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MarkerName ::@ @Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkMarkerRecordedEventAttributes :: Text -- ^ 'mreaMarkerName'
                                 -> Integer -- ^ 'mreaDecisionTaskCompletedEventId'
                                 -> MarkerRecordedEventAttributes
@@ -4395,6 +4890,13 @@ data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecordMarkerDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MarkerName ::@ @Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkRecordMarkerDecisionAttributes :: Text -- ^ 'rmdaMarkerName'
                                  -> RecordMarkerDecisionAttributes
 mkRecordMarkerDecisionAttributes p1 = RecordMarkerDecisionAttributes
@@ -4425,6 +4927,15 @@ data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecordMarkerFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MarkerName ::@ @Text@
+--
+-- * @Cause ::@ @RecordMarkerFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkRecordMarkerFailedEventAttributes :: Text -- ^ 'rmfeaMarkerName'
                                     -> RecordMarkerFailedCause -- ^ 'rmfeaCause'
                                     -> Integer -- ^ 'rmfeaDecisionTaskCompletedEventId'
@@ -4471,6 +4982,15 @@ data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskF
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelActivityTaskFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityId ::@ @Text@
+--
+-- * @Cause ::@ @RequestCancelActivityTaskFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkRequestCancelActivityTaskFailedEventAttributes :: Text -- ^ 'rcatfeaActivityId'
                                                  -> RequestCancelActivityTaskFailedCause -- ^ 'rcatfeaCause'
                                                  -> Integer -- ^ 'rcatfeaDecisionTaskCompletedEventId'
@@ -4518,6 +5038,15 @@ data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExt
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelExternalWorkflowExecutionDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @Control ::@ @Maybe Text@
+--
 mkRequestCancelExternalWorkflowExecutionDecisionAttributes :: Text -- ^ 'rcewedaWorkflowId'
                                                            -> RequestCancelExternalWorkflowExecutionDecisionAttributes
 mkRequestCancelExternalWorkflowExecutionDecisionAttributes p1 = RequestCancelExternalWorkflowExecutionDecisionAttributes
@@ -4559,6 +5088,21 @@ data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancel
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelExternalWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @Cause ::@ @RequestCancelExternalWorkflowExecutionFailedCause@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @Control ::@ @Maybe Text@
+--
 mkRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Text -- ^ 'rcewefeaWorkflowId'
                                                               -> RequestCancelExternalWorkflowExecutionFailedCause -- ^ 'rcewefeaCause'
                                                               -> Integer -- ^ 'rcewefeaInitiatedEventId'
@@ -4629,6 +5173,17 @@ data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCan
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelExternalWorkflowExecutionInitiatedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @Control ::@ @Maybe Text@
+--
 mkRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Text -- ^ 'rceweieaWorkflowId'
                                                                  -> Integer -- ^ 'rceweieaDecisionTaskCompletedEventId'
                                                                  -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
@@ -4682,6 +5237,27 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScheduleActivityTaskDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityType ::@ @ActivityType@
+--
+-- * @ActivityId ::@ @Text@
+--
+-- * @Control ::@ @Maybe Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @ScheduleToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TaskList ::@ @Maybe TaskList@
+--
+-- * @ScheduleToStartTimeout ::@ @Maybe Text@
+--
+-- * @StartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @HeartbeatTimeout ::@ @Maybe Text@
+--
 mkScheduleActivityTaskDecisionAttributes :: ActivityType -- ^ 'satdaActivityType'
                                          -> Text -- ^ 'satdaActivityId'
                                          -> ScheduleActivityTaskDecisionAttributes
@@ -4801,6 +5377,17 @@ data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEvent
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScheduleActivityTaskFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ActivityType ::@ @ActivityType@
+--
+-- * @ActivityId ::@ @Text@
+--
+-- * @Cause ::@ @ScheduleActivityTaskFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkScheduleActivityTaskFailedEventAttributes :: ActivityType -- ^ 'satfeaActivityType'
                                             -> Text -- ^ 'satfeaActivityId'
                                             -> ScheduleActivityTaskFailedCause -- ^ 'satfeaCause'
@@ -4857,6 +5444,19 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SignalExternalWorkflowExecutionDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @SignalName ::@ @Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @Control ::@ @Maybe Text@
+--
 mkSignalExternalWorkflowExecutionDecisionAttributes :: Text -- ^ 'sewedaWorkflowId'
                                                     -> Text -- ^ 'sewedaSignalName'
                                                     -> SignalExternalWorkflowExecutionDecisionAttributes
@@ -4912,6 +5512,21 @@ data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkfl
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SignalExternalWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @Cause ::@ @SignalExternalWorkflowExecutionFailedCause@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @Control ::@ @Maybe Text@
+--
 mkSignalExternalWorkflowExecutionFailedEventAttributes :: Text -- ^ 'sewefeaWorkflowId'
                                                        -> SignalExternalWorkflowExecutionFailedCause -- ^ 'sewefeaCause'
                                                        -> Integer -- ^ 'sewefeaInitiatedEventId'
@@ -4984,6 +5599,21 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SignalExternalWorkflowExecutionInitiatedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Maybe Text@
+--
+-- * @SignalName ::@ @Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @Control ::@ @Maybe Text@
+--
 mkSignalExternalWorkflowExecutionInitiatedEventAttributes :: Text -- ^ 'seweieaWorkflowId'
                                                           -> Text -- ^ 'seweieaSignalName'
                                                           -> Integer -- ^ 'seweieaDecisionTaskCompletedEventId'
@@ -5049,6 +5679,27 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartChildWorkflowExecutionDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @Control ::@ @Maybe Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @ExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TaskList ::@ @Maybe TaskList@
+--
+-- * @TaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @ChildPolicy ::@ @Maybe ChildPolicy@
+--
+-- * @TagList ::@ @[Text]@
+--
 mkStartChildWorkflowExecutionDecisionAttributes :: WorkflowType -- ^ 'scwedaWorkflowType'
                                                 -> Text -- ^ 'scwedaWorkflowId'
                                                 -> StartChildWorkflowExecutionDecisionAttributes
@@ -5173,6 +5824,21 @@ data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecut
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartChildWorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @Cause ::@ @StartChildWorkflowExecutionFailedCause@
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @InitiatedEventId ::@ @Integer@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @Control ::@ @Maybe Text@
+--
 mkStartChildWorkflowExecutionFailedEventAttributes :: WorkflowType -- ^ 'scwefeaWorkflowType'
                                                    -> StartChildWorkflowExecutionFailedCause -- ^ 'scwefeaCause'
                                                    -> Text -- ^ 'scwefeaWorkflowId'
@@ -5250,6 +5916,29 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartChildWorkflowExecutionInitiatedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @Control ::@ @Maybe Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @ExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @ChildPolicy ::@ @ChildPolicy@
+--
+-- * @TaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TagList ::@ @[Text]@
+--
 mkStartChildWorkflowExecutionInitiatedEventAttributes :: Text -- ^ 'scweieaWorkflowId'
                                                       -> WorkflowType -- ^ 'scweieaWorkflowType'
                                                       -> TaskList -- ^ 'scweieaTaskList'
@@ -5352,6 +6041,15 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartTimerDecisionAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimerId ::@ @Text@
+--
+-- * @Control ::@ @Maybe Text@
+--
+-- * @StartToFireTimeout ::@ @Text@
+--
 mkStartTimerDecisionAttributes :: Text -- ^ 'stdaTimerId'
                                -> Text -- ^ 'stdaStartToFireTimeout'
                                -> StartTimerDecisionAttributes
@@ -5396,6 +6094,15 @@ data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartTimerFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimerId ::@ @Text@
+--
+-- * @Cause ::@ @StartTimerFailedCause@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkStartTimerFailedEventAttributes :: Text -- ^ 'stfeaTimerId'
                                   -> StartTimerFailedCause -- ^ 'stfeaCause'
                                   -> Integer -- ^ 'stfeaDecisionTaskCompletedEventId'
@@ -5441,6 +6148,15 @@ data TimerCanceledEventAttributes = TimerCanceledEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimerCanceledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimerId ::@ @Text@
+--
+-- * @StartedEventId ::@ @Integer@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkTimerCanceledEventAttributes :: Text -- ^ 'tceaTimerId'
                                -> Integer -- ^ 'tceaStartedEventId'
                                -> Integer -- ^ 'tceaDecisionTaskCompletedEventId'
@@ -5484,6 +6200,13 @@ data TimerFiredEventAttributes = TimerFiredEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimerFiredEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimerId ::@ @Text@
+--
+-- * @StartedEventId ::@ @Integer@
+--
 mkTimerFiredEventAttributes :: Text -- ^ 'tfeaTimerId'
                             -> Integer -- ^ 'tfeaStartedEventId'
                             -> TimerFiredEventAttributes
@@ -5518,6 +6241,17 @@ data TimerStartedEventAttributes = TimerStartedEventAttributes
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimerStartedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimerId ::@ @Text@
+--
+-- * @Control ::@ @Maybe Text@
+--
+-- * @StartToFireTimeout ::@ @Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkTimerStartedEventAttributes :: Text -- ^ 'tseaTimerId'
                               -> Text -- ^ 'tseaStartToFireTimeout'
                               -> Integer -- ^ 'tseaDecisionTaskCompletedEventId'
@@ -5566,6 +6300,13 @@ data WorkflowExecution = WorkflowExecution
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecution' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowId ::@ @Text@
+--
+-- * @RunId ::@ @Text@
+--
 mkWorkflowExecution :: Text -- ^ 'weWorkflowId'
                     -> Text -- ^ 'weRunId'
                     -> WorkflowExecution
@@ -5597,6 +6338,15 @@ data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRe
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionCancelRequestedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ExternalWorkflowExecution ::@ @Maybe WorkflowExecution@
+--
+-- * @ExternalInitiatedEventId ::@ @Maybe Integer@
+--
+-- * @Cause ::@ @Maybe WorkflowExecutionCancelRequestedCause@
+--
 mkWorkflowExecutionCancelRequestedEventAttributes :: WorkflowExecutionCancelRequestedEventAttributes
 mkWorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes
     { _wecreaExternalWorkflowExecution = Nothing
@@ -5642,6 +6392,13 @@ data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAt
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionCanceledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkWorkflowExecutionCanceledEventAttributes :: Integer -- ^ 'wecea1DecisionTaskCompletedEventId'
                                            -> WorkflowExecutionCanceledEventAttributes
 mkWorkflowExecutionCanceledEventAttributes p2 = WorkflowExecutionCanceledEventAttributes
@@ -5676,6 +6433,13 @@ data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEvent
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionCompletedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Result ::@ @Maybe Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkWorkflowExecutionCompletedEventAttributes :: Integer -- ^ 'weceaDecisionTaskCompletedEventId'
                                             -> WorkflowExecutionCompletedEventAttributes
 mkWorkflowExecutionCompletedEventAttributes p2 = WorkflowExecutionCompletedEventAttributes
@@ -5714,6 +6478,17 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
 --
 -- 'WorkflowExecutionConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskStartToCloseTimeout ::@ @Text@
+--
+-- * @ExecutionStartToCloseTimeout ::@ @Text@
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @ChildPolicy ::@ @ChildPolicy@
+--
 mkWorkflowExecutionConfiguration :: Text -- ^ 'wecTaskStartToCloseTimeout'
                                  -> Text -- ^ 'wecExecutionStartToCloseTimeout'
                                  -> TaskList -- ^ 'wecTaskList'
@@ -5780,6 +6555,27 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionContinuedAsNewEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
+-- * @NewExecutionRunId ::@ @Text@
+--
+-- * @ExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @TaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @ChildPolicy ::@ @ChildPolicy@
+--
+-- * @TagList ::@ @[Text]@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
 mkWorkflowExecutionContinuedAsNewEventAttributes :: Integer -- ^ 'wecaneaDecisionTaskCompletedEventId'
                                                  -> Text -- ^ 'wecaneaNewExecutionRunId'
                                                  -> TaskList -- ^ 'wecaneaTaskList'
@@ -5876,6 +6672,15 @@ data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttrib
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionFailedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Reason ::@ @Maybe Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @DecisionTaskCompletedEventId ::@ @Integer@
+--
 mkWorkflowExecutionFailedEventAttributes :: Integer -- ^ 'wefeaDecisionTaskCompletedEventId'
                                          -> WorkflowExecutionFailedEventAttributes
 mkWorkflowExecutionFailedEventAttributes p3 = WorkflowExecutionFailedEventAttributes
@@ -5923,6 +6728,27 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo
 --
 -- 'WorkflowExecutionInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Execution ::@ @WorkflowExecution@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @StartTimestamp ::@ @POSIX@
+--
+-- * @CloseTimestamp ::@ @Maybe POSIX@
+--
+-- * @ExecutionStatus ::@ @ExecutionStatus@
+--
+-- * @CloseStatus ::@ @Maybe CloseStatus@
+--
+-- * @Parent ::@ @Maybe WorkflowExecution@
+--
+-- * @TagList ::@ @[Text]@
+--
+-- * @CancelRequested ::@ @Maybe Bool@
+--
 mkWorkflowExecutionInfo :: WorkflowExecution -- ^ 'weiExecution'
                         -> WorkflowType -- ^ 'weiWorkflowType'
                         -> POSIX -- ^ 'weiStartTimestamp'
@@ -6008,6 +6834,17 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
 --
 -- 'WorkflowExecutionOpenCounts' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OpenActivityTasks ::@ @Integer@
+--
+-- * @OpenDecisionTasks ::@ @Integer@
+--
+-- * @OpenTimers ::@ @Integer@
+--
+-- * @OpenChildWorkflowExecutions ::@ @Integer@
+--
 mkWorkflowExecutionOpenCounts :: Integer -- ^ 'weocOpenActivityTasks'
                               -> Integer -- ^ 'weocOpenDecisionTasks'
                               -> Integer -- ^ 'weocOpenTimers'
@@ -6056,6 +6893,17 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionSignaledEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SignalName ::@ @Text@
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @ExternalWorkflowExecution ::@ @Maybe WorkflowExecution@
+--
+-- * @ExternalInitiatedEventId ::@ @Maybe Integer@
+--
 mkWorkflowExecutionSignaledEventAttributes :: Text -- ^ 'wesea1SignalName'
                                            -> WorkflowExecutionSignaledEventAttributes
 mkWorkflowExecutionSignaledEventAttributes p1 = WorkflowExecutionSignaledEventAttributes
@@ -6117,6 +6965,29 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionStartedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Input ::@ @Maybe Text@
+--
+-- * @ExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @TaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @ChildPolicy ::@ @ChildPolicy@
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @TagList ::@ @[Text]@
+--
+-- * @ContinuedExecutionRunId ::@ @Maybe Text@
+--
+-- * @ParentWorkflowExecution ::@ @Maybe WorkflowExecution@
+--
+-- * @ParentInitiatedEventId ::@ @Maybe Integer@
+--
 mkWorkflowExecutionStartedEventAttributes :: ChildPolicy -- ^ 'weseaChildPolicy'
                                           -> TaskList -- ^ 'weseaTaskList'
                                           -> WorkflowType -- ^ 'weseaWorkflowType'
@@ -6226,6 +7097,17 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionTerminatedEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Reason ::@ @Maybe Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
+-- * @ChildPolicy ::@ @ChildPolicy@
+--
+-- * @Cause ::@ @Maybe WorkflowExecutionTerminatedCause@
+--
 mkWorkflowExecutionTerminatedEventAttributes :: ChildPolicy -- ^ 'weteaChildPolicy'
                                              -> WorkflowExecutionTerminatedEventAttributes
 mkWorkflowExecutionTerminatedEventAttributes p3 = WorkflowExecutionTerminatedEventAttributes
@@ -6276,6 +7158,13 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionTimedOutEventAttributes' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TimeoutType ::@ @WorkflowExecutionTimeoutType@
+--
+-- * @ChildPolicy ::@ @ChildPolicy@
+--
 mkWorkflowExecutionTimedOutEventAttributes :: WorkflowExecutionTimeoutType -- ^ 'wetoeaTimeoutType'
                                            -> ChildPolicy -- ^ 'wetoeaChildPolicy'
                                            -> WorkflowExecutionTimedOutEventAttributes
@@ -6313,6 +7202,13 @@ data WorkflowType = WorkflowType
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowType' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Version ::@ @Text@
+--
 mkWorkflowType :: Text -- ^ 'wtName'
                -> Text -- ^ 'wtVersion'
                -> WorkflowType
@@ -6349,6 +7245,17 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
 --
 -- 'WorkflowTypeConfiguration' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DefaultTaskStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @DefaultExecutionStartToCloseTimeout ::@ @Maybe Text@
+--
+-- * @DefaultTaskList ::@ @Maybe TaskList@
+--
+-- * @DefaultChildPolicy ::@ @Maybe ChildPolicy@
+--
 mkWorkflowTypeConfiguration :: WorkflowTypeConfiguration
 mkWorkflowTypeConfiguration = WorkflowTypeConfiguration
     { _wtcDefaultTaskStartToCloseTimeout = Nothing
@@ -6419,6 +7326,13 @@ data WorkflowTypeFilter = WorkflowTypeFilter
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowTypeFilter' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
+-- * @Version ::@ @Maybe Text@
+--
 mkWorkflowTypeFilter :: Text -- ^ 'wtfName'
                      -> WorkflowTypeFilter
 mkWorkflowTypeFilter p1 = WorkflowTypeFilter
@@ -6456,6 +7370,19 @@ data WorkflowTypeInfo = WorkflowTypeInfo
 --
 -- 'WorkflowTypeInfo' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @WorkflowType ::@ @WorkflowType@
+--
+-- * @Status ::@ @RegistrationStatus@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @CreationDate ::@ @POSIX@
+--
+-- * @DeprecationDate ::@ @Maybe POSIX@
+--
 mkWorkflowTypeInfo :: WorkflowType -- ^ 'wtiWorkflowType'
                    -> RegistrationStatus -- ^ 'wtiStatus'
                    -> POSIX -- ^ 'wtiCreationDate'

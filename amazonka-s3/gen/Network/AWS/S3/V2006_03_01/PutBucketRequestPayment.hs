@@ -51,6 +51,15 @@ data PutBucketRequestPayment = PutBucketRequestPayment
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketRequestPayment' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @RequestPaymentConfiguration ::@ @RequestPaymentConfiguration@
+--
 mkPutBucketRequestPayment :: BucketName -- ^ 'pbrpBucket'
                           -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
                           -> PutBucketRequestPayment

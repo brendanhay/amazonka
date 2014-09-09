@@ -56,7 +56,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CopyImage = CopyImage
     { _ciSourceRegion :: Text
     , _ciSourceImageId :: Text
@@ -67,6 +66,19 @@ data CopyImage = CopyImage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyImage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceRegion ::@ @Text@
+--
+-- * @SourceImageId ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @ClientToken ::@ @Maybe Text@
+--
 mkCopyImage :: Text -- ^ 'ciSourceRegion'
             -> Text -- ^ 'ciSourceImageId'
             -> CopyImage
@@ -103,7 +115,6 @@ ciClientToken = lens _ciClientToken (\s a -> s { _ciClientToken = a })
 instance ToQuery CopyImage where
     toQuery = genericQuery def
 
--- | 
 newtype CopyImageResponse = CopyImageResponse
     { _cirImageId :: Maybe Text
     } deriving (Show, Generic)
@@ -112,6 +123,11 @@ newtype CopyImageResponse = CopyImageResponse
 -- a valid 'CopyImageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Maybe Text@
+--
 mkCopyImageResponse :: CopyImageResponse
 mkCopyImageResponse = CopyImageResponse
     { _cirImageId = Nothing

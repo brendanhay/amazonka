@@ -44,13 +44,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteRouteTable = DeleteRouteTable
     { _drtRouteTableId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRouteTable' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RouteTableId ::@ @Text@
+--
 mkDeleteRouteTable :: Text -- ^ 'drtRouteTableId'
                    -> DeleteRouteTable
 mkDeleteRouteTable p1 = DeleteRouteTable

@@ -70,6 +70,21 @@ data ListObjects = ListObjects
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListObjects' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Delimiter ::@ @Maybe Char@
+--
+-- * @EncodingType ::@ @Maybe EncodingType@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxKeys ::@ @Maybe Integer@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
 mkListObjects :: BucketName -- ^ 'loBucket'
               -> ListObjects
 mkListObjects p1 = ListObjects
@@ -134,6 +149,27 @@ data ListObjectsResponse = ListObjectsResponse
 -- a valid 'ListObjectsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
+-- * @Contents ::@ @[Object]@
+--
+-- * @Name ::@ @BucketName@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
+-- * @MaxKeys ::@ @Maybe Integer@
+--
+-- * @CommonPrefixes ::@ @[CommonPrefix]@
+--
+-- * @EncodingType ::@ @Maybe EncodingType@
+--
 mkListObjectsResponse :: Bool -- ^ 'lorIsTruncated'
                       -> BucketName -- ^ 'lorName'
                       -> ListObjectsResponse

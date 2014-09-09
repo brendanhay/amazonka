@@ -57,7 +57,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeImageAttribute = DescribeImageAttribute
     { _diaImageId :: Text
     , _diaAttribute :: ImageAttributeName
@@ -65,6 +64,13 @@ data DescribeImageAttribute = DescribeImageAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImageAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Text@
+--
+-- * @Attribute ::@ @ImageAttributeName@
+--
 mkDescribeImageAttribute :: Text -- ^ 'diaImageId'
                          -> ImageAttributeName -- ^ 'diaAttribute'
                          -> DescribeImageAttribute
@@ -100,6 +106,25 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 -- a valid 'DescribeImageAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Maybe Text@
+--
+-- * @LaunchPermissions ::@ @[LaunchPermission]@
+--
+-- * @ProductCodes ::@ @[ProductCode]@
+--
+-- * @KernelId ::@ @Maybe AttributeValue@
+--
+-- * @RamdiskId ::@ @Maybe AttributeValue@
+--
+-- * @Description ::@ @Maybe AttributeValue@
+--
+-- * @SriovNetSupport ::@ @Maybe AttributeValue@
+--
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+--
 mkDescribeImageAttributeResponse :: DescribeImageAttributeResponse
 mkDescribeImageAttributeResponse = DescribeImageAttributeResponse
     { _diarImageId = Nothing

@@ -48,6 +48,11 @@ newtype DescribeCluster = DescribeCluster
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCluster' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterId ::@ @Text@
+--
 mkDescribeCluster :: Text -- ^ 'dcClusterId'
                   -> DescribeCluster
 mkDescribeCluster p1 = DescribeCluster
@@ -75,6 +80,11 @@ newtype DescribeClusterResponse = DescribeClusterResponse
 -- a valid 'DescribeClusterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkDescribeClusterResponse :: DescribeClusterResponse
 mkDescribeClusterResponse = DescribeClusterResponse
     { _dcrCluster = Nothing

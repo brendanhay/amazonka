@@ -45,7 +45,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data SuspendProcesses = SuspendProcesses
     { _sp1AutoScalingGroupName :: Text
     , _sp1ScalingProcesses :: [Text]
@@ -53,6 +52,13 @@ data SuspendProcesses = SuspendProcesses
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SuspendProcesses' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @ScalingProcesses ::@ @[Text]@
+--
 mkSuspendProcesses :: Text -- ^ 'sp1AutoScalingGroupName'
                    -> SuspendProcesses
 mkSuspendProcesses p1 = SuspendProcesses

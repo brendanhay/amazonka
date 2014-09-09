@@ -55,7 +55,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data ListAccessKeys = ListAccessKeys
     { _lakUserName :: Maybe Text
     , _lakMarker :: Maybe Text
@@ -64,6 +63,15 @@ data ListAccessKeys = ListAccessKeys
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAccessKeys' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Integer@
+--
 mkListAccessKeys :: ListAccessKeys
 mkListAccessKeys = ListAccessKeys
     { _lakUserName = Nothing
@@ -104,6 +112,15 @@ data ListAccessKeysResponse = ListAccessKeysResponse
 -- a valid 'ListAccessKeysResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AccessKeyMetadata ::@ @[AccessKeyMetadata]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListAccessKeysResponse :: [AccessKeyMetadata] -- ^ 'lakrAccessKeyMetadata'
                          -> Bool -- ^ 'lakrIsTruncated'
                          -> ListAccessKeysResponse

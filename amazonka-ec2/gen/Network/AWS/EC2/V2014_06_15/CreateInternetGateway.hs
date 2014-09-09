@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateInternetGateway = CreateInternetGateway
     deriving (Eq, Show, Generic)
 
@@ -53,7 +52,6 @@ mkCreateInternetGateway = CreateInternetGateway
 instance ToQuery CreateInternetGateway where
     toQuery = genericQuery def
 
--- | 
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
     } deriving (Show, Generic)
@@ -62,6 +60,11 @@ newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
 -- a valid 'CreateInternetGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InternetGateway ::@ @Maybe InternetGateway@
+--
 mkCreateInternetGatewayResponse :: CreateInternetGatewayResponse
 mkCreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway = Nothing

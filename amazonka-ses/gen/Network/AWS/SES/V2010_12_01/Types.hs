@@ -231,6 +231,11 @@ newtype RawMessage = RawMessage
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RawMessage' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Data ::@ @ByteString@
+--
 mkRawMessage :: ByteString -- ^ 'rmData'
              -> RawMessage
 mkRawMessage p1 = RawMessage
@@ -256,6 +261,13 @@ data Body = Body
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Body' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Text ::@ @Maybe Content@
+--
+-- * @Html ::@ @Maybe Content@
+--
 mkBody :: Body
 mkBody = Body
     { _bText = Nothing
@@ -285,6 +297,13 @@ data Content = Content
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Content' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Data ::@ @Text@
+--
+-- * @Charset ::@ @Maybe Text@
+--
 mkContent :: Text -- ^ 'cData'
           -> Content
 mkContent p1 = Content
@@ -312,6 +331,15 @@ data Destination = Destination
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Destination' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ToAddresses ::@ @[Text]@
+--
+-- * @CcAddresses ::@ @[Text]@
+--
+-- * @BccAddresses ::@ @[Text]@
+--
 mkDestination :: Destination
 mkDestination = Destination
     { _dToAddresses = mempty
@@ -346,6 +374,15 @@ data IdentityDkimAttributes = IdentityDkimAttributes
 --
 -- 'IdentityDkimAttributes' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DkimEnabled ::@ @Bool@
+--
+-- * @DkimVerificationStatus ::@ @VerificationStatus@
+--
+-- * @DkimTokens ::@ @[Text]@
+--
 mkIdentityDkimAttributes :: Bool -- ^ 'idaDkimEnabled'
                          -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
                          -> IdentityDkimAttributes
@@ -400,6 +437,17 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
 --
 -- 'IdentityNotificationAttributes' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @BounceTopic ::@ @Text@
+--
+-- * @ComplaintTopic ::@ @Text@
+--
+-- * @DeliveryTopic ::@ @Text@
+--
+-- * @ForwardingEnabled ::@ @Bool@
+--
 mkIdentityNotificationAttributes :: Text -- ^ 'inaBounceTopic'
                                  -> Text -- ^ 'inaComplaintTopic'
                                  -> Text -- ^ 'inaDeliveryTopic'
@@ -453,6 +501,13 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes
 --
 -- 'IdentityVerificationAttributes' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VerificationStatus ::@ @VerificationStatus@
+--
+-- * @VerificationToken ::@ @Maybe Text@
+--
 mkIdentityVerificationAttributes :: VerificationStatus -- ^ 'ivaVerificationStatus'
                                  -> IdentityVerificationAttributes
 mkIdentityVerificationAttributes p1 = IdentityVerificationAttributes
@@ -484,6 +539,13 @@ data Message = Message
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Message' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subject ::@ @Content@
+--
+-- * @Body ::@ @Body@
+--
 mkMessage :: Content -- ^ 'mSubject'
           -> Body -- ^ 'mBody'
           -> Message
@@ -519,6 +581,19 @@ data SendDataPoint = SendDataPoint
 --
 -- 'SendDataPoint' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Timestamp ::@ @Maybe ISO8601@
+--
+-- * @DeliveryAttempts ::@ @Maybe Integer@
+--
+-- * @Bounces ::@ @Maybe Integer@
+--
+-- * @Complaints ::@ @Maybe Integer@
+--
+-- * @Rejects ::@ @Maybe Integer@
+--
 mkSendDataPoint :: SendDataPoint
 mkSendDataPoint = SendDataPoint
     { _sdpTimestamp = Nothing

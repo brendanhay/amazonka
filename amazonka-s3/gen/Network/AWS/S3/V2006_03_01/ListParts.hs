@@ -64,6 +64,19 @@ data ListParts = ListParts
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListParts' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @MaxParts ::@ @Maybe Integer@
+--
+-- * @PartNumberMarker ::@ @Maybe Integer@
+--
+-- * @UploadId ::@ @Text@
+--
 mkListParts :: BucketName -- ^ 'lpBucket'
             -> ObjectKey -- ^ 'lpKey'
             -> Text -- ^ 'lpUploadId'
@@ -122,6 +135,31 @@ data ListPartsResponse = ListPartsResponse
 -- a valid 'ListPartsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @Maybe BucketName@
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @UploadId ::@ @Maybe Text@
+--
+-- * @PartNumberMarker ::@ @Maybe Integer@
+--
+-- * @NextPartNumberMarker ::@ @Maybe Integer@
+--
+-- * @MaxParts ::@ @Maybe Integer@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Parts ::@ @[Part]@
+--
+-- * @Initiator ::@ @Maybe Initiator@
+--
+-- * @Owner ::@ @Maybe Owner@
+--
+-- * @StorageClass ::@ @Maybe StorageClass@
+--
 mkListPartsResponse :: Bool -- ^ 'lprIsTruncated'
                     -> ListPartsResponse
 mkListPartsResponse p7 = ListPartsResponse

@@ -75,6 +75,13 @@ data DeprecateActivityType = DeprecateActivityType
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateActivityType' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @ActivityType ::@ @ActivityType@
+--
 mkDeprecateActivityType :: Text -- ^ 'datDomain'
                         -> ActivityType -- ^ 'datActivityType'
                         -> DeprecateActivityType

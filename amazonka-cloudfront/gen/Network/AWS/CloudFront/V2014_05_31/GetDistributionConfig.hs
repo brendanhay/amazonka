@@ -48,6 +48,11 @@ newtype GetDistributionConfig = GetDistributionConfig
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistributionConfig' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
 mkGetDistributionConfig :: Text -- ^ 'gdcId'
                         -> GetDistributionConfig
 mkGetDistributionConfig p1 = GetDistributionConfig
@@ -78,6 +83,13 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse
 -- a valid 'GetDistributionConfigResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DistributionConfig ::@ @Maybe DistributionConfig@
+--
+-- * @ETag ::@ @Maybe Text@
+--
 mkGetDistributionConfigResponse :: GetDistributionConfigResponse
 mkGetDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig = Nothing

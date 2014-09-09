@@ -71,6 +71,11 @@ newtype DescribeCache = DescribeCache
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCache' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
 mkDescribeCache :: Text -- ^ 'dcGatewayARN'
                 -> DescribeCache
 mkDescribeCache p1 = DescribeCache
@@ -104,6 +109,23 @@ data DescribeCacheResponse = DescribeCacheResponse
 -- a valid 'DescribeCacheResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
+-- * @DiskIds ::@ @[Text]@
+--
+-- * @CacheAllocatedInBytes ::@ @Maybe Integer@
+--
+-- * @CacheUsedPercentage ::@ @Maybe Double@
+--
+-- * @CacheDirtyPercentage ::@ @Maybe Double@
+--
+-- * @CacheHitPercentage ::@ @Maybe Double@
+--
+-- * @CacheMissPercentage ::@ @Maybe Double@
+--
 mkDescribeCacheResponse :: DescribeCacheResponse
 mkDescribeCacheResponse = DescribeCacheResponse
     { _dcrGatewayARN = Nothing

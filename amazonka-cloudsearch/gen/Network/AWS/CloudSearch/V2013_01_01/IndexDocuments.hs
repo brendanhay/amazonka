@@ -49,6 +49,11 @@ newtype IndexDocuments = IndexDocuments
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'IndexDocuments' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkIndexDocuments :: Text -- ^ 'idDomainName'
                  -> IndexDocuments
 mkIndexDocuments p1 = IndexDocuments
@@ -75,6 +80,11 @@ newtype IndexDocumentsResponse = IndexDocumentsResponse
 -- a valid 'IndexDocumentsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @FieldNames ::@ @[Text]@
+--
 mkIndexDocumentsResponse :: IndexDocumentsResponse
 mkIndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames = mempty

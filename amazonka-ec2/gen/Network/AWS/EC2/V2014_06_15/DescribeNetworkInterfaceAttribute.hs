@@ -55,7 +55,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniaNetworkInterfaceId :: Text
     , _dniaAttribute :: Maybe NetworkInterfaceAttribute
@@ -63,6 +62,13 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkInterfaceAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Text@
+--
+-- * @Attribute ::@ @Maybe NetworkInterfaceAttribute@
+--
 mkDescribeNetworkInterfaceAttribute :: Text -- ^ 'dniaNetworkInterfaceId'
                                     -> DescribeNetworkInterfaceAttribute
 mkDescribeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
@@ -82,7 +88,6 @@ dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
 instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery = genericQuery def
 
--- | 
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarNetworkInterfaceId :: Maybe Text
     , _dniarDescription :: Maybe AttributeValue
@@ -95,6 +100,19 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 -- a valid 'DescribeNetworkInterfaceAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe AttributeValue@
+--
+-- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
+--
+-- * @Groups ::@ @[GroupIdentifier]@
+--
+-- * @Attachment ::@ @Maybe NetworkInterfaceAttachment@
+--
 mkDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
 mkDescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarNetworkInterfaceId = Nothing

@@ -75,6 +75,17 @@ data PutLogEvents = PutLogEvents
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLogEvents' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @LogStreamName ::@ @Text@
+--
+-- * @LogEvents ::@ @List1 InputLogEvent@
+--
+-- * @SequenceToken ::@ @Maybe Text@
+--
 mkPutLogEvents :: Text -- ^ 'pleLogGroupName'
                -> Text -- ^ 'pleLogStreamName'
                -> List1 InputLogEvent -- ^ 'pleLogEvents'
@@ -119,6 +130,11 @@ newtype PutLogEventsResponse = PutLogEventsResponse
 -- a valid 'PutLogEventsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NextSequenceToken ::@ @Maybe Text@
+--
 mkPutLogEventsResponse :: PutLogEventsResponse
 mkPutLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken = Nothing

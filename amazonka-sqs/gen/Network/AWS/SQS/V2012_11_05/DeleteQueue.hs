@@ -53,13 +53,17 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteQueue' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
 mkDeleteQueue :: Text -- ^ 'dqQueueUrl'
               -> DeleteQueue
 mkDeleteQueue p1 = DeleteQueue

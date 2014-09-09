@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeVolumes = DescribeVolumes
     { _dv2VolumeIds :: [Text]
     , _dv2Filters :: [Filter]
@@ -69,6 +68,13 @@ data DescribeVolumes = DescribeVolumes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeVolumes :: DescribeVolumes
 mkDescribeVolumes = DescribeVolumes
     { _dv2VolumeIds = mempty
@@ -108,7 +114,6 @@ dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a })
 instance ToQuery DescribeVolumes where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
     } deriving (Show, Generic)
@@ -117,6 +122,11 @@ newtype DescribeVolumesResponse = DescribeVolumesResponse
 -- a valid 'DescribeVolumesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Volumes ::@ @[Volume]@
+--
 mkDescribeVolumesResponse :: DescribeVolumesResponse
 mkDescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes = mempty

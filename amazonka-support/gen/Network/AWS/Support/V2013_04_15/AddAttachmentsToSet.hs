@@ -49,7 +49,6 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 data AddAttachmentsToSet = AddAttachmentsToSet
     { _aatsAttachmentSetId :: Maybe Text
     , _aatsAttachments :: [Attachment]
@@ -57,6 +56,13 @@ data AddAttachmentsToSet = AddAttachmentsToSet
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddAttachmentsToSet' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentSetId ::@ @Maybe Text@
+--
+-- * @Attachments ::@ @[Attachment]@
+--
 mkAddAttachmentsToSet :: [Attachment] -- ^ 'aatsAttachments'
                       -> AddAttachmentsToSet
 mkAddAttachmentsToSet p2 = AddAttachmentsToSet
@@ -96,6 +102,13 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
 -- a valid 'AddAttachmentsToSetResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentSetId ::@ @Maybe Text@
+--
+-- * @ExpiryTime ::@ @Maybe Text@
+--
 mkAddAttachmentsToSetResponse :: AddAttachmentsToSetResponse
 mkAddAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId = Nothing

@@ -61,7 +61,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data AddPermission = AddPermission
     { _apQueueUrl :: Text
     , _apLabel :: Text
@@ -71,6 +70,17 @@ data AddPermission = AddPermission
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddPermission' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @Label ::@ @Text@
+--
+-- * @AWSAccountIds ::@ @[Text]@
+--
+-- * @Actions ::@ @[Text]@
+--
 mkAddPermission :: Text -- ^ 'apQueueUrl'
                 -> Text -- ^ 'apLabel'
                 -> [Text] -- ^ 'apAWSAccountIds'

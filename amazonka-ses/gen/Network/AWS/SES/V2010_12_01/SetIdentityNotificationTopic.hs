@@ -66,6 +66,15 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityNotificationTopic' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identity ::@ @Text@
+--
+-- * @NotificationType ::@ @NotificationType@
+--
+-- * @SnsTopic ::@ @Maybe Text@
+--
 mkSetIdentityNotificationTopic :: Text -- ^ 'sintIdentity'
                                -> NotificationType -- ^ 'sintNotificationType'
                                -> SetIdentityNotificationTopic

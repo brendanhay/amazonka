@@ -38,13 +38,17 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 newtype DeleteAlarms = DeleteAlarms
     { _daAlarmNames :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAlarms' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmNames ::@ @[Text]@
+--
 mkDeleteAlarms :: [Text] -- ^ 'daAlarmNames'
                -> DeleteAlarms
 mkDeleteAlarms p1 = DeleteAlarms

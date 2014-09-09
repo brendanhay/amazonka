@@ -72,6 +72,15 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateBandwidthRateLimit' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @AverageUploadRateLimitInBitsPerSec ::@ @Maybe Integer@
+--
+-- * @AverageDownloadRateLimitInBitsPerSec ::@ @Maybe Integer@
+--
 mkUpdateBandwidthRateLimit :: Text -- ^ 'ubrlGatewayARN'
                            -> UpdateBandwidthRateLimit
 mkUpdateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
@@ -115,6 +124,11 @@ newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
 -- a valid 'UpdateBandwidthRateLimitResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkUpdateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse
 mkUpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN = Nothing

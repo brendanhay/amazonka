@@ -46,6 +46,11 @@ newtype GetBucketRequestPayment = GetBucketRequestPayment
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketRequestPayment' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkGetBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
                           -> GetBucketRequestPayment
 mkGetBucketRequestPayment p1 = GetBucketRequestPayment
@@ -71,6 +76,11 @@ newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
 -- a valid 'GetBucketRequestPaymentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Payer ::@ @Maybe Payer@
+--
 mkGetBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
 mkGetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrprPayer = Nothing

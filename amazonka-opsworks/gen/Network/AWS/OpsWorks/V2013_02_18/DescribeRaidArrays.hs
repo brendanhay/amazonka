@@ -51,6 +51,13 @@ data DescribeRaidArrays = DescribeRaidArrays
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRaidArrays' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @RaidArrayIds ::@ @[Text]@
+--
 mkDescribeRaidArrays :: DescribeRaidArrays
 mkDescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId = Nothing
@@ -85,6 +92,11 @@ newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
 -- a valid 'DescribeRaidArraysResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RaidArrays ::@ @[RaidArray]@
+--
 mkDescribeRaidArraysResponse :: DescribeRaidArraysResponse
 mkDescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays = mempty

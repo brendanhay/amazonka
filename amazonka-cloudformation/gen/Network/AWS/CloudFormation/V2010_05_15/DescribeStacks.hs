@@ -57,6 +57,13 @@ data DescribeStacks = DescribeStacks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStacks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StackName ::@ @Maybe Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeStacks :: DescribeStacks
 mkDescribeStacks = DescribeStacks
     { _ds1StackName = Nothing
@@ -88,6 +95,13 @@ data DescribeStacksResponse = DescribeStacksResponse
 -- a valid 'DescribeStacksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Stacks ::@ @[Stack]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeStacksResponse :: DescribeStacksResponse
 mkDescribeStacksResponse = DescribeStacksResponse
     { _dsr1rStacks = mempty

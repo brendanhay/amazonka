@@ -62,7 +62,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     { _prioReservedInstancesOfferingId :: Text
     , _prioInstanceCount :: Integer
@@ -71,6 +70,15 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedInstancesOffering' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesOfferingId ::@ @Text@
+--
+-- * @InstanceCount ::@ @Integer@
+--
+-- * @LimitPrice ::@ @Maybe ReservedInstanceLimitPrice@
+--
 mkPurchaseReservedInstancesOffering :: Text -- ^ 'prioReservedInstancesOfferingId'
                                     -> Integer -- ^ 'prioInstanceCount'
                                     -> PurchaseReservedInstancesOffering
@@ -100,7 +108,6 @@ prioLimitPrice = lens _prioLimitPrice (\s a -> s { _prioLimitPrice = a })
 instance ToQuery PurchaseReservedInstancesOffering where
     toQuery = genericQuery def
 
--- | 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId :: Maybe Text
     } deriving (Show, Generic)
@@ -109,6 +116,11 @@ newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOff
 -- a valid 'PurchaseReservedInstancesOfferingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesId ::@ @Maybe Text@
+--
 mkPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse
 mkPurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId = Nothing

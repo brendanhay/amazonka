@@ -58,6 +58,11 @@ newtype ListPipelines = ListPipelines
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPipelines' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListPipelines :: ListPipelines
 mkListPipelines = ListPipelines
     { _lpMarker = Nothing
@@ -89,6 +94,15 @@ data ListPipelinesResponse = ListPipelinesResponse
 -- a valid 'ListPipelinesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PipelineIdList ::@ @[PipelineIdName]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @HasMoreResults ::@ @Bool@
+--
 mkListPipelinesResponse :: [PipelineIdName] -- ^ 'lprPipelineIdList'
                         -> Bool -- ^ 'lprHasMoreResults'
                         -> ListPipelinesResponse

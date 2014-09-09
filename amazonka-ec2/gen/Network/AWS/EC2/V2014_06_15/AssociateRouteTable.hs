@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AssociateRouteTable = AssociateRouteTable
     { _artSubnetId :: Text
     , _artRouteTableId :: Text
@@ -62,6 +61,13 @@ data AssociateRouteTable = AssociateRouteTable
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateRouteTable' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetId ::@ @Text@
+--
+-- * @RouteTableId ::@ @Text@
+--
 mkAssociateRouteTable :: Text -- ^ 'artSubnetId'
                       -> Text -- ^ 'artRouteTableId'
                       -> AssociateRouteTable
@@ -81,7 +87,6 @@ artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
 instance ToQuery AssociateRouteTable where
     toQuery = genericQuery def
 
--- | 
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId :: Maybe Text
     } deriving (Show, Generic)
@@ -90,6 +95,11 @@ newtype AssociateRouteTableResponse = AssociateRouteTableResponse
 -- a valid 'AssociateRouteTableResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AssociationId ::@ @Maybe Text@
+--
 mkAssociateRouteTableResponse :: AssociateRouteTableResponse
 mkAssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId = Nothing

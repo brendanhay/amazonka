@@ -64,6 +64,11 @@ newtype GetStatus = GetStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobId ::@ @Text@
+--
 mkGetStatus :: Text -- ^ 'gsJobId'
             -> GetStatus
 mkGetStatus p1 = GetStatus
@@ -101,6 +106,41 @@ data GetStatusResponse = GetStatusResponse
 -- a valid 'GetStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @JobId ::@ @Maybe Text@
+--
+-- * @JobType ::@ @Maybe JobType@
+--
+-- * @AwsShippingAddress ::@ @Maybe Text@
+--
+-- * @LocationCode ::@ @Maybe Text@
+--
+-- * @LocationMessage ::@ @Maybe Text@
+--
+-- * @ProgressCode ::@ @Maybe Text@
+--
+-- * @ProgressMessage ::@ @Maybe Text@
+--
+-- * @Carrier ::@ @Maybe Text@
+--
+-- * @TrackingNumber ::@ @Maybe Text@
+--
+-- * @LogBucket ::@ @Maybe Text@
+--
+-- * @LogKey ::@ @Maybe Text@
+--
+-- * @ErrorCount ::@ @Maybe Integer@
+--
+-- * @Signature ::@ @Maybe Text@
+--
+-- * @SignatureFileContents ::@ @Maybe Text@
+--
+-- * @CurrentManifest ::@ @Maybe Text@
+--
+-- * @CreationDate ::@ @Maybe ISO8601@
+--
 mkGetStatusResponse :: GetStatusResponse
 mkGetStatusResponse = GetStatusResponse
     { _gsrJobId = Nothing

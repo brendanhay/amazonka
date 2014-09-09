@@ -53,6 +53,13 @@ data ListJobs = ListJobs
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobs' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MaxJobs ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkListJobs :: ListJobs
 mkListJobs = ListJobs
     { _ljMaxJobs = Nothing
@@ -85,6 +92,13 @@ data ListJobsResponse = ListJobsResponse
 -- a valid 'ListJobsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Jobs ::@ @[Job]@
+--
+-- * @IsTruncated ::@ @Bool@
+--
 mkListJobsResponse :: Bool -- ^ 'ljrIsTruncated'
                    -> ListJobsResponse
 mkListJobsResponse p2 = ListJobsResponse

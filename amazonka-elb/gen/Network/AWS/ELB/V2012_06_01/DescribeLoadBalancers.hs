@@ -64,6 +64,15 @@ data DescribeLoadBalancers = DescribeLoadBalancers
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancers' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerNames ::@ @[Text]@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @PageSize ::@ @Maybe Integer@
+--
 mkDescribeLoadBalancers :: DescribeLoadBalancers
 mkDescribeLoadBalancers = DescribeLoadBalancers
     { _dlb1LoadBalancerNames = mempty
@@ -99,6 +108,13 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
 -- a valid 'DescribeLoadBalancersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerDescriptions ::@ @[LoadBalancerDescription]@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
 mkDescribeLoadBalancersResponse :: DescribeLoadBalancersResponse
 mkDescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { _dlbrrLoadBalancerDescriptions = mempty

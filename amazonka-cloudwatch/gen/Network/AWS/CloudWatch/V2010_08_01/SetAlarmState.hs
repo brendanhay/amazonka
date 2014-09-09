@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.V2010_08_01.Types
 import Network.AWS.Prelude
 
--- | 
 data SetAlarmState = SetAlarmState
     { _sasAlarmName :: Text
     , _sasStateValue :: StateValue
@@ -53,6 +52,17 @@ data SetAlarmState = SetAlarmState
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetAlarmState' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AlarmName ::@ @Text@
+--
+-- * @StateValue ::@ @StateValue@
+--
+-- * @StateReason ::@ @Text@
+--
+-- * @StateReasonData ::@ @Maybe Text@
+--
 mkSetAlarmState :: Text -- ^ 'sasAlarmName'
                 -> StateValue -- ^ 'sasStateValue'
                 -> Text -- ^ 'sasStateReason'

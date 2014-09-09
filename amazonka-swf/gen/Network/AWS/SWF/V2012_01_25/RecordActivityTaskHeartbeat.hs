@@ -92,6 +92,13 @@ data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RecordActivityTaskHeartbeat' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskToken ::@ @Text@
+--
+-- * @Details ::@ @Maybe Text@
+--
 mkRecordActivityTaskHeartbeat :: Text -- ^ 'rathTaskToken'
                               -> RecordActivityTaskHeartbeat
 mkRecordActivityTaskHeartbeat p1 = RecordActivityTaskHeartbeat
@@ -127,6 +134,11 @@ newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatRespons
 -- a valid 'RecordActivityTaskHeartbeatResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CancelRequested ::@ @Bool@
+--
 mkRecordActivityTaskHeartbeatResponse :: Bool -- ^ 'rathrCancelRequested'
                                       -> RecordActivityTaskHeartbeatResponse
 mkRecordActivityTaskHeartbeatResponse p1 = RecordActivityTaskHeartbeatResponse

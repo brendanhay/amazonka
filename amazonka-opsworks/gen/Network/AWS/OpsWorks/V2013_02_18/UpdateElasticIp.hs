@@ -49,6 +49,13 @@ data UpdateElasticIp = UpdateElasticIp
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateElasticIp' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ElasticIp ::@ @Text@
+--
+-- * @Name ::@ @Maybe Text@
+--
 mkUpdateElasticIp :: Text -- ^ 'ueiElasticIp'
                   -> UpdateElasticIp
 mkUpdateElasticIp p1 = UpdateElasticIp

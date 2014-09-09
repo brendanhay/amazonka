@@ -70,6 +70,15 @@ data DescribeLogGroups = DescribeLogGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLogGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupNamePrefix ::@ @Maybe Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @Limit ::@ @Maybe Integer@
+--
 mkDescribeLogGroups :: DescribeLogGroups
 mkDescribeLogGroups = DescribeLogGroups
     { _dlg1LogGroupNamePrefix = Nothing
@@ -109,6 +118,13 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse
 -- a valid 'DescribeLogGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroups ::@ @[LogGroup]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeLogGroupsResponse :: DescribeLogGroupsResponse
 mkDescribeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups = mempty

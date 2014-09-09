@@ -51,6 +51,15 @@ data EnableSnapshotCopy = EnableSnapshotCopy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableSnapshotCopy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
+-- * @DestinationRegion ::@ @Text@
+--
+-- * @RetentionPeriod ::@ @Maybe Integer@
+--
 mkEnableSnapshotCopy :: Text -- ^ 'escClusterIdentifier'
                      -> Text -- ^ 'escDestinationRegion'
                      -> EnableSnapshotCopy
@@ -92,6 +101,11 @@ newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
 -- a valid 'EnableSnapshotCopyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkEnableSnapshotCopyResponse :: EnableSnapshotCopyResponse
 mkEnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster = Nothing

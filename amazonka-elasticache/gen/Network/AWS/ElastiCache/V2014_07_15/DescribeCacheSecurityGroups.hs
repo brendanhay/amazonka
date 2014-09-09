@@ -58,6 +58,15 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheSecurityGroups' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroupName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeCacheSecurityGroups :: DescribeCacheSecurityGroups
 mkDescribeCacheSecurityGroups = DescribeCacheSecurityGroups
     { _dcsg2CacheSecurityGroupName = Nothing
@@ -98,6 +107,13 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
 -- a valid 'DescribeCacheSecurityGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @CacheSecurityGroups ::@ @[CacheSecurityGroup]@
+--
 mkDescribeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
 mkDescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgrMarker = Nothing

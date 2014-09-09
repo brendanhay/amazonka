@@ -45,7 +45,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ResetImageAttribute = ResetImageAttribute
     { _riaImageId :: Text
     , _riaAttribute :: ResetImageAttributeName
@@ -53,6 +52,13 @@ data ResetImageAttribute = ResetImageAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetImageAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Text@
+--
+-- * @Attribute ::@ @ResetImageAttributeName@
+--
 mkResetImageAttribute :: Text -- ^ 'riaImageId'
                       -> ResetImageAttributeName -- ^ 'riaAttribute'
                       -> ResetImageAttribute

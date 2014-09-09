@@ -66,6 +66,13 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityDkimEnabled' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Identity ::@ @Text@
+--
+-- * @DkimEnabled ::@ @Bool@
+--
 mkSetIdentityDkimEnabled :: Text -- ^ 'sideIdentity'
                          -> Bool -- ^ 'sideDkimEnabled'
                          -> SetIdentityDkimEnabled

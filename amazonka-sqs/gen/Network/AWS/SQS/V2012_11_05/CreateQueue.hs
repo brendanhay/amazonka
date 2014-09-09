@@ -64,7 +64,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateQueue = CreateQueue
     { _cqQueueName :: Text
     , _cqAttributes :: Map QueueAttributeName Text
@@ -72,6 +71,13 @@ data CreateQueue = CreateQueue
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateQueue' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueName ::@ @Text@
+--
+-- * @Attributes ::@ @Map QueueAttributeName Text@
+--
 mkCreateQueue :: Text -- ^ 'cqQueueName'
               -> CreateQueue
 mkCreateQueue p1 = CreateQueue
@@ -119,6 +125,11 @@ newtype CreateQueueResponse = CreateQueueResponse
 -- a valid 'CreateQueueResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Maybe Text@
+--
 mkCreateQueueResponse :: CreateQueueResponse
 mkCreateQueueResponse = CreateQueueResponse
     { _cqrQueueUrl = Nothing

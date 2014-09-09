@@ -65,6 +65,11 @@ newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSnapshotSchedule' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Text@
+--
 mkDeleteSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
                          -> DeleteSnapshotSchedule
 mkDeleteSnapshotSchedule p1 = DeleteSnapshotSchedule
@@ -90,6 +95,11 @@ newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
 -- a valid 'DeleteSnapshotScheduleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeARN ::@ @Maybe Text@
+--
 mkDeleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse
 mkDeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssrVolumeARN = Nothing

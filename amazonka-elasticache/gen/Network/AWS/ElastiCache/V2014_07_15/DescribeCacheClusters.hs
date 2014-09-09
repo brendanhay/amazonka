@@ -78,6 +78,17 @@ data DescribeCacheClusters = DescribeCacheClusters
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheClusters' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheClusterId ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @ShowCacheNodeInfo ::@ @Maybe Bool@
+--
 mkDescribeCacheClusters :: DescribeCacheClusters
 mkDescribeCacheClusters = DescribeCacheClusters
     { _dcc1CacheClusterId = Nothing
@@ -126,6 +137,13 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse
 -- a valid 'DescribeCacheClustersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @CacheClusters ::@ @[CacheCluster]@
+--
 mkDescribeCacheClustersResponse :: DescribeCacheClustersResponse
 mkDescribeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrrMarker = Nothing

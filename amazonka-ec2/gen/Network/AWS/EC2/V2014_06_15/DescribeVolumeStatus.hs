@@ -86,7 +86,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeVolumeStatus = DescribeVolumeStatus
     { _dvsVolumeIds :: [Text]
     , _dvsFilters :: [Filter]
@@ -96,6 +95,17 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumeStatus' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
 mkDescribeVolumeStatus :: DescribeVolumeStatus
 mkDescribeVolumeStatus = DescribeVolumeStatus
     { _dvsVolumeIds = mempty
@@ -138,7 +148,6 @@ dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
 instance ToQuery DescribeVolumeStatus where
     toQuery = genericQuery def
 
--- | 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses :: [VolumeStatusItem]
     , _dvsrNextToken :: Maybe Text
@@ -148,6 +157,13 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 -- a valid 'DescribeVolumeStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VolumeStatuses ::@ @[VolumeStatusItem]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse
 mkDescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses = mempty

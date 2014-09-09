@@ -67,6 +67,17 @@ data UpdateIdentityPool = UpdateIdentityPool
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateIdentityPool' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolId ::@ @Text@
+--
+-- * @IdentityPoolName ::@ @Text@
+--
+-- * @AllowUnauthenticatedIdentities ::@ @Bool@
+--
+-- * @SupportedLoginProviders ::@ @Map Text Text@
+--
 mkUpdateIdentityPool :: Text -- ^ 'uipIdentityPoolId'
                      -> Text -- ^ 'uipIdentityPoolName'
                      -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
@@ -120,6 +131,17 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
 -- a valid 'UpdateIdentityPoolResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityPoolId ::@ @Text@
+--
+-- * @IdentityPoolName ::@ @Text@
+--
+-- * @AllowUnauthenticatedIdentities ::@ @Bool@
+--
+-- * @SupportedLoginProviders ::@ @Map Text Text@
+--
 mkUpdateIdentityPoolResponse :: Text -- ^ 'uiprIdentityPoolId'
                              -> Text -- ^ 'uiprIdentityPoolName'
                              -> Bool -- ^ 'uiprAllowUnauthenticatedIdentities'

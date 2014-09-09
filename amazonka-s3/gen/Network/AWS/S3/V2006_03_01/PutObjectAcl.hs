@@ -63,6 +63,29 @@ data PutObjectAcl = PutObjectAcl
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutObjectAcl' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ACL ::@ @Maybe ObjectCannedACL@
+--
+-- * @AccessControlPolicy ::@ @Maybe AccessControlPolicy@
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
+-- * @GrantFullControl ::@ @Maybe Text@
+--
+-- * @GrantRead ::@ @Maybe Text@
+--
+-- * @GrantReadACP ::@ @Maybe Text@
+--
+-- * @GrantWrite ::@ @Maybe Text@
+--
+-- * @GrantWriteACP ::@ @Maybe Text@
+--
+-- * @Key ::@ @ObjectKey@
+--
 mkPutObjectAcl :: ObjectKey -- ^ 'poaKey'
                -> BucketName -- ^ 'poaBucket'
                -> PutObjectAcl

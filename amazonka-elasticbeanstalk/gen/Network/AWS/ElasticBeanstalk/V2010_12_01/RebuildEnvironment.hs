@@ -51,6 +51,13 @@ data RebuildEnvironment = RebuildEnvironment
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebuildEnvironment' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
 mkRebuildEnvironment :: RebuildEnvironment
 mkRebuildEnvironment = RebuildEnvironment
     { _reEnvironmentId = Nothing

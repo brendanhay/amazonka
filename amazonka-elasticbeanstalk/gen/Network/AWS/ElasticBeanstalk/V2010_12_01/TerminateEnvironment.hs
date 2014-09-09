@@ -71,6 +71,15 @@ data TerminateEnvironment = TerminateEnvironment
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateEnvironment' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @TerminateResources ::@ @Maybe Bool@
+--
 mkTerminateEnvironment :: TerminateEnvironment
 mkTerminateEnvironment = TerminateEnvironment
     { _teEnvironmentId = Nothing
@@ -131,6 +140,39 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
 -- a valid 'TerminateEnvironmentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EnvironmentName ::@ @Maybe Text@
+--
+-- * @EnvironmentId ::@ @Maybe Text@
+--
+-- * @ApplicationName ::@ @Maybe Text@
+--
+-- * @VersionLabel ::@ @Maybe Text@
+--
+-- * @SolutionStackName ::@ @Maybe Text@
+--
+-- * @TemplateName ::@ @Maybe Text@
+--
+-- * @Description ::@ @Maybe Text@
+--
+-- * @EndpointURL ::@ @Maybe Text@
+--
+-- * @CNAME ::@ @Maybe Text@
+--
+-- * @DateCreated ::@ @Maybe ISO8601@
+--
+-- * @DateUpdated ::@ @Maybe ISO8601@
+--
+-- * @Status ::@ @Maybe EnvironmentStatus@
+--
+-- * @Health ::@ @Maybe EnvironmentHealth@
+--
+-- * @Resources ::@ @Maybe EnvironmentResourcesDescription@
+--
+-- * @Tier ::@ @Maybe EnvironmentTier@
+--
 mkTerminateEnvironmentResponse :: TerminateEnvironmentResponse
 mkTerminateEnvironmentResponse = TerminateEnvironmentResponse
     { _terEnvironmentName = Nothing

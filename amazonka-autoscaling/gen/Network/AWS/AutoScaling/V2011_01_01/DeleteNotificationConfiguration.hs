@@ -46,6 +46,13 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNotificationConfiguration' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupName ::@ @Text@
+--
+-- * @TopicARN ::@ @Text@
+--
 mkDeleteNotificationConfiguration :: Text -- ^ 'dncAutoScalingGroupName'
                                   -> Text -- ^ 'dncTopicARN'
                                   -> DeleteNotificationConfiguration

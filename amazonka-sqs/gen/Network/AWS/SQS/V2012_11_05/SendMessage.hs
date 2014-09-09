@@ -70,7 +70,6 @@ import Network.AWS.Request.Query
 import Network.AWS.SQS.V2012_11_05.Types
 import Network.AWS.Prelude
 
--- | 
 data SendMessage = SendMessage
     { _smQueueUrl :: Text
     , _smMessageBody :: Text
@@ -80,6 +79,17 @@ data SendMessage = SendMessage
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessage' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueueUrl ::@ @Text@
+--
+-- * @MessageBody ::@ @Text@
+--
+-- * @DelaySeconds ::@ @Maybe Integer@
+--
+-- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
+--
 mkSendMessage :: Text -- ^ 'smQueueUrl'
               -> Text -- ^ 'smMessageBody'
               -> SendMessage
@@ -126,6 +136,15 @@ data SendMessageResponse = SendMessageResponse
 -- a valid 'SendMessageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @MD5OfMessageBody ::@ @Maybe Text@
+--
+-- * @MD5OfMessageAttributes ::@ @Maybe Text@
+--
+-- * @MessageId ::@ @Maybe Text@
+--
 mkSendMessageResponse :: SendMessageResponse
 mkSendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageBody = Nothing

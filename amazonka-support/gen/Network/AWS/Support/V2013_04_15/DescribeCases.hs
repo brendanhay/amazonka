@@ -55,7 +55,6 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 data DescribeCases = DescribeCases
     { _dcCaseIdList :: [Text]
     , _dcDisplayId :: Maybe Text
@@ -70,6 +69,27 @@ data DescribeCases = DescribeCases
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCases' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CaseIdList ::@ @[Text]@
+--
+-- * @DisplayId ::@ @Maybe Text@
+--
+-- * @AfterTime ::@ @Maybe Text@
+--
+-- * @BeforeTime ::@ @Maybe Text@
+--
+-- * @IncludeResolvedCases ::@ @Maybe Bool@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxResults ::@ @Maybe Integer@
+--
+-- * @Language ::@ @Maybe Text@
+--
+-- * @IncludeCommunications ::@ @Maybe Bool@
+--
 mkDescribeCases :: DescribeCases
 mkDescribeCases = DescribeCases
     { _dcCaseIdList = mempty
@@ -148,6 +168,13 @@ data DescribeCasesResponse = DescribeCasesResponse
 -- a valid 'DescribeCasesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cases ::@ @[CaseDetails]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeCasesResponse :: DescribeCasesResponse
 mkDescribeCasesResponse = DescribeCasesResponse
     { _dcrCases = mempty

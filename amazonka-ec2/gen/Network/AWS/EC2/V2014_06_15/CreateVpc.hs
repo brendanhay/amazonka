@@ -69,7 +69,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateVpc = CreateVpc
     { _cv1CidrBlock :: Text
     , _cv1InstanceTenancy :: Maybe Tenancy
@@ -77,6 +76,13 @@ data CreateVpc = CreateVpc
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpc' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CidrBlock ::@ @Text@
+--
+-- * @InstanceTenancy ::@ @Maybe Tenancy@
+--
 mkCreateVpc :: Text -- ^ 'cv1CidrBlock'
             -> CreateVpc
 mkCreateVpc p1 = CreateVpc
@@ -101,7 +107,6 @@ cv1InstanceTenancy =
 instance ToQuery CreateVpc where
     toQuery = genericQuery def
 
--- | 
 newtype CreateVpcResponse = CreateVpcResponse
     { _cvrrVpc :: Maybe Vpc
     } deriving (Show, Generic)
@@ -110,6 +115,11 @@ newtype CreateVpcResponse = CreateVpcResponse
 -- a valid 'CreateVpcResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Vpc ::@ @Maybe Vpc@
+--
 mkCreateVpcResponse :: CreateVpcResponse
 mkCreateVpcResponse = CreateVpcResponse
     { _cvrrVpc = Nothing

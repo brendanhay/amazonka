@@ -59,6 +59,15 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeCacheSecurityGroupIngress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroupName ::@ @Text@
+--
+-- * @EC2SecurityGroupName ::@ @Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Text@
+--
 mkRevokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgiCacheSecurityGroupName'
                                   -> Text -- ^ 'rcsgiEC2SecurityGroupName'
                                   -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
@@ -100,6 +109,11 @@ newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngres
 -- a valid 'RevokeCacheSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheSecurityGroup ::@ @Maybe CacheSecurityGroup@
+--
 mkRevokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResponse
 mkRevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup = Nothing

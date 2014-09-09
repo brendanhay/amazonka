@@ -80,6 +80,17 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformEndpoint' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PlatformApplicationArn ::@ @Text@
+--
+-- * @Token ::@ @Text@
+--
+-- * @CustomUserData ::@ @Maybe Text@
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkCreatePlatformEndpoint :: Text -- ^ 'cpePlatformApplicationArn'
                          -> Text -- ^ 'cpeToken'
                          -> CreatePlatformEndpoint
@@ -127,6 +138,11 @@ newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
 -- a valid 'CreatePlatformEndpointResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @EndpointArn ::@ @Maybe Text@
+--
 mkCreatePlatformEndpointResponse :: CreatePlatformEndpointResponse
 mkCreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn = Nothing

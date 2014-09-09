@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data DeleteRolePolicy = DeleteRolePolicy
     { _drpRoleName :: Text
     , _drpPolicyName :: Text
@@ -49,6 +48,13 @@ data DeleteRolePolicy = DeleteRolePolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRolePolicy' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RoleName ::@ @Text@
+--
+-- * @PolicyName ::@ @Text@
+--
 mkDeleteRolePolicy :: Text -- ^ 'drpRoleName'
                    -> Text -- ^ 'drpPolicyName'
                    -> DeleteRolePolicy

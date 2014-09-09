@@ -49,6 +49,13 @@ data ListDistributions = ListDistributions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDistributions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListDistributions :: ListDistributions
 mkListDistributions = ListDistributions
     { _ldMarker = Nothing
@@ -86,6 +93,11 @@ newtype ListDistributionsResponse = ListDistributionsResponse
 -- a valid 'ListDistributionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DistributionList ::@ @DistributionList@
+--
 mkListDistributionsResponse :: DistributionList -- ^ 'ldrDistributionList'
                             -> ListDistributionsResponse
 mkListDistributionsResponse p1 = ListDistributionsResponse

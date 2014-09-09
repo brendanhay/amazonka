@@ -43,7 +43,6 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.V2011_01_01.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dnc1AutoScalingGroupNames :: [Text]
     , _dnc1NextToken :: Maybe Text
@@ -52,6 +51,15 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNotificationConfigurations' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AutoScalingGroupNames ::@ @[Text]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
 mkDescribeNotificationConfigurations :: DescribeNotificationConfigurations
 mkDescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dnc1AutoScalingGroupNames = mempty
@@ -87,6 +95,13 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 -- a valid 'DescribeNotificationConfigurationsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NotificationConfigurations ::@ @[NotificationConfiguration]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkDescribeNotificationConfigurationsResponse :: [NotificationConfiguration] -- ^ 'dncrNotificationConfigurations'
                                              -> DescribeNotificationConfigurationsResponse
 mkDescribeNotificationConfigurationsResponse p1 = DescribeNotificationConfigurationsResponse

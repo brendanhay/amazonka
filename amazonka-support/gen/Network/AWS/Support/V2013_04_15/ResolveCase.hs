@@ -41,13 +41,17 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 newtype ResolveCase = ResolveCase
     { _rcCaseId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResolveCase' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CaseId ::@ @Maybe Text@
+--
 mkResolveCase :: ResolveCase
 mkResolveCase = ResolveCase
     { _rcCaseId = Nothing
@@ -77,6 +81,13 @@ data ResolveCaseResponse = ResolveCaseResponse
 -- a valid 'ResolveCaseResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InitialCaseStatus ::@ @Maybe Text@
+--
+-- * @FinalCaseStatus ::@ @Maybe Text@
+--
 mkResolveCaseResponse :: ResolveCaseResponse
 mkResolveCaseResponse = ResolveCaseResponse
     { _rcrInitialCaseStatus = Nothing

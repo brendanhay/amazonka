@@ -805,6 +805,11 @@ newtype Restrictions = Restrictions
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Restrictions' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GeoRestriction ::@ @GeoRestriction@
+--
 mkRestrictions :: GeoRestriction -- ^ 'rGeoRestriction'
                -> Restrictions
 mkRestrictions p1 = Restrictions
@@ -836,6 +841,11 @@ newtype S3OriginConfig = S3OriginConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3OriginConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OriginAccessIdentity ::@ @Text@
+--
 mkS3OriginConfig :: Text -- ^ 'socOriginAccessIdentity'
                  -> S3OriginConfig
 mkS3OriginConfig p1 = S3OriginConfig
@@ -885,6 +895,15 @@ data ActiveTrustedSigners = ActiveTrustedSigners
 --
 -- 'ActiveTrustedSigners' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Signer]@
+--
 mkActiveTrustedSigners :: Bool -- ^ 'atsEnabled'
                        -> Integer -- ^ 'atsQuantity'
                        -> ActiveTrustedSigners
@@ -924,6 +943,13 @@ data Aliases = Aliases
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Aliases' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Text]@
+--
 mkAliases :: Integer -- ^ 'aQuantity'
           -> Aliases
 mkAliases p1 = Aliases
@@ -963,6 +989,13 @@ data AllowedMethods = AllowedMethods
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AllowedMethods' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Method]@
+--
 mkAllowedMethods :: Integer -- ^ 'amQuantity'
                  -> AllowedMethods
 mkAllowedMethods p1 = AllowedMethods
@@ -1017,6 +1050,25 @@ data CacheBehavior = CacheBehavior
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheBehavior' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @PathPattern ::@ @Text@
+--
+-- * @TargetOriginId ::@ @Text@
+--
+-- * @ForwardedValues ::@ @ForwardedValues@
+--
+-- * @TrustedSigners ::@ @TrustedSigners@
+--
+-- * @ViewerProtocolPolicy ::@ @ViewerProtocolPolicy@
+--
+-- * @MinTTL ::@ @Integer@
+--
+-- * @AllowedMethods ::@ @Maybe AllowedMethods@
+--
+-- * @SmoothStreaming ::@ @Maybe Bool@
+--
 mkCacheBehavior :: Text -- ^ 'cb1PathPattern'
                 -> Text -- ^ 'cb1TargetOriginId'
                 -> ForwardedValues -- ^ 'cb1ForwardedValues'
@@ -1129,6 +1181,13 @@ data CacheBehaviors = CacheBehaviors
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheBehaviors' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[CacheBehavior]@
+--
 mkCacheBehaviors :: Integer -- ^ 'cbQuantity'
                  -> CacheBehaviors
 mkCacheBehaviors p1 = CacheBehaviors
@@ -1165,6 +1224,15 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
 --
 -- 'CloudFrontOriginAccessIdentity' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @S3CanonicalUserId ::@ @Text@
+--
+-- * @CloudFrontOriginAccessIdentityConfig ::@ @Maybe CloudFrontOriginAccessIdentityConfig@
+--
 mkCloudFrontOriginAccessIdentity :: Text -- ^ 'cfoaiId'
                                  -> Text -- ^ 'cfoaiS3CanonicalUserId'
                                  -> CloudFrontOriginAccessIdentity
@@ -1203,6 +1271,13 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CloudFrontOriginAccessIdentityConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CallerReference ::@ @Text@
+--
+-- * @Comment ::@ @Text@
+--
 mkCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'cfoaicCallerReference'
                                        -> Text -- ^ 'cfoaicComment'
                                        -> CloudFrontOriginAccessIdentityConfig
@@ -1254,6 +1329,21 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
 --
 -- 'CloudFrontOriginAccessIdentityList' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Text@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Integer@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[CloudFrontOriginAccessIdentitySummary]@
+--
 mkCloudFrontOriginAccessIdentityList :: Text -- ^ 'cfoailMarker'
                                      -> Integer -- ^ 'cfoailMaxItems'
                                      -> Bool -- ^ 'cfoailIsTruncated'
@@ -1318,6 +1408,15 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
 --
 -- 'CloudFrontOriginAccessIdentitySummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @S3CanonicalUserId ::@ @Text@
+--
+-- * @Comment ::@ @Text@
+--
 mkCloudFrontOriginAccessIdentitySummary :: Text -- ^ 'cfoaisId'
                                         -> Text -- ^ 'cfoaisS3CanonicalUserId'
                                         -> Text -- ^ 'cfoaisComment'
@@ -1359,6 +1458,13 @@ data CookieNames = CookieNames
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CookieNames' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Text]@
+--
 mkCookieNames :: Integer -- ^ 'cnQuantity'
               -> CookieNames
 mkCookieNames p1 = CookieNames
@@ -1391,6 +1497,13 @@ data CookiePreference = CookiePreference
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CookiePreference' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Forward ::@ @ItemSelection@
+--
+-- * @WhitelistedNames ::@ @Maybe CookieNames@
+--
 mkCookiePreference :: ItemSelection -- ^ 'cpForward'
                    -> CookiePreference
 mkCookiePreference p1 = CookiePreference
@@ -1440,6 +1553,17 @@ data CustomErrorResponse = CustomErrorResponse
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CustomErrorResponse' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ErrorCode ::@ @Integer@
+--
+-- * @ResponsePagePath ::@ @Maybe Text@
+--
+-- * @ResponseCode ::@ @Maybe Text@
+--
+-- * @ErrorCachingMinTTL ::@ @Maybe Integer@
+--
 mkCustomErrorResponse :: Integer -- ^ 'cer1ErrorCode'
                       -> CustomErrorResponse
 mkCustomErrorResponse p1 = CustomErrorResponse
@@ -1494,6 +1618,13 @@ data CustomErrorResponses = CustomErrorResponses
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CustomErrorResponses' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[CustomErrorResponse]@
+--
 mkCustomErrorResponses :: Integer -- ^ 'cerQuantity'
                        -> CustomErrorResponses
 mkCustomErrorResponses p1 = CustomErrorResponses
@@ -1528,6 +1659,15 @@ data CustomOriginConfig = CustomOriginConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CustomOriginConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HTTPPort ::@ @Integer@
+--
+-- * @HTTPSPort ::@ @Integer@
+--
+-- * @OriginProtocolPolicy ::@ @OriginProtocolPolicy@
+--
 mkCustomOriginConfig :: Integer -- ^ 'cocHTTPPort'
                      -> Integer -- ^ 'cocHTTPSPort'
                      -> OriginProtocolPolicy -- ^ 'cocOriginProtocolPolicy'
@@ -1576,6 +1716,23 @@ data DefaultCacheBehavior = DefaultCacheBehavior
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DefaultCacheBehavior' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetOriginId ::@ @Text@
+--
+-- * @ForwardedValues ::@ @ForwardedValues@
+--
+-- * @TrustedSigners ::@ @TrustedSigners@
+--
+-- * @ViewerProtocolPolicy ::@ @ViewerProtocolPolicy@
+--
+-- * @MinTTL ::@ @Integer@
+--
+-- * @AllowedMethods ::@ @Maybe AllowedMethods@
+--
+-- * @SmoothStreaming ::@ @Maybe Bool@
+--
 mkDefaultCacheBehavior :: Text -- ^ 'dcbTargetOriginId'
                        -> ForwardedValues -- ^ 'dcbForwardedValues'
                        -> TrustedSigners -- ^ 'dcbTrustedSigners'
@@ -1684,6 +1841,23 @@ data Distribution = Distribution
 --
 -- 'Distribution' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @LastModifiedTime ::@ @ISO8601@
+--
+-- * @InProgressInvalidationBatches ::@ @Integer@
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ActiveTrustedSigners ::@ @ActiveTrustedSigners@
+--
+-- * @DistributionConfig ::@ @DistributionConfig@
+--
 mkDistribution :: Text -- ^ 'dId'
                -> Text -- ^ 'dStatus'
                -> ISO8601 -- ^ 'dLastModifiedTime'
@@ -1768,6 +1942,35 @@ data DistributionConfig = DistributionConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DistributionConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CallerReference ::@ @Text@
+--
+-- * @Aliases ::@ @Aliases@
+--
+-- * @DefaultRootObject ::@ @Text@
+--
+-- * @Origins ::@ @Origins@
+--
+-- * @DefaultCacheBehavior ::@ @DefaultCacheBehavior@
+--
+-- * @CacheBehaviors ::@ @CacheBehaviors@
+--
+-- * @CustomErrorResponses ::@ @Maybe CustomErrorResponses@
+--
+-- * @Comment ::@ @Text@
+--
+-- * @Logging ::@ @LoggingConfig@
+--
+-- * @PriceClass ::@ @PriceClass@
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @ViewerCertificate ::@ @Maybe ViewerCertificate@
+--
+-- * @Restrictions ::@ @Maybe Restrictions@
+--
 mkDistributionConfig :: Text -- ^ 'dcCallerReference'
                      -> PriceClass -- ^ 'dcPriceClass'
                      -> Bool -- ^ 'dcEnabled'
@@ -1904,6 +2107,21 @@ data DistributionList = DistributionList
 --
 -- 'DistributionList' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Text@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Integer@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[DistributionSummary]@
+--
 mkDistributionList :: Text -- ^ 'dlMarker'
                    -> Integer -- ^ 'dlMaxItems'
                    -> Bool -- ^ 'dlIsTruncated'
@@ -1975,6 +2193,37 @@ data DistributionSummary = DistributionSummary
 --
 -- 'DistributionSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @LastModifiedTime ::@ @ISO8601@
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Aliases ::@ @Aliases@
+--
+-- * @Origins ::@ @Origins@
+--
+-- * @DefaultCacheBehavior ::@ @DefaultCacheBehavior@
+--
+-- * @CacheBehaviors ::@ @CacheBehaviors@
+--
+-- * @CustomErrorResponses ::@ @CustomErrorResponses@
+--
+-- * @Comment ::@ @Text@
+--
+-- * @PriceClass ::@ @PriceClass@
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @ViewerCertificate ::@ @ViewerCertificate@
+--
+-- * @Restrictions ::@ @Restrictions@
+--
 mkDistributionSummary :: Text -- ^ 'dsId'
                       -> Text -- ^ 'dsComment'
                       -> PriceClass -- ^ 'dsPriceClass'
@@ -2092,6 +2341,15 @@ data ForwardedValues = ForwardedValues
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ForwardedValues' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @QueryString ::@ @Bool@
+--
+-- * @Cookies ::@ @CookiePreference@
+--
+-- * @Headers ::@ @Maybe Headers@
+--
 mkForwardedValues :: Bool -- ^ 'fvQueryString'
                   -> CookiePreference -- ^ 'fvCookies'
                   -> ForwardedValues
@@ -2138,6 +2396,15 @@ data GeoRestriction = GeoRestriction
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GeoRestriction' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @RestrictionType ::@ @GeoRestrictionType@
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Text]@
+--
 mkGeoRestriction :: GeoRestrictionType -- ^ 'grRestrictionType'
                  -> Integer -- ^ 'grQuantity'
                  -> GeoRestriction
@@ -2193,6 +2460,13 @@ data Headers = Headers
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Headers' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Text]@
+--
 mkHeaders :: Integer -- ^ 'hQuantity'
           -> Headers
 mkHeaders p1 = Headers
@@ -2237,6 +2511,17 @@ data Invalidation = Invalidation
 --
 -- 'Invalidation' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @CreateTime ::@ @ISO8601@
+--
+-- * @InvalidationBatch ::@ @InvalidationBatch@
+--
 mkInvalidation :: Text -- ^ 'iId'
                -> Text -- ^ 'iStatus'
                -> ISO8601 -- ^ 'iCreateTime'
@@ -2279,6 +2564,13 @@ data InvalidationBatch = InvalidationBatch
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InvalidationBatch' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Paths ::@ @Paths@
+--
+-- * @CallerReference ::@ @Text@
+--
 mkInvalidationBatch :: Paths -- ^ 'ibPaths'
                     -> Text -- ^ 'ibCallerReference'
                     -> InvalidationBatch
@@ -2333,6 +2625,21 @@ data InvalidationList = InvalidationList
 --
 -- 'InvalidationList' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Text@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Integer@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[InvalidationSummary]@
+--
 mkInvalidationList :: Text -- ^ 'ilMarker'
                    -> Integer -- ^ 'ilMaxItems'
                    -> Bool -- ^ 'ilIsTruncated'
@@ -2394,6 +2701,15 @@ data InvalidationSummary = InvalidationSummary
 --
 -- 'InvalidationSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @CreateTime ::@ @ISO8601@
+--
+-- * @Status ::@ @Text@
+--
 mkInvalidationSummary :: Text -- ^ 'isId'
                       -> ISO8601 -- ^ 'isCreateTime'
                       -> Text -- ^ 'isStatus'
@@ -2428,6 +2744,13 @@ data KeyPairIds = KeyPairIds
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeyPairIds' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Text]@
+--
 mkKeyPairIds :: Integer -- ^ 'kpiQuantity'
              -> KeyPairIds
 mkKeyPairIds p1 = KeyPairIds
@@ -2463,6 +2786,17 @@ data LoggingConfig = LoggingConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoggingConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @IncludeCookies ::@ @Bool@
+--
+-- * @Bucket ::@ @Text@
+--
+-- * @Prefix ::@ @Text@
+--
 mkLoggingConfig :: Bool -- ^ 'lcEnabled'
                 -> Bool -- ^ 'lcIncludeCookies'
                 -> Text -- ^ 'lcBucket'
@@ -2526,6 +2860,17 @@ data Origin = Origin
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Origin' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @S3OriginConfig ::@ @Maybe S3OriginConfig@
+--
+-- * @CustomOriginConfig ::@ @Maybe CustomOriginConfig@
+--
 mkOrigin :: Text -- ^ 'o1Id'
          -> Text -- ^ 'o1DomainName'
          -> Origin
@@ -2580,6 +2925,13 @@ data Origins = Origins
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Origins' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @Maybe (List1 Origin)@
+--
 mkOrigins :: Integer -- ^ 'oQuantity'
           -> Origins
 mkOrigins p1 = Origins
@@ -2617,6 +2969,13 @@ data Paths = Paths
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Paths' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Text]@
+--
 mkPaths :: Integer -- ^ 'pQuantity'
         -> Paths
 mkPaths p1 = Paths
@@ -2650,6 +3009,13 @@ data S3Origin = S3Origin
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3Origin' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @OriginAccessIdentity ::@ @Text@
+--
 mkS3Origin :: Text -- ^ 'soDomainName'
            -> Text -- ^ 'soOriginAccessIdentity'
            -> S3Origin
@@ -2688,6 +3054,13 @@ data Signer = Signer
 --
 -- 'Signer' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AwsAccountNumber ::@ @Maybe Text@
+--
+-- * @KeyPairIds ::@ @Maybe KeyPairIds@
+--
 mkSigner :: Signer
 mkSigner = Signer
     { _sAwsAccountNumber = Nothing
@@ -2726,6 +3099,21 @@ data StreamingDistribution = StreamingDistribution
 --
 -- 'StreamingDistribution' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @LastModifiedTime ::@ @Maybe ISO8601@
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @ActiveTrustedSigners ::@ @ActiveTrustedSigners@
+--
+-- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
+--
 mkStreamingDistribution :: Text -- ^ 'sdId'
                         -> Text -- ^ 'sdStatus'
                         -> Text -- ^ 'sdDomainName'
@@ -2798,6 +3186,25 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamingDistributionConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CallerReference ::@ @Text@
+--
+-- * @S3Origin ::@ @S3Origin@
+--
+-- * @Aliases ::@ @Aliases@
+--
+-- * @Comment ::@ @Text@
+--
+-- * @Logging ::@ @StreamingLoggingConfig@
+--
+-- * @TrustedSigners ::@ @TrustedSigners@
+--
+-- * @PriceClass ::@ @PriceClass@
+--
+-- * @Enabled ::@ @Bool@
+--
 mkStreamingDistributionConfig :: Text -- ^ 'sdcCallerReference'
                               -> S3Origin -- ^ 'sdcS3Origin'
                               -> Aliases -- ^ 'sdcAliases'
@@ -2901,6 +3308,21 @@ data StreamingDistributionList = StreamingDistributionList
 --
 -- 'StreamingDistributionList' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Text@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Integer@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[StreamingDistributionSummary]@
+--
 mkStreamingDistributionList :: Text -- ^ 'sdlMarker'
                             -> Integer -- ^ 'sdlMaxItems'
                             -> Bool -- ^ 'sdlIsTruncated'
@@ -2970,6 +3392,29 @@ data StreamingDistributionSummary = StreamingDistributionSummary
 --
 -- 'StreamingDistributionSummary' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Id ::@ @Text@
+--
+-- * @Status ::@ @Text@
+--
+-- * @LastModifiedTime ::@ @ISO8601@
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @S3Origin ::@ @S3Origin@
+--
+-- * @Aliases ::@ @Aliases@
+--
+-- * @TrustedSigners ::@ @TrustedSigners@
+--
+-- * @Comment ::@ @Text@
+--
+-- * @PriceClass ::@ @PriceClass@
+--
+-- * @Enabled ::@ @Bool@
+--
 mkStreamingDistributionSummary :: Text -- ^ 'sdsId'
                                -> Bool -- ^ 'sdsEnabled'
                                -> Text -- ^ 'sdsStatus'
@@ -3066,6 +3511,15 @@ data StreamingLoggingConfig = StreamingLoggingConfig
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamingLoggingConfig' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @Bucket ::@ @Text@
+--
+-- * @Prefix ::@ @Text@
+--
 mkStreamingLoggingConfig :: Bool -- ^ 'slcEnabled'
                          -> Text -- ^ 'slcBucket'
                          -> Text -- ^ 'slcPrefix'
@@ -3125,6 +3579,15 @@ data TrustedSigners = TrustedSigners
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedSigners' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Enabled ::@ @Bool@
+--
+-- * @Quantity ::@ @Integer@
+--
+-- * @Items ::@ @[Text]@
+--
 mkTrustedSigners :: Bool -- ^ 'tsEnabled'
                  -> Integer -- ^ 'tsQuantity'
                  -> TrustedSigners
@@ -3166,6 +3629,15 @@ data ViewerCertificate = ViewerCertificate
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ViewerCertificate' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IAMCertificateId ::@ @Maybe Text@
+--
+-- * @CloudFrontDefaultCertificate ::@ @Maybe Bool@
+--
+-- * @SSLSupportMethod ::@ @Maybe SSLSupportMethod@
+--
 mkViewerCertificate :: ViewerCertificate
 mkViewerCertificate = ViewerCertificate
     { _vcIAMCertificateId = Nothing

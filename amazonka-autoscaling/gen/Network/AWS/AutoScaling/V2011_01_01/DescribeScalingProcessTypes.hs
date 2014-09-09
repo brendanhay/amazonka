@@ -61,6 +61,11 @@ newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesRespons
 -- a valid 'DescribeScalingProcessTypesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Processes ::@ @[ProcessType]@
+--
 mkDescribeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
 mkDescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _dsptrProcesses = mempty

@@ -95,6 +95,15 @@ data PollForActivityTask = PollForActivityTask
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForActivityTask' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
+-- * @TaskList ::@ @TaskList@
+--
+-- * @Identity ::@ @Maybe Text@
+--
 mkPollForActivityTask :: Text -- ^ 'pfatDomain'
                       -> TaskList -- ^ 'pfatTaskList'
                       -> PollForActivityTask
@@ -144,6 +153,21 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
 -- a valid 'PollForActivityTaskResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskToken ::@ @Text@
+--
+-- * @ActivityId ::@ @Text@
+--
+-- * @StartedEventId ::@ @Integer@
+--
+-- * @WorkflowExecution ::@ @WorkflowExecution@
+--
+-- * @ActivityType ::@ @ActivityType@
+--
+-- * @Input ::@ @Maybe Text@
+--
 mkPollForActivityTaskResponse :: Text -- ^ 'pfatrTaskToken'
                               -> Text -- ^ 'pfatrActivityId'
                               -> Integer -- ^ 'pfatrStartedEventId'

@@ -45,6 +45,11 @@ newtype HeadBucket = HeadBucket
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'HeadBucket' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
 mkHeadBucket :: BucketName -- ^ 'hbBucket'
              -> HeadBucket
 mkHeadBucket p1 = HeadBucket

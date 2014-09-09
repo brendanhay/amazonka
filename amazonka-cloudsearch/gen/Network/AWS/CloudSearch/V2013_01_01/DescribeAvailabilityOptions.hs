@@ -55,6 +55,13 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityOptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @Deployed ::@ @Maybe Bool@
+--
 mkDescribeAvailabilityOptions :: Text -- ^ 'dao2DomainName'
                               -> DescribeAvailabilityOptions
 mkDescribeAvailabilityOptions p1 = DescribeAvailabilityOptions
@@ -84,6 +91,11 @@ newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsRespons
 -- a valid 'DescribeAvailabilityOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AvailabilityOptions ::@ @Maybe AvailabilityOptionsStatus@
+--
 mkDescribeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse
 mkDescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorrAvailabilityOptions = Nothing

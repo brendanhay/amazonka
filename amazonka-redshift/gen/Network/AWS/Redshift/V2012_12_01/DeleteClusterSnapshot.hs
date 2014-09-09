@@ -63,6 +63,13 @@ data DeleteClusterSnapshot = DeleteClusterSnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotIdentifier ::@ @Text@
+--
+-- * @SnapshotClusterIdentifier ::@ @Maybe Text@
+--
 mkDeleteClusterSnapshot :: Text -- ^ 'dcsSnapshotIdentifier'
                         -> DeleteClusterSnapshot
 mkDeleteClusterSnapshot p1 = DeleteClusterSnapshot
@@ -96,6 +103,11 @@ newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
 -- a valid 'DeleteClusterSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkDeleteClusterSnapshotResponse :: DeleteClusterSnapshotResponse
 mkDeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _dcsrSnapshot = Nothing

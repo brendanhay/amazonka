@@ -335,6 +335,11 @@ newtype RouteFilterPrefix = RouteFilterPrefix
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RouteFilterPrefix' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cidr ::@ @Maybe Text@
+--
 mkRouteFilterPrefix :: RouteFilterPrefix
 mkRouteFilterPrefix = RouteFilterPrefix
     { _rfpCidr = Nothing
@@ -368,6 +373,27 @@ data Connection = Connection
 --
 -- 'Connection' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @ConnectionName ::@ @Maybe Text@
+--
+-- * @ConnectionState ::@ @Maybe ConnectionState@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Bandwidth ::@ @Maybe Text@
+--
+-- * @Vlan ::@ @Maybe Integer@
+--
+-- * @PartnerName ::@ @Maybe Text@
+--
 mkConnection :: Connection
 mkConnection = Connection
     { _cOwnerAccount = Nothing
@@ -453,6 +479,21 @@ data Interconnect = Interconnect
 --
 -- 'Interconnect' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InterconnectId ::@ @Maybe Text@
+--
+-- * @InterconnectName ::@ @Maybe Text@
+--
+-- * @InterconnectState ::@ @Maybe InterconnectState@
+--
+-- * @Region ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @Bandwidth ::@ @Maybe Text@
+--
 mkInterconnect :: Interconnect
 mkInterconnect = Interconnect
     { _iInterconnectId = Nothing
@@ -509,6 +550,13 @@ data Location = Location
 --
 -- 'Location' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LocationCode ::@ @Maybe Text@
+--
+-- * @LocationName ::@ @Maybe Text@
+--
 mkLocation :: Location
 mkLocation = Location
     { _lLocationCode = Nothing
@@ -540,6 +588,23 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPrivateVirtualInterface' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceName ::@ @Text@
+--
+-- * @Vlan ::@ @Integer@
+--
+-- * @Asn ::@ @Integer@
+--
+-- * @AuthKey ::@ @Maybe Text@
+--
+-- * @AmazonAddress ::@ @Maybe Text@
+--
+-- * @CustomerAddress ::@ @Maybe Text@
+--
+-- * @VirtualGatewayId ::@ @Text@
+--
 mkNewPrivateVirtualInterface :: Text -- ^ 'npviVirtualInterfaceName'
                              -> Integer -- ^ 'npviVlan'
                              -> Integer -- ^ 'npviAsn'
@@ -606,6 +671,21 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPrivateVirtualInterfaceAllocation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceName ::@ @Text@
+--
+-- * @Vlan ::@ @Integer@
+--
+-- * @Asn ::@ @Integer@
+--
+-- * @AuthKey ::@ @Maybe Text@
+--
+-- * @AmazonAddress ::@ @Maybe Text@
+--
+-- * @CustomerAddress ::@ @Maybe Text@
+--
 mkNewPrivateVirtualInterfaceAllocation :: Text -- ^ 'npviaVirtualInterfaceName'
                                        -> Integer -- ^ 'npviaVlan'
                                        -> Integer -- ^ 'npviaAsn'
@@ -665,6 +745,23 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPublicVirtualInterface' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceName ::@ @Text@
+--
+-- * @Vlan ::@ @Integer@
+--
+-- * @Asn ::@ @Integer@
+--
+-- * @AuthKey ::@ @Maybe Text@
+--
+-- * @AmazonAddress ::@ @Text@
+--
+-- * @CustomerAddress ::@ @Text@
+--
+-- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
+--
 mkNewPublicVirtualInterface :: Text -- ^ 'npvi1VirtualInterfaceName'
                             -> Integer -- ^ 'npvi1Vlan'
                             -> Integer -- ^ 'npvi1Asn'
@@ -735,6 +832,23 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPublicVirtualInterfaceAllocation' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualInterfaceName ::@ @Text@
+--
+-- * @Vlan ::@ @Integer@
+--
+-- * @Asn ::@ @Integer@
+--
+-- * @AuthKey ::@ @Maybe Text@
+--
+-- * @AmazonAddress ::@ @Text@
+--
+-- * @CustomerAddress ::@ @Text@
+--
+-- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
+--
 mkNewPublicVirtualInterfaceAllocation :: Text -- ^ 'npvia1VirtualInterfaceName'
                                       -> Integer -- ^ 'npvia1Vlan'
                                       -> Integer -- ^ 'npvia1Asn'
@@ -805,6 +919,13 @@ data VirtualGateway = VirtualGateway
 --
 -- 'VirtualGateway' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VirtualGatewayId ::@ @Maybe Text@
+--
+-- * @VirtualGatewayState ::@ @Maybe Text@
+--
 mkVirtualGateway :: VirtualGateway
 mkVirtualGateway = VirtualGateway
     { _vgVirtualGatewayId = Nothing
@@ -853,6 +974,39 @@ data VirtualInterface = VirtualInterface
 --
 -- 'VirtualInterface' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OwnerAccount ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceId ::@ @Maybe Text@
+--
+-- * @Location ::@ @Maybe Text@
+--
+-- * @ConnectionId ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceType ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceName ::@ @Maybe Text@
+--
+-- * @Vlan ::@ @Maybe Integer@
+--
+-- * @Asn ::@ @Maybe Integer@
+--
+-- * @AuthKey ::@ @Maybe Text@
+--
+-- * @AmazonAddress ::@ @Maybe Text@
+--
+-- * @CustomerAddress ::@ @Maybe Text@
+--
+-- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
+--
+-- * @CustomerRouterConfig ::@ @Maybe Text@
+--
+-- * @VirtualGatewayId ::@ @Maybe Text@
+--
+-- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
+--
 mkVirtualInterface :: VirtualInterface
 mkVirtualInterface = VirtualInterface
     { _viOwnerAccount = Nothing

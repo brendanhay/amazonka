@@ -54,7 +54,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
     , _csdsPrefix :: Maybe Text
@@ -62,6 +61,13 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSpotDatafeedSubscription' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @Text@
+--
+-- * @Prefix ::@ @Maybe Text@
+--
 mkCreateSpotDatafeedSubscription :: Text -- ^ 'csdsBucket'
                                  -> CreateSpotDatafeedSubscription
 mkCreateSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
@@ -81,7 +87,6 @@ csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
 instance ToQuery CreateSpotDatafeedSubscription where
     toQuery = genericQuery def
 
--- | 
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Show, Generic)
@@ -90,6 +95,11 @@ newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionR
 -- a valid 'CreateSpotDatafeedSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotDatafeedSubscription ::@ @Maybe SpotDatafeedSubscription@
+--
 mkCreateSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse
 mkCreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription = Nothing

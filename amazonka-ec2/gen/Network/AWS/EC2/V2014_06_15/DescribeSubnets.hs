@@ -72,7 +72,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeSubnets = DescribeSubnets
     { _ds3SubnetIds :: [Text]
     , _ds3Filters :: [Filter]
@@ -80,6 +79,13 @@ data DescribeSubnets = DescribeSubnets
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSubnets' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubnetIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
 mkDescribeSubnets :: DescribeSubnets
 mkDescribeSubnets = DescribeSubnets
     { _ds3SubnetIds = mempty
@@ -115,7 +121,6 @@ ds3Filters = lens _ds3Filters (\s a -> s { _ds3Filters = a })
 instance ToQuery DescribeSubnets where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrrSubnets :: [Subnet]
     } deriving (Show, Generic)
@@ -124,6 +129,11 @@ newtype DescribeSubnetsResponse = DescribeSubnetsResponse
 -- a valid 'DescribeSubnetsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subnets ::@ @[Subnet]@
+--
 mkDescribeSubnetsResponse :: DescribeSubnetsResponse
 mkDescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrrSubnets = mempty

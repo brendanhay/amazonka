@@ -59,6 +59,15 @@ data PromoteReadReplica = PromoteReadReplica
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PromoteReadReplica' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstanceIdentifier ::@ @Text@
+--
+-- * @BackupRetentionPeriod ::@ @Maybe Integer@
+--
+-- * @PreferredBackupWindow ::@ @Maybe Text@
+--
 mkPromoteReadReplica :: Text -- ^ 'prrDBInstanceIdentifier'
                      -> PromoteReadReplica
 mkPromoteReadReplica p1 = PromoteReadReplica
@@ -109,6 +118,11 @@ newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
 -- a valid 'PromoteReadReplicaResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBInstance ::@ @Maybe DBInstance@
+--
 mkPromoteReadReplicaResponse :: PromoteReadReplicaResponse
 mkPromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance = Nothing

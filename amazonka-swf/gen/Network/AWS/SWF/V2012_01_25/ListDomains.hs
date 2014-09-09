@@ -90,6 +90,17 @@ data ListDomains = ListDomains
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
+-- * @RegistrationStatus ::@ @RegistrationStatus@
+--
+-- * @MaximumPageSize ::@ @Maybe Integer@
+--
+-- * @ReverseOrder ::@ @Maybe Bool@
+--
 mkListDomains :: RegistrationStatus -- ^ 'ldRegistrationStatus'
               -> ListDomains
 mkListDomains p2 = ListDomains
@@ -144,6 +155,13 @@ data ListDomainsResponse = ListDomainsResponse
 -- a valid 'ListDomainsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainInfos ::@ @[DomainInfo]@
+--
+-- * @NextPageToken ::@ @Maybe Text@
+--
 mkListDomainsResponse :: [DomainInfo] -- ^ 'ldrDomainInfos'
                       -> ListDomainsResponse
 mkListDomainsResponse p1 = ListDomainsResponse

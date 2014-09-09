@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsaSnapshotId :: Text
     , _dsaAttribute :: SnapshotAttributeName
@@ -57,6 +56,13 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Text@
+--
+-- * @Attribute ::@ @SnapshotAttributeName@
+--
 mkDescribeSnapshotAttribute :: Text -- ^ 'dsaSnapshotId'
                             -> SnapshotAttributeName -- ^ 'dsaAttribute'
                             -> DescribeSnapshotAttribute
@@ -76,7 +82,6 @@ dsaAttribute = lens _dsaAttribute (\s a -> s { _dsaAttribute = a })
 instance ToQuery DescribeSnapshotAttribute where
     toQuery = genericQuery def
 
--- | 
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarSnapshotId :: Maybe Text
     , _dsarCreateVolumePermissions :: [CreateVolumePermission]
@@ -87,6 +92,15 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
 -- a valid 'DescribeSnapshotAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotId ::@ @Maybe Text@
+--
+-- * @CreateVolumePermissions ::@ @[CreateVolumePermission]@
+--
+-- * @ProductCodes ::@ @[ProductCode]@
+--
 mkDescribeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
 mkDescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarSnapshotId = Nothing

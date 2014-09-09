@@ -54,6 +54,15 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeSnapshotAccess' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SnapshotIdentifier ::@ @Text@
+--
+-- * @SnapshotClusterIdentifier ::@ @Maybe Text@
+--
+-- * @AccountWithRestoreAccess ::@ @Text@
+--
 mkRevokeSnapshotAccess :: Text -- ^ 'rsaSnapshotIdentifier'
                        -> Text -- ^ 'rsaAccountWithRestoreAccess'
                        -> RevokeSnapshotAccess
@@ -94,6 +103,11 @@ newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
 -- a valid 'RevokeSnapshotAccessResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkRevokeSnapshotAccessResponse :: RevokeSnapshotAccessResponse
 mkRevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot = Nothing

@@ -69,6 +69,11 @@ newtype GetSendStatisticsResponse = GetSendStatisticsResponse
 -- a valid 'GetSendStatisticsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SendDataPoints ::@ @[SendDataPoint]@
+--
 mkGetSendStatisticsResponse :: GetSendStatisticsResponse
 mkGetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints = mempty

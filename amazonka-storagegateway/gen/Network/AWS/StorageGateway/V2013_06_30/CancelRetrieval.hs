@@ -46,6 +46,13 @@ data CancelRetrieval = CancelRetrieval
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelRetrieval' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @TapeARN ::@ @Text@
+--
 mkCancelRetrieval :: Text -- ^ 'crGatewayARN'
                   -> Text -- ^ 'crTapeARN'
                   -> CancelRetrieval
@@ -78,6 +85,11 @@ newtype CancelRetrievalResponse = CancelRetrievalResponse
 -- a valid 'CancelRetrievalResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TapeARN ::@ @Maybe Text@
+--
 mkCancelRetrievalResponse :: CancelRetrievalResponse
 mkCancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN = Nothing

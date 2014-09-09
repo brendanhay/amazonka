@@ -46,13 +46,17 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 newtype GetUser = GetUser
     { _guUserName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetUser' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
 mkGetUser :: GetUser
 mkGetUser = GetUser
     { _guUserName = Nothing
@@ -75,6 +79,11 @@ newtype GetUserResponse = GetUserResponse
 -- a valid 'GetUserResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @User ::@ @User@
+--
 mkGetUserResponse :: User -- ^ 'gurUser'
                   -> GetUserResponse
 mkGetUserResponse p1 = GetUserResponse

@@ -41,13 +41,17 @@ import Network.AWS.Support.V2013_04_15.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | 
 newtype DescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSeverityLevels' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Language ::@ @Maybe Text@
+--
 mkDescribeSeverityLevels :: DescribeSeverityLevels
 mkDescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage = Nothing
@@ -77,6 +81,11 @@ newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
 -- a valid 'DescribeSeverityLevelsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SeverityLevels ::@ @[SeverityLevel]@
+--
 mkDescribeSeverityLevelsResponse :: DescribeSeverityLevelsResponse
 mkDescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels = mempty

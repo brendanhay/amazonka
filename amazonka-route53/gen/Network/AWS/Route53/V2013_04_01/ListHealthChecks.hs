@@ -69,6 +69,13 @@ data ListHealthChecks = ListHealthChecks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListHealthChecks' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListHealthChecks :: ListHealthChecks
 mkListHealthChecks = ListHealthChecks
     { _lhcMarker = Nothing
@@ -108,6 +115,19 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 -- a valid 'ListHealthChecksResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @HealthChecks ::@ @[HealthCheck]@
+--
+-- * @Marker ::@ @Text@
+--
+-- * @IsTruncated ::@ @Bool@
+--
+-- * @NextMarker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Text@
+--
 mkListHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthChecks'
                            -> Text -- ^ 'lhcrMarker'
                            -> Bool -- ^ 'lhcrIsTruncated'

@@ -45,7 +45,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DetachNetworkInterface = DetachNetworkInterface
     { _dni2AttachmentId :: Text
     , _dni2Force :: Maybe Bool
@@ -53,6 +52,13 @@ data DetachNetworkInterface = DetachNetworkInterface
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachNetworkInterface' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AttachmentId ::@ @Text@
+--
+-- * @Force ::@ @Maybe Bool@
+--
 mkDetachNetworkInterface :: Text -- ^ 'dni2AttachmentId'
                          -> DetachNetworkInterface
 mkDetachNetworkInterface p1 = DetachNetworkInterface

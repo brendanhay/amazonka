@@ -57,6 +57,13 @@ data DefineIndexField = DefineIndexField
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineIndexField' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @IndexField ::@ @IndexField@
+--
 mkDefineIndexField :: Text -- ^ 'difDomainName'
                    -> IndexField -- ^ 'difIndexField'
                    -> DefineIndexField
@@ -89,6 +96,11 @@ newtype DefineIndexFieldResponse = DefineIndexFieldResponse
 -- a valid 'DefineIndexFieldResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IndexField ::@ @IndexFieldStatus@
+--
 mkDefineIndexFieldResponse :: IndexFieldStatus -- ^ 'difrIndexField'
                            -> DefineIndexFieldResponse
 mkDefineIndexFieldResponse p1 = DefineIndexFieldResponse

@@ -71,6 +71,11 @@ newtype GetTopicAttributes = GetTopicAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTopicAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Text@
+--
 mkGetTopicAttributes :: Text -- ^ 'gtaTopicArn'
                      -> GetTopicAttributes
 mkGetTopicAttributes p1 = GetTopicAttributes
@@ -93,6 +98,11 @@ newtype GetTopicAttributesResponse = GetTopicAttributesResponse
 -- a valid 'GetTopicAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkGetTopicAttributesResponse :: GetTopicAttributesResponse
 mkGetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes = mempty

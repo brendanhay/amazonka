@@ -49,6 +49,13 @@ data ListStreamingDistributions = ListStreamingDistributions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStreamingDistributions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @MaxItems ::@ @Maybe Text@
+--
 mkListStreamingDistributions :: ListStreamingDistributions
 mkListStreamingDistributions = ListStreamingDistributions
     { _lsdMarker = Nothing
@@ -87,6 +94,11 @@ newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
 -- a valid 'ListStreamingDistributionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @StreamingDistributionList ::@ @StreamingDistributionList@
+--
 mkListStreamingDistributionsResponse :: StreamingDistributionList -- ^ 'lsdrStreamingDistributionList'
                                      -> ListStreamingDistributionsResponse
 mkListStreamingDistributionsResponse p1 = ListStreamingDistributionsResponse

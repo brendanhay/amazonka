@@ -62,6 +62,15 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskRunnerHeartbeat' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TaskrunnerId ::@ @Text@
+--
+-- * @WorkerGroup ::@ @Maybe Text@
+--
+-- * @Hostname ::@ @Maybe Text@
+--
 mkReportTaskRunnerHeartbeat :: Text -- ^ 'rtrhTaskrunnerId'
                             -> ReportTaskRunnerHeartbeat
 mkReportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
@@ -109,6 +118,11 @@ newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
 -- a valid 'ReportTaskRunnerHeartbeatResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Terminate ::@ @Bool@
+--
 mkReportTaskRunnerHeartbeatResponse :: Bool -- ^ 'rtrhrTerminate'
                                     -> ReportTaskRunnerHeartbeatResponse
 mkReportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse

@@ -41,7 +41,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
     deriving (Eq, Show, Generic)
 
@@ -53,7 +52,6 @@ mkDescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Show, Generic)
@@ -62,6 +60,11 @@ newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscript
 -- a valid 'DescribeSpotDatafeedSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SpotDatafeedSubscription ::@ @Maybe SpotDatafeedSubscription@
+--
 mkDescribeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse
 mkDescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription = Nothing

@@ -63,6 +63,13 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBandwidthRateLimit' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Text@
+--
+-- * @BandwidthType ::@ @Text@
+--
 mkDeleteBandwidthRateLimit :: Text -- ^ 'dbrlGatewayARN'
                            -> Text -- ^ 'dbrlBandwidthType'
                            -> DeleteBandwidthRateLimit
@@ -98,6 +105,11 @@ newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
 -- a valid 'DeleteBandwidthRateLimitResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @GatewayARN ::@ @Maybe Text@
+--
 mkDeleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse
 mkDeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
     { _dbrlrGatewayARN = Nothing

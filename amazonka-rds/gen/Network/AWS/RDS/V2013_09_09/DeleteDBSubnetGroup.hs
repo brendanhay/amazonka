@@ -49,6 +49,11 @@ newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBSubnetGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DBSubnetGroupName ::@ @Text@
+--
 mkDeleteDBSubnetGroup :: Text -- ^ 'ddbsg1DBSubnetGroupName'
                       -> DeleteDBSubnetGroup
 mkDeleteDBSubnetGroup p1 = DeleteDBSubnetGroup

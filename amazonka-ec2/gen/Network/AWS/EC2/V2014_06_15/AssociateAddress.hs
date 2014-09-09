@@ -74,7 +74,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data AssociateAddress = AssociateAddress
     { _aa1InstanceId :: Maybe Text
     , _aa1PublicIp :: Maybe Text
@@ -86,6 +85,21 @@ data AssociateAddress = AssociateAddress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateAddress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceId ::@ @Maybe Text@
+--
+-- * @PublicIp ::@ @Maybe Text@
+--
+-- * @AllocationId ::@ @Maybe Text@
+--
+-- * @NetworkInterfaceId ::@ @Maybe Text@
+--
+-- * @PrivateIpAddress ::@ @Maybe Text@
+--
+-- * @AllowReassociation ::@ @Maybe Bool@
+--
 mkAssociateAddress :: AssociateAddress
 mkAssociateAddress = AssociateAddress
     { _aa1InstanceId = Nothing
@@ -133,7 +147,6 @@ aa1AllowReassociation =
 instance ToQuery AssociateAddress where
     toQuery = genericQuery def
 
--- | 
 newtype AssociateAddressResponse = AssociateAddressResponse
     { _aarrAssociationId :: Maybe Text
     } deriving (Show, Generic)
@@ -142,6 +155,11 @@ newtype AssociateAddressResponse = AssociateAddressResponse
 -- a valid 'AssociateAddressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @AssociationId ::@ @Maybe Text@
+--
 mkAssociateAddressResponse :: AssociateAddressResponse
 mkAssociateAddressResponse = AssociateAddressResponse
     { _aarrAssociationId = Nothing

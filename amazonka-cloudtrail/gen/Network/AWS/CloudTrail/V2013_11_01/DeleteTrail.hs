@@ -44,6 +44,11 @@ newtype DeleteTrail = DeleteTrail
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTrail' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Name ::@ @Text@
+--
 mkDeleteTrail :: Text -- ^ 'dtName'
               -> DeleteTrail
 mkDeleteTrail p1 = DeleteTrail

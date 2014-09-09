@@ -56,7 +56,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data DescribeReservedInstances = DescribeReservedInstances
     { _driReservedInstancesIds :: [Text]
     , _driFilters :: [Filter]
@@ -65,6 +64,15 @@ data DescribeReservedInstances = DescribeReservedInstances
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstancesIds ::@ @[Text]@
+--
+-- * @Filters ::@ @[Filter]@
+--
+-- * @OfferingType ::@ @Maybe OfferingTypeValues@
+--
 mkDescribeReservedInstances :: DescribeReservedInstances
 mkDescribeReservedInstances = DescribeReservedInstances
     { _driReservedInstancesIds = mempty
@@ -110,7 +118,6 @@ driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
 instance ToQuery DescribeReservedInstances where
     toQuery = genericQuery def
 
--- | 
 newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances :: [ReservedInstances]
     } deriving (Show, Generic)
@@ -119,6 +126,11 @@ newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
 -- a valid 'DescribeReservedInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ReservedInstances ::@ @[ReservedInstances]@
+--
 mkDescribeReservedInstancesResponse :: DescribeReservedInstancesResponse
 mkDescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances = mempty

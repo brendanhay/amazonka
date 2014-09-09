@@ -60,6 +60,15 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheParameterGroup' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroupName ::@ @Text@
+--
+-- * @CacheParameterGroupFamily ::@ @Text@
+--
+-- * @Description ::@ @Text@
+--
 mkCreateCacheParameterGroup :: Text -- ^ 'ccpgCacheParameterGroupName'
                             -> Text -- ^ 'ccpgCacheParameterGroupFamily'
                             -> Text -- ^ 'ccpgDescription'
@@ -98,6 +107,11 @@ newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
 -- a valid 'CreateCacheParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CacheParameterGroup ::@ @Maybe CacheParameterGroup@
+--
 mkCreateCacheParameterGroupResponse :: CreateCacheParameterGroupResponse
 mkCreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup = Nothing

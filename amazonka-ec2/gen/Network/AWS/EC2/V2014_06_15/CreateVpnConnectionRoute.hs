@@ -53,7 +53,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     { _cvcr1VpnConnectionId :: Text
     , _cvcr1DestinationCidrBlock :: Text
@@ -61,6 +60,13 @@ data CreateVpnConnectionRoute = CreateVpnConnectionRoute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnConnectionRoute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @VpnConnectionId ::@ @Text@
+--
+-- * @DestinationCidrBlock ::@ @Text@
+--
 mkCreateVpnConnectionRoute :: Text -- ^ 'cvcr1VpnConnectionId'
                            -> Text -- ^ 'cvcr1DestinationCidrBlock'
                            -> CreateVpnConnectionRoute

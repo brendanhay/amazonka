@@ -70,6 +70,13 @@ data ListSubscriptionsByTopic = ListSubscriptionsByTopic
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSubscriptionsByTopic' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TopicArn ::@ @Text@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListSubscriptionsByTopic :: Text -- ^ 'lsbtTopicArn'
                            -> ListSubscriptionsByTopic
 mkListSubscriptionsByTopic p1 = ListSubscriptionsByTopic
@@ -98,6 +105,13 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
 -- a valid 'ListSubscriptionsByTopicResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subscriptions ::@ @[Subscription]@
+--
+-- * @NextToken ::@ @Maybe Text@
+--
 mkListSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse
 mkListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrSubscriptions = mempty

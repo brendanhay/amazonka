@@ -46,6 +46,11 @@ newtype RotateEncryptionKey = RotateEncryptionKey
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RotateEncryptionKey' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
 mkRotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
                       -> RotateEncryptionKey
 mkRotateEncryptionKey p1 = RotateEncryptionKey
@@ -70,6 +75,11 @@ newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
 -- a valid 'RotateEncryptionKeyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Cluster ::@ @Maybe Cluster@
+--
 mkRotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
 mkRotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster = Nothing

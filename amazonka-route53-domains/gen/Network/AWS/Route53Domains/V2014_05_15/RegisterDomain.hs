@@ -110,6 +110,29 @@ data RegisterDomain = RegisterDomain
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterDomain' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
+-- * @IdnLangCode ::@ @Maybe Text@
+--
+-- * @DurationInYears ::@ @Integer@
+--
+-- * @AutoRenew ::@ @Maybe Bool@
+--
+-- * @AdminContact ::@ @ContactDetail@
+--
+-- * @RegistrantContact ::@ @ContactDetail@
+--
+-- * @TechContact ::@ @ContactDetail@
+--
+-- * @PrivacyProtectAdminContact ::@ @Maybe Bool@
+--
+-- * @PrivacyProtectRegistrantContact ::@ @Maybe Bool@
+--
+-- * @PrivacyProtectTechContact ::@ @Maybe Bool@
+--
 mkRegisterDomain :: Text -- ^ 'rdDomainName'
                  -> Integer -- ^ 'rdDurationInYears'
                  -> ContactDetail -- ^ 'rdAdminContact'
@@ -220,6 +243,11 @@ newtype RegisterDomainResponse = RegisterDomainResponse
 -- a valid 'RegisterDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
 mkRegisterDomainResponse :: Text -- ^ 'rdrOperationId'
                          -> RegisterDomainResponse
 mkRegisterDomainResponse p1 = RegisterDomainResponse

@@ -51,6 +51,11 @@ newtype CheckDNSAvailability = CheckDNSAvailability
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDNSAvailability' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @CNAMEPrefix ::@ @Text@
+--
 mkCheckDNSAvailability :: Text -- ^ 'cdnsaCNAMEPrefix'
                        -> CheckDNSAvailability
 mkCheckDNSAvailability p1 = CheckDNSAvailability
@@ -75,6 +80,13 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
 -- a valid 'CheckDNSAvailabilityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Available ::@ @Maybe Bool@
+--
+-- * @FullyQualifiedCNAME ::@ @Maybe Text@
+--
 mkCheckDNSAvailabilityResponse :: CheckDNSAvailabilityResponse
 mkCheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     { _cdnsarAvailable = Nothing

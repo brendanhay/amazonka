@@ -98,6 +98,49 @@ data CreateMultipartUpload = CreateMultipartUpload
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateMultipartUpload' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ACL ::@ @Maybe ObjectCannedACL@
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @CacheControl ::@ @Maybe Text@
+--
+-- * @ContentDisposition ::@ @Maybe Text@
+--
+-- * @ContentEncoding ::@ @Maybe Text@
+--
+-- * @ContentLanguage ::@ @Maybe Text@
+--
+-- * @ContentType ::@ @Maybe Text@
+--
+-- * @Expires ::@ @Maybe RFC822@
+--
+-- * @GrantFullControl ::@ @Maybe Text@
+--
+-- * @GrantRead ::@ @Maybe Text@
+--
+-- * @GrantReadACP ::@ @Maybe Text@
+--
+-- * @GrantWriteACP ::@ @Maybe Text@
+--
+-- * @Key ::@ @ObjectKey@
+--
+-- * @Metadata ::@ @Map Text Text@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @StorageClass ::@ @Maybe StorageClass@
+--
+-- * @WebsiteRedirectLocation ::@ @Maybe Text@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKey ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkCreateMultipartUpload :: ObjectKey -- ^ 'cmu2Key'
                         -> BucketName -- ^ 'cmu2Bucket'
                         -> CreateMultipartUpload
@@ -270,6 +313,21 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
 -- a valid 'CreateMultipartUploadResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @Maybe BucketName@
+--
+-- * @Key ::@ @Maybe ObjectKey@
+--
+-- * @UploadId ::@ @Maybe Text@
+--
+-- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
+--
+-- * @SSECustomerAlgorithm ::@ @Maybe Text@
+--
+-- * @SSECustomerKeyMD5 ::@ @Maybe Text@
+--
 mkCreateMultipartUploadResponse :: CreateMultipartUploadResponse
 mkCreateMultipartUploadResponse = CreateMultipartUploadResponse
     { _cmurrBucket = Nothing

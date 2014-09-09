@@ -57,6 +57,13 @@ data GetOpenIdToken = GetOpenIdToken
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOpenIdToken' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityId ::@ @Text@
+--
+-- * @Logins ::@ @Map Text Text@
+--
 mkGetOpenIdToken :: Text -- ^ 'goitIdentityId'
                  -> GetOpenIdToken
 mkGetOpenIdToken p1 = GetOpenIdToken
@@ -91,6 +98,13 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse
 -- a valid 'GetOpenIdTokenResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @IdentityId ::@ @Maybe Text@
+--
+-- * @Token ::@ @Maybe Text@
+--
 mkGetOpenIdTokenResponse :: GetOpenIdTokenResponse
 mkGetOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId = Nothing

@@ -57,6 +57,13 @@ data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachLoadBalancerFromSubnets' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @Subnets ::@ @[Text]@
+--
 mkDetachLoadBalancerFromSubnets :: Text -- ^ 'dlbfsLoadBalancerName'
                                 -> [Text] -- ^ 'dlbfsSubnets'
                                 -> DetachLoadBalancerFromSubnets
@@ -87,6 +94,11 @@ newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRes
 -- a valid 'DetachLoadBalancerFromSubnetsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Subnets ::@ @[Text]@
+--
 mkDetachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse
 mkDetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { _dlbfsrSubnets = mempty

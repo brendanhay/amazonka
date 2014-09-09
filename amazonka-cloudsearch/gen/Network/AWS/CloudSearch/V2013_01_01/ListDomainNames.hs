@@ -57,6 +57,11 @@ newtype ListDomainNamesResponse = ListDomainNamesResponse
 -- a valid 'ListDomainNamesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainNames ::@ @Map Text Text@
+--
 mkListDomainNamesResponse :: ListDomainNamesResponse
 mkListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames = mempty

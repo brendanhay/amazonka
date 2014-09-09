@@ -48,6 +48,15 @@ data PutBucketCors = PutBucketCors
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketCors' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Bucket ::@ @BucketName@
+--
+-- * @CORSConfiguration ::@ @Maybe CORSConfiguration@
+--
+-- * @ContentMD5 ::@ @Maybe Text@
+--
 mkPutBucketCors :: BucketName -- ^ 'pbcBucket'
                 -> PutBucketCors
 mkPutBucketCors p1 = PutBucketCors

@@ -64,6 +64,11 @@ newtype GetSubscriptionAttributes = GetSubscriptionAttributes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSubscriptionAttributes' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionArn ::@ @Text@
+--
 mkGetSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
                             -> GetSubscriptionAttributes
 mkGetSubscriptionAttributes p1 = GetSubscriptionAttributes
@@ -87,6 +92,11 @@ newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 -- a valid 'GetSubscriptionAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Attributes ::@ @Map Text Text@
+--
 mkGetSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
 mkGetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes = mempty

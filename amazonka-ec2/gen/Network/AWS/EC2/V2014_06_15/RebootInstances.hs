@@ -50,13 +50,17 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 newtype RebootInstances = RebootInstances
     { _ri1InstanceIds :: [Text]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootInstances' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @InstanceIds ::@ @[Text]@
+--
 mkRebootInstances :: [Text] -- ^ 'ri1InstanceIds'
                   -> RebootInstances
 mkRebootInstances p1 = RebootInstances

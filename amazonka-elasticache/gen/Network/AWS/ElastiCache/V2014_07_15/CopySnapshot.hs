@@ -48,6 +48,13 @@ data CopySnapshot = CopySnapshot
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopySnapshot' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SourceSnapshotName ::@ @Text@
+--
+-- * @TargetSnapshotName ::@ @Text@
+--
 mkCopySnapshot :: Text -- ^ 'csSourceSnapshotName'
                -> Text -- ^ 'csTargetSnapshotName'
                -> CopySnapshot
@@ -77,6 +84,11 @@ newtype CopySnapshotResponse = CopySnapshotResponse
 -- a valid 'CopySnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Snapshot ::@ @Maybe Snapshot@
+--
 mkCopySnapshotResponse :: CopySnapshotResponse
 mkCopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot = Nothing

@@ -47,7 +47,6 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.V2014_06_15.Types
 import Network.AWS.Prelude
 
--- | 
 data ModifyImageAttribute = ModifyImageAttribute
     { _miaImageId :: Text
     , _miaAttribute :: Maybe Text
@@ -62,6 +61,27 @@ data ModifyImageAttribute = ModifyImageAttribute
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyImageAttribute' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ImageId ::@ @Text@
+--
+-- * @Attribute ::@ @Maybe Text@
+--
+-- * @OperationType ::@ @Maybe Text@
+--
+-- * @UserIds ::@ @[Text]@
+--
+-- * @UserGroups ::@ @[Text]@
+--
+-- * @ProductCodes ::@ @[Text]@
+--
+-- * @Value ::@ @Maybe Text@
+--
+-- * @LaunchPermission ::@ @Maybe LaunchPermissionModifications@
+--
+-- * @Description ::@ @Maybe AttributeValue@
+--
 mkModifyImageAttribute :: Text -- ^ 'miaImageId'
                        -> ModifyImageAttribute
 mkModifyImageAttribute p1 = ModifyImageAttribute

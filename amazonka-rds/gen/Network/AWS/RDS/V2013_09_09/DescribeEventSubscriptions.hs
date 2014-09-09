@@ -62,6 +62,15 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventSubscriptions' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @SubscriptionName ::@ @Maybe Text@
+--
+-- * @MaxRecords ::@ @Maybe Integer@
+--
+-- * @Marker ::@ @Maybe Text@
+--
 mkDescribeEventSubscriptions :: DescribeEventSubscriptions
 mkDescribeEventSubscriptions = DescribeEventSubscriptions
     { _des1SubscriptionName = Nothing
@@ -101,6 +110,13 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
 -- a valid 'DescribeEventSubscriptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Marker ::@ @Maybe Text@
+--
+-- * @EventSubscriptionsList ::@ @[EventSubscription]@
+--
 mkDescribeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
 mkDescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrrMarker = Nothing

@@ -55,6 +55,15 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerPoliciesOfListener' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LoadBalancerName ::@ @Text@
+--
+-- * @LoadBalancerPort ::@ @Integer@
+--
+-- * @PolicyNames ::@ @[Text]@
+--
 mkSetLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpolLoadBalancerName'
                                     -> Integer -- ^ 'slbpolLoadBalancerPort'
                                     -> [Text] -- ^ 'slbpolPolicyNames'

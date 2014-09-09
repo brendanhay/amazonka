@@ -70,6 +70,11 @@ newtype DescribeResize = DescribeResize
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeResize' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterIdentifier ::@ @Text@
+--
 mkDescribeResize :: Text -- ^ 'drClusterIdentifier'
                  -> DescribeResize
 mkDescribeResize p1 = DescribeResize
@@ -106,6 +111,33 @@ data DescribeResizeResponse = DescribeResizeResponse
 -- a valid 'DescribeResizeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @TargetNodeType ::@ @Maybe Text@
+--
+-- * @TargetNumberOfNodes ::@ @Maybe Integer@
+--
+-- * @TargetClusterType ::@ @Maybe Text@
+--
+-- * @Status ::@ @Maybe Text@
+--
+-- * @ImportTablesCompleted ::@ @[Text]@
+--
+-- * @ImportTablesInProgress ::@ @[Text]@
+--
+-- * @ImportTablesNotStarted ::@ @[Text]@
+--
+-- * @AvgResizeRateInMegaBytesPerSecond ::@ @Maybe Double@
+--
+-- * @TotalResizeDataInMegaBytes ::@ @Maybe Integer@
+--
+-- * @ProgressInMegaBytes ::@ @Maybe Integer@
+--
+-- * @ElapsedTimeInSeconds ::@ @Maybe Integer@
+--
+-- * @EstimatedTimeToCompletionInSeconds ::@ @Maybe Integer@
+--
 mkDescribeResizeResponse :: DescribeResizeResponse
 mkDescribeResizeResponse = DescribeResizeResponse
     { _drrTargetNodeType = Nothing

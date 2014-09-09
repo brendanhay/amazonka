@@ -63,6 +63,11 @@ newtype EnableDomainTransferLock = EnableDomainTransferLock
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableDomainTransferLock' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DomainName ::@ @Text@
+--
 mkEnableDomainTransferLock :: Text -- ^ 'edtlDomainName'
                            -> EnableDomainTransferLock
 mkEnableDomainTransferLock p1 = EnableDomainTransferLock
@@ -93,6 +98,11 @@ newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
 -- a valid 'EnableDomainTransferLockResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @OperationId ::@ @Text@
+--
 mkEnableDomainTransferLockResponse :: Text -- ^ 'edtlrOperationId'
                                    -> EnableDomainTransferLockResponse
 mkEnableDomainTransferLockResponse p1 = EnableDomainTransferLockResponse

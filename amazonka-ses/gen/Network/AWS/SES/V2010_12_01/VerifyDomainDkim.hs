@@ -68,6 +68,11 @@ newtype VerifyDomainDkim = VerifyDomainDkim
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyDomainDkim' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Domain ::@ @Text@
+--
 mkVerifyDomainDkim :: Text -- ^ 'vddDomain'
                    -> VerifyDomainDkim
 mkVerifyDomainDkim p1 = VerifyDomainDkim
@@ -91,6 +96,11 @@ newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
 -- a valid 'VerifyDomainDkimResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @DkimTokens ::@ @[Text]@
+--
 mkVerifyDomainDkimResponse :: [Text] -- ^ 'vddrDkimTokens'
                            -> VerifyDomainDkimResponse
 mkVerifyDomainDkimResponse p1 = VerifyDomainDkimResponse

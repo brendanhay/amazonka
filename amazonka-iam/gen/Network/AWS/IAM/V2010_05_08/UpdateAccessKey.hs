@@ -49,7 +49,6 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.V2010_05_08.Types
 import Network.AWS.Prelude
 
--- | 
 data UpdateAccessKey = UpdateAccessKey
     { _uakUserName :: Maybe Text
     , _uakAccessKeyId :: Text
@@ -58,6 +57,15 @@ data UpdateAccessKey = UpdateAccessKey
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAccessKey' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @UserName ::@ @Maybe Text@
+--
+-- * @AccessKeyId ::@ @Text@
+--
+-- * @Status ::@ @StatusType@
+--
 mkUpdateAccessKey :: Text -- ^ 'uakAccessKeyId'
                   -> StatusType -- ^ 'uakStatus'
                   -> UpdateAccessKey

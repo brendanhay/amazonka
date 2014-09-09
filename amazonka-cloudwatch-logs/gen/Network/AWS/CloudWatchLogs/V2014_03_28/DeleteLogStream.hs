@@ -55,6 +55,13 @@ data DeleteLogStream = DeleteLogStream
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLogStream' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @LogGroupName ::@ @Text@
+--
+-- * @LogStreamName ::@ @Text@
+--
 mkDeleteLogStream :: Text -- ^ 'dlsLogGroupName'
                   -> Text -- ^ 'dlsLogStreamName'
                   -> DeleteLogStream

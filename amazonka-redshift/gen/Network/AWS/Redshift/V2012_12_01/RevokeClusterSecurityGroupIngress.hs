@@ -64,6 +64,17 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeClusterSecurityGroupIngress' request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroupName ::@ @Text@
+--
+-- * @CIDRIP ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupName ::@ @Maybe Text@
+--
+-- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
+--
 mkRevokeClusterSecurityGroupIngress :: Text -- ^ 'rcsgiClusterSecurityGroupName'
                                     -> RevokeClusterSecurityGroupIngress
 mkRevokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
@@ -114,6 +125,11 @@ newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIn
 -- a valid 'RevokeClusterSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ClusterSecurityGroup ::@ @Maybe ClusterSecurityGroup@
+--
 mkRevokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResponse
 mkRevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup = Nothing

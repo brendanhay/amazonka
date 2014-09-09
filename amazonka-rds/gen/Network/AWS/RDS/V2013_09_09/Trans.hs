@@ -129,9 +129,14 @@ module Network.AWS.RDS.V2013_09_09.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.RDS.V2013_09_09
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.RDS.V2013_09_09
 
@@ -151,7 +156,7 @@ import Network.AWS.RDS.V2013_09_09
 -- See: 'Network.AWS.RDS.V2013_09_09.DownloadDBLogFilePortion'
 downloadDBLogFilePortion :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -176,7 +181,7 @@ downloadDBLogFilePortion p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.AddSourceIdentifierToSubscription'
 addSourceIdentifierToSubscription :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -196,7 +201,7 @@ addSourceIdentifierToSubscription p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.AddTagsToResource'
 addTagsToResource :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -229,7 +234,7 @@ addTagsToResource p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.AuthorizeDBSecurityGroupIngress'
 authorizeDBSecurityGroupIngress :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )
@@ -252,7 +257,7 @@ authorizeDBSecurityGroupIngress p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CopyDBSnapshot'
 copyDBSnapshot :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -279,7 +284,7 @@ copyDBSnapshot p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateDBInstance'
 createDBInstance :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -312,7 +317,7 @@ createDBInstance p2 p3 p4 p5 p6 p7 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateDBInstanceReadReplica'
 createDBInstanceReadReplica :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -342,7 +347,7 @@ createDBInstanceReadReplica p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateDBParameterGroup'
 createDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -366,7 +371,7 @@ createDBParameterGroup p1 p2 p3 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateDBSecurityGroup'
 createDBSecurityGroup :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -389,7 +394,7 @@ createDBSecurityGroup p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateDBSnapshot'
 createDBSnapshot :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -413,7 +418,7 @@ createDBSnapshot p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateDBSubnetGroup'
 createDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -465,7 +470,7 @@ createDBSubnetGroup p1 p2 p3 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateEventSubscription'
 createEventSubscription :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -486,7 +491,7 @@ createEventSubscription p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.CreateOptionGroup'
 createOptionGroup :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -521,7 +526,7 @@ createOptionGroup p1 p2 p3 p4 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DeleteDBInstance'
 deleteDBInstance :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -543,7 +548,7 @@ deleteDBInstance p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DeleteDBParameterGroup'
 deleteDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -563,7 +568,7 @@ deleteDBParameterGroup p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DeleteDBSecurityGroup'
 deleteDBSecurityGroup :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -585,7 +590,7 @@ deleteDBSecurityGroup p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DeleteDBSnapshot'
 deleteDBSnapshot :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -605,7 +610,7 @@ deleteDBSnapshot p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DeleteDBSubnetGroup'
 deleteDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -627,7 +632,7 @@ deleteDBSubnetGroup p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DeleteEventSubscription'
 deleteEventSubscription :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -643,7 +648,7 @@ deleteEventSubscription p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DeleteOptionGroup'
 deleteOptionGroup :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -686,7 +691,7 @@ deleteOptionGroup p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBEngineVersions'
 describeDBEngineVersions :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -709,7 +714,7 @@ describeDBEngineVersions s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBInstances'
 describeDBInstances :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
                        , AWSPager a
                        )
@@ -735,7 +740,7 @@ describeDBInstances s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBLogFiles'
 describeDBLogFiles :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -758,7 +763,7 @@ describeDBLogFiles p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBParameterGroups'
 describeDBParameterGroups :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
                              , AWSPager a
                              )
@@ -781,7 +786,7 @@ describeDBParameterGroups s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBParameters'
 describeDBParameters :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -805,7 +810,7 @@ describeDBParameters p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBSecurityGroups'
 describeDBSecurityGroups :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -831,7 +836,7 @@ describeDBSecurityGroups s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBSnapshots'
 describeDBSnapshots :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
                        , AWSPager a
                        )
@@ -855,7 +860,7 @@ describeDBSnapshots s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeDBSubnetGroups'
 describeDBSubnetGroups :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
                           , AWSPager a
                           )
@@ -882,7 +887,7 @@ describeDBSubnetGroups s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeEngineDefaultParameters'
 describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env (ResumableSource m)
                                    , AWSPager a
                                    )
@@ -905,7 +910,7 @@ describeEngineDefaultParameters p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeEventCategories'
 describeEventCategories :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -930,7 +935,7 @@ describeEventCategories s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeEventSubscriptions'
 describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
                               , AWSPager a
                               )
@@ -958,7 +963,7 @@ describeEventSubscriptions s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeEvents'
 describeEvents :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -975,7 +980,7 @@ describeEvents s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeOptionGroupOptions'
 describeOptionGroupOptions :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
                               , AWSPager a
                               )
@@ -996,7 +1001,7 @@ describeOptionGroupOptions p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeOptionGroups'
 describeOptionGroups :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -1022,7 +1027,7 @@ describeOptionGroups s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeOrderableDBInstanceOptions'
 describeOrderableDBInstanceOptions :: ( MonadCatch m
                                       , MonadResource m
-                                      , MonadError Error m
+                                      , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
                                       , AWSPager a
                                       )
@@ -1045,7 +1050,7 @@ describeOrderableDBInstanceOptions p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstances'
 describeReservedDBInstances :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
                                , AWSPager a
                                )
@@ -1065,7 +1070,7 @@ describeReservedDBInstances s =
 -- See: 'Network.AWS.RDS.V2013_09_09.DescribeReservedDBInstancesOfferings'
 describeReservedDBInstancesOfferings :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env (ResumableSource m)
                                         , AWSPager a
                                         )
@@ -1080,7 +1085,7 @@ describeReservedDBInstancesOfferings s =
 -- See: 'Network.AWS.RDS.V2013_09_09.ListTagsForResource'
 listTagsForResource :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1105,7 +1110,7 @@ listTagsForResource p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.ModifyDBInstance'
 modifyDBInstance :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -1137,7 +1142,7 @@ modifyDBInstance p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.ModifyDBParameterGroup'
 modifyDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -1162,7 +1167,7 @@ modifyDBParameterGroup p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.ModifyDBSubnetGroup'
 modifyDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1191,7 +1196,7 @@ modifyDBSubnetGroup p1 p3 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.ModifyEventSubscription'
 modifyEventSubscription :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -1214,7 +1219,7 @@ modifyEventSubscription p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.ModifyOptionGroup'
 modifyOptionGroup :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -1238,7 +1243,7 @@ modifyOptionGroup p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.PromoteReadReplica'
 promoteReadReplica :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -1261,7 +1266,7 @@ promoteReadReplica p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.PurchaseReservedDBInstancesOffering'
 purchaseReservedDBInstancesOffering :: ( MonadCatch m
                                        , MonadResource m
-                                       , MonadError Error m
+                                       , MonadError AWS.Error m
                                        , MonadReader Env m
                                        , AWSRequest a
                                        )
@@ -1298,7 +1303,7 @@ purchaseReservedDBInstancesOffering p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.RebootDBInstance'
 rebootDBInstance :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -1321,7 +1326,7 @@ rebootDBInstance p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.RemoveSourceIdentifierFromSubscription'
 removeSourceIdentifierFromSubscription :: ( MonadCatch m
                                           , MonadResource m
-                                          , MonadError Error m
+                                          , MonadError AWS.Error m
                                           , MonadReader Env m
                                           , AWSRequest a
                                           )
@@ -1338,7 +1343,7 @@ removeSourceIdentifierFromSubscription p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.RemoveTagsFromResource'
 removeTagsFromResource :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -1368,7 +1373,7 @@ removeTagsFromResource p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.ResetDBParameterGroup'
 resetDBParameterGroup :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -1393,7 +1398,7 @@ resetDBParameterGroup p1 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.RestoreDBInstanceFromDBSnapshot'
 restoreDBInstanceFromDBSnapshot :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )
@@ -1422,7 +1427,7 @@ restoreDBInstanceFromDBSnapshot p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.RestoreDBInstanceToPointInTime'
 restoreDBInstanceToPointInTime :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -1447,7 +1452,7 @@ restoreDBInstanceToPointInTime p1 p2 s =
 -- See: 'Network.AWS.RDS.V2013_09_09.RevokeDBSecurityGroupIngress'
 revokeDBSecurityGroupIngress :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )

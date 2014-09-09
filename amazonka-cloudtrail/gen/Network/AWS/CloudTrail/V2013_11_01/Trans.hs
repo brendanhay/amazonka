@@ -39,9 +39,14 @@ module Network.AWS.CloudTrail.V2013_11_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudTrail.V2013_11_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudTrail.V2013_11_01
 
@@ -51,7 +56,7 @@ import Network.AWS.CloudTrail.V2013_11_01
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.CreateTrail'
 createTrail :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -67,7 +72,7 @@ createTrail p1 p2 s =
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.DeleteTrail'
 deleteTrail :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -83,7 +88,7 @@ deleteTrail p1 s =
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.DescribeTrails'
 describeTrails :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -99,7 +104,7 @@ describeTrails s =
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus'
 getTrailStatus :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -114,7 +119,7 @@ getTrailStatus p1 s =
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.StartLogging'
 startLogging :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -132,7 +137,7 @@ startLogging p1 s =
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.StopLogging'
 stopLogging :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -151,7 +156,7 @@ stopLogging p1 s =
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.UpdateTrail'
 updateTrail :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )

@@ -36,9 +36,14 @@ module Network.AWS.ImportExport.V2010_06_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.ImportExport.V2010_06_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ImportExport.V2010_06_01
 
@@ -48,7 +53,7 @@ import Network.AWS.ImportExport.V2010_06_01
 -- See: 'Network.AWS.ImportExport.V2010_06_01.CancelJob'
 cancelJob :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -67,7 +72,7 @@ cancelJob p1 s =
 -- See: 'Network.AWS.ImportExport.V2010_06_01.CreateJob'
 createJob :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -87,7 +92,7 @@ createJob p1 p2 p4 s =
 -- See: 'Network.AWS.ImportExport.V2010_06_01.GetStatus'
 getStatus :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -106,7 +111,7 @@ getStatus p1 s =
 -- See: 'Network.AWS.ImportExport.V2010_06_01.ListJobs'
 listJobs :: ( MonadCatch m
             , MonadResource m
-            , MonadError Error m
+            , MonadError AWS.Error m
             , MonadReader Env (ResumableSource m)
             , AWSPager a
             )
@@ -124,7 +129,7 @@ listJobs s =
 -- See: 'Network.AWS.ImportExport.V2010_06_01.UpdateJob'
 updateJob :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )

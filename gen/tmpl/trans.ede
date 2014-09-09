@@ -22,9 +22,14 @@ module {{ trans_namespace }}
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module {{ version_namespace }}
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import {{ version_namespace }}
 {% for oper in operations %}

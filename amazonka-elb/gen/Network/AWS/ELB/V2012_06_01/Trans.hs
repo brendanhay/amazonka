@@ -81,9 +81,14 @@ module Network.AWS.ELB.V2012_06_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.ELB.V2012_06_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ELB.V2012_06_01
 
@@ -101,7 +106,7 @@ import Network.AWS.ELB.V2012_06_01
 -- See: 'Network.AWS.ELB.V2012_06_01.AddTags'
 addTags :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -125,7 +130,7 @@ addTags p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer'
 applySecurityGroupsToLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -149,7 +154,7 @@ applySecurityGroupsToLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets'
 attachLoadBalancerToSubnets :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -172,7 +177,7 @@ attachLoadBalancerToSubnets p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck'
 configureHealthCheck :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -205,7 +210,7 @@ configureHealthCheck p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateAppCookieStickinessPolicy'
 createAppCookieStickinessPolicy :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )
@@ -239,7 +244,7 @@ createAppCookieStickinessPolicy p1 p2 p3 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy'
 createLBCookieStickinessPolicy :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -320,7 +325,7 @@ createLBCookieStickinessPolicy p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLoadBalancer'
 createLoadBalancer :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -349,7 +354,7 @@ createLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners'
 createLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -374,7 +379,7 @@ createLoadBalancerListeners p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy'
 createLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -399,7 +404,7 @@ createLoadBalancerPolicy p1 p2 p3 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer'
 deleteLoadBalancer :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -414,7 +419,7 @@ deleteLoadBalancer p1 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners'
 deleteLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -431,7 +436,7 @@ deleteLoadBalancerListeners p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy'
 deleteLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -458,7 +463,7 @@ deleteLoadBalancerPolicy p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer'
 deregisterInstancesFromLoadBalancer :: ( MonadCatch m
                                        , MonadResource m
-                                       , MonadError Error m
+                                       , MonadError AWS.Error m
                                        , MonadReader Env m
                                        , AWSRequest a
                                        )
@@ -497,7 +502,7 @@ deregisterInstancesFromLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth'
 describeInstanceHealth :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -517,7 +522,7 @@ describeInstanceHealth p1 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes'
 describeLoadBalancerAttributes :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -550,7 +555,7 @@ describeLoadBalancerAttributes p1 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies'
 describeLoadBalancerPolicies :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -581,7 +586,7 @@ describeLoadBalancerPolicies s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes'
 describeLoadBalancerPolicyTypes :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )
@@ -608,7 +613,7 @@ describeLoadBalancerPolicyTypes s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers'
 describeLoadBalancers :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
                          , AWSPager a
                          )
@@ -626,7 +631,7 @@ describeLoadBalancers s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeTags'
 describeTags :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -650,7 +655,7 @@ describeTags p1 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets'
 detachLoadBalancerFromSubnets :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -680,7 +685,7 @@ detachLoadBalancerFromSubnets p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer'
 disableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                            , MonadResource m
-                                           , MonadError Error m
+                                           , MonadError AWS.Error m
                                            , MonadReader Env m
                                            , AWSRequest a
                                            )
@@ -707,7 +712,7 @@ disableAvailabilityZonesForLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer'
 enableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                           , MonadResource m
-                                          , MonadError Error m
+                                          , MonadError AWS.Error m
                                           , MonadReader Env m
                                           , AWSRequest a
                                           )
@@ -751,7 +756,7 @@ enableAvailabilityZonesForLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes'
 modifyLoadBalancerAttributes :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -791,7 +796,7 @@ modifyLoadBalancerAttributes p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer'
 registerInstancesWithLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -811,7 +816,7 @@ registerInstancesWithLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.RemoveTags'
 removeTags :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -836,7 +841,7 @@ removeTags p1 p2 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.SetLoadBalancerListenerSSLCertificate'
 setLoadBalancerListenerSSLCertificate :: ( MonadCatch m
                                          , MonadResource m
-                                         , MonadError Error m
+                                         , MonadError AWS.Error m
                                          , MonadReader Env m
                                          , AWSRequest a
                                          )
@@ -869,7 +874,7 @@ setLoadBalancerListenerSSLCertificate p1 p2 p3 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer'
 setLoadBalancerPoliciesForBackendServer :: ( MonadCatch m
                                            , MonadResource m
-                                           , MonadError Error m
+                                           , MonadError AWS.Error m
                                            , MonadReader Env m
                                            , AWSRequest a
                                            )
@@ -893,7 +898,7 @@ setLoadBalancerPoliciesForBackendServer p1 p2 p3 s =
 -- See: 'Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener'
 setLoadBalancerPoliciesOfListener :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )

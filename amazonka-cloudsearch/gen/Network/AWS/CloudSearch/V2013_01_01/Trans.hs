@@ -73,9 +73,14 @@ module Network.AWS.CloudSearch.V2013_01_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudSearch.V2013_01_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudSearch.V2013_01_01
 
@@ -84,7 +89,7 @@ import Network.AWS.CloudSearch.V2013_01_01
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters'
 buildSuggesters :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -100,7 +105,7 @@ buildSuggesters p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.CreateDomain'
 createDomain :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -118,7 +123,7 @@ createDomain p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme'
 defineAnalysisScheme :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -137,7 +142,7 @@ defineAnalysisScheme p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineExpression'
 defineExpression :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -160,7 +165,7 @@ defineExpression p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineIndexField'
 defineIndexField :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -181,7 +186,7 @@ defineIndexField p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineSuggester'
 defineSuggester :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -198,7 +203,7 @@ defineSuggester p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme'
 deleteAnalysisScheme :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -216,7 +221,7 @@ deleteAnalysisScheme p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteDomain'
 deleteDomain :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -232,7 +237,7 @@ deleteDomain p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteExpression'
 deleteExpression :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -249,7 +254,7 @@ deleteExpression p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField'
 deleteIndexField :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -266,7 +271,7 @@ deleteIndexField p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester'
 deleteSuggester :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -288,7 +293,7 @@ deleteSuggester p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeAnalysisSchemes'
 describeAnalysisSchemes :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -307,7 +312,7 @@ describeAnalysisSchemes p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions'
 describeAvailabilityOptions :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -328,7 +333,7 @@ describeAvailabilityOptions p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeDomains'
 describeDomains :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -347,7 +352,7 @@ describeDomains s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeExpressions'
 describeExpressions :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -367,7 +372,7 @@ describeExpressions p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeIndexFields'
 describeIndexFields :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -385,7 +390,7 @@ describeIndexFields p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters'
 describeScalingParameters :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -405,7 +410,7 @@ describeScalingParameters p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies'
 describeServiceAccessPolicies :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -426,7 +431,7 @@ describeServiceAccessPolicies p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeSuggesters'
 describeSuggesters :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -443,7 +448,7 @@ describeSuggesters p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.IndexDocuments'
 indexDocuments :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -458,7 +463,7 @@ indexDocuments p1 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.ListDomainNames'
 listDomainNames :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -477,7 +482,7 @@ listDomainNames s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions'
 updateAvailabilityOptions :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -499,7 +504,7 @@ updateAvailabilityOptions p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters'
 updateScalingParameters :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -517,7 +522,7 @@ updateScalingParameters p1 p2 s =
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies'
 updateServiceAccessPolicies :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )

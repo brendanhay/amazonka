@@ -50,9 +50,14 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudWatchLogs.V2014_03_28
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudWatchLogs.V2014_03_28
 
@@ -74,7 +79,7 @@ import Network.AWS.CloudWatchLogs.V2014_03_28
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup'
 createLogGroup :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -103,7 +108,7 @@ createLogGroup p1 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream'
 createLogStream :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -129,7 +134,7 @@ createLogStream p1 p2 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogGroup'
 deleteLogGroup :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -154,7 +159,7 @@ deleteLogGroup p1 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream'
 deleteLogStream :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -180,7 +185,7 @@ deleteLogStream p1 p2 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter'
 deleteMetricFilter :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -206,7 +211,7 @@ deleteMetricFilter p1 p2 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteRetentionPolicy'
 deleteRetentionPolicy :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -241,7 +246,7 @@ deleteRetentionPolicy p1 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups'
 describeLogGroups :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -281,7 +286,7 @@ describeLogGroups s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams'
 describeLogStreams :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -315,7 +320,7 @@ describeLogStreams p1 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters'
 describeMetricFilters :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
                          , AWSPager a
                          )
@@ -355,7 +360,7 @@ describeMetricFilters p1 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.GetLogEvents'
 getLogEvents :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -395,7 +400,7 @@ getLogEvents p1 p2 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.PutLogEvents'
 putLogEvents :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -428,7 +433,7 @@ putLogEvents p1 p2 p3 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.PutMetricFilter'
 putMetricFilter :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -458,7 +463,7 @@ putMetricFilter p1 p2 p3 p4 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy'
 putRetentionPolicy :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -641,7 +646,7 @@ putRetentionPolicy p1 p2 s =
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter'
 testMetricFilter :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )

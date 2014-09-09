@@ -52,9 +52,14 @@ module Network.AWS.CloudWatch.V2010_08_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudWatch.V2010_08_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudWatch.V2010_08_01
 
@@ -64,7 +69,7 @@ import Network.AWS.CloudWatch.V2010_08_01
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms'
 deleteAlarms :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -82,7 +87,7 @@ deleteAlarms p1 s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory'
 describeAlarmHistory :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -98,7 +103,7 @@ describeAlarmHistory s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms'
 describeAlarms :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -113,7 +118,7 @@ describeAlarms s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric'
 describeAlarmsForMetric :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -131,7 +136,7 @@ describeAlarmsForMetric p1 p2 s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions'
 disableAlarmActions :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -146,7 +151,7 @@ disableAlarmActions p1 s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions'
 enableAlarmActions :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -178,7 +183,7 @@ enableAlarmActions p1 s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics'
 getMetricStatistics :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -204,7 +209,7 @@ getMetricStatistics p1 p2 p4 p5 p6 p7 s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.ListMetrics'
 listMetrics :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
                , AWSPager a
                )
@@ -224,7 +229,7 @@ listMetrics s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm'
 putMetricAlarm :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -256,7 +261,7 @@ putMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.PutMetricData'
 putMetricData :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -275,7 +280,7 @@ putMetricData p1 p2 s =
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.SetAlarmState'
 setAlarmState :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )

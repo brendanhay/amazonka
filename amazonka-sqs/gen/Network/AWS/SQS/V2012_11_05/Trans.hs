@@ -59,9 +59,14 @@ module Network.AWS.SQS.V2012_11_05.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.SQS.V2012_11_05
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SQS.V2012_11_05
 
@@ -91,7 +96,7 @@ import Network.AWS.SQS.V2012_11_05
 -- See: 'Network.AWS.SQS.V2012_11_05.AddPermission'
 addPermission :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -145,7 +150,7 @@ addPermission p1 p2 p3 p4 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility'
 changeMessageVisibility :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -186,7 +191,7 @@ changeMessageVisibility p1 p2 p3 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch'
 changeMessageVisibilityBatch :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -226,7 +231,7 @@ changeMessageVisibilityBatch p1 p2 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.CreateQueue'
 createQueue :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -268,7 +273,7 @@ createQueue p1 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.DeleteMessage'
 deleteMessage :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -304,7 +309,7 @@ deleteMessage p1 p2 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.DeleteMessageBatch'
 deleteMessageBatch :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -336,7 +341,7 @@ deleteMessageBatch p1 p2 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.DeleteQueue'
 deleteQueue :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -399,7 +404,7 @@ deleteQueue p1 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.GetQueueAttributes'
 getQueueAttributes :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -426,7 +431,7 @@ getQueueAttributes p1 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.GetQueueUrl'
 getQueueUrl :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -448,7 +453,7 @@ getQueueUrl p1 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues'
 listDeadLetterSourceQueues :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -473,7 +478,7 @@ listDeadLetterSourceQueues p1 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.ListQueues'
 listQueues :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -524,7 +529,7 @@ listQueues s =
 -- See: 'Network.AWS.SQS.V2012_11_05.ReceiveMessage'
 receiveMessage :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -548,7 +553,7 @@ receiveMessage p1 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.RemovePermission'
 removePermission :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -590,7 +595,7 @@ removePermission p1 p2 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.SendMessage'
 sendMessage :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -643,7 +648,7 @@ sendMessage p1 p2 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.SendMessageBatch'
 sendMessageBatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -693,7 +698,7 @@ sendMessageBatch p1 p2 s =
 -- See: 'Network.AWS.SQS.V2012_11_05.SetQueueAttributes'
 setQueueAttributes :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )

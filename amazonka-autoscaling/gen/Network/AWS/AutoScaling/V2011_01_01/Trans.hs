@@ -118,9 +118,14 @@ module Network.AWS.AutoScaling.V2011_01_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.AutoScaling.V2011_01_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.AutoScaling.V2011_01_01
 
@@ -132,7 +137,7 @@ import Network.AWS.AutoScaling.V2011_01_01
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.AttachInstances'
 attachInstances :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -158,7 +163,7 @@ attachInstances p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction'
 completeLifecycleAction :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -187,7 +192,7 @@ completeLifecycleAction p1 p2 p3 p4 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup'
 createAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -213,7 +218,7 @@ createAutoScalingGroup p1 p4 p5 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CreateLaunchConfiguration'
 createLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -238,7 +243,7 @@ createLaunchConfiguration p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags'
 createOrUpdateTags :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -259,7 +264,7 @@ createOrUpdateTags p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup'
 deleteAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -279,7 +284,7 @@ deleteAutoScalingGroup p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration'
 deleteLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -296,7 +301,7 @@ deleteLaunchConfiguration p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteLifecycleHook'
 deleteLifecycleHook :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -312,7 +317,7 @@ deleteLifecycleHook p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteNotificationConfiguration'
 deleteNotificationConfiguration :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )
@@ -328,7 +333,7 @@ deleteNotificationConfiguration p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeletePolicy'
 deletePolicy :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -344,7 +349,7 @@ deletePolicy p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction'
 deleteScheduledAction :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -359,7 +364,7 @@ deleteScheduledAction p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteTags'
 deleteTags :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -382,7 +387,7 @@ deleteTags p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits'
 describeAccountLimits :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -399,7 +404,7 @@ describeAccountLimits s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes'
 describeAdjustmentTypes :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -425,7 +430,7 @@ describeAdjustmentTypes s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups'
 describeAutoScalingGroups :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
                              , AWSPager a
                              )
@@ -449,7 +454,7 @@ describeAutoScalingGroups s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances'
 describeAutoScalingInstances :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
                                 , AWSPager a
                                 )
@@ -464,7 +469,7 @@ describeAutoScalingInstances s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes'
 describeAutoScalingNotificationTypes :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env m
                                         , AWSRequest a
                                         )
@@ -486,7 +491,7 @@ describeAutoScalingNotificationTypes s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations'
 describeLaunchConfigurations :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
                                 , AWSPager a
                                 )
@@ -500,7 +505,7 @@ describeLaunchConfigurations s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes'
 describeLifecycleHookTypes :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -515,7 +520,7 @@ describeLifecycleHookTypes s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks'
 describeLifecycleHooks :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -538,7 +543,7 @@ describeLifecycleHooks p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes'
 describeMetricCollectionTypes :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -553,7 +558,7 @@ describeMetricCollectionTypes s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations'
 describeNotificationConfigurations :: ( MonadCatch m
                                       , MonadResource m
-                                      , MonadError Error m
+                                      , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
                                       , AWSPager a
                                       )
@@ -580,7 +585,7 @@ describeNotificationConfigurations s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribePolicies'
 describePolicies :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
                     , AWSPager a
                     )
@@ -611,7 +616,7 @@ describePolicies s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities'
 describeScalingActivities :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
                              , AWSPager a
                              )
@@ -630,7 +635,7 @@ describeScalingActivities s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes'
 describeScalingProcessTypes :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -646,7 +651,7 @@ describeScalingProcessTypes s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions'
 describeScheduledActions :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -669,7 +674,7 @@ describeScheduledActions s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeTags'
 describeTags :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
                 , AWSPager a
                 )
@@ -687,7 +692,7 @@ describeTags s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes'
 describeTerminationPolicyTypes :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -712,7 +717,7 @@ describeTerminationPolicyTypes s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DetachInstances'
 detachInstances :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -730,7 +735,7 @@ detachInstances p2 p3 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection'
 disableMetricsCollection :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -749,7 +754,7 @@ disableMetricsCollection p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.EnableMetricsCollection'
 enableMetricsCollection :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -775,7 +780,7 @@ enableMetricsCollection p1 p3 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.EnterStandby'
 enterStandby :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -791,7 +796,7 @@ enterStandby p2 p3 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.ExecutePolicy'
 executePolicy :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -815,7 +820,7 @@ executePolicy p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.ExitStandby'
 exitStandby :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -848,7 +853,7 @@ exitStandby p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook'
 putLifecycleHook :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -869,7 +874,7 @@ putLifecycleHook p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration'
 putNotificationConfiguration :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -896,7 +901,7 @@ putNotificationConfiguration p1 p2 p3 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy'
 putScalingPolicy :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -930,7 +935,7 @@ putScalingPolicy p1 p2 p3 p4 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction'
 putScheduledUpdateGroupAction :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -957,7 +962,7 @@ putScheduledUpdateGroupAction p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.RecordLifecycleActionHeartbeat'
 recordLifecycleActionHeartbeat :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -976,7 +981,7 @@ recordLifecycleActionHeartbeat p1 p2 p3 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses'
 resumeProcesses :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -995,7 +1000,7 @@ resumeProcesses p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity'
 setDesiredCapacity :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -1013,7 +1018,7 @@ setDesiredCapacity p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth'
 setInstanceHealth :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -1036,7 +1041,7 @@ setInstanceHealth p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses'
 suspendProcesses :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -1053,7 +1058,7 @@ suspendProcesses p1 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup'
 terminateInstanceInAutoScalingGroup :: ( MonadCatch m
                                        , MonadResource m
-                                       , MonadError Error m
+                                       , MonadError AWS.Error m
                                        , MonadReader Env m
                                        , AWSRequest a
                                        )
@@ -1098,7 +1103,7 @@ terminateInstanceInAutoScalingGroup p1 p2 s =
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.UpdateAutoScalingGroup'
 updateAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )

@@ -48,9 +48,14 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.CognitoIdentity.V2014_06_30
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CognitoIdentity.V2014_06_30
 
@@ -70,7 +75,7 @@ import Network.AWS.CognitoIdentity.V2014_06_30
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool'
 createIdentityPool :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -89,7 +94,7 @@ createIdentityPool p1 p2 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool'
 deleteIdentityPool :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -113,7 +118,7 @@ deleteIdentityPool p1 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool'
 describeIdentityPool :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -133,7 +138,7 @@ describeIdentityPool p1 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.GetId'
 getId :: ( MonadCatch m
          , MonadResource m
-         , MonadError Error m
+         , MonadError AWS.Error m
          , MonadReader Env m
          , AWSRequest a
          )
@@ -157,7 +162,7 @@ getId p1 p2 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken'
 getOpenIdToken :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -179,7 +184,7 @@ getOpenIdToken p1 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities'
 listIdentities :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -201,7 +206,7 @@ listIdentities p1 p2 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools'
 listIdentityPools :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -218,7 +223,7 @@ listIdentityPools p1 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity'
 unlinkIdentity :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -247,7 +252,7 @@ unlinkIdentity p1 p2 p3 s =
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool'
 updateIdentityPool :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )

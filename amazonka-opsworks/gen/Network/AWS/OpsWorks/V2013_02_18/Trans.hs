@@ -144,9 +144,14 @@ module Network.AWS.OpsWorks.V2013_02_18.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.OpsWorks.V2013_02_18
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.OpsWorks.V2013_02_18
 
@@ -161,7 +166,7 @@ import Network.AWS.OpsWorks.V2013_02_18
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.AssignVolume'
 assignVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -182,7 +187,7 @@ assignVolume p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp'
 associateElasticIp :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -204,7 +209,7 @@ associateElasticIp p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer'
 attachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -223,7 +228,7 @@ attachElasticLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CloneStack'
 cloneStack :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -243,7 +248,7 @@ cloneStack p1 p6 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateApp'
 createApp :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -267,7 +272,7 @@ createApp p1 p3 p6 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateDeployment'
 createDeployment :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -287,7 +292,7 @@ createDeployment p1 p4 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateInstance'
 createInstance :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -313,7 +318,7 @@ createInstance p1 p2 p3 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateLayer'
 createLayer :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -334,7 +339,7 @@ createLayer p1 p2 p3 p4 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateStack'
 createStack :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -354,7 +359,7 @@ createStack p1 p2 p5 p6 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile'
 createUserProfile :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -372,7 +377,7 @@ createUserProfile p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteApp'
 deleteApp :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -392,7 +397,7 @@ deleteApp p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteInstance'
 deleteInstance :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -412,7 +417,7 @@ deleteInstance p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteLayer'
 deleteLayer :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -431,7 +436,7 @@ deleteLayer p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteStack'
 deleteStack :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -448,7 +453,7 @@ deleteStack p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile'
 deleteUserProfile :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -468,7 +473,7 @@ deleteUserProfile p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp'
 deregisterElasticIp :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -483,7 +488,7 @@ deregisterElasticIp p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance'
 deregisterRdsDbInstance :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -503,7 +508,7 @@ deregisterRdsDbInstance p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume'
 deregisterVolume :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -522,7 +527,7 @@ deregisterVolume p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeApps'
 describeApps :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -540,7 +545,7 @@ describeApps s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeCommands'
 describeCommands :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -558,7 +563,7 @@ describeCommands s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments'
 describeDeployments :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -576,7 +581,7 @@ describeDeployments s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps'
 describeElasticIps :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -594,7 +599,7 @@ describeElasticIps s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers'
 describeElasticLoadBalancers :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -612,7 +617,7 @@ describeElasticLoadBalancers s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeInstances'
 describeInstances :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -630,7 +635,7 @@ describeInstances s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeLayers'
 describeLayers :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -649,7 +654,7 @@ describeLayers s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling'
 describeLoadBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -667,7 +672,7 @@ describeLoadBasedAutoScaling p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile'
 describeMyUserProfile :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -684,7 +689,7 @@ describeMyUserProfile s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribePermissions'
 describePermissions :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -702,7 +707,7 @@ describePermissions s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays'
 describeRaidArrays :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -716,7 +721,7 @@ describeRaidArrays s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeRdsDbInstances'
 describeRdsDbInstances :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -734,7 +739,7 @@ describeRdsDbInstances p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors'
 describeServiceErrors :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -753,7 +758,7 @@ describeServiceErrors s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary'
 describeStackSummary :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -772,7 +777,7 @@ describeStackSummary p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeStacks'
 describeStacks :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -791,7 +796,7 @@ describeStacks s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling'
 describeTimeBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -808,7 +813,7 @@ describeTimeBasedAutoScaling p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles'
 describeUserProfiles :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -826,7 +831,7 @@ describeUserProfiles s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes'
 describeVolumes :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -844,7 +849,7 @@ describeVolumes s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer'
 detachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -865,7 +870,7 @@ detachElasticLoadBalancer p1 p2 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp'
 disassociateElasticIp :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -884,7 +889,7 @@ disassociateElasticIp p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion'
 getHostnameSuggestion :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -903,7 +908,7 @@ getHostnameSuggestion p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RebootInstance'
 rebootInstance :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -924,7 +929,7 @@ rebootInstance p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RegisterElasticIp'
 registerElasticIp :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -940,7 +945,7 @@ registerElasticIp p1 p2 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance'
 registerRdsDbInstance :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -964,7 +969,7 @@ registerRdsDbInstance p1 p2 p3 p4 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RegisterVolume'
 registerVolume :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -988,7 +993,7 @@ registerVolume p2 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling'
 setLoadBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -1007,7 +1012,7 @@ setLoadBasedAutoScaling p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.SetPermission'
 setPermission :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1028,7 +1033,7 @@ setPermission p1 p2 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling'
 setTimeBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -1047,7 +1052,7 @@ setTimeBasedAutoScaling p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StartInstance'
 startInstance :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1065,7 +1070,7 @@ startInstance p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StartStack'
 startStack :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -1087,7 +1092,7 @@ startStack p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StopInstance'
 stopInstance :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -1105,7 +1110,7 @@ stopInstance p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StopStack'
 stopStack :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -1125,7 +1130,7 @@ stopStack p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UnassignVolume'
 unassignVolume :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1143,7 +1148,7 @@ unassignVolume p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateApp'
 updateApp :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -1162,7 +1167,7 @@ updateApp p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp'
 updateElasticIp :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -1180,7 +1185,7 @@ updateElasticIp p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateInstance'
 updateInstance :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1198,7 +1203,7 @@ updateInstance p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateLayer'
 updateLayer :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -1216,7 +1221,7 @@ updateLayer p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateMyUserProfile'
 updateMyUserProfile :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1230,7 +1235,7 @@ updateMyUserProfile s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateRdsDbInstance'
 updateRdsDbInstance :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1248,7 +1253,7 @@ updateRdsDbInstance p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateStack'
 updateStack :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -1266,7 +1271,7 @@ updateStack p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateUserProfile'
 updateUserProfile :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -1285,7 +1290,7 @@ updateUserProfile p1 s =
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateVolume'
 updateVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )

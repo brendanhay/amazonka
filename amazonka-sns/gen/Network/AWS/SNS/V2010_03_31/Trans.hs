@@ -81,9 +81,14 @@ module Network.AWS.SNS.V2010_03_31.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.SNS.V2010_03_31
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SNS.V2010_03_31
 
@@ -107,7 +112,7 @@ import Network.AWS.SNS.V2010_03_31
 -- See: 'Network.AWS.SNS.V2010_03_31.AddPermission'
 addPermission :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -143,7 +148,7 @@ addPermission p1 p2 p3 p4 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.ConfirmSubscription'
 confirmSubscription :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -189,7 +194,7 @@ confirmSubscription p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.CreatePlatformApplication'
 createPlatformApplication :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -234,7 +239,7 @@ createPlatformApplication p1 p2 p3 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint'
 createPlatformEndpoint :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -265,7 +270,7 @@ createPlatformEndpoint p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.CreateTopic'
 createTopic :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -292,7 +297,7 @@ createTopic p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.DeleteEndpoint'
 deleteEndpoint :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -321,7 +326,7 @@ deleteEndpoint p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.DeletePlatformApplication'
 deletePlatformApplication :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -349,7 +354,7 @@ deletePlatformApplication p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.DeleteTopic'
 deleteTopic :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -385,7 +390,7 @@ deleteTopic p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.GetEndpointAttributes'
 getEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -418,7 +423,7 @@ getEndpointAttributes p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes'
 getPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadError Error m
+                                    , MonadError AWS.Error m
                                     , MonadReader Env m
                                     , AWSRequest a
                                     )
@@ -451,7 +456,7 @@ getPlatformApplicationAttributes p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes'
 getSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -491,7 +496,7 @@ getSubscriptionAttributes p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.GetTopicAttributes'
 getTopicAttributes :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -537,7 +542,7 @@ getTopicAttributes p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication'
 listEndpointsByPlatformApplication :: ( MonadCatch m
                                       , MonadResource m
-                                      , MonadError Error m
+                                      , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
                                       , AWSPager a
                                       )
@@ -582,7 +587,7 @@ listEndpointsByPlatformApplication p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.ListPlatformApplications'
 listPlatformApplications :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -615,7 +620,7 @@ listPlatformApplications s =
 -- See: 'Network.AWS.SNS.V2010_03_31.ListSubscriptions'
 listSubscriptions :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -650,7 +655,7 @@ listSubscriptions s =
 -- See: 'Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic'
 listSubscriptionsByTopic :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -678,7 +683,7 @@ listSubscriptionsByTopic p1 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.ListTopics'
 listTopics :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
               , AWSPager a
               )
@@ -731,7 +736,7 @@ listTopics s =
 -- See: 'Network.AWS.SNS.V2010_03_31.Publish'
 publish :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -757,7 +762,7 @@ publish p3 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.RemovePermission'
 removePermission :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -789,7 +794,7 @@ removePermission p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.SetEndpointAttributes'
 setEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -822,7 +827,7 @@ setEndpointAttributes p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes'
 setPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadError Error m
+                                    , MonadError AWS.Error m
                                     , MonadReader Env m
                                     , AWSRequest a
                                     )
@@ -857,7 +862,7 @@ setPlatformApplicationAttributes p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes'
 setSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -899,7 +904,7 @@ setSubscriptionAttributes p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.SetTopicAttributes'
 setTopicAttributes :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -930,7 +935,7 @@ setTopicAttributes p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.Subscribe'
 subscribe :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -962,7 +967,7 @@ subscribe p1 p2 s =
 -- See: 'Network.AWS.SNS.V2010_03_31.Unsubscribe'
 unsubscribe :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )

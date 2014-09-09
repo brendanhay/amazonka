@@ -64,9 +64,14 @@ module Network.AWS.SES.V2010_12_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.SES.V2010_12_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SES.V2010_12_01
 
@@ -85,7 +90,7 @@ import Network.AWS.SES.V2010_12_01
 -- See: 'Network.AWS.SES.V2010_12_01.DeleteIdentity'
 deleteIdentity :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -111,7 +116,7 @@ deleteIdentity p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress'
 deleteVerifiedEmailAddress :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -150,7 +155,7 @@ deleteVerifiedEmailAddress p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes'
 getIdentityDkimAttributes :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -182,7 +187,7 @@ getIdentityDkimAttributes p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes'
 getIdentityNotificationAttributes :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -211,7 +216,7 @@ getIdentityNotificationAttributes p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes'
 getIdentityVerificationAttributes :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -235,7 +240,7 @@ getIdentityVerificationAttributes p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.GetSendQuota'
 getSendQuota :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -260,7 +265,7 @@ getSendQuota s =
 -- See: 'Network.AWS.SES.V2010_12_01.GetSendStatistics'
 getSendStatistics :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -284,7 +289,7 @@ getSendStatistics s =
 -- See: 'Network.AWS.SES.V2010_12_01.ListIdentities'
 listIdentities :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -310,7 +315,7 @@ listIdentities s =
 -- See: 'Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses'
 listVerifiedEmailAddresses :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -350,7 +355,7 @@ listVerifiedEmailAddresses s =
 -- See: 'Network.AWS.SES.V2010_12_01.SendEmail'
 sendEmail :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -408,7 +413,7 @@ sendEmail p1 p2 p3 s =
 -- See: 'Network.AWS.SES.V2010_12_01.SendRawEmail'
 sendRawEmail :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -442,7 +447,7 @@ sendRawEmail p3 s =
 -- See: 'Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled'
 setIdentityDkimEnabled :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -474,7 +479,7 @@ setIdentityDkimEnabled p1 p2 s =
 -- See: 'Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled'
 setIdentityFeedbackForwardingEnabled :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env m
                                         , AWSRequest a
                                         )
@@ -508,7 +513,7 @@ setIdentityFeedbackForwardingEnabled p1 p2 s =
 -- See: 'Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic'
 setIdentityNotificationTopic :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -545,7 +550,7 @@ setIdentityNotificationTopic p1 p2 s =
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyDomainDkim'
 verifyDomainDkim :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -570,7 +575,7 @@ verifyDomainDkim p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyDomainIdentity'
 verifyDomainIdentity :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -597,7 +602,7 @@ verifyDomainIdentity p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyEmailAddress'
 verifyEmailAddress :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -622,7 +627,7 @@ verifyEmailAddress p1 s =
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyEmailIdentity'
 verifyEmailIdentity :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )

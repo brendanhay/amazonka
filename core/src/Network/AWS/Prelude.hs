@@ -54,7 +54,6 @@ module Network.AWS.Prelude
 
 import Control.Applicative          as Export
 import Control.Exception            (Exception)
-import Control.Lens                 as Lens ((<&>), (&), (^.), (.~), (?~), (&~), Lens', lens, to)
 import Control.Monad.Catch          (MonadCatch(..))
 import Control.Monad.Except         (MonadError(..))
 import Control.Monad.Identity       as Export
@@ -79,3 +78,22 @@ import Network.AWS.Response         as Export
 import Network.AWS.Types
 import Network.HTTP.Client          (HttpException, RequestBody, Response)
 import Prelude                      as Export hiding (head, error)
+
+import Control.Lens as Lens
+    ( (<&>)
+
+    , (&)
+    , (^.)
+    , (.~)
+    , (?~)
+
+    , (&~)
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
+
+    , Lens'
+    , lens
+    , to
+    )

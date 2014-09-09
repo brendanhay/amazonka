@@ -132,9 +132,14 @@ module Network.AWS.Redshift.V2012_12_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.Redshift.V2012_12_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Redshift.V2012_12_01
 
@@ -163,7 +168,7 @@ import Network.AWS.Redshift.V2012_12_01
 -- See: 'Network.AWS.Redshift.V2012_12_01.AuthorizeClusterSecurityGroupIngress'
 authorizeClusterSecurityGroupIngress :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env m
                                         , AWSRequest a
                                         )
@@ -180,7 +185,7 @@ authorizeClusterSecurityGroupIngress p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.AuthorizeSnapshotAccess'
 authorizeSnapshotAccess :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -214,7 +219,7 @@ authorizeSnapshotAccess p1 p3 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CopyClusterSnapshot'
 copyClusterSnapshot :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -257,7 +262,7 @@ copyClusterSnapshot p1 p3 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateCluster'
 createCluster :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -291,7 +296,7 @@ createCluster p2 p4 p5 p6 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterParameterGroup'
 createClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -318,7 +323,7 @@ createClusterParameterGroup p1 p2 p3 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup'
 createClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -345,7 +350,7 @@ createClusterSecurityGroup p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot'
 createClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -374,7 +379,7 @@ createClusterSnapshot p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterSubnetGroup'
 createClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -410,7 +415,7 @@ createClusterSubnetGroup p1 p2 p3 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateEventSubscription'
 createEventSubscription :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -433,7 +438,7 @@ createEventSubscription p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate'
 createHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -455,7 +460,7 @@ createHsmClientCertificate p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateHsmConfiguration'
 createHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -492,7 +497,7 @@ createHsmConfiguration p1 p2 p3 p4 p5 p6 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteCluster'
 deleteCluster :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -515,7 +520,7 @@ deleteCluster p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup'
 deleteClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -540,7 +545,7 @@ deleteClusterParameterGroup p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup'
 deleteClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -570,7 +575,7 @@ deleteClusterSecurityGroup p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot'
 deleteClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -592,7 +597,7 @@ deleteClusterSnapshot p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup'
 deleteClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -607,7 +612,7 @@ deleteClusterSubnetGroup p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription'
 deleteEventSubscription :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -622,7 +627,7 @@ deleteEventSubscription p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate'
 deleteHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -637,7 +642,7 @@ deleteHsmClientCertificate p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration'
 deleteHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -666,7 +671,7 @@ deleteHsmConfiguration p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterParameterGroups'
 describeClusterParameterGroups :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env (ResumableSource m)
                                   , AWSPager a
                                   )
@@ -706,7 +711,7 @@ describeClusterParameterGroups s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterParameters'
 describeClusterParameters :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
                              , AWSPager a
                              )
@@ -732,7 +737,7 @@ describeClusterParameters p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterSecurityGroups'
 describeClusterSecurityGroups :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env (ResumableSource m)
                                  , AWSPager a
                                  )
@@ -760,7 +765,7 @@ describeClusterSecurityGroups s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterSnapshots'
 describeClusterSnapshots :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -784,7 +789,7 @@ describeClusterSnapshots s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterSubnetGroups'
 describeClusterSubnetGroups :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
                                , AWSPager a
                                )
@@ -808,7 +813,7 @@ describeClusterSubnetGroups s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterVersions'
 describeClusterVersions :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env (ResumableSource m)
                            , AWSPager a
                            )
@@ -835,7 +840,7 @@ describeClusterVersions s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusters'
 describeClusters :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
                     , AWSPager a
                     )
@@ -869,7 +874,7 @@ describeClusters s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeDefaultClusterParameters'
 describeDefaultClusterParameters :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadError Error m
+                                    , MonadError AWS.Error m
                                     , MonadReader Env (ResumableSource m)
                                     , AWSPager a
                                     )
@@ -886,7 +891,7 @@ describeDefaultClusterParameters p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeEventCategories'
 describeEventCategories :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -902,7 +907,7 @@ describeEventCategories s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeEventSubscriptions'
 describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
                               , AWSPager a
                               )
@@ -928,7 +933,7 @@ describeEventSubscriptions s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeEvents'
 describeEvents :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -944,7 +949,7 @@ describeEvents s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeHsmClientCertificates'
 describeHsmClientCertificates :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env (ResumableSource m)
                                  , AWSPager a
                                  )
@@ -960,7 +965,7 @@ describeHsmClientCertificates s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeHsmConfigurations'
 describeHsmConfigurations :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
                              , AWSPager a
                              )
@@ -975,7 +980,7 @@ describeHsmConfigurations s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus'
 describeLoggingStatus :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -1006,7 +1011,7 @@ describeLoggingStatus p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions'
 describeOrderableClusterOptions :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env (ResumableSource m)
                                    , AWSPager a
                                    )
@@ -1037,7 +1042,7 @@ describeOrderableClusterOptions s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeReservedNodeOfferings'
 describeReservedNodeOfferings :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env (ResumableSource m)
                                  , AWSPager a
                                  )
@@ -1062,7 +1067,7 @@ describeReservedNodeOfferings s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeReservedNodes'
 describeReservedNodes :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
                          , AWSPager a
                          )
@@ -1089,7 +1094,7 @@ describeReservedNodes s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeResize'
 describeResize :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1105,7 +1110,7 @@ describeResize p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DisableLogging'
 disableLogging :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1121,7 +1126,7 @@ disableLogging p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy'
 disableSnapshotCopy :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1137,7 +1142,7 @@ disableSnapshotCopy p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.EnableLogging'
 enableLogging :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1154,7 +1159,7 @@ enableLogging p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy'
 enableSnapshotCopy :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -1193,7 +1198,7 @@ enableSnapshotCopy p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyCluster'
 modifyCluster :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1221,7 +1226,7 @@ modifyCluster p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyClusterParameterGroup'
 modifyClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -1239,7 +1244,7 @@ modifyClusterParameterGroup p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyClusterSubnetGroup'
 modifyClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -1255,7 +1260,7 @@ modifyClusterSubnetGroup p1 p3 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyEventSubscription'
 modifyEventSubscription :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -1271,7 +1276,7 @@ modifyEventSubscription p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifySnapshotCopyRetentionPeriod'
 modifySnapshotCopyRetentionPeriod :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -1303,7 +1308,7 @@ modifySnapshotCopyRetentionPeriod p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering'
 purchaseReservedNodeOffering :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -1333,7 +1338,7 @@ purchaseReservedNodeOffering p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.RebootCluster'
 rebootCluster :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1360,7 +1365,7 @@ rebootCluster p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup'
 resetClusterParameterGroup :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -1394,7 +1399,7 @@ resetClusterParameterGroup p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot'
 restoreFromClusterSnapshot :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -1422,7 +1427,7 @@ restoreFromClusterSnapshot p1 p2 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.RevokeClusterSecurityGroupIngress'
 revokeClusterSecurityGroupIngress :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -1441,7 +1446,7 @@ revokeClusterSecurityGroupIngress p1 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.RevokeSnapshotAccess'
 revokeSnapshotAccess :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -1457,7 +1462,7 @@ revokeSnapshotAccess p1 p3 s =
 -- See: 'Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey'
 rotateEncryptionKey :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )

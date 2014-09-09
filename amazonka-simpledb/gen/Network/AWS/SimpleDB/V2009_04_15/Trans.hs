@@ -54,9 +54,14 @@ module Network.AWS.SimpleDB.V2009_04_15.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.SimpleDB.V2009_04_15
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SimpleDB.V2009_04_15
 
@@ -80,7 +85,7 @@ import Network.AWS.SimpleDB.V2009_04_15
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes'
 batchDeleteAttributes :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -130,7 +135,7 @@ batchDeleteAttributes p1 p2 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes'
 batchPutAttributes :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -153,7 +158,7 @@ batchPutAttributes p1 p2 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.CreateDomain'
 createDomain :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -177,7 +182,7 @@ createDomain p1 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes'
 deleteAttributes :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -197,7 +202,7 @@ deleteAttributes p1 p2 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.DeleteDomain'
 deleteDomain :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -214,7 +219,7 @@ deleteDomain p1 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.DomainMetadata'
 domainMetadata :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -236,7 +241,7 @@ domainMetadata p1 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.GetAttributes'
 getAttributes :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -257,7 +262,7 @@ getAttributes p1 p2 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.ListDomains'
 listDomains :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
                , AWSPager a
                )
@@ -296,7 +301,7 @@ listDomains s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.PutAttributes'
 putAttributes :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -321,7 +326,7 @@ putAttributes p1 p2 p3 s =
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.Select'
 select :: ( MonadCatch m
           , MonadResource m
-          , MonadError Error m
+          , MonadError AWS.Error m
           , MonadReader Env (ResumableSource m)
           , AWSPager a
           )

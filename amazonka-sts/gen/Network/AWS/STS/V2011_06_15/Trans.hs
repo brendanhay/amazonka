@@ -36,9 +36,14 @@ module Network.AWS.STS.V2011_06_15.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.STS.V2011_06_15
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.STS.V2011_06_15
 
@@ -114,7 +119,7 @@ import Network.AWS.STS.V2011_06_15
 -- See: 'Network.AWS.STS.V2011_06_15.AssumeRole'
 assumeRole :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -166,7 +171,7 @@ assumeRole p1 p2 s =
 -- See: 'Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML'
 assumeRoleWithSAML :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -244,7 +249,7 @@ assumeRoleWithSAML p1 p2 p3 s =
 -- See: 'Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity'
 assumeRoleWithWebIdentity :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -292,7 +297,7 @@ assumeRoleWithWebIdentity p1 p2 p3 s =
 -- See: 'Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage'
 decodeAuthorizationMessage :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -368,7 +373,7 @@ decodeAuthorizationMessage p1 s =
 -- See: 'Network.AWS.STS.V2011_06_15.GetFederationToken'
 getFederationToken :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -417,7 +422,7 @@ getFederationToken p1 s =
 -- See: 'Network.AWS.STS.V2011_06_15.GetSessionToken'
 getSessionToken :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )

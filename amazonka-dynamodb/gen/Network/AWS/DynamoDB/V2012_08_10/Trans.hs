@@ -54,9 +54,14 @@ module Network.AWS.DynamoDB.V2012_08_10.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.DynamoDB.V2012_08_10
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DynamoDB.V2012_08_10
 
@@ -100,7 +105,7 @@ import Network.AWS.DynamoDB.V2012_08_10
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.BatchGetItem'
 batchGetItem :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -163,7 +168,7 @@ batchGetItem p1 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem'
 batchWriteItem :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -204,7 +209,7 @@ batchWriteItem p1 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.CreateTable'
 createTable :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -239,7 +244,7 @@ createTable p1 p2 p3 p6 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.DeleteItem'
 deleteItem :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -269,7 +274,7 @@ deleteItem p1 p2 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.DeleteTable'
 deleteTable :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -299,7 +304,7 @@ deleteTable p1 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.DescribeTable'
 describeTable :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -329,7 +334,7 @@ describeTable p1 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.GetItem'
 getItem :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -349,7 +354,7 @@ getItem p1 p2 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.ListTables'
 listTables :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
               , AWSPager a
               )
@@ -382,7 +387,7 @@ listTables s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.PutItem'
 putItem :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -419,7 +424,7 @@ putItem p1 p2 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.Query'
 query :: ( MonadCatch m
          , MonadResource m
-         , MonadError Error m
+         , MonadError AWS.Error m
          , MonadReader Env (ResumableSource m)
          , AWSPager a
          )
@@ -455,7 +460,7 @@ query p1 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.Scan'
 scan :: ( MonadCatch m
         , MonadResource m
-        , MonadError Error m
+        , MonadError AWS.Error m
         , MonadReader Env (ResumableSource m)
         , AWSPager a
         )
@@ -479,7 +484,7 @@ scan p1 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.UpdateItem'
 updateItem :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -522,7 +527,7 @@ updateItem p1 p2 s =
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.UpdateTable'
 updateTable :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )

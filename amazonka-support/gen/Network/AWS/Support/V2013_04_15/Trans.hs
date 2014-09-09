@@ -57,9 +57,14 @@ module Network.AWS.Support.V2013_04_15.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.Support.V2013_04_15
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Support.V2013_04_15
 
@@ -76,7 +81,7 @@ import Network.AWS.Support.V2013_04_15
 -- See: 'Network.AWS.Support.V2013_04_15.AddAttachmentsToSet'
 addAttachmentsToSet :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -97,7 +102,7 @@ addAttachmentsToSet p2 s =
 -- See: 'Network.AWS.Support.V2013_04_15.AddCommunicationToCase'
 addCommunicationToCase :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -137,7 +142,7 @@ addCommunicationToCase p2 s =
 -- See: 'Network.AWS.Support.V2013_04_15.CreateCase'
 createCase :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -157,7 +162,7 @@ createCase p1 p5 s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeAttachment'
 describeAttachment :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -179,7 +184,7 @@ describeAttachment p1 s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeCases'
 describeCases :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
                  , AWSPager a
                  )
@@ -200,7 +205,7 @@ describeCases s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeCommunications'
 describeCommunications :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
                           , AWSPager a
                           )
@@ -224,7 +229,7 @@ describeCommunications p1 s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeServices'
 describeServices :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -240,7 +245,7 @@ describeServices s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeSeverityLevels'
 describeSeverityLevels :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -256,7 +261,7 @@ describeSeverityLevels s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckRefreshStatuses'
 describeTrustedAdvisorCheckRefreshStatuses :: ( MonadCatch m
                                               , MonadResource m
-                                              , MonadError Error m
+                                              , MonadError AWS.Error m
                                               , MonadReader Env m
                                               , AWSRequest a
                                               )
@@ -279,7 +284,7 @@ describeTrustedAdvisorCheckRefreshStatuses p1 s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckResult'
 describeTrustedAdvisorCheckResult :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -297,7 +302,7 @@ describeTrustedAdvisorCheckResult p1 s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorCheckSummaries'
 describeTrustedAdvisorCheckSummaries :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env m
                                         , AWSRequest a
                                         )
@@ -315,7 +320,7 @@ describeTrustedAdvisorCheckSummaries p1 s =
 -- See: 'Network.AWS.Support.V2013_04_15.DescribeTrustedAdvisorChecks'
 describeTrustedAdvisorChecks :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -337,7 +342,7 @@ describeTrustedAdvisorChecks p1 s =
 -- See: 'Network.AWS.Support.V2013_04_15.RefreshTrustedAdvisorCheck'
 refreshTrustedAdvisorCheck :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -353,7 +358,7 @@ refreshTrustedAdvisorCheck p1 s =
 -- See: 'Network.AWS.Support.V2013_04_15.ResolveCase'
 resolveCase :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )

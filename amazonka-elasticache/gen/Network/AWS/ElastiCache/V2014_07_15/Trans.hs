@@ -99,9 +99,14 @@ module Network.AWS.ElastiCache.V2014_07_15.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.ElastiCache.V2014_07_15
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElastiCache.V2014_07_15
 
@@ -121,7 +126,7 @@ import Network.AWS.ElastiCache.V2014_07_15
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.AuthorizeCacheSecurityGroupIngress'
 authorizeCacheSecurityGroupIngress :: ( MonadCatch m
                                       , MonadResource m
-                                      , MonadError Error m
+                                      , MonadError AWS.Error m
                                       , MonadReader Env m
                                       , AWSRequest a
                                       )
@@ -138,7 +143,7 @@ authorizeCacheSecurityGroupIngress p1 p2 p3 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CopySnapshot'
 copySnapshot :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -170,7 +175,7 @@ copySnapshot p1 p2 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheCluster'
 createCacheCluster :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -195,7 +200,7 @@ createCacheCluster p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheParameterGroup'
 createCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -223,7 +228,7 @@ createCacheParameterGroup p1 p2 p3 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup'
 createCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -248,7 +253,7 @@ createCacheSecurityGroup p1 p2 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup'
 createCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -279,7 +284,7 @@ createCacheSubnetGroup p1 p2 p3 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup'
 createReplicationGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -304,7 +309,7 @@ createReplicationGroup p1 p2 p3 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot'
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -331,7 +336,7 @@ createSnapshot p1 p2 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster'
 deleteCacheCluster :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -353,7 +358,7 @@ deleteCacheCluster p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheParameterGroup'
 deleteCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -374,7 +379,7 @@ deleteCacheParameterGroup p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup'
 deleteCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -394,7 +399,7 @@ deleteCacheSecurityGroup p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup'
 deleteCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -421,7 +426,7 @@ deleteCacheSubnetGroup p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup'
 deleteReplicationGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -445,7 +450,7 @@ deleteReplicationGroup p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot'
 deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -485,7 +490,7 @@ deleteSnapshot p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters'
 describeCacheClusters :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
                          , AWSPager a
                          )
@@ -506,7 +511,7 @@ describeCacheClusters s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheEngineVersions'
 describeCacheEngineVersions :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
                                , AWSPager a
                                )
@@ -530,7 +535,7 @@ describeCacheEngineVersions s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups'
 describeCacheParameterGroups :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
                                 , AWSPager a
                                 )
@@ -555,7 +560,7 @@ describeCacheParameterGroups s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameters'
 describeCacheParameters :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env (ResumableSource m)
                            , AWSPager a
                            )
@@ -577,7 +582,7 @@ describeCacheParameters p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups'
 describeCacheSecurityGroups :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
                                , AWSPager a
                                )
@@ -599,7 +604,7 @@ describeCacheSecurityGroups s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups'
 describeCacheSubnetGroups :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
                              , AWSPager a
                              )
@@ -625,7 +630,7 @@ describeCacheSubnetGroups s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters'
 describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env (ResumableSource m)
                                    , AWSPager a
                                    )
@@ -651,7 +656,7 @@ describeEngineDefaultParameters p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeEvents'
 describeEvents :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -676,7 +681,7 @@ describeEvents s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups'
 describeReplicationGroups :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
                              , AWSPager a
                              )
@@ -698,7 +703,7 @@ describeReplicationGroups s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodes'
 describeReservedCacheNodes :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
                               , AWSPager a
                               )
@@ -719,7 +724,7 @@ describeReservedCacheNodes s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodesOfferings'
 describeReservedCacheNodesOfferings :: ( MonadCatch m
                                        , MonadResource m
-                                       , MonadError Error m
+                                       , MonadError AWS.Error m
                                        , MonadReader Env (ResumableSource m)
                                        , AWSPager a
                                        )
@@ -743,7 +748,7 @@ describeReservedCacheNodesOfferings s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeSnapshots'
 describeSnapshots :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -766,7 +771,7 @@ describeSnapshots s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyCacheCluster'
 modifyCacheCluster :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -791,7 +796,7 @@ modifyCacheCluster p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup'
 modifyCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -815,7 +820,7 @@ modifyCacheParameterGroup p1 p2 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup'
 modifyCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -843,7 +848,7 @@ modifyCacheSubnetGroup p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyReplicationGroup'
 modifyReplicationGroup :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -867,7 +872,7 @@ modifyReplicationGroup p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering'
 purchaseReservedCacheNodesOffering :: ( MonadCatch m
                                       , MonadResource m
-                                      , MonadError Error m
+                                      , MonadError AWS.Error m
                                       , MonadReader Env m
                                       , AWSRequest a
                                       )
@@ -898,7 +903,7 @@ purchaseReservedCacheNodesOffering p1 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster'
 rebootCacheCluster :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -924,7 +929,7 @@ rebootCacheCluster p1 p2 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ResetCacheParameterGroup'
 resetCacheParameterGroup :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -949,7 +954,7 @@ resetCacheParameterGroup p1 p3 s =
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.RevokeCacheSecurityGroupIngress'
 revokeCacheSecurityGroupIngress :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )

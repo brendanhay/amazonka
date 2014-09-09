@@ -340,9 +340,14 @@ module Network.AWS.EC2.V2014_06_15.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.EC2.V2014_06_15
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.EC2.V2014_06_15
 
@@ -371,7 +376,7 @@ import Network.AWS.EC2.V2014_06_15
 -- See: 'Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection'
 acceptVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -405,7 +410,7 @@ acceptVpcPeeringConnection s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AllocateAddress'
 allocateAddress :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -445,7 +450,7 @@ allocateAddress s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AssignPrivateIpAddresses'
 assignPrivateIpAddresses :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -490,7 +495,7 @@ assignPrivateIpAddresses p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AssociateAddress'
 associateAddress :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -527,7 +532,7 @@ associateAddress s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions'
 associateDhcpOptions :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -557,7 +562,7 @@ associateDhcpOptions p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AssociateRouteTable'
 associateRouteTable :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -583,7 +588,7 @@ associateRouteTable p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachInternetGateway'
 attachInternetGateway :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -607,7 +612,7 @@ attachInternetGateway p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachNetworkInterface'
 attachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -656,7 +661,7 @@ attachNetworkInterface p1 p2 p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachVolume'
 attachVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -684,7 +689,7 @@ attachVolume p1 p2 p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachVpnGateway'
 attachVpnGateway :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -736,7 +741,7 @@ attachVpnGateway p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupEgress'
 authorizeSecurityGroupEgress :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -802,7 +807,7 @@ authorizeSecurityGroupEgress p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupIngress'
 authorizeSecurityGroupIngress :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -842,7 +847,7 @@ authorizeSecurityGroupIngress s =
 -- See: 'Network.AWS.EC2.V2014_06_15.BundleInstance'
 bundleInstance :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -872,7 +877,7 @@ bundleInstance p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelBundleTask'
 cancelBundleTask :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -897,7 +902,7 @@ cancelBundleTask p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelConversionTask'
 cancelConversionTask :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -919,7 +924,7 @@ cancelConversionTask p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelExportTask'
 cancelExportTask :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -945,7 +950,7 @@ cancelExportTask p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing'
 cancelReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -977,7 +982,7 @@ cancelReservedInstancesListing p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests'
 cancelSpotInstanceRequests :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -1004,7 +1009,7 @@ cancelSpotInstanceRequests p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ConfirmProductInstance'
 confirmProductInstance :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -1033,7 +1038,7 @@ confirmProductInstance p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CopyImage'
 copyImage :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -1064,7 +1069,7 @@ copyImage p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CopySnapshot'
 copySnapshot :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -1106,7 +1111,7 @@ copySnapshot p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateCustomerGateway'
 createCustomerGateway :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -1163,7 +1168,7 @@ createCustomerGateway p1 p2 p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateDhcpOptions'
 createDhcpOptions :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -1191,7 +1196,7 @@ createDhcpOptions p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateImage'
 createImage :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -1235,7 +1240,7 @@ createImage p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask'
 createInstanceExportTask :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -1255,7 +1260,7 @@ createInstanceExportTask p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateInternetGateway'
 createInternetGateway :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -1301,7 +1306,7 @@ createInternetGateway s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateKeyPair'
 createKeyPair :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1328,7 +1333,7 @@ createKeyPair p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateNetworkAcl'
 createNetworkAcl :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -1365,7 +1370,7 @@ createNetworkAcl p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateNetworkAclEntry'
 createNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -1483,7 +1488,7 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateNetworkInterface'
 createNetworkInterface :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -1508,7 +1513,7 @@ createNetworkInterface p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreatePlacementGroup'
 createPlacementGroup :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -1545,7 +1550,7 @@ createPlacementGroup p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing'
 createReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -1590,7 +1595,7 @@ createReservedInstancesListing p1 p2 p3 p4 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateRoute'
 createRoute :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -1615,7 +1620,7 @@ createRoute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateRouteTable'
 createRouteTable :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -1665,7 +1670,7 @@ createRouteTable p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSecurityGroup'
 createSecurityGroup :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1714,7 +1719,7 @@ createSecurityGroup p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSnapshot'
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1743,7 +1748,7 @@ createSnapshot p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription'
 createSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -1781,7 +1786,7 @@ createSpotDatafeedSubscription p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSubnet'
 createSubnet :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -1809,7 +1814,7 @@ createSubnet p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateTags'
 createTags :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -1848,7 +1853,7 @@ createTags p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVolume'
 createVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -1892,7 +1897,7 @@ createVolume p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpc'
 createVpc :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -1939,7 +1944,7 @@ createVpc p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection'
 createVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -2004,7 +2009,7 @@ createVpcPeeringConnection s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpnConnection'
 createVpnConnection :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -2036,7 +2041,7 @@ createVpnConnection p1 p2 p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute'
 createVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -2066,7 +2071,7 @@ createVpnConnectionRoute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpnGateway'
 createVpnGateway :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -2089,7 +2094,7 @@ createVpnGateway p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteCustomerGateway'
 deleteCustomerGateway :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -2113,7 +2118,7 @@ deleteCustomerGateway p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteDhcpOptions'
 deleteDhcpOptions :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -2136,7 +2141,7 @@ deleteDhcpOptions p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteInternetGateway'
 deleteInternetGateway :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -2157,7 +2162,7 @@ deleteInternetGateway p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteKeyPair'
 deleteKeyPair :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -2179,7 +2184,7 @@ deleteKeyPair p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl'
 deleteNetworkAcl :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -2202,7 +2207,7 @@ deleteNetworkAcl p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteNetworkAclEntry'
 deleteNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -2227,7 +2232,7 @@ deleteNetworkAclEntry p1 p2 p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface'
 deleteNetworkInterface :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -2251,7 +2256,7 @@ deleteNetworkInterface p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeletePlacementGroup'
 deletePlacementGroup :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -2273,7 +2278,7 @@ deletePlacementGroup p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteRoute'
 deleteRoute :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -2296,7 +2301,7 @@ deleteRoute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteRouteTable'
 deleteRouteTable :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -2326,7 +2331,7 @@ deleteRouteTable p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup'
 deleteSecurityGroup :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -2355,7 +2360,7 @@ deleteSecurityGroup s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSnapshot'
 deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -2378,7 +2383,7 @@ deleteSnapshot p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription'
 deleteSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -2398,7 +2403,7 @@ deleteSpotDatafeedSubscription s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSubnet'
 deleteSubnet :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -2435,7 +2440,7 @@ deleteSubnet p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteTags'
 deleteTags :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -2459,7 +2464,7 @@ deleteTags p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVolume'
 deleteVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -2484,7 +2489,7 @@ deleteVolume p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpc'
 deleteVpc :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -2510,7 +2515,7 @@ deleteVpc p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection'
 deleteVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -2534,7 +2539,7 @@ deleteVpcPeeringConnection p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpnConnection'
 deleteVpnConnection :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -2561,7 +2566,7 @@ deleteVpnConnection p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute'
 deleteVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -2586,7 +2591,7 @@ deleteVpnConnectionRoute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpnGateway'
 deleteVpnGateway :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -2608,7 +2613,7 @@ deleteVpnGateway p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DeregisterImage'
 deregisterImage :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -2670,7 +2675,7 @@ deregisterImage p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes'
 describeAccountAttributes :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -2723,7 +2728,7 @@ describeAccountAttributes s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeAddresses'
 describeAddresses :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -2763,7 +2768,7 @@ describeAddresses s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones'
 describeAvailabilityZones :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -2792,7 +2797,7 @@ describeAvailabilityZones s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeBundleTasks'
 describeBundleTasks :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -2813,7 +2818,7 @@ describeBundleTasks s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeConversionTasks'
 describeConversionTasks :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -2848,7 +2853,7 @@ describeConversionTasks s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways'
 describeCustomerGateways :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -2886,7 +2891,7 @@ describeCustomerGateways s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions'
 describeDhcpOptions :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -2919,7 +2924,7 @@ describeDhcpOptions s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeExportTasks'
 describeExportTasks :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -2943,7 +2948,7 @@ describeExportTasks s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeImageAttribute'
 describeImageAttribute :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -2987,7 +2992,7 @@ describeImageAttribute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeImages'
 describeImages :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -3031,7 +3036,7 @@ describeImages s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute'
 describeInstanceAttribute :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -3112,7 +3117,7 @@ describeInstanceAttribute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus'
 describeInstanceStatus :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
                           , AWSPager a
                           )
@@ -3232,7 +3237,7 @@ describeInstanceStatus s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInstances'
 describeInstances :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -3250,7 +3255,7 @@ describeInstances s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInternetGateways'
 describeInternetGateways :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -3273,7 +3278,7 @@ describeInternetGateways s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeKeyPairs'
 describeKeyPairs :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -3297,7 +3302,7 @@ describeKeyPairs s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls'
 describeNetworkAcls :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -3322,7 +3327,7 @@ describeNetworkAcls s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute'
 describeNetworkInterfaceAttribute :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -3399,7 +3404,7 @@ describeNetworkInterfaceAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaces'
 describeNetworkInterfaces :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -3424,7 +3429,7 @@ describeNetworkInterfaces s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribePlacementGroups'
 describePlacementGroups :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -3446,7 +3451,7 @@ describePlacementGroups s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeRegions'
 describeRegions :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -3475,7 +3480,7 @@ describeRegions s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstances'
 describeReservedInstances :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -3499,7 +3504,7 @@ describeReservedInstances s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings'
 describeReservedInstancesListings :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -3521,7 +3526,7 @@ describeReservedInstancesListings s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications'
 describeReservedInstancesModifications :: ( MonadCatch m
                                           , MonadResource m
-                                          , MonadError Error m
+                                          , MonadError AWS.Error m
                                           , MonadReader Env (ResumableSource m)
                                           , AWSPager a
                                           )
@@ -3581,7 +3586,7 @@ describeReservedInstancesModifications s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings'
 describeReservedInstancesOfferings :: ( MonadCatch m
                                       , MonadResource m
-                                      , MonadError Error m
+                                      , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
                                       , AWSPager a
                                       )
@@ -3605,7 +3610,7 @@ describeReservedInstancesOfferings s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeRouteTables'
 describeRouteTables :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -3639,7 +3644,7 @@ describeRouteTables s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups'
 describeSecurityGroups :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -3660,7 +3665,7 @@ describeSecurityGroups s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute'
 describeSnapshotAttribute :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -3714,7 +3719,7 @@ describeSnapshotAttribute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSnapshots'
 describeSnapshots :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -3733,7 +3738,7 @@ describeSnapshots s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription'
 describeSpotDatafeedSubscription :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadError Error m
+                                    , MonadError AWS.Error m
                                     , MonadReader Env m
                                     , AWSRequest a
                                     )
@@ -3768,7 +3773,7 @@ describeSpotDatafeedSubscription s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSpotInstanceRequests'
 describeSpotInstanceRequests :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -3807,7 +3812,7 @@ describeSpotInstanceRequests s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory'
 describeSpotPriceHistory :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
                             , AWSPager a
                             )
@@ -3853,7 +3858,7 @@ describeSpotPriceHistory s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSubnets'
 describeSubnets :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -3904,7 +3909,7 @@ describeSubnets s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeTags'
 describeTags :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
                 , AWSPager a
                 )
@@ -3941,7 +3946,7 @@ describeTags s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute'
 describeVolumeAttribute :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -3999,7 +4004,7 @@ describeVolumeAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus'
 describeVolumeStatus :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -4034,7 +4039,7 @@ describeVolumeStatus s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVolumes'
 describeVolumes :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -4069,7 +4074,7 @@ describeVolumes s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute'
 describeVpcAttribute :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -4116,7 +4121,7 @@ describeVpcAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpcPeeringConnections'
 describeVpcPeeringConnections :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -4147,7 +4152,7 @@ describeVpcPeeringConnections s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpcs'
 describeVpcs :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -4187,7 +4192,7 @@ describeVpcs s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpnConnections'
 describeVpnConnections :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -4223,7 +4228,7 @@ describeVpnConnections s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpnGateways'
 describeVpnGateways :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -4246,7 +4251,7 @@ describeVpnGateways s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachInternetGateway'
 detachInternetGateway :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -4269,7 +4274,7 @@ detachInternetGateway p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachNetworkInterface'
 detachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -4303,7 +4308,7 @@ detachNetworkInterface p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachVolume'
 detachVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -4331,7 +4336,7 @@ detachVolume p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachVpnGateway'
 detachVpnGateway :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -4357,7 +4362,7 @@ detachVpnGateway p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DisableVgwRoutePropagation'
 disableVgwRoutePropagation :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -4383,7 +4388,7 @@ disableVgwRoutePropagation p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DisassociateAddress'
 disassociateAddress :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -4408,7 +4413,7 @@ disassociateAddress s =
 -- See: 'Network.AWS.EC2.V2014_06_15.DisassociateRouteTable'
 disassociateRouteTable :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -4431,7 +4436,7 @@ disassociateRouteTable p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation'
 enableVgwRoutePropagation :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -4454,7 +4459,7 @@ enableVgwRoutePropagation p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.EnableVolumeIO'
 enableVolumeIO :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -4503,7 +4508,7 @@ enableVolumeIO p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.GetConsoleOutput'
 getConsoleOutput :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -4534,7 +4539,7 @@ getConsoleOutput p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.GetPasswordData'
 getPasswordData :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -4564,7 +4569,7 @@ getPasswordData p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ImportInstance'
 importInstance :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -4607,7 +4612,7 @@ importInstance p4 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ImportKeyPair'
 importKeyPair :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -4637,7 +4642,7 @@ importKeyPair p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ImportVolume'
 importVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -4656,7 +4661,7 @@ importVolume p1 p2 p4 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyImageAttribute'
 modifyImageAttribute :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -4699,7 +4704,7 @@ modifyImageAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyInstanceAttribute'
 modifyInstanceAttribute :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -4723,7 +4728,7 @@ modifyInstanceAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute'
 modifyNetworkInterfaceAttribute :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )
@@ -4750,7 +4755,7 @@ modifyNetworkInterfaceAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyReservedInstances'
 modifyReservedInstances :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -4793,7 +4798,7 @@ modifyReservedInstances p2 p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifySnapshotAttribute'
 modifySnapshotAttribute :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -4813,7 +4818,7 @@ modifySnapshotAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute'
 modifySubnetAttribute :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -4841,7 +4846,7 @@ modifySubnetAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute'
 modifyVolumeAttribute :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -4860,7 +4865,7 @@ modifyVolumeAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute'
 modifyVpcAttribute :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -4889,7 +4894,7 @@ modifyVpcAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.MonitorInstances'
 monitorInstances :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -4925,7 +4930,7 @@ monitorInstances p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering'
 purchaseReservedInstancesOffering :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -4954,7 +4959,7 @@ purchaseReservedInstancesOffering p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.RebootInstances'
 rebootInstances :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -5013,7 +5018,7 @@ rebootInstances p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.RegisterImage'
 registerImage :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -5038,7 +5043,7 @@ registerImage p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection'
 rejectVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -5070,7 +5075,7 @@ rejectVpcPeeringConnection p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ReleaseAddress'
 releaseAddress :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -5098,7 +5103,7 @@ releaseAddress s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation'
 replaceNetworkAclAssociation :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -5126,7 +5131,7 @@ replaceNetworkAclAssociation p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclEntry'
 replaceNetworkAclEntry :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -5158,7 +5163,7 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceRoute'
 replaceRoute :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -5187,7 +5192,7 @@ replaceRoute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation'
 replaceRouteTableAssociation :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -5216,7 +5221,7 @@ replaceRouteTableAssociation p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ReportInstanceStatus'
 reportInstanceStatus :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -5255,7 +5260,7 @@ reportInstanceStatus p1 p2 p5 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.RequestSpotInstances'
 requestSpotInstances :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -5277,7 +5282,7 @@ requestSpotInstances p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetImageAttribute'
 resetImageAttribute :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -5306,7 +5311,7 @@ resetImageAttribute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute'
 resetInstanceAttribute :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -5331,7 +5336,7 @@ resetInstanceAttribute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute'
 resetNetworkInterfaceAttribute :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -5356,7 +5361,7 @@ resetNetworkInterfaceAttribute p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute'
 resetSnapshotAttribute :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -5392,7 +5397,7 @@ resetSnapshotAttribute p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupEgress'
 revokeSecurityGroupEgress :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -5425,7 +5430,7 @@ revokeSecurityGroupEgress p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupIngress'
 revokeSecurityGroupIngress :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -5504,7 +5509,7 @@ revokeSecurityGroupIngress s =
 -- See: 'Network.AWS.EC2.V2014_06_15.RunInstances'
 runInstances :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -5544,7 +5549,7 @@ runInstances p1 p2 p3 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.StartInstances'
 startInstances :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -5591,7 +5596,7 @@ startInstances p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.StopInstances'
 stopInstances :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -5631,7 +5636,7 @@ stopInstances p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.TerminateInstances'
 terminateInstances :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -5655,7 +5660,7 @@ terminateInstances p1 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.UnassignPrivateIpAddresses'
 unassignPrivateIpAddresses :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -5685,7 +5690,7 @@ unassignPrivateIpAddresses p1 p2 s =
 -- See: 'Network.AWS.EC2.V2014_06_15.UnmonitorInstances'
 unmonitorInstances :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )

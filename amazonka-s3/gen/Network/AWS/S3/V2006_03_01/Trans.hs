@@ -125,9 +125,14 @@ module Network.AWS.S3.V2006_03_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.S3.V2006_03_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.S3.V2006_03_01
 
@@ -138,7 +143,7 @@ import Network.AWS.S3.V2006_03_01
 -- See: 'Network.AWS.S3.V2006_03_01.AbortMultipartUpload'
 abortMultipartUpload :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -155,7 +160,7 @@ abortMultipartUpload p1 p2 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.CompleteMultipartUpload'
 completeMultipartUpload :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -172,7 +177,7 @@ completeMultipartUpload p1 p2 p4 s =
 -- See: 'Network.AWS.S3.V2006_03_01.CopyObject'
 copyObject :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -189,7 +194,7 @@ copyObject p18 p2 p8 s =
 -- See: 'Network.AWS.S3.V2006_03_01.CreateBucket'
 createBucket :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -209,7 +214,7 @@ createBucket p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.CreateMultipartUpload'
 createMultipartUpload :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -227,7 +232,7 @@ createMultipartUpload p13 p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucket'
 deleteBucket :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -242,7 +247,7 @@ deleteBucket p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketCors'
 deleteBucketCors :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -257,7 +262,7 @@ deleteBucketCors p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle'
 deleteBucketLifecycle :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -272,7 +277,7 @@ deleteBucketLifecycle p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketPolicy'
 deleteBucketPolicy :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -287,7 +292,7 @@ deleteBucketPolicy p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketTagging'
 deleteBucketTagging :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -302,7 +307,7 @@ deleteBucketTagging p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketWebsite'
 deleteBucketWebsite :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -319,7 +324,7 @@ deleteBucketWebsite p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteObject'
 deleteObject :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -336,7 +341,7 @@ deleteObject p1 p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteObjects'
 deleteObjects :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -352,7 +357,7 @@ deleteObjects p1 p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketAcl'
 getBucketAcl :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -367,7 +372,7 @@ getBucketAcl p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketCors'
 getBucketCors :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -382,7 +387,7 @@ getBucketCors p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketLifecycle'
 getBucketLifecycle :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -397,7 +402,7 @@ getBucketLifecycle p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketLocation'
 getBucketLocation :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -413,7 +418,7 @@ getBucketLocation p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketLogging'
 getBucketLogging :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -428,7 +433,7 @@ getBucketLogging p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketNotification'
 getBucketNotification :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -443,7 +448,7 @@ getBucketNotification p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketPolicy'
 getBucketPolicy :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -458,7 +463,7 @@ getBucketPolicy p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketRequestPayment'
 getBucketRequestPayment :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -473,7 +478,7 @@ getBucketRequestPayment p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketTagging'
 getBucketTagging :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -488,7 +493,7 @@ getBucketTagging p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketVersioning'
 getBucketVersioning :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -503,7 +508,7 @@ getBucketVersioning p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketWebsite'
 getBucketWebsite :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -518,7 +523,7 @@ getBucketWebsite p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetObject'
 getObject :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -534,7 +539,7 @@ getObject p1 p6 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetObjectAcl'
 getObjectAcl :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -550,7 +555,7 @@ getObjectAcl p1 p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.GetObjectTorrent'
 getObjectTorrent :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -567,7 +572,7 @@ getObjectTorrent p1 p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.HeadBucket'
 headBucket :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -584,7 +589,7 @@ headBucket p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.HeadObject'
 headObject :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -601,7 +606,7 @@ headObject p1 p6 s =
 -- See: 'Network.AWS.S3.V2006_03_01.ListBuckets'
 listBuckets :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -615,7 +620,7 @@ listBuckets s =
 -- See: 'Network.AWS.S3.V2006_03_01.ListMultipartUploads'
 listMultipartUploads :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -630,7 +635,7 @@ listMultipartUploads p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.ListObjectVersions'
 listObjectVersions :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -647,7 +652,7 @@ listObjectVersions p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.ListObjects'
 listObjects :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
                , AWSPager a
                )
@@ -662,7 +667,7 @@ listObjects p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.ListParts'
 listParts :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
              , AWSPager a
              )
@@ -679,7 +684,7 @@ listParts p1 p2 p5 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketAcl'
 putBucketAcl :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -694,7 +699,7 @@ putBucketAcl p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketCors'
 putBucketCors :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -710,7 +715,7 @@ putBucketCors p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketLifecycle'
 putBucketLifecycle :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -727,7 +732,7 @@ putBucketLifecycle p1 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketLogging'
 putBucketLogging :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -743,7 +748,7 @@ putBucketLogging p1 p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketNotification'
 putBucketNotification :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -760,7 +765,7 @@ putBucketNotification p1 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketPolicy'
 putBucketPolicy :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -779,7 +784,7 @@ putBucketPolicy p1 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketRequestPayment'
 putBucketRequestPayment :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -795,7 +800,7 @@ putBucketRequestPayment p1 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketTagging'
 putBucketTagging :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -812,7 +817,7 @@ putBucketTagging p1 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketVersioning'
 putBucketVersioning :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -828,7 +833,7 @@ putBucketVersioning p1 p4 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketWebsite'
 putBucketWebsite :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -844,7 +849,7 @@ putBucketWebsite p1 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutObject'
 putObject :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -862,7 +867,7 @@ putObject p16 p2 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.PutObjectAcl'
 putObjectAcl :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -878,7 +883,7 @@ putObjectAcl p10 p3 s =
 -- See: 'Network.AWS.S3.V2006_03_01.RestoreObject'
 restoreObject :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -899,7 +904,7 @@ restoreObject p1 p2 s =
 -- See: 'Network.AWS.S3.V2006_03_01.UploadPart'
 uploadPart :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -918,7 +923,7 @@ uploadPart p1 p2 p5 p6 p7 s =
 -- See: 'Network.AWS.S3.V2006_03_01.UploadPartCopy'
 uploadPartCopy :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )

@@ -73,9 +73,14 @@ module Network.AWS.CloudFront.V2014_05_31.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudFront.V2014_05_31
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudFront.V2014_05_31
 
@@ -84,7 +89,7 @@ import Network.AWS.CloudFront.V2014_05_31
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity'
 createCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env m
                                         , AWSRequest a
                                         )
@@ -99,7 +104,7 @@ createCloudFrontOriginAccessIdentity p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateDistribution'
 createDistribution :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -114,7 +119,7 @@ createDistribution p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateInvalidation'
 createInvalidation :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -130,7 +135,7 @@ createInvalidation p1 p2 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution'
 createStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -145,7 +150,7 @@ createStreamingDistribution p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity'
 deleteCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env m
                                         , AWSRequest a
                                         )
@@ -160,7 +165,7 @@ deleteCloudFrontOriginAccessIdentity p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.DeleteDistribution'
 deleteDistribution :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -175,7 +180,7 @@ deleteDistribution p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution'
 deleteStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -190,7 +195,7 @@ deleteStreamingDistribution p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity'
 getCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -205,7 +210,7 @@ getCloudFrontOriginAccessIdentity p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfig'
 getCloudFrontOriginAccessIdentityConfig :: ( MonadCatch m
                                            , MonadResource m
-                                           , MonadError Error m
+                                           , MonadError AWS.Error m
                                            , MonadReader Env m
                                            , AWSRequest a
                                            )
@@ -220,7 +225,7 @@ getCloudFrontOriginAccessIdentityConfig p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetDistribution'
 getDistribution :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -235,7 +240,7 @@ getDistribution p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig'
 getDistributionConfig :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -250,7 +255,7 @@ getDistributionConfig p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetInvalidation'
 getInvalidation :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -266,7 +271,7 @@ getInvalidation p1 p2 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution'
 getStreamingDistribution :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -281,7 +286,7 @@ getStreamingDistribution p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig'
 getStreamingDistributionConfig :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -296,7 +301,7 @@ getStreamingDistributionConfig p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities'
 listCloudFrontOriginAccessIdentities :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env (ResumableSource m)
                                         , AWSPager a
                                         )
@@ -310,7 +315,7 @@ listCloudFrontOriginAccessIdentities s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListDistributions'
 listDistributions :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -324,7 +329,7 @@ listDistributions s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListInvalidations'
 listInvalidations :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -339,7 +344,7 @@ listInvalidations p1 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions'
 listStreamingDistributions :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
                               , AWSPager a
                               )
@@ -353,7 +358,7 @@ listStreamingDistributions s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity'
 updateCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadError Error m
+                                        , MonadError AWS.Error m
                                         , MonadReader Env m
                                         , AWSRequest a
                                         )
@@ -369,7 +374,7 @@ updateCloudFrontOriginAccessIdentity p1 p2 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.UpdateDistribution'
 updateDistribution :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -385,7 +390,7 @@ updateDistribution p1 p2 s =
 -- See: 'Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution'
 updateStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )

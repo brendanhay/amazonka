@@ -59,9 +59,14 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.ElasticTranscoder.V2012_09_25
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElasticTranscoder.V2012_09_25
 
@@ -84,7 +89,7 @@ import Network.AWS.ElasticTranscoder.V2012_09_25
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob'
 cancelJob :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -155,7 +160,7 @@ cancelJob p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob'
 createJob :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -205,7 +210,7 @@ createJob p1 p2 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CreatePipeline'
 createPipeline :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -275,7 +280,7 @@ createPipeline p1 p2 p4 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset'
 createPreset :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -305,7 +310,7 @@ createPreset p1 p3 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.DeletePipeline'
 deletePipeline :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -332,7 +337,7 @@ deletePipeline p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.DeletePreset'
 deletePreset :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -389,7 +394,7 @@ deletePreset p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline'
 listJobsByPipeline :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -448,7 +453,7 @@ listJobsByPipeline p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByStatus'
 listJobsByStatus :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
                     , AWSPager a
                     )
@@ -503,7 +508,7 @@ listJobsByStatus p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines'
 listPipelines :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
                  , AWSPager a
                  )
@@ -538,7 +543,7 @@ listPipelines s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets'
 listPresets :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
                , AWSPager a
                )
@@ -568,7 +573,7 @@ listPresets s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob'
 readJob :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -600,7 +605,7 @@ readJob p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline'
 readPipeline :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -641,7 +646,7 @@ readPipeline p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset'
 readPreset :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -683,7 +688,7 @@ readPreset p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.TestRole'
 testRole :: ( MonadCatch m
             , MonadResource m
-            , MonadError Error m
+            , MonadError AWS.Error m
             , MonadReader Env m
             , AWSRequest a
             )
@@ -705,7 +710,7 @@ testRole p1 p2 p3 p4 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipeline'
 updatePipeline :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -740,7 +745,7 @@ updatePipeline p1 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications'
 updatePipelineNotifications :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -774,7 +779,7 @@ updatePipelineNotifications p1 p2 s =
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineStatus'
 updatePipelineStatus :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )

@@ -61,9 +61,14 @@ module Network.AWS.CloudFormation.V2010_05_15.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudFormation.V2010_05_15
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudFormation.V2010_05_15
 
@@ -79,7 +84,7 @@ import Network.AWS.CloudFormation.V2010_05_15
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack'
 cancelUpdateStack :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -105,7 +110,7 @@ cancelUpdateStack p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.CreateStack'
 createStack :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -126,7 +131,7 @@ createStack p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DeleteStack'
 deleteStack :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -157,7 +162,7 @@ deleteStack p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents'
 describeStackEvents :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
                        , AWSPager a
                        )
@@ -182,7 +187,7 @@ describeStackEvents p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource'
 describeStackResource :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -220,7 +225,7 @@ describeStackResource p1 p2 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources'
 describeStackResources :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -242,7 +247,7 @@ describeStackResources s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStacks'
 describeStacks :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -266,7 +271,7 @@ describeStacks s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost'
 estimateTemplateCost :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -288,7 +293,7 @@ estimateTemplateCost s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy'
 getStackPolicy :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -312,7 +317,7 @@ getStackPolicy p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.GetTemplate'
 getTemplate :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -344,7 +349,7 @@ getTemplate p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.ListStackResources'
 listStackResources :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -375,7 +380,7 @@ listStackResources p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.ListStacks'
 listStacks :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
               , AWSPager a
               )
@@ -394,7 +399,7 @@ listStacks s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy'
 setStackPolicy :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -424,7 +429,7 @@ setStackPolicy p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.UpdateStack'
 updateStack :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -447,7 +452,7 @@ updateStack p1 s =
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate'
 validateTemplate :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )

@@ -64,9 +64,14 @@ module Network.AWS.DirectConnect.V2012_10_25.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.DirectConnect.V2012_10_25
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DirectConnect.V2012_10_25
 
@@ -77,7 +82,7 @@ import Network.AWS.DirectConnect.V2012_10_25
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect'
 allocateConnectionOnInterconnect :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadError Error m
+                                    , MonadError AWS.Error m
                                     , MonadReader Env m
                                     , AWSRequest a
                                     )
@@ -102,7 +107,7 @@ allocateConnectionOnInterconnect p1 p2 p3 p4 p5 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface'
 allocatePrivateVirtualInterface :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadError Error m
+                                   , MonadError AWS.Error m
                                    , MonadReader Env m
                                    , AWSRequest a
                                    )
@@ -125,7 +130,7 @@ allocatePrivateVirtualInterface p1 p2 p3 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface'
 allocatePublicVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -145,7 +150,7 @@ allocatePublicVirtualInterface p1 p2 p3 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection'
 confirmConnection :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -163,7 +168,7 @@ confirmConnection p1 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface'
 confirmPrivateVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -181,7 +186,7 @@ confirmPrivateVirtualInterface p1 p2 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface'
 confirmPublicVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -204,7 +209,7 @@ confirmPublicVirtualInterface p1 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreateConnection'
 createConnection :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -233,7 +238,7 @@ createConnection p1 p2 p3 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect'
 createInterconnect :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -252,7 +257,7 @@ createInterconnect p1 p2 p3 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface'
 createPrivateVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -271,7 +276,7 @@ createPrivateVirtualInterface p1 p2 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface'
 createPublicVirtualInterface :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -290,7 +295,7 @@ createPublicVirtualInterface p1 p2 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DeleteConnection'
 deleteConnection :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -305,7 +310,7 @@ deleteConnection p1 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect'
 deleteInterconnect :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -320,7 +325,7 @@ deleteInterconnect p1 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface'
 deleteVirtualInterface :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -336,7 +341,7 @@ deleteVirtualInterface p1 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeConnections'
 describeConnections :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -351,7 +356,7 @@ describeConnections s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect'
 describeConnectionsOnInterconnect :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadError Error m
+                                     , MonadError AWS.Error m
                                      , MonadReader Env m
                                      , AWSRequest a
                                      )
@@ -368,7 +373,7 @@ describeConnectionsOnInterconnect p1 s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects'
 describeInterconnects :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -384,7 +389,7 @@ describeInterconnects s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeLocations'
 describeLocations :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -402,7 +407,7 @@ describeLocations s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways'
 describeVirtualGateways :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -425,7 +430,7 @@ describeVirtualGateways s =
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces'
 describeVirtualInterfaces :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )

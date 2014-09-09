@@ -118,9 +118,14 @@ module Network.AWS.StorageGateway.V2013_06_30.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.StorageGateway.V2013_06_30
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.StorageGateway.V2013_06_30
 
@@ -148,7 +153,7 @@ import Network.AWS.StorageGateway.V2013_06_30
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.ActivateGateway'
 activateGateway :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -185,7 +190,7 @@ activateGateway p1 p2 p3 p4 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.AddCache'
 addCache :: ( MonadCatch m
             , MonadResource m
-            , MonadError Error m
+            , MonadError AWS.Error m
             , MonadReader Env m
             , AWSRequest a
             )
@@ -206,7 +211,7 @@ addCache p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.AddUploadBuffer'
 addUploadBuffer :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -241,7 +246,7 @@ addUploadBuffer p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.AddWorkingStorage'
 addWorkingStorage :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -255,7 +260,7 @@ addWorkingStorage p1 p2 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.CancelArchival'
 cancelArchival :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -269,7 +274,7 @@ cancelArchival p1 p2 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.CancelRetrieval'
 cancelRetrieval :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -314,7 +319,7 @@ cancelRetrieval p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.CreateCachediSCSIVolume'
 createCachediSCSIVolume :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -360,7 +365,7 @@ createCachediSCSIVolume p1 p2 p4 p5 p6 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.CreateSnapshot'
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -408,7 +413,7 @@ createSnapshot p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.CreateSnapshotFromVolumeRecoveryPoint'
 createSnapshotFromVolumeRecoveryPoint :: ( MonadCatch m
                                          , MonadResource m
-                                         , MonadError Error m
+                                         , MonadError AWS.Error m
                                          , MonadReader Env m
                                          , AWSRequest a
                                          )
@@ -450,7 +455,7 @@ createSnapshotFromVolumeRecoveryPoint p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.CreateStorediSCSIVolume'
 createStorediSCSIVolume :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -467,7 +472,7 @@ createStorediSCSIVolume p1 p2 p4 p5 p6 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.CreateTapes'
 createTapes :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -502,7 +507,7 @@ createTapes p1 p2 p3 p4 p5 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DeleteBandwidthRateLimit'
 deleteBandwidthRateLimit :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -534,7 +539,7 @@ deleteBandwidthRateLimit p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DeleteChapCredentials'
 deleteChapCredentials :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -574,7 +579,7 @@ deleteChapCredentials p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DeleteGateway'
 deleteGateway :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -609,7 +614,7 @@ deleteGateway p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DeleteSnapshotSchedule'
 deleteSnapshotSchedule :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -622,7 +627,7 @@ deleteSnapshotSchedule p1 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DeleteTape'
 deleteTape :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -636,7 +641,7 @@ deleteTape p1 p2 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DeleteTapeArchive'
 deleteTapeArchive :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -674,7 +679,7 @@ deleteTapeArchive p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DeleteVolume'
 deleteVolume :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -709,7 +714,7 @@ deleteVolume p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeBandwidthRateLimit'
 describeBandwidthRateLimit :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -744,7 +749,7 @@ describeBandwidthRateLimit p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeCache'
 describeCache :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -784,7 +789,7 @@ describeCache p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeCachediSCSIVolumes'
 describeCachediSCSIVolumes :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -815,7 +820,7 @@ describeCachediSCSIVolumes p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeChapCredentials'
 describeChapCredentials :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -847,7 +852,7 @@ describeChapCredentials p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeGatewayInformation'
 describeGatewayInformation :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -877,7 +882,7 @@ describeGatewayInformation p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeMaintenanceStartTime'
 describeMaintenanceStartTime :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -908,7 +913,7 @@ describeMaintenanceStartTime p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeSnapshotSchedule'
 describeSnapshotSchedule :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -945,7 +950,7 @@ describeSnapshotSchedule p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeStorediSCSIVolumes'
 describeStorediSCSIVolumes :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -958,7 +963,7 @@ describeStorediSCSIVolumes p1 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeTapeArchives'
 describeTapeArchives :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -970,7 +975,7 @@ describeTapeArchives s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints'
 describeTapeRecoveryPoints :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
                               , AWSPager a
                               )
@@ -983,7 +988,7 @@ describeTapeRecoveryPoints p1 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeTapes'
 describeTapes :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
                  , AWSPager a
                  )
@@ -1019,7 +1024,7 @@ describeTapes p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeUploadBuffer'
 describeUploadBuffer :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -1032,7 +1037,7 @@ describeUploadBuffer p1 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeVTLDevices'
 describeVTLDevices :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -1067,7 +1072,7 @@ describeVTLDevices p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeWorkingStorage'
 describeWorkingStorage :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -1080,7 +1085,7 @@ describeWorkingStorage p1 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DisableGateway'
 disableGateway :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1116,7 +1121,7 @@ disableGateway p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.ListGateways'
 listGateways :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
                 , AWSPager a
                 )
@@ -1150,7 +1155,7 @@ listGateways s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.ListLocalDisks'
 listLocalDisks :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1189,7 +1194,7 @@ listLocalDisks p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.ListVolumeRecoveryPoints'
 listVolumeRecoveryPoints :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -1230,7 +1235,7 @@ listVolumeRecoveryPoints p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.ListVolumes'
 listVolumes :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
                , AWSPager a
                )
@@ -1243,7 +1248,7 @@ listVolumes p1 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeArchive'
 retrieveTapeArchive :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1257,7 +1262,7 @@ retrieveTapeArchive p1 p2 s =
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.RetrieveTapeRecoveryPoint'
 retrieveTapeRecoveryPoint :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -1299,7 +1304,7 @@ retrieveTapeRecoveryPoint p1 p2 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.ShutdownGateway'
 shutdownGateway :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -1334,7 +1339,7 @@ shutdownGateway p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.StartGateway'
 startGateway :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -1369,7 +1374,7 @@ startGateway p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.UpdateBandwidthRateLimit'
 updateBandwidthRateLimit :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -1404,7 +1409,7 @@ updateBandwidthRateLimit p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.UpdateChapCredentials'
 updateChapCredentials :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -1435,7 +1440,7 @@ updateChapCredentials p1 p2 p3 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.UpdateGatewayInformation'
 updateGatewayInformation :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -1474,7 +1479,7 @@ updateGatewayInformation p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.UpdateGatewaySoftwareNow'
 updateGatewaySoftwareNow :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -1503,7 +1508,7 @@ updateGatewaySoftwareNow p1 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.UpdateMaintenanceStartTime'
 updateMaintenanceStartTime :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -1541,7 +1546,7 @@ updateMaintenanceStartTime p1 p2 p3 p4 s =
 -- See: 'Network.AWS.StorageGateway.V2013_06_30.UpdateSnapshotSchedule'
 updateSnapshotSchedule :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )

@@ -56,9 +56,14 @@ module Network.AWS.DataPipeline.V2012_10_29.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.DataPipeline.V2012_10_29
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DataPipeline.V2012_10_29
 
@@ -78,7 +83,7 @@ import Network.AWS.DataPipeline.V2012_10_29
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline'
 activatePipeline :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -102,7 +107,7 @@ activatePipeline p1 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.CreatePipeline'
 createPipeline :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -131,7 +136,7 @@ createPipeline p1 p2 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.DeletePipeline'
 deletePipeline :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -162,7 +167,7 @@ deletePipeline p1 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.DescribeObjects'
 describeObjects :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env (ResumableSource m)
                    , AWSPager a
                    )
@@ -201,7 +206,7 @@ describeObjects p1 p2 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.DescribePipelines'
 describePipelines :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -227,7 +232,7 @@ describePipelines p1 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression'
 evaluateExpression :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -262,7 +267,7 @@ evaluateExpression p1 p2 p3 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition'
 getPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -287,7 +292,7 @@ getPipelineDefinition p1 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ListPipelines'
 listPipelines :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
                  , AWSPager a
                  )
@@ -340,7 +345,7 @@ listPipelines s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.PollForTask'
 pollForTask :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -403,7 +408,7 @@ pollForTask p1 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition'
 putPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -433,7 +438,7 @@ putPipelineDefinition p1 p2 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.QueryObjects'
 queryObjects :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
                 , AWSPager a
                 )
@@ -469,7 +474,7 @@ queryObjects p1 p3 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress'
 reportTaskProgress :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -496,7 +501,7 @@ reportTaskProgress p1 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat'
 reportTaskRunnerHeartbeat :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -521,7 +526,7 @@ reportTaskRunnerHeartbeat p1 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.SetStatus'
 setStatus :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -550,7 +555,7 @@ setStatus p1 p2 p3 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus'
 setTaskStatus :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -603,7 +608,7 @@ setTaskStatus p1 p2 s =
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition'
 validatePipelineDefinition :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )

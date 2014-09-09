@@ -8,7 +8,7 @@
 {% endif %}
 {{ scope.request.function }} :: ( MonadCatch m
 {{ scope.request.function_pad }}    , MonadResource m
-{{ scope.request.function_pad }}    , MonadError Error m
+{{ scope.request.function_pad }}    , MonadError AWS.Error m
 {% if scope.pagination %}
 {{ scope.request.function_pad }}    , MonadReader Env (ResumableSource m)
 {{ scope.request.function_pad }}    , AWSPager a

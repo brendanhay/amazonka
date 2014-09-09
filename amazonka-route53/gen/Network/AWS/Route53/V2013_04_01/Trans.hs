@@ -64,9 +64,14 @@ module Network.AWS.Route53.V2013_04_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.Route53.V2013_04_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Route53.V2013_04_01
 
@@ -94,7 +99,7 @@ import Network.AWS.Route53.V2013_04_01
 -- See: 'Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets'
 changeResourceRecordSets :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -108,7 +113,7 @@ changeResourceRecordSets p1 p2 s =
 -- | See: 'Network.AWS.Route53.V2013_04_01.ChangeTagsForResource'
 changeTagsForResource :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -128,7 +133,7 @@ changeTagsForResource p1 p2 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.CreateHealthCheck'
 createHealthCheck :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -156,7 +161,7 @@ createHealthCheck p1 p2 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.CreateHostedZone'
 createHostedZone :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -180,7 +185,7 @@ createHostedZone p1 p2 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.DeleteHealthCheck'
 deleteHealthCheck :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -204,7 +209,7 @@ deleteHealthCheck p1 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.DeleteHostedZone'
 deleteHostedZone :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -223,7 +228,7 @@ deleteHostedZone p1 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.GetChange'
 getChange :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -242,7 +247,7 @@ getChange p1 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges'
 getCheckerIpRanges :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -254,7 +259,7 @@ getCheckerIpRanges s =
 -- | See: 'Network.AWS.Route53.V2013_04_01.GetGeoLocation'
 getGeoLocation :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -269,7 +274,7 @@ getGeoLocation s =
 -- See: 'Network.AWS.Route53.V2013_04_01.GetHealthCheck'
 getHealthCheck :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -285,7 +290,7 @@ getHealthCheck p1 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.GetHealthCheckCount'
 getHealthCheckCount :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -302,7 +307,7 @@ getHealthCheckCount s =
 -- See: 'Network.AWS.Route53.V2013_04_01.GetHostedZone'
 getHostedZone :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -315,7 +320,7 @@ getHostedZone p1 s =
 -- | See: 'Network.AWS.Route53.V2013_04_01.ListGeoLocations'
 listGeoLocations :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -337,7 +342,7 @@ listGeoLocations s =
 -- See: 'Network.AWS.Route53.V2013_04_01.ListHealthChecks'
 listHealthChecks :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
                     , AWSPager a
                     )
@@ -359,7 +364,7 @@ listHealthChecks s =
 -- See: 'Network.AWS.Route53.V2013_04_01.ListHostedZones'
 listHostedZones :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env (ResumableSource m)
                    , AWSPager a
                    )
@@ -404,7 +409,7 @@ listHostedZones s =
 -- See: 'Network.AWS.Route53.V2013_04_01.ListResourceRecordSets'
 listResourceRecordSets :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
                           , AWSPager a
                           )
@@ -417,7 +422,7 @@ listResourceRecordSets p1 s =
 -- | See: 'Network.AWS.Route53.V2013_04_01.ListTagsForResource'
 listTagsForResource :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -431,7 +436,7 @@ listTagsForResource p1 p2 s =
 -- | See: 'Network.AWS.Route53.V2013_04_01.ListTagsForResources'
 listTagsForResources :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -452,7 +457,7 @@ listTagsForResources p1 p2 s =
 -- See: 'Network.AWS.Route53.V2013_04_01.UpdateHealthCheck'
 updateHealthCheck :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )

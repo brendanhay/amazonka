@@ -47,9 +47,14 @@ module Network.AWS.Route53Domains.V2014_05_15.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.Route53Domains.V2014_05_15
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Route53Domains.V2014_05_15
 
@@ -74,7 +79,7 @@ import Network.AWS.Route53Domains.V2014_05_15
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability'
 checkDomainAvailability :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -108,7 +113,7 @@ checkDomainAvailability p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.DisableDomainTransferLock'
 disableDomainTransferLock :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -140,7 +145,7 @@ disableDomainTransferLock p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock'
 enableDomainTransferLock :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -191,7 +196,7 @@ enableDomainTransferLock p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.GetDomainDetail'
 getDomainDetail :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -223,7 +228,7 @@ getDomainDetail p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail'
 getOperationDetail :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -257,7 +262,7 @@ getOperationDetail p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.ListDomains'
 listDomains :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -289,7 +294,7 @@ listDomains s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.ListOperations'
 listOperations :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -349,7 +354,7 @@ listOperations s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.RegisterDomain'
 registerDomain :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -382,7 +387,7 @@ registerDomain p1 p3 p5 p6 p7 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode'
 retrieveDomainAuthCode :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -445,7 +450,7 @@ retrieveDomainAuthCode p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.TransferDomain'
 transferDomain :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -498,7 +503,7 @@ transferDomain p1 p3 p4 p7 p8 p9 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact'
 updateDomainContact :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -535,7 +540,7 @@ updateDomainContact p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy'
 updateDomainContactPrivacy :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )
@@ -570,7 +575,7 @@ updateDomainContactPrivacy p1 s =
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers'
 updateDomainNameservers :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )

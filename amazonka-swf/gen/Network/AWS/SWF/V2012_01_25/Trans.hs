@@ -91,9 +91,14 @@ module Network.AWS.SWF.V2012_01_25.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.SWF.V2012_01_25
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SWF.V2012_01_25
 
@@ -133,7 +138,7 @@ import Network.AWS.SWF.V2012_01_25
 -- See: 'Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions'
 countClosedWorkflowExecutions :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -179,7 +184,7 @@ countClosedWorkflowExecutions p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions'
 countOpenWorkflowExecutions :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -223,7 +228,7 @@ countOpenWorkflowExecutions p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks'
 countPendingActivityTasks :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -267,7 +272,7 @@ countPendingActivityTasks p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks'
 countPendingDecisionTasks :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -313,7 +318,7 @@ countPendingDecisionTasks p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.DeprecateActivityType'
 deprecateActivityType :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -358,7 +363,7 @@ deprecateActivityType p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.DeprecateDomain'
 deprecateDomain :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -404,7 +409,7 @@ deprecateDomain p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType'
 deprecateWorkflowType :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -455,7 +460,7 @@ deprecateWorkflowType p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeActivityType'
 describeActivityType :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -497,7 +502,7 @@ describeActivityType p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeDomain'
 describeDomain :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -548,7 +553,7 @@ describeDomain p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution'
 describeWorkflowExecution :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -598,7 +603,7 @@ describeWorkflowExecution p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeWorkflowType'
 describeWorkflowType :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -680,7 +685,7 @@ describeWorkflowType p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory'
 getWorkflowExecutionHistory :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
                                , AWSPager a
                                )
@@ -716,7 +721,7 @@ getWorkflowExecutionHistory p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.ListActivityTypes'
 listActivityTypes :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -782,7 +787,7 @@ listActivityTypes p1 p3 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions'
 listClosedWorkflowExecutions :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
                                 , AWSPager a
                                 )
@@ -835,7 +840,7 @@ listClosedWorkflowExecutions p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.ListDomains'
 listDomains :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
                , AWSPager a
                )
@@ -888,7 +893,7 @@ listDomains p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions'
 listOpenWorkflowExecutions :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
                               , AWSPager a
                               )
@@ -932,7 +937,7 @@ listOpenWorkflowExecutions p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.ListWorkflowTypes'
 listWorkflowTypes :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -989,7 +994,7 @@ listWorkflowTypes p1 p3 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.PollForActivityTask'
 pollForActivityTask :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1067,7 +1072,7 @@ pollForActivityTask p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.PollForDecisionTask'
 pollForDecisionTask :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
                        , AWSPager a
                        )
@@ -1128,7 +1133,7 @@ pollForDecisionTask p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat'
 recordActivityTaskHeartbeat :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -1177,7 +1182,7 @@ recordActivityTaskHeartbeat p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RegisterActivityType'
 registerActivityType :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -1219,7 +1224,7 @@ registerActivityType p1 p2 p3 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RegisterDomain'
 registerDomain :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1269,7 +1274,7 @@ registerDomain p1 p3 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RegisterWorkflowType'
 registerWorkflowType :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -1319,7 +1324,7 @@ registerWorkflowType p1 p2 p3 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution'
 requestCancelWorkflowExecution :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -1370,7 +1375,7 @@ requestCancelWorkflowExecution p1 p2 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled'
 respondActivityTaskCanceled :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -1421,7 +1426,7 @@ respondActivityTaskCanceled p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted'
 respondActivityTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -1468,7 +1473,7 @@ respondActivityTaskCompleted p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed'
 respondActivityTaskFailed :: ( MonadCatch m
                              , MonadResource m
-                             , MonadError Error m
+                             , MonadError AWS.Error m
                              , MonadReader Env m
                              , AWSRequest a
                              )
@@ -1517,7 +1522,7 @@ respondActivityTaskFailed p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondDecisionTaskCompleted'
 respondDecisionTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -1564,7 +1569,7 @@ respondDecisionTaskCompleted p1 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution'
 signalWorkflowExecution :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -1620,7 +1625,7 @@ signalWorkflowExecution p1 p2 p4 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.StartWorkflowExecution'
 startWorkflowExecution :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -1672,7 +1677,7 @@ startWorkflowExecution p1 p2 p3 s =
 -- See: 'Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution'
 terminateWorkflowExecution :: ( MonadCatch m
                               , MonadResource m
-                              , MonadError Error m
+                              , MonadError AWS.Error m
                               , MonadReader Env m
                               , AWSRequest a
                               )

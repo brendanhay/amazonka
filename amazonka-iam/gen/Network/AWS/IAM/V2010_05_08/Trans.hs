@@ -176,9 +176,14 @@ module Network.AWS.IAM.V2010_05_08.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.IAM.V2010_05_08
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.IAM.V2010_05_08
 
@@ -192,7 +197,7 @@ import Network.AWS.IAM.V2010_05_08
 -- See: 'Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile'
 addRoleToInstanceProfile :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -210,7 +215,7 @@ addRoleToInstanceProfile p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.AddUserToGroup'
 addUserToGroup :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -231,7 +236,7 @@ addUserToGroup p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ChangePassword'
 changePassword :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -262,7 +267,7 @@ changePassword p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateAccessKey'
 createAccessKey :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -280,7 +285,7 @@ createAccessKey s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateAccountAlias'
 createAccountAlias :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -299,7 +304,7 @@ createAccountAlias p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateGroup'
 createGroup :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -322,7 +327,7 @@ createGroup p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateInstanceProfile'
 createInstanceProfile :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -342,7 +347,7 @@ createInstanceProfile p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateLoginProfile'
 createLoginProfile :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -372,7 +377,7 @@ createLoginProfile p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateRole'
 createRole :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -406,7 +411,7 @@ createRole p2 p3 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateSAMLProvider'
 createSAMLProvider :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -428,7 +433,7 @@ createSAMLProvider p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateUser'
 createUser :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -457,7 +462,7 @@ createUser p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice'
 createVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -475,7 +480,7 @@ createVirtualMFADevice p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeactivateMFADevice'
 deactivateMFADevice :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -497,7 +502,7 @@ deactivateMFADevice p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteAccessKey'
 deleteAccessKey :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -516,7 +521,7 @@ deleteAccessKey p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteAccountAlias'
 deleteAccountAlias :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -533,7 +538,7 @@ deleteAccountAlias p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy'
 deleteAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -550,7 +555,7 @@ deleteAccountPasswordPolicy s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteGroup'
 deleteGroup :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -567,7 +572,7 @@ deleteGroup p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy'
 deleteGroupPolicy :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -591,7 +596,7 @@ deleteGroupPolicy p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile'
 deleteInstanceProfile :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -613,7 +618,7 @@ deleteInstanceProfile p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteLoginProfile'
 deleteLoginProfile :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -634,7 +639,7 @@ deleteLoginProfile p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteRole'
 deleteRole :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -652,7 +657,7 @@ deleteRole p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteRolePolicy'
 deleteRolePolicy :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -674,7 +679,7 @@ deleteRolePolicy p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider'
 deleteSAMLProvider :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -699,7 +704,7 @@ deleteSAMLProvider p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteServerCertificate'
 deleteServerCertificate :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -721,7 +726,7 @@ deleteServerCertificate p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate'
 deleteSigningCertificate :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -739,7 +744,7 @@ deleteSigningCertificate p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteUser'
 deleteUser :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -757,7 +762,7 @@ deleteUser p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteUserPolicy'
 deleteUserPolicy :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -779,7 +784,7 @@ deleteUserPolicy p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice'
 deleteVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -799,7 +804,7 @@ deleteVirtualMFADevice p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.EnableMFADevice'
 enableMFADevice :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -819,7 +824,7 @@ enableMFADevice p1 p2 p3 p4 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GenerateCredentialReport'
 generateCredentialReport :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -837,7 +842,7 @@ generateCredentialReport s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy'
 getAccountPasswordPolicy :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -859,7 +864,7 @@ getAccountPasswordPolicy s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetAccountSummary'
 getAccountSummary :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -875,7 +880,7 @@ getAccountSummary s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetCredentialReport'
 getCredentialReport :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -898,7 +903,7 @@ getCredentialReport s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetGroup'
 getGroup :: ( MonadCatch m
             , MonadResource m
-            , MonadError Error m
+            , MonadError AWS.Error m
             , MonadReader Env (ResumableSource m)
             , AWSPager a
             )
@@ -919,7 +924,7 @@ getGroup p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetGroupPolicy'
 getGroupPolicy :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -948,7 +953,7 @@ getGroupPolicy p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetInstanceProfile'
 getInstanceProfile :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -967,7 +972,7 @@ getInstanceProfile p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetLoginProfile'
 getLoginProfile :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -994,7 +999,7 @@ getLoginProfile p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetRole'
 getRole :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -1016,7 +1021,7 @@ getRole p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetRolePolicy'
 getRolePolicy :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1037,7 +1042,7 @@ getRolePolicy p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetSAMLProvider'
 getSAMLProvider :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -1073,7 +1078,7 @@ getSAMLProvider p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetServerCertificate'
 getServerCertificate :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -1095,7 +1100,7 @@ getServerCertificate p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetUser'
 getUser :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -1115,7 +1120,7 @@ getUser s =
 -- See: 'Network.AWS.IAM.V2010_05_08.GetUserPolicy'
 getUserPolicy :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1143,7 +1148,7 @@ getUserPolicy p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListAccessKeys'
 listAccessKeys :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -1162,7 +1167,7 @@ listAccessKeys s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListAccountAliases'
 listAccountAliases :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -1180,7 +1185,7 @@ listAccountAliases s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListGroupPolicies'
 listGroupPolicies :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -1207,7 +1212,7 @@ listGroupPolicies p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListGroups'
 listGroups :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
               , AWSPager a
               )
@@ -1226,7 +1231,7 @@ listGroups s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListGroupsForUser'
 listGroupsForUser :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
                      , AWSPager a
                      )
@@ -1252,7 +1257,7 @@ listGroupsForUser p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListInstanceProfiles'
 listInstanceProfiles :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -1279,7 +1284,7 @@ listInstanceProfiles s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole'
 listInstanceProfilesForRole :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
                                , AWSPager a
                                )
@@ -1300,7 +1305,7 @@ listInstanceProfilesForRole p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListMFADevices'
 listMFADevices :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -1320,7 +1325,7 @@ listMFADevices s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListRolePolicies'
 listRolePolicies :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
                     , AWSPager a
                     )
@@ -1351,7 +1356,7 @@ listRolePolicies p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListRoles'
 listRoles :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
              , AWSPager a
              )
@@ -1372,7 +1377,7 @@ listRoles s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListSAMLProviders'
 listSAMLProviders :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -1399,7 +1404,7 @@ listSAMLProviders s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListServerCertificates'
 listServerCertificates :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
                           , AWSPager a
                           )
@@ -1439,7 +1444,7 @@ listServerCertificates s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListSigningCertificates'
 listSigningCertificates :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env (ResumableSource m)
                            , AWSPager a
                            )
@@ -1458,7 +1463,7 @@ listSigningCertificates s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListUserPolicies'
 listUserPolicies :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
                     , AWSPager a
                     )
@@ -1484,7 +1489,7 @@ listUserPolicies p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListUsers'
 listUsers :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
              , AWSPager a
              )
@@ -1512,7 +1517,7 @@ listUsers s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices'
 listVirtualMFADevices :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
                          , AWSPager a
                          )
@@ -1538,7 +1543,7 @@ listVirtualMFADevices s =
 -- See: 'Network.AWS.IAM.V2010_05_08.PutGroupPolicy'
 putGroupPolicy :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env m
                   , AWSRequest a
                   )
@@ -1567,7 +1572,7 @@ putGroupPolicy p1 p2 p3 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.PutRolePolicy'
 putRolePolicy :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1596,7 +1601,7 @@ putRolePolicy p1 p2 p3 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.PutUserPolicy'
 putUserPolicy :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env m
                  , AWSRequest a
                  )
@@ -1622,7 +1627,7 @@ putUserPolicy p1 p2 p3 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile'
 removeRoleFromInstanceProfile :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -1640,7 +1645,7 @@ removeRoleFromInstanceProfile p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup'
 removeUserFromGroup :: ( MonadCatch m
                        , MonadResource m
-                       , MonadError Error m
+                       , MonadError AWS.Error m
                        , MonadReader Env m
                        , AWSRequest a
                        )
@@ -1659,7 +1664,7 @@ removeUserFromGroup p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.ResyncMFADevice'
 resyncMFADevice :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -1687,7 +1692,7 @@ resyncMFADevice p1 p2 p3 p4 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateAccessKey'
 updateAccessKey :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -1710,7 +1715,7 @@ updateAccessKey p2 p3 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy'
 updateAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -1729,7 +1734,7 @@ updateAccountPasswordPolicy s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy'
 updateAssumeRolePolicy :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -1758,7 +1763,7 @@ updateAssumeRolePolicy p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateGroup'
 updateGroup :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -1775,7 +1780,7 @@ updateGroup p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateLoginProfile'
 updateLoginProfile :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -1797,7 +1802,7 @@ updateLoginProfile p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider'
 updateSAMLProvider :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -1824,7 +1829,7 @@ updateSAMLProvider p1 p2 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateServerCertificate'
 updateServerCertificate :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -1850,7 +1855,7 @@ updateServerCertificate p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate'
 updateSigningCertificate :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -1877,7 +1882,7 @@ updateSigningCertificate p2 p3 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateUser'
 updateUser :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -1934,7 +1939,7 @@ updateUser p1 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UploadServerCertificate'
 uploadServerCertificate :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -1996,7 +2001,7 @@ uploadServerCertificate p2 p3 p4 s =
 -- See: 'Network.AWS.IAM.V2010_05_08.UploadSigningCertificate'
 uploadSigningCertificate :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )

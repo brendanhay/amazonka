@@ -88,9 +88,14 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.ElasticBeanstalk.V2010_12_01
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElasticBeanstalk.V2010_12_01
 
@@ -103,7 +108,7 @@ import Network.AWS.ElasticBeanstalk.V2010_12_01
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CheckDNSAvailability'
 checkDNSAvailability :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -126,7 +131,7 @@ checkDNSAvailability p1 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication'
 createApplication :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -152,7 +157,7 @@ createApplication p1 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplicationVersion'
 createApplicationVersion :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -217,7 +222,7 @@ createApplicationVersion p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateConfigurationTemplate'
 createConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -241,7 +246,7 @@ createConfigurationTemplate p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateEnvironment'
 createEnvironment :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -261,7 +266,7 @@ createEnvironment p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation'
 createStorageLocation :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -281,7 +286,7 @@ createStorageLocation s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplication'
 deleteApplication :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -301,7 +306,7 @@ deleteApplication p1 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion'
 deleteApplicationVersion :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -323,7 +328,7 @@ deleteApplicationVersion p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate'
 deleteConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -348,7 +353,7 @@ deleteConfigurationTemplate p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteEnvironmentConfiguration'
 deleteEnvironmentConfiguration :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadError Error m
+                                  , MonadError AWS.Error m
                                   , MonadReader Env m
                                   , AWSRequest a
                                   )
@@ -368,7 +373,7 @@ deleteEnvironmentConfiguration p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions'
 describeApplicationVersions :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -386,7 +391,7 @@ describeApplicationVersions s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications'
 describeApplications :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -474,7 +479,7 @@ describeApplications s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions'
 describeConfigurationOptions :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -538,7 +543,7 @@ describeConfigurationOptions s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings'
 describeConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )
@@ -560,7 +565,7 @@ describeConfigurationSettings p1 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources'
 describeEnvironmentResources :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadError Error m
+                                , MonadError AWS.Error m
                                 , MonadReader Env m
                                 , AWSRequest a
                                 )
@@ -581,7 +586,7 @@ describeEnvironmentResources s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironments'
 describeEnvironments :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -610,7 +615,7 @@ describeEnvironments s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents'
 describeEvents :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -628,7 +633,7 @@ describeEvents s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.ListAvailableSolutionStacks'
 listAvailableSolutionStacks :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -647,7 +652,7 @@ listAvailableSolutionStacks s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment'
 rebuildEnvironment :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env m
                       , AWSRequest a
                       )
@@ -669,7 +674,7 @@ rebuildEnvironment s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RequestEnvironmentInfo'
 requestEnvironmentInfo :: ( MonadCatch m
                           , MonadResource m
-                          , MonadError Error m
+                          , MonadError AWS.Error m
                           , MonadReader Env m
                           , AWSRequest a
                           )
@@ -688,7 +693,7 @@ requestEnvironmentInfo p3 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RestartAppServer'
 restartAppServer :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -709,7 +714,7 @@ restartAppServer s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RetrieveEnvironmentInfo'
 retrieveEnvironmentInfo :: ( MonadCatch m
                            , MonadResource m
-                           , MonadError Error m
+                           , MonadError AWS.Error m
                            , MonadReader Env m
                            , AWSRequest a
                            )
@@ -727,7 +732,7 @@ retrieveEnvironmentInfo p3 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.SwapEnvironmentCNAMEs'
 swapEnvironmentCNAMEs :: ( MonadCatch m
                          , MonadResource m
-                         , MonadError Error m
+                         , MonadError AWS.Error m
                          , MonadReader Env m
                          , AWSRequest a
                          )
@@ -748,7 +753,7 @@ swapEnvironmentCNAMEs s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.TerminateEnvironment'
 terminateEnvironment :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -768,7 +773,7 @@ terminateEnvironment s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplication'
 updateApplication :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -790,7 +795,7 @@ updateApplication p1 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplicationVersion'
 updateApplicationVersion :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -853,7 +858,7 @@ updateApplicationVersion p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateConfigurationTemplate'
 updateConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
-                               , MonadError Error m
+                               , MonadError AWS.Error m
                                , MonadReader Env m
                                , AWSRequest a
                                )
@@ -887,7 +892,7 @@ updateConfigurationTemplate p1 p2 s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateEnvironment'
 updateEnvironment :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -911,7 +916,7 @@ updateEnvironment s =
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings'
 validateConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadError Error m
+                                 , MonadError AWS.Error m
                                  , MonadReader Env m
                                  , AWSRequest a
                                  )

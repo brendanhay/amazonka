@@ -59,9 +59,14 @@ module Network.AWS.EMR.V2009_03_31.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.EMR.V2009_03_31
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.EMR.V2009_03_31
 
@@ -88,7 +93,7 @@ import Network.AWS.EMR.V2009_03_31
 -- See: 'Network.AWS.EMR.V2009_03_31.AddInstanceGroups'
 addInstanceGroups :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )
@@ -142,7 +147,7 @@ addInstanceGroups p1 p2 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.AddJobFlowSteps'
 addJobFlowSteps :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -167,7 +172,7 @@ addJobFlowSteps p1 p2 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.AddTags'
 addTags :: ( MonadCatch m
            , MonadResource m
-           , MonadError Error m
+           , MonadError AWS.Error m
            , MonadReader Env m
            , AWSRequest a
            )
@@ -185,7 +190,7 @@ addTags p1 p2 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.DescribeCluster'
 describeCluster :: ( MonadCatch m
                    , MonadResource m
-                   , MonadError Error m
+                   , MonadError AWS.Error m
                    , MonadReader Env m
                    , AWSRequest a
                    )
@@ -254,7 +259,7 @@ describeCluster p1 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.DescribeJobFlows'
 describeJobFlows :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -268,7 +273,7 @@ describeJobFlows s =
 -- See: 'Network.AWS.EMR.V2009_03_31.DescribeStep'
 describeStep :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -284,7 +289,7 @@ describeStep p1 p2 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.ListBootstrapActions'
 listBootstrapActions :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
                         , AWSPager a
                         )
@@ -303,7 +308,7 @@ listBootstrapActions p1 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.ListClusters'
 listClusters :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
                 , AWSPager a
                 )
@@ -317,7 +322,7 @@ listClusters s =
 -- See: 'Network.AWS.EMR.V2009_03_31.ListInstanceGroups'
 listInstanceGroups :: ( MonadCatch m
                       , MonadResource m
-                      , MonadError Error m
+                      , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
                       , AWSPager a
                       )
@@ -336,7 +341,7 @@ listInstanceGroups p1 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.ListInstances'
 listInstances :: ( MonadCatch m
                  , MonadResource m
-                 , MonadError Error m
+                 , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
                  , AWSPager a
                  )
@@ -351,7 +356,7 @@ listInstances p1 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.ListSteps'
 listSteps :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
              , AWSPager a
              )
@@ -385,7 +390,7 @@ listSteps p1 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups'
 modifyInstanceGroups :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -414,7 +419,7 @@ modifyInstanceGroups s =
 -- See: 'Network.AWS.EMR.V2009_03_31.RemoveTags'
 removeTags :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -473,7 +478,7 @@ removeTags p1 p2 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.RunJobFlow'
 runJobFlow :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -517,7 +522,7 @@ runJobFlow p1 p5 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.SetTerminationProtection'
 setTerminationProtection :: ( MonadCatch m
                             , MonadResource m
-                            , MonadError Error m
+                            , MonadError AWS.Error m
                             , MonadReader Env m
                             , AWSRequest a
                             )
@@ -553,7 +558,7 @@ setTerminationProtection p1 p2 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers'
 setVisibleToAllUsers :: ( MonadCatch m
                         , MonadResource m
-                        , MonadError Error m
+                        , MonadError AWS.Error m
                         , MonadReader Env m
                         , AWSRequest a
                         )
@@ -590,7 +595,7 @@ setVisibleToAllUsers p1 p2 s =
 -- See: 'Network.AWS.EMR.V2009_03_31.TerminateJobFlows'
 terminateJobFlows :: ( MonadCatch m
                      , MonadResource m
-                     , MonadError Error m
+                     , MonadError AWS.Error m
                      , MonadReader Env m
                      , AWSRequest a
                      )

@@ -42,9 +42,14 @@ module Network.AWS.Kinesis.V2013_12_02.Trans
     -- * Re-exported
     , module Control.Monad.Trans.AWS
     , module Network.AWS.Kinesis.V2013_12_02
+    -- ** Lenses
+    , (.=)
+    , (?=)
+    , (<>=)
+    , (%=)
     ) where
 
-import Control.Monad.Trans.AWS
+import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Kinesis.V2013_12_02
 
@@ -90,7 +95,7 @@ import Network.AWS.Kinesis.V2013_12_02
 -- See: 'Network.AWS.Kinesis.V2013_12_02.CreateStream'
 createStream :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -126,7 +131,7 @@ createStream p1 p2 s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.DeleteStream'
 deleteStream :: ( MonadCatch m
                 , MonadResource m
-                , MonadError Error m
+                , MonadError AWS.Error m
                 , MonadReader Env m
                 , AWSRequest a
                 )
@@ -183,7 +188,7 @@ deleteStream p1 s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.DescribeStream'
 describeStream :: ( MonadCatch m
                   , MonadResource m
-                  , MonadError Error m
+                  , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
                   , AWSPager a
                   )
@@ -235,7 +240,7 @@ describeStream p1 s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.GetRecords'
 getRecords :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )
@@ -293,7 +298,7 @@ getRecords p1 s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.GetShardIterator'
 getShardIterator :: ( MonadCatch m
                     , MonadResource m
-                    , MonadError Error m
+                    , MonadError AWS.Error m
                     , MonadReader Env m
                     , AWSRequest a
                     )
@@ -333,7 +338,7 @@ getShardIterator p1 p2 p3 s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.ListStreams'
 listStreams :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
                , AWSPager a
                )
@@ -384,7 +389,7 @@ listStreams s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.MergeShards'
 mergeShards :: ( MonadCatch m
                , MonadResource m
-               , MonadError Error m
+               , MonadError AWS.Error m
                , MonadReader Env m
                , AWSRequest a
                )
@@ -437,7 +442,7 @@ mergeShards p1 p2 p3 s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.PutRecord'
 putRecord :: ( MonadCatch m
              , MonadResource m
-             , MonadError Error m
+             , MonadError AWS.Error m
              , MonadReader Env m
              , AWSRequest a
              )
@@ -498,7 +503,7 @@ putRecord p1 p2 p3 s =
 -- See: 'Network.AWS.Kinesis.V2013_12_02.SplitShard'
 splitShard :: ( MonadCatch m
               , MonadResource m
-              , MonadError Error m
+              , MonadError AWS.Error m
               , MonadReader Env m
               , AWSRequest a
               )

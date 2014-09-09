@@ -270,8 +270,8 @@ module Network.AWS.S3.V2006_03_01.Monadic
     , uploadPartCopyCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.S3.V2006_03_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -283,6 +283,7 @@ import Network.AWS.Prelude
 import Network.AWS.S3.V2006_03_01
 
 type ServiceEr = Er S3
+
 
 -- $AbortMultipartUpload
 -- Aborts a multipart upload. To verify that all parts have been removed, so

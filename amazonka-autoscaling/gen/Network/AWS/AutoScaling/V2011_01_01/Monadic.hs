@@ -251,8 +251,8 @@ module Network.AWS.AutoScaling.V2011_01_01.Monadic
     , updateAutoScalingGroupCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.AutoScaling.V2011_01_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -264,6 +264,7 @@ import Network.AWS.Prelude
 import Network.AWS.AutoScaling.V2011_01_01
 
 type ServiceEr = Er AutoScaling
+
 
 -- $AttachInstances
 -- Attaches one or more Amazon EC2 instances to an existing Auto Scaling

@@ -800,8 +800,8 @@ module Network.AWS.EC2.V2014_06_15.Monadic
     , unmonitorInstancesCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.EC2.V2014_06_15
+
     , (.=)
     , (?=)
     , (<>=)
@@ -813,6 +813,7 @@ import Network.AWS.Prelude
 import Network.AWS.EC2.V2014_06_15
 
 type ServiceEr = Er EC2
+
 
 -- $AcceptVpcPeeringConnection
 -- Accept a VPC peering connection request. To accept a request, the VPC

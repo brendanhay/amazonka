@@ -163,8 +163,8 @@ module Network.AWS.ELB.V2012_06_01.Monadic
     , setLoadBalancerPoliciesOfListenerCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.ELB.V2012_06_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -176,6 +176,7 @@ import Network.AWS.Prelude
 import Network.AWS.ELB.V2012_06_01
 
 type ServiceEr = Er ELB
+
 
 -- $AddTags
 -- Adds one or more tags for the specified load balancer. Each load balancer

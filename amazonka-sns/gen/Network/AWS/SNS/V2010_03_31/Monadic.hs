@@ -154,8 +154,8 @@ module Network.AWS.SNS.V2010_03_31.Monadic
     , unsubscribeCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.SNS.V2010_03_31
+
     , (.=)
     , (?=)
     , (<>=)
@@ -167,6 +167,7 @@ import Network.AWS.Prelude
 import Network.AWS.SNS.V2010_03_31
 
 type ServiceEr = Er SNS
+
 
 -- $AddPermission
 -- Adds a statement to a topic's access control policy, granting access for

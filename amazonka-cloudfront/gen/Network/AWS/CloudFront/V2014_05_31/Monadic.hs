@@ -134,8 +134,8 @@ module Network.AWS.CloudFront.V2014_05_31.Monadic
     , updateStreamingDistributionCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.CloudFront.V2014_05_31
+
     , (.=)
     , (?=)
     , (<>=)
@@ -147,6 +147,7 @@ import Network.AWS.Prelude
 import Network.AWS.CloudFront.V2014_05_31
 
 type ServiceEr = Er CloudFront
+
 
 -- $CreateCloudFrontOriginAccessIdentity
 -- Create a new origin access identity.

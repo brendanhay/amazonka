@@ -402,8 +402,8 @@ module Network.AWS.IAM.V2010_05_08.Monadic
     , uploadSigningCertificateCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.IAM.V2010_05_08
+
     , (.=)
     , (?=)
     , (<>=)
@@ -415,6 +415,7 @@ import Network.AWS.Prelude
 import Network.AWS.IAM.V2010_05_08
 
 type ServiceEr = Er IAM
+
 
 -- $AddRoleToInstanceProfile
 -- Adds the specified role to the specified instance profile. For more

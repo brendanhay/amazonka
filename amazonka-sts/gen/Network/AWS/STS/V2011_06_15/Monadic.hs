@@ -52,8 +52,8 @@ module Network.AWS.STS.V2011_06_15.Monadic
     , getSessionTokenCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.STS.V2011_06_15
+
     , (.=)
     , (?=)
     , (<>=)
@@ -65,6 +65,7 @@ import Network.AWS.Prelude
 import Network.AWS.STS.V2011_06_15
 
 type ServiceEr = Er STS
+
 
 -- $AssumeRole
 -- Returns a set of temporary security credentials (consisting of an access

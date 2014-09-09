@@ -143,8 +143,8 @@ module Network.AWS.CloudSearch.V2013_01_01.Monadic
     , updateServiceAccessPoliciesCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.CloudSearch.V2013_01_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -156,6 +156,7 @@ import Network.AWS.Prelude
 import Network.AWS.CloudSearch.V2013_01_01
 
 type ServiceEr = Er CloudSearch
+
 
 -- $BuildSuggesters
 -- Indexes the search suggestions.

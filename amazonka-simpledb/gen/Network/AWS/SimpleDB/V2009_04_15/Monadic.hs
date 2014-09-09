@@ -82,8 +82,8 @@ module Network.AWS.SimpleDB.V2009_04_15.Monadic
     , selectCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.SimpleDB.V2009_04_15
+
     , (.=)
     , (?=)
     , (<>=)
@@ -95,6 +95,7 @@ import Network.AWS.Prelude
 import Network.AWS.SimpleDB.V2009_04_15
 
 type ServiceEr = Er SimpleDB
+
 
 -- $BatchDeleteAttributes
 -- Performs multiple DeleteAttributes operations in a single call, which

@@ -58,8 +58,8 @@ module Network.AWS.CloudTrail.V2013_11_01.Monadic
     , updateTrailCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.CloudTrail.V2013_11_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -71,6 +71,7 @@ import Network.AWS.Prelude
 import Network.AWS.CloudTrail.V2013_11_01
 
 type ServiceEr = Er CloudTrail
+
 
 -- $CreateTrail
 -- From the command line, use create-subscription. Creates a trail that

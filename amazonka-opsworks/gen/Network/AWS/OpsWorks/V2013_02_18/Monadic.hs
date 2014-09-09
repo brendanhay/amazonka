@@ -322,8 +322,8 @@ module Network.AWS.OpsWorks.V2013_02_18.Monadic
     , updateVolumeCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.OpsWorks.V2013_02_18
+
     , (.=)
     , (?=)
     , (<>=)
@@ -335,6 +335,7 @@ import Network.AWS.Prelude
 import Network.AWS.OpsWorks.V2013_02_18
 
 type ServiceEr = Er OpsWorks
+
 
 -- $AssignVolume
 -- Assigns one of the stack's registered Amazon EBS volumes to a specified

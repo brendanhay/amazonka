@@ -105,8 +105,8 @@ module Network.AWS.SQS.V2012_11_05.Monadic
     , setQueueAttributesCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.SQS.V2012_11_05
+
     , (.=)
     , (?=)
     , (<>=)
@@ -118,6 +118,7 @@ import Network.AWS.Prelude
 import Network.AWS.SQS.V2012_11_05
 
 type ServiceEr = Er SQS
+
 
 -- $AddPermission
 -- Adds a permission to a queue for a specific principal. This allows for

@@ -116,8 +116,8 @@ module Network.AWS.SES.V2010_12_01.Monadic
     , verifyEmailIdentityCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.SES.V2010_12_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -129,6 +129,7 @@ import Network.AWS.Prelude
 import Network.AWS.SES.V2010_12_01
 
 type ServiceEr = Er SES
+
 
 -- $DeleteIdentity
 -- Deletes the specified identity (email address or domain) from the list of

@@ -289,8 +289,8 @@ module Network.AWS.Redshift.V2012_12_01.Monadic
     , rotateEncryptionKeyCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.Redshift.V2012_12_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -302,6 +302,7 @@ import Network.AWS.Prelude
 import Network.AWS.Redshift.V2012_12_01
 
 type ServiceEr = Er Redshift
+
 
 -- $AuthorizeClusterSecurityGroupIngress
 -- Adds an inbound (ingress) rule to an Amazon Redshift security group.

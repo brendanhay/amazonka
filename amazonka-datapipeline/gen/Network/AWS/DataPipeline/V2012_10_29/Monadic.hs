@@ -102,8 +102,8 @@ module Network.AWS.DataPipeline.V2012_10_29.Monadic
     , validatePipelineDefinitionCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.DataPipeline.V2012_10_29
+
     , (.=)
     , (?=)
     , (<>=)
@@ -115,6 +115,7 @@ import Network.AWS.Prelude
 import Network.AWS.DataPipeline.V2012_10_29
 
 type ServiceEr = Er DataPipeline
+
 
 -- $ActivatePipeline
 -- Validates a pipeline and initiates processing. If the pipeline does not

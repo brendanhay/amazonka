@@ -91,8 +91,8 @@ module Network.AWS.DynamoDB.V2012_08_10.Monadic
     , updateTableCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.DynamoDB.V2012_08_10
+
     , (.=)
     , (?=)
     , (<>=)
@@ -104,6 +104,7 @@ import Network.AWS.Prelude
 import Network.AWS.DynamoDB.V2012_08_10
 
 type ServiceEr = Er DynamoDB
+
 
 -- $BatchGetItem
 -- The BatchGetItem operation returns the attributes of one or more items from

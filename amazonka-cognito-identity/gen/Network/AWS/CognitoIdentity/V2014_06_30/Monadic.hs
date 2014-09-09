@@ -73,8 +73,8 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Monadic
     , updateIdentityPoolCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.CognitoIdentity.V2014_06_30
+
     , (.=)
     , (?=)
     , (<>=)
@@ -86,6 +86,7 @@ import Network.AWS.Prelude
 import Network.AWS.CognitoIdentity.V2014_06_30
 
 type ServiceEr = Er CognitoIdentity
+
 
 -- $CreateIdentityPool
 -- Creates a new identity pool. The identity pool is a store of user identity

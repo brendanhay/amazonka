@@ -119,8 +119,8 @@ module Network.AWS.Route53.V2013_04_01.Monadic
     , updateHealthCheckCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.Route53.V2013_04_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -132,6 +132,7 @@ import Network.AWS.Prelude
 import Network.AWS.Route53.V2013_04_01
 
 type ServiceEr = Er Route53
+
 
 -- $ChangeResourceRecordSets
 -- Use this action to create or change your authoritative DNS information. To

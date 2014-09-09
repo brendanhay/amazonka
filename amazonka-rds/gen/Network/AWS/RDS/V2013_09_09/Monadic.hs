@@ -283,8 +283,8 @@ module Network.AWS.RDS.V2013_09_09.Monadic
     , revokeDBSecurityGroupIngressCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.RDS.V2013_09_09
+
     , (.=)
     , (?=)
     , (<>=)
@@ -296,6 +296,7 @@ import Network.AWS.Prelude
 import Network.AWS.RDS.V2013_09_09
 
 type ServiceEr = Er RDS
+
 
 -- $DownloadDBLogFilePortion
 -- Downloads the last line of the specified log file.

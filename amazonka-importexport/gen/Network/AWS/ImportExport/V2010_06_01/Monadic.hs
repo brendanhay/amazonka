@@ -49,8 +49,8 @@ module Network.AWS.ImportExport.V2010_06_01.Monadic
     , updateJobCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.ImportExport.V2010_06_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -62,6 +62,7 @@ import Network.AWS.Prelude
 import Network.AWS.ImportExport.V2010_06_01
 
 type ServiceEr = Er ImportExport
+
 
 -- $CancelJob
 -- This operation cancels a specified job. Only the job owner can cancel it.

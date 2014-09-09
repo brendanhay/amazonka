@@ -199,8 +199,8 @@ module Network.AWS.ElastiCache.V2014_07_15.Monadic
     , revokeCacheSecurityGroupIngressCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.ElastiCache.V2014_07_15
+
     , (.=)
     , (?=)
     , (<>=)
@@ -212,6 +212,7 @@ import Network.AWS.Prelude
 import Network.AWS.ElastiCache.V2014_07_15
 
 type ServiceEr = Er ElastiCache
+
 
 -- $AuthorizeCacheSecurityGroupIngress
 -- The AuthorizeCacheSecurityGroupIngress operation allows network ingress to

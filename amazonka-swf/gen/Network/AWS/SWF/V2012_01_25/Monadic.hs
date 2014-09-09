@@ -182,8 +182,8 @@ module Network.AWS.SWF.V2012_01_25.Monadic
     , terminateWorkflowExecutionCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.SWF.V2012_01_25
+
     , (.=)
     , (?=)
     , (<>=)
@@ -195,6 +195,7 @@ import Network.AWS.Prelude
 import Network.AWS.SWF.V2012_01_25
 
 type ServiceEr = Er SWF
+
 
 -- $CountClosedWorkflowExecutions
 -- Returns the number of closed workflow executions within the given domain

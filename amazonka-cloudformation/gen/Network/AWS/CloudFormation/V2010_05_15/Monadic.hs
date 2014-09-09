@@ -104,8 +104,8 @@ module Network.AWS.CloudFormation.V2010_05_15.Monadic
     , validateTemplateCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.CloudFormation.V2010_05_15
+
     , (.=)
     , (?=)
     , (<>=)
@@ -117,6 +117,7 @@ import Network.AWS.Prelude
 import Network.AWS.CloudFormation.V2010_05_15
 
 type ServiceEr = Er CloudFormation
+
 
 -- $CancelUpdateStack
 -- Cancels an update on the specified stack. If the call completes

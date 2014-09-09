@@ -108,8 +108,8 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Monadic
     , updatePipelineStatusCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.ElasticTranscoder.V2012_09_25
+
     , (.=)
     , (?=)
     , (<>=)
@@ -121,6 +121,7 @@ import Network.AWS.Prelude
 import Network.AWS.ElasticTranscoder.V2012_09_25
 
 type ServiceEr = Er ElasticTranscoder
+
 
 -- $CancelJob
 -- The CancelJob operation cancels an unfinished job. You can only cancel a

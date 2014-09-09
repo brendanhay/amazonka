@@ -119,8 +119,8 @@ module Network.AWS.DirectConnect.V2012_10_25.Monadic
     , describeVirtualInterfacesCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.DirectConnect.V2012_10_25
+
     , (.=)
     , (?=)
     , (<>=)
@@ -132,6 +132,7 @@ import Network.AWS.Prelude
 import Network.AWS.DirectConnect.V2012_10_25
 
 type ServiceEr = Er DirectConnect
+
 
 -- $AllocateConnectionOnInterconnect
 -- Creates a hosted connection on an interconnect. Allocates a VLAN number and

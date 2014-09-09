@@ -257,8 +257,8 @@ module Network.AWS.StorageGateway.V2013_06_30.Monadic
     , updateSnapshotScheduleCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.StorageGateway.V2013_06_30
+
     , (.=)
     , (?=)
     , (<>=)
@@ -270,6 +270,7 @@ import Network.AWS.Prelude
 import Network.AWS.StorageGateway.V2013_06_30
 
 type ServiceEr = Er StorageGateway
+
 
 -- $ActivateGateway
 -- This operation activates the gateway you previously deployed on your host.

@@ -25,8 +25,8 @@ module {{ trans_namespace }}
 
 {% endfor %}
     -- * Re-exported
-    , module AWS
     , module {{ version_namespace }}
+
     , (.=)
     , (?=)
     , (<>=)
@@ -38,6 +38,7 @@ import Network.AWS.Prelude
 import {{ version_namespace }}
 
 type ServiceEr = Er {{ name }}
+
 {% for oper in operations %}
 {% include "_include/state-operation.ede" with oper.value %}
 {% endfor %}

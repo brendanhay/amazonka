@@ -90,8 +90,8 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.Monadic
     , testMetricFilterCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.CloudWatchLogs.V2014_03_28
+
     , (.=)
     , (?=)
     , (<>=)
@@ -103,6 +103,7 @@ import Network.AWS.Prelude
 import Network.AWS.CloudWatchLogs.V2014_03_28
 
 type ServiceEr = Er CloudWatchLogs
+
 
 -- $CreateLogGroup
 -- Creates a new log group with the specified name. The name of the log group

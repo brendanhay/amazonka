@@ -108,8 +108,8 @@ module Network.AWS.EMR.V2009_03_31.Monadic
     , terminateJobFlowsCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.EMR.V2009_03_31
+
     , (.=)
     , (?=)
     , (<>=)
@@ -121,6 +121,7 @@ import Network.AWS.Prelude
 import Network.AWS.EMR.V2009_03_31
 
 type ServiceEr = Er EMR
+
 
 -- $AddInstanceGroups
 -- AddInstanceGroups adds an instance group to a running cluster. POST /

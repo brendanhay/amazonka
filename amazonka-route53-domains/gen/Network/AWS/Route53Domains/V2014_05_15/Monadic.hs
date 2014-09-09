@@ -84,8 +84,8 @@ module Network.AWS.Route53Domains.V2014_05_15.Monadic
     , updateDomainNameserversCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.Route53Domains.V2014_05_15
+
     , (.=)
     , (?=)
     , (<>=)
@@ -97,6 +97,7 @@ import Network.AWS.Prelude
 import Network.AWS.Route53Domains.V2014_05_15
 
 type ServiceEr = Er Route53Domains
+
 
 -- $CheckDomainAvailability
 -- This operation checks the availability of one domain name. You can access

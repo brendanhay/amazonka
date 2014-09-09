@@ -173,8 +173,8 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Monadic
     , validateConfigurationSettingsCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.ElasticBeanstalk.V2010_12_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -186,6 +186,7 @@ import Network.AWS.Prelude
 import Network.AWS.ElasticBeanstalk.V2010_12_01
 
 type ServiceEr = Er ElasticBeanstalk
+
 
 -- $CheckDNSAvailability
 -- Checks if the specified CNAME is available.

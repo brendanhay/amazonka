@@ -97,8 +97,8 @@ module Network.AWS.Support.V2013_04_15.Monadic
     , resolveCaseCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.Support.V2013_04_15
+
     , (.=)
     , (?=)
     , (<>=)
@@ -110,6 +110,7 @@ import Network.AWS.Prelude
 import Network.AWS.Support.V2013_04_15
 
 type ServiceEr = Er Support
+
 
 -- $AddAttachmentsToSet
 -- Adds one or more attachments to an attachment set. If an AttachmentSetId is

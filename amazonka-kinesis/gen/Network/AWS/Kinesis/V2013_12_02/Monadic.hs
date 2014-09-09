@@ -67,8 +67,8 @@ module Network.AWS.Kinesis.V2013_12_02.Monadic
     , splitShardCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.Kinesis.V2013_12_02
+
     , (.=)
     , (?=)
     , (<>=)
@@ -80,6 +80,7 @@ import Network.AWS.Prelude
 import Network.AWS.Kinesis.V2013_12_02
 
 type ServiceEr = Er Kinesis
+
 
 -- $CreateStream
 -- This operation adds a new Amazon Kinesis stream to your AWS account. A

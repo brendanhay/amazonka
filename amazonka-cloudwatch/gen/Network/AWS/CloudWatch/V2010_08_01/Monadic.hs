@@ -83,8 +83,8 @@ module Network.AWS.CloudWatch.V2010_08_01.Monadic
     , setAlarmStateCatch
 
     -- * Re-exported
-    , module AWS
     , module Network.AWS.CloudWatch.V2010_08_01
+
     , (.=)
     , (?=)
     , (<>=)
@@ -96,6 +96,7 @@ import Network.AWS.Prelude
 import Network.AWS.CloudWatch.V2010_08_01
 
 type ServiceEr = Er CloudWatch
+
 
 -- $DeleteAlarms
 -- Deletes all specified alarms. In the event of an error, no alarms are

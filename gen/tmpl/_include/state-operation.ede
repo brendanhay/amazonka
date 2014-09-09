@@ -35,8 +35,16 @@
 {{ scope.request.function_pad }} -> m {{ scope.response.name }}
 {% endif %}
 {{ scope.request.function }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%} s =
-{% if scope.pagination %}
+{% if scope.request.params | mapLength > 0 %}
+  {% if scope.pagination %}
     paginate $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
-{% else %}
+  {% else %}
     send $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
+  {% endif %}
+{% else %}
+  {% if scope.pagination %}
+    paginate ({{ scope.request.smart_ctor }} &~ s)
+  {% else %}
+    send ({{ scope.request.smart_ctor }} &~ s)
+  {% endif %}
 {% endif %}
